@@ -1,4 +1,4 @@
-/* Literacy Pals world theming. A data-pal-world attribute switches the
+/* Little Literacy Guides world theming. A data-pal-world attribute switches the
    accent tokens and banner art for whole child-facing surfaces. */
 
 [data-pal-world="meadow"] {
@@ -318,7 +318,7 @@
     0 4px 10px rgba(15, 23, 42, 0.16);
 }
 
-/* ── Literacy Pals entry screen ───────────────────────────────────────── */
+/* ── Little Literacy Guides entry screen ─────────────────────────────── */
 .student-entry-page.pals-entry {
   background:
     radial-gradient(900px 540px at 50% -10%, rgba(255, 255, 255, 0.32), transparent 60%),
@@ -341,30 +341,6 @@
   filter: drop-shadow(0 8px 18px rgba(15, 23, 42, 0.22));
 }
 
-.pals-entry-cast {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: clamp(10px, 4vw, 34px);
-}
-
-.pals-entry-pal {
-  height: clamp(96px, 16vw, 168px);
-  width: auto;
-  filter: drop-shadow(0 6px 12px rgba(15, 23, 42, 0.25));
-  animation: pals-entry-bounce 2.6s ease-in-out var(--pal-bounce-delay, 0s) infinite;
-}
-
-@keyframes pals-entry-bounce {
-  0%, 100% { transform: translateY(0); }
-  18% { transform: translateY(-10px); }
-  36% { transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pals-entry-pal { animation: none; }
-}
-
 .pals-entry .student-entry-card {
   min-height: 0;
   border: 0;
@@ -382,8 +358,10 @@
 }
 
 .pals-entry .student-entry-card-title {
-  font-size: 24px;
+  font-size: clamp(20px, 2.2vw, 24px);
   font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
 }
 
 .pals-cta {
@@ -410,6 +388,33 @@
 @media (max-width: 720px) {
   .pals-entry .student-entry-grid {
     grid-template-columns: minmax(0, 420px);
+  }
+}
+
+@media (max-height: 500px) and (min-width: 721px) {
+  .student-entry-page.pals-entry {
+    padding: 10px;
+  }
+
+  .pals-entry .student-entry-hero {
+    gap: 12px;
+  }
+
+  .pals-entry-logo {
+    width: min(260px, 34vw);
+  }
+
+  .pals-entry .student-entry-card {
+    padding: 14px 20px;
+    gap: 7px;
+  }
+
+  .pals-entry .student-entry-card-text {
+    line-height: 1.3;
+  }
+
+  .pals-entry .pals-cta {
+    min-height: 44px;
   }
 }
 

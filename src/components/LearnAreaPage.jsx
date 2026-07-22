@@ -122,7 +122,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
   if (activeQuest) {
     return (
-      <main className="learn-area-page story-quest-learn-page" aria-label="Story Quests">
+      <main className="learn-area-page story-quest-learn-page story-quest-active-page" aria-label="Story Quests">
         <StoryQuestPlayer
           initialPageId={activeQuestInitialPageId}
           onComplete={(progressPatch = {}) => updateQuestProgress(activeQuest.id, {

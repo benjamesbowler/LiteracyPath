@@ -12,6 +12,7 @@ import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
+import { CHILD_BRAND } from "../data/childBrand.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -163,19 +164,6 @@ export function StudentHomePage({
     return coinsSinceLastVisit(progressScopeKey, h.coinsEarnedTotal);
   });
   const [accountOpen, setAccountOpen] = useState(false);
-  // The "keep going" hint: the cheapest Market thing they can't afford yet -
-  // or the good news that they can afford something right now.
-  const savingsHint = useMemo(() => {
-    const wares = [...hollow.market.gear, ...hollow.market.hollow, ...hollow.market.eggs]
-      .filter(item => item.id.startsWith("egg-") || !hollow.ownedIds.has(item.id))
-      .sort((a, b) => a.price - b.price);
-    if (!wares.length) return null;
-    const affordable = wares.filter(item => item.price <= hollow.coins).pop();
-    if (affordable) return { ready: true, item: affordable, pct: 100 };
-    const next = wares[0];
-    return { ready: false, item: next, short: next.price - hollow.coins, pct: Math.round((hollow.coins / next.price) * 100) };
-  }, [hollow]);
-
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
   }, [progressScopeKey]);
@@ -290,6 +278,7 @@ export function StudentHomePage({
       { id: "phonics", label: "Phonics", icon: "phonics", go: onOpenPhonicsLearn },
       { id: "map", label: "Adventure Map", icon: "map", go: onOpenSkillsBlockQuest },
       { id: "books", label: "Books", icon: "book", go: onOpenGuidedReading ? () => onOpenGuidedReading("") : null },
+      { id: "stories", label: "Story Quests", icon: "story", go: onOpenStoryQuests },
       { id: "arcade", label: "Arcade", icon: "arcade", go: arcadeLocked ? null : () => openArcade() },
       { id: "hollow", label: "My Hollow", icon: "hollow", go: onOpenRewards }
     ].filter(item => item.go);
@@ -335,7 +324,13 @@ export function StudentHomePage({
 
         <div className="hs-main">
           <div className="hs-topbar">
-            <span className="hs-logo" aria-hidden="true"><strong>Literacy</strong>Pals</span>
+            <span className="hs-logo" role="img" aria-label={CHILD_BRAND.endorsedName}>
+              <img src={CHILD_BRAND.markPath} alt="" onError={hideOnError} />
+              <span className="hs-logo-copy" aria-hidden="true">
+                <strong>Little Literacy</strong>
+                <span>Guides</span>
+              </span>
+            </span>
             <div className="hs-top-actions">
               <button
                 className="hs-btn-ghost"

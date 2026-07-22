@@ -1,4 +1,8 @@
-# Kimi Media Request — Literacy Pals World Art
+# Kimi Media Request - Child World Art
+
+> **Brand update (2026-07-22):** The child-area umbrella brand is now
+> **Little Literacy Guides by literacy.guide**. The Meadow Pals, Dino Pals, and Moonwood
+> world-art requirements in this historical request remain valid.
 
 Style for every image (and attach a book cover from the matching series
 as a character/style reference):

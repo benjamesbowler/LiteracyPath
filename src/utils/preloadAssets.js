@@ -2,6 +2,7 @@
 // world art, game cards, and common UI sounds are already cached before
 // the child taps into them. Never blocks first paint.
 import { GAME_LIST } from "../data/learnGamesData";
+import { CHILD_BRAND } from "../data/childBrand.js";
 import { COMPANIONS } from "./studentProfile.js";
 
 // Home board tile backgrounds — heavy webp that otherwise paint blank/black on
@@ -51,7 +52,8 @@ export function warmStudentAssets(world) {
       ["wave", "celebrate", "think", "read"].forEach(pose =>
         preloadImage(`/images/pals/poses/${world.id}-${pose}.webp`));
     }
-    preloadImage("/images/pals/literacy-pals-logo.webp");
+    preloadImage(CHILD_BRAND.logoPath);
+    preloadImage(CHILD_BRAND.markPath);
     preloadImage("/images/learn-games/phinny-cheering.webp");
 
     // Home board tiles + companion faces (both paint blank on a cold visit)

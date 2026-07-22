@@ -1,8 +1,4 @@
-const ENTRY_PALS = [
-  { id: "meadow", image: "/images/pals/poses/meadow-wave.webp" },
-  { id: "dino", image: "/images/pals/poses/dino-wave.webp" },
-  { id: "moonwood", image: "/images/pals/poses/moonwood-wave.webp" }
-];
+import { CHILD_BRAND } from "../data/childBrand.js";
 
 export function StudentEntryPage({ onStudent, onTeacher }) {
   return (
@@ -10,21 +6,10 @@ export function StudentEntryPage({ onStudent, onTeacher }) {
       <section className="student-entry-hero" aria-label="Choose how to enter">
         <div className="pals-entry-brand">
           <img
-            src="/images/pals/literacy-pals-logo.webp"
-            alt="Literacy Pals"
+            src={CHILD_BRAND.logoPath}
+            alt={CHILD_BRAND.endorsedName}
             className="pals-entry-logo"
           />
-          <div className="pals-entry-cast" aria-hidden="true">
-            {ENTRY_PALS.map((pal, index) => (
-              <img
-                key={pal.id}
-                src={pal.image}
-                alt=""
-                className="pals-entry-pal"
-                style={{ "--pal-bounce-delay": `${index * 0.35}s` }}
-              />
-            ))}
-          </div>
         </div>
 
         <div className="student-entry-grid">
@@ -34,7 +19,7 @@ export function StudentEntryPage({ onStudent, onTeacher }) {
             type="button"
             aria-label="Open student sign in"
           >
-            <span className="student-entry-card-title">Literacy Pals</span>
+            <span className="student-entry-card-title">{CHILD_BRAND.name}</span>
             <span className="student-entry-card-text">Find your school and class, then sign in with your picture password.</span>
             <span className="student-entry-card-cta pals-cta">Start learning</span>
           </button>

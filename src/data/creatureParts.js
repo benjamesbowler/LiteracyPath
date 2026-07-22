@@ -76,9 +76,9 @@ export const CREATURE_PAPER = "#ffffff";
 export const CREATURE_DYES = [
   { id: "moss",    label: "Moss",    skin: "#6ea84f", skinDark: "#4d7d36", belly: "#cfe4b0", accent: "#f0c04a", cost: 0 },
   { id: "clay",    label: "Clay",    skin: "#d3814f", skinDark: "#a35c34", belly: "#f3d5b8", accent: "#5c8fb0", cost: 0 },
-  { id: "slate",   label: "Slate",   skin: "#6b7c92", skinDark: "#4a5871", belly: "#cdd8e4", accent: "#e0a33c", cost: 0 },
+  { id: "slate",   label: "Slate",   skin: "#6b7c92", skinDark: "#4a5871", belly: "#cdd8e4", accent: "#e0a33c", cost: 20 },
   { id: "plum",    label: "Plum",    skin: "#8b5f9e", skinDark: "#624075", belly: "#dfc6ea", accent: "#7fc4a8", cost: 0 },
-  { id: "sand",    label: "Sand",    skin: "#dcc07a", skinDark: "#ab9152", belly: "#f6ecd0", accent: "#7796b8", cost: 0 },
+  { id: "sand",    label: "Sand",    skin: "#dcc07a", skinDark: "#ab9152", belly: "#f6ecd0", accent: "#7796b8", cost: 20 },
   { id: "coral",   label: "Coral",   skin: "#d96a72", skinDark: "#a64650", belly: "#f7cfd0", accent: "#6fb0a6", cost: 40 },
   { id: "teal",    label: "Teal",    skin: "#3f9c9b", skinDark: "#2b7071", belly: "#bfe6e3", accent: "#e8b04b", cost: 40 },
   { id: "ember",   label: "Ember",   skin: "#c9573a", skinDark: "#943a26", belly: "#f4c39f", accent: "#efd06a", cost: 60 },
@@ -108,7 +108,7 @@ export const CREATURE_BODIES = [
     }
   },
   {
-    id: "pebble", label: "Pebble", cost: 0,
+    id: "pebble", label: "Pebble", cost: 20,
     anchors: {
       headTop: [100, 56], eyeL: [80, 104], eyeR: [120, 104], eyeC: [100, 104],
       mouthMid: [100, 138], neck: [100, 84], backMid: [100, 120],
@@ -146,9 +146,9 @@ export const CREATURE_PARTS = [
   // eyes (pair, mirrored across the body's centre line)
   { id: "eyes-round",  slot: "eyes",  label: "Round",  cost: 0 },
   { id: "eyes-big",    slot: "eyes",  label: "Big",    cost: 0 },
-  { id: "eyes-sleepy", slot: "eyes",  label: "Sleepy", cost: 0 },
-  { id: "eyes-wide",   slot: "eyes",  label: "Wide",   cost: 0 },
-  { id: "eyes-tiny",   slot: "eyes",  label: "Tiny",   cost: 0 },
+  { id: "eyes-sleepy", slot: "eyes",  label: "Sleepy", cost: 20 },
+  { id: "eyes-wide",   slot: "eyes",  label: "Wide",   cost: 30 },
+  { id: "eyes-tiny",   slot: "eyes",  label: "Tiny",   cost: 20 },
   { id: "eyes-fierce", slot: "eyes",  label: "Fierce", cost: 40 },
   { id: "eyes-goggle", slot: "eyes",  label: "Goggle", cost: 40 },
   { id: "eyes-stalks", slot: "eyes",  label: "Stalks", cost: 90 },
@@ -158,9 +158,9 @@ export const CREATURE_PARTS = [
   // mouths
   { id: "mouth-smile",  slot: "mouth", label: "Smile",  cost: 0 },
   { id: "mouth-grin",   slot: "mouth", label: "Grin",   cost: 0 },
-  { id: "mouth-tusks",  slot: "mouth", label: "Tusks",  cost: 0 },
-  { id: "mouth-beak",   slot: "mouth", label: "Beak",   cost: 0 },
-  { id: "mouth-round",  slot: "mouth", label: "Round",  cost: 0 },
+  { id: "mouth-tusks",  slot: "mouth", label: "Tusks",  cost: 30 },
+  { id: "mouth-beak",   slot: "mouth", label: "Beak",   cost: 30 },
+  { id: "mouth-round",  slot: "mouth", label: "Round",  cost: 20 },
   { id: "mouth-fangs",  slot: "mouth", label: "Fangs",  cost: 40 },
   { id: "mouth-whisker", slot: "mouth", label: "Whiskers", cost: 60 },
   { id: "mouth-snout",  slot: "mouth", label: "Snout",  cost: 90 },
@@ -168,9 +168,9 @@ export const CREATURE_PARTS = [
   // crests
   { id: "crest-none",   slot: "crest", label: "None",   cost: 0 },
   { id: "crest-horns",  slot: "crest", label: "Horns",  cost: 0 },
-  { id: "crest-antenna", slot: "crest", label: "Antennae", cost: 0 },
-  { id: "crest-fin",    slot: "crest", label: "Fin",    cost: 0 },
-  { id: "crest-ears",   slot: "crest", label: "Ears",   cost: 0 },
+  { id: "crest-antenna", slot: "crest", label: "Antennae", cost: 20 },
+  { id: "crest-fin",    slot: "crest", label: "Fin",    cost: 30 },
+  { id: "crest-ears",   slot: "crest", label: "Ears",   cost: 30 },
   { id: "crest-spikes", slot: "crest", label: "Spikes", cost: 40 },
   { id: "crest-frond",  slot: "crest", label: "Frond",  cost: 60 },
   { id: "crest-crown",  slot: "crest", label: "Crown",  cost: 90 },
@@ -180,9 +180,9 @@ export const CREATURE_PARTS = [
   // tails
   { id: "tail-none",   slot: "tail", label: "None",   cost: 0 },
   { id: "tail-curl",   slot: "tail", label: "Curl",   cost: 0 },
-  { id: "tail-fan",    slot: "tail", label: "Fan",    cost: 0 },
-  { id: "tail-spade",  slot: "tail", label: "Spade",  cost: 0 },
-  { id: "tail-tuft",   slot: "tail", label: "Tuft",   cost: 0 },
+  { id: "tail-fan",    slot: "tail", label: "Fan",    cost: 30 },
+  { id: "tail-spade",  slot: "tail", label: "Spade",  cost: 30 },
+  { id: "tail-tuft",   slot: "tail", label: "Tuft",   cost: 30 },
   { id: "tail-spike",  slot: "tail", label: "Spike",  cost: 40 },
   { id: "tail-fern",   slot: "tail", label: "Fern",   cost: 60 },
   { id: "tail-moon",   slot: "tail", label: "Moon",   cost: 140 },
@@ -190,15 +190,15 @@ export const CREATURE_PARTS = [
   // feet (pair)
   { id: "feet-paws",   slot: "feet", label: "Paws",   cost: 0 },
   { id: "feet-claws",  slot: "feet", label: "Claws",  cost: 0 },
-  { id: "feet-hoofs",  slot: "feet", label: "Hoofs",  cost: 0 },
-  { id: "feet-round",  slot: "feet", label: "Round",  cost: 0 },
+  { id: "feet-hoofs",  slot: "feet", label: "Hoofs",  cost: 20 },
+  { id: "feet-round",  slot: "feet", label: "Round",  cost: 30 },
   { id: "feet-webbed", slot: "feet", label: "Webbed", cost: 40 },
   { id: "feet-tall",   slot: "feet", label: "Tall",   cost: 90 },
 
   // patterns (absolute, clipped to the body silhouette)
   { id: "pattern-none",   slot: "pattern", label: "Plain",   cost: 0 },
   { id: "pattern-spots",  slot: "pattern", label: "Spots",   cost: 0 },
-  { id: "pattern-stripes", slot: "pattern", label: "Stripes", cost: 0 },
+  { id: "pattern-stripes", slot: "pattern", label: "Stripes", cost: 30 },
   { id: "pattern-scales", slot: "pattern", label: "Scales",  cost: 40 },
   { id: "pattern-stars",  slot: "pattern", label: "Stars",   cost: 90 }
 ];
@@ -235,7 +235,9 @@ export function getDye(id) {
   return CREATURE_DYES.find(d => d.id === id) || CREATURE_DYES[0];
 }
 
-// What a brand-new child starts with: every zero-cost piece.
+// What a brand-new child starts with: every zero-cost piece. The starter set is
+// intentionally broad enough to make hundreds of distinct creatures, but no
+// longer gives away most of the catalogue before the first trail is walked.
 export function startingPieces() {
   return ALL_PIECES.filter(p => (p.cost || 0) === 0 && !p.unlock).map(p => p.id)
     .concat(CREATURE_DYES.filter(d => (d.cost || 0) === 0).map(d => d.id));

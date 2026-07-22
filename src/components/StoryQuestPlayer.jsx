@@ -279,7 +279,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     return (
       <section
         aria-label={`${quest.title} complete`}
-        className={["story-quest-player story-quest-reader card", isFullscreen ? "fullscreen" : ""].filter(Boolean).join(" ")}
+        className={["story-quest-player story-quest-reader story-quest-reader-complete card", isFullscreen ? "fullscreen" : ""].filter(Boolean).join(" ")}
         ref={playerRef}
       >
         <header className="story-quest-header">
@@ -419,24 +419,26 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
         </div>
       </div>
 
-      {currentPage.choicePrompt && (
-        <div className="story-quest-choice-prompt" aria-live="polite">
-          {currentPage.choicePrompt}
-        </div>
-      )}
+      <div className="story-quest-decision" aria-label="Choose what happens next">
+        {currentPage.choicePrompt && (
+          <div className="story-quest-choice-prompt" aria-live="polite">
+            {currentPage.choicePrompt}
+          </div>
+        )}
 
-      <div className="story-quest-choice-grid">
-        {(currentPage.choices || []).slice(0, 2).map(choice => (
-          <button
-            className="story-quest-choice-button"
-            disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)}
-            key={`${currentPage.id}-${choice.label}`}
-            onClick={() => goToPage(choice.nextPageId)}
-            type="button"
-          >
-            {choice.label}
-          </button>
-        ))}
+        <div className="story-quest-choice-grid">
+          {(currentPage.choices || []).slice(0, 2).map(choice => (
+            <button
+              className="story-quest-choice-button"
+              disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)}
+              key={`${currentPage.id}-${choice.label}`}
+              onClick={() => goToPage(choice.nextPageId)}
+              type="button"
+            >
+              {choice.label}
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );

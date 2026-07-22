@@ -67,7 +67,18 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
         ? CREATURE_GEAR.filter(piece => piece.slot === tab)
         : piecesForSlot(tab);
 
-  const selected = stock.find(piece => piece.id === selectedId) || stock[0] || null;
+  // Arriving from a reward ceremony should open on something the child can
+  // actually spend their Sparks on, not the first free/default option in the
+  // list. If nothing is affordable yet, show the nearest goal.
+  const unownedStock = stock.filter(piece => !owned.has(piece.id) && !piece.unlock);
+  const nearestGoal = unownedStock.reduce((nearest, piece) => (
+    !nearest || (piece.cost || 0) < (nearest.cost || 0) ? piece : nearest
+  ), null);
+  const selected = stock.find(piece => piece.id === selectedId)
+    || unownedStock.find(piece => (piece.cost || 0) <= sparks)
+    || nearestGoal
+    || stock[0]
+    || null;
   const selectedOwned = Boolean(selected && owned.has(selected.id));
   const selectedEquipped = Boolean(selected && (
     selected.slot === "colour"

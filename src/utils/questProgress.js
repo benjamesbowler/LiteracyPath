@@ -10,7 +10,8 @@
 // THREE RULES, all inherited from what this app already does, none negotiable:
 //
 //   1. REWARDS ARE DERIVED, NEVER STORED. Sparks earned is a pure function of
-//      the stars the child has won. The only thing we STORE is what they SPENT.
+//      the stars the child has won. Normal play stores only what they SPENT;
+//      economy-v1 saves also receive one-time zero-cost starter entitlements.
 //      (docs/IMPROVEMENT_LOOPS.md rule #7.) A sync race can therefore never
 //      delete a child's gear, and a teacher reset wipes cleanly.
 //
@@ -56,6 +57,37 @@ const STAR_MAX = 3;
 const DROP_MAX = 40;
 const MAX_RESET_EPOCH = Number.MAX_SAFE_INTEGER;
 export const LEGACY_QUEST_RESET_ID = "legacy";
+export const REWARD_ECONOMY_VERSION = 2;
+
+// These choices were part of the original zero-cost starter wardrobe. They are
+// the only paid pieces an old save may own without a purchase record.
+const GRANDFATHERED_STARTER_IDS = new Set([
+  "slate", "sand", "pebble",
+  "eyes-sleepy", "eyes-wide", "eyes-tiny",
+  "mouth-tusks", "mouth-beak", "mouth-round",
+  "crest-antenna", "crest-fin", "crest-ears",
+  "tail-fan", "tail-spade", "tail-tuft",
+  "feet-hoofs", "feet-round", "pattern-stripes"
+]);
+
+function migrateLegacyStarterEntitlements(state) {
+  const purchases = Array.isArray(state.ledger?.purchases) ? state.ledger.purchases : [];
+  if (Number(state.rewardEconomyVersion) >= REWARD_ECONOMY_VERSION || Number(state.v) !== 1) {
+    return purchases;
+  }
+
+  // In economy v1 every zero-cost choice was already available to every child,
+  // even though those entitlements were never written to the ledger. Record
+  // them once as zero-cost grants so changing outfits, syncing devices, or
+  // reloading cannot make an old child's options disappear.
+  const ownedIds = new Set(purchases.map(record => record?.id).filter(Boolean));
+  return [
+    ...purchases,
+    ...[...GRANDFATHERED_STARTER_IDS]
+      .filter(id => !ownedIds.has(id))
+      .map(id => ({ id, cost: 0, source: "legacy_starter_v1" }))
+  ];
+}
 
 export function normalizeQuestResetId(value) {
   const id = typeof value === "string" ? value.trim().slice(0, 160) : "";
@@ -142,6 +174,7 @@ export const SPARKS_PER_DROP = 2;
 export function baseQuestState() {
   return {
     v: 1,
+    rewardEconomyVersion: REWARD_ECONOMY_VERSION,
     resetEpoch: 0,
     resetAt: "",
     resetId: LEGACY_QUEST_RESET_ID,
@@ -189,6 +222,7 @@ export function normalizeQuestState(raw) {
     ...base,
     ...state,
     v: 1,
+    rewardEconomyVersion: REWARD_ECONOMY_VERSION,
     resetEpoch: normalizeQuestResetEpoch(state.resetEpoch),
     resetAt: typeof state.resetAt === "string" ? state.resetAt : "",
     resetId,
@@ -215,7 +249,7 @@ export function normalizeQuestState(raw) {
     trickies: Array.isArray(state.trickies)
       ? [...new Set(state.trickies.filter(word => ALL_HEART_WORDS.has(word)))]
       : [],
-    ledger: { purchases: Array.isArray(state.ledger?.purchases) ? state.ledger.purchases : [] },
+    ledger: { purchases: migrateLegacyStarterEntitlements(state) },
     assignment: normalizeAssignment(state.assignment),
     settings: normalizeQuestSettings(state.settings),
     telemetry: normalizeQuestTelemetry(state.telemetry),

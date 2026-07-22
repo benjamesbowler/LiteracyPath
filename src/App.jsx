@@ -8641,6 +8641,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     { id: "phonics", label: "Phonics", icon: "phonics", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_LEARN); } },
     { id: "map", label: "Adventure Map", icon: "map", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST); } },
     { id: "books", label: "Books", icon: "book", go: () => { setStudentArcadeOpen(false); setGuidedInitialBookId(""); setAppView(APP_VIEWS.GUIDED_READING); } },
+    { id: "stories", label: "Story Quests", icon: "story", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.LEARN); } },
     { id: "arcade", label: "Arcade", icon: "arcade", go: () => { setStudentArcadeOpen(true); setAppView(APP_VIEWS.PHONICS_LEARN); } },
     { id: "hollow", label: "My Hollow", icon: "hollow", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.STUDENT_REWARDS); } }
   ];

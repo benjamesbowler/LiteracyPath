@@ -280,6 +280,24 @@
   flex: 0 0 auto;
 }
 
+/* home-sage.css turns the rail into a compact top strip at this breakpoint.
+ * This file loads later, so its desktop sticky-height rule must explicitly
+ * yield here or the strip consumes the full viewport and leaves the sub-page
+ * (including Story Quests) with zero height. */
+@media (max-width: 880px) {
+  .lp-rail-shell .hs-side {
+    position: static;
+    top: auto;
+    height: auto;
+  }
+
+  .lp-rail-shell .lp-rail-main {
+    flex: 1 1 0;
+    min-height: 0;
+    height: 0;
+  }
+}
+
 /* Sub-pages that set their own full-viewport height would double the scroll
    inside the pane. Inside the rail shell they fill the pane instead. */
 .lp-rail-shell :is(

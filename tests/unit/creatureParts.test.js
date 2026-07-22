@@ -14,6 +14,7 @@ import {
   getPiece,
   getBody,
   getDye,
+  startingPieces,
   defaultCreature,
   isValidCreature,
   normalizeCreature
@@ -81,6 +82,30 @@ test("every required slot has at least one free option", () => {
     assert.ok(free.length > 0, `required slot "${slot.id}" has no free option`);
   }
   assert.ok(CREATURE_DYES.some(d => (d.cost || 0) === 0), "no free dye");
+});
+
+test("the starter wardrobe gives real choice without giving away the shop", () => {
+  const starters = new Set(startingPieces());
+  const purchasable = [
+    ...ALL_PIECES,
+    ...CREATURE_DYES.map(dye => ({ ...dye, slot: "colour" }))
+  ].filter(piece => (piece.cost || 0) > 0);
+
+  assert.equal(starters.size, 17, "the starter wardrobe has drifted back into most of the catalogue");
+  assert.equal(purchasable.length, 48, "the Trading Post should hold most creature choices");
+  assert.ok(purchasable.length > starters.size * 2, "paid choices no longer clearly outweigh starter choices");
+
+  const starterCount = slot => {
+    const options = slot === "body"
+      ? CREATURE_BODIES
+      : slot === "colour"
+        ? CREATURE_DYES
+        : piecesForSlot(slot);
+    return options.filter(piece => starters.has(piece.id)).length;
+  };
+  for (const slot of ["body", "colour", "eyes", "mouth", "crest", "tail", "feet", "pattern"]) {
+    assert.ok(starterCount(slot) >= 2, `${slot} needs at least two meaningful day-one choices`);
+  }
 });
 
 test("fill tokens are tokens, never literal colours", () => {

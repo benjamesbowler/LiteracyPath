@@ -9,6 +9,7 @@ import {
   currentStopIndex,
   isStopUnlocked,
   totalStars,
+  totalDrops,
   earnedSparks,
   spentSparks,
   availableSparks,
@@ -19,13 +20,14 @@ import {
   canBuy,
   recordPurchase,
   recordPurchaseAndEquip,
+  equipOwnedPiece,
   saveQuestCheckpoint,
   readQuestCheckpoint,
   clearQuestCheckpoint
 } from "../../src/utils/questProgress.js";
 import { computeHydratedValue, mergeMasteryRecord } from "../../src/utils/progressMerge.js";
 import { MASTERY_STATES, emptyRecord } from "../../src/utils/questMastery.js";
-import { getPiece } from "../../src/data/creatureParts.js";
+import { ALL_PIECES, CREATURE_DYES, getPiece } from "../../src/data/creatureParts.js";
 import { buildTrailSection } from "../../src/utils/questHub.js";
 
 const masteredRecord = () => ({
@@ -106,7 +108,89 @@ test("sparks are DERIVED from stars and are never stored", () => {
   assert.ok(!("sparks" in state), "sparks must not exist as a stored field");
 });
 
-test("only SPENDING is stored, and it can never be un-spent", () => {
+test("one trail of finds alone can buy a real creature choice", () => {
+  const trail = buildTrailSection("s1", { seed: 1 });
+  const state = recordStopResult(baseQuestState(), "s1", 0, trail.drops.length);
+  const sleepyEyes = getPiece("eyes-sleepy");
+
+  assert.equal(totalStars(state), 0, "this contract is about finds, not star earnings");
+  assert.ok(totalDrops(state) > 0);
+  assert.ok(canBuy(state, sleepyEyes), `${trail.drops.length} finds should afford an entry shop choice`);
+});
+
+test("the full wardrobe is attainable, while finds alone cannot trivialise it", () => {
+  let perfect = baseQuestState();
+  let findsOnly = baseQuestState();
+
+  for (let index = 1; index <= 40; index += 1) {
+    const bonuses = questRewardBonuses(perfect);
+    const trail = buildTrailSection(`s${index}`, {
+      seed: index,
+      rewardIds: bonuses.rewardIds,
+      rewardCacheCount: bonuses.branchCacheCount
+    });
+    perfect = recordStopResult(perfect, `s${index}`, 3, trail.drops.length);
+    findsOnly = recordStopResult(findsOnly, `s${index}`, 0, trail.drops.length);
+  }
+
+  const priced = [...ALL_PIECES, ...CREATURE_DYES].filter(piece => (piece.cost || 0) > 0);
+  const catalogueCost = priced.reduce((sum, piece) => sum + piece.cost, 0);
+  const cheapest = Math.min(...priced.map(piece => piece.cost));
+  const perfectSurplus = availableSparks(perfect) - catalogueCost;
+
+  assert.ok(perfectSurplus >= 0, "even perfect play can no longer complete the wardrobe");
+  assert.ok(perfectSurplus < cheapest, "the wardrobe is too cheap to absorb a full journey's rewards");
+  assert.ok(
+    availableSparks(findsOnly) < catalogueCost / 2,
+    "easy-to-collect finds now buy most of the shop without reading-quality stars"
+  );
+});
+
+test("legacy starter choices stay owned after an existing child changes outfits", () => {
+  const fresh = baseQuestState();
+  const legacyRaw = { ...fresh };
+  delete legacyRaw.rewardEconomyVersion;
+  const legacy = normalizeQuestState({
+    ...legacyRaw,
+    creature: { ...legacyRaw.creature, eyes: "eyes-sleepy" }
+  });
+
+  assert.ok(ownedPieces(legacy).has("eyes-sleepy"));
+  assert.equal(canBuy(legacy, getPiece("eyes-sleepy")), false, "the child must not be charged for their current look");
+
+  const switched = equipOwnedPiece(legacy, getPiece("eyes-round"));
+  assert.equal(switched.creature.eyes, "eyes-round");
+  assert.ok(
+    ownedPieces(switched).has("eyes-sleepy"),
+    "switching away must not erase a migrated starter entitlement"
+  );
+  assert.equal(spentSparks(switched), 0, "legacy grants must never consume Sparks");
+
+  const reloaded = normalizeQuestState(JSON.parse(JSON.stringify(switched)));
+  const synced = computeHydratedValue("phonics_quest", "__all__", fresh, reloaded);
+  assert.ok(
+    ownedPieces(synced).has("eyes-sleepy"),
+    "the zero-cost entitlement must survive reload and cloud purchase union"
+  );
+
+  assert.equal(
+    ownedPieces(fresh).has("eyes-sleepy"),
+    false,
+    "a new economy-v2 child should earn the repriced choice"
+  );
+
+  const unpurchasedPremium = {
+    ...fresh,
+    creature: { ...fresh.creature, eyes: "eyes-stalks" }
+  };
+  assert.equal(
+    ownedPieces(unpurchasedPremium).has("eyes-stalks"),
+    false,
+    "grandfathering must not unlock a premium piece that was never a starter"
+  );
+});
+
+test("paid spending is stored once, and it can never be un-spent", () => {
   let state = recordStopResult(baseQuestState(), "s1", 3);
   state = recordStopResult(state, "s2", 3);
   assert.equal(availableSparks(state), 72);

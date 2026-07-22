@@ -1,4 +1,4 @@
-// Literacy Pals world themes. Each child-facing surface carries a
+// Little Literacy Guides world themes. Each child-facing surface carries a
 // data-pal-world attribute; these helpers decide which world applies.
 export const PAL_WORLDS = {
   meadow: {

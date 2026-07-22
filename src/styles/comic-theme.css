@@ -1418,7 +1418,7 @@
    by the daily banner below it — otherwise the logout looks "missing". */
 .student-mode-app .student-home-topbar-comic { position: relative; z-index: 40; }
 
-/* Brand: show the real "Literacy Pals" wordmark image; drop the duplicate DOM text */
+/* Brand: use the Little Literacy Guides mark; keep the full name accessible. */
 .student-mode-app .student-home-brand-logo { width: auto; height: clamp(38px, 4vw, 52px); }
 .student-mode-app .student-home-brand-text { display: none; }
 

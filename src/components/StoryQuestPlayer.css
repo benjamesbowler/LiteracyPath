@@ -564,10 +564,17 @@
   text-align: center;
 }
 
+.story-quest-decision {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
 .story-quest-choice-button {
   min-height: 82px;
   border: 2px solid rgba(79, 99, 215, 0.24);
   background: linear-gradient(180deg, var(--lp-color-surface) 0%, var(--lp-color-primary-soft) 100%);
+  color: #172033;
   box-shadow: 0 8px 18px rgba(79, 99, 215, 0.12);
   transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
 }
@@ -1080,6 +1087,221 @@
   }
 }
 
+/* ── One-viewport reader contract ───────────────────────────────────────────
+ *
+ * The reading screen has six direct regions: controls, progress, illustration,
+ * text/audio, word progress, and one decision region containing BOTH the prompt
+ * and its two choices. Keeping prompt + choices together prevents CSS Grid from
+ * creating an implicit seventh row below the fixed viewport.
+ *
+ * This block intentionally comes after the legacy compact/fullscreen rules so
+ * every entry path (rail, app fullscreen, and the Fullscreen API) obeys the same
+ * geometry. Story text is never made into a scroll box: the flexible artwork
+ * row yields space first, leaving the complete text and both choices visible. */
+.story-quest-active-page.learn-area-page {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  padding: clamp(6px, 1.2dvh, 12px);
+  overflow: hidden;
+}
+
+.student-mode-app .student-surface-story .story-quest-learn-page.story-quest-active-page.learn-area-page {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  padding: clamp(6px, 1.2dvh, 12px);
+  overflow: hidden;
+}
+
+.student-surface-story:has(.story-quest-active-page) > .learn-fullscreen-toggle {
+  display: none;
+}
+
+.story-quest-active-page .story-quest-reader,
+.story-quest-reader.fullscreen,
+.story-quest-reader:fullscreen {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  gap: clamp(4px, 0.9dvh, 8px);
+  padding: clamp(6px, 1.2dvh, 12px);
+  overflow: hidden;
+}
+
+.story-quest-active-page .story-quest-header,
+.story-quest-reader.fullscreen .story-quest-header,
+.story-quest-reader:fullscreen .story-quest-header {
+  min-height: 0;
+  align-items: center;
+}
+
+.story-quest-active-page .story-quest-progress,
+.story-quest-reader.fullscreen .story-quest-progress,
+.story-quest-reader:fullscreen .story-quest-progress {
+  min-height: 0;
+}
+
+.story-quest-active-page .story-quest-image-stage,
+.story-quest-reader.fullscreen .story-quest-image-stage,
+.story-quest-reader:fullscreen .story-quest-image-stage {
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.story-quest-active-page .story-quest-image,
+.story-quest-active-page .story-quest-image-placeholder,
+.story-quest-reader.fullscreen .story-quest-image,
+.story-quest-reader.fullscreen .story-quest-image-placeholder,
+.story-quest-reader:fullscreen .story-quest-image,
+.story-quest-reader:fullscreen .story-quest-image-placeholder {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.story-quest-active-page .story-quest-read-row,
+.story-quest-active-page .story-quest-text,
+.story-quest-reader.fullscreen .story-quest-read-row,
+.story-quest-reader.fullscreen .story-quest-text,
+.story-quest-reader:fullscreen .story-quest-read-row,
+.story-quest-reader:fullscreen .story-quest-text {
+  min-height: 0;
+}
+
+.story-quest-active-page .story-quest-text,
+.story-quest-reader.fullscreen .story-quest-text,
+.story-quest-reader:fullscreen .story-quest-text {
+  max-height: none;
+  overflow: visible;
+}
+
+.story-quest-active-page .story-quest-decision,
+.story-quest-reader.fullscreen .story-quest-decision,
+.story-quest-reader:fullscreen .story-quest-decision {
+  gap: clamp(4px, 0.7dvh, 7px);
+  min-height: 0;
+}
+
+.story-quest-active-page .story-quest-choice-prompt,
+.story-quest-reader.fullscreen .story-quest-choice-prompt,
+.story-quest-reader:fullscreen .story-quest-choice-prompt {
+  padding-block: 0;
+  font-size: clamp(1rem, 2vw, 1.42rem);
+  line-height: 1.05;
+}
+
+.story-quest-active-page .story-quest-choice-button,
+.story-quest-reader.fullscreen .story-quest-choice-button,
+.story-quest-reader:fullscreen .story-quest-choice-button {
+  min-height: 48px;
+  padding: 7px 8px;
+  color: #172033;
+  font-size: clamp(0.92rem, 1.8vw, 1.22rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.story-quest-active-page .story-quest-reader-complete,
+.story-quest-reader-complete.fullscreen,
+.story-quest-reader-complete:fullscreen {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.story-quest-reader-complete .story-quest-complete-panel {
+  width: 100%;
+  height: 100%;
+  max-width: 860px;
+  max-height: 100%;
+}
+
+@media (orientation: landscape) and (max-height: 680px) {
+  .story-quest-active-page .story-quest-reader,
+  .story-quest-reader.fullscreen,
+  .story-quest-reader:fullscreen {
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    gap: 4px;
+  }
+
+  .story-quest-active-page .story-quest-header > div:first-child,
+  .story-quest-reader.fullscreen .story-quest-header > div:first-child,
+  .story-quest-reader:fullscreen .story-quest-header > div:first-child,
+  .story-quest-active-page .story-quest-word-panel,
+  .story-quest-reader.fullscreen .story-quest-word-panel,
+  .story-quest-reader:fullscreen .story-quest-word-panel {
+    display: none;
+  }
+
+  .story-quest-active-page .story-quest-read-row,
+  .story-quest-reader.fullscreen .story-quest-read-row,
+  .story-quest-reader:fullscreen .story-quest-read-row {
+    grid-template-columns: minmax(88px, 116px) minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .story-quest-active-page .story-quest-text,
+  .story-quest-reader.fullscreen .story-quest-text,
+  .story-quest-reader:fullscreen .story-quest-text {
+    padding: 5px 8px;
+  }
+
+  .story-quest-active-page .story-quest-text p,
+  .story-quest-reader.fullscreen .story-quest-text p,
+  .story-quest-reader:fullscreen .story-quest-text p {
+    font-size: clamp(0.88rem, 2.3vw, 1.08rem);
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 760px) and (orientation: portrait) {
+  .story-quest-active-page .story-quest-reader,
+  .story-quest-reader.fullscreen,
+  .story-quest-reader:fullscreen {
+    grid-template-rows: auto auto minmax(76px, 1fr) auto auto auto;
+    gap: 4px;
+  }
+
+  .story-quest-active-page .story-quest-text,
+  .story-quest-reader.fullscreen .story-quest-text,
+  .story-quest-reader:fullscreen .story-quest-text {
+    padding: 6px 8px;
+  }
+
+  .story-quest-active-page .story-quest-text p,
+  .story-quest-reader.fullscreen .story-quest-text p,
+  .story-quest-reader:fullscreen .story-quest-text p {
+    font-size: clamp(0.9rem, 3.7vw, 1.08rem);
+    line-height: 1.12;
+  }
+
+  .story-quest-active-page .story-quest-word-panel,
+  .story-quest-reader.fullscreen .story-quest-word-panel,
+  .story-quest-reader:fullscreen .story-quest-word-panel {
+    padding: 4px 7px;
+  }
+
+  .story-quest-active-page .story-quest-choice-prompt,
+  .story-quest-reader.fullscreen .story-quest-choice-prompt,
+  .story-quest-reader:fullscreen .story-quest-choice-prompt {
+    font-size: clamp(0.98rem, 4vw, 1.2rem);
+  }
+
+  .story-quest-active-page .story-quest-choice-button,
+  .story-quest-reader.fullscreen .story-quest-choice-button,
+  .story-quest-reader:fullscreen .story-quest-choice-button {
+    min-height: 46px;
+    padding: 6px;
+    font-size: clamp(0.84rem, 3.5vw, 1rem);
+  }
+}
+
 .story-quest-reader.fullscreen,
 .story-quest-reader:fullscreen {
   position: fixed;
@@ -1400,5 +1622,125 @@
     min-height: 46px;
     padding: 6px;
     font-size: clamp(0.9rem, 3.6vw, 1.05rem);
+  }
+}
+
+/* Fullscreen declarations above predate the six-region decision wrapper.
+ * Keep these invariants last so native fullscreen and the CSS fallback cannot
+ * reintroduce a nested text scroller or size the artwork beyond its grid row. */
+.story-quest-active-page,
+.story-quest-active-page *,
+.story-quest-active-page *::before,
+.story-quest-active-page *::after {
+  box-sizing: border-box;
+}
+
+/* The shared child rail owns part of the viewport on narrow screens. Its story
+ * surface and reader must resolve against the remaining pane, not 100dvh, or
+ * the pane becomes a hidden nested scroller with the choices below the fold. */
+.lp-rail-shell .student-surface-story,
+.student-mode-app .lp-rail-shell .learn-fullscreen-frame.student-surface-frame.student-surface-story {
+  height: 100%;
+  min-height: 0;
+}
+
+.lp-rail-shell .story-quest-active-page.learn-area-page,
+.student-mode-app .lp-rail-shell .student-surface-story .story-quest-learn-page.story-quest-active-page.learn-area-page {
+  height: 100%;
+  min-height: 0;
+}
+
+.story-quest-reader.fullscreen,
+.story-quest-reader:fullscreen {
+  grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
+  gap: clamp(4px, 0.9dvh, 8px);
+}
+
+.story-quest-reader.fullscreen .story-quest-image,
+.story-quest-reader.fullscreen .story-quest-image-placeholder,
+.story-quest-reader:fullscreen .story-quest-image,
+.story-quest-reader:fullscreen .story-quest-image-placeholder {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.story-quest-reader.fullscreen .story-quest-text,
+.story-quest-reader:fullscreen .story-quest-text {
+  max-height: none;
+  overflow: visible;
+}
+
+.story-quest-reader.fullscreen .story-quest-decision,
+.story-quest-reader:fullscreen .story-quest-decision {
+  gap: clamp(4px, 0.7dvh, 7px);
+  min-height: 0;
+}
+
+.story-quest-reader.fullscreen .story-quest-choice-button,
+.story-quest-reader:fullscreen .story-quest-choice-button {
+  color: #172033;
+}
+
+.story-quest-active-page .story-quest-header-actions .lp-button,
+.story-quest-reader.fullscreen .story-quest-header-actions .lp-button,
+.story-quest-reader:fullscreen .story-quest-header-actions .lp-button,
+.story-quest-active-page .story-quest-audio-button,
+.story-quest-reader.fullscreen .story-quest-audio-button,
+.story-quest-reader:fullscreen .story-quest-audio-button {
+  min-height: 44px !important;
+}
+
+.story-quest-reader-complete.fullscreen,
+.story-quest-reader-complete:fullscreen {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+@media (orientation: landscape) and (max-height: 680px) {
+  .story-quest-reader.fullscreen,
+  .story-quest-reader:fullscreen {
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    gap: 4px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-header > div:first-child,
+  .story-quest-reader:fullscreen .story-quest-header > div:first-child,
+  .story-quest-reader.fullscreen .story-quest-word-panel,
+  .story-quest-reader:fullscreen .story-quest-word-panel {
+    display: none;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-read-row,
+  .story-quest-reader:fullscreen .story-quest-read-row {
+    grid-template-columns: minmax(88px, 116px) minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-text,
+  .story-quest-reader:fullscreen .story-quest-text {
+    padding: 5px 8px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-text p,
+  .story-quest-reader:fullscreen .story-quest-text p {
+    font-size: clamp(0.88rem, 2.3vw, 1.08rem);
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 760px) and (orientation: portrait) {
+  .story-quest-reader.fullscreen,
+  .story-quest-reader:fullscreen {
+    grid-template-rows: auto auto minmax(76px, 1fr) auto auto auto;
+    gap: 4px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-text,
+  .story-quest-reader:fullscreen .story-quest-text {
+    max-height: none;
+    overflow: visible;
   }
 }

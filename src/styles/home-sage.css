@@ -2,7 +2,7 @@
    A calm shell around wild games: sage sidebar, cream paper canvas, one big
    rounded white sheet, chunky ink headings, forest-green primary, white cards
    with inset thumbnails + tan/outline chip pairs. Style study of Chalkie's
-   app shell (mockups/kids-home-chalkie-style.html) adapted to LiteracyPals.
+   app shell (mockups/kids-home-chalkie-style.html) adapted to Little Literacy Guides.
 
    EVERYTHING here is scoped under .lp-home-sage so the comic skin is
    untouchable from this file. The skin is flag-gated in StudentHomePage
@@ -192,10 +192,36 @@
 
 .lp-home-sage .hs-logo {
   grid-column: 2;
-  font-size: 27px;
-  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.lp-home-sage .hs-logo > img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.lp-home-sage .hs-logo-copy {
+  display: grid;
+  gap: 1px;
   color: var(--hs-sage);
-  letter-spacing: 0.5px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-align: left;
+}
+
+.lp-home-sage .hs-logo-copy strong {
+  color: var(--hs-forest);
+  font-size: 15px;
+}
+
+.lp-home-sage .hs-logo-copy > span {
+  color: #C4512B;
 }
 
 .lp-home-sage .hs-top-actions {
@@ -455,6 +481,7 @@
   .lp-home-sage { flex-direction: column; }
 
   .lp-home-sage .hs-side {
+    box-sizing: border-box;
     width: 100%;
     flex: 0 0 auto;
     flex-direction: row;
@@ -474,6 +501,10 @@
   .lp-home-sage .hs-sheet-head h1 { font-size: 30px; }
   .lp-home-sage .hs-card.is-hero { grid-column: span 1; }
   .lp-home-sage .hs-topbar { padding: 10px 14px 4px; }
+}
+
+@media (max-width: 620px) {
+  .lp-home-sage .hs-logo-copy { display: none; }
 }
 
 /* ── keyboard + motion accessibility ─────────────────────────────────────── */

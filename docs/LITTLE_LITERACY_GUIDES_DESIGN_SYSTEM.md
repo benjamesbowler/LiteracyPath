@@ -1,4 +1,8 @@
-# Literacy Pals — Child Area Design System
+# Little Literacy Guides - Child Area Design System
+
+> Approved child-area identity from 2026-07-22. Existing `pal-*` technical
+> identifiers and the Meadow Pals / Dino Pals book-series names remain stable;
+> they are implementation and story-series names, not the umbrella brand.
 
 *The complete design plan for every child-facing screen. Goal: the
 production quality of Teach Your Monster / Raz-Kids, built on our own
@@ -6,8 +10,8 @@ book worlds instead of generic UI.*
 
 ## The big idea
 
-The child area is **Literacy Pals**. Children don't move through "easy,
-medium, hard" — they move through three worlds they already know from
+The child area is **Little Literacy Guides by literacy.guide**. Children don't move through "easy,
+medium, hard". They move through three worlds they already know from
 our books:
 
 | World | Source series | Used for | Mood / palette |
@@ -34,11 +38,11 @@ scenes from the Kimi request below when they arrive.
 
 ## Screen-by-screen plan
 
-1. **Entry ("Student" card)** → renamed **Literacy Pals**, with the
+1. **Entry ("Student" card)**: branded **Little Literacy Guides**, with the
    three world characters peeking from the card art.
 2. **Child login** (school → class → name → pictures): Meadow world
    theme (gentlest), characters watching from the corners, frosted card.
-3. **Home**: header becomes the Literacy Pals lodge — companion avatar,
+3. **Home**: header becomes the Little Literacy Guides lodge, with a companion avatar,
    streak flame, gem count. Mission tiles carry the world art of the
    content they point to. Explore cards = world doorways.
 4. **Skills Quest map**: cycles 1–9 ride through the Meadow, 10–18
@@ -75,8 +79,8 @@ scenes, character art on every page, Phinny poses, gems, word images.
 
 ## Build order
 
-- **Round 1 (now):** theme token system + world attribute; Literacy
-  Pals rename; arcade difficulty→world switching; home + login themed
+- **Round 1 (now):** theme token system + world attribute; Little Literacy Guides
+  branding; arcade difficulty→world switching; home + login themed
   with existing cover art; quest map world bands.
 - **Round 2:** in-game world backdrops, library world shelves,
   level-up world-travel ceremony, celebrations per world.

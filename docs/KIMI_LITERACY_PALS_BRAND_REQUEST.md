@@ -1,4 +1,10 @@
-# Kimi Media Request — Literacy Pals Brand Pack (EXACT characters)
+# Kimi Media Request - Superseded Child Brand Pack (EXACT characters)
+
+> **Brand update (2026-07-22):** The old umbrella name and logo request are
+> superseded by **Little Literacy Guides by literacy.guide** and
+> `public/images/pals/little-literacy-guides-logo.webp`. The exact-character
+> pose-pack requirements below remain valid. See
+> `docs/LITTLE_LITERACY_GUIDES_BRAND_DECISION_2026-07-22.md`.
 
 CRITICAL INSTRUCTION FOR EVERY IMAGE: attach the listed reference file(s)
 from the project and tell Kimi: "These exact characters. Match their
@@ -11,12 +17,11 @@ Reference files live in the project folder:
 - Dino Pals: `public/guided-reading/series/dino-pals/book-01/cover.webp` (plus book-03, book-08)
 - Moonwood: `public/guided-reading/series/moonwood-tales/book-01/cover.webp` (plus book-02, book-06)
 
-## 1. Literacy Pals logo (2 files) -> public/images/pals/
+## 1. Retired logo request - do not generate
 
-| Filename | Spec |
-|---|---|
-| `literacy-pals-logo.png` | 1600x500, transparent. The words "Literacy Pals" in a friendly rounded lettering (matching the app's Lexend feel), with one Meadow Pal, one Dino Pal, and one Moonwood character peeking over/around the letters. Exact characters from the references. |
-| `literacy-pals-mark.png` | 512x512, transparent. Compact version: the three characters' heads grouped in a circle - works as an app icon. |
+The old logo job is cancelled. Use the approved
+`public/images/pals/little-literacy-guides-logo.webp` and
+`public/images/pals/little-literacy-guides-mark.webp` assets instead.
 
 ## 2. Exact-character pose packs (12 files) -> public/images/pals/poses/
 

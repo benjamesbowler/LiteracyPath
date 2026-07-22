@@ -9,7 +9,7 @@ const checks = [
     needles: [
       "Phonics Learning",
       "Reading Library",
-      "student-home-card-meta"
+      "hs-chips"
     ]
   },
   {
