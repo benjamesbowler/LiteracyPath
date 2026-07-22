@@ -9,8 +9,8 @@ import './styles/student-vibrant.css'
 import './styles/comic-theme.css'
 // Rewards V2 (My Hollow) layer - after comic-theme so its pop-art rules win.
 import './styles/hollow.css'
-// The "sage" skin (default since 2026-07-15; comic preserved behind the
-// account-menu switch). home-sage.css is the home page shell, scoped under
+// The "sage" skin (the only student look since the classic "comic" switch was
+// removed on 2026-07-22). home-sage.css is the home page shell, scoped under
 // .lp-home-sage; sage-subpages.css remaps the comic palette variables for
 // every other student page (arcade + hollow exempted inside). Both must come
 // after the comic layer they override.
