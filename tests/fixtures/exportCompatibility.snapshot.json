@@ -2,19 +2,20 @@
   "schemaVersion": 1,
   "snapshots": {
     "guidedReading": {
-      "sha256": "155caeee59ace030afb989fb350bac93878f12d6d309cf044023e2c4428600f1",
+      "sha256": "1bb674c749ec7e2b4a124a23161d237d55c7007bee064ceaa60481ecc2190ac3",
       "sheetNames": [
         "Report Info",
         "Summary",
         "Student Completion",
         "Books Completed",
-        "Student Summary"
+        "Student Summary",
+        "Metric Definitions"
       ],
-      "rows": 16,
-      "cells": 114
+      "rows": 23,
+      "cells": 170
     },
     "studentEl": {
-      "sha256": "cc85529a36a0680796a018464f7b016cfdbbff63c1598e460258a399aef05bea",
+      "sha256": "361a8a635dd64821d09de16526ad53853935cf3fd38b51d4b3c463fffaa0f4e6",
       "sheetNames": [
         "Student Summary",
         "Letter Names & Sounds",
@@ -23,13 +24,14 @@
         "PA Strand Detail",
         "Encoding Detail",
         "Decoding Detail",
-        "Fluency Detail"
+        "Fluency Detail",
+        "Metric Definitions"
       ],
-      "rows": 84,
-      "cells": 1399
+      "rows": 91,
+      "cells": 1455
     },
     "classEl": {
-      "sha256": "04ff0a7adb46c71867a79258f9fe86e6b960de859d5735309aff91116e44f241",
+      "sha256": "3b1060372ff5cbd02eb54077b9e3fcfe34dd65a8e12360e4839274125958b034",
       "sheetNames": [
         "Class Summary",
         "Letter Sound Class Matrix",
@@ -38,10 +40,11 @@
         "Pattern Detail",
         "Benchmark Class Matrix",
         "Benchmark Domain Summary",
-        "Benchmark Evidence Detail"
+        "Benchmark Evidence Detail",
+        "Metric Definitions"
       ],
-      "rows": 93,
-      "cells": 1259
+      "rows": 100,
+      "cells": 1315
     }
   }
 }

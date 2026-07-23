@@ -206,7 +206,7 @@ function assertLazyCspCompatibleBundle() {
     throw new Error("dist/assets is missing; run npm run build before the export compatibility gate.");
   }
   const sourceFiles = [
-    "src/App.jsx",
+    "src/utils/metricDefinitions.js",
     "src/utils/exportElAssessmentExcel.js",
     "src/utils/exportGuidedReadingCompletionExcel.js"
   ];
@@ -225,16 +225,27 @@ function assertLazyCspCompatibleBundle() {
   assert.ok(exportChunk, "the user-action-only report export chunk is missing");
   const exportSource = readFileSync(path.join(distAssetsPath, exportChunk), "utf8");
   assert.doesNotMatch(exportSource, /(^|[^\w$.])eval\s*\(/, "the report export chunk contains direct eval");
+  const lazyLoaderChunks = files.filter(file => (
+    /^(?:metricDefinitions|exportElAssessmentExcel|exportGuidedReadingCompletionExcel)-.*\.js$/.test(file)
+  ));
+  assert.equal(lazyLoaderChunks.length, 3, "the three report export loader chunks are missing");
+  for (const loaderChunk of lazyLoaderChunks) {
+    const loaderSource = readFileSync(path.join(distAssetsPath, loaderChunk), "utf8");
+    assert.match(
+      loaderSource,
+      new RegExp(`import\\([^)]*${exportChunk.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`),
+      `${loaderChunk} must lazy-load the report library`
+    );
+  }
 
   const entryMetadata = JSON.parse(
     readFileSync(path.join(repoRoot, "dist", "bundle-metadata.json"), "utf8")
   ).chunks.find(chunk => chunk.isEntry);
   assert.ok(entryMetadata, "bundle metadata has no entry chunk");
   const entrySource = readFileSync(path.join(repoRoot, "dist", entryMetadata.fileName), "utf8");
-  assert.match(
-    entrySource,
-    new RegExp(`import\\([^)]*${exportChunk.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`),
-    "the main app must reach the report library through a dynamic import"
+  assert.ok(
+    lazyLoaderChunks.some(loaderChunk => entrySource.includes(loaderChunk)),
+    "the main app must reach a lazy report loader"
   );
   assert.doesNotMatch(
     entrySource,
