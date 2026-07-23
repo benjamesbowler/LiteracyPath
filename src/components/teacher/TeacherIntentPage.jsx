@@ -4,6 +4,7 @@ import {
   TeacherPageHeader,
   TeacherPageShell
 } from "./ui/TeacherPrimitives.jsx";
+import { TeacherProgressOverview } from "./TeacherProgressOverview.jsx";
 
 const INTENT_COPY = Object.freeze({
   assess: {
@@ -120,7 +121,14 @@ function buildIntentActions({
 export function TeacherIntentPage({
   intent,
   className = "",
+  classList = [],
+  selectedClassId = "",
+  onSelectClass,
+  progressRows = [],
+  selectedLearnerId = "",
   studentName = "",
+  onSelectLearner,
+  onClearLearner,
   onOpenAssessment,
   onOpenView,
   onOpenReports,
@@ -173,33 +181,47 @@ export function TeacherIntentPage({
         />
       ) : (
         <>
-          <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
-            {actions.map(action => {
-              const needsLearner = action.requiresStudent && !studentName;
-              return (
-                <article className="teacher-action-card" key={action.id}>
-                  <div>
-                    <p className="panel-label">{action.category}</p>
-                    <h3>{action.label}</h3>
-                    <p>{action.description}</p>
-                    {needsLearner && (
-                      <small className="muted-text">Choose a learner to continue.</small>
-                    )}
-                  </div>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    disabled={needsLearner && !onOpenView}
-                    onClick={needsLearner
-                      ? () => onOpenView(APP_VIEWS.TEACHER_CLASSES)
-                      : action.onOpen}
-                    type="button"
-                  >
-                    {needsLearner ? "Choose learner" : "Open"}
-                  </button>
-                </article>
-              );
-            })}
-          </section>
+          {intent === "progress" ? (
+            <TeacherProgressOverview
+              className={className}
+              classList={classList}
+              selectedClassId={selectedClassId}
+              onSelectClass={onSelectClass}
+              rows={progressRows}
+              selectedLearnerId={selectedLearnerId}
+              onSelectLearner={onSelectLearner}
+              onClearLearner={onClearLearner}
+              onOpenReports={onOpenReports}
+            />
+          ) : (
+            <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
+              {actions.map(action => {
+                const needsLearner = action.requiresStudent && !studentName;
+                return (
+                  <article className="teacher-action-card" key={action.id}>
+                    <div>
+                      <p className="panel-label">{action.category}</p>
+                      <h3>{action.label}</h3>
+                      <p>{action.description}</p>
+                      {needsLearner && (
+                        <small className="muted-text">Choose a learner to continue.</small>
+                      )}
+                    </div>
+                    <button
+                      className="lp-button lp-button-secondary"
+                      disabled={needsLearner && !onOpenView}
+                      onClick={needsLearner
+                        ? () => onOpenView(APP_VIEWS.TEACHER_CLASSES)
+                        : action.onOpen}
+                      type="button"
+                    >
+                      {needsLearner ? "Choose learner" : "Open"}
+                    </button>
+                  </article>
+                );
+              })}
+            </section>
+          )}
 
           {intent === "assess" && (
             <details className="teacher-assessment-language-guide">

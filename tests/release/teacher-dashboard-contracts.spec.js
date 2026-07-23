@@ -87,6 +87,62 @@ test("@teacher-five-intention-ia reachable navigation has five intentions and co
   await expect(page.getByRole("navigation", { name: "Plan/Resources tools" })).toBeVisible();
 });
 
+test("@teacher-class-progress reaches exact learner item evidence from class view in three clicks", async ({
+  page
+}) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  let clicks = 0;
+  const primaryNav = page.getByTestId("teacher-primary-nav");
+  await primaryNav.getByRole("button", { name: "Progress", exact: true }).click();
+  clicks += 1;
+
+  const overview = page.getByRole("region", { name: "Class progress overview" });
+  await expect(overview).toBeVisible();
+  for (const section of ["Distribution", "Coverage", "Groups", "Outliers"]) {
+    await expect(overview.getByText(section, { exact: true })).toBeVisible();
+  }
+  await expect(overview.getByText("75% median", { exact: true })).toBeVisible();
+  await expect(overview.getByText("Accuracy bands require at least 8 scored responses.", {
+    exact: true
+  })).toBeVisible();
+
+  const outliers = overview.getByRole("article").filter({ hasText: "Outliers" });
+  await expect(outliers.getByText("Aisha", { exact: true })).toBeVisible();
+  await expect(outliers.getByText("30% · 45 points below median", { exact: true })).toBeVisible();
+  await outliers.getByRole("button", { name: "Review Aisha evidence", exact: true }).click();
+  clicks += 1;
+
+  const learnerEvidence = page.getByRole("region", { name: "Learner progress evidence: Aisha" });
+  await expect(learnerEvidence).toBeVisible();
+  await expect(page).toHaveURL(
+    /#teacher\/progress\?class=30000000-0000-4000-8000-000000000001&group=all&learner=40000000-0000-4000-8000-000000000002$/
+  );
+  await expect(learnerEvidence.getByText("20 scored responses · 30% accuracy · 0 mastered skills", {
+    exact: true
+  })).toBeVisible();
+  await learnerEvidence.getByRole("button", { name: /^m Needs re-teaching/ }).click();
+  clicks += 1;
+
+  const itemEvidence = learnerEvidence.getByRole("article", { name: "Item evidence: m" });
+  await expect(itemEvidence).toBeVisible();
+  await expect(itemEvidence.getByText("Needs re-teaching", { exact: true })).toBeVisible();
+  await expect(itemEvidence.getByText("12", { exact: true })).toHaveCount(2);
+  await expect(itemEvidence.getByText("33%", { exact: true })).toBeVisible();
+  await expect(itemEvidence.getByText(/saved Sound Seekers item history/)).toBeVisible();
+  expect(clicks).toBeLessThanOrEqual(3);
+
+  await page.reload();
+  await expect(page.getByRole("region", { name: "Class progress overview" })).toBeVisible({
+    timeout: 20_000
+  });
+  await expect(page.getByRole("region", { name: "Learner progress evidence: Aisha" })).toBeVisible();
+  await expect(page).toHaveURL(
+    /#teacher\/progress\?class=30000000-0000-4000-8000-000000000001&group=all&learner=40000000-0000-4000-8000-000000000002$/
+  );
+});
+
 test("@teacher-assessment-hub uses purpose-led language and routes every purpose from one hub", async ({
   page
 }) => {

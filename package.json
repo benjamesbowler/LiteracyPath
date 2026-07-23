@@ -132,6 +132,7 @@
     "check:teacher-state-matrix": "node --test tests/unit/teacherSurfaceStateMatrix.test.js && node tools/checkTeacherStateMatrix.mjs",
     "check:teacher-ui-primitives": "node tools/checkTeacherUiPrimitives.mjs && node --test tests/unit/teacherUiPrimitives.test.js && npm run check:teacher-roster-device-matrix",
     "check:teacher-context": "npm run test:release-teacher -- --grep @teacher-persistent-context",
+    "check:teacher-class-progress": "node --test tests/unit/teacherProgressOverview.test.js && npm run test:release-teacher -- --grep @teacher-class-progress",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",
     "check:teacher-roster-device-matrix": "playwright test tests/release/teacher-roster-device-matrix.spec.js --project=desktop",

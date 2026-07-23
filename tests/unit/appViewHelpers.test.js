@@ -8,7 +8,8 @@ import {
   isFocusedAssessmentView,
   shouldShowFooterUtilityActions,
   getRestoredAppView,
-  getPersistedAppView
+  getPersistedAppView,
+  teacherIntentHash
 } from "../../src/appState/appViewHelpers.js";
 
 // ── THE REGRESSION THIS FILE EXISTS FOR ─────────────────────────────────────
@@ -122,4 +123,51 @@ test("restored module-shaped teacher routes redirect to the five-intention IA", 
       `${legacyView} should restore through ${intentionView}`
     );
   }
+});
+
+test("all five teacher intentions expose an honest class, group, and learner hash", () => {
+  assert.equal(
+    teacherIntentHash({
+      appView: APP_VIEWS.TEACHER_DASHBOARD,
+      classId: "class-a",
+      groupId: "attention",
+      learnerId: "learner-a"
+    }),
+    "#teacher/today?class=class-a"
+  );
+  assert.equal(
+    teacherIntentHash({
+      appView: APP_VIEWS.TEACHER_CLASSES,
+      classId: "class-a",
+      groupId: "attention",
+      learnerId: "learner-a"
+    }),
+    "#teacher/classes?class=class-a&group=attention&learner=learner-a"
+  );
+  assert.equal(
+    teacherIntentHash({
+      appView: APP_VIEWS.TEACHER_ASSESS,
+      classId: "class-a",
+      learnerId: "learner-a"
+    }),
+    "#teacher/assess?class=class-a&group=all&learner=learner-a"
+  );
+  assert.equal(
+    teacherIntentHash({
+      appView: APP_VIEWS.TEACHER_PROGRESS,
+      classId: "class-a",
+      groupId: "all",
+      learnerId: "learner-a"
+    }),
+    "#teacher/progress?class=class-a&group=all&learner=learner-a"
+  );
+  assert.equal(
+    teacherIntentHash({
+      appView: APP_VIEWS.TEACHER_RESOURCES,
+      classId: "class-a",
+      learnerId: "learner-a"
+    }),
+    "#teacher/resources?class=class-a&group=all&learner=learner-a"
+  );
+  assert.equal(teacherIntentHash({ appView: APP_VIEWS.REPORTS }), "");
 });

@@ -17,7 +17,8 @@ test("heat map: one tile per taught GPC, in curriculum order, honestly bucketed"
   const tiles = questHeatTiles(stateWith({
     a: { seen: 6, correct: 6, state: "mastered", misses: 0 },
     m: { seen: 5, correct: 3, state: "learning", misses: 0 },
-    t: { seen: 4, correct: 1, state: "learning", misses: 2 },
+    t: { seen: 12, correct: 4, state: "at-risk", misses: 0 },
+    i: { seen: 4, correct: 1, state: "learning", misses: 2 },
     s: { seen: 3, correct: 3, state: "retired", misses: 0 }
   }));
 
@@ -28,7 +29,8 @@ test("heat map: one tile per taught GPC, in curriculum order, honestly bucketed"
   assert.equal(byId.get("a").bucket, "got-it");
   assert.equal(byId.get("s").bucket, "got-it", "retired still reads as known");
   assert.equal(byId.get("m").bucket, "almost");
-  assert.equal(byId.get("t").bucket, "reteach", "a consecutive-miss run needs re-teaching");
+  assert.equal(byId.get("t").bucket, "reteach", "an at-risk state needs re-teaching even after four historical hits");
+  assert.equal(byId.get("i").bucket, "reteach", "a consecutive-miss run needs re-teaching");
   assert.equal(byId.get("sh").bucket, "unseen", "never attempted is not a failure state");
   assert.equal(byId.get("a").accuracy, 100);
 

@@ -120,7 +120,8 @@ import {
   isFocusedAssessmentView,
   isStudentAllowedView,
   shouldShowDashboardSummary,
-  shouldShowFooterUtilityActions
+  shouldShowFooterUtilityActions,
+  teacherIntentHash
 } from "./appState/appViewHelpers.js";
 import {
   deleteElBenchmarkDraft,
@@ -2800,6 +2801,7 @@ export default function App() {
         setCurrentQuestion(null);
 
         loadStudents(savedClassId);
+        loadClassDashboard(savedClassId);
         if (restoredAppView === APP_VIEWS.ASSESSMENT) {
           // Without this flag the correct-answer auto-advance timeout bails out
           // and the restored session soft-locks on the feedback screen.
@@ -2886,24 +2888,15 @@ export default function App() {
   ]);
 
   useEffect(() => {
-    if (
-      sessionMode === "student"
-      || !teacherId
-      || ![
-        APP_VIEWS.SELECT,
-        APP_VIEWS.TEACHER_DASHBOARD,
-        APP_VIEWS.TEACHER_CLASSES
-      ].includes(appView)
-    ) return;
+    if (sessionMode === "student" || !teacherId) return;
 
-    const intent = appView === APP_VIEWS.TEACHER_CLASSES ? "classes" : "today";
-    const context = new URLSearchParams();
-    if (selectedClassId) context.set("class", selectedClassId);
-    if (appView === APP_VIEWS.TEACHER_CLASSES) {
-      context.set("group", teacherGroupId || "all");
-      if (studentId) context.set("learner", studentId);
-    }
-    const nextHash = `#teacher/${intent}${context.size ? `?${context.toString()}` : ""}`;
+    const nextHash = teacherIntentHash({
+      appView,
+      classId: selectedClassId,
+      groupId: teacherGroupId,
+      learnerId: studentId
+    });
+    if (!nextHash) return;
     if (window.location.hash !== nextHash) {
       window.history.replaceState(window.history.state, "", nextHash);
     }
@@ -9213,7 +9206,30 @@ ${metricDefinitionsText}
             <TeacherIntentPage
               intent="progress"
               className={getSelectedClassName(classList, selectedClassId)}
+              classList={classList}
+              selectedClassId={selectedClassId}
+              onSelectClass={async nextClassId => {
+                setSelectedClassId(nextClassId);
+                setTeacherGroupId("all");
+                setTeacherStudentContext({ studentId: null, studentName: "" });
+                setNameSaved(false);
+                if (nextClassId) {
+                  await loadStudents(nextClassId);
+                  await loadClassDashboard(nextClassId);
+                } else {
+                  setStudentList([]);
+                  setArchivedStudentList([]);
+                  setClassDashboard([]);
+                }
+              }}
+              progressRows={classDashboard}
+              selectedLearnerId={nameSaved ? studentId : ""}
               studentName={nameSaved ? studentName : ""}
+              onSelectLearner={(id, name) => loadStudentProgress(id, name, { navigate: false })}
+              onClearLearner={() => {
+                setTeacherStudentContext({ studentId: null, studentName: "" });
+                setNameSaved(false);
+              }}
               onOpenReports={() => setAppView(APP_VIEWS.REPORTS)}
             />
           </Suspense>

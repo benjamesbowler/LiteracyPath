@@ -116,3 +116,30 @@ export function getPersistedAppView({ studentId, appView } = {}) {
   if (!studentId) return APP_VIEWS.SELECT;
   return Object.values(APP_VIEWS).includes(appView) ? appView : APP_VIEWS.OVERVIEW;
 }
+
+const TEACHER_INTENT_PATHS = Object.freeze({
+  [APP_VIEWS.SELECT]: "today",
+  [APP_VIEWS.TEACHER_DASHBOARD]: "today",
+  [APP_VIEWS.TEACHER_CLASSES]: "classes",
+  [APP_VIEWS.TEACHER_ASSESS]: "assess",
+  [APP_VIEWS.TEACHER_PROGRESS]: "progress",
+  [APP_VIEWS.TEACHER_RESOURCES]: "resources"
+});
+
+export function teacherIntentHash({
+  appView,
+  classId = "",
+  groupId = "all",
+  learnerId = ""
+} = {}) {
+  const intent = TEACHER_INTENT_PATHS[appView];
+  if (!intent) return "";
+
+  const context = new URLSearchParams();
+  if (classId) context.set("class", classId);
+  if (intent !== "today") {
+    context.set("group", groupId || "all");
+    if (learnerId) context.set("learner", learnerId);
+  }
+  return `#teacher/${intent}${context.size ? `?${context.toString()}` : ""}`;
+}

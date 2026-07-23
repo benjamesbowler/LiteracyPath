@@ -17861,6 +17861,304 @@ select:focus {
   white-space: nowrap;
 }
 
+/* ─── Class-first teacher progress ─────────────────────────────────────── */
+
+.teacher-progress-overview {
+  display: grid;
+  gap: var(--teacher-ui-page-gap);
+}
+
+.teacher-progress-scope {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-progress-scope label {
+  display: grid;
+  gap: 6px;
+  width: min(100%, 360px);
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.teacher-progress-scope select {
+  min-height: var(--teacher-ui-target-min);
+  padding: 9px 36px 9px 11px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+  font: inherit;
+}
+
+.teacher-progress-scope p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--teacher-ui-panel-gap);
+}
+
+.teacher-progress-panel,
+.teacher-progress-learner {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-progress-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.teacher-progress-panel-heading,
+.teacher-progress-learner-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.teacher-progress-panel-heading .panel-label,
+.teacher-progress-learner-heading .panel-label,
+.teacher-progress-item-evidence .panel-label {
+  margin: 0 0 3px;
+}
+
+.teacher-progress-panel-heading h3,
+.teacher-progress-learner-heading h3,
+.teacher-progress-item-evidence h4 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-progress-panel-heading > strong {
+  flex: 0 0 auto;
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+}
+
+.teacher-progress-distribution-chart {
+  display: flex;
+  gap: 3px;
+  min-height: 16px;
+  overflow: hidden;
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-progress-distribution-chart > span {
+  flex: var(--progress-share) 1 0;
+  min-width: 4px;
+}
+
+.teacher-progress-distribution-chart .is-secure,
+.teacher-progress-key.is-secure {
+  background: var(--lp-color-success);
+}
+
+.teacher-progress-distribution-chart .is-developing,
+.teacher-progress-key.is-developing {
+  background: var(--lp-color-primary);
+}
+
+.teacher-progress-distribution-chart .is-needs-support,
+.teacher-progress-key.is-needs-support {
+  background: var(--lp-color-warning);
+}
+
+.teacher-progress-distribution-chart .is-insufficient,
+.teacher-progress-key.is-insufficient {
+  background: var(--lp-color-text-muted);
+}
+
+.teacher-progress-distribution-list,
+.teacher-progress-insight-list,
+.teacher-progress-item-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-progress-distribution-list li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: center;
+}
+
+.teacher-progress-key {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.teacher-progress-distribution-list strong,
+.teacher-progress-distribution-list small {
+  display: block;
+}
+
+.teacher-progress-distribution-list small,
+.teacher-progress-insight-list small {
+  margin-top: 2px;
+  color: var(--lp-color-text-muted);
+  line-height: 1.35;
+}
+
+.teacher-progress-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin: 0;
+}
+
+.teacher-progress-facts > div {
+  padding: 11px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-progress-facts dt,
+.teacher-progress-item-evidence dt {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-progress-facts dd,
+.teacher-progress-item-evidence dd {
+  margin: 4px 0 0;
+  color: var(--lp-color-text-strong);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.teacher-progress-insight-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-progress-insight-list li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.teacher-progress-insight-list strong,
+.teacher-progress-insight-list span,
+.teacher-progress-insight-list small {
+  display: block;
+}
+
+.teacher-progress-insight-list span {
+  margin-top: 2px;
+  color: var(--lp-color-text);
+  font-size: 13px;
+}
+
+.teacher-progress-basis {
+  margin: auto 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--lp-color-border-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.teacher-progress-learner {
+  display: grid;
+  gap: 16px;
+  border-left: 5px solid var(--lp-color-primary);
+}
+
+.teacher-progress-learner-heading p:not(.panel-label) {
+  margin: 5px 0 0;
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-progress-learner h4 {
+  margin: 0 0 8px;
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-progress-item-list {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.teacher-progress-item-list button {
+  width: 100%;
+  min-height: var(--teacher-ui-target-min);
+  display: grid;
+  gap: 3px;
+  padding: 11px 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text);
+  text-align: left;
+}
+
+.teacher-progress-item-list button:hover,
+.teacher-progress-item-list button[aria-expanded="true"] {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-progress-item-list button span {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-progress-item-evidence {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.45fr) minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid var(--lp-color-primary);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-progress-item-evidence > div > p:not(.panel-label) {
+  margin: 5px 0 0;
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-progress-item-evidence dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.teacher-progress-item-evidence dl > div {
+  min-width: 0;
+}
+
+.teacher-progress-item-evidence .teacher-progress-basis {
+  grid-column: 1 / -1;
+}
+
 /* ─── Teacher surface state matrix ────────────────────────────────────── */
 
 .teacher-surface-state {
@@ -18022,6 +18320,29 @@ select:focus {
 
   .teacher-assessment-language-guide dl {
     grid-template-columns: 1fr;
+  }
+
+  .teacher-progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-progress-scope,
+  .teacher-progress-panel-heading,
+  .teacher-progress-learner-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-progress-scope label {
+    width: 100%;
+  }
+
+  .teacher-progress-item-evidence {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-progress-item-evidence dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .teacher-surface-state {

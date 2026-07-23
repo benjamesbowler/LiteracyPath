@@ -32,6 +32,8 @@ export function sortBuckets(mastery = {}) {
   const needsReteaching = rows.filter(row =>
     !["mastered", "retired"].includes(row?.state)
     && (
+      row?.state === "at-risk"
+      ||
       (Number(row?.misses) || 0) >= 2
       || (independentAttemptCount(row) > 0 && (Number(row?.correct) || 0) < 2)
     )).length;
@@ -73,7 +75,11 @@ export function questHeatTiles(state = {}) {
         ? "got-it"
         : !hasKnowledgeEvidence
           ? "almost"
-          : ((independentSeen > 0 && correct < 2) || (Number(record?.misses) || 0) >= 2)
+          : (
+            record?.state === "at-risk"
+            || (independentSeen > 0 && correct < 2)
+            || (Number(record?.misses) || 0) >= 2
+          )
           ? "reteach"
           : "almost";
     return {
