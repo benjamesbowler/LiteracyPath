@@ -13,6 +13,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const reportPath = path.join(repoRoot, "docs", "validation", "repo_hygiene_audit.md");
 const reportRelativePath = normalizePath(path.relative(repoRoot, reportPath));
+const hygieneBaseline = JSON.parse(
+  fs.readFileSync(path.join(repoRoot, "tools", "hygiene-baseline.json"), "utf8")
+);
 
 const LIVE_MEDIA_ROOTS = [
   "public/images",
@@ -39,16 +42,10 @@ const ACTIVE_REQUEST_PATTERNS = [
   /docs\/assets\/[^/]*replacement[^/]*request[^/]*\.md$/i
 ];
 
-const ALLOWED_NEW_REQUEST_DOCS = new Set([
-  "docs/assets/kimi_story_quest_last_two_books_image_redo_request.md"
-]);
-
-const GENERATED_NOISE_PATTERNS = [
-  /^docs\/validation\/.*\.(md|json)$/i,
-  /^docs\/guided-reading\/.*audit.*\.md$/i,
-  /^docs\/assets\/story_quest_asset_audit\.md$/i,
-  /^src\/data\/generated\/.*\.js$/i
-];
+const ALLOWED_NEW_REQUEST_DOCS = new Set(hygieneBaseline.allowedActiveRequestDocs);
+const GENERATED_NOISE_PATTERNS = hygieneBaseline.generatedOutputPatterns
+  .map(pattern => new RegExp(pattern, "i"));
+const PREVIEW_HARNESS_ROOTS = new Set(hygieneBaseline.previewHarnessRoots);
 const RUNTIME_ENTRY_FILES = [
   "src/App.jsx",
   "src/data/loadAssessmentSkillBank.js",
@@ -379,6 +376,18 @@ function main() {
   const failures = [];
   const warnings = [];
   const ignored = [];
+
+  for (const previewRoot of PREVIEW_HARNESS_ROOTS) {
+    if (fsByPath.has(previewRoot)) {
+      addFinding(
+        ignored,
+        "allowed",
+        previewRoot,
+        "Intentional preview harness root from tools/hygiene-baseline.json.",
+        "Allowed only under the named preview root."
+      );
+    }
+  }
 
   for (const entry of fsEntries) {
     const filePath = entry.path;

@@ -8,8 +8,8 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const canonicalManifestPath = path.join(repoRoot, "docs", "release", "manifest.json");
 const strictAuditJsonPath = path.join(
   repoRoot,
-  "docs",
-  "validation",
+  "docs", "release", "artifacts", "audits",
+  "auditAllSkillsStrictProductionReadiness", "repo", "docs", "validation",
   "all_skills_strict_production_audit.json"
 );
 
@@ -41,19 +41,22 @@ export const RELEASE_GATES = Object.freeze([
   {
     id: "assessment-question-integrity",
     label: "Assessment question integrity",
-    command: ["npm", "run", "check:assessment-question-integrity"],
+    command: ["npm", "run", "check:assessment-question-integrity", "--", "--check"],
     areas: [1, 4, 10]
   },
   {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
-    command: ["npm", "run", "check:assessment-runtime-variation"],
+    command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],
     areas: [1, 4, 10]
   },
   {
     id: "strict-curriculum",
     label: "Strict production curriculum audit",
-    command: ["node", "tools/auditAllSkillsStrictProductionReadiness.js", "--check"],
+    command: [
+      "node", "tools/runAuditScript.mjs", "--check",
+      "tools/auditAllSkillsStrictProductionReadiness.js"
+    ],
     areas: [1, 4, 10]
   },
   {
@@ -98,6 +101,12 @@ export const RELEASE_GATES = Object.freeze([
     id: "repo-hygiene",
     label: "Baselined repository hygiene",
     command: ["npm", "run", "check:repo-hygiene", "--", "--check"],
+    areas: [10]
+  },
+  {
+    id: "audit-read-only",
+    label: "Read-only audit mode contract",
+    command: ["npm", "run", "check:audit-read-only"],
     areas: [10]
   },
   {

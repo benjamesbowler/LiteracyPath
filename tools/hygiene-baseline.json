@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "previewHarnessRoots": [
+    "preview"
+  ],
+  "generatedOutputPatterns": [
+    "^docs/release/artifacts/",
+    "^docs/validation/.*\\.(md|json)$",
+    "^docs/guided-reading/.*audit.*\\.md$",
+    "^docs/assets/story_quest_asset_audit\\.md$",
+    "^src/data/generated/.*\\.js$",
+    "^src/styles/sage-soft\\.generated\\.css$"
+  ],
+  "allowedActiveRequestDocs": [
+    "docs/assets/kimi_story_quest_last_two_books_image_redo_request.md"
+  ]
+}

@@ -100,8 +100,8 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A10.2 | 10 | P0 | IN-PROGRESS | `check:release` manifest + generated scorecard | Implementation added; full manifest and scorecard evidence pending Phase 0 exit |
 | A10.3 | 10 | P1 | IN-PROGRESS | zero-warning lint gate | CI invokes `npm run lint -- --max-warnings=0`; existing A4.5 warning backlog remains intentionally red |
 | A10.4 | 10 | P1 | DONE | enforced bundle budgets + PR trend table | `docs/release/artifacts/2026-07-23T12-11-25-561Z/manifest.partial.json` passes build + budget; dated config, Markdown/JSON artifacts, and CI step summary are enforced |
-| A10.5 | 10 | P2 | TODO | zero-failure baselined repo hygiene | — |
-| A10.6 | 10 | P2 | TODO | read-only audit check-mode guard | — |
+| A10.5 | 10 | P2 | DONE | zero-failure baselined repo hygiene | `docs/release/artifacts/2026-07-23T12-20-36-943Z/manifest.partial.json`: 0 failures; explicit preview/generated allowlist in `tools/hygiene-baseline.json` |
+| A10.6 | 10 | P2 | DONE | read-only audit check-mode guard | Same manifest passes OS-constrained `--check` write redirection; 23 report commands have paired check modes and canonical tracked reports remain unchanged |
 | A10.7 | 10 | P1 | TODO | `check:e2e-teacher` | — |
 | A10.8 | 10 | P0 + EXTERNAL MANUAL AUDIT | TODO | automated a11y gates + manual-program readiness | — |
 | A10.9 | 10 | P1 | TODO | live admin content-QA route + Loop D board test | — |
