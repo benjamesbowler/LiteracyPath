@@ -88,6 +88,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      // The app targets evergreen browsers, so use ExcelJS's official
+      // polyfill-free browser build. It is loaded only by export actions and
+      // avoids shipping the library's legacy compatibility layer.
+      'exceljs': fileURLToPath(new URL('./node_modules/exceljs/dist/exceljs.bare.min.js', import.meta.url)),
       phaser: fileURLToPath(new URL('./src/vendor/phaserSoundSeekers.cjs', import.meta.url))
     }
   },

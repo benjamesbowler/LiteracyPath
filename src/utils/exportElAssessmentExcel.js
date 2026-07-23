@@ -1687,12 +1687,16 @@ function addClassBenchmarkSheets(workbook, report = {}) {
   addClassBenchmarkEvidenceDetailSheet(workbook, report);
 }
 
-async function createWorkbook() {
+async function createWorkbook(generatedAt = null) {
   const module = await import("exceljs");
   const ExcelJS = module.default || module["module.exports"] || module;
   const workbook = new ExcelJS.Workbook();
   workbook.creator = "Literacy Guide";
-  workbook.created = new Date();
+  const createdAt = generatedAt ? new Date(generatedAt) : new Date();
+  if (Number.isNaN(createdAt.getTime())) {
+    throw new Error("EL export generatedAt must be a valid date.");
+  }
+  workbook.created = createdAt;
   return workbook;
 }
 
@@ -1710,7 +1714,7 @@ async function downloadWorkbook(workbook, fileName) {
 }
 
 export async function createStudentElAssessmentWorkbook(report) {
-  const workbook = await createWorkbook();
+  const workbook = await createWorkbook(report?.generatedAt);
 
   const summarySheet = workbook.addWorksheet("Student Summary");
   setColumns(summarySheet, ["Field", "Value"], ["Value"]);
@@ -1845,7 +1849,7 @@ export async function createStudentElAssessmentWorkbook(report) {
 }
 
 export async function createClassElAssessmentWorkbook(report) {
-  const workbook = await createWorkbook();
+  const workbook = await createWorkbook(report?.generatedAt);
 
   const summarySheet = workbook.addWorksheet("Class Summary");
   setColumns(summarySheet, ["Field", "Value"], ["Value"]);

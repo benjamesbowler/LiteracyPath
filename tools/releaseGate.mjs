@@ -104,6 +104,12 @@ export const RELEASE_GATES = Object.freeze([
     outputFormat: "npm-audit-json"
   },
   {
+    id: "export-compatibility",
+    label: "Export compatibility, lazy loading, and 500-item memory",
+    command: ["npm", "run", "check:export-compatibility"],
+    areas: [8, 9, 10]
+  },
+  {
     id: "repo-hygiene",
     label: "Baselined repository hygiene",
     command: ["npm", "run", "check:repo-hygiene", "--", "--check"],

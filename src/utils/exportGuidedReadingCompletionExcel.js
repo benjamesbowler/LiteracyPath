@@ -203,7 +203,10 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
     ...students.map(student => getClassName(student, options.classes || [])),
     ...rows.map(row => row.className)
   ].filter(Boolean)));
-  const exportDate = new Date();
+  const exportDate = new Date(options.generatedAt || Date.now());
+  if (Number.isNaN(exportDate.getTime())) {
+    throw new Error("Guided Reading export generatedAt must be a valid date.");
+  }
   const summaryRows = (classNames.length ? classNames : ["Unknown Class"]).map(className => {
     const classStudents = students.filter(student => getClassName(student, options.classes || []) === className);
     const classRows = rows.filter(row => row.className === className);
@@ -350,7 +353,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   const data = buildGuidedReadingCompletionWorkbookData(options);
 
   workbook.creator = "Literacy Guide";
-  workbook.created = new Date();
+  workbook.created = new Date(data.generatedAt);
 
   const infoSheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.reportInfo);
   infoSheet.columns = GUIDED_READING_COMPLETION_HEADERS.reportInfo.map(header => ({
