@@ -53,6 +53,12 @@ const FormalClassReportDocument = lazyWithRetry(() =>
   }))
 );
 
+const ElFormalAssessmentsPanel = lazyWithRetry(() =>
+  import("./reports/ElFormalAssessmentsPanel.jsx").then(module => ({
+    default: module.ElFormalAssessmentsPanel
+  }))
+);
+
 const COMPREHENSION_PASSAGE_SKILL_IDS = new Set([
   "sentence_comprehension",
   "key_details",
@@ -2111,12 +2117,15 @@ export function TeacherReportsPage({
   viewFinishedReport,
   guidedReadingRecords = {},
   assessmentHistory = [],
+  allAssessmentHistory = [],
   skillMasterySummary = [],
   classList = [],
   selectedClassId = "",
   setSelectedClassId,
   students = [],
   teacherName = "",
+  teacherId = "local",
+  supabase = null,
   evidenceReady = true
 }) {
   const [detailsReady, setDetailsReady] = useState(false);
@@ -2429,6 +2438,17 @@ export function TeacherReportsPage({
               Export Class PDF
             </button>
           </div>
+          <Suspense fallback={<div className="teacher-report-card">Loading EL formal report history…</div>}>
+            <ElFormalAssessmentsPanel
+              assessmentHistory={allAssessmentHistory}
+              classes={classList}
+              onPrint={() => window.print()}
+              selectedClassId={effectiveSelectedClassId}
+              students={students}
+              supabase={supabase}
+              teacherId={teacherId}
+            />
+          </Suspense>
           <Suspense fallback={<div className="teacher-action-panel">Loading class report...</div>}>
             <FormalClassReportDocument model={classReportingModel} />
           </Suspense>

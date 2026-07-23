@@ -71,12 +71,26 @@ test("@teacher-dashboard-data reachable seeded roster columns and rows", async (
   for (const learner of ["Aarav", "Aisha", "Amara", "Bao", "Camila"]) {
     await expect(roster.getByText(learner, { exact: true })).toBeVisible();
   }
+
+  await openAaravReports(page);
+  await page.getByRole("button", { name: "Class Report", exact: true }).click();
+  const formalElPanel = page.getByRole("region", { name: "EL Formal Assessments" });
+  await expect(formalElPanel).toBeVisible();
+  await expect(formalElPanel.getByLabel("EL evidence scope")).toBeEnabled();
+  await expect(formalElPanel.getByRole("button", { name: "Print or save EL PDF", exact: true })).toBeEnabled();
+  await expect(formalElPanel.getByRole("button", { name: "Export EL Excel", exact: true })).toBeEnabled();
+  await expect(formalElPanel.getByText(/latest 12 reports for offline access/)).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
 
 test("@product-finish-surface reachable reports, formal EL evidence, and exports", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
+  await page.addInitScript(() => {
+    window.print = () => {
+      window.__literacyPathPrintRequested = true;
+    };
+  });
 
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);
@@ -93,6 +107,38 @@ test("@product-finish-surface reachable reports, formal EL evidence, and exports
   await page.getByRole("button", { name: "Class Report", exact: true }).click();
   await expect(page.getByRole("button", { name: "Export Class PDF", exact: true })).toBeVisible();
   await expect(page.getByLabel("Class Report").getByText("Aarav", { exact: true }).first()).toBeVisible();
+  const formalElPanel = page.getByRole("region", { name: "EL Formal Assessments" });
+  await expect(formalElPanel).toBeVisible();
+  const evidenceScope = formalElPanel.getByLabel("EL evidence scope");
+  await expect(evidenceScope).toBeEnabled();
+  await expect(evidenceScope.locator("option")).not.toHaveCount(0);
+
+  await formalElPanel.getByRole("button", { name: "Print or save EL PDF", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__literacyPathPrintRequested)).toBe(true);
+
+  const savedRows = formalElPanel.locator(".el-saved-report-row");
+  await expect(savedRows.first()).toBeVisible({ timeout: 20_000 });
+  const beforeExportCount = await savedRows.count();
+  const downloadPromise = page.waitForEvent("download");
+  await formalElPanel.getByRole("button", { name: "Export EL Excel", exact: true }).click();
+  const workbookDownload = await downloadPromise;
+  expect(workbookDownload.suggestedFilename()).toMatch(/\.xlsx$/i);
+  await expect(formalElPanel.getByText(/Excel downloaded and saved/)).toBeVisible({
+    timeout: 20_000
+  });
+  await expect(savedRows).toHaveCount(beforeExportCount + 1);
+
+  await savedRows.first().getByRole("button", { name: "Delete", exact: true }).click();
+  const deleteConfirmation = savedRows.first().getByRole("group", {
+    name: "Confirm saved report deletion"
+  });
+  await expect(deleteConfirmation).toBeVisible();
+  await expect(deleteConfirmation.getByText(/removes both cloud and browser copies/)).toBeVisible();
+  await deleteConfirmation.getByRole("button", { name: "Delete permanently", exact: true }).click();
+  await expect(formalElPanel.getByText("Saved report deleted from cloud history and this browser.")).toBeVisible({
+    timeout: 20_000
+  });
+  await expect(savedRows).toHaveCount(beforeExportCount);
 
   await page.getByRole("button", { name: "Student Report", exact: true }).click();
   await page.getByRole("button", { name: "Open EL Assessments", exact: true }).click();

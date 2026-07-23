@@ -60,10 +60,13 @@ function normalizeAssessmentType(value) {
 }
 
 export function getElAssessmentTypeId(record = {}) {
-  const candidates = [record.assessmentType, record.assessmentId, record.skillId];
+  const assessmentType = normalizeAssessmentType(record.assessmentType);
+  if (assessmentType && EL_ASSESSMENT_TYPE_ID_SET.has(assessmentType)) return assessmentType;
+  if (assessmentType && assessmentType !== "el_benchmark") return "";
+  const candidates = [record.assessmentId, record.skillId];
   for (const candidate of candidates) {
     const normalized = normalizeAssessmentType(candidate);
-    if (normalized) return EL_ASSESSMENT_TYPE_ID_SET.has(normalized) ? normalized : "";
+    if (normalized && EL_ASSESSMENT_TYPE_ID_SET.has(normalized)) return normalized;
   }
   return "";
 }

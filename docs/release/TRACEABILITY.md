@@ -44,7 +44,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A4.6 | 4 | P0 | DONE | `check:release-readiness-surface` + export completeness | `docs/release/artifacts/2026-07-23T13-06-59-764Z/manifest.partial.json`: reachable signed-in route exports all 520 seeded attempts and 520 unique question records; checkpoint persistence no longer caps remaining/mastered/covered item lists |
 | A4.7 | 4 | P1 | TODO | activity-queue unit + sync-health + chaos tests | — |
 | A4.8 | 4 | P0 | IN-PROGRESS | composed curriculum gate in `check:release` | Implementation added; full manifest evidence pending Phase 0 exit |
-| A4.9 | 4 | P0 | TODO | route-level teacher-data + product-finish gates | — |
+| A4.9 | 4 | P0 | DONE | route-level teacher-data + product-finish gates | `docs/release/artifacts/2026-07-23T13-53-43-693Z/manifest.partial.json`: authenticated teacher Reports renders the formal EL scope picker, PDF and Excel actions, uncapped saved history, explicit retention policy, redownload, and confirmed cloud/browser deletion |
 | A4.10 | 4 | P1 EXTERNAL | TODO | calibration dashboard + protocol external-readiness check | — |
 | A5.1 | 5 | P1 | TODO | teacher-nav DOM + old-route redirect tests | — |
 | A5.2 | 5 | P0 | TODO | seeded Today briefing E2E | — |
@@ -66,7 +66,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A6.8 | 6 | P2 | TODO | assessment-hub nav copy test | — |
 | A6.9 | 6 | P1 | TODO | teacher state-matrix fixture tests | — |
 | A6.10 | 6 | P1 | TODO | teacher UI duplication guard + visual snapshots | — |
-| A7.1 | 7 | P0 | TODO | route-level teacher-data + product-finish gates | — |
+| A7.1 | 7 | P0 | DONE | route-level teacher-data + product-finish gates | Same 10/10 bounded manifest: the reachable route renders and interacts with scope selection, PDF, Excel generation/save, history, and deletion; the formal-report panel is isolated in its own budget-safe route chunk |
 | A7.2 | 7 | P0 | DONE | report release-readiness + 500-item export test | Same 9/9 partial manifest: Skills Check CSV separates Summary from Evidence appendix and includes complete item, attempt, and question rows; storage pagination is covered beyond 5,000 attempts |
 | A7.3 | 7 | P1 | TODO | class-to-item-evidence E2E | — |
 | A7.4 | 7 | P1 | TODO | evidence-basis + insufficient-evidence DOM tests | — |
@@ -128,3 +128,4 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 | D-013 | 4, 7 | P0 | DONE | reachable 520-item report/export journey | Same 9/9 partial manifest: learner selection hydrates and merges complete cloud history instead of replacing it with the 400-row browser cache |
 | D-014 | 7, 10 | P0 | DONE | SQL item-count assertion + reachable export journey | Same 9/9 partial manifest: audit seed has 520 production-readable `questionRecords`; signed-in CSV proves 520 unique item IDs |
 | D-015 | 6, 7 | P1 | DONE | complete-evidence loading state + authenticated route test | `docs/release/artifacts/2026-07-23T13-27-33-171Z/manifest.partial.json`: report choices remain disabled until selected-learner hydration finishes; 520-item route export passes in the bounded release run |
+| D-016 | 4, 6, 7, 10 | P0 | DONE | production-shaped audit seed + generic-category unit + authenticated report routes | Same 10/10 bounded manifest: canonical seed guard passes, generic legacy identity resolution is unit-covered within 979 passing tests, both report route gates pass, and bundle budgets remain green |

@@ -9100,12 +9100,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             }}
             guidedReadingRecords={guidedReadingRecords}
             assessmentHistory={reportsAssessmentHistory}
+            allAssessmentHistory={assessmentHistory}
             skillMasterySummary={reportSkillMasterySummary}
             classList={classList}
             selectedClassId={selectedClassId}
             setSelectedClassId={setSelectedClassId}
             students={studentList}
             teacherName={teacherUser?.email || ""}
+            teacherId={teacherId}
+            supabase={isSupabaseConfigured ? supabase : null}
             evidenceReady={selectedStudentEvidenceReady}
           />
         </PageBoundary>

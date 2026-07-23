@@ -63,12 +63,29 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "long_history_item_count <> 520",
     "administration_status = 'completed'",
     "administration_status = 'in_progress'",
+    "'el_phonological_awareness'",
+    "'el_encoding'",
+    "'el_decoding'",
+    "'el_oral_reading_fluency'",
+    "'whole_class'",
+    "audit-class-a-boy-formal-report.xlsx",
+    "\"benchmarkScope\":{\"grade\":\"1\",\"benchmarkWindow\":\"BOY\"",
     "'guided_reading'",
     "'phonics_quest'",
     "archived_at is not null",
     "audit_seed_verification_failed"
   ]) {
     if (!sql.includes(required)) failures.push(`missing seed contract: ${required}`);
+  }
+  for (const forbidden of [
+    "'el_benchmark_phonological_awareness'",
+    "'el_benchmark_encoding'",
+    "'el_benchmark_decoding'",
+    "'el_benchmark_oral_reading_fluency'",
+    "'formal_class'",
+    "audit-class-a-boy-formal-report.pdf"
+  ]) {
+    if (sql.includes(forbidden)) failures.push(`non-production EL seed identifier: ${forbidden}`);
   }
   if (uniqueStudentIds.size !== 26) {
     failures.push(`expected 26 deterministic learner IDs, found ${uniqueStudentIds.size}`);

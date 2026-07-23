@@ -11629,6 +11629,61 @@ select:focus {
   gap: 10px;
 }
 
+.el-formal-assessments-panel {
+  gap: 16px;
+}
+
+.el-formal-assessments-heading,
+.el-saved-reports-heading {
+  align-items: start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.el-formal-assessments-heading > div {
+  display: grid;
+  gap: 5px;
+}
+
+.el-formal-assessments-heading h3,
+.el-saved-reports-heading h4,
+.el-formal-assessments-heading p,
+.el-report-retention-note p {
+  margin: 0;
+}
+
+.report-scope-count,
+.el-saved-reports-heading span {
+  background: #e6fffb;
+  border-radius: 999px;
+  color: #0f766e;
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 850;
+  padding: 6px 10px;
+}
+
+.el-formal-export-controls {
+  box-shadow: none;
+  padding: 12px;
+}
+
+.el-report-retention-note {
+  background: #f8fafc;
+  border-left: 4px solid #0f766e;
+  border-radius: 8px;
+  display: grid;
+  gap: 4px;
+  padding: 11px 13px;
+}
+
+.el-report-retention-note p,
+.el-report-delete-confirmation span {
+  color: var(--lp-color-text-muted);
+  font-weight: 650;
+}
+
 .el-saved-report-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -11650,6 +11705,25 @@ select:focus {
 .el-saved-report-row small {
   color: var(--lp-color-text-muted);
   font-weight: 750;
+}
+
+.el-report-delete-confirmation {
+  display: grid;
+  gap: 6px;
+  max-width: 320px;
+}
+
+@media (max-width: 720px) {
+  .el-formal-assessments-heading,
+  .el-saved-reports-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .report-scope-count,
+  .el-saved-reports-heading span {
+    align-self: start;
+  }
 }
 
 .teacher-line-chart {

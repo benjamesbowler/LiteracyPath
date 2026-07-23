@@ -44,7 +44,7 @@ const ASSESSMENT_SKILL_GROUPS = [
   },
   {
     id: "grammar_language",
-    label: "Grammar and Language",
+    label: "Grammar & Language",
     skillIds: [
       "nouns",
       "verbs",

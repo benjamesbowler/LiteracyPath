@@ -194,7 +194,8 @@ function normalizeRecords(records = []) {
 
 function isElReportRecord(record = {}) {
   const explicitType = String(record.assessmentType || record.assessmentId || "").trim();
-  if (explicitType) return EL_REPORT_ASSESSMENT_IDS.has(explicitType);
+  if (explicitType && EL_REPORT_ASSESSMENT_IDS.has(explicitType)) return true;
+  if (explicitType && explicitType !== "el_benchmark") return false;
   const benchmarkId = getElBenchmarkAssessmentId(record);
   if (benchmarkId) return EL_REPORT_ASSESSMENT_IDS.has(benchmarkId);
   return EL_REPORT_ASSESSMENT_IDS.has(String(record.skillId || "").trim());
