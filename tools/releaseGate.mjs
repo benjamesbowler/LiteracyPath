@@ -109,6 +109,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "teacher-state-matrix",
+    label: "Five-surface teacher loading, empty, partial, offline, denied, conflict, expired, and recovery states",
+    command: ["npm", "run", "check:teacher-state-matrix"],
+    areas: [5, 6, 10]
+  },
+  {
     id: "teacher-context",
     label: "Persistent class, group, and learner teacher context",
     command: ["npm", "run", "check:teacher-context"],

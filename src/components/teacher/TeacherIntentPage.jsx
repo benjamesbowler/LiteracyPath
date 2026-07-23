@@ -1,4 +1,5 @@
 import { APP_VIEWS } from "../../appState/appViews.js";
+import { TeacherSurfaceState } from "./ui/TeacherSurfaceState.jsx";
 
 const INTENT_COPY = Object.freeze({
   assess: {
@@ -122,7 +123,11 @@ export function TeacherIntentPage({
   onOpenGuidedReading,
   onOpenStoryQuests,
   onOpenWorksheets,
-  onOpenPresent
+  onOpenPresent,
+  surfaceState = "",
+  surfaceStateDetail = "",
+  onSurfaceStatePrimary,
+  onSurfaceStateSecondary
 }) {
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
@@ -155,58 +160,70 @@ export function TeacherIntentPage({
         </div>
       </section>
 
-      <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
-        {actions.map(action => {
-          const needsLearner = action.requiresStudent && !studentName;
-          return (
-            <article className="teacher-action-card" key={action.id}>
-              <div>
-                <p className="panel-label">{action.category}</p>
-                <h3>{action.label}</h3>
-                <p>{action.description}</p>
-                {needsLearner && (
-                  <small className="muted-text">Choose a learner to continue.</small>
-                )}
-              </div>
-              <button
-                className="lp-button lp-button-secondary"
-                disabled={needsLearner && !onOpenView}
-                onClick={needsLearner
-                  ? () => onOpenView(APP_VIEWS.TEACHER_CLASSES)
-                  : action.onOpen}
-                type="button"
-              >
-                {needsLearner ? "Choose learner" : "Open"}
-              </button>
-            </article>
-          );
-        })}
-      </section>
+      {surfaceState ? (
+        <TeacherSurfaceState
+          surface={intent}
+          state={surfaceState}
+          detail={surfaceStateDetail}
+          onPrimaryAction={onSurfaceStatePrimary}
+          onSecondaryAction={onSurfaceStateSecondary}
+        />
+      ) : (
+        <>
+          <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
+            {actions.map(action => {
+              const needsLearner = action.requiresStudent && !studentName;
+              return (
+                <article className="teacher-action-card" key={action.id}>
+                  <div>
+                    <p className="panel-label">{action.category}</p>
+                    <h3>{action.label}</h3>
+                    <p>{action.description}</p>
+                    {needsLearner && (
+                      <small className="muted-text">Choose a learner to continue.</small>
+                    )}
+                  </div>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    disabled={needsLearner && !onOpenView}
+                    onClick={needsLearner
+                      ? () => onOpenView(APP_VIEWS.TEACHER_CLASSES)
+                      : action.onOpen}
+                    type="button"
+                  >
+                    {needsLearner ? "Choose learner" : "Open"}
+                  </button>
+                </article>
+              );
+            })}
+          </section>
 
-      {intent === "assess" && (
-        <details className="teacher-assessment-language-guide">
-          <summary>Assessment language guide</summary>
-          <div>
-            <p>
-              Older records and training materials may use the labels below. The hub groups them by the
-              teacher decision they support.
-            </p>
-            <dl>
+          {intent === "assess" && (
+            <details className="teacher-assessment-language-guide">
+              <summary>Assessment language guide</summary>
               <div>
-                <dt>Checkpoints</dt>
-                <dd>Use Universal benchmark for a shared starting point or Diagnostic follow-up for one specific gap.</dd>
+                <p>
+                  Older records and training materials may use the labels below. The hub groups them by the
+                  teacher decision they support.
+                </p>
+                <dl>
+                  <div>
+                    <dt>Checkpoints</dt>
+                    <dd>Use Universal benchmark for a shared starting point or Diagnostic follow-up for one specific gap.</dd>
+                  </div>
+                  <div>
+                    <dt>EL Checks</dt>
+                    <dd>Use Progress monitoring when you need comparable evidence across a grade and assessment window.</dd>
+                  </div>
+                  <div>
+                    <dt>Advanced Phonics</dt>
+                    <dd>Use Diagnostic follow-up when a learner needs a closer look at phonics patterns.</dd>
+                  </div>
+                </dl>
               </div>
-              <div>
-                <dt>EL Checks</dt>
-                <dd>Use Progress monitoring when you need comparable evidence across a grade and assessment window.</dd>
-              </div>
-              <div>
-                <dt>Advanced Phonics</dt>
-                <dd>Use Diagnostic follow-up when a learner needs a closer look at phonics patterns.</dd>
-              </div>
-            </dl>
-          </div>
-        </details>
+            </details>
+          )}
+        </>
       )}
     </main>
   );

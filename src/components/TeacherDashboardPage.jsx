@@ -16,6 +16,7 @@ import { ActionFeedback } from "./ActionFeedback.jsx";
 import {
   MetricFigure
 } from "./MetricDefinition.jsx";
+import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import { metricDefinitionText } from "../utils/metricDefinitions.js";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
@@ -948,7 +949,11 @@ export function TeacherDashboardPage({
   schoolName = "",
   hasSchool = false,
   saveSchool,
-  message
+  message,
+  surfaceState = "",
+  surfaceStateDetail = "",
+  onSurfaceStatePrimary,
+  onSurfaceStateSecondary
 }) {
   const [newStudentName, setNewStudentName] = useState("");
   const [showRosterImport, setShowRosterImport] = useState(false);
@@ -1553,6 +1558,16 @@ export function TeacherDashboardPage({
       <ActionFeedback className="teacher-dashboard-message" message={message} />
       <ActionFeedback className="teacher-dashboard-message" feedback={rosterOperationStatus} />
 
+      {surfaceState ? (
+        <TeacherSurfaceState
+          surface={isClassesPage ? "classes" : "today"}
+          state={surfaceState}
+          detail={surfaceStateDetail}
+          onPrimaryAction={onSurfaceStatePrimary}
+          onSecondaryAction={onSurfaceStateSecondary}
+        />
+      ) : (
+      <>
       <TeacherSetupChecklist
         hasClass={hasSetupClass}
         hasLearners={hasSetupLearners}
@@ -2107,7 +2122,14 @@ export function TeacherDashboardPage({
           <ClassHeatPanel rows={studentRows} />
         )}
 
-        {!selectedClass ? (
+        {!selectedClass && isClassesPage ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="empty"
+            onPrimaryAction={focusNewClassInput}
+          />
+        ) : !selectedClass ? (
           <div className="report-empty-state teacher-onboard-empty">
             <strong>Your roster will appear here.</strong>
             <p>Create a class above or continue from the setup checklist.</p>
@@ -2116,7 +2138,11 @@ export function TeacherDashboardPage({
             </button>
           </div>
         ) : loadingStudents ? (
-          <ActionFeedback kind="pending" message="Loading students..." />
+          <TeacherSurfaceState
+            compact
+            surface={isClassesPage ? "classes" : "today"}
+            state="loading"
+          />
         ) : studentRows.length === 0 ? (
           <div className="report-empty-state teacher-onboard-empty">
             <strong>Add your first student to {selectedClass.name}.</strong>
@@ -2481,6 +2507,8 @@ export function TeacherDashboardPage({
             </button>
           </div>
         </TeacherModal>
+      )}
+      </>
       )}
     </main>
   );

@@ -129,6 +129,7 @@
     "check:teacher-action-feedback": "node tools/checkActionFeedbackAdoption.mjs && npm run test:release-teacher -- --grep @teacher-action-feedback",
     "check:teacher-metric-definitions": "node tools/checkMetricDefinitions.mjs && node --test tests/unit/metricDefinitions.test.js && npm run test:release-teacher -- --grep @teacher-metric-definitions",
     "check:teacher-assessment-hub": "npm run test:release-teacher -- --grep @teacher-assessment-hub",
+    "check:teacher-state-matrix": "node --test tests/unit/teacherSurfaceStateMatrix.test.js && node tools/checkTeacherStateMatrix.mjs",
     "check:teacher-context": "npm run test:release-teacher -- --grep @teacher-persistent-context",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

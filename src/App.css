@@ -17860,6 +17860,151 @@ select:focus {
   white-space: nowrap;
 }
 
+/* ─── Teacher surface state matrix ────────────────────────────────────── */
+
+.teacher-surface-state {
+  --teacher-state-accent: var(--lp-color-primary);
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px 24px;
+  align-items: center;
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--teacher-state-accent) 28%, var(--lp-color-border));
+  border-left: 5px solid var(--teacher-state-accent);
+  border-radius: 12px;
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-surface-state.is-warning {
+  --teacher-state-accent: var(--lp-color-warning);
+}
+
+.teacher-surface-state.is-danger {
+  --teacher-state-accent: var(--lp-color-danger);
+}
+
+.teacher-surface-state.is-success {
+  --teacher-state-accent: var(--lp-color-success);
+}
+
+.teacher-surface-state.is-neutral {
+  --teacher-state-accent: var(--lp-color-text-muted);
+}
+
+.teacher-surface-state-marker {
+  grid-column: 1 / -1;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 9px;
+  border-radius: var(--lp-radius-pill);
+  background: color-mix(in srgb, var(--teacher-state-accent) 11%, var(--lp-color-surface));
+  color: var(--lp-color-text-strong);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.teacher-surface-state-symbol {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border: 2px solid var(--teacher-state-accent);
+  border-radius: 50%;
+  background: var(--teacher-state-accent);
+}
+
+.teacher-surface-state.is-pending .teacher-surface-state-symbol {
+  border-color: color-mix(in srgb, var(--teacher-state-accent) 24%, transparent);
+  border-top-color: var(--teacher-state-accent);
+  background: transparent;
+  animation: lp-action-feedback-spin 0.8s linear infinite;
+}
+
+.teacher-surface-state-copy {
+  min-width: 0;
+}
+
+.teacher-surface-state-copy .panel-label {
+  margin: 0 0 4px;
+}
+
+.teacher-surface-state-copy h3 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.2;
+}
+
+.teacher-surface-state-copy > p:not(.panel-label) {
+  max-width: 70ch;
+  margin: 7px 0 0;
+  color: var(--lp-color-text-muted);
+  line-height: 1.55;
+}
+
+.teacher-surface-state-copy .teacher-surface-state-preserved {
+  color: var(--lp-color-text);
+}
+
+.teacher-surface-state-preserved strong {
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-surface-state-copy .teacher-surface-state-detail {
+  padding-top: 7px;
+  border-top: 1px solid var(--lp-color-border-subtle);
+  font-size: 13px;
+}
+
+.teacher-surface-state-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 320px;
+  max-width: 100%;
+}
+
+.teacher-surface-state-actions .lp-button {
+  width: 100%;
+  min-height: 44px !important;
+  white-space: normal;
+}
+
+.teacher-surface-state.is-compact {
+  padding: 16px;
+}
+
+.teacher-surface-state.is-compact .teacher-surface-state-copy h3 {
+  font-size: 18px;
+}
+
+.teacher-state-fixture-sheet {
+  width: min(1120px, calc(100% - 32px));
+  display: grid;
+  gap: 18px;
+  margin: 24px auto;
+}
+
+.teacher-state-fixture-sheet > header {
+  padding: 24px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 12px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-state-fixture-sheet > header h1,
+.teacher-state-fixture-sheet > header p {
+  margin: 0;
+}
+
+.teacher-state-fixture-sheet > header h1 {
+  margin-block: 5px;
+}
+
 @media (max-width: 820px) {
   .teacher-intent-page[data-teacher-intent="assess"] .teacher-intent-actions {
     grid-template-columns: 1fr;
@@ -17876,6 +18021,16 @@ select:focus {
 
   .teacher-assessment-language-guide dl {
     grid-template-columns: 1fr;
+  }
+
+  .teacher-surface-state {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .teacher-surface-state-actions {
+    width: 100%;
+    max-width: none;
   }
 }
 

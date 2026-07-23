@@ -9214,7 +9214,7 @@ ${metricDefinitionsText}
 
       {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_RESOURCES && (
         <PageBoundary resetKey="teacher-resources">
-          <Suspense fallback={<LazyPageFallback label="Loading planning resources..." />}>
+          <Suspense fallback={<LazyPageFallback label="Loading resources..." />}>
             <TeacherIntentPage
               intent="resources"
               className={getSelectedClassName(classList, selectedClassId)}
