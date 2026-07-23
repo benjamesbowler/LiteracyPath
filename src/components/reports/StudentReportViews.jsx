@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
+import { MetricFigure } from "../MetricDefinition.jsx";
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
@@ -31,7 +32,18 @@ export function ReportMetricStrip({ metrics = [] }) {
       {rows.map(metric => (
         <article key={metric.label}>
           <span>{metric.label}</span>
-          <strong>{metric.value ?? "Not checked"}</strong>
+          <strong>
+            {metric.definitionId
+              ? (
+                <MetricFigure
+                  metricId={metric.definitionId}
+                  {...(metric.definitionOptions || {})}
+                >
+                  {metric.value ?? "Not checked"}
+                </MetricFigure>
+              )
+              : metric.value ?? "Not checked"}
+          </strong>
           {metric.detail && <small>{metric.detail}</small>}
         </article>
       ))}
@@ -301,7 +313,22 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
                 <dl>
                   <div><dt>Last read</dt><dd>{formatEvidenceDate(book.lastReadAt || book.completedAt)}</dd></div>
                   <div><dt>Pages</dt><dd>{book.pagesRead ?? book.completedPages ?? "Not recorded"}</dd></div>
-                  <div><dt>Reading observation</dt><dd>{book.attempted ? `${book.latestAccuracy ?? book.accuracy ?? 0}% across ${book.attempted} marked words` : "No marked words"}</dd></div>
+                  <div>
+                    <dt>Reading observation</dt>
+                    <dd>
+                      {book.attempted ? (
+                        <MetricFigure
+                          dateRange="This saved reading observation."
+                          denominator={`${book.attempted} marked word${book.attempted === 1 ? "" : "s"} in this book observation.`}
+                          metricId="accuracy"
+                          minimumEvidence="At least one word marked read correctly or needing support."
+                          updatedAt={book.lastReadAt || book.completedAt}
+                        >
+                          {book.latestAccuracy ?? book.accuracy ?? 0}% across {book.attempted} marked words
+                        </MetricFigure>
+                      ) : "No marked words"}
+                    </dd>
+                  </div>
                   <div><dt>Comprehension check</dt><dd>{book.quizTotal ? `${book.quizScore}/${book.quizTotal}` : "Not recorded"}</dd></div>
                 </dl>
                 {asArray(book.correctWords).length > 0 && (
@@ -433,7 +460,17 @@ export function SkillsCheckReportView({ report = {} }) {
             <div className="lg-report-selected-skill-summary">
               <ReportStatus value={selected?.currentStatus || selected?.statusLabel || selected?.status} />
               <strong>{latestTotal != null && Number(latestTotal) > 0 ? `${latestCorrect ?? 0}/${latestTotal}` : "No scored checkpoint"}</strong>
-              {latestAccuracy != null && Number.isFinite(Number(latestAccuracy)) && <span>{Math.round(Number(latestAccuracy))}% accuracy</span>}
+              {latestAccuracy != null && Number.isFinite(Number(latestAccuracy)) && (
+                <MetricFigure
+                  dateRange="The latest completed checkpoint administration for this skill."
+                  denominator={`${latestTotal || 0} administered scored question${Number(latestTotal) === 1 ? "" : "s"} in the latest checkpoint.`}
+                  metricId="accuracy"
+                  minimumEvidence="At least one administered scored checkpoint question."
+                  updatedAt={selected?.latestAt || selected?.latestDate || history[0]?.completedAt || history[0]?.date}
+                >
+                  {Math.round(Number(latestAccuracy))}% accuracy
+                </MetricFigure>
+              )}
             </div>
             {history.length > 0 && (
               <details>

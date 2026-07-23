@@ -97,6 +97,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 7, 10]
   },
   {
+    id: "teacher-metric-definitions",
+    label: "Defined teacher metrics in DOM tooltips and export definition sheets",
+    command: ["npm", "run", "check:teacher-metric-definitions"],
+    areas: [5, 6, 7, 10]
+  },
+  {
     id: "teacher-context",
     label: "Persistent class, group, and learner teacher context",
     command: ["npm", "run", "check:teacher-context"],

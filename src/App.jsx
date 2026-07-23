@@ -846,14 +846,8 @@ function buildQuestionExportText(item = {}) {
 }
 
 async function createExcelWorkbook() {
-  const module = await importWithRetry(() => import("exceljs"));
-  const ExcelJS = module.default || module["module.exports"] || module;
-
-  if (!ExcelJS?.Workbook) {
-    throw new Error("ExcelJS workbook export is unavailable.");
-  }
-
-  return new ExcelJS.Workbook();
+  const metricDefinitions = await importWithRetry(() => import("./utils/metricDefinitions.js"));
+  return metricDefinitions.createDefinedExcelWorkbook(importWithRetry);
 }
 
 function downloadBlob(blob, filename) {
@@ -7805,7 +7799,7 @@ export default function App() {
   }
 
 
-  function exportCSVData() {
+  async function exportCSVData() {
     const today =
       new Date().toISOString().slice(0, 10);
 
@@ -7857,6 +7851,9 @@ export default function App() {
         item.isCorrect ? "Correct" : "Incorrect"
       ]);
     });
+
+    const metricDefinitions = await importWithRetry(() => import("./utils/metricDefinitions.js"));
+    rows.push(...metricDefinitions.buildMetricDefinitionCsvRows());
 
     const csv =
       rows
@@ -8407,7 +8404,9 @@ export default function App() {
     }
 
     const { summarizeGuidedReadingRecords } = await loadGuidedReadingBooksModule();
+    const { buildMetricDefinitionsText } = await importWithRetry(() => import("./utils/metricDefinitions.js"));
     const guidedReadingSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
+    const metricDefinitionsText = buildMetricDefinitionsText();
 
     const reportText = `
 Reading Mastery Report
@@ -8446,6 +8445,10 @@ Student answered: ${formatExportValue(item.chosen)}
 Correct answer: ${formatExportValue(item.correct)}
 Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 }).join("\n\n")}
+
+Metric Definitions
+
+${metricDefinitionsText}
 `.trim();
 
     const blob = new Blob([reportText], {

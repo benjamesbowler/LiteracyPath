@@ -13,6 +13,10 @@ import {
 } from "../data/teacherRosterOperations.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
+import {
+  MetricFigure
+} from "./MetricDefinition.jsx";
+import { metricDefinitionText } from "../utils/metricDefinitions.js";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
 
@@ -30,6 +34,15 @@ function formatLastActive(value) {
   if (diffDays === 1) return "Yesterday";
   if (diffDays < 7) return `${diffDays} days ago`;
   return date.toLocaleDateString();
+}
+
+function latestMetricUpdate(values = []) {
+  return values
+    .filter(Boolean)
+    .map(value => ({ value, timestamp: new Date(value).getTime() }))
+    .filter(row => Number.isFinite(row.timestamp))
+    .sort((a, b) => a.timestamp - b.timestamp)
+    .at(-1)?.value || "";
 }
 
 function getProgressPercent(row, skillTotal) {
@@ -196,11 +209,21 @@ function LoginCardPrintRoute({
   );
 }
 
-function RosterMetric({ label, value, tone = "" }) {
+function RosterMetric({
+  definitionId = "",
+  definitionOptions = {},
+  label,
+  value,
+  tone = ""
+}) {
   return (
     <div className={["teacher-roster-metric", tone].filter(Boolean).join(" ")}>
       <span>{label}</span>
-      <strong>{value}</strong>
+      <strong>
+        {definitionId
+          ? <MetricFigure metricId={definitionId} {...definitionOptions}>{value}</MetricFigure>
+          : value}
+      </strong>
     </div>
   );
 }
@@ -306,9 +329,10 @@ function TeacherDrawer({ label, onClose, children }) {
     const previouslyFocused = document.activeElement;
     const drawer = drawerRef.current;
     if (!drawer) return undefined;
-    const firstControl = drawer.querySelector(
-      "button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]"
-    );
+    const firstControl = drawer.querySelector("[data-autofocus]")
+      || drawer.querySelector(
+        "button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]"
+      );
     (firstControl || drawer).focus();
 
     function handleKeyDown(event) {
@@ -756,7 +780,15 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
             key={tile.id}
             type="button"
             className={`quest-heat-tile is-${tile.bucket}${selected.includes(tile.id) ? " is-selected" : ""}`}
-            title={`${tile.label} · ${tile.stopName} · ${tile.bucket === "unseen" ? "not met yet" : `${tile.accuracy}% over ${tile.seen} response${tile.seen === 1 ? "" : "s"}`}`}
+            title={tile.bucket === "unseen"
+              ? `${tile.label} · ${tile.stopName} · not met yet`
+              : metricDefinitionText("accuracy", {
+                  label: `${tile.label} · ${tile.stopName} accuracy`,
+                  denominator: `${tile.seen} scored Sound Seekers response${tile.seen === 1 ? "" : "s"} for this sound.`,
+                  dateRange: "All saved Sound Seekers sessions for this learner.",
+                  minimumEvidence: "At least one scored response for this sound.",
+                  updatedAt: tile.lastActiveAt || report?.lastActiveAt
+                })}
             aria-pressed={selected.includes(tile.id)}
             onClick={() => toggle(tile.id)}
           >
@@ -1118,6 +1150,7 @@ export function TeacherDashboardPage({
   const averageAccuracy = rowsWithAccuracy.length
     ? Math.round(rowsWithAccuracy.reduce((sum, row) => sum + Number(row.accuracy), 0) / rowsWithAccuracy.length)
     : null;
+  const classMetricUpdatedAt = latestMetricUpdate(studentRows.map(row => row.lastActive));
   const className = selectedClass?.name || "No class selected";
   const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]
     || (selectedClass?.leaderboard_scope === "school" ? "school" : "class");
@@ -1654,9 +1687,34 @@ export function TeacherDashboardPage({
         >
           <RosterMetric label="Students" value={studentRows.length} />
           <RosterMetric label="Logins ready" value={`${loginReadyCount}/${studentRows.length || 0}`} tone={loginReadyCount === studentRows.length && studentRows.length ? "good" : ""} />
-          <RosterMetric label="Started" value={`${startedCount}/${studentRows.length || 0}`} />
-          <RosterMetric label="Avg accuracy" value={averageAccuracy === null ? "-" : `${averageAccuracy}%`} />
-          <RosterMetric label="Active today" value={activeTodayCount} />
+          <RosterMetric
+            definitionId="started"
+            definitionOptions={{
+              denominator: `${studentRows.length} active roster learner${studentRows.length === 1 ? "" : "s"}.`,
+              updatedAt: classMetricUpdatedAt
+            }}
+            label="Started"
+            value={`${startedCount}/${studentRows.length || 0}`}
+          />
+          <RosterMetric
+            definitionId="accuracy"
+            definitionOptions={{
+              denominator: `${rowsWithAccuracy.length} learner accuracies, each calculated from that learner's scored responses.`,
+              dateRange: "All saved scored responses for the selected class.",
+              updatedAt: classMetricUpdatedAt
+            }}
+            label="Avg accuracy"
+            value={averageAccuracy === null ? "Not checked" : `${averageAccuracy}%`}
+          />
+          <RosterMetric
+            definitionId="active"
+            definitionOptions={{
+              denominator: `${studentRows.length} active roster learner${studentRows.length === 1 ? "" : "s"}.`,
+              updatedAt: classMetricUpdatedAt
+            }}
+            label="Active today"
+            value={`${activeTodayCount}/${studentRows.length || 0}`}
+          />
         </section>
       )}
 
@@ -1712,20 +1770,49 @@ export function TeacherDashboardPage({
                   <span aria-hidden="true">/</span> {selectedStudentRow.name}
                 </p>
                 <h3>{selectedStudentRow.name}</h3>
-                <p>{selectedStudentRow.currentSkill}</p>
+                <p>
+                  <MetricFigure
+                    metricId="current-skill"
+                    updatedAt={selectedStudentRow.lastActive}
+                  >
+                    {selectedStudentRow.currentSkill}
+                  </MetricFigure>
+                </p>
               </div>
-              <button className="text-button" type="button" onClick={onClearStudent}>
+              <button className="text-button" data-autofocus type="button" onClick={onClearStudent}>
                 Close learner
               </button>
             </header>
             <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} evidence summary`}>
               <RosterMetric label="Responses" value={selectedStudentRow.answered} />
               <RosterMetric
+                definitionId="accuracy"
+                definitionOptions={{
+                  denominator: `${selectedStudentRow.answered} scored response${selectedStudentRow.answered === 1 ? "" : "s"} for this learner.`,
+                  updatedAt: selectedStudentRow.lastActive
+                }}
                 label="Accuracy"
                 value={selectedStudentRow.answered ? `${selectedStudentRow.accuracy}%` : "Not checked"}
               />
-              <RosterMetric label="Skills secured" value={selectedStudentRow.masteredCount} />
-              <RosterMetric label="Last active" value={formatLastActive(selectedStudentRow.lastActive)} />
+              <RosterMetric
+                definitionId="mastered"
+                definitionOptions={{
+                  denominator: `${skillTotal} curriculum skills.`,
+                  updatedAt: selectedStudentRow.lastActive
+                }}
+                label="Skills secured"
+                value={`${selectedStudentRow.masteredCount}/${skillTotal}`}
+              />
+              <RosterMetric
+                definitionId="active"
+                definitionOptions={{
+                  denominator: "This learner's saved answer and Sound Seekers activity events.",
+                  dateRange: "Most recent saved activity across all time.",
+                  updatedAt: selectedStudentRow.lastActive
+                }}
+                label="Last active"
+                value={formatLastActive(selectedStudentRow.lastActive)}
+              />
             </div>
             <dl className="teacher-learner-drawer-details">
               <div>
@@ -1735,8 +1822,15 @@ export function TeacherDashboardPage({
               <div>
                 <dt>Sound Seekers</dt>
                 <dd>
-                  {selectedStudentRow.soundSeekers?.sessions
-                    ? `${selectedStudentRow.soundSeekers.stopsCompleted}/40 trails · ${selectedStudentRow.soundSeekers.stonesLit} sounds lit`
+                  {selectedStudentRow.soundSeekers?.sessions || selectedStudentRow.soundSeekers?.stopsCompleted > 0
+                    ? (
+                      <MetricFigure
+                        metricId="trails"
+                        updatedAt={selectedStudentRow.soundSeekers.syncedAt || selectedStudentRow.lastActive}
+                      >
+                        {selectedStudentRow.soundSeekers.stopsCompleted}/40 trails · {selectedStudentRow.soundSeekers.stonesLit} sounds lit
+                      </MetricFigure>
+                    )
                     : "Not started"}
                 </dd>
               </div>
@@ -2085,17 +2179,35 @@ export function TeacherDashboardPage({
                       </div>
                     </td>
                     {enabledRosterColumns.has("focus") && <td data-label="Focus">
-                      <span className="teacher-focus-pill">{row.currentSkill}</span>
+                      <span className="teacher-focus-pill">
+                        <MetricFigure metricId="current-skill" updatedAt={row.lastActive}>
+                          {row.currentSkill}
+                        </MetricFigure>
+                      </span>
                     </td>}
                     {enabledRosterColumns.has("progress") && <td data-label="Progress">
                       <div className="teacher-progress-cell">
                         <div className="teacher-progress-line">
                           <strong>
-                            {row.answered
-                              ? `${row.masteredCount}/${skillTotal} mastered`
-                              : "Not started"}
+                            <MetricFigure
+                              denominator={`${skillTotal} curriculum skills.`}
+                              metricId="mastered"
+                              updatedAt={row.lastActive}
+                            >
+                              {row.answered
+                                ? `${row.masteredCount}/${skillTotal} mastered`
+                                : "Not started"}
+                            </MetricFigure>
                           </strong>
-                          {row.answered ? <span>{row.accuracy}%</span> : null}
+                          {row.answered ? (
+                            <MetricFigure
+                              denominator={`${row.answered} scored response${row.answered === 1 ? "" : "s"} for this learner.`}
+                              metricId="accuracy"
+                              updatedAt={row.lastActive}
+                            >
+                              {row.accuracy}%
+                            </MetricFigure>
+                          ) : null}
                         </div>
                         <div className="teacher-progress-track" aria-hidden="true">
                           <span style={{ width: `${progressPercent}%` }} />
@@ -2103,9 +2215,16 @@ export function TeacherDashboardPage({
                       </div>
                     </td>}
                     {enabledRosterColumns.has("sound-seekers") && <td data-label="Sound Seekers">
-                      {row.soundSeekers?.sessions ? (
+                      {row.soundSeekers?.sessions || row.soundSeekers?.stopsCompleted > 0 ? (
                         <div className="teacher-quest-cell">
-                          <strong>{row.soundSeekers.stopsCompleted}/40 trails</strong>
+                          <strong>
+                            <MetricFigure
+                              metricId="trails"
+                              updatedAt={row.soundSeekers.syncedAt || row.lastActive}
+                            >
+                              {row.soundSeekers.stopsCompleted}/40 trails
+                            </MetricFigure>
+                          </strong>
                           <span>{row.soundSeekers.stonesLit} sounds lit · {row.soundSeekers.timeOnTask}</span>
                           <small>{row.soundSeekers.currentFocus?.length ? `Needs re-teaching: ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
                           <button

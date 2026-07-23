@@ -2370,6 +2370,112 @@ body {
   }
 }
 
+.lp-defined-metric {
+  position: relative;
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  min-width: 0;
+}
+
+.lp-defined-metric-value {
+  min-width: 0;
+}
+
+.lp-metric-definition {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.app .lp-metric-definition-trigger {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lp-color-primary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: help;
+}
+
+.app .lp-metric-definition-trigger:hover {
+  transform: none;
+}
+
+.app .lp-metric-definition-trigger:focus-visible {
+  outline: 3px solid var(--lp-color-primary);
+  outline-offset: 2px;
+}
+
+.lp-metric-definition-tooltip {
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: min(340px, calc(100vw - 32px));
+  display: none;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 8px;
+  background: var(--lp-color-surface);
+  box-shadow: var(--shadow-card);
+  color: var(--lp-color-text);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  pointer-events: none;
+  text-align: left;
+  transform: translateX(-50%);
+}
+
+.lp-metric-definition-tooltip strong,
+.lp-metric-definition-tooltip span {
+  display: block;
+}
+
+.lp-metric-definition-tooltip b {
+  font-weight: 800;
+}
+
+.lp-metric-definition:hover .lp-metric-definition-tooltip,
+.lp-metric-definition:focus-within .lp-metric-definition-tooltip {
+  display: grid;
+}
+
+.teacher-roster-table td:first-child .lp-metric-definition-tooltip,
+.teacher-roster-table td:nth-child(2) .lp-metric-definition-tooltip {
+  left: 0;
+  transform: none;
+}
+
+.teacher-roster-table td:last-child .lp-metric-definition-tooltip {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+.teacher-roster-metric:last-child .lp-metric-definition-tooltip {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+.teacher-learner-drawer .lp-metric-definition-tooltip {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
 .teacher-dashboard-page {
   gap: 14px;
 }
@@ -3141,6 +3247,7 @@ body {
 }
 
 .teacher-learner-drawer-dialog .teacher-learner-drawer {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   align-content: start;
@@ -3179,7 +3286,7 @@ body {
 
 .teacher-learner-drawer-metrics {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
 

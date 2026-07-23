@@ -16,6 +16,7 @@ import {
 import { buildStudentWorkspaceCsvRows } from "../utils/exportStudentWorkspaceCsv.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
+import { MetricFigure } from "./MetricDefinition.jsx";
 import { StudentReportShell } from "./reports/StudentReportShell.jsx";
 import {
   GuidedReadingReportView,
@@ -173,7 +174,7 @@ function benchmarkMetricRows(profile = {}) {
   const metrics = profile.metrics || {};
   if (profile.domainKey === "phonologicalAwareness") {
     return [
-      ["Oral-task accuracy", formatEvidencePercent(metrics.accuracyRate)],
+      ["Oral-task accuracy", formatEvidencePercent(metrics.accuracyRate), "accuracy"],
       ["Strands observed", metrics.strandsObserved ?? "Not available"]
     ];
   }
@@ -186,13 +187,13 @@ function benchmarkMetricRows(profile = {}) {
   }
   if (profile.domainKey === "decoding") {
     return [
-      ["Word accuracy", formatEvidencePercent(metrics.accuracyRate)],
+      ["Word accuracy", formatEvidencePercent(metrics.accuracyRate), "accuracy"],
       ["Automatic reading", formatEvidencePercent(metrics.automaticityRate)]
     ];
   }
   return [
     ["Correct words/min", formatEvidenceNumber(metrics.wcpm)],
-    ["Word accuracy", formatEvidencePercent(metrics.accuracyRate)],
+    ["Word accuracy", formatEvidencePercent(metrics.accuracyRate), "accuracy"],
     ["Prosody (optional)", formatEvidenceNumber(metrics.prosodyAverage, null) === null
       ? "Not scored"
       : `${Number(metrics.prosodyAverage).toFixed(1)} / 4`]
@@ -632,8 +633,25 @@ function ElBenchmarkEvidenceSection({ report }) {
                 </small>
                 <BenchmarkProvenance domain={domain} />
                 <dl>
-                  {benchmarkMetricRows(domain).map(([label, value]) => (
-                    <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+                  {benchmarkMetricRows(domain).map(([label, value, definitionId]) => (
+                    <div key={label}>
+                      <dt>{label}</dt>
+                      <dd>
+                        {definitionId
+                          ? (
+                            <MetricFigure
+                              dateRange={`The saved ${domain.grade || "ungraded"} ${domain.benchmarkWindow || "benchmark"} route shown on this card.`}
+                              denominator="Administered scored items in this benchmark domain."
+                              metricId={definitionId}
+                              minimumEvidence="At least one administered scored item; unscored administrations display Not scored."
+                              updatedAt={domain.latestAt || domain.latestDate || detail?.updatedAt || detail?.completedAt}
+                            >
+                              {value}
+                            </MetricFigure>
+                          )
+                          : value}
+                      </dd>
+                    </div>
                   ))}
                 </dl>
                 {placementLabel && <p className="student-report-provisional-placement">{placementLabel}</p>}

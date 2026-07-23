@@ -368,7 +368,8 @@ test("finished report never coerces missing fluency evidence to zero", async t =
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, finishedReportProps(assessmentHistory)));
   assert.match(html, /<dt>Correct words\/min<\/dt><dd>Not scored<\/dd>/);
-  assert.match(html, /<dt>Word accuracy<\/dt><dd>Not scored<\/dd>/);
+  assert.match(html, /<dt>Word accuracy<\/dt><dd>.*data-metric-figure="accuracy".*Not scored.*<\/dd>/);
+  assert.match(html, /aria-label="Accuracy definition"/);
   assert.match(html, /<dt>Prosody \(optional\)<\/dt><dd>Not scored<\/dd>/);
   assert.match(html, /<strong>Performance metrics:<\/strong> Not scored for this administration/);
   assert.doesNotMatch(html, /<strong>Errors:<\/strong>/, "globally unscored fluency must not expose performance counts");

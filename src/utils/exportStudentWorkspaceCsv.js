@@ -1,3 +1,5 @@
+import { buildMetricDefinitionRows } from "./metricDefinitions.js";
+
 function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
@@ -155,8 +157,18 @@ function otherLearningRows(workspace = {}) {
 }
 
 export function buildStudentWorkspaceCsvRows(viewId, workspace = {}) {
-  if (viewId === "whole-child") return wholeChildRows(workspace);
-  if (viewId === "skills-check") return skillsCheckRows(workspace);
-  if (viewId === "other-learning") return otherLearningRows(workspace);
-  return [];
+  const reportRows = viewId === "whole-child"
+    ? wholeChildRows(workspace)
+    : viewId === "skills-check"
+      ? skillsCheckRows(workspace)
+      : viewId === "other-learning"
+        ? otherLearningRows(workspace)
+        : [];
+  if (!reportRows.length) return [];
+  const definitionRows = buildMetricDefinitionRows().map(row => ({
+    "Section": "Metric definitions",
+    "Row type": "Metric definition",
+    ...row
+  }));
+  return [...reportRows, ...definitionRows];
 }

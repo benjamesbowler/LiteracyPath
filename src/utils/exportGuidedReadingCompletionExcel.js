@@ -6,13 +6,18 @@ import {
   buildReportContextRows,
   REPORT_INFO_SHEET_NAME
 } from "./exportReportSections.js";
+import {
+  addMetricDefinitionsWorksheet,
+  METRIC_DEFINITIONS_SHEET_NAME
+} from "./metricDefinitions.js";
 
 export const GUIDED_READING_COMPLETION_SHEETS = {
   reportInfo: REPORT_INFO_SHEET_NAME,
   summary: "Summary",
   studentCompletion: "Student Completion",
   booksCompleted: "Books Completed",
-  studentSummary: "Student Summary"
+  studentSummary: "Student Summary",
+  definitions: METRIC_DEFINITIONS_SHEET_NAME
 };
 
 export const GUIDED_READING_COMPLETION_HEADERS = {
@@ -465,6 +470,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Recent Book": ""
   });
 
+  addMetricDefinitionsWorksheet(workbook, { generatedAt: data.generatedAt });
   workbook.worksheets.forEach(styleWorksheet);
   return { workbook, data };
 }

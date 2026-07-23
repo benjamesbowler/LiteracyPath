@@ -251,6 +251,72 @@ test("@teacher-action-feedback announces clipboard, undo, print, and export stat
   await expect(reportFeedback).toContainText("Report data downloaded");
 });
 
+test("@teacher-metric-definitions exposes complete definitions on every core figure and in exports", async ({
+  page
+}) => {
+  async function expectDefinedMetric(scope, metricId) {
+    const figure = scope.locator(`[data-metric-figure="${metricId}"]`).first();
+    await expect(figure).toBeVisible();
+    const definition = figure.locator(`[data-metric-definition="${metricId}"]`);
+    const trigger = definition.getByRole("button", { name: /definition$/ });
+    await expect(trigger).toHaveAttribute("aria-describedby", /.+/);
+    await trigger.focus();
+    const tooltip = definition.getByRole("tooltip");
+    await expect(tooltip).toBeVisible();
+    const tooltipBox = await tooltip.boundingBox();
+    const viewport = page.viewportSize();
+    expect(tooltipBox).not.toBeNull();
+    expect(viewport).not.toBeNull();
+    expect(tooltipBox.x).toBeGreaterThanOrEqual(0);
+    expect(tooltipBox.y).toBeGreaterThanOrEqual(0);
+    expect(tooltipBox.x + tooltipBox.width).toBeLessThanOrEqual(viewport.width);
+    expect(tooltipBox.y + tooltipBox.height).toBeLessThanOrEqual(viewport.height);
+    for (const label of ["Denominator:", "Date range:", "Minimum evidence:", "Updated:"]) {
+      await expect(tooltip).toContainText(label);
+    }
+  }
+
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  const classSummary = page.getByRole("region", { name: "Class summary" });
+  for (const metricId of ["started", "accuracy", "active"]) {
+    await expectDefinedMetric(classSummary, metricId);
+  }
+
+  const aaravRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" });
+  for (const metricId of ["current-skill", "mastered", "accuracy"]) {
+    await expectDefinedMetric(aaravRow, metricId);
+  }
+
+  await aaravRow.getByRole("button", { name: "Open learner", exact: true }).click();
+  const learnerDetail = page.getByRole("region", { name: "Learner detail: Aarav" });
+  for (const metricId of ["current-skill", "accuracy", "mastered", "active", "trails"]) {
+    await expectDefinedMetric(learnerDetail, metricId);
+  }
+
+  await learnerDetail.getByRole("button", { name: "Review Aarav’s progress", exact: true }).click();
+  await page.getByRole("navigation", { name: "Progress tools" })
+    .getByRole("button", { name: "Reports", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Open Skills Check", exact: true }).click();
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download Skills Check data", exact: true }).click();
+  const csv = await readDownloadText(await downloadPromise);
+  for (const content of [
+    "Metric definitions",
+    "Metric definition",
+    "Denominator",
+    "Date range",
+    "Minimum evidence",
+    "Update time",
+    "current-skill",
+    "trails"
+  ]) {
+    expect(csv).toContain(content);
+  }
+});
+
 test("@teacher-persistent-context drills through groups and three learners without swapping the student session", async ({ page }) => {
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);

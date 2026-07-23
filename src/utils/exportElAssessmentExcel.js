@@ -11,6 +11,10 @@ import {
   isReportableElBenchmarkCandidatePlacement
 } from "../data/elFormalAssessmentReportBuilder.js";
 import { formatExportDateTime } from "./exportReportSections.js";
+import {
+  addMetricDefinitionsWorksheet,
+  METRIC_DEFINITIONS_SHEET_NAME
+} from "./metricDefinitions.js";
 
 // EL workbooks are intentionally limited to Assessments 1-6. Other learning
 // areas have their own reports and must not leak into these exports.
@@ -32,7 +36,8 @@ export const EL_STUDENT_REPORT_SHEETS = [
   "Student Summary",
   "Letter Names & Sounds",
   "Advanced Phonics Patterns",
-  ...EL_STUDENT_BENCHMARK_SHEETS
+  ...EL_STUDENT_BENCHMARK_SHEETS,
+  METRIC_DEFINITIONS_SHEET_NAME
 ];
 
 export const EL_CLASS_REPORT_SHEETS = [
@@ -41,7 +46,8 @@ export const EL_CLASS_REPORT_SHEETS = [
   "Advanced Phonics Class Matrix",
   "Advanced Phonics Patterns",
   "Pattern Detail",
-  ...EL_CLASS_BENCHMARK_SHEETS
+  ...EL_CLASS_BENCHMARK_SHEETS,
+  METRIC_DEFINITIONS_SHEET_NAME
 ];
 
 export const EL_ASSESSMENT_TYPE_IDS = Object.freeze([
@@ -1843,6 +1849,7 @@ export async function createStudentElAssessmentWorkbook(report) {
   });
 
   addStudentBenchmarkSheets(workbook, report);
+  addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_STUDENT_REPORT_SHEETS);
   return workbook;
@@ -2049,6 +2056,7 @@ export async function createClassElAssessmentWorkbook(report) {
   });
 
   addClassBenchmarkSheets(workbook, report);
+  addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_CLASS_REPORT_SHEETS);
   return workbook;
