@@ -61,7 +61,10 @@ function IslandLockIcon() {
   );
 }
 
-export function PhonicsLearnTab({ initialIsland = "", progressScopeKey = "default" }) {
+export function PhonicsLearnTab({
+  initialIsland = "",
+  progressScopeKey = "default"
+}) {
   const [activeLetter, setActiveLetter] = useState(null);
   const [activeFamily, setActiveFamily] = useState(null);
   const [activeIsland, setActiveIsland] = useState(() => initialIsland || getInitialIsland());

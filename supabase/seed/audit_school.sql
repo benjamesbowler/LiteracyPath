@@ -478,6 +478,39 @@ insert into public.student_progress (
   updated_at
 )
 select
+  pg_temp.audit_uuid('games:' || ranked.id),
+  ranked.id,
+  'learn_games',
+  '__all__',
+  jsonb_build_object(
+    'games',
+    jsonb_build_object(
+      'sound-racer',
+      jsonb_build_object(
+        'highScore', 100 + ranked.score_rank,
+        'stars', 1 + (ranked.score_rank % 3)
+      )
+    )
+  ),
+  '__AUDIT_ANCHOR__'::timestamptz
+from (
+  select s.id, row_number() over (order by s.id)::integer as score_rank
+  from public.students s
+  where s.archived_at is null
+) as ranked
+on conflict (student_id, area, key) do update set
+  payload = excluded.payload,
+  updated_at = excluded.updated_at;
+
+insert into public.student_progress (
+  id,
+  student_id,
+  area,
+  key,
+  payload,
+  updated_at
+)
+select
   pg_temp.audit_uuid('guided:' || s.id),
   s.id,
   'guided_reading',
@@ -747,6 +780,7 @@ declare
   archived_count integer;
   guided_count integer;
   quest_count integer;
+  learn_games_count integer;
   completed_el_count integer;
   in_progress_el_count integer;
 begin
@@ -795,6 +829,11 @@ begin
   where area = 'phonics_quest'
     and student_id::text like '40000000-0000-4000-8000-%';
 
+  select count(*) into learn_games_count
+  from public.student_progress
+  where area = 'learn_games'
+    and student_id::text like '40000000-0000-4000-8000-%';
+
   select count(*) into completed_el_count
   from public.assessment_attempts
   where attempt_id like 'audit-el-%'
@@ -814,10 +853,11 @@ begin
      or archived_count <> 1
      or guided_count <> 25
      or quest_count <> 25
+     or learn_games_count <> 25
      or completed_el_count < 3
      or in_progress_el_count < 1 then
     raise exception
-      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% long_history_items=% archived=% guided=% quest=% el_complete=% el_in_progress=%',
+      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% long_history_items=% archived=% guided=% quest=% games=% el_complete=% el_in_progress=%',
       teacher_count,
       admin_count,
       class_count,
@@ -827,6 +867,7 @@ begin
       archived_count,
       guided_count,
       quest_count,
+      learn_games_count,
       completed_el_count,
       in_progress_el_count;
   end if;

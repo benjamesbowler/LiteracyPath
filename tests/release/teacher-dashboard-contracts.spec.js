@@ -53,6 +53,13 @@ test("@teacher-dashboard-data reachable seeded roster columns and rows", async (
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);
   await expect(page.getByText("QA7M2K", { exact: true })).toBeVisible();
+  const leaderboardPrivacy = page.getByLabel("High-score privacy");
+  await expect(leaderboardPrivacy.getByText("Class nicknames", { exact: true })).toBeVisible();
+  await expect(leaderboardPrivacy.getByText(
+    "Children only see generated Reader nicknames. Class-only is the privacy default.",
+    { exact: true }
+  )).toBeVisible();
+  await expect(leaderboardPrivacy.getByRole("checkbox", { name: "Include this school" })).not.toBeChecked();
 
   const roster = page.locator(".teacher-roster-table");
   await expect(roster).toBeVisible();

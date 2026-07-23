@@ -2360,6 +2360,31 @@ body {
   font-weight: 800;
 }
 
+.teacher-leaderboard-privacy label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 4px;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.teacher-leaderboard-privacy label input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--lp-color-primary);
+}
+
+.teacher-leaderboard-privacy label span {
+  color: inherit;
+  font-size: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .teacher-class-code-value {
   font-size: 24px !important;
   letter-spacing: 0.18em;

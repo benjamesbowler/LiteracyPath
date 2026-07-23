@@ -5,6 +5,7 @@ import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
 import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/worksheets/practicePack.js";
 import { classHeatSummary } from "../utils/questReport.js";
 import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
+import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
 
 function formatLastActive(value) {
@@ -289,6 +290,9 @@ export function TeacherDashboardPage({
   const [editingSchool, setEditingSchool] = useState(false);
   const [schoolDraft, setSchoolDraft] = useState("");
   const [savingSchool, setSavingSchool] = useState(false);
+  const [savingLeaderboardScope, setSavingLeaderboardScope] = useState(false);
+  const [leaderboardStatus, setLeaderboardStatus] = useState("");
+  const [leaderboardScopeOverrides, setLeaderboardScopeOverrides] = useState({});
   const [visiblePasswords, setVisiblePasswords] = useState({});
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
@@ -388,6 +392,8 @@ export function TeacherDashboardPage({
     ? Math.round(rowsWithAccuracy.reduce((sum, row) => sum + Number(row.accuracy), 0) / rowsWithAccuracy.length)
     : null;
   const className = selectedClass?.name || "No class selected";
+  const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]
+    || (selectedClass?.leaderboard_scope === "school" ? "school" : "class");
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
@@ -422,6 +428,31 @@ export function TeacherDashboardPage({
       setEditingSchool(false);
     } finally {
       setSavingSchool(false);
+    }
+  }
+
+  async function handleLeaderboardScope(scope) {
+    if (!selectedClass?.id) return;
+    setSavingLeaderboardScope(true);
+    setLeaderboardStatus("");
+    try {
+      const { data, error } = await supabase.rpc("teacher_set_class_leaderboard_scope", {
+        p_class_id: selectedClass.id,
+        p_scope: scope
+      });
+      if (error || data?.[0]?.leaderboard_scope !== scope) {
+        console.error("Save leaderboard scope error:", error);
+        setLeaderboardStatus("Could not change this privacy setting.");
+        return;
+      }
+      setLeaderboardScopeOverrides(previous => ({ ...previous, [selectedClass.id]: scope }));
+      setLeaderboardStatus(
+        scope === "school"
+          ? "Nickname-only scores now include this school."
+          : "Nickname-only scores now stay in this class."
+      );
+    } finally {
+      setSavingLeaderboardScope(false);
     }
   }
 
@@ -499,6 +530,36 @@ export function TeacherDashboardPage({
                 </button>
               )}
             </div>
+          </div>
+        )}
+        {selectedClass && (
+          <div className="teacher-dashboard-context teacher-leaderboard-privacy" aria-label="High-score privacy">
+            <span>High-score board</span>
+            <strong>{leaderboardScope === "school" ? "School nicknames" : "Class nicknames"}</strong>
+            <small>
+              Children only see generated Reader nicknames. Class-only is the privacy default.
+            </small>
+            <label>
+              <input
+                type="checkbox"
+                checked={leaderboardScope === "school"}
+                disabled={savingLeaderboardScope}
+                onChange={async event => {
+                  const nextScope = event.target.checked ? "school" : "class";
+                  if (
+                    nextScope === "school"
+                    && !window.confirm(
+                      "Include nickname-only scores from other classes at this school? No student names are shown."
+                    )
+                  ) {
+                    return;
+                  }
+                  await handleLeaderboardScope(nextScope);
+                }}
+              />
+              <span>Include this school</span>
+            </label>
+            {leaderboardStatus && <small role="status">{leaderboardStatus}</small>}
           </div>
         )}
       </section>

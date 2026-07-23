@@ -72,6 +72,8 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "\"benchmarkScope\":{\"grade\":\"1\",\"benchmarkWindow\":\"BOY\"",
     "'guided_reading'",
     "'phonics_quest'",
+    "'learn_games'",
+    "learn_games_count <> 25",
     "archived_at is not null",
     "audit_seed_verification_failed"
   ]) {

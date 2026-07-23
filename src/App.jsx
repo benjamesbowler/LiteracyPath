@@ -3766,7 +3766,7 @@ export default function App() {
 
     const { data, error } = await supabase
       .from("classes")
-      .select("id, name, school_id, access_code, created_at")
+      .select("id,name,school_id,access_code,leaderboard_scope")
       .eq("teacher_id", teacherId)
       .order("name", { ascending: true });
 

@@ -31,34 +31,36 @@ const TABS = [
   { id: "practice", label: "Phonics Practice", games: PRACTICE_GAMES }
 ];
 
-function readSchoolId() {
+function readStudentToken() {
   try {
-    return JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.schoolId || null;
+    return JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.token || "";
   } catch {
-    return null; // no session / not parseable
+    return "";
   }
 }
 
 function Leaderboard({ refreshSignal }) {
-  // Privacy: the board is scoped to the child's own school. Without a school
-  // id we never query — showing nothing is correct, never a global list.
-  const [rows, setRows] = useState(() => (readSchoolId() ? null : [])); // null = still loading
+  // The token is only a credential. The database derives class/school scope
+  // from the live session and returns irreversible pseudonyms, never names.
+  const token = readStudentToken();
+  const [rows, setRows] = useState(() => (token ? null : [])); // null = still loading
+  const [scope, setScope] = useState("class");
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    const schoolId = readSchoolId();
-    if (!schoolId) return undefined; // rows stays [] from the lazy init - never query
+    if (!token) return undefined;
     supabase
-      .rpc("get_game_leaderboard", { p_limit: 5, p_school_id: schoolId })
+      .rpc("get_game_leaderboard", { p_limit: 5, p_student_token: token })
       .then(({ data, error }) => {
         if (cancelled) return;
-        if (error || !Array.isArray(data)) {
+        if (error || !Array.isArray(data?.rows)) {
           setFailed(true);
           return;
         }
         setFailed(false);
-        setRows(data.filter(row => (row.total_points || 0) > 0));
+        setScope(data.scope === "school" ? "school" : "class");
+        setRows(data.rows.filter(row => (row.total_points || 0) > 0));
       })
       .catch(() => {
         if (!cancelled) setFailed(true);
@@ -66,12 +68,14 @@ function Leaderboard({ refreshSignal }) {
     return () => {
       cancelled = true;
     };
-  }, [refreshSignal]);
+  }, [refreshSignal, token]);
+
+  const privacyText = `Nickname-only scores stay in your ${scope}.`;
 
   if (failed) {
     return (
       <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
         <p className="lg-leaderboard-empty">High scores are taking a break — try again in a little while.</p>
       </div>
     );
@@ -80,7 +84,7 @@ function Leaderboard({ refreshSignal }) {
   if (!rows) {
     return (
       <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
         <p className="lg-leaderboard-empty">Loading high scores…</p>
       </div>
     );
@@ -89,7 +93,7 @@ function Leaderboard({ refreshSignal }) {
   if (rows.length === 0) {
     return (
       <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
         <p className="lg-leaderboard-empty">No high scores yet — play a game to get on the board!</p>
       </div>
     );
@@ -99,7 +103,7 @@ function Leaderboard({ refreshSignal }) {
     <div className="lg-leaderboard" aria-label="High scores">
       <div className="lg-leaderboard-head">
         <h2>Top Readers</h2>
-        <span>Points from every game count.</span>
+        <span>Points from every game count. {privacyText}</span>
       </div>
       <ol className="lg-leaderboard-list">
         {rows.map((row, index) => (
@@ -107,7 +111,7 @@ function Leaderboard({ refreshSignal }) {
             <span className="lg-leaderboard-rank" aria-hidden="true">{index + 1}</span>
             <span className="lg-leaderboard-who">
               <strong>{row.student_name}</strong>
-              {row.school_name && <em>{row.school_name}</em>}
+              <em>{scope === "school" ? "Your school" : "Your class"}</em>
             </span>
             <span className="lg-leaderboard-points">{row.total_points} pts</span>
           </li>
@@ -249,7 +253,9 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         </button>
       </div>
 
-      {showLeaderboard && <Leaderboard refreshSignal={leaderboardRefresh} />}
+      {showLeaderboard && (
+        <Leaderboard refreshSignal={leaderboardRefresh} />
+      )}
 
       {activeGame && (
         <GamePlayer

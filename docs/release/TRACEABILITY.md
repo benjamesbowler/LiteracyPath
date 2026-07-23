@@ -77,7 +77,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A7.9 | 7 | P1 | TODO | PDF/Excel/CSV provenance snapshots | — |
 | A7.10 | 7 | P2 | TODO | three report-template + plain-language tests | — |
 | A8.1 | 8 | P1 | TODO | `check:db-policies` | — |
-| A8.2 | 8 | P0 + EXTERNAL REVIEW | TODO | leaderboard DB policy tests + privacy-review readiness | — |
+| A8.2 | 8 | P0 + EXTERNAL REVIEW | EXTERNAL-READY | leaderboard DB policy tests + privacy-review readiness | `docs/release/artifacts/2026-07-23T14-22-24-410Z/manifest.partial.json` passes 8/8 (lint, 982 tests, build, bundle and live DB); `docs/release/artifacts/2026-07-23T14-24-53-240Z/manifest.partial.json` passes the reachable teacher privacy control plus invalid-token/anonymous-scope rejection, 12 pseudonymous class rows, explicit teacher opt-in to 25 pseudonymous school rows, and class-scope restoration; independent live review remains open in `EXTERNAL.md` |
 | A8.3 | 8 | P1 | TODO | class-code rate-limit + access-log tests | — |
 | A8.4 | 8 | P1 | TODO | enforced CSP header + violation tests | — |
 | A8.5 | 8 | P0 | TODO | `npm audit` high/critical gate + export snapshots | — |
