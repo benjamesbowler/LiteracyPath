@@ -80,3 +80,12 @@ docs/previews/shots/
 
 /public/models/library/
 __pycache__/
+
+# generated dependency-graph output (regenerate on demand)
+graphify-out/
+
+# local Claude tool state (skills sync churn)
+.claude/
+
+# cleanup staging bin - empty manually
+_to_delete/
