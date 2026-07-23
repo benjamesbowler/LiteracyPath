@@ -1,5 +1,14 @@
 /* eslint-disable no-control-regex, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { Suspense, useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useEffectEvent,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import { flushSync } from "react-dom";
 import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
@@ -2887,7 +2896,7 @@ export default function App() {
     profileStorageKey
   ]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (sessionMode === "student" || !teacherId) return;
 
     const nextHash = teacherIntentHash({
@@ -8890,6 +8899,18 @@ ${metricDefinitionsText}
     setStudentArcadeOpen(false);
     setAppView(APP_VIEWS.STUDENT_HOME);
   };
+  const goToTeacherIntent = nextView => {
+    const nextHash = teacherIntentHash({
+      appView: nextView,
+      classId: selectedClassId,
+      groupId: teacherGroupId,
+      learnerId: studentId
+    });
+    if (nextHash && window.location.hash !== nextHash) {
+      window.history.replaceState(window.history.state, "", nextHash);
+    }
+    setAppView(nextView);
+  };
   const railNav = [
     { id: "sounds", label: "Sound Seekers", icon: "sound", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_QUEST); } },
     { id: "phonics", label: "Phonics", icon: "phonics", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_LEARN); } },
@@ -8946,11 +8967,11 @@ ${metricDefinitionsText}
             goToReports={() => setAppView(APP_VIEWS.REPORTS)}
             goToWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
             goToPresent={() => setAppView(APP_VIEWS.PRESENT)}
-            goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
-            goToTeacherClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
-            goToTeacherAssess={() => setAppView(APP_VIEWS.TEACHER_ASSESS)}
-            goToTeacherProgress={() => setAppView(APP_VIEWS.TEACHER_PROGRESS)}
-            goToTeacherResources={() => setAppView(APP_VIEWS.TEACHER_RESOURCES)}
+            goToTeacherDashboard={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
+            goToTeacherClasses={() => goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES)}
+            goToTeacherAssess={() => goToTeacherIntent(APP_VIEWS.TEACHER_ASSESS)}
+            goToTeacherProgress={() => goToTeacherIntent(APP_VIEWS.TEACHER_PROGRESS)}
+            goToTeacherResources={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             teacherEmail={teacherUser.email}
             logOutTeacher={logOutTeacher}
             isAdmin={isAdmin}
