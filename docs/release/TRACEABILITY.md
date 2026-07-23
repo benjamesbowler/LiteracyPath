@@ -43,7 +43,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A4.5 | 4 | P1 | TODO | `lint --max-warnings=0` + focused regression tests | — |
 | A4.6 | 4 | P0 | TODO | `check:release-readiness-surface` + export completeness | — |
 | A4.7 | 4 | P1 | TODO | activity-queue unit + sync-health + chaos tests | — |
-| A4.8 | 4 | P0 | TODO | composed curriculum gate in `check:release` | — |
+| A4.8 | 4 | P0 | IN-PROGRESS | composed curriculum gate in `check:release` | Implementation added; full manifest evidence pending Phase 0 exit |
 | A4.9 | 4 | P0 | TODO | route-level teacher-data + product-finish gates | — |
 | A4.10 | 4 | P1 EXTERNAL | TODO | calibration dashboard + protocol external-readiness check | — |
 | A5.1 | 5 | P1 | TODO | teacher-nav DOM + old-route redirect tests | — |
@@ -97,7 +97,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A9.9 | 9 | P1 | TODO | fleet-health dashboard + error-budget evidence | — |
 | A9.10 | 9 | P1 | TODO | `check:sync-chaos` | — |
 | A10.1 | 10 | P0 | TODO | required whole-product CI release job | — |
-| A10.2 | 10 | P0 | TODO | `check:release` manifest + generated scorecard | — |
+| A10.2 | 10 | P0 | IN-PROGRESS | `check:release` manifest + generated scorecard | Implementation added; full manifest and scorecard evidence pending Phase 0 exit |
 | A10.3 | 10 | P1 | TODO | zero-warning lint gate | — |
 | A10.4 | 10 | P1 | TODO | enforced bundle budgets + PR trend table | — |
 | A10.5 | 10 | P2 | TODO | zero-failure baselined repo hygiene | — |
