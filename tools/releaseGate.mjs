@@ -101,6 +101,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [10]
   },
   {
+    id: "database-bootstrap-schema",
+    label: "Reconstructable core database schema",
+    command: ["npm", "run", "check:database-bootstrap-schema"],
+    areas: [8, 10]
+  },
+  {
     id: "a11y-routes",
     label: "All-route accessibility",
     command: ["npm", "run", "check:a11y-routes"],

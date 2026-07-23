@@ -121,6 +121,7 @@
     "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js",
     "audit:assessment-media-registry": "node tools/auditAssessmentMediaRegistry.js",
     "check:assessment-runtime-variation": "node tools/checkAssessmentRuntimeVariation.js",
+    "check:database-bootstrap-schema": "node tools/checkDatabaseBootstrapSchema.mjs",
     "check:release": "node tools/releaseGate.mjs",
     "release:scorecard": "node tools/releaseScorecard.mjs",
     "check:question-bank-fix-guide": "node tools/checkQuestionBankFixGuideCompliance.js",
