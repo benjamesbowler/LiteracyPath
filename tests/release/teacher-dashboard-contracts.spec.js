@@ -1,3 +1,4 @@
+import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
@@ -197,6 +198,62 @@ test("@teacher-evidence-basis exposes every basis and withholds the seeded spars
   await expect(learnerBasis.getByText("0 supported of 10 recorded Sound Seekers encounters", {
     exact: true
   })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+  expect(consoleErrors).toEqual([]);
+});
+
+test("@teacher-growth-history renders five longitudinal views and curriculum versions from paginated history", async ({
+  page
+}) => {
+  const pageErrors = [];
+  const consoleErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  page.on("console", message => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  const aaravRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" });
+  await aaravRow.getByRole("button", { name: "Open learner", exact: true }).click();
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Progress", exact: true })
+    .click();
+
+  const growth = page.getByRole("region", { name: "Learner growth over time: Aarav" });
+  await expect(growth).toHaveAttribute("data-growth-state", "ready", { timeout: 20_000 });
+  await expect(growth).toHaveAttribute("data-growth-attempt-count", "524");
+  await expect(growth.getByRole("status")).toHaveText(
+    "524 completed attempts · 3 intervention reviews"
+  );
+
+  for (const version of [
+    "LP-CURRICULUM-2025.2",
+    "LP-CURRICULUM-2026.1",
+    "LP-CURRICULUM-2026.2"
+  ]) {
+    await expect(growth.locator(`[data-curriculum-version="${version}"]`)).toBeVisible();
+  }
+
+  const expectations = [
+    ["Acquisition", "skill-acquisition", /^[1-9]\d*$/],
+    ["Retention", "retention", /^[1-9]\d*$/],
+    ["Fluency", "fluency", "3"],
+    ["Support use", "support-dependence", /^[1-9]\d*$/],
+    ["Interventions", "intervention-response", "3"]
+  ];
+  for (const [buttonName, metricId, pointCount] of expectations) {
+    await growth.getByRole("button", { name: new RegExp(`^${buttonName}`) }).click();
+    const view = growth.locator(`[data-growth-metric="${metricId}"]`);
+    await expect(view).toBeVisible();
+    await expect(view).toHaveAttribute("data-growth-point-count", pointCount);
+    await expect(view.getByRole("img")).toHaveAccessibleName(/over time/);
+  }
+  const axeResult = await new AxeBuilder({ page }).include(".teacher-growth").analyze();
+  expect(axeResult.violations.filter(
+    violation => violation.impact === "serious" || violation.impact === "critical"
+  )).toEqual([]);
+
   expect(pageErrors).toEqual([]);
   expect(consoleErrors).toEqual([]);
 });

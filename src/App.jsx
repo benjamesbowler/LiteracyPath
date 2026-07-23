@@ -9230,6 +9230,8 @@ ${metricDefinitionsText}
           <Suspense fallback={<LazyPageFallback label="Loading progress tools..." />}>
             <TeacherIntentPage
               intent="progress"
+              supabase={supabase}
+              teacherId={teacherId}
               className={getSelectedClassName(classList, selectedClassId)}
               classList={classList}
               selectedClassId={selectedClassId}

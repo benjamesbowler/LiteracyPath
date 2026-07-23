@@ -46,6 +46,18 @@ test("intervention status labels expose the next required lifecycle action", () 
     interventionStatusLabel({ status: "reviewed", follow_up_required: true }),
     "Reviewed · follow-up needed"
   );
+  assert.equal(
+    interventionStatusLabel({ status: "reviewed", outcome: "ineffective", follow_up_required: false }),
+    "Reviewed · ineffective response"
+  );
+  assert.equal(
+    interventionStatusLabel({ status: "reviewed", outcome: "partial", follow_up_required: false }),
+    "Reviewed · partial response"
+  );
+  assert.equal(
+    interventionStatusLabel({ status: "reviewed", outcome: "effective", follow_up_required: false }),
+    "Reviewed · effective"
+  );
 });
 
 test("local date keys do not shift a teacher date through UTC", () => {

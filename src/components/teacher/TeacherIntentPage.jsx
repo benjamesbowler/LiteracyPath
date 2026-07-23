@@ -120,6 +120,8 @@ function buildIntentActions({
 
 export function TeacherIntentPage({
   intent,
+  supabase,
+  teacherId = "",
   className = "",
   classList = [],
   selectedClassId = "",
@@ -183,6 +185,8 @@ export function TeacherIntentPage({
         <>
           {intent === "progress" ? (
             <TeacherProgressOverview
+              supabase={supabase}
+              teacherId={teacherId}
               className={className}
               classList={classList}
               selectedClassId={selectedClassId}

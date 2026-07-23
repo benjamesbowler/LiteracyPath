@@ -735,12 +735,22 @@ select
     'classId', '30000000-0000-4000-8000-000000000001',
     'teacherId', '10000000-0000-4000-8000-000000000001',
     'policyVersion', 'audit-seed-v1',
+    'curriculumVersion', case
+      when series.attempt_number > 360 then 'LP-CURRICULUM-2025.2'
+      when series.attempt_number > 180 then 'LP-CURRICULUM-2026.1'
+      else 'LP-CURRICULUM-2026.2'
+    end,
     'questionRecords', jsonb_build_array(jsonb_build_object(
       'questionId', 'audit-item-' || series.attempt_number,
       'itemType', 'audit_item',
       'itemKey', 'audit-item-' || series.attempt_number,
       'responseStatus', 'correct',
-      'isCorrect', true
+      'isCorrect', true,
+      'supportUsed', case
+        when series.attempt_number > 360 then true
+        when series.attempt_number > 180 then series.attempt_number % 2 = 0
+        else series.attempt_number % 7 = 0
+      end
     ))
   ),
   '__AUDIT_ANCHOR__'::timestamptz,
@@ -773,6 +783,108 @@ insert into public.assessment_attempts (
   updated_at
 )
 values
+  (
+    'audit-growth-fluency-1',
+    '40000000-0000-4000-8000-000000000001',
+    '30000000-0000-4000-8000-000000000001',
+    '10000000-0000-4000-8000-000000000001',
+    'el_oral_reading_fluency',
+    'el_oral_reading_fluency',
+    'EL Benchmark Oral Reading Fluency',
+    1,
+    1,
+    '__AUDIT_ANCHOR__'::timestamptz - interval '300 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '300 days' + interval '15 minutes',
+    1,
+    1,
+    100,
+    'passed',
+    'completed',
+    1,
+    jsonb_build_object(
+      'gradePath', '1',
+      'benchmarkWindow', 'BOY',
+      'policyVersion', 'audit-seed-v1',
+      'curriculumVersion', 'LP-CURRICULUM-2025.2',
+      'metrics', jsonb_build_object('wcpm', 38),
+      'questionRecords', jsonb_build_array(jsonb_build_object(
+        'questionId', 'audit-growth-fluency-item-1',
+        'itemType', 'fluency_passage',
+        'responseStatus', 'correct',
+        'wcpm', 38
+      ))
+    ),
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz
+  ),
+  (
+    'audit-growth-fluency-2',
+    '40000000-0000-4000-8000-000000000001',
+    '30000000-0000-4000-8000-000000000001',
+    '10000000-0000-4000-8000-000000000001',
+    'el_oral_reading_fluency',
+    'el_oral_reading_fluency',
+    'EL Benchmark Oral Reading Fluency',
+    1,
+    2,
+    '__AUDIT_ANCHOR__'::timestamptz - interval '160 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '160 days' + interval '15 minutes',
+    1,
+    1,
+    100,
+    'passed',
+    'completed',
+    1,
+    jsonb_build_object(
+      'gradePath', '1',
+      'benchmarkWindow', 'MOY',
+      'policyVersion', 'audit-seed-v1',
+      'curriculumVersion', 'LP-CURRICULUM-2026.1',
+      'metrics', jsonb_build_object('wcpm', 52),
+      'questionRecords', jsonb_build_array(jsonb_build_object(
+        'questionId', 'audit-growth-fluency-item-2',
+        'itemType', 'fluency_passage',
+        'responseStatus', 'correct',
+        'wcpm', 52
+      ))
+    ),
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz
+  ),
+  (
+    'audit-growth-fluency-3',
+    '40000000-0000-4000-8000-000000000001',
+    '30000000-0000-4000-8000-000000000001',
+    '10000000-0000-4000-8000-000000000001',
+    'el_oral_reading_fluency',
+    'el_oral_reading_fluency',
+    'EL Benchmark Oral Reading Fluency',
+    1,
+    3,
+    '__AUDIT_ANCHOR__'::timestamptz - interval '20 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '20 days' + interval '15 minutes',
+    1,
+    1,
+    100,
+    'passed',
+    'completed',
+    1,
+    jsonb_build_object(
+      'gradePath', '1',
+      'benchmarkWindow', 'EOY',
+      'policyVersion', 'audit-seed-v1',
+      'curriculumVersion', 'LP-CURRICULUM-2026.2',
+      'metrics', jsonb_build_object('wcpm', 67),
+      'questionRecords', jsonb_build_array(jsonb_build_object(
+        'questionId', 'audit-growth-fluency-item-3',
+        'itemType', 'fluency_passage',
+        'responseStatus', 'correct',
+        'wcpm', 67
+      ))
+    ),
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz
+  ),
   (
     'audit-el-boy-completed',
     '40000000-0000-4000-8000-000000000001',
@@ -865,6 +977,99 @@ on conflict (attempt_id) do update set
   status = excluded.status,
   administration_status = excluded.administration_status,
   payload = excluded.payload,
+  updated_at = excluded.updated_at;
+
+insert into public.teacher_interventions (
+  id,
+  teacher_id,
+  class_id,
+  owner_label,
+  group_label,
+  student_ids,
+  focus,
+  activity,
+  planned_for,
+  status,
+  delivered_at,
+  outcome,
+  outcome_note,
+  recorded_at,
+  reviewed_at,
+  next_review_on,
+  follow_up_required,
+  created_at,
+  updated_at
+)
+values
+  (
+    pg_temp.audit_uuid('growth-intervention:1'),
+    '10000000-0000-4000-8000-000000000001',
+    '30000000-0000-4000-8000-000000000001',
+    'Audit class teacher',
+    'Aarav blending review 1',
+    array['40000000-0000-4000-8000-000000000001'::uuid],
+    'Blend and reread short-vowel words',
+    'Model with sound boxes, then check three unpractised words.',
+    ('__AUDIT_ANCHOR__'::timestamptz - interval '140 days')::date,
+    'reviewed',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '140 days',
+    'ineffective',
+    'Transfer remained inconsistent on the unpractised words.',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '139 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '138 days',
+    ('__AUDIT_ANCHOR__'::timestamptz - interval '130 days')::date,
+    false,
+    '__AUDIT_ANCHOR__'::timestamptz - interval '141 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '138 days'
+  ),
+  (
+    pg_temp.audit_uuid('growth-intervention:2'),
+    '10000000-0000-4000-8000-000000000001',
+    '30000000-0000-4000-8000-000000000001',
+    'Audit class teacher',
+    'Aarav blending review 2',
+    array['40000000-0000-4000-8000-000000000001'::uuid],
+    'Blend and reread short-vowel words',
+    'Reduce the word set and fade one sound-box prompt at a time.',
+    ('__AUDIT_ANCHOR__'::timestamptz - interval '75 days')::date,
+    'reviewed',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '75 days',
+    'partial',
+    'Independent blending improved on familiar words but not all transfer words.',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '74 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '73 days',
+    ('__AUDIT_ANCHOR__'::timestamptz - interval '63 days')::date,
+    false,
+    '__AUDIT_ANCHOR__'::timestamptz - interval '76 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '73 days'
+  ),
+  (
+    pg_temp.audit_uuid('growth-intervention:3'),
+    '10000000-0000-4000-8000-000000000001',
+    '30000000-0000-4000-8000-000000000001',
+    'Audit class teacher',
+    'Aarav blending review 3',
+    array['40000000-0000-4000-8000-000000000001'::uuid],
+    'Blend and reread short-vowel words',
+    'Check transfer after a delayed reread with no sound-box prompt.',
+    ('__AUDIT_ANCHOR__'::timestamptz - interval '18 days')::date,
+    'reviewed',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '18 days',
+    'effective',
+    'The learner blended the transfer set independently after the delay.',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '17 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '16 days',
+    ('__AUDIT_ANCHOR__'::timestamptz - interval '7 days')::date,
+    false,
+    '__AUDIT_ANCHOR__'::timestamptz - interval '19 days',
+    '__AUDIT_ANCHOR__'::timestamptz - interval '16 days'
+  )
+on conflict (id) do update set
+  outcome = excluded.outcome,
+  outcome_note = excluded.outcome_note,
+  reviewed_at = excluded.reviewed_at,
+  next_review_on = excluded.next_review_on,
+  follow_up_required = excluded.follow_up_required,
   updated_at = excluded.updated_at;
 
 insert into public.el_assessment_reports (

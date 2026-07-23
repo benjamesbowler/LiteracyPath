@@ -1,6 +1,6 @@
 # Class-first Progress contract
 
-Plan items: **A7.3, A7.4**
+Plan items: **A7.3, A7.4, A7.5**
 
 The real teacher `Progress` intention is class-first. It reads the same live
 class-dashboard dataset used by Today and Classes, then keeps the selected
@@ -51,6 +51,25 @@ attempts. Suggested groups exclude sparse learner accuracy and require either
 policy-ready shared-focus evidence or policy-ready exact-item re-teaching
 evidence.
 
+## Longitudinal growth
+
+Selecting a learner loads the complete dated assessment history and reviewed
+intervention history in bounded 500-row pages. Progress derives five views from
+raw evidence rather than storing a second summary:
+
+| View | Source and rule |
+|---|---|
+| Skill acquisition | First completed check for a skill at 80%+ across at least 8 scored responses; the line is the cumulative count. |
+| Retention | Later policy-ready checks of an already acquired skill, averaged by UTC month. |
+| Fluency | Saved WCPM from completed oral-reading-fluency checks. |
+| Support dependence | Percentage of question records that explicitly captured `supportUsed` or `supported`; missing support capture does not become zero. |
+| Intervention response | Reviewed ineffective, partial, and effective outcomes shown as 0, 50, and 100 on the response axis. |
+
+Every view uses the same dated horizontal domain. A curriculum marker appears
+only when the raw attempt contains `curriculumVersion`; missing metadata stays
+unlabelled. The chart never substitutes an in-progress attempt, current
+aggregate, or zero for missing history.
+
 ## Persistence and recovery
 
 - The route is `#teacher/progress?class=…&group=…&learner=…`.
@@ -70,5 +89,8 @@ evidence.
 - `@teacher-evidence-basis` verifies all five bases on the reachable class
   route and proves the seeded one-response learner renders `Insufficient
   evidence` without a bare `100%` conclusion.
+- `@teacher-growth-history` loads 524 completed Aarav attempts across two
+  storage pages, renders all five longitudinal views, and verifies the three
+  seeded curriculum versions on the shared axis.
 - The manual critic covers 1366×768, 1024×768, 768×1024, and 390×844 with no
   horizontal overflow or runtime console errors.

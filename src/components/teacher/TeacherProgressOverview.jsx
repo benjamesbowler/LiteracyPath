@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { buildTeacherProgressOverview } from "../../utils/teacherProgressOverview.js";
+import { TeacherGrowthChart } from "./TeacherGrowthChart.jsx";
 import { TeacherChart } from "./ui/TeacherPrimitives.jsx";
 
 function bucketLabel(bucket) {
@@ -52,6 +53,8 @@ function EvidenceDisclosure({ basis, label }) {
 }
 
 export function TeacherProgressOverview({
+  supabase,
+  teacherId = "",
   className = "",
   classList = [],
   selectedClassId = "",
@@ -314,6 +317,13 @@ export function TeacherProgressOverview({
               <EvidenceBasis
                 basis={selectedLearner.evidence}
                 label={`${selectedLearner.name} learner conclusion`}
+              />
+              <TeacherGrowthChart
+                supabase={supabase}
+                teacherId={teacherId}
+                classId={selectedClassId}
+                learnerId={selectedLearner.id}
+                learnerName={selectedLearner.name}
               />
 
               {selectedLearner.itemEvidence.length ? (

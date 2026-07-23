@@ -57,7 +57,11 @@ export function interventionStatusLabel(intervention) {
   if (intervention?.status === "delivered") return "Delivered · outcome needed";
   if (intervention?.status === "recorded") return "Outcome recorded · review needed";
   if (intervention?.status === "reviewed") {
-    return intervention.follow_up_required ? "Reviewed · follow-up needed" : "Reviewed · effective";
+    if (intervention.follow_up_required) return "Reviewed · follow-up needed";
+    if (intervention.outcome === "effective") return "Reviewed · effective";
+    if (intervention.outcome === "partial") return "Reviewed · partial response";
+    if (intervention.outcome === "ineffective") return "Reviewed · ineffective response";
+    return "Reviewed";
   }
   return "Planned · delivery needed";
 }
