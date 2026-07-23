@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-12-shapes-everywhere",
- "questions": [
-  {
-   "prompt": "How many sides does a triangle have?",
-   "choices": [
-    "three",
-    "four",
-    "five"
-   ],
-   "answer": "three",
-   "kind": "word"
-  },
-  {
-   "prompt": "How many points does a star have?",
-   "choices": [
-    "five",
-    "three",
-    "ten"
-   ],
-   "answer": "five",
-   "kind": "word"
-  },
-  {
-   "prompt": "What shape is an egg?",
-   "choices": [
-    "an oval",
-    "a square",
-    "a star"
-   ],
-   "answer": "an oval",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-12-shapes-everywhere",
+  "contentHash": "sha256:00a3c3711d018fe635bc8472c3cd35cd2f6c114bc810163cc9b2ab291aebdc15",
+  "questions": [
+    {
+      "id": "first-facts-a-12-shapes-everywhere-q1",
+      "prompt": "How many sides does a triangle have?",
+      "choices": [
+        "three",
+        "four",
+        "five"
+      ],
+      "answer": "three",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A triangle has three sides. A pizza slice is a triangle. A roof is a triangle."
+    },
+    {
+      "id": "first-facts-a-12-shapes-everywhere-q2",
+      "prompt": "How many points does a star have?",
+      "choices": [
+        "five",
+        "three",
+        "ten"
+      ],
+      "answer": "five",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "A star has five points. We see stars in the night sky."
+    },
+    {
+      "id": "first-facts-a-12-shapes-everywhere-q3",
+      "prompt": "What shape is an egg?",
+      "choices": [
+        "an oval",
+        "a square",
+        "a star"
+      ],
+      "answer": "an oval",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 6,
+      "evidenceText": "An oval is like a stretched circle. An egg is an oval. A leaf is an oval."
+    }
+  ]
 }

@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-17-bouncy-and-speedy-have-a-race",
+  "contentHash": "sha256:bd29fff454b4c6aee8e941367077c62a64e832a7eaaa9d93e4c0acb7acb6b8fe",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"\"I am fast,\" said ___.\"",
+      "id": "meadow-pals-17-bouncy-and-speedy-have-a-race-q1",
+      "prompt": "Who hops while Speedy runs?",
       "choices": [
-        "speedy",
-        "wiggly",
-        "mushroom"
-      ],
-      "answer": "speedy",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "ran",
-        "competition",
-        "crystals"
-      ],
-      "answer": "ran",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
-      "choices": [
-        "Spark",
         "Bouncy",
-        "Marcus"
+        "Tiny",
+        "Grumpy"
       ],
       "answer": "Bouncy",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 4,
+      "evidenceText": "Speedy ran fast. Bouncy hopped fast."
+    },
+    {
+      "id": "meadow-pals-17-bouncy-and-speedy-have-a-race-q2",
+      "prompt": "Which place do the racers pass after the barn?",
+      "choices": [
+        "the pond",
+        "the garden",
+        "the farm gate"
+      ],
+      "answer": "the pond",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 6,
+      "evidenceText": "They ran past the pond."
+    },
+    {
+      "id": "meadow-pals-17-bouncy-and-speedy-have-a-race-q3",
+      "prompt": "What are Bouncy and Speedy still doing at the end?",
+      "choices": [
+        "racing on",
+        "sleeping",
+        "eating cake"
+      ],
+      "answer": "racing on",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The words still going show that Bouncy and Speedy are racing on at the end.",
+      "evidencePage": 10,
+      "evidenceText": "They are still going."
     }
   ]
 }

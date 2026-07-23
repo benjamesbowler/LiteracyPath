@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-02-the-four-seasons",
- "questions": [
-  {
-   "prompt": "When are baby animals born?",
-   "choices": [
-    "in spring",
-    "in winter",
-    "in autumn"
-   ],
-   "answer": "in spring",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do leaves do in autumn?",
-   "choices": [
-    "fall down",
-    "pop up",
-    "turn blue"
-   ],
-   "answer": "fall down",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does the squirrel hide?",
-   "choices": [
-    "nuts",
-    "snow",
-    "flowers"
-   ],
-   "answer": "nuts",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-02-the-four-seasons",
+  "contentHash": "sha256:781ab23ab536d315d9c68e37f885ba900a7a46cb2117416c28cec507e574a70b",
+  "questions": [
+    {
+      "id": "first-facts-a-02-the-four-seasons-q1",
+      "prompt": "When does the book say baby animals are born?",
+      "choices": [
+        "in spring",
+        "in winter",
+        "in autumn"
+      ],
+      "answer": "in spring",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "In spring, baby animals are born. A lamb skips. A chick hatches."
+    },
+    {
+      "id": "first-facts-a-02-the-four-seasons-q2",
+      "prompt": "What do leaves do in autumn?",
+      "choices": [
+        "fall down",
+        "pop up",
+        "turn blue"
+      ],
+      "answer": "fall down",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "This is autumn. Leaves go red and gold. Leaves fall down."
+    },
+    {
+      "id": "first-facts-a-02-the-four-seasons-q3",
+      "prompt": "What is the order of the four seasons?",
+      "choices": [
+        "spring, summer, autumn, winter",
+        "spring, autumn, summer, winter",
+        "winter, summer, spring, autumn"
+      ],
+      "answer": "spring, summer, autumn, winter",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 9,
+      "evidenceText": "Four seasons: spring, summer, autumn, winter."
+    }
+  ]
 }

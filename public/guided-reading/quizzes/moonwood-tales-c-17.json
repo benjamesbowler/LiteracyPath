@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-17",
+  "contentHash": "sha256:9e4823e75d1c2d3941c77910b22c6ae3bec3fb3ed5f74cf50d787d8c174e452f",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-17-q1",
+      "prompt": "What did Fern's plants do after Wren poured on the purple potion?",
       "choices": [
-        "paint",
-        "wren",
-        "fluffy"
+        "All the plants began to walk.",
+        "All the plants grew bright fruit.",
+        "All the plants vanished underground."
       ],
-      "answer": "wren",
-      "kind": "word"
+      "answer": "All the plants began to walk.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 5,
+      "evidenceText": "Then all the plants began to walk."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-17-q2",
+      "prompt": "Why does Wren's potion make the plants walk?",
       "choices": [
-        "Push",
-        "Bossy",
-        "Wren"
+        "She follows a motion recipe from the wrong book.",
+        "She stirs the correct growing recipe too slowly.",
+        "She adds a seed that belongs in the Crystal Stream."
       ],
-      "answer": "Wren",
-      "kind": "word"
+      "answer": "She follows a motion recipe from the wrong book.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 8,
+      "evidenceText": "She had used the wrong book.\n\"This is the motion recipe,\" she said.\n\"Not the growing recipe.\""
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-17-q3",
+      "prompt": "What lesson does Fern's answer about fewer books teach Wren?",
       "choices": [
-        "wake",
-        "colours",
-        "potion"
+        "Checking the right instructions matters more than having more books.",
+        "The purple colour meant the potion needed more stirring.",
+        "The walking plants showed the growing potion was too strong."
       ],
-      "answer": "potion",
-      "kind": "word"
+      "answer": "Checking the right instructions matters more than having more books.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Wren's wrong book contains the motion recipe that made the plants walk, and Fern answers \"Fewer books\" when Wren asks for more; this shows checking the right instructions matters more than having more books.",
+      "evidencePage": 12,
+      "evidenceText": "\"Yes,\" said Wren. \"I need more books.\"\n\"Fewer,\" said Fern.\n\"Fewer books.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 8,
+          "evidenceText": "She had used the wrong book.\n\"This is the motion recipe,\" she said.\n\"Not the growing recipe.\""
+        }
+      ]
     }
   ]
 }

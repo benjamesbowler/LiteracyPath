@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-07-bugs",
- "questions": [
-  {
-   "prompt": "What color is the bee?",
-   "choices": [
-    "yellow",
-    "red",
-    "pink"
-   ],
-   "answer": "yellow",
-   "kind": "word"
-  },
-  {
-   "prompt": "What can an ant do?",
-   "choices": [
-    "dig",
-    "sting",
-    "swim"
-   ],
-   "answer": "dig",
-   "kind": "word"
-  },
-  {
-   "prompt": "Are bugs big or little?",
-   "choices": [
-    "little",
-    "big",
-    "huge"
-   ],
-   "answer": "little",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-07-bugs",
+  "contentHash": "sha256:99442e38ca051d04966b9a404e1496386ff49c88b202c18a0e3d83a002353657",
+  "questions": [
+    {
+      "id": "first-facts-level-a-07-bugs-q1",
+      "prompt": "What color is the bee in the book?",
+      "choices": [
+        "yellow",
+        "red",
+        "pink"
+      ],
+      "answer": "yellow",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A bee is yellow.\nIt can sting."
+    },
+    {
+      "id": "first-facts-level-a-07-bugs-q2",
+      "prompt": "Which bug does the book say can dig?",
+      "choices": [
+        "the ant",
+        "the bee",
+        "the butterfly"
+      ],
+      "answer": "the ant",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "An ant is red.\nIt can dig."
+    },
+    {
+      "id": "first-facts-level-a-07-bugs-q3",
+      "prompt": "What size does the book say bugs are?",
+      "choices": [
+        "little",
+        "big",
+        "huge"
+      ],
+      "answer": "little",
+      "kind": "word",
+      "skill": "comparison",
+      "evidencePage": 7,
+      "evidenceText": "Bugs are all around!\nThey are little."
+    }
+  ]
 }

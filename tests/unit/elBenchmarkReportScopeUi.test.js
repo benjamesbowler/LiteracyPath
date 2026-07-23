@@ -17,6 +17,7 @@ function finishedReportProps(assessmentHistory = []) {
     currentStageQuestions: [],
     exportStudentExcel: async () => {},
     guidedReadingRecords: {},
+    initialReportView: "el-assessments",
     itemMastery: {},
     letterAssessment: [],
     mastery: {},
@@ -91,6 +92,88 @@ test("finished report renders a visible saved-route selector with the newest rou
   assert.match(html, /Grade 1 · EOY \(1 attempt\) - most recent/);
   assert.match(html, /Grade 1 · MOY \(1 attempt\)/);
   assert.match(html, />Export This Route<\/button>/);
+});
+
+test("Assessment 1 item details come from the latest completed attempt, not live partial state", async t => {
+  const vite = await createServer({
+    appType: "custom",
+    logLevel: "silent",
+    server: { middlewareMode: true }
+  });
+  t.after(() => vite.close());
+  const { FinishedReportPage } = await vite.ssrLoadModule("/src/components/FinishedReportPage.jsx");
+  const assessmentHistory = [{
+    attemptId: "letters-completed-1",
+    assessmentType: "el_letter_assessment",
+    skillId: "el_letter_assessment",
+    skillName: "Letter Name and Sound Recognition",
+    studentId: "student-1",
+    studentName: "Ada",
+    administrationStatus: "completed",
+    completedAt: "2026-07-21T01:05:00.000Z",
+    correctCount: 1,
+    totalQuestions: 1,
+    accuracy: 100,
+    passed: true,
+    questionRecords: [{
+      questionId: "letter-a-name",
+      itemType: "letter_name",
+      itemKey: "a",
+      targetLetter: "a",
+      responseStatus: "correct",
+      isCorrect: true
+    }]
+  }];
+  const props = {
+    ...finishedReportProps(assessmentHistory),
+    letterAssessment: [{ letter: "z", knowsName: false, knowsSound: false }]
+  };
+
+  const html = renderToStaticMarkup(React.createElement(FinishedReportPage, props));
+
+  assert.match(html, /View item results from the latest completed administrations/);
+  assert.match(html, /✓ (?:Lowercase )?A: letter name/);
+  assert.doesNotMatch(html, /Z: letter name/);
+});
+
+test("Whole Child includes EL 3-6 as descriptive evidence without inventing mastery", async t => {
+  const vite = await createServer({
+    appType: "custom",
+    logLevel: "silent",
+    server: { middlewareMode: true }
+  });
+  t.after(() => vite.close());
+  const { FinishedReportPage } = await vite.ssrLoadModule("/src/components/FinishedReportPage.jsx");
+  const assessmentHistory = [{
+    attemptId: "pa-descriptive-1",
+    assessmentType: "el_phonological_awareness",
+    skillId: "el_phonological_awareness",
+    skillName: "EL Phonological & Phonemic Awareness",
+    studentId: "student-1",
+    studentName: "Ada",
+    gradePath: "1",
+    benchmarkWindow: "MOY",
+    administrationStatus: "completed",
+    completedAt: "2026-07-21T01:05:00.000Z",
+    questionRecords: [{
+      questionId: "pa-rhyme-1",
+      responseStatus: "correct",
+      isCorrect: true,
+      metadata: { strand: "rhyme" }
+    }]
+  }];
+  const props = {
+    ...finishedReportProps(assessmentHistory),
+    initialReportView: "whole-child"
+  };
+
+  const html = renderToStaticMarkup(React.createElement(FinishedReportPage, props));
+
+  assert.match(html, /Descriptive EL assessment evidence/);
+  assert.match(html, /Phonological and Phonemic Awareness/);
+  assert.match(html, /without inventing a mastery cut score/);
+  assert.match(html, /not included in the Secure, Developing or Needs teaching totals/);
+  assert.match(html, />Download knowledge data</);
 });
 
 test("finished report exposes expandable semantic per-item evidence for every benchmark domain", async t => {

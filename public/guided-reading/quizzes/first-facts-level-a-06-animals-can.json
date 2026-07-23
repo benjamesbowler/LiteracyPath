@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-06-animals-can",
- "questions": [
-  {
-   "prompt": "What can a dog do?",
-   "choices": [
-    "run",
-    "fly",
-    "sting"
-   ],
-   "answer": "run",
-   "kind": "word"
-  },
-  {
-   "prompt": "What can a bird do?",
-   "choices": [
-    "fly",
-    "dig",
-    "hop"
-   ],
-   "answer": "fly",
-   "kind": "word"
-  },
-  {
-   "prompt": "What can a worm do?",
-   "choices": [
-    "dig",
-    "jump",
-    "swim"
-   ],
-   "answer": "dig",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-06-animals-can",
+  "contentHash": "sha256:c95ed96b3b4497ced977118f3642e3eb5c76d8e4efe8be12c8e80a3667b64b4e",
+  "questions": [
+    {
+      "id": "first-facts-level-a-06-animals-can-q1",
+      "prompt": "What can a dog do?",
+      "choices": [
+        "run",
+        "fly",
+        "sting"
+      ],
+      "answer": "run",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 1,
+      "evidenceText": "A dog can run.\nRun, run!"
+    },
+    {
+      "id": "first-facts-level-a-06-animals-can-q2",
+      "prompt": "Which animal does the book say can fly?",
+      "choices": [
+        "a bird",
+        "a fish",
+        "a worm"
+      ],
+      "answer": "a bird",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "A bird can fly.\nFly, fly!"
+    },
+    {
+      "id": "first-facts-level-a-06-animals-can-q3",
+      "prompt": "What can a worm do?",
+      "choices": [
+        "dig",
+        "jump",
+        "swim"
+      ],
+      "answer": "dig",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "A worm can dig.\nDig, dig!"
+    }
+  ]
 }

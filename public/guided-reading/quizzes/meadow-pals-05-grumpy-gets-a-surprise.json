@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-05-grumpy-gets-a-surprise",
+  "contentHash": "sha256:4083e3167e1f281249c9fc646132d21cbc53a91d21b4917ea5e6b1ba284f6b45",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"It is Grumpy's ___.\"",
+      "id": "meadow-pals-05-grumpy-gets-a-surprise-q1",
+      "prompt": "Who shouts the birthday surprise?",
       "choices": [
-        "birthday",
-        "changes",
-        "colors"
+        "everyone",
+        "only Grumpy",
+        "only Clucky"
       ],
-      "answer": "birthday",
-      "kind": "word"
+      "answer": "everyone",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "\"SURPRISE!\" said everyone."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-05-grumpy-gets-a-surprise-q2",
+      "prompt": "What special day is everyone celebrating?",
       "choices": [
-        "grumpy",
-        "turned",
-        "then"
+        "Grumpy's birthday",
+        "Clucky's egg day",
+        "Woolly's bedtime"
       ],
-      "answer": "grumpy",
-      "kind": "word"
+      "answer": "Grumpy's birthday",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 1,
+      "evidenceText": "It is Grumpy's birthday."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-05-grumpy-gets-a-surprise-q3",
+      "prompt": "What does Grumpy decide by the end?",
       "choices": [
-        "Grumpy",
-        "Bossy",
-        "Honky"
+        "He likes cake",
+        "He likes mud",
+        "He likes noise"
       ],
-      "answer": "Grumpy",
-      "kind": "word"
+      "answer": "He likes cake",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 10,
+      "evidenceText": "\"I like cake,\" said Grumpy."
     }
   ]
 }

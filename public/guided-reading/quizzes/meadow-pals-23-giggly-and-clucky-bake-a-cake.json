@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-23-giggly-and-clucky-bake-a-cake",
+  "contentHash": "sha256:07899c4731e748b648035d3ba6449833a116d6eb3c4812246d6c9128da6f2194",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"\"We will bake a cake,\" said ___.\"",
+      "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q1",
+      "prompt": "Who gets the eggs for the cake?",
       "choices": [
-        "clucky",
-        "bright",
-        "together"
-      ],
-      "answer": "clucky",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "cake",
-        "speedy",
-        "yum"
-      ],
-      "answer": "cake",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
-      "choices": [
-        "Stone",
-        "Wiggly",
-        "Clucky"
+        "Clucky",
+        "Giggly",
+        "Woolly"
       ],
       "answer": "Clucky",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 2,
+      "evidenceText": "Clucky got the eggs. Giggly giggled at the eggs."
+    },
+    {
+      "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q2",
+      "prompt": "What lands on Clucky?",
+      "choices": [
+        "flour",
+        "mud",
+        "water"
+      ],
+      "answer": "flour",
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 4,
+      "evidenceText": "The flour went on Clucky."
+    },
+    {
+      "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q3",
+      "prompt": "What does Clucky do after tasting the flat cake?",
+      "choices": [
+        "Then Clucky giggled too.",
+        "Then Clucky went to sleep.",
+        "Then Clucky threw it away."
+      ],
+      "answer": "Then Clucky giggled too.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 11,
+      "evidenceText": "Clucky had a bit. Then Clucky giggled too."
     }
   ]
 }

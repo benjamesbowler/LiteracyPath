@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-15-things-that-float-and-sink",
+  "contentHash": "sha256:1600b2fb682a583288a78428fc8c47d6f17ef5c1bae1c5ee6c8542c130ba35df",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Drop a duck in water. It ___ on top!\"",
+      "id": "first-facts-a-15-things-that-float-and-sink-q1",
+      "prompt": "What happens to a stone in water?",
       "choices": [
-        "floats",
-        "keep",
-        "speedy"
+        "it floats",
+        "it sinks",
+        "it melts"
       ],
-      "answer": "floats",
-      "kind": "word"
+      "answer": "it sinks",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "Drop a stone in water. It sinks to the bottom."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-15-things-that-float-and-sink-q2",
+      "prompt": "Which thing floats while the coin sinks?",
       "choices": [
-        "things",
-        "runs",
-        "fruits"
+        "a stone",
+        "a rock",
+        "a leaf"
       ],
-      "answer": "things",
-      "kind": "word"
+      "answer": "a leaf",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 3,
+      "evidenceText": "A leaf floats. A coin sinks."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-15-things-that-float-and-sink-q3",
+      "prompt": "Why does a big rock often sink?",
       "choices": [
-        "deal",
-        "sink",
-        "oak"
+        "it is heavy",
+        "it is green",
+        "it is soft"
       ],
-      "answer": "sink",
-      "kind": "word"
+      "answer": "it is heavy",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 5,
+      "evidenceText": "A big rock is heavy. Heavy things often sink."
     }
   ]
 }

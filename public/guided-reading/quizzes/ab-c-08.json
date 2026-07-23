@@ -1,35 +1,68 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-08",
+  "contentHash": "sha256:a32dea5cf5fe1c1207acdbe5558723f43cef30453f7e0a0b277f413e344c760d",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-08-q1",
+      "prompt": "Why did Aiden go home feeling upset?",
       "choices": [
-        "nan",
-        "did",
-        "aiden"
+        "Marcus kept calling him a silly name.",
+        "Betty would not speak to him.",
+        "He had lost Socks at school."
       ],
-      "answer": "aiden",
-      "kind": "word"
+      "answer": "Marcus kept calling him a silly name.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "rationale": "Marcus kept calling Aiden a silly name, and the next page says Aiden went home upset, so the repeated name-calling caused his upset feelings.",
+      "evidencePage": 1,
+      "evidenceText": "He kept calling Aiden a silly name. Aiden did not like it.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 2,
+          "evidenceText": "Aiden went home feeling quiet and upset."
+        }
+      ]
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-08-q2",
+      "prompt": "What plan helped Aiden respond to the bullying?",
       "choices": [
-        "Seeds",
-        "Luna",
-        "Marcus"
+        "Call Marcus a name, then hide from the class.",
+        "Speak clearly, walk away, and tell Miss Okafor.",
+        "Stay silent, leave school, and solve it alone."
       ],
-      "answer": "Marcus",
-      "kind": "word"
+      "answer": "Speak clearly, walk away, and tell Miss Okafor.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Aiden planned to speak clearly, walk away, and tell Miss Okafor; pages 7 and 8 show him doing each step when Marcus used the name again, so the plan guided his response.",
+      "evidencePage": 4,
+      "evidenceText": "He would speak clearly, walk away, and tell Miss Okafor.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 7,
+          "evidenceText": "Aiden faced him. \"My name is Aiden. Stop,\" he said in a clear voice."
+        },
+        {
+          "evidencePage": 8,
+          "evidenceText": "Aiden walked away with Betty. They told Miss Okafor what had happened."
+        }
+      ]
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-08-q3",
+      "prompt": "What is the most important lesson about bullying?",
       "choices": [
-        "slow",
-        "bully",
-        "flappy"
+        "Bullying should be kept secret.",
+        "Bullying ends if you ignore every adult.",
+        "Bullying is never your fault."
       ],
-      "answer": "bully",
-      "kind": "word"
+      "answer": "Bullying is never your fault.",
+      "kind": "text",
+      "skill": "theme",
+      "evidencePage": 13,
+      "evidenceText": "\"Bullying is never your fault.\" Aiden remembered her words."
     }
   ]
 }

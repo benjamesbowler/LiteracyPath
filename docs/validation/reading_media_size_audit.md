@@ -1,16 +1,16 @@
 # Reading Media Size Audit
 
-Generated: 2026-07-22T04:21:21.493Z
+Generated: 2026-07-22T10:00:04.326Z
 
 ## Summary
 
 - Files scanned: 3330
-- Findings: 669
+- Findings: 714
 - Failing live file issues: 0
 
 | Type | Count |
 | --- | --- |
-| Story Quest image > 250 KB | 269 |
+| Story Quest image > 250 KB | 314 |
 | Guided Reading cover > 250 KB | 47 |
 | Guided Reading page image > 300 KB | 353 |
 
@@ -218,8 +218,39 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/muddy-splashy-hat/p09_fancy_muddy_ending.webp | 264 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/muddy-splashy-hat/p09_mud_ending.webp | 272 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/muddy-splashy-hat/p09_pond_ending.webp | 274 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_tree_look_up.webp | 318 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_wren_arrives.webp | 863 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p01_start.webp | 318 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p02_cuddly.webp | 319 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p02_shy.webp | 320 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_barn_look.webp | 305 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_peek.webp | 294 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_stay_still.webp | 284 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p03_tree_look.webp | 339 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_call_shy.webp | 295 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_hide_again.webp | 279 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_little_wave.webp | 312 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_quiet_tiny.webp | 328 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_say_hi_tiny.webp | 314 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_tree_look_up.webp | 307 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_tree_sit.webp | 313 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p04_wait_quietly.webp | 296 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_bird.webp | 311 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_cuddly_arrives.webp | 325 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_sit_together.webp | 323 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p05_tiny_tree.webp | 321 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p06_go_to_tree.webp | 326 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p06_tree_find_shy.webp | 316 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tiny_waits.webp | 286 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_under.webp | 338 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_up.webp | 272 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_barn_hug.webp | 317 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.webp | 325 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_purr.webp | 296 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_wave_from_tree.webp | 303 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.webp | 312 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_quiet_ending.webp | 366 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_soft_hug_ending.webp | 285 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_tree_happy_ending.webp | 348 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_wren_arrives.webp | 286 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fern_joins.webp | 371 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_pip_lamp.webp | 358 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_smoke_arrow.webp | 281 KB | Target 120-220 KB where quality allows. |
@@ -243,14 +274,14 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_fern_repairs.webp | 293 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_glow_chooses.webp | 272 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_stream_returns.webp | 597 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_wren_rule.webp | 356 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_wren_rule.webp | 358 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_frog_ending.webp | 403 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_gentle_ending.webp | 813 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_pip_ending.webp | 824 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_splash_ending.webp | 464 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_wren_ending.webp | 256 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_wren_ending.webp | 272 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p01_start.webp | 305 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.webp | 290 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.webp | 318 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p03_pour_potion.webp | 257 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p03_wrong_colour.webp | 365 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p04_all_walk.webp | 295 KB | Target 120-220 KB where quality allows. |
@@ -259,11 +290,11 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p05_garden_empty.webp | 257 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p05_tiny_escape.webp | 272 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p05_too_late.webp | 333 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p05_wren_panic.webp | 328 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p05_wren_panic.webp | 315 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p06_crystal_stream.webp | 406 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p06_fast_spell.webp | 332 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p06_plants_everywhere.webp | 389 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.webp | 323 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.webp | 270 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p07_dewdrop_laughs.webp | 329 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p07_sing_softly.webp | 329 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p08_almost_fixed.webp | 270 KB | Target 120-220 KB where quality allows. |
@@ -273,13 +304,27 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p10_garden_safe.webp | 259 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p10_wren_sorry.webp | 290 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p11_fewer_books.webp | 262 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_door_opens.webp | 275 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_star_fish.webp | 262 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_sorry_path.webp | 259 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_echo_room.webp | 264 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_funny_ending.webp | 294 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_home_seed.webp | 280 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_wren_ending.webp | 309 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_stream_path.webp | 261 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_pip_arrives.webp | 275 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_upstream.webp | 276 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_cross_stones.webp | 261 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_kind_choice.webp | 258 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_pip_leads.webp | 265 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_stream_gate.webp | 254 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_wren_warning.webp | 260 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_moss_laughs.webp | 262 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_star_fish.webp | 258 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_blue_path.webp | 256 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_gold_path.webp | 434 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_kind_sleep.webp | 280 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_star_choice.webp | 275 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_free_seed.webp | 306 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_funny_ending.webp | 462 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_home_seed.webp | 397 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_marsh_light.webp | 306 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.webp | 413 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_stone_star.webp | 305 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_wren_ending.webp | 378 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/pip-stone-loud-thing/p01_start.webp | 269 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/pip-stone-loud-thing/p03_luna_says_together.webp | 268 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/pip-stone-loud-thing/p04_inside_marsh.webp | 263 KB | Target 120-220 KB where quality allows. |

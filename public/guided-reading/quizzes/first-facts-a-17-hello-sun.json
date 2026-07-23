@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-17-hello-sun",
+  "contentHash": "sha256:e4ef661a246662d380e53c5c0ec9a58b6f169ddea754d776eae7c0fed833a551",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"The sun ___ us light. The sun warms our Earth.\"",
+      "id": "first-facts-a-17-hello-sun-q1",
+      "prompt": "What is the sun?",
       "choices": [
-        "glows",
-        "gives",
-        "mum"
+        "a big, hot star",
+        "a cold planet",
+        "a grey cloud"
       ],
-      "answer": "gives",
-      "kind": "word"
+      "answer": "a big, hot star",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 1,
+      "evidenceText": "The sun is a big, hot star."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-17-hello-sun-q2",
+      "prompt": "When is the sun high in the sky?",
       "choices": [
-        "taste",
-        "grew",
-        "sun"
+        "in the evening",
+        "at midday",
+        "at night"
       ],
-      "answer": "sun",
-      "kind": "word"
+      "answer": "at midday",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 4,
+      "evidenceText": "At midday, the sun is high."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-17-hello-sun-q3",
+      "prompt": "Why do plants need the sun?",
       "choices": [
-        "secret",
-        "sun",
-        "zoo"
+        "to sleep",
+        "to hide",
+        "to grow"
       ],
-      "answer": "sun",
-      "kind": "word"
+      "answer": "to grow",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "Plants need the sun to grow."
     }
   ]
 }

@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-05-bossy-makes-a-plan",
+  "contentHash": "sha256:bf2171b2b062778ffcbf0da3d8cd0d56b6efab657aa4c573de8acd0e2d09e8a0",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ up! called Bossy. I have a plan!\"",
+      "id": "dino-pals-05-bossy-makes-a-plan-q1",
+      "prompt": "What job did Bossy give Wiggly?",
       "choices": [
-        "walked",
-        "smell",
-        "listen"
+        "get berries",
+        "carry things",
+        "get leaves"
       ],
-      "answer": "listen",
-      "kind": "word"
+      "answer": "carry things",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 2,
+      "evidenceText": "Wiggly: carry things."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-05-bossy-makes-a-plan-q2",
+      "prompt": "What went wrong with Chompy's job?",
       "choices": [
-        "dragon",
-        "bossy",
-        "beach"
+        "Chompy gave the berries to Bossy.",
+        "Chompy left the berries alone.",
+        "Chompy ate the berries."
       ],
-      "answer": "bossy",
-      "kind": "word"
+      "answer": "Chompy ate the berries.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 3,
+      "evidenceText": "Chompy ate the berries."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-05-bossy-makes-a-plan-q3",
+      "prompt": "What made the new plan work?",
       "choices": [
-        "Marcus",
-        "Bossy",
-        "Noisy"
+        "They combined ideas and worked together.",
+        "Bossy completed every job alone.",
+        "Everyone stopped trying."
       ],
-      "answer": "Bossy",
-      "kind": "word"
+      "answer": "They combined ideas and worked together.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Trying your way and our way combines the group's ideas, and the words worked together show how the new plan succeeded.",
+      "evidencePage": 7,
+      "evidenceText": "can we try YOUR way AND our way? They worked together. It worked!"
     }
   ]
 }

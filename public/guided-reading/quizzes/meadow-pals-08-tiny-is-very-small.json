@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-08-tiny-is-very-small",
+  "contentHash": "sha256:251e48bae6534d492e4b03c154c0ac422e10f10d0949245398754c6a7ed0f167",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Tiny is ___.\"",
+      "id": "meadow-pals-08-tiny-is-very-small-q1",
+      "prompt": "What can Tiny do because Tiny is small?",
       "choices": [
-        "small",
-        "voice",
-        "wear"
+        "fit in the pot",
+        "open the big door",
+        "reach the top"
       ],
-      "answer": "small",
-      "kind": "word"
+      "answer": "fit in the pot",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 6,
+      "evidenceText": "But Tiny can fit in the pot."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-08-tiny-is-very-small-q2",
+      "prompt": "What problem does Tiny have with the big door?",
       "choices": [
-        "dozy",
-        "rain",
-        "tiny"
+        "Tiny cannot open it.",
+        "Tiny cannot see it.",
+        "Tiny cannot find it."
       ],
-      "answer": "tiny",
-      "kind": "word"
+      "answer": "Tiny cannot open it.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The page states that Tiny cannot open the big door, which is the problem named in the answer.",
+      "evidencePage": 4,
+      "evidenceText": "Tiny cannot open the big door."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "meadow-pals-08-tiny-is-very-small-q3",
+      "prompt": "What does Tiny learn about being small?",
       "choices": [
-        "senses",
-        "small",
-        "fish"
+        "It can be very good",
+        "It is always lonely",
+        "It stops every game"
       ],
-      "answer": "small",
-      "kind": "word"
+      "answer": "It can be very good",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "Small is very, very good."
     }
   ]
 }

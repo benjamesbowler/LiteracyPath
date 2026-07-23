@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-11-at-the-farm",
- "questions": [
-  {
-   "prompt": "What color is the barn?",
-   "choices": [
-    "red",
-    "blue",
-    "green"
-   ],
-   "answer": "red",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who says peep?",
-   "choices": [
-    "the chick",
-    "the cow",
-    "the pig"
-   ],
-   "answer": "the chick",
-   "kind": "word"
-  },
-  {
-   "prompt": "What runs fast at the farm?",
-   "choices": [
-    "the dog",
-    "the hay",
-    "the barn"
-   ],
-   "answer": "the dog",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-11-at-the-farm",
+  "contentHash": "sha256:ae6688f989c1474993d7f35ba0d6b19eb28bdbf899b13798bcbcb96446cac49f",
+  "questions": [
+    {
+      "id": "first-facts-level-a-11-at-the-farm-q1",
+      "prompt": "What color is the barn?",
+      "choices": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "answer": "red",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "I see a big red barn."
+    },
+    {
+      "id": "first-facts-level-a-11-at-the-farm-q2",
+      "prompt": "Who says peep?",
+      "choices": [
+        "the chick",
+        "the cow",
+        "the pig"
+      ],
+      "answer": "the chick",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "I see a little chick.\nPeep!"
+    },
+    {
+      "id": "first-facts-level-a-11-at-the-farm-q3",
+      "prompt": "What runs fast at the farm?",
+      "choices": [
+        "the dog",
+        "the hay",
+        "the barn"
+      ],
+      "answer": "the dog",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 6,
+      "evidenceText": "I see a big dog.\nIt runs fast."
+    }
+  ]
 }

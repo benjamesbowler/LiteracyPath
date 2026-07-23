@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-03-penguins",
+  "contentHash": "sha256:ff6edfcaac281740730046e119b9a09baaa02c8d122d7669ede5de375792d338",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-03-penguins-q1",
+      "prompt": "How do penguins use their wings?",
       "choices": [
-        "rings",
-        "ran",
-        "penguins"
+        "as flippers",
+        "to glide through the air",
+        "to keep their eggs warm"
       ],
-      "answer": "penguins",
-      "kind": "word"
+      "answer": "as flippers",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 1,
+      "evidenceText": "Instead, they use their wings as flippers."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-03-penguins-q2",
+      "prompt": "Why do emperor fathers huddle together?",
       "choices": [
-        "From",
-        "Shy",
-        "Dogs"
+        "to find eggs",
+        "to stay warm",
+        "to dry feathers"
       ],
-      "answer": "From",
-      "kind": "word"
+      "answer": "to stay warm",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 4,
+      "evidenceText": "He huddles with other fathers to stay warm."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-03-penguins-q3",
+      "prompt": "What does a penguin's dark back blend with from above?",
       "choices": [
-        "penguins",
-        "butterflies",
-        "nan"
+        "the bright snow",
+        "the grey sky",
+        "the deep water"
       ],
-      "answer": "penguins",
-      "kind": "word"
+      "answer": "the deep water",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 8,
+      "evidenceText": "From above, their dark back blends with the deep water."
     }
   ]
 }

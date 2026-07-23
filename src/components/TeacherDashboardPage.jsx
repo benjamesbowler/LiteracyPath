@@ -638,18 +638,21 @@ export function TeacherDashboardPage({
                 ? `${studentRows.length} student${studentRows.length === 1 ? "" : "s"} in this class.`
                 : "Choose a class to load students."}
             </p>
+            {selectedClass && (
+              <small className="muted-text">Use a familiar English name or classroom nickname. Do not enter a surname or other personal details.</small>
+            )}
           </div>
         </div>
 
         {selectedClass && (
           <div className="teacher-roster-actionbar">
             <label className="teacher-dashboard-control">
-              <span>New student</span>
+              <span>Class display name</span>
               <input
                 ref={newStudentInputRef}
                 autoComplete="off"
                 value={newStudentName}
-                placeholder="Enter student name"
+                placeholder="English name or classroom nickname"
                 onChange={event => setNewStudentName(event.target.value)}
                 onKeyDown={event => {
                   if (event.key === "Enter") handleCreateStudent();
@@ -694,7 +697,7 @@ export function TeacherDashboardPage({
               <span>3. Start a check</span>
             </div>
             <strong>Add your first student to {selectedClass.name}.</strong>
-            <p>Type a name and we&rsquo;ll create a typing-free picture login for them.</p>
+            <p>Add an English name or classroom nickname, then set their three login pictures.</p>
             <button className="lp-button lp-button-primary" type="button" onClick={focusNewStudentInput}>
               Add your first student
             </button>
@@ -704,7 +707,7 @@ export function TeacherDashboardPage({
             <table className="dashboard-table teacher-roster-table">
               <thead>
                 <tr>
-                  <th>Name</th>
+                  <th>Display name</th>
                   <th>Focus</th>
                   <th>Progress</th>
                   <th>Sound Seekers</th>
@@ -778,11 +781,13 @@ export function TeacherDashboardPage({
                             setEditingStudent(row);
                             setEditingSequence("");
                           }} type="button">
-                            Change
+                            {loginReady ? "Change" : "Set pictures"}
                           </button>
-                          <button className="text-button" onClick={() => resetStudentSymbolPassword?.(row.id, row.name)} type="button">
-                            Reset
-                          </button>
+                          {loginReady && (
+                            <button className="text-button" onClick={() => resetStudentSymbolPassword?.(row.id, row.name)} type="button">
+                              Reset
+                            </button>
+                          )}
                         </div>
                       </div>
                     </td>

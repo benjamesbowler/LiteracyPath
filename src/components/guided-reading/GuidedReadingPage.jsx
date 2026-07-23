@@ -566,6 +566,7 @@ export function GuidedReadingPage({
     setSelectedLibraryLevel(launchedBook.level || "");
     setPageIndex(0);
     setShowSummary(false);
+    setShowQuiz(false);
     setReaderOpen(true);
     setReadingMode("reading");
     onLaunchBookHandled?.();
@@ -712,7 +713,7 @@ export function GuidedReadingPage({
   }, []);
 
   useEffect(() => {
-    if (!readerOpen || showSummary) return undefined;
+    if (!readerOpen || showSummary || showQuiz) return undefined;
 
     function handleKeyDown(event) {
       const tagName = event.target?.tagName?.toLowerCase();
@@ -731,7 +732,7 @@ export function GuidedReadingPage({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [readerOpen, showSummary, pageIndex, selectedBook?.pages?.length]);
+  }, [readerOpen, showSummary, showQuiz, pageIndex, selectedBook?.pages?.length]);
 
   function updateRecord(patch) {
     if (!selectedBook) return;
@@ -896,6 +897,7 @@ export function GuidedReadingPage({
     setSelectedBookId(bookId);
     setPageIndex(0);
     setShowSummary(false);
+    setShowQuiz(false);
     setReaderOpen(true);
     setReadingMode("reading");
   }
@@ -913,6 +915,7 @@ export function GuidedReadingPage({
     }
     setReaderOpen(false);
     setShowSummary(false);
+    setShowQuiz(false);
   }
 
   async function toggleReaderFullscreen() {
@@ -1358,7 +1361,7 @@ export function GuidedReadingPage({
   return (
     <div className={guidedReadingPageClassName}>
       {showQuiz && selectedBook && (
-        <BookQuiz book={selectedBook} onFinish={handleQuizFinish} />
+        <BookQuiz key={selectedBook.id} book={selectedBook} onFinish={handleQuizFinish} />
       )}
 
       {levelUp && (

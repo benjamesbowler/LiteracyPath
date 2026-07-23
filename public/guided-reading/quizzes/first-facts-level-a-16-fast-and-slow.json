@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-16-fast-and-slow",
- "questions": [
-  {
-   "prompt": "Which one goes very fast?",
-   "choices": [
-    "the jet",
-    "the snail",
-    "the turtle"
-   ],
-   "answer": "the jet",
-   "kind": "word"
-  },
-  {
-   "prompt": "Which one is slow?",
-   "choices": [
-    "the snail",
-    "the car",
-    "the bus"
-   ],
-   "answer": "the snail",
-   "kind": "word"
-  },
-  {
-   "prompt": "What sound does the car make?",
-   "choices": [
-    "zoom",
-    "moo",
-    "peep"
-   ],
-   "answer": "zoom",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-16-fast-and-slow",
+  "contentHash": "sha256:d45cdbf5114794c5d87b13760d747aa5558c6acf6cb3ef41a732e0013bd236dc",
+  "questions": [
+    {
+      "id": "first-facts-level-a-16-fast-and-slow-q1",
+      "prompt": "Which one goes very fast?",
+      "choices": [
+        "the jet",
+        "the snail",
+        "the turtle"
+      ],
+      "answer": "the jet",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 3,
+      "evidenceText": "A jet can go very fast.\nWhoosh!"
+    },
+    {
+      "id": "first-facts-level-a-16-fast-and-slow-q2",
+      "prompt": "Which one is slow?",
+      "choices": [
+        "the snail",
+        "the car",
+        "the bus"
+      ],
+      "answer": "the snail",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 4,
+      "evidenceText": "A snail is slow.\nIt is not fast."
+    },
+    {
+      "id": "first-facts-level-a-16-fast-and-slow-q3",
+      "prompt": "What sound does the car make?",
+      "choices": [
+        "zoom",
+        "moo",
+        "peep"
+      ],
+      "answer": "zoom",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A car can go fast.\nZoom!"
+    }
+  ]
 }

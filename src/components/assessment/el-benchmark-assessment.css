@@ -1255,6 +1255,11 @@
   background: var(--el-surface);
 }
 
+.el-benchmark-placement:focus {
+  outline: 4px solid #2563eb;
+  outline-offset: 3px;
+}
+
 .el-benchmark-placement-heading,
 .el-benchmark-placement-evidence,
 .el-benchmark-placement-confirmed,
@@ -1848,6 +1853,22 @@
   font-size: 12px;
   font-weight: 700;
   text-align: center;
+}
+
+.el-benchmark-footer-status {
+  min-width: 0;
+}
+
+.el-benchmark-footer-status.error {
+  padding: 9px 11px;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  background: var(--el-danger-soft);
+}
+
+.el-benchmark-footer-status.error p,
+.el-benchmark-footer-status.error strong {
+  color: #7f1d1d;
 }
 
 .el-benchmark-footer-more {

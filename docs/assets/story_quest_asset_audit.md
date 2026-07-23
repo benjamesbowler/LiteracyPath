@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-07-22T06:16:48.016Z
+Generated: 2026-07-23T00:04:55.188Z
 
 ## Summary Counts
 
@@ -13,7 +13,7 @@ Generated: 2026-07-22T06:16:48.016Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
-- Narration files withheld pending rerecord: 253
+- Narration files withheld pending rerecord: 259
 
 ## Missing Referenced Images
 
@@ -36,9 +36,15 @@ These pages keep their original asset paths for traceability, but the player wit
 - `mw_ra_c_02_fern_wren_walking_garden / p06_wrong_book` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.mp3`
 - `mw_ra_c_02_fern_wren_walking_garden / p07_book_fix` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p07_book_fix.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p07_wrong_shell` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wrong_shell.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p07_luna_fixes` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_luna_fixes.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p07_wren_checks` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wren_checks.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p07_stone_too_big` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_stone_too_big.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p08_sorry_path` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_sorry_path.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p08_polite_door` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_polite_door.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p08_map_inside` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_map_inside.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p09_door_answer` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_door_answer.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p10_wren_ending` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_wren_ending.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p10_funny_ending` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_funny_ending.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p10_quiet_ending` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.mp3`
 - `mw_ra_c_04_dewdrop_flint_lost_glow / p03_wren_arrives` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p03_wren_arrives.mp3`
 - `mw_ra_c_04_dewdrop_flint_lost_glow / p06_question_path` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_question_path.mp3`

@@ -1,13 +1,13 @@
 # Assessment Runtime Variation Audit
 
-Generated: 2026-07-04T05:40:47.527Z
+Generated: 2026-07-23T08:06:10.691Z
 Status: FAIL
 
 ## Skill Results
 | Skill | Selectable | Static unique images | Dynamic unique images | Top image before | Top image after | Failures |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| initial_sounds | 131 | 117 | 103 | 4 | 10 | 438 |
-| final_sounds | 464 | 248 | 221 | 7 | 10 | 141 |
+| initial_sounds | 130 | 116 | 102 | 4 | 10 | 438 |
+| final_sounds | 458 | 245 | 225 | 7 | 10 | 137 |
 | rhyming | 666 | 146 | 137 | 9 | 10 | 0 |
 | cvc_short_vowels | 412 | 107 | 109 | 8 | 10 | 107 |
 | short_vowel_discrimination | 304 | 149 | 149 | 6 | 10 | 141 |
@@ -15,9 +15,9 @@ Status: FAIL
 | hfw_26_50 | 149 | 0 | 0 | 0 | 0 | 0 |
 | hfw_51_75 | 148 | 0 | 0 | 0 | 0 | 0 |
 | hfw_76_100 | 144 | 0 | 0 | 0 | 0 | 0 |
-| nouns | 130 | 91 | 88 | 3 | 10 | 0 |
-| verbs | 68 | 59 | 59 | 2 | 15 | 0 |
-| adjectives | 51 | 44 | 44 | 3 | 30 | 10 |
+| nouns | 130 | 91 | 88 | 3 | 10 | 3 |
+| verbs | 73 | 58 | 58 | 2 | 20 | 0 |
+| adjectives | 58 | 42 | 42 | 3 | 30 | 10 |
 | prepositions | 264 | 79 | 68 | 5 | 37 | 20 |
 | plurals | 104 | 86 | 66 | 3 | 30 | 0 |
 | antonyms_synonyms | 155 | 108 | 100 | 5 | 20 | 20 |
@@ -136,7 +136,7 @@ Status: FAIL
 - hfw_51_75: before 0x none; after 0x none
 - hfw_76_100: before 0x none; after 0x none
 - nouns: before 3x /images/child-mode/cvc/bag.png; after 10x /images/child-mode/blends/flag.png
-- verbs: before 2x /media/vocabulary/images/verb-ate.webp; after 15x /media/vocabulary/images/verb-ate.webp
+- verbs: before 2x /media/vocabulary/images/verb-ate.webp; after 20x /media/vocabulary/images/verb-ate.webp
 - adjectives: before 3x /media/vocabulary/images/adjective-cute.webp; after 30x /media/vocabulary/images/adjective-cute.webp
 - prepositions: before 5x /media/vocabulary/images/between.webp; after 37x /media/vocabulary/images/near.webp
 - plurals: before 3x /images/child-mode/plurals/cups.png; after 30x /images/child-mode/plurals/cups.png

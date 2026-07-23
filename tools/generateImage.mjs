@@ -15,6 +15,8 @@
  *   Options:
  *     --size     1024x1024 (default) | 1536x1024 | 1024x1536
  *     --quality  high (default) | medium | low
+ *     --width    optional output width in pixels
+ *     --height   optional output height (defaults to width for square assets)
  *     --force    overwrite an existing file (otherwise it is skipped)
  *
  * HOUSE STYLE (arcade game icons): glossy 3D-rendered app-icon tile, one hero
@@ -118,9 +120,12 @@ async function generate(job, index, total) {
   fs.mkdirSync(path.dirname(out), { recursive: true });
   const png = Buffer.from(b64, "base64");
 
-  // Optional square downscale (arcade icons are 640x640 — match the existing set).
+  // Optional output resize. Existing jobs provide width only and therefore
+  // remain square; wide card art can provide an explicit height so its crop is
+  // reproducible instead of silently changing on regeneration.
   const width = Number(job.width || args.width || 0);
-  const resize = pipe => (width > 0 ? pipe.resize(width, width, { fit: "cover" }) : pipe);
+  const height = Number(job.height || args.height || width || 0);
+  const resize = pipe => (width > 0 ? pipe.resize(width, height, { fit: "cover" }) : pipe);
 
   if (out.endsWith(".webp")) {
     await resize(sharp(png)).webp({ quality: 90 }).toFile(out);

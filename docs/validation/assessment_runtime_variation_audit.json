@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-07-04T05:40:47.527Z",
+  "generatedAt": "2026-07-23T08:06:10.691Z",
   "passed": false,
   "sessionsSimulatedPerSkill": 10,
   "roundSize": 15,
   "skills": [
     {
       "skillId": "initial_sounds",
-      "selectableQuestions": 131,
+      "selectableQuestions": 130,
       "static": {
-        "uniqueImages": 117,
+        "uniqueImages": 116,
         "uniqueAudio": 80,
         "topImages": [
           {
@@ -95,7 +95,7 @@
         "topAudio": [
           {
             "path": "/audio/child-mode/clean-human/phrases/listen-and-find.mp3",
-            "count": 50
+            "count": 49
           },
           {
             "path": "/audio/child-mode/clean-human/words/apple.mp3",
@@ -179,9 +179,9 @@
       "dynamic": {
         "simulatedSessions": 10,
         "simulatedQuestionUses": 600,
-        "uniqueImages": 103,
+        "uniqueImages": 102,
         "uniqueAudio": 77,
-        "uniqueContentKeys": 104,
+        "uniqueContentKeys": 103,
         "topImages": [
           {
             "path": "/media/vocabulary/images/bamboo.webp",
@@ -212,7 +212,7 @@
             "count": 9
           },
           {
-            "path": "/images/child-mode/initial-sounds/sun.png",
+            "path": "/media/initial-sounds/images/s/sun.webp",
             "count": 9
           },
           {
@@ -356,7 +356,7 @@
         {
           "sessionIndex": 0,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -446,7 +446,7 @@
         {
           "sessionIndex": 1,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -536,7 +536,7 @@
         {
           "sessionIndex": 2,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -626,7 +626,7 @@
         {
           "sessionIndex": 3,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -716,7 +716,7 @@
         {
           "sessionIndex": 4,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -806,7 +806,7 @@
         {
           "sessionIndex": 5,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -896,7 +896,7 @@
         {
           "sessionIndex": 6,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -986,7 +986,7 @@
         {
           "sessionIndex": 7,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -1076,7 +1076,7 @@
         {
           "sessionIndex": 8,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -1166,7 +1166,7 @@
         {
           "sessionIndex": 9,
           "phase": "L1P1",
-          "poolSize": 28,
+          "poolSize": 27,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 1,
@@ -1750,16 +1750,6 @@
           "sessionIndex": 1,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "coverage_initial_o_002",
-          "issues": [
-            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-          ]
-        },
-        {
-          "skillId": "initial_sounds",
-          "sessionIndex": 1,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
           "questionId": "coverage_initial_o_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -1821,6 +1811,16 @@
           "phase": "L1P1",
           "reason": "resolved media validation failed",
           "questionId": "coverage_initial_l_001",
+          "issues": [
+            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+          ]
+        },
+        {
+          "skillId": "initial_sounds",
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "coverage_initial_e_002",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
           ]
@@ -2220,16 +2220,6 @@
           "sessionIndex": 2,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "coverage_initial_t_001",
-          "issues": [
-            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-          ]
-        },
-        {
-          "skillId": "initial_sounds",
-          "sessionIndex": 2,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
           "questionId": "coverage_initial_h_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -2240,7 +2230,7 @@
           "sessionIndex": 2,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "coverage_initial_s_002",
+          "questionId": "coverage_initial_t_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
           ]
@@ -2251,6 +2241,16 @@
           "phase": "L1P1",
           "reason": "resolved media validation failed",
           "questionId": "coverage_initial_g_002",
+          "issues": [
+            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+          ]
+        },
+        {
+          "skillId": "initial_sounds",
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "coverage_initial_s_002",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
           ]
@@ -2610,16 +2610,6 @@
           "sessionIndex": 3,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "coverage_initial_o_002",
-          "issues": [
-            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-          ]
-        },
-        {
-          "skillId": "initial_sounds",
-          "sessionIndex": 3,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
           "questionId": "coverage_initial_o_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -2681,6 +2671,16 @@
           "phase": "L1P1",
           "reason": "resolved media validation failed",
           "questionId": "coverage_initial_j_002",
+          "issues": [
+            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+          ]
+        },
+        {
+          "skillId": "initial_sounds",
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "coverage_initial_j_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
           ]
@@ -3510,16 +3510,6 @@
           "sessionIndex": 5,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "coverage_initial_o_002",
-          "issues": [
-            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-          ]
-        },
-        {
-          "skillId": "initial_sounds",
-          "sessionIndex": 5,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
           "questionId": "coverage_initial_o_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -3571,6 +3561,16 @@
           "phase": "L1P1",
           "reason": "resolved media validation failed",
           "questionId": "coverage_initial_k_001",
+          "issues": [
+            "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+          ]
+        },
+        {
+          "skillId": "initial_sounds",
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "coverage_initial_j_002",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
           ]
@@ -5290,7 +5290,7 @@
           "sessionIndex": 9,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "coverage_initial_u_001",
+          "questionId": "coverage_initial_a_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
           ]
@@ -5300,7 +5300,7 @@
           "sessionIndex": 9,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "coverage_initial_a_001",
+          "questionId": "coverage_initial_u_001",
           "issues": [
             "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
           ]
@@ -5639,10 +5639,10 @@
     },
     {
       "skillId": "final_sounds",
-      "selectableQuestions": 464,
+      "selectableQuestions": 458,
       "static": {
-        "uniqueImages": 248,
-        "uniqueAudio": 221,
+        "uniqueImages": 245,
+        "uniqueAudio": 218,
         "topImages": [
           {
             "path": "/images/child-mode/cvc/bed.png",
@@ -5812,16 +5812,12 @@
       "dynamic": {
         "simulatedSessions": 10,
         "simulatedQuestionUses": 600,
-        "uniqueImages": 221,
-        "uniqueAudio": 203,
-        "uniqueContentKeys": 317,
+        "uniqueImages": 225,
+        "uniqueAudio": 206,
+        "uniqueContentKeys": 321,
         "topImages": [
           {
             "path": "/images/child-mode/digraphs/ship.png",
-            "count": 10
-          },
-          {
-            "path": "/images/child-mode/initial-sounds/bag.png",
             "count": 10
           },
           {
@@ -5837,12 +5833,20 @@
             "count": 10
           },
           {
+            "path": "/media/initial-sounds/images/b/bag.webp",
+            "count": 10
+          },
+          {
             "path": "/media/initial-sounds/images/p/pencil.webp",
             "count": 10
           },
           {
             "path": "/images/child-mode/cvc/dot.png",
             "count": 9
+          },
+          {
+            "path": "/images/child-mode/cvc/pot.png",
+            "count": 8
           },
           {
             "path": "/images/child-mode/initial-sounds/vase.png",
@@ -5853,16 +5857,24 @@
             "count": 8
           },
           {
+            "path": "/media/initial-sounds/images/g/goalpost.webp",
+            "count": 8
+          },
+          {
             "path": "/media/initial-sounds/images/j/jet.webp",
             "count": 8
           },
           {
-            "path": "/media/initial-sounds/images/p/pin.webp",
+            "path": "/media/initial-sounds/images/s/sun.webp",
             "count": 8
           },
           {
             "path": "/media/initial-sounds/images/w/web.webp",
             "count": 8
+          },
+          {
+            "path": "/images/child-mode/cvc/bed.png",
+            "count": 7
           },
           {
             "path": "/images/child-mode/cvc/fish.png",
@@ -5873,11 +5885,7 @@
             "count": 7
           },
           {
-            "path": "/images/child-mode/initial-sounds/dog.png",
-            "count": 7
-          },
-          {
-            "path": "/images/child-mode/initial-sounds/pot.png",
+            "path": "/images/child-mode/initial-sounds/map.png",
             "count": 7
           },
           {
@@ -5885,16 +5893,8 @@
             "count": 7
           },
           {
-            "path": "/images/child-mode/initial-sounds/sun.png",
-            "count": 7
-          },
-          {
             "path": "/images/child-mode/short-e/red.png",
             "count": 7
-          },
-          {
-            "path": "/images/child-mode/initial-sounds/bed.png",
-            "count": 6
           }
         ],
         "topAudio": [
@@ -5927,16 +5927,8 @@
             "count": 9
           },
           {
-            "path": "/audio/child-mode/clean-human/words/pin.mp3",
+            "path": "/audio/child-mode/clean-human/words/sun.mp3",
             "count": 9
-          },
-          {
-            "path": "/audio/child-mode/clean-human/words/bed.mp3",
-            "count": 8
-          },
-          {
-            "path": "/audio/child-mode/clean-human/words/dog.mp3",
-            "count": 8
           },
           {
             "path": "/audio/child-mode/clean-human/words/jet.mp3",
@@ -5947,7 +5939,15 @@
             "count": 8
           },
           {
-            "path": "/audio/child-mode/clean-human/words/mug.mp3",
+            "path": "/audio/child-mode/clean-human/words/map.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pin.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pot.mp3",
             "count": 8
           },
           {
@@ -5959,37 +5959,37 @@
             "count": 8
           },
           {
+            "path": "/media/initial-sounds/audio/g/goalpost.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bed.mp3",
+            "count": 7
+          },
+          {
             "path": "/audio/child-mode/clean-human/words/bug.mp3",
             "count": 7
           },
           {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 7
+          },
+          {
             "path": "/audio/child-mode/clean-human/words/log.mp3",
-            "count": 7
-          },
-          {
-            "path": "/audio/child-mode/clean-human/words/map.mp3",
-            "count": 7
-          },
-          {
-            "path": "/audio/child-mode/clean-human/words/pot.mp3",
-            "count": 7
-          },
-          {
-            "path": "/audio/child-mode/clean-human/words/ram.mp3",
             "count": 7
           }
         ],
         "dominantImageCount": 10
       },
       "improvement": {
-        "uniqueImagesDelta": -27,
+        "uniqueImagesDelta": -20,
         "dominantImageRepeatDelta": 3
       },
       "phaseResults": [
         {
           "sessionIndex": 0,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6057,7 +6057,7 @@
         {
           "sessionIndex": 0,
           "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6069,15 +6069,15 @@
           "repeatedTemplates": [
             {
               "value": "final_sound_pair_select",
-              "count": 7
+              "count": 6
             },
             {
               "value": "ending_sound",
-              "count": 2
+              "count": 4
             },
             {
               "value": "ending_sound_word_match",
-              "count": 5
+              "count": 4
             }
           ],
           "repeatedPrompts": []
@@ -6085,7 +6085,7 @@
         {
           "sessionIndex": 1,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6153,7 +6153,7 @@
         {
           "sessionIndex": 1,
           "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6164,16 +6164,16 @@
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
-              "value": "ending_sound",
+              "value": "ending_sound_word_match",
               "count": 3
             },
             {
               "value": "final_sound_pair_select",
-              "count": 6
+              "count": 8
             },
             {
-              "value": "ending_sound_word_match",
-              "count": 5
+              "value": "ending_sound",
+              "count": 3
             }
           ],
           "repeatedPrompts": []
@@ -6181,7 +6181,7 @@
         {
           "sessionIndex": 2,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6249,7 +6249,7 @@
         {
           "sessionIndex": 2,
           "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6260,16 +6260,16 @@
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
-              "value": "final_sound_pair_select",
-              "count": 4
+              "value": "ending_sound",
+              "count": 5
             },
             {
-              "value": "ending_sound",
-              "count": 3
+              "value": "final_sound_pair_select",
+              "count": 5
             },
             {
               "value": "ending_sound_word_match",
-              "count": 7
+              "count": 4
             }
           ],
           "repeatedPrompts": []
@@ -6277,7 +6277,7 @@
         {
           "sessionIndex": 3,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6345,7 +6345,7 @@
         {
           "sessionIndex": 3,
           "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6356,16 +6356,16 @@
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
-              "value": "ending_sound",
-              "count": 6
-            },
-            {
               "value": "final_sound_pair_select",
               "count": 6
             },
             {
+              "value": "ending_sound",
+              "count": 3
+            },
+            {
               "value": "ending_sound_word_match",
-              "count": 2
+              "count": 5
             }
           ],
           "repeatedPrompts": []
@@ -6373,7 +6373,7 @@
         {
           "sessionIndex": 4,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6441,191 +6441,7 @@
         {
           "sessionIndex": 4,
           "phase": "L2P2",
-          "poolSize": 129,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 15,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "final_sound_pair_select",
-              "count": 7
-            },
-            {
-              "value": "ending_sound_word_match",
-              "count": 2
-            },
-            {
-              "value": "ending_sound",
-              "count": 5
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 5,
-          "phase": "L1P1",
-          "poolSize": 151,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 15,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "ending_sound",
-              "count": 15
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 5,
-          "phase": "L1P2",
-          "poolSize": 40,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 15,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "ending_sound",
-              "count": 15
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 5,
-          "phase": "L2P1",
-          "poolSize": 144,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 14,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "ending_sound_word_match",
-              "count": 6
-            },
-            {
-              "value": "ending_sound",
-              "count": 8
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 5,
-          "phase": "L2P2",
-          "poolSize": 129,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 15,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "ending_sound_word_match",
-              "count": 5
-            },
-            {
-              "value": "ending_sound",
-              "count": 4
-            },
-            {
-              "value": "final_sound_pair_select",
-              "count": 5
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 6,
-          "phase": "L1P1",
-          "poolSize": 151,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 15,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "ending_sound",
-              "count": 15
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 6,
-          "phase": "L1P2",
-          "poolSize": 40,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 15,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "ending_sound",
-              "count": 15
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 6,
-          "phase": "L2P1",
-          "poolSize": 144,
-          "selected": 15,
-          "uniqueImages": 15,
-          "uniqueAudio": 14,
-          "uniqueContentKeys": 15,
-          "repeatedImages": [],
-          "repeatedAudio": [],
-          "repeatedContent": [],
-          "repeatedTargets": [],
-          "repeatedTemplates": [
-            {
-              "value": "ending_sound_word_match",
-              "count": 8
-            },
-            {
-              "value": "ending_sound",
-              "count": 6
-            }
-          ],
-          "repeatedPrompts": []
-        },
-        {
-          "sessionIndex": 6,
-          "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6638,14 +6454,198 @@
             {
               "value": "final_sound_pair_select",
               "count": 6
+            },
+            {
+              "value": "ending_sound",
+              "count": 5
             },
             {
               "value": "ending_sound_word_match",
               "count": 3
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 149,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound",
+              "count": 15
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound",
+              "count": 15
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 144,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound_word_match",
+              "count": 6
             },
             {
               "value": "ending_sound",
-              "count": 5
+              "count": 8
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 125,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound_word_match",
+              "count": 7
+            },
+            {
+              "value": "ending_sound",
+              "count": 3
+            },
+            {
+              "value": "final_sound_pair_select",
+              "count": 4
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 149,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound",
+              "count": 15
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound",
+              "count": 15
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 144,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound_word_match",
+              "count": 8
+            },
+            {
+              "value": "ending_sound",
+              "count": 6
+            }
+          ],
+          "repeatedPrompts": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 125,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": [],
+          "repeatedTargets": [],
+          "repeatedTemplates": [
+            {
+              "value": "ending_sound_word_match",
+              "count": 2
+            },
+            {
+              "value": "ending_sound",
+              "count": 8
+            },
+            {
+              "value": "final_sound_pair_select",
+              "count": 4
             }
           ],
           "repeatedPrompts": []
@@ -6653,7 +6653,7 @@
         {
           "sessionIndex": 7,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6721,7 +6721,7 @@
         {
           "sessionIndex": 7,
           "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6732,16 +6732,16 @@
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
-              "value": "ending_sound",
-              "count": 4
-            },
-            {
               "value": "ending_sound_word_match",
-              "count": 5
+              "count": 6
             },
             {
               "value": "final_sound_pair_select",
-              "count": 5
+              "count": 6
+            },
+            {
+              "value": "ending_sound",
+              "count": 2
             }
           ],
           "repeatedPrompts": []
@@ -6749,7 +6749,7 @@
         {
           "sessionIndex": 8,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6817,7 +6817,7 @@
         {
           "sessionIndex": 8,
           "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6845,7 +6845,7 @@
         {
           "sessionIndex": 9,
           "phase": "L1P1",
-          "poolSize": 151,
+          "poolSize": 149,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 15,
@@ -6913,7 +6913,7 @@
         {
           "sessionIndex": 9,
           "phase": "L2P2",
-          "poolSize": 129,
+          "poolSize": 125,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 14,
@@ -6925,15 +6925,15 @@
           "repeatedTemplates": [
             {
               "value": "ending_sound",
-              "count": 5
+              "count": 6
             },
             {
               "value": "final_sound_pair_select",
-              "count": 3
+              "count": 4
             },
             {
               "value": "ending_sound_word_match",
-              "count": 6
+              "count": 4
             }
           ],
           "repeatedPrompts": []
@@ -6955,29 +6955,9 @@
           "sessionIndex": 0,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_bib_0_sound",
+          "questionId": "gen_final_l1_b_lab_7_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/bib.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 0,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_t_kit_12_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/kit.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 0,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_dab_5_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/dab.webp"
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
           ]
         },
         {
@@ -6988,16 +6968,6 @@
           "questionId": "ending_l1_018_cob",
           "issues": [
             "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 0,
-          "phase": "L1P2",
-          "reason": "resolved media validation failed",
-          "questionId": "ending_l1_016_lab",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
           ]
         },
         {
@@ -7068,15 +7038,15 @@
           "repeats": [
             {
               "value": "final_sound_pair_select",
-              "count": 7
+              "count": 6
             },
             {
               "value": "ending_sound",
-              "count": 2
+              "count": 4
             },
             {
               "value": "ending_sound_word_match",
-              "count": 5
+              "count": 4
             }
           ]
         },
@@ -7085,9 +7055,9 @@
           "sessionIndex": 0,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_chest_0_word",
+          "questionId": "gen_final_l2_nk_drink_1_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/drink.webp"
           ]
         },
         {
@@ -7105,9 +7075,9 @@
           "sessionIndex": 0,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_nd_round_12_word",
+          "questionId": "gen_final_l2_ft_raft_2_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/raft.webp"
           ]
         },
         {
@@ -7115,29 +7085,9 @@
           "sessionIndex": 1,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_t_cart_1_sound",
+          "questionId": "gen_final_l1_b_sub_11_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/cart.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 1,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_d_rod_8_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/rod.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 1,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_n_lawn_8_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/lawn.webp"
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
           ]
         },
         {
@@ -7197,16 +7147,16 @@
           "reason": "repeated template despite alternatives",
           "repeats": [
             {
-              "value": "ending_sound",
+              "value": "ending_sound_word_match",
               "count": 3
             },
             {
               "value": "final_sound_pair_select",
-              "count": 6
+              "count": 8
             },
             {
-              "value": "ending_sound_word_match",
-              "count": 5
+              "value": "ending_sound",
+              "count": 3
             }
           ]
         },
@@ -7225,9 +7175,9 @@
           "sessionIndex": 1,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_dust_1_word",
+          "questionId": "gen_final_l2_st_forest_3_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
           ]
         },
         {
@@ -7235,9 +7185,19 @@
           "sessionIndex": 2,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_knob_6_sound",
+          "questionId": "gen_final_l1_b_dab_5_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/dab.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l1_p_harp_4_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/harp.webp"
           ]
         },
         {
@@ -7255,9 +7215,9 @@
           "sessionIndex": 2,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "ending_l1_017_sub",
+          "questionId": "gen_final_l1_b_cab_1_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/cab.webp"
           ]
         },
         {
@@ -7268,16 +7228,6 @@
           "questionId": "ending_l1_018_cob",
           "issues": [
             "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 2,
-          "phase": "L1P2",
-          "reason": "resolved media validation failed",
-          "questionId": "ending_l1_016_lab",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
           ]
         },
         {
@@ -7327,16 +7277,16 @@
           "reason": "repeated template despite alternatives",
           "repeats": [
             {
-              "value": "final_sound_pair_select",
-              "count": 4
+              "value": "ending_sound",
+              "count": 5
             },
             {
-              "value": "ending_sound",
-              "count": 3
+              "value": "final_sound_pair_select",
+              "count": 5
             },
             {
               "value": "ending_sound_word_match",
-              "count": 7
+              "count": 4
             }
           ]
         },
@@ -7355,16 +7305,6 @@
           "sessionIndex": 2,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_forest_3_word",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 2,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
           "questionId": "gen_final_l2_nd_round_12_sound",
           "issues": [
             "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
@@ -7375,9 +7315,9 @@
           "sessionIndex": 2,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_dust_1_word",
+          "questionId": "gen_final_l2_st_frost_4_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
           ]
         },
         {
@@ -7385,9 +7325,9 @@
           "sessionIndex": 2,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_frost_4_word",
+          "questionId": "gen_final_l2_nd_stand_14_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/stand.webp"
           ]
         },
         {
@@ -7395,9 +7335,9 @@
           "sessionIndex": 3,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_g_tug_16_sound",
+          "questionId": "gen_final_l1_p_lap_7_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/tug.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/lap.webp"
           ]
         },
         {
@@ -7405,9 +7345,9 @@
           "sessionIndex": 3,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_curb_4_sound",
+          "questionId": "gen_final_l1_m_palm_5_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/curb.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/palm.webp"
           ]
         },
         {
@@ -7415,19 +7355,9 @@
           "sessionIndex": 3,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_knob_6_sound",
+          "questionId": "gen_final_l1_d_rod_8_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 3,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_m_gem_1_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/gem.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/rod.webp"
           ]
         },
         {
@@ -7507,16 +7437,16 @@
           "reason": "repeated template despite alternatives",
           "repeats": [
             {
-              "value": "ending_sound",
-              "count": 6
-            },
-            {
               "value": "final_sound_pair_select",
               "count": 6
             },
             {
+              "value": "ending_sound",
+              "count": 3
+            },
+            {
               "value": "ending_sound_word_match",
-              "count": 2
+              "count": 5
             }
           ]
         },
@@ -7525,9 +7455,9 @@
           "sessionIndex": 3,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_dust_1_sound",
+          "questionId": "gen_final_l2_st_chest_0_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
           ]
         },
         {
@@ -7535,19 +7465,9 @@
           "sessionIndex": 3,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_nd_nightstand_8_word",
+          "questionId": "gen_final_l2_nd_round_12_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 3,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_frost_4_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
           ]
         },
         {
@@ -7555,9 +7475,9 @@
           "sessionIndex": 4,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_rub_10_sound",
+          "questionId": "gen_final_l1_p_sap_13_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/sap.webp"
           ]
         },
         {
@@ -7565,9 +7485,9 @@
           "sessionIndex": 4,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_cub_3_sound",
+          "questionId": "gen_final_l1_n_den_3_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/cub.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/den.webp"
           ]
         },
         {
@@ -7575,9 +7495,9 @@
           "sessionIndex": 4,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "ending_l1_015_knob",
+          "questionId": "gen_final_l1_t_dart_4_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/dart.webp"
           ]
         },
         {
@@ -7585,9 +7505,9 @@
           "sessionIndex": 4,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_g_tug_16_sound",
+          "questionId": "gen_final_l1_p_hip_5_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/tug.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/hip.webp"
           ]
         },
         {
@@ -7648,15 +7568,15 @@
           "repeats": [
             {
               "value": "final_sound_pair_select",
-              "count": 7
-            },
-            {
-              "value": "ending_sound_word_match",
-              "count": 2
+              "count": 6
             },
             {
               "value": "ending_sound",
               "count": 5
+            },
+            {
+              "value": "ending_sound_word_match",
+              "count": 3
             }
           ]
         },
@@ -7665,7 +7585,27 @@
           "sessionIndex": 4,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_nd_nightstand_8_word",
+          "questionId": "qb12_fs_026",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_st_frost_4_word",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_nd_nightstand_8_sound",
           "issues": [
             "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
           ]
@@ -7685,7 +7625,7 @@
           "sessionIndex": 4,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_sk_mask_3_sound",
+          "questionId": "gen_final_l2_sk_mask_3_word",
           "issues": [
             "image does not resolve approved exact-target media: /media/vocabulary/images/mask.webp"
           ]
@@ -7695,9 +7635,9 @@
           "sessionIndex": 5,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_p_hip_5_sound",
+          "questionId": "gen_final_l1_b_curb_4_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/hip.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/curb.webp"
           ]
         },
         {
@@ -7705,19 +7645,9 @@
           "sessionIndex": 5,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_m_gem_1_sound",
+          "questionId": "gen_final_l1_b_knob_6_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/gem.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 5,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_rub_10_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
           ]
         },
         {
@@ -7728,6 +7658,16 @@
           "questionId": "ending_l1_018_cob",
           "issues": [
             "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "reason": "resolved media validation failed",
+          "questionId": "ending_l1_016_lab",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
           ]
         },
         {
@@ -7768,15 +7708,15 @@
           "repeats": [
             {
               "value": "ending_sound_word_match",
-              "count": 5
+              "count": 7
             },
             {
               "value": "ending_sound",
-              "count": 4
+              "count": 3
             },
             {
               "value": "final_sound_pair_select",
-              "count": 5
+              "count": 4
             }
           ]
         },
@@ -7785,9 +7725,9 @@
           "sessionIndex": 5,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_ft_soft_3_word",
+          "questionId": "qb12_fs_026",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
           ]
         },
         {
@@ -7795,7 +7735,17 @@
           "sessionIndex": 5,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_nd_round_12_word",
+          "questionId": "gen_final_l2_lt_belt_0_word",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_nd_round_12_sound",
           "issues": [
             "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
           ]
@@ -7805,9 +7755,9 @@
           "sessionIndex": 5,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_ft_raft_2_sound",
+          "questionId": "gen_final_l2_nd_nightstand_8_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/raft.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
           ]
         },
         {
@@ -7815,9 +7765,19 @@
           "sessionIndex": 5,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_sk_mask_3_word",
+          "questionId": "gen_final_l2_st_fast_2_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/mask.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/fast.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_st_forest_3_word",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
           ]
         },
         {
@@ -7825,9 +7785,9 @@
           "sessionIndex": 6,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_n_lawn_8_sound",
+          "questionId": "gen_final_l1_t_kit_12_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/lawn.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/kit.webp"
           ]
         },
         {
@@ -7835,9 +7795,29 @@
           "sessionIndex": 6,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_l_curl_0_sound",
+          "questionId": "gen_final_l1_b_rub_10_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/curl.webp"
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l1_b_cub_3_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/cub.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l1_b_curb_4_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/curb.webp"
           ]
         },
         {
@@ -7848,16 +7828,6 @@
           "questionId": "ending_l1_018_cob",
           "issues": [
             "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 6,
-          "phase": "L1P2",
-          "reason": "resolved media validation failed",
-          "questionId": "ending_l1_016_lab",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
           ]
         },
         {
@@ -7927,37 +7897,17 @@
           "reason": "repeated template despite alternatives",
           "repeats": [
             {
-              "value": "final_sound_pair_select",
-              "count": 6
-            },
-            {
               "value": "ending_sound_word_match",
-              "count": 3
+              "count": 2
             },
             {
               "value": "ending_sound",
-              "count": 5
+              "count": 8
+            },
+            {
+              "value": "final_sound_pair_select",
+              "count": 4
             }
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 6,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
-          "questionId": "qb12_fs_026",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 6,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_lt_belt_0_word",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
           ]
         },
         {
@@ -7975,9 +7925,19 @@
           "sessionIndex": 6,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_nk_drink_1_sound",
+          "questionId": "gen_final_l2_st_dust_1_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/drink.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_st_chest_0_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
           ]
         },
         {
@@ -7992,12 +7952,12 @@
         },
         {
           "skillId": "final_sounds",
-          "sessionIndex": 7,
-          "phase": "L1P1",
+          "sessionIndex": 6,
+          "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_cab_1_sound",
+          "questionId": "gen_final_l2_lt_belt_0_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/cab.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
           ]
         },
         {
@@ -8005,9 +7965,39 @@
           "sessionIndex": 7,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_sub_11_sound",
+          "questionId": "gen_final_l1_t_cart_1_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/cart.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l1_m_gem_1_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/gem.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l1_n_lawn_8_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/lawn.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l1_b_rub_10_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
           ]
         },
         {
@@ -8077,47 +8067,17 @@
           "reason": "repeated template despite alternatives",
           "repeats": [
             {
-              "value": "ending_sound",
-              "count": 4
-            },
-            {
               "value": "ending_sound_word_match",
-              "count": 5
+              "count": 6
             },
             {
               "value": "final_sound_pair_select",
-              "count": 5
+              "count": 6
+            },
+            {
+              "value": "ending_sound",
+              "count": 2
             }
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 7,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
-          "questionId": "qb12_fs_026",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 7,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_forest_3_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 7,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_ft_soft_3_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
           ]
         },
         {
@@ -8135,9 +8095,29 @@
           "sessionIndex": 7,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_frost_4_word",
+          "questionId": "gen_final_l2_nd_stand_14_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/stand.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_ft_soft_3_word",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l1_l_curl_0_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/curl.webp"
           ]
         },
         {
@@ -8148,46 +8128,6 @@
           "questionId": "gen_final_l1_b_cob_2_sound",
           "issues": [
             "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 8,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_rib_9_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/rib.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 8,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_p_lap_7_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/lap.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 8,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_t_kit_12_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/kit.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 8,
-          "phase": "L1P1",
-          "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_b_sub_11_sound",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
           ]
         },
         {
@@ -8265,16 +8205,6 @@
           "sessionIndex": 8,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_fast_2_word",
-          "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/fast.webp"
-          ]
-        },
-        {
-          "skillId": "final_sounds",
-          "sessionIndex": 8,
-          "phase": "L2P2",
-          "reason": "resolved media validation failed",
           "questionId": "gen_final_l2_st_chest_0_word",
           "issues": [
             "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
@@ -8285,9 +8215,9 @@
           "sessionIndex": 8,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_frost_4_sound",
+          "questionId": "gen_final_l2_nd_nightstand_8_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
           ]
         },
         {
@@ -8295,9 +8225,29 @@
           "sessionIndex": 8,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_ft_soft_3_word",
+          "questionId": "gen_final_l2_nd_round_12_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_sk_mask_3_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/mask.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_lt_belt_0_word",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
           ]
         },
         {
@@ -8315,9 +8265,9 @@
           "sessionIndex": 9,
           "phase": "L1P1",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l1_p_harp_4_sound",
+          "questionId": "gen_final_l1_n_open_11_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/harp.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/open.webp"
           ]
         },
         {
@@ -8388,15 +8338,15 @@
           "repeats": [
             {
               "value": "ending_sound",
-              "count": 5
+              "count": 6
             },
             {
               "value": "final_sound_pair_select",
-              "count": 3
+              "count": 4
             },
             {
               "value": "ending_sound_word_match",
-              "count": 6
+              "count": 4
             }
           ]
         },
@@ -8415,9 +8365,9 @@
           "sessionIndex": 9,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_nd_stand_14_sound",
+          "questionId": "gen_final_l2_st_dust_1_word",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/stand.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
           ]
         },
         {
@@ -8435,9 +8385,9 @@
           "sessionIndex": 9,
           "phase": "L2P2",
           "reason": "resolved media validation failed",
-          "questionId": "gen_final_l2_st_fast_2_word",
+          "questionId": "gen_final_l2_nk_drink_1_sound",
           "issues": [
-            "image does not resolve approved exact-target media: /media/vocabulary/images/fast.webp"
+            "image does not resolve approved exact-target media: /media/vocabulary/images/drink.webp"
           ]
         },
         {
@@ -8448,6 +8398,16 @@
           "questionId": "gen_final_l2_sk_whisk_4_word",
           "issues": [
             "image does not resolve approved exact-target media: /media/vocabulary/images/whisk.webp"
+          ]
+        },
+        {
+          "skillId": "final_sounds",
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "reason": "resolved media validation failed",
+          "questionId": "gen_final_l2_ft_raft_2_sound",
+          "issues": [
+            "image does not resolve approved exact-target media: /media/vocabulary/images/raft.webp"
           ]
         }
       ]
@@ -11859,7 +11819,7 @@
             "count": 7
           },
           {
-            "path": "/images/child-mode/initial-sounds/bed.png",
+            "path": "/images/child-mode/cvc/bed.png",
             "count": 7
           },
           {
@@ -19328,14 +19288,42 @@
           "repeatedPrompts": []
         }
       ],
-      "failures": []
+      "failures": [
+        {
+          "skillId": "nouns",
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "second_nouns_l1_51_nut"
+          ]
+        },
+        {
+          "skillId": "nouns",
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "second_nouns_l1_51_nut"
+          ]
+        },
+        {
+          "skillId": "nouns",
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "second_nouns_l1_51_nut"
+          ]
+        }
+      ]
     },
     {
       "skillId": "verbs",
-      "selectableQuestions": 68,
+      "selectableQuestions": 73,
       "static": {
-        "uniqueImages": 59,
-        "uniqueAudio": 11,
+        "uniqueImages": 58,
+        "uniqueAudio": 15,
         "topImages": [
           {
             "path": "/media/vocabulary/images/verb-ate.webp",
@@ -19347,6 +19335,14 @@
           },
           {
             "path": "/media/vocabulary/images/verb-build.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/verb-carry.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/verb-count.webp",
             "count": 2
           },
           {
@@ -19362,11 +19358,27 @@
             "count": 2
           },
           {
+            "path": "/media/vocabulary/images/verb-help.webp",
+            "count": 2
+          },
+          {
             "path": "/media/vocabulary/images/verb-hide.webp",
             "count": 2
           },
           {
+            "path": "/media/vocabulary/images/verb-listen.webp",
+            "count": 2
+          },
+          {
             "path": "/media/vocabulary/images/verb-share.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/verb-sing.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/verb-think.webp",
             "count": 2
           },
           {
@@ -19382,10 +19394,6 @@
             "count": 1
           },
           {
-            "path": "/images/child-mode/initial-sounds/clap.png",
-            "count": 1
-          },
-          {
             "path": "/images/child-mode/initial-sounds/hop.png",
             "count": 1
           },
@@ -19396,32 +19404,16 @@
           {
             "path": "/images/child-mode/initial-sounds/stop.png",
             "count": 1
-          },
-          {
-            "path": "/images/child-mode/minimal-pairs/cut.png",
-            "count": 1
-          },
-          {
-            "path": "/images/child-mode/short-i/sit.png",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/verb-baked.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/verb-barked.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/verb-blow.webp",
-            "count": 1
           }
         ],
         "topAudio": [
           {
             "path": "/audio/child-mode/clean-human/morphology/ate.mp3",
             "count": 4
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/stop.mp3",
+            "count": 3
           },
           {
             "path": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -19432,19 +19424,11 @@
             "count": 2
           },
           {
-            "path": "/media/vocabulary/audio/swim.mp3",
-            "count": 2
-          },
-          {
             "path": "/audio/child-mode/clean-human/words/brush.mp3",
             "count": 1
           },
           {
-            "path": "/audio/child-mode/clean-human/words/clap.mp3",
-            "count": 1
-          },
-          {
-            "path": "/audio/child-mode/clean-human/words/stop.mp3",
+            "path": "/audio/child-mode/words/hop.mp3",
             "count": 1
           },
           {
@@ -19452,15 +19436,35 @@
             "count": 1
           },
           {
+            "path": "/audio/vocabulary/count.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/vocabulary/eat.mp3",
+            "count": 1
+          },
+          {
             "path": "/audio/vocabulary/fall.mp3",
             "count": 1
           },
           {
-            "path": "/media/vocabulary/audio/drink.mp3",
+            "path": "/audio/vocabulary/listen.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/vocabulary/think.mp3",
+            "count": 1
+          },
+          {
+            "path": "/media/vocabulary/audio/draw.mp3",
             "count": 1
           },
           {
             "path": "/media/vocabulary/audio/share.mp3",
+            "count": 1
+          },
+          {
+            "path": "/media/vocabulary/audio/swim.mp3",
             "count": 1
           }
         ],
@@ -19468,13 +19472,21 @@
       },
       "dynamic": {
         "simulatedSessions": 10,
-        "simulatedQuestionUses": 460,
-        "uniqueImages": 59,
-        "uniqueAudio": 11,
-        "uniqueContentKeys": 68,
+        "simulatedQuestionUses": 520,
+        "uniqueImages": 58,
+        "uniqueAudio": 15,
+        "uniqueContentKeys": 73,
         "topImages": [
           {
             "path": "/media/vocabulary/images/verb-ate.webp",
+            "count": 20
+          },
+          {
+            "path": "/media/vocabulary/images/verb-count.webp",
+            "count": 16
+          },
+          {
+            "path": "/media/vocabulary/images/verb-bake.webp",
             "count": 15
           },
           {
@@ -19490,23 +19502,39 @@
             "count": 15
           },
           {
-            "path": "/media/vocabulary/images/verb-bake.webp",
-            "count": 14
+            "path": "/media/vocabulary/images/verb-help.webp",
+            "count": 15
+          },
+          {
+            "path": "/media/vocabulary/images/verb-hide.webp",
+            "count": 15
+          },
+          {
+            "path": "/media/vocabulary/images/verb-sing.webp",
+            "count": 15
           },
           {
             "path": "/media/vocabulary/images/verb-fall.webp",
             "count": 14
           },
           {
+            "path": "/media/vocabulary/images/verb-think.webp",
+            "count": 14
+          },
+          {
+            "path": "/media/vocabulary/images/verb-write.webp",
+            "count": 14
+          },
+          {
+            "path": "/media/vocabulary/images/verb-carry.webp",
+            "count": 13
+          },
+          {
             "path": "/media/vocabulary/images/verb-share.webp",
             "count": 13
           },
           {
-            "path": "/media/vocabulary/images/verb-write.webp",
-            "count": 13
-          },
-          {
-            "path": "/media/vocabulary/images/verb-hide.webp",
+            "path": "/media/vocabulary/images/verb-listen.webp",
             "count": 12
           },
           {
@@ -19518,10 +19546,6 @@
             "count": 10
           },
           {
-            "path": "/images/child-mode/initial-sounds/clap.png",
-            "count": 10
-          },
-          {
             "path": "/images/child-mode/initial-sounds/hop.png",
             "count": 10
           },
@@ -19532,55 +19556,31 @@
           {
             "path": "/images/child-mode/initial-sounds/stop.png",
             "count": 10
-          },
-          {
-            "path": "/images/child-mode/minimal-pairs/cut.png",
-            "count": 10
-          },
-          {
-            "path": "/images/child-mode/short-i/sit.png",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/verb-baked.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/verb-barked.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/verb-blow.webp",
-            "count": 10
           }
         ],
         "topAudio": [
           {
             "path": "/audio/child-mode/clean-human/morphology/ate.mp3",
-            "count": 31
+            "count": 40
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/stop.mp3",
+            "count": 30
           },
           {
             "path": "/audio/child-mode/clean-human/words/dig.mp3",
             "count": 20
           },
           {
-            "path": "/media/vocabulary/audio/swim.mp3",
-            "count": 20
-          },
-          {
             "path": "/media/vocabulary/audio/bake.mp3",
-            "count": 19
+            "count": 20
           },
           {
             "path": "/audio/child-mode/clean-human/words/brush.mp3",
             "count": 10
           },
           {
-            "path": "/audio/child-mode/clean-human/words/clap.mp3",
-            "count": 10
-          },
-          {
-            "path": "/audio/child-mode/clean-human/words/stop.mp3",
+            "path": "/audio/child-mode/words/hop.mp3",
             "count": 10
           },
           {
@@ -19588,23 +19588,43 @@
             "count": 10
           },
           {
+            "path": "/audio/vocabulary/count.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/vocabulary/eat.mp3",
+            "count": 10
+          },
+          {
             "path": "/audio/vocabulary/fall.mp3",
             "count": 10
           },
           {
-            "path": "/media/vocabulary/audio/drink.mp3",
+            "path": "/audio/vocabulary/listen.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/vocabulary/think.mp3",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/audio/draw.mp3",
             "count": 10
           },
           {
             "path": "/media/vocabulary/audio/share.mp3",
             "count": 10
+          },
+          {
+            "path": "/media/vocabulary/audio/swim.mp3",
+            "count": 10
           }
         ],
-        "dominantImageCount": 15
+        "dominantImageCount": 20
       },
       "improvement": {
         "uniqueImagesDelta": 0,
-        "dominantImageRepeatDelta": 13
+        "dominantImageRepeatDelta": 18
       },
       "phaseResults": [
         {
@@ -19650,7 +19670,7 @@
         {
           "sessionIndex": 0,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -19658,12 +19678,8 @@
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
-            {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             },
             {
               "value": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -19687,16 +19703,26 @@
         {
           "sessionIndex": 0,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -19742,17 +19768,13 @@
         {
           "sessionIndex": 1,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
           "uniqueContentKeys": 15,
           "repeatedImages": [],
           "repeatedAudio": [
-            {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
             {
               "value": "/audio/child-mode/clean-human/words/dig.mp3",
               "count": 2
@@ -19763,7 +19785,7 @@
             },
             {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             }
           ],
           "repeatedContent": [],
@@ -19779,16 +19801,26 @@
         {
           "sessionIndex": 1,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -19834,7 +19866,7 @@
         {
           "sessionIndex": 2,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -19842,12 +19874,8 @@
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
-            {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             },
             {
               "value": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -19871,16 +19899,26 @@
         {
           "sessionIndex": 2,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -19926,7 +19964,7 @@
         {
           "sessionIndex": 3,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -19934,16 +19972,12 @@
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
-            {
               "value": "/media/vocabulary/audio/bake.mp3",
               "count": 2
             },
             {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             },
             {
               "value": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -19963,16 +19997,26 @@
         {
           "sessionIndex": 3,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -20018,7 +20062,7 @@
         {
           "sessionIndex": 4,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -20026,12 +20070,8 @@
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
-            {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             },
             {
               "value": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -20055,16 +20095,26 @@
         {
           "sessionIndex": 4,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -20110,7 +20160,7 @@
         {
           "sessionIndex": 5,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -20122,16 +20172,12 @@
               "count": 2
             },
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
-            {
               "value": "/media/vocabulary/audio/bake.mp3",
               "count": 2
             },
             {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             }
           ],
           "repeatedContent": [],
@@ -20147,16 +20193,26 @@
         {
           "sessionIndex": 5,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -20202,7 +20258,7 @@
         {
           "sessionIndex": 6,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -20210,16 +20266,12 @@
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
-            {
               "value": "/audio/child-mode/clean-human/words/dig.mp3",
               "count": 2
             },
             {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             },
             {
               "value": "/media/vocabulary/audio/bake.mp3",
@@ -20239,16 +20291,26 @@
         {
           "sessionIndex": 6,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -20294,7 +20356,7 @@
         {
           "sessionIndex": 7,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -20306,12 +20368,8 @@
               "count": 2
             },
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
-            {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             },
             {
               "value": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -20331,16 +20389,26 @@
         {
           "sessionIndex": 7,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -20386,7 +20454,7 @@
         {
           "sessionIndex": 8,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
@@ -20394,7 +20462,7 @@
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/media/vocabulary/audio/swim.mp3",
+              "value": "/media/vocabulary/audio/bake.mp3",
               "count": 2
             },
             {
@@ -20419,16 +20487,26 @@
         {
           "sessionIndex": 8,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         },
         {
@@ -20474,17 +20552,13 @@
         {
           "sessionIndex": 9,
           "phase": "L2P1",
-          "poolSize": 16,
+          "poolSize": 15,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 10,
           "uniqueContentKeys": 15,
           "repeatedImages": [],
           "repeatedAudio": [
-            {
-              "value": "/media/vocabulary/audio/swim.mp3",
-              "count": 2
-            },
             {
               "value": "/media/vocabulary/audio/bake.mp3",
               "count": 2
@@ -20495,7 +20569,7 @@
             },
             {
               "value": "/audio/child-mode/clean-human/morphology/ate.mp3",
-              "count": 3
+              "count": 4
             }
           ],
           "repeatedContent": [],
@@ -20511,16 +20585,26 @@
         {
           "sessionIndex": 9,
           "phase": "L2P2",
-          "poolSize": 1,
-          "selected": 1,
-          "uniqueImages": 1,
-          "uniqueAudio": 1,
-          "uniqueContentKeys": 1,
+          "poolSize": 7,
+          "selected": 7,
+          "uniqueImages": 7,
+          "uniqueAudio": 6,
+          "uniqueContentKeys": 7,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/stop.mp3",
+              "count": 2
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
-          "repeatedTemplates": [],
+          "repeatedTemplates": [
+            {
+              "value": "grammar_sentence_fit",
+              "count": 7
+            }
+          ],
           "repeatedPrompts": []
         }
       ],
@@ -20528,10 +20612,10 @@
     },
     {
       "skillId": "adjectives",
-      "selectableQuestions": 51,
+      "selectableQuestions": 58,
       "static": {
-        "uniqueImages": 44,
-        "uniqueAudio": 12,
+        "uniqueImages": 42,
+        "uniqueAudio": 15,
         "topImages": [
           {
             "path": "/media/vocabulary/images/adjective-cute.webp",
@@ -20546,11 +20630,47 @@
             "count": 2
           },
           {
+            "path": "/media/vocabulary/images/adjective-brown.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-fluffy.webp",
+            "count": 2
+          },
+          {
             "path": "/media/vocabulary/images/adjective-huge.webp",
             "count": 2
           },
           {
+            "path": "/media/vocabulary/images/adjective-new.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-old.webp",
+            "count": 2
+          },
+          {
             "path": "/media/vocabulary/images/adjective-silent.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-smooth.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-strong.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-sweet.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-tiny.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-warm.webp",
             "count": 2
           },
           {
@@ -20559,14 +20679,6 @@
           },
           {
             "path": "/images/child-mode/blends/blue.png",
-            "count": 1
-          },
-          {
-            "path": "/images/child-mode/initial-sounds/hot.png",
-            "count": 1
-          },
-          {
-            "path": "/images/child-mode/initial-sounds/orange.png",
             "count": 1
           },
           {
@@ -20584,55 +20696,47 @@
           {
             "path": "/media/rhyming/images/sad.webp",
             "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-beautiful.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-brown.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-bumpy.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-calm.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-crisp.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-deep.webp",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-dusty.webp",
-            "count": 1
           }
         ],
         "topAudio": [
           {
-            "path": "/audio/child-mode/words/big.mp3",
-            "count": 2
+            "path": "/audio/vocabulary/brown.mp3",
+            "count": 3
+          },
+          {
+            "path": "/media/vocabulary/audio/cold.mp3",
+            "count": 3
+          },
+          {
+            "path": "/media/vocabulary/audio/loud.mp3",
+            "count": 3
           },
           {
             "path": "/audio/vocabulary/brave.mp3",
             "count": 2
           },
           {
-            "path": "/media/vocabulary/audio/loud.mp3",
-            "count": 2
+            "path": "/audio/child-mode/hfw/new.mp3",
+            "count": 1
           },
           {
-            "path": "/audio/child-mode/clean-human/words/red.mp3",
+            "path": "/audio/child-mode/words/big.mp3",
             "count": 1
           },
           {
             "path": "/audio/child-mode/words/black.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/words/orange.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/vocabulary/strong.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/vocabulary/warm.mp3",
             "count": 1
           },
           {
@@ -20644,23 +20748,15 @@
             "count": 1
           },
           {
-            "path": "/media/vocabulary/audio/dark.mp3",
+            "path": "/media/vocabulary/audio/happy.mp3",
             "count": 1
           },
           {
-            "path": "/media/vocabulary/audio/full.mp3",
+            "path": "/media/vocabulary/audio/round.mp3",
             "count": 1
           },
           {
             "path": "/media/vocabulary/audio/silent.mp3",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/audio/small.mp3",
-            "count": 1
-          },
-          {
-            "path": "/media/vocabulary/audio/wet.mp3",
             "count": 1
           }
         ],
@@ -20668,10 +20764,10 @@
       },
       "dynamic": {
         "simulatedSessions": 10,
-        "simulatedQuestionUses": 450,
-        "uniqueImages": 44,
-        "uniqueAudio": 12,
-        "uniqueContentKeys": 49,
+        "simulatedQuestionUses": 520,
+        "uniqueImages": 42,
+        "uniqueAudio": 15,
+        "uniqueContentKeys": 56,
         "topImages": [
           {
             "path": "/media/vocabulary/images/adjective-cute.webp",
@@ -20686,12 +20782,48 @@
             "count": 20
           },
           {
+            "path": "/media/vocabulary/images/adjective-fluffy.webp",
+            "count": 20
+          },
+          {
             "path": "/media/vocabulary/images/adjective-huge.webp",
             "count": 20
           },
           {
+            "path": "/media/vocabulary/images/adjective-strong.webp",
+            "count": 19
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-new.webp",
+            "count": 18
+          },
+          {
             "path": "/media/vocabulary/images/adjective-silent.webp",
             "count": 18
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-sweet.webp",
+            "count": 18
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-warm.webp",
+            "count": 18
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-brown.webp",
+            "count": 17
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-old.webp",
+            "count": 17
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-smooth.webp",
+            "count": 17
+          },
+          {
+            "path": "/media/vocabulary/images/adjective-tiny.webp",
+            "count": 16
           },
           {
             "path": "/images/child-mode/blends/black.png",
@@ -20699,14 +20831,6 @@
           },
           {
             "path": "/images/child-mode/blends/blue.png",
-            "count": 10
-          },
-          {
-            "path": "/images/child-mode/initial-sounds/hot.png",
-            "count": 10
-          },
-          {
-            "path": "/images/child-mode/initial-sounds/orange.png",
             "count": 10
           },
           {
@@ -20724,55 +20848,47 @@
           {
             "path": "/media/rhyming/images/sad.webp",
             "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-bumpy.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-calm.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-crisp.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-deep.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-dusty.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-fierce.webp",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/images/adjective-fluffy.webp",
-            "count": 10
           }
         ],
         "topAudio": [
           {
-            "path": "/audio/child-mode/words/big.mp3",
-            "count": 20
+            "path": "/audio/vocabulary/brown.mp3",
+            "count": 30
+          },
+          {
+            "path": "/media/vocabulary/audio/cold.mp3",
+            "count": 30
+          },
+          {
+            "path": "/media/vocabulary/audio/loud.mp3",
+            "count": 30
           },
           {
             "path": "/audio/vocabulary/brave.mp3",
             "count": 20
           },
           {
-            "path": "/media/vocabulary/audio/loud.mp3",
-            "count": 20
+            "path": "/audio/child-mode/hfw/new.mp3",
+            "count": 10
           },
           {
-            "path": "/audio/child-mode/clean-human/words/red.mp3",
+            "path": "/audio/child-mode/words/big.mp3",
             "count": 10
           },
           {
             "path": "/audio/child-mode/words/black.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/words/orange.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/vocabulary/strong.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/vocabulary/warm.mp3",
             "count": 10
           },
           {
@@ -20784,23 +20900,15 @@
             "count": 10
           },
           {
-            "path": "/media/vocabulary/audio/dark.mp3",
+            "path": "/media/vocabulary/audio/happy.mp3",
             "count": 10
           },
           {
-            "path": "/media/vocabulary/audio/full.mp3",
+            "path": "/media/vocabulary/audio/round.mp3",
             "count": 10
           },
           {
             "path": "/media/vocabulary/audio/silent.mp3",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/audio/small.mp3",
-            "count": 10
-          },
-          {
-            "path": "/media/vocabulary/audio/wet.mp3",
             "count": 10
           }
         ],
@@ -20854,20 +20962,16 @@
         {
           "sessionIndex": 0,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
-            },
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -20879,7 +20983,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -20887,19 +20991,28 @@
         {
           "sessionIndex": 0,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -20947,20 +21060,16 @@
         {
           "sessionIndex": 1,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
-            },
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -20972,7 +21081,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -20980,19 +21089,28 @@
         {
           "sessionIndex": 1,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21040,20 +21158,16 @@
         {
           "sessionIndex": 2,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
-            },
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21065,7 +21179,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21073,19 +21187,28 @@
         {
           "sessionIndex": 2,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21133,20 +21256,16 @@
         {
           "sessionIndex": 3,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            },
-            {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21158,7 +21277,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21166,19 +21285,28 @@
         {
           "sessionIndex": 3,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21226,20 +21354,16 @@
         {
           "sessionIndex": 4,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            },
-            {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21251,7 +21375,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21259,19 +21383,28 @@
         {
           "sessionIndex": 4,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            },
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21319,20 +21452,16 @@
         {
           "sessionIndex": 5,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
-            },
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21344,7 +21473,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21352,19 +21481,28 @@
         {
           "sessionIndex": 5,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21412,20 +21550,16 @@
         {
           "sessionIndex": 6,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
-            },
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21437,7 +21571,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21445,19 +21579,28 @@
         {
           "sessionIndex": 6,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21505,20 +21648,16 @@
         {
           "sessionIndex": 7,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            },
-            {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21530,7 +21669,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21538,19 +21677,28 @@
         {
           "sessionIndex": 7,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21598,20 +21746,16 @@
         {
           "sessionIndex": 8,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            },
-            {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21623,7 +21767,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21631,19 +21775,28 @@
         {
           "sessionIndex": 8,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            },
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21691,20 +21844,16 @@
         {
           "sessionIndex": 9,
           "phase": "L2P1",
-          "poolSize": 11,
-          "selected": 11,
-          "uniqueImages": 11,
-          "uniqueAudio": 8,
-          "uniqueContentKeys": 11,
+          "poolSize": 10,
+          "selected": 10,
+          "uniqueImages": 10,
+          "uniqueAudio": 7,
+          "uniqueContentKeys": 10,
           "repeatedImages": [],
           "repeatedAudio": [
             {
               "value": "/media/vocabulary/audio/loud.mp3",
-              "count": 2
-            },
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
+              "count": 3
             },
             {
               "value": "/audio/vocabulary/brave.mp3",
@@ -21716,7 +21865,7 @@
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 11
+              "count": 10
             }
           ],
           "repeatedPrompts": []
@@ -21724,19 +21873,28 @@
         {
           "sessionIndex": 9,
           "phase": "L2P2",
-          "poolSize": 4,
-          "selected": 4,
-          "uniqueImages": 4,
-          "uniqueAudio": 4,
-          "uniqueContentKeys": 4,
+          "poolSize": 12,
+          "selected": 12,
+          "uniqueImages": 12,
+          "uniqueAudio": 8,
+          "uniqueContentKeys": 12,
           "repeatedImages": [],
-          "repeatedAudio": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/cold.mp3",
+              "count": 3
+            },
+            {
+              "value": "/audio/vocabulary/brown.mp3",
+              "count": 3
+            }
+          ],
           "repeatedContent": [],
           "repeatedTargets": [],
           "repeatedTemplates": [
             {
               "value": "grammar_sentence_fit",
-              "count": 4
+              "count": 12
             }
           ],
           "repeatedPrompts": []
@@ -21746,121 +21904,91 @@
         {
           "skillId": "adjectives",
           "sessionIndex": 0,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 1,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 2,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 3,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 4,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 5,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 6,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 7,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 8,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         },
         {
           "skillId": "adjectives",
           "sessionIndex": 9,
-          "phase": "L2P1",
-          "reason": "repeated audio despite alternatives",
-          "repeats": [
-            {
-              "value": "/audio/child-mode/words/big.mp3",
-              "count": 2
-            }
+          "phase": "L2P2",
+          "reason": "missing or blocked image media",
+          "questionIds": [
+            "grammar_adjectives_l2_021"
           ]
         }
       ]
@@ -27579,16 +27707,6 @@
       "sessionIndex": 1,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "coverage_initial_o_002",
-      "issues": [
-        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-      ]
-    },
-    {
-      "skillId": "initial_sounds",
-      "sessionIndex": 1,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
       "questionId": "coverage_initial_o_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -27650,6 +27768,16 @@
       "phase": "L1P1",
       "reason": "resolved media validation failed",
       "questionId": "coverage_initial_l_001",
+      "issues": [
+        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+      ]
+    },
+    {
+      "skillId": "initial_sounds",
+      "sessionIndex": 1,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "coverage_initial_e_002",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
       ]
@@ -28049,16 +28177,6 @@
       "sessionIndex": 2,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "coverage_initial_t_001",
-      "issues": [
-        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-      ]
-    },
-    {
-      "skillId": "initial_sounds",
-      "sessionIndex": 2,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
       "questionId": "coverage_initial_h_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -28069,7 +28187,7 @@
       "sessionIndex": 2,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "coverage_initial_s_002",
+      "questionId": "coverage_initial_t_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
       ]
@@ -28080,6 +28198,16 @@
       "phase": "L1P1",
       "reason": "resolved media validation failed",
       "questionId": "coverage_initial_g_002",
+      "issues": [
+        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+      ]
+    },
+    {
+      "skillId": "initial_sounds",
+      "sessionIndex": 2,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "coverage_initial_s_002",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
       ]
@@ -28439,16 +28567,6 @@
       "sessionIndex": 3,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "coverage_initial_o_002",
-      "issues": [
-        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-      ]
-    },
-    {
-      "skillId": "initial_sounds",
-      "sessionIndex": 3,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
       "questionId": "coverage_initial_o_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -28510,6 +28628,16 @@
       "phase": "L1P1",
       "reason": "resolved media validation failed",
       "questionId": "coverage_initial_j_002",
+      "issues": [
+        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+      ]
+    },
+    {
+      "skillId": "initial_sounds",
+      "sessionIndex": 3,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "coverage_initial_j_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
       ]
@@ -29339,16 +29467,6 @@
       "sessionIndex": 5,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "coverage_initial_o_002",
-      "issues": [
-        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
-      ]
-    },
-    {
-      "skillId": "initial_sounds",
-      "sessionIndex": 5,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
       "questionId": "coverage_initial_o_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
@@ -29400,6 +29518,16 @@
       "phase": "L1P1",
       "reason": "resolved media validation failed",
       "questionId": "coverage_initial_k_001",
+      "issues": [
+        "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
+      ]
+    },
+    {
+      "skillId": "initial_sounds",
+      "sessionIndex": 5,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "coverage_initial_j_002",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
       ]
@@ -31119,7 +31247,7 @@
       "sessionIndex": 9,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "coverage_initial_u_001",
+      "questionId": "coverage_initial_a_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
       ]
@@ -31129,7 +31257,7 @@
       "sessionIndex": 9,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "coverage_initial_a_001",
+      "questionId": "coverage_initial_u_001",
       "issues": [
         "audio does not resolve approved whole-word exact-target media: /audio/child-mode/clean-human/phrases/listen-and-find.mp3"
       ]
@@ -31479,29 +31607,9 @@
       "sessionIndex": 0,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_bib_0_sound",
+      "questionId": "gen_final_l1_b_lab_7_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/bib.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 0,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_t_kit_12_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/kit.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 0,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_dab_5_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/dab.webp"
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
       ]
     },
     {
@@ -31512,16 +31620,6 @@
       "questionId": "ending_l1_018_cob",
       "issues": [
         "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 0,
-      "phase": "L1P2",
-      "reason": "resolved media validation failed",
-      "questionId": "ending_l1_016_lab",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
       ]
     },
     {
@@ -31592,15 +31690,15 @@
       "repeats": [
         {
           "value": "final_sound_pair_select",
-          "count": 7
+          "count": 6
         },
         {
           "value": "ending_sound",
-          "count": 2
+          "count": 4
         },
         {
           "value": "ending_sound_word_match",
-          "count": 5
+          "count": 4
         }
       ]
     },
@@ -31609,9 +31707,9 @@
       "sessionIndex": 0,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_chest_0_word",
+      "questionId": "gen_final_l2_nk_drink_1_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/drink.webp"
       ]
     },
     {
@@ -31629,9 +31727,9 @@
       "sessionIndex": 0,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_nd_round_12_word",
+      "questionId": "gen_final_l2_ft_raft_2_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/raft.webp"
       ]
     },
     {
@@ -31639,29 +31737,9 @@
       "sessionIndex": 1,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_t_cart_1_sound",
+      "questionId": "gen_final_l1_b_sub_11_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/cart.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 1,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_d_rod_8_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/rod.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 1,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_n_lawn_8_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/lawn.webp"
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
       ]
     },
     {
@@ -31721,16 +31799,16 @@
       "reason": "repeated template despite alternatives",
       "repeats": [
         {
-          "value": "ending_sound",
+          "value": "ending_sound_word_match",
           "count": 3
         },
         {
           "value": "final_sound_pair_select",
-          "count": 6
+          "count": 8
         },
         {
-          "value": "ending_sound_word_match",
-          "count": 5
+          "value": "ending_sound",
+          "count": 3
         }
       ]
     },
@@ -31749,9 +31827,9 @@
       "sessionIndex": 1,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_dust_1_word",
+      "questionId": "gen_final_l2_st_forest_3_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
       ]
     },
     {
@@ -31759,9 +31837,19 @@
       "sessionIndex": 2,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_knob_6_sound",
+      "questionId": "gen_final_l1_b_dab_5_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/dab.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 2,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l1_p_harp_4_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/harp.webp"
       ]
     },
     {
@@ -31779,9 +31867,9 @@
       "sessionIndex": 2,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "ending_l1_017_sub",
+      "questionId": "gen_final_l1_b_cab_1_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/cab.webp"
       ]
     },
     {
@@ -31792,16 +31880,6 @@
       "questionId": "ending_l1_018_cob",
       "issues": [
         "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 2,
-      "phase": "L1P2",
-      "reason": "resolved media validation failed",
-      "questionId": "ending_l1_016_lab",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
       ]
     },
     {
@@ -31851,16 +31929,16 @@
       "reason": "repeated template despite alternatives",
       "repeats": [
         {
-          "value": "final_sound_pair_select",
-          "count": 4
+          "value": "ending_sound",
+          "count": 5
         },
         {
-          "value": "ending_sound",
-          "count": 3
+          "value": "final_sound_pair_select",
+          "count": 5
         },
         {
           "value": "ending_sound_word_match",
-          "count": 7
+          "count": 4
         }
       ]
     },
@@ -31879,16 +31957,6 @@
       "sessionIndex": 2,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_forest_3_word",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 2,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
       "questionId": "gen_final_l2_nd_round_12_sound",
       "issues": [
         "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
@@ -31899,9 +31967,9 @@
       "sessionIndex": 2,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_dust_1_word",
+      "questionId": "gen_final_l2_st_frost_4_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
       ]
     },
     {
@@ -31909,9 +31977,9 @@
       "sessionIndex": 2,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_frost_4_word",
+      "questionId": "gen_final_l2_nd_stand_14_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/stand.webp"
       ]
     },
     {
@@ -31919,9 +31987,9 @@
       "sessionIndex": 3,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_g_tug_16_sound",
+      "questionId": "gen_final_l1_p_lap_7_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/tug.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/lap.webp"
       ]
     },
     {
@@ -31929,9 +31997,9 @@
       "sessionIndex": 3,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_curb_4_sound",
+      "questionId": "gen_final_l1_m_palm_5_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/curb.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/palm.webp"
       ]
     },
     {
@@ -31939,19 +32007,9 @@
       "sessionIndex": 3,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_knob_6_sound",
+      "questionId": "gen_final_l1_d_rod_8_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 3,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_m_gem_1_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/gem.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/rod.webp"
       ]
     },
     {
@@ -32031,16 +32089,16 @@
       "reason": "repeated template despite alternatives",
       "repeats": [
         {
-          "value": "ending_sound",
-          "count": 6
-        },
-        {
           "value": "final_sound_pair_select",
           "count": 6
         },
         {
+          "value": "ending_sound",
+          "count": 3
+        },
+        {
           "value": "ending_sound_word_match",
-          "count": 2
+          "count": 5
         }
       ]
     },
@@ -32049,9 +32107,9 @@
       "sessionIndex": 3,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_dust_1_sound",
+      "questionId": "gen_final_l2_st_chest_0_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
       ]
     },
     {
@@ -32059,19 +32117,9 @@
       "sessionIndex": 3,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_nd_nightstand_8_word",
+      "questionId": "gen_final_l2_nd_round_12_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 3,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_frost_4_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
       ]
     },
     {
@@ -32079,9 +32127,9 @@
       "sessionIndex": 4,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_rub_10_sound",
+      "questionId": "gen_final_l1_p_sap_13_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/sap.webp"
       ]
     },
     {
@@ -32089,9 +32137,9 @@
       "sessionIndex": 4,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_cub_3_sound",
+      "questionId": "gen_final_l1_n_den_3_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/cub.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/den.webp"
       ]
     },
     {
@@ -32099,9 +32147,9 @@
       "sessionIndex": 4,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "ending_l1_015_knob",
+      "questionId": "gen_final_l1_t_dart_4_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/dart.webp"
       ]
     },
     {
@@ -32109,9 +32157,9 @@
       "sessionIndex": 4,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_g_tug_16_sound",
+      "questionId": "gen_final_l1_p_hip_5_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/tug.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/hip.webp"
       ]
     },
     {
@@ -32172,15 +32220,15 @@
       "repeats": [
         {
           "value": "final_sound_pair_select",
-          "count": 7
-        },
-        {
-          "value": "ending_sound_word_match",
-          "count": 2
+          "count": 6
         },
         {
           "value": "ending_sound",
           "count": 5
+        },
+        {
+          "value": "ending_sound_word_match",
+          "count": 3
         }
       ]
     },
@@ -32189,7 +32237,27 @@
       "sessionIndex": 4,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_nd_nightstand_8_word",
+      "questionId": "qb12_fs_026",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 4,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_st_frost_4_word",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 4,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_nd_nightstand_8_sound",
       "issues": [
         "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
       ]
@@ -32209,7 +32277,7 @@
       "sessionIndex": 4,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_sk_mask_3_sound",
+      "questionId": "gen_final_l2_sk_mask_3_word",
       "issues": [
         "image does not resolve approved exact-target media: /media/vocabulary/images/mask.webp"
       ]
@@ -32219,9 +32287,9 @@
       "sessionIndex": 5,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_p_hip_5_sound",
+      "questionId": "gen_final_l1_b_curb_4_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/hip.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/curb.webp"
       ]
     },
     {
@@ -32229,19 +32297,9 @@
       "sessionIndex": 5,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_m_gem_1_sound",
+      "questionId": "gen_final_l1_b_knob_6_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/gem.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 5,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_rub_10_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/knob.webp"
       ]
     },
     {
@@ -32252,6 +32310,16 @@
       "questionId": "ending_l1_018_cob",
       "issues": [
         "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 5,
+      "phase": "L1P2",
+      "reason": "resolved media validation failed",
+      "questionId": "ending_l1_016_lab",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
       ]
     },
     {
@@ -32292,15 +32360,15 @@
       "repeats": [
         {
           "value": "ending_sound_word_match",
-          "count": 5
+          "count": 7
         },
         {
           "value": "ending_sound",
-          "count": 4
+          "count": 3
         },
         {
           "value": "final_sound_pair_select",
-          "count": 5
+          "count": 4
         }
       ]
     },
@@ -32309,9 +32377,9 @@
       "sessionIndex": 5,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_ft_soft_3_word",
+      "questionId": "qb12_fs_026",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
       ]
     },
     {
@@ -32319,7 +32387,17 @@
       "sessionIndex": 5,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_nd_round_12_word",
+      "questionId": "gen_final_l2_lt_belt_0_word",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 5,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_nd_round_12_sound",
       "issues": [
         "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
       ]
@@ -32329,9 +32407,9 @@
       "sessionIndex": 5,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_ft_raft_2_sound",
+      "questionId": "gen_final_l2_nd_nightstand_8_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/raft.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
       ]
     },
     {
@@ -32339,9 +32417,19 @@
       "sessionIndex": 5,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_sk_mask_3_word",
+      "questionId": "gen_final_l2_st_fast_2_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/mask.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/fast.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 5,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_st_forest_3_word",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
       ]
     },
     {
@@ -32349,9 +32437,9 @@
       "sessionIndex": 6,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_n_lawn_8_sound",
+      "questionId": "gen_final_l1_t_kit_12_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/lawn.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/kit.webp"
       ]
     },
     {
@@ -32359,9 +32447,29 @@
       "sessionIndex": 6,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_l_curl_0_sound",
+      "questionId": "gen_final_l1_b_rub_10_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/curl.webp"
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 6,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l1_b_cub_3_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/cub.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 6,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l1_b_curb_4_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/curb.webp"
       ]
     },
     {
@@ -32372,16 +32480,6 @@
       "questionId": "ending_l1_018_cob",
       "issues": [
         "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 6,
-      "phase": "L1P2",
-      "reason": "resolved media validation failed",
-      "questionId": "ending_l1_016_lab",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/lab.webp"
       ]
     },
     {
@@ -32451,37 +32549,17 @@
       "reason": "repeated template despite alternatives",
       "repeats": [
         {
-          "value": "final_sound_pair_select",
-          "count": 6
-        },
-        {
           "value": "ending_sound_word_match",
-          "count": 3
+          "count": 2
         },
         {
           "value": "ending_sound",
-          "count": 5
+          "count": 8
+        },
+        {
+          "value": "final_sound_pair_select",
+          "count": 4
         }
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 6,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
-      "questionId": "qb12_fs_026",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 6,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_lt_belt_0_word",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
       ]
     },
     {
@@ -32499,9 +32577,19 @@
       "sessionIndex": 6,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_nk_drink_1_sound",
+      "questionId": "gen_final_l2_st_dust_1_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/drink.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 6,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_st_chest_0_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
       ]
     },
     {
@@ -32516,12 +32604,12 @@
     },
     {
       "skillId": "final_sounds",
-      "sessionIndex": 7,
-      "phase": "L1P1",
+      "sessionIndex": 6,
+      "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_cab_1_sound",
+      "questionId": "gen_final_l2_lt_belt_0_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/cab.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
       ]
     },
     {
@@ -32529,9 +32617,39 @@
       "sessionIndex": 7,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_sub_11_sound",
+      "questionId": "gen_final_l1_t_cart_1_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/cart.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 7,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l1_m_gem_1_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/gem.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 7,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l1_n_lawn_8_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/lawn.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 7,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l1_b_rub_10_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/final-sounds/images/b/rub.webp"
       ]
     },
     {
@@ -32601,47 +32719,17 @@
       "reason": "repeated template despite alternatives",
       "repeats": [
         {
-          "value": "ending_sound",
-          "count": 4
-        },
-        {
           "value": "ending_sound_word_match",
-          "count": 5
+          "count": 6
         },
         {
           "value": "final_sound_pair_select",
-          "count": 5
+          "count": 6
+        },
+        {
+          "value": "ending_sound",
+          "count": 2
         }
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 7,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
-      "questionId": "qb12_fs_026",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/beach.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 7,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_forest_3_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/forest.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 7,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_ft_soft_3_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
       ]
     },
     {
@@ -32659,9 +32747,29 @@
       "sessionIndex": 7,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_frost_4_word",
+      "questionId": "gen_final_l2_nd_stand_14_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/stand.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 7,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_ft_soft_3_word",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 8,
+      "phase": "L1P1",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l1_l_curl_0_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/curl.webp"
       ]
     },
     {
@@ -32672,46 +32780,6 @@
       "questionId": "gen_final_l1_b_cob_2_sound",
       "issues": [
         "image does not resolve approved exact-target media: /media/final-sounds/images/b/cob.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 8,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_rib_9_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/rib.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 8,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_p_lap_7_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/lap.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 8,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_t_kit_12_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/kit.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 8,
-      "phase": "L1P1",
-      "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_b_sub_11_sound",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/final-sounds/images/b/sub.webp"
       ]
     },
     {
@@ -32789,16 +32857,6 @@
       "sessionIndex": 8,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_fast_2_word",
-      "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/fast.webp"
-      ]
-    },
-    {
-      "skillId": "final_sounds",
-      "sessionIndex": 8,
-      "phase": "L2P2",
-      "reason": "resolved media validation failed",
       "questionId": "gen_final_l2_st_chest_0_word",
       "issues": [
         "image does not resolve approved exact-target media: /media/vocabulary/images/chest.webp"
@@ -32809,9 +32867,9 @@
       "sessionIndex": 8,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_frost_4_sound",
+      "questionId": "gen_final_l2_nd_nightstand_8_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/frost.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/nightstand.webp"
       ]
     },
     {
@@ -32819,9 +32877,29 @@
       "sessionIndex": 8,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_ft_soft_3_word",
+      "questionId": "gen_final_l2_nd_round_12_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/soft.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/round.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 8,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_sk_mask_3_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/mask.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 8,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_lt_belt_0_word",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/belt.webp"
       ]
     },
     {
@@ -32839,9 +32917,9 @@
       "sessionIndex": 9,
       "phase": "L1P1",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l1_p_harp_4_sound",
+      "questionId": "gen_final_l1_n_open_11_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/harp.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/open.webp"
       ]
     },
     {
@@ -32912,15 +32990,15 @@
       "repeats": [
         {
           "value": "ending_sound",
-          "count": 5
+          "count": 6
         },
         {
           "value": "final_sound_pair_select",
-          "count": 3
+          "count": 4
         },
         {
           "value": "ending_sound_word_match",
-          "count": 6
+          "count": 4
         }
       ]
     },
@@ -32939,9 +33017,9 @@
       "sessionIndex": 9,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_nd_stand_14_sound",
+      "questionId": "gen_final_l2_st_dust_1_word",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/stand.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/dust.webp"
       ]
     },
     {
@@ -32959,9 +33037,9 @@
       "sessionIndex": 9,
       "phase": "L2P2",
       "reason": "resolved media validation failed",
-      "questionId": "gen_final_l2_st_fast_2_word",
+      "questionId": "gen_final_l2_nk_drink_1_sound",
       "issues": [
-        "image does not resolve approved exact-target media: /media/vocabulary/images/fast.webp"
+        "image does not resolve approved exact-target media: /media/vocabulary/images/drink.webp"
       ]
     },
     {
@@ -32972,6 +33050,16 @@
       "questionId": "gen_final_l2_sk_whisk_4_word",
       "issues": [
         "image does not resolve approved exact-target media: /media/vocabulary/images/whisk.webp"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "sessionIndex": 9,
+      "phase": "L2P2",
+      "reason": "resolved media validation failed",
+      "questionId": "gen_final_l2_ft_raft_2_sound",
+      "issues": [
+        "image does not resolve approved exact-target media: /media/vocabulary/images/raft.webp"
       ]
     },
     {
@@ -35455,123 +35543,120 @@
       ]
     },
     {
+      "skillId": "nouns",
+      "sessionIndex": 2,
+      "phase": "L1P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "second_nouns_l1_51_nut"
+      ]
+    },
+    {
+      "skillId": "nouns",
+      "sessionIndex": 7,
+      "phase": "L1P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "second_nouns_l1_51_nut"
+      ]
+    },
+    {
+      "skillId": "nouns",
+      "sessionIndex": 9,
+      "phase": "L1P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "second_nouns_l1_51_nut"
+      ]
+    },
+    {
       "skillId": "adjectives",
       "sessionIndex": 0,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 1,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 2,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 3,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 4,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 5,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 6,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 7,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 8,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {
       "skillId": "adjectives",
       "sessionIndex": 9,
-      "phase": "L2P1",
-      "reason": "repeated audio despite alternatives",
-      "repeats": [
-        {
-          "value": "/audio/child-mode/words/big.mp3",
-          "count": 2
-        }
+      "phase": "L2P2",
+      "reason": "missing or blocked image media",
+      "questionIds": [
+        "grammar_adjectives_l2_021"
       ]
     },
     {

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "james-and-anna-04-dentist",
+  "contentHash": "sha256:30c91499775c5fe1b53ff8c2a142b4875bf44a40fd936c27fe659152defd0f38",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "james-and-anna-04-dentist-q1",
+      "prompt": "What helped Anna forget to feel scared?",
       "choices": [
-        "ate",
-        "uncle",
-        "anna"
+        "watching the clock",
+        "reading a shark book",
+        "holding a sticker"
       ],
-      "answer": "anna",
-      "kind": "word"
+      "answer": "reading a shark book",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 6,
+      "evidenceText": "Anna found a book about sharks on the shelf. She sat down and read and read. She forgot to feel scared."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "james-and-anna-04-dentist-q2",
+      "prompt": "What did the dentist use to check James's teeth?",
       "choices": [
-        "Birds",
-        "Anna",
-        "Bouncy"
+        "a brush and paint",
+        "a ruler and pen",
+        "a mirror and light"
       ],
-      "answer": "Anna",
-      "kind": "word"
+      "answer": "a mirror and light",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 8,
+      "evidenceText": "\"Open wide!\" said the dentist. She used a small mirror and a bright little light. \"All done! Ten out of ten!\" James grinned."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "james-and-anna-04-dentist-q3",
+      "prompt": "What did James learn about the check-up?",
       "choices": [
-        "sky",
-        "storm",
-        "dentist"
+        "It did not hurt.",
+        "It took all day.",
+        "It made him ill."
       ],
-      "answer": "dentist",
-      "kind": "word"
+      "answer": "It did not hurt.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "James came out. \"It did not hurt at all!\" he said. \"And the chair goes UP and DOWN!\" Anna laughed."
     }
   ]
 }

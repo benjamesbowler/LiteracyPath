@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "bob-and-nan-07-birthday",
+  "contentHash": "sha256:cdcb7be4d88e3c996eae29fc2834a2ec4dd9b5402d98c4fb4b120c607a6d618c",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"It is ___'s big day!\"",
+      "id": "bob-and-nan-07-birthday-q1",
+      "prompt": "Who got Nan's big gift?",
       "choices": [
-        "room",
-        "bob",
-        "found"
-      ],
-      "answer": "bob",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "nan",
-        "purple",
-        "grow"
-      ],
-      "answer": "nan",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
-      "choices": [
-        "Flappy",
-        "Grumpy",
-        "Bob"
+        "Bob",
+        "Mum",
+        "Fluff"
       ],
       "answer": "Bob",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 2,
+      "evidenceText": "Nan has a big gift for Bob."
+    },
+    {
+      "id": "bob-and-nan-07-birthday-q2",
+      "prompt": "What was inside the gift?",
+      "choices": [
+        "a blue book",
+        "a red bat",
+        "a toy dog"
+      ],
+      "answer": "a red bat",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "Bob rips it! It is a red bat!"
+    },
+    {
+      "id": "bob-and-nan-07-birthday-q3",
+      "prompt": "What did Bob think of his birthday by the end?",
+      "choices": [
+        "It was the best day.",
+        "It was a bad day.",
+        "It was a quiet day."
+      ],
+      "answer": "It was the best day.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "It was the best day!"
     }
   ]
 }

@@ -1,35 +1,57 @@
 {
- "bookId": "gr-a-28",
- "questions": [
-  {
-   "prompt": "What color is the apple?",
-   "choices": [
-    "red",
-    "blue",
-    "green"
-   ],
-   "answer": "red",
-   "kind": "word"
-  },
-  {
-   "prompt": "What is blue in this book?",
-   "choices": [
-    "the sky",
-    "the grass",
-    "the sun"
-   ],
-   "answer": "the sky",
-   "kind": "word"
-  },
-  {
-   "prompt": "What color is the cloud?",
-   "choices": [
-    "white",
-    "yellow",
-    "red"
-   ],
-   "answer": "white",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-a-28",
+  "contentHash": "sha256:c89c54406cc1284ecf3404eec182620b22021e32c94b2dda7e79a4118a57602c",
+  "questions": [
+    {
+      "id": "gr-a-28-q1",
+      "prompt": "What color is the apple?",
+      "choices": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "answer": "red",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "The apple is red."
+    },
+    {
+      "id": "gr-a-28-q2",
+      "prompt": "Which two color pairs match the book?",
+      "choices": [
+        "a blue sky and green grass",
+        "a green sky and blue grass",
+        "a yellow sky and white grass"
+      ],
+      "answer": "a blue sky and green grass",
+      "kind": "text",
+      "skill": "comparison",
+      "rationale": "Page 2 says the sky is blue, and page 4 says the grass is green.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 4,
+          "evidenceText": "The grass is green."
+        }
+      ],
+      "evidencePage": 2,
+      "evidenceText": "The sky is blue."
+    },
+    {
+      "id": "gr-a-28-q3",
+      "prompt": "What is the main idea of this book?",
+      "choices": [
+        "we see all the colors",
+        "colors change with the seasons",
+        "colors tell us how things grow"
+      ],
+      "answer": "we see all the colors",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "I see all the colors!"
+    }
+  ]
 }

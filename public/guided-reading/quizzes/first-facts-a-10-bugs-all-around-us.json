@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-10-bugs-all-around-us",
- "questions": [
-  {
-   "prompt": "What do bees make?",
-   "choices": [
-    "honey",
-    "webs",
-    "milk"
-   ],
-   "answer": "honey",
-   "kind": "word"
-  },
-  {
-   "prompt": "What is red with black spots?",
-   "choices": [
-    "a ladybird",
-    "a worm",
-    "an ant"
-   ],
-   "answer": "a ladybird",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who lives in the soil?",
-   "choices": [
-    "the worm",
-    "the butterfly",
-    "the bee"
-   ],
-   "answer": "the worm",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-10-bugs-all-around-us",
+  "contentHash": "sha256:d94bde40273510752f6a320d4dfee48012552b133eff16a5d0db5a32d671b228",
+  "questions": [
+    {
+      "id": "first-facts-a-10-bugs-all-around-us-q1",
+      "prompt": "What do bees make?",
+      "choices": [
+        "honey",
+        "webs",
+        "milk"
+      ],
+      "answer": "honey",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "A bee collects pollen. Bees make honey. Bees are important."
+    },
+    {
+      "id": "first-facts-a-10-bugs-all-around-us-q2",
+      "prompt": "How do worms help?",
+      "choices": [
+        "they help plants grow",
+        "they make honey",
+        "they carry food"
+      ],
+      "answer": "they help plants grow",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "A worm lives in the soil. Worms help plants grow."
+    },
+    {
+      "id": "first-facts-a-10-bugs-all-around-us-q3",
+      "prompt": "What main idea does the book show about bugs?",
+      "choices": [
+        "bugs help our world",
+        "bugs all make honey",
+        "bugs all live in the soil"
+      ],
+      "answer": "bugs help our world",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 8,
+      "evidenceText": "Bugs help our world. They are very important!"
+    }
+  ]
 }

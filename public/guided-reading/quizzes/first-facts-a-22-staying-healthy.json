@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-22-staying-healthy",
+  "contentHash": "sha256:e5010ceebbc1de32d7ce8b0b714e74ac2771b5fc789c14c7db4395f04fa84626",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Eat good food. Fruits and ___ are good for you.\"",
+      "id": "first-facts-a-22-staying-healthy-q1",
+      "prompt": "What does the book say clean hands do?",
       "choices": [
-        "vegetables",
-        "everyone",
-        "thousands"
+        "keep germs away",
+        "help the body grow",
+        "keep teeth clean"
       ],
-      "answer": "vegetables",
-      "kind": "word"
+      "answer": "keep germs away",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 4,
+      "evidenceText": "Clean hands keep germs away."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-22-staying-healthy-q2",
+      "prompt": "How often should you brush your teeth?",
       "choices": [
-        "forces",
-        "surface",
-        "sleep"
+        "once a week",
+        "twice a day",
+        "once a year"
       ],
-      "answer": "sleep",
-      "kind": "word"
+      "answer": "twice a day",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "Brush them twice a day."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-22-staying-healthy-q3",
+      "prompt": "Which choice best sums up how the book says to stay healthy?",
       "choices": [
-        "sale",
-        "earth",
-        "healthy"
+        "eat, move, sleep, and smile",
+        "eat, sit, hide, and frown",
+        "rush, shout, skip, and spin"
       ],
-      "answer": "healthy",
-      "kind": "word"
+      "answer": "eat, move, sleep, and smile",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 7,
+      "evidenceText": "Eat, move, sleep, and smile!"
     }
   ]
 }

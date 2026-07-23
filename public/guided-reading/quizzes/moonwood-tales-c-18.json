@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-18",
+  "contentHash": "sha256:8ca8c2623109200b4e18282546dd325d2e8117ff31a69b61633c219f378661c2",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-18-q1",
+      "prompt": "What happened when Dewdrop first pushed hard water against the rocks?",
       "choices": [
-        "grumpy",
-        "stone",
-        "run"
+        "The fish did not move.",
+        "The fish swam free at once.",
+        "The rocks rolled downstream."
       ],
-      "answer": "stone",
-      "kind": "word"
+      "answer": "The fish did not move.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "She sent the water flowing hard against the rocks.\nThe fish did not move."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-18-q2",
+      "prompt": "How did Stone finally free the trapped fish?",
       "choices": [
-        "Stone",
-        "Twig",
-        "Our"
+        "Stone pushed the rock, and the fish was free.",
+        "Stone lifted the fish over both rocks by its tail.",
+        "Stone blocked the water until the stream was dry."
       ],
-      "answer": "Stone",
-      "kind": "word"
+      "answer": "Stone pushed the rock, and the fish was free.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 9,
+      "evidenceText": "Stone pushed.\nThe rock moved.\nThe mud let go.\nThe fish was free."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-18-q3",
+      "prompt": "What lesson does Stone's wet rescue show?",
       "choices": [
-        "fruits",
-        "fish",
-        "earth"
+        "Helping someone can be worth feeling uncomfortable.",
+        "Stone helped because Dewdrop promised Stone would stay dry.",
+        "The fish escaped before Stone moved the rock."
       ],
-      "answer": "fish",
-      "kind": "word"
+      "answer": "Helping someone can be worth feeling uncomfortable.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Stone says he does not like getting wet, but after being soaked he focuses on the fish being free; this shows helping someone can be worth feeling uncomfortable.",
+      "evidencePage": 11,
+      "evidenceText": "Stone sat and dripped.\nStone looked at the arm.\nStone looked at the rest of Stone.\n\"The fish is free,\" said Stone.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 5,
+          "evidenceText": "Stone stood at the edge of the Crystal Stream.\nThe water sparkled.\nStone's feet stayed on the bank.\n\"I don't like getting wet,\" said Stone."
+        }
+      ]
     }
   ]
 }

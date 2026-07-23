@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ja-b-10",
+  "contentHash": "sha256:20094519ddd951714d94b24a11e41707677ecc1d3d1e995ca63ab1488181a4d6",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ja-b-10-q1",
+      "prompt": "What did the family toast over the fire?",
       "choices": [
-        "rectangle",
-        "chips",
-        "autumn"
+        "sandwiches",
+        "marshmallows",
+        "apples"
       ],
-      "answer": "chips",
-      "kind": "word"
+      "answer": "marshmallows",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "Dad made a small camp fire in a safe metal dish. They toasted marshmallows on long sticks over the warm flames."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ja-b-10-q2",
+      "prompt": "What kept the fox from coming back?",
       "choices": [
-        "Fern",
-        "Chips",
-        "Zippy"
+        "the torch",
+        "the card game",
+        "the air horn"
       ],
-      "answer": "Chips",
-      "kind": "word"
+      "answer": "the air horn",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 10,
+      "evidenceText": "The air horn worked. The fox did not come back. Dad DID come — running from the house in his pyjamas, looking very startled."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ja-b-10-q3",
+      "prompt": "Why did the camp still feel perfect?",
       "choices": [
-        "pull",
-        "camping",
-        "zoo"
+        "The sun was warm and breakfast was good.",
+        "Chips fixed the torn tent.",
+        "Nobody had been uncomfortable."
       ],
-      "answer": "camping",
-      "kind": "word"
+      "answer": "The sun was warm and breakfast was good.",
+      "kind": "text",
+      "skill": "inference",
+      "evidencePage": 13,
+      "evidenceText": "\"CHIPS!\" they said. But the sun was warm and breakfast was good and it had been a perfect camp."
     }
   ]
 }

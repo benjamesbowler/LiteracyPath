@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-15-cuddly-wants-a-hug",
+  "contentHash": "sha256:88dd8a7557e2574ca7870b3cb1bf0d79c2c837194f27680b54c7858cefcc50f5",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ wants a hug.\"",
+      "id": "meadow-pals-15-cuddly-wants-a-hug-q1",
+      "prompt": "Who finally gives Cuddly a big hug?",
       "choices": [
-        "fluffy",
-        "taste",
-        "cuddly"
-      ],
-      "answer": "cuddly",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "heavy",
-        "vroom",
-        "woolly"
-      ],
-      "answer": "woolly",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
-      "choices": [
-        "James",
         "Woolly",
-        "Shy"
+        "Grumpy",
+        "Speedy"
       ],
       "answer": "Woolly",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 8,
+      "evidenceText": "Woolly gave Cuddly a big hug."
+    },
+    {
+      "id": "meadow-pals-15-cuddly-wants-a-hug-q2",
+      "prompt": "Why does Splashy not give Cuddly a hug?",
+      "choices": [
+        "Splashy is too wet.",
+        "Splashy is too fast.",
+        "Splashy is too muddy."
+      ],
+      "answer": "Splashy is too wet.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "rationale": "Splashy says 'I am too wet' in response to Cuddly wanting a hug, giving the reason in the answer.",
+      "evidencePage": 3,
+      "evidenceText": "\"I am too wet!\" said Splashy."
+    },
+    {
+      "id": "meadow-pals-15-cuddly-wants-a-hug-q3",
+      "prompt": "What does Cuddly ask for after the big hug?",
+      "choices": [
+        "more hugs",
+        "more cake",
+        "more mud"
+      ],
+      "answer": "more hugs",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "\"More hugs!\" said Cuddly."
     }
   ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-14-hot-and-cold",
+  "contentHash": "sha256:45e26d21776201ff5bd1763a72d89d13288d5ab322b3489c63ba6165e8a4e9c2",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"The sun is hot. It ___ us up.\"",
+      "id": "first-facts-a-14-hot-and-cold-q1",
+      "prompt": "Which thing does the book say is cold?",
       "choices": [
-        "fancy",
-        "warms",
-        "grass"
+        "snow",
+        "fire",
+        "soup"
       ],
-      "answer": "warms",
-      "kind": "word"
+      "answer": "snow",
+      "kind": "word",
+      "skill": "comparison",
+      "evidencePage": 3,
+      "evidenceText": "Snow is cold."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-14-hot-and-cold-q2",
+      "prompt": "Why should hot food cool down first?",
       "choices": [
-        "hot",
-        "sat",
-        "brave"
+        "because hot food can burn",
+        "because hot food can freeze",
+        "because hot food can turn to ice"
       ],
-      "answer": "hot",
-      "kind": "word"
+      "answer": "because hot food can burn",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 4,
+      "evidenceText": "Hot food can burn. Let it cool down first."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-14-hot-and-cold-q3",
+      "prompt": "What does the book say we need?",
       "choices": [
-        "bridge",
-        "cold",
-        "farm"
+        "only hot things",
+        "only cold things",
+        "both hot and cold"
       ],
-      "answer": "cold",
-      "kind": "word"
+      "answer": "both hot and cold",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "Hot is warm. Cold is cool. We need both!"
     }
   ]
 }

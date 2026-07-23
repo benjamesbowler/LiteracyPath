@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-02-woolly-cant-sleep",
+  "contentHash": "sha256:a5b3eca6b78ab01cb20dffa6fb8ab26f23b96c166360a312536937c88a4b06ad",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ got into bed.\"",
+      "id": "meadow-pals-02-woolly-cant-sleep-q1",
+      "prompt": "What does Woolly do when a sound wakes him?",
       "choices": [
-        "woolly",
-        "turned",
-        "splash"
+        "Woolly sat up.",
+        "Woolly hid away.",
+        "Woolly ran outside."
       ],
-      "answer": "woolly",
-      "kind": "word"
+      "answer": "Woolly sat up.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "Woolly sat up."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-02-woolly-cant-sleep-q2",
+      "prompt": "Which sound wakes Woolly first?",
       "choices": [
-        "sat",
-        "summer",
-        "rocket"
+        "the wind's hoo",
+        "a bug's buzz",
+        "Hungry's moo"
       ],
-      "answer": "sat",
-      "kind": "word"
+      "answer": "the wind's hoo",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "Hoo! went the wind."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "meadow-pals-02-woolly-cant-sleep-q3",
+      "prompt": "What happens when it becomes quiet?",
       "choices": [
-        "flappy",
-        "thing",
-        "sleep"
+        "Woolly went to sleep.",
+        "Woolly started to buzz.",
+        "Woolly left the bed."
       ],
-      "answer": "sleep",
-      "kind": "word"
+      "answer": "Woolly went to sleep.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "Woolly went to sleep."
     }
   ]
 }

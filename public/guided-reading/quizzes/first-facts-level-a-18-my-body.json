@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-18-my-body",
- "questions": [
-  {
-   "prompt": "What can you do with your ears?",
-   "choices": [
-    "hear",
-    "smell",
-    "clap"
-   ],
-   "answer": "hear",
-   "kind": "word"
-  },
-  {
-   "prompt": "What can you do with your hands?",
-   "choices": [
-    "clap",
-    "smell",
-    "see"
-   ],
-   "answer": "clap",
-   "kind": "word"
-  },
-  {
-   "prompt": "What can you do with your feet?",
-   "choices": [
-    "run",
-    "eat",
-    "hear"
-   ],
-   "answer": "run",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-18-my-body",
+  "contentHash": "sha256:6da613d689797090497a4ddb0b5d12b36ad70fcd8036ecfc353b2f1cbd630343",
+  "questions": [
+    {
+      "id": "first-facts-level-a-18-my-body-q1",
+      "prompt": "What can the speaker do with their ears?",
+      "choices": [
+        "hear",
+        "smell",
+        "clap"
+      ],
+      "answer": "hear",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "I have two ears.\nI can hear."
+    },
+    {
+      "id": "first-facts-level-a-18-my-body-q2",
+      "prompt": "What can the speaker do with their hands?",
+      "choices": [
+        "clap",
+        "smell",
+        "see"
+      ],
+      "answer": "clap",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 5,
+      "evidenceText": "I have two hands.\nI can clap!"
+    },
+    {
+      "id": "first-facts-level-a-18-my-body-q3",
+      "prompt": "How does the speaker feel about their body?",
+      "choices": [
+        "they love it",
+        "they fear it",
+        "they hide it"
+      ],
+      "answer": "they love it",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 7,
+      "evidenceText": "I have a body!\nI love my body."
+    }
+  ]
 }

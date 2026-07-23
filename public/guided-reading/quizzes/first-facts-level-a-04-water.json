@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-04-water",
- "questions": [
-  {
-   "prompt": "What do we do with water?",
-   "choices": [
-    "drink it",
-    "eat it",
-    "wear it"
-   ],
-   "answer": "drink it",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who swims in water?",
-   "choices": [
-    "fish",
-    "cats",
-    "birds"
-   ],
-   "answer": "fish",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who hops in water?",
-   "choices": [
-    "frogs",
-    "dogs",
-    "pigs"
-   ],
-   "answer": "frogs",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-04-water",
+  "contentHash": "sha256:2754ebbb387074f4593131a9a8fc6b35c9c8508e3c45f9e82f02050b36b30516",
+  "questions": [
+    {
+      "id": "first-facts-level-a-04-water-q1",
+      "prompt": "Which is one thing the book says we do with water?",
+      "choices": [
+        "drink it",
+        "eat it",
+        "wear it"
+      ],
+      "answer": "drink it",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 1,
+      "evidenceText": "We drink water."
+    },
+    {
+      "id": "first-facts-level-a-04-water-q2",
+      "prompt": "Which animal does the book say swims in water?",
+      "choices": [
+        "a fish",
+        "a cat",
+        "a dog"
+      ],
+      "answer": "a fish",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Fish swim in water."
+    },
+    {
+      "id": "first-facts-level-a-04-water-q3",
+      "prompt": "Which animal does the book say hops in water?",
+      "choices": [
+        "frogs",
+        "dogs",
+        "pigs"
+      ],
+      "answer": "frogs",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 6,
+      "evidenceText": "Frogs hop in water."
+    }
+  ]
 }

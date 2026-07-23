@@ -1,35 +1,50 @@
 {
- "bookId": "gr-b-32",
- "questions": [
-  {
-   "prompt": "Which one is a fruit?",
-   "choices": [
-    "a banana",
-    "a carrot",
-    "a potato"
-   ],
-   "answer": "a banana",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does the book say fruits are good for?",
-   "choices": [
-    "eating",
-    "throwing",
-    "hiding"
-   ],
-   "answer": "eating",
-   "kind": "word"
-  },
-  {
-   "prompt": "How does the reader feel about fruits?",
-   "choices": [
-    "loves them",
-    "hates them",
-    "fears them"
-   ],
-   "answer": "loves them",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-b-32",
+  "contentHash": "sha256:4f4518b84a89b663232118111afcb358c8fd50f3e724faf336514e3254d8b9b2",
+  "questions": [
+    {
+      "id": "gr-b-32-q1",
+      "prompt": "Which one is a fruit?",
+      "choices": [
+        "a banana",
+        "a carrot",
+        "a potato"
+      ],
+      "answer": "a banana",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A banana is a fruit."
+    },
+    {
+      "id": "gr-b-32-q2",
+      "prompt": "What does the book say we can do with fruits?",
+      "choices": [
+        "eat them",
+        "throw them",
+        "hide them"
+      ],
+      "answer": "eat them",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 5,
+      "evidenceText": "Fruits are good to eat."
+    },
+    {
+      "id": "gr-b-32-q3",
+      "prompt": "How does the speaker feel about fruits?",
+      "choices": [
+        "loves them",
+        "hates them",
+        "fears them"
+      ],
+      "answer": "loves them",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 6,
+      "evidenceText": "I love fruits!"
+    }
+  ]
 }

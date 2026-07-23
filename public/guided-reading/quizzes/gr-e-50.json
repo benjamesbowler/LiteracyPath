@@ -1,35 +1,50 @@
 {
- "bookId": "gr-e-50",
- "questions": [
-  {
-   "prompt": "What do we use to hear?",
-   "choices": [
-    "our ears",
-    "our eyes",
-    "our skin"
-   ],
-   "answer": "our ears",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do we use to taste?",
-   "choices": [
-    "our tongue",
-    "our nose",
-    "our hands"
-   ],
-   "answer": "our tongue",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do our senses help us do?",
-   "choices": [
-    "explore",
-    "sleep",
-    "fly"
-   ],
-   "answer": "explore",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-e-50",
+  "contentHash": "sha256:e735aa1b68ed52ae3dbf8f519a233b62265f3850a279cc9a15ced304b07fb274",
+  "questions": [
+    {
+      "id": "gr-e-50-q1",
+      "prompt": "What do we use to hear?",
+      "choices": [
+        "our ears",
+        "our eyes",
+        "our skin"
+      ],
+      "answer": "our ears",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "We use our ears to hear."
+    },
+    {
+      "id": "gr-e-50-q2",
+      "prompt": "What do we use to taste?",
+      "choices": [
+        "our tongue",
+        "our nose",
+        "our hands"
+      ],
+      "answer": "our tongue",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 4,
+      "evidenceText": "We use our tongue to taste."
+    },
+    {
+      "id": "gr-e-50-q3",
+      "prompt": "What do our senses help us do?",
+      "choices": [
+        "explore",
+        "sleep",
+        "fly"
+      ],
+      "answer": "explore",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "Our senses help us explore!"
+    }
+  ]
 }

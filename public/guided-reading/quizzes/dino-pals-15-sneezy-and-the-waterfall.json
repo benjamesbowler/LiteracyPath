@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-15-sneezy-and-the-waterfall",
+  "contentHash": "sha256:66ac15323a7ed35e309a3b673619fff5dbe93087a399d54d6a6b592e102637c8",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ move back, said Grumpy. They moved back.\"",
+      "id": "dino-pals-15-sneezy-and-the-waterfall-q1",
+      "prompt": "Why had Rainbow Waterfall stopped?",
       "choices": [
-        "clouds",
-        "helpers",
-        "everyone"
+        "The sun dried up the water.",
+        "Chompy drank the stream.",
+        "Rocks blocked the stream."
       ],
-      "answer": "everyone",
-      "kind": "word"
+      "answer": "Rocks blocked the stream.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 2,
+      "evidenceText": "A huge pile of rocks had fallen in the night and blocked the stream above."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-15-sneezy-and-the-waterfall-q2",
+      "prompt": "How was the blocked stream finally freed?",
       "choices": [
-        "grumpy",
-        "senses",
-        "butterflies"
+        "The sneeze scattered the rocks.",
+        "Grumpy moved every rock alone.",
+        "Bossy dug a new stream."
       ],
-      "answer": "grumpy",
-      "kind": "word"
+      "answer": "The sneeze scattered the rocks.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 11,
+      "evidenceText": "The sneeze hit the rocks like a wave. Rocks scattered in every direction. The stream burst free."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-15-sneezy-and-the-waterfall-q3",
+      "prompt": "How did Grumpy feel about what Sneezy had done?",
       "choices": [
-        "Grumpy",
-        "Cheeky",
-        "Stone"
+        "angry",
+        "pleased",
+        "frightened"
       ],
-      "answer": "Grumpy",
-      "kind": "word"
+      "answer": "pleased",
+      "kind": "word",
+      "skill": "inference",
+      "rationale": "The waterfall roars back after Sneezy's sneeze, and Grumpy tells Sneezy not to apologise while smiling, which shows that Grumpy was pleased with what Sneezy had done.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 11,
+          "evidenceText": "The stream burst free. The waterfall roared back. A rainbow appeared."
+        }
+      ],
+      "evidencePage": 12,
+      "evidenceText": "Do not apologise, said Grumpy. For once, Grumpy was actually smiling."
     }
   ]
 }

@@ -1,35 +1,61 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-22",
+  "contentHash": "sha256:55ac84e1a9cbcaf10543ca69f7d83a2b7f40364474b49cce9776529a06127729",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-22-q1",
+      "prompt": "What happened when Wren cast the speed spell during the race?",
       "choices": [
-        "stone",
-        "mouth",
-        "keep"
+        "Everyone near Wren shot forward except Wren.",
+        "Only Wren raced ahead of every other runner.",
+        "Everyone near Wren stopped moving at once."
       ],
-      "answer": "stone",
-      "kind": "word"
+      "answer": "Everyone near Wren shot forward except Wren.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 4,
+      "evidenceText": "It worked on everyone near her.\nEveryone shot forward very fast.\nExcept Wren."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-22-q2",
+      "prompt": "Why does Flint arrive at the finish from the wrong direction?",
       "choices": [
-        "Fancy",
-        "Stone",
-        "Mmm"
+        "Flint went left. Then left again. Then the Fog Marsh was ahead.",
+        "Flint followed Dewdrop across the Crystal Stream and stayed behind her.",
+        "Flint stopped beside Stone and waited for Stone to stand again."
       ],
-      "answer": "Stone",
-      "kind": "word"
+      "answer": "Flint went left. Then left again. Then the Fog Marsh was ahead.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 3,
+      "evidenceText": "Flint went left.\nThen left again.\nThen the Fog Marsh was ahead of him."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-22-q3",
+      "prompt": "What does giving gold leaves to Dewdrop and Burrow show?",
       "choices": [
-        "house",
-        "race",
-        "sky"
+        "There can be more than one kind of success.",
+        "Dewdrop's speed was the one result Luna rewarded.",
+        "Burrow won because his tunnel followed the planned course."
       ],
-      "answer": "race",
-      "kind": "word"
+      "answer": "There can be more than one kind of success.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Dewdrop crosses the finish line first, while Burrow appears beside the finish after travelling underground; each receives a gold leaf, showing there can be more than one kind of success.",
+      "evidencePage": 12,
+      "evidenceText": "Dewdrop won a gold leaf for finishing.\nBurrow won a gold leaf for best route.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 9,
+          "evidenceText": "Dewdrop crossed the finish line.\nShe had glided the whole way.\nShe was not wet.\nShe was not ruffled.\n\"Finished,\" said Dewdrop."
+        },
+        {
+          "evidencePage": 11,
+          "evidenceText": "Then there was a rumbling.\nBurrow came up through the ground.\nRight beside the finish line."
+        }
+      ]
     }
   ]
 }

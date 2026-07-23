@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-12-in-the-sea",
- "questions": [
-  {
-   "prompt": "Who swims fast?",
-   "choices": [
-    "the shark",
-    "the turtle",
-    "the crab"
-   ],
-   "answer": "the shark",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who is huge?",
-   "choices": [
-    "the whale",
-    "the crab",
-    "the fish"
-   ],
-   "answer": "the whale",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who swims slow?",
-   "choices": [
-    "the turtle",
-    "the shark",
-    "the seal"
-   ],
-   "answer": "the turtle",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-12-in-the-sea",
+  "contentHash": "sha256:a87d1eb1b3414be5e6bb8773a77825fc344f640aa0c6f398708084d6ca04b3ea",
+  "questions": [
+    {
+      "id": "first-facts-level-a-12-in-the-sea-q1",
+      "prompt": "Who swims fast?",
+      "choices": [
+        "the shark",
+        "the turtle",
+        "the crab"
+      ],
+      "answer": "the shark",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A big shark can swim fast."
+    },
+    {
+      "id": "first-facts-level-a-12-in-the-sea-q2",
+      "prompt": "Who is huge?",
+      "choices": [
+        "the whale",
+        "the crab",
+        "the fish"
+      ],
+      "answer": "the whale",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "A whale can swim far.\nIt is huge."
+    },
+    {
+      "id": "first-facts-level-a-12-in-the-sea-q3",
+      "prompt": "Who swims slow?",
+      "choices": [
+        "the turtle",
+        "the shark",
+        "the seal"
+      ],
+      "answer": "the turtle",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 6,
+      "evidenceText": "A turtle can swim slow.\nSlow and sure."
+    }
+  ]
 }

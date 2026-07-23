@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-14",
+  "contentHash": "sha256:801ec1aba5350463a20a4079cf7c497639eaf3210173f94af7452cec4b3c22fb",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-14-q1",
+      "prompt": "Which way do Wren and Flint choose when the map and spell disagree?",
       "choices": [
-        "paint",
-        "flint",
-        "fly"
+        "straight ahead",
+        "left with the map",
+        "right with the spell"
       ],
-      "answer": "flint",
-      "kind": "word"
+      "answer": "straight ahead",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "\"Straight ahead,\" they agreed.\nThis turned out to be wrong."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-14-q2",
+      "prompt": "How do Wren and Flint finally find the Whispering Meadow?",
       "choices": [
-        "Drops",
-        "Flint",
-        "Let"
+        "They follow the mushroom trail.",
+        "They choose the oldest map in Flint's bag.",
+        "They wait for Wren's spinning arrow to stop."
       ],
-      "answer": "Flint",
-      "kind": "word"
+      "answer": "They follow the mushroom trail.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 10,
+      "evidenceText": "Wren and Flint followed the mushroom trail."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-14-q3",
+      "prompt": "What lesson does reaching the meadow by the mushroom trail show?",
       "choices": [
-        "fish",
-        "other",
-        "lost"
+        "Help can come from an unexpected place.",
+        "Flint's oldest map led them out of the fog.",
+        "Wren's spinning arrow pointed straight to the meadow."
       ],
-      "answer": "lost",
-      "kind": "word"
+      "answer": "Help can come from an unexpected place.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "After the map and spell fail, Wren asks a mushroom for the way, and its trail leads them to the meadow; this unexpected help shows that help can come from an unexpected place.",
+      "evidencePage": 10,
+      "evidenceText": "Wren and Flint followed the mushroom trail.\nThe forest opened up.\nThe golden light of the Whispering Meadow was ahead.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 8,
+          "evidenceText": "She spoke to the mushroom.\nVery quietly.\nShe asked it the way."
+        }
+      ]
     }
   ]
 }

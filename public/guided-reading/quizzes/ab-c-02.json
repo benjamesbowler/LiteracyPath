@@ -1,35 +1,58 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-02",
+  "contentHash": "sha256:e5cb6c34499df8e7205954fec55dee1bc4bc9de30da266450d041937e442d43b",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-02-q1",
+      "prompt": "How did Aiden and Betty use the three card colours while sorting?",
       "choices": [
-        "betty",
-        "beach",
-        "hic"
+        "Red meant sell, blue meant keep, and yellow meant maybe.",
+        "Red meant keep, blue meant maybe, and yellow meant sell.",
+        "Red meant maybe, blue meant sell, and yellow meant keep."
       ],
-      "answer": "betty",
-      "kind": "word"
+      "answer": "Red meant sell, blue meant keep, and yellow meant maybe.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "They spent Friday evening sorting everything into three piles. A red card meant sell. A blue card meant keep. A yellow card meant maybe. By nine o'clock, the maybe pile had disappeared."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-02-q2",
+      "prompt": "Why did Aiden say the teddies would get good homes?",
       "choices": [
-        "Very",
-        "Flint",
-        "Aiden"
+        "A customer had promised him.",
+        "He was reassuring himself.",
+        "Betty told him to advertise them."
       ],
-      "answer": "Aiden",
-      "kind": "word"
+      "answer": "He was reassuring himself.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "The passage says Aiden spoke mostly to himself as a form of reassurance, which shows that he was reassuring himself.",
+      "evidencePage": 5,
+      "evidenceText": "On Saturday morning, they dragged two folding tables out to the front path and arranged everything carefully. The old teddies sat in a row at the back and looked slightly sorry for themselves. \"They'll go to good homes,\" said Aiden, mostly to himself, as a form of reassurance."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-02-q3",
+      "prompt": "Why did Aiden keep Nelly instead of selling her?",
       "choices": [
-        "gift",
-        "sale",
-        "forgot"
+        "He planned to sell Nelly for more money another day.",
+        "Nelly was the most expensive toy.",
+        "Some belongings mattered more than money."
       ],
-      "answer": "sale",
-      "kind": "word"
+      "answer": "Some belongings mattered more than money.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "The evidence says Aiden held Nelly and put her inside instead of selling her for money, which shows some belongings mattered more than money.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 2,
+          "evidenceText": "We could make actual money."
+        }
+      ],
+      "evidencePage": 13,
+      "evidenceText": "As Aiden folded up the last table, he found something wedged at the very back — his old stuffed elephant, Nelly, who he had completely forgotten was there. He held her for a long moment. Then he carried her inside and put her on the shelf above his desk. Some things, he decided, were not for selling."
     }
   ]
 }

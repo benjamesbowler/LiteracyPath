@@ -1,35 +1,50 @@
 {
- "bookId": "gr-e-47",
- "questions": [
-  {
-   "prompt": "What does a seed grow into?",
-   "choices": [
-    "a plant",
-    "a frog",
-    "a rock"
-   ],
-   "answer": "a plant",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does a tadpole turn into?",
-   "choices": [
-    "a frog",
-    "a butterfly",
-    "a bird"
-   ],
-   "answer": "a frog",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does a caterpillar become?",
-   "choices": [
-    "a butterfly",
-    "a bee",
-    "a fish"
-   ],
-   "answer": "a butterfly",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-e-47",
+  "contentHash": "sha256:84d32162e4aac8842e27ed5e666414263e64a63147d8bef62da1c80be0c5e2f0",
+  "questions": [
+    {
+      "id": "gr-e-47-q1",
+      "prompt": "What does a seed grow into?",
+      "choices": [
+        "a plant",
+        "a frog",
+        "a rock"
+      ],
+      "answer": "a plant",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "A seed grows into a plant."
+    },
+    {
+      "id": "gr-e-47-q2",
+      "prompt": "Which thing do all living things need?",
+      "choices": [
+        "food",
+        "a shell",
+        "a nest"
+      ],
+      "answer": "food",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "All living things need food."
+    },
+    {
+      "id": "gr-e-47-q3",
+      "prompt": "What does the book say growing takes?",
+      "choices": [
+        "time and care",
+        "a shell and a nest",
+        "wings and warm fur"
+      ],
+      "answer": "time and care",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "Growing takes time and care!"
+    }
+  ]
 }

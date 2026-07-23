@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-13-fruit",
- "questions": [
-  {
-   "prompt": "What color is the apple?",
-   "choices": [
-    "red",
-    "purple",
-    "yellow"
-   ],
-   "answer": "red",
-   "kind": "word"
-  },
-  {
-   "prompt": "Which fruit is yellow and soft?",
-   "choices": [
-    "the banana",
-    "the plum",
-    "the grape"
-   ],
-   "answer": "the banana",
-   "kind": "word"
-  },
-  {
-   "prompt": "Which fruit is small and round?",
-   "choices": [
-    "the grape",
-    "the banana",
-    "the apple"
-   ],
-   "answer": "the grape",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-13-fruit",
+  "contentHash": "sha256:04c303527472bdb601566851a09537cc592e4ecabaa14b9d10064cf338ba89ba",
+  "questions": [
+    {
+      "id": "first-facts-level-a-13-fruit-q1",
+      "prompt": "What color is the apple in the book?",
+      "choices": [
+        "red",
+        "purple",
+        "yellow"
+      ],
+      "answer": "red",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "An apple is red.\nIt is sweet."
+    },
+    {
+      "id": "first-facts-level-a-13-fruit-q2",
+      "prompt": "Which fruit is yellow and soft?",
+      "choices": [
+        "the banana",
+        "the plum",
+        "the grape"
+      ],
+      "answer": "the banana",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A banana is yellow.\nIt is soft."
+    },
+    {
+      "id": "first-facts-level-a-13-fruit-q3",
+      "prompt": "Which fruit does the book describe as small and round?",
+      "choices": [
+        "the grape",
+        "the banana",
+        "the plum"
+      ],
+      "answer": "the grape",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "A grape is small.\nIt is round."
+    }
+  ]
 }

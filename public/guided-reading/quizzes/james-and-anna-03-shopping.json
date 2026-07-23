@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "james-and-anna-03-shopping",
+  "contentHash": "sha256:00440908000ec178ce676023e42a7f63038cd766038496cd5df43b811a44693e",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "james-and-anna-03-shopping-q1",
+      "prompt": "What did Anna carry to help Mum?",
       "choices": [
-        "james",
-        "fancy",
-        "snip"
+        "the bags",
+        "the eggs",
+        "the cakes"
       ],
-      "answer": "james",
-      "kind": "word"
+      "answer": "the bags",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 2,
+      "evidenceText": "\"Yes!\" said James and Anna. James grabbed the list. Anna grabbed the bags. Off they went!"
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "james-and-anna-03-shopping-q2",
+      "prompt": "Why did James put both bunches of grapes in the basket?",
       "choices": [
-        "What",
-        "James",
-        "Bob"
+        "Mum asked for both.",
+        "to be safe",
+        "Anna disliked grapes."
       ],
-      "answer": "James",
-      "kind": "word"
+      "answer": "to be safe",
+      "kind": "text",
+      "skill": "motivation",
+      "evidencePage": 6,
+      "evidenceText": "James found the grapes. Red ones or green ones? He put both bunches in the basket — just to be safe."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "james-and-anna-03-shopping-q3",
+      "prompt": "What did they have after lunch?",
       "choices": [
-        "shopping",
-        "slow",
-        "everyone"
+        "the eggs",
+        "orange juice",
+        "their cakes"
       ],
-      "answer": "shopping",
-      "kind": "word"
+      "answer": "their cakes",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 13,
+      "evidenceText": "At home, Mum made lunch. After, they had their cakes. Chips ate the paper bag. \"CHIPS!\" they said. But they were laughing too hard to be cross."
     }
   ]
 }

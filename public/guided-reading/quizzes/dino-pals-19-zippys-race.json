@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-19-zippys-race",
+  "contentHash": "sha256:4b141a00875549a89e91e695c4cad3a832965fb066f7e5da37f47d77d3545d81",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-19-zippys-race-q1",
+      "prompt": "How did Zippy prepare for the race?",
       "choices": [
-        "zippy",
-        "wake",
-        "could"
+        "He ran three circuits, then four, then five, and kept going.",
+        "He rested for three days and skipped every practice run.",
+        "He asked another runner to show him a shorter route."
       ],
-      "answer": "zippy",
-      "kind": "word"
+      "answer": "He ran three circuits, then four, then five, and kept going.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "Zippy ran three circuits of Sunny Hollow. Then four. Then five. Then kept going."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-19-zippys-race-q2",
+      "prompt": "How close was the finish?",
       "choices": [
-        "Anna",
-        "There",
-        "Zippy"
+        "The second runner arrived a heartbeat later.",
+        "The second runner arrived an hour later.",
+        "Both runners stopped before the line."
       ],
-      "answer": "Zippy",
-      "kind": "word"
+      "answer": "The second runner arrived a heartbeat later.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "Zippy crossed the line first. Just. The second runner arrived a heartbeat later."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "dino-pals-19-zippys-race-q3",
+      "prompt": "What does Zippy's reply to the second runner show?",
       "choices": [
-        "everyone",
-        "race",
-        "play"
+        "He respected the other runner.",
+        "He blamed the other runner.",
+        "He refused to speak to the other runner."
       ],
-      "answer": "race",
-      "kind": "word"
+      "answer": "He respected the other runner.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "The second runner says, \"Good race,\" and Zippy answers, \"You too,\" which shows that Zippy respected the other runner.",
+      "evidencePage": 10,
+      "evidenceText": "The second runner came over. Good race, they said. You too, said Zippy, breathing hard for the first time ever."
     }
   ]
 }

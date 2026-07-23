@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-12-fancys-bad-day",
+  "contentHash": "sha256:8be29e0d0321e227ebeea3f73a8b0c12b9b0c68bc2cd7ef149c45a493e1c9627",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-12-fancys-bad-day-q1",
+      "prompt": "What caused Fancy's bad day?",
       "choices": [
-        "bee",
-        "fancy",
-        "sees"
+        "Her cave was flooded.",
+        "Her bracelet was lost.",
+        "Her sail was bent."
       ],
-      "answer": "fancy",
-      "kind": "word"
+      "answer": "Her sail was bent.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 1,
+      "evidenceText": "Fancy's sail was bent."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-12-fancys-bad-day-q2",
+      "prompt": "Why did Fancy say no to Bouncy's offer?",
       "choices": [
-        "Dozy",
-        "Fancy",
-        "Stone"
+        "She thought bouncing would not be gentle.",
+        "She wanted Bouncy to bend the sail more.",
+        "She had already straightened the sail."
       ],
-      "answer": "Fancy",
-      "kind": "word"
+      "answer": "She thought bouncing would not be gentle.",
+      "kind": "text",
+      "skill": "motivation",
+      "rationale": "Fancy says, \"That is not what gently means,\" after Bouncy offers to bounce on the sail, which shows that she thought bouncing would not be gentle.",
+      "evidencePage": 5,
+      "evidenceText": "Bouncy offered to bounce on it gently. That is not what gently means, said Fancy."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "dino-pals-12-fancys-bad-day-q3",
+      "prompt": "How did Wiggly straighten the sail?",
       "choices": [
-        "spell",
-        "door",
-        "bad"
+        "He shouted until it moved.",
+        "He dampened and pressed it softly.",
+        "He sat on it with Chompy."
       ],
-      "answer": "bad",
-      "kind": "word"
+      "answer": "He dampened and pressed it softly.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 10,
+      "evidenceText": "Wiggly dampened the sail gently and pressed it very softly. Slowly, slowly, it began to straighten."
     }
   ]
 }

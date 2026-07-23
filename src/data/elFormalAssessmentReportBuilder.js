@@ -33,10 +33,34 @@ export const ADVANCED_PHONICS_PATTERNS = [
   "vowel teams"
 ];
 
+export const EL_FORMAL_CLASS_EVIDENCE_SCHEMA = Object.freeze([
+  "studentId",
+  "studentName",
+  "attemptId",
+  "questionId",
+  "itemKey",
+  "itemType",
+  "responseStatus",
+  "isCorrect",
+  "administrationStatus",
+  "formVersion",
+  "contentVersion",
+  "scoringVersion",
+  "scoringRuleVersion",
+  "administrationVersion",
+  "responseSchemaVersion",
+  "date",
+  "targetWord",
+  "correctAnswer",
+  "selectedAnswer",
+  "resultType"
+]);
+
 const STATUS_LABELS = {
   mastered: "Mastered",
   developing: "Developing",
   needs_support: "Needs Support",
+  unscored_evidence: "Unscored evidence",
   not_assessed: "Not assessed"
 };
 
@@ -341,8 +365,12 @@ function isCorrectBenchmarkQuestion(question = {}) {
 }
 
 export function getElBenchmarkAssessmentId(record = {}) {
-  const candidates = [record.assessmentType, record.assessmentId, record.skillId].map(normalizeCompact);
-  return candidates.find(candidate => BENCHMARK_DOMAIN_BY_ID.has(candidate)) || "";
+  const candidates = [record.assessmentType, record.assessmentId, record.skillId];
+  for (const candidate of candidates) {
+    const normalized = normalizeCompact(candidate);
+    if (normalized) return BENCHMARK_DOMAIN_BY_ID.has(normalized) ? normalized : "";
+  }
+  return "";
 }
 
 export function isElBenchmarkAssessmentRecord(record = {}) {
@@ -914,18 +942,24 @@ function makeCell() {
   return {
     status: "not_assessed",
     statusLabel: STATUS_LABELS.not_assessed,
+    evidenceCount: 0,
+    unscoredCount: 0,
     attempts: 0,
     correct: 0,
     incorrect: 0,
-    accuracy: 0,
+    accuracy: null,
     lastAssessed: "",
     details: []
   };
 }
 
 function finalizeCell(cell) {
-  const accuracy = cell.attempts ? Math.round((cell.correct / cell.attempts) * 100) : 0;
-  const status = getStatus(cell.correct, cell.attempts);
+  const accuracy = cell.attempts ? Math.round((cell.correct / cell.attempts) * 100) : null;
+  const status = cell.attempts
+    ? getStatus(cell.correct, cell.attempts)
+    : cell.evidenceCount > 0
+      ? "unscored_evidence"
+      : "not_assessed";
   return {
     ...cell,
     incorrect: cell.attempts - cell.correct,
@@ -935,12 +969,79 @@ function finalizeCell(cell) {
   };
 }
 
+const FORMAL_UNSCORED_RESPONSE_STATUSES = new Set([
+  "recorded",
+  "unscored",
+  "not_recorded",
+  "not_administered",
+  "discontinued",
+  "not_scorable",
+  "in_progress"
+]);
+
+const FORMAL_CORRECT_RESPONSE_STATUSES = new Set(["correct", "self_corrected"]);
+const FORMAL_INCORRECT_RESPONSE_STATUSES = new Set(["incorrect", "skipped", "no_response"]);
+
+function getRawQuestionRecords(record = {}) {
+  if (Array.isArray(record.questionRecords) && record.questionRecords.length) return record.questionRecords;
+  return Array.isArray(record.answers) ? record.answers : [];
+}
+
+function getAuthoritativeAssessmentType(record = {}) {
+  const candidates = [record.assessmentType, record.assessmentId, record.skillId];
+  for (const candidate of candidates) {
+    const normalized = normalizeCompact(candidate);
+    if (normalized) return normalized;
+  }
+  return "";
+}
+
+function getExplicitQuestionResponseStatus(question = {}, record = {}) {
+  const explicit = normalizeCompact(
+    question.responseStatus ||
+    question.response_status ||
+    question.resultStatus ||
+    question.administrationStatus ||
+    question.administration_status ||
+    ""
+  );
+  if (explicit) return explicit;
+  const attemptStatus = normalizeCompact(record.administrationStatus || record.status || "");
+  return FORMAL_UNSCORED_RESPONSE_STATUSES.has(attemptStatus) ? attemptStatus : "";
+}
+
+function getExplicitQuestionScore(question = {}, responseStatus = "") {
+  if (FORMAL_UNSCORED_RESPONSE_STATUSES.has(responseStatus)) return null;
+  if (FORMAL_CORRECT_RESPONSE_STATUSES.has(responseStatus)) return true;
+  if (FORMAL_INCORRECT_RESPONSE_STATUSES.has(responseStatus)) return false;
+  return typeof question.isCorrect === "boolean" ? question.isCorrect : null;
+}
+
+function normalizeFormalAssessmentRecord(record = {}) {
+  const rawQuestions = getRawQuestionRecords(record);
+  const normalized = normalizeAssessmentAttempt({
+    ...record,
+    questionRecords: rawQuestions
+  });
+  normalized.formalEvidenceNormalized = true;
+  normalized.formalAssessmentType = getAuthoritativeAssessmentType(record);
+  normalized.questionRecords = normalized.questionRecords.map((question, index) => {
+    const rawQuestion = rawQuestions[index] || {};
+    const responseStatus = getExplicitQuestionResponseStatus(rawQuestion, record);
+    return {
+      ...question,
+      formalResponseStatus: responseStatus || "unrecorded",
+      formalIsCorrect: getExplicitQuestionScore(rawQuestion, responseStatus)
+    };
+  });
+  return normalized;
+}
+
 function isLetterAssessment(record = {}) {
-  const skillId = normalizeCompact(record.skillId || record.assessmentType);
+  const assessmentType = record.formalAssessmentType || getAuthoritativeAssessmentType(record);
   const skillName = String(record.skillName || "").toLowerCase();
-  return skillId === "el_letter_assessment" ||
-    skillName.includes("letter name") ||
-    skillName.includes("letter sound");
+  if (assessmentType) return assessmentType === "el_letter_assessment";
+  return skillName.includes("letter name") || skillName.includes("letter sound");
 }
 
 function inferLetterCase(question = {}) {
@@ -978,10 +1079,10 @@ function inferLetter(question = {}) {
 
 function isAdvancedPhonicsAssessment(record = {}) {
   if (isElBenchmarkAssessmentRecord(record)) return false;
-  const skillId = normalizeCompact(record.skillId || record.assessmentType);
+  const assessmentType = record.formalAssessmentType || getAuthoritativeAssessmentType(record);
   const skillName = String(record.skillName || "").toLowerCase();
-  return skillId === "advanced_phonics_patterns" ||
-    skillName.includes("advanced phonics") ||
+  if (assessmentType) return assessmentType === "advanced_phonics_patterns";
+  return skillName.includes("advanced phonics") ||
     skillName.includes("blends") ||
     skillName.includes("digraphs") ||
     skillName.includes("vowel teams") ||
@@ -1010,21 +1111,51 @@ function inferPatternResultType(question = {}) {
 }
 
 function addDetail(cell, question = {}, record = {}) {
-  cell.attempts += 1;
-  if (question.isCorrect) cell.correct += 1;
+  const isCorrect = question.formalIsCorrect ?? null;
+  const scored = typeof isCorrect === "boolean";
+  cell.evidenceCount += 1;
+  if (scored) {
+    cell.attempts += 1;
+    if (isCorrect) cell.correct += 1;
+  } else {
+    cell.unscoredCount += 1;
+  }
   const date = question.timestamp || record.completedAt || "";
   cell.lastAssessed = [cell.lastAssessed, date].filter(Boolean).sort().at(-1) || "";
-  cell.details.push({
+  const detail = {
+    attemptId: record.attemptId || record.id || "",
     questionId: question.questionId || "",
+    itemKey: question.itemKey || question.targetLetter || question.targetPattern || question.targetWord || "",
+    itemType: question.itemType || question.templateType || "",
     prompt: question.prompt || question.question || "",
     targetLetter: question.targetLetter || "",
     targetWord: question.targetWord || "",
     targetPattern: question.targetPattern || question.pattern || "",
     correctAnswer: question.correctAnswer,
     selectedAnswer: question.selectedAnswer,
-    isCorrect: Boolean(question.isCorrect),
+    responseStatus: question.formalResponseStatus || "unrecorded",
+    isCorrect,
+    scored,
+    administrationStatus: record.administrationStatus || "",
+    formVersion: record.formVersion || "",
+    contentVersion: record.contentVersion || "",
+    scoringVersion: record.scoringVersion || "",
+    scoringRuleVersion: record.scoringRuleVersion || "",
+    administrationVersion: record.administrationVersion || "",
+    responseSchemaVersion: record.responseSchemaVersion ?? "",
     date
-  });
+  };
+  cell.details.push(detail);
+  return detail;
+}
+
+function compactClassEvidenceDetail(student = {}, detail = {}) {
+  const row = {
+    studentId: getStudentId(student),
+    studentName: getStudentName(student),
+    ...detail
+  };
+  return EL_FORMAL_CLASS_EVIDENCE_SCHEMA.map(key => row[key] ?? "");
 }
 
 export function buildIndividualElFormalAssessmentReport({
@@ -1038,7 +1169,7 @@ export function buildIndividualElFormalAssessmentReport({
   // A student without an id must match NO attempts, not all of them —
   // otherwise their individual report absorbs the entire class's history.
   const records = (Array.isArray(assessmentHistory) ? assessmentHistory : [])
-    .map(normalizeAssessmentAttempt)
+    .map(record => record?.formalEvidenceNormalized ? record : normalizeFormalAssessmentRecord(record))
     .filter(record => Boolean(studentId) && record.studentId === studentId);
 
   const letterMap = new Map(EL_FORMAL_LETTERS.map(letter => [
@@ -1087,10 +1218,12 @@ export function buildIndividualElFormalAssessmentReport({
         pattern: key,
         readingResult: makeCell(),
         soundResult: makeCell(),
+        evidenceCount: 0,
+        unscoredCount: 0,
         attempts: 0,
         correct: 0,
         incorrect: 0,
-        accuracy: 0,
+        accuracy: null,
         status: "not_assessed",
         statusLabel: STATUS_LABELS.not_assessed,
         exampleWords: new Set(),
@@ -1109,29 +1242,30 @@ export function buildIndividualElFormalAssessmentReport({
       if (!row) return;
       const type = inferPatternResultType(question);
       const targetCell = type === "sound" ? row.soundResult : row.readingResult;
-      addDetail(targetCell, question, record);
-      row.attempts += 1;
-      if (question.isCorrect) row.correct += 1;
-      else row.incorrect += 1;
+      const detail = addDetail(targetCell, question, record);
+      row.evidenceCount += 1;
+      if (detail.scored) {
+        row.attempts += 1;
+        if (detail.isCorrect) row.correct += 1;
+        else row.incorrect += 1;
+      } else {
+        row.unscoredCount += 1;
+      }
       const example = normalizeKey(question.targetWord || question.correctAnswer || "");
       if (example && example !== pattern) row.exampleWords.add(example);
       const date = question.timestamp || record.completedAt || "";
       row.lastAssessed = [row.lastAssessed, date].filter(Boolean).sort().at(-1) || "";
-      row.details.push({
-        questionId: question.questionId || "",
-        targetWord: question.targetWord || "",
-        correctAnswer: question.correctAnswer,
-        selectedAnswer: question.selectedAnswer,
-        resultType: type,
-        isCorrect: Boolean(question.isCorrect),
-        date
-      });
+      row.details.push({ ...detail, resultType: type });
     });
   });
 
   const individualAdvancedPhonicsMatrix = Array.from(patternMap.values()).map(row => {
-    const accuracy = row.attempts ? Math.round((row.correct / row.attempts) * 100) : 0;
-    const status = getStatus(row.correct, row.attempts);
+    const accuracy = row.attempts ? Math.round((row.correct / row.attempts) * 100) : null;
+    const status = row.attempts
+      ? getStatus(row.correct, row.attempts)
+      : row.evidenceCount > 0
+        ? "unscored_evidence"
+        : "not_assessed";
     return {
       ...row,
       readingResult: finalizeCell(row.readingResult),
@@ -1170,13 +1304,21 @@ function countCellByStudent(rows = [], cellKey, students = []) {
     mastered: 0,
     developing: 0,
     needs_support: 0,
+    unscored_evidence: 0,
     not_assessed: 0,
-    supportStudents: []
+    supportStudents: [],
+    unscoredEvidenceStudents: [],
+    evidenceRows: []
   };
   rows.forEach(({ student, matrixRow }) => {
-    const status = matrixRow?.[cellKey]?.status || "not_assessed";
+    const cell = matrixRow?.[cellKey] || makeCell();
+    const status = cell.status || "not_assessed";
     counts[status] += 1;
     if (status === "needs_support") counts.supportStudents.push(getStudentName(student));
+    if (status === "unscored_evidence") counts.unscoredEvidenceStudents.push(getStudentName(student));
+    (cell.details || []).forEach(detail => {
+      counts.evidenceRows.push(compactClassEvidenceDetail(student, detail));
+    });
   });
   counts.not_assessed += Math.max(0, students.length - rows.length);
   return counts;
@@ -1332,7 +1474,7 @@ export function buildClassElFormalAssessmentReport({
     .filter(student => !classId || getClassId(student) === classId);
   const classStudentIds = new Set(classStudents.map(getStudentId).filter(Boolean));
   const classRecords = (Array.isArray(assessmentHistory) ? assessmentHistory : [])
-    .map(normalizeAssessmentAttempt)
+    .map(record => record?.formalEvidenceNormalized ? record : normalizeFormalAssessmentRecord(record))
     .filter(record => (
       (!classId || !record.classId || record.classId === classId) &&
       (!classStudentIds.size || !record.studentId || classStudentIds.has(record.studentId))
@@ -1378,19 +1520,27 @@ export function buildClassElFormalAssessmentReport({
       student,
       row: report.individualAdvancedPhonicsMatrix.find(item => item.pattern === pattern)
     }));
-    const attempted = rows.filter(item => item.row?.attempts > 0);
-    const mastered = attempted.filter(item => item.row.status === "mastered");
-    const developing = attempted.filter(item => item.row.status === "developing");
-    const support = attempted.filter(item => item.row.status === "needs_support");
+    const withEvidence = rows.filter(item => item.row?.evidenceCount > 0);
+    const scored = withEvidence.filter(item => item.row?.attempts > 0);
+    const unscored = withEvidence.filter(item => item.row?.attempts === 0);
+    const mastered = scored.filter(item => item.row.status === "mastered");
+    const developing = scored.filter(item => item.row.status === "developing");
+    const support = scored.filter(item => item.row.status === "needs_support");
     return {
       pattern,
-      attemptedStudents: attempted.length,
+      evidenceStudents: withEvidence.length,
+      attemptedStudents: scored.length,
+      unscoredEvidenceStudents: unscored.length,
       masteredStudents: mastered.length,
       developingStudents: developing.length,
       needsSupportStudents: support.length,
-      notAssessedStudents: Math.max(0, classStudents.length - attempted.length),
-      masteryPercentage: attempted.length ? Math.round((mastered.length / attempted.length) * 100) : 0,
-      studentsNeedingSupport: support.map(item => getStudentName(item.student))
+      notAssessedStudents: Math.max(0, classStudents.length - withEvidence.length),
+      masteryPercentage: scored.length ? Math.round((mastered.length / scored.length) * 100) : null,
+      studentsNeedingSupport: support.map(item => getStudentName(item.student)),
+      studentsWithUnscoredEvidence: unscored.map(item => getStudentName(item.student)),
+      evidenceRows: withEvidence.flatMap(item => (
+        (item.row.details || []).map(detail => compactClassEvidenceDetail(item.student, detail))
+      ))
     };
   }).sort((a, b) => {
     const ai = ADVANCED_PHONICS_PATTERNS.indexOf(a.pattern);
@@ -1406,6 +1556,7 @@ export function buildClassElFormalAssessmentReport({
 
   return {
     benchmarkScope: resolvedBenchmarkScope,
+    classEvidenceSchema: [...EL_FORMAL_CLASS_EVIDENCE_SCHEMA],
     classLetterMatrix,
     classAdvancedPhonicsMatrix,
     ...benchmarkEvidence

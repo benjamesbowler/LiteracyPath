@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-02",
+  "contentHash": "sha256:87bf0510eea1603146a469e99b13de8fa3f02180507dbacb5c9a6958333b810f",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-02-q1",
+      "prompt": "What does Fern discover the morning after she plants the seed?",
       "choices": [
-        "hop",
-        "growing",
-        "warms"
+        "The plant is blocking the Hollow Oak doorway.",
+        "The seed is still hidden under the soil.",
+        "The plant has moved beside the stream."
       ],
-      "answer": "growing",
-      "kind": "word"
+      "answer": "The plant is blocking the Hollow Oak doorway.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "The next morning, the plant had grown so much it filled the Hollow Oak doorway."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-02-q2",
+      "prompt": "How does Fern solve the growing problem after her spells fail?",
       "choices": [
-        "Fern",
-        "Tiny",
-        "Quack"
+        "She sang to it very softly.",
+        "She cut away every leaf.",
+        "She tried a much stronger spell."
       ],
-      "answer": "Fern",
-      "kind": "word"
+      "answer": "She sang to it very softly.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 8,
+      "evidenceText": "She did not use a spell. She sang to it, very softly."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-02-q3",
+      "prompt": "What lesson does Fern learn from calming the giant plant?",
       "choices": [
-        "much",
-        "plan",
-        "bath"
+        "Gentle care can work better than forcing a solution.",
+        "The slowing spell finally worked after a long delay.",
+        "The plant stopped because it had reached full size."
       ],
-      "answer": "much",
-      "kind": "word"
+      "answer": "Gentle care can work better than forcing a solution.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Fern sang to the plant very softly and later says she asked it nicely instead of making it obey; this shows gentle care can work better than forcing a solution.",
+      "evidencePage": 12,
+      "evidenceText": "\"I didn't make it do anything,\" said Fern. \"I asked it nicely.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 8,
+          "evidenceText": "She did not use a spell. She sang to it, very softly. She sang the song her mother had taught her about seeds."
+        }
+      ]
     }
   ]
 }

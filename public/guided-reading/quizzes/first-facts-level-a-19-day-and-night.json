@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-19-day-and-night",
- "questions": [
-  {
-   "prompt": "What color is the sky in the day?",
-   "choices": [
-    "blue",
-    "dark",
-    "red"
-   ],
-   "answer": "blue",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who sings in the day?",
-   "choices": [
-    "birds",
-    "stars",
-    "the moon"
-   ],
-   "answer": "birds",
-   "kind": "word"
-  },
-  {
-   "prompt": "What comes out at night?",
-   "choices": [
-    "stars",
-    "the sun",
-    "birds"
-   ],
-   "answer": "stars",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-19-day-and-night",
+  "contentHash": "sha256:16b9e90248bea8d2df99fb6675732c0286fd65fe2e41d589491b2c4c556a9960",
+  "questions": [
+    {
+      "id": "first-facts-level-a-19-day-and-night-q1",
+      "prompt": "What color is the sky in the day?",
+      "choices": [
+        "blue",
+        "dark",
+        "red"
+      ],
+      "answer": "blue",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "The sun is up.\nThe sky is blue."
+    },
+    {
+      "id": "first-facts-level-a-19-day-and-night-q2",
+      "prompt": "Who sings in the day?",
+      "choices": [
+        "birds",
+        "stars",
+        "the moon"
+      ],
+      "answer": "birds",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Birds sing in the day."
+    },
+    {
+      "id": "first-facts-level-a-19-day-and-night-q3",
+      "prompt": "What comes out at night?",
+      "choices": [
+        "stars",
+        "the sun",
+        "birds"
+      ],
+      "answer": "stars",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 6,
+      "evidenceText": "Stars come out.\nThey are bright."
+    }
+  ]
 }

@@ -48,6 +48,15 @@
     "prompt": "A cosy storybook illustration for a children's reading library card: a warm wooden bookshelf with neat rows of books in sage green, cream, tan and forest green cloth covers (all spines completely blank), a soft reading lamp casting a gentle golden pool of light, and a plump cream floor cushion in front of the shelf. Flat-matte gouache style, restrained palette of sage green, cream, warm tan and forest green, quiet and inviting, generous negative space, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   },
   {
+    "out": "public/images/home-sage/my-hollow.webp",
+    "width": 900,
+    "height": 507,
+    "size": "1536x1024",
+    "quality": "medium",
+    "force": true,
+    "prompt": "A calm, welcoming woodland hideaway interior built into a hollow tree for a children's rewards card: one small round window, a simple empty shelf for treasures, a soft moss rug, one tiny lantern, a cosy curved doorway and gentle morning light. Soft hand-painted flat-matte gouache with subtle watercolour texture, restrained palette of muted sage green, warm cream, pale honey wood and dusty teal, large simple shapes that remain clear in a small wide card, inviting and safe, not busy, not dark, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No people, animals, rainbow motifs or faces on inanimate objects."
+  },
+  {
     "out": "public/images/home-sage/daily-challenge.webp",
     "width": 700,
     "size": "1024x1024",

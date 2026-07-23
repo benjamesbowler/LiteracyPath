@@ -1,4 +1,6 @@
 const STORAGE_PREFIX = "lpAssessmentHistory:v1";
+const SYNC_QUEUE_PREFIX = "lpAssessmentSyncQueue:v1";
+const activeSyncQueueFlushes = new Map();
 
 export const CURRENT_ASSESSMENT_ATTEMPT_SCHEMA_VERSION = 2;
 
@@ -64,6 +66,10 @@ function nowIso() {
 
 function getStorageKey(teacherId = "local") {
   return `${STORAGE_PREFIX}:${teacherId || "local"}`;
+}
+
+function getSyncQueueKey(teacherId = "local") {
+  return `${SYNC_QUEUE_PREFIX}:${teacherId || "local"}`;
 }
 
 function safeParse(value, fallback) {
@@ -959,7 +965,23 @@ function attemptRichness(record = {}) {
   }
 }
 
+function isTerminalAssessmentAttempt(record = {}) {
+  const administrationStatus = normalizeAdministrationStatus(
+    record.administrationStatus || record.status,
+    ""
+  );
+  return [
+    ASSESSMENT_ADMINISTRATION_STATUSES.COMPLETED,
+    ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED
+  ].includes(administrationStatus);
+}
+
 function shouldReplaceMergedAttempt(current, candidate) {
+  const currentIsTerminal = isTerminalAssessmentAttempt(current);
+  const candidateIsTerminal = isTerminalAssessmentAttempt(candidate);
+  // A retry, stale draft, or late device sync must never turn a completed or
+  // discontinued administration back into partial/in-progress evidence.
+  if (currentIsTerminal !== candidateIsTerminal) return candidateIsTerminal;
   const currentUpdatedAt = new Date(current.updatedAt || current.completedAt || 0).getTime() || 0;
   const candidateUpdatedAt = new Date(candidate.updatedAt || candidate.completedAt || 0).getTime() || 0;
   if (candidateUpdatedAt !== currentUpdatedAt) return candidateUpdatedAt > currentUpdatedAt;
@@ -977,6 +999,213 @@ export function mergeAssessmentAttemptRecords(...sources) {
     }
   });
   return sortAttemptsNewestFirst(Array.from(byAttemptId.values()));
+}
+
+function getQueueStorage(storage) {
+  if (storage !== undefined) return storage;
+  return typeof localStorage === "undefined" ? null : localStorage;
+}
+
+export function loadAssessmentAttemptSyncQueue({
+  teacherId = "local",
+  storage
+} = {}) {
+  const queueStorage = getQueueStorage(storage);
+  if (!queueStorage || !teacherId || teacherId === "local") return [];
+  try {
+    const parsed = safeParse(queueStorage.getItem(getSyncQueueKey(teacherId)), []);
+    if (!Array.isArray(parsed)) return [];
+    return mergeAssessmentAttemptRecords(parsed)
+      .filter(record => record.attemptId && record.teacherId === teacherId);
+  } catch {
+    return [];
+  }
+}
+
+function writeAssessmentAttemptSyncQueue(records, { teacherId = "local", storage } = {}) {
+  const queueStorage = getQueueStorage(storage);
+  if (!queueStorage || !teacherId || teacherId === "local") return false;
+  const scopedRecords = mergeAssessmentAttemptRecords(records)
+    .filter(record => record.attemptId && record.teacherId === teacherId);
+  try {
+    if (!scopedRecords.length && typeof queueStorage.removeItem === "function") {
+      queueStorage.removeItem(getSyncQueueKey(teacherId));
+    } else {
+      queueStorage.setItem(
+        getSyncQueueKey(teacherId),
+        JSON.stringify(scopedRecords.map(compactAssessmentAttemptForStorage))
+      );
+    }
+    return true;
+  } catch (error) {
+    console.warn("Assessment cloud retry queue could not be saved on this device.", error);
+    return false;
+  }
+}
+
+function enqueueAssessmentAttemptSync(record, { teacherId = record?.teacherId || "local", storage } = {}) {
+  const normalized = normalizeAssessmentAttempt({
+    ...record,
+    teacherId: record?.teacherId || teacherId
+  });
+  if (!normalized.attemptId || normalized.teacherId !== teacherId || teacherId === "local") return false;
+  const queued = loadAssessmentAttemptSyncQueue({ teacherId, storage });
+  return writeAssessmentAttemptSyncQueue([normalized, ...queued], { teacherId, storage });
+}
+
+function cloudRowForAssessmentAttempt(record = {}) {
+  const normalized = normalizeAssessmentAttempt(record);
+  return {
+    attempt_id: normalized.attemptId,
+    student_id: normalized.studentId,
+    class_id: normalized.classId || null,
+    teacher_id: normalized.teacherId || null,
+    skill_id: normalized.skillId,
+    skill_name: normalized.skillName,
+    skill_level: normalized.skillLevel,
+    skill_phase: normalized.skillPhase,
+    assessment_type: normalized.assessmentType,
+    started_at: normalized.startedAt,
+    completed_at: normalized.completedAt,
+    total_questions: normalized.totalQuestions,
+    correct_count: normalized.correctCount,
+    accuracy: normalized.accuracy,
+    status: normalized.status,
+    administration_status: normalized.administrationStatus,
+    schema_version: normalized.schemaVersion,
+    updated_at: normalized.updatedAt,
+    payload: compactAssessmentAttemptForStorage(normalized)
+  };
+}
+
+async function upsertAssessmentAttemptCloud(record, supabase) {
+  let recordToPersist = normalizeAssessmentAttempt(record);
+  const readTable = supabase.from("assessment_attempts");
+  if (typeof readTable?.select === "function") {
+    try {
+      const selected = readTable.select("*");
+      const filtered = typeof selected?.eq === "function"
+        ? selected.eq("attempt_id", recordToPersist.attemptId)
+        : null;
+      if (typeof filtered?.maybeSingle === "function") {
+        const { data, error } = await filtered.maybeSingle();
+        if (error) throw error;
+        if (data) {
+          const remoteRecord = normalizeCloudAssessmentAttempt(data);
+          recordToPersist = mergeAssessmentAttemptRecords(recordToPersist, remoteRecord)
+            .find(candidate => candidate.attemptId === recordToPersist.attemptId) || recordToPersist;
+        }
+      }
+    } catch (error) {
+      // A non-terminal write must not proceed blindly: it could overwrite a
+      // completed attempt saved by another device. Terminal evidence is safe
+      // to attempt even when the protective read is temporarily unavailable.
+      if (!isTerminalAssessmentAttempt(recordToPersist)) {
+        return { error, record: recordToPersist };
+      }
+    }
+  }
+  const writeTable = supabase.from("assessment_attempts");
+  const cloudRow = cloudRowForAssessmentAttempt(recordToPersist);
+  // A partial/in-progress row uses insert-only semantics. If another device
+  // completed the same attempt between our protective read and write, the
+  // unique attempt_id conflict preserves that terminal row. A later retry will
+  // read and merge the terminal evidence, then clear the queued partial safely.
+  const result = !isTerminalAssessmentAttempt(recordToPersist) && typeof writeTable?.insert === "function"
+    ? await writeTable.insert(cloudRow)
+    : await writeTable.upsert(cloudRow, { onConflict: "attempt_id" });
+  return { ...result, record: recordToPersist };
+}
+
+function sameAttemptPayload(left, right) {
+  try {
+    return JSON.stringify(compactAssessmentAttemptForStorage(left)) ===
+      JSON.stringify(compactAssessmentAttemptForStorage(right));
+  } catch {
+    return false;
+  }
+}
+
+function removeSyncedAssessmentAttemptFromQueue(record, { teacherId = record?.teacherId || "local", storage } = {}) {
+  const synced = normalizeAssessmentAttempt(record);
+  const queued = loadAssessmentAttemptSyncQueue({ teacherId, storage });
+  if (!queued.length) return true;
+  const next = queued.filter(current => {
+    if (current.attemptId !== synced.attemptId) return true;
+    const winner = mergeAssessmentAttemptRecords(current, synced)
+      .find(candidate => candidate.attemptId === synced.attemptId);
+    // If a newer/richer payload was queued while this request was in flight,
+    // retain it. Only remove evidence fully covered by the successful upsert.
+    return !sameAttemptPayload(winner, synced);
+  });
+  return writeAssessmentAttemptSyncQueue(next, { teacherId, storage });
+}
+
+async function flushAssessmentAttemptSyncQueueUncoordinated({
+  teacherId,
+  supabase,
+  storage
+}) {
+  const queued = loadAssessmentAttemptSyncQueue({ teacherId, storage });
+  if (!queued.length || !supabase || !teacherId || teacherId === "local") {
+    return { flushed: 0, remaining: queued.length, errors: [] };
+  }
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    return { flushed: 0, remaining: queued.length, errors: [] };
+  }
+
+  const localByAttemptId = new Map(
+    loadAssessmentAttempts({ teacherId }).map(record => [record.attemptId, record])
+  );
+  let flushed = 0;
+  const errors = [];
+  for (const queuedRecord of queued) {
+    const localRecord = localByAttemptId.get(queuedRecord.attemptId);
+    const recordToSync = mergeAssessmentAttemptRecords(queuedRecord, localRecord)
+      .find(record => record.attemptId === queuedRecord.attemptId) || queuedRecord;
+    try {
+      const { error, record: syncedRecord = recordToSync } = await upsertAssessmentAttemptCloud(recordToSync, supabase);
+      if (error) {
+        errors.push(error);
+        continue;
+      }
+      flushed += 1;
+      if (!localRecord || !sameAttemptPayload(localRecord, syncedRecord)) {
+        saveAssessmentAttemptLocal(syncedRecord, { teacherId });
+      }
+      removeSyncedAssessmentAttemptFromQueue(syncedRecord, { teacherId, storage });
+    } catch (error) {
+      errors.push(error);
+    }
+  }
+
+  return {
+    flushed,
+    remaining: loadAssessmentAttemptSyncQueue({ teacherId, storage }).length,
+    errors
+  };
+}
+
+export function flushAssessmentAttemptSyncQueue({
+  teacherId = "local",
+  supabase = null,
+  storage
+} = {}) {
+  if (!supabase || !teacherId || teacherId === "local") {
+    return Promise.resolve({
+      flushed: 0,
+      remaining: loadAssessmentAttemptSyncQueue({ teacherId, storage }).length,
+      errors: []
+    });
+  }
+  const active = activeSyncQueueFlushes.get(teacherId);
+  if (active) return active;
+  const flush = flushAssessmentAttemptSyncQueueUncoordinated({ teacherId, supabase, storage })
+    .finally(() => {
+      if (activeSyncQueueFlushes.get(teacherId) === flush) activeSyncQueueFlushes.delete(teacherId);
+    });
+  activeSyncQueueFlushes.set(teacherId, flush);
+  return flush;
 }
 
 export function normalizeCloudAssessmentAttempt(row = {}) {
@@ -1025,6 +1254,9 @@ export async function hydrateAssessmentAttempts({
   classId = "",
   supabase = null
 } = {}) {
+  if (supabase && teacherId && teacherId !== "local") {
+    await flushAssessmentAttemptSyncQueue({ teacherId, supabase });
+  }
   const localRecords = loadAssessmentAttempts({ teacherId });
   const filterRequestedRows = records => records.filter(record => (
     (!studentId || record.studentId === studentId) &&
@@ -1104,8 +1336,7 @@ export function saveAssessmentAttemptLocal(record, {
     return returnStatus ? { records: [normalized], saved: false, error: null } : [normalized];
   }
   const existing = loadAssessmentAttempts({ teacherId });
-  const withoutDuplicate = existing.filter(item => item.attemptId !== normalized.attemptId);
-  return saveAssessmentAttemptListLocal([normalized, ...withoutDuplicate], { teacherId, returnStatus });
+  return saveAssessmentAttemptListLocal([normalized, ...existing], { teacherId, returnStatus });
 }
 
 export function deleteAssessmentAttemptsForStudent({
@@ -1119,7 +1350,7 @@ export function deleteAssessmentAttemptsForStudent({
   const normalizedStudentId = String(studentId || "").trim();
   const normalizedStudentName = String(studentName || "").trim().toLowerCase();
   const resetCutoff = resetAtOrBefore ? new Date(resetAtOrBefore).getTime() : Number.NaN;
-  const next = existing.filter(record => {
+  const keepRecord = record => {
     const recordStudentId = String(record.studentId || "").trim();
     const belongsToStudent = (
       Boolean(normalizedStudentId && recordStudentId === normalizedStudentId) ||
@@ -1136,8 +1367,13 @@ export function deleteAssessmentAttemptsForStudent({
     ).getTime();
     // Undated legacy evidence necessarily predates the synced tombstone.
     return Number.isFinite(recordTime) && recordTime > resetCutoff;
-  });
+  };
+  const next = existing.filter(keepRecord);
   saveAssessmentAttemptListLocal(next, { teacherId });
+  // An explicit reset is authoritative: clear matching queued uploads too so
+  // offline evidence cannot reappear in the cloud after the student is reset.
+  const queued = loadAssessmentAttemptSyncQueue({ teacherId });
+  writeAssessmentAttemptSyncQueue(queued.filter(keepRecord), { teacherId });
   return next;
 }
 
@@ -1155,40 +1391,33 @@ export async function saveAssessmentAttempt(record, { teacherId = record.teacher
     console.warn("Local assessment attempt save failed; still attempting the cloud write.", error);
   }
 
+  // saveAssessmentAttemptLocal applies the terminal-status guard. Persist the
+  // winning record to the cloud too, otherwise a newer partial retry could
+  // still downgrade a completed cloud row even though local storage stayed safe.
+  const recordToPersist = localResult.records.find(item => item.attemptId === normalized.attemptId) || normalized;
+
   let cloudSaved = false;
   let cloudError = null;
+  let syncQueued = false;
   if (supabase) {
     try {
-      const { error } = await supabase
-        .from("assessment_attempts")
-        .upsert({
-          attempt_id: normalized.attemptId,
-          student_id: normalized.studentId,
-          class_id: normalized.classId || null,
-          teacher_id: normalized.teacherId || null,
-          skill_id: normalized.skillId,
-          skill_name: normalized.skillName,
-          skill_level: normalized.skillLevel,
-          skill_phase: normalized.skillPhase,
-          assessment_type: normalized.assessmentType,
-          started_at: normalized.startedAt,
-          completed_at: normalized.completedAt,
-          total_questions: normalized.totalQuestions,
-          correct_count: normalized.correctCount,
-          accuracy: normalized.accuracy,
-          status: normalized.status,
-          administration_status: normalized.administrationStatus,
-          schema_version: normalized.schemaVersion,
-          updated_at: normalized.updatedAt,
-          payload: compactAssessmentAttemptForStorage(normalized)
-        }, { onConflict: "attempt_id" });
+      const { error, record: cloudRecord = recordToPersist } = await upsertAssessmentAttemptCloud(recordToPersist, supabase);
       if (error) {
         // Supabase resolves with an error object (e.g. RLS rejection) instead
         // of throwing — surface it or the failure is invisible.
-        console.warn("Supabase assessment_attempts upsert rejected; attempt only exists locally.", error);
+        console.warn("Supabase assessment_attempts write rejected; attempt only exists locally.", error);
         cloudError = error;
       } else {
         cloudSaved = true;
+        if (!sameAttemptPayload(cloudRecord, recordToPersist)) {
+          const refreshedLocal = saveAssessmentAttemptLocal(cloudRecord, { teacherId, returnStatus: true });
+          localResult = {
+            records: refreshedLocal.records,
+            saved: localResult.saved || refreshedLocal.saved,
+            error: localResult.error || refreshedLocal.error
+          };
+        }
+        removeSyncedAssessmentAttemptFromQueue(cloudRecord, { teacherId });
       }
     } catch (error) {
       cloudError = error;
@@ -1196,11 +1425,20 @@ export async function saveAssessmentAttempt(record, { teacherId = record.teacher
     }
   }
 
+  if (supabase && !cloudSaved && localResult.saved) {
+    syncQueued = enqueueAssessmentAttemptSync(recordToPersist, { teacherId });
+  }
+  if (supabase && cloudSaved) {
+    await flushAssessmentAttemptSyncQueue({ teacherId, supabase });
+  }
+
   return {
     records: localResult.records,
     localSaved: localResult.saved,
     cloudSaved,
     durable: localResult.saved || cloudSaved,
+    syncQueued,
+    pendingSyncCount: loadAssessmentAttemptSyncQueue({ teacherId }).length,
     localError: localResult.error,
     cloudError
   };

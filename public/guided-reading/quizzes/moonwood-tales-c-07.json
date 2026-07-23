@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-07",
+  "contentHash": "sha256:fc4f8177ae2be3dab70adf072154b8fae89ad2f6e56f086b911b43fe1e64d097",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-07-q1",
+      "prompt": "Which claim especially makes Dewdrop doubt the new fish?",
       "choices": [
-        "glimmer",
-        "fish",
-        "remember"
+        "It says it has been here longer than the Hollow Oak.",
+        "It says its bright blue stripe is new.",
+        "It says there are cold places in the stream."
       ],
-      "answer": "fish",
-      "kind": "word"
+      "answer": "It says it has been here longer than the Hollow Oak.",
+      "kind": "text",
+      "skill": "inference",
+      "evidencePage": 4,
+      "evidenceText": "I have been here longer than the Hollow Oak, said the fish. Dewdrop looked carefully. The fish was, if anything, quite new-looking."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-07-q2",
+      "prompt": "Why has the new fish been telling untrue stories?",
       "choices": [
-        "Wiggly",
-        "Dewdrop",
-        "Grumpy"
+        "It is new and wants to sound interesting.",
+        "It wants Dewdrop to leave the stream.",
+        "It has forgotten every true thing it knows."
       ],
-      "answer": "Dewdrop",
-      "kind": "word"
+      "answer": "It is new and wants to sound interesting.",
+      "kind": "text",
+      "skill": "motivation",
+      "evidencePage": 8,
+      "evidenceText": "Because I am new here, said the fish. And I wanted to sound interesting."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-07-q3",
+      "prompt": "What lesson does Dewdrop help the blue-striped fish understand?",
       "choices": [
-        "party",
-        "fish",
-        "tries"
+        "You do not need invented stories to be interesting.",
+        "The blue stripe proves the fish's oldest claim is true.",
+        "Knowing Deep Dark secrets is what makes the fish welcome."
       ],
-      "answer": "fish",
-      "kind": "word"
+      "answer": "You do not need invented stories to be interesting.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "The fish admits it invented stories because it was new and wanted to sound interesting, but Dewdrop says being the only blue-stripe fish is enough; this shows it does not need invented stories to be interesting.",
+      "evidencePage": 10,
+      "evidenceText": "Is being the only blue-stripe fish enough? asked the fish. Yes, said Dewdrop. It is very enough.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 8,
+          "evidenceText": "Because I am new here, said the fish. And I wanted to sound interesting."
+        }
+      ]
     }
   ]
 }

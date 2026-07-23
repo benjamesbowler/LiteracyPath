@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-11",
+  "contentHash": "sha256:000f4818336b4510c6d5b2f50e1e5e7de1c72837f583f783726c7218451240eb",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-11-q1",
+      "prompt": "What do Pip and Stone find when they reach the loud noise?",
       "choices": [
-        "live",
-        "jumps",
-        "stone"
+        "A very small toadling with its mouth wide open.",
+        "A huge troll shaking the marsh trees.",
+        "A family of foxes splashing in the water."
       ],
-      "answer": "stone",
-      "kind": "word"
+      "answer": "A very small toadling with its mouth wide open.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 7,
+      "evidenceText": "On a mossy stone in the marsh sat a toadling.\nIt was very small.\nIts mouth was very wide open.\nAll the noise was coming from it."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-11-q2",
+      "prompt": "Why has the little toadling been making such a loud sound?",
       "choices": [
-        "Flappy",
-        "Stone",
-        "Dozy"
+        "It is lost and calling for its family.",
+        "It is warning everyone away from the marsh.",
+        "It is practising for a singing contest."
       ],
-      "answer": "Stone",
-      "kind": "word"
+      "answer": "It is lost and calling for its family.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 9,
+      "evidenceText": "\"I am lost,\" it said.\n\"I was calling for my family.\""
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-11-q3",
+      "prompt": "What lesson does Stone's response to the frightened toadling show?",
       "choices": [
-        "thing",
-        "healthy",
-        "fluff"
+        "Someone can be large and gentle at the same time.",
+        "Stone thinks becoming smaller is the best way to help.",
+        "Stone thinks Pip should lead because Pip looks less scary."
       ],
-      "answer": "thing",
-      "kind": "word"
+      "answer": "Someone can be large and gentle at the same time.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Stone says he is large but gentle, then uses his own very loud voice to call for the toadling's family; this shows someone can be large and gentle at the same time.",
+      "evidencePage": 10,
+      "evidenceText": "\"You are very large,\" said the toadling.\n\"Yes,\" said Stone.\n\"But I am gentle.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 11,
+          "evidenceText": "Stone stood up and called out across the marsh.\nIt was the loudest sound Pip had ever heard.\nLouder than the toadling.\nMuch louder.\nSomething answered from the far side of the marsh."
+        }
+      ]
     }
   ]
 }

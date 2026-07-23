@@ -18,6 +18,8 @@ import {
   EL_REPORT_SCHEMA_VERSION
 } from "../../src/data/elAssessmentReportStore.js";
 import {
+  buildClassElAssessmentExportReport,
+  buildStudentElAssessmentExportReport,
   createClassElAssessmentWorkbook,
   createStudentElAssessmentWorkbook,
   EL_CLASS_BENCHMARK_SHEETS,
@@ -376,6 +378,137 @@ test("individual benchmark reporting preserves domain-specific evidence without 
   }), /Mastered|Developing|Needs Support/);
 });
 
+test("A1 and A2 retain provenance while unscored evidence never becomes failure", async () => {
+  const provenance = {
+    studentId: student.id,
+    studentName: student.name,
+    classId: student.classId,
+    teacherId: "teacher-1",
+    startedAt: "2026-07-22T01:00:00.000Z",
+    completedAt: "2026-07-22T01:10:00.000Z",
+    formVersion: "a12-form-v3",
+    contentVersion: "a12-content-v4",
+    scoringVersion: "a12-scoring-v2",
+    scoringRuleVersion: "a12-rule-v5",
+    administrationVersion: "a12-interface-v6",
+    responseSchemaVersion: 7
+  };
+  const history = [
+    {
+      ...provenance,
+      attemptId: "letter-provenance-attempt",
+      assessmentType: "el_letter_assessment",
+      skillId: "el_letter_assessment",
+      skillName: "Letter Names and Sounds",
+      questionRecords: [
+        { questionId: "letter-a-name", itemKey: "a", itemType: "letter_name", targetLetter: "A", responseStatus: "correct", isCorrect: true },
+        { questionId: "letter-a-sound-unrecorded", itemKey: "a", itemType: "letter_sound", targetLetter: "A" },
+        { questionId: "letter-a-lower-name-na", itemKey: "a", itemType: "letter_name", targetLetter: "a", responseStatus: "not_administered", isCorrect: false },
+        { questionId: "letter-a-lower-sound-ns", itemKey: "a", itemType: "letter_sound", targetLetter: "a", responseStatus: "not_scorable", isCorrect: false }
+      ]
+    },
+    {
+      ...provenance,
+      attemptId: "advanced-provenance-attempt",
+      assessmentType: "advanced_phonics_patterns",
+      skillId: "advanced_phonics_patterns",
+      skillName: "Advanced Phonics Patterns",
+      questionRecords: [
+        { questionId: "advanced-ai-scored", itemKey: "ai", itemType: "phonics_pattern", targetPattern: "ai", targetWord: "rain", responseStatus: "correct", isCorrect: true },
+        { questionId: "advanced-sh-unrecorded", itemKey: "sh", itemType: "phonics_pattern", targetPattern: "sh", targetWord: "ship" },
+        { questionId: "advanced-ch-recorded", itemKey: "ch", itemType: "phonics_pattern", targetPattern: "ch", targetWord: "chip", responseStatus: "recorded", isCorrect: false },
+        { questionId: "advanced-th-not-scorable", itemKey: "th", itemType: "phonics_pattern", targetPattern: "th", targetWord: "thin", responseStatus: "not_scorable", isCorrect: false }
+      ]
+    }
+  ];
+
+  const individual = buildIndividualElFormalAssessmentReport({ student, assessmentHistory: history });
+  const letterA = individual.individualLetterMatrix.find(row => row.letter === "a");
+  assert.equal(letterA.uppercaseName.statusLabel, "Mastered");
+  assert.equal(letterA.uppercaseSound.statusLabel, "Unscored evidence");
+  assert.equal(letterA.uppercaseSound.attempts, 0);
+  assert.equal(letterA.uppercaseSound.incorrect, 0);
+  assert.equal(letterA.uppercaseSound.accuracy, null);
+  assert.equal(letterA.uppercaseSound.details[0].isCorrect, null);
+  assert.equal(letterA.lowercaseName.statusLabel, "Unscored evidence");
+  assert.equal(letterA.lowercaseSound.statusLabel, "Unscored evidence");
+  assert.equal(letterA.uppercaseSound.details[0].attemptId, "letter-provenance-attempt");
+  assert.equal(letterA.uppercaseSound.details[0].formVersion, provenance.formVersion);
+  assert.equal(letterA.uppercaseSound.details[0].responseSchemaVersion, 7);
+
+  ["sh", "ch", "th"].forEach(pattern => {
+    const row = individual.individualAdvancedPhonicsMatrix.find(item => item.pattern === pattern);
+    assert.equal(row.statusLabel, "Unscored evidence");
+    assert.equal(row.attempts, 0);
+    assert.equal(row.incorrect, 0);
+    assert.equal(row.accuracy, null);
+    assert.equal(row.details[0].isCorrect, null);
+  });
+
+  const classFormal = buildClassElFormalAssessmentReport({
+    students: [student],
+    assessmentHistory: history,
+    classId: student.classId
+  });
+  const classLetterA = classFormal.classLetterMatrix.find(row => row.letter === "a");
+  assert.equal(classLetterA.uppercaseSound.unscored_evidence, 1);
+  assert.equal(classLetterA.uppercaseSound.needs_support, 0);
+  const classSh = classFormal.classAdvancedPhonicsMatrix.find(row => row.pattern === "sh");
+  assert.equal(classSh.unscoredEvidenceStudents, 1);
+  assert.equal(classSh.needsSupportStudents, 0);
+  assert.equal(classSh.masteryPercentage, null);
+
+  const studentReport = buildStudentElAssessmentExportReport({
+    assessmentHistory: history,
+    students: [student],
+    classes: [{ id: student.classId, name: "Class One" }],
+    studentId: student.id,
+    classId: student.classId
+  });
+  const studentWorkbook = await createStudentElAssessmentWorkbook(studentReport);
+  const letterRows = worksheetRows(studentWorkbook.getWorksheet("Letter Names & Sounds"));
+  const exportedA = letterRows.find(row => row["Letter pair"] === "A/a");
+  assert.equal(exportedA["Uppercase sound result"], "Unscored evidence");
+  assert.equal(exportedA["Uppercase sound attempts"], 0);
+  assert.match(exportedA["Uppercase sound evidence provenance"], /letter-provenance-attempt/);
+  assert.match(exportedA["Uppercase sound evidence provenance"], /a12-form-v3/);
+  assert.match(exportedA["Uppercase sound evidence provenance"], /Schema: 7/);
+  assert.match(exportedA["Uppercase sound evidence provenance"], /Result: Not scored/);
+
+  const advancedRows = worksheetRows(studentWorkbook.getWorksheet("Advanced Phonics Patterns"));
+  const exportedSh = advancedRows.find(row => row.Pattern === "sh");
+  assert.equal(exportedSh.Status, "Unscored evidence");
+  assert.equal(exportedSh.Accuracy, "");
+  assert.match(exportedSh["Evidence provenance"], /advanced-provenance-attempt/);
+  assert.match(exportedSh["Evidence provenance"], /Result: Not scored/);
+
+  const classReport = buildClassElAssessmentExportReport({
+    assessmentHistory: history,
+    students: [student],
+    classes: [{ id: student.classId, name: "Class One" }],
+    classId: student.classId
+  });
+  const classWorkbook = await createClassElAssessmentWorkbook(classReport);
+  const classLetterRows = worksheetRows(classWorkbook.getWorksheet("Letter Sound Class Matrix"));
+  const exportedClassA = classLetterRows.find(row => row["Letter pair"] === "A/a");
+  assert.match(exportedClassA["UC sound counts"], /U:1/);
+  assert.match(exportedClassA["UC sound evidence provenance"], /letter-provenance-attempt/);
+  const classAdvancedRows = worksheetRows(classWorkbook.getWorksheet("Advanced Phonics Class Matrix"));
+  const exportedClassSh = classAdvancedRows.find(row => row.Pattern === "sh");
+  assert.equal(exportedClassSh["Unscored evidence students"], 1);
+  assert.equal(exportedClassSh["Needs support students"], 0);
+  assert.equal(exportedClassSh["Mastery percentage"], "");
+  const patternDetails = worksheetRows(classWorkbook.getWorksheet("Pattern Detail"));
+  const exportedShDetail = patternDetails.find(row => row["Item ID"] === "advanced-sh-unrecorded");
+  assert.equal(exportedShDetail.Result, "Not scored");
+  assert.equal(exportedShDetail["Response status"], "Unrecorded");
+  assert.equal(exportedShDetail["Form version"], provenance.formVersion);
+  assert.equal(exportedShDetail["Content version"], provenance.contentVersion);
+  assert.equal(exportedShDetail["Scoring version"], provenance.scoringVersion);
+  assert.equal(exportedShDetail["Scoring rule version"], provenance.scoringRuleVersion);
+  assert.equal(exportedShDetail["Response schema"], 7);
+});
+
 test("quick scores stay explicitly untranscribed through persistence, reporting, and export", async () => {
   const outcomeRecordedAt = "2026-07-22T03:04:05.000Z";
   const encodingPlan = getElBenchmarkPlan({
@@ -584,13 +717,13 @@ test("unscored benchmark attempts stay null and export as Not scored", async () 
   assert.equal(report.progressRows.find(row => row.skill === "EL Encoding").accuracy, null);
 
   const workbook = await createStudentElAssessmentWorkbook(report);
-  const skills = worksheetRows(workbook.getWorksheet("Skills Detail"));
-  const attempts = worksheetRows(workbook.getWorksheet("Assessment Attempts"));
-  assert.equal(skills.find(row => row["Skill Name"] === "EL Phonological & Phonemic Awareness")["Checkpoint Accuracy%"], "Not scored");
-  assert.equal(skills.find(row => row["Skill Name"] === "EL Encoding")["Checkpoint Accuracy%"], "Not scored");
-  assert.equal(attempts.find(row => row.Skill === "EL Oral Reading Fluency")["Accuracy%"], "Not scored");
   const profile = worksheetRows(workbook.getWorksheet("Benchmark Profile"));
   const exportedPa = profile.find(row => row.Domain === "Phonological and Phonemic Awareness");
+  const exportedEncoding = profile.find(row => row["Assessment ID"] === EL_BENCHMARK_ASSESSMENT_IDS.ENCODING);
+  const exportedFluency = profile.find(row => row["Assessment ID"] === EL_BENCHMARK_ASSESSMENT_IDS.ORAL_READING_FLUENCY);
+  assert.equal(exportedPa["PA accuracy"], "");
+  assert.equal(exportedEncoding["Encoding exact spelling"], "");
+  assert.equal(exportedFluency["Fluency WCPM"], "");
   assert.equal(exportedPa["Candidate placement"], "");
   assert.equal(exportedPa.Interpretation, "This domain supplies descriptive evidence only.");
 });
@@ -689,9 +822,9 @@ test("class benchmark averages ignore nulls and count exact-minute zero WCPM as 
   assert.equal(fluencyDetail.selfCorrections, 0, "explicit zero self-corrections must be preserved");
 
   const workbook = await createClassElAssessmentWorkbook(report);
-  const skillRows = worksheetRows(workbook.getWorksheet("Skill Summary"));
-  const unscoredEncoding = skillRows.find(row => row["Skill Name"] === "EL Encoding");
-  assert.equal(unscoredEncoding["Class Average Accuracy"], "Not scored");
+  const domainRows = worksheetRows(workbook.getWorksheet("Benchmark Domain Summary"));
+  const unscoredEncoding = domainRows.find(row => row["Assessment ID"] === EL_BENCHMARK_ASSESSMENT_IDS.ENCODING);
+  assert.equal(unscoredEncoding["Encoding average exact spelling"], "");
 });
 
 test("generic report comparisons exclude provisional benchmark changes", () => {
@@ -1387,8 +1520,7 @@ test("real scorer Early Partial guidance survives formal reporting and Excel exp
   assert.match(encodingRows[0].Observations, /teacher override retained/i);
   assert.equal(encodingRows[0]["Content version"], attempt.contentVersion);
   assert.equal(encodingRows[0]["Scoring version"], attempt.scoringVersion);
-  const attemptRows = worksheetRows(workbook.getWorksheet("Assessment Attempts"));
-  assert.equal(attemptRows[0].Level, 0, "Excel must retain Kindergarten level zero");
+  assert.equal(encodingProfile.Grade, "K", "Excel must retain the Kindergarten route");
 });
 
 test("globally unscored real benchmark attempts retain audit observations but suppress every performance metric", async () => {

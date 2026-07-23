@@ -7,7 +7,9 @@ import {
   compactAssessmentAttemptForStorage,
   deleteAssessmentAttemptsForStudent,
   extractMasteryFromAssessmentAttempt,
+  flushAssessmentAttemptSyncQueue,
   hydrateAssessmentAttempts,
+  loadAssessmentAttemptSyncQueue,
   loadAssessmentAttempts,
   mergeAssessmentAttemptRecords,
   normalizeAssessmentAttempt,
@@ -443,6 +445,307 @@ test("local persistence retains rich assessment evidence", () => {
   assert.equal(loaded[0].questionRecords[0].responseText, "exact teacher transcription");
   assert.deepEqual(loaded[0].questionRecords[0].errorType, ["substitution", "omission"]);
   assert.equal(loaded[0].questionRecords[0].durationMs, 60000);
+});
+
+test("completed and discontinued attempts cannot be downgraded by a newer partial retry", async () => {
+  globalThis.localStorage = makeStorage();
+  let upserted = null;
+  const supabase = {
+    from(table) {
+      assert.equal(table, "assessment_attempts");
+      return {
+        upsert(payload) {
+          upserted = payload;
+          return Promise.resolve({ error: null });
+        }
+      };
+    }
+  };
+
+  for (const terminalStatus of ["completed", "discontinued"]) {
+    const attemptId = `terminal-${terminalStatus}`;
+    saveAssessmentAttemptLocal(baseAttempt({
+      attemptId,
+      status: terminalStatus,
+      administrationStatus: terminalStatus,
+      updatedAt: "2026-07-22T12:00:00.000Z"
+    }), { teacherId: "teacher-1" });
+
+    const result = await saveAssessmentAttempt(baseAttempt({
+      attemptId,
+      status: "partial",
+      administrationStatus: "partial",
+      completedAt: "2026-07-22T12:05:00.000Z",
+      updatedAt: "2026-07-22T12:05:00.000Z"
+    }), { teacherId: "teacher-1", supabase });
+
+    const saved = result.records.find(record => record.attemptId === attemptId);
+    assert.equal(saved.administrationStatus, terminalStatus);
+    assert.equal(upserted.administration_status, terminalStatus);
+    assert.equal(upserted.payload.administrationStatus, terminalStatus);
+  }
+});
+
+test("a partial write cannot downgrade terminal evidence already saved by another device", async () => {
+  globalThis.localStorage = makeStorage();
+  let upserted = null;
+  const remoteCompleted = baseAttempt({
+    attemptId: "cross-device-terminal",
+    status: "completed",
+    administrationStatus: "completed",
+    updatedAt: "2026-07-22T12:00:00.000Z"
+  });
+  const supabase = {
+    from(table) {
+      assert.equal(table, "assessment_attempts");
+      return {
+        select() {
+          return {
+            eq() {
+              return {
+                maybeSingle: async () => ({
+                  data: {
+                    attempt_id: remoteCompleted.attemptId,
+                    teacher_id: remoteCompleted.teacherId,
+                    student_id: remoteCompleted.studentId,
+                    status: "completed",
+                    administration_status: "completed",
+                    updated_at: remoteCompleted.updatedAt,
+                    payload: remoteCompleted
+                  },
+                  error: null
+                })
+              };
+            }
+          };
+        },
+        upsert(payload) {
+          upserted = payload;
+          return Promise.resolve({ error: null });
+        }
+      };
+    }
+  };
+
+  const result = await saveAssessmentAttempt(baseAttempt({
+    attemptId: "cross-device-terminal",
+    status: "partial",
+    administrationStatus: "partial",
+    updatedAt: "2026-07-22T12:05:00.000Z"
+  }), { teacherId: "teacher-1", supabase });
+
+  assert.equal(upserted.administration_status, "completed");
+  assert.equal(result.records.find(record => record.attemptId === "cross-device-terminal").administrationStatus, "completed");
+});
+
+test("an insert race cannot let a partial attempt overwrite a concurrent completion", async () => {
+  globalThis.localStorage = makeStorage();
+  const completed = baseAttempt({
+    attemptId: "concurrent-terminal",
+    status: "completed",
+    administrationStatus: "completed",
+    updatedAt: "2026-07-22T12:01:00.000Z"
+  });
+  let remoteRow = null;
+  const supabase = {
+    from() {
+      return {
+        select() {
+          return {
+            eq() {
+              return { maybeSingle: async () => ({ data: remoteRow, error: null }) };
+            }
+          };
+        },
+        insert() {
+          // Simulate another device completing after the protective read but
+          // before this partial insert reaches the unique attempt_id index.
+          remoteRow = {
+            attempt_id: completed.attemptId,
+            teacher_id: completed.teacherId,
+            student_id: completed.studentId,
+            status: "completed",
+            administration_status: "completed",
+            updated_at: completed.updatedAt,
+            payload: completed
+          };
+          return Promise.resolve({ error: { code: "23505", message: "duplicate key" } });
+        },
+        upsert(payload) {
+          remoteRow = payload;
+          return Promise.resolve({ error: null });
+        }
+      };
+    }
+  };
+
+  const firstSave = await saveAssessmentAttempt(baseAttempt({
+    attemptId: "concurrent-terminal",
+    status: "partial",
+    administrationStatus: "partial",
+    updatedAt: "2026-07-22T12:00:00.000Z"
+  }), { teacherId: "teacher-1", supabase });
+  assert.equal(firstSave.cloudSaved, false);
+  assert.equal(firstSave.syncQueued, true);
+  assert.equal(remoteRow.administration_status, "completed");
+
+  const retried = await flushAssessmentAttemptSyncQueue({ teacherId: "teacher-1", supabase });
+  assert.equal(retried.flushed, 1);
+  assert.equal(retried.remaining, 0);
+  assert.equal(remoteRow.administration_status, "completed");
+  assert.equal(loadAssessmentAttempts({ teacherId: "teacher-1" })[0].administrationStatus, "completed");
+});
+
+test("a local-only assessment save queues once and flushes idempotently when the cloud returns", async () => {
+  globalThis.localStorage = makeStorage();
+  let online = false;
+  let upsertCalls = 0;
+  const cloudRows = new Map();
+  const supabase = {
+    from(table) {
+      assert.equal(table, "assessment_attempts");
+      return {
+        upsert(payload) {
+          upsertCalls += 1;
+          if (!online) return Promise.resolve({ error: new Error("offline") });
+          cloudRows.set(payload.attempt_id, payload);
+          return Promise.resolve({ error: null });
+        }
+      };
+    }
+  };
+  const attempt = baseAttempt({
+    attemptId: "offline-completion",
+    status: "completed",
+    administrationStatus: "completed"
+  });
+
+  const saved = await saveAssessmentAttempt(attempt, { teacherId: "teacher-1", supabase });
+  assert.equal(saved.localSaved, true);
+  assert.equal(saved.cloudSaved, false);
+  assert.equal(saved.syncQueued, true);
+  assert.equal(saved.pendingSyncCount, 1);
+  assert.equal(loadAssessmentAttemptSyncQueue({ teacherId: "teacher-1" }).length, 1);
+  assert.equal(loadAssessmentAttempts({ teacherId: "teacher-1" }).length, 1, "the queue must not duplicate reports");
+
+  online = true;
+  const flushed = await flushAssessmentAttemptSyncQueue({ teacherId: "teacher-1", supabase });
+  assert.equal(flushed.flushed, 1);
+  assert.equal(flushed.remaining, 0);
+  assert.equal(cloudRows.size, 1);
+  assert.equal(cloudRows.get("offline-completion").administration_status, "completed");
+
+  const callsAfterSuccess = upsertCalls;
+  const repeatedFlush = await flushAssessmentAttemptSyncQueue({ teacherId: "teacher-1", supabase });
+  assert.equal(repeatedFlush.flushed, 0);
+  assert.equal(upsertCalls, callsAfterSuccess, "an empty queue must not replay a completed attempt");
+});
+
+test("assessment hydration flushes queued evidence before reading the cloud report history", async () => {
+  globalThis.localStorage = makeStorage();
+  const offlineSupabase = {
+    from() {
+      return { upsert: async () => ({ error: new Error("offline") }) };
+    }
+  };
+  await saveAssessmentAttempt(baseAttempt({
+    attemptId: "hydrate-queued-completion",
+    status: "completed",
+    administrationStatus: "completed"
+  }), { teacherId: "teacher-1", supabase: offlineSupabase });
+  assert.equal(loadAssessmentAttemptSyncQueue({ teacherId: "teacher-1" }).length, 1);
+
+  const cloudRows = new Map();
+  const onlineSupabase = {
+    from() {
+      const query = {
+        eq() { return query; },
+        order() { return query; },
+        then(resolve, reject) {
+          return Promise.resolve({ data: Array.from(cloudRows.values()), error: null }).then(resolve, reject);
+        }
+      };
+      return {
+        select() { return query; },
+        upsert(payload) {
+          cloudRows.set(payload.attempt_id, payload);
+          return Promise.resolve({ error: null });
+        }
+      };
+    }
+  };
+
+  const hydrated = await hydrateAssessmentAttempts({
+    teacherId: "teacher-1",
+    supabase: onlineSupabase
+  });
+  assert.equal(loadAssessmentAttemptSyncQueue({ teacherId: "teacher-1" }).length, 0);
+  assert.equal(cloudRows.size, 1);
+  assert.equal(hydrated.filter(record => record.attemptId === "hydrate-queued-completion").length, 1);
+});
+
+test("a failed queue retry stays durable and a later partial save cannot replace terminal evidence", async () => {
+  globalThis.localStorage = makeStorage();
+  let allowCloud = false;
+  const supabase = {
+    from() {
+      return {
+        upsert() {
+          return Promise.resolve({ error: allowCloud ? null : new Error("still offline") });
+        }
+      };
+    }
+  };
+  const terminal = baseAttempt({
+    attemptId: "terminal-retry",
+    status: "completed",
+    administrationStatus: "completed",
+    updatedAt: "2026-07-22T12:00:00.000Z"
+  });
+  await saveAssessmentAttempt(terminal, { teacherId: "teacher-1", supabase });
+  await saveAssessmentAttempt(baseAttempt({
+    attemptId: "terminal-retry",
+    status: "partial",
+    administrationStatus: "partial",
+    updatedAt: "2026-07-22T12:05:00.000Z"
+  }), { teacherId: "teacher-1", supabase });
+
+  let queued = loadAssessmentAttemptSyncQueue({ teacherId: "teacher-1" });
+  assert.equal(queued.length, 1);
+  assert.equal(queued[0].administrationStatus, "completed");
+  const failedRetry = await flushAssessmentAttemptSyncQueue({ teacherId: "teacher-1", supabase });
+  assert.equal(failedRetry.flushed, 0);
+  assert.equal(failedRetry.remaining, 1);
+
+  allowCloud = true;
+  const successfulRetry = await flushAssessmentAttemptSyncQueue({ teacherId: "teacher-1", supabase });
+  assert.equal(successfulRetry.flushed, 1);
+  assert.equal(successfulRetry.remaining, 0);
+  queued = loadAssessmentAttemptSyncQueue({ teacherId: "teacher-1" });
+  assert.equal(queued.length, 0);
+});
+
+test("an explicit student reset clears queued uploads so deleted evidence cannot return", async () => {
+  globalThis.localStorage = makeStorage();
+  const supabase = {
+    from() {
+      return { upsert: async () => ({ error: new Error("offline") }) };
+    }
+  };
+  await saveAssessmentAttempt(baseAttempt({
+    attemptId: "queued-before-reset",
+    status: "completed",
+    administrationStatus: "completed"
+  }), { teacherId: "teacher-1", supabase });
+  assert.equal(loadAssessmentAttemptSyncQueue({ teacherId: "teacher-1" }).length, 1);
+
+  deleteAssessmentAttemptsForStudent({
+    teacherId: "teacher-1",
+    studentId: "student-1",
+    studentName: "Ada"
+  });
+  assert.equal(loadAssessmentAttemptSyncQueue({ teacherId: "teacher-1" }).length, 0);
+  assert.equal(loadAssessmentAttempts({ teacherId: "teacher-1" }).length, 0);
 });
 
 test("student attempt deletion uses stable IDs and only falls back to names for legacy ID-less evidence", () => {

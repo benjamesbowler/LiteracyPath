@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-04-bouncy-wont-stop",
+  "contentHash": "sha256:d180ef8c7c6daad4f015ce5c27611b56ed132228ad9a47927e8af96bc6ada4a7",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ likes to hop.\"",
+      "id": "meadow-pals-04-bouncy-wont-stop-q1",
+      "prompt": "Who likes to hop again and again?",
       "choices": [
-        "poles",
-        "bouncy",
-        "clouds"
+        "Bouncy",
+        "Grumpy",
+        "Clucky"
       ],
-      "answer": "bouncy",
-      "kind": "word"
+      "answer": "Bouncy",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 1,
+      "evidenceText": "Bouncy likes to hop."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-04-bouncy-wont-stop-q2",
+      "prompt": "Who is there when Bouncy is told to stop?",
       "choices": [
-        "past",
-        "warms",
-        "hop"
+        "everyone",
+        "no one",
+        "only Grumpy"
       ],
-      "answer": "hop",
-      "kind": "word"
+      "answer": "everyone",
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 5,
+      "evidenceText": "\"Stop!\" said everyone."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-04-bouncy-wont-stop-q3",
+      "prompt": "What does Bouncy do after stopping?",
       "choices": [
-        "Eddie",
-        "Hop",
-        "Flint"
+        "hops again",
+        "goes to sleep",
+        "sits very still"
       ],
-      "answer": "Hop",
-      "kind": "word"
+      "answer": "hops again",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 7,
+      "evidenceText": "Then Bouncy hopped again."
     }
   ]
 }

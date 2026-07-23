@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-03-big-and-little",
- "questions": [
-  {
-   "prompt": "Which one is big?",
-   "choices": [
-    "the dog",
-    "the bug",
-    "the seed"
-   ],
-   "answer": "the dog",
-   "kind": "word"
-  },
-  {
-   "prompt": "Which one is little?",
-   "choices": [
-    "the crab",
-    "the fish",
-    "the bus"
-   ],
-   "answer": "the crab",
-   "kind": "word"
-  },
-  {
-   "prompt": "What grows from a little seed?",
-   "choices": [
-    "a big tree",
-    "a big bus",
-    "a big hat"
-   ],
-   "answer": "a big tree",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-03-big-and-little",
+  "contentHash": "sha256:9023b08c186266f52455cc4b318f9b888260176755f633caee762644db762e97",
+  "questions": [
+    {
+      "id": "first-facts-level-a-03-big-and-little-q1",
+      "prompt": "Which big animal is shown with a little bug?",
+      "choices": [
+        "the dog",
+        "the bug",
+        "the seed"
+      ],
+      "answer": "the dog",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A big dog.\nA little bug."
+    },
+    {
+      "id": "first-facts-level-a-03-big-and-little-q2",
+      "prompt": "Which little animal is shown with the big fish?",
+      "choices": [
+        "the fish",
+        "the crab",
+        "the bus"
+      ],
+      "answer": "the crab",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 2,
+      "evidenceText": "A big fish.\nA little crab."
+    },
+    {
+      "id": "first-facts-level-a-03-big-and-little-q3",
+      "prompt": "Which little thing comes after the big bus?",
+      "choices": [
+        "a little seed",
+        "a little moon",
+        "a little car"
+      ],
+      "answer": "a little car",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "A big bus.\nA little car."
+    }
+  ]
 }

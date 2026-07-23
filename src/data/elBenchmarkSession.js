@@ -1,4 +1,6 @@
 import {
+  EL_BENCHMARK_FORM_DEFINITIONS,
+  EL_BENCHMARK_FORM_IDS,
   EL_BENCHMARK_IDS,
   getElBenchmarkPlan
 } from "./elBenchmarkAssessments.js";
@@ -59,6 +61,156 @@ export function isCompletedElBenchmarkRouteEvidence(record = {}) {
     item => Array.isArray(item?.validationIssues) && item.validationIssues.length > 0
   )) return false;
   return true;
+}
+
+const FORM_IDS = Object.freeze(EL_BENCHMARK_FORM_DEFINITIONS.map(form => form.id));
+const MAX_RECORDED_FORM_EXPOSURES = 12;
+const FORM_ID_ALIASES = Object.freeze({
+  a: EL_BENCHMARK_FORM_IDS.A,
+  "form-a": EL_BENCHMARK_FORM_IDS.A,
+  "form-a-v2": EL_BENCHMARK_FORM_IDS.A,
+  b: EL_BENCHMARK_FORM_IDS.B,
+  "form-b": EL_BENCHMARK_FORM_IDS.B,
+  "form-b-v1": EL_BENCHMARK_FORM_IDS.B,
+  c: EL_BENCHMARK_FORM_IDS.C,
+  "form-c": EL_BENCHMARK_FORM_IDS.C,
+  "form-c-v1": EL_BENCHMARK_FORM_IDS.C
+});
+
+function recordAssessmentId(record = {}) {
+  return String(record.assessmentType || record.assessmentId || record.skillId || "");
+}
+
+function recordFormId(record = {}) {
+  const raw = record.formId || record.formVersion || record.metadata?.formId ||
+    record.metadata?.formVersion || record.benchmark?.formId || "";
+  const normalized = FORM_ID_ALIASES[String(raw).trim().toLowerCase()];
+  if (normalized) return normalized;
+
+  // This selector is already scoped to Assessments 3-6. Records created before
+  // parallel forms existed were necessarily Form A even if old persistence did
+  // not retain an explicit form field.
+  return raw ? "" : EL_BENCHMARK_FORM_IDS.A;
+}
+
+function recordTimestamp(record = {}) {
+  const value = record.updatedAt || record.updated_at || record.completedAt ||
+    record.startedAt || record.createdAt || record.created_at || "";
+  const parsed = new Date(value).getTime();
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function dedupeAttempts(records = []) {
+  const byId = new Map();
+  records.forEach((record, index) => {
+    const key = record.attemptId || record.id || `legacy-${index}-${recordTimestamp(record)}`;
+    const existing = byId.get(key);
+    const isNewer = !existing || recordTimestamp(record) > recordTimestamp(existing);
+    const winsEqualTimestamp = existing && recordTimestamp(record) === recordTimestamp(existing) &&
+      isCompletedElBenchmarkAttempt(record) && !isCompletedElBenchmarkAttempt(existing);
+    if (isNewer || winsEqualTimestamp) byId.set(key, record);
+  });
+  return Array.from(byId.values());
+}
+
+function isIncompleteAttempt(record = {}) {
+  return ["in_progress", "partial"].includes(
+    String(record.administrationStatus || record.status || "").toLowerCase()
+  );
+}
+
+/**
+ * Select a controlled parallel form for one student/domain/grade/window.
+ * Completed, valid administrations consume A, then B, then C. An unfinished
+ * administration keeps its form and consumes nothing. After all three forms
+ * have been exposed, selection records that exhaustion; after three
+ * valid completions it cycles A/B/C deterministically so reuse is explicit.
+ */
+export function selectElBenchmarkForm({
+  assessmentHistory = [],
+  studentId = "",
+  assessmentId = "",
+  grade = "K",
+  window: windowName = "BOY"
+} = {}) {
+  const normalizedGrade = String(grade || "K").toUpperCase();
+  const normalizedWindow = String(windowName || "BOY").toUpperCase();
+  const scoped = dedupeAttempts((Array.isArray(assessmentHistory) ? assessmentHistory : [])
+    .filter(record => record.studentId === studentId)
+    .filter(record => recordAssessmentId(record) === assessmentId)
+    .filter(record => recordGrade(record) === normalizedGrade)
+    .filter(record => recordWindow(record) === normalizedWindow));
+  const completed = scoped
+    .filter(isCompletedElBenchmarkRouteEvidence)
+    .sort((a, b) => recordTimestamp(a) - recordTimestamp(b));
+  const latestCompletedAt = completed.length ? recordTimestamp(completed.at(-1)) : -1;
+  const resumable = scoped
+    .filter(isIncompleteAttempt)
+    .filter(record => FORM_IDS.includes(recordFormId(record)))
+    .filter(record => recordTimestamp(record) > latestCompletedAt)
+    .sort((a, b) => recordTimestamp(b) - recordTimestamp(a))[0] || null;
+  const completedCount = completed.length;
+  const formId = resumable
+    ? recordFormId(resumable)
+    : FORM_IDS[completedCount % FORM_IDS.length];
+  const priorExposures = scoped
+    .filter(record => FORM_IDS.includes(recordFormId(record)))
+    .sort((a, b) => recordTimestamp(a) - recordTimestamp(b))
+    .map(record => ({
+      attemptId: record.attemptId || record.id || "",
+      formId: recordFormId(record),
+      status: String(record.administrationStatus || record.status || "unknown").toLowerCase(),
+      occurredAt: record.updatedAt || record.completedAt || record.startedAt || ""
+    }));
+  const exposedFormIds = Array.from(new Set(priorExposures.map(exposure => exposure.formId)));
+  const exposureCountByForm = Object.fromEntries(FORM_IDS.map(candidate => [
+    candidate,
+    priorExposures.filter(exposure => exposure.formId === candidate).length
+  ]));
+  const allParallelFormsExposed = FORM_IDS.every(candidate => exposedFormIds.includes(candidate));
+  const fallbackAfterExhaustion = !resumable && (
+    completedCount >= FORM_IDS.length || allParallelFormsExposed
+  );
+  const formPurpose = resumable
+    ? "resume_incomplete"
+    : fallbackAfterExhaustion
+      ? "same_window_retest_after_parallel_forms"
+      : completedCount === 0
+        ? "initial_benchmark"
+        : "same_window_retest";
+  const formSelectionReason = resumable
+    ? "latest_incomplete_same_window_attempt"
+    : fallbackAfterExhaustion
+      ? "parallel_forms_exhausted_deterministic_cycle"
+      : completedCount === 0
+        ? "no_valid_completed_same_window_attempt"
+        : `${completedCount}_valid_completed_same_window_attempt${completedCount === 1 ? "" : "s"}`;
+
+  return {
+    formId,
+    formPurpose,
+    formSelectionReason,
+    resumeAttemptId: resumable?.attemptId || resumable?.id || "",
+    formExposure: {
+      schemaVersion: 1,
+      studentId,
+      assessmentId,
+      grade: normalizedGrade,
+      window: normalizedWindow,
+      validCompletedCount: completedCount,
+      administrationOrdinal: completedCount + 1,
+      exposedFormIds,
+      priorExposureCount: priorExposures.length,
+      exposureCountByForm,
+      selectedFormPriorExposureCount: exposureCountByForm[formId] || 0,
+      allParallelFormsExposed,
+      parallelFormsExhausted: allParallelFormsExposed,
+      fallbackAfterExhaustion,
+      deterministicCycleNumber: Math.floor(completedCount / FORM_IDS.length) + 1,
+      priorExposuresTruncated: priorExposures.length > MAX_RECORDED_FORM_EXPOSURES,
+      priorExposures: priorExposures.slice(-MAX_RECORDED_FORM_EXPOSURES)
+    }
+  };
 }
 
 function placementMicrophase(record = {}) {
@@ -276,11 +428,19 @@ export function createElBenchmarkSession({
     window: normalizedWindow,
     requestedStart
   });
+  const formSelection = selectElBenchmarkForm({
+    assessmentHistory,
+    studentId: ownership.studentId,
+    assessmentId,
+    grade: normalizedGrade,
+    window: normalizedWindow
+  });
   const plan = getElBenchmarkPlan({
     assessmentId,
     grade: normalizedGrade,
     window: normalizedWindow,
-    startMicrophase: route.startMicrophase || undefined
+    startMicrophase: route.startMicrophase || undefined,
+    formId: formSelection.formId
   });
 
   return {
@@ -294,6 +454,18 @@ export function createElBenchmarkSession({
     grade: normalizedGrade,
     window: normalizedWindow,
     formId: plan.formId,
+    formParallelSetId: plan.form?.parallelSetId || "",
+    formEquatingStatus: plan.form?.equatingStatus || "",
+    formPurpose: formSelection.formPurpose,
+    formSelectionReason: formSelection.formSelectionReason,
+    formExposure: formSelection.formExposure,
+    formSelection: {
+      formId: plan.formId,
+      purpose: formSelection.formPurpose,
+      selectionReason: formSelection.formSelectionReason,
+      resumeAttemptId: formSelection.resumeAttemptId,
+      exposure: formSelection.formExposure
+    },
     planId: plan.planId,
     contentVersion: plan.contentVersion,
     administrationVersion: EL_BENCHMARK_QUICK_ADMINISTRATION_VERSION,

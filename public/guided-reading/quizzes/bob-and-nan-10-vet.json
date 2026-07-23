@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "bob-and-nan-10-vet",
+  "contentHash": "sha256:da26bd48126f26233ba2272ee42ab780e1a1e60943b833a0d008990c09a78ba1",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ has a sore leg.\"",
+      "id": "bob-and-nan-10-vet-q1",
+      "prompt": "Why did Fluff need the vet?",
       "choices": [
-        "hungry",
-        "fluff",
-        "giggly"
+        "His leg was sore.",
+        "He was hungry.",
+        "He was lost."
       ],
-      "answer": "fluff",
-      "kind": "word"
+      "answer": "His leg was sore.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 1,
+      "evidenceText": "Fluff has a sore leg."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "bob-and-nan-10-vet-q2",
+      "prompt": "What did the vet give Fluff?",
       "choices": [
-        "vet",
-        "sleeps",
-        "orange"
+        "a bath",
+        "a jab",
+        "a gift"
       ],
-      "answer": "vet",
-      "kind": "word"
+      "answer": "a jab",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 6,
+      "evidenceText": "The vet has a jab for Fluff."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "bob-and-nan-10-vet-q3",
+      "prompt": "How was Fluff at the end?",
       "choices": [
-        "Nan",
-        "Grumpy",
-        "Bob"
+        "sore",
+        "sleepy",
+        "well"
       ],
-      "answer": "Bob",
-      "kind": "word"
+      "answer": "well",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "Fluff is well! Run, Fluff, run!"
     }
   ]
 }

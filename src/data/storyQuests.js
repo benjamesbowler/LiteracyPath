@@ -198,7 +198,7 @@ const dinoPalsStoryQuests = [
         { label: "Berries", nextPageId: "p07_berry_rain" },
         { label: "Leaves", nextPageId: "p07_leaf_hat" }
       ], ["bouncy", "lunch"], { narrationNeedsRebuild: true }),
-      dinoPalsPage(chompyLunchFolder, "p06_tummy_big", ["Chompy forgot to eat slowly.", "Soon his tummy felt too tight.", "Sunny waited while Chompy checked how he felt."], "What should Chompy do?", [
+      dinoPalsPage(chompyLunchFolder, "p06_tummy_big", ["Chompy ate too quickly and his tummy felt too tight.", "He set down his plate and sipped some water.", "Sunny waited while he chose a comfortable next step."], "What should Chompy do?", [
         { label: "Stop and rest", nextPageId: "p08_star_ending" },
         { label: "Wait, then decide", nextPageId: "p07_more_please" }
       ], ["chompy", "sunny"], { narrationNeedsRebuild: true }),
@@ -222,7 +222,7 @@ const dinoPalsStoryQuests = [
         { label: "Rest under the stars", nextPageId: "p08_star_ending" },
         { label: "Thank his friends", nextPageId: "p08_thank_you_ending" }
       ], ["chompy", "more"], { narrationNeedsRebuild: true }),
-      dinoPalsPage(chompyLunchFolder, "p08_star_ending", ["That night, Chompy looked up.", "His tummy felt calm again.", "\"Breakfast can wait until morning,\" he whispered."], "Read again?", [
+      dinoPalsPage(chompyLunchFolder, "p08_star_ending", ["Chompy rested while the afternoon faded into a starry evening.", "His tummy felt comfortable again, and the packed leftovers were ready for tomorrow.", "\"That was enough,\" he said with a smile."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["chompy"], { narrationNeedsRebuild: true }),
@@ -230,7 +230,7 @@ const dinoPalsStoryQuests = [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["chompy", "shared"], { narrationNeedsRebuild: true }),
-      dinoPalsPage(chompyLunchFolder, "p08_berry_mess_ending", ["A few soft berries went splat.", "Chompy and Bouncy cleaned the rock together.", "The good berries stayed in the basket for tomorrow."], "Read again?", [
+      dinoPalsPage(chompyLunchFolder, "p08_berry_mess_ending", ["A few soft berries went splat.", "Chompy and Bouncy cleaned the rock, rinsed the good fruit, and shared lunch together.", "They packed the leftovers for tomorrow."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["chompy", "berries", "bouncy"], { narrationNeedsRebuild: true }),
@@ -291,7 +291,7 @@ const dinoPalsStoryQuests = [
       ], ["sunny", "puddle", "rain"]),
       dinoPalsPage(sunnyRainyFolder, "p04_cave_grumpy", ["Grumpy came into the cave.", "His tail was still dripping.", "\"Too drippy,\" he grumbled."], "What helps?", [
         { label: "Leaf roof", nextPageId: "p05_leaf_roof" },
-        { label: "Puddle game", nextPageId: "p03_puddle" }
+        { label: "Watch the puddle from the cave", nextPageId: "p04_wait" }
       ], ["grumpy", "dripping", "grumbled"]),
       dinoPalsPage(sunnyRainyFolder, "p04_wiggly_tail", ["Wiggly hurried past the cave.", "His long tail swished across the puddle.", "\"Oops. Was everyone clear?\" he asked."], "What did the tail do?", [
         { label: "Made wave", nextPageId: "p05_tail_wave" },
@@ -303,15 +303,15 @@ const dinoPalsStoryQuests = [
       ], ["grumpy", "splashed", "surprised", "enormous"], { narrationNeedsRebuild: true }),
       dinoPalsPage(sunnyRainyFolder, "p05_dozy_splash", ["Dozy got splashed.", "His eyes popped open.", "Sunny asked, \"Are you all right?\""], "What does Dozy say?", [
         { label: "Again?", nextPageId: "p06_dozy_again" },
-        { label: "Nap now", nextPageId: "p03_cozy_cave" }
+        { label: "Help me get dry for a nap", nextPageId: "p06_dozy_dry" }
       ], ["dozy", "splashed"], { narrationNeedsRebuild: true }),
       dinoPalsPage(sunnyRainyFolder, "p05_honky_rain", ["Honky called, \"RAIN!\"", "His enormous voice shook the leaves.", "Down they fell."], "What happened?", [
         { label: "Leaves fell", nextPageId: "p06_leaf_rain" },
         { label: "Ears covered", nextPageId: "p06_grumpy_ears" }
       ], ["honky", "rain", "enormous"]),
       dinoPalsPage(sunnyRainyFolder, "p05_tail_wave", ["Wiggly's tail made a wave.", "The puddle grew bigger.", "Sunny stepped back and asked, \"Shall we play?\""], "Who should splash?", [
-        { label: "Sunny jumps", nextPageId: "p04_splash" },
-        { label: "Everyone jumps", nextPageId: "p07_everyone_puddle" }
+        { label: "Invite Grumpy to launch a leaf boat", nextPageId: "p07_leaf_boat" },
+        { label: "Invite everyone to splash", nextPageId: "p07_everyone_puddle" }
       ], ["wiggly", "puddle"], { narrationNeedsRebuild: true }),
       dinoPalsPage(sunnyRainyFolder, "p05_leaf_roof", ["The big leaf made a roof.", "No more drip, drip.", "\"Good leaf,\" said Sunny."], "Who sits under it?", [
         { label: "Grumpy", nextPageId: "p06_grumpy_dry" },
@@ -319,7 +319,7 @@ const dinoPalsStoryQuests = [
       ], ["leaf", "sunny"]),
       dinoPalsPage(sunnyRainyFolder, "p06_grumpy_smile", ["Grumpy's frown softened.", "\"Puddles can be fun when everyone agrees,\" he said.", "Sunny nodded."], "What should they try?", [
         { label: "Invite everyone", nextPageId: "p07_everyone_puddle" },
-        { label: "Leaf roof", nextPageId: "p05_leaf_roof" }
+        { label: "Hold up the broad leaf and help Grumpy dry", nextPageId: "p06_grumpy_dry" }
       ], ["grumpy", "puddle"], { narrationNeedsRebuild: true }),
       dinoPalsPage(sunnyRainyFolder, "p06_sorry_grumpy", ["\"Sorry,\" said Sunny.", "Grumpy dripped and grumbled.", "\"Help me get dry.\""], "What helps Grumpy?", [
         { label: "Dry leaf", nextPageId: "p05_leaf_roof" },
@@ -327,7 +327,7 @@ const dinoPalsStoryQuests = [
       ], ["sunny", "grumpy", "grumbled"], { narrationNeedsRebuild: true }),
       dinoPalsPage(sunnyRainyFolder, "p06_dozy_again", ["\"Again, please,\" said Dozy.", "Sunny made a tiny splash away from the pillow.", "Dozy giggled."], "What now?", [
         { label: "Everyone joins", nextPageId: "p07_everyone_puddle" },
-        { label: "Dozy naps", nextPageId: "p03_cozy_cave" }
+        { label: "Dozy rests while the pals whisper", nextPageId: "p08_quiet_ending" }
       ], ["dozy", "sunny", "splashed"], { narrationNeedsRebuild: true }),
       dinoPalsPage(sunnyRainyFolder, "p06_leaf_rain", ["Leaves came down.", "It was leaf rain.", "Sunny had an idea."], "What can leaves make?", [
         { label: "Roof", nextPageId: "p05_leaf_roof" },
@@ -343,9 +343,9 @@ const dinoPalsStoryQuests = [
       ], ["grumpy", "rain", "leaf"]),
       dinoPalsPage(sunnyRainyFolder, "p06_dozy_dry", ["Dozy was dry.", "He fell asleep again.", "The cave felt peaceful."], "Wake Dozy?", [
         { label: "No", nextPageId: "p08_quiet_ending" },
-        { label: "Soft splash", nextPageId: "p06_dozy_again" }
+        { label: "Let him wake and join later", nextPageId: "p07_everyone_puddle" }
       ], ["dozy", "peaceful"]),
-      dinoPalsPage(sunnyRainyFolder, "p07_leaf_boat", ["Sunny folded one leaf into a boat.", "It went plop and floated beside Grumpy.", "Grumpy watched its safe little journey."], "What should the leaf become?", [
+      dinoPalsPage(sunnyRainyFolder, "p07_leaf_boat", ["Sunny folded one leaf into a boat and floated it beside dry Grumpy.", "Then she checked Cozy Cave: Dozy and his pillow were warm and safe.", "Both pals had the kind of rainy day they wanted."], "How should the adventure end?", [
         { label: "A boat across the puddle", nextPageId: "p08_rainbow_ending" },
         { label: "A roof for Grumpy", nextPageId: "p05_leaf_roof" }
       ], ["sunny", "leaf", "grumpy"], { narrationNeedsRebuild: true }),
@@ -353,15 +353,15 @@ const dinoPalsStoryQuests = [
         { label: "Sun out", nextPageId: "p08_rainbow_ending" },
         { label: "Grumpy laughs", nextPageId: "p08_grumpy_laugh_ending" }
       ], ["sunny", "grumpy", "splashed"], { narrationNeedsRebuild: true }),
-      dinoPalsPage(sunnyRainyFolder, "p08_rainbow_ending", ["The rain slowed, and the sun came out.", "A rainbow arched above Sunny Hollow.", "Every pal was safe, heard, and smiling.", "Sunny had turned a soggy day into a shared adventure."], "Read again?", [
+      dinoPalsPage(sunnyRainyFolder, "p08_rainbow_ending", ["The rain slowed, and the sun came out.", "Dozy's pillow was dry, Grumpy had shelter, and a rainbow arched above Sunny Hollow.", "Every pal was safe, heard, and smiling."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["sunny", "rainbow"], { narrationNeedsRebuild: true }),
-      dinoPalsPage(sunnyRainyFolder, "p08_grumpy_laugh_ending", ["Grumpy's tail made one tiny splash.", "He tried to hold his frown, then laughed.", "Sunny laughed too.", "The rainy-day rescue ended in a puddle party."], "Read again?", [
+      dinoPalsPage(sunnyRainyFolder, "p08_grumpy_laugh_ending", ["Dozy watched from the dry cave with his rescued pillow.", "Grumpy chose one tiny splash, tried to hold his frown, then laughed.", "Sunny's rainy-day rescue ended with every pal comfortable."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["grumpy", "sunny", "surprised"], { narrationNeedsRebuild: true }),
-      dinoPalsPage(sunnyRainyFolder, "p08_quiet_ending", ["Everyone used soft voices.", "The rain tapped gently outside.", "The cave was warm, and every pillow was dry.", "The pals rested together in peace."], "Read again?", [
+      dinoPalsPage(sunnyRainyFolder, "p08_quiet_ending", ["Everyone used soft voices.", "Grumpy was dry beneath the leaf roof, and Dozy's pillow was warm inside the cave.", "The rain tapped gently while the pals rested together in peace."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["rain", "peaceful"], { narrationNeedsRebuild: true })
@@ -775,7 +775,7 @@ const moonwoodStoryQuests = [
       ], ["stone", "marsh", "toadling", "loud"]),
       moonwoodPage(pipStoneFolder, "p09_pip_listens", ["Pip climbed on a root.", "He listened hard.", "Far away, something answered."], "What next?", [
         { label: "Go toward the answer", nextPageId: "p10_family_found" },
-        { label: "Ask Stone to call again", nextPageId: "p08_stone_calls" }
+        { label: "Ask Stone for one softer call", nextPageId: "p09_soft_call" }
       ], ["pip", "stone", "family"]),
       moonwoodPage(pipStoneFolder, "p09_answer_far_side", ["Something answered from the far side.", "The toadling sat up.", "\"That is them!\" it said."], "What should they do?", [
         { label: "Take the toadling home", nextPageId: "p10_family_found" },
@@ -787,17 +787,17 @@ const moonwoodStoryQuests = [
       ], ["pip", "stone", "toadling", "family"]),
       moonwoodPage(pipStoneFolder, "p09_toadling_calls", ["The toadling opened its mouth.", "A huge sound came out again.", "This time, it sounded happy."], "What should they do?", [
         { label: "Follow the happy sound", nextPageId: "p10_family_found" },
-        { label: "Stone helps too", nextPageId: "p08_stone_calls" }
+        { label: "Stone answers more softly", nextPageId: "p09_soft_call" }
       ], ["toadling", "stone", "help"]),
-      moonwoodPage(pipStoneFolder, "p09_soft_call", ["Stone tried a softer call.", "It was still very loud.", "But it worked."], "What should they do?", [
+      moonwoodPage(pipStoneFolder, "p09_soft_call", ["Stone tried a softer call.", "It was still very loud.", "A family call answered through the reeds."], "How should they reunite the toadlings?", [
         { label: "Follow the answer", nextPageId: "p10_family_found" },
-        { label: "Laugh quietly", nextPageId: "p11_back_home" }
+        { label: "Call the family closer", nextPageId: "p11_toadling_answer" }
       ], ["stone", "loud", "quiet"]),
       moonwoodPage(pipStoneFolder, "p10_family_found", ["At the far side of the marsh, small eyes blinked.", "More toadlings hopped out.", "The lost toadling jumped home."], "What should Pip and Stone do?", [
         { label: "Wave goodbye", nextPageId: "p11_back_home" },
         { label: "Ask about the loud noise", nextPageId: "p11_toadling_answer" }
       ], ["marsh", "toadling", "lost", "home", "family"]),
-      moonwoodPage(pipStoneFolder, "p11_toadling_answer", ["\"Are you always that loud?\" asked Pip.", "\"Only when lost,\" said the toadling.", "Stone smiled."], "How should it end?", [
+      moonwoodPage(pipStoneFolder, "p11_toadling_answer", ["The toadling's family hopped close and gathered around it.", "\"Are you always that loud?\" asked Pip.", "\"Only when lost,\" said the toadling. Stone smiled."], "How should it end?", [
         { label: "Go home", nextPageId: "p12_ending_quiet" },
         { label: "Tell everyone", nextPageId: "p12_ending_loud" }
       ], ["pip", "stone", "toadling", "loud", "lost"]),
@@ -934,7 +934,7 @@ const moonwoodStoryQuests = [
       ], ["garden", "fern", "wren"]),
       moonwoodPage(fernWrenFolder, "p10_wren_sorry", ["\"I am sorry,\" said Wren.", "\"Did you learn something?\" asked Fern.", "\"Yes,\" said Wren.", "\"I need more books.\""], "What should Fern say?", [
         { label: "Fern answers", nextPageId: "p11_fewer_books" },
-        { label: "Read again", nextPageId: "p01_start" }
+        { label: "Put the potion away", nextPageId: "p12_ending_calm" }
       ], ["wren", "fern", "book"]),
       moonwoodPage(fernWrenFolder, "p10_garden_safe", ["Fern checked each plant.", "Every root was home.", "Every leaf was calm."], "What should Fern do?", [
         { label: "Talk to Wren", nextPageId: "p10_wren_sorry" },
@@ -991,7 +991,7 @@ const moonwoodStoryQuests = [
         { label: "Let Burrow dig", nextPageId: "p04_burrow_digs" },
         { label: "Call Pip for help", nextPageId: "p04_pip_arrives" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_bird_riddle", ["The stone bird opened one eye.", "\"What opens with no key?\" it asked.", "Luna blinked."], "What should they answer?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_bird_riddle", ["The stone bird opened one eye.", "\"What can fill the air but weighs nothing?\" it asked.", "Luna blinked."], "What should they answer?", [
         { label: "Say \"a song\"", nextPageId: "p05_song_answer" },
         { label: "Say \"a door\"", nextPageId: "p05_door_answer" }
       ], lunaBurrowStarShellDoorTargetWords),
@@ -1019,7 +1019,7 @@ const moonwoodStoryQuests = [
         { label: "Follow the note", nextPageId: "p06_hidden_door" },
         { label: "Sing to the map", nextPageId: "p06_map_sings" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_door_answer", ["\"A door,\" said Burrow.", "The stone bird shook its head.", "\"Too easy,\" it said."], "What should they try next?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_door_answer", ["\"A door,\" said Burrow.", "The stone bird shook its head.", "\"A door is heavy,\" it said."], "What should they try next?", [
         { label: "Try again softly", nextPageId: "p05_song_answer" },
         { label: "Ask Luna to think", nextPageId: "p05_feather" }
       ], lunaBurrowStarShellDoorTargetWords),
@@ -1137,14 +1137,14 @@ const moonwoodStoryQuests = [
       ], lunaBurrowStarShellDoorTargetWords),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_echo_room", ["Luna called Stone's name.", "The room called back, \"Stone, Stone, Stone.\"", "Outside, Stone waved one huge hand."], "What should Luna do?", [
         { label: "Keep going", nextPageId: "p09_star_choice" },
-        { label: "Bring back a star for Stone", nextPageId: "p10_stone_star" }
+        { label: "Ask a star to visit Stone", nextPageId: "p10_stone_star" }
       ], lunaBurrowStarShellDoorTargetWords),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_door_answer", ["\"I sigh when people rush,\" said the star moth.", "Burrow sat down.", "\"I do that,\" he said."], "What should Burrow do?", [
         { label: "Promise to slow down", nextPageId: "p09_kind_sleep" },
         { label: "Ask about the moon seed", nextPageId: "p09_star_choice" }
       ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_blue_path", ["The blue path showed the Fog Marsh under stars.", "The marsh looked less scary from above."], "What should Luna do?", [
-        { label: "Take a star to the marsh", nextPageId: "p10_marsh_light" },
+        { label: "Ask a star to guide the marsh", nextPageId: "p10_marsh_light" },
         { label: "Return to Moonwood", nextPageId: "p10_quiet_ending" }
       ], lunaBurrowStarShellDoorTargetWords),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_gold_path", ["The gold path showed Hollow Oak.", "Everyone was waiting outside.", "The moon seed glowed brighter."], "What should Luna do?", [
@@ -1155,15 +1155,15 @@ const moonwoodStoryQuests = [
         { label: "Go home quietly", nextPageId: "p10_quiet_ending" },
         { label: "Tell Wren everything", nextPageId: "p10_wren_ending" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_star_choice", ["The moon seed opened one eye.", "\"Do you need me?\" it asked.", "Luna looked at Burrow."], "What should Luna say?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_star_choice", ["The moon seed pulsed with warm light.", "\"Do you need me?\" came a soft voice.", "Luna looked at Burrow."], "What should Luna say?", [
         { label: "Ask it to help Moonwood", nextPageId: "p10_home_seed" },
         { label: "Say it can choose", nextPageId: "p10_free_seed" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_marsh_light", ["They placed one star near the Fog Marsh.", "The mist turned silver.", "Even Burrow thought it looked beautiful."], "Read again?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_marsh_light", ["One willing star floated to the Fog Marsh.", "It chose a high reed and turned the mist silver.", "Even Burrow thought it looked beautiful."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_stone_star", ["Luna brought one tiny star to Stone.", "Stone held it in both hands.", "\"Small star,\" he whispered."], "Read again?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_stone_star", ["One tiny star chose to visit Stone.", "Stone held out both hands without closing them.", "\"Small star,\" he whispered."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], lunaBurrowStarShellDoorTargetWords),
@@ -1306,7 +1306,7 @@ const moonwoodStoryQuests = [
         { label: "Follow the question mark", nextPageId: "p06_question_path" },
         { label: "Try listening", nextPageId: "p03_water_whisper" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_dewdrop_alone", ["Dewdrop floated through the water tunnel.", "She found a broken crystal on the stream floor.", "It was too heavy to lift alone."], "What should Dewdrop do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_dewdrop_alone", ["Dewdrop floated through the water tunnel.", "A broken crystal blocked the glow's path home.", "It was too heavy to lift alone."], "What should Dewdrop do?", [
         { label: "Try to lift it", nextPageId: "p07_heavy_crystal" },
         { label: "Call Flint", nextPageId: "p07_water_call" }
       ], dewdropFlintLostGlowTargetWords),
@@ -1314,7 +1314,7 @@ const moonwoodStoryQuests = [
         { label: "Crawl through", nextPageId: "p07_dry_crawl" },
         { label: "Send the lantern first", nextPageId: "p07_lantern_rolls" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_glow_cave", ["Inside the quiet cave was the missing glow.", "It curled like a sleeping kitten.", "The stream waited outside."], "What should they do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_glow_cave", ["Inside the quiet cave was the missing glow.", "It had hidden from loud feet, and a fallen crystal blocked its way home.", "It curled like a sleeping kitten."], "What should they do?", [
         { label: "Wake it gently", nextPageId: "p07_glow_wakes" },
         { label: "Let it sleep", nextPageId: "p07_glow_sleeps" }
       ], dewdropFlintLostGlowTargetWords),
@@ -1350,13 +1350,13 @@ const moonwoodStoryQuests = [
         { label: "Walk softly", nextPageId: "p07_soft_feet" },
         { label: "Float with Dewdrop", nextPageId: "p06_dewdrop_alone" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_burrow_dig", ["Burrow came and dug three tunnels.", "One tunnel led to the cave.", "One tunnel led to a waiting room."], "Which tunnel should they take?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_burrow_dig", ["Burrow dug two careful tunnels.", "One led to the glow cave.", "The quiet side tunnel held a warm golden shimmer."], "Which tunnel should they take?", [
         { label: "Take the first tunnel", nextPageId: "p06_glow_cave" },
-        { label: "Visit the waiting room", nextPageId: "p07_waiting_room" }
+        { label: "Follow the quiet shimmer", nextPageId: "p07_waiting_room" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_question_path", ["A glow shaped like a question mark floated to a tiny door.", "The plain door had no handle.", "The little question-glow looked worried."], "What should they do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_question_path", ["A trail of glow curled like a question mark beside a tiny door.", "The plain door had no handle.", "A soft hum came from the other side."], "What should they do?", [
         { label: "Open the door", nextPageId: "p07_tiny_door" },
-        { label: "Ask the question-glow", nextPageId: "p07_door_question" }
+        { label: "Listen at the door", nextPageId: "p07_door_question" }
       ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_heavy_crystal", ["Dewdrop pushed the heavy crystal.", "It moved one tiny bit.", "Then it stopped."], "What should she do?", [
         { label: "Push again", nextPageId: "p08_crystal_moves" },
@@ -1422,7 +1422,7 @@ const moonwoodStoryQuests = [
         { label: "Keep walking softly", nextPageId: "p08_safe_promise" },
         { label: "Call Dewdrop", nextPageId: "p08_team_pull" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_waiting_room", ["The waiting room had two tiny chairs.", "A little glow slept on one chair.", "Its tiny snores lit the room."], "What should they do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_waiting_room", ["The side tunnel opened into a tiny rest nook.", "A piece of the missing glow slept on a warm stone.", "Each tiny snore lit the walls."], "What should they do?", [
         { label: "Sit and wait", nextPageId: "p08_quiet_wait" },
         { label: "Call the glow", nextPageId: "p08_safe_promise" }
       ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
@@ -1430,23 +1430,23 @@ const moonwoodStoryQuests = [
         { label: "Clap softly", nextPageId: "p08_glow_story" },
         { label: "Ask it to come home", nextPageId: "p08_safe_promise" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_door_question", ["Dewdrop asked, \"What question do you need?\"", "The question-glow smiled and pointed to the plain door.", "\"That one,\" it said."], "What should Dewdrop do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_door_question", ["Dewdrop listened at the plain door.", "The missing glow hummed from the cave beyond it.", "A silver trail showed the latch."], "What should Dewdrop do?", [
         { label: "Step inside", nextPageId: "p06_glow_cave" },
-        { label: "Ask another question", nextPageId: "p08_glow_story" }
+        { label: "Ask why it is hiding", nextPageId: "p08_glow_story" }
       ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_crystal_moves", ["The crystal moved aside.", "Bright water rushed around its edges.", "The stream began to glow at the tips."], "What should they do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_crystal_moves", ["The crystal moved aside.", "The shy glow peeked through as bright water rushed around the repaired channel.", "The stream began to shine at the tips."], "What should they do?", [
         { label: "Move it all the way", nextPageId: "p09_stream_returns" },
         { label: "Call everyone", nextPageId: "p09_everyone_helps" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_team_pull", ["Flint pulled.", "Dewdrop pushed.", "The crystal slid with a soft chiming sound."], "What should they do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_team_pull", ["Flint pulled while Dewdrop pushed.", "The fallen crystal slid away from the glow's path.", "It chimed when they turned it the right way."], "What should they do?", [
         { label: "Put it back correctly", nextPageId: "p09_stream_returns" },
         { label: "Take it to Fern", nextPageId: "p09_fern_repairs" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_lantern_light", ["The lantern filled with shy light.", "It did not want to be shaken.", "Flint held it carefully."], "What should Flint do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_lantern_light", ["A piece of the shy glow rested inside the lantern.", "It did not want to be shaken.", "Flint held it carefully and cleared the way to the stream."], "What should Flint do?", [
         { label: "Guide it home", nextPageId: "p09_stream_returns" },
         { label: "Let it choose", nextPageId: "p09_glow_chooses" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_two_crystals", ["There were two crystals.", "One was bright and loud.", "One was quiet and warm."], "Which crystal should they choose?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_two_crystals", ["There were two crystals.", "One flashed noisily and made the glow hide.", "The original stream crystal felt quiet and warm."], "Which crystal should they choose?", [
         { label: "Choose the bright crystal", nextPageId: "p09_bright_wrong" },
         { label: "Choose the quiet crystal", nextPageId: "p09_stream_returns" }
       ], dewdropFlintLostGlowTargetWords),
@@ -1478,7 +1478,7 @@ const moonwoodStoryQuests = [
         { label: "Follow Pip's glow", nextPageId: "p09_stream_returns" },
         { label: "Ask Pip to wait", nextPageId: "p10_pip_ending" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_fern_repairs", ["Fern tucked the crystal beside the water.", "The stream glowed blue and green.", "\"Better,\" said Fern."], "What should they do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_fern_repairs", ["Fern fitted the crystal back beside the water.", "The shy glow slipped through it and the stream shone blue and green.", "\"Home,\" whispered Dewdrop."], "What should they do?", [
         { label: "Thank Fern", nextPageId: "p10_gentle_ending" },
         { label: "Check the lantern", nextPageId: "p10_lantern_ending" }
       ], dewdropFlintLostGlowTargetWords),
@@ -1486,7 +1486,7 @@ const moonwoodStoryQuests = [
         { label: "Try the quiet crystal", nextPageId: "p09_stream_returns" },
         { label: "Ask Fern for help", nextPageId: "p09_fern_repairs" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_everyone_helps", ["Fern, Wren, Pip, Stone, Dewdrop, and Flint moved the crystal together.", "The stream shimmered.", "No one stomped."], "What should happen next?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_everyone_helps", ["Fern, Wren, Pip, Stone, Dewdrop, and Flint set the fallen crystal back in its channel.", "The shy glow streamed home through it.", "No one stomped."], "What should happen next?", [
         { label: "Let the stream return", nextPageId: "p09_stream_returns" },
         { label: "Celebrate", nextPageId: "p10_splash_ending" }
       ], dewdropFlintLostGlowTargetWords),
@@ -1498,11 +1498,11 @@ const moonwoodStoryQuests = [
         { label: "Fern makes it shorter", nextPageId: "p10_wren_ending" },
         { label: "Return to the stream", nextPageId: "p09_stream_returns" }
       ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_stream_returns", ["The Crystal Stream glowed again.", "Dewdrop floated above it.", "Flint's lantern shone softly, not loudly."], "Read again?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_stream_returns", ["The repaired crystal guided the missing glow home.", "The Crystal Stream shone again beneath Dewdrop.", "Flint's lantern glowed softly, not loudly."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_frog_ending", ["The guard frog sat by the stream.", "Stone stood beside it.", "Both looked very important."], "Read again?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_frog_ending", ["The frog led the last sparkle through the repaired crystal and into the stream.", "The water glowed again while Stone stood guard beside it.", "Both guards looked very important."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], dewdropFlintLostGlowTargetWords),
@@ -1510,15 +1510,15 @@ const moonwoodStoryQuests = [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_splash_ending", ["Everyone celebrated with one quiet splash.", "Flint laughed.", "Dewdrop made a tiny rainbow."], "Read again?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_splash_ending", ["The stream crystal was fixed and the glow was home.", "Everyone celebrated with one quiet splash.", "Flint laughed while Dewdrop made a tiny rainbow."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_wren_ending", ["Fern circled the first sentence.", "\"This is all we need.\"", "Wren sighed.", "Then she made a tiny rule book."], "Read again?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_wren_ending", ["The repaired crystal guided the glow home, and the stream shone again.", "Fern circled the first sentence of Wren's new rule.", "\"This is all we need.\"", "Wren sighed, then made one tiny rule book."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_lantern_ending", ["Flint's lantern glowed gently.", "He did not shake it.", "Not even once."], "Read again?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_lantern_ending", ["The stream shone through its repaired crystal.", "Flint's lantern glowed gently beside it.", "He did not shake it. Not even once."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], dewdropFlintLostGlowTargetWords),
@@ -1652,21 +1652,21 @@ export const storyQuests = [
         choicePrompt: "What should they do next?",
         skillTags: ["short_a", "map", "van"],
         choices: [
-          { label: "Pack the bag", nextPageId: "page-07" },
+          { label: "Take the packed bag and buckle up", nextPageId: "page-10" },
           { label: "Go to the van", nextPageId: "page-09" }
         ]
       },
       {
         id: "page-09",
-        text: ["Sam and Pam go to the van.", "Dad clips the cat carrier in place."],
+        text: ["Dad drives the quiet route to the park.", "The van stops beside the picnic field.", "Sam carries the packed bag, and Pam stays beside the cat carrier.", "Their carefully planned outing has begun."],
         imageUrl: samPamImagePath(9),
         audioUrl: samPamAudioPath(9),
         narrationNeedsRebuild: true,
-        choicePrompt: "What should they do before Dad drives?",
+        choicePrompt: "Choose another route?",
         skillTags: ["short_a", "van", "cat"],
         choices: [
-          { label: "Buckle up", nextPageId: "page-10" },
-          { label: "Check the map once more", nextPageId: "page-08" }
+          { label: "Read again", nextPageId: "page-01" },
+          { label: "Finish", nextPageId: "end" }
         ]
       },
       {
@@ -1796,8 +1796,8 @@ export const storyQuests = [
         { label: "Model it once, then give it back", nextPageId: "p09_fancy_muddy_ending" }
       ], ["hat", "muddy"]),
       meadowPalsPage(muddySplashyFolder, "p08_clucky_grumpy", ["Clucky tries the hat too soon.", "A drip and a blob of mud make her frown."], "What will fix it?", [
-        { label: "Wash the mud away", nextPageId: "p07_wash_hat" },
-        { label: "Dry the clean hat", nextPageId: "p07_dry_hat" }
+        { label: "Fix it together, then give it back", nextPageId: "p08_hat_on_clucky" },
+        { label: "Let Muddy model it while it dries", nextPageId: "p08_hat_on_muddy" }
       ], ["hat", "little", "mud"]),
       meadowPalsPage(muddySplashyFolder, "p09_mud_ending", ["Muddy jumps in the mud.", "Splashy flaps and laughs.", "Clucky waves from the dry path in her hat."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
@@ -1898,7 +1898,7 @@ export const storyQuests = [
       ], ["shy", "cuddly", "sit", "tree", "barn"]),
       meadowPalsPage(shyCuddlyFolder, "p05_bird", ["A little bird sings on a high twig.", "Below it, Shy sits on the broad low branch."], "What should Cuddly do?", [
         { label: "Greet Shy", nextPageId: "p06_tree_find_shy" },
-        { label: "Listen first", nextPageId: "p04_tree_sit" }
+        { label: "Invite Shy to listen together", nextPageId: "p07_tree_under" }
       ], ["shy", "tree", "sit"]),
       meadowPalsPage(shyCuddlyFolder, "p05_tiny_tree", ["Tiny is under the tree.", "He points to Shy on the broad low branch."], "What now?", [
         { label: "Help Cuddly greet Shy", nextPageId: "p06_tree_find_shy" },
@@ -1929,7 +1929,7 @@ export const storyQuests = [
         { label: "Not yet", nextPageId: "p09_almost_hug_ending" }
       ], ["shy", "cuddly", "hug", "barn"], { narrationNeedsRebuild: true }),
       meadowPalsPage(shyCuddlyFolder, "p08_tree_hug", ["Shy asks, and Cuddly says yes.", "They share one gentle hug."], "What next?", [
-        { label: "Happy", nextPageId: "p09_tree_happy_ending" },
+        { label: "Climb down together", nextPageId: "p09_tree_happy_ending" },
         { label: "Rest quietly", nextPageId: "p09_quiet_ending" }
       ], ["shy", "cuddly", "hug", "tree"], { narrationNeedsRebuild: true }),
       meadowPalsPage(shyCuddlyFolder, "p08_tree_purr", ["Cuddly purrs softly from a little way off.", "Shy smiles and relaxes."], "What now?", [
@@ -1973,7 +1973,7 @@ export const storyQuests = [
     coverImageUrl: meadowPalsImagePath(bouncySpeedyFolder, "p01_start"),
     startPageId: "p01_start",
     pages: [
-      meadowPalsPage(bouncySpeedyFolder, "p01_start", ["Bouncy found a map.", "It points to the big tree."], "Who do you help?", [
+      meadowPalsPage(bouncySpeedyFolder, "p01_start", ["Tiny drew a map to a surprise.", "A bold arrow points to the big tree."], "Who will follow the map?", [
         { label: "Help Bouncy", nextPageId: "p02_bouncy" },
         { label: "Help Speedy", nextPageId: "p02_speedy" }
       ], ["bouncy", "speedy", "map", "tree"], { narrationNeedsRebuild: true }),
@@ -2001,7 +2001,7 @@ export const storyQuests = [
         { label: "Stop now", nextPageId: "p04_speedy_stops" },
         { label: "Keep going", nextPageId: "p04_too_fast" }
       ], ["speedy", "run", "hill", "fast", "stop"]),
-      meadowPalsPage(bouncySpeedyFolder, "p04_boot", ["It is a boot.", "It is not the map."], "Who can help?", [
+      meadowPalsPage(bouncySpeedyFolder, "p04_boot", ["A boot blocks the path.", "A small tree arrow is scratched beside it."], "Who can read the clue?", [
         { label: "Tiny", nextPageId: "p04_tiny_map" },
         { label: "Grumpy", nextPageId: "p05_grumpy_boot" }
       ], ["map"]),
@@ -2011,7 +2011,7 @@ export const storyQuests = [
       ], ["map", "speedy", "stop", "pond", "hill"], { narrationNeedsRebuild: true }),
       meadowPalsPage(bouncySpeedyFolder, "p04_tiny_map", ["Tiny sees the map.", "Tiny points up."], "Where should they go?", [
         { label: "To the big tree", nextPageId: "p05_big_tree" },
-        { label: "To the pond", nextPageId: "p03_pond" }
+        { label: "Follow the muddy shortcut", nextPageId: "p05_muddy_map" }
       ], ["map", "tree", "pond"]),
       meadowPalsPage(bouncySpeedyFolder, "p04_map_splash", ["Bouncy shook the map.", "Splash! Grumpy got wet."], "What should Bouncy do?", [
         { label: "Dry the map", nextPageId: "p05_bouncy_wet" },
@@ -2035,7 +2035,7 @@ export const storyQuests = [
       ], [], { narrationNeedsRebuild: true }),
       meadowPalsPage(bouncySpeedyFolder, "p05_bouncy_wet", ["Bouncy dries the map.", "Bouncy drips in the sun."], "Hop where?", [
         { label: "To the tree", nextPageId: "p05_big_tree" },
-        { label: "To the barn", nextPageId: "p03_barn" }
+        { label: "Wait for Speedy", nextPageId: "p05_speedy_waits" }
       ], ["bouncy", "hop", "tree", "barn"], { narrationNeedsRebuild: true }),
       meadowPalsPage(bouncySpeedyFolder, "p05_grumpy_wet", ["Grumpy is wet.", "The friends say, \"We are sorry.\""], "What should they do?", [
         { label: "Run on", nextPageId: "p06_lost_again" },
@@ -2049,7 +2049,7 @@ export const storyQuests = [
         { label: "Bouncy", nextPageId: "p06_bouncy_muddy" },
         { label: "Speedy", nextPageId: "p06_speedy_muddy" }
       ], ["map", "bouncy", "speedy"]),
-      meadowPalsPage(bouncySpeedyFolder, "p05_big_tree", ["They found the big tree.", "An X marks the roots."], "Will they stop and look?", [
+      meadowPalsPage(bouncySpeedyFolder, "p05_big_tree", ["They found the big tree.", "The map's X marks a hollow between the roots."], "Will they stop and solve it?", [
         { label: "Stop and look", nextPageId: "p07_tree_stop" },
         { label: "Rush past", nextPageId: "p06_lost_again" }
       ], ["tree", "map", "stop"], { narrationNeedsRebuild: true }),
@@ -2061,31 +2061,31 @@ export const storyQuests = [
         { label: "Take the tree path", nextPageId: "p05_big_tree" },
         { label: "Check on Grumpy", nextPageId: "p05_grumpy_wet" }
       ], ["speedy", "map", "tree"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(bouncySpeedyFolder, "p06_lost_again", ["They rushed past the tree.", "Now they are lost."], "What can help?", [
-        { label: "Ask Tiny", nextPageId: "p04_tiny_map" },
-        { label: "Read the map slowly", nextPageId: "p05_big_tree" }
+      meadowPalsPage(bouncySpeedyFolder, "p06_lost_again", ["They rushed past the tree.", "Now the barn, pond, and hill all look the same."], "How can they find the marked roots again?", [
+        { label: "Ask Tiny to lead them back", nextPageId: "p08_tiny_snack" },
+        { label: "Read the map slowly", nextPageId: "p07_tree_stop" }
       ], ["stop", "map", "tree"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(bouncySpeedyFolder, "p07_tree_stop", ["They stopped by the roots.", "The map led them here."], "What do they find?", [
-        { label: "The farm", nextPageId: "p08_farm_view" },
-        { label: "A snack", nextPageId: "p08_tiny_snack" }
+      meadowPalsPage(bouncySpeedyFolder, "p07_tree_stop", ["They stop at the X between the roots.", "Two surprises wait there: a wrapped snack and a second arrow to the hilltop view."], "Which map surprise will they try?", [
+        { label: "Follow the hilltop arrow", nextPageId: "p08_farm_view" },
+        { label: "Open Tiny's snack", nextPageId: "p08_tiny_snack" }
       ], ["stop", "tree", "map"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(bouncySpeedyFolder, "p08_farm_view", ["They see the farm.", "It is very big."], "Go home?", [
-        { label: "Yes", nextPageId: "p09_home_ending" },
-        { label: "One more race", nextPageId: "p09_race_ending" }
+      meadowPalsPage(bouncySpeedyFolder, "p08_farm_view", ["The arrow leads to a secret hilltop view.", "They can see the whole farm and a safe dotted route back to the barn."], "How will they finish the map?", [
+        { label: "Walk the map home", nextPageId: "p09_home_ending" },
+        { label: "Race on the dotted route", nextPageId: "p09_race_ending" }
       ], ["big"]),
-      meadowPalsPage(bouncySpeedyFolder, "p08_tiny_snack", ["Tiny brings a small snack.", "Tiny offers to share."], "Share it?", [
-        { label: "Yes", nextPageId: "p09_tiny_snack_ending" },
-        { label: "No, run home", nextPageId: "p09_home_ending" }
+      meadowPalsPage(bouncySpeedyFolder, "p08_tiny_snack", ["Tiny leads them back to the X.", "A small snack is tucked beneath the root—the first map surprise."], "How will they finish?", [
+        { label: "Share the surprise", nextPageId: "p09_tiny_snack_ending" },
+        { label: "Carry it home with the map", nextPageId: "p09_home_ending" }
       ], ["run"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(bouncySpeedyFolder, "p09_home_ending", ["They went home.", "They did not run.", "Well... not much."], "Read again?", [
+      meadowPalsPage(bouncySpeedyFolder, "p09_home_ending", ["They follow the map home together.", "This time they stop at every arrow.", "Tiny's two-part map is solved and safe for another adventure."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["run"]),
-      meadowPalsPage(bouncySpeedyFolder, "p09_race_ending", ["Bouncy hopped.", "Speedy ran.", "Both stopped at the barn."], "Read again?", [
+      meadowPalsPage(bouncySpeedyFolder, "p09_race_ending", ["Bouncy hops and Speedy runs along the map's dotted route.", "They slow at every turn.", "Both finish safely at the barn, exactly where the map promised."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["bouncy", "speedy", "hop", "run"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(bouncySpeedyFolder, "p09_tiny_snack_ending", ["Tiny split the snack.", "Each friend had one bite.", "It was just enough."], "Read again?", [
+      meadowPalsPage(bouncySpeedyFolder, "p09_tiny_snack_ending", ["Tiny splits the surprise snack at the map's X.", "Each friend has one bite.", "The very fast map mystery is solved by finally stopping to look."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], [], { narrationNeedsRebuild: true })
@@ -2106,27 +2106,27 @@ export const storyQuests = [
     coverImageUrl: meadowPalsImagePath(braveTinyFolder, "p01_start"),
     startPageId: "p01_start",
     pages: [
-      meadowPalsPage(braveTinyFolder, "p01_start", ["A gust rushed over the farm.", "Clucky's red hat flew off, and Woolly's bell went missing.", "Brave and Tiny hurried to help."], "Who should lead the search?", [
-        { label: "Help Brave", nextPageId: "p02_brave" },
-        { label: "Help Tiny", nextPageId: "p02_tiny" }
+      meadowPalsPage(braveTinyFolder, "p01_start", ["A gust made two farmyard mysteries.", "Clucky lost her red hat, and Woolly lost her little bell.", "Brave and Tiny will solve one mystery at a time."], "Which mystery should they solve?", [
+        { label: "Find Clucky's hat", nextPageId: "p02_brave" },
+        { label: "Find Woolly's bell", nextPageId: "p02_tiny" }
       ], ["brave", "tiny", "little"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p02_brave", ["Brave spots a red flash near the yard.", "It may be Clucky's hat."], "Where should Brave look first?", [
         { label: "To the pot", nextPageId: "p03_pot" },
         { label: "To the wall", nextPageId: "p03_wall" }
       ], ["brave", "help", "pot", "wall"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p02_tiny", ["Tiny studies the tracks left by the gust.", "He spots a red thread and hears Woolly call."], "Which clue should Tiny follow?", [
-        { label: "A stuck hat", nextPageId: "p03_hat" },
-        { label: "A sad Woolly", nextPageId: "p03_woolly" }
+      meadowPalsPage(braveTinyFolder, "p02_tiny", ["Tiny hears a faint bell and finds a loose wool thread.", "Both clues lead away from Woolly's empty ribbon."], "Which bell clue should Tiny follow?", [
+        { label: "Ask Woolly", nextPageId: "p03_woolly" },
+        { label: "Follow the faint jingle", nextPageId: "p04_stream" }
       ], ["tiny"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p03_pot", ["The empty flower pot is very deep.", "Something red rests at the bottom."], "How should they check it safely?", [
         { label: "Let Brave reach", nextPageId: "p04_hat_in_pot" },
         { label: "Lower Tiny on a string", nextPageId: "p04_tiny_in_pot" }
       ], ["brave", "pot", "big", "in"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p03_wall", ["The stone wall is high, but Brave looks carefully.", "Two red clues sit near the top."], "Which clue should Brave check?", [
+      meadowPalsPage(braveTinyFolder, "p03_wall", ["The stone wall is high, but Brave looks carefully.", "A loose feather and a red thread sit near the top."], "Which clue should Brave check?", [
         { label: "A feather", nextPageId: "p04_feather" },
-        { label: "Clucky", nextPageId: "p04_clucky_wall" }
+        { label: "The red thread", nextPageId: "p03_hat" }
       ], ["brave", "wall", "big", "on"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p03_hat", ["Tiny follows the red thread.", "Clucky's hat is caught nearby."], "Where should Tiny look?", [
+      meadowPalsPage(braveTinyFolder, "p03_hat", ["Brave and Tiny follow the red thread together.", "It passes the flower pot and curls back toward the wall."], "Where should they check for Clucky's hat?", [
         { label: "In the pot", nextPageId: "p04_hat_in_pot" },
         { label: "On the wall", nextPageId: "p04_hat_on_wall" }
       ], ["tiny", "in", "pot", "on", "wall"], { narrationNeedsRebuild: true }),
@@ -2138,9 +2138,9 @@ export const storyQuests = [
         { label: "Reach together", nextPageId: "p05_hat_found" },
         { label: "Lean a little farther", nextPageId: "p05_brave_stuck" }
       ], ["brave", "in", "pot"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p04_tiny_in_pot", ["Tiny climbs down a safe knotted string.", "The pot has room for one small mouse."], "What does Tiny lift out?", [
-        { label: "A hat", nextPageId: "p05_hat_found" },
-        { label: "A bell", nextPageId: "p05_bell_found" }
+      meadowPalsPage(braveTinyFolder, "p04_tiny_in_pot", ["Tiny climbs down a safe knotted string.", "Clucky's red hat lies at the bottom of the deep pot."], "How should they lift it out?", [
+        { label: "Tie the string to the hat", nextPageId: "p05_hat_found" },
+        { label: "Ask Brave to steady the pot", nextPageId: "p06_tiny_helps" }
       ], ["tiny", "in", "pot"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p04_feather", ["A loose red feather is caught on the wall.", "It is a clue, not the missing hat."], "What should Brave do with it?", [
         { label: "Show Clucky", nextPageId: "p04_clucky_wall" },
@@ -2154,19 +2154,19 @@ export const storyQuests = [
         { label: "Tiny", nextPageId: "p05_tiny_climbs" },
         { label: "Brave", nextPageId: "p05_brave_climbs" }
       ], ["tiny", "brave", "on", "wall", "up"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p04_under_wool", ["A soft curl of Woolly's fleece covers her ribbon.", "Tiny hears a tiny jingle beneath it."], "What is caught there?", [
-        { label: "Lift the ribbon curl", nextPageId: "p05_bell_found" },
-        { label: "Check the big curl", nextPageId: "p05_brave_in_wool" }
+      meadowPalsPage(braveTinyFolder, "p04_under_wool", ["Tiny lifts the soft curl, but the bell is not there.", "A loose wool thread trails toward the little stream, and the faint jingle comes from the same way."], "Which clue should they follow?", [
+        { label: "Follow the wool thread", nextPageId: "p04_stream" },
+        { label: "Ask Brave to check the big curl", nextPageId: "p05_brave_in_wool" }
       ], ["tiny", "in"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p04_stream", ["They follow the jingle to the little stream.", "Something glints beside the stepping stones."], "What did the wind leave there?", [
         { label: "The bell", nextPageId: "p05_bell_stream" },
-        { label: "A hat", nextPageId: "p03_hat" }
+        { label: "The bell's ribbon loop", nextPageId: "p05_bell_found" }
       ], ["stream", "little"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p05_hat_found", ["They found Clucky's hat.", "The wind cannot snatch it now."], "What should they do?", [
         { label: "Return it to Clucky", nextPageId: "p07_clucky_happy" },
         { label: "Try it once", nextPageId: "p06_hat_on_brave" }
       ], [], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p06_hat_on_brave", ["Brave tries the hat for one silly moment.", "It slides down over her eyes."], "What should Brave do next?", [
+      meadowPalsPage(braveTinyFolder, "p06_hat_on_brave", ["Brave asks Clucky, then tries the hat for one silly moment.", "It slides down over her eyes, so Brave lifts it off carefully."], "What should Brave do next?", [
         { label: "Return it to Clucky", nextPageId: "p07_clucky_happy" },
         { label: "Ask Clucky first", nextPageId: "p09_fancy_brave_ending" }
       ], ["brave", "big", "on"], { narrationNeedsRebuild: true }),
@@ -2178,13 +2178,13 @@ export const storyQuests = [
         { label: "Return it to Woolly", nextPageId: "p07_woolly_happy" },
         { label: "Test it softly", nextPageId: "p06_bell_ring" }
       ], [], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p05_feather_brave", ["Brave carries the loose feather to Clucky.", "\"I found this clue,\" she says."], "What should Brave do?", [
-        { label: "Ask Clucky", nextPageId: "p09_fancy_brave_ending" },
+      meadowPalsPage(braveTinyFolder, "p05_feather_brave", ["Brave carries the loose feather to Clucky.", "\"This clue is yours, but your hat is still missing,\" she says."], "Where should the hat search continue?", [
+        { label: "Ask where the hat flew", nextPageId: "p04_clucky_wall" },
         { label: "Give it back", nextPageId: "p05_feather_back" }
       ], ["brave"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p05_feather_back", ["Clucky tucks the loose feather safely away.", "\"Thank you. My hat is still missing,\" she says."], "Which search should continue?", [
-        { label: "The hat", nextPageId: "p04_hat_on_wall" },
-        { label: "The bell", nextPageId: "p04_under_wool" }
+      meadowPalsPage(braveTinyFolder, "p05_feather_back", ["Clucky tucks the loose feather safely away.", "\"Thank you. My hat is still missing,\" she says."], "Where should they check for the hat?", [
+        { label: "Check the wall", nextPageId: "p04_hat_on_wall" },
+        { label: "Check the pot", nextPageId: "p04_hat_in_pot" }
       ], [], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p05_tiny_climbs", ["Tiny follows the wide, low stones.", "Small paws fit the little footholds."], "Can Tiny reach the hat safely?", [
         { label: "Yes", nextPageId: "p05_hat_found" },
@@ -2194,59 +2194,59 @@ export const storyQuests = [
         { label: "Step back carefully", nextPageId: "p06_brave_slips" },
         { label: "Ask Tiny for an idea", nextPageId: "p06_brave_boost" }
       ], ["brave", "up", "help"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p05_brave_in_wool", ["Brave checks beneath a loose curl of fleece.", "The fluffy curl tumbles over her like a blanket."], "Who should lift it?", [
-        { label: "Tiny", nextPageId: "p06_tiny_helps" },
+      meadowPalsPage(braveTinyFolder, "p05_brave_in_wool", ["Brave checks beneath a loose curl of fleece.", "The bell is not there, but the fluffy curl tumbles over Brave like a blanket."], "Who should lift the wool so the trail can continue?", [
+        { label: "Tiny", nextPageId: "p05_bell_stream" },
         { label: "Woolly", nextPageId: "p06_woolly_laughs" }
       ], ["brave", "in"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p05_bell_stream", ["The bell rests on a flat stone beside the stream.", "Tiny sees a dry path of stepping stones."], "Who should cross?", [
         { label: "Tiny", nextPageId: "p05_bell_found" },
         { label: "Ask Brave", nextPageId: "p06_brave_stream" }
       ], ["tiny", "stream"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p06_tiny_helps", ["Tiny spots the small step that everyone missed.", "Together, Tiny and Brave reach the lost object."], "What did they find?", [
-        { label: "The hat", nextPageId: "p05_hat_found" },
-        { label: "The bell", nextPageId: "p05_bell_found" }
+      meadowPalsPage(braveTinyFolder, "p06_tiny_helps", ["Tiny ties the string around Clucky's hat.", "Brave steadies the pot while Tiny pulls the hat safely onto the grass."], "How should they finish the rescue?", [
+        { label: "Lift the hat together", nextPageId: "p05_hat_found" },
+        { label: "Pass the hat to Clucky", nextPageId: "p07_clucky_happy" }
       ], ["tiny", "brave"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p06_woolly_helps", ["Woolly braces the pot with her shoulder.", "It rolls gently onto a soft hay bed, and Brave steps out."], "What else rolled free?", [
-        { label: "The hat", nextPageId: "p05_hat_found" },
-        { label: "The bell", nextPageId: "p05_bell_found" }
+      meadowPalsPage(braveTinyFolder, "p06_woolly_helps", ["Woolly braces the pot with her shoulder.", "It rolls gently onto a soft hay bed, and Brave steps out beside Clucky's hat."], "What should they do with the hat?", [
+        { label: "Lift it from the hay", nextPageId: "p05_hat_found" },
+        { label: "Let Brave ask to try it", nextPageId: "p06_hat_on_brave" }
       ], ["pot"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p06_bell_ring", ["Tiny rings the bell once, very softly.", "Woolly hears it and trots over."], "How should they celebrate finding it?", [
         { label: "Give it back", nextPageId: "p07_woolly_happy" },
         { label: "Make a gentle song", nextPageId: "p09_loud_bell_ending" }
       ], [], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p06_brave_boost", ["Tiny points out one low, wide stone.", "Brave hops up while Tiny guides her from below."], "What can Brave reach?", [
-        { label: "The hat", nextPageId: "p05_hat_found" },
-        { label: "The feather", nextPageId: "p05_feather_back" }
+      meadowPalsPage(braveTinyFolder, "p06_brave_boost", ["Tiny points out one low, wide stone.", "Brave hops up while Tiny guides her toward Clucky's hat."], "How should they catch the hat?", [
+        { label: "Reach it together", nextPageId: "p05_hat_found" },
+        { label: "Guide it onto the hay", nextPageId: "p07_clucky_happy" }
       ], ["tiny", "brave", "up"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p06_brave_slips", ["Brave's foot slips from the low stone.", "Plop! She lands in a soft pile of hay."], "What is the safer plan?", [
         { label: "Use Tiny's idea", nextPageId: "p06_brave_boost" },
         { label: "Ask Tiny", nextPageId: "p05_tiny_climbs" }
       ], ["brave", "down"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p06_woolly_laughs", ["The loose wool tickles Brave, and everyone giggles.", "Woolly lifts the curl while Brave crawls out."], "What tumbles free too?", [
-        { label: "The bell", nextPageId: "p05_bell_found" },
-        { label: "The hat", nextPageId: "p05_hat_found" }
+      meadowPalsPage(braveTinyFolder, "p06_woolly_laughs", ["The loose wool tickles Brave, and everyone giggles.", "Woolly lifts the curl while Brave crawls out, and they follow the long thread to the stream."], "How should they retrieve the bell?", [
+        { label: "Use the stepping stones", nextPageId: "p05_bell_stream" },
+        { label: "Lift the ribbon loop", nextPageId: "p05_bell_found" }
       ], ["brave"], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p06_brave_stream", ["Brave takes one careful step into the shallow stream.", "The current nudges the bell toward Tiny."], "Can they catch it together?", [
         { label: "Catch it together", nextPageId: "p05_bell_found" },
-        { label: "Let Tiny guide", nextPageId: "p06_tiny_helps" }
+        { label: "Let Tiny guide the bell", nextPageId: "p06_bell_ring" }
       ], ["brave", "in", "stream"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p07_clucky_happy", ["Clucky gets her red hat back.", "\"Two little friends solved one big problem,\" she says."], "What should the team do now?", [
-        { label: "Help Woolly", nextPageId: "p03_woolly" },
-        { label: "Finish", nextPageId: "p09_helpful_ending" }
+      meadowPalsPage(braveTinyFolder, "p07_clucky_happy", ["Clucky gets her red hat back.", "\"You solved the hat mystery together,\" she says."], "What should the team do now?", [
+        { label: "Tell Clucky how the team worked", nextPageId: "p09_helpful_ending" },
+        { label: "Accept a thank-you feather", nextPageId: "p09_fancy_brave_ending" }
       ], [], { narrationNeedsRebuild: true }),
       meadowPalsPage(braveTinyFolder, "p07_woolly_happy", ["Woolly ties the little bell safely to her red ribbon.", "Its gentle jingle makes everyone smile."], "What should the team do now?", [
-        { label: "Help Clucky", nextPageId: "p03_hat" },
+        { label: "Make a gentle bell song", nextPageId: "p09_loud_bell_ending" },
         { label: "Finish", nextPageId: "p09_helpful_ending" }
       ], [], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p09_fancy_brave_ending", ["Brave returns the clue and asks before keeping it.", "Clucky gives Brave one loose feather as a thank-you.", "A little helper can feel big with pride."], "Read again?", [
+      meadowPalsPage(braveTinyFolder, "p09_fancy_brave_ending", ["Brave returns Clucky's red hat before keeping anything.", "Clucky gives Brave one loose feather as a thank-you.", "The hat mystery is solved, and a little helper feels big with pride."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["brave", "big"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p09_loud_bell_ending", ["Woolly taps a gentle beat.", "Brave and Tiny take turns: ring, ring!", "Soon the whole yard is dancing."], "Read again?", [
+      meadowPalsPage(braveTinyFolder, "p09_loud_bell_ending", ["Woolly fastens the found bell safely to her ribbon.", "Then Brave and Tiny take turns making a gentle beat.", "The bell mystery is solved, and soon the whole yard is dancing."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["brave"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(braveTinyFolder, "p09_helpful_ending", ["Tiny and Brave worked as a team.", "Small paws and little wings solved a big problem.", "Helping together made everyone feel brave."], "Read again?", [
+      meadowPalsPage(braveTinyFolder, "p09_helpful_ending", ["Tiny and Brave solved the mystery they chose as a team.", "Small paws and little wings returned the hat or bell safely.", "A new mystery waits for the next read."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["tiny", "brave", "little", "help", "big"], { narrationNeedsRebuild: true })

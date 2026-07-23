@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-01-look-at-the-colours",
- "questions": [
-  {
-   "prompt": "What colour is the robin?",
-   "choices": [
-    "red",
-    "purple",
-    "green"
-   ],
-   "answer": "red",
-   "kind": "word"
-  },
-  {
-   "prompt": "What colour is the fox?",
-   "choices": [
-    "orange",
-    "blue",
-    "pink"
-   ],
-   "answer": "orange",
-   "kind": "word"
-  },
-  {
-   "prompt": "What colour are the grapes?",
-   "choices": [
-    "purple",
-    "yellow",
-    "red"
-   ],
-   "answer": "purple",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-01-look-at-the-colours",
+  "contentHash": "sha256:c093213e0c7b78d49358000fa72d40e9a03ca0d2691e033ddfa9cdc16921b031",
+  "questions": [
+    {
+      "id": "first-facts-a-01-look-at-the-colours-q1",
+      "prompt": "Which pair of things is red?",
+      "choices": [
+        "the apple and the robin",
+        "the fox and the pumpkin",
+        "the grapes and the lavender"
+      ],
+      "answer": "the apple and the robin",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Red. A red apple. A red robin."
+    },
+    {
+      "id": "first-facts-a-01-look-at-the-colours-q2",
+      "prompt": "Which pair of things is orange?",
+      "choices": [
+        "the fox and the pumpkin",
+        "the sun and the duck",
+        "the grass and the frog"
+      ],
+      "answer": "the fox and the pumpkin",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "Orange. An orange fox. An orange pumpkin."
+    },
+    {
+      "id": "first-facts-a-01-look-at-the-colours-q3",
+      "prompt": "Where does the book say colours can be found?",
+      "choices": [
+        "all around us",
+        "only in the sea",
+        "only at night"
+      ],
+      "answer": "all around us",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 7,
+      "evidenceText": "Colours are all around us!"
+    }
+  ]
 }

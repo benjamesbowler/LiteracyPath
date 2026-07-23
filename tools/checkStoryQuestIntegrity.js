@@ -70,37 +70,191 @@ function hasPathToEnd(pageId, pageById) {
   return false;
 }
 
-function detectClosedLoops(pageById, startPageId) {
-  const loops = [];
+function isReplayChoice(choice, startPageId) {
+  return choice?.nextPageId === startPageId
+    && String(choice?.label || "").trim().toLowerCase() === "read again";
+}
+
+function detectNarrativeLoops(pageById, startPageId) {
+  const components = [];
   const stack = [];
-  const inStack = new Set();
-  const visited = new Set();
+  const onStack = new Set();
+  const indexByPageId = new Map();
+  const lowLinkByPageId = new Map();
+  let nextIndex = 0;
 
-  function visit(pageId) {
-    if (!pageId || pageId === "end") return;
-    if (inStack.has(pageId)) {
-      const startIndex = stack.indexOf(pageId);
-      const cycle = stack.slice(startIndex);
-      const hasEscape = cycle.some(cyclePageId => {
-        const page = pageById.get(cyclePageId);
-        return (page?.choices || []).some(choice => !cycle.includes(choice.nextPageId));
-      });
-      if (!hasEscape) loops.push(cycle);
-      return;
-    }
-    if (visited.has(pageId)) return;
-
-    visited.add(pageId);
-    inStack.add(pageId);
-    stack.push(pageId);
+  function narrativeTargets(pageId) {
     const page = pageById.get(pageId);
-    (page?.choices || []).forEach(choice => visit(choice.nextPageId));
-    stack.pop();
-    inStack.delete(pageId);
+    return (page?.choices || [])
+      .filter(choice => !isReplayChoice(choice, startPageId))
+      .map(choice => choice.nextPageId)
+      .filter(targetId => targetId && targetId !== "end" && pageById.has(targetId));
   }
 
-  visit(startPageId);
-  return loops;
+  function connect(pageId) {
+    indexByPageId.set(pageId, nextIndex);
+    lowLinkByPageId.set(pageId, nextIndex);
+    nextIndex += 1;
+    stack.push(pageId);
+    onStack.add(pageId);
+
+    narrativeTargets(pageId).forEach(targetId => {
+      if (!indexByPageId.has(targetId)) {
+        connect(targetId);
+        lowLinkByPageId.set(
+          pageId,
+          Math.min(lowLinkByPageId.get(pageId), lowLinkByPageId.get(targetId))
+        );
+      } else if (onStack.has(targetId)) {
+        lowLinkByPageId.set(
+          pageId,
+          Math.min(lowLinkByPageId.get(pageId), indexByPageId.get(targetId))
+        );
+      }
+    });
+
+    if (lowLinkByPageId.get(pageId) !== indexByPageId.get(pageId)) return;
+
+    const component = [];
+    let memberId;
+    do {
+      memberId = stack.pop();
+      onStack.delete(memberId);
+      component.push(memberId);
+    } while (memberId !== pageId);
+
+    const isSelfLoop = component.length === 1 && narrativeTargets(component[0]).includes(component[0]);
+    if (component.length > 1 || isSelfLoop) components.push(component.reverse());
+  }
+
+  if (pageById.has(startPageId)) connect(startPageId);
+  return components;
+}
+
+function pageText(page) {
+  return Array.isArray(page?.text) ? page.text.join(" ") : "";
+}
+
+function collectNarrativeReachable(pageById, firstPageId, startPageId) {
+  const reachable = new Set();
+  const stack = [firstPageId];
+
+  while (stack.length > 0) {
+    const pageId = stack.pop();
+    if (!pageId || pageId === "end" || reachable.has(pageId)) continue;
+    const page = pageById.get(pageId);
+    if (!page) continue;
+    reachable.add(pageId);
+    (page.choices || []).forEach(choice => {
+      if (!isReplayChoice(choice, startPageId)) stack.push(choice.nextPageId);
+    });
+  }
+
+  return reachable;
+}
+
+function shortestNarrativeRouteLength(pageById, startPageId) {
+  const queue = [[startPageId, 1]];
+  const shortestSeen = new Map([[startPageId, 1]]);
+
+  while (queue.length > 0) {
+    const [pageId, length] = queue.shift();
+    const page = pageById.get(pageId);
+    if (!page) continue;
+
+    for (const choice of page.choices || []) {
+      if (choice.nextPageId === "end") return length;
+      if (isReplayChoice(choice, startPageId) || !pageById.has(choice.nextPageId)) continue;
+      const nextLength = length + 1;
+      if ((shortestSeen.get(choice.nextPageId) || Infinity) <= nextLength) continue;
+      shortestSeen.set(choice.nextPageId, nextLength);
+      queue.push([choice.nextPageId, nextLength]);
+    }
+  }
+
+  return Infinity;
+}
+
+function requireTextMatch(quest, pageById, pageId, pattern, description) {
+  const page = pageById.get(pageId);
+  if (!page) return;
+  if (!pattern.test(pageText(page))) addError(quest, `${pageId} ${description}`);
+}
+
+function validateNarrativeContracts(quest, pageById, startPageId, endingPages) {
+  const minimumRouteByLevel = { A: 5, B: 6, C: 8 };
+  const minimumRoute = minimumRouteByLevel[quest.level];
+  if (minimumRoute) {
+    const shortestRoute = shortestNarrativeRouteLength(pageById, startPageId);
+    if (shortestRoute < minimumRoute) {
+      addError(quest, `shortest route is only ${shortestRoute} scenes; Level ${quest.level} requires at least ${minimumRoute}`);
+    }
+  }
+
+  endingPages.forEach(page => {
+    const hasReplay = (page.choices || []).some(choice => isReplayChoice(choice, startPageId));
+    const hasFinish = (page.choices || []).some(choice => choice.nextPageId === "end");
+    if (!hasReplay || !hasFinish) addError(quest, `${page.id} must offer both Read again and Finish`);
+  });
+
+  if (quest.id === "mw_ra_c_01_pip_stone_loud_thing") {
+    const softCall = pageById.get("p09_soft_call");
+    if ((softCall?.choices || []).some(choice => choice.nextPageId === "p11_back_home")) {
+      addError(quest, "p09_soft_call must reunite the lost toadling before the return-home route");
+    }
+    requireTextMatch(quest, pageById, "p11_toadling_answer", /family|reunite/i, "must resolve the lost-toadling search");
+  }
+
+  if (quest.id === "mw_ra_c_04_dewdrop_flint_lost_glow") {
+    endingPages.forEach(page => {
+      if (!/stream/i.test(pageText(page)) || !/glow|shone|shining|shine/i.test(pageText(page))) {
+        addError(quest, `${page.id} must confirm that the stream's glow was restored`);
+      }
+    });
+  }
+
+  if (quest.id === "dp_ra_b_02_sunnys_rainy_day_rescue") {
+    endingPages.forEach(page => {
+      if (!/Dozy/i.test(pageText(page)) || !/Grumpy/i.test(pageText(page))) {
+        addError(quest, `${page.id} must resolve both Dozy's and Grumpy's rainy-day needs`);
+      }
+    });
+  }
+
+  if (quest.id === "dp_ra_b_03_grumpy_almost_good_day") {
+    const stoneDamage = pageById.get("p03_stones_fall");
+    if ((stoneDamage?.choices || []).some(choice => choice.nextPageId === "p04_ignore_chompy")) {
+      addError(quest, "p03_stones_fall cannot abandon Fancy's damaged stone tower");
+    }
+  }
+
+  if (quest.id === "story_quest_short_a_sam_pam_01") {
+    endingPages.forEach(page => {
+      if (!/park/i.test(pageText(page))) addError(quest, `${page.id} must complete the planned trip to the park`);
+    });
+  }
+
+  if (quest.id === "mp_ra_a_03_bouncy_speedy_fast_map") {
+    requireTextMatch(quest, pageById, "p01_start", /surprise/i, "must establish the map's promised surprise");
+    const bootText = pageText(pageById.get("p04_boot"));
+    if (/not the map/i.test(bootText)) addError(quest, "p04_boot must be a useful map clue, not a contradiction");
+    endingPages.forEach(page => {
+      if (!/map/i.test(pageText(page))) addError(quest, `${page.id} must pay off the map mystery`);
+    });
+  }
+
+  if (quest.id === "mp_ra_a_04_brave_tiny_big_little_rescue") {
+    requireTextMatch(quest, pageById, startPageId, /one mystery at a time/i, "must frame the two objects as separate replayable mysteries");
+    const startChoices = pageById.get(startPageId)?.choices || [];
+    const hatReachable = collectNarrativeReachable(pageById, startChoices[0]?.nextPageId, startPageId);
+    const bellReachable = collectNarrativeReachable(pageById, startChoices[1]?.nextPageId, startPageId);
+    const hatOnlyPages = new Set(["p03_pot", "p03_wall", "p03_hat", "p04_hat_in_pot", "p04_tiny_in_pot", "p04_feather", "p04_clucky_wall", "p04_hat_on_wall", "p05_hat_found", "p06_hat_on_brave", "p05_brave_stuck", "p05_feather_brave", "p05_feather_back", "p05_tiny_climbs", "p05_brave_climbs", "p06_tiny_helps", "p06_woolly_helps", "p06_brave_boost", "p06_brave_slips", "p07_clucky_happy", "p09_fancy_brave_ending"]);
+    const bellOnlyPages = new Set(["p03_woolly", "p04_under_wool", "p04_stream", "p05_brave_in_wool", "p05_bell_stream", "p05_bell_found", "p06_bell_ring", "p06_woolly_laughs", "p06_brave_stream", "p07_woolly_happy", "p09_loud_bell_ending"]);
+    const hatCrossovers = [...bellOnlyPages].filter(pageId => hatReachable.has(pageId));
+    const bellCrossovers = [...hatOnlyPages].filter(pageId => bellReachable.has(pageId));
+    if (hatCrossovers.length > 0) addError(quest, `hat mystery crosses into bell-only scenes: ${hatCrossovers.join(", ")}`);
+    if (bellCrossovers.length > 0) addError(quest, `bell mystery crosses into hat-only scenes: ${bellCrossovers.join(", ")}`);
+  }
 }
 
 if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
@@ -120,6 +274,9 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
   if (!Array.isArray(quest.pages) || quest.pages.length === 0) {
     addError(quest, "missing pages array");
     return;
+  }
+  if (quest.pages.length < 10) {
+    addError(quest, `must contain at least 10 authored scenes (found ${quest.pages.length})`);
   }
 
   const pageById = new Map();
@@ -162,9 +319,16 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     if (!Array.isArray(page.choices)) {
       addError(quest, `${page.id || `page ${index + 1}`} choices must be an array`);
     } else {
+      if (page.choices.length < 2) {
+        addError(quest, `${page.id} must offer at least two choices`);
+      }
       const normalizedLabels = page.choices.map(choice => String(choice?.label || "").trim().toLowerCase());
       if (normalizedLabels.some((label, labelIndex) => label && normalizedLabels.indexOf(label) !== labelIndex)) {
         addError(quest, `${page.id} has duplicate choice labels`);
+      }
+      const targetPageIds = page.choices.map(choice => String(choice?.nextPageId || "").trim());
+      if (targetPageIds.some((targetId, targetIndex) => targetId && targetPageIds.indexOf(targetId) !== targetIndex)) {
+        addError(quest, `${page.id} has choices that lead to the same next scene`);
       }
       page.choices.forEach((choice, choiceIndex) => {
         if (!choice?.label) addError(quest, `${page.id} choice ${choiceIndex + 1} missing label`);
@@ -186,8 +350,12 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     });
   });
 
-  const hasEnding = quest.pages.some(page => (page.choices || []).some(choice => choice.nextPageId === "end"));
+  const endingPages = quest.pages.filter(page => (page.choices || []).some(choice => choice.nextPageId === "end"));
+  const hasEnding = endingPages.length > 0;
   if (!hasEnding) addError(quest, "must have at least one ending choice pointing to end");
+  if (endingPages.length < 2) {
+    addError(quest, `must have at least two distinct ending pages for replay value (found ${endingPages.length})`);
+  }
 
   if (startPageId && pageById.has(startPageId)) {
     const reachable = collectReachable(pageById, startPageId);
@@ -203,10 +371,11 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
       }
     });
 
-    detectClosedLoops(pageById, startPageId).forEach(cycle => {
-      if (cycle.length === 1 && cycle[0] === startPageId) return;
-      addError(quest, `closed circular loop detected: ${cycle.join(" -> ")}`);
+    detectNarrativeLoops(pageById, startPageId).forEach(component => {
+      addError(quest, `mid-story circular route joins: ${component.join(" -> ")}`);
     });
+
+    validateNarrativeContracts(quest, pageById, startPageId, endingPages);
   }
 });
 

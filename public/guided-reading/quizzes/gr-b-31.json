@@ -1,35 +1,65 @@
 {
- "bookId": "gr-b-31",
- "questions": [
-  {
-   "prompt": "When does it rain in this book?",
-   "choices": [
-    "in spring",
-    "in winter",
-    "in summer"
-   ],
-   "answer": "in spring",
-   "kind": "word"
-  },
-  {
-   "prompt": "What happens in winter?",
-   "choices": [
-    "it snows",
-    "it is hot",
-    "leaves drop"
-   ],
-   "answer": "it snows",
-   "kind": "word"
-  },
-  {
-   "prompt": "How many seasons are there?",
-   "choices": [
-    "four",
-    "two",
-    "ten"
-   ],
-   "answer": "four",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-b-31",
+  "contentHash": "sha256:771df02e8e4784c5b2a09bbbe13d6ae04fad5b63e9954faad0209495c9795721",
+  "questions": [
+    {
+      "id": "gr-b-31-q1",
+      "prompt": "When does it rain in this book?",
+      "choices": [
+        "in spring",
+        "in winter",
+        "in summer"
+      ],
+      "answer": "in spring",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "In spring, it rains."
+    },
+    {
+      "id": "gr-b-31-q2",
+      "prompt": "What happens in summer?",
+      "choices": [
+        "it is hot",
+        "it snows",
+        "it rains"
+      ],
+      "answer": "it is hot",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "In summer, it is hot."
+    },
+    {
+      "id": "gr-b-31-q3",
+      "prompt": "Which order does the book use for the seasons?",
+      "choices": [
+        "spring, summer, fall, winter",
+        "spring, fall, summer, winter",
+        "winter, summer, spring, fall"
+      ],
+      "answer": "spring, summer, fall, winter",
+      "kind": "text",
+      "skill": "sequence",
+      "rationale": "The book presents spring on page 1, summer on page 2, fall on page 3, and winter on page 4.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 2,
+          "evidenceText": "In summer, it is hot."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "In fall, leaves drop."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "In winter, it snows."
+        }
+      ],
+      "evidencePage": 1,
+      "evidenceText": "In spring, it rains."
+    }
+  ]
 }

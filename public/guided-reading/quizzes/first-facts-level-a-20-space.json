@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-20-space",
- "questions": [
-  {
-   "prompt": "Which one is the biggest?",
-   "choices": [
-    "the sun",
-    "the moon",
-    "Mars"
-   ],
-   "answer": "the sun",
-   "kind": "word"
-  },
-  {
-   "prompt": "What color is Mars?",
-   "choices": [
-    "red",
-    "blue",
-    "green"
-   ],
-   "answer": "red",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does Saturn have?",
-   "choices": [
-    "rings",
-    "wings",
-    "legs"
-   ],
-   "answer": "rings",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-20-space",
+  "contentHash": "sha256:e7343e0f0ae7dcc5411235719c5fcfcedfe2a2ad521270ab33ad8f75247b6400",
+  "questions": [
+    {
+      "id": "first-facts-level-a-20-space-q1",
+      "prompt": "Which one is the biggest?",
+      "choices": [
+        "the sun",
+        "the moon",
+        "Mars"
+      ],
+      "answer": "the sun",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 2,
+      "evidenceText": "The sun is the biggest.\nIt is very hot."
+    },
+    {
+      "id": "first-facts-level-a-20-space-q2",
+      "prompt": "What color is Mars?",
+      "choices": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "answer": "red",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Mars is red.\nIt is a planet."
+    },
+    {
+      "id": "first-facts-level-a-20-space-q3",
+      "prompt": "What does Saturn have?",
+      "choices": [
+        "rings",
+        "wings",
+        "legs"
+      ],
+      "answer": "rings",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "Saturn has rings.\nThe rings are big."
+    }
+  ]
 }

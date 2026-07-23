@@ -1,3 +1,10 @@
+import {
+  EL_PARALLEL_DECODING_WORDS,
+  EL_PARALLEL_ENCODING_CONTENT,
+  EL_PARALLEL_FLUENCY_CONTENT,
+  EL_PARALLEL_PA_CONTENT
+} from "./elBenchmarkParallelFormContent.js";
+
 /**
  * Original LiteracyPath benchmark content.
  *
@@ -11,6 +18,41 @@
 export const EL_BENCHMARK_SCHEMA_VERSION = 1;
 export const EL_BENCHMARK_CONTENT_VERSION = "2026.07.21-v2";
 export const EL_BENCHMARK_FORM_ID = "form-a-v2";
+export const EL_BENCHMARK_FORM_IDS = Object.freeze({
+  A: EL_BENCHMARK_FORM_ID,
+  B: "form-b-v1",
+  C: "form-c-v1"
+});
+export const EL_BENCHMARK_FORM_DEFINITIONS = Object.freeze([
+  Object.freeze({
+    id: EL_BENCHMARK_FORM_IDS.A,
+    key: "a",
+    label: "Form A",
+    contentVersion: EL_BENCHMARK_CONTENT_VERSION,
+    parallelSetId: "lp-el-parallel-2026-v1",
+    equatingStatus: "blueprint_matched_not_empirically_equated"
+  }),
+  Object.freeze({
+    id: EL_BENCHMARK_FORM_IDS.B,
+    key: "b",
+    label: "Form B",
+    contentVersion: "2026.07.22-parallel-v1",
+    parallelSetId: "lp-el-parallel-2026-v1",
+    equatingStatus: "blueprint_matched_not_empirically_equated"
+  }),
+  Object.freeze({
+    id: EL_BENCHMARK_FORM_IDS.C,
+    key: "c",
+    label: "Form C",
+    contentVersion: "2026.07.22-parallel-v1",
+    parallelSetId: "lp-el-parallel-2026-v1",
+    equatingStatus: "blueprint_matched_not_empirically_equated"
+  })
+]);
+
+const FORM_DEFINITION_BY_ID = Object.freeze(Object.fromEntries(
+  EL_BENCHMARK_FORM_DEFINITIONS.map(definition => [definition.id, definition])
+));
 
 export const EL_BENCHMARK_IDS = Object.freeze({
   PHONOLOGICAL_AWARENESS: "el_phonological_awareness",
@@ -507,12 +549,12 @@ const DECODING_WORDS = Object.freeze({
   late_consolidated: [["wonderful", ["multisyllable", "suffix"]], ["remember", ["multisyllable"]], ["musician", ["multisyllable", "suffix"]], ["cheerfulness", ["multisyllable", "suffix"]], ["preview", ["prefix"]], ["misbehave", ["prefix", "multisyllable"]], ["agreement", ["multisyllable", "suffix"]], ["quietly", ["multisyllable", "suffix"]]]
 });
 
-function fluencyPassage(microphaseId, title, text, referenceGrade, referenceWindow, featureTags, audit = {}) {
+function fluencyPassage(microphaseId, title, text, referenceGrade, referenceWindow, featureTags, audit = {}, formKey = "a") {
   const microphase = MICROPHASE_BY_ID[microphaseId];
   if (!microphase) throw new RangeError(`Unsupported fluency passage microphase: ${microphaseId}`);
   const words = text.match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g) || [];
   return {
-    id: `orf-${microphaseId}-a-v1`,
+    id: `orf-${microphaseId}-${formKey}-v1`,
     kind: "fluency_passage",
     title,
     text,
@@ -688,8 +730,40 @@ export const EL_FLUENCY_PASSAGES = Object.freeze([
   )
 ]);
 
-const FLUENCY_PASSAGE_BY_MICROPHASE = Object.freeze(Object.fromEntries(
-  EL_FLUENCY_PASSAGES.map(passage => [passage.microphase, passage])
+function buildParallelFluencyPassages(formKey) {
+  return Object.freeze(EL_FLUENCY_PASSAGES.map(blueprint => {
+    const content = EL_PARALLEL_FLUENCY_CONTENT[formKey]?.[blueprint.microphase];
+    if (!content?.title || !content?.text) {
+      throw new RangeError(`Missing Form ${formKey.toUpperCase()} Fluency passage for ${blueprint.microphase}.`);
+    }
+    return fluencyPassage(
+      blueprint.microphase,
+      content.title,
+      content.text,
+      blueprint.referenceGrade,
+      blueprint.referenceWindow,
+      blueprint.featureTags,
+      {
+        minimumOpportunityWords: blueprint.wordAudit.minimumOpportunityWords,
+        controlNotes: `Parallel ${formKey.toUpperCase()} passage authored to the same named microphase and feature blueprint as Form A.`,
+        plannedSupportWords: []
+      },
+      formKey
+    );
+  }));
+}
+
+export const EL_FLUENCY_PASSAGES_BY_FORM = Object.freeze({
+  [EL_BENCHMARK_FORM_IDS.A]: EL_FLUENCY_PASSAGES,
+  [EL_BENCHMARK_FORM_IDS.B]: buildParallelFluencyPassages("b"),
+  [EL_BENCHMARK_FORM_IDS.C]: buildParallelFluencyPassages("c")
+});
+
+const FLUENCY_PASSAGES_BY_FORM = Object.freeze(Object.fromEntries(
+  Object.entries(EL_FLUENCY_PASSAGES_BY_FORM).map(([formId, passages]) => [
+    formId,
+    Object.freeze(Object.fromEntries(passages.map(item => [item.microphase, item])))
+  ])
 ));
 
 const INSTRUCTIONS = Object.freeze({
@@ -754,8 +828,19 @@ function normalizeWindow(value) {
 }
 
 function normalizeFormId(value) {
-  if (!value || value === "A" || value === "form-a") return EL_BENCHMARK_FORM_ID;
-  if (value === EL_BENCHMARK_FORM_ID) return value;
+  const normalized = String(value || "A").trim().toLowerCase();
+  const aliases = {
+    a: EL_BENCHMARK_FORM_IDS.A,
+    "form-a": EL_BENCHMARK_FORM_IDS.A,
+    "form-a-v2": EL_BENCHMARK_FORM_IDS.A,
+    b: EL_BENCHMARK_FORM_IDS.B,
+    "form-b": EL_BENCHMARK_FORM_IDS.B,
+    "form-b-v1": EL_BENCHMARK_FORM_IDS.B,
+    c: EL_BENCHMARK_FORM_IDS.C,
+    "form-c": EL_BENCHMARK_FORM_IDS.C,
+    "form-c-v1": EL_BENCHMARK_FORM_IDS.C
+  };
+  if (aliases[normalized]) return aliases[normalized];
   throw new RangeError(`Unsupported EL benchmark form: ${value}`);
 }
 
@@ -806,30 +891,102 @@ function plannedMicrophases(route, selected) {
   };
 }
 
-function decodingItems(microphases) {
-  return microphases.flatMap(microphase => DECODING_WORDS[microphase.id].map(([targetWord, featureTags], index) => ({
-    id: `dec-${microphase.id}-${String(index + 1).padStart(2, "0")}-v2`,
-    kind: "word_reading",
-    prompt: "Read this word.",
-    displayWord: targetWord,
-    targetWord,
-    microphase: microphase.id,
-    microphaseLabel: microphase.label,
-    microphaseOrder: MICROPHASE_BY_ID[microphase.id].order,
-    anchorCycle: microphase.anchorCycle,
-    constructFocus: microphase.constructFocus,
-    progressionBasis: microphase.progressionBasis,
-    bandId: microphase.id,
-    position: index + 1,
-    featureTags
-  })));
+function formDefinition(formId) {
+  const definition = FORM_DEFINITION_BY_ID[formId];
+  if (!definition) throw new RangeError(`Unsupported EL benchmark form: ${formId}`);
+  return definition;
 }
 
-function fluencyPassagesFrom(selectedMicrophase) {
+function parallelPaItems(routeKey, formId) {
+  if (formId === EL_BENCHMARK_FORM_IDS.A) return PA_FORMS[routeKey];
+  const definition = formDefinition(formId);
+  const replacements = EL_PARALLEL_PA_CONTENT[routeKey];
+  const blueprint = PA_FORMS[routeKey];
+  if (!Array.isArray(replacements) || replacements.length !== blueprint.length) {
+    throw new RangeError(`Incomplete ${definition.label} Sound Awareness blueprint for ${routeKey}.`);
+  }
+  return blueprint.map((item, index) => {
+    const replacement = replacements[index]?.[definition.key];
+    if (!replacement) throw new RangeError(`Missing ${definition.label} Sound Awareness item ${routeKey} ${index + 1}.`);
+    return {
+      ...item,
+      id: `pa-${routeKey.toLowerCase()}-${definition.key}-${String(index + 1).padStart(2, "0")}-v1`,
+      teacherSay: replacement[0],
+      expectedAnswers: replacement[1]
+    };
+  });
+}
+
+function parallelEncodingItems(routeKey, formId) {
+  if (formId === EL_BENCHMARK_FORM_IDS.A) return ENCODING_FORMS[routeKey];
+  const definition = formDefinition(formId);
+  const replacements = EL_PARALLEL_ENCODING_CONTENT[routeKey];
+  const blueprint = ENCODING_FORMS[routeKey];
+  if (!Array.isArray(replacements) || replacements.length !== blueprint.length) {
+    throw new RangeError(`Incomplete ${definition.label} Encoding blueprint for ${routeKey}.`);
+  }
+  const offset = definition.key === "b" ? 0 : 3;
+  return blueprint.map((item, index) => {
+    const replacement = replacements[index];
+    const targetWord = replacement?.[offset];
+    const sentence = replacement?.[offset + 1];
+    const plausibleSpellings = replacement?.[offset + 2];
+    if (!targetWord || !sentence || !Array.isArray(plausibleSpellings)) {
+      throw new RangeError(`Missing ${definition.label} Encoding item ${routeKey} ${index + 1}.`);
+    }
+    return {
+      ...item,
+      id: `enc-${routeKey.toLowerCase()}-${definition.key}-${String(index + 1).padStart(2, "0")}-v1`,
+      teacherSay: `${targetWord}. ${sentence} ${targetWord}.`,
+      targetWord,
+      sentence,
+      acceptedSpellings: [targetWord],
+      plausibleSpellings
+    };
+  });
+}
+
+function decodingItems(microphases, formId) {
+  const definition = formDefinition(formId);
+  return microphases.flatMap(microphase => {
+    const blueprint = DECODING_WORDS[microphase.id];
+    const replacementWords = definition.key === "a"
+      ? blueprint.map(([targetWord]) => targetWord)
+      : EL_PARALLEL_DECODING_WORDS[definition.key]?.[microphase.id];
+    if (!Array.isArray(replacementWords) || replacementWords.length !== blueprint.length) {
+      throw new RangeError(`Incomplete ${definition.label} Decoding blueprint for ${microphase.id}.`);
+    }
+    return blueprint.map(([, featureTags], index) => {
+      const targetWord = replacementWords[index];
+      return {
+        id: definition.key === "a"
+          ? `dec-${microphase.id}-${String(index + 1).padStart(2, "0")}-v2`
+          : `dec-${microphase.id}-${definition.key}-${String(index + 1).padStart(2, "0")}-v1`,
+        kind: "word_reading",
+        prompt: "Read this word.",
+        displayWord: targetWord,
+        targetWord,
+        microphase: microphase.id,
+        microphaseLabel: microphase.label,
+        microphaseOrder: MICROPHASE_BY_ID[microphase.id].order,
+        anchorCycle: microphase.anchorCycle,
+        constructFocus: microphase.constructFocus,
+        progressionBasis: microphase.progressionBasis,
+        bandId: microphase.id,
+        position: index + 1,
+        featureTags
+      };
+    });
+  });
+}
+
+function fluencyPassagesFrom(selectedMicrophase, formId) {
+  const definition = formDefinition(formId);
+  const passages = FLUENCY_PASSAGES_BY_FORM[definition.id];
   return EL_DECODING_MICROPHASES
     .slice(selectedMicrophase.order - 1)
     .map((microphase, index) => ({
-      ...FLUENCY_PASSAGE_BY_MICROPHASE[microphase.id],
+      ...passages[microphase.id],
       position: index + 1
     }));
 }
@@ -860,6 +1017,7 @@ export function getElBenchmarkPlan({
   const normalizedGrade = normalizeGrade(grade);
   const normalizedWindow = normalizeWindow(window);
   const normalizedFormId = normalizeFormId(formId);
+  const selectedForm = formDefinition(normalizedFormId);
   const routeKey = `${normalizedGrade}-${normalizedWindow}`;
   const route = ROUTES[routeKey];
   const encodingRoutine = normalizedGrade !== "K"
@@ -872,17 +1030,17 @@ export function getElBenchmarkPlan({
     ? plannedMicrophases(route, selectedStart)
     : { routeRange: microphaseRange(route.rangeStart, route.rangeEnd), planned: [] };
   const fluencyPassageSequence = assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY
-    ? fluencyPassagesFrom(selectedStart)
+    ? fluencyPassagesFrom(selectedStart, normalizedFormId)
     : [];
 
   let items = [];
   let passage = null;
   if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) {
-    items = PA_FORMS[routeKey];
+    items = parallelPaItems(routeKey, normalizedFormId);
   } else if (assessmentId === EL_BENCHMARK_IDS.ENCODING) {
-    items = ENCODING_FORMS[routeKey];
+    items = parallelEncodingItems(routeKey, normalizedFormId);
   } else if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
-    items = decodingItems(decodingRoute.planned);
+    items = decodingItems(decodingRoute.planned, normalizedFormId);
   } else if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
     items = fluencyPassageSequence;
     passage = items[0];
@@ -917,7 +1075,7 @@ export function getElBenchmarkPlan({
 
   return deepClone({
     schemaVersion: EL_BENCHMARK_SCHEMA_VERSION,
-    contentVersion: EL_BENCHMARK_CONTENT_VERSION,
+    contentVersion: selectedForm.contentVersion,
     planId: [
       "lp-el",
       assessmentId,
@@ -938,6 +1096,13 @@ export function getElBenchmarkPlan({
     grade: normalizedGrade,
     window: normalizedWindow,
     formId: normalizedFormId,
+    form: {
+      id: selectedForm.id,
+      key: selectedForm.key,
+      label: selectedForm.label,
+      parallelSetId: selectedForm.parallelSetId,
+      equatingStatus: selectedForm.equatingStatus
+    },
     framework: FRAMEWORK,
     route: {
       routeKey,

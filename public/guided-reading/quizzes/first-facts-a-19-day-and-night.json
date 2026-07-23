@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-19-day-and-night",
+  "contentHash": "sha256:0cb47b931f06e47b3fd884adab5dfd38237abf9faed80296b9d34c5986a191fd",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"At ___, the sun goes away. The sky turns dark.\"",
+      "id": "first-facts-a-19-day-and-night-q1",
+      "prompt": "What makes day and night happen?",
       "choices": [
-        "night",
-        "won",
-        "singing"
+        "the Earth spins",
+        "the Moon changes shape",
+        "clouds cover the Sun"
       ],
-      "answer": "night",
-      "kind": "word"
+      "answer": "the Earth spins",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "The Earth spins around. That is why we have day and night."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-19-day-and-night-q2",
+      "prompt": "What do our bodies do at night?",
       "choices": [
-        "spiders",
-        "gifts",
+        "wake up",
+        "rest",
+        "fly"
+      ],
+      "answer": "rest",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "Our bodies rest."
+    },
+    {
+      "id": "first-facts-a-19-day-and-night-q3",
+      "prompt": "What comes after night in the repeating pattern?",
+      "choices": [
+        "spring",
+        "evening",
         "day"
       ],
       "answer": "day",
-      "kind": "word"
-    },
-    {
-      "prompt": "What was your book about?",
-      "choices": [
-        "bath",
-        "fell",
-        "night"
-      ],
-      "answer": "night",
-      "kind": "word"
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 7,
+      "evidenceText": "Day, then night, then day again."
     }
   ]
 }

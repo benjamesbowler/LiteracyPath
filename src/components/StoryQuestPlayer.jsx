@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { preloadMediaSet } from "../utils/preloadMedia.js";
 import "./StoryQuestPlayer.css";
@@ -42,10 +42,10 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     return new Map((quest?.pages || []).map(page => [page.id, page]));
   }, [quest]);
 
-  const getStartPageId = () =>
+  const getStartPageId = useCallback(() =>
     initialPageId && pageById.has(initialPageId)
       ? initialPageId
-      : quest?.startPageId || quest?.pages?.[0]?.id || "";
+      : quest?.startPageId || quest?.pages?.[0]?.id || "", [initialPageId, pageById, quest]);
 
   const [currentPageId, setCurrentPageId] = useState(getStartPageId);
   const [history, setHistory] = useState([]);
@@ -59,8 +59,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
 
   const currentPage = pageById.get(currentPageId) || quest?.pages?.[0] || null;
   const currentAudioUrl = getStoryQuestPageAudioUrl(currentPage);
-  const currentPageNumber = quest?.pages?.findIndex(page => page.id === currentPage?.id) + 1 || 1;
-  const totalPages = quest?.pages?.length || 0;
+  const currentSceneNumber = history.length + 1;
   const visitedPageIds = useMemo(() => new Set([...history, currentPageId].filter(Boolean)), [currentPageId, history]);
   const foundWords = useMemo(() => {
     const targetWords = new Set((quest?.targetWords || []).map(word => word.toLowerCase()));
@@ -73,6 +72,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     ));
   }, [quest, visitedPageIds]);
   const targetWordTotal = quest?.targetWords?.length || 0;
+  const wordProgressPercent = targetWordTotal ? (foundWords.length / targetWordTotal) * 100 : 0;
   const currentPageWords = (currentPage?.skillTags || [])
     .filter(tag => !["short_a", "hfw_1_25"].includes(String(tag).toLowerCase()))
     .slice(0, 4);
@@ -89,12 +89,12 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     setCurrentPageId(getStartPageId());
     setHistory([]);
     setIsComplete(false);
-  }, [quest, initialPageId, pageById]);
+  }, [getStartPageId]);
 
   useEffect(() => {
     if (!currentPageId || isComplete) return;
     onProgress?.(currentPageId, progressSnapshot);
-  }, [currentPageId, isComplete, progressSnapshot]);
+  }, [currentPageId, isComplete, onProgress, progressSnapshot]);
 
   useEffect(() => {
     let cancelled = false;
@@ -201,7 +201,14 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
       });
   }
 
-  function goToPage(nextPageId) {
+  function goToPage(choice) {
+    const nextPageId = choice?.nextPageId;
+    const isReplayChoice = nextPageId === (quest?.startPageId || quest?.pages?.[0]?.id)
+      && String(choice?.label || "").trim().toLowerCase() === "read again";
+    if (isReplayChoice) {
+      restart();
+      return;
+    }
     if (nextPageId === "end") {
       stopAudio();
       setIsComplete(true);
@@ -349,13 +356,14 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
 
       <div
         className="story-quest-progress"
-        aria-label={`Page ${currentPageNumber} of ${totalPages}. ${foundWords.length} of ${targetWordTotal} target words found.`}
+        aria-label={`Scene ${currentSceneNumber} on this route. ${foundWords.length} of ${targetWordTotal} target words found.`}
       >
         <div className="story-quest-progress-top">
-          <span>Page {currentPageNumber} of {totalPages}</span>
+          <span>Scene {currentSceneNumber}</span>
+          <span>{foundWords.length}/{targetWordTotal} story words</span>
         </div>
         <div className="story-quest-progress-bar">
-          <span style={{ width: `${totalPages ? (currentPageNumber / totalPages) * 100 : 0}%` }} />
+          <span style={{ width: `${wordProgressPercent}%` }} />
         </div>
       </div>
 
@@ -432,7 +440,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
               className="story-quest-choice-button"
               disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)}
               key={`${currentPage.id}-${choice.label}`}
-              onClick={() => goToPage(choice.nextPageId)}
+              onClick={() => goToPage(choice)}
               type="button"
             >
               {choice.label}

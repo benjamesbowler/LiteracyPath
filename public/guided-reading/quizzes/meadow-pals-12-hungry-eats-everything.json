@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-12-hungry-eats-everything",
+  "contentHash": "sha256:3a0641e974b911461e141beea58ec6f2a25ca88619ac07d1fac72c420b03249f",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ ate the grass.\"",
+      "id": "meadow-pals-12-hungry-eats-everything-q1",
+      "prompt": "Who brings Hungry some fresh hay?",
       "choices": [
+        "the farmer",
+        "the baker",
+        "the vet"
+      ],
+      "answer": "the farmer",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "The farmer brought fresh hay."
+    },
+    {
+      "id": "meadow-pals-12-hungry-eats-everything-q2",
+      "prompt": "Where does Hungry go while looking for more food?",
+      "choices": [
+        "the farm gate",
+        "the big hill",
+        "the muddy pond"
+      ],
+      "answer": "the farm gate",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 4,
+      "evidenceText": "Hungry went to the farm gate."
+    },
+    {
+      "id": "meadow-pals-12-hungry-eats-everything-q3",
+      "prompt": "How does Hungry feel after eating and drinking?",
+      "choices": [
+        "full",
         "hungry",
-        "apple",
-        "dentist"
+        "sleepy"
       ],
-      "answer": "hungry",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "ate",
-        "pat",
-        "sky"
-      ],
-      "answer": "ate",
-      "kind": "word"
-    },
-    {
-      "prompt": "What was your book about?",
-      "choices": [
-        "senses",
-        "everything",
-        "wake"
-      ],
-      "answer": "everything",
-      "kind": "word"
+      "answer": "full",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 7,
+      "evidenceText": "\"I am full now,\" said Hungry."
     }
   ]
 }

@@ -14,6 +14,7 @@ let getDecodingEvaluationPatch;
 let getFluencyTimerInterruptionPatch;
 let getFluencyTimerResetPatch;
 let isDiscontinueEvidenceComplete;
+let preserveTerminalSessionStatus;
 let vite;
 const assessmentPageSource = readFileSync(
   new URL("../../src/components/assessment/ELBenchmarkAssessmentPage.jsx", import.meta.url),
@@ -36,6 +37,7 @@ test.before(async () => {
   getFluencyTimerInterruptionPatch = AssessmentPage.getFluencyTimerInterruptionPatch;
   getFluencyTimerResetPatch = AssessmentPage.getFluencyTimerResetPatch;
   isDiscontinueEvidenceComplete = AssessmentPage.isDiscontinueEvidenceComplete;
+  preserveTerminalSessionStatus = AssessmentPage.preserveTerminalSessionStatus;
 });
 
 test.after(async () => {
@@ -184,6 +186,42 @@ test("a device-save failure stays prominent without reintroducing competing exit
   assert.doesNotMatch(html, /Saved automatically/);
   assert.equal(countText(html, "Save &amp; exit"), 1);
   assert.equal(countText(html, "Return to assessments"), 0);
+});
+
+test("completion is awaited, single-flight, visibly busy, and exposes an accessible retry", () => {
+  assert.match(assessmentPageSource, /completionLockRef\.current = true/);
+  assert.match(assessmentPageSource, /await onComplete\(nextSession\)/);
+  assert.match(assessmentPageSource, /aria-busy=\{completionIsSaving \? "true" : undefined\}/);
+  assert.match(assessmentPageSource, /\? "Finishing\.\.\."/);
+  assert.match(assessmentPageSource, /<p role="alert"><strong>Could not finish\.<\/strong>/);
+  assert.match(assessmentPageSource, /\? "Retry finish"/);
+});
+
+test("terminal assessment snapshots can be retried but never downgraded to a draft", () => {
+  const completed = preserveTerminalSessionStatus({
+    status: "completed",
+    administrationStatus: "completed",
+    completedAt: "2026-07-22T12:00:00.000Z"
+  }, {
+    status: "partial",
+    administrationStatus: "partial",
+    completedAt: "",
+    updatedAt: "2026-07-22T12:05:00.000Z"
+  });
+  assert.equal(completed.status, "completed");
+  assert.equal(completed.administrationStatus, "completed");
+  assert.equal(completed.completedAt, "2026-07-22T12:00:00.000Z");
+
+  const discontinued = preserveTerminalSessionStatus({
+    status: "discontinued",
+    discontinuedAt: "2026-07-22T12:00:00.000Z"
+  }, {
+    status: "in_progress",
+    administrationStatus: "in_progress"
+  });
+  assert.equal(discontinued.status, "discontinued");
+  assert.equal(discontinued.administrationStatus, "discontinued");
+  assert.equal(discontinued.discontinuedAt, "2026-07-22T12:00:00.000Z");
 });
 
 test("rhyme recognition is a teacher-only two-word cue with large Yes, No, and Other controls", () => {
@@ -657,7 +695,8 @@ test("Encoding accepts the suggested starting point in one tap and asks for rati
   assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Use this starting point"), /disabled/);
   assert.match(suggestedHtml, /Choose a different starting point/);
   assert.doesNotMatch(suggestedHtml, /Why are you choosing a different starting point\?/);
-  assert.match(buttonOpeningTag(suggestedHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Choose starting point"), /disabled/);
+  assert.match(suggestedHtml, /One final step: choose the student’s next starting point/);
 
   const acceptedHtml = renderAssessment({
     ...defaultSession,
@@ -686,7 +725,7 @@ test("Encoding accepts the suggested starting point in one tap and asks for rati
   const unreasonedHtml = renderAssessment(deviationSession);
   assert.match(unreasonedHtml, /Why are you choosing a different starting point\?/);
   assert.match(buttonOpeningTag(unreasonedHtml, "Save starting point"), /disabled/);
-  assert.match(buttonOpeningTag(unreasonedHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(unreasonedHtml, "Choose starting point"), /disabled/);
 
   const reasonedHtml = renderAssessment({
     ...deviationSession,
@@ -781,7 +820,7 @@ test("Decoding permits the exact adjacent ceiling suggestion but rejects unrelat
     placementSource: "teacher_confirmation"
   });
   assert.match(invalidHtml, /saved starting point is outside this assessment route/i);
-  assert.match(buttonOpeningTag(invalidHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(invalidHtml, "Choose starting point"), /disabled/);
 });
 
 test("ORF error and self-correction counters start at zero and remain live during timing", () => {
@@ -1466,7 +1505,7 @@ test("a confirmed Decoding finish marks later items unadministered, never wrong"
   }));
   assert.match(unconfirmedHtml, /Suggested starting point/);
   assert.doesNotMatch(buttonOpeningTag(unconfirmedHtml, "Use this starting point"), /disabled/);
-  assert.match(buttonOpeningTag(unconfirmedHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(unconfirmedHtml, "Choose starting point"), /disabled/);
 
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
     confirmedPlacement: teacherConfirmedPlacement(firstBandId),

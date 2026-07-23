@@ -1379,6 +1379,12 @@
   white-space: nowrap;
 }
 
+.story-quest-reader.fullscreen .story-quest-progress-top,
+.story-quest-reader:fullscreen .story-quest-progress-top {
+  grid-area: label;
+  white-space: nowrap;
+}
+
 .story-quest-reader.fullscreen .story-quest-progress-bar,
 .story-quest-reader:fullscreen .story-quest-progress-bar {
   grid-area: bar;

@@ -1,35 +1,56 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-11-brave-climbs-the-hay-bale",
+  "contentHash": "sha256:8a5c399c65ab4ca3f1681cf1cdd140b4d9e4db73de20c18e1d9f0c44ba23512c",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"The hay ___ is big.\"",
+      "id": "meadow-pals-11-brave-climbs-the-hay-bale-q1",
+      "prompt": "What does Brave keep saying while trying?",
       "choices": [
-        "bale",
-        "taste",
-        "bright"
+        "I can get up",
+        "I will go home",
+        "I need some help"
       ],
-      "answer": "bale",
-      "kind": "word"
+      "answer": "I can get up",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "\"I can get up,\" said Brave."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-11-brave-climbs-the-hay-bale-q2",
+      "prompt": "What is very, very big?",
       "choices": [
-        "snail",
-        "walked",
-        "brave"
+        "the hay bale",
+        "the little hat",
+        "the mud puddle"
       ],
-      "answer": "brave",
-      "kind": "word"
+      "answer": "the hay bale",
+      "kind": "text",
+      "skill": "setting",
+      "supportingEvidence": [
+        {
+          "evidencePage": 2,
+          "evidenceText": "Very, very big."
+        }
+      ],
+      "evidencePage": 1,
+      "evidenceText": "The hay bale is big."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-11-brave-climbs-the-hay-bale-q3",
+      "prompt": "What happens after Brave gets to the top?",
       "choices": [
-        "Spark",
-        "Sleepy",
-        "Brave"
+        "Brave fell off.",
+        "Brave took a nap.",
+        "Brave found an egg."
       ],
-      "answer": "Brave",
-      "kind": "word"
+      "answer": "Brave fell off.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 10,
+      "evidenceText": "Then Brave fell off."
     }
   ]
 }

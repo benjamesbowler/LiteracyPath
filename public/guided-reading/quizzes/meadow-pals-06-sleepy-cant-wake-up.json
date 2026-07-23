@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-06-sleepy-cant-wake-up",
+  "contentHash": "sha256:5c597f65e68df6b7d1f8acecef30340fcf41879e2c8897fe838c9fea921724dc",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"\"Get up, ___!\" said Noisy.\"",
-      "choices": [
-        "stars",
-        "sleepy",
-        "burrow"
-      ],
-      "answer": "sleepy",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "things",
-        "explore",
-        "get"
-      ],
-      "answer": "get",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-06-sleepy-cant-wake-up-q1",
+      "prompt": "Who finally gets up after all the calls?",
       "choices": [
         "Sleepy",
-        "Zippy",
-        "Aiden"
+        "Noisy",
+        "Bouncy"
       ],
       "answer": "Sleepy",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 8,
+      "evidenceText": "Sleepy got up."
+    },
+    {
+      "id": "meadow-pals-06-sleepy-cant-wake-up-q2",
+      "prompt": "Who gives the loud final call?",
+      "choices": [
+        "Noisy",
+        "Clucky",
+        "Bouncy"
+      ],
+      "answer": "Noisy",
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 7,
+      "evidenceText": "\"GET UP, SLEEPY!\" said Noisy."
+    },
+    {
+      "id": "meadow-pals-06-sleepy-cant-wake-up-q3",
+      "prompt": "Where does Sleepy go at the end?",
+      "choices": [
+        "back to bed",
+        "out to play",
+        "into the barn"
+      ],
+      "answer": "back to bed",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "Sleepy went back to bed."
     }
   ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-04-the-moon",
+  "contentHash": "sha256:51b4f8723fcc042cf0207d71b96118393a88a0cd2212cb7b7fb559d16d3e2912",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-04-the-moon-q1",
+      "prompt": "Why does the Moon look bright?",
       "choices": [
-        "moon",
-        "wren",
-        "rings"
+        "sunlight reflects from its surface",
+        "light is made inside the Moon",
+        "starlight shines through the Moon"
       ],
-      "answer": "moon",
-      "kind": "word"
+      "answer": "sunlight reflects from its surface",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 2,
+      "evidenceText": "The light we see is sunlight reflected from the Moon's surface."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-04-the-moon-q2",
+      "prompt": "What are the Moon's changing shapes called?",
       "choices": [
-        "Birds",
-        "Everyone",
-        "Moon"
+        "craters",
+        "phases",
+        "tides"
       ],
-      "answer": "Moon",
-      "kind": "word"
+      "answer": "phases",
+      "kind": "word",
+      "skill": "vocabulary",
+      "evidencePage": 3,
+      "evidenceText": "These shapes are called the phases of the Moon."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-04-the-moon-q3",
+      "prompt": "What is the Moon's gravity mainly responsible for?",
       "choices": [
-        "moon",
-        "camping",
-        "down"
+        "Earth's seasons",
+        "Earth's daylight",
+        "Earth's tides"
       ],
-      "answer": "moon",
-      "kind": "word"
+      "answer": "Earth's tides",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "The Moon's gravity is the main force behind Earth's tides."
     }
   ]
 }

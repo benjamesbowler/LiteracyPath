@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-01",
+  "contentHash": "sha256:e895465f951c30a7ad4e2954ff241d2b647f24737b1d43143e96b1fe81a3f199",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-01-q1",
+      "prompt": "Which lesson came first in Grade 1?",
       "choices": [
-        "aiden",
-        "crab",
-        "beach"
+        "Maths",
+        "Science",
+        "handwriting"
       ],
-      "answer": "aiden",
-      "kind": "word"
+      "answer": "handwriting",
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 6,
+      "evidenceText": "The first lesson was handwriting — joined-up letters, which were completely new and seemed designed to be tricky."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-01-q2",
+      "prompt": "How did Betty help when Aiden felt embarrassed?",
       "choices": [
-        "Hic",
-        "Aiden",
-        "Swish"
+        "She showed him her wonky writing.",
+        "She hid his page from everyone.",
+        "She finished his work for him."
       ],
-      "answer": "Aiden",
-      "kind": "word"
+      "answer": "She showed him her wonky writing.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 7,
+      "evidenceText": "Betty leaned over and showed him her page quietly. Her joined-up writing was also not her best work. \"Mine looks like a wonky caterpillar,\" she whispered. Aiden laughed before he could stop himself, and his face stopped being red."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-01-q3",
+      "prompt": "What had Aiden learned about Grade 1 by bedtime?",
       "choices": [
-        "grade",
-        "weather",
-        "homes"
+        "It was too hard to continue.",
+        "It was better than he had feared.",
+        "It was exactly like the holidays."
       ],
-      "answer": "grade",
-      "kind": "word"
+      "answer": "It was better than he had feared.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Aiden says Grade 1 is not bad and falls asleep without worry, so it was better than he had feared.",
+      "evidencePage": 13,
+      "evidenceText": "\"Grade 1 is brilliant,\" announced Betty, just before bed. \"It's actually not that bad,\" said Aiden, which from Aiden meant exactly the same thing. He turned his light off, closed his eyes, and was asleep before he could think of anything to worry about."
     }
   ]
 }

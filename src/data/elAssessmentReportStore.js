@@ -94,6 +94,11 @@ export const EL_SKILL_AREAS = [
 
 const DEFAULT_SKILLS = EL_SKILL_AREAS.flatMap(group => group.skills);
 const ADVANCED_PHONICS_SKILL_ID = "advanced_phonics_patterns";
+const EL_REPORT_ASSESSMENT_IDS = new Set([
+  "el_letter_assessment",
+  ADVANCED_PHONICS_SKILL_ID,
+  ...Object.values(EL_BENCHMARK_ASSESSMENT_IDS)
+]);
 const ADVANCED_PHONICS_SKILL_NAME = "Advanced Phonics Patterns";
 const BENCHMARK_REPORT_SKILLS = Object.freeze([
   Object.freeze({
@@ -185,6 +190,14 @@ function getClassNameForStudent(student = {}, classes = []) {
 
 function normalizeRecords(records = []) {
   return (Array.isArray(records) ? records : []).map(normalizeAssessmentAttempt);
+}
+
+function isElReportRecord(record = {}) {
+  const explicitType = String(record.assessmentType || record.assessmentId || "").trim();
+  if (explicitType) return EL_REPORT_ASSESSMENT_IDS.has(explicitType);
+  const benchmarkId = getElBenchmarkAssessmentId(record);
+  if (benchmarkId) return EL_REPORT_ASSESSMENT_IDS.has(benchmarkId);
+  return EL_REPORT_ASSESSMENT_IDS.has(String(record.skillId || "").trim());
 }
 
 function getStatusFromAccuracy(accuracy, attempts = 0) {
@@ -295,62 +308,6 @@ function buildPatternDetailRows(records = [], students = [], classes = []) {
       };
     })
     .sort((a, b) => a.studentName.localeCompare(b.studentName) || a.pattern.localeCompare(b.pattern));
-}
-
-function buildGuidedReadingExportSection(records = {}) {
-  const bookRows = Object.entries(records || {}).map(([bookId, record = {}]) => {
-    const pages = Object.values(record.pages || {});
-    const correctWords = [];
-    const supportWords = [];
-    const notes = [];
-    let correct = 0;
-    let support = 0;
-
-    pages.forEach((page = {}, index) => {
-      if (page.note) notes.push(`Page ${index + 1}: ${page.note}`);
-      Object.entries(page.wordMarks || {}).forEach(([wordIndex, mark]) => {
-        const word = page.words?.[wordIndex] || page.wordTexts?.[wordIndex] || "";
-        if (!word) return;
-        if (mark === "correct") {
-          correct += 1;
-          correctWords.push(String(word).toLowerCase());
-        }
-        if (mark === "support") {
-          support += 1;
-          supportWords.push(String(word).toLowerCase());
-        }
-      });
-    });
-    if (record.wholeBookNote) notes.unshift(`Book: ${record.wholeBookNote}`);
-    const attempted = correct + support;
-    const latestAccuracy = attempted ? Math.round((correct / attempted) * 100) : 0;
-    return {
-      bookId,
-      title: record.title || bookId,
-      level: record.level || "",
-      type: record.type || "",
-      readCount: Number(record.readCount || (record.completed ? 1 : 0)),
-      latestAccuracy,
-      lastReadAt: record.lastReadAt || record.completedAt || record.updatedAt || "",
-      correctWords: uniq(correctWords).slice(0, 30),
-      supportWords: uniq(supportWords).slice(0, 30),
-      notes
-    };
-  }).filter(row =>
-    row.readCount ||
-    row.correctWords.length ||
-    row.supportWords.length ||
-    row.notes.length ||
-    row.lastReadAt
-  );
-
-  const totalAttempts = bookRows.reduce((sum, row) => sum + row.latestAccuracy, 0);
-  return {
-    bookRows,
-    totalBooks: bookRows.length,
-    averageAccuracy: bookRows.length ? Math.round(totalAttempts / bookRows.length) : 0,
-    totalRereads: bookRows.reduce((sum, row) => sum + Math.max(0, Number(row.readCount || 0) - 1), 0)
-  };
 }
 
 function buildAdvancedPhonicsSummary(records = []) {
@@ -669,13 +626,12 @@ export function buildStudentElAssessmentReportData({
   studentId = "",
   classId = "",
   teacherId = "",
-  guidedReadingRecords = {},
   previousReports = [],
   benchmarkScope = null,
   benchmarkGrade = "",
   benchmarkWindow = ""
 } = {}) {
-  const allRecords = normalizeRecords(assessmentHistory);
+  const allRecords = normalizeRecords(assessmentHistory).filter(isElReportRecord);
   const student = students.find(row => row.id === studentId) || {};
   const effectiveClassId = classId || getStudentClassId(student) || allRecords.find(record => record.studentId === studentId)?.classId || "";
   const studentRecords = allRecords.filter(record =>
@@ -734,7 +690,6 @@ export function buildStudentElAssessmentReportData({
     benchmarkProfile: formalAssessments.individualBenchmarkProfile || [],
     benchmarkDetails: formalAssessments.individualBenchmarkDetails || [],
     ...storedArtifacts,
-    guidedReading: buildGuidedReadingExportSection(guidedReadingRecords),
     fileName: `el-assessment-student-${slugify(studentName)}-${slugify(resolvedBenchmarkScope.label)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
   };
@@ -883,7 +838,7 @@ export function buildClassElAssessmentReportData({
   benchmarkGrade = "",
   benchmarkWindow = ""
 } = {}) {
-  const allRecords = normalizeRecords(assessmentHistory);
+  const allRecords = normalizeRecords(assessmentHistory).filter(isElReportRecord);
   const classStudents = students.filter(student => !classId || getStudentClassId(student) === classId);
   const studentIdSet = new Set(classStudents.map(student => student.id));
   const classRecords = allRecords.filter(record =>
@@ -1117,6 +1072,10 @@ export function compactElAssessmentReportForStorage(report = {}) {
   };
   delete compact.sourceSnapshot;
   delete compact.sourceAttemptIds;
+  // EL report history is intentionally assessment-only. Remove this legacy
+  // field as well so opening and re-saving an older payload cannot persist a
+  // second copy of Guided Reading evidence.
+  delete compact.guidedReading;
   if (compact.formalAssessments) {
     delete compact.benchmarkProfile;
     delete compact.benchmarkDetails;

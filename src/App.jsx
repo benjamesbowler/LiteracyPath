@@ -29,6 +29,7 @@ import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import StudentRail from "./components/StudentRail.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
+import { studentReportHash } from "./components/reports/studentReportUiUtils.js";
 import { worldForScope } from "./utils/palWorlds.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
@@ -100,6 +101,7 @@ import {
   buildAssessmentAttemptRecord,
   deleteAssessmentAttemptsForStudent,
   extractMasteryFromAssessmentAttempt,
+  flushAssessmentAttemptSyncQueue,
   hydrateAssessmentAttempts,
   loadAssessmentAttempts,
   mergeAssessmentAttemptRecords,
@@ -1804,6 +1806,7 @@ export default function App() {
   const [newClassName, setNewClassName] = useState("");
   const [classDashboard, setClassDashboard] = useState([]);
   const [appView, rawSetAppView] = useState(APP_VIEWS.SELECT);
+  const [studentReportView, setStudentReportView] = useState("whole-child");
 
   // Page changes MORPH instead of cutting. document.startViewTransition
   // snapshots the old frame and cross-fades to the new one (duration set in
@@ -2241,6 +2244,22 @@ export default function App() {
     return () => {
       cancelled = true;
     };
+  }, [teacherId]);
+
+  useEffect(() => {
+    if (!teacherId || teacherId === "local" || !isSupabaseConfigured || typeof window === "undefined") {
+      return undefined;
+    }
+    const flushPendingAssessmentAttempts = () => {
+      void flushAssessmentAttemptSyncQueue({ teacherId, supabase }).then(result => {
+        if (!result.flushed || result.remaining) return;
+        setMessage(current => current.includes("Cloud sync is pending")
+          ? "Assessment cloud sync completed. The secure report copy is up to date."
+          : current);
+      });
+    };
+    window.addEventListener("online", flushPendingAssessmentAttempts);
+    return () => window.removeEventListener("online", flushPendingAssessmentAttempts);
   }, [teacherId]);
 
   // A reset can arrive while another signed-in device still has this learner
@@ -4030,7 +4049,7 @@ export default function App() {
 
   async function resetStudentSymbolPassword(studentRowId, selectedStudentName = "student") {
     if (!teacherId || !studentRowId) return;
-    if (!window.confirm(`Reset ${selectedStudentName}'s login pictures? They will choose new pictures next time.`)) return;
+    if (!window.confirm(`Reset ${selectedStudentName}'s login pictures? They will be unable to sign in until a teacher sets new pictures.`)) return;
 
     const { data, error } = await supabase
       .from("students")
@@ -4051,7 +4070,7 @@ export default function App() {
     }
 
     await loadStudents(selectedClassId);
-    setMessage(`Login pictures reset for ${selectedStudentName}.`);
+    setMessage(`Login pictures reset for ${selectedStudentName}. Set new pictures before their next sign-in.`);
   }
 
   function resetCurrentStudentLocalProgress({ clearFormalAssessments = false } = {}) {
@@ -6956,6 +6975,9 @@ export default function App() {
   }
 
   async function saveElBenchmarkPartialAndExit(nextSession) {
+    const terminalStatus = nextSession?.administrationStatus || nextSession?.status || "";
+    if (terminalStatus === "completed") return finishElBenchmarkAssessment(nextSession);
+    if (terminalStatus === "discontinued") return discontinueElBenchmarkAssessment(nextSession);
     const partialSession = {
       ...nextSession,
       status: "partial",
@@ -6982,28 +7004,45 @@ export default function App() {
       administrationStatus: "completed"
     };
     const archiveResult = await archiveElBenchmarkSession(completedSession);
-    const cloudArchiveRequired = isSupabaseConfigured && teacherId !== "local";
-    if (!archiveResult || (cloudArchiveRequired && !archiveResult.persistence.cloudSaved)) {
-      const recoverySession = {
-        ...completedSession,
-        status: "in_progress",
-        administrationStatus: "in_progress",
-        completedAt: "",
-        updatedAt: new Date().toISOString()
-      };
-      const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: recoverySession });
+    if (!archiveResult) {
+      const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: completedSession });
       setElBenchmarkDraftSaveFailed(!recoverySaved);
-      setElBenchmarkSession(recoverySession);
-      setMessage(archiveResult
-        ? "The completed evidence is safe on this device, but cloud archiving was not confirmed. The draft has been retained; reconnect and try Complete assessment again."
-        : "The completed evidence could not be archived, so it has not been cleared. Keep this assessment open and try Complete assessment again.");
-      return;
+      setElBenchmarkSession(completedSession);
+      const failureMessage = "The completed assessment could not be saved on this device or in the secure archive. Your responses are still here. Keep this page open and select Retry finish.";
+      setMessage(failureMessage);
+      return {
+        ok: false,
+        durable: false,
+        localSaved: false,
+        cloudSaved: false,
+        syncPending: false,
+        message: failureMessage
+      };
     }
+    const localSaved = Boolean(archiveResult.persistence.localSaved);
+    const cloudSaved = Boolean(archiveResult.persistence.cloudSaved);
+    const cloudExpected = isSupabaseConfigured && teacherId !== "local";
+    const syncPending = cloudExpected && localSaved && !cloudSaved && Boolean(archiveResult.persistence.syncQueued);
+    const cloudCopyUnavailable = cloudExpected && !cloudSaved && !syncPending;
     deleteElBenchmarkDraft({ teacherId, studentId });
     setElBenchmarkDraftSaveFailed(false);
     setElBenchmarkSession(null);
-    setMessage("Benchmark evidence saved to this student's reports.");
+    const successMessage = syncPending
+      ? "Assessment completed and saved on this device. Cloud sync is pending; the result is available in this student's reports."
+      : cloudCopyUnavailable
+        ? "Assessment completed and saved on this device, but a cloud copy could not be queued. Keep this device's data and retry from a reliable connection."
+        : "Assessment completed and saved to this student's reports.";
+    setMessage(successMessage);
     setAppView(APP_VIEWS.EL_ASSESSMENTS);
+    return {
+      ok: true,
+      durable: true,
+      localSaved,
+      cloudSaved,
+      syncPending,
+      cloudCopyUnavailable,
+      message: successMessage
+    };
   }
 
   async function discontinueElBenchmarkAssessment(nextSession) {
@@ -7013,28 +7052,45 @@ export default function App() {
       administrationStatus: "discontinued"
     };
     const archiveResult = await archiveElBenchmarkSession(discontinuedSession);
-    const cloudArchiveRequired = isSupabaseConfigured && teacherId !== "local";
-    if (!archiveResult || (cloudArchiveRequired && !archiveResult.persistence.cloudSaved)) {
-      const recoverySession = {
-        ...discontinuedSession,
-        status: "in_progress",
-        administrationStatus: "in_progress",
-        discontinuedAt: "",
-        updatedAt: new Date().toISOString()
-      };
-      const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: recoverySession });
+    if (!archiveResult) {
+      const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: discontinuedSession });
       setElBenchmarkDraftSaveFailed(!recoverySaved);
-      setElBenchmarkSession(recoverySession);
-      setMessage(archiveResult
-        ? "The discontinued evidence is safe on this device, but cloud archiving was not confirmed. The draft has been retained; reconnect and try Discontinue assessment again."
-        : "The discontinued evidence could not be archived, so it has not been cleared. Keep this assessment open and try Discontinue assessment again.");
-      return;
+      setElBenchmarkSession(discontinuedSession);
+      const failureMessage = "The discontinued assessment could not be saved on this device or in the secure archive. The evidence is still on this screen; try saving it again.";
+      setMessage(failureMessage);
+      return {
+        ok: false,
+        durable: false,
+        localSaved: false,
+        cloudSaved: false,
+        syncPending: false,
+        message: failureMessage
+      };
     }
+    const localSaved = Boolean(archiveResult.persistence.localSaved);
+    const cloudSaved = Boolean(archiveResult.persistence.cloudSaved);
+    const cloudExpected = isSupabaseConfigured && teacherId !== "local";
+    const syncPending = cloudExpected && localSaved && !cloudSaved && Boolean(archiveResult.persistence.syncQueued);
+    const cloudCopyUnavailable = cloudExpected && !cloudSaved && !syncPending;
     deleteElBenchmarkDraft({ teacherId, studentId });
     setElBenchmarkDraftSaveFailed(false);
     setElBenchmarkSession(null);
-    setMessage("Discontinued benchmark evidence saved without counting unadministered items as incorrect.");
+    const successMessage = syncPending
+      ? "Discontinued evidence saved on this device without counting unadministered items as incorrect. Cloud sync is pending."
+      : cloudCopyUnavailable
+        ? "Discontinued evidence saved on this device, but a cloud copy could not be queued. Keep this device's data and retry from a reliable connection."
+        : "Discontinued evidence saved without counting unadministered items as incorrect.";
+    setMessage(successMessage);
     setAppView(APP_VIEWS.EL_ASSESSMENTS);
+    return {
+      ok: true,
+      durable: true,
+      localSaved,
+      cloudSaved,
+      syncPending,
+      cloudCopyUnavailable,
+      message: successMessage
+    };
   }
 
   function returnFromElBenchmarkAssessment() {
@@ -7758,8 +7814,9 @@ export default function App() {
 
   async function exportStudentAssessmentWorkbook(benchmarkScope = null) {
     if (!studentId) {
-      setMessage("Choose a student before exporting the student Excel report.");
-      return;
+      const error = new Error("Choose a student before exporting the student Excel report.");
+      setMessage(error.message);
+      throw error;
     }
     try {
       const { exportStudentElAssessmentExcel } = await importWithRetry(() => import("./utils/exportElAssessmentExcel.js"));
@@ -7777,7 +7834,6 @@ export default function App() {
         studentId,
         classId: selectedClassId || "",
         teacherId: teacherId || "local",
-        guidedReadingRecords,
         benchmarkScope,
         supabase: isSupabaseConfigured ? supabase : null
       });
@@ -7787,6 +7843,7 @@ export default function App() {
     } catch (error) {
       console.error("Student Excel report export failed:", error);
       setMessage("Could not export the student Excel report.");
+      throw error;
     }
   }
 
@@ -7795,11 +7852,14 @@ export default function App() {
       const {
         formatGuidedReadingType,
         getGuidedReadingWordStatusRows,
-        summarizeGuidedReadingProgress
+        summarizeGuidedReadingProgress,
+        summarizeGuidedReadingRecords
       } = await loadGuidedReadingBooksModule();
       const workbook = await createExcelWorkbook();
       const progress = summarizeGuidedReadingProgress(guidedReadingRecords);
       const wordStatusRows = getGuidedReadingWordStatusRows(guidedReadingRecords);
+      const observationRows = summarizeGuidedReadingRecords(guidedReadingRecords);
+      const observationsByBook = new Map(observationRows.map(row => [row.bookId, row]));
       const studentLabel = studentName || "Student";
       const filenameDate = formatExportDateForFilename(new Date());
       const filename = `${safeExportFilename(studentLabel)} - ${filenameDate} - Reading Report.xlsx`;
@@ -7866,6 +7926,75 @@ export default function App() {
         totalPages: row.totalPages
       }));
 
+      const observationsSheet = workbook.addWorksheet("Book Observations");
+      observationsSheet.columns = [
+        { header: "Last Read Date", key: "lastReadAt", width: 20 },
+        { header: "Title", key: "title", width: 32 },
+        { header: "Level", key: "level", width: 10 },
+        { header: "Type", key: "type", width: 16 },
+        { header: "Status", key: "status", width: 16 },
+        { header: "Read Count", key: "readCount", width: 12 },
+        { header: "Pages", key: "pages", width: 14 },
+        { header: "Words Marked", key: "attempted", width: 14 },
+        { header: "Read Correctly", key: "correct", width: 15 },
+        { header: "Needs Support", key: "support", width: 15 },
+        { header: "Marked-word Accuracy", key: "accuracy", width: 22 },
+        { header: "Quiz Result", key: "quiz", width: 16 },
+        { header: "Teacher Notes", key: "notes", width: 16 }
+      ];
+      progress.rows.forEach(row => {
+        const record = guidedReadingRecords[row.bookId] || {};
+        const observation = observationsByBook.get(row.bookId) || {};
+        const quizTotal = Number(record.quizTotal || 0);
+        const noteCount = Number(Boolean(String(observation.wholeBookNote || "").trim())) + (observation.pageNotes?.length || 0);
+        observationsSheet.addRow({
+          lastReadAt: formatReportDate(row.lastReadAt),
+          title: row.title,
+          level: row.level,
+          type: formatGuidedReadingType(row.type),
+          status: row.completed ? "Completed" : "In progress",
+          readCount: row.readCount,
+          pages: `${row.completedPages}/${row.totalPages}`,
+          attempted: observation.attempted || 0,
+          correct: observation.correct || 0,
+          support: observation.support || 0,
+          accuracy: observation.attempted ? `${observation.accuracy}%` : "Not marked",
+          quiz: quizTotal ? `${Number(record.quizScore || 0)}/${quizTotal}` : "Not completed",
+          notes: noteCount
+        });
+      });
+
+      const notesSheet = workbook.addWorksheet("Teacher Notes");
+      notesSheet.columns = [
+        { header: "Date", key: "date", width: 20 },
+        { header: "Book Title", key: "title", width: 32 },
+        { header: "Level", key: "level", width: 10 },
+        { header: "Location", key: "location", width: 18 },
+        { header: "Note", key: "note", width: 72 }
+      ];
+      observationRows.forEach(observation => {
+        const record = guidedReadingRecords[observation.bookId] || {};
+        if (String(observation.wholeBookNote || "").trim()) {
+          notesSheet.addRow({
+            date: formatReportDate(record.lastReadAt || observation.completedAt),
+            title: observation.title,
+            level: observation.level,
+            location: "Whole book",
+            note: observation.wholeBookNote
+          });
+        }
+        observation.pageNotes.forEach(pageNote => notesSheet.addRow({
+          date: formatReportDate(record.pages?.[Math.max(0, Number(pageNote.page) - 1)]?.updatedAt || record.lastReadAt || observation.completedAt),
+          title: observation.title,
+          level: observation.level,
+          location: `Page ${pageNote.page}`,
+          note: pageNote.note
+        }));
+      });
+      if (notesSheet.rowCount === 1) {
+        notesSheet.addRow({ note: "No teacher notes have been saved yet." });
+      }
+
       const wordSheetColumns = [
         { header: "Date", key: "date", width: 24 },
         { header: "Book Title", key: "title", width: 32 },
@@ -7904,7 +8033,15 @@ export default function App() {
           count: row.count
         }));
 
-      [summarySheet, completedSheet, inProgressSheet, greenWordsSheet, orangeWordsSheet].forEach(sheet => {
+      [
+        summarySheet,
+        completedSheet,
+        inProgressSheet,
+        observationsSheet,
+        notesSheet,
+        greenWordsSheet,
+        orangeWordsSheet
+      ].forEach(sheet => {
         sheet.getRow(1).font = { bold: true };
         sheet.getRow(1).fill = {
           type: "pattern",
@@ -7925,6 +8062,7 @@ export default function App() {
     } catch (error) {
       console.error("Reading report Excel export failed:", error);
       setMessage("Could not export the reading report.");
+      throw error;
     }
   }
 
@@ -8049,6 +8187,10 @@ export default function App() {
     initialSoundRoundMetaRef.current = null;
     resetAssessmentMediaUsage();
     setShowReport(true);
+    setStudentReportView("skills-check");
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", studentReportHash("skills-check"));
+    }
     setAppView(APP_VIEWS.FINISHED);
   }
 
@@ -8929,17 +9071,28 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === APP_VIEWS.EL_ASSESSMENTS && nameSaved && (
         <PageBoundary resetKey={`el-assessments-${studentId}`}>
-          <ELAssessmentsPage
-            studentId={studentId}
-            studentName={studentName}
-            startLetterAssessment={startLetterAssessment}
-            startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-            startElBenchmarkAssessment={startElBenchmarkAssessment}
-            resumeElBenchmarkAssessment={resumeElBenchmarkAssessment}
-            discardElBenchmarkDraft={discardElBenchmarkDraft}
-            elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
-            assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
-          />
+          <>
+            {message && (
+              <p
+                aria-live="polite"
+                className={`message el-benchmark-hub-message${message.includes("Cloud sync is pending") || message.includes("cloud copy could not") ? " sync-pending" : ""}`}
+                role="status"
+              >
+                {message}
+              </p>
+            )}
+            <ELAssessmentsPage
+              studentId={studentId}
+              studentName={studentName}
+              startLetterAssessment={startLetterAssessment}
+              startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+              startElBenchmarkAssessment={startElBenchmarkAssessment}
+              resumeElBenchmarkAssessment={resumeElBenchmarkAssessment}
+              discardElBenchmarkDraft={discardElBenchmarkDraft}
+              elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
+              assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
+            />
+          </>
         </PageBoundary>
       )}
 
@@ -8952,9 +9105,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               onSessionChange={updateElBenchmarkSession}
               onComplete={finishElBenchmarkAssessment}
               onSaveAndExit={nextSession => (
-                nextSession?.status === "discontinued"
-                  ? discontinueElBenchmarkAssessment(nextSession)
-                  : saveElBenchmarkPartialAndExit(nextSession)
+                nextSession?.status === "completed" || nextSession?.administrationStatus === "completed"
+                  ? finishElBenchmarkAssessment(nextSession)
+                  : nextSession?.status === "discontinued" || nextSession?.administrationStatus === "discontinued"
+                    ? discontinueElBenchmarkAssessment(nextSession)
+                    : saveElBenchmarkPartialAndExit(nextSession)
               )}
               onCancel={returnFromElBenchmarkAssessment}
             />
@@ -9012,11 +9167,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           <TeacherReportsPage
             studentName={studentName}
             startAssessment={startAssessment}
-            viewFinishedReport={() => setAppView(APP_VIEWS.FINISHED)}
+            viewFinishedReport={viewId => {
+              const nextReportView = viewId || "whole-child";
+              setStudentReportView(nextReportView);
+              if (typeof window !== "undefined") {
+                window.history.replaceState(null, "", studentReportHash(nextReportView));
+              }
+              setAppView(APP_VIEWS.FINISHED);
+            }}
             guidedReadingRecords={guidedReadingRecords}
             assessmentHistory={reportsAssessmentHistory}
             skillMasterySummary={reportSkillMasterySummary}
-            exportReadingReport={exportReadingReport}
             classList={classList}
             selectedClassId={selectedClassId}
             setSelectedClassId={setSelectedClassId}
@@ -9176,6 +9337,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
             <FinishedReportPage
               startAssessment={startAssessment}
+              openElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+              initialReportView={studentReportView}
               keepPracticingSkill={keepPracticingSkill}
               startTargetedReview={startTargetedReview}
               goToOverview={goToOverview}
@@ -9202,6 +9365,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               exportData={exportData}
               exportCSVData={exportCSVData}
               exportStudentExcel={exportStudentAssessmentWorkbook}
+              exportReadingReport={exportReadingReport}
               letterAssessment={letterAssessment}
               patternAssessment={patternAssessment}
               exportLetterAssessment={exportLetterAssessment}

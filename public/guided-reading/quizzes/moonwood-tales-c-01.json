@@ -1,35 +1,68 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-01",
+  "contentHash": "sha256:d36e26cf9e530436e7572827661210dc0a101a1b1934750ca8aaa6183997d2f2",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"\"Did it run out of ___?\" asked Pip.\"",
+      "id": "moonwood-tales-c-01-q1",
+      "prompt": "Which place does Pip choose to climb?",
       "choices": [
-        "won",
-        "need",
-        "brave"
+        "the low practice wall",
+        "the highest cliff ledge",
+        "a tall oak tree"
       ],
-      "answer": "brave",
-      "kind": "word"
+      "answer": "the low practice wall",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "At Tumblerock Cliffs, Pip chose the low practice wall."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-01-q2",
+      "prompt": "Why does Pip keep trying scary places after reaching the cliff top?",
       "choices": [
-        "rings",
-        "pip",
-        "bob"
+        "He believes the stone made him brave.",
+        "He wants to find the stone's owner.",
+        "He expects Burrow to give him a prize."
       ],
-      "answer": "pip",
-      "kind": "word"
+      "answer": "He believes the stone made him brave.",
+      "kind": "text",
+      "skill": "motivation",
+      "rationale": "Burrow says a Bravery Stone makes whoever holds it feel brave, and Pip says, \"The stone did that!\"; this shows he believes the stone made him brave and motivates him to try another scary place.",
+      "evidencePage": 7,
+      "evidenceText": "\"The stone did that!\" said Pip. He tucked it safely into his pocket.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 3,
+          "evidenceText": "\"That is a Bravery Stone,\" said Burrow. \"Whoever holds it will feel brave.\""
+        },
+        {
+          "evidencePage": 8,
+          "evidenceText": "The fog was thick and grey. Something rustled in the reeds nearby. Pip kept walking. He came out the other side."
+        }
+      ]
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-01-q3",
+      "prompt": "What lesson does Burrow's explanation teach Pip?",
       "choices": [
-        "Pip",
-        "Cuddly",
-        "Hop"
+        "His brave choices came from inside himself.",
+        "The stone had given him courage for one day.",
+        "Burrow had secretly filled the stone with magic."
       ],
-      "answer": "Pip",
-      "kind": "word"
+      "answer": "His brave choices came from inside himself.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Pip climbs with wobbly legs by using the strong holds one at a time, and Burrow reveals that the stone does nothing while calling Pip brave; together these details show his brave choices came from inside himself.",
+      "evidencePage": 11,
+      "evidenceText": "Burrow smiled. \"The stone doesn't do anything,\" he said. \"I wanted to see what you would do. And you were brave.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 6,
+          "evidenceText": "Pip's legs felt wobbly. The guide stood close, and Burrow cheered from the path. Pip used the strong holds one at a time. Soon he reached the top."
+        }
+      ]
     }
   ]
 }

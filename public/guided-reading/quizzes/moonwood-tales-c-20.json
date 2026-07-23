@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-20",
+  "contentHash": "sha256:f6dd110f8832428b503b9ce095d98b71a33006f199ce0f3cbabae66446f51eb7",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-20-q1",
+      "prompt": "Which description matches the star spirits after they landed?",
       "choices": [
-        "star",
-        "pat",
-        "moon"
+        "They bounced, giggled, and left gold trails.",
+        "They crawled silently and left muddy tracks.",
+        "They flew in circles and dropped blue feathers."
       ],
-      "answer": "star",
-      "kind": "word"
+      "answer": "They bounced, giggled, and left gold trails.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 2,
+      "evidenceText": "The small things landed and bounced.\nThey bounced along the ground.\nThey made a sound like giggling.\nThey left gold trails where they bounced."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-20-q2",
+      "prompt": "Why must the star spirits be taken to Moonwood's highest point?",
       "choices": [
-        "Fruits",
-        "Drops",
-        "Then"
+        "They need height.",
+        "They need cold.",
+        "They need darkness."
       ],
-      "answer": "Then",
-      "kind": "word"
+      "answer": "They need height.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 7,
+      "evidenceText": "\"They need height,\" said Luna.\n\"The highest point in Moonwood.\""
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-20-q3",
+      "prompt": "What lesson is shown when Stone, Pip, and Spark lift the spirits together?",
       "choices": [
-        "vet",
-        "sneeze",
-        "fell"
+        "Friends can help the spirits by working together.",
+        "Stone should send every spirit back alone.",
+        "The spirits do not need anyone's help."
       ],
-      "answer": "fell",
-      "kind": "word"
+      "answer": "Friends can help the spirits by working together.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Stone raises the star spirits while Pip and Spark add a push, and the spirits then reach their places in the sky; this shows friends can help the spirits by working together.",
+      "evidencePage": 10,
+      "evidenceText": "Stone raised their hands high.\nPip and Spark added a little push.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 11,
+          "evidenceText": "The star spirits went up.\nSlowly at first.\nThen faster.\nOne by one they found their places."
+        }
+      ]
     }
   ]
 }

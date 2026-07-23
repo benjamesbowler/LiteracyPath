@@ -1,77 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
-import { guidedReadingBooks } from "../../data/guidedReadingBooks";
-import { guidedReadingSeriesBooks } from "../../data/guidedReadingSeriesBooks";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { GUIDED_READING_QUIZZES } from "../../data/generated/guidedReadingQuizzes.generated.js";
 import { playCorrectChime, playSoftBuzz, playStarChime } from "../../utils/audio/gameSfx.js";
-import { speakWord } from "../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speak } from "../../utils/learnGamesAudio.js";
+import { prepareGuidedReadingQuiz } from "../../utils/guidedReading/bookQuizQuestions.js";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
-
-function shuffle(items) {
-  const copy = [...items];
-  for (let index = copy.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
-  }
-  return copy;
-}
-
-function bookWords(book, limit = 40) {
-  const words = new Set();
-  for (const page of book?.pages || []) {
-    for (const token of String(page.text || "").toLowerCase().match(/[a-z]+/g) || []) {
-      if (token.length >= 3) words.add(token);
-    }
-    if (words.size >= limit) break;
-  }
-  return [...words];
-}
-
-function otherBooksWords(currentBook, limit = 30) {
-  const words = new Set();
-  for (const book of guidedReadingBooks) {
-    if (book.id === currentBook.id) continue;
-    for (const word of bookWords(book, 10)) words.add(word);
-    if (words.size >= limit) break;
-  }
-  const current = new Set(bookWords(currentBook, 200));
-  return [...words].filter(word => !current.has(word));
-}
-
-// Three auto-generated recall questions. If an authored quiz file exists for
-// this book (public/guided-reading/quizzes/<id>.json) it takes priority.
-function generateQuestions(book) {
-  const own = shuffle(bookWords(book));
-  const foreign = shuffle(otherBooksWords(book));
-  const questions = [];
-
-  for (let index = 0; index < 2 && own[index] && foreign[index * 2 + 1]; index += 1) {
-    questions.push({
-      prompt: "Which word was in your book?",
-      choices: shuffle([own[index], foreign[index * 2], foreign[index * 2 + 1]]),
-      answer: own[index],
-      kind: "word"
-    });
-  }
-
-  const pageWithImage = (book.pages || []).find(page => page.image);
-  // Distractor pictures: random pages from the lightweight webp series
-  // books first (fast to load), falling back to the standalone books.
-  const distractorPool = [...guidedReadingSeriesBooks, ...guidedReadingBooks]
-    .filter(item => item.id !== book.id && item.pages?.some(page => page.image));
-  const otherImage = shuffle(distractorPool)
-    .slice(0, 2)
-    .map(item => shuffle(item.pages.filter(page => page.image))[0]?.image)
-    .filter(Boolean);
-  if (pageWithImage && otherImage.length >= 2) {
-    questions.push({
-      prompt: "Which picture is from your book?",
-      choices: shuffle([pageWithImage.image, ...otherImage.slice(0, 2)]),
-      answer: pageWithImage.image,
-      kind: "picture"
-    });
-  }
-
-  return questions.slice(0, 3);
-}
 
 function preloadQuestionImages(questions) {
   for (const question of questions || []) {
@@ -84,62 +16,79 @@ function preloadQuestionImages(questions) {
   }
 }
 
-async function loadAuthoredQuiz(bookId) {
-  try {
-    const response = await fetch(`/guided-reading/quizzes/${bookId}.json`);
-    const type = response.headers.get("content-type") || "";
-    if (!response.ok || !type.includes("json")) return null;
-    const data = await response.json();
-    if (!Array.isArray(data?.questions) || !data.questions.length) return null;
-    return data.questions
-      .filter(question => question?.prompt && Array.isArray(question.choices) && question.choices.includes(question.answer))
-      .slice(0, 3)
-      .map(question => ({ ...question, kind: question.kind || "word" }));
-  } catch {
-    return null;
-  }
-}
-
 export function BookQuiz({ book, onFinish }) {
-  const fallbackQuestions = useMemo(() => generateQuestions(book), [book]);
-  const [questions, setQuestions] = useState(null);
+  const bookId = book.id;
+  const bookType = book.type;
+  const questions = useMemo(() => prepareGuidedReadingQuiz(
+    GUIDED_READING_QUIZZES[bookId],
+    { id: bookId, type: bookType }
+  ) || [], [bookId, bookType]);
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [missed, setMissed] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [answerLocked, setAnswerLocked] = useState(false);
+  const answerLockedRef = useRef(false);
+  const dialogCardRef = useRef(null);
+  const dialogFocusRef = useRef(null);
+  const previouslyFocusedRef = useRef(null);
+  const transitionTimerRef = useRef(null);
 
   useEffect(() => {
-    let cancelled = false;
-    loadAuthoredQuiz(book.id).then(authored => {
-      if (cancelled) return;
-      const next = authored?.length ? authored : fallbackQuestions;
-      preloadQuestionImages(next);
-      setQuestions(next);
-    });
+    previouslyFocusedRef.current = document.activeElement;
+    preloadQuestionImages(questions);
     return () => {
-      cancelled = true;
+      if (transitionTimerRef.current) window.clearTimeout(transitionTimerRef.current);
+      previouslyFocusedRef.current?.focus?.();
     };
-  }, [book.id, fallbackQuestions]);
+  }, [questions]);
 
-  if (!questions) {
-    return (
-      <div className="book-quiz" role="dialog" aria-label="Book quiz">
-        <div className="book-quiz-card"><p className="book-quiz-loading">Getting your questions ready...</p></div>
-      </div>
-    );
+  useEffect(() => {
+    const focusFrame = window.requestAnimationFrame(() => dialogFocusRef.current?.focus());
+    return () => window.cancelAnimationFrame(focusFrame);
+  }, [finished, index, questions.length]);
+
+  function keepFocusInsideDialog(event) {
+    if (event.key !== "Tab") return;
+    const focusable = [...(dialogCardRef.current?.querySelectorAll(
+      "button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])"
+    ) || [])];
+    if (!focusable.length) {
+      event.preventDefault();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const focusedIndex = focusable.indexOf(document.activeElement);
+    if (event.shiftKey && focusedIndex <= 0) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (focusedIndex === -1 || document.activeElement === last)) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 
   if (!questions.length) {
-    // No content to quiz on - close out after render, never during it.
-    window.setTimeout(() => onFinish?.(0, 0), 0);
-    return null;
+    return (
+      <div className="book-quiz" role="dialog" aria-modal="true" aria-label="Book quiz unavailable" onKeyDown={keepFocusInsideDialog}>
+        <div className="book-quiz-card" ref={dialogCardRef}>
+          <h3 ref={dialogFocusRef} tabIndex={-1}>Your reading still counts!</h3>
+          <p className="book-quiz-loading">This book's questions need a quick update.</p>
+          <button className="main-button" type="button" onClick={() => onFinish?.(0, 0)}>Finish book</button>
+        </div>
+      </div>
+    );
   }
 
   const question = questions[index];
 
   function choose(choice) {
-    if (finished) return;
+    if (finished || answerLockedRef.current) return;
     if (choice === question.answer) {
+      answerLockedRef.current = true;
+      setAnswerLocked(true);
       playCorrectChime();
       const nextCorrect = missed ? correct : correct + 1;
       if (!missed) setCorrect(nextCorrect);
@@ -147,9 +96,13 @@ export function BookQuiz({ book, onFinish }) {
       if (index + 1 >= questions.length) {
         setFinished(true);
         playStarChime();
-        window.setTimeout(() => onFinish?.(nextCorrect, questions.length), 1400);
+        transitionTimerRef.current = window.setTimeout(() => onFinish?.(nextCorrect, questions.length), 1400);
       } else {
-        window.setTimeout(() => setIndex(value => value + 1), 450);
+        transitionTimerRef.current = window.setTimeout(() => {
+          setIndex(value => value + 1);
+          answerLockedRef.current = false;
+          setAnswerLocked(false);
+        }, 450);
       }
     } else {
       playSoftBuzz();
@@ -158,40 +111,42 @@ export function BookQuiz({ book, onFinish }) {
   }
 
   return (
-    <div className="book-quiz" role="dialog" aria-label="Book quiz">
-      <div className="book-quiz-card">
+    <div className="book-quiz" role="dialog" aria-modal="true" aria-label="Book quiz" onKeyDown={keepFocusInsideDialog}>
+      <div className="book-quiz-card" ref={dialogCardRef}>
         {finished ? (
-          <div className="book-quiz-result">
+          <div className="book-quiz-result" ref={dialogFocusRef} role="status" aria-live="polite" tabIndex={-1}>
             <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
-            <h3>{correct}/{questions.length} right!</h3>
+            <h3>{correct}/{questions.length} right on the first try!</h3>
             <ProgressStars stars={correct >= questions.length ? 3 : correct >= 2 ? 2 : correct > 0 ? 1 : 0} size="lg" />
           </div>
         ) : (
           <>
             <p className="book-quiz-kicker">Question {index + 1} of {questions.length}</p>
-            <h3>{question.prompt}</h3>
-            {missed && <p className="book-quiz-retry">Not that one - try again!</p>}
-            <div className={`book-quiz-choices${question.kind === "picture" ? " pictures" : ""}`}>
+            <h3 ref={dialogFocusRef} tabIndex={-1}>{question.prompt}</h3>
+            {missed && <p className="book-quiz-retry" role="status">Not that one - try again!</p>}
+            <div className={`book-quiz-choices${question.kind === "picture" ? " pictures" : ""}${question.choices.some(choice => String(choice).length > 34) ? " long-text" : ""}`}>
               {question.choices.map(choice => (
                 question.kind === "picture" ? (
-                  <button key={choice} type="button" onClick={() => choose(choice)}>
-                    <img src={choice} alt="" loading="eager" decoding="async" />
+                  <button key={choice} type="button" disabled={answerLocked} onClick={() => choose(choice)}>
+                    <img src={choice} alt={`Picture answer option ${question.choices.indexOf(choice) + 1}`} loading="eager" decoding="async" />
                   </button>
                 ) : (
                   <span key={choice} className="book-quiz-choice-row">
-                    <button type="button" onClick={() => choose(choice)}>{choice}</button>
-                    <button
-                      type="button"
-                      className="book-quiz-hear"
-                      aria-label={`Hear the word ${choice}`}
-                      title="Hear this word"
-                      onClick={() => speakWord(choice)}
-                    >
-                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                        <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
-                        <path d="M16 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                      </svg>
-                    </button>
+                    <button type="button" disabled={answerLocked} onClick={() => choose(choice)}>{choice}</button>
+                    {hasRecordedSpeech(choice) && (
+                      <button
+                        type="button"
+                        className="book-quiz-hear"
+                        aria-label={`Hear this answer: ${choice}`}
+                        title="Hear this answer"
+                        onClick={() => speak(choice)}
+                      >
+                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                          <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+                          <path d="M16 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      </button>
+                    )}
                   </span>
                 )
               ))}

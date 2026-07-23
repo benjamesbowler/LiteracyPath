@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
+  "contentHash": "sha256:167694a6f80cd428ec444998dd5d14b670aacd1e0a9d8d87a8801ecb1a93b558",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ wants a hug. Cuddly looks and looks.\"",
+      "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q1",
+      "prompt": "Who looks and looks for a friend?",
       "choices": [
-        "fruits",
-        "purple",
-        "cuddly"
-      ],
-      "answer": "cuddly",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "cool",
-        "monkey",
-        "shy"
-      ],
-      "answer": "shy",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
-      "choices": [
-        "James",
-        "Clumsy",
-        "Cuddly"
+        "Cuddly",
+        "Shy",
+        "Grumpy"
       ],
       "answer": "Cuddly",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 1,
+      "evidenceText": "Cuddly wants a friend. Cuddly looks and looks."
+    },
+    {
+      "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q2",
+      "prompt": "Where is Shy hiding?",
+      "choices": [
+        "in the big tree",
+        "behind the barn",
+        "under the log"
+      ],
+      "answer": "in the big tree",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 4,
+      "evidenceText": "Shy is in the big tree!"
+    },
+    {
+      "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q3",
+      "prompt": "How do both friends feel at the end?",
+      "choices": [
+        "happy",
+        "angry",
+        "lonely"
+      ],
+      "answer": "happy",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 10,
+      "evidenceText": "Both of them are happy."
     }
   ]
 }

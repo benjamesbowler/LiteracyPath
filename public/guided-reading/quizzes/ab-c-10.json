@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-10",
+  "contentHash": "sha256:b23190003331cce8efd47755a406d8c06a0180f55f550be1c8cb7d37d141bdbc",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-10-q1",
+      "prompt": "Which room came after the great hall?",
       "choices": [
-        "aiden",
-        "opposite",
-        "heavy"
+        "the castle shop",
+        "the dark room",
+        "the armour room"
       ],
-      "answer": "aiden",
-      "kind": "word"
+      "answer": "the armour room",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 5,
+      "evidenceText": "First came the great hall. Next came the armour room. Then they would climb the tower."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-10-q2",
+      "prompt": "Why did castle walls have narrow slits?",
       "choices": [
-        "Roots",
-        "Aiden",
-        "Shapes"
+        "Archers could see out while staying protected.",
+        "Visitors could post letters through them.",
+        "Rainwater could fill the rooms."
       ],
-      "answer": "Aiden",
-      "kind": "word"
+      "answer": "Archers could see out while staying protected.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 10,
+      "evidenceText": "A guide explained that archers could see out while staying behind thick stone."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-10-q3",
+      "prompt": "How did Aiden's final drawing help him?",
       "choices": [
-        "colors",
-        "fruits",
-        "castle"
+        "It showed Dad how to build a castle.",
+        "It helped him remember the day.",
+        "It replaced Betty's picture map."
       ],
-      "answer": "castle",
-      "kind": "word"
+      "answer": "It helped him remember the day.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 13,
+      "evidenceText": "That evening, Aiden drew four things: the bridge, the hall, the narrow slit, and the view. His page helped him remember the day."
     }
   ]
 }

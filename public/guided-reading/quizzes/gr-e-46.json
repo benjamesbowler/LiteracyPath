@@ -1,35 +1,50 @@
 {
- "bookId": "gr-e-46",
- "questions": [
-  {
-   "prompt": "What kind of skin do reptiles have?",
-   "choices": [
-    "dry skin",
-    "wet skin",
-    "furry skin"
-   ],
-   "answer": "dry skin",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do turtles have?",
-   "choices": [
-    "a hard shell",
-    "soft fur",
-    "long wings"
-   ],
-   "answer": "a hard shell",
-   "kind": "word"
-  },
-  {
-   "prompt": "Where do lizards live?",
-   "choices": [
-    "warm places",
-    "cold places",
-    "in the sea"
-   ],
-   "answer": "warm places",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-e-46",
+  "contentHash": "sha256:828dbe6f5fddaa130b900de5c15e5d0b14bdb9b1196e6f0c229d38e6c34b0f56",
+  "questions": [
+    {
+      "id": "gr-e-46-q1",
+      "prompt": "What kind of skin do reptiles have?",
+      "choices": [
+        "dry skin",
+        "wet skin",
+        "furry skin"
+      ],
+      "answer": "dry skin",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Reptiles have dry skin."
+    },
+    {
+      "id": "gr-e-46-q2",
+      "prompt": "What do most reptiles do?",
+      "choices": [
+        "lay eggs",
+        "grow fur",
+        "make milk"
+      ],
+      "answer": "lay eggs",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "Most reptiles lay eggs."
+    },
+    {
+      "id": "gr-e-46-q3",
+      "prompt": "Which trait does the book give for all reptiles?",
+      "choices": [
+        "they are cold-blooded",
+        "they all have hard shells",
+        "they all have long bodies"
+      ],
+      "answer": "they are cold-blooded",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "Reptiles are cold-blooded animals!"
+    }
+  ]
 }

@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   buildClassElAssessmentReportData,
+  buildStudentElAssessmentReportData,
   compactElAssessmentReportForStorage,
   deleteSavedClassElAssessmentReportsForStudent,
   deleteSavedElAssessmentReport,
@@ -145,6 +146,32 @@ function reportFixture(overrides = {}) {
     ...overrides
   };
 }
+
+test("EL report data and persisted history never retain Guided Reading payloads", () => {
+  const report = buildStudentElAssessmentReportData({
+    assessmentHistory: [{
+      attemptId: "skills-check-collision",
+      assessmentType: "skill_checkpoint",
+      skillId: "advanced_phonics_patterns",
+      studentId: "student-1",
+      administrationStatus: "completed",
+      completedAt: "2026-07-20T10:00:00.000Z"
+    }],
+    studentId: "student-1",
+    students: [{ id: "student-1", name: "Ada" }],
+    guidedReadingRecords: {
+      "book-1": { title: "Must stay in Guided Reading", readCount: 3 }
+    }
+  });
+  assert.equal(report.guidedReading, undefined);
+  assert.deepEqual(report.sourceAttemptIds, []);
+
+  const compact = compactElAssessmentReportForStorage({
+    ...reportFixture(),
+    guidedReading: { bookRows: [{ title: "Legacy reading data" }] }
+  });
+  assert.equal(compact.guidedReading, undefined);
+});
 
 test("saved EL reports round-trip through cloud hydration and merge into the local cache", async t => {
   const priorStorage = globalThis.localStorage;
@@ -447,15 +474,16 @@ test("a realistic 25-student, 100-attempt class report compacts below the bounde
       studentName: student.name,
       classId: "class-large",
       teacherId: "teacher-1",
-      assessmentType: "skill_checkpoint",
-      skillId: "initial_sounds",
-      skillName: "Initial Sounds",
+      assessmentType: "el_letter_assessment",
+      skillId: "el_letter_assessment",
+      skillName: "Letter Name and Sound Recognition",
       startedAt: `2026-07-${String((attemptIndex % 20) + 1).padStart(2, "0")}T08:00:00.000Z`,
       completedAt: `2026-07-${String((attemptIndex % 20) + 1).padStart(2, "0")}T08:05:00.000Z`,
       questionRecords: Array.from({ length: 4 }, (_, questionIndex) => ({
         questionId: `${studentIndex}-${attemptIndex}-${questionIndex}`,
-        itemType: "initial_sound",
+        itemType: "letter_name",
         itemKey: String.fromCharCode(97 + questionIndex),
+        targetLetter: String.fromCharCode(97 + questionIndex),
         targetWord: ["apple", "ball", "cat", "dog"][questionIndex],
         prompt: "A realistically verbose assessor prompt retained in live history but removed from the saved report snapshot.",
         responseStatus: questionIndex % 2 ? "incorrect" : "correct",

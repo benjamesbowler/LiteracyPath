@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-08-zippy-slows-down",
+  "contentHash": "sha256:e589524f10e883c01008bcc0778452be3e6858b5d22d68c36044dd5d3daa73a1",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Zippy ___ home. Slowly. It took ages. Zippy loved it.\"",
+      "id": "dino-pals-08-zippy-slows-down-q1",
+      "prompt": "Why did Zippy end up far from Sunny Hollow?",
       "choices": [
-        "penguins",
-        "walked",
-        "snip"
+        "Sunny showed him a hidden path.",
+        "He ran past Sunny Hollow and did not stop.",
+        "He followed flowers into the valley."
       ],
-      "answer": "walked",
-      "kind": "word"
+      "answer": "He ran past Sunny Hollow and did not stop.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 3,
+      "evidenceText": "Zippy ran past the picnic, the waterfall, and Sunny Hollow. He did not stop."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-08-zippy-slows-down-q2",
+      "prompt": "What did Zippy do beside the flowers?",
       "choices": [
-        "soil",
-        "beach",
-        "zippy"
+        "He ran around the flowers without stopping.",
+        "He covered the flowers with a pile of leaves.",
+        "He sat beside the flowers and took a slow breath."
       ],
-      "answer": "zippy",
-      "kind": "word"
+      "answer": "He sat beside the flowers and took a slow breath.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 6,
+      "evidenceText": "He sat beside the flowers and took a slow breath."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-08-zippy-slows-down-q3",
+      "prompt": "What could Zippy see because he went slowly on the way home?",
       "choices": [
-        "Marcus",
-        "Flint",
-        "Zippy"
+        "the trees, clouds, and path",
+        "a race flag and finish line",
+        "a dark cave and hidden map"
       ],
-      "answer": "Zippy",
-      "kind": "word"
+      "answer": "the trees, clouds, and path",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "Zippy walked home with Sunny. He went slowly enough to see the trees, clouds, and path."
     }
   ]
 }

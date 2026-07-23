@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-13-splashy-finds-a-puddle",
+  "contentHash": "sha256:365b25b0aa0044c9df29b010525810727c7b8d81710ff022e3d7a810ac181dc0",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ sees a puddle.\"",
+      "id": "meadow-pals-13-splashy-finds-a-puddle-q1",
+      "prompt": "What does Splashy do in the puddle?",
       "choices": [
-        "splashy",
-        "cloud",
-        "planet"
+        "jumps in",
+        "walks around",
+        "sits beside it"
       ],
-      "answer": "splashy",
-      "kind": "word"
+      "answer": "jumps in",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "Splashy jumps in."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-13-splashy-finds-a-puddle-q2",
+      "prompt": "Whose hat gets wet?",
       "choices": [
-        "then",
-        "rest",
-        "puddle"
+        "Clucky's",
+        "Grumpy's",
+        "Sleepy's"
       ],
-      "answer": "puddle",
-      "kind": "word"
+      "answer": "Clucky's",
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 7,
+      "evidenceText": "\"My hat is wet!\" said Clucky."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "meadow-pals-13-splashy-finds-a-puddle-q3",
+      "prompt": "How does Splashy feel after the big splash?",
       "choices": [
-        "puddle",
-        "sick",
-        "pet"
+        "happy",
+        "worried",
+        "tired"
       ],
-      "answer": "puddle",
-      "kind": "word"
+      "answer": "happy",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "Splashy is very happy."
     }
   ]
 }

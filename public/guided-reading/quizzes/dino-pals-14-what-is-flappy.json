@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-14-what-is-flappy",
+  "contentHash": "sha256:ccda04ad122240477bbdb6ec3c2e697a7164aefdadd7fd9b557f022d86dceb37",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Flappy tried ___. Flappy's feet were quite small. Nobody noticed.\"",
+      "id": "dino-pals-14-what-is-flappy-q1",
+      "prompt": "Why was Flappy confused about whether they could fly?",
       "choices": [
-        "stomping",
-        "please",
-        "sneezy"
+        "Flappy had wings, but Grumpy said dinosaurs do not fly.",
+        "Flappy had feathers, but Sunny said birds could not nest.",
+        "Flappy had small feet, but Bossy said every dinosaur stomps."
       ],
-      "answer": "stomping",
-      "kind": "word"
+      "answer": "Flappy had wings, but Grumpy said dinosaurs do not fly.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 2,
+      "evidenceText": "I should be able to fly, said Flappy. I have wings. You are also a dinosaur, said Grumpy. Dinosaurs do not fly."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-14-what-is-flappy-q2",
+      "prompt": "Which new activity worked well for Flappy?",
       "choices": [
-        "fancy",
-        "flappy",
-        "blue"
+        "stomping loudly",
+        "roaring like a dinosaur",
+        "nesting in a tree"
       ],
-      "answer": "flappy",
-      "kind": "word"
+      "answer": "nesting in a tree",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 7,
+      "evidenceText": "Flappy tried nesting in a tree. This part actually worked quite well."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-14-what-is-flappy-q3",
+      "prompt": "What message did Grumpy give Flappy?",
       "choices": [
-        "Flappy",
-        "Anna",
-        "Honky"
+        "You are Flappy. That is enough.",
+        "Your best skill decides who you are.",
+        "You must choose between nesting and roaring."
       ],
-      "answer": "Flappy",
-      "kind": "word"
+      "answer": "You are Flappy. That is enough.",
+      "kind": "text",
+      "skill": "theme",
+      "evidencePage": 9,
+      "evidenceText": "You are Flappy, said Grumpy. That is enough."
     }
   ]
 }

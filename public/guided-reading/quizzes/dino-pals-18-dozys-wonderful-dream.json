@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-18-dozys-wonderful-dream",
+  "contentHash": "sha256:10e97c849970d297fccd8cd06bc03883f3000117d5880f3ad55fc3236965eb29",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-18-dozys-wonderful-dream-q1",
+      "prompt": "What was Sunny Hollow made of in Dozy's dream?",
       "choices": [
-        "dozy",
-        "explore",
-        "moon"
+        "berries",
+        "pebbles",
+        "clouds"
       ],
-      "answer": "dozy",
-      "kind": "word"
+      "answer": "clouds",
+      "kind": "word",
+      "skill": "setting",
+      "evidencePage": 4,
+      "evidenceText": "In the dream, Sunny Hollow was made of clouds."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-18-dozys-wonderful-dream-q2",
+      "prompt": "What did Dream Grumpy dislike about the clouds?",
       "choices": [
-        "Dozy",
-        "Eddie",
-        "Zippy"
+        "They were too soft.",
+        "They were too cold.",
+        "They were too high."
       ],
-      "answer": "Dozy",
-      "kind": "word"
+      "answer": "They were too soft.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 6,
+      "evidenceText": "Dream Grumpy was grumpy about the clouds. They are too soft. I cannot sit on them properly."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "dino-pals-18-dozys-wonderful-dream-q3",
+      "prompt": "What stayed the same in Dozy's dream?",
       "choices": [
-        "senses",
-        "tools",
-        "dream"
+        "His friends were together.",
+        "The waterfall was made of water.",
+        "Dozy felt sleepy in the dream."
       ],
-      "answer": "dream",
-      "kind": "word"
+      "answer": "His friends were together.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Dozy looks at all his friends and says the dream was like this, showing that his friends were together there too.",
+      "evidencePage": 12,
+      "evidenceText": "It was exactly like this, said Dozy, looking at all of them, but cloudier."
     }
   ]
 }

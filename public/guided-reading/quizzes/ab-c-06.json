@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-06",
+  "contentHash": "sha256:a130b76e04749481ce9cde5fe4b060933d6eab390189cbe30770766e78972c95",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-06-q1",
+      "prompt": "How did Aiden and Betty record the crystals growing?",
       "choices": [
-        "liquid",
-        "biggest",
-        "betty"
+        "with a video and a song",
+        "with photographs and a chart",
+        "with weights and a map"
       ],
-      "answer": "betty",
-      "kind": "word"
+      "answer": "with photographs and a chart",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 6,
+      "evidenceText": "Aiden took a photograph and Betty added a mark to her chart. Then Mum put the jar back on the shelf, and everyone washed their hands."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-06-q2",
+      "prompt": "Why did the judges stay so long at their project?",
       "choices": [
-        "Wiggly",
-        "Betty",
-        "Noisy"
+        "The crystal jar was difficult to open.",
+        "Aiden asked them to wait for Socks.",
+        "Betty explained what happened and why."
       ],
-      "answer": "Betty",
-      "kind": "word"
+      "answer": "Betty explained what happened and why.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "rationale": "The passage says the judges stayed a long time because Betty could explain what had happened and why, which directly links her explanation to their long visit.",
+      "evidencePage": 10,
+      "evidenceText": "The judges spent a very long time with Aiden and Betty's crystals — because Betty could explain not just what had happened but why, which turned out to be the whole point of the exercise."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-06-q3",
+      "prompt": "What important idea did Aiden record after the fair?",
       "choices": [
-        "fair",
-        "slow",
-        "last"
+        "Experiments should be fair and safe.",
+        "Every project must use crystals.",
+        "A gold certificate matters most."
       ],
-      "answer": "fair",
-      "kind": "word"
+      "answer": "Experiments should be fair and safe.",
+      "kind": "text",
+      "skill": "theme",
+      "evidencePage": 12,
+      "evidenceText": "That evening, Aiden added a new page to his field notebook. He wrote down six things that make an experiment fair and safe."
     }
   ]
 }

@@ -1,35 +1,52 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "moonwood-tales-c-10",
+  "contentHash": "sha256:8a17ba82f8f235523862886e33e5f0039643653da71c409ae28a558705303b69",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-10-q1",
+      "prompt": "What happens after Dewdrop asks whether the forgotten task involves the stream?",
       "choices": [
-        "luna",
-        "fluffy",
-        "surprises"
+        "Luna stops and looks at the stream.",
+        "Luna decides the task was a meeting.",
+        "Luna asks everyone to stop searching."
       ],
-      "answer": "luna",
-      "kind": "word"
+      "answer": "Luna stops and looks at the stream.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 6,
+      "evidenceText": "Was it something to do with the Crystal Stream? asked Dewdrop. Luna stopped walking. She looked at the stream for a moment. Wait, said Luna."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-10-q2",
+      "prompt": "How do Luna's friends help solve her memory problem?",
       "choices": [
-        "Luna",
-        "Light",
-        "Seeds"
+        "Their help lets Luna remember.",
+        "Their search finds the seeds without Luna.",
+        "Their planting makes Luna forget the task."
       ],
-      "answer": "Luna",
-      "kind": "word"
+      "answer": "Their help lets Luna remember.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Luna says she remembered 'with help' while looking at her friends, directly linking their help to her remembering.",
+      "evidencePage": 14,
+      "evidenceText": "I did remember, said Luna. With help. She looked at all of them. That is the point."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-10-q3",
+      "prompt": "What idea is shown when every creature plants one Moonwood seed?",
       "choices": [
-        "sleep",
-        "forgot",
-        "tools"
+        "Caring for their shared home is everyone's job.",
+        "Luna planted every seed while the others watched.",
+        "The seeds were planted to mark the stream path."
       ],
-      "answer": "forgot",
-      "kind": "word"
+      "answer": "Caring for their shared home is everyone's job.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "One planted seed from each creature shows that everyone shares the job of caring for their Moonwood home.",
+      "evidencePage": 13,
+      "evidenceText": "They planted the seeds in a ring around the Hollow Oak. One from each of them."
     }
   ]
 }

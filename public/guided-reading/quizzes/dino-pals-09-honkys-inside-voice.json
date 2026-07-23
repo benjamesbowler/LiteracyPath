@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-09-honkys-inside-voice",
+  "contentHash": "sha256:f554c04c96a964fbc58e80fdbd05fc040f09a6ab8fc79f554029d3299cf3cace",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Shh! said ___. SORRY! said Honky. More leaves fell.\"",
+      "id": "dino-pals-09-honkys-inside-voice-q1",
+      "prompt": "Why did Bossy tell Honky to use a small voice?",
       "choices": [
-        "winter",
-        "grumpy",
-        "fancy"
+        "The rain was loud.",
+        "Nobody could hear him.",
+        "His friends were close."
       ],
-      "answer": "grumpy",
-      "kind": "word"
+      "answer": "His friends were close.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 3,
+      "evidenceText": "Use a small voice when friends are close."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-09-honkys-inside-voice-q2",
+      "prompt": "How did Honky's big voice help during the storm?",
       "choices": [
-        "grandma",
-        "magnets",
-        "honky"
+        "It helped every Dino Pal hear him.",
+        "It made the rain stop.",
+        "It rebuilt the trees."
       ],
-      "answer": "honky",
-      "kind": "word"
+      "answer": "It helped every Dino Pal hear him.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 7,
+      "evidenceText": "\"This way to the safe cave!\" Honky called. His big voice helped every Dino Pal hear him."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-09-honkys-inside-voice-q3",
+      "prompt": "What did Honky learn about his voice?",
       "choices": [
-        "Brave",
-        "Honky",
-        "James"
+        "A soft voice works best during a storm.",
+        "A small voice for talking and a big voice when needed.",
+        "A big voice works best when one friend is close."
       ],
-      "answer": "Honky",
-      "kind": "word"
+      "answer": "A small voice for talking and a big voice when needed.",
+      "kind": "text",
+      "skill": "theme",
+      "evidencePage": 8,
+      "evidenceText": "A small voice for talking. A big voice when we need it."
     }
   ]
 }

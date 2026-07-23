@@ -4,36 +4,16 @@ import {
   hydrateElAssessmentReports,
   saveElAssessmentReport
 } from "../data/elAssessmentReportStore.js";
-import { isReportableElBenchmarkCandidatePlacement } from "../data/elFormalAssessmentReportBuilder.js";
 import {
-  buildRecommendations,
-  buildWeeklyAccuracy,
-  formatItemLabel,
-  getSkillArea,
-  normalizeItemMasteryRows
-} from "../data/reportingSystem.js";
-import {
-  buildEngagementRow,
-  buildEngagementRows,
-  buildStoryQuestRows,
-  collectStoryQuestProgressForStudent,
-  collectStoryQuestRowsForStudents,
-  collectStudentEngagementAreas,
-  emptyEngagementCells,
-  emptyStoryQuestCells,
-  ENGAGEMENT_HEADERS,
-  ENGAGEMENT_SHEET_NAME,
-  engagementRowToCells,
-  formatExportDateTime,
-  hasPreviousComparison,
-  STORY_QUEST_HEADERS,
-  STORY_QUEST_SHEET_NAME,
-  storyQuestRowToCells
-} from "./exportReportSections.js";
+  buildClassElFormalAssessmentReport,
+  buildIndividualElFormalAssessmentReport,
+  EL_FORMAL_CLASS_EVIDENCE_SCHEMA,
+  isReportableElBenchmarkCandidatePlacement
+} from "../data/elFormalAssessmentReportBuilder.js";
+import { formatExportDateTime } from "./exportReportSections.js";
 
-// Sheets that are always present in the workbook, in tab order. The
-// "Comparison" / "Progress Comparison" sheet is intentionally NOT listed:
-// it is only added when a previous saved report actually exists.
+// EL workbooks are intentionally limited to Assessments 1-6. Other learning
+// areas have their own reports and must not leak into these exports.
 export const EL_STUDENT_BENCHMARK_SHEETS = [
   "Benchmark Profile",
   "PA Strand Detail",
@@ -50,36 +30,48 @@ export const EL_CLASS_BENCHMARK_SHEETS = [
 
 export const EL_STUDENT_REPORT_SHEETS = [
   "Student Summary",
-  "Assessment Attempts",
-  "Progress Over Time",
-  "Skills Detail",
-  "Item Mastery Detail",
   "Letter Names & Sounds",
-  "Guided Reading",
-  STORY_QUEST_SHEET_NAME,
-  ENGAGEMENT_SHEET_NAME,
-  "Next Session Plan",
   "Advanced Phonics Patterns",
-  "Pattern Detail",
   ...EL_STUDENT_BENCHMARK_SHEETS
 ];
 
 export const EL_CLASS_REPORT_SHEETS = [
   "Class Summary",
-  "Student Overview",
-  "Skill Heatmap",
-  "Weak Points & Groups",
-  "Class Progress Over Time",
-  "Per-Student Skill Detail",
   "Letter Sound Class Matrix",
   "Advanced Phonics Class Matrix",
   "Advanced Phonics Patterns",
   "Pattern Detail",
-  "Skill Summary",
-  STORY_QUEST_SHEET_NAME,
-  ENGAGEMENT_SHEET_NAME,
   ...EL_CLASS_BENCHMARK_SHEETS
 ];
+
+export const EL_ASSESSMENT_TYPE_IDS = Object.freeze([
+  "el_letter_assessment",
+  "advanced_phonics_patterns",
+  "el_phonological_awareness",
+  "el_encoding",
+  "el_decoding",
+  "el_oral_reading_fluency"
+]);
+
+const EL_ASSESSMENT_TYPE_ID_SET = new Set(EL_ASSESSMENT_TYPE_IDS);
+
+function normalizeAssessmentType(value) {
+  return String(value || "").trim().toLowerCase().replace(/[\s-]+/g, "_");
+}
+
+export function getElAssessmentTypeId(record = {}) {
+  const candidates = [record.assessmentType, record.assessmentId, record.skillId];
+  for (const candidate of candidates) {
+    const normalized = normalizeAssessmentType(candidate);
+    if (normalized) return EL_ASSESSMENT_TYPE_ID_SET.has(normalized) ? normalized : "";
+  }
+  return "";
+}
+
+export function filterElAssessmentHistory(assessmentHistory = []) {
+  return (Array.isArray(assessmentHistory) ? assessmentHistory : [])
+    .filter(record => Boolean(getElAssessmentTypeId(record)));
+}
 
 const EL_DESCRIPTIVE_BENCHMARK_SHEETS = new Set([
   ...EL_STUDENT_BENCHMARK_SHEETS,
@@ -114,15 +106,6 @@ const EXPORT_COLORS = {
   white: "FFFFFFFF"
 };
 
-function latestSkillSummary(report = {}, skillName = "") {
-  const normalized = String(skillName || "").toLowerCase();
-  const row = (report.skillRows || []).find(item =>
-    String(item.skillName || "").toLowerCase() === normalized ||
-    String(item.skillName || "").toLowerCase().includes(normalized)
-  );
-  return row || null;
-}
-
 function addRowsOrEmpty(sheet, rows, mapper) {
   if (!rows.length) {
     sheet.addRow(mapper(null));
@@ -135,61 +118,8 @@ function cellSummary(cell = {}) {
   return `${cell.statusLabel || "Not assessed"}${cell.attempts ? ` (${cell.correct}/${cell.attempts})` : ""}`;
 }
 
-function getReportStudentName(student = {}) {
-  return student.name || student.studentName || "Unknown Student";
-}
-
-function buildClassWeakPointRows(report = {}) {
-  if (Array.isArray(report.classWeakPointRows)) return report.classWeakPointRows;
-  const records = report.sourceSnapshot?.records || [];
-  const students = report.sourceSnapshot?.students || [];
-  const studentIds = students.map(student => student.id).filter(Boolean);
-  const studentNameById = new Map(students.map(student => [student.id, getReportStudentName(student)]));
-  const denominator = Math.max(studentIds.length, 1);
-  const rowsByKey = new Map();
-
-  studentIds.forEach(studentId => {
-    const studentRecords = records.filter(record => record.studentId === studentId);
-    normalizeItemMasteryRows({}, studentRecords)
-      .filter(row => row.attempts > 0 && row.accuracy < 70)
-      .forEach(row => {
-        const key = `${row.itemType}::${row.itemKey}`;
-        const existing = rowsByKey.get(key) || {
-          skillArea: getSkillArea({ skillId: row.skillId, skillName: row.skillName }).label,
-          skillName: row.skillName,
-          itemType: row.itemType,
-          itemKey: row.itemKey,
-          itemLabel: formatItemLabel(row.itemType, row.itemKey),
-          attempts: 0,
-          correct: 0,
-          studentNames: new Set()
-        };
-        existing.attempts += row.attempts;
-        existing.correct += row.correct;
-        existing.studentNames.add(studentNameById.get(studentId) || studentId);
-        rowsByKey.set(key, existing);
-      });
-  });
-
-  return Array.from(rowsByKey.values())
-    .map(row => ({
-      ...row,
-      accuracy: row.attempts ? Math.round((row.correct / row.attempts) * 100) : 0,
-      supportStudentCount: row.studentNames.size,
-      supportShare: Math.round((row.studentNames.size / denominator) * 100),
-      studentNames: Array.from(row.studentNames).sort()
-    }))
-    .filter(row => row.supportShare >= 30 || row.accuracy < 70)
-    .sort((a, b) =>
-      b.supportShare - a.supportShare ||
-      a.accuracy - b.accuracy ||
-      a.itemLabel.localeCompare(b.itemLabel)
-    )
-    .slice(0, 12);
-}
-
 function cellCountSummary(group = {}) {
-  return `M:${group.mastered || 0} D:${group.developing || 0} S:${group.needs_support || 0} NA:${group.not_assessed || 0}`;
+  return `M:${group.mastered || 0} D:${group.developing || 0} S:${group.needs_support || 0} U:${group.unscored_evidence || 0} NA:${group.not_assessed || 0}`;
 }
 
 function parsePercent(value) {
@@ -272,16 +202,6 @@ function styleSummarySheet(sheet, accent = EXPORT_COLORS.teal) {
   sheet.views = [{ state: "frozen", ySplit: 1, showGridLines: false }];
 }
 
-function stylePrintPlanSheet(sheet) {
-  sheet.views = [{ showGridLines: false }];
-  sheet.getColumn(1).width = 24;
-  sheet.getColumn(2).width = 82;
-  sheet.eachRow((row, rowNumber) => {
-    row.height = rowNumber === 1 ? 28 : 42;
-    row.alignment = { vertical: "top", wrapText: true };
-  });
-}
-
 function orderWorksheets(workbook, preferredOrder = []) {
   if (!Array.isArray(workbook._worksheets)) return;
   const order = new Map(preferredOrder.map((name, index) => [name, index]));
@@ -300,17 +220,11 @@ function applyWorkbookPresentation(workbook, preferredOrder = []) {
   const tabColors = {
     "Student Summary": EXPORT_COLORS.teal,
     "Class Summary": EXPORT_COLORS.teal,
-    "Assessment Attempts": EXPORT_COLORS.blue,
-    "Progress Over Time": EXPORT_COLORS.blue,
-    "Class Progress Over Time": EXPORT_COLORS.blue,
-    "Skills Detail": EXPORT_COLORS.purple,
-    "Skill Heatmap": EXPORT_COLORS.purple,
-    "Item Mastery Detail": EXPORT_COLORS.amber,
-    "Weak Points & Groups": "FFDC2626",
-    "Guided Reading": "FF16A34A",
-    [STORY_QUEST_SHEET_NAME]: "FF0EA5E9",
-    [ENGAGEMENT_SHEET_NAME]: EXPORT_COLORS.amber,
-    "Next Session Plan": EXPORT_COLORS.navy,
+    "Letter Names & Sounds": EXPORT_COLORS.blue,
+    "Letter Sound Class Matrix": EXPORT_COLORS.blue,
+    "Advanced Phonics Patterns": EXPORT_COLORS.purple,
+    "Advanced Phonics Class Matrix": EXPORT_COLORS.purple,
+    "Pattern Detail": EXPORT_COLORS.purple,
     "Benchmark Profile": EXPORT_COLORS.teal,
     "PA Strand Detail": EXPORT_COLORS.blue,
     "Encoding Detail": EXPORT_COLORS.purple,
@@ -326,7 +240,6 @@ function applyWorkbookPresentation(workbook, preferredOrder = []) {
       sheet.properties.tabColor = { argb: tabColors[sheet.name] };
     }
     if (sheet.name.includes("Summary")) styleSummarySheet(sheet, tabColors[sheet.name] || EXPORT_COLORS.teal);
-    if (sheet.name === "Next Session Plan") stylePrintPlanSheet(sheet);
   });
   orderWorksheets(workbook, preferredOrder);
 }
@@ -433,6 +346,256 @@ function classBenchmarkDomainSummaryRows(report = {}) {
 
 function classBenchmarkDetailRows(report = {}) {
   return report.benchmarkDetails || report.formalAssessments?.classBenchmarkDetails || [];
+}
+
+const LETTER_CELL_KEYS = [
+  "uppercaseName",
+  "uppercaseSound",
+  "lowercaseName",
+  "lowercaseSound"
+];
+
+function formalEvidenceResult(detail = {}) {
+  if (detail.isCorrect === true) return "Correct";
+  if (detail.isCorrect === false) return "Incorrect";
+  return "Not scored";
+}
+
+function formalEvidenceProvenance(detail = {}, { includeStudent = false } = {}) {
+  const parts = [];
+  if (includeStudent && (detail.studentName || detail.studentId)) {
+    parts.push(`Student: ${detail.studentName || detail.studentId}`);
+  }
+  parts.push(`Attempt: ${detail.attemptId || "not recorded"}`);
+  parts.push(`Item: ${detail.questionId || detail.itemKey || "not recorded"}`);
+  if (detail.itemType) parts.push(`Item type: ${detail.itemType}`);
+  if (detail.itemKey && detail.itemKey !== detail.questionId) parts.push(`Item key: ${detail.itemKey}`);
+  parts.push(`Response: ${humanizeKey(detail.responseStatus || "unrecorded")}`);
+  parts.push(`Result: ${formalEvidenceResult(detail)}`);
+  if (detail.administrationStatus) parts.push(`Administration: ${humanizeKey(detail.administrationStatus)}`);
+  if (detail.formVersion) parts.push(`Form: ${detail.formVersion}`);
+  if (detail.contentVersion) parts.push(`Content: ${detail.contentVersion}`);
+  if (detail.scoringVersion) parts.push(`Scoring: ${detail.scoringVersion}`);
+  if (detail.scoringRuleVersion) parts.push(`Rule: ${detail.scoringRuleVersion}`);
+  if (detail.administrationVersion) parts.push(`Interface: ${detail.administrationVersion}`);
+  if (detail.responseSchemaVersion !== "" && detail.responseSchemaVersion != null) {
+    parts.push(`Schema: ${detail.responseSchemaVersion}`);
+  }
+  if (detail.date) parts.push(`Date: ${formatExportDateTime(detail.date) || formatDate(detail.date)}`);
+  return parts.join(" | ");
+}
+
+function formalEvidenceList(details = [], options = {}) {
+  return (Array.isArray(details) ? details : [])
+    .map(detail => formalEvidenceProvenance(detail, options))
+    .join("\n");
+}
+
+function decodeClassEvidenceRows(report = {}, rows = []) {
+  const schema = report.formalAssessments?.classEvidenceSchema || EL_FORMAL_CLASS_EVIDENCE_SCHEMA;
+  return (Array.isArray(rows) ? rows : []).map(row => {
+    if (!Array.isArray(row)) return row || {};
+    return Object.fromEntries(schema.map((key, index) => [key, row[index] ?? ""]));
+  });
+}
+
+function getElReportDateRange(report = {}) {
+  const sourceRecords = report.sourceSnapshot?.records;
+  if (Array.isArray(sourceRecords)) {
+    const dates = filterElAssessmentHistory(sourceRecords)
+      .map(record => new Date(record.completedAt || record.startedAt || record.createdAt || ""))
+      .filter(date => Number.isFinite(date.getTime()))
+      .sort((a, b) => a - b);
+    if (dates.length) {
+      return `${formatDate(dates[0])} to ${formatDate(dates.at(-1))}`;
+    }
+    return "No EL assessment records";
+  }
+  const start = formatDate(report.dateRange?.start);
+  const end = formatDate(report.dateRange?.end);
+  return start || end ? `${start || end} to ${end || start}` : "No EL assessment records";
+}
+
+function studentLetterEvidence(report = {}) {
+  const rows = report.formalAssessments?.individualLetterMatrix || [];
+  return rows.reduce((summary, row) => {
+    LETTER_CELL_KEYS.forEach(key => {
+      summary.evidenceCount += Number(row?.[key]?.evidenceCount || row?.[key]?.details?.length || 0);
+      summary.unscoredCount += Number(row?.[key]?.unscoredCount || 0);
+      summary.attempts += Number(row?.[key]?.attempts || 0);
+      summary.correct += Number(row?.[key]?.correct || 0);
+    });
+    const date = formatDate(row.lastAssessed);
+    if (date > summary.latestDate) summary.latestDate = date;
+    return summary;
+  }, { evidenceCount: 0, unscoredCount: 0, attempts: 0, correct: 0, latestDate: "" });
+}
+
+function studentAdvancedEvidence(report = {}) {
+  const rows = report.formalAssessments?.individualAdvancedPhonicsMatrix || [];
+  return rows.reduce((summary, row) => {
+    summary.evidenceCount += Number(row.evidenceCount || row.details?.length || 0);
+    summary.unscoredCount += Number(row.unscoredCount || 0);
+    summary.attempts += Number(row.attempts || 0);
+    summary.correct += Number(row.correct || 0);
+    const date = formatDate(row.lastAssessed);
+    if (date > summary.latestDate) summary.latestDate = date;
+    return summary;
+  }, { evidenceCount: 0, unscoredCount: 0, attempts: 0, correct: 0, latestDate: "" });
+}
+
+function benchmarkProfileSummary(profile = {}) {
+  if (!profile.hasSavedEvidence) return "No saved evidence";
+  const metrics = profile.metrics || {};
+  const status = profile.administrationStatusLabel || humanizeKey(profile.administrationStatus) || "Evidence recorded";
+  if (profile.domainKey === "phonologicalAwareness") {
+    return `${status}; ${percentageText(metrics.accuracyRate)} accuracy; ${numericValue(metrics.strandsObserved) || 0} strand(s) observed`;
+  }
+  if (profile.domainKey === "encoding") {
+    return `${status}; ${percentageText(metrics.exactSpellingRate)} exact spelling; ${percentageText(metrics.phonologicallyRepresentedRate)} phonologically represented`;
+  }
+  if (profile.domainKey === "decoding") {
+    return `${status}; ${percentageText(metrics.accuracyRate)} accuracy; ${percentageText(metrics.automaticityRate)} automatic`;
+  }
+  return `${status}; ${numericValue(metrics.wcpm) === "" ? "WCPM not scored" : `${numericValue(metrics.wcpm)} WCPM`}; ${percentageText(metrics.accuracyRate)} accuracy`;
+}
+
+function buildStudentElSummaryRows(report = {}) {
+  const letter = studentLetterEvidence(report);
+  const advanced = studentAdvancedEvidence(report);
+  const profiles = benchmarkProfileRows(report);
+  const profileByDomain = new Map(profiles.map(profile => [profile.domainKey, profile]));
+  const savedAssessmentCount = Number(letter.evidenceCount > 0) + Number(advanced.evidenceCount > 0) +
+    profiles.filter(profile => profile.hasSavedEvidence).length;
+  const evidenceSummary = (evidence, noun) => {
+    if (!evidence.evidenceCount) return "No saved evidence";
+    const scored = evidence.attempts
+      ? `${evidence.correct}/${evidence.attempts} correct ${noun}`
+      : "No scored responses; no result inferred";
+    const unscored = evidence.unscoredCount ? `; ${evidence.unscoredCount} unscored evidence item(s)` : "";
+    return `${scored}${unscored}${evidence.latestDate ? `; latest ${evidence.latestDate}` : ""}`;
+  };
+
+  return [
+    ["Student Name", report.studentName || "Unknown Student"],
+    ["Class Name", report.className || "Unknown Class"],
+    ["Report Date", formatDate(report.generatedAt)],
+    ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
+    ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
+    ["EL Assessment Date Range", getElReportDateRange(report)],
+    ["Assessments With Saved Evidence", `${savedAssessmentCount}/6`],
+    ["Assessment 1 — Letter Names & Sounds", evidenceSummary(letter, "letter/name/sound response(s)")],
+    ["Assessment 2 — Advanced Phonics Patterns", evidenceSummary(advanced, "pattern response(s)")],
+    ["Assessment 3 — Phonological Awareness", benchmarkProfileSummary(profileByDomain.get("phonologicalAwareness"))],
+    ["Assessment 4 — Encoding & Spelling", benchmarkProfileSummary(profileByDomain.get("encoding"))],
+    ["Assessment 5 — Decoding & Automaticity", benchmarkProfileSummary(profileByDomain.get("decoding"))],
+    ["Assessment 6 — Oral Reading Fluency", benchmarkProfileSummary(profileByDomain.get("oralReadingFluency"))],
+    ["How To Read This Workbook", "Use the named assessment sheets for evidence details. Benchmark results are descriptive and do not apply an invented mastery cut score."]
+  ];
+}
+
+function classLetterEvidenceSummary(report = {}) {
+  return (report.formalAssessments?.classLetterMatrix || []).reduce((total, row) => {
+    LETTER_CELL_KEYS.forEach(key => {
+      const cell = row?.[key] || {};
+      total.scored += Number(cell.mastered || 0) + Number(cell.developing || 0) + Number(cell.needs_support || 0);
+      total.unscored += Number(cell.unscored_evidence || 0);
+    });
+    return total;
+  }, { scored: 0, unscored: 0 });
+}
+
+function classAdvancedEvidenceSummary(report = {}) {
+  return (report.formalAssessments?.classAdvancedPhonicsMatrix || []).reduce((total, row) => {
+    total.scored += Number(row.attemptedStudents || 0);
+    total.unscored += Number(row.unscoredEvidenceStudents || 0);
+    return total;
+  }, { scored: 0, unscored: 0 });
+}
+
+function buildClassAdvancedPhonicsSummaryRows(report = {}) {
+  const matrix = report.formalAssessments?.classAdvancedPhonicsMatrix || [];
+  const evidence = matrix.flatMap(row => decodeClassEvidenceRows(report, row.evidenceRows));
+  const scored = evidence.filter(row => typeof row.isCorrect === "boolean");
+  const correct = scored.filter(row => row.isCorrect).length;
+  const latestDate = evidence.map(row => row.date).filter(Boolean).sort().at(-1) || "";
+  const uniqueAttempts = new Set(evidence.map(row => row.attemptId).filter(Boolean)).size;
+  return [
+    ["Class Name", report.className || "Unknown Class"],
+    ["Saved Attempts", uniqueAttempts],
+    ["Latest Evidence Date", formatDate(latestDate) || "No records yet"],
+    ["Evidence Items", evidence.length],
+    ["Scored Items", scored.length],
+    ["Unscored Evidence Items", Math.max(0, evidence.length - scored.length)],
+    ["Scored Accuracy", scored.length ? `${Math.round((correct / scored.length) * 100)}%` : "Not scored"],
+    ["Patterns With Mastery Evidence", list(matrix.filter(row => row.masteredStudents > 0).map(row => row.pattern)) || "None yet"],
+    ["Patterns Developing", list(matrix.filter(row => row.developingStudents > 0).map(row => row.pattern)) || "None yet"],
+    ["Patterns Needing Support", list(matrix.filter(row => row.needsSupportStudents > 0).map(row => row.pattern)) || "None yet"],
+    ["Patterns With Unscored Evidence", list(matrix.filter(row => row.unscoredEvidenceStudents > 0).map(row => row.pattern)) || "None yet"]
+  ];
+}
+
+function classAdvancedEvidenceDetailRows(report = {}) {
+  return (report.formalAssessments?.classAdvancedPhonicsMatrix || []).flatMap(row => (
+    decodeClassEvidenceRows(report, row.evidenceRows).map(detail => ({
+      pattern: row.pattern,
+      className: report.className || "Unknown Class",
+      ...detail
+    }))
+  )).sort((a, b) => (
+    String(a.studentName || "").localeCompare(String(b.studentName || "")) ||
+    String(a.pattern || "").localeCompare(String(b.pattern || "")) ||
+    String(a.date || "").localeCompare(String(b.date || ""))
+  ));
+}
+
+function classBenchmarkSummary(summary = {}) {
+  const total = Number(summary.totalStudents || 0);
+  const saved = Number(summary.studentsWithSavedEvidence || 0);
+  const metrics = summary.metrics || {};
+  const evidence = `${saved}/${total} student(s) with saved evidence`;
+  if (summary.domainKey === "phonologicalAwareness") {
+    return `${evidence}; ${percentageText(metrics.averageAccuracyRate)} class average accuracy`;
+  }
+  if (summary.domainKey === "encoding") {
+    return `${evidence}; ${percentageText(metrics.averageExactSpellingRate)} average exact spelling`;
+  }
+  if (summary.domainKey === "decoding") {
+    return `${evidence}; ${percentageText(metrics.averageAccuracyRate)} average accuracy`;
+  }
+  return `${evidence}; ${numericValue(metrics.averageWcpm) === "" ? "average WCPM not scored" : `${numericValue(metrics.averageWcpm)} average WCPM`}`;
+}
+
+function buildClassElSummaryRows(report = {}) {
+  const summaries = classBenchmarkDomainSummaryRows(report);
+  const summaryByDomain = new Map(summaries.map(summary => [summary.domainKey, summary]));
+  const totalStudents = classBenchmarkMatrixRows(report).length || report.summary?.totalStudents || report.studentRows?.length || 0;
+  const summaryFor = domain => {
+    const summary = summaryByDomain.get(domain);
+    return summary ? classBenchmarkSummary(summary) : `0/${totalStudents} student(s) with saved evidence`;
+  };
+  const letterEvidence = classLetterEvidenceSummary(report);
+  const advancedEvidence = classAdvancedEvidenceSummary(report);
+  const evidenceSummary = (evidence, noun) => [
+    `${evidence.scored} scored ${noun}`,
+    evidence.unscored ? `${evidence.unscored} unscored evidence item(s)` : ""
+  ].filter(Boolean).join("; ");
+
+  return [
+    ["Class Name", report.className || "Unknown Class"],
+    ["Report Date", formatDate(report.generatedAt)],
+    ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
+    ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
+    ["EL Assessment Date Range", getElReportDateRange(report)],
+    ["Students In Report", totalStudents],
+    ["Assessment 1 — Letter Names & Sounds", evidenceSummary(letterEvidence, "letter/name/sound response(s)")],
+    ["Assessment 2 — Advanced Phonics Patterns", evidenceSummary(advancedEvidence, "student-pattern check(s)")],
+    ["Assessment 3 — Phonological Awareness", summaryFor("phonologicalAwareness")],
+    ["Assessment 4 — Encoding & Spelling", summaryFor("encoding")],
+    ["Assessment 5 — Decoding & Automaticity", summaryFor("decoding")],
+    ["Assessment 6 — Oral Reading Fluency", summaryFor("oralReadingFluency")],
+    ["How To Read This Workbook", "Use the matrices and detail sheets for EL Assessments 1-6 only. Benchmark results are descriptive and do not apply an invented mastery cut score."]
+  ];
 }
 
 function addPlaceholderRow(sheet, firstHeader, message, extra = {}) {
@@ -1548,121 +1711,8 @@ export async function createStudentElAssessmentWorkbook(report) {
 
   const summarySheet = workbook.addWorksheet("Student Summary");
   setColumns(summarySheet, ["Field", "Value"], ["Value"]);
-  [
-    ["Student Name", report.studentName || "Unknown Student"],
-    ["Class Name", report.className || "Unknown Class"],
-    ["Report Date", formatDate(report.generatedAt)],
-    ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
-    ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
-    ["EL Benchmark Scope Source", humanizeKey(report.benchmarkScope?.source) || "None"],
-    ["Last Active Date", formatDate(report.engagement?.rows?.[0]?.lastActiveAt) || "No activity recorded yet"],
-    ["Date Range", `${formatDate(report.dateRange?.start) || "No records"} to ${formatDate(report.dateRange?.end) || "No records"}`],
-    ["Total Assessments", report.summary?.totalAssessments || 0],
-    ["Average Accuracy", `${report.summary?.averageAccuracy || 0}%`],
-    ["Skills Mastered", report.summary?.masteredSkillCount || 0],
-    ["Skills Developing", report.summary?.developingSkillCount || 0],
-    ["Skills Needing Support", report.summary?.needsSupportSkillCount || 0],
-    ["Latest Letter Assessment", latestSkillSummary(report, "EL Letter Name and Sound")
-      ? `${latestSkillSummary(report, "EL Letter Name and Sound").accuracy || 0}% on ${formatDate(latestSkillSummary(report, "EL Letter Name and Sound").lastAssessed)}`
-      : "No letter assessment saved yet"],
-    ["Latest Advanced Phonics Patterns", report.advancedPhonics?.attempts
-      ? `${report.advancedPhonics.latestAccuracy || 0}% on ${formatDate(report.advancedPhonics.latestDate)}`
-      : "No advanced phonics assessment saved yet"],
-    ["Benchmark Evidence", `${benchmarkProfileRows(report).filter(row => row.hasSavedEvidence).length}/${benchmarkProfileRows(report).length || 4} domains with saved evidence; see Benchmark Profile`],
-    ["Current Recommended Focus", list(report.summary?.focusSkills) || "No records yet"]
-  ].forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
-
-  const skillSheet = workbook.addWorksheet("Skills Detail");
-  setColumns(skillSheet, [
-    "Skill #",
-    "Skill Name",
-    "Skill Area",
-    "Status",
-    "Last Checkpoint Score",
-    "Checkpoint Accuracy%",
-    "Coverage",
-    "Items Mastered",
-    "Items Developing",
-    "Items Needing Support",
-    "Last Assessed Date"
-  ], ["Items Mastered", "Items Developing", "Items Needing Support"]);
-  addRowsOrEmpty(skillSheet, (report.skillRows || []).map((row, index) => ({ ...row, index: index + 1 })), row => row ? {
-    "Skill #": row.index,
-    "Skill Name": row.skillName,
-    "Skill Area": row.skillArea,
-    "Status": row.masteryStatus,
-    "Last Checkpoint Score": row.isProvisionalBenchmark && row.accuracy == null
-      ? "Not scored"
-      : row.totalQuestions
-        ? `${row.correctCount}/${row.totalQuestions}`
-        : "",
-    "Checkpoint Accuracy%": row.isProvisionalBenchmark
-      ? percentageText(row.accuracy)
-      : `${row.accuracy || 0}%`,
-    "Coverage": `${(row.itemsMastered || []).length}/${Math.max((row.itemsMastered || []).length + (row.itemsMissed || []).length, row.totalQuestions || 0)} items`,
-    "Items Mastered": list(row.itemsMastered),
-    "Items Developing": row.masteryStatus === "Developing" ? list(row.itemsMissed) : "",
-    "Items Needing Support": row.masteryStatus === "Needs Support" ? list(row.itemsMissed) : "",
-    "Last Assessed Date": formatDate(row.lastAssessed)
-  } : {
-    "Skill #": "",
-    "Skill Name": "",
-    "Skill Area": "No records yet",
-    "Status": "Not Assessed",
-    "Last Checkpoint Score": "",
-    "Checkpoint Accuracy%": "0%",
-    "Coverage": "",
-    "Items Mastered": "",
-    "Items Developing": "",
-    "Items Needing Support": "",
-    "Last Assessed Date": ""
-	  });
-
-  const itemRows = Array.isArray(report.itemMasteryRows)
-    ? report.itemMasteryRows
-    : normalizeItemMasteryRows({}, report.sourceSnapshot?.records || []);
-  const itemSheet = workbook.addWorksheet("Item Mastery Detail");
-  setColumns(itemSheet, [
-    "Skill Area",
-    "Skill",
-    "Item Type",
-    "Item Key",
-    "Item",
-    "Status",
-    "Attempts",
-    "Correct",
-    "Accuracy",
-    "Examples",
-    "Needs Support Examples",
-    "Last Assessed"
-  ], ["Examples", "Needs Support Examples"]);
-  addRowsOrEmpty(itemSheet, itemRows, row => row ? {
-    "Skill Area": getSkillArea({ skillId: row.skillId, skillName: row.skillName }).label,
-    "Skill": row.skillName,
-    "Item Type": row.itemTypeLabel,
-    "Item Key": row.itemKey,
-    "Item": formatItemLabel(row.itemType, row.itemKey),
-    "Status": row.statusLabel,
-    "Attempts": row.attempts,
-    "Correct": row.correct,
-    "Accuracy": `${row.accuracy || 0}%`,
-    "Examples": list(row.examples),
-    "Needs Support Examples": list(row.missedExamples),
-    "Last Assessed": formatDate(row.lastAssessed)
-  } : {
-    "Skill Area": "No item mastery records yet",
-    "Skill": "No item mastery records yet",
-    "Item Type": "",
-    "Item Key": "",
-    "Item": "",
-    "Status": "Not assessed",
-    "Attempts": 0,
-    "Correct": 0,
-    "Accuracy": "0%",
-    "Examples": "",
-    "Needs Support Examples": "",
-    "Last Assessed": ""
-  });
+  buildStudentElSummaryRows(report)
+    .forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
 
   const letterSheet = workbook.addWorksheet("Letter Names & Sounds");
   setColumns(letterSheet, [
@@ -1675,9 +1725,23 @@ export async function createStudentElAssessmentWorkbook(report) {
     "Uppercase sound attempts",
     "Lowercase name attempts",
     "Lowercase sound attempts",
+    "Uppercase name unscored",
+    "Uppercase sound unscored",
+    "Lowercase name unscored",
+    "Lowercase sound unscored",
     "Last assessed",
+    "Uppercase name evidence provenance",
+    "Uppercase sound evidence provenance",
+    "Lowercase name evidence provenance",
+    "Lowercase sound evidence provenance",
     "Details / notes"
-  ], ["Details / notes"]);
+  ], [
+    "Uppercase name evidence provenance",
+    "Uppercase sound evidence provenance",
+    "Lowercase name evidence provenance",
+    "Lowercase sound evidence provenance",
+    "Details / notes"
+  ]);
   addRowsOrEmpty(letterSheet, report.formalAssessments?.individualLetterMatrix || [], row => row ? {
     "Letter pair": row.letterPair,
     "Uppercase name result": row.uppercaseName.statusLabel,
@@ -1688,7 +1752,15 @@ export async function createStudentElAssessmentWorkbook(report) {
     "Uppercase sound attempts": row.uppercaseSound.attempts,
     "Lowercase name attempts": row.lowercaseName.attempts,
     "Lowercase sound attempts": row.lowercaseSound.attempts,
+    "Uppercase name unscored": row.uppercaseName.unscoredCount || 0,
+    "Uppercase sound unscored": row.uppercaseSound.unscoredCount || 0,
+    "Lowercase name unscored": row.lowercaseName.unscoredCount || 0,
+    "Lowercase sound unscored": row.lowercaseSound.unscoredCount || 0,
     "Last assessed": formatDate(row.lastAssessed),
+    "Uppercase name evidence provenance": formalEvidenceList(row.uppercaseName.details),
+    "Uppercase sound evidence provenance": formalEvidenceList(row.uppercaseSound.details),
+    "Lowercase name evidence provenance": formalEvidenceList(row.lowercaseName.details),
+    "Lowercase sound evidence provenance": formalEvidenceList(row.lowercaseSound.details),
     "Details / notes": [
       `UC Name ${cellSummary(row.uppercaseName)}`,
       `UC Sound ${cellSummary(row.uppercaseSound)}`,
@@ -1705,7 +1777,15 @@ export async function createStudentElAssessmentWorkbook(report) {
     "Uppercase sound attempts": 0,
     "Lowercase name attempts": 0,
     "Lowercase sound attempts": 0,
+    "Uppercase name unscored": 0,
+    "Uppercase sound unscored": 0,
+    "Lowercase name unscored": 0,
+    "Lowercase sound unscored": 0,
     "Last assessed": "",
+    "Uppercase name evidence provenance": "",
+    "Uppercase sound evidence provenance": "",
+    "Lowercase name evidence provenance": "",
+    "Lowercase sound evidence provenance": "",
     "Details / notes": ""
   });
 
@@ -1714,244 +1794,48 @@ export async function createStudentElAssessmentWorkbook(report) {
     "Pattern",
     "Reading / recognition result",
     "Sound result",
+    "Evidence items",
+    "Unscored evidence items",
     "Attempts",
     "Correct",
     "Incorrect",
     "Accuracy",
     "Status",
     "Example words",
-    "Last assessed"
-  ], ["Example words"]);
+    "Last assessed",
+    "Evidence provenance"
+  ], ["Example words", "Evidence provenance"]);
   addRowsOrEmpty(advancedSheet, report.formalAssessments?.individualAdvancedPhonicsMatrix || [], row => row ? {
     "Pattern": row.pattern,
     "Reading / recognition result": row.readingResult.statusLabel,
     "Sound result": row.soundResult.statusLabel,
+    "Evidence items": row.evidenceCount || row.details?.length || 0,
+    "Unscored evidence items": row.unscoredCount || 0,
     "Attempts": row.attempts,
     "Correct": row.correct,
     "Incorrect": row.incorrect,
-    "Accuracy": `${row.accuracy || 0}%`,
+    "Accuracy": row.accuracy == null ? "" : `${row.accuracy}%`,
     "Status": row.statusLabel,
     "Example words": list(row.exampleWords),
-    "Last assessed": formatDate(row.lastAssessed)
+    "Last assessed": formatDate(row.lastAssessed),
+    "Evidence provenance": formalEvidenceList(row.details)
   } : {
     "Pattern": "No Advanced Phonics Patterns records yet",
     "Reading / recognition result": "Not assessed",
     "Sound result": "Not assessed",
+    "Evidence items": 0,
+    "Unscored evidence items": 0,
     "Attempts": 0,
     "Correct": 0,
     "Incorrect": 0,
-    "Accuracy": "0%",
+    "Accuracy": "",
     "Status": "Not assessed",
     "Example words": "",
-    "Last assessed": ""
+    "Last assessed": "",
+    "Evidence provenance": ""
   });
-
-  const patternSheet = workbook.addWorksheet("Pattern Detail");
-  setColumns(patternSheet, [
-    "Pattern",
-    "Attempts",
-    "Correct",
-    "Incorrect",
-    "Accuracy",
-    "Status",
-    "Example Words",
-    "Latest Date"
-  ], ["Example Words"]);
-  addRowsOrEmpty(patternSheet, report.patternDetailRows || [], row => row ? {
-    "Pattern": row.pattern,
-    "Attempts": row.attempts,
-    "Correct": row.correct,
-    "Incorrect": row.incorrect,
-    "Accuracy": `${row.accuracy || 0}%`,
-    "Status": row.status,
-    "Example Words": list(row.examples),
-    "Latest Date": formatDate(row.latestDate)
-  } : {
-    "Pattern": "No Advanced Phonics Patterns records yet",
-    "Attempts": 0,
-    "Correct": 0,
-    "Incorrect": 0,
-    "Accuracy": "0%",
-    "Status": "Not Assessed",
-    "Example Words": "",
-    "Latest Date": ""
-  });
-
-  const attemptsSheet = workbook.addWorksheet("Assessment Attempts");
-  setColumns(attemptsSheet, [
-    "Date",
-    "Skill",
-    "Level",
-    "Phase",
-    "Questions",
-    "Correct",
-    "Accuracy%",
-    "Passed",
-    "Items Mastered",
-    "Items Missed",
-    "Notes"
-  ], ["Items Mastered", "Items Missed", "Notes"]);
-  addRowsOrEmpty(attemptsSheet, report.attemptRows || [], row => row ? {
-    "Date": formatDate(row.date),
-    "Skill": row.skill,
-    "Level": row.level,
-    "Phase": row.phase,
-    "Questions": row.questions,
-    "Correct": row.correct,
-    "Accuracy%": row.isProvisionalBenchmark ? percentageText(row.accuracy) : `${row.accuracy || 0}%`,
-    "Passed": yesNo(row.passed),
-    "Items Mastered": list(row.itemsMastered || row.itemsCovered),
-    "Items Missed": list(row.missedItems),
-    "Notes": row.notes
-  } : {
-    "Date": "No records yet",
-    "Skill": "",
-    "Level": "",
-    "Phase": "",
-    "Questions": 0,
-    "Correct": 0,
-    "Accuracy%": "0%",
-    "Passed": "No",
-    "Items Mastered": "",
-    "Items Missed": "",
-    "Notes": ""
-  });
-
-  const progressSheet = workbook.addWorksheet("Progress Over Time");
-  setColumns(progressSheet, ["Date", "Skill", "Accuracy%", "5-session rolling average", "Skills Passed", "Checkpoint Passed"], []);
-  progressSheet.addRow({
-    Date: "Select columns A-E and insert a line chart for a visual trend",
-    Skill: "",
-    "Accuracy%": "",
-    "5-session rolling average": "",
-    "Skills Passed": "",
-    "Checkpoint Passed": ""
-  });
-  addRowsOrEmpty(progressSheet, report.progressRows || [], row => row ? {
-    "Date": formatDate(row.date),
-    "Skill": row.skill,
-    "Accuracy%": row.isProvisionalBenchmark ? percentageText(row.accuracy) : `${row.accuracy || 0}%`,
-    "5-session rolling average": row.isProvisionalBenchmark
-      ? percentageText(row.rollingAverage ?? row.accuracy)
-      : `${row.rollingAverage || row.accuracy || 0}%`,
-    "Skills Passed": row.masteredSkillCount,
-    "Checkpoint Passed": yesNo(row.checkpointPassed)
-  } : {
-    "Date": "No records yet",
-    "Skill": "",
-    "Accuracy%": "0%",
-    "5-session rolling average": "0%",
-    "Skills Passed": 0,
-    "Checkpoint Passed": "No"
-  });
-  const firstProgress = report.progressRows?.[0];
-  const latestProgress = report.progressRows?.at(-1);
-  const firstProgressAccuracy = numericValue(firstProgress?.accuracy);
-  const latestProgressAccuracy = numericValue(latestProgress?.accuracy);
-  progressSheet.addRow({
-    Date: "Summary",
-    Skill: `${formatDate(firstProgress?.date) || "No records"} to ${formatDate(latestProgress?.date) || "No records"}`,
-    "Accuracy%": latestProgress && firstProgress && firstProgressAccuracy !== "" && latestProgressAccuracy !== ""
-      ? `${latestProgressAccuracy - firstProgressAccuracy}% change`
-      : latestProgress?.isProvisionalBenchmark || firstProgress?.isProvisionalBenchmark
-        ? "Not scored"
-        : "0% change",
-    "5-session rolling average": "",
-    "Skills Passed": latestProgress?.masteredSkillCount || 0,
-    "Checkpoint Passed": ""
-  });
-
-  const guidedReadingSheet = workbook.addWorksheet("Guided Reading");
-  setColumns(guidedReadingSheet, [
-    "Book Title",
-    "Level",
-    "Type",
-    "Read Count",
-    "Latest Accuracy",
-    "Correct Words",
-    "Support Words",
-    "Notes",
-    "Last Read"
-  ], ["Book Title", "Correct Words", "Support Words", "Notes"]);
-  addRowsOrEmpty(guidedReadingSheet, report.guidedReading?.bookRows || [], row => row ? {
-    "Book Title": row.title,
-    "Level": row.level,
-    "Type": row.type,
-    "Read Count": row.readCount || row.rereadCount + 1 || 0,
-    "Latest Accuracy": `${row.latestAccuracy || row.accuracy || 0}%`,
-    "Correct Words": list(row.correctWords),
-    "Support Words": list(row.supportWords),
-    "Notes": list(row.notes),
-    "Last Read": formatDate(row.lastReadAt || row.completionDate)
-  } : {
-    "Book Title": "No guided reading records yet",
-    "Level": "",
-    "Type": "",
-    "Read Count": 0,
-    "Latest Accuracy": "0%",
-    "Correct Words": "",
-    "Support Words": "",
-    "Notes": "",
-    "Last Read": ""
-  });
-
-  const storyQuestSheet = workbook.addWorksheet(STORY_QUEST_SHEET_NAME);
-  setColumns(storyQuestSheet, STORY_QUEST_HEADERS, ["Quest Title", "Words Found"]);
-  addRowsOrEmpty(storyQuestSheet, report.storyQuests?.rows || [], row => row
-    ? storyQuestRowToCells(row)
-    : emptyStoryQuestCells());
-
-  const engagementSheet = workbook.addWorksheet(ENGAGEMENT_SHEET_NAME);
-  setColumns(engagementSheet, ENGAGEMENT_HEADERS, []);
-  addRowsOrEmpty(engagementSheet, report.engagement?.rows || [], row => row
-    ? engagementRowToCells(row)
-    : emptyEngagementCells());
 
   addStudentBenchmarkSheets(workbook, report);
-
-  const recommendation = report.nextSessionPlan || buildRecommendations({
-    itemRows,
-    currentStage: {
-      id: report.skillRows?.find(row => row.masteryStatus === "Needs Support")?.skillId || report.skillRows?.[0]?.skillId || "",
-      label: report.summary?.focusSkills?.[0] || report.skillRows?.find(row => row.masteryStatus === "Needs Support")?.skillName || report.skillRows?.[0]?.skillName || ""
-    },
-    assessmentHistory: report.sourceSnapshot?.records || []
-  });
-  const nextPlanSheet = workbook.addWorksheet("Next Session Plan");
-  setColumns(nextPlanSheet, ["Section", "Detail"], ["Detail"]);
-  [
-    ["Student", report.studentName || "Unknown Student"],
-    ["Date", formatDate(report.generatedAt)],
-    ["Recommended Skill", recommendation.recommendedSkill],
-    ["Reason", recommendation.reason],
-    ["Teaching Note", recommendation.teachingNote],
-    ["Focus Items", recommendation.focusItems.map(row => `${row.label}: ${row.teachingNote}`).join("\n") || "Start with a short checkpoint to gather evidence."],
-    ["Quick Wins", list(recommendation.quickWins) || "No quick-win items yet"],
-    ["Caution Flags", list(recommendation.cautionFlags) || "No caution flags at this time"]
-  ].forEach(row => nextPlanSheet.addRow({ Section: row[0], Detail: row[1] }));
-
-  // Comparison only makes sense against a real previous snapshot; on a first
-  // export the sheet is skipped entirely instead of rendering placeholders.
-  if (hasPreviousComparison(report.comparison)) {
-    const comparisonSheet = workbook.addWorksheet("Comparison");
-    setColumns(comparisonSheet, [
-      "Previous Report Date",
-      "Current Report Date",
-      "Accuracy Change",
-      "Newly Mastered Skills",
-      "Skills Still Needing Support",
-      "Suggested Teacher Action"
-    ], ["Newly Mastered Skills", "Skills Still Needing Support", "Suggested Teacher Action"]);
-    const comparison = report.comparison || {};
-    comparisonSheet.addRow({
-      "Previous Report Date": formatDate(comparison.previousGeneratedAt),
-      "Current Report Date": formatDate(report.generatedAt),
-      "Accuracy Change": `${comparison.accuracyChange || 0}%`,
-      "Newly Mastered Skills": list(comparison.newlyMasteredSkills),
-      "Skills Still Needing Support": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
-      "Suggested Teacher Action": comparison.note || "Review focus skills and update small-group practice."
-    });
-  }
 
   applyWorkbookPresentation(workbook, EL_STUDENT_REPORT_SHEETS);
   return workbook;
@@ -1962,77 +1846,8 @@ export async function createClassElAssessmentWorkbook(report) {
 
   const summarySheet = workbook.addWorksheet("Class Summary");
   setColumns(summarySheet, ["Field", "Value"], ["Value"]);
-  [
-    ["Class Name", report.className || "Unknown Class"],
-    ["Report Date", formatDate(report.generatedAt)],
-    ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
-    ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
-    ["EL Benchmark Scope Source", humanizeKey(report.benchmarkScope?.source) || "None"],
-    ["Date Range", `${formatDate(report.dateRange?.start) || "No records"} to ${formatDate(report.dateRange?.end) || "No records"}`],
-    ["Total Students", report.summary?.totalStudents || report.studentRows?.length || 0],
-    ["Total Assessments", report.summary?.totalAssessments || 0],
-    ["Class Average Accuracy", `${report.summary?.averageAccuracy || 0}%`],
-    ["Advanced Phonics Attempts", report.advancedPhonics?.attempts || 0],
-    ["Latest Advanced Phonics Accuracy", report.advancedPhonics?.attempts ? `${report.advancedPhonics.latestAccuracy || 0}%` : "No records yet"],
-    ["Benchmark Evidence", `${classBenchmarkDomainSummaryRows(report).reduce((sum, row) => sum + Number(row.studentsWithSavedEvidence || 0), 0)} saved student-domain evidence record(s); see Benchmark Domain Summary`],
-    ["Strongest Skills", list(report.summary?.strongestSkills) || "No records yet"],
-    ["Weakest Skills", list(report.summary?.focusSkills) || "No records yet"],
-    ["Students Needing Support", list(report.summary?.studentsNeedingSupport) || "No records yet"],
-    ["Students Ready for Challenge", list(report.summary?.studentsReadyForChallenge) || "No records yet"]
-  ].forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
-  const supportCount = report.studentRows?.filter(row => row.skillsNeedingSupport > 0 || row.averageAccuracy < 65).length || 0;
-  const developingCount = report.studentRows?.filter(row => row.averageAccuracy >= 65 && row.averageAccuracy < 80).length || 0;
-  const onTrackCount = Math.max(0, (report.studentRows?.length || 0) - supportCount - developingCount);
-  summarySheet.addRow({ Field: "Status Distribution", Value: "" });
-  [
-    ["On Track", onTrackCount],
-    ["Developing", developingCount],
-    ["Needs Support", supportCount]
-  ].forEach(([label, count]) => summarySheet.addRow({
-    Field: label,
-    Value: `${count} (${report.studentRows?.length ? Math.round((count / report.studentRows.length) * 100) : 0}%)`
-  }));
-
-  const engagementRowByStudent = new Map((report.engagement?.rows || [])
-    .map(row => [row.studentId || row.studentName, row]));
-  const studentSheet = workbook.addWorksheet("Student Overview");
-  setColumns(studentSheet, [
-    "Student Name",
-    "Assessments Completed",
-    "Average Accuracy",
-    "Skills Mastered",
-    "Skills Developing",
-    "Skills Needing Support",
-    "Current Level / Stage",
-    "Last Assessment Date",
-    "Last Active Date",
-    "Recommended Focus"
-  ], ["Recommended Focus"]);
-  addRowsOrEmpty(studentSheet, report.studentRows || [], row => row ? {
-    "Student Name": row.studentName,
-    "Assessments Completed": row.assessmentsCompleted,
-    "Average Accuracy": `${row.averageAccuracy || 0}%`,
-    "Skills Mastered": row.skillsMastered,
-    "Skills Developing": row.skillsDeveloping,
-    "Skills Needing Support": row.skillsNeedingSupport,
-    "Current Level / Stage": row.currentLevel,
-    "Last Assessment Date": formatDate(row.lastAssessmentDate),
-    "Last Active Date": formatDate(
-      engagementRowByStudent.get(row.studentId || row.studentName)?.lastActiveAt
-    ),
-    "Recommended Focus": row.recommendedFocus
-  } : {
-    "Student Name": "No records yet",
-    "Assessments Completed": 0,
-    "Average Accuracy": "0%",
-    "Skills Mastered": 0,
-    "Skills Developing": 0,
-    "Skills Needing Support": 0,
-    "Current Level / Stage": "",
-    "Last Assessment Date": "",
-    "Last Active Date": "",
-    "Recommended Focus": "Complete assessments to populate this report."
-	  });
+  buildClassElSummaryRows(report)
+    .forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
 
   const classLetterSheet = workbook.addWorksheet("Letter Sound Class Matrix");
   setColumns(classLetterSheet, [
@@ -2044,12 +1859,28 @@ export async function createClassElAssessmentWorkbook(report) {
     "UC name support students",
     "UC sound support students",
     "LC name support students",
-    "LC sound support students"
+    "LC sound support students",
+    "UC name unscored evidence students",
+    "UC sound unscored evidence students",
+    "LC name unscored evidence students",
+    "LC sound unscored evidence students",
+    "UC name evidence provenance",
+    "UC sound evidence provenance",
+    "LC name evidence provenance",
+    "LC sound evidence provenance"
   ], [
     "UC name support students",
     "UC sound support students",
     "LC name support students",
-    "LC sound support students"
+    "LC sound support students",
+    "UC name unscored evidence students",
+    "UC sound unscored evidence students",
+    "LC name unscored evidence students",
+    "LC sound unscored evidence students",
+    "UC name evidence provenance",
+    "UC sound evidence provenance",
+    "LC name evidence provenance",
+    "LC sound evidence provenance"
   ]);
   addRowsOrEmpty(classLetterSheet, report.formalAssessments?.classLetterMatrix || [], row => row ? {
     "Letter pair": row.letterPair,
@@ -2060,326 +1891,212 @@ export async function createClassElAssessmentWorkbook(report) {
     "UC name support students": list(row.uppercaseName.supportStudents),
     "UC sound support students": list(row.uppercaseSound.supportStudents),
     "LC name support students": list(row.lowercaseName.supportStudents),
-    "LC sound support students": list(row.lowercaseSound.supportStudents)
+    "LC sound support students": list(row.lowercaseSound.supportStudents),
+    "UC name unscored evidence students": list(row.uppercaseName.unscoredEvidenceStudents),
+    "UC sound unscored evidence students": list(row.uppercaseSound.unscoredEvidenceStudents),
+    "LC name unscored evidence students": list(row.lowercaseName.unscoredEvidenceStudents),
+    "LC sound unscored evidence students": list(row.lowercaseSound.unscoredEvidenceStudents),
+    "UC name evidence provenance": formalEvidenceList(decodeClassEvidenceRows(report, row.uppercaseName.evidenceRows), { includeStudent: true }),
+    "UC sound evidence provenance": formalEvidenceList(decodeClassEvidenceRows(report, row.uppercaseSound.evidenceRows), { includeStudent: true }),
+    "LC name evidence provenance": formalEvidenceList(decodeClassEvidenceRows(report, row.lowercaseName.evidenceRows), { includeStudent: true }),
+    "LC sound evidence provenance": formalEvidenceList(decodeClassEvidenceRows(report, row.lowercaseSound.evidenceRows), { includeStudent: true })
   } : {
     "Letter pair": "No Letter Name/Sound records yet",
-    "UC name counts": "M:0 D:0 S:0 NA:0",
-    "UC sound counts": "M:0 D:0 S:0 NA:0",
-    "LC name counts": "M:0 D:0 S:0 NA:0",
-    "LC sound counts": "M:0 D:0 S:0 NA:0",
+    "UC name counts": "M:0 D:0 S:0 U:0 NA:0",
+    "UC sound counts": "M:0 D:0 S:0 U:0 NA:0",
+    "LC name counts": "M:0 D:0 S:0 U:0 NA:0",
+    "LC sound counts": "M:0 D:0 S:0 U:0 NA:0",
     "UC name support students": "",
     "UC sound support students": "",
     "LC name support students": "",
-    "LC sound support students": ""
+    "LC sound support students": "",
+    "UC name unscored evidence students": "",
+    "UC sound unscored evidence students": "",
+    "LC name unscored evidence students": "",
+    "LC sound unscored evidence students": "",
+    "UC name evidence provenance": "",
+    "UC sound evidence provenance": "",
+    "LC name evidence provenance": "",
+    "LC sound evidence provenance": ""
   });
 
   const classAdvancedMatrixSheet = workbook.addWorksheet("Advanced Phonics Class Matrix");
   setColumns(classAdvancedMatrixSheet, [
     "Pattern",
+    "Students with evidence",
     "Attempted students",
+    "Unscored evidence students",
     "Mastered students",
     "Developing students",
     "Needs support students",
     "Not assessed students",
     "Mastery percentage",
-    "Students needing support"
-  ], ["Students needing support"]);
+    "Students needing support",
+    "Students with unscored evidence",
+    "Evidence provenance"
+  ], ["Students needing support", "Students with unscored evidence", "Evidence provenance"]);
   addRowsOrEmpty(classAdvancedMatrixSheet, report.formalAssessments?.classAdvancedPhonicsMatrix || [], row => row ? {
     "Pattern": row.pattern,
+    "Students with evidence": row.evidenceStudents || 0,
     "Attempted students": row.attemptedStudents,
+    "Unscored evidence students": row.unscoredEvidenceStudents || 0,
     "Mastered students": row.masteredStudents,
     "Developing students": row.developingStudents,
     "Needs support students": row.needsSupportStudents,
     "Not assessed students": row.notAssessedStudents,
-    "Mastery percentage": `${row.masteryPercentage || 0}%`,
-    "Students needing support": list(row.studentsNeedingSupport)
+    "Mastery percentage": row.masteryPercentage == null ? "" : `${row.masteryPercentage}%`,
+    "Students needing support": list(row.studentsNeedingSupport),
+    "Students with unscored evidence": list(row.studentsWithUnscoredEvidence),
+    "Evidence provenance": formalEvidenceList(decodeClassEvidenceRows(report, row.evidenceRows), { includeStudent: true })
   } : {
     "Pattern": "No Advanced Phonics Patterns records yet",
+    "Students with evidence": 0,
     "Attempted students": 0,
+    "Unscored evidence students": 0,
     "Mastered students": 0,
     "Developing students": 0,
     "Needs support students": 0,
     "Not assessed students": 0,
-    "Mastery percentage": "0%",
-    "Students needing support": ""
+    "Mastery percentage": "",
+    "Students needing support": "",
+    "Students with unscored evidence": "",
+    "Evidence provenance": ""
   });
 
   const advancedSheet = workbook.addWorksheet("Advanced Phonics Patterns");
   setColumns(advancedSheet, ["Field", "Value"], ["Value"]);
-  [
-    ["Class Name", report.className || "Unknown Class"],
-    ["Attempts", report.advancedPhonics?.attempts || 0],
-    ["Latest Attempt Date", formatDate(report.advancedPhonics?.latestDate) || "No records yet"],
-    ["Latest Accuracy", `${report.advancedPhonics?.latestAccuracy || 0}%`],
-    ["Mastered Patterns", list(report.advancedPhonics?.masteredPatterns)],
-    ["Developing Patterns", list(report.advancedPhonics?.developingPatterns)],
-    ["Needs Support Patterns", list(report.advancedPhonics?.needsSupportPatterns)]
-  ].forEach(row => advancedSheet.addRow({ Field: row[0], Value: row[1] || "None yet" }));
+  buildClassAdvancedPhonicsSummaryRows(report)
+    .forEach(row => advancedSheet.addRow({ Field: row[0], Value: row[1] }));
 
   const patternSheet = workbook.addWorksheet("Pattern Detail");
   setColumns(patternSheet, [
     "Student",
     "Class",
     "Pattern",
-    "Attempts",
-    "Correct",
-    "Incorrect",
-    "Accuracy",
-    "Status",
-    "Example Words",
-    "Latest Date"
-  ], ["Example Words"]);
-  addRowsOrEmpty(patternSheet, report.patternDetailRows || [], row => row ? {
+    "Attempt ID",
+    "Item ID",
+    "Item key",
+    "Item type",
+    "Result type",
+    "Response status",
+    "Result",
+    "Prompt",
+    "Target word",
+    "Correct answer",
+    "Selected answer",
+    "Administration status",
+    "Form version",
+    "Content version",
+    "Scoring version",
+    "Scoring rule version",
+    "Administration interface",
+    "Response schema",
+    "Evidence date"
+  ], ["Prompt", "Correct answer", "Selected answer"]);
+  addRowsOrEmpty(patternSheet, classAdvancedEvidenceDetailRows(report), row => row ? {
     "Student": row.studentName,
     "Class": row.className,
     "Pattern": row.pattern,
-    "Attempts": row.attempts,
-    "Correct": row.correct,
-    "Incorrect": row.incorrect,
-    "Accuracy": `${row.accuracy || 0}%`,
-    "Status": row.status,
-    "Example Words": list(row.examples),
-    "Latest Date": formatDate(row.latestDate)
+    "Attempt ID": row.attemptId,
+    "Item ID": row.questionId,
+    "Item key": row.itemKey,
+    "Item type": row.itemType,
+    "Result type": humanizeKey(row.resultType),
+    "Response status": humanizeKey(row.responseStatus || "unrecorded"),
+    "Result": formalEvidenceResult(row),
+    "Prompt": row.prompt,
+    "Target word": row.targetWord,
+    "Correct answer": evidenceText(row.correctAnswer),
+    "Selected answer": evidenceText(row.selectedAnswer),
+    "Administration status": humanizeKey(row.administrationStatus),
+    "Form version": row.formVersion,
+    "Content version": row.contentVersion,
+    "Scoring version": row.scoringVersion,
+    "Scoring rule version": row.scoringRuleVersion,
+    "Administration interface": row.administrationVersion,
+    "Response schema": numericValue(row.responseSchemaVersion),
+    "Evidence date": formatExportDateTime(row.date) || formatDate(row.date)
   } : {
     "Student": "No Advanced Phonics Patterns records yet",
     "Class": "",
     "Pattern": "",
-    "Attempts": 0,
-    "Correct": 0,
-    "Incorrect": 0,
-    "Accuracy": "0%",
-    "Status": "Not Assessed",
-    "Example Words": "",
-    "Latest Date": ""
+    "Attempt ID": "",
+    "Item ID": "",
+    "Item key": "",
+    "Item type": "",
+    "Result type": "",
+    "Response status": "",
+    "Result": "",
+    "Prompt": "",
+    "Target word": "",
+    "Correct answer": "",
+    "Selected answer": "",
+    "Administration status": "",
+    "Form version": "",
+    "Content version": "",
+    "Scoring version": "",
+    "Scoring rule version": "",
+    "Administration interface": "",
+    "Response schema": "",
+    "Evidence date": ""
   });
-
-  const heatmapSheet = workbook.addWorksheet("Skill Heatmap");
-  const heatmapSkillNames = Object.keys(report.heatmapRows?.[0]?.values || {});
-  const heatmapStudentNames = (report.heatmapRows || []).map(row => row.studentName);
-  setColumns(heatmapSheet, ["Skill", ...heatmapStudentNames, "Students Passed"], heatmapStudentNames);
-  if (heatmapSkillNames.length) {
-    heatmapSkillNames.forEach(skillName => {
-      const values = Object.fromEntries((report.heatmapRows || []).map(studentRow => [
-        studentRow.studentName,
-        studentRow.values?.[skillName] === "Mastered"
-          ? "✓ Passed"
-          : studentRow.values?.[skillName] && studentRow.values[skillName] !== "Not Assessed"
-            ? studentRow.values[skillName]
-            : "–"
-      ]));
-      heatmapSheet.addRow({
-        Skill: skillName,
-        ...values,
-        "Students Passed": Object.values(values).filter(value => String(value).includes("Passed")).length
-      });
-    });
-    heatmapSheet.addRow({
-      Skill: "Column totals",
-      ...Object.fromEntries((report.heatmapRows || []).map(studentRow => [
-        studentRow.studentName,
-        Object.values(studentRow.values || {}).filter(value => value === "Mastered").length
-      ])),
-      "Students Passed": ""
-    });
-  } else {
-    heatmapSheet.addRow({ Skill: "No records yet" });
-  }
-
-  const classProgressSheet = workbook.addWorksheet("Class Progress Over Time");
-  setColumns(classProgressSheet, ["Week Start Date", "Class Average Accuracy%", "Checkpoints Passed", "New Skills Started", "Note"], ["Note"]);
-  classProgressSheet.addRow({
-    "Week Start Date": "Chart note",
-    "Class Average Accuracy%": "Use columns A-C for a weekly class progress line chart.",
-    "Checkpoints Passed": "",
-    "New Skills Started": "",
-    "Note": ""
-  });
-  const weeklyRows = Array.isArray(report.weeklyAccuracyRows)
-    ? report.weeklyAccuracyRows
-    : buildWeeklyAccuracy(report.sourceSnapshot?.records || []);
-  addRowsOrEmpty(classProgressSheet, weeklyRows, row => row ? {
-    "Week Start Date": row.weekStart,
-    "Class Average Accuracy%": `${row.accuracy || 0}%`,
-    "Checkpoints Passed": row.checkpointsPassed ?? (report.sourceSnapshot?.records || []).filter(record => {
-      const date = new Date(record.completedAt);
-      if (!record.passed || !Number.isFinite(date.getTime())) return false;
-      const weekStart = new Date(row.weekStart);
-      const weekEnd = new Date(weekStart);
-      weekEnd.setDate(weekEnd.getDate() + 7);
-      return date >= weekStart && date < weekEnd;
-    }).length,
-    "New Skills Started": row.newSkillsStarted ?? new Set((report.sourceSnapshot?.records || []).filter(record => {
-      const date = new Date(record.completedAt);
-      if (!Number.isFinite(date.getTime())) return false;
-      const weekStart = new Date(row.weekStart);
-      const weekEnd = new Date(weekStart);
-      weekEnd.setDate(weekEnd.getDate() + 7);
-      return date >= weekStart && date < weekEnd;
-    }).map(record => record.skillName)).size,
-    "Note": `${row.attempts} assessment attempt(s)`
-  } : {
-    "Week Start Date": "No records yet",
-    "Class Average Accuracy%": "0%",
-    "Checkpoints Passed": 0,
-    "New Skills Started": 0,
-    "Note": "Complete class assessments to populate this sheet."
-  });
-
-  const perStudentSkillSheet = workbook.addWorksheet("Per-Student Skill Detail");
-  setColumns(perStudentSkillSheet, ["Student", "Skill", "Status"], ["Skill"]);
-  if (report.heatmapRows?.length) {
-    report.heatmapRows.forEach(studentRow => {
-      perStudentSkillSheet.addRow({ Student: studentRow.studentName, Skill: "", Status: "" });
-      Object.entries(studentRow.values || {}).forEach(([skill, status]) => {
-        perStudentSkillSheet.addRow({ Student: "", Skill: skill, Status: status });
-      });
-      perStudentSkillSheet.addRow({ Student: "", Skill: "", Status: "" });
-    });
-  } else {
-    perStudentSkillSheet.addRow({ Student: "No records yet", Skill: "", Status: "" });
-  }
-
-  const skillSheet = workbook.addWorksheet("Skill Summary");
-  setColumns(skillSheet, [
-    "Skill Area",
-    "Skill Name",
-    "Students Mastered",
-    "Students Developing",
-    "Students Needing Support",
-    "Not Assessed",
-    "Class Average Accuracy",
-    "Suggested Small Group"
-  ], ["Suggested Small Group"]);
-  addRowsOrEmpty(skillSheet, report.skillRows || [], row => row ? {
-    "Skill Area": row.skillArea,
-    "Skill Name": row.skillName,
-    "Students Mastered": row.studentsMastered,
-    "Students Developing": row.studentsDeveloping,
-    "Students Needing Support": row.studentsNeedingSupport,
-    "Not Assessed": row.notAssessed,
-    "Class Average Accuracy": row.isProvisionalBenchmark
-      ? percentageText(row.classAverageAccuracy)
-      : `${row.classAverageAccuracy || 0}%`,
-    "Suggested Small Group": row.suggestedSmallGroup
-  } : {
-    "Skill Area": "No records yet",
-    "Skill Name": "",
-    "Students Mastered": 0,
-    "Students Developing": 0,
-    "Students Needing Support": 0,
-    "Not Assessed": 0,
-    "Class Average Accuracy": "0%",
-    "Suggested Small Group": ""
-  });
-
-  const groupsSheet = workbook.addWorksheet("Weak Points & Groups");
-  setColumns(groupsSheet, ["Group Name / Focus", "Skill", "Students", "Reason", "Suggested Activity / Next Step"], ["Students", "Reason", "Suggested Activity / Next Step"]);
-  const weakPointRows = buildClassWeakPointRows(report);
-  groupsSheet.addRow({
-    "Group Name / Focus": "Weak Points",
-    "Skill": "",
-    "Students": "",
-    "Reason": "",
-    "Suggested Activity / Next Step": ""
-  });
-  if (weakPointRows.length) {
-    weakPointRows.forEach(row => groupsSheet.addRow({
-      "Group Name / Focus": row.itemLabel,
-      "Skill": row.skillName || row.skillArea,
-      "Students": list(row.studentNames),
-      "Reason": `${row.supportShare}% of assessed students below 70%; class item accuracy ${row.accuracy}%`,
-      "Suggested Activity / Next Step": `Reteach ${row.itemLabel} in ${row.skillName || row.skillArea}, then reassess in a short mixed set.`
-    }));
-  } else {
-    groupsSheet.addRow({
-      "Group Name / Focus": "No weak item pattern yet",
-      "Skill": "",
-      "Students": "",
-      "Reason": "No item has 30% or more of assessed students below 70%.",
-      "Suggested Activity / Next Step": "Continue collecting item-level assessment evidence."
-    });
-  }
-  groupsSheet.addRow({
-    "Group Name / Focus": "Suggested Small Groups",
-    "Skill": "",
-    "Students": "",
-    "Reason": "",
-    "Suggested Activity / Next Step": ""
-  });
-  addRowsOrEmpty(groupsSheet, report.smallGroups || [], row => row ? {
-    "Group Name / Focus": row.groupName,
-    "Skill": row.skill,
-    "Students": list(row.students),
-    "Reason": row.reason,
-    "Suggested Activity / Next Step": row.suggestedActivity
-  } : {
-    "Group Name / Focus": "No groups yet",
-    "Skill": "",
-    "Students": "",
-    "Reason": "No assessment records yet.",
-    "Suggested Activity / Next Step": "Complete assessments to create small groups."
-  });
-
-  const classStoryQuestSheet = workbook.addWorksheet(STORY_QUEST_SHEET_NAME);
-  setColumns(classStoryQuestSheet, STORY_QUEST_HEADERS, ["Quest Title", "Words Found"]);
-  addRowsOrEmpty(classStoryQuestSheet, report.storyQuests?.rows || [], row => row
-    ? storyQuestRowToCells(row)
-    : emptyStoryQuestCells());
-
-  const classEngagementSheet = workbook.addWorksheet(ENGAGEMENT_SHEET_NAME);
-  setColumns(classEngagementSheet, ENGAGEMENT_HEADERS, []);
-  addRowsOrEmpty(classEngagementSheet, report.engagement?.rows || [], row => row
-    ? engagementRowToCells(row)
-    : emptyEngagementCells());
 
   addClassBenchmarkSheets(workbook, report);
-
-  // Comparison only makes sense against a real previous snapshot; on a first
-  // export the sheet is skipped entirely instead of rendering placeholders.
-  if (hasPreviousComparison(report.comparison)) {
-    const comparisonSheet = workbook.addWorksheet("Progress Comparison");
-    setColumns(comparisonSheet, [
-      "Previous Report Date",
-      "Current Report Date",
-      "Class Accuracy Change",
-      "Mastered Count Change",
-      "New Class Strengths",
-      "Persistent Class Gaps",
-      "Students With Strong Growth",
-      "Students Needing Follow-up"
-    ], ["New Class Strengths", "Persistent Class Gaps", "Students With Strong Growth", "Students Needing Follow-up"]);
-    const comparison = report.comparison || {};
-    comparisonSheet.addRow({
-      "Previous Report Date": formatDate(comparison.previousGeneratedAt),
-      "Current Report Date": formatDate(report.generatedAt),
-      "Class Accuracy Change": `${comparison.accuracyChange || 0}%`,
-      "Mastered Count Change": comparison.masteredSkillChange || 0,
-      "New Class Strengths": list(comparison.newlyMasteredSkills || report.summary?.strongestSkills),
-      "Persistent Class Gaps": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
-      "Students With Strong Growth": "",
-      "Students Needing Follow-up": list(report.summary?.studentsNeedingSupport)
-    });
-  }
 
   applyWorkbookPresentation(workbook, EL_CLASS_REPORT_SHEETS);
   return workbook;
 }
 
-async function loadStoryQuestCatalog(override) {
-  if (Array.isArray(override)) return override;
-  try {
-    return (await import("../data/storyQuests.js")).storyQuests || [];
-  } catch {
-    return [];
-  }
+export function buildStudentElAssessmentExportReport(options = {}) {
+  const assessmentHistory = filterElAssessmentHistory(options.assessmentHistory);
+  const report = buildStudentElAssessmentReportData({
+    ...options,
+    assessmentHistory
+  });
+  const student = (Array.isArray(options.students) ? options.students : [])
+    .find(row => row?.id === options.studentId) || {};
+  // The general report store supports older attempt shapes and therefore
+  // normalizes records before building its report. Rebuild the formal A1-A6
+  // evidence from the raw, strictly filtered attempts so an absent score (or
+  // an explicit not_administered/not_scorable state) cannot become a failure.
+  const formalAssessments = buildIndividualElFormalAssessmentReport({
+    student,
+    assessmentHistory,
+    benchmarkScope: report.benchmarkScope,
+    benchmarkGrade: options.benchmarkGrade,
+    benchmarkWindow: options.benchmarkWindow
+  });
+  return {
+    ...report,
+    formalAssessments,
+    benchmarkProfile: formalAssessments.individualBenchmarkProfile || [],
+    benchmarkDetails: formalAssessments.individualBenchmarkDetails || []
+  };
 }
 
-// Optional, backward-compatible options (all default to this browser's
-// localStorage when omitted):
-//   storyQuestProgress        - the one student's Story Quest progress map
-//   engagementAreas           - the one student's progress areas
-//                               ({ mission, games, quest, stories, reading, hollow })
-//   storyQuestCatalog         - Story Quest definitions (titles/levels/series)
+export function buildClassElAssessmentExportReport(options = {}) {
+  const assessmentHistory = filterElAssessmentHistory(options.assessmentHistory);
+  const report = buildClassElAssessmentReportData({
+    ...options,
+    assessmentHistory
+  });
+  const formalAssessments = buildClassElFormalAssessmentReport({
+    students: Array.isArray(options.students) ? options.students : [],
+    assessmentHistory,
+    classId: options.classId || "",
+    benchmarkScope: report.benchmarkScope,
+    benchmarkGrade: options.benchmarkGrade,
+    benchmarkWindow: options.benchmarkWindow
+  });
+  return {
+    ...report,
+    formalAssessments,
+    benchmarkMatrix: formalAssessments.classBenchmarkMatrix || [],
+    benchmarkDomainSummaries: formalAssessments.classBenchmarkDomainSummaries || [],
+    benchmarkDetails: formalAssessments.classBenchmarkDetails || []
+  };
+}
+
 export async function exportStudentElAssessmentExcel(options = {}) {
   const previousReports = await hydrateElAssessmentReports({
     teacherId: options.teacherId || "local",
@@ -2388,37 +2105,13 @@ export async function exportStudentElAssessmentExcel(options = {}) {
     classId: options.classId || "",
     studentId: options.studentId || ""
   });
-  const report = buildStudentElAssessmentReportData({ ...options, previousReports });
-  const studentRef = (options.students || []).find(row => row.id === options.studentId)
-    || { id: options.studentId || "", name: report.studentName };
-  const storyQuestCatalog = await loadStoryQuestCatalog(options.storyQuestCatalog);
-  report.storyQuests = {
-    rows: buildStoryQuestRows({
-      studentName: report.studentName,
-      studentId: studentRef.id || "",
-      progress: collectStoryQuestProgressForStudent(studentRef, options.storyQuestProgress || null),
-      quests: storyQuestCatalog
-    })
-  };
-  report.engagement = {
-    rows: [buildEngagementRow({
-      studentName: report.studentName,
-      studentId: studentRef.id || "",
-      className: report.className,
-      areas: collectStudentEngagementAreas(studentRef, options.engagementAreas || null)
-    })]
-  };
+  const report = buildStudentElAssessmentExportReport({ ...options, previousReports });
   const workbook = await createStudentElAssessmentWorkbook(report);
   await downloadWorkbook(workbook, report.fileName);
   report.persistence = await saveElAssessmentReport(report, options);
   return report;
 }
 
-// Optional, backward-compatible options (all default to this browser's
-// localStorage when omitted):
-//   storyQuestProgressByStudent - { [studentId]: storyQuestProgress } or Map
-//   engagementByStudent         - { [studentId]: progress areas } or Map
-//   storyQuestCatalog           - Story Quest definitions (titles/levels/series)
 export async function exportClassElAssessmentExcel(options = {}) {
   const previousReports = await hydrateElAssessmentReports({
     teacherId: options.teacherId || "local",
@@ -2426,25 +2119,7 @@ export async function exportClassElAssessmentExcel(options = {}) {
     reportType: "whole_class",
     classId: options.classId || ""
   });
-  const report = buildClassElAssessmentReportData({ ...options, previousReports });
-  const classStudents = (options.students || []).filter(student =>
-    !options.classId || (student.classId || student.class_id) === options.classId
-  );
-  const storyQuestCatalog = await loadStoryQuestCatalog(options.storyQuestCatalog);
-  report.storyQuests = {
-    rows: collectStoryQuestRowsForStudents({
-      students: classStudents,
-      storyQuestProgressByStudent: options.storyQuestProgressByStudent || null,
-      quests: storyQuestCatalog
-    })
-  };
-  report.engagement = {
-    rows: buildEngagementRows({
-      students: classStudents,
-      classes: options.classes || [],
-      engagementByStudent: options.engagementByStudent || null
-    })
-  };
+  const report = buildClassElAssessmentExportReport({ ...options, previousReports });
   const workbook = await createClassElAssessmentWorkbook(report);
   await downloadWorkbook(workbook, report.fileName);
   report.persistence = await saveElAssessmentReport(report, options);

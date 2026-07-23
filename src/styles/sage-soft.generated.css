@@ -2,44 +2,7 @@
    Soft overrides for every heavy comic border/shadow, scoped to the sage
    skin, Arcade + Hollow exempt. Regenerate: npm run generate:sage-soft.
    Sources: comic-theme, student-vibrant, App.css · 133 borders softened · 66 shadows feathered.
-   115 rules kept, 31 dropped as dead (no such class in src/). */
-
-.student-mode-app.lp-skin-sage .student-home-topbar > div strong:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .comic-topbar-gems:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *),
-.student-mode-app.lp-skin-sage .student-home-streak:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-card:hover:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-card-lock:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-card-label strong:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  text-shadow: none;
-}
-
-.student-mode-app.lp-skin-sage .student-home-card-tags span:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-art:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-mission-done-badge:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
+   73 rules kept, 73 dropped as dead (no such class in src/). */
 
 .student-mode-app.lp-skin-sage .skills-block-quest .sbq-stop-marker:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
@@ -91,23 +54,6 @@
   box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
 }
 
-.student-mode-app.lp-skin-sage .student-home-namepill-face:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-account-btn:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-progress-comic .kid-next-unlock-track:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-topbar-comic:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-bottom-width: 1.5px;
-}
-
 .student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-quest-card-copy h3:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   text-shadow: none;
 }
@@ -131,27 +77,6 @@
   box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
 }
 
-.student-mode-app.lp-skin-sage .student-home-topbar-progress:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-topbar-progress .kid-next-unlock-track:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-card-phonics .student-home-card-subtitle:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  text-shadow: none;
-}
-
-.student-mode-app.lp-skin-sage .student-mission-head h1:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  text-shadow: none;
-}
-
-.student-mode-app.lp-skin-sage .student-mission-head p:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  text-shadow: none;
-}
-
 .student-mode-app.lp-skin-sage .skills-block-quest .sbq-stop-tip:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   border-width: 1.5px;
   box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
@@ -159,15 +84,6 @@
 
 .lp-skin-sage .book-quiz-hear:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-seekers-btn:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-seekers-btn:active:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
 }
 
 .lp-skin-sage .skills-block-quest .sbq-answer-grid button:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
@@ -189,80 +105,6 @@
 
 .lp-skin-sage .adv-slot:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-topbar:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-banner:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-tracker:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-tile:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-tile:hover:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-art:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-right-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-mission-next-button:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-next-button:hover:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-next-button:active:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-card:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-card:hover:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-card:active:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-home-card-art:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-bottom-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-card-meta:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-card-tags span:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
-.student-mode-app.lp-skin-sage .student-home-topbar:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  box-shadow: 0 1px 3px rgba(30, 40, 30, 0.10);
-}
-
-.student-mode-app.lp-skin-sage .student-mission-art:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-bottom-width: 1.5px;
 }
 
 .lp-skin-sage .lg-app-shell.student-surface-shell .student-home-float:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *),
@@ -452,14 +294,6 @@
   border-width: 1.5px;
 }
 
-.lp-skin-sage .student-report-page-top:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-bottom-width: 1.5px;
-}
-
-.lp-skin-sage .student-report-status-callout:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
 .lp-skin-sage .snapshot-metric.accuracy:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   border-left-width: 1.5px;
 }
@@ -474,14 +308,6 @@
 
 .lp-skin-sage .snapshot-metric.answered:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   border-left-width: 1.5px;
-}
-
-.lp-skin-sage .student-report-next-card:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-left-width: 1.5px;
-}
-
-.lp-skin-sage .student-report-footer:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-top-width: 1.5px;
 }
 
 .lp-skin-sage .student-report-benchmark-card:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
@@ -504,14 +330,6 @@
   border-left-width: 1.5px;
 }
 
-.lp-skin-sage .student-mission-tracker span:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-width: 1.5px;
-}
-
 .lp-skin-sage .teacher-action-card:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
-  border-left-width: 1.5px;
-}
-
-.lp-skin-sage .report-engagement-card:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
   border-left-width: 1.5px;
 }

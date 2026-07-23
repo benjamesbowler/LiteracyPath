@@ -11,11 +11,7 @@ const VOICE_LINES = {
   "class-code": "Ask your teacher for your class code.",
   "who-are-you": "Who are you?",
   "tap-your-pictures": "Tap your three secret pictures.",
-  "choose-your-pictures": "Choose your three secret pictures.",
-  "do-it-again": "Do it again to make sure.",
-  "did-not-match": "Those did not match. Try again.",
   "try-again": "Try again.",
-  "great-job": "Great job!",
   "ask-teacher": "Ask your teacher for help."
 };
 
@@ -73,7 +69,7 @@ function StepHeader({ title, subtitle }) {
 }
 
 function getProgressStep(step) {
-  if (step === "password" || step === "setup") return "pictures";
+  if (step === "password" || step === "not-ready") return "pictures";
   return step;
 }
 
@@ -135,15 +131,11 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   // Seed from the remembered class so a shared device shows its code while the
   // roster re-verifies (avoids a setState-in-effect just to prefill this).
   const [codeInput, setCodeInput] = useState(() => readRememberedContext()?.code || "");
-  const [classCode, setClassCode] = useState("");
   const [students, setStudents] = useState([]);
   const [selectedClass, setSelectedClass] = useState(null);
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [sequence, setSequence] = useState("");
-  const [confirmSequence, setConfirmSequence] = useState("");
-  const [setupSequence, setSetupSequence] = useState("");
-  const [setupConfirming, setSetupConfirming] = useState(false);
   const [status, setStatus] = useState("");
   const [locked, setLocked] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -158,7 +150,6 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
 
   // Apply a resolved class roster (from a code lookup) to state.
   function applyClassContext(payload, code) {
-    setClassCode(code);
     setSelectedClass(payload.class || null);
     setSelectedSchool(payload.school || null);
     setStudents(normalizeRows(payload.students));
@@ -232,12 +223,15 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   function pickStudent(row) {
     setSelectedStudent(row);
     setSequence("");
-    setSetupSequence("");
-    setSetupConfirming(false);
     setStatus("");
     setLocked(false);
-    setStep(row.has_password ? "password" : "setup");
-    speakLine(row.has_password ? "tap-your-pictures" : "choose-your-pictures", { rate: 0.84 });
+    if (!row.has_password) {
+      setStep("not-ready");
+      speakLine("ask-teacher", { rate: 0.84 });
+      return;
+    }
+    setStep("password");
+    speakLine("tap-your-pictures", { rate: 0.84 });
   }
 
   function forgetClass() {
@@ -246,7 +240,6 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     } catch {
       // ignore
     }
-    setClassCode("");
     setCodeInput("");
     setStudents([]);
     setSelectedClass(null);
@@ -295,47 +288,15 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
         setLocked(true);
         setStatus("Ask your teacher for help.");
       } else if (code === "no_password") {
-        setStep("setup");
+        setStep("not-ready");
+        setStatus("");
+        speakLine("ask-teacher", { rate: 0.84 });
       } else {
         setStatus("Try again!");
         speakLine("try-again", { rate: 0.86 });
       }
       return;
     }
-    startSession(data);
-  }
-
-  async function submitSetup(nextSequence) {
-    if (!selectedStudent || nextSequence.length !== SYMBOL_PASSWORD_LENGTH) return;
-    if (!setupConfirming) {
-      setSetupSequence(nextSequence);
-      setConfirmSequence("");
-      setSetupConfirming(true);
-      setStatus("Do it again.");
-      speakLine("do-it-again", { rate: 0.84 });
-      return;
-    }
-    if (nextSequence !== setupSequence) {
-      setSetupSequence("");
-      setConfirmSequence("");
-      setSetupConfirming(false);
-      setStatus("Those did not match. Try again.");
-      speakLine("did-not-match", { rate: 0.84 });
-      return;
-    }
-
-    setLoading(true);
-    const { data, error } = await supabase.rpc("student_set_password", {
-      p_student_id: selectedStudent.id,
-      p_sequence: nextSequence,
-      p_code: classCode
-    });
-    setLoading(false);
-    if (error || !data?.ok) {
-      setStatus("Ask your teacher for help.");
-      return;
-    }
-    speakLine("great-job", { rate: 0.9 });
     startSession(data);
   }
 
@@ -400,19 +361,14 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
           </>
         )}
 
-        {step === "setup" && (
+        {step === "not-ready" && (
           <>
-            <StepHeader
-              title={setupConfirming ? "Do it again" : "Choose your pictures"}
-              subtitle={setupConfirming ? "Tap the same three pictures." : "Pick three secret pictures."}
-            />
+            <StepHeader title="Ask your teacher" subtitle={selectedStudent?.name} />
             <StepProgress step={step} />
-            <SymbolPasswordPad
-              value={setupConfirming ? confirmSequence : setupSequence}
-              onChange={setupConfirming ? setConfirmSequence : setSetupSequence}
-              onComplete={submitSetup}
-              disabled={loading}
-            />
+            <div className="student-lockout-card">
+              <h2>Your pictures are not ready yet</h2>
+              <p>Your teacher can set your three login pictures from the class dashboard.</p>
+            </div>
           </>
         )}
 
@@ -423,7 +379,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
               Not your class?
             </button>
           )}
-          {(step === "password" || step === "setup") && (
+          {(step === "password" || step === "not-ready") && (
             <button className="student-flow-back" onClick={() => {
               setStatus("");
               setLocked(false);

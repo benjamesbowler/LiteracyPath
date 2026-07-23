@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-09-hot-and-cold",
- "questions": [
-  {
-   "prompt": "Is the sun hot or cold?",
-   "choices": [
-    "hot",
-    "cold",
-    "wet"
-   ],
-   "answer": "hot",
-   "kind": "word"
-  },
-  {
-   "prompt": "What is cold and white?",
-   "choices": [
-    "snow",
-    "fire",
-    "soup"
-   ],
-   "answer": "snow",
-   "kind": "word"
-  },
-  {
-   "prompt": "Is the milk hot or cold?",
-   "choices": [
-    "cold",
-    "hot",
-    "dry"
-   ],
-   "answer": "cold",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-09-hot-and-cold",
+  "contentHash": "sha256:698cd34a7c06c4545896581d91e99ce33a9d6a5b065b299f40b616cbf1eb472c",
+  "questions": [
+    {
+      "id": "first-facts-level-a-09-hot-and-cold-q1",
+      "prompt": "Is the sun hot or cold?",
+      "choices": [
+        "hot",
+        "cold",
+        "wet"
+      ],
+      "answer": "hot",
+      "kind": "word",
+      "skill": "comparison",
+      "evidencePage": 1,
+      "evidenceText": "The sun is hot.\nIt is very hot."
+    },
+    {
+      "id": "first-facts-level-a-09-hot-and-cold-q2",
+      "prompt": "What is cold and white?",
+      "choices": [
+        "snow",
+        "fire",
+        "soup"
+      ],
+      "answer": "snow",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Snow is cold.\nIt is white."
+    },
+    {
+      "id": "first-facts-level-a-09-hot-and-cold-q3",
+      "prompt": "How is the milk described in the book?",
+      "choices": [
+        "cold",
+        "hot",
+        "dry"
+      ],
+      "answer": "cold",
+      "kind": "word",
+      "skill": "comparison",
+      "evidencePage": 6,
+      "evidenceText": "Cold milk!\nIt is cold. Yum!"
+    }
+  ]
 }

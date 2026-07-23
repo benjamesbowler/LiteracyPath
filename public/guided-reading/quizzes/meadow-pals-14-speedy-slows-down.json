@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-14-speedy-slows-down",
+  "contentHash": "sha256:937d210a85e65f3850bb206059a10cea96713381e568200d258364a7e1166e6d",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ runs fast.\nVery, very fast.\"",
+      "id": "meadow-pals-14-speedy-slows-down-q1",
+      "prompt": "Who calls to Speedy when Speedy is lost?",
       "choices": [
-        "read",
-        "duckling",
-        "speedy"
+        "Tiny",
+        "Muddy",
+        "Clucky"
       ],
-      "answer": "speedy",
-      "kind": "word"
+      "answer": "Tiny",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 9,
+      "evidenceText": "\"Over here!\" said Tiny."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-14-speedy-slows-down-q2",
+      "prompt": "Where does Speedy run before the big hill?",
       "choices": [
-        "flappy",
-        "voice",
-        "runs"
+        "the pond",
+        "the garden",
+        "the farm gate"
       ],
-      "answer": "runs",
-      "kind": "word"
+      "answer": "the pond",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "Speedy runs to the pond."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "meadow-pals-14-speedy-slows-down-q3",
+      "prompt": "What does Speedy do at the end?",
       "choices": [
-        "down",
-        "ocean",
-        "gift"
+        "runs home",
+        "stays lost",
+        "falls asleep"
       ],
-      "answer": "down",
-      "kind": "word"
+      "answer": "runs home",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 10,
+      "evidenceText": "Speedy runs home."
     }
   ]
 }

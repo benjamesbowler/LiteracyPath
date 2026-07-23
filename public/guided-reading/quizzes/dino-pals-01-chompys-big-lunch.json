@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-01-chompys-big-lunch",
+  "contentHash": "sha256:b64279140bc516fe58d33980c040e2aeed39e1bf6e7d217070632cfa0f1e2b7c",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ woke up. I am hungry, said Chompy.\"",
+      "id": "dino-pals-01-chompys-big-lunch-q1",
+      "prompt": "What did Chompy eat first?",
       "choices": [
-        "chompy",
-        "everyone",
-        "gifts"
+        "berries",
+        "leaves",
+        "breakfast"
       ],
-      "answer": "chompy",
-      "kind": "word"
+      "answer": "berries",
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "Chompy ate some berries."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-01-chompys-big-lunch-q2",
+      "prompt": "Who shared lunch with Chompy?",
       "choices": [
-        "hungry",
-        "got",
-        "fruits"
+        "Dozy",
+        "Sunny",
+        "Grumpy"
       ],
-      "answer": "hungry",
-      "kind": "word"
+      "answer": "Sunny",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 4,
+      "evidenceText": "Sunny shared her lunch."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-01-chompys-big-lunch-q3",
+      "prompt": "What does Chompy wondering about breakfast show?",
       "choices": [
-        "Chompy",
-        "Shy",
-        "Luna"
+        "He plans to skip the next meal.",
+        "He thinks breakfast has already been served.",
+        "He still loves thinking about food."
       ],
-      "answer": "Chompy",
-      "kind": "word"
+      "answer": "He still loves thinking about food.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Chompy is already wondering about breakfast, which shows that he still loves thinking about food.",
+      "evidencePage": 8,
+      "evidenceText": "I wonder what breakfast will be, said Chompy."
     }
   ]
 }

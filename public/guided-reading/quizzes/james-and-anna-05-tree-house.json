@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "james-and-anna-05-tree-house",
+  "contentHash": "sha256:ed52038438377f8886435ca2488bc0757ce4bf0a2db2ddfb7656e7be1f2cd504",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "james-and-anna-05-tree-house-q1",
+      "prompt": "Who did the tricky high building work?",
       "choices": [
-        "tiny",
-        "james",
-        "pip"
+        "Mum",
+        "Chips",
+        "Dad"
       ],
-      "answer": "james",
-      "kind": "word"
+      "answer": "Dad",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "Dad did the tricky high bits — the tall planks and the big nails. James and Anna passed the tools and held the wood still."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "james-and-anna-05-tree-house-q2",
+      "prompt": "What did they build after the floor?",
       "choices": [
-        "Rocks",
-        "James",
-        "Luna"
+        "the walls and door",
+        "the garden gate",
+        "the sleeping bags"
       ],
-      "answer": "James",
-      "kind": "word"
+      "answer": "the walls and door",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 8,
+      "evidenceText": "Then they made the walls and cut a little door. James helped saw a window hole with a small hand saw."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "james-and-anna-05-tree-house-q3",
+      "prompt": "How did Anna feel about the finished tree house?",
       "choices": [
-        "bully",
-        "house",
-        "cold"
+        "worried",
+        "proud",
+        "disappointed"
       ],
-      "answer": "house",
-      "kind": "word"
+      "answer": "proud",
+      "kind": "word",
+      "skill": "inference",
+      "rationale": "Anna calling the tree house the best thing they had made shows that she felt proud of their work.",
+      "evidencePage": 12,
+      "evidenceText": "James and Anna climbed up and sat at the little window. \"This is the best thing we have ever made,\" said Anna."
     }
   ]
 }

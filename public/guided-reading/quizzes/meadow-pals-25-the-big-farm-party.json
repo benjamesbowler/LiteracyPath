@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-25-the-big-farm-party",
+  "contentHash": "sha256:d86e96b34ca887c95eabc8569e5afd336fbe72b80ccb632c27c3b6b40dd7ddef",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"It is ___ day!\"",
+      "id": "meadow-pals-25-the-big-farm-party-q1",
+      "prompt": "Who invites Shy into the party?",
       "choices": [
-        "dragon",
-        "party",
-        "gets"
+        "Cuddly",
+        "Grumpy",
+        "Noisy"
       ],
-      "answer": "party",
-      "kind": "word"
+      "answer": "Cuddly",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 8,
+      "evidenceText": "\"Come in, Shy!\" said Cuddly. Shy came in."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-25-the-big-farm-party-q2",
+      "prompt": "Where is Shy hiding before Cuddly invites Shy in?",
       "choices": [
-        "mushroom",
-        "flour",
-        "grumpy"
+        "behind the barn",
+        "beside the pond",
+        "inside the garden"
       ],
-      "answer": "grumpy",
-      "kind": "word"
+      "answer": "behind the barn",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 7,
+      "evidenceText": "Shy hid behind the barn."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-25-the-big-farm-party-q3",
+      "prompt": "How does everyone feel at the end?",
       "choices": [
-        "Flint",
-        "Chips",
-        "Shy"
+        "happy",
+        "angry",
+        "sleepy"
       ],
-      "answer": "Shy",
-      "kind": "word"
+      "answer": "happy",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 13,
+      "evidenceText": "Everyone is happy."
     }
   ]
 }

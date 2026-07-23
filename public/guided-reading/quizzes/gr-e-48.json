@@ -1,35 +1,50 @@
 {
- "bookId": "gr-e-48",
- "questions": [
-  {
-   "prompt": "How many poles does a magnet have?",
-   "choices": [
-    "two",
-    "five",
-    "none"
-   ],
-   "answer": "two",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do magnets pull?",
-   "choices": [
-    "some metals",
-    "wood",
-    "glass"
-   ],
-   "answer": "some metals",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do same poles do?",
-   "choices": [
-    "push apart",
-    "pull together",
-    "melt"
-   ],
-   "answer": "push apart",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-e-48",
+  "contentHash": "sha256:f8d7eac35161a9fa808151bcdd7dc0aef46ac9a446a0f928e69c71d8d6319a15",
+  "questions": [
+    {
+      "id": "gr-e-48-q1",
+      "prompt": "How many poles does a magnet have?",
+      "choices": [
+        "two",
+        "five",
+        "none"
+      ],
+      "answer": "two",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A magnet has two poles."
+    },
+    {
+      "id": "gr-e-48-q2",
+      "prompt": "What do magnets pull?",
+      "choices": [
+        "some metals",
+        "wood",
+        "glass"
+      ],
+      "answer": "some metals",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "Magnets pull some metals."
+    },
+    {
+      "id": "gr-e-48-q3",
+      "prompt": "What do same poles do?",
+      "choices": [
+        "push apart",
+        "pull together",
+        "melt"
+      ],
+      "answer": "push apart",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "Same poles push apart!"
+    }
+  ]
 }

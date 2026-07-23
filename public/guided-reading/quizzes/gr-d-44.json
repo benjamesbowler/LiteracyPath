@@ -1,35 +1,50 @@
 {
- "bookId": "gr-d-44",
- "questions": [
-  {
-   "prompt": "Where does a bird live?",
-   "choices": [
-    "in a nest",
-    "in a cave",
-    "in a web"
-   ],
-   "answer": "in a nest",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who sleeps in a cave?",
-   "choices": [
-    "a bear",
-    "a fish",
-    "a spider"
-   ],
-   "answer": "a bear",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does a spider spin?",
-   "choices": [
-    "a web",
-    "a nest",
-    "a pond"
-   ],
-   "answer": "a web",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-d-44",
+  "contentHash": "sha256:3b2346c3769375ac23dceb1a5f2e191ee023e75909fbd56f86bebea87f35834e",
+  "questions": [
+    {
+      "id": "gr-d-44-q1",
+      "prompt": "Where does a bird live?",
+      "choices": [
+        "in a nest",
+        "in a cave",
+        "in a web"
+      ],
+      "answer": "in a nest",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A bird lives in a nest."
+    },
+    {
+      "id": "gr-d-44-q2",
+      "prompt": "Who sleeps in a cave?",
+      "choices": [
+        "a bear",
+        "a fish",
+        "a spider"
+      ],
+      "answer": "a bear",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A bear sleeps in a cave."
+    },
+    {
+      "id": "gr-d-44-q3",
+      "prompt": "What do all the animals in this book need?",
+      "choices": [
+        "a home",
+        "a nest",
+        "a pond"
+      ],
+      "answer": "a home",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "All animals need a home!"
+    }
+  ]
 }

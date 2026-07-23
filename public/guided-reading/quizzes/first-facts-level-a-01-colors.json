@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-01-colors",
- "questions": [
-  {
-   "prompt": "What color is the frog?",
-   "choices": [
-    "green",
-    "red",
-    "pink"
-   ],
-   "answer": "green",
-   "kind": "word"
-  },
-  {
-   "prompt": "What color is the pig?",
-   "choices": [
-    "pink",
-    "black",
-    "blue"
-   ],
-   "answer": "pink",
-   "kind": "word"
-  },
-  {
-   "prompt": "What is big and yellow?",
-   "choices": [
-    "the sun",
-    "the cat",
-    "the cup"
-   ],
-   "answer": "the sun",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-01-colors",
+  "contentHash": "sha256:5e124be8bb481ace597d9513ca9e669ff0a0337e3c9a40545eb68fb8cc646b7e",
+  "questions": [
+    {
+      "id": "first-facts-level-a-01-colors-q1",
+      "prompt": "What color is the frog?",
+      "choices": [
+        "green",
+        "red",
+        "pink"
+      ],
+      "answer": "green",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "A green frog.\nIt is green."
+    },
+    {
+      "id": "first-facts-level-a-01-colors-q2",
+      "prompt": "What color is the pig?",
+      "choices": [
+        "pink",
+        "black",
+        "blue"
+      ],
+      "answer": "pink",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 6,
+      "evidenceText": "A pink pig.\nA pink flower."
+    },
+    {
+      "id": "first-facts-level-a-01-colors-q3",
+      "prompt": "What is big and yellow?",
+      "choices": [
+        "the sun",
+        "the cat",
+        "the cup"
+      ],
+      "answer": "the sun",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A big sun.\nIt is yellow."
+    }
+  ]
 }

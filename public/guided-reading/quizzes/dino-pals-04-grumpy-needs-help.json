@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-04-grumpy-needs-help",
+  "contentHash": "sha256:426c21c437c6d2bd2a8d8e86b16977035d6ded2681977c60dcf6a88468b513a3",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"I do NOT need help, said ___.\"",
+      "id": "dino-pals-04-grumpy-needs-help-q1",
+      "prompt": "Why was Grumpy stuck?",
       "choices": [
-        "frog",
-        "grumpy",
-        "read"
+        "His tail was caught under a big rock.",
+        "A branch blocked his cave.",
+        "Mud held his feet."
       ],
-      "answer": "grumpy",
-      "kind": "word"
+      "answer": "His tail was caught under a big rock.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 1,
+      "evidenceText": "His tail was caught under a big rock."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-04-grumpy-needs-help-q2",
+      "prompt": "How did the Dino Pals free Grumpy?",
       "choices": [
-        "coral",
-        "help",
-        "competition"
+        "They waited for rain.",
+        "They pushed together.",
+        "They dug a new path."
       ],
-      "answer": "help",
-      "kind": "word"
+      "answer": "They pushed together.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 7,
+      "evidenceText": "The Dino Pals pushed together. His tail sprang free!"
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-04-grumpy-needs-help-q3",
+      "prompt": "What did Grumpy admit after the Pals freed him?",
       "choices": [
-        "Stone",
-        "Grumpy",
-        "Fancy"
+        "I did need some help.",
+        "I moved the rock alone.",
+        "I was never really stuck."
       ],
-      "answer": "Grumpy",
-      "kind": "word"
+      "answer": "I did need some help.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "I did need some help."
     }
   ]
 }

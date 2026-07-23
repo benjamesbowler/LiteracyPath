@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-01-bees",
+  "contentHash": "sha256:46ad1d6f18e5ee6899e2ebea8037af1177f03cc67d47cc2e436bc4a2d8143e87",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-01-bees-q1",
+      "prompt": "What sweet liquid do worker bees collect?",
       "choices": [
-        "feel",
-        "sneezy",
-        "bees"
+        "nectar",
+        "dew",
+        "sap"
       ],
-      "answer": "bees",
-      "kind": "word"
+      "answer": "nectar",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "They collect a sweet liquid from inside flowers. This liquid is called nectar."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-01-bees-q2",
+      "prompt": "Why is moving pollen between flowers important?",
       "choices": [
-        "Drops",
-        "Seeds",
-        "Bees"
+        "it helps plants make seeds",
+        "it helps flowers hold more nectar",
+        "it helps bees build wax"
       ],
-      "answer": "Bees",
-      "kind": "word"
+      "answer": "it helps plants make seeds",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 5,
+      "evidenceText": "When the bee visits the next flower, some pollen falls off. This helps plants make seeds."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-01-bees-q3",
+      "prompt": "Which action does the book recommend to help bees?",
       "choices": [
-        "bees",
-        "ocean",
-        "puddle"
+        "plant flowers",
+        "leave out fruit",
+        "move hives indoors"
       ],
-      "answer": "bees",
-      "kind": "word"
+      "answer": "plant flowers",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 8,
+      "evidenceText": "We can help bees by planting flowers."
     }
   ]
 }

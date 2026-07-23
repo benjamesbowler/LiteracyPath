@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-07-wigglys-messy-day",
+  "contentHash": "sha256:a8f49188e435b0924178de42cfa9217f6d441d24a686105bc89f4542c9c9647a",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-07-wigglys-messy-day-q1",
+      "prompt": "Why did Wiggly feel sad?",
       "choices": [
-        "wiggly",
-        "living",
-        "grass"
+        "His tail was hard to watch.",
+        "Nobody came to breakfast.",
+        "He could not find any stones."
       ],
-      "answer": "wiggly",
-      "kind": "word"
+      "answer": "His tail was hard to watch.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "Wiggly felt sad. \"My tail is hard to watch,\" he said."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-07-wigglys-messy-day-q2",
+      "prompt": "What helpful thing could Wiggly's tail do?",
       "choices": [
-        "Wiggly",
-        "Shy",
-        "Woolly"
+        "carry a whole cave",
+        "make a cool breeze",
+        "stop the rain"
       ],
-      "answer": "Wiggly",
-      "kind": "word"
+      "answer": "make a cool breeze",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 7,
+      "evidenceText": "It makes a cool breeze when you move it slowly."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "dino-pals-07-wigglys-messy-day-q3",
+      "prompt": "How did Wiggly show how much room his tail needed?",
       "choices": [
-        "messy",
-        "teeth",
-        "puddle"
+        "He tied his tail to a tree.",
+        "He stayed inside his cave.",
+        "He placed bright stones around his tail."
       ],
-      "answer": "messy",
-      "kind": "word"
+      "answer": "He placed bright stones around his tail.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 8,
+      "evidenceText": "Wiggly placed bright stones around his tail to show how much room it needed."
     }
   ]
 }

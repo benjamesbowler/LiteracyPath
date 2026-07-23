@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-02-farm-animals",
- "questions": [
-  {
-   "prompt": "What does the pig say?",
-   "choices": [
-    "oink",
-    "moo",
-    "quack"
-   ],
-   "answer": "oink",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who says cluck, cluck?",
-   "choices": [
-    "the hen",
-    "the cow",
-    "the cat"
-   ],
-   "answer": "the hen",
-   "kind": "word"
-  },
-  {
-   "prompt": "Where do the animals live?",
-   "choices": [
-    "a farm",
-    "a zoo",
-    "the sea"
-   ],
-   "answer": "a farm",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-02-farm-animals",
+  "contentHash": "sha256:d7b15e4759b42cb8a7d9942d07fd4e66bba3c6282b646fcaecbdccce5a77338e",
+  "questions": [
+    {
+      "id": "first-facts-level-a-02-farm-animals-q1",
+      "prompt": "What does the pig say?",
+      "choices": [
+        "oink",
+        "moo",
+        "quack"
+      ],
+      "answer": "oink",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 1,
+      "evidenceText": "This is a pig.\nOink, oink!"
+    },
+    {
+      "id": "first-facts-level-a-02-farm-animals-q2",
+      "prompt": "Who says cluck, cluck?",
+      "choices": [
+        "the hen",
+        "the cow",
+        "the cat"
+      ],
+      "answer": "the hen",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "This is a hen.\nCluck, cluck!"
+    },
+    {
+      "id": "first-facts-level-a-02-farm-animals-q3",
+      "prompt": "Where do the animals live?",
+      "choices": [
+        "a farm",
+        "a zoo",
+        "the sea"
+      ],
+      "answer": "a farm",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 7,
+      "evidenceText": "This is a farm!\nSo many animals."
+    }
+  ]
 }

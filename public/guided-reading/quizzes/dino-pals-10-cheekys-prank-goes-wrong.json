@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-10-cheekys-prank-goes-wrong",
+  "contentHash": "sha256:6561ccb3322b7f383cdc24efa2ba650a7499cde46ec54c4db8b1d9a36a5a062b",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-10-cheekys-prank-goes-wrong-q1",
+      "prompt": "Why did Cheeky plan a funny surprise?",
       "choices": [
-        "shine",
-        "cheeky",
-        "make"
+        "He wanted the Pals to laugh.",
+        "He wanted to spoil the path.",
+        "He wanted to hide from Fancy."
       ],
-      "answer": "cheeky",
-      "kind": "word"
+      "answer": "He wanted the Pals to laugh.",
+      "kind": "text",
+      "skill": "motivation",
+      "evidencePage": 1,
+      "evidenceText": "Cheeky wanted to make the Dino Pals laugh."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-10-cheekys-prank-goes-wrong-q2",
+      "prompt": "What did Cheeky say after he understood the hurt?",
       "choices": [
-        "Fruits",
-        "Purple",
-        "Cheeky"
+        "He laughed louder.",
+        "I am sorry.",
+        "The mud did it."
       ],
-      "answer": "Cheeky",
-      "kind": "word"
+      "answer": "I am sorry.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 6,
+      "evidenceText": "\"My jokes hurt your feelings,\" he said. \"I am sorry.\""
     },
     {
-      "prompt": "What was your book about?",
+      "id": "dino-pals-10-cheekys-prank-goes-wrong-q3",
+      "prompt": "What makes a joke kind in this story?",
       "choices": [
-        "waterfall",
-        "everyone",
-        "wrong"
+        "The surprise is very clever.",
+        "The joker says sorry afterward.",
+        "Everyone can enjoy it."
       ],
-      "answer": "wrong",
-      "kind": "word"
+      "answer": "Everyone can enjoy it.",
+      "kind": "text",
+      "skill": "theme",
+      "evidencePage": 8,
+      "evidenceText": "Then the friends planned a joke everyone could enjoy."
     }
   ]
 }

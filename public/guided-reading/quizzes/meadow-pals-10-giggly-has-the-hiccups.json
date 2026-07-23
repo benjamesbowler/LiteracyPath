@@ -1,35 +1,52 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-10-giggly-has-the-hiccups",
+  "contentHash": "sha256:50d82f1c9a23e664b68c543043402517a682b0eeb4617a29ef1f656012906deb",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Giggly has the ___.\"",
+      "id": "meadow-pals-10-giggly-has-the-hiccups-q1",
+      "prompt": "What does Bouncy tell Giggly to do?",
       "choices": [
-        "hiccups",
-        "watering",
-        "quiet"
+        "jump up",
+        "lie down",
+        "run home"
       ],
-      "answer": "hiccups",
-      "kind": "word"
+      "answer": "jump up",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "\"Jump up,\" said Bouncy."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-10-giggly-has-the-hiccups-q2",
+      "prompt": "What does Clucky give Giggly to help the hiccups?",
       "choices": [
-        "biggest",
-        "hic",
-        "burrow"
+        "a drink",
+        "a cake",
+        "a hat"
       ],
-      "answer": "hic",
-      "kind": "word"
+      "answer": "a drink",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Clucky says 'Drink this' while Giggly is still hiccuping, so the drink is Clucky's attempted help.",
+      "evidencePage": 4,
+      "evidenceText": "\"Drink this,\" said Clucky.\nHic! Hee! Hic! Hee!"
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-10-giggly-has-the-hiccups-q3",
+      "prompt": "What comes back after Giggly stops?",
       "choices": [
-        "Dozy",
-        "Hic",
-        "Wiggly"
+        "one hiccup",
+        "one sneeze",
+        "one giggle"
       ],
-      "answer": "Hic",
-      "kind": "word"
+      "answer": "one hiccup",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The single word Hic after Giggly stops shows that one hiccup comes back.",
+      "evidencePage": 8,
+      "evidenceText": "Hic."
     }
   ]
 }

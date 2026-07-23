@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-09-animals-at-night",
- "questions": [
-  {
-   "prompt": "When do nocturnal animals wake up?",
-   "choices": [
-    "at night",
-    "in the day",
-    "in spring"
-   ],
-   "answer": "at night",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who can see in the dark?",
-   "choices": [
-    "the owl",
-    "the lamb",
-    "the duck"
-   ],
-   "answer": "the owl",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do bats eat?",
-   "choices": [
-    "insects",
-    "grass",
-    "nuts"
-   ],
-   "answer": "insects",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-09-animals-at-night",
+  "contentHash": "sha256:70cf7c4b8d1b991996509c8ab20f99cfe01c64f327e30bc3df2da04fbeef9bed",
+  "questions": [
+    {
+      "id": "first-facts-a-09-animals-at-night-q1",
+      "prompt": "When do nocturnal animals wake up?",
+      "choices": [
+        "at night",
+        "in the day",
+        "in spring"
+      ],
+      "answer": "at night",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Some animals sleep in the day. They wake up at night. They are nocturnal."
+    },
+    {
+      "id": "first-facts-a-09-animals-at-night-q2",
+      "prompt": "Who can see in the dark?",
+      "choices": [
+        "the owl",
+        "the lamb",
+        "the duck"
+      ],
+      "answer": "the owl",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "An owl can see in the dark. It hunts at night. Twit-twoo!"
+    },
+    {
+      "id": "first-facts-a-09-animals-at-night-q3",
+      "prompt": "What do bats eat?",
+      "choices": [
+        "insects",
+        "grass",
+        "nuts"
+      ],
+      "answer": "insects",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "A bat flies at night. It finds food in the dark. Bats eat insects."
+    }
+  ]
 }

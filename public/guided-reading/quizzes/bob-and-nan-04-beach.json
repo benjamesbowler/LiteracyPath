@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "bob-and-nan-04-beach",
+  "contentHash": "sha256:469fb10e0951d74c06cdd026658a51499891f7feedb13bbd76e190c1d9f88a96",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Bob and Nan go to the ___.\"",
+      "id": "bob-and-nan-04-beach-q1",
+      "prompt": "Where did Bob and Nan go?",
       "choices": [
-        "beach",
-        "looked",
-        "pulled"
+        "the beach",
+        "the farm",
+        "the park"
       ],
-      "answer": "beach",
-      "kind": "word"
+      "answer": "the beach",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 1,
+      "evidenceText": "Bob and Nan go to the beach."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "bob-and-nan-04-beach-q2",
+      "prompt": "What did Bob do at the beach?",
       "choices": [
-        "tongue",
-        "grow",
-        "bob"
+        "read",
+        "dig",
+        "swing"
       ],
-      "answer": "bob",
-      "kind": "word"
+      "answer": "dig",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "Bob can dig."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "bob-and-nan-04-beach-q3",
+      "prompt": "How did Bob and Nan feel about the beach?",
       "choices": [
-        "Pip",
-        "Nan",
-        "Chompy"
+        "They felt sad.",
+        "They felt scared.",
+        "They had fun."
       ],
-      "answer": "Nan",
-      "kind": "word"
+      "answer": "They had fun.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 7,
+      "evidenceText": "Bob and Nan had fun at the beach!"
     }
   ]
 }

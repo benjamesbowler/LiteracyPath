@@ -430,6 +430,15 @@ export function StudentHomePage({
                 foot="Pick a book"
                 onClick={() => onOpenGuidedReading?.("")}
               />
+              <SageCard
+                art="/images/home-sage/my-hollow.webp"
+                fallbackArt="/images/hollow/hollow-interior.webp"
+                title="My Hollow"
+                fillChip="Rewards"
+                lineChips={["Make it yours"]}
+                foot="Visit your Hollow"
+                onClick={onOpenRewards}
+              />
             </div>
           </section>
         </div>

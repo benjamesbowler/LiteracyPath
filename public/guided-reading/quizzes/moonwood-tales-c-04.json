@@ -1,35 +1,61 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-04",
+  "contentHash": "sha256:f71f4aea18808ea92939de97c60b204f5c137b3777b4f333e3322da262784955",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-04-q1",
+      "prompt": "What comes from Glimmer's mouth on the first day of practice?",
       "choices": [
-        "asleep",
-        "glimmer",
-        "everyone"
+        "a small puff of smoke",
+        "a steady orange flame",
+        "a shower of blue sparks"
       ],
-      "answer": "glimmer",
-      "kind": "word"
+      "answer": "a small puff of smoke",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "On the first day: a small puff of smoke. Just smoke. No fire at all."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-04-q2",
+      "prompt": "What makes Glimmer rush toward the Fog Marsh fox?",
       "choices": [
-        "Glimmer",
-        "Honky",
-        "Fruits"
+        "The fox has found Fern's precious seeds.",
+        "The fox has challenged Glimmer to a race.",
+        "The fox has brought Glimmer a cinnamon leaf."
       ],
-      "answer": "Glimmer",
-      "kind": "word"
+      "answer": "The fox has found Fern's precious seeds.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 9,
+      "evidenceText": "That evening, a Fog Marsh fox came creeping into Moonwood. It had found Fern's seed collection. The seeds were small and precious. Glimmer saw the fox."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-04-q3",
+      "prompt": "What lesson does Glimmer's first real fire teach?",
       "choices": [
-        "nan",
-        "glimmer",
-        "zoo"
+        "Practice and a strong reason can bring out a new skill.",
+        "Spark's advice made Glimmer's fire appear at once.",
+        "Practising alone at the stream caused the final flame."
       ],
-      "answer": "glimmer",
-      "kind": "word"
+      "answer": "Practice and a strong reason can bring out a new skill.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Glimmer practised fire breathing every morning, then protecting Fern's precious seeds gave them a reason to really mean it; this shows practice and a strong reason can bring out a new skill.",
+      "evidencePage": 12,
+      "evidenceText": "The fire had been inside all along. \"I just needed to really mean it.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Every morning, Glimmer practised. Fire breathing was the most important thing a dragon could do. And Glimmer could not do it yet."
+        },
+        {
+          "evidencePage": 9,
+          "evidenceText": "It had found Fern's seed collection. The seeds were small and precious. Glimmer saw the fox."
+        }
+      ]
     }
   ]
 }

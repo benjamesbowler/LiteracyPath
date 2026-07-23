@@ -1,35 +1,50 @@
 {
- "bookId": "gr-d-43",
- "questions": [
-  {
-   "prompt": "What do you wash your hands with?",
-   "choices": [
-    "soap",
-    "mud",
-    "paint"
-   ],
-   "answer": "soap",
-   "kind": "word"
-  },
-  {
-   "prompt": "How often do you brush your teeth?",
-   "choices": [
-    "twice",
-    "never",
-    "once a year"
-   ],
-   "answer": "twice",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do healthy habits make you?",
-   "choices": [
-    "strong",
-    "sleepy",
-    "small"
-   ],
-   "answer": "strong",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-d-43",
+  "contentHash": "sha256:ca4427bb756a83f9a6422963cd6c41ad995031ca3c94a6a66c99fb6304446dd5",
+  "questions": [
+    {
+      "id": "gr-d-43-q1",
+      "prompt": "What does the speaker wash their hands with?",
+      "choices": [
+        "soap",
+        "mud",
+        "paint"
+      ],
+      "answer": "soap",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 1,
+      "evidenceText": "I wash my hands with soap."
+    },
+    {
+      "id": "gr-d-43-q2",
+      "prompt": "What does the speaker brush?",
+      "choices": [
+        "their teeth",
+        "their shoes",
+        "their coat"
+      ],
+      "answer": "their teeth",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "I brush my teeth twice."
+    },
+    {
+      "id": "gr-d-43-q3",
+      "prompt": "What does the book say healthy habits do for the speaker?",
+      "choices": [
+        "make them strong",
+        "make them sleepy",
+        "make them smaller"
+      ],
+      "answer": "make them strong",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "Healthy habits make me strong!"
+    }
+  ]
 }

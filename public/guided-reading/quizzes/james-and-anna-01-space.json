@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "james-and-anna-01-space",
+  "contentHash": "sha256:31480160e504a0a38587dc2b15f4712ab8b1edb5b53afed11d6cbf5552565360",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "james-and-anna-01-space-q1",
+      "prompt": "What did James and Anna decide to make?",
       "choices": [
-        "opposite",
-        "james",
-        "grows"
+        "a boat",
+        "a rocket",
+        "a tree house"
       ],
-      "answer": "james",
-      "kind": "word"
+      "answer": "a rocket",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 2,
+      "evidenceText": "\"Let us make a rocket!\" said James. \"We can fly all the way into space!\""
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "james-and-anna-01-space-q2",
+      "prompt": "Why did James and Anna grin at their rocket?",
       "choices": [
-        "Flint",
-        "Sometimes",
-        "Anna"
+        "They wanted to hide it.",
+        "They thought it was broken.",
+        "They were proud of it."
       ],
-      "answer": "Anna",
-      "kind": "word"
+      "answer": "They were proud of it.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Calling it the best rocket and grinning shows that James and Anna were proud of the rocket they made.",
+      "evidencePage": 6,
+      "evidenceText": "\"It is the best rocket ever made!\" said James. He and Anna stood back and grinned."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "james-and-anna-01-space-q3",
+      "prompt": "Where were they when the trip ended?",
       "choices": [
-        "voice",
-        "around",
-        "space"
+        "back in the garden",
+        "still on the moon",
+        "inside the shop"
       ],
-      "answer": "space",
-      "kind": "word"
+      "answer": "back in the garden",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 14,
+      "evidenceText": "BUMP! They were back in the garden. Mum had made cake. \"Best trip EVER!\" they said."
     }
   ]
 }

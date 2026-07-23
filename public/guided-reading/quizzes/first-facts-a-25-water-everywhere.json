@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-25-water-everywhere",
+  "contentHash": "sha256:7451a7bb7f7c2c8f1f6c39489dcc83e20988b598eb48542225a680e3111a1354",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Water is all ___ us. Oceans, rivers, and rain.\"",
+      "id": "first-facts-a-25-water-everywhere-q1",
+      "prompt": "According to the book, where does rain fall from?",
       "choices": [
-        "around",
-        "heavy",
-        "blue"
+        "clouds",
+        "rocks",
+        "trees"
       ],
-      "answer": "around",
-      "kind": "word"
+      "answer": "clouds",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "Rain falls from the clouds."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-25-water-everywhere-q2",
+      "prompt": "What does the book say drinking water does for us?",
       "choices": [
-        "water",
-        "pull",
-        "circle"
+        "keeps us healthy",
+        "fills rivers and lakes",
+        "helps keep us clean"
       ],
-      "answer": "water",
-      "kind": "word"
+      "answer": "keeps us healthy",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 4,
+      "evidenceText": "We drink water every day. Water keeps us healthy."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-25-water-everywhere-q3",
+      "prompt": "What forms can water take?",
       "choices": [
-        "tools",
-        "house",
-        "everywhere"
+        "liquid, solid ice, or water vapour",
+        "liquid, solid rock, or water vapour",
+        "rain, solid ice, or dry air"
       ],
-      "answer": "everywhere",
-      "kind": "word"
+      "answer": "liquid, solid ice, or water vapour",
+      "kind": "text",
+      "skill": "vocabulary",
+      "evidencePage": 7,
+      "evidenceText": "Water can be liquid, solid ice, or water vapour."
     }
   ]
 }

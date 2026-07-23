@@ -1,35 +1,64 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-23",
+  "contentHash": "sha256:bb8aa974ab92597122ffebdc2801284e2cb2b14061156b119614298089e8d592",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-23-q1",
+      "prompt": "What early clue shows Pip that the Fog Marsh is spreading?",
       "choices": [
-        "grumpy",
-        "day",
-        "marsh"
+        "The mushrooms at the edge were going out.",
+        "New trees at the edge were growing taller.",
+        "The Crystal Stream was flowing backward."
       ],
-      "answer": "marsh",
-      "kind": "word"
+      "answer": "The mushrooms at the edge were going out.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "The fog had crept closer and was not stopping while the mushrooms at its edge went out; these changes at the boundary show Pip that the Fog Marsh was spreading.",
+      "evidencePage": 2,
+      "evidenceText": "By the end of the week, the fog had crept closer. The mushrooms at the edge were going out. One by one. The fog was not stopping."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-23-q2",
+      "prompt": "Why has the marsh spirit's home grown smaller each year?",
       "choices": [
-        "Water",
-        "Pip",
-        "Hic"
+        "Moonwood creatures left more things at its edges every year.",
+        "The spirit moved its boundary toward the Oak each year.",
+        "Pip took away the stones at its boundary each year."
       ],
-      "answer": "Pip",
-      "kind": "word"
+      "answer": "Moonwood creatures left more things at its edges every year.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 8,
+      "evidenceText": "\"We left things without thinking,\" said Fern.\nThe spirit looked at them.\n\"Every year, more things.\"\n\"Every year, a little smaller.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 7,
+          "evidenceText": "The spirit pointed to the edges.\nThey looked.\nThere were things left behind.\nA rope.\nAn old lamp.\nA pile of mushroom caps.\nLeft by Moonwood creatures."
+        }
+      ]
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-23-q3",
+      "prompt": "What do the stones around the marsh help everyone remember?",
       "choices": [
-        "help",
-        "house",
-        "mystery"
+        "Sharing a forest means respecting each home's space.",
+        "The fog stopped because the marsh spirit moved away.",
+        "The new boundary gave Moonwood more room than the marsh."
       ],
-      "answer": "mystery",
-      "kind": "word"
+      "answer": "Sharing a forest means respecting each home's space.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Fern admits that Moonwood creatures left things without thinking, and Luna marks a boundary so they leave space for both places; this shows sharing a forest means respecting each home's space.",
+      "evidencePage": 11,
+      "evidenceText": "\"The marsh is the marsh,\" said Luna.\n\"Moonwood is Moonwood.\"\n\"And we leave space for both.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 8,
+          "evidenceText": "\"We didn't know,\" said Pip.\n\"We left things without thinking,\" said Fern."
+        }
+      ]
     }
   ]
 }

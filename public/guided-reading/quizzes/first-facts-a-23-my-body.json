@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-23-my-body",
+  "contentHash": "sha256:b6c7577cd9cfb18ad13c086f53444258b6ab0a39bce438687c68e0030dcf99c0",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"I have a tummy. Food goes into my tummy. ___!\"",
+      "id": "first-facts-a-23-my-body-q1",
+      "prompt": "What can the speaker do with their hands?",
       "choices": [
-        "craters",
-        "dozy",
-        "rumble"
+        "clap",
+        "smell",
+        "kick"
       ],
-      "answer": "rumble",
-      "kind": "word"
+      "answer": "clap",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "I have two arms. I have two hands. I can clap!"
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-23-my-body-q2",
+      "prompt": "Where does the speaker say food goes?",
       "choices": [
-        "body",
-        "wiggly",
-        "spell"
+        "into their head",
+        "into their tummy",
+        "into their hands"
       ],
-      "answer": "body",
-      "kind": "word"
+      "answer": "into their tummy",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Food goes into my tummy."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-23-my-body-q3",
+      "prompt": "What does the speaker say they do for their body?",
       "choices": [
-        "animals",
-        "stone",
-        "body"
+        "keep it safe and strong",
+        "make it hop, skip, and spin",
+        "use it only to clap and kick"
       ],
-      "answer": "body",
-      "kind": "word"
+      "answer": "keep it safe and strong",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 8,
+      "evidenceText": "I keep it safe and strong."
     }
   ]
 }

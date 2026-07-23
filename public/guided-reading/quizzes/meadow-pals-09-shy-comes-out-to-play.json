@@ -1,35 +1,56 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-09-shy-comes-out-to-play",
+  "contentHash": "sha256:aa165b5e94d07f948ee4107c1b87ec8934f4be02c66825ce8a5b6827db200176",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Shy ___ to play.\"",
+      "id": "meadow-pals-09-shy-comes-out-to-play-q1",
+      "prompt": "What did Cuddly do after sitting by the barn?",
       "choices": [
-        "wants",
-        "flint",
-        "autumn"
+        "Cuddly did not go away.",
+        "Cuddly called Bouncy back.",
+        "Cuddly hid behind a tree."
       ],
-      "answer": "wants",
-      "kind": "word"
+      "answer": "Cuddly did not go away.",
+      "kind": "text",
+      "skill": "character_action",
+      "supportingEvidence": [
+        {
+          "evidencePage": 5,
+          "evidenceText": "Cuddly sat down by the barn."
+        }
+      ],
+      "evidencePage": 6,
+      "evidenceText": "Cuddly did not go away."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-09-shy-comes-out-to-play-q2",
+      "prompt": "Where is Shy hiding at the start?",
       "choices": [
-        "days",
-        "shy",
-        "fit"
+        "behind the barn",
+        "inside the log",
+        "beside the pond"
       ],
-      "answer": "shy",
-      "kind": "word"
+      "answer": "behind the barn",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 2,
+      "evidenceText": "But Shy is behind the barn."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-09-shy-comes-out-to-play-q3",
+      "prompt": "What does Shy do after coming out?",
       "choices": [
-        "Shy",
-        "Spark",
-        "Cuddly"
+        "Shy sat next to Cuddly.",
+        "Shy ran behind the barn.",
+        "Shy jumped into the pond."
       ],
-      "answer": "Shy",
-      "kind": "word"
+      "answer": "Shy sat next to Cuddly.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "Shy sat next to Cuddly."
     }
   ]
 }

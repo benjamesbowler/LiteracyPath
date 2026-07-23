@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "bob-and-nan-09-read",
+  "contentHash": "sha256:fc432cd5c2718c4a486e11db8f28c62604731f503080b52ec1409691a69c3fdc",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Nan has a big red ___.\"",
+      "id": "bob-and-nan-09-read-q1",
+      "prompt": "Why did Nan help Bob?",
       "choices": [
-        "hands",
-        "hat",
-        "book"
+        "He had lost his book.",
+        "He was too tired.",
+        "He could not read yet."
       ],
-      "answer": "book",
-      "kind": "word"
+      "answer": "He could not read yet.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "rationale": "Page 2 says Bob could not read yet, and page 3 says Nan would help him, so his not being able to read was why she helped.",
+      "evidencePage": 2,
+      "evidenceText": "Nan can read! Bob can not yet.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 3,
+          "evidenceText": "Nan will help Bob."
+        }
+      ]
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "bob-and-nan-09-read-q2",
+      "prompt": "What word did Bob sound out?",
       "choices": [
-        "taste",
-        "bob",
-        "helps"
+        "cat",
+        "dog",
+        "sun"
       ],
-      "answer": "bob",
-      "kind": "word"
+      "answer": "cat",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 4,
+      "evidenceText": "C - A - T. Cat! Bob can get it!"
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "bob-and-nan-09-read-q3",
+      "prompt": "How did Bob feel when he could read?",
       "choices": [
-        "Hic",
-        "Flappy",
-        "Bob"
+        "sad",
+        "glad",
+        "angry"
       ],
-      "answer": "Bob",
-      "kind": "word"
+      "answer": "glad",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 6,
+      "evidenceText": "Bob can read! Bob is so glad!"
     }
   ]
 }

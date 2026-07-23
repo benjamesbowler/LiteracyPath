@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-11T07:16:48.442Z
+Date: 2026-07-23T08:04:20.095Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -8,12 +8,12 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 
 | Metric | Count |
 | --- | --- |
-| Failures | 25 |
-| Warnings | 60 |
-| Ignored/allowed items | 707 |
-| Git status entries | 43 |
-| Tracked files inspected | 21765 |
-| Untracked files inspected | 25 |
+| Failures | 26 |
+| Warnings | 72 |
+| Ignored/allowed items | 703 |
+| Git status entries | 291 |
+| Tracked files inspected | 21095 |
+| Untracked files inspected | 38 |
 
 ## Result
 
@@ -24,17 +24,15 @@ FAIL
 | Path | Reason | Suggested cleanup |
 | --- | --- | --- |
 | .DS_Store | .DS_Store file found. | rm -f .DS_Store |
-| Design Reference Folder - Style - layout/.DS_Store | .DS_Store file found. | rm -f Design Reference Folder - Style - layout/.DS_Store |
 | docs/.DS_Store | .DS_Store file found. | rm -f docs/.DS_Store |
+| docs/previews/.DS_Store | .DS_Store file found. | rm -f docs/previews/.DS_Store |
+| docs/previews/practice-sheets/.DS_Store | .DS_Store file found. | rm -f docs/previews/practice-sheets/.DS_Store |
 | grammar-grind-preview.html | Root preview HTML file found. | rm -f grammar-grind-preview.html |
+| guided-reading-preview.html | Root preview HTML file found. | rm -f guided-reading-preview.html |
 | letter-leap-preview.html | Root preview HTML file found. | rm -f letter-leap-preview.html |
-| mockups/.DS_Store | .DS_Store file found. | rm -f mockups/.DS_Store |
-| public/.DS_Store | .DS_Store file found. | rm -f public/.DS_Store |
-| public/audio/.DS_Store | .DS_Store file found. | rm -f public/audio/.DS_Store |
-| public/images/.DS_Store | .DS_Store file found. | rm -f public/images/.DS_Store |
-| public/images/learn-games/.DS_Store | .DS_Store file found. | rm -f public/images/learn-games/.DS_Store |
-| public/images/learn-games/home/.DS_Store | .DS_Store file found. | rm -f public/images/learn-games/home/.DS_Store |
+| quest-creature-preview 2.html | Root preview HTML file found. | rm -f quest-creature-preview 2.html |
 | quest-creature-preview.html | Root preview HTML file found. | rm -f quest-creature-preview.html |
+| quest-preview.html | Root preview HTML file found. | rm -f quest-preview.html |
 | reel-read-preview.html | Root preview HTML file found. | rm -f reel-read-preview.html |
 | rhyme-pop-preview.html | Root preview HTML file found. | rm -f rhyme-pop-preview.html |
 | rocket-run-preview.html | Root preview HTML file found. | rm -f rocket-run-preview.html |
@@ -43,11 +41,14 @@ FAIL
 | sound-racer-preview.html | Root preview HTML file found. | rm -f sound-racer-preview.html |
 | sound-safari-preview.html | Root preview HTML file found. | rm -f sound-safari-preview.html |
 | star-gallery-preview.html | Root preview HTML file found. | rm -f star-gallery-preview.html |
+| student-home-preview.html | Root preview HTML file found. | rm -f student-home-preview.html |
+| supabase/.DS_Store | .DS_Store file found. | rm -f supabase/.DS_Store |
 | tmp | Temporary path found at repo root. | rm -rf tmp |
-| tmp/imagegen | Temporary path found at repo root. | rm -rf tmp/imagegen |
-| tmp/imagegen/reel-read-boat.png | Temporary path found at repo root. | rm -f tmp/imagegen/reel-read-boat.png |
-| tmp/imagegen/reel-read-fish.png | Temporary path found at repo root. | rm -f tmp/imagegen/reel-read-fish.png |
+| tmp/pdfs | Temporary path found at repo root. | rm -rf tmp/pdfs |
 | word-bridge-preview.html | Root preview HTML file found. | rm -f word-bridge-preview.html |
+| docs/assets/kimi_strict_missing_audio_request.md | New active docs/assets media request document found. | rm -f docs/assets/kimi_strict_missing_audio_request.md |
+| docs/assets/kimi_strict_missing_images_request.md | New active docs/assets media request document found. | rm -f docs/assets/kimi_strict_missing_images_request.md |
+| docs/assets/kimi_strict_missing_media_combined_request.md | New active docs/assets media request document found. | rm -f docs/assets/kimi_strict_missing_media_combined_request.md |
 
 ## Warnings
 
@@ -63,6 +64,7 @@ FAIL
 | docs/assets/kimi_first_facts_21_25_missing_word_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_first_facts_clean_page_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_guided_reading_cover_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_guided_reading_image_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_guided_reading_missing_word_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_guided_reading_unique_word_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_hfw_bad_audio_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
@@ -92,25 +94,36 @@ FAIL
 | docs/assets/kimi_strict_missing_media_import_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/missing_media_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/next_kimi_media_request_from_skill_audit.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/story_quest_asset_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/assets/story_quest_asset_audit.md |
+| docs/guided-reading/guided_reading_content_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/guided-reading/guided_reading_content_audit.md |
+| docs/guided-reading/guided_reading_question_bank_audit_2026-07-22.md | Generated/audit file has unstaged working-tree noise. | rm -f docs/guided-reading/guided_reading_question_bank_audit_2026-07-22.md |
+| docs/guided-reading/guided_reading_regen_import_audit.md | Generated/audit file has unstaged working-tree noise. | rm -f docs/guided-reading/guided_reading_regen_import_audit.md |
+| docs/guided-reading/guided_reading_relevel_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/guided-reading/guided_reading_relevel_audit.md |
+| docs/guided-reading/guided_story_draft_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/guided-reading/guided_story_draft_audit.md |
+| docs/validation/reading_media_size_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/reading_media_size_audit.md |
+| src/data/generated/dinoPalsV2StoryQuests.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/dinoPalsV2StoryQuests.generated.js |
+| src/data/generated/guidedReadingQuizzes.generated.js | Generated/audit file has unstaged working-tree noise. | rm -f src/data/generated/guidedReadingQuizzes.generated.js |
 | src/data/generated/hfwApprovedQuestionBank.generated.js | Runtime source contains banned phrase "may choose a book". | Review whether this is validation-only text or selectable content. |
 | src/data/assessmentMediaPicker.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | src/data/hfwQuestionImageReview.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
+| src/data/storyQuests.js | Runtime source contains banned phrase "with a smile". | Review whether this is validation-only text or selectable content. |
 | public/learn-decks/cycle-01/lesson-01/Cycle-01-Lesson-01.pptx | Large file over 20 MB: 27.3 MB. | Review before committing. |
 | public/learn-decks/cycle-01/lesson-02/Cycle-01-Lesson-02.pptx | Large file over 20 MB: 25.0 MB. | Review before committing. |
 | public/learn-decks/cycle-01/lesson-03/Cycle-01-Lesson-03.pptx | Large file over 20 MB: 20.1 MB. | Review before committing. |
-| docs/guided-reading/guided_reading_word_audio_inventory.json | Large file over 5 MB outside approved media folders: 13.0 MB. | Review before committing. |
+| graphify-out/graph.json | Large file over 5 MB outside approved media folders: 16.5 MB. | Review before committing. |
+| docs/guided-reading/guided_reading_word_audio_inventory.json | Large file over 5 MB outside approved media folders: 11.5 MB. | Review before committing. |
 | graphify-out/graph 8.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
 | graphify-out/graph 7.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
 | graphify-out/graph 9.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
-| graphify-out/graph.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
 | graphify-out/graph 6.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
 | graphify-out/graph 5.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
 | graphify-out/graph 4.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
 | graphify-out/graph 3.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
 | graphify-out/graph 2.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
-| src/data/generated/mediaQaReviewItems.generated.js | Large file over 5 MB outside approved media folders: 10.3 MB. | Review before committing. |
-| graphify-out/2026-07-07/graph.json | Large file over 5 MB outside approved media folders: 10.2 MB. | Review before committing. |
+| src/data/generated/mediaQaReviewItems.generated.js | Large file over 5 MB outside approved media folders: 10.9 MB. | Review before committing. |
+| docs/validation/app_image_inventory_audit 2.json | Large file over 5 MB outside approved media folders: 7.6 MB. | Review before committing. |
 | docs/validation/app_image_inventory_audit.json | Large file over 5 MB outside approved media folders: 7.6 MB. | Review before committing. |
+| docs/validation/repo_data_source_audit 2.json | Large file over 5 MB outside approved media folders: 7.2 MB. | Review before committing. |
 | docs/validation/repo_data_source_audit.json | Large file over 5 MB outside approved media folders: 7.2 MB. | Review before committing. |
 | src/data/generated/skillWordBank.generated.js | Large file over 5 MB outside approved media folders: 6.8 MB. | Review before committing. |
 
@@ -790,13 +803,9 @@ FAIL
 | public/images/learn-games/icon-cvc-builder.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/learn-games/icon-pop-word.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/learn-games/icon-reading-race.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/learn-games/icon-rhyme-time.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/learn-games/icon-sight-memory.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/learn-games/icon-sound-slide.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/learn-games/icon-word-fishing.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/learn-games/icon-word-hopscotch.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/learn-games/icon-word-train.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/learn-games/phinny-cat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/learn-games/phinny-celebrating.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/learn-games/phinny-waving.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/prepositions/ball_on_chair.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -829,17 +838,15 @@ FAIL
 ## Safe Cleanup Examples
 
 - rm -f .DS_Store
-- rm -f Design Reference Folder - Style - layout/.DS_Store
 - rm -f docs/.DS_Store
+- rm -f docs/previews/.DS_Store
+- rm -f docs/previews/practice-sheets/.DS_Store
 - rm -f grammar-grind-preview.html
+- rm -f guided-reading-preview.html
 - rm -f letter-leap-preview.html
-- rm -f mockups/.DS_Store
-- rm -f public/.DS_Store
-- rm -f public/audio/.DS_Store
-- rm -f public/images/.DS_Store
-- rm -f public/images/learn-games/.DS_Store
-- rm -f public/images/learn-games/home/.DS_Store
+- rm -f quest-creature-preview 2.html
 - rm -f quest-creature-preview.html
+- rm -f quest-preview.html
 - rm -f reel-read-preview.html
 - rm -f rhyme-pop-preview.html
 - rm -f rocket-run-preview.html
@@ -848,8 +855,11 @@ FAIL
 - rm -f sound-racer-preview.html
 - rm -f sound-safari-preview.html
 - rm -f star-gallery-preview.html
+- rm -f student-home-preview.html
+- rm -f supabase/.DS_Store
 - rm -rf tmp
-- rm -rf tmp/imagegen
-- rm -f tmp/imagegen/reel-read-boat.png
-- rm -f tmp/imagegen/reel-read-fish.png
+- rm -rf tmp/pdfs
 - rm -f word-bridge-preview.html
+- rm -f docs/assets/kimi_strict_missing_audio_request.md
+- rm -f docs/assets/kimi_strict_missing_images_request.md
+- rm -f docs/assets/kimi_strict_missing_media_combined_request.md

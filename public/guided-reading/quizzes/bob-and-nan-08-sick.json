@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "bob-and-nan-08-sick",
+  "contentHash": "sha256:e02bbce517ff15da1a4c701609af1dd5c5f21bfbc0457981eaf73cdbacab6945",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ is hot. Bob is ill.\"",
+      "id": "bob-and-nan-08-sick-q1",
+      "prompt": "Where did Bob rest?",
       "choices": [
-        "bob",
-        "smell",
-        "webs"
+        "at a desk",
+        "in bed",
+        "on a swing"
       ],
-      "answer": "bob",
-      "kind": "word"
+      "answer": "in bed",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 2,
+      "evidenceText": "Bob has to rest in bed."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "bob-and-nan-08-sick-q2",
+      "prompt": "What did Mum bring for Nan and Bob?",
       "choices": [
-        "nan",
-        "pillow",
-        "dream"
+        "a red bat",
+        "a big book",
+        "a hot cup"
       ],
-      "answer": "nan",
-      "kind": "word"
+      "answer": "a hot cup",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "Mum has a hot cup for Nan and Bob."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "bob-and-nan-08-sick-q3",
+      "prompt": "How were Nan and Bob at the end?",
       "choices": [
-        "Honky",
-        "Bob",
-        "Pip"
+        "well",
+        "ill",
+        "sad"
       ],
-      "answer": "Bob",
-      "kind": "word"
+      "answer": "well",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 7,
+      "evidenceText": "Bob is well! Nan is well!"
     }
   ]
 }

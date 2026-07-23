@@ -1,35 +1,56 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-03-dozy-wont-wake-up",
+  "contentHash": "sha256:909f49b0285764daf7696c1354b98c2b887283fa18f7057cf2aa6c335a5236ab",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Wake up, Dozy! ___ Bouncy. Dozy did not wake up.\"",
+      "id": "dino-pals-03-dozy-wont-wake-up-q1",
+      "prompt": "Why did the Pals need Dozy to wake up?",
       "choices": [
-        "opposite",
-        "penguin",
-        "called"
+        "They needed him to stop the rain.",
+        "They needed him to find a map.",
+        "They needed him for the picnic."
       ],
-      "answer": "called",
-      "kind": "word"
+      "answer": "They needed him for the picnic.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 5,
+      "evidenceText": "We need Dozy for the picnic!"
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-03-dozy-wont-wake-up-q2",
+      "prompt": "What finally got Dozy's attention?",
       "choices": [
-        "dozy",
-        "pets",
-        "stopped"
+        "Chompy's lunch",
+        "Honky's loud call",
+        "the morning sun"
       ],
-      "answer": "dozy",
-      "kind": "word"
+      "answer": "Chompy's lunch",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 7,
+      "evidenceText": "Dozy sniffed. He opened one eye. \"Is that... lunch?\" he asked.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 6,
+          "evidenceText": "Chompy found the biggest, yummiest lunch in Sunny Hollow."
+        }
+      ]
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-03-dozy-wont-wake-up-q3",
+      "prompt": "What happened after Dozy got up?",
       "choices": [
-        "Pip",
-        "Dozy",
-        "James"
+        "He ran around the Hollow.",
+        "His eyes were already closing again.",
+        "He made the picnic lunch."
       ],
-      "answer": "Dozy",
-      "kind": "word"
+      "answer": "His eyes were already closing again.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "His eyes were already closing again."
     }
   ]
 }

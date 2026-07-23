@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-05",
+  "contentHash": "sha256:de9acd14d59a9f9fe3550d5e750ff091eacc451eaf532cca5757ce88199d5833",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-05-q1",
+      "prompt": "What happens to Wren after she says the growing spell?",
       "choices": [
-        "spell",
-        "sky",
-        "woke"
+        "She is one inch tall.",
+        "She is taller than the Hollow Oak.",
+        "Her spell book is one inch tall."
       ],
-      "answer": "spell",
-      "kind": "word"
+      "answer": "She is one inch tall.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "She was not taller. She was one inch tall."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-05-q2",
+      "prompt": "Why does the first spell make Wren tiny instead of tall?",
       "choices": [
-        "Wren",
-        "Splashy",
-        "Run"
+        "She had read it backwards.",
+        "She had left out the final page.",
+        "She had borrowed Luna's spell book."
       ],
-      "answer": "Wren",
-      "kind": "word"
+      "answer": "She had read it backwards.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 5,
+      "evidenceText": "She had read it backwards."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-05-q3",
+      "prompt": "What lesson is Wren taking into her next spell?",
       "choices": [
-        "bale",
-        "spell",
-        "deal"
+        "Reading each spell carefully can prevent the same mistake.",
+        "A stronger spell is needed before reading begins.",
+        "Reading the same spell twice makes it work."
       ],
-      "answer": "spell",
-      "kind": "word"
+      "answer": "Reading each spell carefully can prevent the same mistake.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Wren discovers that she had read the first spell backwards, then begins the next spell very carefully and forwards; this shows reading each spell carefully can prevent the same mistake.",
+      "evidencePage": 12,
+      "evidenceText": "She began to read very, very carefully. Forwards.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 5,
+          "evidenceText": "She climbed up onto it and looked at the spell. She had read it backwards."
+        }
+      ]
     }
   ]
 }

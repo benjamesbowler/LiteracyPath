@@ -1,35 +1,50 @@
 {
- "bookId": "gr-d-42",
- "questions": [
-  {
-   "prompt": "What is Earth?",
-   "choices": [
-    "our home",
-    "a toy",
-    "a star"
-   ],
-   "answer": "our home",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does Earth have?",
-   "choices": [
-    "mountains",
-    "robots",
-    "candy"
-   ],
-   "answer": "mountains",
-   "kind": "word"
-  },
-  {
-   "prompt": "What must we do for Earth?",
-   "choices": [
-    "keep it clean",
-    "paint it",
-    "hide it"
-   ],
-   "answer": "keep it clean",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-d-42",
+  "contentHash": "sha256:e9d0818a957f79566ded9ca0e168c318063939a73a970624d04037f47e423734",
+  "questions": [
+    {
+      "id": "gr-d-42-q1",
+      "prompt": "What is Earth?",
+      "choices": [
+        "our home",
+        "a toy",
+        "a star"
+      ],
+      "answer": "our home",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Earth is our home."
+    },
+    {
+      "id": "gr-d-42-q2",
+      "prompt": "Which Earth feature does the book describe as tall?",
+      "choices": [
+        "mountains",
+        "oceans",
+        "forests"
+      ],
+      "answer": "mountains",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Earth has tall mountains."
+    },
+    {
+      "id": "gr-d-42-q3",
+      "prompt": "What must we do for Earth?",
+      "choices": [
+        "keep it clean",
+        "paint it",
+        "hide it"
+      ],
+      "answer": "keep it clean",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "We must keep Earth clean!"
+    }
+  ]
 }

@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-05-flowers-and-trees",
- "questions": [
-  {
-   "prompt": "Which flower is tall and yellow?",
-   "choices": [
-    "a sunflower",
-    "a daisy",
-    "a rose"
-   ],
-   "answer": "a sunflower",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does a rose have?",
-   "choices": [
-    "sharp thorns",
-    "soft wool",
-    "four wings"
-   ],
-   "answer": "sharp thorns",
-   "kind": "word"
-  },
-  {
-   "prompt": "What holds a tree up?",
-   "choices": [
-    "its roots",
-    "its leaves",
-    "its flowers"
-   ],
-   "answer": "its roots",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-05-flowers-and-trees",
+  "contentHash": "sha256:aa29acf6c29f0d653ad59568d7cf6eface4143f4bfdf657b9c1f19f594a44cad",
+  "questions": [
+    {
+      "id": "first-facts-a-05-flowers-and-trees-q1",
+      "prompt": "Which flower is tall and yellow?",
+      "choices": [
+        "a sunflower",
+        "a daisy",
+        "a rose"
+      ],
+      "answer": "a sunflower",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A sunflower is tall and yellow. The sun makes it grow."
+    },
+    {
+      "id": "first-facts-a-05-flowers-and-trees-q2",
+      "prompt": "What makes evergreen trees different from some other trees?",
+      "choices": [
+        "they keep their leaves all year",
+        "they lose their roots each winter",
+        "they grow only red flowers"
+      ],
+      "answer": "they keep their leaves all year",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 7,
+      "evidenceText": "Some trees keep their leaves all year. They are called evergreen trees."
+    },
+    {
+      "id": "first-facts-a-05-flowers-and-trees-q3",
+      "prompt": "What do flowers and trees both need?",
+      "choices": [
+        "sun, soil, and water",
+        "shade, snow, and salt",
+        "wind, rocks, and ice"
+      ],
+      "answer": "sun, soil, and water",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 8,
+      "evidenceText": "Flowers and trees are plants. They need sun, soil, and water."
+    }
+  ]
 }

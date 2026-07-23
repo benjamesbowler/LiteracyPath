@@ -1,7 +1,6 @@
-// Contracts for the teacher-facing Excel exports: a generated-at timestamp on
-// every export, Story Quest and Engagement rows built from real progress
-// shapes, comparison sheets only when a previous snapshot exists, and no
-// stale terminology (coins only, "Literacy Guide" brand) in any label.
+// Contracts for the teacher-facing Excel exports: generated timestamps,
+// dedicated Story Quest/Engagement rows, strict EL workbook boundaries, and
+// no stale terminology (coins only, "Literacy Guide" brand) in any label.
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -20,13 +19,19 @@ import {
 } from "../../src/utils/exportReportSections.js";
 import {
   buildGuidedReadingCompletionWorkbookData,
-  GUIDED_READING_COMPLETION_HEADERS
+  createGuidedReadingCompletionWorkbook,
+  GUIDED_READING_COMPLETION_HEADERS,
+  GUIDED_READING_COMPLETION_SHEETS
 } from "../../src/utils/exportGuidedReadingCompletionExcel.js";
 import {
+  buildClassElAssessmentExportReport,
+  buildStudentElAssessmentExportReport,
   createClassElAssessmentWorkbook,
   createStudentElAssessmentWorkbook,
+  EL_ASSESSMENT_TYPE_IDS,
   EL_CLASS_REPORT_SHEETS,
-  EL_STUDENT_REPORT_SHEETS
+  EL_STUDENT_REPORT_SHEETS,
+  filterElAssessmentHistory
 } from "../../src/utils/exportElAssessmentExcel.js";
 import {
   buildClassElAssessmentReportData,
@@ -150,41 +155,106 @@ test("hasPreviousComparison is true only for a real previous snapshot", () => {
   assert.equal(hasPreviousComparison({ previousReportId: "el_individual_x" }), true);
 });
 
-test("student workbook skips the Comparison sheet on a first export and adds it once a previous report exists", async () => {
+const UNRELATED_EL_EXPORT_SHEETS = [
+  "Assessment Attempts",
+  "Progress Over Time",
+  "Skills Detail",
+  "Item Mastery Detail",
+  "Guided Reading",
+  "Story Quests",
+  "Engagement",
+  "Next Session Plan",
+  "Comparison",
+  "Student Overview",
+  "Skill Heatmap",
+  "Weak Points & Groups",
+  "Class Progress Over Time",
+  "Per-Student Skill Detail",
+  "Skill Summary",
+  "Progress Comparison"
+];
+
+test("student EL workbook contains only focused Assessment 1-6 sheets, including for a saved legacy payload", async () => {
   const report = buildStudentElAssessmentReportData({ assessmentHistory: [], students: [], classes: [] });
-  assert.equal(hasPreviousComparison(report.comparison), false, "fresh report has no previous snapshot");
-
-  const firstWorkbook = await createStudentElAssessmentWorkbook(report);
-  const firstSheets = firstWorkbook.worksheets.map(sheet => sheet.name);
-  assert.ok(!firstSheets.includes("Comparison"), "no Comparison sheet without a previous report");
-  assert.ok(firstSheets.includes("Story Quests"), "Story Quests sheet present");
-  assert.ok(firstSheets.includes("Engagement"), "Engagement sheet present");
-  EL_STUDENT_REPORT_SHEETS.forEach(sheet => assert.ok(firstSheets.includes(sheet), `missing sheet ${sheet}`));
-
-  const followUp = {
+  const savedLegacyPayload = {
     ...report,
-    comparison: { ...report.comparison, previousGeneratedAt: "2026-01-01T00:00:00.000Z" }
+    comparison: { previousGeneratedAt: "2026-01-01T00:00:00.000Z" },
+    guidedReading: { bookRows: [{ title: "Must not leak" }] },
+    storyQuests: { rows: [{ title: "Must not leak" }] },
+    engagement: { rows: [{ gamesPlayed: 99 }] },
+    itemMasteryRows: [{ skillName: "Must not leak" }]
   };
-  const secondWorkbook = await createStudentElAssessmentWorkbook(followUp);
-  assert.ok(
-    secondWorkbook.worksheets.map(sheet => sheet.name).includes("Comparison"),
-    "Comparison sheet appears once a previous report exists"
-  );
+  const workbook = await createStudentElAssessmentWorkbook(savedLegacyPayload);
+  const sheetNames = workbook.worksheets.map(sheet => sheet.name);
+  assert.deepEqual(sheetNames, EL_STUDENT_REPORT_SHEETS);
+  UNRELATED_EL_EXPORT_SHEETS.forEach(name => assert.ok(!sheetNames.includes(name), `${name} must stay outside the student EL workbook`));
+  assert.doesNotMatch(workbook.getWorksheet("Student Summary").getColumn(2).values.join(" "), /Must not leak/);
 });
 
-test("class workbook gates Progress Comparison the same way", async () => {
+test("class EL workbook contains only focused Assessment 1-6 matrices and details", async () => {
   const report = buildClassElAssessmentReportData({ assessmentHistory: [], students: [], classes: [] });
-  const firstWorkbook = await createClassElAssessmentWorkbook(report);
-  const firstSheets = firstWorkbook.worksheets.map(sheet => sheet.name);
-  assert.ok(!firstSheets.includes("Progress Comparison"));
-  EL_CLASS_REPORT_SHEETS.forEach(sheet => assert.ok(firstSheets.includes(sheet), `missing sheet ${sheet}`));
-
-  const followUp = {
+  const savedLegacyPayload = {
     ...report,
-    comparison: { ...report.comparison, previousGeneratedAt: "2026-01-01T00:00:00.000Z" }
+    comparison: { previousGeneratedAt: "2026-01-01T00:00:00.000Z" },
+    storyQuests: { rows: [{ title: "Must not leak" }] },
+    engagement: { rows: [{ gamesPlayed: 99 }] },
+    heatmapRows: [{ studentName: "Must not leak", values: { "Arcade Skill": "Mastered" } }]
   };
-  const secondWorkbook = await createClassElAssessmentWorkbook(followUp);
-  assert.ok(secondWorkbook.worksheets.map(sheet => sheet.name).includes("Progress Comparison"));
+  const workbook = await createClassElAssessmentWorkbook(savedLegacyPayload);
+  const sheetNames = workbook.worksheets.map(sheet => sheet.name);
+  assert.deepEqual(sheetNames, EL_CLASS_REPORT_SHEETS);
+  UNRELATED_EL_EXPORT_SHEETS.forEach(name => assert.ok(!sheetNames.includes(name), `${name} must stay outside the class EL workbook`));
+  assert.doesNotMatch(workbook.getWorksheet("Class Summary").getColumn(2).values.join(" "), /Must not leak/);
+});
+
+test("EL export report builders reject unrelated assessment history before summaries are built", () => {
+  const student = { id: "student-1", name: "Maya", classId: "class-1" };
+  const sixElRecords = EL_ASSESSMENT_TYPE_IDS.map((assessmentType, index) => ({
+    attemptId: `el-${index + 1}`,
+    assessmentType,
+    skillId: assessmentType,
+    skillName: `EL Assessment ${index + 1}`,
+    studentId: student.id,
+    classId: student.classId,
+    completedAt: `2026-07-${String(index + 1).padStart(2, "0")}T10:00:00.000Z`,
+    questionRecords: []
+  }));
+  const unrelated = {
+    attemptId: "story-quest-skill",
+    assessmentType: "story_quest",
+    skillId: "story_quest",
+    skillName: "Story Quest Vocabulary",
+    studentId: student.id,
+    classId: student.classId,
+    completedAt: "2026-07-20T10:00:00.000Z",
+    totalQuestions: 100,
+    correctCount: 100,
+    accuracy: 100
+  };
+  const collidingSkillsCheck = {
+    ...unrelated,
+    attemptId: "skills-check-collision",
+    assessmentType: "skill_checkpoint",
+    skillId: "el_encoding",
+    skillName: "Skills Check with a colliding secondary ID"
+  };
+  const mixedHistory = [...sixElRecords, unrelated, collidingSkillsCheck];
+  assert.deepEqual(filterElAssessmentHistory(mixedHistory).map(row => row.attemptId), sixElRecords.map(row => row.attemptId));
+
+  const shared = {
+    assessmentHistory: mixedHistory,
+    students: [student],
+    classes: [{ id: "class-1", name: "Class One" }],
+    classId: "class-1"
+  };
+  const studentReport = buildStudentElAssessmentExportReport({ ...shared, studentId: student.id });
+  const classReport = buildClassElAssessmentExportReport(shared);
+  assert.deepEqual(studentReport.sourceSnapshot.records.map(row => row.attemptId), sixElRecords.map(row => row.attemptId));
+  assert.deepEqual(classReport.sourceSnapshot.records.map(row => row.attemptId), sixElRecords.map(row => row.attemptId));
+  assert.ok(!studentReport.skillRows.some(row => row.skillName === unrelated.skillName));
+  assert.ok(!classReport.skillRows.some(row => row.skillName === unrelated.skillName));
+  assert.ok(!studentReport.sourceSnapshot.records.some(row => row.attemptId === collidingSkillsCheck.attemptId));
+  assert.ok(!classReport.sourceSnapshot.records.some(row => row.attemptId === collidingSkillsCheck.attemptId));
 });
 
 // ── Story Quests ─────────────────────────────────────────────────────────────
@@ -248,10 +318,10 @@ test("engagement row stays sane with no recorded progress", () => {
   assert.equal(row.lastActiveAt, "");
 });
 
-// ── Guided reading export joins ──────────────────────────────────────────────
+// ── Guided reading workbook boundary ────────────────────────────────────────
 
-test("guided reading student summary picks up a last active date from engagement overrides", () => {
-  const data = buildGuidedReadingCompletionWorkbookData({
+test("guided reading workbook contains only guided reading sheets and ignores unrelated options", async () => {
+  const options = {
     students: [{ id: "s1", name: "Maya", class_id: "c1" }],
     classes: [{ id: "c1", name: "Class A" }],
     guidedReadingRecordsByStudent: [{
@@ -261,9 +331,9 @@ test("guided reading student summary picks up a last active date from engagement
           title: "The Red Hen",
           level: "A",
           completed: true,
-          completedAt: "2026-05-01T00:00:00.000Z",
+          firstReadAt: "2026-05-01T00:00:00.000Z",
           lastReadAt: "2026-05-02T00:00:00.000Z",
-          readCount: 1,
+          readCount: 4,
           completedPages: 4,
           totalPages: 4,
           pages: {}
@@ -273,15 +343,34 @@ test("guided reading student summary picks up a last active date from engagement
     engagementByStudent: { s1: SAMPLE_AREAS },
     storyQuestProgressByStudent: { s1: SAMPLE_QUEST_PROGRESS },
     storyQuestCatalog: SAMPLE_QUEST_CATALOG
-  });
-
-  assert.equal(data.engagementRows.length, 1);
-  assert.equal(data.engagementRows[0].missionStreak, 4);
-  assert.equal(data.storyQuestRows.length, 2);
-  assert.equal(data.storyQuestRows.find(row => row.questId === "quest-1")?.title, "Sam and Pam");
+  };
+  const data = buildGuidedReadingCompletionWorkbookData(options);
 
   const summary = data.studentSummaryRows.find(row => row.studentName === "Maya");
   assert.ok(summary, "student summary row exists");
   assert.equal(summary.lastGuidedReadingDate, "2026-05-02");
-  assert.equal(summary.lastActiveDate, "2026-07-09", "engagement recency wins over guided reading recency");
+  assert.equal(data.studentCompletionRows.length, 1);
+  assert.equal(data.booksCompletedRows.length, 1);
+  assert.equal(data.totals.totalCompletedBooks, 1);
+  assert.equal(data.studentCompletionRows[0].completionDate, "", "firstReadAt must never be invented as a completion date");
+  assert.equal(data.studentCompletionRows[0].readCount, 4);
+  assert.equal(data.studentCompletionRows[0].rereadCount, 3);
+  assert.equal(data.summaryRows[0].totalGuidedReadingSessions, 4);
+  assert.equal(data.totals.totalGuidedReadingSessions, 4);
+  assert.equal(data.booksCompletedRows[0].totalReads, 4);
+  assert.equal(data.booksCompletedRows[0].totalRereads, 3);
+  assert.equal(data.booksCompletedRows[0].lastCompletedDate, "");
+  assert.equal(summary.totalReads, 4);
+  assert.equal(summary.totalRereads, 3);
+  assert.equal(Object.hasOwn(summary, "lastActiveDate"), false);
+  assert.equal(Object.hasOwn(data, "engagementRows"), false);
+  assert.equal(Object.hasOwn(data, "storyQuestRows"), false);
+  assert.ok(!data.reportInfoRows.some(row => /story|engagement/i.test(row.field)));
+  assert.ok(!GUIDED_READING_COMPLETION_HEADERS.studentSummary.includes("Last Active Date"));
+
+  const { workbook } = await createGuidedReadingCompletionWorkbook(options);
+  const sheetNames = workbook.worksheets.map(sheet => sheet.name);
+  assert.deepEqual(sheetNames, Object.values(GUIDED_READING_COMPLETION_SHEETS));
+  assert.ok(!sheetNames.includes("Story Quests"));
+  assert.ok(!sheetNames.includes("Engagement"));
 });

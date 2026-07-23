@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-20-my-five-senses",
+  "contentHash": "sha256:29570f7c147d01e6640da4bf1e6c257905fc8f631f0af198524e9eea98781cd8",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"I have five ___. They help me know the world.\"",
+      "id": "first-facts-a-20-my-five-senses-q1",
+      "prompt": "What do the speaker's five senses help them know?",
       "choices": [
-        "warms",
-        "watering",
-        "senses"
+        "the world",
+        "the future",
+        "the time"
       ],
-      "answer": "senses",
-      "kind": "word"
+      "answer": "the world",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 1,
+      "evidenceText": "I have five senses. They help me know the world."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-20-my-five-senses-q2",
+      "prompt": "What do the speaker's ears let them do?",
       "choices": [
-        "pulled",
-        "same",
-        "smell"
+        "see",
+        "hear",
+        "taste"
       ],
-      "answer": "smell",
-      "kind": "word"
+      "answer": "hear",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "My ears let me hear sounds."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-20-my-five-senses-q3",
+      "prompt": "What can touch tell the speaker?",
       "choices": [
-        "teeth",
-        "senses",
-        "zoo"
+        "if things are loud or quiet",
+        "if things are sweet or sour",
+        "if things are rough or smooth"
       ],
-      "answer": "senses",
-      "kind": "word"
+      "answer": "if things are rough or smooth",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 6,
+      "evidenceText": "My hands can feel if things are rough or smooth, hot or cold."
     }
   ]
 }

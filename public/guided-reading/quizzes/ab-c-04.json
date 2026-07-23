@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-04",
+  "contentHash": "sha256:3e99b938499ed3fef3c9aee62e51c4f78b17e21d140318ac1e3f7adb72011a3d",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-04-q1",
+      "prompt": "What did Socks carry to his blanket first?",
       "choices": [
-        "watering",
-        "rectangle",
-        "socks"
+        "Betty's bag",
+        "Dad's newspaper",
+        "Aiden's watch"
       ],
-      "answer": "socks",
-      "kind": "word"
+      "answer": "Aiden's watch",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 5,
+      "evidenceText": "Aiden set his watch on the low table. Socks calmly picked it up by the strap, carried it to his blanket, and rested one black paw on it with great satisfaction."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-04-q2",
+      "prompt": "Why did Uncle Eddie need someone to foster Socks?",
       "choices": [
-        "Run",
-        "Eddie",
-        "Push"
+        "He was joining an overseas rescue team.",
+        "Socks disliked travelling in cars.",
+        "Aiden needed help with a project."
       ],
-      "answer": "Eddie",
-      "kind": "word"
+      "answer": "He was joining an overseas rescue team.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "Uncle Eddie explained that he was joining a rescue team overseas for six months and could not bring Socks."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-04-q3",
+      "prompt": "What does Mum feeding Socks every night show?",
       "choices": [
-        "socks",
-        "moon",
-        "chips"
+        "She wanted him to leave the house.",
+        "She cared for him despite complaining.",
+        "She had forgotten he was naughty."
       ],
-      "answer": "socks",
-      "kind": "word"
+      "answer": "She cared for him despite complaining.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Mum complains that Socks is impossible but prepares his food every night, showing that she cared for him despite complaining.",
+      "evidencePage": 13,
+      "evidenceText": "\"He is completely impossible,\" said Mum, as she did most evenings. But she had also started measuring his proper dog food into a small dish beside his water bowl every night, because Socks knew exactly when it appeared and waited on his mat very patiently."
     }
   ]
 }

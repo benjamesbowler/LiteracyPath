@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-06",
+  "contentHash": "sha256:4aa4f0ebdb631478402553e66766e3d532189ddab6ae5a97460092f722e10e76",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-06-q1",
+      "prompt": "What does Flint notice when he looks up from his finished map?",
       "choices": [
-        "map",
-        "kitten",
-        "shy"
+        "The forest looks different from his map.",
+        "Everyone is waiting to praise his map.",
+        "The map has disappeared from his hands."
       ],
-      "answer": "map",
-      "kind": "word"
+      "answer": "The forest looks different from his map.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 5,
+      "evidenceText": "The forest around him looked very different to the forest on his map."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-06-q2",
+      "prompt": "Why is Flint's beautiful first map already wrong?",
       "choices": [
-        "Quack",
-        "Hungry",
-        "Flint"
+        "The paths had moved.",
+        "Rain had washed away the ink.",
+        "Pip had drawn extra paths on it."
       ],
-      "answer": "Flint",
-      "kind": "word"
+      "answer": "The paths had moved.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "The paths had moved."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-06-q3",
+      "prompt": "What does Flint's choice to start another map show?",
       "choices": [
-        "zoo",
-        "map",
-        "puddle"
+        "He can enjoy the work even when the forest changes.",
+        "He expects his second map to stay correct forever.",
+        "He keeps mapping only so he will never get lost."
       ],
-      "answer": "map",
-      "kind": "word"
+      "answer": "He can enjoy the work even when the forest changes.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Flint is not upset when he starts a new map, and later he is already very happy as the paths rearrange; this shows he can enjoy the mapping work even when the forest changes.",
+      "evidencePage": 8,
+      "evidenceText": "Flint took out a new piece of parchment. \"I'll make another one,\" he said. He was not upset about this.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 12,
+          "evidenceText": "Then Flint started on the next map. He was already very happy. Outside, the paths rearranged themselves quietly."
+        }
+      ]
     }
   ]
 }

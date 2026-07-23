@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-13-clumsy-to-the-rescue",
+  "contentHash": "sha256:56ed3e15dd1aab0168070b2de5dd38422b7075315abf9ab3c093f1e7124bd79f",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-13-clumsy-to-the-rescue-q1",
+      "prompt": "Why could Clumsy search farther than the others?",
       "choices": [
-        "pull",
-        "clumsy",
-        "grass"
+        "Clumsy could see over the ferns.",
+        "Clumsy knew every hiding place.",
+        "Clumsy could swim underwater."
       ],
-      "answer": "clumsy",
-      "kind": "word"
+      "answer": "Clumsy could see over the ferns.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 5,
+      "evidenceText": "Clumsy could see over all the ferns, past the waterfall, all the way to the Long Meadow and beyond."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-13-clumsy-to-the-rescue-q2",
+      "prompt": "Where did Clumsy spot Dozy's pillow?",
       "choices": [
-        "When",
-        "Clumsy",
-        "Tiny"
+        "under a berry bush",
+        "in the waterfall",
+        "inside a cave"
       ],
-      "answer": "Clumsy",
-      "kind": "word"
+      "answer": "in the waterfall",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 7,
+      "evidenceText": "It is in the waterfall."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "dino-pals-13-clumsy-to-the-rescue-q3",
+      "prompt": "What did Dozy do after thanking Clumsy and Wiggly?",
       "choices": [
-        "party",
-        "sick",
-        "rescue"
+        "fell asleep on the spot",
+        "ran back to the waterfall",
+        "gave the pillow to Bossy"
       ],
-      "answer": "rescue",
-      "kind": "word"
+      "answer": "fell asleep on the spot",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 11,
+      "evidenceText": "Thank you, said Dozy. Both of you. Then Dozy fell asleep, right there, on the spot."
     }
   ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "bob-and-nan-06-zoo",
+  "contentHash": "sha256:7e7129d62c9cfc7ef4b14811ea51e8ae246e2e44b0325a870623abdc781c9ae7",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ and Bob go to the zoo.\"",
+      "id": "bob-and-nan-06-zoo-q1",
+      "prompt": "Where did Nan and Bob go?",
       "choices": [
-        "stop",
-        "nan",
-        "stars"
+        "the shop",
+        "the beach",
+        "the zoo"
       ],
-      "answer": "nan",
-      "kind": "word"
+      "answer": "the zoo",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 1,
+      "evidenceText": "Nan and Bob go to the zoo."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "bob-and-nan-06-zoo-q2",
+      "prompt": "What did Nan see on a log?",
       "choices": [
-        "small",
-        "bob",
-        "poles"
+        "a frog",
+        "a bird",
+        "a fish"
       ],
-      "answer": "bob",
-      "kind": "word"
+      "answer": "a frog",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "Nan sees a fat frog on a log."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "bob-and-nan-06-zoo-q3",
+      "prompt": "What happened after they saw the big ape?",
       "choices": [
-        "Bob",
-        "Marcus",
-        "Pip"
+        "The ape took a nap.",
+        "The ape ate a fig.",
+        "The ape ran away."
       ],
-      "answer": "Bob",
-      "kind": "word"
+      "answer": "The ape ate a fig.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 7,
+      "evidenceText": "The big ape ate a fig."
     }
   ]
 }

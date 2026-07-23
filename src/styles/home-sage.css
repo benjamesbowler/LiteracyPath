@@ -315,13 +315,6 @@
   container-name: hs-sheet;
 }
 
-/* If the sheet itself ever gets genuinely narrow (whatever the viewport says),
-   the hero card stops spanning two tracks. The 880px media rule below still
-   handles today's tablet layout; this is the card owning its own floor. */
-@container hs-sheet (max-width: 520px) {
-  .lp-home-sage .hs-card.is-hero { grid-column: span 1; }
-}
-
 .lp-home-sage .hs-sheet-head h1 {
   margin: 0;
   font-size: 40px;
@@ -341,7 +334,14 @@
   margin-top: 24px;
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* The hero uses two grid units, so the seven destinations occupy exactly
+   eight units: two complete rows on desktop, then complete two- or one-column
+   rows as the sheet narrows. This keeps My Hollow from leaving a stray gap. */
+@container hs-sheet (max-width: 920px) {
+  .lp-home-sage .hs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .lp-home-sage .hs-card {
@@ -372,6 +372,13 @@
 .lp-home-sage .hs-card.is-hero {
   grid-column: span 2;
   background: linear-gradient(135deg, #F3FAF4, #fff);
+}
+
+/* Keep this after the base hero span so the narrow rule wins the cascade and
+   cannot manufacture an implicit second track on phones. */
+@container hs-sheet (max-width: 520px) {
+  .lp-home-sage .hs-grid { grid-template-columns: minmax(0, 1fr); }
+  .lp-home-sage .hs-card.is-hero { grid-column: span 1; }
 }
 
 .lp-home-sage .hs-thumb {
@@ -499,7 +506,6 @@
   .lp-home-sage .hs-daily { display: none; }
   .lp-home-sage .hs-sheet { margin: 6px 12px 14px; padding: 22px 18px 26px; }
   .lp-home-sage .hs-sheet-head h1 { font-size: 30px; }
-  .lp-home-sage .hs-card.is-hero { grid-column: span 1; }
   .lp-home-sage .hs-topbar { padding: 10px 14px 4px; }
 }
 

@@ -53,6 +53,17 @@ test("Story Quest prompt and choices are one direct decision region", () => {
   assert.match(learnAreaSource, /story-quest-learn-page story-quest-active-page/);
 });
 
+test("Story Quest progress follows the chosen route and replay starts a fresh run", () => {
+  assert.match(playerSource, /const currentSceneNumber = history\.length \+ 1;/);
+  assert.match(playerSource, /Scene \{currentSceneNumber\}/);
+  assert.doesNotMatch(playerSource, /Page \{currentPageNumber\} of \{totalPages\}/);
+  assert.match(
+    playerSource,
+    /const isReplayChoice[\s\S]*?if \(isReplayChoice\) \{[\s\S]*?restart\(\);[\s\S]*?return;/,
+    "an ending's Read again choice must clear route history instead of extending the previous run"
+  );
+});
+
 test("Story Quest reader reserves one viewport without nested story-text scrolling", () => {
   assert.match(
     playerStyles,

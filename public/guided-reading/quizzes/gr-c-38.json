@@ -1,35 +1,50 @@
 {
- "bookId": "gr-c-38",
- "questions": [
-  {
-   "prompt": "What do you see with?",
-   "choices": [
-    "your eyes",
-    "your ears",
-    "your hands"
-   ],
-   "answer": "your eyes",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do you smell with?",
-   "choices": [
-    "your nose",
-    "your tongue",
-    "your feet"
-   ],
-   "answer": "your nose",
-   "kind": "word"
-  },
-  {
-   "prompt": "How many senses do you have?",
-   "choices": [
-    "five",
-    "two",
-    "nine"
-   ],
-   "answer": "five",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-c-38",
+  "contentHash": "sha256:bf8699ab794b79715e700ee032ffce9bab826bc9b502fbc118dc72437851c219",
+  "questions": [
+    {
+      "id": "gr-c-38-q1",
+      "prompt": "What does the speaker use to see?",
+      "choices": [
+        "their eyes",
+        "their ears",
+        "their hands"
+      ],
+      "answer": "their eyes",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 1,
+      "evidenceText": "I see with my eyes."
+    },
+    {
+      "id": "gr-c-38-q2",
+      "prompt": "What does the speaker use their nose to do?",
+      "choices": [
+        "smell",
+        "taste",
+        "touch"
+      ],
+      "answer": "smell",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "I smell with my nose."
+    },
+    {
+      "id": "gr-c-38-q3",
+      "prompt": "What do the speaker's five senses help them do?",
+      "choices": [
+        "learn",
+        "sleep",
+        "fly"
+      ],
+      "answer": "learn",
+      "kind": "word",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "My five senses help me learn!"
+    }
+  ]
 }

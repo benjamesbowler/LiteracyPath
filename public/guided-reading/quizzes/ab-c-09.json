@@ -1,35 +1,58 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-09",
+  "contentHash": "sha256:ecaca397cb7e63222d68e9e879e4b684348914a15b5a6c58e7604c70b0f545ab",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-09-q1",
+      "prompt": "Why was Aiden's tooth becoming loose?",
       "choices": [
-        "aiden",
-        "hic",
-        "turned"
+        "He had bitten an apple too hard.",
+        "It was a baby tooth making way for a new one.",
+        "Socks had bumped his chair."
       ],
-      "answer": "aiden",
-      "kind": "word"
+      "answer": "It was a baby tooth making way for a new one.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "rationale": "Betty says the baby tooth will fall out and a new tooth will grow, which means the baby tooth is making way for a new one.",
+      "evidencePage": 2,
+      "evidenceText": "\"It is a baby tooth,\" she said. \"It will fall out, and a new tooth will grow.\""
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-09-q2",
+      "prompt": "What did Aiden do after his tooth came out?",
       "choices": [
-        "Aiden",
-        "James",
-        "Anna"
+        "He gave it to Betty at lunch.",
+        "He placed it beside Socks's bed.",
+        "He put it in an envelope under his pillow."
       ],
-      "answer": "Aiden",
-      "kind": "word"
+      "answer": "He put it in an envelope under his pillow.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 8,
+      "evidenceText": "The tooth was tiny. Aiden put it in a small envelope. Then he tucked the envelope under his pillow."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-09-q3",
+      "prompt": "What did the new tooth show about Aiden?",
       "choices": [
-        "teeth",
-        "shopping",
-        "everyone"
+        "He was growing older.",
+        "He was becoming ill.",
+        "He needed to stop smiling."
       ],
-      "answer": "teeth",
-      "kind": "word"
+      "answer": "He was growing older.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Page 10 says a new tooth began to grow, and Betty then says Aiden looks a little older, which shows the new tooth is part of him growing older.",
+      "evidencePage": 11,
+      "evidenceText": "\"You do not look strange,\" Betty said. \"You look a little older.\" Aiden looked in the mirror and smiled.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 10,
+          "evidenceText": "Three weeks later, a new tooth began to grow in the gap."
+        }
+      ]
     }
   ]
 }

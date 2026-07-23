@@ -1,35 +1,61 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-24",
+  "contentHash": "sha256:6d6879b74c11604a74c1c04c37431130798dff1daf73e97edc675c05fdf8b1e5",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-24-q1",
+      "prompt": "What is ready beside Luna's safe fire circle?",
       "choices": [
-        "smell",
-        "glimmer",
-        "whoosh"
+        "a bucket of water and an extinguisher",
+        "a basket of berries and a blanket",
+        "a map and a magic wand"
       ],
-      "answer": "glimmer",
-      "kind": "word"
+      "answer": "a bucket of water and an extinguisher",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 1,
+      "evidenceText": "A bucket of water and an extinguisher stood nearby."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-24-q2",
+      "prompt": "What did Glimmer do when Luna said, \"Pause\"?",
       "choices": [
-        "Glimmer",
-        "Everyone",
-        "Sunny"
+        "Glimmer stopped and waited.",
+        "Glimmer made the flame longer.",
+        "Glimmer left the fire circle."
       ],
-      "answer": "Glimmer",
-      "kind": "word"
+      "answer": "Glimmer stopped and waited.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 6,
+      "evidenceText": "\"Pause,\" said Luna. Glimmer stopped and waited."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-24-q3",
+      "prompt": "What does Glimmer learn about using their new fire?",
       "choices": [
-        "gift",
-        "last",
-        "penguins"
+        "One careful flame can light many lamps.",
+        "A longer flame makes each lantern safer.",
+        "They must light every lamp alone."
       ],
-      "answer": "last",
-      "kind": "word"
+      "answer": "One careful flame can light many lamps.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Glimmer carefully lights one lantern, and its spark travels lamp by lamp along the paths; Luna's praise shows that one careful flame can light many lamps.",
+      "evidencePage": 11,
+      "evidenceText": "\"You made one careful flame,\" she said. \"The lanterns carried the light.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 7,
+          "evidenceText": "Luna placed a magic lantern in the circle. \"One small flame,\" she said. Glimmer lit it carefully."
+        },
+        {
+          "evidencePage": 8,
+          "evidenceText": "The lantern sent a golden spark to the next lamp. Lamp by lamp, safe magical light travelled along the paths."
+        }
+      ]
     }
   ]
 }

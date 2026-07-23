@@ -1,35 +1,50 @@
 {
- "bookId": "gr-a-26",
- "questions": [
-  {
-   "prompt": "Which one is a pet in this book?",
-   "choices": [
-    "a dog",
-    "a lion",
-    "a whale"
-   ],
-   "answer": "a dog",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does the book say about pets?",
-   "choices": [
-    "pets are fun",
-    "pets are scary",
-    "pets are loud"
-   ],
-   "answer": "pets are fun",
-   "kind": "word"
-  },
-  {
-   "prompt": "Which pet swims?",
-   "choices": [
-    "the fish",
-    "the cat",
-    "the bird"
-   ],
-   "answer": "the fish",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-a-26",
+  "contentHash": "sha256:758a4e79e7ca9571f596c88b807f777af66ee96a02f6849f29833642ad0e149a",
+  "questions": [
+    {
+      "id": "gr-a-26-q1",
+      "prompt": "Which animal does the book name as a pet?",
+      "choices": [
+        "a dog",
+        "a lion",
+        "a whale"
+      ],
+      "answer": "a dog",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A dog is a pet."
+    },
+    {
+      "id": "gr-a-26-q2",
+      "prompt": "What does the book say about pets?",
+      "choices": [
+        "pets are scary",
+        "pets are fun",
+        "pets are loud"
+      ],
+      "answer": "pets are fun",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "Pets are fun!"
+    },
+    {
+      "id": "gr-a-26-q3",
+      "prompt": "Which sentence matches the book?",
+      "choices": [
+        "a rabbit is a pet",
+        "a rabbit is a fish",
+        "a rabbit is a bird"
+      ],
+      "answer": "a rabbit is a pet",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "A rabbit is a pet."
+    }
+  ]
 }

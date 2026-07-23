@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ja-b-08",
+  "contentHash": "sha256:925cf1f67ccbd003b745097a46dab318f9b68cec13353dc53a8fd639a756a6a6",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ja-b-08-q1",
+      "prompt": "What did Chips and Bella do in the garden?",
       "choices": [
-        "sides",
-        "firefighter",
-        "chips"
+        "Bella watched Chips, and Chips went to sleep.",
+        "Bella hid from Chips, and Chips left the garden.",
+        "Bella chased Chips, and Chips chased Bella."
       ],
-      "answer": "chips",
-      "kind": "word"
+      "answer": "Bella chased Chips, and Chips chased Bella.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "Bella chased Chips. Chips chased Bella. They ran round and round the garden at an absolutely ridiculous speed."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ja-b-08-q2",
+      "prompt": "Why were James and Anna soaked?",
       "choices": [
-        "Chips",
-        "Bats",
-        "Then"
+        "Bella crashed into the pool.",
+        "Rain fell on the garden.",
+        "Chips tipped over a bowl."
       ],
-      "answer": "Chips",
-      "kind": "word"
+      "answer": "Bella crashed into the pool.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "Bella crashed into the paddling pool. Water exploded in every direction. James and Anna were completely soaked."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ja-b-08-q3",
+      "prompt": "What showed that Chips and Bella liked each other?",
       "choices": [
-        "water",
-        "house",
-        "date"
+        "Chips hid from Bella, and Bella left the garden.",
+        "Chips licked Bella, and Bella licked Chips.",
+        "Chips growled at Bella, and Bella growled back."
       ],
-      "answer": "date",
-      "kind": "word"
+      "answer": "Chips licked Bella, and Bella licked Chips.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Chips and Bella lick each other, and Anna then says she thinks they like each other, so the mutual licks show friendly affection.",
+      "evidencePage": 9,
+      "evidenceText": "At last, both Chips and Bella lay down on the lawn side by side, panting. Chips licked Bella's ear. Bella licked Chips's nose.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 10,
+          "evidenceText": "I think they like each other"
+        }
+      ]
     }
   ]
 }

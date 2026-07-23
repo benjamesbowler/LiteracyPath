@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ja-b-09",
+  "contentHash": "sha256:bef2899d77e529d75b48ed70c0743057704fb7bcf5d9d142d706d5ecb91a5579",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ja-b-09-q1",
+      "prompt": "What helped Anna ride without wobbling?",
       "choices": [
-        "james",
-        "moves",
-        "some"
+        "She kept her eyes where she wanted to go.",
+        "She kept her eyes on the ground by the wheel.",
+        "She kept her eyes closed as she pedalled."
       ],
-      "answer": "james",
-      "kind": "word"
+      "answer": "She kept her eyes where she wanted to go.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 5,
+      "evidenceText": "\"How did you DO that?\" said James. \"I kept my eyes on where I wanted to go,\" said Anna. \"Don't look at the ground.\""
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ja-b-09-q2",
+      "prompt": "What happened when James rode with no hands?",
       "choices": [
-        "Aiden",
-        "James",
-        "Snow"
+        "He won the race.",
+        "He headed straight into the bush.",
+        "He reached the pond."
       ],
-      "answer": "James",
-      "kind": "word"
+      "answer": "He headed straight into the bush.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 8,
+      "evidenceText": "Then James tried riding with NO hands. He made it exactly three seconds before heading straight into the same bush."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ja-b-09-q3",
+      "prompt": "How did their race home finish?",
       "choices": [
-        "spiders",
-        "watch",
-        "bikes"
+        "James won.",
+        "Anna won.",
+        "It was a tie."
       ],
-      "answer": "bikes",
-      "kind": "word"
+      "answer": "It was a tie.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 12,
+      "evidenceText": "On the way home, James and Anna raced. They crossed the gate post at exactly the same time. A perfect tie."
     }
   ]
 }

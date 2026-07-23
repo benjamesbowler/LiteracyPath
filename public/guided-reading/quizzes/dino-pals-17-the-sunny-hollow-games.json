@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-17-the-sunny-hollow-games",
+  "contentHash": "sha256:d334dbc9b82738ee8174009117ecd626f99cae972a2575f4ca04c5c8220d10cd",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-17-the-sunny-hollow-games-q1",
+      "prompt": "Who won the running race?",
       "choices": [
-        "wren",
-        "arm",
-        "bossy"
+        "Bouncy",
+        "Zippy",
+        "Honky"
       ],
-      "answer": "bossy",
-      "kind": "word"
+      "answer": "Zippy",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "Zippy won the running race before anyone else had started."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-17-the-sunny-hollow-games-q2",
+      "prompt": "Why did Wiggly give himself zero points for tidiness?",
       "choices": [
-        "Fruits",
-        "Bossy",
-        "Hic"
+        "He slept through the event.",
+        "He hid the prize pebbles.",
+        "His tail knocked everything over."
       ],
-      "answer": "Bossy",
-      "kind": "word"
+      "answer": "His tail knocked everything over.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "The tail knocked everything over while tidying. I am giving myself zero points, said Wiggly."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "dino-pals-17-the-sunny-hollow-games-q3",
+      "prompt": "What did Bossy say was the point of the Games?",
       "choices": [
-        "sick",
-        "games",
-        "castle"
+        "Everyone won something.",
+        "Only the fastest Pal won something.",
+        "One Pal won every event."
       ],
-      "answer": "games",
-      "kind": "word"
+      "answer": "Everyone won something.",
+      "kind": "text",
+      "skill": "theme",
+      "evidencePage": 12,
+      "evidenceText": "Everyone won something, said Bossy. That is the point."
     }
   ]
 }

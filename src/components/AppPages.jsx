@@ -27,6 +27,10 @@ import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
 import { addQuestionFlag } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
+import {
+  getGuidedReadingLandingMeta,
+  getSkillsCheckLandingMeta
+} from "./reports/studentReportUiUtils.js";
 import { importWithRetry, lazyWithRetry } from "../utils/lazyWithRetry.js";
 import {
   EL_BENCHMARK_CATALOG,
@@ -2128,7 +2132,6 @@ export function TeacherReportsPage({
   guidedReadingRecords = {},
   assessmentHistory = [],
   skillMasterySummary = [],
-  exportReadingReport,
   classList = [],
   selectedClassId = "",
   setSelectedClassId,
@@ -2139,6 +2142,7 @@ export function TeacherReportsPage({
   const [dateRange, setDateRange] = useState("last90");
   const [reportTab, setReportTab] = useState("student");
   const [guidedReadingReportHelpers, setGuidedReadingReportHelpers] = useState(null);
+  const [guidedReadingReportLoadStatus, setGuidedReadingReportLoadStatus] = useState("idle");
   const reportsLoadStartRef = useRef(0);
 
   useEffect(() => {
@@ -2167,15 +2171,23 @@ export function TeacherReportsPage({
     if (!detailsReady || guidedReadingReportHelpers) return undefined;
 
     let cancelled = false;
-    importWithRetry(() => import("../data/guidedReadingBooks")).then(module => {
-      if (cancelled) return;
-      setGuidedReadingReportHelpers({
-        formatGuidedReadingType: module.formatGuidedReadingType,
-        getGuidedReadingWordStatusRows: module.getGuidedReadingWordStatusRows,
-        summarizeGuidedReadingProgress: module.summarizeGuidedReadingProgress,
-        summarizeGuidedReadingRecords: module.summarizeGuidedReadingRecords
+    setGuidedReadingReportLoadStatus("loading");
+    importWithRetry(() => import("../data/guidedReadingBooks"))
+      .then(module => {
+        if (cancelled) return;
+        if (typeof module.summarizeGuidedReadingProgress !== "function") {
+          throw new Error("Guided Reading summary helper is unavailable.");
+        }
+        setGuidedReadingReportHelpers({
+          summarizeGuidedReadingProgress: module.summarizeGuidedReadingProgress
+        });
+        setGuidedReadingReportLoadStatus("ready");
+      })
+      .catch(error => {
+        if (cancelled) return;
+        console.error("Guided Reading report summary could not be loaded:", error);
+        setGuidedReadingReportLoadStatus("error");
       });
-    });
 
     return () => {
       cancelled = true;
@@ -2218,6 +2230,31 @@ export function TeacherReportsPage({
     return summary;
   }, [filteredAssessmentHistory, dateRange]);
 
+  // Student report availability must use the student's full record. The date
+  // control belongs to the Class tab only and must never make older student
+  // evidence look absent on the landing page.
+  const fullStudentAssessmentSummary = useMemo(
+    () => summarizeAssessmentHistory(assessmentHistory),
+    [assessmentHistory]
+  );
+
+  const elAssessmentAttemptCount = useMemo(() => {
+    const benchmarkIds = new Set(Object.values(EL_BENCHMARK_IDS));
+    return assessmentHistory.filter(record => {
+      const assessmentId = String(record.assessmentType || record.skillId || "");
+      return assessmentId === "el_letter_assessment" ||
+        assessmentId === "advanced_phonics_patterns" ||
+        benchmarkIds.has(assessmentId);
+    }).length;
+  }, [assessmentHistory]);
+
+  const skillCheckpointAttemptCount = useMemo(() => assessmentHistory.filter(record => {
+    const assessmentType = String(record?.assessmentType || record?.assessment_type || "")
+      .trim()
+      .toLowerCase();
+    return assessmentType === "skill_checkpoint";
+  }).length, [assessmentHistory]);
+
   const readingProgress = useMemo(() => {
     if (!guidedReadingDetailsReady) return null;
     const start = typeof performance !== "undefined" ? performance.now() : Date.now();
@@ -2233,50 +2270,14 @@ export function TeacherReportsPage({
     return progress;
   }, [guidedReadingDetailsReady, guidedReadingRecords, guidedReadingReportHelpers]);
 
-  const wordStatusRows = useMemo(() => {
-    if (!guidedReadingDetailsReady) return [];
-    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
-    const rows = guidedReadingReportHelpers.getGuidedReadingWordStatusRows(guidedReadingRecords);
-    if (import.meta.env.DEV) {
-      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
-      console.debug("[Reports] guided reading word rows", {
-        durationMs: duration,
-        rows: rows.length
-      });
-    }
-    return rows;
-  }, [guidedReadingDetailsReady, guidedReadingRecords, guidedReadingReportHelpers]);
-
-  const guidedSummaries = useMemo(() => {
-    if (!guidedReadingDetailsReady) return [];
-    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
-    const rows = guidedReadingReportHelpers.summarizeGuidedReadingRecords(guidedReadingRecords);
-    if (import.meta.env.DEV) {
-      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
-      console.debug("[Reports] guided reading conference summaries", {
-        durationMs: duration,
-        rows: rows.length
-      });
-    }
-    return rows;
-  }, [guidedReadingDetailsReady, guidedReadingRecords, guidedReadingReportHelpers]);
-
-  const greenWordRows = useMemo(
-    () => wordStatusRows.filter(row => row.status === "Read Correctly").slice(0, 10),
-    [wordStatusRows]
-  );
-  const orangeWordRows = useMemo(
-    () => wordStatusRows.filter(row => row.status === "Needs Support").slice(0, 10),
-    [wordStatusRows]
-  );
   const hasAssessmentData =
-    assessmentSummary.attempts > 0 ||
+    fullStudentAssessmentSummary.attempts > 0 ||
     skillMasterySummary.some(summary => summary.masteredCount > 0);
-  const hasReadingData = Boolean(readingProgress) && (
+  const hasReadingData = Object.keys(guidedReadingRecords || {}).length > 0 || (Boolean(readingProgress) && (
     readingProgress.totalBooksRead > 0 ||
     readingProgress.inProgressBooks.length > 0 ||
     readingProgress.totalRereads > 0
-  );
+  ));
   const effectiveSelectedClassId = selectedClassId || classList[0]?.id || "";
   const classReportingModel = useMemo(() =>
     buildClassReportModel({
@@ -2307,32 +2308,32 @@ export function TeacherReportsPage({
           <h2>Reports</h2>
           <p>Review student and class progress from one focused report area.</p>
         </div>
-        <label className="report-filter-control">
-          <span>Date range</span>
-          <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
-            <option value="last30">Last 30 days</option>
-            <option value="last90">Last 90 days</option>
-            <option value="schoolYear">This school year</option>
-            <option value="all">All time</option>
-          </select>
-        </label>
+        {reportTab === "class" && (
+          <label className="report-filter-control">
+            <span>Class assessment period</span>
+            <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
+              <option value="last30">Last 30 days</option>
+              <option value="last90">Last 90 days</option>
+              <option value="schoolYear">This school year</option>
+              <option value="all">All time</option>
+            </select>
+          </label>
+        )}
       </section>
 
-      <div className="teacher-tabs reports-tab-switcher" role="tablist" aria-label="Report type">
+      <div className="teacher-tabs reports-tab-switcher" aria-label="Report scope">
         <button
-          role="tab"
           type="button"
           className={reportTab === "student" ? "active" : ""}
-          aria-selected={reportTab === "student"}
+          aria-pressed={reportTab === "student"}
           onClick={() => setReportTab("student")}
         >
           Student Report
         </button>
         <button
-          role="tab"
           type="button"
           className={reportTab === "class" ? "active" : ""}
-          aria-selected={reportTab === "class"}
+          aria-pressed={reportTab === "class"}
           onClick={() => setReportTab("class")}
         >
           Class Report
@@ -2340,152 +2341,83 @@ export function TeacherReportsPage({
       </div>
 
       {reportTab === "student" && (
-      <section className="teacher-action-panel-grid student-report-panel-grid" role="tabpanel" aria-label="Student Report">
-        <article className="teacher-action-panel">
-          <h3>Student Report</h3>
-          {studentName && <p className="panel-label">{studentName}</p>}
-          {hasAssessmentData ? (
-            <p>
-              {assessmentSummary.attempts
-                ? `${assessmentSummary.attempts} saved assessments · ${assessmentSummary.averageAccuracy}% average accuracy.`
-                : "Open the finished report view for checkpoint summaries, coverage, mastered items, and teacher notes."}
-            </p>
-          ) : (
-            <div className="report-empty-state">
-              <strong>No assessment data yet.</strong>
-              <p>Start the first assessment to build checkpoint summaries, coverage, and mastered item lists.</p>
-              {startAssessment && (
-                <button className="lp-button lp-button-secondary" onClick={startAssessment} type="button">
-                  Start First Assessment
-                </button>
-              )}
-            </div>
-          )}
-          {assessmentSummary.latestAttempt && (
-            <div className="guided-reading-report-mini">
-              <span>Latest: {assessmentSummary.latestAttempt.skillName}</span>
-              <span>{assessmentSummary.latestAttempt.correctCount}/{assessmentSummary.latestAttempt.totalQuestions} correct</span>
-            </div>
-          )}
-          {skillMasterySummary.some(summary => summary.masteredCount > 0) && (
-            <div className="mastery-detail-list compact">
-              {skillMasterySummary
-                .filter(summary => summary.masteredCount > 0)
-                .slice(0, 5)
-                .map(summary => (
-                  <article key={summary.skillId}>
-                    <strong>{summary.skillName}</strong>
-                    <span>{summary.displayText}</span>
-                  </article>
-                ))}
-            </div>
-          )}
-          <button className="lp-button lp-button-primary" onClick={viewFinishedReport}>
-            View Report
-          </button>
-        </article>
+      <section className="report-choice-workspace" aria-label="Student reports">
+        <header className="report-choice-student">
+          <div>
+            <span>Selected student</span>
+            <h3>{studentName || "Choose a student"}</h3>
+          </div>
+          <p>Start with the whole-child summary, or open the area where the evidence was collected.</p>
+        </header>
 
-        <article className="teacher-action-panel student-reading-report-panel">
-          <h3>Books Read</h3>
-          {!readingProgress ? (
-            <p className="muted-text">Loading guided reading summary...</p>
-          ) : !hasReadingData ? (
-            <div className="report-empty-state">
-              <strong>No guided reading records yet.</strong>
-              <p>Guided reading records will appear here after book progress and conference notes are saved.</p>
+        <div className="report-choice-grid">
+          {[
+            {
+              id: "whole-child",
+              title: "Whole Child",
+              description: "See what the student knows across every learning area, with evidence and next steps.",
+              meta: hasAssessmentData || hasReadingData ? "Evidence available" : "Ready for first evidence"
+            },
+            {
+              id: "el-assessments",
+              title: "EL Assessments",
+              description: "Review Assessments 1-6 together without unrelated reading or game data.",
+              meta: elAssessmentAttemptCount ? `${elAssessmentAttemptCount} saved assessment${elAssessmentAttemptCount === 1 ? "" : "s"}` : "No saved attempts yet"
+            },
+            {
+              id: "guided-reading",
+              title: "Guided Reading",
+              description: "Review books, words read correctly, support words and every teacher note.",
+              meta: getGuidedReadingLandingMeta({
+                progress: readingProgress,
+                loadStatus: guidedReadingReportLoadStatus
+              })
+            },
+            {
+              id: "skills-check",
+              title: "Skills Check",
+              description: "See formal checkpoint results, skill progress and question-level evidence.",
+              meta: getSkillsCheckLandingMeta({
+                attemptCount: skillCheckpointAttemptCount,
+                skillMasterySummary
+              })
+            },
+            {
+              id: "other-learning",
+              title: "Other Learning",
+              description: "See simple practice evidence from Sound Seekers, Arcade and Story Quests.",
+              meta: "Practice evidence only"
+            }
+          ].map(option => (
+            <article className={`report-choice-card ${option.id === "whole-child" ? "featured" : ""}`} key={option.id}>
+              <div>
+                <h3>{option.title}</h3>
+                <p>{option.description}</p>
+              </div>
+              <span>{option.meta}</span>
+              <button className="lp-button lp-button-primary" onClick={() => viewFinishedReport(option.id)} type="button">
+                Open {option.title}
+              </button>
+            </article>
+          ))}
+        </div>
+
+        {!hasAssessmentData && startAssessment && (
+          <div className="report-choice-first-step">
+            <div>
+              <strong>No formal assessment evidence yet</strong>
+              <p>Start the first assessment to begin the student record.</p>
             </div>
-          ) : (
-            <p>{readingProgress.totalBooksRead} book{readingProgress.totalBooksRead === 1 ? "" : "s"} read.</p>
-          )}
-          {readingProgress?.completedBooks.length > 0 && (
-            <div className="reading-report-table compact">
-              {readingProgress.completedBooks.slice(0, 6).map(row => (
-                <article key={row.bookId}>
-                  <strong>{row.title}</strong>
-                  <span>Level {row.level || "-"}</span>
-                </article>
-              ))}
-            </div>
-          )}
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-primary" onClick={exportReadingReport} type="button">
-              Export Reading Report
+            <button className="lp-button lp-button-secondary" onClick={startAssessment} type="button">
+              Start first assessment
             </button>
           </div>
-        </article>
-
-        <article className="teacher-action-panel student-correct-words-panel">
-          <h3>Words Read Correctly</h3>
-          {!guidedReadingDetailsReady ? (
-            <p className="muted-text">Loading word records...</p>
-          ) : greenWordRows.length > 0 ? (
-            <div className="guided-record-list compact">
-              {greenWordRows.map(row => (
-                <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-green`}>
-                  <strong>{row.word}</strong>
-                  <span>{row.title} · Level {row.level} · Page {row.page}</span>
-                  <span>Count: {row.count}</span>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="report-empty-state compact">
-              <strong>No words marked green yet.</strong>
-              <p>Words read correctly will appear here after guided reading conferences are saved.</p>
-            </div>
-          )}
-        </article>
-
-        <div className="teacher-action-panel-stack student-guided-report-stack">
-          <article className="teacher-action-panel student-support-words-panel">
-            <h3>Words Needing Support</h3>
-            {!guidedReadingDetailsReady ? (
-              <p className="muted-text">Loading support words...</p>
-            ) : orangeWordRows.length > 0 ? (
-              <div className="guided-record-list compact">
-                {orangeWordRows.map(row => (
-                  <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-orange`}>
-                    <strong>{row.word}</strong>
-                    <span>{row.title} · Level {row.level} · Page {row.page}</span>
-                    <span>Count: {row.count}</span>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div className="report-empty-state compact">
-                <strong>No support words marked yet.</strong>
-                <p>Support-word notes will appear after Guided Reading conferences.</p>
-              </div>
-            )}
-          </article>
-
-          <article className="teacher-action-panel student-guided-notes-panel">
-            <h3>Guided Reading Conference Notes</h3>
-            {!guidedReadingDetailsReady ? (
-              <p className="muted-text">Loading conference notes...</p>
-            ) : guidedSummaries.length > 0 ? (
-              <div className="guided-record-list compact">
-                {guidedSummaries.slice(0, 6).map(item => (
-                  <article key={item.bookId}>
-                    <strong>{item.title}</strong>
-                    <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
-                    <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div className="report-empty-state compact">
-                <strong>No guided reading records yet.</strong>
-                <p>Conference notes will appear here after the first book record is saved for this student.</p>
-              </div>
-            )}
-          </article>
-        </div>
+        )}
       </section>
       )}
 
       {reportTab === "class" && (
-        <section className="class-report-workspace" role="tabpanel" aria-label="Class Report">
+        <section className="class-report-workspace" aria-label="Class Report">
           <div className="class-report-print-actions class-report-view-controls screen-only">
             <label>
               Class

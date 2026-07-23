@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "bob-and-nan-05-school",
+  "contentHash": "sha256:e56216d5180de0e4478e215a22bb3522dc532d8ffb3d4baaa679589631c4f936",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"It is the big ___.\"",
+      "id": "bob-and-nan-05-school-q1",
+      "prompt": "What did Bob take to school?",
       "choices": [
-        "beach",
-        "day",
-        "runs"
+        "his bat",
+        "his bag",
+        "his book"
       ],
-      "answer": "day",
-      "kind": "word"
+      "answer": "his bag",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 2,
+      "evidenceText": "Bob has his bag."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "bob-and-nan-05-school-q2",
+      "prompt": "Where did Bob and Nan sit?",
       "choices": [
-        "clearing",
-        "bob",
-        "blooded"
+        "on a log",
+        "in a bed",
+        "at a desk"
       ],
-      "answer": "bob",
-      "kind": "word"
+      "answer": "at a desk",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 6,
+      "evidenceText": "Bob and Nan sit at a desk."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "bob-and-nan-05-school-q3",
+      "prompt": "How was school for Bob and Nan by the end?",
       "choices": [
-        "Anna",
-        "Nan",
-        "Bouncy"
+        "It was fun.",
+        "It was scary.",
+        "It was lonely."
       ],
-      "answer": "Nan",
-      "kind": "word"
+      "answer": "It was fun.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 7,
+      "evidenceText": "Bob and Nan had fun at school!"
     }
   ]
 }

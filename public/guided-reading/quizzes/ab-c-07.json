@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-07",
+  "contentHash": "sha256:1cf70a63e73d338e0d2f9850b81712a95cc300728f7b258eecf20ec9f1b2f105",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-07-q1",
+      "prompt": "What special bird did Betty spot?",
       "choices": [
-        "socks",
-        "dentist",
-        "penguin"
+        "a robin",
+        "an owl",
+        "a kingfisher"
       ],
-      "answer": "socks",
-      "kind": "word"
+      "answer": "a kingfisher",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "Through the binoculars, Betty saw a kingfisher — a bright impossible dart of blue-orange above the water, there and then gone."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-07-q2",
+      "prompt": "How did Uncle Eddie make crossing the bridge safer?",
       "choices": [
-        "Socks",
-        "Push",
-        "Chompy"
+        "He checked the map and clipped on Socks's lead.",
+        "He carried everyone across the river.",
+        "He waited for the water to disappear."
       ],
-      "answer": "Socks",
-      "kind": "word"
+      "answer": "He checked the map and clipped on Socks's lead.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 6,
+      "evidenceText": "Aiden wanted to follow. Uncle Eddie checked the map and clipped on Socks's lead. Then they crossed together."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-07-q3",
+      "prompt": "What did Aiden and Betty conclude about Socks's home?",
       "choices": [
-        "adventure",
-        "sea",
-        "thing"
+        "He wanted to live at the reserve.",
+        "He had chosen their home.",
+        "He planned to leave with Uncle Eddie."
       ],
-      "answer": "adventure",
-      "kind": "word"
+      "answer": "He had chosen their home.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Betty says Socks has decided this is home, and Aiden agrees, which shows they believe he has chosen their home.",
+      "evidencePage": 13,
+      "evidenceText": "\"I think he's decided this is home,\" she said. Aiden looked at Socks curled at his feet. \"Yeah,\" he said. \"I think so too.\""
     }
   ]
 }

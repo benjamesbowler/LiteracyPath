@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-07-animals-on-the-farm",
- "questions": [
-  {
-   "prompt": "What does the cow give us?",
-   "choices": [
-    "milk",
-    "wool",
-    "eggs"
-   ],
-   "answer": "milk",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who rolls in the mud?",
-   "choices": [
-    "the pig",
-    "the hen",
-    "the duck"
-   ],
-   "answer": "the pig",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who lays eggs?",
-   "choices": [
-    "the hen",
-    "the horse",
-    "the sheep"
-   ],
-   "answer": "the hen",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-07-animals-on-the-farm",
+  "contentHash": "sha256:4e67cbc6a2b78630dd6d31ed442d4982e0bbec9de2d8c9697ccb04c81b7afd30",
+  "questions": [
+    {
+      "id": "first-facts-a-07-animals-on-the-farm-q1",
+      "prompt": "What does the cow give us?",
+      "choices": [
+        "milk",
+        "wool",
+        "eggs"
+      ],
+      "answer": "milk",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "A cow gives us milk. We drink milk every day."
+    },
+    {
+      "id": "first-facts-a-07-animals-on-the-farm-q2",
+      "prompt": "What food does a hen give us?",
+      "choices": [
+        "eggs",
+        "milk",
+        "wool"
+      ],
+      "answer": "eggs",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 5,
+      "evidenceText": "A hen lays eggs. We can eat the eggs."
+    },
+    {
+      "id": "first-facts-a-07-animals-on-the-farm-q3",
+      "prompt": "What does the book show that farm animals give us?",
+      "choices": [
+        "farm animals give us food",
+        "farm animals all roll in mud",
+        "farm animals all swim in ponds"
+      ],
+      "answer": "farm animals give us food",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 8,
+      "evidenceText": "Farms give us food. Thank you, farm animals!"
+    }
+  ]
 }

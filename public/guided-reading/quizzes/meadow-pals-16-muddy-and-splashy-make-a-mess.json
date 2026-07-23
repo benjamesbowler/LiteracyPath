@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-16-muddy-and-splashy-make-a-mess",
+  "contentHash": "sha256:9722866051bc1dafee61a04af73a2e519f5e08a7daeac50a6a45aa2c413e6804",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ has some mud.\"",
+      "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q1",
+      "prompt": "Who jumps into the mud with Muddy?",
       "choices": [
-        "twig",
-        "fire",
-        "muddy"
-      ],
-      "answer": "muddy",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "looked",
-        "dad",
-        "mud"
-      ],
-      "answer": "mud",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
-      "choices": [
-        "Bob",
         "Splashy",
-        "Fancy"
+        "Grumpy",
+        "Clucky"
       ],
       "answer": "Splashy",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 4,
+      "evidenceText": "Muddy jumped in. Splashy jumped in."
+    },
+    {
+      "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q2",
+      "prompt": "Who gets mud splashed on them?",
+      "choices": [
+        "Grumpy",
+        "Tiny",
+        "Woolly"
+      ],
+      "answer": "Grumpy",
+      "kind": "word",
+      "skill": "sequence",
+      "evidencePage": 7,
+      "evidenceText": "The mud went on Grumpy."
+    },
+    {
+      "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q3",
+      "prompt": "How does Splashy feel about mud at the end?",
+      "choices": [
+        "Splashy likes it",
+        "Splashy fears it",
+        "Splashy avoids it"
+      ],
+      "answer": "Splashy likes it",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "Muddy likes mud. Splashy likes mud too."
     }
   ]
 }

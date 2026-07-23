@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ja-b-07",
+  "contentHash": "sha256:f01bba27c22faf703ab8c7e55710a0a179a60cb22e708e502463b7a210c6a761",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ja-b-07-q1",
+      "prompt": "Why did James have to try out for the dragon?",
       "choices": [
-        "james",
-        "turned",
-        "fluff"
+        "James had forgotten the name of the play.",
+        "Six other children put their hands up too.",
+        "Anna wanted to paint the dragon costume."
       ],
-      "answer": "james",
-      "kind": "word"
+      "answer": "Six other children put their hands up too.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 2,
+      "evidenceText": "James put his hand straight up. \"I want to be the dragon!\" Six other children put their hands up too. They would all have to try out."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ja-b-07-q2",
+      "prompt": "What helped James after he forgot his line?",
       "choices": [
-        "Cave",
-        "Everyone",
-        "James"
+        "The audience told him the words.",
+        "Mrs. Green stopped the play.",
+        "Anna gave him a thumbs up."
       ],
-      "answer": "James",
-      "kind": "word"
+      "answer": "Anna gave him a thumbs up.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Anna's thumbs-up comes just after James forgets his line; on the next page he takes a deep breath and gives his roar, so her encouragement helped him continue.",
+      "evidencePage": 9,
+      "evidenceText": "He forgot his first line. The hall went silent. Anna was watching from the side. She caught his eye and gave him a thumbs up.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 10,
+          "evidenceText": "James took a deep breath. He thought of his best roar. Then he let it out — the biggest, loudest roar he had ever done."
+        }
+      ]
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ja-b-07-q3",
+      "prompt": "How did the audience respond at the end?",
       "choices": [
-        "bikes",
-        "house",
-        "play"
+        "They stood and clapped.",
+        "They left in silence.",
+        "They asked for a new play."
       ],
-      "answer": "play",
-      "kind": "word"
+      "answer": "They stood and clapped.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 12,
+      "evidenceText": "At the very end, everyone stood and clapped. James and Anna walked to the front of the stage and bowed together."
     }
   ]
 }

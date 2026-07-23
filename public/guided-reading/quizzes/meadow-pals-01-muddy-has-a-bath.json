@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-01-muddy-has-a-bath",
+  "contentHash": "sha256:10fd5d805a7d7cd306ae7cf31f47171c4577713a0419d32856819363d7c0359e",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ is in the mud.\"",
+      "id": "meadow-pals-01-muddy-has-a-bath-q1",
+      "prompt": "Who tells Muddy he needs a bath?",
       "choices": [
-        "use",
-        "colors",
-        "muddy"
+        "Clucky",
+        "Woolly",
+        "Grumpy"
       ],
-      "answer": "muddy",
-      "kind": "word"
+      "answer": "Clucky",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "\"You need a bath,\" said Clucky."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-01-muddy-has-a-bath-q2",
+      "prompt": "Where does Muddy run after the bath?",
       "choices": [
-        "coral",
-        "bella",
-        "bath"
+        "to the mud",
+        "to the pond",
+        "to the barn"
       ],
-      "answer": "bath",
-      "kind": "word"
+      "answer": "to the mud",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 7,
+      "evidenceText": "Muddy ran to the mud."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "meadow-pals-01-muddy-has-a-bath-q3",
+      "prompt": "How does Muddy feel at the end?",
       "choices": [
-        "bully",
-        "bath",
-        "reading"
+        "happy",
+        "sad",
+        "tired"
       ],
-      "answer": "bath",
-      "kind": "word"
+      "answer": "happy",
+      "kind": "word",
+      "skill": "outcome",
+      "evidencePage": 9,
+      "evidenceText": "Muddy is happy."
     }
   ]
 }

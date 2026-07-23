@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-24-rocks-and-pebbles",
+  "contentHash": "sha256:0005098c8c9ddeee6552ae82b1e786c585ba82cd79e4ff73882e5aeb058a7ede",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ are hard. Rocks can be big or small.\"",
+      "id": "first-facts-a-24-rocks-and-pebbles-q1",
+      "prompt": "According to the book, what makes pebbles smooth?",
       "choices": [
-        "woof",
-        "rocks",
-        "arm"
+        "water",
+        "sand",
+        "wind"
       ],
-      "answer": "rocks",
-      "kind": "word"
+      "answer": "water",
+      "kind": "word",
+      "skill": "cause_effect",
+      "evidencePage": 2,
+      "evidenceText": "Water makes them smooth."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-24-rocks-and-pebbles-q2",
+      "prompt": "What do people build with rocks?",
       "choices": [
-        "splash",
-        "hat",
-        "smooth"
+        "nests and webs",
+        "walls and roads",
+        "coats and hats"
       ],
-      "answer": "smooth",
-      "kind": "word"
+      "answer": "walls and roads",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 4,
+      "evidenceText": "Walls and roads are made of rock."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-24-rocks-and-pebbles-q3",
+      "prompt": "What can old rocks tell us about?",
       "choices": [
-        "park",
-        "pebbles",
-        "day"
+        "tomorrow",
+        "the weather",
+        "the past"
       ],
-      "answer": "pebbles",
-      "kind": "word"
+      "answer": "the past",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "Rocks tell us about the past."
     }
   ]
 }

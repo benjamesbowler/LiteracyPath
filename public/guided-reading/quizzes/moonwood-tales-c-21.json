@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-21",
+  "contentHash": "sha256:f67dcb90daec02f5cd15f89e9299087fb35729afc9b025e5d46fa8ecfa447765",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-21-q1",
+      "prompt": "Who can fit through the small door near the roots?",
       "choices": [
-        "our",
-        "here",
-        "ducks"
+        "Fern",
+        "Wren",
+        "Pip"
       ],
-      "answer": "here",
-      "kind": "word"
+      "answer": "Fern",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 5,
+      "evidenceText": "He found a small door near the roots.\nIt was very small.\nToo small for most of them.\n\"I can go,\" said Fern."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-21-q2",
+      "prompt": "Why has Twig been unable to find her spectacles?",
       "choices": [
-        "Twig",
-        "There",
-        "Our"
+        "They were on top of Twig's head.",
+        "Fern had moved them outside.",
+        "They were under her collected things."
       ],
-      "answer": "Twig",
-      "kind": "word"
+      "answer": "They were on top of Twig's head.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 9,
+      "evidenceText": "The spectacles were on top of Twig's head."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-21-q3",
+      "prompt": "What does Twig's visit through the larger door show about a good home?",
       "choices": [
-        "potion",
-        "reptiles",
-        "oak"
+        "It can include private space and time with friends.",
+        "Twig preferred the large room to her own small room.",
+        "The new door made Twig leave her old room behind."
       ],
-      "answer": "oak",
-      "kind": "word"
+      "answer": "It can include private space and time with friends.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "Twig is happy living in her own room, then enjoys visiting the big room but says she likes her room better; this shows a good home can include private space and time with friends.",
+      "evidencePage": 12,
+      "evidenceText": "She sat in the big room and looked around.\n\"I like it here,\" she said.\n\"But I like my room better.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 10,
+          "evidenceText": "\"I live here.\"\n\"I have always lived here.\"\nShe seemed perfectly happy about this."
+        }
+      ]
     }
   ]
 }

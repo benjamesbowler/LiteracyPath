@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-10-frogs",
+  "contentHash": "sha256:9d1084a71714857661c223f585fd3962449b7eb4585fd3c71656c906c7557117",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-10-frogs-q1",
+      "prompt": "What is frogspawn?",
       "choices": [
-        "dewdrop",
-        "pajamas",
-        "frog"
+        "clumps of eggs",
+        "groups of adult frogs",
+        "piles of pond plants"
       ],
-      "answer": "frog",
-      "kind": "word"
+      "answer": "clumps of eggs",
+      "kind": "text",
+      "skill": "vocabulary",
+      "evidencePage": 2,
+      "evidenceText": "The eggs form clumps called frogspawn."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-10-frogs-q2",
+      "prompt": "Which legs appear first on a growing tadpole?",
       "choices": [
-        "Frogs",
-        "Bees",
-        "Mmm"
+        "front legs",
+        "back legs",
+        "all four legs"
       ],
-      "answer": "Frogs",
-      "kind": "word"
+      "answer": "back legs",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 4,
+      "evidenceText": "As a tadpole grows, back legs appear first."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-10-frogs-q3",
+      "prompt": "How does a common frog catch small prey?",
       "choices": [
-        "frogs",
-        "bale",
-        "sky"
+        "with its back legs",
+        "with its smooth skin",
+        "with its sticky tongue"
       ],
-      "answer": "frogs",
-      "kind": "word"
+      "answer": "with its sticky tongue",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "They can snap up small prey with a sticky tongue."
     }
   ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-18-the-moon",
+  "contentHash": "sha256:2b4314f53019eb461788247a1a5204fc561d905128e25961390e45331c771c40",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"The moon changes shape. ___ it looks like a banana.\"",
+      "id": "first-facts-a-18-the-moon-q1",
+      "prompt": "When does the book say the moon shines?",
       "choices": [
-        "everywhere",
-        "nocturnal",
-        "sometimes"
+        "at night",
+        "at midday",
+        "only at sunrise"
       ],
-      "answer": "sometimes",
-      "kind": "word"
+      "answer": "at night",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "The moon shines at night. It gives us light in the dark."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-18-the-moon-q2",
+      "prompt": "What does the moon go around?",
       "choices": [
-        "yum",
-        "moon",
-        "race"
+        "Mars",
+        "Earth",
+        "the ocean"
       ],
-      "answer": "moon",
-      "kind": "word"
+      "answer": "Earth",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "The moon goes around the Earth."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-18-the-moon-q3",
+      "prompt": "What does the book say about the moon's shape?",
       "choices": [
-        "moon",
-        "day",
-        "body"
+        "it changes and can look like a banana",
+        "it stays square and never changes",
+        "it turns into a star each morning"
       ],
-      "answer": "moon",
-      "kind": "word"
+      "answer": "it changes and can look like a banana",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 3,
+      "evidenceText": "The moon changes shape. Sometimes it looks like a banana."
     }
   ]
 }

@@ -1,35 +1,60 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-22-sleepys-big-dream",
+  "contentHash": "sha256:165eccd59cb88f85b6cc1ce70b7a8dbacf868266f90d81aa5b64768092d15b60",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ went to sleep.\"",
+      "id": "meadow-pals-22-sleepys-big-dream-q1",
+      "prompt": "What can Sleepy do in the dream?",
       "choices": [
-        "branches",
-        "sleepy",
-        "living"
+        "run",
+        "swim",
+        "fly"
       ],
-      "answer": "sleepy",
-      "kind": "word"
+      "answer": "run",
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "In the dream, Sleepy could run. Run! Run! Run!"
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-22-sleepys-big-dream-q2",
+      "prompt": "What does Sleepy become after running and jumping in the dream?",
       "choices": [
-        "dream",
-        "lost",
-        "quack"
+        "a superhero",
+        "a farmer",
+        "a singer"
       ],
-      "answer": "dream",
-      "kind": "word"
+      "answer": "a superhero",
+      "kind": "text",
+      "skill": "sequence",
+      "supportingEvidence": [
+        {
+          "evidencePage": 3,
+          "evidenceText": "In the dream, Sleepy could run. Run! Run! Run!"
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "In the dream, Sleepy could jump. Jump! Jump! Jump!"
+        }
+      ],
+      "evidencePage": 6,
+      "evidenceText": "In the dream, Sleepy was a superhero!"
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-22-sleepys-big-dream-q3",
+      "prompt": "What does Sleepy do after waking up?",
       "choices": [
-        "Bob",
-        "James",
-        "Sleepy"
+        "Sleepy went back to sleep.",
+        "Sleepy ran to the barn.",
+        "Sleepy started to jump."
       ],
-      "answer": "Sleepy",
-      "kind": "word"
+      "answer": "Sleepy went back to sleep.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 8,
+      "evidenceText": "Sleepy went back to sleep."
     }
   ]
 }

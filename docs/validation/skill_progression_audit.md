@@ -6,7 +6,7 @@ Date: 2026-05-25
 
 - Managed skills simulated: 11
 - Fatal progression failures: 0
-- Progression warnings: 56
+- Progression warnings: 55
 
 ## Warnings
 
@@ -59,7 +59,6 @@ Date: 2026-05-25
 - High Frequency Words L1 round 3: reused recent words a, about, all, an, and, are, as, at, be, been, but, by, called.
 - High Frequency Words L2 round 2: reused recent words a, about, all, an, and, are, as, at.
 - High Frequency Words L2 round 3: reused recent words a, about, all, an, and, are, as, at, be, been.
-- Sentence Picture Matching: no media-complete items available for progression simulation.
 - Vocabulary/Categories L1 round 1: selected 14, fewer than available unique target cap 15.
 - Vocabulary/Categories L1 round 2: selected 14, fewer than available unique target cap 15.
 - Vocabulary/Categories L1 round 3: selected 14, fewer than available unique target cap 15.
@@ -74,18 +73,18 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Media-complete items: 555
+- Media-complete items: 517
 - Media-complete targets: 25
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | acorn, ball, coat, drum, elephant, fish, gate, hill, iguana, jump, kid, log, milk, needle, owl |
-| L1 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pen, question, rat, sun, truck, umpire, volcano, worm, yard, zoo, anchor, bed, car, dog, elbow |
-| L1 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | arrow, bag, cup, daisy, elf, fox, goat, hand, ivy, jam, kettle, leg, mitten, noodle, ox |
-| L2 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | accordion, blender, caterpillar, doctor, engineer, flamingo, gingerbread, hummingbird, illustration, jewelry, kindergarten, lawnmower, mushroom, number, obstacle |
-| L2 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pajamas, queen bee, rainbow, sailboat, thermometer, unicycle, volleyball, weather, yearbook, zigzag road, asteroid, beef, cucumber, dictionary, earthworm |
-| L2 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | astronaut, birdhouse, camera, dolphin, evergreen, fossil, gorilla, hamburger, inspector, jaguar, kazoo, lantern, mermaid, nurse, octagon |
+| L1 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | arrow, bug, cake, duck, elf, fish, guitar, ham, inch, jet, kiwi, log, moon, newt, olive |
+| L1 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pen, question, rat, sun, truck, upstairs, volcano, water, yard, zero, ankle, bed, candy, door, engine |
+| L1 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | anchor, ball, cap, deer, empty, flower, goose, hammer, igloo, juice, keyboard, lamp, mug, nose, otter |
+| L2 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | apple, belt, carrot, dictionary, engineer, ferry, grocery, hairbrush, instrument, journal, kiosk, lollipop, mailbox, noodles, octagon |
+| L2 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pajamas, queen bee, rainbow, sailboat, tomato, unpacking, video camera, waterfall, yearbook, zipper pouch, astronaut, beef, cucumber, dragonfly, eggplant |
+| L2 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | avocado, beachball, carousel, dinosaur, exercise, furniture, goggles, hedgehog, illustration, jaguar, ketchup, lobster, marshmallow, nurse, obstacle |
 
 ## Ending Sounds
 
@@ -215,13 +214,18 @@ Date: 2026-05-25
 ## Sentence Picture Matching
 
 - Skill ID: sentence_picture
-- Media-complete items: 0
-- Media-complete targets: 0
+- Media-complete items: 30
+- Media-complete targets: 15
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| - | - | 0 | 0 | none | none |
+| L1 R1 | 1 | 15 | 15/15 | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock |
+| L1 R2 | 3 | 15 | 15/15 | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock |
+| L1 R3 | 3 | 15 | 15/15 | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock |
+| L2 R1 | 1 | 15 | 15/15 | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock |
+| L2 R2 | 3 | 15 | 15/15 | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock |
+| L2 R3 | 3 | 15 | 15/15 | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock | bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, hats, map, ring, ship, sock |
 
 ## Vocabulary/Categories
 

@@ -2,6 +2,7 @@
    a <link> in index.html — not a CSS @import, which blocks first paint. */
 @import './styles/lg-design-system.css';
 @import './styles/pal-worlds.css';
+@import './styles/student-reports.css';
 
 :root {
   --lp-color-primary: #0C6B65;
@@ -8674,6 +8675,20 @@ select:focus {
   display: inline-block;
 }
 
+.el-benchmark-hub-message {
+  display: block;
+  width: min(100% - 32px, 1180px);
+  margin: 16px auto 0;
+  border-radius: 12px;
+  line-height: 1.45;
+}
+
+.el-benchmark-hub-message.sync-pending {
+  border-color: #f1be72;
+  background: #fff8e8;
+  color: #7a4007 !important;
+}
+
 .app :where(h2, h3, p, span, strong, div) {
   color: inherit;
 }
@@ -15372,8 +15387,17 @@ select:focus {
   }
 
   .student-report-document,
-  .student-report-document * {
+  .student-report-document *,
+  .lg-report-shell,
+  .lg-report-shell * {
     visibility: visible;
+  }
+
+  .lg-report-shell {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 
   .student-report-shell {
@@ -15994,6 +16018,12 @@ select:focus {
   text-align: center;
 }
 
+.book-quiz-card {
+  max-height: calc(100dvh - 36px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
 .book-quiz-kicker {
   margin: 0;
   color: var(--lp-color-primary);
@@ -16051,6 +16081,16 @@ select:focus {
   transform: scale(0.95);
 }
 
+/* Keep optional audio help attached to its answer instead of letting the
+   shared answer-button sizing turn it into a second, competing answer tile. */
+.book-quiz-choices .book-quiz-hear {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+
 .book-quiz-choices.pictures button {
   padding: 8px;
 }
@@ -16060,6 +16100,21 @@ select:focus {
   height: 100px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.book-quiz-choices.long-text {
+  width: 100%;
+  flex-direction: column;
+}
+
+.book-quiz-choices.long-text .book-quiz-choice-row {
+  width: 100%;
+}
+
+.book-quiz-choices.long-text .book-quiz-choice-row > button:first-child {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.35;
+  text-align: left;
 }
 
 .book-quiz-result img,

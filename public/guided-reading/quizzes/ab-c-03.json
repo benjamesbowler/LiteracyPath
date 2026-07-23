@@ -1,35 +1,52 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ab-c-03",
+  "contentHash": "sha256:fcc8b9dc724f6ab87eae482081ac861274ac44bc3bda3d1c0090e880f4e6d160",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ab-c-03-q1",
+      "prompt": "Where was the holiday cottage?",
       "choices": [
-        "live",
-        "diagrams",
-        "aiden"
+        "beside a city station",
+        "on a clifftop by the coast",
+        "deep inside a forest"
       ],
-      "answer": "aiden",
-      "kind": "word"
+      "answer": "on a clifftop by the coast",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 2,
+      "evidenceText": "They were going to the coast for a whole week — a small blue cottage right on the clifftop, with a gate in the garden wall that opened straight onto the coastal path."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ab-c-03-q2",
+      "prompt": "Why were they proud at the top of the lighthouse?",
       "choices": [
-        "Stone",
-        "Aiden",
-        "Honky"
+        "They had repaired the light.",
+        "They had found the cottage.",
+        "They had climbed 147 steps."
       ],
-      "answer": "Aiden",
-      "kind": "word"
+      "answer": "They had climbed 147 steps.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "rationale": "The lighthouse had one hundred and forty-seven steps to the top, and arriving out of breath and proud shows they had climbed all 147 steps.",
+      "evidencePage": 9,
+      "evidenceText": "There were one hundred and forty-seven steps to the top — they counted every single one, out loud, all together, and arrived slightly out of breath but very proud."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ab-c-03-q3",
+      "prompt": "What does Aiden's feeling on returning home suggest?",
       "choices": [
-        "help",
-        "socks",
-        "holiday"
+        "The holiday had changed him a little.",
+        "He no longer recognised his house.",
+        "The journey home had taken longer."
       ],
-      "answer": "holiday",
-      "kind": "word"
+      "answer": "The holiday had changed him a little.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "The house looked the same, but Aiden felt a little bit different, which suggests the holiday had changed him a little.",
+      "evidencePage": 13,
+      "evidenceText": "When they turned into their street, the house looked completely the same as when they'd left it. Aiden noticed he felt, quietly, like he was a little bit different."
     }
   ]
 }

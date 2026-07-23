@@ -1,35 +1,50 @@
 {
- "bookId": "gr-b-35",
- "questions": [
-  {
-   "prompt": "Who cooks food?",
-   "choices": [
-    "a chef",
-    "a doctor",
-    "a teacher"
-   ],
-   "answer": "a chef",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who helps sick people?",
-   "choices": [
-    "a doctor",
-    "a chef",
-    "a firefighter"
-   ],
-   "answer": "a doctor",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who keeps us safe?",
-   "choices": [
-    "a police officer",
-    "a chef",
-    "a baby"
-   ],
-   "answer": "a police officer",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-b-35",
+  "contentHash": "sha256:0236ee64507c7dba4025f38a4e40260da3c497f5fbb6563fad402bfc6659cf67",
+  "questions": [
+    {
+      "id": "gr-b-35-q1",
+      "prompt": "Who cooks food?",
+      "choices": [
+        "a chef",
+        "a doctor",
+        "a teacher"
+      ],
+      "answer": "a chef",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A chef cooks food."
+    },
+    {
+      "id": "gr-b-35-q2",
+      "prompt": "Who helps sick people?",
+      "choices": [
+        "a doctor",
+        "a chef",
+        "a firefighter"
+      ],
+      "answer": "a doctor",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A doctor helps sick people."
+    },
+    {
+      "id": "gr-b-35-q3",
+      "prompt": "What do all the people in this book have in common?",
+      "choices": [
+        "they make the town great",
+        "they all cook the town's food",
+        "they all stop the town's fires"
+      ],
+      "answer": "they make the town great",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "Helpers make our town great!"
+    }
+  ]
 }

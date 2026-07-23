@@ -22,6 +22,31 @@ const RESPONSE_CAPTURE_MODES = Object.freeze({
 
 const QUICK_ADMINISTRATION_VERSION = "2026.07.22-quick-v1";
 
+const TERMINAL_SESSION_STATUSES = new Set(["completed", "discontinued"]);
+
+function getTerminalSessionStatus(session = {}) {
+  const administrationStatus = String(session.administrationStatus || "").trim();
+  const status = String(session.status || "").trim();
+  if (TERMINAL_SESSION_STATUSES.has(administrationStatus)) return administrationStatus;
+  return TERMINAL_SESSION_STATUSES.has(status) ? status : "";
+}
+
+function preserveTerminalSessionStatus(session = {}, snapshot = {}) {
+  const terminalStatus = getTerminalSessionStatus(session);
+  if (!terminalStatus) return snapshot;
+  return {
+    ...snapshot,
+    status: terminalStatus,
+    administrationStatus: terminalStatus,
+    ...(terminalStatus === "completed" && session.completedAt
+      ? { completedAt: session.completedAt }
+      : {}),
+    ...(terminalStatus === "discontinued" && session.discontinuedAt
+      ? { discontinuedAt: session.discontinuedAt }
+      : {})
+  };
+}
+
 const DISCONTINUE_REASONS = Object.freeze([
   { value: "frustration", label: "Student showed frustration" },
   { value: "independent_level_clear", label: "Independent level was clear" },
@@ -2467,6 +2492,7 @@ function PlacementConfirmationPanel({
   defaultMicrophase,
   normalRangeMicrophases,
   onConfirm,
+  panelRef,
   preview
 }) {
   const proposedPlacement = preview?.candidatePlacement || {};
@@ -2515,7 +2541,12 @@ function PlacementConfirmationPanel({
   const scoredCount = Number(preview?.scoredCount || 0);
 
   return (
-    <section className="el-benchmark-placement" aria-labelledby="el-benchmark-placement-title">
+    <section
+      aria-labelledby="el-benchmark-placement-title"
+      className="el-benchmark-placement"
+      ref={panelRef}
+      tabIndex="-1"
+    >
       <div className="el-benchmark-placement-heading">
         <span>Final step</span>
         <h2 id="el-benchmark-placement-title">Choose where to start next</h2>
@@ -2699,6 +2730,9 @@ export function ELBenchmarkAssessmentPage({
   onCancel
 }) {
   const [showDiscontinue, setShowDiscontinue] = useState(false);
+  const [completionState, setCompletionState] = useState({ status: "idle", message: "" });
+  const completionLockRef = useRef(false);
+  const placementPanelRef = useRef(null);
   const planResult = useMemo(() => getPlanResult({
     assessmentId: session.assessmentId,
     formId: session.formId,
@@ -2832,6 +2866,9 @@ export function ELBenchmarkAssessmentPage({
     (!confirmedPlacementNeedsRationale || String(session.confirmedPlacement?.overrideReason || "").trim())
   );
   const canCompleteAssessment = allItemsComplete && placementConfirmed;
+  const needsPlacementConfirmation = allItemsComplete && requiresPlacementConfirmation && !placementConfirmed;
+  const completionIsSaving = completionState.status === "saving";
+  const terminalSessionStatus = getTerminalSessionStatus(session);
   const routeNavigationLockMessage = kind === ASSESSMENT_KINDS.FLUENCY
     ? fluencyStopEvidence?.confirmed
       ? "locked after the confirmed fluency stop"
@@ -2840,7 +2877,7 @@ export function ELBenchmarkAssessmentPage({
       ? "locked after the confirmed decoding stop"
       : "locked until the current decoding band is reviewed";
 
-  const makeSessionSnapshot = useCallback((patch = {}) => ({
+  const makeSessionSnapshot = useCallback((patch = {}) => preserveTerminalSessionStatus(session, {
     ...session,
     planId: session.planId || plan?.planId || "",
     contentVersion: session.contentVersion || plan?.contentVersion || "",
@@ -2998,10 +3035,11 @@ export function ELBenchmarkAssessmentPage({
   }, [emitSession, isItemNavigationAllowed, items.length, makeSessionSnapshot, timerIsRunning]);
 
   const savePartialAndExit = () => {
-    if (timerIsRunning) return;
+    if (timerIsRunning || completionIsSaving) return;
     const now = new Date().toISOString();
     const nextSession = emitSession(makeSessionSnapshot({
       status: "partial",
+      administrationStatus: "partial",
       savedAt: now,
       updatedAt: now
     }));
@@ -3009,10 +3047,11 @@ export function ELBenchmarkAssessmentPage({
   };
 
   const discontinueAndExit = (reason, note) => {
-    if (timerIsRunning || !isDiscontinueEvidenceComplete(reason, note)) return;
+    if (timerIsRunning || completionIsSaving || !isDiscontinueEvidenceComplete(reason, note)) return;
     const now = new Date().toISOString();
     const nextSession = emitSession(makeSessionSnapshot({
       status: "discontinued",
+      administrationStatus: "discontinued",
       discontinuedAt: now,
       discontinueReason: reason,
       discontinueNote: note.trim(),
@@ -3082,15 +3121,41 @@ export function ELBenchmarkAssessmentPage({
     }));
   };
 
-  const completeAssessment = () => {
-    if (timerIsRunning || !canCompleteAssessment) return;
+  const focusPlacementStep = () => {
+    const panel = placementPanelRef.current;
+    if (!panel) return;
+    panel.scrollIntoView?.({ block: "center" });
+    panel.focus?.({ preventScroll: true });
+  };
+
+  const completeAssessment = async () => {
+    if (timerIsRunning || !canCompleteAssessment || completionLockRef.current) return null;
+    completionLockRef.current = true;
+    setCompletionState({ status: "saving", message: "Finishing and saving the assessment." });
     const now = new Date().toISOString();
     const nextSession = emitSession(makeSessionSnapshot({
       status: "completed",
+      administrationStatus: "completed",
       completedAt: now,
       updatedAt: now
     }));
-    if (typeof onComplete === "function") onComplete(nextSession);
+    try {
+      const result = typeof onComplete === "function"
+        ? await onComplete(nextSession)
+        : null;
+      if (result?.ok === true) return result;
+      const message = result?.message || "The assessment could not be saved. Your completed responses are still on this screen.";
+      setCompletionState({ status: "error", message });
+      return { ok: false, message };
+    } catch (error) {
+      const message = error instanceof Error && error.message
+        ? `The assessment could not be saved: ${error.message}`
+        : "The assessment could not be saved. Your completed responses are still on this screen.";
+      setCompletionState({ status: "error", message });
+      return { ok: false, message };
+    } finally {
+      completionLockRef.current = false;
+    }
   };
 
   const recordFluencyAccuracyAndRoute = (accurate) => {
@@ -3488,7 +3553,11 @@ export function ELBenchmarkAssessmentPage({
   }
 
   return (
-    <main className="el-benchmark-shell" aria-labelledby="el-benchmark-page-title">
+    <main
+      aria-busy={completionIsSaving ? "true" : undefined}
+      aria-labelledby="el-benchmark-page-title"
+      className="el-benchmark-shell"
+    >
       <header className="el-benchmark-topbar">
         <div className="el-benchmark-title-block">
           <div>
@@ -3515,9 +3584,13 @@ export function ELBenchmarkAssessmentPage({
           )}
           <button
             className="el-benchmark-button secondary"
-            disabled={timerIsRunning}
+            disabled={timerIsRunning || completionIsSaving || terminalSessionStatus === "completed"}
             onClick={savePartialAndExit}
-            title={timerIsRunning ? "Stop the timer before saving" : undefined}
+            title={timerIsRunning
+              ? "Stop the timer before saving"
+              : terminalSessionStatus === "completed"
+                ? "Use Retry finish below to archive this completed assessment"
+                : undefined}
             type="button"
           >
             Save &amp; exit
@@ -3618,6 +3691,7 @@ export function ELBenchmarkAssessmentPage({
               key={`${kind}-${placementPreview?.candidatePlacement?.candidateMicrophase || "teacher-select"}-${confirmedPlacementMicrophase || "unconfirmed"}-${session.confirmedPlacement?.confirmedAt || "new"}`}
               onConfirm={confirmPlacement}
               normalRangeMicrophases={placementRangeMicrophases}
+              panelRef={placementPanelRef}
               preview={placementPreview}
             />
           )}
@@ -3643,22 +3717,48 @@ export function ELBenchmarkAssessmentPage({
             {showDiscontinue ? "Close stop-early panel" : "Stop assessment early"}
           </button>
         </details>
-        <p>
-          {canCompleteAssessment
-            ? "Everything is ready to save."
-            : allItemsComplete && requiresPlacementConfirmation
-              ? "Choose the student’s next starting point above."
-            : resolvedItems.length === items.length
-              ? "Review the suggested next step above."
-              : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} left.`}
-        </p>
+        <div
+          aria-live="polite"
+          className={`el-benchmark-footer-status${completionState.status === "error" ? " error" : ""}`}
+          id="el-benchmark-completion-status"
+        >
+          {completionState.status === "error" ? (
+            <p role="alert"><strong>Could not finish.</strong> {completionState.message} Select Retry finish.</p>
+          ) : (
+            <p>
+              {completionIsSaving
+                ? "Saving the completed assessment. Keep this page open."
+                : canCompleteAssessment
+                  ? "Everything is ready to save."
+                  : needsPlacementConfirmation
+                    ? "One final step: choose the student’s next starting point."
+                    : resolvedItems.length === items.length
+                      ? "Review the suggested next step above."
+                      : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} left.`}
+            </p>
+          )}
+        </div>
         <button
+          aria-busy={completionIsSaving ? "true" : undefined}
+          aria-describedby="el-benchmark-completion-status"
           className="el-benchmark-button primary"
-          disabled={timerIsRunning || !canCompleteAssessment}
-          onClick={completeAssessment}
+          disabled={timerIsRunning || completionIsSaving || (!canCompleteAssessment && !needsPlacementConfirmation)}
+          onClick={() => {
+            if (needsPlacementConfirmation) {
+              focusPlacementStep();
+              return;
+            }
+            void completeAssessment();
+          }}
           type="button"
         >
-          Finish assessment
+          {completionIsSaving
+            ? "Finishing..."
+            : completionState.status === "error"
+              ? "Retry finish"
+              : needsPlacementConfirmation
+                ? "Choose starting point"
+                : "Finish assessment"}
         </button>
       </footer>
     </main>
@@ -3669,3 +3769,4 @@ ELBenchmarkAssessmentPage.getDecodingEvaluationPatch = getDecodingEvaluationPatc
 ELBenchmarkAssessmentPage.getFluencyTimerInterruptionPatch = getFluencyTimerInterruptionPatch;
 ELBenchmarkAssessmentPage.getFluencyTimerResetPatch = getFluencyTimerResetPatch;
 ELBenchmarkAssessmentPage.isDiscontinueEvidenceComplete = isDiscontinueEvidenceComplete;
+ELBenchmarkAssessmentPage.preserveTerminalSessionStatus = preserveTerminalSessionStatus;

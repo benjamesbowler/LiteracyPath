@@ -1,35 +1,57 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "first-facts-a-21-how-i-grow",
+  "contentHash": "sha256:dad3611e7336828e44f3dd12c1fe7bff3af3b3ebd974d870d6ab3637c7ddf0c2",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"I grew ___. I could sit up and crawl.\"",
+      "id": "first-facts-a-21-how-i-grow-q1",
+      "prompt": "What did the child learn before running and jumping?",
       "choices": [
-        "bigger",
-        "pals",
-        "carvings"
+        "sit up and crawl",
+        "read and write",
+        "swim and dive"
       ],
-      "answer": "bigger",
-      "kind": "word"
+      "answer": "sit up and crawl",
+      "kind": "text",
+      "skill": "sequence",
+      "rationale": "Page 2 says the child could sit up and crawl, while page 4 later says the child learned to run and jump.",
+      "evidencePage": 2,
+      "evidenceText": "I grew bigger. I could sit up and crawl.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 4,
+          "evidenceText": "I learned to run and jump. I grew more every day."
+        }
+      ]
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "first-facts-a-21-how-i-grow-q2",
+      "prompt": "According to the book, what helps the body grow big and strong?",
       "choices": [
-        "clucky",
-        "could",
-        "grows"
+        "sleep",
+        "food",
+        "sunlight"
       ],
-      "answer": "could",
-      "kind": "word"
+      "answer": "food",
+      "kind": "word",
+      "skill": "cause_effect",
+      "evidencePage": 6,
+      "evidenceText": "Food helps my body get big and strong."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "first-facts-a-21-how-i-grow-q3",
+      "prompt": "What does the child say will happen one day?",
       "choices": [
-        "grade",
-        "sun",
-        "grow"
+        "they will stay tiny",
+        "they will stop growing",
+        "they will be tall"
       ],
-      "answer": "grow",
-      "kind": "word"
+      "answer": "they will be tall",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 7,
+      "evidenceText": "One day I will be tall!"
     }
   ]
 }

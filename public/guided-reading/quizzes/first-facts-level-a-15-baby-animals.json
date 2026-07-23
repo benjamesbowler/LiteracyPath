@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-15-baby-animals",
- "questions": [
-  {
-   "prompt": "What color is the little chick?",
-   "choices": [
-    "yellow",
-    "white",
-    "brown"
-   ],
-   "answer": "yellow",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does the calf drink?",
-   "choices": [
-    "milk",
-    "juice",
-    "tea"
-   ],
-   "answer": "milk",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do little animals do?",
-   "choices": [
-    "grow big",
-    "stay little",
-    "fly away"
-   ],
-   "answer": "grow big",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-15-baby-animals",
+  "contentHash": "sha256:edc786937edc4e43690d668f272216e987dd77b3aacbf3be891d6a4e72b40a36",
+  "questions": [
+    {
+      "id": "first-facts-level-a-15-baby-animals-q1",
+      "prompt": "What color is the little chick?",
+      "choices": [
+        "yellow",
+        "white",
+        "brown"
+      ],
+      "answer": "yellow",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A little chick.\nIt is yellow."
+    },
+    {
+      "id": "first-facts-level-a-15-baby-animals-q2",
+      "prompt": "What does the calf drink?",
+      "choices": [
+        "milk",
+        "juice",
+        "tea"
+      ],
+      "answer": "milk",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "A little calf.\nIt drinks milk."
+    },
+    {
+      "id": "first-facts-level-a-15-baby-animals-q3",
+      "prompt": "What do little animals do?",
+      "choices": [
+        "grow big",
+        "stay little",
+        "fly away"
+      ],
+      "answer": "grow big",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 7,
+      "evidenceText": "Little animals grow big!\nBig and strong."
+    }
+  ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-18-noisy-wakes-everyone-up",
+  "contentHash": "sha256:f86dac38cee89ba70aca437966c06fe4e2a341d684b2717c8a3e41a3068e4c1c",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"It is dark. ___ is asleep.\"",
+      "id": "meadow-pals-18-noisy-wakes-everyone-up-q1",
+      "prompt": "Which three friends wake up first?",
       "choices": [
-        "turtle",
-        "everyone",
-        "vegetables"
+        "Grumpy, Woolly, and Clucky",
+        "Sleepy, Tiny, and Shy",
+        "Muddy, Splashy, and Cuddly"
       ],
-      "answer": "everyone",
-      "kind": "word"
+      "answer": "Grumpy, Woolly, and Clucky",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 4,
+      "evidenceText": "Grumpy woke up. Woolly woke up. Clucky woke up."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-18-noisy-wakes-everyone-up-q2",
+      "prompt": "What is it like outside when Noisy calls?",
       "choices": [
-        "sneeze",
-        "rocket",
-        "woke"
+        "still dark",
+        "bright and sunny",
+        "warm and windy"
       ],
-      "answer": "woke",
-      "kind": "word"
+      "answer": "still dark",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 8,
+      "evidenceText": "It is still dark."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "meadow-pals-18-noisy-wakes-everyone-up-q3",
+      "prompt": "What happens after Noisy calls again?",
       "choices": [
-        "grade",
-        "everyone",
-        "shopping"
+        "Sleepy woke up.",
+        "Everyone went home.",
+        "The sun came out."
       ],
-      "answer": "everyone",
-      "kind": "word"
+      "answer": "Sleepy woke up.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 7,
+      "evidenceText": "Sleepy woke up."
     }
   ]
 }

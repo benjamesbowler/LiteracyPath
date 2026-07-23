@@ -1,6 +1,5 @@
 import {
   EL_ADMINISTRATION_STATUSES,
-  EL_BENCHMARK_CONTENT_VERSION,
   EL_BENCHMARK_IDS,
   EL_BENCHMARK_SCHEMA_VERSION,
   EL_DECODING_MICROPHASES,
@@ -1554,6 +1553,12 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
   const score = scoreElBenchmarkSession(session);
   const startedAt = session.startedAt || ownership.startedAt || "";
   const completedAt = session.completedAt || ownership.completedAt || "";
+  const formPurpose = session.formPurpose || session.formSelection?.purpose || "legacy_unspecified";
+  const formSelectionReason = session.formSelectionReason ||
+    session.formSelection?.selectionReason || "legacy_unspecified";
+  const formExposure = session.formExposure || session.formSelection?.exposure || null;
+  const formParallelSetId = session.formParallelSetId || "legacy_unspecified";
+  const formEquatingStatus = session.formEquatingStatus || "legacy_unspecified";
   return {
     attemptId: stableAttemptId(score, session, ownership),
     studentId: ownership.studentId || session.studentId || "",
@@ -1577,7 +1582,13 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
     plannedQuestionCount: score.plannedQuestionCount,
     scoredCount: score.scoredCount,
     framework: score.framework,
+    formId: score.formId,
     formVersion: score.formVersion,
+    formPurpose,
+    formSelectionReason,
+    formExposure,
+    formParallelSetId,
+    formEquatingStatus,
     scoringRuleVersion: score.scoringRuleVersion,
     administrationVersion: score.administrationVersion,
     responseSchemaVersion: score.responseSchemaVersion,
@@ -1615,6 +1626,10 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
     contentCoverage: {
       assessmentId: score.assessmentId,
       formId: score.formId,
+      formPurpose,
+      formSelectionReason,
+      formParallelSetId,
+      formEquatingStatus,
       grade: score.grade,
       window: score.window,
       expectedAnchor: score.expectedAnchor,
@@ -1636,6 +1651,11 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
       assessmentId: score.assessmentId,
       planId: score.planId,
       formId: score.formId,
+      formPurpose,
+      formSelectionReason,
+      formParallelSetId,
+      formEquatingStatus,
+      parallelFormsExhausted: formExposure?.parallelFormsExhausted === true,
       grade: score.grade,
       window: score.window,
       administrationStatus: score.administrationStatus,
@@ -1643,13 +1663,18 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
     },
     appVersion: ownership.appVersion || session.appVersion || "local",
     schemaVersion: EL_BENCHMARK_ATTEMPT_SCHEMA_VERSION,
-    contentVersion: EL_BENCHMARK_CONTENT_VERSION,
+    contentVersion: score.contentVersion,
     scoringVersion: EL_BENCHMARK_SCORING_VERSION,
     metadata: {
       attemptSchemaVersion: EL_BENCHMARK_ATTEMPT_SCHEMA_VERSION,
       benchmarkSchemaVersion: EL_BENCHMARK_SCHEMA_VERSION,
       formId: score.formId,
       formVersion: score.formVersion,
+      formPurpose,
+      formSelectionReason,
+      formExposure,
+      formParallelSetId,
+      formEquatingStatus,
       contentVersion: score.contentVersion,
       scoringVersion: score.scoringVersion,
       scoringRuleVersion: score.scoringRuleVersion,

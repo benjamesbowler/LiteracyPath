@@ -1,35 +1,63 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-16",
+  "contentHash": "sha256:8a9d9b4cc77d1c24c8b6e36590879e01de752c185d61c899d35b600b4d248e53",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-16-q1",
+      "prompt": "What plan do Pip and Glimmer make to investigate the moved objects?",
       "choices": [
-        "glimmer",
-        "wiggly",
-        "ears"
+        "They stay awake and watch the clearing.",
+        "They lock every door and leave Moonwood.",
+        "They ask Luna to cast a tracking spell."
       ],
-      "answer": "glimmer",
-      "kind": "word"
+      "answer": "They stay awake and watch the clearing.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 3,
+      "evidenceText": "They would stay awake.\nThey would watch the clearing."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-16-q2",
+      "prompt": "What really caused the bench and boots to move at night?",
       "choices": [
-        "Marcus",
-        "Glimmer",
-        "Bats"
+        "Burrow was fast asleep while he walked and moved them.",
+        "A hidden creature carried them around the clearing.",
+        "Glimmer bumped them while guarding the Hollow Oak."
       ],
-      "answer": "Glimmer",
-      "kind": "word"
+      "answer": "Burrow was fast asleep while he walked and moved them.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 8,
+      "evidenceText": "Burrow bumped the bench.\nIt fell over.\nBurrow kept walking.\nHe found Pip's door.\nHe moved the boots with his paws.\nHe did not wake up.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 7,
+          "evidenceText": "It was Burrow.\nHis eyes were closed.\nHe was fast asleep.\nHe was walking."
+        }
+      ]
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-16-q3",
+      "prompt": "What does the end of the night-watch mystery show?",
       "choices": [
-        "watch",
-        "ocean",
-        "chips"
+        "A strange mystery can have a simple explanation.",
+        "The moved things proved a stranger entered Moonwood.",
+        "Pip's boot by the door stopped the night walking."
       ],
-      "answer": "watch",
-      "kind": "word"
+      "answer": "A strange mystery can have a simple explanation.",
+      "kind": "text",
+      "skill": "theme",
+      "rationale": "The tipped bench and moved boots first look like a strange mystery, but Pip discovers that Burrow is simply sleep-digging; this shows a strange mystery can have a simple explanation.",
+      "evidencePage": 12,
+      "evidenceText": "\"It was you,\" said Pip gently. \"You sleep-dig.\"",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Pip's boots were not where he had left them.\nA bench was tipped over.\nSomeone had been in the clearing."
+        }
+      ]
     }
   ]
 }

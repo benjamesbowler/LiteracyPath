@@ -1,35 +1,51 @@
 {
- "bookId": "gr-b-34",
- "questions": [
-  {
-   "prompt": "When do we play?",
-   "choices": [
-    "in the day",
-    "at night",
-    "never"
-   ],
-   "answer": "in the day",
-   "kind": "word"
-  },
-  {
-   "prompt": "What is in the sky at night?",
-   "choices": [
-    "the moon",
-    "the sun",
-    "a kite"
-   ],
-   "answer": "the moon",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do we do at night?",
-   "choices": [
-    "sleep",
-    "play",
-    "swim"
-   ],
-   "answer": "sleep",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-b-34",
+  "contentHash": "sha256:dca6f199ab6f0c1212751bb0d729e48476b1354a9b6fe942eecbcc4d23d3a4c5",
+  "questions": [
+    {
+      "id": "gr-b-34-q1",
+      "prompt": "When does the book say people play?",
+      "choices": [
+        "in the day",
+        "at night",
+        "never"
+      ],
+      "answer": "in the day",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "We play in the day."
+    },
+    {
+      "id": "gr-b-34-q2",
+      "prompt": "What comes up after the sun goes down?",
+      "choices": [
+        "the moon",
+        "the sun",
+        "a kite"
+      ],
+      "answer": "the moon",
+      "kind": "text",
+      "skill": "key_detail",
+      "rationale": "Page 5 says the sun goes down, and the next page says the moon comes up.",
+      "evidencePage": 6,
+      "evidenceText": "The moon comes up."
+    },
+    {
+      "id": "gr-b-34-q3",
+      "prompt": "What does the book say people do at night?",
+      "choices": [
+        "sleep",
+        "play",
+        "swim"
+      ],
+      "answer": "sleep",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 4,
+      "evidenceText": "We sleep at night."
+    }
+  ]
 }

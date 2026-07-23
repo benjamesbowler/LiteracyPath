@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-06-spiders",
+  "contentHash": "sha256:a28ddda99332a2ad45edca1da062f1dc50c774bc4c3224ea402069b7125cc46f",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-06-spiders-q1",
+      "prompt": "How do spiders differ from insects?",
       "choices": [
-        "spiders",
-        "mouth",
-        "jingle"
+        "spiders have eight legs",
+        "spiders have six legs",
+        "spiders have three body parts"
       ],
-      "answer": "spiders",
-      "kind": "word"
+      "answer": "spiders have eight legs",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 1,
+      "evidenceText": "Spiders have eight legs and two main body parts."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-06-spiders-q2",
+      "prompt": "How does a web-building spider find trapped food?",
       "choices": [
-        "Aiden",
-        "Spiders",
-        "Chips"
+        "by seeing bright colours",
+        "by feeling tiny vibrations",
+        "by hearing wingbeats"
       ],
-      "answer": "Spiders",
-      "kind": "word"
+      "answer": "by feeling tiny vibrations",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "Web-building spiders feel tiny vibrations through their legs."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-06-spiders-q3",
+      "prompt": "Why are spiders useful in gardens?",
       "choices": [
-        "spiders",
-        "storm",
-        "flappy"
+        "they pollinate every flower",
+        "they make the soil richer",
+        "they eat insects that damage plants"
       ],
-      "answer": "spiders",
-      "kind": "word"
+      "answer": "they eat insects that damage plants",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 9,
+      "evidenceText": "They eat many insects, including some that damage plants."
     }
   ]
 }

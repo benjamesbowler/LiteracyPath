@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-13-big-and-small",
- "questions": [
-  {
-   "prompt": "Which one is big?",
-   "choices": [
-    "an elephant",
-    "a mouse",
-    "a flower"
-   ],
-   "answer": "an elephant",
-   "kind": "word"
-  },
-  {
-   "prompt": "Which one is small?",
-   "choices": [
-    "a mouse",
-    "a whale",
-    "a bus"
-   ],
-   "answer": "a mouse",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does the book say about all things?",
-   "choices": [
-    "they are special",
-    "they are big",
-    "they are slow"
-   ],
-   "answer": "they are special",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-13-big-and-small",
+  "contentHash": "sha256:0e1b860a284c0944e083475decf7f479c197497de6b375745fb707abb33e6d9e",
+  "questions": [
+    {
+      "id": "first-facts-a-13-big-and-small-q1",
+      "prompt": "Which one is big?",
+      "choices": [
+        "an elephant",
+        "a mouse",
+        "a flower"
+      ],
+      "answer": "an elephant",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 1,
+      "evidenceText": "This is big. An elephant is big."
+    },
+    {
+      "id": "first-facts-a-13-big-and-small-q2",
+      "prompt": "Which one is small?",
+      "choices": [
+        "a mouse",
+        "a whale",
+        "a bus"
+      ],
+      "answer": "a mouse",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 2,
+      "evidenceText": "This is small. A mouse is small."
+    },
+    {
+      "id": "first-facts-a-13-big-and-small-q3",
+      "prompt": "What does the book say about all things?",
+      "choices": [
+        "they are special",
+        "they are big",
+        "they are slow"
+      ],
+      "answer": "they are special",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 6,
+      "evidenceText": "Big or small — all things are special! What is big? What is small?"
+    }
+  ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-08-butterflies",
+  "contentHash": "sha256:eba97d856c39ec683dd133a2d95442f3b08fa643b94fb0ed1a432e3ff8fd72e3",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-08-butterflies-q1",
+      "prompt": "How many stages are in a butterfly's life cycle?",
       "choices": [
-        "butterfly",
-        "years",
-        "noisy"
+        "four",
+        "six",
+        "eight"
       ],
-      "answer": "butterfly",
-      "kind": "word"
+      "answer": "four",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "A butterfly's life has four stages."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-08-butterflies-q2",
+      "prompt": "What happens inside the chrysalis?",
       "choices": [
-        "Moon",
-        "Its",
-        "Food"
+        "an egg changes straight into a butterfly",
+        "a caterpillar changes into a butterfly",
+        "a butterfly changes into a caterpillar"
       ],
-      "answer": "Its",
-      "kind": "word"
+      "answer": "a caterpillar changes into a butterfly",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 6,
+      "evidenceText": "Inside the chrysalis, the caterpillar's body changes into a butterfly."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-08-butterflies-q3",
+      "prompt": "What does a butterfly use its proboscis for?",
       "choices": [
-        "trees",
-        "everyone",
-        "butterflies"
+        "to smell flowers",
+        "to taste with its feet",
+        "to drink nectar"
       ],
-      "answer": "butterflies",
-      "kind": "word"
+      "answer": "to drink nectar",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 8,
+      "evidenceText": "Butterflies drink nectar through a long tube called a proboscis."
     }
   ]
 }

@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-03-little-seeds-grow",
- "questions": [
-  {
-   "prompt": "Where do you put the seed?",
-   "choices": [
-    "in soil",
-    "in snow",
-    "in a box"
-   ],
-   "answer": "in soil",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does the seed drink?",
-   "choices": [
-    "water",
-    "milk",
-    "honey"
-   ],
-   "answer": "water",
-   "kind": "word"
-  },
-  {
-   "prompt": "What blooms at the end?",
-   "choices": [
-    "a flower",
-    "a tree",
-    "a bug"
-   ],
-   "answer": "a flower",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-03-little-seeds-grow",
+  "contentHash": "sha256:f588bd4aa5a522879c438a7bee2e77239efcd831c990c57fde8611df06805b5d",
+  "questions": [
+    {
+      "id": "first-facts-a-03-little-seeds-grow-q1",
+      "prompt": "Where does the book say to put the seed?",
+      "choices": [
+        "in soil",
+        "in snow",
+        "in a box"
+      ],
+      "answer": "in soil",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 2,
+      "evidenceText": "Put the seed in soil. Pat it down gently."
+    },
+    {
+      "id": "first-facts-a-03-little-seeds-grow-q2",
+      "prompt": "What does the seed drink?",
+      "choices": [
+        "water",
+        "milk",
+        "honey"
+      ],
+      "answer": "water",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "Add some water. The seed drinks it up."
+    },
+    {
+      "id": "first-facts-a-03-little-seeds-grow-q3",
+      "prompt": "What blooms at the end?",
+      "choices": [
+        "a flower",
+        "a tree",
+        "a bug"
+      ],
+      "answer": "a flower",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 7,
+      "evidenceText": "A flower blooms! The seed has grown into a plant."
+    }
+  ]
 }

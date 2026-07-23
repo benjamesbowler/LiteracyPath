@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.3",
   "bookId": "moonwood-tales-c-19",
+  "contentHash": "sha256:e00f9f700c6556000f71565e9f954c0255ccfe6e62e7931801b4527ec31267b3",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "moonwood-tales-c-19-q1",
+      "prompt": "What does Fern notice when she stops searching and listens?",
       "choices": [
-        "hop",
-        "ditch",
-        "seeds"
+        "Small glowing shoots are coming from the ground.",
+        "The empty seed box is hidden under a log.",
+        "A trail of loose seeds leads into the marsh."
       ],
-      "answer": "seeds",
-      "kind": "word"
+      "answer": "Small glowing shoots are coming from the ground.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 8,
+      "evidenceText": "There were small green shoots in the ground.\nThey glowed.\nJust a little.\nJust like the seeds."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "moonwood-tales-c-19-q2",
+      "prompt": "Why is the magic seed box empty?",
       "choices": [
-        "Roots",
-        "Dozy",
-        "Luna"
+        "Fern planted the seeds and forgot that she had done it.",
+        "The stream carried the seeds away at night.",
+        "Luna shared the seeds among the forest animals."
       ],
-      "answer": "Luna",
-      "kind": "word"
+      "answer": "Fern planted the seeds and forgot that she had done it.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "rationale": "Fern remembers that she planted the seeds and had not meant to forget, showing that she planted them and later forgot that she had done it.",
+      "evidencePage": 9,
+      "evidenceText": "Two nights ago she had been in the clearing.\nShe had planted the seeds.\nShe had not meant to forget."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "moonwood-tales-c-19-q3",
+      "prompt": "What made Moonwood glow more than ever that night?",
       "choices": [
-        "bully",
-        "mystery",
-        "seeds"
+        "The seedlings lit the ground.",
+        "The empty seed box lit the ground.",
+        "The search spells lit every path."
       ],
-      "answer": "seeds",
-      "kind": "word"
+      "answer": "The seedlings lit the ground.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 12,
+      "evidenceText": "That night, Moonwood glowed more than ever.\nThe seedlings lit the ground."
     }
   ]
 }

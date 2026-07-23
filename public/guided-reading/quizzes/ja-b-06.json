@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "ja-b-06",
+  "contentHash": "sha256:107a1941e31be50bf422c41af4c37305201805ffa3fd711616e3c9ea07d7d187",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "ja-b-06-q1",
+      "prompt": "What did James carefully put in a basket?",
       "choices": [
-        "everywhere",
-        "james",
-        "party"
+        "five eggs",
+        "red apples",
+        "bean plants"
       ],
-      "answer": "james",
-      "kind": "word"
+      "answer": "five eggs",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 3,
+      "evidenceText": "James ran to see the hens. \"They have laid five eggs!\" he said. He put them one by one — very, very carefully — into a basket."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "ja-b-06-q2",
+      "prompt": "Why did James and Anna chase Percy?",
       "choices": [
-        "When",
-        "Spark",
-        "Percy"
+        "He took the eggs.",
+        "He got out.",
+        "He chased Chips."
       ],
-      "answer": "Percy",
-      "kind": "word"
+      "answer": "He got out.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 7,
+      "evidenceText": "Then Percy the pig got out. He ran in and out of the hen house and round and round the yard at top speed."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "ja-b-06-q3",
+      "prompt": "How did the farm day feel by the end?",
       "choices": [
-        "everything",
-        "farm",
-        "clothes"
+        "It was too noisy to enjoy.",
+        "It was a disappointing day.",
+        "It was the best farm day ever."
       ],
-      "answer": "farm",
-      "kind": "word"
+      "answer": "It was the best farm day ever.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 12,
+      "evidenceText": "They sat outside as the sun went down. Bess looked over her gate. Percy slept in the mud. Chips ate the fence post. It had been the best farm day ever."
     }
   ]
 }

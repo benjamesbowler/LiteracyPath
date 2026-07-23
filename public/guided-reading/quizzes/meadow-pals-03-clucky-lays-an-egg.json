@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-03-clucky-lays-an-egg",
+  "contentHash": "sha256:e8fc51f78a4888fa12d8cb277cdd563de87f8d34836dabe23fc352a48ff6aa57",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"___ has to lay an egg.\"",
+      "id": "meadow-pals-03-clucky-lays-an-egg-q1",
+      "prompt": "Who is looking for a place to lay an egg?",
       "choices": [
-        "small",
-        "caves",
-        "clucky"
-      ],
-      "answer": "clucky",
-      "kind": "word"
-    },
-    {
-      "prompt": "Which word was in your book?",
-      "choices": [
-        "sat",
-        "sun",
-        "thousands"
-      ],
-      "answer": "sat",
-      "kind": "word"
-    },
-    {
-      "prompt": "Who is this story about?",
-      "choices": [
-        "Noisy",
         "Clucky",
-        "Cheeky"
+        "Bouncy",
+        "Woolly"
       ],
       "answer": "Clucky",
-      "kind": "word"
+      "kind": "word",
+      "skill": "character_action",
+      "evidencePage": 1,
+      "evidenceText": "Clucky has to lay an egg."
+    },
+    {
+      "id": "meadow-pals-03-clucky-lays-an-egg-q2",
+      "prompt": "Where does Clucky sit just before the egg appears?",
+      "choices": [
+        "in the mud",
+        "in the nest",
+        "on the log"
+      ],
+      "answer": "in the mud",
+      "kind": "text",
+      "skill": "setting",
+      "evidencePage": 6,
+      "evidenceText": "She sat in the mud."
+    },
+    {
+      "id": "meadow-pals-03-clucky-lays-an-egg-q3",
+      "prompt": "What does Clucky find after sitting in the mud?",
+      "choices": [
+        "an egg",
+        "a hat",
+        "a box"
+      ],
+      "answer": "an egg",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 7,
+      "evidenceText": "Oh! An egg!"
     }
   ]
 }

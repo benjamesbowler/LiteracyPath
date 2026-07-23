@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-02-sunnys-rainy-day",
+  "contentHash": "sha256:7632e70ca2114d5cb0700a92d5fa0f6e9c9220cd5d040e99fb6b52c82a7d3bdd",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"It ___ in Sunny Hollow. Big dark clouds rolled in.\"",
+      "id": "dino-pals-02-sunnys-rainy-day-q1",
+      "prompt": "What did Sunny say the rain brought?",
       "choices": [
-        "rained",
-        "money",
-        "cool"
+        "More puddles.",
+        "A dry path.",
+        "No more puddles."
       ],
-      "answer": "rained",
-      "kind": "word"
+      "answer": "More puddles.",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 3,
+      "evidenceText": "Oh YES! said Sunny. More puddles!"
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-02-sunnys-rainy-day-q2",
+      "prompt": "What did the Dino Pals do after Sunny invited them?",
       "choices": [
-        "mouth",
-        "sunny",
-        "ran"
+        "They hid in their caves.",
+        "They waited for bedtime.",
+        "They joined in one by one."
       ],
-      "answer": "sunny",
-      "kind": "word"
+      "answer": "They joined in one by one.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 6,
+      "evidenceText": "One by one, the Dino Pals joined in."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-02-sunnys-rainy-day-q3",
+      "prompt": "What does Sunny believe about every day?",
       "choices": [
-        "Sunny",
-        "Cuddly",
-        "Stone"
+        "Every day is a good day.",
+        "Only sunny days are good days.",
+        "Rainy days should be spent alone."
       ],
-      "answer": "Sunny",
-      "kind": "word"
+      "answer": "Every day is a good day.",
+      "kind": "text",
+      "skill": "theme",
+      "evidencePage": 8,
+      "evidenceText": "Every day is a good day!"
     }
   ]
 }

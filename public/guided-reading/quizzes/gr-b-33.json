@@ -1,35 +1,50 @@
 {
- "bookId": "gr-b-33",
- "questions": [
-  {
-   "prompt": "What hits nails?",
-   "choices": [
-    "a hammer",
-    "a saw",
-    "a ruler"
-   ],
-   "answer": "a hammer",
-   "kind": "word"
-  },
-  {
-   "prompt": "What does a saw do?",
-   "choices": [
-    "cuts wood",
-    "makes holes",
-    "turns bolts"
-   ],
-   "answer": "cuts wood",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do tools help us do?",
-   "choices": [
-    "build",
-    "sleep",
-    "sing"
-   ],
-   "answer": "build",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "gr-b-33",
+  "contentHash": "sha256:47133a84397c4c5653606d3987cf2c4f60eba6193e8c3bc22b1e0ef2be1d851b",
+  "questions": [
+    {
+      "id": "gr-b-33-q1",
+      "prompt": "What hits nails?",
+      "choices": [
+        "a hammer",
+        "a saw",
+        "a ruler"
+      ],
+      "answer": "a hammer",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A hammer hits nails."
+    },
+    {
+      "id": "gr-b-33-q2",
+      "prompt": "What does a saw do?",
+      "choices": [
+        "cuts wood",
+        "makes holes",
+        "turns bolts"
+      ],
+      "answer": "cuts wood",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "A saw cuts wood."
+    },
+    {
+      "id": "gr-b-33-q3",
+      "prompt": "What do tools help us do?",
+      "choices": [
+        "build",
+        "sleep",
+        "sing"
+      ],
+      "answer": "build",
+      "kind": "word",
+      "skill": "function",
+      "evidencePage": 6,
+      "evidenceText": "Tools help us build!"
+    }
+  ]
 }

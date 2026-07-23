@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-09-caves",
+  "contentHash": "sha256:2d23e3870dca42c905e2aad1b936778058da2852d4679e11568e32242186b5b5",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-09-caves-q1",
+      "prompt": "How does rainwater help form limestone caves?",
       "choices": [
-        "cave",
-        "wet",
-        "plant"
+        "it slowly dissolves the rock",
+        "it quickly washes the rock away",
+        "it freezes the rock solid"
       ],
-      "answer": "cave",
-      "kind": "word"
+      "answer": "it slowly dissolves the rock",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 2,
+      "evidenceText": "It seeps into cracks and slowly dissolves the rock."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-09-caves-q2",
+      "prompt": "Which stone shape hangs from a cave ceiling?",
       "choices": [
-        "Cave",
-        "Pip",
-        "Flappy"
+        "a stalagmite",
+        "a stalactite",
+        "a column"
       ],
-      "answer": "Cave",
-      "kind": "word"
+      "answer": "a stalactite",
+      "kind": "text",
+      "skill": "vocabulary",
+      "evidencePage": 4,
+      "evidenceText": "Over many years, the mineral builds a hanging stone shape called a stalactite."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-09-caves-q3",
+      "prompt": "Why do some cave fish have tiny or non-working eyes?",
       "choices": [
-        "storm",
-        "caves",
-        "stop"
+        "they changed over generations to live in the dark",
+        "their eyes became smaller to help them swim faster",
+        "the cave water washed their eyes away"
       ],
-      "answer": "caves",
-      "kind": "word"
+      "answer": "they changed over generations to live in the dark",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 8,
+      "evidenceText": "Some animals spend their whole lives in caves. Over many generations, they have changed to live in the dark. Some cave fish are pale and have tiny eyes or no working eyes."
     }
   ]
 }

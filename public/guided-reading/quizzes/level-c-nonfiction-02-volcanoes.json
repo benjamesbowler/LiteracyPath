@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-02-volcanoes",
+  "contentHash": "sha256:0291578be22e516c3514c6343be9ab4b205161e5769248a84a00e2c1963fc28d",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-02-volcanoes-q1",
+      "prompt": "What is melted rock underground called?",
       "choices": [
-        "pup",
-        "volcanoes",
-        "meadow"
+        "magma",
+        "lava",
+        "ash"
       ],
-      "answer": "volcanoes",
-      "kind": "word"
+      "answer": "magma",
+      "kind": "word",
+      "skill": "vocabulary",
+      "evidencePage": 1,
+      "evidenceText": "This melted rock is called magma."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-02-volcanoes-q2",
+      "prompt": "How can an underwater volcano make an island?",
       "choices": [
-        "When",
-        "Glimmer",
-        "Run"
+        "waves pile up sand",
+        "lava builds up",
+        "coral grows upward"
       ],
-      "answer": "When",
-      "kind": "word"
+      "answer": "lava builds up",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 5,
+      "evidenceText": "When an underwater volcano keeps erupting, the lava builds up and can make a brand new island!"
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-02-volcanoes-q3",
+      "prompt": "Why do volcanologists watch volcanoes?",
       "choices": [
-        "voice",
-        "volcanoes",
-        "senses"
+        "to grow crops",
+        "to cool the rock",
+        "to spot signs of an eruption"
       ],
-      "answer": "volcanoes",
-      "kind": "word"
+      "answer": "to spot signs of an eruption",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 8,
+      "evidenceText": "They use special equipment to spot the signs of an eruption."
     }
   ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "level-c-nonfiction-07-under-the-ocean",
+  "contentHash": "sha256:3db37a982ec7c3c79d355cc10c345b0a5b24ee5937d2c173885c375df654fc54",
   "questions": [
     {
-      "prompt": "Which word was in your book?",
+      "id": "level-c-nonfiction-07-under-the-ocean-q1",
+      "prompt": "Why is the ocean below 200 metres dark?",
       "choices": [
-        "ocean",
-        "hear",
-        "crab"
+        "no sunlight reaches it",
+        "the Sun sets earlier there",
+        "clouds cover the surface"
       ],
-      "answer": "ocean",
-      "kind": "word"
+      "answer": "no sunlight reaches it",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 2,
+      "evidenceText": "Below 200 metres, no sunlight reaches at all."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "level-c-nonfiction-07-under-the-ocean-q2",
+      "prompt": "What is bioluminescence?",
       "choices": [
-        "Food",
-        "Earth",
-        "Shapes"
+        "reflecting sunlight",
+        "making your own light",
+        "warming the water"
       ],
-      "answer": "Earth",
-      "kind": "word"
+      "answer": "making your own light",
+      "kind": "text",
+      "skill": "vocabulary",
+      "evidencePage": 6,
+      "evidenceText": "In the deepest, darkest water, some creatures make their own light. This is called bioluminescence."
     },
     {
-      "prompt": "What was your book about?",
+      "id": "level-c-nonfiction-07-under-the-ocean-q3",
+      "prompt": "How does the ocean help us breathe?",
       "choices": [
-        "ocean",
-        "secret",
-        "wake"
+        "fish breathe out oxygen",
+        "waves pull oxygen from rocks",
+        "phytoplankton make oxygen"
       ],
-      "answer": "ocean",
-      "kind": "word"
+      "answer": "phytoplankton make oxygen",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 8,
+      "evidenceText": "Tiny plants called phytoplankton float near the surface. They use sunlight to make oxygen."
     }
   ]
 }

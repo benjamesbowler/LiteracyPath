@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-11-pets-we-love",
- "questions": [
-  {
-   "prompt": "What do cats do when they are happy?",
-   "choices": [
-    "purr",
-    "bark",
-    "quack"
-   ],
-   "answer": "purr",
-   "kind": "word"
-  },
-  {
-   "prompt": "Where does a goldfish swim?",
-   "choices": [
-    "in a tank",
-    "in a cage",
-    "on a wheel"
-   ],
-   "answer": "in a tank",
-   "kind": "word"
-  },
-  {
-   "prompt": "What do all pets need?",
-   "choices": [
-    "food, water, and love",
-    "toys and sweets",
-    "hats and boots"
-   ],
-   "answer": "food, water, and love",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-11-pets-we-love",
+  "contentHash": "sha256:bfc4dcef0b5800eb3e206ddbc3b04708455e775a3dc9ce91f5ae5f8e881bb71d",
+  "questions": [
+    {
+      "id": "first-facts-a-11-pets-we-love-q1",
+      "prompt": "What do cats do when they are happy?",
+      "choices": [
+        "purr",
+        "bark",
+        "quack"
+      ],
+      "answer": "purr",
+      "kind": "word",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A cat is a pet. Cats purr when they are happy."
+    },
+    {
+      "id": "first-facts-a-11-pets-we-love-q2",
+      "prompt": "Where does a goldfish swim?",
+      "choices": [
+        "in a tank",
+        "in a cage",
+        "on a wheel"
+      ],
+      "answer": "in a tank",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 5,
+      "evidenceText": "A goldfish swims in a tank. Fish need clean, fresh water."
+    },
+    {
+      "id": "first-facts-a-11-pets-we-love-q3",
+      "prompt": "What do all pets need?",
+      "choices": [
+        "food, water, and love",
+        "toys and sweets",
+        "hats and boots"
+      ],
+      "answer": "food, water, and love",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 7,
+      "evidenceText": "All pets need food, water, and love. Pets are our friends."
+    }
+  ]
 }

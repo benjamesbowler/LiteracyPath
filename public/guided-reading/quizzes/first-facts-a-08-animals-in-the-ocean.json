@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-a-08-animals-in-the-ocean",
- "questions": [
-  {
-   "prompt": "What is the biggest animal?",
-   "choices": [
-    "the whale",
-    "the crab",
-    "the seahorse"
-   ],
-   "answer": "the whale",
-   "kind": "word"
-  },
-  {
-   "prompt": "How many arms does an octopus have?",
-   "choices": [
-    "eight",
-    "two",
-    "five"
-   ],
-   "answer": "eight",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who walks sideways?",
-   "choices": [
-    "the crab",
-    "the dolphin",
-    "the fish"
-   ],
-   "answer": "the crab",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-a-08-animals-in-the-ocean",
+  "contentHash": "sha256:cd88e1017a22100f2b91176eb3eab8de90850312662954851cf32766a06e2a0d",
+  "questions": [
+    {
+      "id": "first-facts-a-08-animals-in-the-ocean-q1",
+      "prompt": "How do fins help fish?",
+      "choices": [
+        "they help fish swim",
+        "they help fish breathe",
+        "they help fish hide"
+      ],
+      "answer": "they help fish swim",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "A fish has fins. Fins help fish swim."
+    },
+    {
+      "id": "first-facts-a-08-animals-in-the-ocean-q2",
+      "prompt": "Why do whales swim to the top?",
+      "choices": [
+        "to breathe",
+        "to hide in rocks",
+        "to hold on to plants"
+      ],
+      "answer": "to breathe",
+      "kind": "text",
+      "skill": "cause_effect",
+      "evidencePage": 3,
+      "evidenceText": "Whales swim to the top to breathe."
+    },
+    {
+      "id": "first-facts-a-08-animals-in-the-ocean-q3",
+      "prompt": "What main idea does the book show about the sea?",
+      "choices": [
+        "many animals live in the sea",
+        "only fish live in the sea",
+        "no animals live in the sea"
+      ],
+      "answer": "many animals live in the sea",
+      "kind": "text",
+      "skill": "main_idea",
+      "evidencePage": 8,
+      "evidenceText": "So many animals live in the sea! The ocean is amazing."
+    }
+  ]
 }

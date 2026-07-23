@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-10-shapes",
- "questions": [
-  {
-   "prompt": "What shape is a ball?",
-   "choices": [
-    "a circle",
-    "a square",
-    "a triangle"
-   ],
-   "answer": "a circle",
-   "kind": "word"
-  },
-  {
-   "prompt": "What shape is a door?",
-   "choices": [
-    "a rectangle",
-    "a circle",
-    "an oval"
-   ],
-   "answer": "a rectangle",
-   "kind": "word"
-  },
-  {
-   "prompt": "What shape is a slice of pie?",
-   "choices": [
-    "a triangle",
-    "a square",
-    "a circle"
-   ],
-   "answer": "a triangle",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-10-shapes",
+  "contentHash": "sha256:1ff7462a24e5e396450efb7af1c08aff550460871f147f71fccc4d0eaf5b5bda",
+  "questions": [
+    {
+      "id": "first-facts-level-a-10-shapes-q1",
+      "prompt": "What shape is a ball?",
+      "choices": [
+        "a circle",
+        "a square",
+        "a triangle"
+      ],
+      "answer": "a circle",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A ball is round.\nIt is a circle."
+    },
+    {
+      "id": "first-facts-level-a-10-shapes-q2",
+      "prompt": "What shape is a door?",
+      "choices": [
+        "a rectangle",
+        "a circle",
+        "an oval"
+      ],
+      "answer": "a rectangle",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A door is tall.\nIt is a rectangle."
+    },
+    {
+      "id": "first-facts-level-a-10-shapes-q3",
+      "prompt": "What shape is a slice of pie?",
+      "choices": [
+        "a triangle",
+        "a square",
+        "a circle"
+      ],
+      "answer": "a triangle",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "A slice of pie.\nIt is a triangle."
+    }
+  ]
 }

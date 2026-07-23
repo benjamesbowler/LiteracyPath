@@ -1,35 +1,50 @@
 {
- "bookId": "first-facts-level-a-08-my-pet",
- "questions": [
-  {
-   "prompt": "What does my dog have?",
-   "choices": [
-    "a bed",
-    "a tank",
-    "a cage"
-   ],
-   "answer": "a bed",
-   "kind": "word"
-  },
-  {
-   "prompt": "Who has a tank?",
-   "choices": [
-    "my fish",
-    "my cat",
-    "my rabbit"
-   ],
-   "answer": "my fish",
-   "kind": "word"
-  },
-  {
-   "prompt": "What is my pet?",
-   "choices": [
-    "my friend",
-    "my toy",
-    "my hat"
-   ],
-   "answer": "my friend",
-   "kind": "word"
-  }
- ]
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
+  "bookId": "first-facts-level-a-08-my-pet",
+  "contentHash": "sha256:54c2bfc40f6533d65a066fafaea1014041f604d0f01873da0e6213cb617d76d1",
+  "questions": [
+    {
+      "id": "first-facts-level-a-08-my-pet-q1",
+      "prompt": "What does my dog have?",
+      "choices": [
+        "a bed",
+        "a tank",
+        "a cage"
+      ],
+      "answer": "a bed",
+      "kind": "text",
+      "skill": "function",
+      "evidencePage": 1,
+      "evidenceText": "My dog has a bed.\nIt is soft."
+    },
+    {
+      "id": "first-facts-level-a-08-my-pet-q2",
+      "prompt": "Who has a tank?",
+      "choices": [
+        "my fish",
+        "my cat",
+        "my rabbit"
+      ],
+      "answer": "my fish",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "My fish has a tank.\nIt is wet."
+    },
+    {
+      "id": "first-facts-level-a-08-my-pet-q3",
+      "prompt": "What is my pet?",
+      "choices": [
+        "my friend",
+        "my toy",
+        "my hat"
+      ],
+      "answer": "my friend",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 7,
+      "evidenceText": "My pet is my friend!"
+    }
+  ]
 }

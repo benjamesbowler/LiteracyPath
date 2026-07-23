@@ -1,35 +1,51 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "dino-pals-06-bouncy-bumps-into-everything",
+  "contentHash": "sha256:020990e49c08ea92c67da67d1001b5faaf3bb1e0c932d1cb8ccd58306ce24c73",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"Bouncy bounced to the ___. Bouncy bumped into Fancy. BOING!\"",
+      "id": "dino-pals-06-bouncy-bumps-into-everything-q1",
+      "prompt": "What showed that Bouncy cared after bumping Fancy?",
       "choices": [
-        "stopped",
-        "thousands",
-        "waterfall"
+        "He bounced away laughing.",
+        "He blamed Wiggly.",
+        "He apologised and checked on her."
       ],
-      "answer": "waterfall",
-      "kind": "word"
+      "answer": "He apologised and checked on her.",
+      "kind": "text",
+      "skill": "inference",
+      "rationale": "Bouncy saying I am sorry shows that he apologised, and stopping to check on Fancy shows that he checked on her.",
+      "evidencePage": 3,
+      "evidenceText": "\"I am sorry,\" said Bouncy. He stopped to check that she was all right."
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "dino-pals-06-bouncy-bumps-into-everything-q2",
+      "prompt": "What did Bouncy and Wiggly do with the spilled berries?",
       "choices": [
-        "fluff",
-        "back",
-        "bouncy"
+        "They picked them up together.",
+        "They left them on the ground.",
+        "They rolled them into the water."
       ],
-      "answer": "bouncy",
-      "kind": "word"
+      "answer": "They picked them up together.",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 4,
+      "evidenceText": "A basket of berries tipped over. They picked them up together."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "dino-pals-06-bouncy-bumps-into-everything-q3",
+      "prompt": "How did Bouncy solve his bumping problem?",
       "choices": [
-        "Bouncy",
-        "Noisy",
-        "Eddie"
+        "He stopped moving for the whole day.",
+        "He went to the wide empty meadow and watched where he landed.",
+        "He asked friends to move out of his way."
       ],
-      "answer": "Bouncy",
-      "kind": "word"
+      "answer": "He went to the wide empty meadow and watched where he landed.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "evidencePage": 8,
+      "evidenceText": "He went to the wide empty meadow and watched where he landed."
     }
   ]
 }

@@ -1,35 +1,50 @@
 {
+  "schemaVersion": 2,
+  "quizVersion": "2026-07-22.2",
   "bookId": "meadow-pals-07-noisy-tries-to-be-quiet",
+  "contentHash": "sha256:f572733b996d5bf713c8d5bee3d200b4a60f91a10512e888d11724f90a81b40d",
   "questions": [
     {
-      "prompt": "Finish the sentence from your book: \"\"Shh!\" said ___.\"",
+      "id": "meadow-pals-07-noisy-tries-to-be-quiet-q1",
+      "prompt": "What does Noisy shout about later?",
       "choices": [
-        "carvings",
-        "everyone",
-        "speedy"
+        "a worm",
+        "a flower",
+        "a puddle"
       ],
-      "answer": "everyone",
-      "kind": "word"
+      "answer": "a worm",
+      "kind": "text",
+      "skill": "character_action",
+      "evidencePage": 8,
+      "evidenceText": "\"A WORM! A WORM! A WORM!\""
     },
     {
-      "prompt": "Which word was in your book?",
+      "id": "meadow-pals-07-noisy-tries-to-be-quiet-q2",
+      "prompt": "What lands on Noisy first?",
       "choices": [
-        "yet",
-        "bossy",
-        "noisy"
+        "a bug",
+        "a leaf",
+        "a feather"
       ],
-      "answer": "noisy",
-      "kind": "word"
+      "answer": "a bug",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "Then a bug sat on Noisy."
     },
     {
-      "prompt": "Who is this story about?",
+      "id": "meadow-pals-07-noisy-tries-to-be-quiet-q3",
+      "prompt": "What does the last page say about Noisy?",
       "choices": [
-        "Clumsy",
-        "Noisy",
-        "Then"
+        "Noisy is not good at quiet.",
+        "Noisy is very good at quiet.",
+        "Noisy is too sleepy to speak."
       ],
-      "answer": "Noisy",
-      "kind": "word"
+      "answer": "Noisy is not good at quiet.",
+      "kind": "text",
+      "skill": "outcome",
+      "evidencePage": 10,
+      "evidenceText": "Noisy is not good at quiet."
     }
   ]
 }
