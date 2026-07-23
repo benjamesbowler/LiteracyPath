@@ -220,8 +220,9 @@ function renderScorecard({ result, manifest, previous, filename }) {
 
 Generated: ${generatedAt}
 
-Commit: \`${manifest?.commitSha || "unknown"}\`  
-Manifest: \`docs/release/manifest.json\`  
+Commit: \`${manifest?.commitSha || "unknown"}\`
+
+Manifest: \`docs/release/manifest.json\`
 Previous scorecard: ${previous ? `\`${previous.name}\`` : "none"}
 
 ## Verdict

@@ -122,5 +122,5 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 | D-007 | 6 | P1 | TODO | assessment header copy DOM + jargon guard | `DISCOVERED.md` D-007 |
 | D-008 | 9 | P2 | TODO | assessment deep-link refresh/resume E2E | `DISCOVERED.md` D-008 |
 | D-009 | 4 | P2 | TODO | final-item correction + finish-tally E2E | `DISCOVERED.md` D-009 |
-| D-010 | 8, 10 | P0 | IN-PROGRESS | `check:database-bootstrap-schema` + fresh local Supabase reset | Static schema gate pending; live reset evidence required |
+| D-010 | 8, 10 | P0 | DONE | `check:database-bootstrap-schema` + fresh local Supabase reset | Fresh local reset applied all 20 migrations; canonical `docs/release/manifest.json` passes schema reconstruction, deterministic seed, live Auth, fixtures, and RLS isolation |
 | D-011 | 9 | P2 | DONE | reachable teacher dashboard/report Playwright journey | Zero `pageerror` events; `docs/release/artifacts/2026-07-23T11-59-30-807Z/manifest.partial.json` passes all three authenticated route gates |

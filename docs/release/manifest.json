@@ -1,0 +1,993 @@
+{
+  "schemaVersion": 1,
+  "partial": false,
+  "generatedAt": "2026-07-23T12:30:52.115Z",
+  "startedAt": "2026-07-23T12:28:24.459Z",
+  "finishedAt": "2026-07-23T12:30:52.115Z",
+  "commitSha": "025ae83538c1cb466840f82c6505574d942ec930",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 28,
+    "passed": 12,
+    "failed": 7,
+    "notImplemented": 9,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "fail",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 19141,
+      "startedAt": "2026-07-23T12:28:24.630Z",
+      "finishedAt": "2026-07-23T12:28:43.771Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/lint.log",
+      "outputTail": "   react-hooks/exhaustive-deps\n  2221:6  warning  React Hook useEffect has missing dependencies: 'currentSkillIndex' and 'loadRuntimeQuestionsForSkill'. Either include them or remove the dependency array                                                                                                         react-hooks/exhaustive-deps\n  2329:6  warning  React Hook useEffect has a missing dependency: 'currentQuestion'. Either include it or remove the dependency array                                                                                                                                                react-hooks/exhaustive-deps\n  2429:6  warning  React Hook useEffect has a missing dependency: 'restoreStudentSession'. Either include it or remove the dependency array                                                                                                                                          react-hooks/exhaustive-deps\n  2637:6  warning  React Hook useEffect has a missing dependency: 'initializeTeacherAccountAccess'. Either include it or remove the dependency array                                                                                                                                 react-hooks/exhaustive-deps\n  2643:6  warning  React Hook useEffect has a missing dependency: 'loadAdminDashboard'. Either include it or remove the dependency array                                                                                                                                             react-hooks/exhaustive-deps\n  2794:6  warning  React Hook useEffect has missing dependencies: 'clearTeacherState', 'isTeacherAccountApproved', 'loadClasses', 'loadGuidedReadingRecords', 'loadStudents', 'pickQuestion', and 'resetSelectedStudentOnLogin'. Either include them or remove the dependency array  react-hooks/exhaustive-deps\n  8417:6  warning  React Hook useEffect has a missing dependency: 'buildSkillMasterySummary'. Either include it or remove the dependency array                                                                                                                                       react-hooks/exhaustive-deps\n  8439:6  warning  React Hook useEffect has a missing dependency: 'isTeacherAccountApproved'. Either include it or remove the dependency array                                                                                                                                       react-hooks/exhaustive-deps\n\n/Users/benjaminbowler/Projects/LiteracyPath/src/components/guided-reading/GuidedReadingPage.jsx\n  481:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')\n  647:6  warning  React Hook useEffect has missing dependencies: 'page', 'recordGuidedPageVisit', and 'selectedBook'. Either include them or remove the dependency array  react-hooks/exhaustive-deps\n  672:6  warning  React Hook useEffect has a missing dependency: 'selectedBook'. Either include it or remove the dependency array                                         react-hooks/exhaustive-deps\n  735:6  warning  React Hook useEffect has a missing dependency: 'goToNextPage'. Either include it or remove the dependency array                                         react-hooks/exhaustive-deps\n\n/Users/benjaminbowler/Projects/LiteracyPath/src/components/learn/games/games/AdventureGame.jsx\n  271:90  warning  React Hook useMemo has an unnecessary dependency: 'version'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps\n  272:86  warning  React Hook useMemo has an unnecessary dependency: 'version'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps\n  273:90  warning  React Hook useMemo has an unnecessary dependency: 'version'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps\n\n✖ 16 problems (0 errors, 16 warnings)\n  0 errors and 1 warning potentially fixable with the `--fix` option.\n\nESLint found too many warnings (maximum: 0).\n",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 4760,
+      "startedAt": "2026-07-23T12:28:43.771Z",
+      "finishedAt": "2026-07-23T12:28:48.531Z",
+      "counts": {
+        "tests": 974,
+        "passed": 974,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 14615,
+      "startedAt": "2026-07-23T12:28:48.531Z",
+      "finishedAt": "2026-07-23T12:29:03.146Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "smoke",
+      "label": "Reachable-product smoke tests",
+      "areas": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "command": "npm run test:smoke",
+      "status": "fail",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 16206,
+      "startedAt": "2026-07-23T12:29:03.146Z",
+      "finishedAt": "2026-07-23T12:29:19.352Z",
+      "counts": {
+        "passed": 4,
+        "failed": 4
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/smoke.log",
+      "outputTail": "trace.zip\n\n    ────────────────────────────────────────────────────────────────────────────────────────────────\n\n  3) [mobile] › tests/smoke/guided-reading-quiz.spec.js:4:3 › Guided Reading post-book quiz › keeps focus, scoring, progression, and reset state reliable \n\n    Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\n    Locator: getByRole('dialog', { name: 'Book quiz' })\n    Expected: visible\n    Timeout: 10000ms\n    Error: element(s) not found\n\n    Call log:\n    \u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n    \u001b[2m  - waiting for getByRole('dialog', { name: 'Book quiz' })\u001b[22m\n\n\n      10 |     const dialog = page.getByRole(\"dialog\", { name: \"Book quiz\" });\n      11 |     const firstQuestion = page.getByRole(\"heading\", { name: \"What sweet liquid do worker bees collect?\" });\n    > 12 |     await expect(dialog).toBeVisible();\n         |                          ^\n      13 |     await expect(firstQuestion).toBeFocused();\n      14 |\n      15 |     await page.getByRole(\"button\", { name: \"sap\", exact: true }).click();\n        at /Users/benjaminbowler/Projects/LiteracyPath/tests/smoke/guided-reading-quiz.spec.js:12:26\n\n    Error Context: test-results/smoke-guided-reading-quiz--c664f-on-and-reset-state-reliable-mobile/error-context.md\n\n    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────\n    test-results/smoke-guided-reading-quiz--c664f-on-and-reset-state-reliable-mobile/trace.zip\n    Usage:\n\n        npx playwright show-trace test-results/smoke-guided-reading-quiz--c664f-on-and-reset-state-reliable-mobile/trace.zip\n\n    ────────────────────────────────────────────────────────────────────────────────────────────────\n\n  4) [mobile] › tests/smoke/student-home-my-hollow.spec.js:4:3 › Student Home My Hollow card › fills the grid, loads its art, and opens the Hollow action \n\n    Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n    Locator:  locator('.hs-card')\n    Expected: \u001b[32m7\u001b[39m\n    Received: \u001b[31m0\u001b[39m\n    Timeout:  10000ms\n\n    Call log:\n    \u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n    \u001b[2m  - waiting for locator('.hs-card')\u001b[22m\n    \u001b[2m    24 × locator resolved to 0 elements\u001b[22m\n    \u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n      14 |     const soundSeekers = cards.filter({ hasText: \"Sound Seekers\" });\n      15 |     const myHollow = cards.filter({ hasText: \"My Hollow\" });\n    > 16 |     await expect(cards).toHaveCount(7);\n         |                         ^\n      17 |     await expect(myHollow).toHaveCount(1);\n      18 |\n      19 |     await page.waitForFunction(() => (\n        at /Users/benjaminbowler/Projects/LiteracyPath/tests/smoke/student-home-my-hollow.spec.js:16:25\n\n    Error Context: test-results/smoke-student-home-my-holl-7bfbf-and-opens-the-Hollow-action-mobile/error-context.md\n\n    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────\n    test-results/smoke-student-home-my-holl-7bfbf-and-opens-the-Hollow-action-mobile/trace.zip\n    Usage:\n\n        npx playwright show-trace test-results/smoke-student-home-my-holl-7bfbf-and-opens-the-Hollow-action-mobile/trace.zip\n\n    ────────────────────────────────────────────────────────────────────────────────────────────────\n\n  4 failed\n    [desktop] › tests/smoke/guided-reading-quiz.spec.js:4:3 › Guided Reading post-book quiz › keeps focus, scoring, progression, and reset state reliable \n    [desktop] › tests/smoke/student-home-my-hollow.spec.js:4:3 › Student Home My Hollow card › fills the grid, loads its art, and opens the Hollow action \n    [mobile] › tests/smoke/guided-reading-quiz.spec.js:4:3 › Guided Reading post-book quiz › keeps focus, scoring, progression, and reset state reliable \n    [mobile] › tests/smoke/student-home-my-hollow.spec.js:4:3 › Student Home My Hollow card › fills the grid, loads its art, and opens the Hollow action \n  4 passed (15.7s)\n",
+      "reason": null
+    },
+    {
+      "id": "assessment-question-integrity",
+      "label": "Assessment question integrity",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "npm run check:assessment-question-integrity -- --check",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3045,
+      "startedAt": "2026-07-23T12:29:19.352Z",
+      "finishedAt": "2026-07-23T12:29:22.397Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/assessment-question-integrity.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "assessment-runtime-variation",
+      "label": "Assessment runtime variation",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "npm run check:assessment-runtime-variation -- --check",
+      "status": "fail",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 70232,
+      "startedAt": "2026-07-23T12:29:22.397Z",
+      "finishedAt": "2026-07-23T12:30:32.629Z",
+      "counts": {
+        "failed": 438
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/assessment-runtime-variation.log",
+      "outputTail": "\n> literacy-path@0.0.0 check:assessment-runtime-variation\n> node tools/runAuditScript.mjs --check tools/checkAssessmentRuntimeVariation.js --check\n\n(node:79890) SecurityWarning: The flag --allow-addons must be used with extreme caution. It could invalidate the permission model.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:79890) SecurityWarning: The flag --allow-child-process must be used with extreme caution. It could invalidate the permission model.\n(node:79890) SecurityWarning: The flag --allow-worker must be used with extreme caution. It could invalidate the permission model.\nAssessment runtime variation audit written to docs/validation/assessment_runtime_variation_audit.md\ninitial_sounds: static unique images 116, dynamic unique images 102, failures 438\nfinal_sounds: static unique images 245, dynamic unique images 225, failures 137\nrhyming: static unique images 146, dynamic unique images 137, failures 0\ncvc_short_vowels: static unique images 107, dynamic unique images 109, failures 107\nshort_vowel_discrimination: static unique images 149, dynamic unique images 149, failures 141\nhfw_1_25: static unique images 0, dynamic unique images 0, failures 0\nhfw_26_50: static unique images 0, dynamic unique images 0, failures 0\nhfw_51_75: static unique images 0, dynamic unique images 0, failures 0\nhfw_76_100: static unique images 0, dynamic unique images 0, failures 0\nnouns: static unique images 91, dynamic unique images 88, failures 3\nverbs: static unique images 58, dynamic unique images 58, failures 0\nadjectives: static unique images 42, dynamic unique images 42, failures 10\nprepositions: static unique images 79, dynamic unique images 68, failures 20\nplurals: static unique images 86, dynamic unique images 66, failures 0\nantonyms_synonyms: static unique images 108, dynamic unique images 100, failures 20\nhomophones_homonyms: static unique images 68, dynamic unique images 62, failures 0\nRuntime variation failures: 876\n",
+      "reason": null
+    },
+    {
+      "id": "strict-curriculum",
+      "label": "Strict production curriculum audit",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "node tools/runAuditScript.mjs --check tools/auditAllSkillsStrictProductionReadiness.js",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1421,
+      "startedAt": "2026-07-23T12:30:32.629Z",
+      "finishedAt": "2026-07-23T12:30:34.050Z",
+      "counts": {
+        "productionReadySkills": 9,
+        "auditedSkills": 30,
+        "missingImages": 22,
+        "missingAudio": 28,
+        "mediaWiringFixes": 384,
+        "newQuestionsNeeded": 566
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/strict-curriculum.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "skill-progression",
+      "label": "Skill progression without warnings",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "npm run check:skill-progression -- --check",
+      "status": "fail",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 423,
+      "startedAt": "2026-07-23T12:30:34.050Z",
+      "finishedAt": "2026-07-23T12:30:34.473Z",
+      "counts": {
+        "failed": 0,
+        "warnings": 55
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/skill-progression.log",
+      "outputTail": "\n> literacy-path@0.0.0 check:skill-progression\n> node tools/runAuditScript.mjs --check tools/checkSkillProgression.js --check\n\n(node:80120) SecurityWarning: The flag --allow-addons must be used with extreme caution. It could invalidate the permission model.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:80120) SecurityWarning: The flag --allow-child-process must be used with extreme caution. It could invalidate the permission model.\n(node:80120) SecurityWarning: The flag --allow-worker must be used with extreme caution. It could invalidate the permission model.\nManaged skills simulated: 11\nWarnings: 55\nFailures: 0\nWrote docs/validation/skill_progression_audit.md\nSkill progression simulation passed.\n",
+      "reason": "warnings must be zero"
+    },
+    {
+      "id": "teacher-dashboard-data",
+      "label": "Reachable teacher dashboard contracts",
+      "areas": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "command": "npm run check:teacher-dashboard-data",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3194,
+      "startedAt": "2026-07-23T12:30:34.473Z",
+      "finishedAt": "2026-07-23T12:30:37.667Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/teacher-dashboard-data.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "product-finish-surface",
+      "label": "Reachable product finish contracts",
+      "areas": [
+        4,
+        5,
+        6,
+        7,
+        10
+      ],
+      "command": "npm run check:product-finish-surface",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5154,
+      "startedAt": "2026-07-23T12:30:37.667Z",
+      "finishedAt": "2026-07-23T12:30:42.821Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/product-finish-surface.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "release-readiness-surface",
+      "label": "Report and release-readiness contracts",
+      "areas": [
+        4,
+        7,
+        10
+      ],
+      "command": "npm run check:release-readiness-surface",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3986,
+      "startedAt": "2026-07-23T12:30:42.821Z",
+      "finishedAt": "2026-07-23T12:30:46.807Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/release-readiness-surface.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "bundle-size",
+      "label": "Enforced bundle budgets",
+      "areas": [
+        9,
+        10
+      ],
+      "command": "npm run check:bundle-size",
+      "status": "fail",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 380,
+      "startedAt": "2026-07-23T12:30:46.808Z",
+      "finishedAt": "2026-07-23T12:30:47.188Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/bundle-size.log",
+      "outputTail": "\n> literacy-path@0.0.0 check:bundle-size\n> node tools/checkBundleSize.js\n\n# Bundle budget trend\n\nGenerated: 2026-07-23T12:30:47.181Z\nActive ratchet: 2026-07-23 — Phase 0 baseline freeze\n\n| Chunk | Kind | Raw | Raw budget | Raw headroom | Gzip | Gzip budget | Status |\n|---|---|---:|---:|---:|---:|---:|---|\n| languageSkillQuestions.generated | route/data | 1841.00 kB | 1841.00 kB | 0.00 kB | 122.74 kB | 122.74 kB | pass |\n| skillLevelGapQuestions.generated | route/data | 1643.93 kB | 1643.93 kB | 0.00 kB | 106.01 kB | 106.01 kB | pass |\n| generated-hfw-banks | shared | 1560.25 kB | 1560.25 kB | 0.00 kB | 91.56 kB | 91.56 kB | pass |\n| index | main entry | 1148.56 kB | 1148.56 kB | 0.00 kB | 241.38 kB | 241.38 kB | fail |\n| guided-reading-data | shared | 1052.94 kB | 1052.94 kB | 0.00 kB | 153.66 kB | 153.66 kB | pass |\n| rhyming.generated | route/data | 1029.83 kB | 1029.83 kB | 0.00 kB | 42.19 kB | 42.19 kB | pass |\n| report-export-libs | shared | 919.44 kB | 919.44 kB | 0.00 kB | 235.57 kB | 235.57 kB | pass |\n| QuestPixelWorld | route/data | 844.34 kB | 844.34 kB | 0.00 kB | 227.84 kB | 227.84 kB | fail |\n| audio-manifest | shared | 776.37 kB | 776.37 kB | 0.00 kB | 200.22 kB | 200.22 kB | pass |\n| childAssets | shared | 773.07 kB | 773.07 kB | 0.00 kB | 58.07 kB | 58.08 kB | pass |\n| three.module | shared | 725.30 kB | 725.30 kB | 0.00 kB | 183.60 kB | 183.60 kB | pass |\n| loadAssessmentSkillBank | route/data | 688.47 kB | 688.47 kB | 0.00 kB | 47.63 kB | 47.63 kB | fail |\n| secondBlockSkillTopUpQuestions.generated | route/data | 672.47 kB | 672.47 kB | 0.00 kB | 51.31 kB | 51.31 kB | pass |\n| mediaQaReviewStatus | shared | 599.60 kB | 599.60 kB | 0.00 kB | 43.51 kB | 43.51 kB | pass |\n| QuestHub | route/data | 378.97 kB | 378.97 kB | 0.00 kB | 140.38 kB | 140.38 kB | fail |\n| cvc.generated | route/data | 334.20 kB | 334.20 kB | 0.00 kB | 13.25 kB | 13.25 kB | pass |\n| vendor-react | shared | 314.53 kB | 314.53 kB | 0.00 kB | 98.99 kB | 98.99 kB | pass |\n| finalSounds.generated | route/data | 298.62 kB | 298.62 kB | 0.00 kB | 15.63 kB | 15.63 kB | pass |\n\nResult: FAIL — 4 budget violation(s).\n- QuestHub gzip size 140378 exceeds 140377 bytes.\n- QuestPixelWorld gzip size 227840 exceeds 227838 bytes.\n- index gzip size 241384 exceeds 241382 bytes.\n- loadAssessmentSkillBank gzip size 47632 exceeds 47630 bytes.\n",
+      "reason": null
+    },
+    {
+      "id": "dependency-audit",
+      "label": "Dependency audit (high and critical)",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm audit --json --audit-level=high",
+      "status": "fail",
+      "exitCode": 1,
+      "signal": null,
+      "durationMs": 3082,
+      "startedAt": "2026-07-23T12:30:47.188Z",
+      "finishedAt": "2026-07-23T12:30:50.270Z",
+      "counts": {
+        "info": 0,
+        "low": 3,
+        "moderate": 0,
+        "high": 2,
+        "critical": 0,
+        "total": 5,
+        "dependencies": 437
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/dependency-audit.log",
+      "outputTail": "\"https://github.com/advisories/GHSA-v422-hmwv-36x6\",\n          \"severity\": \"low\",\n          \"cwe\": [\n            \"CWE-770\"\n          ],\n          \"cvss\": {\n            \"score\": 3.7,\n            \"vectorString\": \"CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L\"\n          },\n          \"range\": \">=2.0.0 <2.3.0\"\n        }\n      ],\n      \"effects\": [],\n      \"range\": \"2.0.0 - 2.2.2\",\n      \"nodes\": [\n        \"node_modules/body-parser\"\n      ],\n      \"fixAvailable\": true\n    },\n    \"brace-expansion\": {\n      \"name\": \"brace-expansion\",\n      \"severity\": \"high\",\n      \"isDirect\": false,\n      \"via\": [\n        {\n          \"source\": 1123898,\n          \"name\": \"brace-expansion\",\n          \"dependency\": \"brace-expansion\",\n          \"title\": \"brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups\",\n          \"url\": \"https://github.com/advisories/GHSA-3jxr-9vmj-r5cp\",\n          \"severity\": \"high\",\n          \"cwe\": [\n            \"CWE-400\",\n            \"CWE-407\"\n          ],\n          \"cvss\": {\n            \"score\": 5.3,\n            \"vectorString\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L\"\n          },\n          \"range\": \">=3.0.0 <5.0.7\"\n        }\n      ],\n      \"effects\": [],\n      \"range\": \"3.0.0 - 5.0.6\",\n      \"nodes\": [\n        \"node_modules/brace-expansion\"\n      ],\n      \"fixAvailable\": true\n    },\n    \"exceljs\": {\n      \"name\": \"exceljs\",\n      \"severity\": \"low\",\n      \"isDirect\": true,\n      \"via\": [\n        \"fast-csv\",\n        \"tmp\"\n      ],\n      \"effects\": [],\n      \"range\": \"0.1.10 - 3.9.0\",\n      \"nodes\": [\n        \"node_modules/exceljs\"\n      ],\n      \"fixAvailable\": true\n    },\n    \"fast-csv\": {\n      \"name\": \"fast-csv\",\n      \"severity\": \"low\",\n      \"isDirect\": false,\n      \"via\": [\n        {\n          \"source\": 1090058,\n          \"name\": \"fast-csv\",\n          \"dependency\": \"fast-csv\",\n          \"title\": \"Denial of service in fast-csv\",\n          \"url\": \"https://github.com/advisories/GHSA-8cv5-p934-3hwp\",\n          \"severity\": \"low\",\n          \"cwe\": [\n            \"CWE-400\"\n          ],\n          \"cvss\": {\n            \"score\": 5.7,\n            \"vectorString\": \"CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:N/A:H\"\n          },\n          \"range\": \"<4.3.6\"\n        }\n      ],\n      \"effects\": [\n        \"exceljs\"\n      ],\n      \"range\": \"<4.3.6\",\n      \"nodes\": [\n        \"node_modules/fast-csv\"\n      ],\n      \"fixAvailable\": true\n    },\n    \"tmp\": {\n      \"name\": \"tmp\",\n      \"severity\": \"high\",\n      \"isDirect\": false,\n      \"via\": [\n        {\n          \"source\": 1109537,\n          \"name\": \"tmp\",\n          \"dependency\": \"tmp\",\n          \"title\": \"tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter\",\n          \"url\": \"https://github.com/advisories/GHSA-52f5-9888-hmc6\",\n          \"severity\": \"low\",\n          \"cwe\": [\n            \"CWE-59\"\n          ],\n          \"cvss\": {\n            \"score\": 2.5,\n            \"vectorString\": \"CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N\"\n          },\n          \"range\": \"<=0.2.3\"\n        },\n        {\n          \"source\": 1120654,\n          \"name\": \"tmp\",\n          \"dependency\": \"tmp\",\n          \"title\": \"tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape\",\n          \"url\": \"https://github.com/advisories/GHSA-ph9p-34f9-6g65\",\n          \"severity\": \"high\",\n          \"cwe\": [\n            \"CWE-22\"\n          ],\n          \"cvss\": {\n            \"score\": 0,\n            \"vectorString\": null\n          },\n          \"range\": \"<0.2.6\"\n        }\n      ],\n      \"effects\": [\n        \"exceljs\"\n      ],\n      \"range\": \"<=0.2.5\",\n      \"nodes\": [\n        \"node_modules/tmp\"\n      ],\n      \"fixAvailable\": true\n    }\n  },\n  \"metadata\": {\n    \"vulnerabilities\": {\n      \"info\": 0,\n      \"low\": 3,\n      \"moderate\": 0,\n      \"high\": 2,\n      \"critical\": 0,\n      \"total\": 5\n    },\n    \"dependencies\": {\n      \"prod\": 249,\n      \"dev\": 189,\n      \"optional\": 60,\n      \"peer\": 0,\n      \"peerOptional\": 0,\n      \"total\": 437\n    }\n  }\n}\n",
+      "reason": null
+    },
+    {
+      "id": "repo-hygiene",
+      "label": "Baselined repository hygiene",
+      "areas": [
+        10
+      ],
+      "command": "npm run check:repo-hygiene -- --check",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 908,
+      "startedAt": "2026-07-23T12:30:50.270Z",
+      "finishedAt": "2026-07-23T12:30:51.178Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/repo-hygiene.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "audit-read-only",
+      "label": "Read-only audit mode contract",
+      "areas": [
+        10
+      ],
+      "command": "npm run check:audit-read-only",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 288,
+      "startedAt": "2026-07-23T12:30:51.178Z",
+      "finishedAt": "2026-07-23T12:30:51.466Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/audit-read-only.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "database-bootstrap-schema",
+      "label": "Reconstructable core database schema",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:database-bootstrap-schema",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 196,
+      "startedAt": "2026-07-23T12:30:51.466Z",
+      "finishedAt": "2026-07-23T12:30:51.662Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/database-bootstrap-schema.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "audit-school-seed",
+      "label": "Deterministic non-production audit school",
+      "areas": [
+        6,
+        10
+      ],
+      "command": "npm run check:audit-school-seed",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 172,
+      "startedAt": "2026-07-23T12:30:51.662Z",
+      "finishedAt": "2026-07-23T12:30:51.834Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/audit-school-seed.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "audit-school-live",
+      "label": "Audit school Auth, fixtures, and RLS isolation",
+      "areas": [
+        6,
+        8,
+        10
+      ],
+      "command": "npm run check:audit-school-live",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 278,
+      "startedAt": "2026-07-23T12:30:51.834Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T12-28-24-459Z/audit-school-live.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "a11y-routes",
+      "label": "All-route accessibility",
+      "areas": [
+        3,
+        10
+      ],
+      "command": "npm run check:a11y-routes",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:a11y-routes"
+    },
+    {
+      "id": "a11y-teacher",
+      "label": "Authenticated teacher accessibility",
+      "areas": [
+        6,
+        10
+      ],
+      "command": "npm run check:a11y-teacher",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:a11y-teacher"
+    },
+    {
+      "id": "db-policies",
+      "label": "Database policy integration",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:db-policies",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:db-policies"
+    },
+    {
+      "id": "e2e-teacher",
+      "label": "Authenticated teacher end-to-end",
+      "areas": [
+        5,
+        6,
+        7,
+        10
+      ],
+      "command": "npm run check:e2e-teacher",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:e2e-teacher"
+    },
+    {
+      "id": "csp",
+      "label": "Enforced content security policy",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:csp",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:csp"
+    },
+    {
+      "id": "runtime-variation-simulation",
+      "label": "500-session-per-skill variation simulation",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "npm run check:runtime-variation-simulation",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:runtime-variation-simulation"
+    },
+    {
+      "id": "media-runtime-resolution",
+      "label": "Built-app media runtime resolution",
+      "areas": [
+        1,
+        3,
+        4,
+        10
+      ],
+      "command": "npm run check:media-runtime-resolution",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:media-runtime-resolution"
+    },
+    {
+      "id": "device-matrix",
+      "label": "Student device matrix",
+      "areas": [
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:device-matrix",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:device-matrix"
+    },
+    {
+      "id": "sync-chaos",
+      "label": "Progress sync chaos suite",
+      "areas": [
+        4,
+        9,
+        10
+      ],
+      "command": "npm run check:sync-chaos",
+      "status": "not-implemented",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.112Z",
+      "finishedAt": "2026-07-23T12:30:52.112Z",
+      "counts": {},
+      "logPath": null,
+      "reason": "Missing package script: check:sync-chaos"
+    },
+    {
+      "id": "curriculum-composed",
+      "label": "Composed curriculum release gate",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "synthetic: correctness ∧ depth ∧ variation ∧ media ∧ runtime-selectability",
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 0,
+      "startedAt": "2026-07-23T12:30:52.115Z",
+      "finishedAt": "2026-07-23T12:30:52.115Z",
+      "counts": {
+        "skillsAudited": 30,
+        "releaseReadySkills": 0
+      },
+      "dimensions": {
+        "correctness": {
+          "status": "pass",
+          "dependencies": [
+            "assessment-question-integrity"
+          ]
+        },
+        "depth": {
+          "status": "pass",
+          "dependencies": [
+            "strict-curriculum"
+          ]
+        },
+        "variation": {
+          "status": "fail",
+          "dependencies": [
+            "assessment-runtime-variation",
+            "skill-progression",
+            "runtime-variation-simulation"
+          ]
+        },
+        "media": {
+          "status": "fail",
+          "dependencies": [
+            "strict-curriculum",
+            "media-runtime-resolution"
+          ]
+        },
+        "runtimeSelectability": {
+          "status": "fail",
+          "dependencies": [
+            "strict-curriculum",
+            "assessment-question-integrity",
+            "runtime-variation-simulation"
+          ]
+        }
+      },
+      "skills": [
+        {
+          "skillId": "initial_sounds",
+          "skillName": "Initial Sounds",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "final_sounds",
+          "skillName": "Final Sounds",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "rhyming",
+          "skillName": "Rhyming",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "cvc_short_vowels",
+          "skillName": "CVC Short Vowels",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "short_vowel_discrimination",
+          "skillName": "Short Vowel Discrimination",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "hfw_1_25",
+          "skillName": "High-Frequency Words 1-25",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "hfw_26_50",
+          "skillName": "High-Frequency Words 26-50",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "hfw_51_75",
+          "skillName": "High-Frequency Words 51-75",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "hfw_76_100",
+          "skillName": "High-Frequency Words 76-100",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "blends",
+          "skillName": "Blends",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "digraphs",
+          "skillName": "Digraphs",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "long_vowels_silent_e",
+          "skillName": "Long Vowels and Silent E",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "vowel_teams",
+          "skillName": "Vowel Teams",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "r_controlled_vowels",
+          "skillName": "R-Controlled Vowels",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "nouns",
+          "skillName": "Nouns",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "verbs",
+          "skillName": "Verbs",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "adjectives",
+          "skillName": "Adjectives",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "prepositions_of_place",
+          "skillName": "Prepositions of Place",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "plurals",
+          "skillName": "Plurals",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "prefixes_suffixes",
+          "skillName": "Prefixes and Suffixes",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "antonyms_synonyms",
+          "skillName": "Antonyms and Synonyms",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "fail",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "homophones_homonyms",
+          "skillName": "Homophones and Homonyms",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "sentence_comprehension",
+          "skillName": "Sentence Comprehension",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "key_details",
+          "skillName": "Key Details",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "sequencing",
+          "skillName": "Sequencing",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "main_idea",
+          "skillName": "Main Idea",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "inference",
+          "skillName": "Inference",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "cause_effect",
+          "skillName": "Cause and Effect",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "context_clues",
+          "skillName": "Context Clues",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        },
+        {
+          "skillId": "theme_higher_comprehension",
+          "skillName": "Theme and Higher Comprehension",
+          "dimensions": {
+            "correctness": "pass",
+            "depth": "pass",
+            "variation": "fail",
+            "media": "fail",
+            "runtimeSelectability": "fail"
+          },
+          "releaseReady": false
+        }
+      ],
+      "reason": "Every curriculum dimension must pass for every audited skill."
+    }
+  ]
+}
