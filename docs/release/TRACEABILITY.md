@@ -86,7 +86,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A8.8 | 8 | P1 | TODO | seeded learner data-rights E2E | — |
 | A8.9 | 8 | P1 | TODO | retention-job unit tests + disclosure docs | — |
 | A8.10 | 8 | P0 EXTERNAL | TODO | legal-pack external-readiness check | — |
-| A9.1 | 9 | P1 | TODO | enforced main-entry bundle budget | — |
+| A9.1 | 9 | P1 | IN-PROGRESS | enforced main-entry bundle budget | Exact Phase 0 baseline is frozen and dated ratchets are enforced; `docs/release/artifacts/2026-07-23T12-11-25-561Z/manifest.partial.json` passes; final 500 kB raw / 150 kB gzip WS9 target remains open |
 | A9.2 | 9 | P1 | TODO | route/data chunk + first-load network budgets | — |
 | A9.3 | 9 | P1 | TODO | zero ineffective dynamic imports + split-boundary guard | — |
 | A9.4 | 9 | P1 | TODO | eval-free build + 500-item export memory test | — |
@@ -99,7 +99,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A10.1 | 10 | P0 | IN-PROGRESS | required whole-product CI release job | `release-gate` job implemented with fresh DB, audit seed, manifest artifact, and enforced result; hosted CI + branch-protection evidence pending |
 | A10.2 | 10 | P0 | IN-PROGRESS | `check:release` manifest + generated scorecard | Implementation added; full manifest and scorecard evidence pending Phase 0 exit |
 | A10.3 | 10 | P1 | IN-PROGRESS | zero-warning lint gate | CI invokes `npm run lint -- --max-warnings=0`; existing A4.5 warning backlog remains intentionally red |
-| A10.4 | 10 | P1 | TODO | enforced bundle budgets + PR trend table | — |
+| A10.4 | 10 | P1 | DONE | enforced bundle budgets + PR trend table | `docs/release/artifacts/2026-07-23T12-11-25-561Z/manifest.partial.json` passes build + budget; dated config, Markdown/JSON artifacts, and CI step summary are enforced |
 | A10.5 | 10 | P2 | TODO | zero-failure baselined repo hygiene | — |
 | A10.6 | 10 | P2 | TODO | read-only audit check-mode guard | — |
 | A10.7 | 10 | P1 | TODO | `check:e2e-teacher` | — |

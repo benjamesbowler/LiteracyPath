@@ -10,29 +10,43 @@ function bundleAnalysisPlugin() {
   return {
     name: 'literacy-path-bundle-analysis',
     generateBundle(_, bundle) {
+      const outputChunks = Object.values(bundle)
+        .filter(item => item.type === 'chunk')
+      const metadata = outputChunks
+        .map(chunk => ({
+          fileName: chunk.fileName,
+          isEntry: chunk.isEntry,
+          isDynamicEntry: chunk.isDynamicEntry
+        }))
+        .sort((a, b) => a.fileName.localeCompare(b.fileName))
+
+      this.emitFile({
+        type: 'asset',
+        fileName: 'bundle-metadata.json',
+        source: `${JSON.stringify({ chunks: metadata }, null, 2)}\n`
+      })
+
       if (process.env.ANALYZE_BUNDLE !== 'true') return
 
-      const chunks = Object.values(bundle)
-        .filter(item => item.type === 'chunk')
-        .map(chunk => {
-          const modules = Object.entries(chunk.modules || {})
-            .map(([id, moduleInfo]) => ({
-              id,
-              renderedLength: moduleInfo.renderedLength || 0,
-              originalLength: moduleInfo.originalLength || 0
-            }))
-            .sort((a, b) => b.renderedLength - a.renderedLength)
+      const chunks = outputChunks.map(chunk => {
+        const modules = Object.entries(chunk.modules || {})
+          .map(([id, moduleInfo]) => ({
+            id,
+            renderedLength: moduleInfo.renderedLength || 0,
+            originalLength: moduleInfo.originalLength || 0
+          }))
+          .sort((a, b) => b.renderedLength - a.renderedLength)
 
-          return {
-            fileName: chunk.fileName,
-            isEntry: chunk.isEntry,
-            isDynamicEntry: chunk.isDynamicEntry,
-            imports: chunk.imports,
-            dynamicImports: chunk.dynamicImports,
-            renderedLength: modules.reduce((total, item) => total + item.renderedLength, 0),
-            modules
-          }
-        })
+        return {
+          fileName: chunk.fileName,
+          isEntry: chunk.isEntry,
+          isDynamicEntry: chunk.isDynamicEntry,
+          imports: chunk.imports,
+          dynamicImports: chunk.dynamicImports,
+          renderedLength: modules.reduce((total, item) => total + item.renderedLength, 0),
+          modules
+        }
+      })
         .sort((a, b) => b.renderedLength - a.renderedLength)
 
       this.emitFile({
