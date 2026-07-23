@@ -56,6 +56,7 @@ test("@a11y-teacher authenticated five-intention journey is keyboard and screen-
   await activateWithKeyboard(classesButton);
   await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
   await expect(page.getByRole("main")).toHaveCount(1);
+  await activateWithKeyboard(page.locator(".teacher-roster-admin > summary"));
   const roster = page.getByRole("table").filter({ has: page.getByRole("columnheader", { name: "Display name" }) });
   const columnPicker = page.locator(".teacher-roster-column-picker");
   await columnPicker.getByText(/Choose columns/).click();
@@ -70,7 +71,7 @@ test("@a11y-teacher authenticated five-intention journey is keyboard and screen-
   await expect(chartAlternative).toHaveAccessibleName(/Class sound map\./);
   await expectNoSeriousOrCritical(page, "Classes with roster and sound map");
 
-  const questionGuideButton = page.getByRole("region", { name: "Students" })
+  const questionGuideButton = page.getByRole("region", { name: "Roster groups" })
     .getByRole("button", { name: "Question type guide", exact: true });
   await activateWithKeyboard(questionGuideButton);
   const questionGuideDialog = page.getByRole("dialog", { name: "Question type guide" });

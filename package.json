@@ -125,6 +125,7 @@
     "check:teacher-dashboard-data": "npm run test:release-teacher -- --grep @teacher-dashboard-data",
     "check:teacher-ia": "npm run test:release-teacher -- --grep @teacher-five-intention-ia",
     "check:teacher-today": "npm run test:release-teacher -- --grep @teacher-today-briefing",
+    "check:teacher-urgency-order": "npm run test:release-teacher -- --grep @teacher-urgency-order",
     "check:teacher-context": "npm run test:release-teacher -- --grep @teacher-persistent-context",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

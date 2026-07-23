@@ -438,6 +438,7 @@ function TeacherSetupChecklist({
       className={`teacher-setup-checklist${nextStep ? "" : " is-complete"}`}
       aria-label="Teacher setup checklist"
       data-setup-complete={nextStep ? "false" : "true"}
+      data-teacher-priority="setup-blockers"
     >
       <header>
         <div>
@@ -517,7 +518,11 @@ function TodayBriefing({
   const policy = briefing.policy;
 
   return (
-    <section className="teacher-today-briefing" aria-label="Today's class briefing">
+    <section
+      className="teacher-today-briefing"
+      aria-label="Today's class briefing"
+      data-teacher-priority="today-actions"
+    >
       <header className="teacher-today-briefing-head">
         <div>
           <p className="panel-label">Evidence briefing</p>
@@ -927,6 +932,7 @@ export function TeacherDashboardPage({
   const [interventionRecommendation, setInterventionRecommendation] = useState(null);
   const [showQuestionGuide, setShowQuestionGuide] = useState(false);
   const [questionGuideSearch, setQuestionGuideSearch] = useState("");
+  const [rosterAdminOpen, setRosterAdminOpen] = useState(false);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const newClassInputRef = useRef(null);
@@ -1173,6 +1179,11 @@ export function TeacherDashboardPage({
     setNewStudentName("");
   }
 
+  async function handleCreateClass() {
+    setRosterAdminOpen(true);
+    await createClass?.();
+  }
+
   function reviewRosterImport(names) {
     const existingNames = new Set(studentRows.map(row => row.name.trim().toLowerCase()));
     const seenNames = new Set();
@@ -1241,8 +1252,13 @@ export function TeacherDashboardPage({
       return;
     }
     if (stepId === "learners") {
-      if (!isClassesPage) onOpenClasses?.();
-      else focusNewStudentInput();
+      setRosterAdminOpen(true);
+      if (!isClassesPage) {
+        onOpenClasses?.();
+        window.requestAnimationFrame(focusNewStudentInput);
+      } else {
+        focusNewStudentInput();
+      }
       return;
     }
     if (stepId === "logins") {
@@ -1264,6 +1280,7 @@ export function TeacherDashboardPage({
   async function handleCreateDemo() {
     if (creatingDemo) return;
     setCreatingDemo(true);
+    setRosterAdminOpen(true);
     try {
       const created = await createDemoClass?.();
       if (created && !isClassesPage) onOpenClasses?.();
@@ -1489,16 +1506,6 @@ export function TeacherDashboardPage({
         creatingDemo={creatingDemo}
       />
 
-      {selectedClass && (
-        <section className="teacher-roster-metrics" aria-label="Class summary">
-          <RosterMetric label="Students" value={studentRows.length} />
-          <RosterMetric label="Logins ready" value={`${loginReadyCount}/${studentRows.length || 0}`} tone={loginReadyCount === studentRows.length && studentRows.length ? "good" : ""} />
-          <RosterMetric label="Started" value={`${startedCount}/${studentRows.length || 0}`} />
-          <RosterMetric label="Avg accuracy" value={averageAccuracy === null ? "-" : `${averageAccuracy}%`} />
-          <RosterMetric label="Active today" value={activeTodayCount} />
-        </section>
-      )}
-
       <section
         className={`teacher-dashboard-controls${isClassesPage ? "" : " teacher-today-class-control"}`}
         aria-label={isClassesPage ? "Class controls" : "Today class"}
@@ -1527,11 +1534,11 @@ export function TeacherDashboardPage({
               placeholder="Enter class name"
               onChange={event => setNewClassName?.(event.target.value)}
               onKeyDown={event => {
-                if (event.key === "Enter") createClass?.();
+                if (event.key === "Enter") handleCreateClass();
               }}
             />
           </label>
-          <button className="lp-button lp-button-primary" onClick={createClass} type="button">
+          <button className="lp-button lp-button-primary" onClick={handleCreateClass} type="button">
             Create Class
           </button>
         </div>}
@@ -1615,6 +1622,20 @@ export function TeacherDashboardPage({
         />
       )}
 
+      {selectedClass && (
+        <section
+          className="teacher-roster-metrics"
+          aria-label="Class summary"
+          data-teacher-priority="class-pulse"
+        >
+          <RosterMetric label="Students" value={studentRows.length} />
+          <RosterMetric label="Logins ready" value={`${loginReadyCount}/${studentRows.length || 0}`} tone={loginReadyCount === studentRows.length && studentRows.length ? "good" : ""} />
+          <RosterMetric label="Started" value={`${startedCount}/${studentRows.length || 0}`} />
+          <RosterMetric label="Avg accuracy" value={averageAccuracy === null ? "-" : `${averageAccuracy}%`} />
+          <RosterMetric label="Active today" value={activeTodayCount} />
+        </section>
+      )}
+
       {isClassesPage && selectedClass && (
         <section className="teacher-roster-groups" aria-label="Roster groups">
           <div>
@@ -1638,6 +1659,13 @@ export function TeacherDashboardPage({
               </button>
             ))}
           </div>
+          <button
+            className="lp-button lp-button-secondary teacher-question-guide-button"
+            type="button"
+            onClick={openQuestionGuide}
+          >
+            Question type guide
+          </button>
         </section>
       )}
 
@@ -1749,7 +1777,22 @@ export function TeacherDashboardPage({
         </div>
       )}
 
-      {isClassesPage && <section className="teacher-dashboard-roster" aria-label="Students">
+      {isClassesPage && (
+        <details
+          className="teacher-roster-admin"
+          data-teacher-priority="roster-admin"
+          open={rosterAdminOpen}
+          onToggle={event => setRosterAdminOpen(event.currentTarget.open)}
+        >
+          <summary>
+            <span>
+              <strong>Roster administration</strong>
+              <small>Add, import, transfer, archive, or change learner logins.</small>
+            </span>
+            <span>{studentRows.length} active learner{studentRows.length === 1 ? "" : "s"}</span>
+          </summary>
+          <div className="teacher-roster-admin-content">
+      <section className="teacher-dashboard-roster" aria-label="Students">
         <div className="teacher-panel-header">
           <div>
             <p className="panel-label">Roster</p>
@@ -1763,13 +1806,6 @@ export function TeacherDashboardPage({
               <small className="muted-text">Use a familiar English name or classroom nickname. Do not enter a surname or other personal details.</small>
             )}
           </div>
-          <button
-            className="lp-button lp-button-secondary"
-            type="button"
-            onClick={openQuestionGuide}
-          >
-            Question type guide
-          </button>
         </div>
 
         {selectedClass && (
@@ -2132,9 +2168,9 @@ export function TeacherDashboardPage({
             </table>
           </div>
         )}
-      </section>}
+      </section>
 
-      {isClassesPage && selectedClass && archivedStudentList.length > 0 && (
+      {selectedClass && archivedStudentList.length > 0 && (
         <section className="teacher-archived-roster" aria-label="Archived learners">
           <details>
             <summary>Archived learners ({archivedStudentList.length})</summary>
@@ -2158,6 +2194,9 @@ export function TeacherDashboardPage({
             </ul>
           </details>
         </section>
+      )}
+          </div>
+        </details>
       )}
 
       {showQuestionGuide && (

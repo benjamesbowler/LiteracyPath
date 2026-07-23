@@ -345,6 +345,7 @@ export function InterventionLoop({
       className="teacher-intervention-loop"
       aria-label="Intervention lifecycle"
       data-intervention-count={interventions.length}
+      data-teacher-priority="today-actions"
     >
       <header className="teacher-intervention-head">
         <div>

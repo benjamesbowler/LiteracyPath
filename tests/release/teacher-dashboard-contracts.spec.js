@@ -27,6 +27,10 @@ async function selectAuditClass(page) {
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: "Audit Class A" });
   await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
+  const rosterAdmin = page.locator(".teacher-roster-admin");
+  if (!await rosterAdmin.evaluate(element => element.open)) {
+    await rosterAdmin.locator(":scope > summary").click();
+  }
   await expect(page.getByRole("heading", { name: "Students - Audit Class A", exact: true })).toBeVisible();
 }
 
@@ -139,6 +143,41 @@ test("@teacher-today-briefing reachable seeded briefing has four evidence zones 
   await expect(page.getByRole("region", { name: "Learner detail: Aisha" })).toBeVisible();
 });
 
+test("@teacher-urgency-order puts setup and Today actions before pulse, with roster admin collapsed", async ({
+  page
+}) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  const classSelect = page.getByLabel("Current class");
+  await classSelect.selectOption({ label: "Audit Class A" });
+  await expect(page.getByRole("region", { name: "Today's class briefing" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Class summary" })).toBeVisible();
+
+  expect(await page.locator("[data-teacher-priority]").evaluateAll(elements => (
+    elements.map(element => element.dataset.teacherPriority)
+  ))).toEqual(["setup-blockers", "today-actions", "today-actions", "class-pulse"]);
+
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Classes", exact: true })
+    .click();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+
+  const rosterAdmin = page.locator(".teacher-roster-admin");
+  const rosterSummary = rosterAdmin.locator(":scope > summary");
+  await expect(rosterSummary).toContainText("Roster administration");
+  await expect(rosterSummary).toContainText("12 active learners");
+  await expect(rosterAdmin).not.toHaveAttribute("open", "");
+  await expect(page.getByRole("heading", { name: "Students - Audit Class A", exact: true })).toBeHidden();
+  expect(await page.locator("[data-teacher-priority]").evaluateAll(elements => (
+    elements.map(element => element.dataset.teacherPriority)
+  ))).toEqual(["setup-blockers", "class-pulse", "roster-admin"]);
+
+  await rosterSummary.focus();
+  await page.keyboard.press("Enter");
+  await expect(rosterAdmin).toHaveAttribute("open", "");
+  await expect(page.getByRole("heading", { name: "Students - Audit Class A", exact: true })).toBeVisible();
+  await expect(rosterSummary).toBeFocused();
+});
+
 test("@teacher-persistent-context drills through groups and three learners without swapping the student session", async ({ page }) => {
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);
@@ -222,8 +261,8 @@ test("@teacher-contextual-help keeps the question guide out of the dashboard and
   await expect(page.locator(".question-type-guide, .question-guide-table")).toHaveCount(0);
   await expect(page.getByText("What each check actually tests", { exact: true })).toHaveCount(0);
 
-  const roster = page.getByRole("region", { name: "Students" });
-  const directGuideButton = roster.getByRole("button", { name: "Question type guide", exact: true });
+  const groups = page.getByRole("region", { name: "Roster groups" });
+  const directGuideButton = groups.getByRole("button", { name: "Question type guide", exact: true });
   await directGuideButton.click();
   let guide = page.getByRole("dialog", { name: "Question type guide" });
   await expect(guide).toBeVisible();

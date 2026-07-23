@@ -26,6 +26,10 @@ async function openAuditRoster(page) {
     .click();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: "Audit Class A" });
+  const rosterAdmin = page.locator(".teacher-roster-admin");
+  if (!await rosterAdmin.evaluate(element => element.open)) {
+    await rosterAdmin.locator(":scope > summary").click();
+  }
   await expect(page.getByRole("heading", { name: "Students - Audit Class A", exact: true })).toBeVisible();
   await expect(page.locator(".teacher-roster-table tbody > tr")).toHaveCount(12);
 }
@@ -67,6 +71,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Classes", exact: true })
     .click();
+  await page.locator(".teacher-roster-admin > summary").click();
   await expect(page.getByRole("heading", { name: "Students - Audit Class A", exact: true })).toBeVisible();
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toBeAttached();
   await expect(roster.getByRole("columnheader", { name: "Login", exact: true })).toBeAttached();
