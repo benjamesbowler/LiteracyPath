@@ -127,6 +127,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 5, 6, 8, 10]
   },
   {
+    id: "teacher-interventions",
+    label: "Trackable intervention lifecycle and Today follow-up",
+    command: ["npm", "run", "check:teacher-interventions"],
+    areas: [4, 5, 6, 7, 8, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

@@ -415,6 +415,14 @@ on conflict (id) do update set
   access_code = excluded.access_code,
   updated_at = excluded.updated_at;
 
+-- Intervention E2E runs are mutable by design. Clear only the fixed audit
+-- classes so every evidence run starts from the same empty lifecycle.
+delete from public.teacher_interventions
+where class_id in (
+  '30000000-0000-4000-8000-000000000001',
+  '30000000-0000-4000-8000-000000000002'
+);
+
 delete from public.students
 where class_id in (
   '30000000-0000-4000-8000-000000000001',

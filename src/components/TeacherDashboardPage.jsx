@@ -11,6 +11,7 @@ import {
   setRosterStudentArchived,
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
+import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
 
@@ -283,6 +284,7 @@ function TeacherSetupChecklist({
 function TodayBriefing({
   rows,
   onLoadStudent,
+  onPlanIntervention,
   onOpenClasses,
   onOpenAssess,
   onOpenProgress
@@ -325,6 +327,13 @@ function TodayBriefing({
                     onClick={() => onLoadStudent?.(row.id, row.name)}
                   >
                     Review {row.name}
+                  </button>
+                  <button
+                    className="text-button"
+                    type="button"
+                    onClick={() => onPlanIntervention?.(row)}
+                  >
+                    Plan support for {row.name}
                   </button>
                 </li>
               ))}
@@ -688,6 +697,7 @@ export function TeacherDashboardPage({
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
   const [heatOpenId, setHeatOpenId] = useState(null);
+  const [interventionRecommendation, setInterventionRecommendation] = useState(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const newClassInputRef = useRef(null);
@@ -1327,9 +1337,27 @@ export function TeacherDashboardPage({
         <TodayBriefing
           rows={studentRows}
           onLoadStudent={onLoadStudent}
+          onPlanIntervention={row => setInterventionRecommendation({
+            id: row.id,
+            name: row.name,
+            focus: row.focus
+          })}
           onOpenClasses={onOpenClasses}
           onOpenAssess={onOpenAssess}
           onOpenProgress={onOpenProgress}
+        />
+      )}
+
+      {!isClassesPage && selectedClass && (
+        <InterventionLoop
+          key={`${teacherId || "teacher"}:${selectedClass.id}`}
+          supabase={supabase}
+          teacherId={teacherId}
+          classId={selectedClass.id}
+          className={selectedClass.name}
+          rows={studentRows}
+          recommendation={interventionRecommendation}
+          onRecommendationConsumed={() => setInterventionRecommendation(null)}
         />
       )}
 

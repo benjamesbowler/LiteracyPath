@@ -524,6 +524,96 @@ test("@teacher-student-preview blocks writes and returns to the exact teacher co
   expect(pageErrors).toEqual([]);
 });
 
+test("@teacher-intervention-loop plans, delivers, records, reviews, and resurfaces follow-up", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  const classSelect = page.getByLabel("Current class");
+  await classSelect.selectOption({ label: "Audit Class A" });
+  await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
+
+  const attention = page.getByRole("region", { name: "Who needs attention" });
+  const suggestion = attention.getByRole("listitem").first();
+  const learnerName = (await suggestion.locator("strong").first().textContent())?.trim();
+  expect(learnerName).toBeTruthy();
+  await suggestion.getByRole("button", { name: `Plan support for ${learnerName}`, exact: true }).click();
+
+  const lifecycle = page.getByRole("region", { name: "Intervention lifecycle" });
+  const planner = lifecycle.locator("form.teacher-intervention-planner");
+  await expect(planner).toBeVisible();
+  await expect(planner.getByLabel(learnerName, { exact: true })).toBeChecked();
+  await expect(planner.getByLabel("Evidence focus")).not.toHaveValue("");
+
+  const groupName = `A5.10 lifecycle ${Date.now()}`;
+  await planner.getByLabel("Owner").fill("Audit class teacher");
+  await planner.getByLabel("Group name").fill(groupName);
+  await planner.getByLabel("Teaching activity").fill("Model, blend, and reread six controlled words with immediate corrective feedback.");
+  await planner.getByRole("button", { name: "Save intervention plan", exact: true }).click();
+  await expect(lifecycle.getByRole("status")).toHaveText(`Intervention planned for ${groupName}.`);
+
+  let intervention = lifecycle.getByRole("article", { name: `Intervention for ${groupName}` });
+  await expect(intervention.getByText("Planned · delivery needed", { exact: true })).toBeVisible();
+  await expect(intervention.getByText("Audit class teacher", { exact: true })).toBeVisible();
+  await intervention.getByRole("button", { name: "Mark delivered", exact: true }).click();
+  await expect(lifecycle.getByRole("status")).toHaveText(
+    `Delivery recorded for ${groupName}. Add the observed outcome next.`
+  );
+
+  intervention = lifecycle.getByRole("article", { name: `Intervention for ${groupName}` });
+  await intervention.getByLabel("Observed outcome").selectOption("ineffective");
+  await intervention.getByLabel("Observation").fill(
+    "The learner still guessed from the first sound on four of six words."
+  );
+  await intervention.getByRole("button", { name: "Record outcome", exact: true }).click();
+  await expect(lifecycle.getByRole("status")).toHaveText(
+    `Outcome recorded for ${groupName}. Review the response next.`
+  );
+
+  intervention = lifecycle.getByRole("article", { name: `Intervention for ${groupName}` });
+  await expect(intervention.getByText("Outcome recorded · review needed", { exact: true })).toBeVisible();
+  await intervention.getByRole("button", { name: "Review intervention", exact: true }).click();
+  await expect(lifecycle.getByRole("status")).toHaveText(
+    `Review complete for ${groupName}. Follow-up is now on Today.`
+  );
+
+  const resurfaced = lifecycle.getByRole("region", { name: "Interventions resurfaced on Today" });
+  await expect(resurfaced.getByText("Ineffective — follow-up needed", { exact: true })).toBeVisible();
+  await expect(resurfaced.getByText(new RegExp(groupName))).toBeVisible();
+  await expect(resurfaced.getByRole("button", { name: "Plan follow-up", exact: true })).toBeVisible();
+
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({ timeout: 20_000 });
+  if ((await page.getByLabel("Current class").inputValue()) !== "30000000-0000-4000-8000-000000000001") {
+    await page.getByLabel("Current class").selectOption("30000000-0000-4000-8000-000000000001");
+  }
+  const reloadedLifecycle = page.getByRole("region", { name: "Intervention lifecycle" });
+  await expect(reloadedLifecycle.getByRole("article", { name: `Intervention for ${groupName}` })).toContainText(
+    "Reviewed · follow-up needed"
+  );
+  await expect(
+    reloadedLifecycle.getByRole("region", { name: "Interventions resurfaced on Today" })
+      .getByText("Ineffective — follow-up needed", { exact: true })
+  ).toBeVisible();
+  await reloadedLifecycle.getByRole("button", { name: "Plan follow-up", exact: true }).click();
+  const followUpPlanner = reloadedLifecycle.locator("form.teacher-intervention-planner");
+  await expect(followUpPlanner.getByLabel("Group name")).toHaveValue(`${groupName} follow-up`);
+  await followUpPlanner.getByLabel("Teaching activity").fill(
+    "Reduce the set to three words, add sound boxes, and check transfer with three new words."
+  );
+  await followUpPlanner.getByRole("button", { name: "Save intervention plan", exact: true }).click();
+  await expect(reloadedLifecycle.getByRole("status")).toHaveText(
+    `Intervention planned for ${groupName} follow-up.`
+  );
+  await expect(
+    reloadedLifecycle.getByRole("article", { name: `Intervention for ${groupName} follow-up` })
+  ).toContainText("Planned · delivery needed");
+  await expect(
+    reloadedLifecycle.getByRole("region", { name: "Interventions resurfaced on Today" })
+  ).toHaveCount(0);
+  expect(pageErrors).toEqual([]);
+});
+
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));

@@ -2623,6 +2623,299 @@ body {
   min-height: 40px;
 }
 
+.teacher-intervention-loop {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 12px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-intervention-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.teacher-intervention-head h3,
+.teacher-intervention-head p,
+.teacher-intervention-status {
+  margin: 0;
+}
+
+.teacher-intervention-head h3 {
+  margin-top: 3px;
+  color: var(--lp-color-text-strong);
+  font-size: 22px;
+}
+
+.teacher-intervention-head > div > p:last-child {
+  max-width: 680px;
+  margin-top: 4px;
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-intervention-status {
+  min-height: 1.4em;
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.teacher-intervention-today {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid rgba(180, 83, 9, 0.28);
+  border-left: 4px solid var(--lp-color-warning);
+  border-radius: 10px;
+  background: rgba(180, 83, 9, 0.06);
+}
+
+.teacher-intervention-today > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--lp-color-text-strong);
+  font-weight: 850;
+}
+
+.teacher-intervention-today > div strong {
+  min-width: 28px;
+  padding: 4px 8px;
+  border-radius: var(--lp-radius-pill);
+  background: #ffffff;
+  text-align: center;
+}
+
+.teacher-intervention-today ul,
+.teacher-intervention-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-intervention-today li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(180, 83, 9, 0.18);
+}
+
+.teacher-intervention-today li > div {
+  display: grid;
+  gap: 2px;
+}
+
+.teacher-intervention-today li span,
+.teacher-intervention-today li small {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-intervention-planner {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--lp-color-primary);
+  border-radius: 10px;
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-intervention-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.teacher-intervention-planner label,
+.teacher-intervention-next-step label {
+  display: grid;
+  gap: 5px;
+  color: var(--lp-color-text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.teacher-intervention-planner input,
+.teacher-intervention-planner textarea,
+.teacher-intervention-next-step input,
+.teacher-intervention-next-step select,
+.teacher-intervention-next-step textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--lp-color-text);
+  font: inherit;
+}
+
+.teacher-intervention-planner textarea,
+.teacher-intervention-next-step textarea {
+  resize: vertical;
+}
+
+.teacher-intervention-planner fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.teacher-intervention-planner legend {
+  padding: 0 5px;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.teacher-intervention-learners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.teacher-intervention-learners label {
+  display: inline-flex;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: var(--lp-radius-pill);
+  background: #ffffff;
+}
+
+.teacher-intervention-learners input {
+  width: auto;
+  min-height: auto;
+}
+
+.teacher-intervention-form-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.teacher-intervention-form-actions span {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-intervention-card {
+  display: grid;
+  gap: 14px;
+  padding: 15px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-left: 4px solid var(--lp-color-primary);
+  border-radius: 10px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-intervention-card.is-delivered {
+  border-left-color: var(--lp-color-warning);
+}
+
+.teacher-intervention-card.is-recorded {
+  border-left-color: var(--lp-color-success);
+}
+
+.teacher-intervention-card.is-reviewed {
+  border-left-color: var(--lp-color-text-muted);
+}
+
+.teacher-intervention-card > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.teacher-intervention-card h4,
+.teacher-intervention-card p {
+  margin: 0;
+}
+
+.teacher-intervention-card header span {
+  color: var(--lp-color-primary-strong);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.teacher-intervention-card h4 {
+  margin-top: 3px;
+  color: var(--lp-color-text-strong);
+  font-size: 17px;
+}
+
+.teacher-intervention-card header p,
+.teacher-intervention-card time {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-intervention-card dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.teacher-intervention-card dl > div {
+  display: grid;
+  gap: 2px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.teacher-intervention-card dt {
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.teacher-intervention-card dd {
+  margin: 0;
+  color: var(--lp-color-text);
+  overflow-wrap: anywhere;
+}
+
+.teacher-intervention-card > .lp-button {
+  justify-self: start;
+}
+
+.teacher-intervention-next-step {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.45fr) minmax(240px, 1fr) auto;
+  align-items: end;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-intervention-next-step p {
+  align-self: center;
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-intervention-empty {
+  margin: 0;
+}
+
 .teacher-roster-groups,
 .teacher-learner-drawer {
   display: grid;
@@ -2962,6 +3255,18 @@ body {
   }
 
   .teacher-today-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-intervention-head,
+  .teacher-intervention-today li {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-intervention-form-grid,
+  .teacher-intervention-card dl,
+  .teacher-intervention-next-step {
     grid-template-columns: 1fr;
   }
 
