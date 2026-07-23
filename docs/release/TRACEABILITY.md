@@ -80,7 +80,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A8.2 | 8 | P0 + EXTERNAL REVIEW | EXTERNAL-READY | leaderboard DB policy tests + privacy-review readiness | `docs/release/artifacts/2026-07-23T14-22-24-410Z/manifest.partial.json` passes 8/8 (lint, 982 tests, build, bundle and live DB); `docs/release/artifacts/2026-07-23T14-24-53-240Z/manifest.partial.json` passes the reachable teacher privacy control plus invalid-token/anonymous-scope rejection, 12 pseudonymous class rows, explicit teacher opt-in to 25 pseudonymous school rows, and class-scope restoration; independent live review remains open in `EXTERNAL.md` |
 | A8.3 | 8 | P1 | TODO | class-code rate-limit + access-log tests | — |
 | A8.4 | 8 | P1 | TODO | enforced CSP header + violation tests | — |
-| A8.5 | 8 | P0 | TODO | `npm audit` high/critical gate + export snapshots | — |
+| A8.5 | 8 | P0 | IN-PROGRESS | `npm audit` high/critical gate + export snapshots | Commit `20e16efc` upgrades ExcelJS 3.4.0 → 4.4.0, removes `tmp@0.1.0`, and adds the strict exception process; `docs/release/artifacts/2026-07-23T14-53-41-215Z/manifest.partial.json` passes semantic export snapshots and the reachable authenticated download. Not DONE: the cached offline audit reports zero while the package installer reported one high advisory; a fresh registry audit is still required. |
 | A8.6 | 8 | P1 | TODO | remote-error redaction + delivery tests | — |
 | A8.7 | 8 | P1 | TODO | isolated restore-drill evidence | — |
 | A8.8 | 8 | P1 | TODO | seeded learner data-rights E2E | — |
@@ -89,7 +89,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A9.1 | 9 | P1 | IN-PROGRESS | enforced main-entry bundle budget | Exact Phase 0 baseline is frozen and dated ratchets are enforced; `docs/release/artifacts/2026-07-23T12-11-25-561Z/manifest.partial.json` passes; final 500 kB raw / 150 kB gzip WS9 target remains open |
 | A9.2 | 9 | P1 | TODO | route/data chunk + first-load network budgets | — |
 | A9.3 | 9 | P1 | TODO | zero ineffective dynamic imports + split-boundary guard | — |
-| A9.4 | 9 | P1 | TODO | eval-free build + 500-item export memory test | — |
+| A9.4 | 9 | P1 | DONE | eval-free build + 500-item export memory test | Commit `20e16efc`; `docs/release/artifacts/2026-07-23T14-53-41-215Z/manifest.partial.json` passes 6/6: zero-warning lint, 982 tests, production build without the ExcelJS eval warning, authenticated `.xlsx` download, bundle ratchet, three semantic workbook snapshots, lazy chunk assertion, and 500-row serialize/reload within the 160 MiB heap / 224 MiB RSS ceilings. |
 | A9.5 | 9 | P1 | TODO | `App.jsx` line-count ratchet + full tests | — |
 | A9.6 | 9 | P0 | DONE | dashboard consolidation + reachable route contracts | Same 10/10 partial manifest: live teacher, product-finish, high-volume report, build, bundle, and audit-school isolation gates all pass |
 | A9.7 | 9 | P2 | TODO | deep-link + refresh/resume E2E | — |
