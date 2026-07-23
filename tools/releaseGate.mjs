@@ -91,6 +91,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "audit-school-live",
+    label: "Audit school Auth, fixtures, and RLS isolation",
+    command: ["npm", "run", "check:audit-school-live"],
+    areas: [6, 8, 10]
+  },
+  {
     id: "teacher-onboarding",
     label: "Fresh-teacher setup and first-check golden path",
     command: ["npm", "run", "check:teacher-onboarding"],
@@ -156,12 +162,6 @@ export const RELEASE_GATES = Object.freeze([
     label: "Deterministic non-production audit school",
     command: ["npm", "run", "check:audit-school-seed"],
     areas: [6, 10]
-  },
-  {
-    id: "audit-school-live",
-    label: "Audit school Auth, fixtures, and RLS isolation",
-    command: ["npm", "run", "check:audit-school-live"],
-    areas: [6, 8, 10]
   },
   {
     id: "a11y-routes",
