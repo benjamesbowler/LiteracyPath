@@ -81,6 +81,10 @@ test("gate counts parse TAP, browser, warnings, and strict-audit metrics", () =>
     extractGateCounts(generic, "8 passed\nStrict assessment skills audited: 30\nProduction-ready skills: 9\n"),
     { passed: 8, productionReadySkills: 9, auditedSkills: 30 }
   );
+  assert.deepEqual(
+    extractGateCounts(generic, "initial_sounds failures: 438\nRuntime variation failures: 876\n"),
+    { failed: 876 }
+  );
 });
 
 test("composed curriculum gate requires all five dimensions for every skill", () => {

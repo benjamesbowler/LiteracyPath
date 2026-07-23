@@ -7,7 +7,7 @@
       "effectiveDate": "2026-07-23",
       "milestone": "Phase 0 baseline freeze",
       "mainEntryRawBytes": 1148563,
-      "mainEntryGzipBytes": 241382,
+      "mainEntryGzipBytes": 240799,
       "routeChunkRawBytes": 1840996
     },
     {
@@ -33,24 +33,24 @@
     }
   ],
   "largeChunkBaselines": {
-    "QuestHub": { "rawBytes": 378969, "gzipBytes": 140377 },
-    "QuestPixelWorld": { "rawBytes": 844342, "gzipBytes": 227838 },
-    "audio-manifest": { "rawBytes": 776371, "gzipBytes": 200223 },
-    "childAssets": { "rawBytes": 773069, "gzipBytes": 58076 },
+    "QuestHub": { "rawBytes": 378969, "gzipBytes": 140275 },
+    "QuestPixelWorld": { "rawBytes": 844342, "gzipBytes": 227755 },
+    "audio-manifest": { "rawBytes": 776371, "gzipBytes": 200220 },
+    "childAssets": { "rawBytes": 773069, "gzipBytes": 58063 },
     "cvc.generated": { "rawBytes": 334204, "gzipBytes": 13252 },
     "finalSounds.generated": { "rawBytes": 298620, "gzipBytes": 15630 },
-    "generated-hfw-banks": { "rawBytes": 1560251, "gzipBytes": 91565 },
-    "guided-reading-data": { "rawBytes": 1052941, "gzipBytes": 153656 },
-    "index": { "rawBytes": 1148563, "gzipBytes": 241382 },
+    "generated-hfw-banks": { "rawBytes": 1560251, "gzipBytes": 91561 },
+    "guided-reading-data": { "rawBytes": 1052941, "gzipBytes": 153653 },
+    "index": { "rawBytes": 1148563, "gzipBytes": 240799 },
     "languageSkillQuestions.generated": { "rawBytes": 1840996, "gzipBytes": 122739 },
-    "loadAssessmentSkillBank": { "rawBytes": 688465, "gzipBytes": 47630 },
+    "loadAssessmentSkillBank": { "rawBytes": 688465, "gzipBytes": 46848 },
     "mediaQaReviewStatus": { "rawBytes": 599601, "gzipBytes": 43513 },
-    "report-export-libs": { "rawBytes": 919440, "gzipBytes": 235571 },
+    "report-export-libs": { "rawBytes": 919440, "gzipBytes": 235570 },
     "rhyming.generated": { "rawBytes": 1029828, "gzipBytes": 42193 },
     "secondBlockSkillTopUpQuestions.generated": { "rawBytes": 672468, "gzipBytes": 51311 },
     "skillLevelGapQuestions.generated": { "rawBytes": 1643928, "gzipBytes": 106006 },
-    "three.module": { "rawBytes": 725299, "gzipBytes": 183604 },
-    "vendor-react": { "rawBytes": 314527, "gzipBytes": 98986 }
+    "three.module": { "rawBytes": 725299, "gzipBytes": 183602 },
+    "vendor-react": { "rawBytes": 314527, "gzipBytes": 98984 }
   },
   "approvedNewLargeChunks": {}
 }

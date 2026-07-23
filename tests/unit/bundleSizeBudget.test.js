@@ -5,6 +5,7 @@ import {
   activeRatchet,
   buildTrendMarkdown,
   evaluateBundleBudget,
+  gzipBytesForBudget,
   normalizeChunkId
 } from "../../tools/checkBundleSize.js";
 
@@ -36,6 +37,13 @@ const config = {
 test("hashed bundle filenames resolve to stable budget IDs", () => {
   assert.equal(normalizeChunkId("index-Ab12_cdE.js"), "index");
   assert.equal(normalizeChunkId("languageSkillQuestions.generated-Z9xY8wV7.js"), "languageSkillQuestions.generated");
+});
+
+test("gzip budgets ignore content-hash churn in imported chunk filenames", () => {
+  const first = Buffer.from('import("./TeacherDashboard-Ab12_cdE.js");');
+  const second = Buffer.from('import("./TeacherDashboard-Z9xY8wV7.js");');
+  assert.equal(first.length, second.length);
+  assert.equal(gzipBytesForBudget(first), gzipBytesForBudget(second));
 });
 
 test("ratchet selects the latest step effective on the run date", () => {

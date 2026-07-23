@@ -21,6 +21,13 @@ export function normalizeChunkId(fileName) {
   return path.basename(fileName).replace(/-[A-Za-z0-9_-]{8}\.js$/, "");
 }
 
+export function gzipBytesForBudget(bytes) {
+  const hashNormalizedSource = bytes
+    .toString()
+    .replace(/-[A-Za-z0-9_-]{8}(?=\.js\b)/g, "-HASHHASH");
+  return gzipSync(Buffer.from(hashNormalizedSource)).length;
+}
+
 export function activeRatchet(schedule, dateValue = new Date()) {
   const date = dateValue instanceof Date ? dateValue : new Date(dateValue);
   const eligible = schedule
@@ -166,7 +173,7 @@ export function readBundleRows({
         id: normalizeChunkId(file),
         file,
         rawBytes: bytes.length,
-        gzipBytes: gzipSync(bytes).length,
+        gzipBytes: gzipBytesForBudget(bytes),
         isEntry: Boolean(chunkMetadata.isEntry),
         isDynamicEntry: Boolean(chunkMetadata.isDynamicEntry)
       };

@@ -243,7 +243,9 @@ function collectRegexCounts(output) {
   };
   const counts = {};
   for (const [key, pattern] of Object.entries(patterns)) {
-    const match = output.match(pattern);
+    const flags = pattern.flags.includes("g") ? pattern.flags : `${pattern.flags}g`;
+    const matches = [...output.matchAll(new RegExp(pattern.source, flags))];
+    const match = matches.at(-1);
     if (!match) continue;
     const value = match.slice(1).find(part => part !== undefined);
     counts[key] = Number(value);
