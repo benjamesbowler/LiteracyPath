@@ -17,8 +17,6 @@ import {
   ELAssessmentsPage,
   GuidedReadingPage,
   LetterAssessmentPage,
-  ResetStudentProgressDialog,
-  ConfirmActionDialog,
   SkillsProgressPage,
   StudentOverviewPage,
   TeacherReportsPage
@@ -194,6 +192,16 @@ const Sidebar = lazyWithRetry(() =>
 const TeacherIntentPage = lazyWithRetry(() =>
   import("./components/teacher/TeacherIntentPage.jsx").then(module => ({
     default: module.TeacherIntentPage
+  }))
+);
+const ConfirmActionDialog = lazyWithRetry(() =>
+  import("./components/teacher/TeacherAdminDialogs.jsx").then(module => ({
+    default: module.ConfirmActionDialog
+  }))
+);
+const ResetStudentProgressDialog = lazyWithRetry(() =>
+  import("./components/teacher/TeacherAdminDialogs.jsx").then(module => ({
+    default: module.ResetStudentProgressDialog
   }))
 );
 const WorksheetGeneratorPage = lazyWithRetry(() =>
@@ -9509,7 +9517,7 @@ ${metricDefinitionsText}
         </PageBoundary>
       )}
 
-      <ConfirmActionDialog
+      {adminConfirm && <Suspense fallback={null}><ConfirmActionDialog
         open={Boolean(adminConfirm)}
         busy={adminConfirmBusy}
         title={adminConfirm?.kind === "class" ? "Delete class?" : "Delete student?"}
@@ -9532,15 +9540,15 @@ ${metricDefinitionsText}
             setAdminConfirm(null);
           }
         }}
-      />
+      /></Suspense>}
 
-      <ResetStudentProgressDialog
+      {resetProgressDialogOpen && <Suspense fallback={null}><ResetStudentProgressDialog
         open={resetProgressDialogOpen}
         studentName={studentName}
         resetting={resettingProgress}
         onReset={resetSelectedStudentProgress}
         onCancel={() => setResetProgressDialogOpen(false)}
-      />
+      /></Suspense>}
 
       {appView === APP_VIEWS.FINISHED && (
         <PageBoundary resetKey="finished-report">

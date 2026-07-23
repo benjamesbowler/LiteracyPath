@@ -1,5 +1,9 @@
 import { APP_VIEWS } from "../../appState/appViews.js";
 import { TeacherSurfaceState } from "./ui/TeacherSurfaceState.jsx";
+import {
+  TeacherPageHeader,
+  TeacherPageShell
+} from "./ui/TeacherPrimitives.jsx";
 
 const INTENT_COPY = Object.freeze({
   assess: {
@@ -143,22 +147,21 @@ export function TeacherIntentPage({
   });
 
   return (
-    <main
-      className="teacher-product-page teacher-intent-page"
-      data-teacher-intent={intent}
+    <TeacherPageShell
+      className="teacher-intent-page"
+      intent={intent}
     >
-      <section className="teacher-page-header">
-        <div>
-          <p className="panel-label">{copy.eyebrow}</p>
-          <h2>{copy.title}</h2>
-          <p>{copy.description}</p>
-        </div>
+      <TeacherPageHeader
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        description={copy.description}
+      >
         <div className="teacher-dashboard-context" aria-label="Current teaching context">
           <span>Current context</span>
           <strong>{className || "Choose a class"}</strong>
           <small>{studentName ? `Learner: ${studentName}` : "No learner selected"}</small>
         </div>
-      </section>
+      </TeacherPageHeader>
 
       {surfaceState ? (
         <TeacherSurfaceState
@@ -225,6 +228,6 @@ export function TeacherIntentPage({
           )}
         </>
       )}
-    </main>
+    </TeacherPageShell>
   );
 }

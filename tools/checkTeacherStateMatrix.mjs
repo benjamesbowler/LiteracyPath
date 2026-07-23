@@ -16,6 +16,9 @@ const documentSource = read("docs/teacher/STATE_MATRIX.md");
 const dashboardSource = read("src/components/TeacherDashboardPage.jsx");
 const intentSource = read("src/components/teacher/TeacherIntentPage.jsx");
 const stylesSource = read("src/App.css");
+const teacherTokensSource = read(
+  "src/components/teacher/ui/teacherTokens.css"
+);
 const componentSource = read(
   "src/components/teacher/ui/TeacherSurfaceState.jsx"
 );
@@ -65,7 +68,11 @@ assert.ok(
   "Loading states must expose aria-busy."
 );
 assert.ok(
-  stylesSource.includes("min-height: 44px !important"),
+  teacherTokensSource.includes("--teacher-ui-target-min: 44px"),
+  "Teacher state recovery actions must retain a 44px minimum target token."
+);
+assert.ok(
+  stylesSource.includes("min-height: var(--teacher-ui-target-min) !important"),
   "Teacher state recovery actions must retain a 44px minimum target."
 );
 assert.ok(

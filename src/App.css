@@ -3,6 +3,7 @@
 @import './styles/lg-design-system.css';
 @import './styles/pal-worlds.css';
 @import './styles/student-reports.css';
+@import './components/teacher/ui/teacherTokens.css';
 
 :root {
   --lp-color-primary: #0C6B65;
@@ -2280,7 +2281,7 @@ body {
 .teacher-product-page {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--teacher-ui-page-gap);
   padding: 16px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
@@ -5631,7 +5632,7 @@ body {
   display: grid;
   grid-template-columns: minmax(180px, 1fr) repeat(2, minmax(150px, 0.55fr)) auto;
   align-items: end;
-  gap: 12px;
+  gap: var(--teacher-ui-panel-gap);
   padding: 14px;
   border: 1px solid var(--lp-color-border-subtle);
   border-radius: 14px;
@@ -5652,7 +5653,7 @@ body {
   min-height: 40px;
   padding: 8px 10px;
   border: 1px solid var(--lp-color-border);
-  border-radius: 9px;
+  border-radius: var(--teacher-ui-control-radius);
   background: var(--lp-color-surface);
   color: var(--lp-color-text);
   font: inherit;
@@ -17739,7 +17740,7 @@ select:focus {
 .teacher-action-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 12px;
+  gap: var(--teacher-ui-panel-gap);
 }
 
 .teacher-intent-actions {
@@ -17834,7 +17835,7 @@ select:focus {
   padding: 14px 16px;
   border: 1px solid var(--lp-color-border);
   border-left-width: 4px;
-  border-radius: 12px;
+  border-radius: var(--teacher-ui-card-radius);
   background: var(--lp-color-surface);
   box-shadow: var(--lp-shadow-card);
 }
@@ -17872,7 +17873,7 @@ select:focus {
   padding: 22px;
   border: 1px solid color-mix(in srgb, var(--teacher-state-accent) 28%, var(--lp-color-border));
   border-left: 5px solid var(--teacher-state-accent);
-  border-radius: 12px;
+  border-radius: var(--teacher-ui-card-radius);
   background: var(--lp-color-surface);
   box-shadow: var(--lp-shadow-card);
 }
@@ -17964,13 +17965,13 @@ select:focus {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  width: 320px;
+  width: var(--teacher-ui-action-column);
   max-width: 100%;
 }
 
 .teacher-surface-state-actions .lp-button {
   width: 100%;
-  min-height: 44px !important;
+  min-height: var(--teacher-ui-target-min) !important;
   white-space: normal;
 }
 

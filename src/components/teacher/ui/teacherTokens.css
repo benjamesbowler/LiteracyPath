@@ -1,0 +1,8 @@
+:root {
+  --teacher-ui-target-min: 44px;
+  --teacher-ui-page-gap: 14px;
+  --teacher-ui-panel-gap: 12px;
+  --teacher-ui-card-radius: 12px;
+  --teacher-ui-control-radius: 9px;
+  --teacher-ui-action-column: 320px;
+}

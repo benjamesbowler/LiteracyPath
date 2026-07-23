@@ -17,6 +17,17 @@ import {
   MetricFigure
 } from "./MetricDefinition.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
+import {
+  TeacherChart,
+  TeacherDataTable,
+  TeacherFilterBar,
+  TeacherPageHeader,
+  TeacherPageShell
+} from "./teacher/ui/TeacherPrimitives.jsx";
+import {
+  TeacherDrawer,
+  TeacherModal
+} from "./teacher/ui/TeacherDialog.jsx";
 import { metricDefinitionText } from "../utils/metricDefinitions.js";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
@@ -234,134 +245,6 @@ function StudentInitial({ name }) {
     <span className="teacher-student-initial" aria-hidden="true">
       {String(name || "S").slice(0, 1).toUpperCase()}
     </span>
-  );
-}
-
-function TeacherModal({
-  label,
-  className = "",
-  onClose,
-  closeOnEscape = true,
-  children
-}) {
-  const dialogRef = useRef(null);
-  const onCloseRef = useRef(onClose);
-
-  useEffect(() => {
-    onCloseRef.current = onClose;
-  }, [onClose]);
-
-  useEffect(() => {
-    const previouslyFocused = document.activeElement;
-    const dialog = dialogRef.current;
-    if (!dialog) return undefined;
-
-    const focusableSelector = [
-      "button:not([disabled])",
-      "input:not([disabled])",
-      "select:not([disabled])",
-      "textarea:not([disabled])",
-      "a[href]",
-      "[tabindex]:not([tabindex='-1'])"
-    ].join(",");
-    const focusable = () => [...dialog.querySelectorAll(focusableSelector)]
-      .filter(element => !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true");
-
-    const preferred = dialog.querySelector("[data-autofocus]");
-    const first = focusable()[0];
-    (preferred || first || dialog).focus();
-
-    function handleKeyDown(event) {
-      if (event.key === "Escape" && closeOnEscape && onCloseRef.current) {
-        event.preventDefault();
-        onCloseRef.current();
-        return;
-      }
-      if (event.key !== "Tab") return;
-      const candidates = focusable();
-      if (!candidates.length) {
-        event.preventDefault();
-        dialog.focus();
-        return;
-      }
-      const firstCandidate = candidates[0];
-      const lastCandidate = candidates.at(-1);
-      if (event.shiftKey && document.activeElement === firstCandidate) {
-        event.preventDefault();
-        lastCandidate.focus();
-      } else if (!event.shiftKey && document.activeElement === lastCandidate) {
-        event.preventDefault();
-        firstCandidate.focus();
-      }
-    }
-
-    dialog.addEventListener("keydown", handleKeyDown);
-    return () => {
-      dialog.removeEventListener("keydown", handleKeyDown);
-      if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
-        previouslyFocused.focus();
-      }
-    };
-  }, [closeOnEscape]);
-
-  return (
-    <div
-      ref={dialogRef}
-      className={["symbol-password-modal", className].filter(Boolean).join(" ")}
-      role="dialog"
-      aria-modal="true"
-      aria-label={label}
-      tabIndex={-1}
-    >
-      {children}
-    </div>
-  );
-}
-
-function TeacherDrawer({ label, onClose, children }) {
-  const drawerRef = useRef(null);
-  const onCloseRef = useRef(onClose);
-
-  useEffect(() => {
-    onCloseRef.current = onClose;
-  }, [onClose]);
-
-  useEffect(() => {
-    const previouslyFocused = document.activeElement;
-    const drawer = drawerRef.current;
-    if (!drawer) return undefined;
-    const firstControl = drawer.querySelector("[data-autofocus]")
-      || drawer.querySelector(
-        "button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]"
-      );
-    (firstControl || drawer).focus();
-
-    function handleKeyDown(event) {
-      if (event.key !== "Escape") return;
-      event.preventDefault();
-      onCloseRef.current?.();
-    }
-
-    drawer.addEventListener("keydown", handleKeyDown);
-    return () => {
-      drawer.removeEventListener("keydown", handleKeyDown);
-      if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
-        previouslyFocused.focus();
-      }
-    };
-  }, []);
-
-  return (
-    <div
-      ref={drawerRef}
-      className="teacher-learner-drawer-dialog"
-      role="dialog"
-      aria-modal="false"
-      aria-label={label}
-      tabIndex={-1}
-    >
-      {children}
-    </div>
   );
 }
 
@@ -876,10 +759,9 @@ function ClassHeatPanel({ rows }) {
       </div>
       {open && (
         <>
-          <div
+          <TeacherChart
             className="quest-heat-grid"
-            role="img"
-            aria-label={`Class sound map. ${summary.groups.length
+            label={`Class sound map. ${summary.groups.length
               ? summary.groups.map(group => `${group.label}: ${group.count} students need re-teaching`).join(". ")
               : "No sound currently needs a re-teaching group."}`}
           >
@@ -893,7 +775,7 @@ function ClassHeatPanel({ rows }) {
                 {tile.label}
               </span>
             ))}
-          </div>
+          </TeacherChart>
           {summary.groups.length > 0 && (
             <ul className="class-heat-groups">
               {summary.groups.map(group => (
@@ -1471,27 +1353,27 @@ export function TeacherDashboardPage({
   }
 
   return (
-    <main
-      className="teacher-product-page teacher-dashboard-page"
-      data-teacher-product="class-dashboard"
+    <TeacherPageShell
+      className="teacher-dashboard-page"
+      product="class-dashboard"
     >
-      <section className="teacher-page-header teacher-dashboard-hero">
-        <div>
+      <TeacherPageHeader
+        className="teacher-dashboard-hero"
+        brand={(
           <div className="teacher-page-brand">
             <img src={logoUrl} alt="" />
             <p className="panel-label">{isClassesPage ? "Classes" : "Today"}</p>
           </div>
-          <h2>{isClassesPage ? "Classes" : "Today"}</h2>
-          <p>
-            {isClassesPage
-              ? (selectedClass
-                ? `Manage ${selectedClass.name}'s roster, access, and class settings.`
-                : "Select or create a class to begin.")
-              : (selectedClass
-                ? `Review ${selectedClass.name}'s current pulse and next actions.`
-                : "Choose a class for today's briefing.")}
-          </p>
-        </div>
+        )}
+        title={isClassesPage ? "Classes" : "Today"}
+        description={isClassesPage
+          ? (selectedClass
+            ? `Manage ${selectedClass.name}'s roster, access, and class settings.`
+            : "Select or create a class to begin.")
+          : (selectedClass
+            ? `Review ${selectedClass.name}'s current pulse and next actions.`
+            : "Choose a class for today's briefing.")}
+      >
         <div className="teacher-dashboard-context" aria-label="Current school and class">
           <span>School</span>
           <strong>{hasSchool ? schoolName : "Not set"}</strong>
@@ -1553,7 +1435,7 @@ export function TeacherDashboardPage({
             <ActionFeedback message={leaderboardStatus} />
           </div>
         )}
-      </section>
+      </TeacherPageHeader>
 
       <ActionFeedback className="teacher-dashboard-message" message={message} />
       <ActionFeedback className="teacher-dashboard-message" feedback={rosterOperationStatus} />
@@ -2059,7 +1941,10 @@ export function TeacherDashboardPage({
 
         {selectedClass && studentRows.length > 0 && (
           <>
-            <section className="teacher-roster-tools" aria-label="Roster search, sort, and filters">
+            <TeacherFilterBar
+              className="teacher-roster-tools"
+              label="Roster search, sort, and filters"
+            >
               <label>
                 <span>Search roster</span>
                 <input
@@ -2090,7 +1975,7 @@ export function TeacherDashboardPage({
               <p role="status">
                 Showing <strong>{visibleStudentRows.length}</strong> of {studentRows.length} active learners
               </p>
-            </section>
+            </TeacherFilterBar>
             <details className="teacher-roster-column-picker">
               <summary>Choose columns · {visibleRosterColumns.length + 2} shown</summary>
               <fieldset>
@@ -2152,8 +2037,10 @@ export function TeacherDashboardPage({
             </button>
           </div>
         ) : (
-          <div className="table-scroll">
-            <table className="dashboard-table teacher-roster-table">
+          <TeacherDataTable
+            className="dashboard-table teacher-roster-table"
+            label={`${selectedClass.name} active learner roster`}
+          >
               <thead>
                 <tr>
                   <th scope="col" aria-label="Select learners">
@@ -2334,8 +2221,7 @@ export function TeacherDashboardPage({
                   );
                 })}
               </tbody>
-            </table>
-          </div>
+          </TeacherDataTable>
         )}
       </section>
 
@@ -2510,6 +2396,6 @@ export function TeacherDashboardPage({
       )}
       </>
       )}
-    </main>
+    </TeacherPageShell>
   );
 }

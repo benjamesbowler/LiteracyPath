@@ -115,6 +115,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "teacher-ui-primitives",
+    label: "Consolidated teacher tokens, page shells, filters, tables, charts, dialogs, and visual baselines",
+    command: ["npm", "run", "check:teacher-ui-primitives"],
+    areas: [5, 6, 9, 10]
+  },
+  {
     id: "teacher-context",
     label: "Persistent class, group, and learner teacher context",
     command: ["npm", "run", "check:teacher-context"],
