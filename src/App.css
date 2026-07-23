@@ -2623,6 +2623,106 @@ body {
   min-height: 40px;
 }
 
+.teacher-roster-groups,
+.teacher-learner-drawer {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 10px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-roster-groups > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.teacher-roster-groups > div:first-child > strong {
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-roster-group-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.teacher-roster-group-buttons button {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 11px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  text-align: left;
+}
+
+.teacher-roster-group-buttons button.is-active {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary-strong);
+}
+
+.teacher-roster-group-buttons button strong {
+  flex: 0 0 auto;
+  min-width: 24px;
+  color: inherit;
+  text-align: right;
+}
+
+.teacher-learner-drawer {
+  border-left: 4px solid var(--lp-color-primary);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-learner-drawer > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.teacher-learner-drawer h3 {
+  margin: 4px 0 2px;
+  color: var(--lp-color-text-strong);
+  font-size: 24px;
+}
+
+.teacher-learner-drawer header p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-context-trail {
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.teacher-context-trail span {
+  padding: 0 4px;
+}
+
+.teacher-learner-drawer-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.teacher-learner-drawer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .teacher-school-summary {
   display: flex;
   flex-wrap: wrap;
@@ -2865,6 +2965,11 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .teacher-roster-group-buttons,
+  .teacher-learner-drawer-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .teacher-roster-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2883,6 +2988,15 @@ body {
 @media (max-width: 520px) {
   .teacher-today-zone li {
     align-items: start;
+    flex-direction: column;
+  }
+
+  .teacher-roster-group-buttons,
+  .teacher-learner-drawer-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-learner-drawer > header {
     flex-direction: column;
   }
 

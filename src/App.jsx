@@ -1778,8 +1778,20 @@ const letterAssessmentOrder = [
 ];
 
 export default function App() {
-  const [studentName, setStudentName] = useState("");
-  const [studentId, setStudentId] = useState(null);
+  const [studentSessionName, setStudentSessionName] = useState("");
+  const [studentSessionId, setStudentSessionId] = useState(null);
+  const [teacherStudentContext, setTeacherStudentContext] = useState({
+    studentId: null,
+    studentName: ""
+  });
+  const [teacherGroupId, setTeacherGroupId] = useState("all");
+  const [sessionMode, setSessionMode] = useState("teacher");
+  const studentName = sessionMode === "student"
+    ? studentSessionName
+    : teacherStudentContext.studentName;
+  const studentId = sessionMode === "student"
+    ? studentSessionId
+    : teacherStudentContext.studentId;
   const [studentList, setStudentList] = useState([]);
   const [loadingStudents, setLoadingStudents] = useState(false);
   const [classList, setClassList] = useState([]);
@@ -1837,7 +1849,6 @@ export default function App() {
   const [assessmentTransitioning, setAssessmentTransitioning] = useState(false);
   const [message, setMessage] = useState("");
   const [teacherUser, setTeacherUser] = useState(null);
-  const [sessionMode, setSessionMode] = useState("teacher");
   const [studentSession, setStudentSession] = useState(null);
   const [entryMode, setEntryMode] = useState("entry");
   const [authReady, setAuthReady] = useState(false);
@@ -2327,8 +2338,8 @@ export default function App() {
     setElBenchmarkSession(null);
     setSessionMode("student");
     setStudentSession(session);
-    setStudentId(session.studentId);
-    setStudentName(session.studentName || "Reader");
+    setStudentSessionId(session.studentId);
+    setStudentSessionName(session.studentName || "Reader");
     setSelectedClassId(session.classId || null);
     setNameSaved(true);
     setAppView(APP_VIEWS.STUDENT_HOME);
@@ -2375,8 +2386,8 @@ export default function App() {
     }
     clearProgressSyncSession();
     setStudentSession(null);
-    setStudentId(null);
-    setStudentName("");
+    setStudentSessionId(null);
+    setStudentSessionName("");
     setElBenchmarkSession(null);
     setNameSaved(false);
     setSessionMode("teacher");
@@ -2394,8 +2405,8 @@ export default function App() {
       clearProgressSyncSession();
       setSessionMode("teacher");
       setStudentSession(null);
-      setStudentId(null);
-      setStudentName("");
+      setStudentSessionId(null);
+      setStudentSessionName("");
       setSelectedClassId(null);
       setNameSaved(false);
       setGuidedReadingRecords({});
@@ -2458,8 +2469,10 @@ export default function App() {
   }
 
   function clearTeacherState() {
-    setStudentName("");
-    setStudentId(null);
+    setStudentSessionName("");
+    setStudentSessionId(null);
+    setTeacherStudentContext({ studentId: null, studentName: "" });
+    setTeacherGroupId("all");
     setStudentList([]);
     setClassList([]);
     setSelectedClassId(null);
@@ -2507,8 +2520,8 @@ export default function App() {
   }
 
   function resetSelectedStudentOnLogin() {
-    setStudentName("");
-    setStudentId(null);
+    setTeacherStudentContext({ studentId: null, studentName: "" });
+    setTeacherGroupId("all");
     setNameSaved(false);
     setAppView(APP_VIEWS.SELECT);
     setRoundAnswers([]);
@@ -2698,8 +2711,8 @@ export default function App() {
           skillTree.length - 1
         );
         const restoredRoundAnswers = Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
-        const restoredStudentId = data.studentId || null;
-        const restoredStudentName = data.studentName || "";
+        const restoredStudentId = data.teacherStudentId || data.studentId || null;
+        const restoredStudentName = data.teacherStudentName || data.studentName || "";
         const legacyElBenchmarkSession =
           restoredStudentId && data.elBenchmarkSession?.studentId === restoredStudentId
             ? data.elBenchmarkSession
@@ -2719,10 +2732,16 @@ export default function App() {
           ? APP_VIEWS.EL_ASSESSMENTS
           : requestedRestoredAppView;
 
-        setStudentId(restoredStudentId);
-        setStudentName(restoredStudentName);
+        setTeacherStudentContext({
+          studentId: restoredStudentId,
+          studentName: restoredStudentName
+        });
+        setTeacherGroupId(data.teacherGroupId || "all");
         setNameSaved(Boolean(restoredStudentId && restoredStudentName));
-        setAppView(restoredAppView);
+        // Profile restoration is state hydration, not visible navigation.
+        // Apply it synchronously so a view-transition callback cannot lose a
+        // race to the post-auth "open Today" fallback.
+        rawSetAppView(restoredAppView);
         setCurrentSkillIndex(restoredSkillIndex);
         // Restore the round's repeat-guard memory alongside its answers: the
         // in-round dedupe and coverage scoring index these arrays against
@@ -2791,13 +2810,14 @@ export default function App() {
   const buildLatestSkillMasterySummary = useEffectEvent(buildSkillMasterySummary);
 
   useEffect(() => {
-    if (!profileLoaded || !profileStorageKey) return;
+    if (!profileLoaded || !profileStorageKey || sessionMode === "student") return;
 
     localStorage.setItem(
       profileStorageKey,
       JSON.stringify({
-        studentName,
-        studentId,
+        teacherStudentName: studentName,
+        teacherStudentId: studentId,
+        teacherGroupId,
         selectedClassId,
         appView: getPersistedAppView({ studentId, appView }),
         assessmentMode,
@@ -2820,8 +2840,10 @@ export default function App() {
     );
   }, [
     profileLoaded,
+    sessionMode,
     studentName,
     studentId,
+    teacherGroupId,
     selectedClassId,
     appView,
     assessmentMode,
@@ -2841,6 +2863,37 @@ export default function App() {
     answerHistory,
     itemMastery,
     profileStorageKey
+  ]);
+
+  useEffect(() => {
+    if (
+      sessionMode === "student"
+      || !teacherId
+      || ![
+        APP_VIEWS.SELECT,
+        APP_VIEWS.TEACHER_DASHBOARD,
+        APP_VIEWS.TEACHER_CLASSES
+      ].includes(appView)
+    ) return;
+
+    const intent = appView === APP_VIEWS.TEACHER_CLASSES ? "classes" : "today";
+    const context = new URLSearchParams();
+    if (selectedClassId) context.set("class", selectedClassId);
+    if (appView === APP_VIEWS.TEACHER_CLASSES) {
+      context.set("group", teacherGroupId || "all");
+      if (studentId) context.set("learner", studentId);
+    }
+    const nextHash = `#teacher/${intent}${context.size ? `?${context.toString()}` : ""}`;
+    if (window.location.hash !== nextHash) {
+      window.history.replaceState(window.history.state, "", nextHash);
+    }
+  }, [
+    appView,
+    selectedClassId,
+    sessionMode,
+    studentId,
+    teacherGroupId,
+    teacherId
   ]);
 
   // Benchmark drafts are stored independently for each learner. A teacher can
@@ -4256,7 +4309,16 @@ export default function App() {
   }
 
 
-  async function loadStudentProgress(selectedStudentId, selectedStudentName) {
+  async function loadStudentProgress(
+    selectedStudentId,
+    selectedStudentName,
+    { navigate = true } = {}
+  ) {
+    setTeacherStudentContext({
+      studentId: selectedStudentId,
+      studentName: selectedStudentName
+    });
+    setNameSaved(true);
     setSelectedStudentEvidenceReady(false);
     answerInFlightRef.current = false;
     if (elBenchmarkSession?.studentId) {
@@ -4304,10 +4366,7 @@ export default function App() {
     void hydrateCloudProgress(progressSyncSession).catch(error => {
       console.warn("Could not hydrate teacher-selected cloud progress.", error);
     });
-    setStudentId(selectedStudentId);
-    setStudentName(selectedStudentName);
-    setNameSaved(true);
-    setAppView(APP_VIEWS.OVERVIEW);
+    if (navigate) setAppView(APP_VIEWS.OVERVIEW);
     setCheckpointDecision(null);
     const selectedAttemptHistoryPromise = hydrateAssessmentAttempts({
       teacherId,
@@ -4484,8 +4543,10 @@ export default function App() {
     }
 
     resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
-    setStudentId(data.id);
-    setStudentName(data.name || clean);
+    setTeacherStudentContext({
+      studentId: data.id,
+      studentName: data.name || clean
+    });
     setGuidedReadingRecords({});
     setNameSaved(true);
     setCurrentSkillIndex(0);
@@ -8331,8 +8392,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       });
     }
     setNameSaved(false);
-    setStudentId(null);
-    setStudentName("");
+    setTeacherStudentContext({ studentId: null, studentName: "" });
+    setTeacherGroupId("all");
     setLetterIndex(0);
     setLetterAssessment([]);
     setPatternIndex(0);
@@ -8417,12 +8478,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const latestTeacherAccountIsApproved = useEffectEvent(isTeacherAccountApproved);
 
   useEffect(() => {
-    if (!authReady || !teacherUser) return;
+    if (!authReady || !teacherUser || !profileLoaded) return;
     if (!latestTeacherAccountIsApproved()) return;
     if (appView === APP_VIEWS.SELECT) {
       setAppView(APP_VIEWS.TEACHER_DASHBOARD);
     }
-  }, [appView, authReady, teacherAccountStatus, teacherUser, isAdmin, setAppView]);
+  }, [appView, authReady, profileLoaded, teacherAccountStatus, teacherUser, isAdmin, setAppView]);
 
   // When a child finishes one of Today's Mission tasks (book, game, or
   // quest station), bring them back to the mission screen.
@@ -8766,10 +8827,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   };
 
   return (
-    <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
+    <ErrorBoundary
+      resetKey={`app-shell-${appView}-${isStudentMode ? studentSessionId || "none" : "teacher"}`}
+      fallback={<PageErrorFallback />}
+    >
     <div
       className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isStudentSurfaceView && learnFullscreen ? " learn-fullscreen-shell" : ""}${effectiveAssessmentFullscreen ? " assessment-fullscreen-shell" : ""}${studentSurfaceShellClass ? ` ${studentSurfaceShellClass}` : ""}`}
       data-pal-world={isStudentMode ? worldForScope(studentId || studentName || "default").id : undefined}
+      data-teacher-class-id={!isStudentMode ? selectedClassId || "" : undefined}
+      data-teacher-group-id={!isStudentMode ? teacherGroupId : undefined}
+      data-teacher-learner-id={!isStudentMode ? studentId || "" : undefined}
+      data-student-session-id={isStudentMode ? studentSessionId || "" : ""}
     >
       {!isFocusedShell && (
         <Suspense fallback={<aside className="lg-sidebar" aria-label="Loading main navigation" />}>
@@ -8955,7 +9023,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               pageIntent={appView === APP_VIEWS.TEACHER_CLASSES ? "classes" : "today"}
               classList={classList}
               selectedClassId={selectedClassId}
-              setSelectedClassId={setSelectedClassId}
+              setSelectedClassId={nextClassId => {
+                setSelectedClassId(nextClassId);
+                setTeacherGroupId("all");
+                setTeacherStudentContext({ studentId: null, studentName: "" });
+                setNameSaved(false);
+              }}
               setStudentList={setStudentList}
               studentList={studentList}
               loadingStudents={loadingStudents}
@@ -8963,7 +9036,22 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               assignQuestPractice={assignQuestPractice}
               clearQuestPractice={clearQuestPractice}
               onLoadStudent={async (id, name) => {
-                await loadStudentProgress(id, name);
+                const loadPromise = loadStudentProgress(id, name, { navigate: false });
+                if (appView !== APP_VIEWS.TEACHER_CLASSES) {
+                  setAppView(APP_VIEWS.TEACHER_CLASSES);
+                }
+                await loadPromise;
+              }}
+              selectedStudentId={studentId}
+              onClearStudent={() => {
+                setTeacherStudentContext({ studentId: null, studentName: "" });
+                setNameSaved(false);
+              }}
+              selectedGroupId={teacherGroupId}
+              onSelectGroup={groupId => {
+                setTeacherGroupId(groupId || "all");
+                setTeacherStudentContext({ studentId: null, studentName: "" });
+                setNameSaved(false);
               }}
               onOpenClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
               onOpenAssess={() => setAppView(APP_VIEWS.TEACHER_ASSESS)}

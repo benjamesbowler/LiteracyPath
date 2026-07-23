@@ -85,6 +85,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "teacher-context",
+    label: "Persistent class, group, and learner teacher context",
+    command: ["npm", "run", "check:teacher-context"],
+    areas: [5, 6, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

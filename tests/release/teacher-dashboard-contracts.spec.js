@@ -33,12 +33,10 @@ async function selectAuditClass(page) {
 async function openAaravReports(page) {
   const roster = page.locator(".teacher-roster-table");
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open", exact: true }).click();
-  const studentOverview = page.locator(".teacher-overview-dashboard");
-  await expect(studentOverview).toBeVisible({ timeout: 20_000 });
-  await expect(studentOverview.getByRole("heading", { name: "Aarav", exact: true })).toBeVisible();
-  const primaryNav = page.getByTestId("teacher-primary-nav");
-  await primaryNav.getByRole("button", { name: "Progress", exact: true }).click();
+  await aaravRow.getByRole("button", { name: "Open learner", exact: true }).click();
+  const learnerDetail = page.getByRole("region", { name: "Learner detail: Aarav" });
+  await expect(learnerDetail).toBeVisible();
+  await learnerDetail.getByRole("button", { name: "Review Aarav’s progress", exact: true }).click();
   await expect(page.locator('[data-teacher-intent="progress"]')).toBeVisible();
   await page.getByRole("navigation", { name: "Progress tools" })
     .getByRole("button", { name: "Reports", exact: true })
@@ -137,9 +135,73 @@ test("@teacher-today-briefing reachable seeded briefing has four evidence zones 
   await page.getByRole("region", { name: "Who needs attention" })
     .getByRole("button", { name: "Review Aisha", exact: true })
     .click();
-  await expect(page.locator(".teacher-overview-dashboard")).toBeVisible({ timeout: 20_000 });
-  await expect(page.locator(".teacher-overview-dashboard")
-    .getByRole("heading", { name: "Aisha", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Learner detail: Aisha" })).toBeVisible();
+});
+
+test("@teacher-persistent-context drills through groups and three learners without swapping the student session", async ({ page }) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  const shell = page.locator(".lg-app-shell");
+  await expect(shell).toHaveAttribute("data-student-session-id", "");
+  await expect(shell).toHaveAttribute("data-teacher-group-id", "all");
+  await expect(page).toHaveURL(/#teacher\/classes\?class=30000000-0000-4000-8000-000000000001&group=all$/);
+
+  const groups = page.getByRole("region", { name: "Roster groups" });
+  await groups.getByRole("button", { name: /Needs attention/ }).click();
+  await expect(shell).toHaveAttribute("data-teacher-group-id", "attention");
+  await expect(page).toHaveURL(/group=attention$/);
+
+  const attentionRoster = page.locator(".teacher-roster-table");
+  await attentionRoster.getByRole("row").filter({ hasText: "Aisha" })
+    .getByRole("button", { name: "Open learner", exact: true })
+    .click();
+  await expect(page.getByRole("region", { name: "Learner detail: Aisha" })).toBeVisible();
+  await expect(shell).toHaveAttribute("data-teacher-learner-id", "40000000-0000-4000-8000-000000000002");
+  await expect(shell).toHaveAttribute("data-student-session-id", "");
+  await expect(page).toHaveURL(/group=attention&learner=40000000-0000-4000-8000-000000000002$/);
+
+  await groups.getByRole("button", { name: /Whole class/ }).click();
+  const roster = page.locator(".teacher-roster-table");
+  for (const [name, id] of [
+    ["Aarav", "40000000-0000-4000-8000-000000000001"],
+    ["Camila", "40000000-0000-4000-8000-000000000005"]
+  ]) {
+    await roster.getByRole("row").filter({ hasText: name })
+      .getByRole("button", { name: "Open learner", exact: true })
+      .click();
+    await expect(page.getByRole("region", { name: `Learner detail: ${name}` })).toBeVisible();
+    await expect(shell).toHaveAttribute("data-teacher-learner-id", id);
+    await expect(shell).toHaveAttribute("data-teacher-class-id", "30000000-0000-4000-8000-000000000001");
+    await expect(shell).toHaveAttribute("data-teacher-group-id", "all");
+    await expect(shell).toHaveAttribute("data-student-session-id", "");
+    await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`group=all&learner=${id}$`));
+  }
+
+  await expect.poll(() => page.evaluate(() => {
+    const profile = JSON.parse(
+      localStorage.getItem("readingMasteryProfile:10000000-0000-4000-8000-000000000001") || "null"
+    );
+    return {
+      appView: profile?.appView,
+      classId: profile?.selectedClassId,
+      groupId: profile?.teacherGroupId,
+      learnerId: profile?.teacherStudentId
+    };
+  })).toEqual({
+    appView: "teacherClasses",
+    classId: "30000000-0000-4000-8000-000000000001",
+    groupId: "all",
+    learnerId: "40000000-0000-4000-8000-000000000005"
+  });
+
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole("region", { name: "Learner detail: Camila" })).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator(".lg-app-shell")).toHaveAttribute("data-student-session-id", "");
+  await expect(page).toHaveURL(/group=all&learner=40000000-0000-4000-8000-000000000005$/);
 });
 
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {

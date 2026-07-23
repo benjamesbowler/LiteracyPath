@@ -125,6 +125,7 @@
     "check:teacher-dashboard-data": "npm run test:release-teacher -- --grep @teacher-dashboard-data",
     "check:teacher-ia": "npm run test:release-teacher -- --grep @teacher-five-intention-ia",
     "check:teacher-today": "npm run test:release-teacher -- --grep @teacher-today-briefing",
+    "check:teacher-context": "npm run test:release-teacher -- --grep @teacher-persistent-context",
     "check:teacher-dashboard-consolidation": "node tools/checkTeacherDashboardConsolidation.mjs",
     "check:product-finish-surface": "npm run test:release-teacher -- --grep @product-finish-surface",
     "check:cvc-learn-assets": "node tools/checkCvcLearnAssets.js",

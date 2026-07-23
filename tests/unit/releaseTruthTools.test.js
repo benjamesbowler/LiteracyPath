@@ -28,6 +28,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "skill-progression",
     "teacher-dashboard-data",
     "teacher-today",
+    "teacher-context",
     "teacher-dashboard-consolidation",
     "product-finish-surface",
     "release-readiness-surface",

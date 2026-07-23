@@ -408,6 +408,10 @@ export function TeacherDashboardPage({
   assignQuestPractice,
   clearQuestPractice,
   onLoadStudent,
+  selectedStudentId,
+  onClearStudent,
+  selectedGroupId = "all",
+  onSelectGroup,
   onOpenClasses,
   onOpenAssess,
   onOpenProgress,
@@ -470,6 +474,34 @@ export function TeacherDashboardPage({
     }),
     [dashboardById, studentList]
   );
+  const rosterGroups = useMemo(() => [
+    {
+      id: "all",
+      label: "Whole class",
+      studentIds: studentRows.map(row => row.id)
+    },
+    {
+      id: "attention",
+      label: "Needs attention",
+      studentIds: studentRows
+        .filter(row => row.answered >= 8 && row.accuracy !== null && row.accuracy < 70)
+        .map(row => row.id)
+    },
+    {
+      id: "not-started",
+      label: "Not started",
+      studentIds: studentRows.filter(row => row.answered === 0).map(row => row.id)
+    },
+    {
+      id: "active-today",
+      label: "Active today",
+      studentIds: studentRows
+        .filter(row => formatLastActive(row.lastActive) === "Today")
+        .map(row => row.id)
+    }
+  ], [studentRows]);
+  const selectedRosterGroup = rosterGroups.find(group => group.id === selectedGroupId) || rosterGroups[0];
+  const selectedStudentRow = studentRows.find(row => row.id === selectedStudentId) || null;
   // ── Action cards: turn roster data into one-click next steps ──────────────
   const actionCards = useMemo(() => {
     const cards = [];
@@ -523,8 +555,10 @@ export function TeacherDashboardPage({
     return cards.slice(0, 3);
   }, [studentRows, onLoadStudent]);
 
-  const visibleStudentRows = rosterFilterIds
-    ? studentRows.filter(row => rosterFilterIds.includes(row.id))
+  const groupFilterIds = selectedRosterGroup.id === "all" ? null : selectedRosterGroup.studentIds;
+  const effectiveRosterFilterIds = rosterFilterIds || groupFilterIds;
+  const visibleStudentRows = effectiveRosterFilterIds
+    ? studentRows.filter(row => effectiveRosterFilterIds.includes(row.id))
     : studentRows;
 
   const skillTotal = skillTree.length;
@@ -828,6 +862,72 @@ export function TeacherDashboardPage({
         />
       )}
 
+      {isClassesPage && selectedClass && (
+        <section className="teacher-roster-groups" aria-label="Roster groups">
+          <div>
+            <p className="panel-label">Class groups</p>
+            <strong>Drill down without leaving {selectedClass.name}</strong>
+          </div>
+          <div className="teacher-roster-group-buttons">
+            {rosterGroups.map(group => (
+              <button
+                key={group.id}
+                className={group.id === selectedRosterGroup.id ? "is-active" : ""}
+                type="button"
+                aria-pressed={group.id === selectedRosterGroup.id}
+                onClick={() => {
+                  setRosterFilterIds(null);
+                  onSelectGroup?.(group.id);
+                }}
+              >
+                <span>{group.label}</span>
+                <strong>{group.studentIds.length}</strong>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {isClassesPage && selectedClass && selectedStudentRow && (
+        <section
+          className="teacher-learner-drawer"
+          aria-label={`Learner detail: ${selectedStudentRow.name}`}
+          data-teacher-learner-id={selectedStudentRow.id}
+        >
+          <header>
+            <div>
+              <p className="teacher-context-trail">
+                Classes <span aria-hidden="true">/</span> {selectedClass.name}
+                <span aria-hidden="true">/</span> {selectedRosterGroup.label}
+                <span aria-hidden="true">/</span> {selectedStudentRow.name}
+              </p>
+              <h3>{selectedStudentRow.name}</h3>
+              <p>{selectedStudentRow.currentSkill}</p>
+            </div>
+            <button className="text-button" type="button" onClick={onClearStudent}>
+              Close learner
+            </button>
+          </header>
+          <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} evidence summary`}>
+            <RosterMetric label="Responses" value={selectedStudentRow.answered} />
+            <RosterMetric
+              label="Accuracy"
+              value={selectedStudentRow.answered ? `${selectedStudentRow.accuracy}%` : "Not checked"}
+            />
+            <RosterMetric label="Skills secured" value={selectedStudentRow.masteredCount} />
+            <RosterMetric label="Last active" value={formatLastActive(selectedStudentRow.lastActive)} />
+          </div>
+          <div className="teacher-learner-drawer-actions">
+            <button className="lp-button lp-button-primary" type="button" onClick={onOpenAssess}>
+              Assess {selectedStudentRow.name}
+            </button>
+            <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
+              Review {selectedStudentRow.name}&rsquo;s progress
+            </button>
+          </div>
+        </section>
+      )}
+
       {isClassesPage && selectedClass && actionCards.length > 0 && (
         <section className="teacher-action-cards" aria-label="Suggested next steps">
           {actionCards.map(card => (
@@ -851,10 +951,19 @@ export function TeacherDashboardPage({
         </section>
       )}
 
-      {isClassesPage && rosterFilterIds && (
+      {isClassesPage && effectiveRosterFilterIds && (
         <div className="teacher-roster-filter-chip">
-          <span>Showing {visibleStudentRows.length} of {studentRows.length} students</span>
-          <button className="text-button" type="button" onClick={() => setRosterFilterIds(null)}>
+          <span>
+            {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} students
+          </span>
+          <button
+            className="text-button"
+            type="button"
+            onClick={() => {
+              setRosterFilterIds(null);
+              onSelectGroup?.("all");
+            }}
+          >
             Show all
           </button>
         </div>
@@ -1026,7 +1135,7 @@ export function TeacherDashboardPage({
                     <td>{formatLastActive(row.lastActive)}</td>
                     <td>
                       <button className="lp-button lp-button-secondary teacher-open-student" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
-                        Open
+                        Open learner
                       </button>
                     </td>
                   </tr>
