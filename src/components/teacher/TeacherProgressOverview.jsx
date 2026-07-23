@@ -13,6 +13,44 @@ function percentLabel(value) {
   return Number.isFinite(Number(value)) ? `${Number(value)}%` : "Not scored";
 }
 
+function EvidenceBasis({ basis, label }) {
+  if (!basis) return null;
+  return (
+    <dl className="teacher-evidence-basis" aria-label={`${label} evidence basis`}>
+      <div>
+        <dt>Attempts</dt>
+        <dd>{basis.attemptsLabel}</dd>
+      </div>
+      <div>
+        <dt>Diversity</dt>
+        <dd>{basis.diversityLabel}</dd>
+      </div>
+      <div>
+        <dt>Recency</dt>
+        <dd>{basis.recencyLabel}</dd>
+      </div>
+      <div>
+        <dt>Confidence</dt>
+        <dd>{basis.confidenceLabel}</dd>
+      </div>
+      <div>
+        <dt>Support use</dt>
+        <dd>{basis.supportUseLabel}</dd>
+      </div>
+    </dl>
+  );
+}
+
+function EvidenceDisclosure({ basis, label }) {
+  if (!basis) return null;
+  return (
+    <details className="teacher-evidence-disclosure">
+      <summary>Evidence basis · {basis.confidence.label}</summary>
+      <EvidenceBasis basis={basis} label={label} />
+    </details>
+  );
+}
+
 export function TeacherProgressOverview({
   className = "",
   classList = [],
@@ -34,6 +72,7 @@ export function TeacherProgressOverview({
     ? itemSelection.itemId
     : "";
   const selectedItem = selectedLearner?.itemEvidence.find(item => item.id === selectedItemId) || null;
+  const insufficientLearners = summary.distribution.find(band => band.id === "insufficient")?.learners || [];
 
   function chooseLearner(learnerId) {
     const learner = summary.rows.find(row => row.id === learnerId);
@@ -119,6 +158,23 @@ export function TeacherProgressOverview({
               <p className="teacher-progress-basis">
                 Accuracy bands require at least {summary.policy.minimumResponses} scored responses.
               </p>
+              {insufficientLearners.length > 0 && (
+                <ul className="teacher-progress-insufficient-list" aria-label="Learners with insufficient evidence">
+                  {insufficientLearners.map(learner => (
+                    <li key={learner.id}>
+                      <span>{learner.name}</span>
+                      <button
+                        className="text-button"
+                        type="button"
+                        onClick={() => chooseLearner(learner.id)}
+                      >
+                        Review {learner.name} evidence
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <EvidenceBasis basis={summary.classEvidence} label="Class distribution conclusion" />
             </article>
 
             <article className="teacher-progress-panel">
@@ -150,6 +206,7 @@ export function TeacherProgressOverview({
               <p className="teacher-progress-basis">
                 Coverage reports presence of evidence, not learner mastery.
               </p>
+              <EvidenceBasis basis={summary.coverage.evidence} label="Class coverage conclusion" />
             </article>
 
             <article className="teacher-progress-panel">
@@ -168,6 +225,10 @@ export function TeacherProgressOverview({
                         <strong>{group.label}</strong>
                         <span>{group.learners.map(learner => learner.name).join(", ")}</span>
                         <small>{group.basis} · {group.learners.length} learners</small>
+                        <EvidenceDisclosure
+                          basis={group.evidence}
+                          label={`${group.label} group conclusion`}
+                        />
                       </div>
                       <button
                         className="text-button"
@@ -205,6 +266,10 @@ export function TeacherProgressOverview({
                           {learner.accuracy}% · {Math.abs(learner.difference)} points {learner.direction} median
                         </span>
                         <small>{learner.answered} scored responses</small>
+                        <EvidenceDisclosure
+                          basis={learner.evidence}
+                          label={`${learner.name} outlier conclusion`}
+                        />
                       </div>
                       <button
                         className="text-button"
@@ -235,7 +300,10 @@ export function TeacherProgressOverview({
                   <p className="panel-label">Learner drill-down</p>
                   <h3>{selectedLearner.name} evidence</h3>
                   <p>
-                    {selectedLearner.answered} scored responses · {percentLabel(selectedLearner.accuracy)} accuracy ·
+                    {selectedLearner.answered} scored responses ·
+                    {" "}{selectedLearner.evidence.ready
+                      ? `${percentLabel(selectedLearner.accuracy)} accuracy`
+                      : "Insufficient evidence for an accuracy conclusion"} ·
                     {" "}{selectedLearner.masteredCount} mastered skills
                   </p>
                 </div>
@@ -243,6 +311,10 @@ export function TeacherProgressOverview({
                   Close learner evidence
                 </button>
               </div>
+              <EvidenceBasis
+                basis={selectedLearner.evidence}
+                label={`${selectedLearner.name} learner conclusion`}
+              />
 
               {selectedLearner.itemEvidence.length ? (
                 <div>
@@ -284,7 +356,7 @@ export function TeacherProgressOverview({
                   <dl>
                     <div>
                       <dt>Current signal</dt>
-                      <dd>{bucketLabel(selectedItem.bucket)}</dd>
+                      <dd>{selectedItem.policyReady ? bucketLabel(selectedItem.bucket) : "Insufficient evidence"}</dd>
                     </div>
                     <div>
                       <dt>Recorded encounters</dt>
@@ -296,9 +368,17 @@ export function TeacherProgressOverview({
                     </div>
                     <div>
                       <dt>Independent accuracy</dt>
-                      <dd>{percentLabel(selectedItem.accuracy)}</dd>
+                      <dd>
+                        {selectedItem.policyReady
+                          ? percentLabel(selectedItem.accuracy)
+                          : "Insufficient evidence"}
+                      </dd>
                     </div>
                   </dl>
+                  <EvidenceBasis
+                    basis={selectedItem.evidence}
+                    label={`${selectedItem.label} item conclusion`}
+                  />
                   <p className="teacher-progress-basis">
                     Evidence source: saved Sound Seekers item history
                     {selectedItem.updatedAt ? ` · updated ${new Date(selectedItem.updatedAt).toLocaleString()}` : ""}.

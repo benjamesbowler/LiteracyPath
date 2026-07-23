@@ -143,6 +143,64 @@ test("@teacher-class-progress reaches exact learner item evidence from class vie
   );
 });
 
+test("@teacher-evidence-basis exposes every basis and withholds the seeded sparse percentage", async ({
+  page
+}) => {
+  const pageErrors = [];
+  const consoleErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  page.on("console", message => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Progress", exact: true })
+    .click();
+
+  const overview = page.getByRole("region", { name: "Class progress overview" });
+  await expect(overview).toBeVisible();
+  const distributionBasis = page.getByLabel("Class distribution conclusion evidence basis");
+  const coverageBasis = page.getByLabel("Class coverage conclusion evidence basis");
+  for (const basis of [distributionBasis, coverageBasis]) {
+    await expect(basis).toBeVisible();
+    for (const dimension of ["Attempts", "Diversity", "Recency", "Confidence", "Support use"]) {
+      await expect(basis.getByText(dimension, { exact: true })).toBeVisible();
+    }
+  }
+  const groupBasis = page.getByLabel(/group conclusion evidence basis/).first();
+  const outlierBasis = page.getByLabel(/outlier conclusion evidence basis/).first();
+  await expect(groupBasis).toBeAttached();
+  await groupBasis.locator("xpath=..").locator("summary").click();
+  await expect(groupBasis).toBeVisible();
+  await expect(outlierBasis).toBeAttached();
+  await outlierBasis.locator("xpath=..").locator("summary").click();
+  await expect(outlierBasis).toBeVisible();
+
+  const insufficient = overview.getByRole("list", { name: "Learners with insufficient evidence" });
+  await expect(insufficient.getByText("Amara", { exact: true })).toBeVisible();
+  await insufficient.getByRole("button", { name: "Review Amara evidence", exact: true }).click();
+
+  const learner = page.getByRole("region", { name: "Learner progress evidence: Amara" });
+  await expect(learner).toBeVisible();
+  await expect(learner).toContainText("1 scored response");
+  await expect(learner).toContainText("Insufficient evidence for an accuracy conclusion");
+  await expect(learner).not.toContainText("100% accuracy");
+
+  const learnerBasis = learner.getByLabel("Amara learner conclusion evidence basis");
+  await expect(learnerBasis.getByText("1 scored response", { exact: true })).toBeVisible();
+  await expect(learnerBasis.getByText("1 assessment skill", { exact: true })).toBeVisible();
+  await expect(learnerBasis.getByText(/Jul 2026/, { exact: true })).toBeVisible();
+  await expect(learnerBasis.getByText("Insufficient evidence · 1 of 8 required attempts", {
+    exact: true
+  })).toBeVisible();
+  await expect(learnerBasis.getByText("0 supported of 10 recorded Sound Seekers encounters", {
+    exact: true
+  })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+  expect(consoleErrors).toEqual([]);
+});
+
 test("@teacher-assessment-hub uses purpose-led language and routes every purpose from one hub", async ({
   page
 }) => {

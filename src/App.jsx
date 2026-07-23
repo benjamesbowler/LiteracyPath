@@ -3992,7 +3992,7 @@ export default function App() {
 
     const { data: answers, error: answersError } = await supabase
       .from("answers")
-      .select("student_id, is_correct, answered_at")
+      .select("student_id, skill, is_correct, answered_at")
       .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
       .order("answered_at", { ascending: true });
@@ -4054,6 +4054,9 @@ export default function App() {
 
         const correct =
           studentAnswers.filter(a => a.is_correct).length;
+        const evidenceSkills = [...new Set(
+          studentAnswers.map(row => String(row.skill || "").trim()).filter(Boolean)
+        )];
 
         const accuracy =
           studentAnswers.length === 0
@@ -4107,6 +4110,7 @@ export default function App() {
           answered: studentAnswers.length,
           correct,
           accuracy,
+          evidenceSkills,
           masteredCount: mastered.length,
           currentSkill: firstUnmastered?.label || "Completed",
           lastActive,

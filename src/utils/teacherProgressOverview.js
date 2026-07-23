@@ -1,4 +1,5 @@
 export const PROGRESS_MIN_RESPONSES = 8;
+export const PROGRESS_ITEM_MIN_ATTEMPTS = 3;
 
 const DISTRIBUTION_BANDS = Object.freeze([
   {
@@ -36,6 +37,105 @@ function evidenceReady(row) {
     && Number.isFinite(Number(row?.accuracy));
 }
 
+function evidenceSkillsFor(row) {
+  return [...new Set(
+    (Array.isArray(row?.evidenceSkills) ? row.evidenceSkills : [])
+      .map(value => String(value || "").trim())
+      .filter(Boolean)
+  )];
+}
+
+function latestEvidenceTime(values) {
+  return values
+    .filter(Boolean)
+    .map(value => new Date(value))
+    .filter(value => Number.isFinite(value.getTime()))
+    .sort((left, right) => right.getTime() - left.getTime())[0]
+    ?.toISOString() || "";
+}
+
+export function formatEvidenceRecency(value) {
+  if (!value) return "No saved evidence time";
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "No saved evidence time";
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC"
+  }).format(date);
+}
+
+function confidenceFor({ attempts, diversity, minimum = PROGRESS_MIN_RESPONSES }) {
+  if (attempts < minimum) {
+    return {
+      id: "insufficient",
+      label: "Insufficient evidence",
+      detail: `${attempts} of ${minimum} required attempts`
+    };
+  }
+  if (attempts >= 20 && diversity >= 3) {
+    return {
+      id: "stronger",
+      label: "Stronger evidence",
+      detail: `${attempts} attempts across ${diversity} skills`
+    };
+  }
+  if (diversity >= 2) {
+    return {
+      id: "moderate",
+      label: "Moderate evidence",
+      detail: `${attempts} attempts across ${diversity} skills`
+    };
+  }
+  return {
+    id: "limited-diversity",
+    label: "Limited diversity",
+    detail: `${attempts} attempts across ${diversity || 0} recorded skills`
+  };
+}
+
+function supportSummary(itemEvidence) {
+  const recorded = itemEvidence.reduce((sum, item) => sum + item.seen, 0);
+  const independent = itemEvidence.reduce(
+    (sum, item) => sum + Math.min(item.seen, item.independentSeen),
+    0
+  );
+  return {
+    recorded,
+    independent,
+    supported: Math.max(0, recorded - independent)
+  };
+}
+
+function evidenceBasisFor({
+  attempts,
+  skills,
+  recency,
+  itemEvidence,
+  minimum = PROGRESS_MIN_RESPONSES,
+  confidenceOverride = null
+}) {
+  const diversity = skills.length;
+  const support = supportSummary(itemEvidence);
+  const confidence = confidenceOverride || confidenceFor({ attempts, diversity, minimum });
+  return {
+    attempts,
+    diversity,
+    recency,
+    confidence,
+    support,
+    attemptsLabel: `${attempts} scored response${attempts === 1 ? "" : "s"}`,
+    diversityLabel: `${diversity} assessment skill${diversity === 1 ? "" : "s"}`,
+    recencyLabel: formatEvidenceRecency(recency),
+    confidenceLabel: `${confidence.label} · ${confidence.detail}`,
+    supportUseLabel: support.recorded
+      ? `${support.supported} supported of ${support.recorded} recorded Sound Seekers encounters`
+      : "Not captured in scored checks",
+    ready: attempts >= minimum
+  };
+}
+
 function median(values) {
   if (!values.length) return null;
   const sorted = [...values].sort((left, right) => left - right);
@@ -48,16 +148,27 @@ function median(values) {
 function itemEvidenceFor(row) {
   return normalizedHeat(row)
     .filter(item => finiteNumber(item.seen) > 0)
-    .map(item => ({
-      id: String(item.id),
-      label: String(item.label || item.id),
-      stopName: String(item.stopName || "Curriculum sequence"),
-      bucket: String(item.bucket || "almost"),
-      seen: finiteNumber(item.seen),
-      independentSeen: finiteNumber(item.independentSeen),
-      accuracy: Number.isFinite(Number(item.accuracy)) ? Number(item.accuracy) : null,
-      updatedAt: row?.soundSeekers?.lastActiveAt || row?.soundSeekers?.syncedAt || row?.lastActive || ""
-    }));
+    .map(item => {
+      const evidence = {
+        id: String(item.id),
+        label: String(item.label || item.id),
+        stopName: String(item.stopName || "Curriculum sequence"),
+        bucket: String(item.bucket || "almost"),
+        seen: finiteNumber(item.seen),
+        independentSeen: finiteNumber(item.independentSeen),
+        accuracy: Number.isFinite(Number(item.accuracy)) ? Number(item.accuracy) : null,
+        updatedAt: row?.soundSeekers?.lastActiveAt || row?.soundSeekers?.syncedAt || row?.lastActive || ""
+      };
+      evidence.evidence = evidenceBasisFor({
+        attempts: evidence.independentSeen,
+        skills: [evidence.label],
+        recency: evidence.updatedAt,
+        itemEvidence: [evidence],
+        minimum: PROGRESS_ITEM_MIN_ATTEMPTS
+      });
+      evidence.policyReady = evidence.evidence.ready;
+      return evidence;
+    });
 }
 
 function buildGroups(rows) {
@@ -66,7 +177,7 @@ function buildGroups(rows) {
 
   for (const row of rows) {
     const focus = String(row.currentSkill || "").trim();
-    if (focus && focus !== "Not started" && finiteNumber(row.answered) > 0) {
+    if (focus && focus !== "Not started" && row.evidence.ready) {
       const key = focus.toLowerCase();
       const group = focusGroups.get(key) || {
         id: `focus:${key}`,
@@ -74,25 +185,58 @@ function buildGroups(rows) {
         basis: "Shared current curriculum focus",
         learners: []
       };
-      group.learners.push({ id: row.id, name: row.name });
+      group.learners.push({
+        id: row.id,
+        name: row.name,
+        evidence: row.evidence,
+        evidenceSkills: row.evidenceSkills,
+        itemEvidence: row.itemEvidence
+      });
       focusGroups.set(key, group);
     }
 
-    for (const item of normalizedHeat(row)) {
-      if (item.bucket !== "reteach") continue;
+    for (const item of row.itemEvidence) {
+      if (item.bucket !== "reteach" || !item.policyReady) continue;
       const group = soundGroups.get(item.id) || {
         id: `sound:${item.id}`,
         label: `${item.label || item.id} re-teaching`,
         basis: "Shared Sound Seekers re-teaching evidence",
         learners: []
       };
-      group.learners.push({ id: row.id, name: row.name });
+      group.learners.push({
+        id: row.id,
+        name: row.name,
+        evidence: row.evidence,
+        evidenceSkills: row.evidenceSkills,
+        itemEvidence: row.itemEvidence
+      });
       soundGroups.set(item.id, group);
     }
   }
 
   return [...soundGroups.values(), ...focusGroups.values()]
     .filter(group => group.learners.length >= 2)
+    .map(group => {
+      const skills = [...new Set(group.learners.flatMap(learner => learner.evidenceSkills))];
+      const itemEvidence = group.learners.flatMap(learner => learner.itemEvidence);
+      const attempts = group.learners.reduce((sum, learner) => sum + learner.evidence.attempts, 0);
+      const recency = latestEvidenceTime(group.learners.map(learner => learner.evidence.recency));
+      return {
+        ...group,
+        learners: group.learners.map(({ id, name }) => ({ id, name })),
+        evidence: evidenceBasisFor({
+          attempts,
+          skills,
+          recency,
+          itemEvidence,
+          confidenceOverride: {
+            id: "policy-ready-group",
+            label: "Policy-ready group",
+            detail: `${group.learners.length} learners meet the evidence minimum`
+          }
+        })
+      };
+    })
     .sort((left, right) =>
       right.learners.length - left.learners.length
       || left.label.localeCompare(right.label)
@@ -103,15 +247,28 @@ function buildGroups(rows) {
 export function buildTeacherProgressOverview(sourceRows = []) {
   const rows = sourceRows
     .filter(row => row?.id)
-    .map(row => ({
-      ...row,
-      id: String(row.id),
-      name: String(row.name || "Learner"),
-      answered: Math.max(0, finiteNumber(row.answered)),
-      masteredCount: Math.max(0, finiteNumber(row.masteredCount)),
-      accuracy: Number.isFinite(Number(row.accuracy)) ? Number(row.accuracy) : null,
-      itemEvidence: itemEvidenceFor(row)
-    }));
+    .map(row => {
+      const normalized = {
+        ...row,
+        id: String(row.id),
+        name: String(row.name || "Learner"),
+        answered: Math.max(0, finiteNumber(row.answered)),
+        masteredCount: Math.max(0, finiteNumber(row.masteredCount)),
+        accuracy: Number.isFinite(Number(row.accuracy)) ? Number(row.accuracy) : null,
+        evidenceSkills: evidenceSkillsFor(row),
+        itemEvidence: itemEvidenceFor(row)
+      };
+      normalized.evidence = evidenceBasisFor({
+        attempts: normalized.answered,
+        skills: normalized.evidenceSkills,
+        recency: latestEvidenceTime([
+          normalized.lastActive,
+          ...normalized.itemEvidence.map(item => item.updatedAt)
+        ]),
+        itemEvidence: normalized.itemEvidence
+      });
+      return normalized;
+    });
 
   const readyRows = rows.filter(evidenceReady);
   const insufficientRows = rows.filter(row => !evidenceReady(row));
@@ -156,8 +313,37 @@ export function buildTeacherProgressOverview(sourceRows = []) {
     itemTargetCount,
     itemPercent: itemTargetCount
       ? Math.round((seenItemIds.size / itemTargetCount) * 100)
-      : 0
+      : 0,
+    evidence: evidenceBasisFor({
+      attempts: rows.reduce((sum, row) => sum + row.answered, 0),
+      skills: [...new Set(rows.flatMap(row => row.evidenceSkills))],
+      recency: latestEvidenceTime(rows.map(row => row.evidence.recency)),
+      itemEvidence: rows.flatMap(row => row.itemEvidence),
+      confidenceOverride: {
+        id: "coverage-only",
+        label: "Coverage only",
+        detail: `${readyRows.length} of ${rows.length} learners meet the accuracy minimum`
+      }
+    })
   };
+
+  const classEvidence = evidenceBasisFor({
+    attempts: readyRows.reduce((sum, row) => sum + row.answered, 0),
+    skills: [...new Set(readyRows.flatMap(row => row.evidenceSkills))],
+    recency: latestEvidenceTime(readyRows.map(row => row.evidence.recency)),
+    itemEvidence: readyRows.flatMap(row => row.itemEvidence),
+    confidenceOverride: readyRows.length
+      ? {
+          id: "policy-ready-class",
+          label: "Policy-ready class summary",
+          detail: `${readyRows.length} learners meet the evidence minimum`
+        }
+      : {
+          id: "insufficient",
+          label: "Insufficient evidence",
+          detail: `No learner has ${PROGRESS_MIN_RESPONSES} scored responses`
+        }
+  });
 
   const outliers = classMedian === null
     ? []
@@ -169,7 +355,8 @@ export function buildTeacherProgressOverview(sourceRows = []) {
         answered: row.answered,
         difference: row.accuracy - classMedian,
         direction: row.accuracy >= classMedian ? "above" : "below",
-        itemEvidence: row.itemEvidence
+        itemEvidence: row.itemEvidence,
+        evidence: row.evidence
       }))
       .filter(row => Math.abs(row.difference) >= 15)
       .sort((left, right) =>
@@ -184,6 +371,7 @@ export function buildTeacherProgressOverview(sourceRows = []) {
     groups: buildGroups(rows),
     outliers,
     classMedian,
+    classEvidence,
     policy: {
       minimumResponses: PROGRESS_MIN_RESPONSES,
       outlierDistance: 15

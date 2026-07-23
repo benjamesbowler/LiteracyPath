@@ -133,6 +133,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 7, 10]
   },
   {
+    id: "teacher-evidence-basis",
+    label: "Attempts, diversity, recency, confidence, support use, and sparse-evidence withholding",
+    command: ["npm", "run", "check:teacher-evidence-basis"],
+    areas: [7, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],

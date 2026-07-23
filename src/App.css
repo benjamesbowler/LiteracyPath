@@ -18077,12 +18077,100 @@ select:focus {
 }
 
 .teacher-progress-basis {
-  margin: auto 0 0;
+  margin: 0;
   padding-top: 10px;
   border-top: 1px solid var(--lp-color-border-subtle);
   color: var(--lp-color-text-muted);
   font-size: 12px;
   line-height: 1.45;
+}
+
+.teacher-progress-insufficient-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-progress-insufficient-list li {
+  min-height: var(--teacher-ui-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-progress-insufficient-list span {
+  color: var(--lp-color-text-strong);
+  font-weight: 800;
+}
+
+.teacher-evidence-basis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-evidence-basis > div {
+  min-width: 0;
+}
+
+.teacher-evidence-basis > div:last-child {
+  grid-column: 1 / -1;
+}
+
+.teacher-evidence-basis dt {
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.teacher-evidence-basis dd {
+  margin: 2px 0 0;
+  color: var(--lp-color-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.teacher-evidence-disclosure {
+  margin-top: 8px;
+}
+
+.teacher-evidence-disclosure summary {
+  min-height: var(--teacher-ui-target-min);
+  display: flex;
+  align-items: center;
+  color: var(--lp-color-primary-strong);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.teacher-evidence-disclosure[open] summary {
+  margin-bottom: 7px;
+}
+
+.teacher-evidence-disclosure .teacher-evidence-basis {
+  grid-template-columns: 1fr;
+}
+
+.teacher-evidence-disclosure .teacher-evidence-basis > div:last-child {
+  grid-column: auto;
 }
 
 .teacher-progress-learner {
@@ -18157,6 +18245,15 @@ select:focus {
 
 .teacher-progress-item-evidence .teacher-progress-basis {
   grid-column: 1 / -1;
+}
+
+.teacher-progress-item-evidence .teacher-evidence-basis {
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.teacher-progress-item-evidence .teacher-evidence-basis > div:last-child {
+  grid-column: auto;
 }
 
 /* ─── Teacher surface state matrix ────────────────────────────────────── */
@@ -18343,6 +18440,20 @@ select:focus {
 
   .teacher-progress-item-evidence dl {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teacher-progress-item-evidence .teacher-evidence-basis,
+  .teacher-evidence-basis {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-progress-item-evidence .teacher-evidence-basis > div:last-child,
+  .teacher-evidence-basis > div:last-child {
+    grid-column: auto;
+  }
+
+  .teacher-progress-insufficient-list {
+    grid-template-columns: 1fr;
   }
 
   .teacher-surface-state {

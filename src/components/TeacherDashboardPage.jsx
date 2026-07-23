@@ -6,6 +6,7 @@ import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/work
 import { classHeatSummary } from "../utils/questReport.js";
 import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
 import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
+import { PROGRESS_MIN_RESPONSES } from "../utils/teacherProgressOverview.js";
 import {
   insertRosterStudents,
   setRosterStudentArchived,
@@ -46,6 +47,12 @@ function formatLastActive(value) {
   if (diffDays === 1) return "Yesterday";
   if (diffDays < 7) return `${diffDays} days ago`;
   return date.toLocaleDateString();
+}
+
+function accuracyConclusion(row) {
+  if (!row?.answered) return "Not checked";
+  if (row.answered < PROGRESS_MIN_RESPONSES) return "Insufficient evidence";
+  return `${row.accuracy}%`;
 }
 
 function latestMetricUpdate(values = []) {
@@ -947,7 +954,11 @@ export function TeacherDashboardPage({
 
     // Reteach: 2+ students stuck on the same skill with low accuracy.
     const struggling = studentRows.filter(row =>
-      row.answered > 0 && row.accuracy !== null && row.accuracy < 70 && row.currentSkill && row.currentSkill !== "Not started"
+      row.answered >= PROGRESS_MIN_RESPONSES
+      && row.accuracy !== null
+      && row.accuracy < 70
+      && row.currentSkill
+      && row.currentSkill !== "Not started"
     );
     const bySkill = new Map();
     struggling.forEach(row => {
@@ -1032,7 +1043,10 @@ export function TeacherDashboardPage({
   const loginReadyCount = studentRows.filter(row => row.symbol_password).length;
   const activeTodayCount = studentRows.filter(row => formatLastActive(row.lastActive) === "Today").length;
   const rowsWithAccuracy = studentRows.filter(row =>
-    row.accuracy !== null && row.accuracy !== undefined && Number.isFinite(Number(row.accuracy))
+    row.answered >= PROGRESS_MIN_RESPONSES
+    && row.accuracy !== null
+    && row.accuracy !== undefined
+    && Number.isFinite(Number(row.accuracy))
   );
   const averageAccuracy = rowsWithAccuracy.length
     ? Math.round(rowsWithAccuracy.reduce((sum, row) => sum + Number(row.accuracy), 0) / rowsWithAccuracy.length)
@@ -1596,12 +1610,14 @@ export function TeacherDashboardPage({
           <RosterMetric
             definitionId="accuracy"
             definitionOptions={{
-              denominator: `${rowsWithAccuracy.length} learner accuracies, each calculated from that learner's scored responses.`,
+              denominator: `${rowsWithAccuracy.length} policy-ready learner accuracies, each with at least ${PROGRESS_MIN_RESPONSES} scored responses.`,
               dateRange: "All saved scored responses for the selected class.",
               updatedAt: classMetricUpdatedAt
             }}
             label="Avg accuracy"
-            value={averageAccuracy === null ? "Not checked" : `${averageAccuracy}%`}
+            value={averageAccuracy === null
+              ? studentRows.some(row => row.answered > 0) ? "Insufficient evidence" : "Not checked"
+              : `${averageAccuracy}%`}
           />
           <RosterMetric
             definitionId="active"
@@ -1689,7 +1705,7 @@ export function TeacherDashboardPage({
                   updatedAt: selectedStudentRow.lastActive
                 }}
                 label="Accuracy"
-                value={selectedStudentRow.answered ? `${selectedStudentRow.accuracy}%` : "Not checked"}
+                value={accuracyConclusion(selectedStudentRow)}
               />
               <RosterMetric
                 definitionId="mastered"
@@ -2118,7 +2134,7 @@ export function TeacherDashboardPage({
                               metricId="accuracy"
                               updatedAt={row.lastActive}
                             >
-                              {row.accuracy}%
+                              {accuracyConclusion(row)}
                             </MetricFigure>
                           ) : null}
                         </div>
