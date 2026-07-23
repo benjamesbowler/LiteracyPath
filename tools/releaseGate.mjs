@@ -73,6 +73,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [4, 5, 6, 7, 9, 10]
   },
   {
+    id: "teacher-ia",
+    label: "Five-intention teacher information architecture",
+    command: ["npm", "run", "check:teacher-ia"],
+    areas: [5, 6, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

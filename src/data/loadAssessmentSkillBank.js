@@ -405,7 +405,7 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
     : enriched.source;
   return normalizeRhymingQuestionChoices({
     ...enriched,
-    source: approvedSource || enriched.source,
+    source: approvedSource,
     skillId: runtimeSkillIdFor(skillId) || enriched.skillId || enriched.skill_id || "",
     assessmentSkillId: skillId,
     _source: source,
@@ -532,7 +532,7 @@ async function loadDynamicBank(loader) {
   return dynamicBankCache.get(loader.source);
 }
 
-async function loadQuestionBanksForSkill(normalizedSkillId = "") {
+async function loadQuestionBanksForSkill(normalizedSkillId) {
   // Hand-written banks first, generated banks second — the exact order the old
   // static QUESTION_BANKS + dynamic loader concatenation produced, so
   // dedupeQuestions keeps the same record when keys collide.

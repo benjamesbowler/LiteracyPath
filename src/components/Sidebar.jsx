@@ -77,73 +77,114 @@ const ICONS = {
   )
 };
 
-const NAV_ITEMS = [
+const TEACHER_INTENT_NAV_ITEMS = [
   {
-    id: "dashboard",
-    label: "Dashboard",
+    id: "today",
+    label: "Today",
     icon: "dashboard",
     views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD],
+    modules: [
+      { id: "dashboard", label: "Dashboard", views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD] }
+    ]
   },
   {
-    id: "studentHome",
-    label: "Student Page",
+    id: "classes",
+    label: "Classes",
     icon: "student",
-    views: [APP_VIEWS.STUDENT_HOME],
-    requiresStudent: true,
+    views: [APP_VIEWS.TEACHER_CLASSES, APP_VIEWS.STUDENT_HOME],
+    modules: [
+      { id: "studentHome", label: "Student Page", views: [APP_VIEWS.STUDENT_HOME], requiresStudent: true }
+    ]
   },
   {
-    id: "assessment",
-    label: "Checkpoints",
+    id: "assess",
+    label: "Assess",
     icon: "assessment",
-    views: [APP_VIEWS.OVERVIEW, APP_VIEWS.SKILLS, APP_VIEWS.ASSESSMENT,
-            APP_VIEWS.CHECKPOINT, APP_VIEWS.FINISHED, APP_VIEWS.LETTERS,
-            APP_VIEWS.ADVANCED_PHONICS],
-    requiresStudent: true,
+    views: [
+      APP_VIEWS.TEACHER_ASSESS,
+      APP_VIEWS.OVERVIEW,
+      APP_VIEWS.SKILLS,
+      APP_VIEWS.ASSESSMENT,
+      APP_VIEWS.CHECKPOINT,
+      APP_VIEWS.LETTERS,
+      APP_VIEWS.ADVANCED_PHONICS,
+      APP_VIEWS.EL_ASSESSMENTS,
+      APP_VIEWS.EL_BENCHMARK
+    ],
+    modules: [
+      {
+        id: "assessment",
+        label: "Checkpoints",
+        views: [
+          APP_VIEWS.OVERVIEW,
+          APP_VIEWS.SKILLS,
+          APP_VIEWS.ASSESSMENT,
+          APP_VIEWS.CHECKPOINT,
+          APP_VIEWS.LETTERS,
+          APP_VIEWS.ADVANCED_PHONICS
+        ],
+        requiresStudent: true
+      },
+      {
+        id: "el",
+        label: "EL Checks",
+        views: [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.EL_BENCHMARK],
+        requiresStudent: true
+      }
+    ]
   },
   {
-    id: "el",
-    label: "EL Checks",
-    icon: "el",
-    views: [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.EL_BENCHMARK],
-    requiresStudent: true,
-  },
-  {
-    id: "reading",
-    label: "Guided Reading",
-    icon: "reading",
-    views: [APP_VIEWS.GUIDED_READING],
-    requiresStudent: true,
-  },
-  {
-    id: "learn",
-    label: "Story Quests",
-    icon: "learn",
-    views: [APP_VIEWS.LEARN],
-    requiresStudent: true,
-  },
-  {
-    id: "present",
-    label: "Present",
-    icon: "present",
-    views: [APP_VIEWS.PRESENT],
-    description: "Whole-class projector slides for a cycle",
-    // Whole-class projector slideshow for a cycle - no student needed.
-  },
-  {
-    id: "worksheets",
-    label: "Worksheets",
-    icon: "worksheets",
-    views: [APP_VIEWS.WORKSHEETS],
-    description: "Printable practice built from the cycle curriculum",
-    // No student needed - worksheets are built from the cycle curriculum.
-  },
-  {
-    id: "reports",
-    label: "Reports",
+    id: "progress",
+    label: "Progress",
     icon: "reports",
-    views: [APP_VIEWS.REPORTS],
-    requiresStudent: true,
-    description: "Progress reports and Excel exports for the selected student",
+    views: [APP_VIEWS.TEACHER_PROGRESS, APP_VIEWS.REPORTS, APP_VIEWS.FINISHED],
+    modules: [
+      {
+        id: "reports",
+        label: "Reports",
+        views: [APP_VIEWS.REPORTS, APP_VIEWS.FINISHED],
+        requiresStudent: true,
+        description: "Progress reports and Excel exports for the selected student"
+      }
+    ]
+  },
+  {
+    id: "resources",
+    label: "Plan/Resources",
+    icon: "worksheets",
+    views: [
+      APP_VIEWS.TEACHER_RESOURCES,
+      APP_VIEWS.GUIDED_READING,
+      APP_VIEWS.LEARN,
+      APP_VIEWS.PRESENT,
+      APP_VIEWS.WORKSHEETS
+    ],
+    modules: [
+      {
+        id: "reading",
+        label: "Guided Reading",
+        views: [APP_VIEWS.GUIDED_READING],
+        requiresStudent: true
+      },
+      {
+        id: "learn",
+        label: "Story Quests",
+        views: [APP_VIEWS.LEARN],
+        requiresStudent: true
+      },
+      {
+        id: "present",
+        label: "Present",
+        views: [APP_VIEWS.PRESENT],
+        description: "Whole-class projector slides for a cycle"
+      },
+      {
+        id: "worksheets",
+        label: "Worksheets",
+        views: [APP_VIEWS.WORKSHEETS],
+        description: "Printable practice built from the cycle curriculum"
+      }
+    ]
   },
 ];
 
@@ -162,6 +203,10 @@ export function Sidebar({
   goToWorksheets,
   goToPresent,
   goToTeacherDashboard,
+  goToTeacherClasses,
+  goToTeacherAssess,
+  goToTeacherProgress,
+  goToTeacherResources,
   logOutTeacher,
   isAdmin,
   openAdminDashboard,
@@ -185,6 +230,11 @@ export function Sidebar({
   function handleNavClick(item) {
     if (item.requiresStudent && !nameSaved) return null;
     switch (item.id) {
+      case "today":       return goToTeacherDashboard?.();
+      case "classes":     return goToTeacherClasses?.();
+      case "assess":      return goToTeacherAssess?.();
+      case "progress":    return goToTeacherProgress?.();
+      case "resources":   return goToTeacherResources?.();
       case "dashboard":   return goToTeacherDashboard?.();
       case "studentHome": return goToStudentHome?.();
       case "assessment":  return goToOverview?.();
@@ -240,24 +290,46 @@ export function Sidebar({
 
       {/* ── Nav items ── */}
       <nav className="lg-sb-nav" aria-label="App sections">
-        {NAV_ITEMS.map(item => (
-          <button
-            key={item.id}
-            className={`lg-sb-item${isActive(item) ? " active" : ""}`}
-            disabled={item.requiresStudent && !nameSaved}
-            onClick={() => handleNavClick(item)}
-            aria-current={isActive(item) ? "page" : undefined}
-            aria-label={item.requiresStudent && !nameSaved ? `${item.label}. Select a student first.` : item.label}
-            title={getItemTitle(item)}
-          >
-            <span className="lg-sb-item-icon">{ICONS[item.icon]}</span>
-            <span className="lg-sb-item-label">{item.label}</span>
-            {/* Tooltip shown only when collapsed via CSS */}
-            <span className="lg-sb-tooltip" aria-hidden="true">
-              {item.label}
-            </span>
-          </button>
-        ))}
+        <div data-testid="teacher-primary-nav">
+          {TEACHER_INTENT_NAV_ITEMS.map(item => (
+            <div key={item.id} className="lg-sb-intent">
+              <button
+                className={`lg-sb-item${isActive(item) ? " active" : ""}`}
+                onClick={() => handleNavClick(item)}
+                aria-current={isActive(item) ? "page" : undefined}
+                aria-label={item.label}
+                title={getItemTitle(item)}
+              >
+                <span className="lg-sb-item-icon">{ICONS[item.icon]}</span>
+                <span className="lg-sb-item-label">{item.label}</span>
+                <span className="lg-sb-tooltip" aria-hidden="true">
+                  {item.label}
+                </span>
+              </button>
+              {!collapsed && isActive(item) && item.modules.length > 0 && (
+                <div
+                  className="lg-sb-context-nav"
+                  aria-label={`${item.label} tools`}
+                  role="navigation"
+                >
+                  {item.modules.map(module => (
+                    <button
+                      key={module.id}
+                      className={`lg-sb-context-item${isActive(module) ? " active" : ""}`}
+                      disabled={module.requiresStudent && !nameSaved}
+                      onClick={() => handleNavClick(module)}
+                      aria-current={isActive(module) ? "page" : undefined}
+                      title={getItemTitle(module)}
+                      type="button"
+                    >
+                      {module.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
 
         {isAdmin && (
           <button

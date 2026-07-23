@@ -23,7 +23,6 @@ import {
   StudentOverviewPage,
   TeacherReportsPage
 } from "./components/AppPages";
-import { Sidebar } from "./components/Sidebar.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import StudentRail from "./components/StudentRail.jsx";
@@ -180,6 +179,16 @@ const HollowPage = lazyWithRetry(() =>
 const TeacherDashboardPage = lazyWithRetry(() =>
   import("./components/TeacherDashboardPage.jsx").then(module => ({
     default: module.TeacherDashboardPage
+  }))
+);
+const Sidebar = lazyWithRetry(() =>
+  import("./components/Sidebar.jsx").then(module => ({
+    default: module.Sidebar
+  }))
+);
+const TeacherIntentPage = lazyWithRetry(() =>
+  import("./components/teacher/TeacherIntentPage.jsx").then(module => ({
+    default: module.TeacherIntentPage
   }))
 );
 const WorksheetGeneratorPage = lazyWithRetry(() =>
@@ -8738,27 +8747,33 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       data-pal-world={isStudentMode ? worldForScope(studentId || studentName || "default").id : undefined}
     >
       {!isFocusedShell && (
-        <Sidebar
-          appView={appView}
-          nameSaved={nameSaved}
-          studentName={studentName}
-          className={getSelectedClassName(classList, selectedClassId)}
-          goToOverview={goToOverview}
-          goToStudentHome={() => setAppView(APP_VIEWS.STUDENT_HOME)}
-          goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
-          goToElSkillsQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
-          goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-          goToLearn={() => setAppView(APP_VIEWS.LEARN)}
-          goToPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
-          goToReports={() => setAppView(APP_VIEWS.REPORTS)}
-          goToWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
-          goToPresent={() => setAppView(APP_VIEWS.PRESENT)}
-          goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
-          teacherEmail={teacherUser.email}
-          logOutTeacher={logOutTeacher}
-          isAdmin={isAdmin}
-          openAdminDashboard={openAdminDashboard}
-        />
+        <Suspense fallback={<aside className="lg-sidebar" aria-label="Loading main navigation" />}>
+          <Sidebar
+            appView={appView}
+            nameSaved={nameSaved}
+            studentName={studentName}
+            className={getSelectedClassName(classList, selectedClassId)}
+            goToOverview={goToOverview}
+            goToStudentHome={() => setAppView(APP_VIEWS.STUDENT_HOME)}
+            goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+            goToElSkillsQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
+            goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+            goToLearn={() => setAppView(APP_VIEWS.LEARN)}
+            goToPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
+            goToReports={() => setAppView(APP_VIEWS.REPORTS)}
+            goToWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
+            goToPresent={() => setAppView(APP_VIEWS.PRESENT)}
+            goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
+            goToTeacherClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
+            goToTeacherAssess={() => setAppView(APP_VIEWS.TEACHER_ASSESS)}
+            goToTeacherProgress={() => setAppView(APP_VIEWS.TEACHER_PROGRESS)}
+            goToTeacherResources={() => setAppView(APP_VIEWS.TEACHER_RESOURCES)}
+            teacherEmail={teacherUser.email}
+            logOutTeacher={logOutTeacher}
+            isAdmin={isAdmin}
+            openAdminDashboard={openAdminDashboard}
+          />
+        </Suspense>
       )}
       <div className="lg-content-area">
       <div className={appShellClassName}>
@@ -8904,10 +8919,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {sessionMode !== "student" && (appView === APP_VIEWS.TEACHER_DASHBOARD || appView === APP_VIEWS.SELECT) && (
+      {sessionMode !== "student" && (
+        appView === APP_VIEWS.TEACHER_DASHBOARD
+        || appView === APP_VIEWS.TEACHER_CLASSES
+        || appView === APP_VIEWS.SELECT
+      ) && (
         <PageBoundary resetKey="teacher-dashboard">
           <Suspense fallback={<LazyPageFallback label="Loading dashboard..." />}>
             <TeacherDashboardPage
+              pageIntent={appView === APP_VIEWS.TEACHER_CLASSES ? "classes" : "today"}
               classList={classList}
               selectedClassId={selectedClassId}
               setSelectedClassId={setSelectedClassId}
@@ -8940,6 +8960,49 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               hasSchool={hasTeacherSchool}
               saveSchool={saveTeacherSchool}
               message={message}
+            />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_ASSESS && (
+        <PageBoundary resetKey="teacher-assess">
+          <Suspense fallback={<LazyPageFallback label="Loading assessment tools..." />}>
+            <TeacherIntentPage
+              intent="assess"
+              className={getSelectedClassName(classList, selectedClassId)}
+              studentName={nameSaved ? studentName : ""}
+              onOpenCheckpoint={goToOverview}
+              onOpenElBenchmark={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+            />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_PROGRESS && (
+        <PageBoundary resetKey="teacher-progress">
+          <Suspense fallback={<LazyPageFallback label="Loading progress tools..." />}>
+            <TeacherIntentPage
+              intent="progress"
+              className={getSelectedClassName(classList, selectedClassId)}
+              studentName={nameSaved ? studentName : ""}
+              onOpenReports={() => setAppView(APP_VIEWS.REPORTS)}
+            />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_RESOURCES && (
+        <PageBoundary resetKey="teacher-resources">
+          <Suspense fallback={<LazyPageFallback label="Loading planning resources..." />}>
+            <TeacherIntentPage
+              intent="resources"
+              className={getSelectedClassName(classList, selectedClassId)}
+              studentName={nameSaved ? studentName : ""}
+              onOpenGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+              onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
+              onOpenWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
+              onOpenPresent={() => setAppView(APP_VIEWS.PRESENT)}
             />
           </Suspense>
         </PageBoundary>

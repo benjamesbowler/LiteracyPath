@@ -63,7 +63,17 @@ test("the allowlist only contains real views", () => {
 test("teacher-only views are NOT on the student allowlist", () => {
   // The allowlist is a security boundary as well as a navigation one. Widening
   // it carelessly is how a child ends up in the teacher dashboard.
-  for (const view of [APP_VIEWS.TEACHER_DASHBOARD, APP_VIEWS.ADMIN_DASHBOARD, APP_VIEWS.REPORTS, APP_VIEWS.WORKSHEETS, APP_VIEWS.PRESENT]) {
+  for (const view of [
+    APP_VIEWS.TEACHER_DASHBOARD,
+    APP_VIEWS.TEACHER_CLASSES,
+    APP_VIEWS.TEACHER_ASSESS,
+    APP_VIEWS.TEACHER_PROGRESS,
+    APP_VIEWS.TEACHER_RESOURCES,
+    APP_VIEWS.ADMIN_DASHBOARD,
+    APP_VIEWS.REPORTS,
+    APP_VIEWS.WORKSHEETS,
+    APP_VIEWS.PRESENT
+  ]) {
     assert.equal(isStudentAllowedView(view), false, `${view} must not be reachable by a student`);
   }
 });
@@ -91,4 +101,25 @@ test("an unknown stored view falls back rather than crashing", () => {
   assert.equal(getRestoredAppView({ restoredStudentId: "", storedAppView: APP_VIEWS.LEARN }), APP_VIEWS.SELECT);
   assert.equal(getPersistedAppView({ studentId: "s1", appView: APP_VIEWS.PHONICS_QUEST }), APP_VIEWS.PHONICS_QUEST);
   assert.equal(getPersistedAppView({ studentId: "", appView: APP_VIEWS.PHONICS_QUEST }), APP_VIEWS.SELECT);
+});
+
+test("restored module-shaped teacher routes redirect to the five-intention IA", () => {
+  const redirects = new Map([
+    [APP_VIEWS.STUDENT_HOME, APP_VIEWS.TEACHER_CLASSES],
+    [APP_VIEWS.OVERVIEW, APP_VIEWS.TEACHER_ASSESS],
+    [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.TEACHER_ASSESS],
+    [APP_VIEWS.REPORTS, APP_VIEWS.TEACHER_PROGRESS],
+    [APP_VIEWS.GUIDED_READING, APP_VIEWS.TEACHER_RESOURCES],
+    [APP_VIEWS.LEARN, APP_VIEWS.TEACHER_RESOURCES],
+    [APP_VIEWS.WORKSHEETS, APP_VIEWS.TEACHER_RESOURCES],
+    [APP_VIEWS.PRESENT, APP_VIEWS.TEACHER_RESOURCES]
+  ]);
+
+  for (const [legacyView, intentionView] of redirects) {
+    assert.equal(
+      getRestoredAppView({ restoredStudentId: "s1", storedAppView: legacyView }),
+      intentionView,
+      `${legacyView} should restore through ${intentionView}`
+    );
+  }
 });

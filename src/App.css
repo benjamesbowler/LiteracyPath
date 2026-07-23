@@ -16042,6 +16042,22 @@ select:focus {
   gap: 12px;
 }
 
+.teacher-intent-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.teacher-intent-actions .teacher-action-card {
+  min-height: 150px;
+}
+
+.teacher-intent-actions .teacher-action-card h3 {
+  margin: 2px 0 0;
+  color: var(--lp-color-text-strong);
+  font-size: 17px;
+}
+
 .teacher-action-card {
   display: flex;
   align-items: center;

@@ -259,6 +259,7 @@ function ClassHeatPanel({ rows }) {
 }
 
 export function TeacherDashboardPage({
+  pageIntent = "today",
   classList = [],
   selectedClassId,
   setSelectedClassId,
@@ -394,6 +395,7 @@ export function TeacherDashboardPage({
   const className = selectedClass?.name || "No class selected";
   const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]
     || (selectedClass?.leaderboard_scope === "school" ? "school" : "class");
+  const isClassesPage = pageIntent === "classes";
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
@@ -487,10 +489,18 @@ export function TeacherDashboardPage({
         <div>
           <div className="teacher-page-brand">
             <img src={logoUrl} alt="" />
-            <p className="panel-label">Dashboard</p>
+            <p className="panel-label">{isClassesPage ? "Classes" : "Today"}</p>
           </div>
-          <h2>{selectedClass ? selectedClass.name : "Class roster"}</h2>
-          <p>{selectedClass ? "Manage students, logins, progress, and next actions from one place." : "Select or create a class to begin."}</p>
+          <h2>{isClassesPage ? "Classes" : "Today"}</h2>
+          <p>
+            {isClassesPage
+              ? (selectedClass
+                ? `Manage ${selectedClass.name}'s roster, access, and class settings.`
+                : "Select or create a class to begin.")
+              : (selectedClass
+                ? `Review ${selectedClass.name}'s current pulse and next actions.`
+                : "Choose a class for today's briefing.")}
+          </p>
         </div>
         <div className="teacher-dashboard-context" aria-label="Current school and class">
           <span>School</span>

@@ -12,7 +12,7 @@ async function logIn(page, email) {
   await page.getByRole("textbox", { name: "Email" }).fill(email);
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
   await page.getByRole("button", { name: "Log in", exact: true }).click();
-  await expect(page.getByRole("heading", { name: /Class roster|Audit Class A/ })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });
   await expect(page.locator('[data-teacher-product="class-dashboard"]')).toBeVisible();
@@ -22,7 +22,8 @@ async function logIn(page, email) {
 async function selectAuditClass(page) {
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: "Audit Class A" });
-  await expect(page.getByRole("heading", { name: "Audit Class A", exact: true })).toBeVisible();
+  await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
+  await expect(page.getByRole("heading", { name: "Students - Audit Class A", exact: true })).toBeVisible();
 }
 
 async function openAaravReports(page) {
@@ -32,7 +33,12 @@ async function openAaravReports(page) {
   const studentOverview = page.locator(".teacher-overview-dashboard");
   await expect(studentOverview).toBeVisible({ timeout: 20_000 });
   await expect(studentOverview.getByRole("heading", { name: "Aarav", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Reports", exact: true }).click();
+  const primaryNav = page.getByTestId("teacher-primary-nav");
+  await primaryNav.getByRole("button", { name: "Progress", exact: true }).click();
+  await expect(page.locator('[data-teacher-intent="progress"]')).toBeVisible();
+  await page.getByRole("navigation", { name: "Progress tools" })
+    .getByRole("button", { name: "Reports", exact: true })
+    .click();
   await expect(page.getByRole("heading", { name: "Reports", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Open Skills Check", exact: true })).toBeEnabled({
     timeout: 20_000
@@ -45,6 +51,35 @@ async function readDownloadText(download) {
   for await (const chunk of stream) chunks.push(chunk);
   return Buffer.concat(chunks).toString("utf8");
 }
+
+test("@teacher-five-intention-ia reachable navigation has five intentions and contextual modules", async ({ page }) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+
+  const primaryNav = page.getByTestId("teacher-primary-nav");
+  const intentButtons = primaryNav.locator(":scope > .lg-sb-intent > .lg-sb-item");
+  await expect(intentButtons).toHaveCount(5);
+  for (const [index, label] of ["Today", "Classes", "Assess", "Progress", "Plan/Resources"].entries()) {
+    await expect(intentButtons.nth(index)).toHaveAttribute("aria-label", label);
+  }
+
+  await primaryNav.getByRole("button", { name: "Classes", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Classes tools" })).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Assess", exact: true }).click();
+  await expect(page.locator('[data-teacher-intent="assess"]')).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose the evidence you need", exact: true })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Assess tools" })).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Progress", exact: true }).click();
+  await expect(page.locator('[data-teacher-intent="progress"]')).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Turn evidence into a clear next step", exact: true })).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Plan/Resources", exact: true }).click();
+  await expect(page.locator('[data-teacher-intent="resources"]')).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Prepare teaching and practice", exact: true })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Plan/Resources tools" })).toBeVisible();
+});
 
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {
   const pageErrors = [];

@@ -20,6 +20,10 @@ export const APP_VIEWS = {
   LETTERS: "letters",
   ADVANCED_PHONICS: "advancedPhonics",
   TEACHER_DASHBOARD: "teacherDashboard",
+  TEACHER_CLASSES: "teacherClasses",
+  TEACHER_ASSESS: "teacherAssess",
+  TEACHER_PROGRESS: "teacherProgress",
+  TEACHER_RESOURCES: "teacherResources",
   WORKSHEETS: "worksheets",
   PRESENT: "present",
   ADMIN_DASHBOARD: "admin"
