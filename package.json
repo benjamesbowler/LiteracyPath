@@ -220,5 +220,11 @@
     "globals": "^17.6.0",
     "sharp": "^0.35.3",
     "vite": "^8.0.12"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    },
+    "brace-expansion@5.0.6": "5.0.8"
   }
 }
