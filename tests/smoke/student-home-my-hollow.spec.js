@@ -8,7 +8,7 @@ test.describe("Student Home My Hollow card", () => {
     if (testInfo.project.name === "desktop") {
       await page.setViewportSize({ width: 1600, height: 1000 });
     }
-    await page.goto("/student-home-preview.html");
+    await page.goto("/preview/student-home-preview.html");
 
     const cards = page.locator(".hs-card");
     const soundSeekers = cards.filter({ hasText: "Sound Seekers" });

@@ -5,7 +5,7 @@ test.describe("Guided Reading post-book quiz", () => {
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
 
-    await page.goto("/guided-reading-preview.html?book=level-c-nonfiction-01-bees&quiz=1");
+    await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees&quiz=1");
 
     const dialog = page.getByRole("dialog", { name: "Book quiz" });
     const firstQuestion = page.getByRole("heading", { name: "What sweet liquid do worker bees collect?" });
@@ -43,5 +43,23 @@ test.describe("Guided Reading post-book quiz", () => {
     await expect(firstQuestion).toBeVisible();
     await expect(firstQuestion).toBeFocused();
     await expect(page.getByText("Question 1 of 3", { exact: true })).toBeVisible();
+  });
+
+  test("opens the requested reader and keeps keyboard page navigation current", async ({ page }) => {
+    const pageErrors = [];
+    page.on("pageerror", error => pageErrors.push(error.message));
+
+    await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees");
+
+    const reader = page.getByLabel("Bees full-screen reader");
+    await expect(reader).toBeVisible();
+    await expect(reader.getByText(/Page 1 of \d+/, { exact: true })).toBeVisible();
+
+    await page.keyboard.press("ArrowRight");
+    await expect(reader.getByText(/Page 2 of \d+/, { exact: true })).toBeVisible();
+
+    await page.keyboard.press("ArrowLeft");
+    await expect(reader.getByText(/Page 1 of \d+/, { exact: true })).toBeVisible();
+    expect(pageErrors).toEqual([]);
   });
 });

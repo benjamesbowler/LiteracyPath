@@ -104,6 +104,15 @@ export function buildGardenRounds(difficulty = "easy") {
   });
 }
 
+export function buildAdventureRoundSet(mode, difficulty = "easy", version = 0) {
+  return {
+    version,
+    rescue: mode === "rescue" ? buildRescueRounds(difficulty) : [],
+    sort: mode === "sort" ? buildSortRounds(difficulty) : null,
+    garden: mode === "garden" ? buildGardenRounds(difficulty) : []
+  };
+}
+
 export function adventureStars(correct, total, wrongs) {
   if (correct >= total && wrongs === 0) return 3;
   if (correct >= Math.ceil(total * 0.7)) return 2;

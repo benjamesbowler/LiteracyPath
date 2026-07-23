@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { BookQuiz } from "./BookQuiz.jsx";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -471,15 +471,6 @@ export function GuidedReadingPage({
   const [showQuiz, setShowQuiz] = useState(false);
   const initialBookHandledRef = useRef(false);
 
-  useEffect(() => {
-    if (!initialBookId || initialBookHandledRef.current) return;
-    initialBookHandledRef.current = true;
-    const target = getRuntimeGuidedReadingBooks().find(book => book.id === initialBookId);
-    if (!target) return;
-    const timer = window.setTimeout(() => changeBook(initialBookId), 0);
-    return () => window.clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialBookId]);
   const [levelUp, setLevelUp] = useState(null);
   const [readerOpen, setReaderOpen] = useState(false);
   const [readingMode, setReadingMode] = useState("reading");
@@ -535,6 +526,27 @@ export function GuidedReadingPage({
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
   const isStudentMode = mode === "student";
+  const changeInitialBook = useEffectEvent(bookId => changeBook(bookId));
+  const stopCurrentPageAudio = useEffectEvent(() => stopPageAudio());
+  const recordCurrentGuidedPageVisit = useEffectEvent(nextPageIndex => {
+    recordGuidedPageVisit(nextPageIndex);
+  });
+  const fetchCurrentWholeBookSyncData = useEffectEvent(audioPath => (
+    fetchWholeBookSyncData(selectedBook, audioPath)
+  ));
+  const turnReaderPage = useEffectEvent(direction => {
+    if (direction < 0) goToPreviousPage();
+    else goToNextPage();
+  });
+
+  useEffect(() => {
+    if (!initialBookId || initialBookHandledRef.current) return;
+    initialBookHandledRef.current = true;
+    const target = getRuntimeGuidedReadingBooks().find(book => book.id === initialBookId);
+    if (!target) return;
+    const timer = window.setTimeout(() => changeInitialBook(initialBookId), 0);
+    return () => window.clearTimeout(timer);
+  }, [initialBookId]);
 
   useEffect(() => {
     if (!readerOpen || !selectedBook || !page) return;
@@ -638,13 +650,13 @@ export function GuidedReadingPage({
       readAloudPageChangeRef.current = false;
       return;
     }
-    stopPageAudio();
+    stopCurrentPageAudio();
   }, [selectedBookId, pageIndex]);
 
   useEffect(() => {
-    if (!readerOpen || !selectedBook || !page) return;
-    recordGuidedPageVisit(pageIndex);
-  }, [readerOpen, selectedBookId, pageIndex]);
+    if (!readerOpen || !selectedBookId || !page) return;
+    recordCurrentGuidedPageVisit(pageIndex);
+  }, [readerOpen, selectedBookId, pageIndex, page]);
 
   useEffect(() => {
     autoAdvanceReadAloudRef.current = autoAdvanceReadAloud;
@@ -653,9 +665,9 @@ export function GuidedReadingPage({
   useEffect(() => {
     let cancelled = false;
     setWholeBookSyncData(null);
-    if (!selectedBook || !fullBookAudioPath) return undefined;
+    if (!selectedBookId || !fullBookAudioPath) return undefined;
 
-    fetchWholeBookSyncData(selectedBook, fullBookAudioPath).then(syncData => {
+    fetchCurrentWholeBookSyncData(fullBookAudioPath).then(syncData => {
       if (!cancelled) setWholeBookSyncData(syncData);
     });
 
@@ -721,12 +733,12 @@ export function GuidedReadingPage({
 
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        goToPreviousPage();
+        turnReaderPage(-1);
       }
 
       if (event.key === "ArrowRight") {
         event.preventDefault();
-        goToNextPage();
+        turnReaderPage(1);
       }
     }
 

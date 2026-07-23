@@ -62,3 +62,8 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** the first route-level teacher Playwright run completed the dashboard-to-report journey but captured `pageerror: Transition was skipped`. `setAppView` started browser View Transitions without observing the `finished` promise, so the expected abort from an overlapping transition became an unhandled rejection.
 **Fix:** explicitly consume expected `AbortError` rejections, report unexpected transition failures, and fall back to the immediate React state change if the browser cannot start a transition.
 **Gate:** the reachable teacher dashboard/report Playwright journey completes with zero `pageerror` events.
+
+## D-012 · P1 · Area 10 — Smoke tests targeted deleted root preview URLs and exercised the wrong app
+**Evidence:** the first canonical release manifest recorded four desktop/mobile smoke failures. Both specs requested `/guided-reading-preview.html` or `/student-home-preview.html`, but the maintained preview entry points live under `/preview/`. Vite therefore served the main application fallback; with the canonical Supabase environment enabled, the tests saw the teacher/student gateway rather than either preview.
+**Fix:** target the maintained `/preview/` entry points, assert the expected preview surface before behavior checks, and add a Guided Reading keyboard/page-lifecycle journey so the hook correction is behavior-protected.
+**Gate:** `test:smoke` passes on desktop and mobile while the canonical Supabase environment is present; a wrong fallback route cannot satisfy the preview assertions.

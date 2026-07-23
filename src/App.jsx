@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars, no-control-regex, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+/* eslint-disable no-control-regex, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
+import { Suspense, useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
@@ -82,7 +82,7 @@ import {
   buildInitialSoundsProgressFromAnswerHistory,
   getInitialSoundRoundPlan
 } from "./content/initialSounds/initialSoundSelector";
-import { INITIAL_SOUND_LETTERS, INITIAL_SOUND_ROUND_LENGTH } from "./content/initialSounds/initialSoundWordBank";
+import { INITIAL_SOUND_LETTERS } from "./content/initialSounds/initialSoundWordBank";
 import {
   getAnswerRecordPromptAnswerSignature,
   getAnswerRecordSignature,
@@ -106,8 +106,7 @@ import {
   loadAssessmentAttempts,
   mergeAssessmentAttemptRecords,
   mergeAssessmentAttemptIntoItemMastery,
-  saveAssessmentAttempt,
-  summarizeAssessmentHistory
+  saveAssessmentAttempt
 } from "./data/assessmentHistoryStore";
 import { buildSkillMasterySummaryRows } from "./data/skillMasterySummary.js";
 import { deleteSavedClassElAssessmentReportsForStudent } from "./data/elAssessmentReportStore.js";
@@ -1127,34 +1126,6 @@ function findQuestionForAnswerRecord(record) {
   );
 }
 
-function deriveQuestionIdFromAnswerRecord(record) {
-  const match = findQuestionForAnswerRecord(record);
-
-  return match?.id || "";
-}
-
-function hydrateAnswerRecord(record = {}) {
-  const baseRecord = {
-    ...record,
-    question: record.question || record.prompt || "",
-    correct: record.correct || record.correctAnswer || ""
-  };
-  const matchedQuestion = findQuestionForAnswerRecord(baseRecord);
-
-  return {
-    ...baseRecord,
-    questionId: baseRecord.questionId || matchedQuestion?.id || "",
-    questionSignature: baseRecord.questionSignature || (
-      matchedQuestion
-        ? getRuntimeQuestionSignature(matchedQuestion)
-        : getAnswerRecordSignature(baseRecord)
-    ),
-    promptAnswerSignature: baseRecord.promptAnswerSignature || getAnswerRecordPromptAnswerSignature(baseRecord),
-    optionSetSignature: baseRecord.optionSetSignature || (matchedQuestion ? getRepeatOptionSetSignature(matchedQuestion) : ""),
-    targetWord: baseRecord.targetWord || (matchedQuestion ? getQuestionTargetWord(matchedQuestion) : "")
-  };
-}
-
 function normalizeAnswerRecordShape(record = {}) {
   const hasBooleanIsCorrect = typeof record.isCorrect === "boolean";
   const inferredIsCorrect = hasBooleanIsCorrect
@@ -2163,6 +2134,31 @@ export default function App() {
     void loadFinishedReportPageModule();
   }
 
+  const preloadCurrentAssessmentShell = useEffectEvent(() => {
+    preloadAssessmentShellForStage(currentStage);
+  });
+
+  const warmCurrentAssessmentBanks = useEffectEvent(async isCancelled => {
+    // Warm only the banks a session is likely to reach first: the active
+    // student's current + next stage, plus the first few foundational stages
+    // most early readers sit in. Every other bank still loads on demand at
+    // assessment start (see startAssessment / startTargetedReview), so this
+    // trims eager downloads on low-end iPads without dropping any coverage.
+    const activeIndex = Number.isInteger(currentSkillIndex) ? currentSkillIndex : 0;
+    const priorityIndexes = new Set([activeIndex, activeIndex + 1, 0, 1, 2]);
+    const stages = [...priorityIndexes]
+      .filter(index => index >= 0 && index < skillTree.length)
+      .map(index => skillTree[index]);
+    for (const stage of stages) {
+      if (isCancelled()) return;
+      try {
+        await loadRuntimeQuestionsForSkill(stage.id);
+      } catch (error) {
+        console.warn("Could not warm assessment skill bank.", { skillId: stage.id, error });
+      }
+    }
+  });
+
   useEffect(() => {
     answerHistoryRef.current = answerHistory;
   }, [answerHistory]);
@@ -2174,7 +2170,7 @@ export default function App() {
 
   useEffect(() => {
     if (!nameSaved || !currentStage?.id) return;
-    preloadAssessmentShellForStage(currentStage);
+    preloadCurrentAssessmentShell();
   }, [nameSaved, currentStage?.id]);
 
   useEffect(() => {
@@ -2183,28 +2179,8 @@ export default function App() {
 
     assessmentWarmupStartedRef.current = true;
     let cancelled = false;
-    const warmAssessmentBanks = async () => {
-      // Warm only the banks a session is likely to reach first: the active
-      // student's current + next stage, plus the first few foundational stages
-      // most early readers sit in. Every other bank still loads on demand at
-      // assessment start (see startAssessment / startTargetedReview), so this
-      // trims eager downloads on low-end iPads without dropping any coverage.
-      const activeIndex = Number.isInteger(currentSkillIndex) ? currentSkillIndex : 0;
-      const priorityIndexes = new Set([activeIndex, activeIndex + 1, 0, 1, 2]);
-      const stages = [...priorityIndexes]
-        .filter(index => index >= 0 && index < skillTree.length)
-        .map(index => skillTree[index]);
-      for (const stage of stages) {
-        if (cancelled) return;
-        try {
-          await loadRuntimeQuestionsForSkill(stage.id);
-        } catch (error) {
-          console.warn("Could not warm assessment skill bank.", { skillId: stage.id, error });
-        }
-      }
-    };
     const startWarmup = () => {
-      void warmAssessmentBanks();
+      void warmCurrentAssessmentBanks(() => cancelled);
     };
     const idleHandle = typeof window.requestIdleCallback === "function"
       ? window.requestIdleCallback(startWarmup, { timeout: 2500 })
@@ -2326,7 +2302,7 @@ export default function App() {
       role: "focused-current",
       source: "assessment-current-question-effect"
     });
-  }, [appView, currentQuestion?.id]);
+  }, [appView, currentQuestion]);
 
   const profileStorageKey =
     getTeacherProfileStorageKey(teacherId);
@@ -2377,6 +2353,8 @@ export default function App() {
     }
   }
 
+  const restoreLatestStudentSession = useEffectEvent(restoreStudentSession);
+
   function exitToTeacherEntry() {
     // Fully clear any student session first, otherwise the student-mode
     // guard bounces navigation straight back to student screens.
@@ -2424,7 +2402,7 @@ export default function App() {
 
   useEffect(() => {
     if (!authReady || teacherUser || studentSession) return;
-    const timeoutId = window.setTimeout(() => restoreStudentSession(), 0);
+    const timeoutId = window.setTimeout(() => restoreLatestStudentSession(), 0);
     return () => window.clearTimeout(timeoutId);
   }, [authReady, teacherUser, studentSession]);
 
@@ -2624,6 +2602,9 @@ export default function App() {
     };
   }, []);
 
+  const refreshTeacherAccountAccess = useEffectEvent(initializeTeacherAccountAccess);
+  const refreshAdminDashboard = useEffectEvent(loadAdminDashboard);
+
   useEffect(() => {
     if (!teacherId) {
       setIsAdmin(false);
@@ -2633,16 +2614,16 @@ export default function App() {
       return;
     }
 
-    initializeTeacherAccountAccess(teacherId);
+    refreshTeacherAccountAccess(teacherId);
   }, [teacherId]);
 
   useEffect(() => {
     if (isAdmin && appView === APP_VIEWS.ADMIN_DASHBOARD) {
-      loadAdminDashboard();
+      refreshAdminDashboard();
     }
   }, [isAdmin, appView]);
 
-  useEffect(() => {
+  const restoreTeacherProfile = useEffectEvent(() => {
     if (!authReady) return;
 
     setProfileLoaded(false);
@@ -2776,7 +2757,7 @@ export default function App() {
           assessmentActiveRef.current = true;
           setAssessmentTransitioning(true);
           setTimeout(() => {
-            pickQuestion(data.assessmentMode || "mastery", restoredRoundAnswers.length, restoredSkillIndex);
+            pickQuestion(data.assessmentMode || "mastery", restoredSkillIndex);
           }, 0);
         }
       } catch (error) {
@@ -2791,7 +2772,13 @@ export default function App() {
     }
 
     setProfileLoaded(true);
+  });
+
+  useEffect(() => {
+    restoreTeacherProfile();
   }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin, sessionMode, setAppView]);
+
+  const buildLatestSkillMasterySummary = useEffectEvent(buildSkillMasterySummary);
 
   useEffect(() => {
     if (!profileLoaded || !profileStorageKey) return;
@@ -5247,10 +5234,6 @@ export default function App() {
       .filter(Boolean);
   }
 
-  function getQuestionRoundSignature(question) {
-    return getRuntimeQuestionSignature(question);
-  }
-
   function getRoundDuplicateProfile() {
     const currentRoundQuestions = getCurrentRoundQuestionObjects();
 
@@ -5453,7 +5436,7 @@ export default function App() {
     });
   }
 
-  function pickQuestion(mode = assessmentMode, answeredCount = roundAnswers.length, stageIndexOverride = currentSkillIndex) {
+  function pickQuestion(mode = assessmentMode, stageIndexOverride = currentSkillIndex) {
     answerInFlightRef.current = false;
     setMessage("");
     setShowConfetti(false);
@@ -6348,7 +6331,7 @@ export default function App() {
           if (!assessmentActiveRef.current) return; // endAssessment was called during this 750ms window
           setAssessmentTransitioning(true);
           setFeedback(null);
-          pickQuestion("targetedReview", nextRound.length);
+          pickQuestion("targetedReview");
         }, 750);
       }
       return;
@@ -6433,7 +6416,7 @@ export default function App() {
         if (!assessmentActiveRef.current) return; // endAssessment was called during this 750ms window
         setAssessmentTransitioning(true);
         setFeedback(null);
-        pickQuestion("mastery", nextRound.length, stageIndex);
+        pickQuestion("mastery", stageIndex);
       }, 750);
     }
   }
@@ -8098,7 +8081,7 @@ export default function App() {
     resetAssessmentMediaUsage();
     setMessage("");
     setAppView(APP_VIEWS.ASSESSMENT);
-    pickQuestion("mastery", 0, nextStageIndex);
+    pickQuestion("mastery", nextStageIndex);
   }
 
   function keepPracticingSkill(stageIndex) {
@@ -8144,7 +8127,7 @@ export default function App() {
     resetAssessmentMediaUsage();
     setMessage("");
     setAppView(APP_VIEWS.ASSESSMENT);
-    pickQuestion("targetedReview", 0);
+    pickQuestion("targetedReview");
   }
 
   function endAssessment() {
@@ -8389,7 +8372,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     let cancelled = false;
     const run = () => {
       const start = typeof performance !== "undefined" ? performance.now() : Date.now();
-      const rows = buildSkillMasterySummary();
+      const rows = buildLatestSkillMasterySummary();
       if (cancelled) return;
       setReportSkillMasterySummary(rows);
       if (import.meta.env.DEV && appView === APP_VIEWS.REPORTS) {
@@ -8430,9 +8413,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const showSkillsQuestPrototype = typeof window !== "undefined"
     && new URLSearchParams(window.location.search).has("skillsQuest");
 
+  const latestTeacherAccountIsApproved = useEffectEvent(isTeacherAccountApproved);
+
   useEffect(() => {
     if (!authReady || !teacherUser) return;
-    if (!isTeacherAccountApproved()) return;
+    if (!latestTeacherAccountIsApproved()) return;
     if (appView === APP_VIEWS.SELECT) {
       setAppView(APP_VIEWS.TEACHER_DASHBOARD);
     }

@@ -40,7 +40,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A4.2 | 4 | P1 | TODO | learning-policy threshold grep guard | — |
 | A4.3 | 4 | P1 | TODO | class-summary aggregation unit + DOM tests | — |
 | A4.4 | 4 | P1 | TODO | recommendation-explanation DOM tests | — |
-| A4.5 | 4 | P1 | TODO | `lint --max-warnings=0` + focused regression tests | — |
+| A4.5 | 4 | P1 | DONE | `lint --max-warnings=0` + focused regression tests | `docs/release/artifacts/2026-07-23T12-46-12-124Z/manifest.partial.json`: lint, 976 unit tests, build, 10 desktop/mobile smoke journeys, authenticated teacher/admin routes, and bundle budget all pass |
 | A4.6 | 4 | P0 | TODO | `check:release-readiness-surface` + export completeness | — |
 | A4.7 | 4 | P1 | TODO | activity-queue unit + sync-health + chaos tests | — |
 | A4.8 | 4 | P0 | IN-PROGRESS | composed curriculum gate in `check:release` | Implementation added; full manifest evidence pending Phase 0 exit |
@@ -98,7 +98,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A9.10 | 9 | P1 | TODO | `check:sync-chaos` | — |
 | A10.1 | 10 | P0 | IN-PROGRESS | required whole-product CI release job | `release-gate` job implemented with fresh DB, audit seed, manifest artifact, and enforced result; hosted CI + branch-protection evidence pending |
 | A10.2 | 10 | P0 | IN-PROGRESS | `check:release` manifest + generated scorecard | Implementation added; full manifest and scorecard evidence pending Phase 0 exit |
-| A10.3 | 10 | P1 | IN-PROGRESS | zero-warning lint gate | CI invokes `npm run lint -- --max-warnings=0`; existing A4.5 warning backlog remains intentionally red |
+| A10.3 | 10 | P1 | DONE | zero-warning lint gate | CI invokes `npm run lint -- --max-warnings=0`; `docs/release/artifacts/2026-07-23T12-46-12-124Z/manifest.partial.json` proves zero warnings with focused route and lifecycle regressions |
 | A10.4 | 10 | P1 | DONE | enforced bundle budgets + PR trend table | `docs/release/artifacts/2026-07-23T12-11-25-561Z/manifest.partial.json` passes build + budget; dated config, Markdown/JSON artifacts, and CI step summary are enforced |
 | A10.5 | 10 | P2 | DONE | zero-failure baselined repo hygiene | `docs/release/artifacts/2026-07-23T12-20-36-943Z/manifest.partial.json`: 0 failures; explicit preview/generated allowlist in `tools/hygiene-baseline.json` |
 | A10.6 | 10 | P2 | DONE | read-only audit check-mode guard | Same manifest passes OS-constrained `--check` write redirection; 23 report commands have paired check modes and canonical tracked reports remain unchanged |
@@ -124,3 +124,4 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 | D-009 | 4 | P2 | TODO | final-item correction + finish-tally E2E | `DISCOVERED.md` D-009 |
 | D-010 | 8, 10 | P0 | DONE | `check:database-bootstrap-schema` + fresh local Supabase reset | Fresh local reset applied all 20 migrations; canonical `docs/release/manifest.json` passes schema reconstruction, deterministic seed, live Auth, fixtures, and RLS isolation |
 | D-011 | 9 | P2 | DONE | reachable teacher dashboard/report Playwright journey | Zero `pageerror` events; `docs/release/artifacts/2026-07-23T11-59-30-807Z/manifest.partial.json` passes all three authenticated route gates |
+| D-012 | 10 | P1 | DONE | canonical-env `test:smoke` preview-route journey | Same partial manifest passes 10/10 desktop/mobile smoke tests against the maintained `/preview/` entry points under canonical Supabase configuration |

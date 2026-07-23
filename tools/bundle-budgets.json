@@ -6,8 +6,8 @@
     {
       "effectiveDate": "2026-07-23",
       "milestone": "Phase 0 baseline freeze",
-      "mainEntryRawBytes": 1148563,
-      "mainEntryGzipBytes": 240799,
+      "mainEntryRawBytes": 1148786,
+      "mainEntryGzipBytes": 240874,
       "routeChunkRawBytes": 1840996
     },
     {
@@ -41,7 +41,7 @@
     "finalSounds.generated": { "rawBytes": 298620, "gzipBytes": 15630 },
     "generated-hfw-banks": { "rawBytes": 1560251, "gzipBytes": 91561 },
     "guided-reading-data": { "rawBytes": 1052941, "gzipBytes": 153653 },
-    "index": { "rawBytes": 1148563, "gzipBytes": 240799 },
+    "index": { "rawBytes": 1148786, "gzipBytes": 240874 },
     "languageSkillQuestions.generated": { "rawBytes": 1840996, "gzipBytes": 122739 },
     "loadAssessmentSkillBank": { "rawBytes": 688465, "gzipBytes": 46848 },
     "mediaQaReviewStatus": { "rawBytes": 599601, "gzipBytes": 43513 },
