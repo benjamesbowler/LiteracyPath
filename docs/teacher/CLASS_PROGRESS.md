@@ -70,6 +70,26 @@ only when the raw attempt contains `curriculumVersion`; missing metadata stays
 unlabelled. The chart never substitutes an in-progress attempt, current
 aggregate, or zero for missing history.
 
+## Saved instructional groups
+
+Progress suggestions can become private saved instructional groups. Every group
+stores the exact criterion, plain-language basis, and policy that produced it.
+Membership is not overwritten: saving and each later movement review append an
+immutable dated evidence snapshot.
+
+Teachers can select exactly two saved groups for a side-by-side aggregate
+comparison of learner count, scored responses, skill diversity, policy-ready
+denominator, mean accuracy, and captured support use. The comparison never
+ranks or orders individual children by performance. Movement is shown as
+stayed, joined, and left under the same saved criterion; if that criterion is
+no longer available, the last reviewed membership is preserved rather than
+inventing a change.
+
+Assigning a follow-up creates a normal owned, dated intervention linked to the
+saved group and its latest reviewed membership. It therefore enters the
+existing plan → deliver → record → review lifecycle on Today instead of
+becoming an untracked report action.
+
 ## Persistence and recovery
 
 - The route is `#teacher/progress?class=…&group=…&learner=…`.
@@ -92,5 +112,8 @@ aggregate, or zero for missing history.
 - `@teacher-growth-history` loads 524 completed Aarav attempts across two
   storage pages, renders all five longitudinal views, and verifies the three
   seeded curriculum versions on the shared axis.
+- `@teacher-instructional-groups` creates and reloads two criterion-backed
+  groups, compares aggregate evidence, appends a movement review, assigns a
+  linked follow-up, and proves the intervention appears on Today.
 - The manual critic covers 1366×768, 1024×768, 768×1024, and 390×844 with no
   horizontal overflow or runtime console errors.

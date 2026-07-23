@@ -258,6 +258,163 @@ test("@teacher-growth-history renders five longitudinal views and curriculum ver
   expect(consoleErrors).toEqual([]);
 });
 
+test("@teacher-instructional-groups creates, saves, compares, reviews, and assigns private cohorts", async ({
+  page
+}) => {
+  const pageErrors = [];
+  const consoleErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  page.on("console", message => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Progress", exact: true })
+    .click();
+
+  const workspace = page.getByRole("region", { name: "Saved instructional groups" });
+  await expect(workspace).toHaveAttribute("data-saved-group-state", "ready", { timeout: 20_000 });
+  await expect(workspace).toHaveAttribute("data-saved-group-count", "0");
+  await expect(workspace).toHaveAttribute("data-public-ranking", "false");
+
+  const suggestionPanel = page.locator(".teacher-progress-groups");
+  const saveButtons = suggestionPanel.getByRole("button", { name: "Save group", exact: true });
+  await expect(saveButtons).toHaveCount(3);
+
+  const initialSoundsSuggestion = suggestionPanel.getByRole("listitem").filter({
+    hasText: "Initial Sounds"
+  });
+  await expect(initialSoundsSuggestion).toHaveCount(1);
+  await initialSoundsSuggestion.getByRole("button", { name: "Save group", exact: true }).click();
+  let saveForm = workspace.locator(".teacher-group-save-form");
+  await saveForm.getByLabel("Group name").fill("Audit Initial Sounds Group");
+  await saveForm.getByRole("button", { name: "Save instructional group", exact: true }).click();
+  await expect(workspace).toHaveAttribute("data-saved-group-count", "1", { timeout: 20_000 });
+  await expect(workspace.getByRole("article", {
+    name: "Saved instructional group: Audit Initial Sounds Group"
+  })).toBeVisible();
+
+  const sharedFocusSuggestion = suggestionPanel.getByRole("listitem").filter({
+    hasText: "CVC and Short Vowels"
+  });
+  await expect(sharedFocusSuggestion).toHaveCount(1);
+  await sharedFocusSuggestion.getByRole("button", { name: "Save group", exact: true }).click();
+  saveForm = workspace.locator(".teacher-group-save-form");
+  await saveForm.getByLabel("Group name").fill("Audit CVC Group");
+  await saveForm.getByRole("button", { name: "Save instructional group", exact: true }).click();
+  await expect(workspace).toHaveAttribute("data-saved-group-count", "2", { timeout: 20_000 });
+
+  const firstGroup = workspace.getByRole("article", {
+    name: "Saved instructional group: Audit Initial Sounds Group"
+  });
+  const secondGroup = workspace.getByRole("article", {
+    name: "Saved instructional group: Audit CVC Group"
+  });
+  await firstGroup.getByRole("button", { name: "Compare group", exact: true }).click();
+  await secondGroup.getByRole("button", { name: "Compare group", exact: true }).click();
+
+  const comparison = workspace.getByRole("region", { name: "Instructional group comparison" });
+  await expect(comparison.getByText("2 of 2 selected", { exact: true })).toBeVisible();
+  await expect(comparison.getByRole("article")).toHaveCount(2);
+  await expect(comparison.getByText("Scored responses", { exact: true })).toHaveCount(2);
+  await expect(comparison.getByText("Policy-ready learners", { exact: true })).toHaveCount(2);
+
+  for (const viewport of [
+    { width: 1366, height: 768, label: "1366" },
+    { width: 1024, height: 768, label: "1024" },
+    { width: 768, height: 1024, label: "768" },
+    { width: 390, height: 844, label: "390" }
+  ]) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await expect.poll(() => page.evaluate(() => ({
+      viewport: window.innerWidth,
+      documentWidth: document.documentElement.scrollWidth,
+      controlHeights: [...document.querySelectorAll(
+        ".teacher-saved-groups button:not([disabled]), .teacher-saved-groups input, .teacher-saved-groups textarea"
+      )].map(element => Math.round(element.getBoundingClientRect().height))
+    }))).toEqual(expect.objectContaining({
+      viewport: viewport.width,
+      documentWidth: viewport.width
+    }));
+    const undersizedControls = await page.evaluate(() => (
+      [...document.querySelectorAll(
+        ".teacher-saved-groups button:not([disabled]), .teacher-saved-groups input, .teacher-saved-groups textarea"
+      )].map(element => ({
+        element: element.tagName.toLowerCase(),
+        className: element.className,
+        label: element.getAttribute("aria-label") || element.textContent?.trim() || "",
+        height: Math.round(element.getBoundingClientRect().height)
+      })).filter(control => control.height < 44)
+    ));
+    expect(undersizedControls).toEqual([]);
+    await expect(workspace).toHaveScreenshot(
+      `teacher-instructional-groups-${viewport.label}.png`,
+      { animations: "disabled", maxDiffPixelRatio: 0.025 }
+    );
+  }
+  await page.setViewportSize({ width: 1366, height: 768 });
+
+  await firstGroup.getByText("Review movement", { exact: true }).click();
+  await expect(firstGroup.getByText(/stayed · 0 joined · 0 left/)).toBeVisible();
+  await firstGroup.getByRole("button", {
+    name: "Record current movement review",
+    exact: true
+  }).click();
+  await expect(workspace.getByRole("status")).toContainText(
+    "Movement review recorded for Audit Initial Sounds Group."
+  );
+
+  await firstGroup.getByRole("button", { name: "Assign follow-up", exact: true }).click();
+  const assignment = workspace.locator(".teacher-group-assignment");
+  await expect(assignment.getByRole("heading", {
+    name: "Assign follow-up · Audit Initial Sounds Group",
+    exact: true
+  })).toBeVisible();
+  await assignment.getByLabel("Teaching activity").fill(
+    "Model the shared target, rehearse together, then check one unseen transfer item."
+  );
+  await assignment.getByRole("button", { name: "Assign tracked follow-up", exact: true }).click();
+  await expect(workspace.getByRole("status")).toContainText(
+    "Follow-up assigned for Audit Initial Sounds Group. It is now tracked on Today."
+  );
+
+  const axeResult = await new AxeBuilder({ page }).include(".teacher-saved-groups").analyze();
+  expect(axeResult.violations.filter(
+    violation => violation.impact === "serious" || violation.impact === "critical"
+  )).toEqual([]);
+
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+    timeout: 20_000
+  });
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Progress", exact: true })
+    .click();
+  const restoredWorkspace = page.getByRole("region", { name: "Saved instructional groups" });
+  await expect(restoredWorkspace).toHaveAttribute("data-saved-group-count", "2", {
+    timeout: 20_000
+  });
+  await expect(restoredWorkspace.getByRole("article", {
+    name: "Saved instructional group: Audit Initial Sounds Group"
+  })).toBeVisible();
+
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Today", exact: true })
+    .click();
+  const intervention = page.getByRole("article", {
+    name: "Intervention for Audit Initial Sounds Group"
+  });
+  await expect(intervention).toBeVisible({ timeout: 20_000 });
+  await expect(intervention).toContainText("Planned · delivery needed");
+  await expect(intervention).toContainText(
+    "Model the shared target, rehearse together, then check one unseen transfer item."
+  );
+
+  expect(pageErrors).toEqual([]);
+  expect(consoleErrors).toEqual([]);
+});
+
 test("@teacher-assessment-hub uses purpose-led language and routes every purpose from one hub", async ({
   page
 }) => {

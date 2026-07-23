@@ -135,6 +135,7 @@
     "check:teacher-class-progress": "node --test tests/unit/teacherProgressOverview.test.js && npm run test:release-teacher -- --grep @teacher-class-progress",
     "check:teacher-evidence-basis": "node --test tests/unit/teacherProgressOverview.test.js && npm run test:release-teacher -- --grep @teacher-evidence-basis",
     "check:teacher-growth-history": "node --test tests/unit/teacherGrowthSeries.test.js && npm run test:release-teacher -- --grep @teacher-growth-history",
+    "check:teacher-instructional-groups": "node --test tests/unit/teacherInstructionalGroups.test.js && npm run test:release-teacher -- --grep @teacher-instructional-groups && node tools/verifyTeacherInstructionalGroupsBackend.mjs",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",
     "check:teacher-roster-device-matrix": "playwright test tests/release/teacher-roster-device-matrix.spec.js --project=desktop",

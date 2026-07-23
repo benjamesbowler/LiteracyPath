@@ -423,6 +423,14 @@ where class_id in (
   '30000000-0000-4000-8000-000000000002'
 );
 
+-- Saved group and review E2E runs are mutable. Interventions are deleted
+-- first because an assigned follow-up keeps a durable group reference.
+delete from public.teacher_instructional_groups
+where class_id in (
+  '30000000-0000-4000-8000-000000000001',
+  '30000000-0000-4000-8000-000000000002'
+);
+
 delete from public.students
 where class_id in (
   '30000000-0000-4000-8000-000000000001',

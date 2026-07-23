@@ -145,6 +145,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [7, 10]
   },
   {
+    id: "teacher-instructional-groups",
+    label: "Saved transparent groups, aggregate comparison, movement review, and tracked follow-up",
+    command: ["npm", "run", "check:teacher-instructional-groups"],
+    areas: [5, 7, 8, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],

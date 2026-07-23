@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { buildTeacherProgressOverview } from "../../utils/teacherProgressOverview.js";
 import { TeacherGrowthChart } from "./TeacherGrowthChart.jsx";
+import { TeacherInstructionalGroups } from "./TeacherInstructionalGroups.jsx";
 import { TeacherChart } from "./ui/TeacherPrimitives.jsx";
 
 function bucketLabel(bucket) {
@@ -212,44 +213,22 @@ export function TeacherProgressOverview({
               <EvidenceBasis basis={summary.coverage.evidence} label="Class coverage conclusion" />
             </article>
 
-            <article className="teacher-progress-panel">
-              <div className="teacher-progress-panel-heading">
-                <div>
-                  <p className="panel-label">Groups</p>
-                  <h3>Shared teaching focus</h3>
-                </div>
-                <strong>{summary.groups.length} suggested</strong>
-              </div>
-              {summary.groups.length ? (
-                <ul className="teacher-progress-insight-list">
-                  {summary.groups.map(group => (
-                    <li key={group.id}>
-                      <div>
-                        <strong>{group.label}</strong>
-                        <span>{group.learners.map(learner => learner.name).join(", ")}</span>
-                        <small>{group.basis} · {group.learners.length} learners</small>
-                        <EvidenceDisclosure
-                          basis={group.evidence}
-                          label={`${group.label} group conclusion`}
-                        />
-                      </div>
-                      <button
-                        className="text-button"
-                        type="button"
-                        onClick={() => chooseLearner(group.learners[0].id)}
-                      >
-                        Review first learner
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="muted-text">No shared focus currently has two or more learners.</p>
+            <TeacherInstructionalGroups
+              key={selectedClassId}
+              supabase={supabase}
+              teacherId={teacherId}
+              classId={selectedClassId}
+              className={className}
+              suggestions={summary.groups}
+              rows={summary.rows}
+              onChooseLearner={chooseLearner}
+              renderEvidence={group => (
+                <EvidenceDisclosure
+                  basis={group.evidence}
+                  label={`${group.label} group conclusion`}
+                />
               )}
-              <p className="teacher-progress-basis">
-                Suggestions group a shared current focus or the same re-teaching signal; teachers decide placement.
-              </p>
-            </article>
+            />
 
             <article className="teacher-progress-panel">
               <div className="teacher-progress-panel-heading">

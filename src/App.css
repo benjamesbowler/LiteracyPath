@@ -18076,6 +18076,13 @@ select:focus {
   font-size: 13px;
 }
 
+.teacher-progress-group-actions {
+  flex: 0 0 auto;
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+}
+
 .teacher-progress-basis {
   margin: 0;
   padding-top: 10px;
@@ -18254,6 +18261,320 @@ select:focus {
 
 .teacher-progress-item-evidence .teacher-evidence-basis > div:last-child {
   grid-column: auto;
+}
+
+.teacher-saved-groups {
+  grid-column: 1 / -1;
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-saved-groups-heading,
+.teacher-group-comparison > header,
+.teacher-group-assignment > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.teacher-saved-groups-heading h3,
+.teacher-group-comparison h4,
+.teacher-group-comparison h5,
+.teacher-group-assignment h4 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-saved-groups-heading p:not(.panel-label),
+.teacher-group-comparison > p,
+.teacher-group-comparison article > p {
+  margin: 5px 0 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.teacher-saved-groups-heading > strong,
+.teacher-group-comparison > header > strong {
+  flex: 0 0 auto;
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+}
+
+.teacher-saved-groups-status {
+  min-height: 20px;
+  margin: 0;
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.teacher-saved-groups button {
+  min-height: var(--teacher-ui-target-min);
+}
+
+.teacher-saved-groups .lp-button {
+  min-height: var(--teacher-ui-target-min) !important;
+}
+
+.teacher-group-save-form,
+.teacher-group-assignment {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--lp-color-primary);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-group-save-form {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+}
+
+.teacher-group-save-form label,
+.teacher-group-assignment label {
+  display: grid;
+  gap: 6px;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.teacher-group-save-form input,
+.teacher-group-assignment input,
+.teacher-group-assignment textarea {
+  width: 100%;
+  min-height: var(--teacher-ui-target-min);
+  padding: 10px 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+  font: inherit;
+}
+
+.teacher-group-assignment textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.teacher-group-save-form dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin: 12px 0 0;
+}
+
+.teacher-group-save-form dl > div {
+  padding: 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface);
+}
+
+.teacher-group-save-form dt,
+.teacher-group-movement dt,
+.teacher-group-comparison dt {
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.teacher-group-save-form dd,
+.teacher-group-movement dd,
+.teacher-group-comparison dd {
+  margin: 3px 0 0;
+  color: var(--lp-color-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.teacher-group-form-actions {
+  display: grid;
+  gap: 8px;
+  min-width: 210px;
+}
+
+.teacher-group-state {
+  padding: 16px;
+  border: 1px dashed var(--lp-color-border);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-group-state.is-error {
+  border-color: var(--lp-color-danger);
+  color: var(--lp-color-danger);
+}
+
+.teacher-group-state p {
+  margin: 5px 0 0;
+}
+
+.teacher-saved-group-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.teacher-saved-group-card {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 11px;
+  padding: 15px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-saved-group-card > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.teacher-saved-group-card > header span {
+  display: block;
+  color: var(--lp-color-primary-strong);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.teacher-saved-group-card > header h4 {
+  margin: 3px 0 0;
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-saved-group-card > header p {
+  margin: 3px 0 0;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-saved-group-card > header > strong {
+  flex: 0 0 auto;
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+}
+
+.teacher-saved-group-policy {
+  margin: 0;
+  color: var(--lp-color-text);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.teacher-saved-group-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.teacher-saved-group-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.teacher-saved-group-actions .lp-button {
+  min-height: var(--teacher-ui-target-min);
+  white-space: normal;
+}
+
+.teacher-group-movement {
+  border-top: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-group-movement summary {
+  min-height: var(--teacher-ui-target-min);
+  display: flex;
+  align-items: center;
+  color: var(--lp-color-primary-strong);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.teacher-group-movement dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.teacher-group-movement dl > div {
+  padding: 9px;
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface);
+}
+
+.teacher-group-comparison {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-group-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.teacher-group-comparison-grid article {
+  padding: 13px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface);
+}
+
+.teacher-group-comparison-grid dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.teacher-group-comparison-grid dl > div {
+  min-width: 0;
+  padding: 8px;
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-group-comparison dd {
+  overflow-wrap: anywhere;
+}
+
+.teacher-group-assignment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.teacher-group-assignment > .lp-button {
+  width: fit-content;
 }
 
 .teacher-growth {
@@ -18712,6 +19033,28 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
+  .teacher-group-save-form,
+  .teacher-saved-groups-heading,
+  .teacher-group-comparison > header,
+  .teacher-group-assignment > header {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-group-form-actions {
+    min-width: 0;
+  }
+
+  .teacher-group-save-form dl {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-saved-group-list,
+  .teacher-group-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
   .teacher-growth-heading,
   .teacher-growth-view-heading {
     align-items: stretch;
@@ -18739,6 +19082,36 @@ select:focus {
 }
 
 @media (max-width: 520px) {
+  .teacher-saved-groups {
+    padding: 14px;
+  }
+
+  .teacher-progress-insight-list li,
+  .teacher-saved-group-card > header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-progress-group-actions {
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  .teacher-progress-group-actions .text-button {
+    min-height: var(--teacher-ui-target-min);
+    text-align: left;
+  }
+
+  .teacher-saved-group-actions,
+  .teacher-group-movement dl,
+  .teacher-group-assignment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-group-comparison-grid dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .teacher-growth {
     padding: 12px;
   }
