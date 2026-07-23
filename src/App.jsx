@@ -8939,7 +8939,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               clearQuestPractice={clearQuestPractice}
               onLoadStudent={async (id, name) => {
                 await loadStudentProgress(id, name);
-                setAppView(APP_VIEWS.OVERVIEW);
               }}
               createClass={createClass}
               regenerateClassCode={regenerateClassCode}
