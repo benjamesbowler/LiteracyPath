@@ -62,7 +62,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A6.4 | 6 | P1 | TODO | teacher-dashboard urgency DOM-order test | — |
 | A6.5 | 6 | P1 | TODO | shared-feedback adoption guard + a11y tests | — |
 | A6.6 | 6 | P1 | TODO | metric-definition DOM + export snapshot tests | — |
-| A6.7 | 6 | P0 | TODO | `check:a11y-teacher` | — |
+| A6.7 | 6 | P0 | DONE | `check:a11y-teacher` | Commit `2bb12c23`; `docs/release/artifacts/2026-07-23T18-34-38-204Z/manifest.partial.json` passes 20/20 against the committed tree: zero-warning lint, 992 unit tests, production build, unchanged bundle budgets, reconstructable database schema, deterministic audit seed, live Auth/RLS isolation, all prior teacher/report/export regressions, and the authenticated teacher accessibility gate. The seeded journey proves one main landmark, named primary navigation, an eight-column semantic roster, a textual alternative for the class sound map, keyboard activation across all five teacher intentions, and zero serious or critical Axe violations on Today, Classes, Assess, Progress, Plan/Resources, and the class-code dialog. Teacher dialogs now trap forward and reverse focus, close with Escape, and restore focus to the invoking control; two gate-discovered contrast failures in inactive class text and unseen sound-map tiles were fixed at source. |
 | A6.8 | 6 | P2 | TODO | assessment-hub nav copy test | — |
 | A6.9 | 6 | P1 | TODO | teacher state-matrix fixture tests | — |
 | A6.10 | 6 | P1 | TODO | teacher UI duplication guard + visual snapshots | — |
