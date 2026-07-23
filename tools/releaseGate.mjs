@@ -107,6 +107,18 @@ export const RELEASE_GATES = Object.freeze([
     areas: [8, 10]
   },
   {
+    id: "audit-school-seed",
+    label: "Deterministic non-production audit school",
+    command: ["npm", "run", "check:audit-school-seed"],
+    areas: [6, 10]
+  },
+  {
+    id: "audit-school-live",
+    label: "Audit school Auth, fixtures, and RLS isolation",
+    command: ["npm", "run", "check:audit-school-live"],
+    areas: [6, 8, 10]
+  },
+  {
     id: "a11y-routes",
     label: "All-route accessibility",
     command: ["npm", "run", "check:a11y-routes"],

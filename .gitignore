@@ -85,6 +85,10 @@ __pycache__/
 # generated dependency-graph output (regenerate on demand)
 graphify-out/
 
+# local Supabase CLI state
+supabase/.branches/
+supabase/.temp/
+
 # local Claude tool state (skills sync churn)
 .claude/
 

@@ -32,6 +32,8 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "dependency-audit",
     "repo-hygiene",
     "database-bootstrap-schema",
+    "audit-school-seed",
+    "audit-school-live",
     "a11y-routes",
     "db-policies",
     "e2e-teacher",

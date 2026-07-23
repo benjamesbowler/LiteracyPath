@@ -56,7 +56,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A5.8 | 5 | P1 | TODO | print-route test + `document.write` grep guard | — |
 | A5.9 | 5 | P2 | TODO | teacher student-preview safety E2E | — |
 | A5.10 | 5 | P1 | TODO | intervention lifecycle E2E | — |
-| A6.1 | 6 | P0 | TODO | deterministic audit-school seed used in CI | — |
+| A6.1 | 6 | P0 | IN-PROGRESS | deterministic audit-school seed used in CI | SQL assertions and live Auth/RLS gate pass locally; CI manifest evidence pending P0.5 |
 | A6.2 | 6 | P1 | TODO | teacher roster device-matrix + drawer tests | — |
 | A6.3 | 6 | P2 | TODO | contextual teacher-help reachability DOM test | — |
 | A6.4 | 6 | P1 | TODO | teacher-dashboard urgency DOM-order test | — |
