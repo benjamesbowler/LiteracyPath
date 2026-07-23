@@ -126,6 +126,7 @@
     "check:teacher-ia": "npm run test:release-teacher -- --grep @teacher-five-intention-ia",
     "check:teacher-today": "npm run test:release-teacher -- --grep @teacher-today-briefing",
     "check:teacher-urgency-order": "npm run test:release-teacher -- --grep @teacher-urgency-order",
+    "check:teacher-action-feedback": "node tools/checkActionFeedbackAdoption.mjs && npm run test:release-teacher -- --grep @teacher-action-feedback",
     "check:teacher-context": "npm run test:release-teacher -- --grep @teacher-persistent-context",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

@@ -181,6 +181,11 @@ const TeacherDashboardPage = lazyWithRetry(() =>
     default: module.TeacherDashboardPage
   }))
 );
+const LazyActionFeedback = lazyWithRetry(() =>
+  import("./components/ActionFeedback.jsx").then(module => ({
+    default: module.ActionFeedback
+  }))
+);
 const Sidebar = lazyWithRetry(() =>
   import("./components/Sidebar.jsx").then(module => ({
     default: module.Sidebar
@@ -9274,13 +9279,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         <PageBoundary resetKey={`el-assessments-${studentId}`}>
           <>
             {message && (
-              <p
-                aria-live="polite"
-                className={`message el-benchmark-hub-message${message.includes("Cloud sync is pending") || message.includes("cloud copy could not") ? " sync-pending" : ""}`}
-                role="status"
-              >
-                {message}
-              </p>
+              <Suspense fallback={null}>
+                <LazyActionFeedback
+                  className={`el-benchmark-hub-message${message.includes("Cloud sync is pending") || message.includes("cloud copy could not") ? " sync-pending" : ""}`}
+                  message={message}
+                />
+              </Suspense>
             )}
             <ELAssessmentsPage
               studentId={studentId}

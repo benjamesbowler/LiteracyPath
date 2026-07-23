@@ -5,6 +5,7 @@ import {
   STUDENT_REPORT_VIEWS,
   studentReportHash
 } from "./studentReportUiUtils.js";
+import { ActionFeedback } from "../ActionFeedback.jsx";
 
 export function StudentReportShell({
   activeView,
@@ -12,6 +13,7 @@ export function StudentReportShell({
   className = "",
   exportDisabled = false,
   exportLabel = "Download spreadsheet data",
+  feedback = null,
   generatedLabel = "",
   onBack,
   onExport,
@@ -125,9 +127,10 @@ export function StudentReportShell({
             </div>
             {generatedLabel && <small>{generatedLabel}</small>}
           </div>
-          {statusMessage && (
-            <p className="lg-report-live-message" aria-live="polite">{statusMessage}</p>
-          )}
+          <ActionFeedback
+            className="lg-report-live-message"
+            feedback={feedback || statusMessage}
+          />
           {children}
         </main>
       </div>

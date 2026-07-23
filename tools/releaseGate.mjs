@@ -91,6 +91,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "teacher-action-feedback",
+    label: "Shared pending, success, error, and undo feedback with AT announcements",
+    command: ["npm", "run", "check:teacher-action-feedback"],
+    areas: [5, 6, 7, 10]
+  },
+  {
     id: "teacher-context",
     label: "Persistent class, group, and learner teacher context",
     command: ["npm", "run", "check:teacher-context"],

@@ -178,6 +178,79 @@ test("@teacher-urgency-order puts setup and Today actions before pulse, with ros
   await expect(rosterSummary).toBeFocused();
 });
 
+test("@teacher-action-feedback announces clipboard, undo, print, and export states consistently", async ({
+  page
+}) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: {
+        writeText: async text => {
+          if (window.__literacyPathRejectClipboard) throw new Error("Clipboard blocked");
+          window.__literacyPathCopiedClassCode = text;
+        }
+      }
+    });
+    window.print = () => {
+      window.__literacyPathPrintRequested = true;
+    };
+  });
+
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  const classCodePanel = page.getByLabel("Class sign-in code");
+  await classCodePanel.getByRole("button", { name: "Copy code", exact: true }).click();
+  const classCodeFeedback = classCodePanel.locator("[data-action-feedback]");
+  await expect(classCodeFeedback).toHaveAttribute("data-feedback-kind", "success");
+  await expect(classCodeFeedback).toHaveAttribute("aria-live", "polite");
+  await expect(classCodeFeedback).toHaveAttribute("aria-atomic", "true");
+
+  await page.evaluate(() => {
+    window.__literacyPathRejectClipboard = true;
+  });
+  await classCodePanel.getByRole("button", { name: "Copy code", exact: true }).click();
+  await expect(classCodeFeedback).toHaveAttribute("data-feedback-kind", "error");
+  await expect(classCodeFeedback).toHaveAttribute("role", "alert");
+  await expect(classCodeFeedback).toHaveAttribute("aria-live", "assertive");
+
+  const roster = page.locator(".teacher-roster-table");
+  const kaiRow = roster.getByRole("row").filter({ hasText: "Kai" });
+  await kaiRow.getByRole("button", { name: "Archive", exact: true }).click();
+  await page.getByRole("dialog", { name: "Archive Kai" })
+    .getByRole("button", { name: "Archive learner", exact: true })
+    .click();
+  const undoFeedback = page.locator('[data-action-feedback][data-feedback-kind="undo"]');
+  await expect(undoFeedback).toContainText("Kai archived");
+  await undoFeedback.getByRole("button", { name: "Undo archive for Kai", exact: true }).click();
+  await expect(roster.getByRole("row").filter({ hasText: "Kai" })).toBeVisible();
+  await expect(page.locator(".teacher-dashboard-message[data-feedback-kind='success']")).toContainText(
+    "Kai restored"
+  );
+
+  await roster.getByRole("checkbox", { name: "Select Aarav", exact: true }).check();
+  await page.getByRole("button", { name: "Preview selected cards (1)", exact: true }).click();
+  const cardFeedback = page.locator(".teacher-login-card-feedback");
+  await expect(cardFeedback).toHaveAttribute("data-feedback-kind", "success");
+  await page.getByRole("button", { name: "Print cards", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__literacyPathPrintRequested)).toBe(true);
+  await expect(cardFeedback).toContainText("Print dialog opened");
+  await page.getByRole("button", { name: "Return to roster", exact: true }).click();
+
+  await openAaravReports(page);
+  await page.getByRole("button", { name: "Open Whole Child", exact: true }).click();
+  await page.getByRole("button", { name: "Print or save PDF", exact: true }).click();
+  const reportFeedback = page.locator(".lg-report-live-message[data-action-feedback]");
+  await expect(reportFeedback).toHaveAttribute("data-feedback-kind", "success");
+  await expect(reportFeedback).toContainText("Print dialog opened");
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download knowledge data", exact: true }).click();
+  await downloadPromise;
+  await expect(reportFeedback).toHaveAttribute("data-feedback-kind", "success");
+  await expect(reportFeedback).toContainText("Report data downloaded");
+});
+
 test("@teacher-persistent-context drills through groups and three learners without swapping the student session", async ({ page }) => {
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);

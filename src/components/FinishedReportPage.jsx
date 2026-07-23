@@ -736,7 +736,7 @@ export function FinishedReportPage({
   const [guidedReadingRetry, setGuidedReadingRetry] = useState(0);
   const [benchmarkScopeSelection, setBenchmarkScopeSelection] = useState({ owner: "", key: "" });
   const [benchmarkExporting, setBenchmarkExporting] = useState(false);
-  const [exportStatus, setExportStatus] = useState("");
+  const [actionFeedback, setActionFeedback] = useState(null);
   const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
   const hasCurrentGuidedReadingLoad = guidedReadingLoad.records === guidedReadingRecords
     && guidedReadingLoad.retry === guidedReadingRetry;
@@ -904,12 +904,12 @@ export function FinishedReportPage({
       contextKey: reportContextKey,
       view: normalizeStudentReportView(viewId)
     });
-    setExportStatus("");
+    setActionFeedback(null);
   }, [reportContextKey]);
 
   async function exportActiveReport() {
     if (benchmarkExporting) return;
-    setExportStatus("Preparing report data...");
+    setActionFeedback({ kind: "pending", message: "Preparing report data..." });
     try {
       if (activeReportView === "el-assessments") {
         await exportSelectedBenchmarkScope(activeBenchmarkScope);
@@ -924,11 +924,32 @@ export function FinishedReportPage({
         );
         if (!downloaded) throw new Error("No report rows are available for export.");
       }
-      setExportStatus("Report data downloaded.");
+      setActionFeedback({ kind: "success", message: "Report data downloaded." });
     } catch (error) {
       console.error("Student report export failed:", error);
-      setExportStatus("The report could not be downloaded. Try again.");
+      setActionFeedback({
+        kind: "error",
+        message: "The report could not be downloaded. Try again."
+      });
     }
+  }
+
+  function printActiveReport() {
+    setActionFeedback({ kind: "pending", message: "Opening the print dialog..." });
+    window.requestAnimationFrame(() => {
+      try {
+        window.print();
+        setActionFeedback({
+          kind: "success",
+          message: "Print dialog opened. Choose a printer or save as PDF."
+        });
+      } catch {
+        setActionFeedback({
+          kind: "error",
+          message: "The print dialog could not be opened. Try again."
+        });
+      }
+    });
   }
 
   const exportConfig = activeReportView === "el-assessments"
@@ -962,16 +983,17 @@ export function FinishedReportPage({
     <StudentReportShell
       activeView={activeReportView}
       className={formatClassLabel(className)}
-      exportDisabled={benchmarkExporting}
+      exportDisabled={benchmarkExporting || actionFeedback?.kind === "pending"}
       exportLabel={exportConfig.label}
       generatedLabel={`Generated ${generatedDate}`}
       onBack={returnToTeacherDashboard}
       onExport={exportConfig.enabled ? exportActiveReport : null}
-      onPrint={() => window.print()}
+      onPrint={printActiveReport}
       onStartAssessment={assessmentAction?.handler}
       onViewChange={changeReportView}
       startAssessmentLabel={assessmentAction?.label}
-      statusMessage={exportStatus || reportStatusMessage}
+      feedback={actionFeedback}
+      statusMessage={reportStatusMessage}
       studentName={studentName}
     >
       {activeReportView === "whole-child" && (

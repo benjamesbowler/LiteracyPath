@@ -2288,6 +2288,88 @@ body {
   box-shadow: var(--shadow-card);
 }
 
+.lp-action-feedback {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text);
+}
+
+.lp-action-feedback p {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lp-action-feedback-mark {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--lp-color-text-muted);
+}
+
+.lp-action-feedback.is-pending .lp-action-feedback-mark {
+  border: 2px solid rgba(12, 107, 101, 0.22);
+  border-top-color: var(--lp-color-primary);
+  background: transparent;
+  animation: lp-action-feedback-spin 0.8s linear infinite;
+}
+
+.lp-action-feedback.is-success {
+  border-color: rgba(12, 107, 101, 0.28);
+  background: var(--lp-color-primary-soft);
+}
+
+.lp-action-feedback.is-success .lp-action-feedback-mark {
+  background: var(--lp-color-primary);
+}
+
+.lp-action-feedback.is-error {
+  border-color: rgba(194, 65, 75, 0.32);
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+}
+
+.lp-action-feedback.is-error .lp-action-feedback-mark {
+  background: var(--lp-color-danger);
+}
+
+.lp-action-feedback.is-undo {
+  border-color: rgba(183, 121, 31, 0.3);
+  background: #fff7d6;
+}
+
+.lp-action-feedback.is-undo .lp-action-feedback-mark {
+  background: #b7791f;
+}
+
+.lp-action-feedback > .text-button {
+  min-height: 36px;
+  padding: 6px 8px;
+}
+
+@keyframes lp-action-feedback-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-action-feedback.is-pending .lp-action-feedback-mark {
+    animation: none;
+    border-color: var(--lp-color-primary);
+  }
+}
+
 .teacher-dashboard-page {
   gap: 14px;
 }

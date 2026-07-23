@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { resolveElBenchmarkReportScope } from "../../data/elBenchmarkReportScope.js";
 import { importWithRetry } from "../../utils/lazyWithRetry.js";
+import { ActionFeedback } from "../ActionFeedback.jsx";
 
 function getScopeKey(scope = {}) {
   return `${scope.grade || ""}::${scope.benchmarkWindow || scope.window || ""}`;
@@ -25,8 +26,8 @@ export function ElFormalAssessmentsPanel({
   const [selectedScopeKey, setSelectedScopeKey] = useState("");
   const [savedReports, setSavedReports] = useState([]);
   const [historyStatus, setHistoryStatus] = useState("loading");
-  const [historyNotice, setHistoryNotice] = useState("");
-  const [actionNotice, setActionNotice] = useState("");
+  const [historyNotice, setHistoryNotice] = useState(null);
+  const [actionNotice, setActionNotice] = useState(null);
   const [busyAction, setBusyAction] = useState("");
   const [deleteTarget, setDeleteTarget] = useState(null);
   const teacherStorageId = teacherId || "local";
@@ -54,12 +55,15 @@ export function ElFormalAssessmentsPanel({
       });
       setSavedReports(hydrated);
       setHistoryStatus("ready");
-      setHistoryNotice("");
+      setHistoryNotice(null);
       return hydrated;
     } catch (error) {
       console.error("Cloud EL assessment report history could not be loaded:", error);
       setHistoryStatus("local-only");
-      setHistoryNotice("Cloud report history is unavailable. Showing this browser's offline cache.");
+      setHistoryNotice({
+        kind: "error",
+        message: "Cloud report history is unavailable. Showing this browser's offline cache."
+      });
       return localReports;
     }
   }
@@ -70,7 +74,7 @@ export function ElFormalAssessmentsPanel({
       .then(async store => {
         if (cancelled) return;
         setHistoryStatus("loading");
-        setHistoryNotice("");
+        setHistoryNotice(null);
         const localReports = store.getSavedElAssessmentReports({ teacherId: teacherStorageId });
         setSavedReports(localReports);
         try {
@@ -86,14 +90,20 @@ export function ElFormalAssessmentsPanel({
           if (cancelled) return;
           console.error("Cloud EL assessment report history could not be loaded:", error);
           setHistoryStatus("local-only");
-          setHistoryNotice("Cloud report history is unavailable. Showing this browser's offline cache.");
+          setHistoryNotice({
+            kind: "error",
+            message: "Cloud report history is unavailable. Showing this browser's offline cache."
+          });
         }
       })
       .catch(error => {
         if (cancelled) return;
         console.error("EL assessment report history could not be opened:", error);
         setHistoryStatus("error");
-        setHistoryNotice("Saved report history could not be opened. Refresh the page to try again.");
+        setHistoryNotice({
+          kind: "error",
+          message: "Saved report history could not be opened. Refresh the page to try again."
+        });
       });
     return () => {
       cancelled = true;
@@ -103,7 +113,7 @@ export function ElFormalAssessmentsPanel({
   async function exportClassExcel() {
     if (!selectedClassId || !activeScope) return;
     setBusyAction("export");
-    setActionNotice("");
+    setActionNotice({ kind: "pending", message: "Creating the EL Excel report..." });
     try {
       const { exportClassElAssessmentExcel } = await importWithRetry(() => import("../../utils/exportElAssessmentExcel.js"));
       const report = await exportClassElAssessmentExcel({
@@ -116,27 +126,57 @@ export function ElFormalAssessmentsPanel({
         supabase
       });
       await refreshSavedReports();
-      setActionNotice(report.persistence?.durable === false
-        ? "Excel downloaded, but the saved-report copy could not be retained. Keep the downloaded file."
-        : `Excel downloaded and saved for ${report.benchmarkScope?.label || activeScope.label}.`);
+      setActionNotice({
+        kind: report.persistence?.durable === false ? "error" : "success",
+        message: report.persistence?.durable === false
+          ? "Excel downloaded, but the saved-report copy could not be retained. Keep the downloaded file."
+          : `Excel downloaded and saved for ${report.benchmarkScope?.label || activeScope.label}.`
+      });
     } catch (error) {
       console.error("Class EL assessment Excel export failed:", error);
-      setActionNotice("The EL Excel report could not be created. No report was deleted.");
+      setActionNotice({
+        kind: "error",
+        message: "The EL Excel report could not be created. No report was deleted."
+      });
     } finally {
       setBusyAction("");
     }
   }
 
+  function printClassReport() {
+    setActionNotice({ kind: "pending", message: "Opening the EL report print dialog..." });
+    window.requestAnimationFrame(() => {
+      try {
+        onPrint?.();
+        setActionNotice({
+          kind: "success",
+          message: "Print dialog opened. Choose a printer or save as PDF."
+        });
+      } catch {
+        setActionNotice({
+          kind: "error",
+          message: "The EL report print dialog could not be opened. Try again."
+        });
+      }
+    });
+  }
+
   async function downloadSavedReport(report) {
     setBusyAction(`download:${report.reportId}`);
-    setActionNotice("");
+    setActionNotice({ kind: "pending", message: "Preparing the saved EL report download..." });
     try {
       const { downloadElAssessmentReport } = await importWithRetry(() => import("../../utils/exportElAssessmentExcel.js"));
       await downloadElAssessmentReport(report);
-      setActionNotice(`Downloaded ${report.fileName || "the saved EL report"}.`);
+      setActionNotice({
+        kind: "success",
+        message: `Downloaded ${report.fileName || "the saved EL report"}.`
+      });
     } catch (error) {
       console.error("Saved EL assessment report download failed:", error);
-      setActionNotice("The saved EL report could not be downloaded. It remains in report history.");
+      setActionNotice({
+        kind: "error",
+        message: "The saved EL report could not be downloaded. It remains in report history."
+      });
     } finally {
       setBusyAction("");
     }
@@ -146,18 +186,24 @@ export function ElFormalAssessmentsPanel({
     if (!deleteTarget) return;
     const reportId = deleteTarget.reportId;
     setBusyAction(`delete:${reportId}`);
-    setActionNotice("");
+    setActionNotice({ kind: "pending", message: "Deleting the saved report..." });
     try {
       const { deleteSavedElAssessmentReport } = await importWithRetry(() => import("../../data/elAssessmentReportStore.js"));
       await deleteSavedElAssessmentReport(reportId, { teacherId: teacherStorageId, supabase });
       setDeleteTarget(null);
       await refreshSavedReports();
-      setActionNotice(supabase
-        ? "Saved report deleted from cloud history and this browser."
-        : "Saved report deleted from this browser.");
+      setActionNotice({
+        kind: "success",
+        message: supabase
+          ? "Saved report deleted from cloud history and this browser."
+          : "Saved report deleted from this browser."
+      });
     } catch (error) {
       console.error("Saved EL assessment report delete failed:", error);
-      setActionNotice("The saved report could not be deleted from cloud history, so the browser copy was kept.");
+      setActionNotice({
+        kind: "error",
+        message: "The saved report could not be deleted from cloud history, so the browser copy was kept."
+      });
     } finally {
       setBusyAction("");
     }
@@ -193,7 +239,7 @@ export function ElFormalAssessmentsPanel({
             ))}
           </select>
         </label>
-        <button className="lp-button lp-button-primary" disabled={!activeScope} onClick={onPrint} type="button">
+        <button className="lp-button lp-button-primary" disabled={!activeScope} onClick={printClassReport} type="button">
           Print or save EL PDF
         </button>
         <button
@@ -215,7 +261,13 @@ export function ElFormalAssessmentsPanel({
         </p>
       </div>
 
-      {(historyNotice || actionNotice) && <p className="message" role="status">{actionNotice || historyNotice}</p>}
+      <ActionFeedback
+        feedback={actionNotice || historyNotice || (
+          historyStatus === "loading"
+            ? { kind: "pending", message: "Loading saved EL report history..." }
+            : null
+        )}
+      />
 
       <div className="el-saved-reports" aria-busy={historyStatus === "loading"}>
         <div className="el-saved-reports-heading">

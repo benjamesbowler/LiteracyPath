@@ -12,6 +12,7 @@ import {
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
+import { ActionFeedback } from "./ActionFeedback.jsx";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
 
@@ -105,10 +106,32 @@ function LoginCardPrintRoute({
   classCode,
   onClose
 }) {
+  const [printFeedback, setPrintFeedback] = useState({
+    kind: "success",
+    message: `Print preview ready with ${rows.length} login card${rows.length === 1 ? "" : "s"}.`
+  });
   const pages = Array.from(
     { length: Math.ceil(rows.length / 4) },
     (_unused, pageIndex) => rows.slice(pageIndex * 4, pageIndex * 4 + 4)
   );
+
+  function printCards() {
+    setPrintFeedback({ kind: "pending", message: "Opening the print dialog..." });
+    window.requestAnimationFrame(() => {
+      try {
+        window.print();
+        setPrintFeedback({
+          kind: "success",
+          message: "Print dialog opened. Choose a printer or save as PDF."
+        });
+      } catch {
+        setPrintFeedback({
+          kind: "error",
+          message: "The print dialog could not be opened. Try again."
+        });
+      }
+    });
+  }
 
   return (
     <section
@@ -128,14 +151,12 @@ function LoginCardPrintRoute({
           <button className="lp-button lp-button-secondary" type="button" onClick={onClose}>
             Return to roster
           </button>
-          <button className="lp-button lp-button-primary" type="button" onClick={() => window.print()}>
+          <button className="lp-button lp-button-primary" type="button" onClick={printCards}>
             Print cards
           </button>
         </div>
       </header>
-      <p className="sr-only" role="status">
-        Print preview ready with {rows.length} login card{rows.length === 1 ? "" : "s"}.
-      </p>
+      <ActionFeedback className="teacher-login-card-feedback" feedback={printFeedback} />
       <div className="teacher-login-card-pages" aria-label="Page-sized login card preview">
         {pages.map((pageRows, pageIndex) => (
           <section
@@ -1151,6 +1172,7 @@ export function TeacherDashboardPage({
   async function handleRegenerateClassCode() {
     if (!selectedClass?.id || !regenerateClassCode) return;
     setRegeneratingClassCode(true);
+    setClassCodeStatus("Creating a new class code...");
     const result = await regenerateClassCode(selectedClass.id);
     setRegeneratingClassCode(false);
     if (!result?.ok) {
@@ -1344,7 +1366,13 @@ export function TeacherDashboardPage({
         });
         saved = !error && Boolean(data?.length);
         if (saved) {
-          setRosterOperationStatus(`${rosterOperation.student.name} archived. Their evidence is retained.`);
+          const archivedStudent = rosterOperation.student;
+          setRosterOperationStatus({
+            kind: "undo",
+            message: `${archivedStudent.name} archived. Their evidence is retained.`,
+            actionLabel: `Undo archive for ${archivedStudent.name}`,
+            onAction: () => handleRestoreStudent(archivedStudent)
+          });
         }
       } else if (rosterOperation.kind === "transfer") {
         const targetClass = classList.find(row => row.id === operationTargetClassId);
@@ -1454,9 +1482,7 @@ export function TeacherDashboardPage({
                 </button>
               )}
             </div>
-            <p className="teacher-class-code-status" role="status" aria-live="polite">
-              {classCodeStatus}
-            </p>
+            <ActionFeedback className="teacher-class-code-status" message={classCodeStatus} />
           </div>
         )}
         {isClassesPage && selectedClass && (
@@ -1486,15 +1512,13 @@ export function TeacherDashboardPage({
               />
               <span>Include this school</span>
             </label>
-            {leaderboardStatus && <small role="status">{leaderboardStatus}</small>}
+            <ActionFeedback message={leaderboardStatus} />
           </div>
         )}
       </section>
 
-      {message && <p className="message teacher-dashboard-message">{message}</p>}
-      {rosterOperationStatus && (
-        <p className="message teacher-dashboard-message" role="status">{rosterOperationStatus}</p>
-      )}
+      <ActionFeedback className="teacher-dashboard-message" message={message} />
+      <ActionFeedback className="teacher-dashboard-message" feedback={rosterOperationStatus} />
 
       <TeacherSetupChecklist
         hasClass={hasSetupClass}
@@ -1998,7 +2022,7 @@ export function TeacherDashboardPage({
             </button>
           </div>
         ) : loadingStudents ? (
-          <p className="muted-text">Loading students...</p>
+          <ActionFeedback kind="pending" message="Loading students..." />
         ) : studentRows.length === 0 ? (
           <div className="report-empty-state teacher-onboard-empty">
             <strong>Add your first student to {selectedClass.name}.</strong>
