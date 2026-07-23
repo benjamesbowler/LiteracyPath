@@ -20,6 +20,10 @@ async function logIn(page, email) {
 }
 
 async function selectAuditClass(page) {
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Classes", exact: true })
+    .click();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: "Audit Class A" });
   await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
@@ -79,6 +83,63 @@ test("@teacher-five-intention-ia reachable navigation has five intentions and co
   await expect(page.locator('[data-teacher-intent="resources"]')).toBeVisible();
   await expect(page.getByRole("heading", { name: "Prepare teaching and practice", exact: true })).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Plan/Resources tools" })).toBeVisible();
+});
+
+test("@teacher-today-briefing reachable seeded briefing has four evidence zones and working actions", async ({ page }) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+
+  const classSelect = page.getByLabel("Current class");
+  await classSelect.selectOption({ label: "Audit Class A" });
+  await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
+
+  const attention = page.getByRole("region", { name: "Who needs attention" });
+  const due = page.getByRole("region", { name: "What's due" });
+  const changed = page.getByRole("region", { name: "What changed" });
+  const actions = page.getByRole("region", { name: "Direct actions" });
+
+  await expect(attention).toBeVisible();
+  await expect(attention.getByText("Aisha", { exact: true })).toBeVisible();
+  await expect(attention.getByText("20 responses · 30% accuracy", { exact: true })).toBeVisible();
+  await expect(attention.getByText(/below 70% after at least 8 responses/)).toBeVisible();
+  await expect(attention.getByText(/1 low early result is held back/)).toBeVisible();
+  await expect(attention.getByText("Amara", { exact: true })).toHaveCount(0);
+
+  await expect(due).toBeVisible();
+  await expect(due.getByText("Bao", { exact: true })).toBeVisible();
+  await expect(due.getByText("First checkpoint due", { exact: true })).toBeVisible();
+  await expect(due.getByText("No scored responses yet.", { exact: true })).toBeVisible();
+
+  await expect(changed).toBeVisible();
+  const aishaChange = changed.getByRole("listitem").filter({ hasText: "Aisha" });
+  await expect(aishaChange.getByText("Aisha", { exact: true })).toBeVisible();
+  await expect(aishaChange.getByText(/20 new responses/)).toBeVisible();
+  await expect(aishaChange.getByText(/Prior 7 days:/)).toBeVisible();
+
+  await expect(actions).toBeVisible();
+  await actions.getByRole("button", { name: "Manage this class", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+
+  const primaryNav = page.getByTestId("teacher-primary-nav");
+  await primaryNav.getByRole("button", { name: "Today", exact: true }).click();
+  await expect(page.getByRole("region", { name: "Direct actions" })).toBeVisible();
+  await page.getByRole("region", { name: "Direct actions" })
+    .getByRole("button", { name: "Start an assessment", exact: true })
+    .click();
+  await expect(page.locator('[data-teacher-intent="assess"]')).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Today", exact: true }).click();
+  await page.getByRole("region", { name: "Direct actions" })
+    .getByRole("button", { name: "Review progress", exact: true })
+    .click();
+  await expect(page.locator('[data-teacher-intent="progress"]')).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Today", exact: true }).click();
+  await page.getByRole("region", { name: "Who needs attention" })
+    .getByRole("button", { name: "Review Aisha", exact: true })
+    .click();
+  await expect(page.locator(".teacher-overview-dashboard")).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator(".teacher-overview-dashboard")
+    .getByRole("heading", { name: "Aisha", exact: true })).toBeVisible();
 });
 
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {

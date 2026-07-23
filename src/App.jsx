@@ -3928,6 +3928,15 @@ export default function App() {
       }])
     );
 
+    const changeWindowMs = 7 * 24 * 60 * 60 * 1000;
+    const changeWindowEnd = Date.now();
+    const changeWindowStart = changeWindowEnd - changeWindowMs;
+    const previousWindowStart = changeWindowStart - changeWindowMs;
+    const inWindow = (value, start, end) => {
+      const timestamp = new Date(value).getTime();
+      return Number.isFinite(timestamp) && timestamp >= start && timestamp < end;
+    };
+
     const rows =
       (students || []).map(student => {
         const studentAnswers =
@@ -3950,6 +3959,18 @@ export default function App() {
 
         const mastered =
           studentMastery.filter(m => m.mastered);
+        const recentAnswers = studentAnswers.filter(row =>
+          inWindow(row.answered_at, changeWindowStart, changeWindowEnd)
+        ).length;
+        const previousAnswers = studentAnswers.filter(row =>
+          inWindow(row.answered_at, previousWindowStart, changeWindowStart)
+        ).length;
+        const recentMastered = mastered.filter(row =>
+          inWindow(row.updated_at, changeWindowStart, changeWindowEnd)
+        ).length;
+        const previousMastered = mastered.filter(row =>
+          inWindow(row.updated_at, previousWindowStart, changeWindowStart)
+        ).length;
 
         const masteredIds =
           new Set(mastered.map(m => m.skill_id));
@@ -3986,6 +4007,10 @@ export default function App() {
           masteredCount: mastered.length,
           currentSkill: firstUnmastered?.label || "Completed",
           lastActive,
+          recentAnswers,
+          previousAnswers,
+          recentMastered,
+          previousMastered,
           soundSeekers
         };
       });
@@ -8940,6 +8965,9 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               onLoadStudent={async (id, name) => {
                 await loadStudentProgress(id, name);
               }}
+              onOpenClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
+              onOpenAssess={() => setAppView(APP_VIEWS.TEACHER_ASSESS)}
+              onOpenProgress={() => setAppView(APP_VIEWS.TEACHER_PROGRESS)}
               createClass={createClass}
               regenerateClassCode={regenerateClassCode}
               newClassName={newClassName}

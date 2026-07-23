@@ -79,6 +79,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "teacher-today",
+    label: "Seeded Today evidence briefing and actions",
+    command: ["npm", "run", "check:teacher-today"],
+    areas: [5, 6, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

@@ -5,6 +5,7 @@ import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
 import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/worksheets/practicePack.js";
 import { classHeatSummary } from "../utils/questReport.js";
 import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
+import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
 
@@ -51,6 +52,143 @@ function StudentInitial({ name }) {
     <span className="teacher-student-initial" aria-hidden="true">
       {String(name || "S").slice(0, 1).toUpperCase()}
     </span>
+  );
+}
+
+function TodayBriefing({
+  rows,
+  onLoadStudent,
+  onOpenClasses,
+  onOpenAssess,
+  onOpenProgress
+}) {
+  const briefing = useMemo(() => buildTeacherTodayBriefing(rows), [rows]);
+  const policy = briefing.policy;
+
+  return (
+    <section className="teacher-today-briefing" aria-label="Today's class briefing">
+      <header className="teacher-today-briefing-head">
+        <div>
+          <p className="panel-label">Evidence briefing</p>
+          <h3>What needs your attention today</h3>
+        </div>
+        <p>
+          Flags use recorded responses, not guesses. Review appears below
+          {` ${policy.attentionAccuracyBelow}% after at least ${policy.minimumResponsesForAttention} responses.`}
+        </p>
+      </header>
+
+      <div className="teacher-today-grid">
+        <section className="teacher-today-zone attention" aria-label="Who needs attention">
+          <div className="teacher-today-zone-head">
+            <span>Who needs attention</span>
+            <strong>{briefing.attention.length}</strong>
+          </div>
+          {briefing.attention.length ? (
+            <ul>
+              {briefing.attention.slice(0, 4).map(row => (
+                <li key={row.id}>
+                  <div>
+                    <strong>{row.name}</strong>
+                    <span>{row.focus}</span>
+                    <small>{row.evidence}</small>
+                    <small>{row.policyBasis}</small>
+                  </div>
+                  <button
+                    className="text-button"
+                    type="button"
+                    onClick={() => onLoadStudent?.(row.id, row.name)}
+                  >
+                    Review {row.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="teacher-today-empty">No learner meets the review threshold in the current evidence.</p>
+          )}
+          {briefing.insufficientEvidenceCount > 0 && (
+            <p className="teacher-today-evidence-note">
+              {briefing.insufficientEvidenceCount} low early result
+              {briefing.insufficientEvidenceCount === 1 ? " is" : "s are"} held back until the minimum evidence is met.
+            </p>
+          )}
+        </section>
+
+        <section className="teacher-today-zone due" aria-label="What's due">
+          <div className="teacher-today-zone-head">
+            <span>What&rsquo;s due</span>
+            <strong>{briefing.due.length}</strong>
+          </div>
+          {briefing.due.length ? (
+            <ul>
+              {briefing.due.slice(0, 4).map(row => (
+                <li key={row.id}>
+                  <div>
+                    <strong>{row.name}</strong>
+                    <span>{row.title}</span>
+                    <small>{row.evidence}</small>
+                  </div>
+                  <button
+                    className="text-button"
+                    type="button"
+                    onClick={() => onLoadStudent?.(row.id, row.name)}
+                  >
+                    Open {row.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="teacher-today-empty">
+              Nothing is overdue under the {policy.inactivityDueDays}-day activity policy.
+            </p>
+          )}
+        </section>
+
+        <section className="teacher-today-zone changed" aria-label="What changed">
+          <div className="teacher-today-zone-head">
+            <span>What changed</span>
+            <strong>{briefing.changed.length}</strong>
+          </div>
+          {briefing.changed.length ? (
+            <ul>
+              {briefing.changed.slice(0, 4).map(row => (
+                <li key={row.id}>
+                  <div>
+                    <strong>{row.name}</strong>
+                    <span>{row.summary}</span>
+                    <small>{row.comparison}</small>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="teacher-today-empty">
+              No recorded responses or newly secured skills in the last {policy.changeWindowDays} days.
+            </p>
+          )}
+        </section>
+
+        <section className="teacher-today-zone actions" aria-label="Direct actions">
+          <div className="teacher-today-zone-head">
+            <span>Direct actions</span>
+          </div>
+          <div className="teacher-today-direct-actions">
+            <button className="lp-button lp-button-primary" type="button" onClick={onOpenAssess}>
+              Start an assessment
+            </button>
+            <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
+              Review progress
+            </button>
+            <button className="lp-button lp-button-secondary" type="button" onClick={onOpenClasses}>
+              Manage this class
+            </button>
+          </div>
+          <p>Each action keeps the current class in context.</p>
+        </section>
+      </div>
+    </section>
   );
 }
 
@@ -270,6 +408,9 @@ export function TeacherDashboardPage({
   assignQuestPractice,
   clearQuestPractice,
   onLoadStudent,
+  onOpenClasses,
+  onOpenAssess,
+  onOpenProgress,
   createClass,
   regenerateClassCode,
   newClassName,
@@ -320,7 +461,11 @@ export function TeacherDashboardPage({
         masteredCount: dashboardRow.masteredCount ?? 0,
         currentSkill: dashboardRow.currentSkill || "Not started",
         soundSeekers: dashboardRow.soundSeekers || null,
-        lastActive: dashboardRow.lastActive || student.lastActive || student.updated_at || student.created_at || null
+        lastActive: dashboardRow.lastActive || student.lastActive || student.updated_at || student.created_at || null,
+        recentAnswers: dashboardRow.recentAnswers ?? 0,
+        previousAnswers: dashboardRow.previousAnswers ?? 0,
+        recentMastered: dashboardRow.recentMastered ?? 0,
+        previousMastered: dashboardRow.previousMastered ?? 0
       };
     }),
     [dashboardById, studentList]
@@ -507,7 +652,7 @@ export function TeacherDashboardPage({
           <strong>{hasSchool ? schoolName : "Not set"}</strong>
           <small>{selectedClass ? `${studentRows.length} student${studentRows.length === 1 ? "" : "s"}` : className}</small>
         </div>
-        {selectedClass?.access_code && (
+        {isClassesPage && selectedClass?.access_code && (
           <div className="teacher-dashboard-context teacher-class-code" aria-label="Class sign-in code">
             <span>Class code</span>
             <strong className="teacher-class-code-value">{selectedClass.access_code}</strong>
@@ -542,7 +687,7 @@ export function TeacherDashboardPage({
             </div>
           </div>
         )}
-        {selectedClass && (
+        {isClassesPage && selectedClass && (
           <div className="teacher-dashboard-context teacher-leaderboard-privacy" aria-label="High-score privacy">
             <span>High-score board</span>
             <strong>{leaderboardScope === "school" ? "School nicknames" : "Class nicknames"}</strong>
@@ -586,7 +731,10 @@ export function TeacherDashboardPage({
         </section>
       )}
 
-      <section className="teacher-dashboard-controls" aria-label="Class controls">
+      <section
+        className={`teacher-dashboard-controls${isClassesPage ? "" : " teacher-today-class-control"}`}
+        aria-label={isClassesPage ? "Class controls" : "Today class"}
+      >
         <div className="teacher-dashboard-control-group">
           <label className="teacher-dashboard-control">
             <span>Current class</span>
@@ -601,7 +749,7 @@ export function TeacherDashboardPage({
           </label>
         </div>
 
-        <div className="teacher-dashboard-create teacher-dashboard-control-group">
+        {isClassesPage && <div className="teacher-dashboard-create teacher-dashboard-control-group">
           <label className="teacher-dashboard-control">
             <span>New class</span>
             <input
@@ -617,9 +765,9 @@ export function TeacherDashboardPage({
           <button className="lp-button lp-button-primary" onClick={createClass} type="button">
             Create Class
           </button>
-        </div>
+        </div>}
 
-        {saveSchool && (
+        {isClassesPage && saveSchool && (
           <div className="teacher-dashboard-school teacher-dashboard-control-group">
             {!editingSchool ? (
               <p className={hasSchool ? "teacher-school-summary" : "teacher-school-summary teacher-school-missing"}>
@@ -670,7 +818,17 @@ export function TeacherDashboardPage({
         )}
       </section>
 
-      {selectedClass && actionCards.length > 0 && (
+      {!isClassesPage && selectedClass && (
+        <TodayBriefing
+          rows={studentRows}
+          onLoadStudent={onLoadStudent}
+          onOpenClasses={onOpenClasses}
+          onOpenAssess={onOpenAssess}
+          onOpenProgress={onOpenProgress}
+        />
+      )}
+
+      {isClassesPage && selectedClass && actionCards.length > 0 && (
         <section className="teacher-action-cards" aria-label="Suggested next steps">
           {actionCards.map(card => (
             <article key={card.id} className={`teacher-action-card ${card.tone}`}>
@@ -693,7 +851,7 @@ export function TeacherDashboardPage({
         </section>
       )}
 
-      {rosterFilterIds && (
+      {isClassesPage && rosterFilterIds && (
         <div className="teacher-roster-filter-chip">
           <span>Showing {visibleStudentRows.length} of {studentRows.length} students</span>
           <button className="text-button" type="button" onClick={() => setRosterFilterIds(null)}>
@@ -702,7 +860,7 @@ export function TeacherDashboardPage({
         </div>
       )}
 
-      <section className="teacher-dashboard-roster" aria-label="Students">
+      {isClassesPage && <section className="teacher-dashboard-roster" aria-label="Students">
         <div className="teacher-panel-header">
           <div>
             <p className="panel-label">Roster</p>
@@ -891,9 +1049,9 @@ export function TeacherDashboardPage({
             </table>
           </div>
         )}
-      </section>
+      </section>}
 
-      <section className="card page-stack question-type-guide" aria-label="Question type guide">
+      {isClassesPage && <section className="card page-stack question-type-guide" aria-label="Question type guide">
         <details>
           <summary>What each check actually tests</summary>
           <p className="muted-text">
@@ -923,7 +1081,7 @@ export function TeacherDashboardPage({
             </table>
           </div>
         </details>
-      </section>
+      </section>}
 
       {editingStudent && (
         <div className="symbol-password-modal" role="dialog" aria-modal="true" aria-label={`Change password for ${editingStudent.name}`}>

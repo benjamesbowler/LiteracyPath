@@ -2465,6 +2465,164 @@ body {
   background: #ffffff;
 }
 
+.teacher-dashboard-controls.teacher-today-class-control,
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-controls.teacher-today-class-control {
+  grid-template-columns: minmax(220px, 420px);
+}
+
+.teacher-today-briefing {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 12px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-today-briefing-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.teacher-today-briefing-head h3 {
+  margin: 3px 0 0;
+  color: var(--lp-color-text-strong);
+  font-size: 22px;
+}
+
+.teacher-today-briefing-head > p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.teacher-today-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.teacher-today-zone {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-top: 4px solid var(--lp-color-primary);
+  border-radius: 10px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-today-zone.attention {
+  border-top-color: var(--lp-color-warning);
+}
+
+.teacher-today-zone.changed {
+  border-top-color: var(--lp-color-success);
+}
+
+.teacher-today-zone.actions {
+  border-top-color: var(--lp-color-primary-strong);
+}
+
+.teacher-today-zone-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.teacher-today-zone-head span {
+  color: var(--lp-color-text-strong);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.teacher-today-zone-head strong {
+  min-width: 28px;
+  padding: 4px 8px;
+  border-radius: var(--lp-radius-pill);
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  text-align: center;
+}
+
+.teacher-today-zone ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-today-zone li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-today-zone li > div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.teacher-today-zone li strong,
+.teacher-today-zone li span,
+.teacher-today-zone li small {
+  display: block;
+}
+
+.teacher-today-zone li strong {
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-today-zone li span {
+  color: var(--lp-color-text);
+  font-size: 13px;
+}
+
+.teacher-today-zone li small,
+.teacher-today-zone > p {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.teacher-today-zone .text-button {
+  flex: 0 0 auto;
+}
+
+.teacher-today-empty,
+.teacher-today-evidence-note,
+.teacher-today-zone.actions > p {
+  margin: 0;
+}
+
+.teacher-today-evidence-note {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(180, 83, 9, 0.08);
+}
+
+.teacher-today-direct-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.teacher-today-direct-actions .lp-button {
+  min-height: 40px;
+}
+
 .teacher-school-summary {
   display: flex;
   flex-wrap: wrap;
@@ -2697,6 +2855,16 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .teacher-today-briefing-head {
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .teacher-today-grid {
+    grid-template-columns: 1fr;
+  }
+
   .teacher-roster-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2713,6 +2881,11 @@ body {
 }
 
 @media (max-width: 520px) {
+  .teacher-today-zone li {
+    align-items: start;
+    flex-direction: column;
+  }
+
   .teacher-roster-metrics {
     grid-template-columns: 1fr;
   }
