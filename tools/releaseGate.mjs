@@ -73,6 +73,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [4, 5, 6, 7, 9, 10]
   },
   {
+    id: "teacher-dashboard-consolidation",
+    label: "Single teacher product and parity matrix",
+    command: ["npm", "run", "check:teacher-dashboard-consolidation"],
+    areas: [5, 9, 10]
+  },
+  {
     id: "product-finish-surface",
     label: "Reachable product finish contracts",
     command: ["npm", "run", "check:product-finish-surface"],

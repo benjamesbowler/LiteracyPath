@@ -15,6 +15,8 @@ async function logIn(page, email) {
   await expect(page.getByRole("heading", { name: /Class roster|Audit Class A/ })).toBeVisible({
     timeout: 20_000
   });
+  await expect(page.locator('[data-teacher-product="class-dashboard"]')).toBeVisible();
+  await expect(page.locator(".admin-dashboard")).toHaveCount(0);
 }
 
 async function selectAuditClass(page) {
@@ -32,6 +34,9 @@ async function openAaravReports(page) {
   await expect(studentOverview.getByRole("heading", { name: "Aarav", exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Reports", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Reports", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Open Skills Check", exact: true })).toBeEnabled({
+    timeout: 20_000
+  });
 }
 
 async function readDownloadText(download) {

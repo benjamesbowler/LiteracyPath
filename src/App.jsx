@@ -1779,6 +1779,7 @@ export default function App() {
   const [classDashboard, setClassDashboard] = useState([]);
   const [appView, rawSetAppView] = useState(APP_VIEWS.SELECT);
   const [studentReportView, setStudentReportView] = useState("whole-child");
+  const [selectedStudentEvidenceReady, setSelectedStudentEvidenceReady] = useState(true);
 
   // Page changes MORPH instead of cutting. document.startViewTransition
   // snapshots the old frame and cross-fades to the new one (duration set in
@@ -4222,6 +4223,7 @@ export default function App() {
 
 
   async function loadStudentProgress(selectedStudentId, selectedStudentName) {
+    setSelectedStudentEvidenceReady(false);
     answerInFlightRef.current = false;
     if (elBenchmarkSession?.studentId) {
       saveElBenchmarkDraft({
@@ -4408,6 +4410,7 @@ export default function App() {
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage(`Loaded ${selectedStudentName}.`);
+    setSelectedStudentEvidenceReady(true);
   }
 
 
@@ -8893,7 +8896,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               questionBankCoverage={questionBankCoverage}
               mediaQuestions={allQuestions}
               assessmentHistory={assessmentHistory}
-              dashboardMode="admin"
               teacherId={teacherId}
               supabase={isSupabaseConfigured ? supabase : null}
               message={message}
@@ -9104,6 +9106,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             setSelectedClassId={setSelectedClassId}
             students={studentList}
             teacherName={teacherUser?.email || ""}
+            evidenceReady={selectedStudentEvidenceReady}
           />
         </PageBoundary>
       )}

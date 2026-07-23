@@ -448,7 +448,10 @@ export function TeacherDashboardPage({
   }
 
   return (
-    <div className="teacher-product-page teacher-dashboard-page">
+    <div
+      className="teacher-product-page teacher-dashboard-page"
+      data-teacher-product="class-dashboard"
+    >
       <section className="teacher-page-header teacher-dashboard-hero">
         <div>
           <div className="teacher-page-brand">

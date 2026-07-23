@@ -49,7 +49,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A5.1 | 5 | P1 | TODO | teacher-nav DOM + old-route redirect tests | — |
 | A5.2 | 5 | P0 | TODO | seeded Today briefing E2E | — |
 | A5.3 | 5 | P1 | TODO | persistent teacher-context E2E | — |
-| A5.4 | 5 | P0 | TODO | dashboard parity matrix + route test + dead-branch grep guard | — |
+| A5.4 | 5 | P0 | DONE | dashboard parity matrix + route test + dead-branch grep guard | `docs/release/artifacts/2026-07-23T13-27-33-171Z/manifest.partial.json`: 32 parity rows resolved, canonical teacher marker rendered, admin dashboard absent, and no dashboard mode switch remains |
 | A5.5 | 5 | P1 | TODO | fresh-teacher onboarding E2E | — |
 | A5.6 | 5 | P1 | TODO | roster-scale import/bulk/archive/transfer E2E | — |
 | A5.7 | 5 | P2 | TODO | class-code feedback interaction + a11y test | — |
@@ -91,7 +91,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A9.3 | 9 | P1 | TODO | zero ineffective dynamic imports + split-boundary guard | — |
 | A9.4 | 9 | P1 | TODO | eval-free build + 500-item export memory test | — |
 | A9.5 | 9 | P1 | TODO | `App.jsx` line-count ratchet + full tests | — |
-| A9.6 | 9 | P0 | TODO | dashboard consolidation + reachable route contracts | — |
+| A9.6 | 9 | P0 | DONE | dashboard consolidation + reachable route contracts | Same 10/10 partial manifest: live teacher, product-finish, high-volume report, build, bundle, and audit-school isolation gates all pass |
 | A9.7 | 9 | P2 | TODO | deep-link + refresh/resume E2E | — |
 | A9.8 | 9 | P1 | TODO | domain-boundary validation + Supabase-call-site guard | — |
 | A9.9 | 9 | P1 | TODO | fleet-health dashboard + error-budget evidence | — |
@@ -127,3 +127,4 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 | D-012 | 10 | P1 | DONE | canonical-env `test:smoke` preview-route journey | Same partial manifest passes 10/10 desktop/mobile smoke tests against the maintained `/preview/` entry points under canonical Supabase configuration |
 | D-013 | 4, 7 | P0 | DONE | reachable 520-item report/export journey | Same 9/9 partial manifest: learner selection hydrates and merges complete cloud history instead of replacing it with the 400-row browser cache |
 | D-014 | 7, 10 | P0 | DONE | SQL item-count assertion + reachable export journey | Same 9/9 partial manifest: audit seed has 520 production-readable `questionRecords`; signed-in CSV proves 520 unique item IDs |
+| D-015 | 6, 7 | P1 | DONE | complete-evidence loading state + authenticated route test | `docs/release/artifacts/2026-07-23T13-27-33-171Z/manifest.partial.json`: report choices remain disabled until selected-learner hydration finishes; 520-item route export passes in the bounded release run |

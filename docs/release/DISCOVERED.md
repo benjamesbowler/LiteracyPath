@@ -77,3 +77,8 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** the fixture stored per-question rows under payload key `items`, while `normalizeAssessmentAttempt` consumes `questionRecords`. The first reachable download therefore had 520 attempt rows but zero question-evidence rows and zero seeded item summaries.
 **Fix:** seed 520 uniquely keyed `questionRecords`, assert their count inside the SQL transaction, and make the static seed contract check require the production key and item identity.
 **Gate:** the SQL seed aborts unless both long-history attempts and question records equal 520; the signed-in download proves 520 unique `audit-item-*` question IDs.
+
+## D-015 · P1 · Area 6/7 — Report choices could open before complete learner evidence finished loading
+**Evidence:** under the bounded release run, the Skills Check action repeatedly detached while the selected learner's complete cloud history was still hydrating. The UI presented report actions as ready even though their evidence source was changing, and the 520-item journey timed out waiting for a stable action.
+**Fix:** track selected-learner evidence readiness, announce the loading state, and keep every learner report action disabled until the complete history, mastery, and progress record finishes loading.
+**Gate:** unit rendering proves the loading state disables report choices; the authenticated route waits for the action to become enabled and then proves the complete 520-item export. The 10-gate bounded release manifest passes.

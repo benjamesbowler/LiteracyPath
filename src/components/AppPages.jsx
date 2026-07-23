@@ -2116,7 +2116,8 @@ export function TeacherReportsPage({
   selectedClassId = "",
   setSelectedClassId,
   students = [],
-  teacherName = ""
+  teacherName = "",
+  evidenceReady = true
 }) {
   const [detailsReady, setDetailsReady] = useState(false);
   const [dateRange, setDateRange] = useState("last90");
@@ -2330,6 +2331,12 @@ export function TeacherReportsPage({
           <p>Start with the whole-child summary, or open the area where the evidence was collected.</p>
         </header>
 
+        {!evidenceReady && (
+          <p className="message" role="status">
+            Loading the complete learner evidence record…
+          </p>
+        )}
+
         <div className="report-choice-grid">
           {[
             {
@@ -2375,7 +2382,12 @@ export function TeacherReportsPage({
                 <p>{option.description}</p>
               </div>
               <span>{option.meta}</span>
-              <button className="lp-button lp-button-primary" onClick={() => viewFinishedReport(option.id)} type="button">
+              <button
+                className="lp-button lp-button-primary"
+                disabled={!evidenceReady}
+                onClick={() => viewFinishedReport(option.id)}
+                type="button"
+              >
                 Open {option.title}
               </button>
             </article>

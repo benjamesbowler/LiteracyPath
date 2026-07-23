@@ -72,3 +72,14 @@ test("student report availability uses full history and treats a failed checkpoi
   assert.doesNotMatch(html, /Ready for first evidence/);
   assert.doesNotMatch(html, /No passed checkpoints/);
 });
+
+test("report choices wait for the complete selected-learner evidence record", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
+    studentName: "Ada",
+    viewFinishedReport: () => {},
+    evidenceReady: false
+  }));
+
+  assert.match(html, /Loading the complete learner evidence record/);
+  assert.match(html, /<button[^>]*disabled=""[^>]*>Open Skills Check<\/button>/);
+});

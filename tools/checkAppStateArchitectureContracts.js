@@ -58,9 +58,8 @@ for (const view of REQUIRED_APP_VIEWS) {
 [
   "LearnAreaPage",
   "GuidedReadingPage",
+  "TeacherDashboardPage",
   "AdminDashboardPage",
-  "dashboardMode=\"teacher\"",
-  "dashboardMode=\"admin\"",
   "AssessmentPage",
   "CheckpointDecisionPage",
   "FinishedReportPage",
@@ -74,6 +73,10 @@ for (const view of REQUIRED_APP_VIEWS) {
 ].forEach(needle => {
   requireIncludes(appSource, needle, `App.jsx required route/path is missing ${needle}.`);
 });
+
+if (appSource.includes("dashboardMode")) {
+  fail("App.jsx must not reintroduce the retired teacher/admin dashboard mode switch.");
+}
 
 if (/useReducer/.test(appSource)) {
   fail("This pass must not introduce useReducer into App.jsx.");
