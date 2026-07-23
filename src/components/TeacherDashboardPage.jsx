@@ -597,6 +597,9 @@ export function TeacherDashboardPage({
   const [operationTargetClassId, setOperationTargetClassId] = useState("");
   const [operationBusy, setOperationBusy] = useState(false);
   const [rosterOperationStatus, setRosterOperationStatus] = useState("");
+  const [classCodeStatus, setClassCodeStatus] = useState("");
+  const [showClassCodeDialog, setShowClassCodeDialog] = useState(false);
+  const [regeneratingClassCode, setRegeneratingClassCode] = useState(false);
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [editingSchool, setEditingSchool] = useState(false);
   const [schoolDraft, setSchoolDraft] = useState("");
@@ -786,8 +789,38 @@ export function TeacherDashboardPage({
     loadClassDashboardRef.current?.(selectedClassId);
   }, [selectedClassId]);
 
+  async function handleCopyClassCode() {
+    const code = selectedClass?.access_code;
+    if (!code) return;
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(code);
+      setClassCodeStatus(`Class code ${code} copied.`);
+    } catch {
+      setClassCodeStatus(`Copy is unavailable. Select the visible class code ${code} to copy it manually.`);
+    }
+  }
+
+  async function handleRegenerateClassCode() {
+    if (!selectedClass?.id || !regenerateClassCode) return;
+    setRegeneratingClassCode(true);
+    const result = await regenerateClassCode(selectedClass.id);
+    setRegeneratingClassCode(false);
+    if (!result?.ok) {
+      setClassCodeStatus("The class code could not be changed. The current code still works.");
+      return;
+    }
+    setShowClassCodeDialog(false);
+    setClassCodeStatus(
+      `New class code ${result.accessCode} is ready. The old code no longer works.`
+    );
+  }
+
   function handleClassChange(event) {
     const nextClassId = event.target.value || null;
+    setClassCodeStatus("");
+    setShowClassCodeDialog(false);
+    setRegeneratingClassCode(false);
     setSelectedClassId?.(nextClassId);
     setStudentList?.([]);
   }
@@ -1037,30 +1070,23 @@ export function TeacherDashboardPage({
               <button
                 className="text-button"
                 type="button"
-                onClick={() => {
-                  try {
-                    navigator.clipboard?.writeText?.(selectedClass.access_code);
-                  } catch {
-                    // Clipboard is best-effort; the code is visible above regardless.
-                  }
-                }}
+                onClick={handleCopyClassCode}
               >
-                Copy
+                Copy code
               </button>
               {regenerateClassCode && (
                 <button
                   className="text-button"
                   type="button"
-                  onClick={() => {
-                    if (window.confirm("Make a new class code? The old code stops working, and shared devices will need the new one.")) {
-                      regenerateClassCode(selectedClass.id);
-                    }
-                  }}
+                  onClick={() => setShowClassCodeDialog(true)}
                 >
                   New code
                 </button>
               )}
             </div>
+            <p className="teacher-class-code-status" role="status" aria-live="polite">
+              {classCodeStatus}
+            </p>
           </div>
         )}
         {isClassesPage && selectedClass && (
@@ -1761,6 +1787,43 @@ export function TeacherDashboardPage({
             <button className="lp-button lp-button-primary" type="button" onClick={() => window.print()}>
               Print these cards
             </button>
+          </div>
+        </div>
+      )}
+
+      {showClassCodeDialog && selectedClass && (
+        <div
+          className="symbol-password-modal teacher-class-code-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Make a new class code"
+        >
+          <div className="symbol-password-modal-card">
+            <p className="panel-label">Class access</p>
+            <h3>Make a new code for {selectedClass.name}?</h3>
+            <p>
+              The current code <strong>{selectedClass.access_code}</strong> will stop working immediately.
+              Children on shared devices must enter the new code the next time they sign in.
+            </p>
+            <p>Existing learner accounts, login pictures, progress, and assessment evidence will not change.</p>
+            <div className="teacher-roster-operation-actions">
+              <button
+                className="lp-button lp-button-danger-outline"
+                type="button"
+                disabled={regeneratingClassCode}
+                onClick={handleRegenerateClassCode}
+              >
+                {regeneratingClassCode ? "Making new code..." : "Make new code"}
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                disabled={regeneratingClassCode}
+                onClick={() => setShowClassCodeDialog(false)}
+              >
+                Keep current code
+              </button>
+            </div>
           </div>
         </div>
       )}

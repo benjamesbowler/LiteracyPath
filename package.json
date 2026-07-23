@@ -128,6 +128,7 @@
     "check:teacher-context": "npm run test:release-teacher -- --grep @teacher-persistent-context",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",
+    "check:teacher-class-code": "npm run test:release-teacher -- --grep @teacher-class-code",
     "check:teacher-dashboard-consolidation": "node tools/checkTeacherDashboardConsolidation.mjs",
     "check:product-finish-surface": "npm run test:release-teacher -- --grep @product-finish-surface",
     "check:cvc-learn-assets": "node tools/checkCvcLearnAssets.js",

@@ -109,6 +109,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 8, 9, 10]
   },
   {
+    id: "teacher-class-code",
+    label: "Accessible class-code copy and regeneration",
+    command: ["npm", "run", "check:teacher-class-code"],
+    areas: [3, 5, 6, 8, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

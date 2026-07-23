@@ -3844,15 +3844,15 @@ export default function App() {
   }
 
   async function regenerateClassCode(classId = selectedClassId) {
-    if (!classId) return;
+    if (!classId) return { ok: false, error: "missing-class" };
     const { data, error } = await supabase.rpc("teacher_regenerate_class_code", { p_class_id: classId });
     if (error || !data?.ok) {
       console.error("Regenerate class code error:", error || data?.error);
       setMessage("Could not make a new class code.");
-      return;
+      return { ok: false, error: error || data?.error || "unknown" };
     }
     await loadClasses();
-    setMessage(`New class code: ${data.access_code}. Students on shared devices will need it next time.`);
+    return { ok: true, accessCode: data.access_code };
   }
 
   async function createClass() {

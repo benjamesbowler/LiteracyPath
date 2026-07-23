@@ -389,6 +389,59 @@ test("@teacher-roster-scale imports duplicates, bulk previews cards, archives, a
   expect(pageErrors).toEqual([]);
 });
 
+test("@teacher-class-code copies with an announcement and regenerates in-product", async ({ page }) => {
+  const pageErrors = [];
+  const nativeDialogs = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  page.on("dialog", async dialog => {
+    nativeDialogs.push(dialog.message());
+    await dialog.dismiss();
+  });
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: {
+        writeText: async text => {
+          window.__literacyPathCopiedClassCode = text;
+        }
+      }
+    });
+  });
+
+  await logIn(page, "audit-teacher-b@literacypath.invalid");
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Classes", exact: true })
+    .click();
+  const classSelect = page.getByLabel("Current class");
+  await classSelect.selectOption({ label: "Audit Class B" });
+
+  const classCodePanel = page.getByLabel("Class sign-in code");
+  const codeValue = classCodePanel.locator(".teacher-class-code-value");
+  const originalCode = (await codeValue.textContent())?.trim();
+  expect(originalCode).toMatch(/^[A-Z0-9]{6}$/);
+
+  await classCodePanel.getByRole("button", { name: "Copy code", exact: true }).click();
+  await expect(classCodePanel.getByRole("status")).toHaveText(`Class code ${originalCode} copied.`);
+  await expect.poll(() => page.evaluate(() => window.__literacyPathCopiedClassCode)).toBe(originalCode);
+
+  await classCodePanel.getByRole("button", { name: "New code", exact: true }).click();
+  const codeDialog = page.getByRole("dialog", { name: "Make a new class code" });
+  await expect(codeDialog).toBeVisible();
+  await expect(codeDialog.getByText(/will stop working immediately/)).toBeVisible();
+  await expect(codeDialog.getByText(/progress, and assessment evidence will not change/)).toBeVisible();
+  await codeDialog.getByRole("button", { name: "Make new code", exact: true }).click();
+
+  await expect(codeDialog).toHaveCount(0);
+  await expect(codeValue).not.toHaveText(originalCode);
+  const newCode = (await codeValue.textContent())?.trim();
+  expect(newCode).toMatch(/^[A-Z0-9]{6}$/);
+  await expect(classCodePanel.getByRole("status")).toHaveText(
+    `New class code ${newCode} is ready. The old code no longer works.`
+  );
+  expect(nativeDialogs).toEqual([]);
+  expect(pageErrors).toEqual([]);
+});
+
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));

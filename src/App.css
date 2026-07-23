@@ -5154,6 +5154,18 @@ body {
   width: min(520px, calc(100vw - 32px));
 }
 
+.teacher-class-code-modal .symbol-password-modal-card {
+  width: min(560px, calc(100vw - 32px));
+}
+
+.teacher-class-code-status {
+  min-height: 1.35em;
+  margin: 8px 0 0;
+  color: var(--lp-color-text-strong);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
 .teacher-roster-operation-actions {
   display: flex;
   flex-wrap: wrap;
