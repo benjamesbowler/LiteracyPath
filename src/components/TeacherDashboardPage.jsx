@@ -36,6 +36,27 @@ function getProgressPercent(row, skillTotal) {
   return Math.max(0, Math.min(100, Math.round((row.masteredCount / skillTotal) * 100)));
 }
 
+const ROSTER_COLUMN_OPTIONS = [
+  { id: "focus", label: "Focus" },
+  { id: "progress", label: "Progress" },
+  { id: "sound-seekers", label: "Sound Seekers" },
+  { id: "login", label: "Login" },
+  { id: "last-active", label: "Last Active" }
+];
+const DEFAULT_ROSTER_COLUMNS = ["focus", "progress", "last-active"];
+
+function loadVisibleRosterColumns(teacherId) {
+  if (!teacherId || typeof localStorage === "undefined") return DEFAULT_ROSTER_COLUMNS;
+  try {
+    const saved = JSON.parse(localStorage.getItem(`teacherRosterColumns:${teacherId}`) || "null");
+    return Array.isArray(saved)
+      ? saved.filter(column => ROSTER_COLUMN_OPTIONS.some(option => option.id === column))
+      : DEFAULT_ROSTER_COLUMNS;
+  } catch {
+    return DEFAULT_ROSTER_COLUMNS;
+  }
+}
+
 function formatLoginCardPassword(sequence) {
   if (!sequence) return "Not set yet";
   return sequence
@@ -243,6 +264,52 @@ function TeacherModal({
       className={["symbol-password-modal", className].filter(Boolean).join(" ")}
       role="dialog"
       aria-modal="true"
+      aria-label={label}
+      tabIndex={-1}
+    >
+      {children}
+    </div>
+  );
+}
+
+function TeacherDrawer({ label, onClose, children }) {
+  const drawerRef = useRef(null);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
+    const previouslyFocused = document.activeElement;
+    const drawer = drawerRef.current;
+    if (!drawer) return undefined;
+    const firstControl = drawer.querySelector(
+      "button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]"
+    );
+    (firstControl || drawer).focus();
+
+    function handleKeyDown(event) {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      onCloseRef.current?.();
+    }
+
+    drawer.addEventListener("keydown", handleKeyDown);
+    return () => {
+      drawer.removeEventListener("keydown", handleKeyDown);
+      if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
+        previouslyFocused.focus();
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={drawerRef}
+      className="teacher-learner-drawer-dialog"
+      role="dialog"
+      aria-modal="false"
       aria-label={label}
       tabIndex={-1}
     >
@@ -757,6 +824,9 @@ export function TeacherDashboardPage({
   const [rosterSearch, setRosterSearch] = useState("");
   const [rosterSort, setRosterSort] = useState("name");
   const [rosterStatusFilter, setRosterStatusFilter] = useState("all");
+  const [visibleRosterColumns, setVisibleRosterColumns] = useState(
+    () => loadVisibleRosterColumns(teacherId)
+  );
   const [selectedRosterIds, setSelectedRosterIds] = useState([]);
   const [loginCardRows, setLoginCardRows] = useState([]);
   const [rosterOperation, setRosterOperation] = useState(null);
@@ -925,6 +995,8 @@ export function TeacherDashboardPage({
       return left.name.localeCompare(right.name);
     });
   const selectedVisibleCount = visibleStudentRows.filter(row => selectedRosterIds.includes(row.id)).length;
+  const enabledRosterColumns = new Set(visibleRosterColumns);
+  const rosterColumnCount = 3 + visibleRosterColumns.length;
 
   const skillTotal = skillTree.length;
   const startedCount = studentRows.filter(row => row.answered > 0).length;
@@ -955,6 +1027,25 @@ export function TeacherDashboardPage({
     loadStudentsRef.current?.(selectedClassId);
     loadClassDashboardRef.current?.(selectedClassId);
   }, [selectedClassId]);
+
+  function saveVisibleRosterColumns(nextColumns) {
+    setVisibleRosterColumns(nextColumns);
+    if (!teacherId) return;
+    try {
+      localStorage.setItem(`teacherRosterColumns:${teacherId}`, JSON.stringify(nextColumns));
+    } catch {
+      // The current view still updates when browser storage is unavailable.
+    }
+  }
+
+  function toggleRosterColumn(columnId) {
+    const nextColumns = enabledRosterColumns.has(columnId)
+      ? visibleRosterColumns.filter(column => column !== columnId)
+      : ROSTER_COLUMN_OPTIONS
+        .map(option => option.id)
+        .filter(column => column === columnId || enabledRosterColumns.has(column));
+    saveVisibleRosterColumns(nextColumns);
+  }
 
   async function handleCopyClassCode() {
     const code = selectedClass?.access_code;
@@ -1468,43 +1559,63 @@ export function TeacherDashboardPage({
       )}
 
       {isClassesPage && selectedClass && selectedStudentRow && (
-        <section
-          className="teacher-learner-drawer"
-          aria-label={`Learner detail: ${selectedStudentRow.name}`}
-          data-teacher-learner-id={selectedStudentRow.id}
+        <TeacherDrawer
+          label={`Learner detail: ${selectedStudentRow.name}`}
+          onClose={onClearStudent}
         >
-          <header>
-            <div>
-              <p className="teacher-context-trail">
-                Classes <span aria-hidden="true">/</span> {selectedClass.name}
-                <span aria-hidden="true">/</span> {selectedRosterGroup.label}
-                <span aria-hidden="true">/</span> {selectedStudentRow.name}
-              </p>
-              <h3>{selectedStudentRow.name}</h3>
-              <p>{selectedStudentRow.currentSkill}</p>
+          <aside
+            className="teacher-learner-drawer"
+            role="region"
+            aria-label={`Learner detail: ${selectedStudentRow.name}`}
+            data-teacher-learner-id={selectedStudentRow.id}
+          >
+            <header>
+              <div>
+                <p className="teacher-context-trail">
+                  Classes <span aria-hidden="true">/</span> {selectedClass.name}
+                  <span aria-hidden="true">/</span> {selectedRosterGroup.label}
+                  <span aria-hidden="true">/</span> {selectedStudentRow.name}
+                </p>
+                <h3>{selectedStudentRow.name}</h3>
+                <p>{selectedStudentRow.currentSkill}</p>
+              </div>
+              <button className="text-button" type="button" onClick={onClearStudent}>
+                Close learner
+              </button>
+            </header>
+            <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} evidence summary`}>
+              <RosterMetric label="Responses" value={selectedStudentRow.answered} />
+              <RosterMetric
+                label="Accuracy"
+                value={selectedStudentRow.answered ? `${selectedStudentRow.accuracy}%` : "Not checked"}
+              />
+              <RosterMetric label="Skills secured" value={selectedStudentRow.masteredCount} />
+              <RosterMetric label="Last active" value={formatLastActive(selectedStudentRow.lastActive)} />
             </div>
-            <button className="text-button" type="button" onClick={onClearStudent}>
-              Close learner
-            </button>
-          </header>
-          <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} evidence summary`}>
-            <RosterMetric label="Responses" value={selectedStudentRow.answered} />
-            <RosterMetric
-              label="Accuracy"
-              value={selectedStudentRow.answered ? `${selectedStudentRow.accuracy}%` : "Not checked"}
-            />
-            <RosterMetric label="Skills secured" value={selectedStudentRow.masteredCount} />
-            <RosterMetric label="Last active" value={formatLastActive(selectedStudentRow.lastActive)} />
-          </div>
-          <div className="teacher-learner-drawer-actions">
-            <button className="lp-button lp-button-primary" type="button" onClick={onOpenAssess}>
-              Assess {selectedStudentRow.name}
-            </button>
-            <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
-              Review {selectedStudentRow.name}&rsquo;s progress
-            </button>
-          </div>
-        </section>
+            <dl className="teacher-learner-drawer-details">
+              <div>
+                <dt>Login</dt>
+                <dd>{selectedStudentRow.symbol_password ? "Pictures ready" : "Pictures need setting"}</dd>
+              </div>
+              <div>
+                <dt>Sound Seekers</dt>
+                <dd>
+                  {selectedStudentRow.soundSeekers?.sessions
+                    ? `${selectedStudentRow.soundSeekers.stopsCompleted}/40 trails · ${selectedStudentRow.soundSeekers.stonesLit} sounds lit`
+                    : "Not started"}
+                </dd>
+              </div>
+            </dl>
+            <div className="teacher-learner-drawer-actions">
+              <button className="lp-button lp-button-primary" type="button" onClick={onOpenAssess}>
+                Assess {selectedStudentRow.name}
+              </button>
+              <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
+                Review {selectedStudentRow.name}&rsquo;s progress
+              </button>
+            </div>
+          </aside>
+        </TeacherDrawer>
       )}
 
       {isClassesPage && selectedClass && actionCards.length > 0 && (
@@ -1681,38 +1792,64 @@ export function TeacherDashboardPage({
         )}
 
         {selectedClass && studentRows.length > 0 && (
-          <section className="teacher-roster-tools" aria-label="Roster search, sort, and filters">
-            <label>
-              <span>Search roster</span>
-              <input
-                type="search"
-                value={rosterSearch}
-                onChange={event => setRosterSearch(event.target.value)}
-                placeholder="Search display names"
-              />
-            </label>
-            <label>
-              <span>Filter</span>
-              <select value={rosterStatusFilter} onChange={event => setRosterStatusFilter(event.target.value)}>
-                <option value="all">All active learners</option>
-                <option value="login-missing">Login pictures missing</option>
-                <option value="not-started">Not started</option>
-                <option value="needs-attention">Needs attention</option>
-              </select>
-            </label>
-            <label>
-              <span>Sort</span>
-              <select value={rosterSort} onChange={event => setRosterSort(event.target.value)}>
-                <option value="name">Display name</option>
-                <option value="last-active">Last active</option>
-                <option value="focus">Current focus</option>
-                <option value="progress">Progress</option>
-              </select>
-            </label>
-            <p role="status">
-              Showing <strong>{visibleStudentRows.length}</strong> of {studentRows.length} active learners
-            </p>
-          </section>
+          <>
+            <section className="teacher-roster-tools" aria-label="Roster search, sort, and filters">
+              <label>
+                <span>Search roster</span>
+                <input
+                  type="search"
+                  value={rosterSearch}
+                  onChange={event => setRosterSearch(event.target.value)}
+                  placeholder="Search display names"
+                />
+              </label>
+              <label>
+                <span>Filter</span>
+                <select value={rosterStatusFilter} onChange={event => setRosterStatusFilter(event.target.value)}>
+                  <option value="all">All active learners</option>
+                  <option value="login-missing">Login pictures missing</option>
+                  <option value="not-started">Not started</option>
+                  <option value="needs-attention">Needs attention</option>
+                </select>
+              </label>
+              <label>
+                <span>Sort</span>
+                <select value={rosterSort} onChange={event => setRosterSort(event.target.value)}>
+                  <option value="name">Display name</option>
+                  <option value="last-active">Last active</option>
+                  <option value="focus">Current focus</option>
+                  <option value="progress">Progress</option>
+                </select>
+              </label>
+              <p role="status">
+                Showing <strong>{visibleStudentRows.length}</strong> of {studentRows.length} active learners
+              </p>
+            </section>
+            <details className="teacher-roster-column-picker">
+              <summary>Choose columns · {visibleRosterColumns.length + 2} shown</summary>
+              <fieldset>
+                <legend>Optional roster columns</legend>
+                {ROSTER_COLUMN_OPTIONS.map(option => (
+                  <label key={option.id}>
+                    <input
+                      type="checkbox"
+                      checked={enabledRosterColumns.has(option.id)}
+                      onChange={() => toggleRosterColumn(option.id)}
+                    />
+                    <span>{option.label}</span>
+                  </label>
+                ))}
+              </fieldset>
+              <p>Display name and Actions always stay visible. Column choices are saved on this device.</p>
+              <button
+                className="text-button"
+                type="button"
+                onClick={() => saveVisibleRosterColumns(DEFAULT_ROSTER_COLUMNS)}
+              >
+                Restore scannable defaults
+              </button>
+            </details>
+          </>
         )}
 
         {selectedClass && !loadingStudents && studentRows.length > 0 && (
@@ -1742,7 +1879,7 @@ export function TeacherDashboardPage({
             <table className="dashboard-table teacher-roster-table">
               <thead>
                 <tr>
-                  <th>
+                  <th scope="col" aria-label="Select learners">
                     <input
                       aria-label="Select all visible learners"
                       type="checkbox"
@@ -1755,13 +1892,13 @@ export function TeacherDashboardPage({
                       }}
                     />
                   </th>
-                  <th>Display name</th>
-                  <th>Focus</th>
-                  <th>Progress</th>
-                  <th>Sound Seekers</th>
-                  <th>Login</th>
-                  <th>Last Active</th>
-                  <th>Actions</th>
+                  <th scope="col">Display name</th>
+                  {enabledRosterColumns.has("focus") && <th scope="col">Focus</th>}
+                  {enabledRosterColumns.has("progress") && <th scope="col">Progress</th>}
+                  {enabledRosterColumns.has("sound-seekers") && <th scope="col">Sound Seekers</th>}
+                  {enabledRosterColumns.has("login") && <th scope="col">Login</th>}
+                  {enabledRosterColumns.has("last-active") && <th scope="col">Last Active</th>}
+                  <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -1771,7 +1908,7 @@ export function TeacherDashboardPage({
                   return (
                   <Fragment key={row.id}>
                   <tr className={loginReady ? "login-ready" : "login-missing"}>
-                    <td>
+                    <td data-label="Select">
                       <input
                         aria-label={`Select ${row.name}`}
                         type="checkbox"
@@ -1781,7 +1918,7 @@ export function TeacherDashboardPage({
                           : previous.filter(id => id !== row.id))}
                       />
                     </td>
-                    <td>
+                    <td data-label="Display name">
                       <div className="teacher-student-cell">
                         <StudentInitial name={row.name} />
                         <div>
@@ -1790,10 +1927,10 @@ export function TeacherDashboardPage({
                         </div>
                       </div>
                     </td>
-                    <td>
+                    {enabledRosterColumns.has("focus") && <td data-label="Focus">
                       <span className="teacher-focus-pill">{row.currentSkill}</span>
-                    </td>
-                    <td>
+                    </td>}
+                    {enabledRosterColumns.has("progress") && <td data-label="Progress">
                       <div className="teacher-progress-cell">
                         <div className="teacher-progress-line">
                           <strong>
@@ -1807,8 +1944,8 @@ export function TeacherDashboardPage({
                           <span style={{ width: `${progressPercent}%` }} />
                         </div>
                       </div>
-                    </td>
-                    <td>
+                    </td>}
+                    {enabledRosterColumns.has("sound-seekers") && <td data-label="Sound Seekers">
                       {row.soundSeekers?.sessions ? (
                         <div className="teacher-quest-cell">
                           <strong>{row.soundSeekers.stopsCompleted}/40 trails</strong>
@@ -1824,8 +1961,8 @@ export function TeacherDashboardPage({
                           </button>
                         </div>
                       ) : <span className="muted-text">Not started</span>}
-                    </td>
-                    <td>
+                    </td>}
+                    {enabledRosterColumns.has("login") && <td data-label="Login">
                       <div className="teacher-login-cell">
                         <span className={loginReady ? "teacher-login-status ready" : "teacher-login-status missing"}>
                           {loginReady ? "Ready" : "Needs pictures"}
@@ -1848,9 +1985,11 @@ export function TeacherDashboardPage({
                           )}
                         </div>
                       </div>
-                    </td>
-                    <td>{formatLastActive(row.lastActive)}</td>
-                    <td>
+                    </td>}
+                    {enabledRosterColumns.has("last-active") && (
+                      <td data-label="Last Active">{formatLastActive(row.lastActive)}</td>
+                    )}
+                    <td data-label="Actions">
                       <div className="teacher-row-actions">
                         <button className="lp-button lp-button-secondary teacher-open-student" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
                           Open learner
@@ -1879,7 +2018,7 @@ export function TeacherDashboardPage({
                   </tr>
                   {heatOpenId === row.id && row.soundSeekers && (
                     <tr className="teacher-heat-row">
-                      <td colSpan={8}>
+                      <td colSpan={rosterColumnCount}>
                         <QuestHeatPanel
                           report={row.soundSeekers}
                           studentName={row.name}

@@ -57,6 +57,10 @@ test("@a11y-teacher authenticated five-intention journey is keyboard and screen-
   await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
   await expect(page.getByRole("main")).toHaveCount(1);
   const roster = page.getByRole("table").filter({ has: page.getByRole("columnheader", { name: "Display name" }) });
+  const columnPicker = page.locator(".teacher-roster-column-picker");
+  await columnPicker.getByText(/Choose columns/).click();
+  await columnPicker.getByLabel("Sound Seekers", { exact: true }).check();
+  await columnPicker.getByLabel("Login", { exact: true }).check();
   await expect(roster.getByRole("columnheader")).toHaveCount(8);
   await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(8);
 

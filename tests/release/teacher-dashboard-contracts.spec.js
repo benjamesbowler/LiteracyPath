@@ -162,12 +162,16 @@ test("@teacher-persistent-context drills through groups and three learners witho
   await expect(shell).toHaveAttribute("data-student-session-id", "");
   await expect(page).toHaveURL(/group=attention&learner=40000000-0000-4000-8000-000000000002$/);
 
+  await page.getByRole("region", { name: "Learner detail: Aisha" })
+    .getByRole("button", { name: "Close learner", exact: true })
+    .click();
   await groups.getByRole("button", { name: /Whole class/ }).click();
   const roster = page.locator(".teacher-roster-table");
-  for (const [name, id] of [
+  const learners = [
     ["Aarav", "40000000-0000-4000-8000-000000000001"],
     ["Camila", "40000000-0000-4000-8000-000000000005"]
-  ]) {
+  ];
+  for (const [index, [name, id]] of learners.entries()) {
     await roster.getByRole("row").filter({ hasText: name })
       .getByRole("button", { name: "Open learner", exact: true })
       .click();
@@ -178,6 +182,11 @@ test("@teacher-persistent-context drills through groups and three learners witho
     await expect(shell).toHaveAttribute("data-student-session-id", "");
     await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
     await expect(page).toHaveURL(new RegExp(`group=all&learner=${id}$`));
+    if (index < learners.length - 1) {
+      await page.getByRole("region", { name: `Learner detail: ${name}` })
+        .getByRole("button", { name: "Close learner", exact: true })
+        .click();
+    }
   }
 
   await expect.poll(() => page.evaluate(() => {
@@ -294,6 +303,9 @@ test("@teacher-onboarding-demo sample class is labelled, login-ready, and eviden
   await expect(checklist.getByText("Run the first check", { exact: true })).toBeVisible();
 
   const roster = page.locator(".teacher-roster-table");
+  const columnPicker = page.locator(".teacher-roster-column-picker");
+  await columnPicker.getByText(/Choose columns/).click();
+  await columnPicker.getByLabel("Login", { exact: true }).check();
   for (const learner of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
     const row = roster.getByRole("row").filter({ hasText: learner });
     await expect(row).toBeVisible();
@@ -635,11 +647,16 @@ test("@teacher-dashboard-data reachable seeded roster columns and rows", async (
     "Display name",
     "Focus",
     "Progress",
-    "Sound Seekers",
-    "Login",
     "Last Active",
     "Actions"
   ]) {
+    await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
+  }
+  const columnPicker = page.locator(".teacher-roster-column-picker");
+  await columnPicker.getByText(/Choose columns/).click();
+  await columnPicker.getByLabel("Sound Seekers", { exact: true }).check();
+  await columnPicker.getByLabel("Login", { exact: true }).check();
+  for (const column of ["Sound Seekers", "Login"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
   }
   await expect(roster.locator("tbody > tr")).toHaveCount(12);

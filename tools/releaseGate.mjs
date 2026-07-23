@@ -109,6 +109,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 8, 9, 10]
   },
   {
+    id: "teacher-roster-device-matrix",
+    label: "Configurable teacher roster and learner drawer at Chromebook and tablet sizes",
+    command: ["npm", "run", "check:teacher-roster-device-matrix"],
+    areas: [5, 6, 10]
+  },
+  {
     id: "teacher-class-code",
     label: "Accessible class-code copy and regeneration",
     command: ["npm", "run", "check:teacher-class-code"],

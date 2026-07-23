@@ -2977,6 +2977,26 @@ body {
   box-shadow: var(--lp-shadow-card);
 }
 
+.teacher-learner-drawer-dialog {
+  position: fixed;
+  z-index: 80;
+  top: 0;
+  right: 0;
+  width: min(480px, 100vw);
+  height: 100%;
+  outline: none;
+}
+
+.teacher-learner-drawer-dialog .teacher-learner-drawer {
+  width: 100%;
+  height: 100%;
+  align-content: start;
+  overflow-y: auto;
+  border-width: 0 0 0 4px;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -20px 0 60px rgba(15, 23, 42, 0.24);
+}
+
 .teacher-learner-drawer > header {
   display: flex;
   align-items: start;
@@ -3014,6 +3034,34 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.teacher-learner-drawer-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.teacher-learner-drawer-details > div {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-learner-drawer-details dt {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.teacher-learner-drawer-details dd {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-weight: 750;
 }
 
 .teacher-school-summary {
@@ -3222,7 +3270,13 @@ body {
   vertical-align: middle;
 }
 
-.teacher-roster-table td:nth-child(3) {
+.teacher-roster-table input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.teacher-roster-table td[data-label="Focus"] {
   width: 260px;
 }
 
@@ -5350,6 +5404,77 @@ body {
   white-space: nowrap;
 }
 
+.teacher-roster-column-picker {
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 10px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-roster-column-picker summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  color: var(--lp-color-text-strong);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.teacher-roster-column-picker[open] {
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+.teacher-roster-column-picker[open] summary {
+  border-bottom: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-roster-column-picker fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 12px 12px 6px;
+  padding: 0;
+  border: 0;
+}
+
+.teacher-roster-column-picker legend {
+  width: 100%;
+  margin-bottom: 8px;
+  color: var(--lp-color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.teacher-roster-column-picker label {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lp-color-text);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.teacher-roster-column-picker input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.teacher-roster-column-picker p {
+  margin: 0 12px;
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+}
+
+.teacher-roster-column-picker > .text-button {
+  margin: 4px 12px 0;
+}
+
 .teacher-row-actions {
   display: flex;
   align-items: center;
@@ -5581,6 +5706,136 @@ body {
   }
 }
 
+@media (max-width: 1100px) {
+  .teacher-roster-tools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teacher-roster-tools p {
+    white-space: normal;
+  }
+
+  .teacher-dashboard-roster .table-scroll {
+    overflow: visible;
+  }
+
+  .teacher-roster-table {
+    display: block;
+    min-width: 0;
+    border: 0;
+  }
+
+  .teacher-roster-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .teacher-roster-table tbody {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) {
+    position: relative;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 0;
+    padding: 12px;
+    border: 1px solid var(--lp-color-border-subtle);
+    border-radius: 12px;
+    background: var(--lp-color-surface);
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td {
+    width: auto;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(92px, 0.38fr) minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid var(--lp-color-border-subtle);
+    text-align: left;
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td::before {
+    content: attr(data-label);
+    color: var(--lp-color-text-muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:first-child {
+    position: absolute;
+    z-index: 1;
+    top: 16px;
+    right: 12px;
+    width: 44px;
+    min-height: 44px;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 0;
+    border: 0;
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:first-child::before {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"] {
+    grid-template-columns: 1fr;
+    padding-right: 52px;
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"]::before {
+    display: none;
+  }
+
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:last-child {
+    border-bottom: 0;
+  }
+
+  .teacher-roster-table .teacher-row-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-roster-table .teacher-row-actions > * {
+    width: 100%;
+  }
+
+  .teacher-roster-table .teacher-open-student {
+    min-height: 44px !important;
+  }
+
+  .teacher-roster-table .teacher-heat-row {
+    display: block;
+    grid-column: 1 / -1;
+  }
+
+  .teacher-roster-table .teacher-heat-row > td {
+    display: block;
+    width: 100%;
+  }
+}
+
 @media (max-width: 560px) {
   .teacher-setup-checklist > header {
     display: grid;
@@ -5600,6 +5855,23 @@ body {
 
   .teacher-roster-tools,
   .teacher-login-card-sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-roster-table tbody {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-learner-drawer-dialog {
+    width: 100vw;
+  }
+
+  .teacher-learner-drawer-dialog .teacher-learner-drawer {
+    border-left-width: 0;
+    border-radius: 0;
+  }
+
+  .teacher-learner-drawer-details {
     grid-template-columns: 1fr;
   }
 
