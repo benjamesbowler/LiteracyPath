@@ -213,6 +213,54 @@ test("@teacher-persistent-context drills through groups and three learners witho
   await expect(page).toHaveURL(/group=all&learner=40000000-0000-4000-8000-000000000005$/);
 });
 
+test("@teacher-contextual-help keeps the question guide out of the dashboard and reachable from evidence", async ({
+  page
+}) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  await expect(page.locator(".question-type-guide, .question-guide-table")).toHaveCount(0);
+  await expect(page.getByText("What each check actually tests", { exact: true })).toHaveCount(0);
+
+  const roster = page.getByRole("region", { name: "Students" });
+  const directGuideButton = roster.getByRole("button", { name: "Question type guide", exact: true });
+  await directGuideButton.click();
+  let guide = page.getByRole("dialog", { name: "Question type guide" });
+  await expect(guide).toBeVisible();
+  const search = guide.getByRole("searchbox", {
+    name: "Search checks, skills, or teaching guidance"
+  });
+  await expect(search).toBeFocused();
+  await expect.poll(() => search.evaluate(input => input.getBoundingClientRect().width))
+    .toBeGreaterThan(700);
+  await expect(guide.getByRole("status")).toHaveText("18 of 18 question types shown");
+  await expect(guide.locator(".teacher-question-guide-dialog")).toHaveScreenshot(
+    "teacher-question-type-guide-searchable.png",
+    { animations: "disabled", maxDiffPixelRatio: 0.025 }
+  );
+  await search.fill("digraphs");
+  await expect(guide.getByRole("status")).toHaveText("2 of 18 question types shown");
+  await expect(guide.getByRole("listitem")).toHaveCount(2);
+  await expect(guide.getByRole("heading", { name: "Digraphs · choose the picture", exact: true })).toBeVisible();
+  await expect(guide.getByText("Teach it as two letters, one sound with a gesture.", { exact: false })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(guide).toHaveCount(0);
+  await expect(directGuideButton).toBeFocused();
+
+  await page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" })
+    .getByRole("button", { name: "Open learner", exact: true })
+    .click();
+  const learnerDrawer = page.getByRole("region", { name: "Learner detail: Aarav" });
+  await expect(learnerDrawer).toBeVisible();
+  await learnerDrawer.getByRole("button", { name: "Question type guide", exact: true }).click();
+  guide = page.getByRole("dialog", { name: "Question type guide" });
+  await expect(guide).toBeVisible();
+  await expect(guide.getByRole("searchbox", {
+    name: "Search checks, skills, or teaching guidance"
+  })).toBeFocused();
+  await expect(guide.getByRole("status")).toHaveText("18 of 18 question types shown");
+});
+
 test("@teacher-onboarding fresh teacher completes the saved golden path", async ({ page }) => {
   test.setTimeout(120_000);
   const pageErrors = [];

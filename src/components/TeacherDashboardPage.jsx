@@ -222,8 +222,9 @@ function TeacherModal({
     const focusable = () => [...dialog.querySelectorAll(focusableSelector)]
       .filter(element => !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true");
 
+    const preferred = dialog.querySelector("[data-autofocus]");
     const first = focusable()[0];
-    (first || dialog).focus();
+    (preferred || first || dialog).focus();
 
     function handleKeyDown(event) {
       if (event.key === "Escape" && closeOnEscape && onCloseRef.current) {
@@ -315,6 +316,82 @@ function TeacherDrawer({ label, onClose, children }) {
     >
       {children}
     </div>
+  );
+}
+
+function QuestionTypeGuideDialog({ query, onQueryChange, onClose }) {
+  const normalizedQuery = query.trim().toLowerCase();
+  const rows = QUESTION_TYPE_GUIDE.filter(row => (
+    !normalizedQuery
+    || [row.name, row.what, row.skill, row.onMiss]
+      .some(value => value.toLowerCase().includes(normalizedQuery))
+  ));
+
+  return (
+    <TeacherModal
+      className="teacher-question-guide-modal"
+      label="Question type guide"
+      onClose={onClose}
+    >
+      <section className="symbol-password-modal-card teacher-question-guide-dialog">
+        <header>
+          <div>
+            <p className="panel-label">Evidence help</p>
+            <h2>Question type guide</h2>
+            <p>Plain-language explanations for what each check proves and what a miss may mean.</p>
+          </div>
+          <button className="text-button" type="button" onClick={onClose}>
+            Close guide
+          </button>
+        </header>
+        <label className="teacher-question-guide-search">
+          <span>Search checks, skills, or teaching guidance</span>
+          <input
+            data-autofocus
+            type="search"
+            value={query}
+            onChange={event => onQueryChange(event.target.value)}
+            placeholder="Try digraphs, blending, or sight words"
+          />
+        </label>
+        <p className="teacher-question-guide-count" role="status">
+          {rows.length} of {QUESTION_TYPE_GUIDE.length} question types shown
+        </p>
+        {rows.length ? (
+          <ul
+            className="teacher-question-guide-results"
+            aria-label="Question type explanations"
+            tabIndex={0}
+          >
+            {rows.map(row => (
+              <li key={row.id}>
+                <article aria-labelledby={`question-guide-${row.id}`}>
+                  <header>
+                    <h3 id={`question-guide-${row.id}`}>{row.name}</h3>
+                    <span>{row.skill}</span>
+                  </header>
+                  <dl>
+                    <div>
+                      <dt>What the child does</dt>
+                      <dd>{row.what}</dd>
+                    </div>
+                    <div>
+                      <dt>If they miss it</dt>
+                      <dd>{row.onMiss}</dd>
+                    </div>
+                  </dl>
+                </article>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="report-empty-state">
+            <strong>No matching question type.</strong>
+            <p>Try a skill such as rhyme, blending, digraphs, grammar, or sight words.</p>
+          </div>
+        )}
+      </section>
+    </TeacherModal>
   );
 }
 
@@ -848,6 +925,8 @@ export function TeacherDashboardPage({
   const [editingSequence, setEditingSequence] = useState("");
   const [heatOpenId, setHeatOpenId] = useState(null);
   const [interventionRecommendation, setInterventionRecommendation] = useState(null);
+  const [showQuestionGuide, setShowQuestionGuide] = useState(false);
+  const [questionGuideSearch, setQuestionGuideSearch] = useState("");
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const newClassInputRef = useRef(null);
@@ -859,6 +938,10 @@ export function TeacherDashboardPage({
   function focusNewStudentInput() {
     newStudentInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
     newStudentInputRef.current?.focus?.();
+  }
+  function openQuestionGuide() {
+    setQuestionGuideSearch("");
+    setShowQuestionGuide(true);
   }
   const selectedClass = classList.find(row => row.id === selectedClassId) || null;
   const dashboardById = useMemo(
@@ -1613,6 +1696,13 @@ export function TeacherDashboardPage({
               <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
                 Review {selectedStudentRow.name}&rsquo;s progress
               </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={openQuestionGuide}
+              >
+                Question type guide
+              </button>
             </div>
           </aside>
         </TeacherDrawer>
@@ -1673,6 +1763,13 @@ export function TeacherDashboardPage({
               <small className="muted-text">Use a familiar English name or classroom nickname. Do not enter a surname or other personal details.</small>
             )}
           </div>
+          <button
+            className="lp-button lp-button-secondary"
+            type="button"
+            onClick={openQuestionGuide}
+          >
+            Question type guide
+          </button>
         </div>
 
         {selectedClass && (
@@ -2063,37 +2160,13 @@ export function TeacherDashboardPage({
         </section>
       )}
 
-      {isClassesPage && <section className="card page-stack question-type-guide" aria-label="Question type guide">
-        <details>
-          <summary>What each check actually tests</summary>
-          <p className="muted-text">
-            Every question format, in plain teacher language: what the child does, the literacy skill a
-            correct answer proves, and what a miss usually means.
-          </p>
-          <div className="table-scroll">
-            <table className="dashboard-table question-guide-table">
-              <thead>
-                <tr>
-                  <th>Check</th>
-                  <th>The child&hellip;</th>
-                  <th>Skill it proves</th>
-                  <th>If they miss it</th>
-                </tr>
-              </thead>
-              <tbody>
-                {QUESTION_TYPE_GUIDE.map(row => (
-                  <tr key={row.id}>
-                    <td><strong>{row.name}</strong></td>
-                    <td>{row.what}</td>
-                    <td>{row.skill}</td>
-                    <td>{row.onMiss}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </section>}
+      {showQuestionGuide && (
+        <QuestionTypeGuideDialog
+          query={questionGuideSearch}
+          onQueryChange={setQuestionGuideSearch}
+          onClose={() => setShowQuestionGuide(false)}
+        />
+      )}
 
       {showClassCodeDialog && selectedClass && (
         <TeacherModal

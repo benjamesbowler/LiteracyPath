@@ -129,6 +129,7 @@
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",
     "check:teacher-roster-device-matrix": "playwright test tests/release/teacher-roster-device-matrix.spec.js --project=desktop",
+    "check:teacher-contextual-help": "npm run test:release-teacher -- --grep @teacher-contextual-help",
     "check:teacher-class-code": "npm run test:release-teacher -- --grep @teacher-class-code",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",
     "check:teacher-login-cards": "npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",

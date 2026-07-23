@@ -115,6 +115,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "teacher-contextual-help",
+    label: "Searchable question-type help reachable from learner evidence",
+    command: ["npm", "run", "check:teacher-contextual-help"],
+    areas: [4, 5, 6, 10]
+  },
+  {
     id: "teacher-class-code",
     label: "Accessible class-code copy and regeneration",
     command: ["npm", "run", "check:teacher-class-code"],

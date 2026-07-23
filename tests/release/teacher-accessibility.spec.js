@@ -70,6 +70,16 @@ test("@a11y-teacher authenticated five-intention journey is keyboard and screen-
   await expect(chartAlternative).toHaveAccessibleName(/Class sound map\./);
   await expectNoSeriousOrCritical(page, "Classes with roster and sound map");
 
+  const questionGuideButton = page.getByRole("region", { name: "Students" })
+    .getByRole("button", { name: "Question type guide", exact: true });
+  await activateWithKeyboard(questionGuideButton);
+  const questionGuideDialog = page.getByRole("dialog", { name: "Question type guide" });
+  await expect(questionGuideDialog.getByRole("searchbox")).toBeFocused();
+  await expectNoSeriousOrCritical(page, "Question-type guide dialog");
+  await page.keyboard.press("Escape");
+  await expect(questionGuideDialog).toHaveCount(0);
+  await expect(questionGuideButton).toBeFocused();
+
   const newCodeButton = page.getByRole("button", { name: "New code", exact: true });
   await activateWithKeyboard(newCodeButton);
   const dialog = page.getByRole("dialog", { name: "Make a new class code" });
