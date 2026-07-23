@@ -91,6 +91,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "teacher-onboarding",
+    label: "Fresh-teacher setup and first-check golden path",
+    command: ["npm", "run", "check:teacher-onboarding"],
+    areas: [5, 6, 8, 9, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

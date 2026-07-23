@@ -20,6 +20,14 @@ const EXPECTED = Object.freeze({
     learnerCount: 13,
     activeLearnerCount: 13,
     longHistoryCount: 0
+  },
+  teacherFresh: {
+    email: "audit-teacher-fresh@literacypath.invalid",
+    userId: "10000000-0000-4000-8000-000000000003"
+  },
+  teacherDemo: {
+    email: "audit-teacher-demo@literacypath.invalid",
+    userId: "10000000-0000-4000-8000-000000000004"
   }
 });
 
@@ -125,6 +133,37 @@ async function verifyTeacher({
   };
 }
 
+async function verifyFreshTeacher({ apiUrl, anonKey, password, expected, clientFactory }) {
+  const client = clientFactory(apiUrl, anonKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false
+    }
+  });
+  const login = requireResult(
+    await client.auth.signInWithPassword({ email: expected.email, password }),
+    `${expected.email} login`
+  );
+  requireEqual(login.data.user?.id, expected.userId, `${expected.email} user ID`);
+
+  for (const table of ["classes", "students", "answers", "mastery", "assessment_attempts"]) {
+    const result = requireResult(
+      await client.from(table).select("*", { count: "exact", head: true }),
+      `${expected.email} ${table}`
+    );
+    requireEqual(result.count, 0, `${expected.email} fresh ${table} count`);
+  }
+
+  requireResult(await client.auth.signOut(), `${expected.email} logout`);
+  return {
+    email: expected.email,
+    classes: 0,
+    learners: 0,
+    answers: 0
+  };
+}
+
 export async function verifyAuditSchoolLive({
   apiUrl,
   anonKey,
@@ -136,7 +175,7 @@ export async function verifyAuditSchoolLive({
       "LP_AUDIT_SUPABASE_URL, LP_AUDIT_SUPABASE_ANON_KEY, and LP_AUDIT_TEACHER_PASSWORD are required."
     );
   }
-  const [teacherA, teacherB] = await Promise.all([
+  const [teacherA, teacherB, teacherFresh, teacherDemo] = await Promise.all([
     verifyTeacher({
       apiUrl,
       anonKey,
@@ -152,9 +191,23 @@ export async function verifyAuditSchoolLive({
       expected: EXPECTED.teacherB,
       forbiddenClassId: EXPECTED.teacherA.classId,
       clientFactory
+    }),
+    verifyFreshTeacher({
+      apiUrl,
+      anonKey,
+      password,
+      expected: EXPECTED.teacherFresh,
+      clientFactory
+    }),
+    verifyFreshTeacher({
+      apiUrl,
+      anonKey,
+      password,
+      expected: EXPECTED.teacherDemo,
+      clientFactory
     })
   ]);
-  return { teacherA, teacherB };
+  return { teacherA, teacherB, teacherFresh, teacherDemo };
 }
 
 export async function main(environment = process.env) {

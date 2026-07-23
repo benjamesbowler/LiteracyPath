@@ -3881,6 +3881,31 @@ export default function App() {
     setMessage(`Class created: ${clean}`);
   }
 
+  async function createDemoClass() {
+    if (!teacherId) {
+      setMessage("Please log in first.");
+      return false;
+    }
+
+    const { data, error } = await supabase.rpc("teacher_create_demo_class");
+    const classId = data?.class_id;
+    if (error || !classId) {
+      console.error("Create demo class error:", error || data);
+      setMessage("Could not create the sample class.");
+      return false;
+    }
+
+    setSelectedClassId(classId);
+    setTeacherGroupId("all");
+    setTeacherStudentContext({ studentId: null, studentName: "" });
+    setNameSaved(false);
+    await loadClasses();
+    await loadStudents(classId);
+    await loadClassDashboard(classId);
+    setMessage("Sample class created. It has login pictures but no assessment evidence.");
+    return true;
+  }
+
   async function loadStudents(classId = selectedClassId) {
     if (!teacherId || !classId) {
       setStudentList([]);
@@ -4507,7 +4532,7 @@ export default function App() {
   }
 
 
-  async function createStudentForSelectedClass(name) {
+  async function createStudentForSelectedClass(name, { navigate = true } = {}) {
     const clean = String(name || "").trim();
     if (!clean) return;
 
@@ -4550,10 +4575,50 @@ export default function App() {
     setGuidedReadingRecords({});
     setNameSaved(true);
     setCurrentSkillIndex(0);
-    setAppView(APP_VIEWS.OVERVIEW);
+    if (navigate) setAppView(APP_VIEWS.OVERVIEW);
     await loadStudents(selectedClassId);
     await loadClassDashboard(selectedClassId);
     setMessage(`Student created and selected: ${data.name || clean}`);
+  }
+
+  async function importStudentsForSelectedClass(names = []) {
+    const cleanNames = [...new Set(
+      names
+        .map(name => String(name || "").trim())
+        .filter(Boolean)
+    )];
+    if (!cleanNames.length) return false;
+    if (cleanNames.length > 40) {
+      setMessage("Import up to 40 learner display names at a time.");
+      return false;
+    }
+    if (!teacherId || !selectedClassId) {
+      setMessage("Please select or create a class first.");
+      return false;
+    }
+
+    const { error } = await supabase
+      .from("students")
+      .insert(cleanNames.map(name => ({
+        name,
+        class_id: selectedClassId,
+        teacher_id: teacherId
+      })));
+
+    if (error) {
+      console.error("Roster import error:", error);
+      setMessage(
+        /duplicate|unique/i.test(error.message || "")
+          ? "Import stopped: one of those display names already exists in this class."
+          : "Could not import that roster. No learners were added."
+      );
+      return false;
+    }
+
+    await loadStudents(selectedClassId);
+    await loadClassDashboard(selectedClassId);
+    setMessage(`${cleanNames.length} learner${cleanNames.length === 1 ? "" : "s"} imported. Set login pictures next.`);
+    return true;
   }
 
   function isInitialSoundsStage(stage) {
@@ -9057,10 +9122,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               onOpenAssess={() => setAppView(APP_VIEWS.TEACHER_ASSESS)}
               onOpenProgress={() => setAppView(APP_VIEWS.TEACHER_PROGRESS)}
               createClass={createClass}
+              createDemoClass={createDemoClass}
               regenerateClassCode={regenerateClassCode}
               newClassName={newClassName}
               setNewClassName={setNewClassName}
-              createStudent={createStudentForSelectedClass}
+              createStudent={name => createStudentForSelectedClass(name, { navigate: false })}
+              importStudents={importStudentsForSelectedClass}
               classDashboard={classDashboard}
               loadClassDashboard={loadClassDashboard}
               skillTree={skillTree}

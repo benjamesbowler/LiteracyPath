@@ -54,6 +54,8 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "__AUDIT_ANCHOR__",
     "audit-teacher-a@literacypath.invalid",
     "audit-teacher-b@literacypath.invalid",
+    "audit-teacher-fresh@literacypath.invalid",
+    "audit-teacher-demo@literacypath.invalid",
     "audit-admin@literacypath.invalid",
     "public.app_admins",
     "[AUDIT ONLY] LiteracyPath Seed School",
@@ -95,8 +97,8 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
   const teacherIds = new Set([...sql.matchAll(
     /'10000000-0000-4000-8000-(\d{12})'/g
   )].map(match => match[0]));
-  if (teacherIds.size !== 2) {
-    failures.push(`expected 2 deterministic teacher IDs, found ${teacherIds.size}`);
+  if (teacherIds.size !== 4) {
+    failures.push(`expected 4 deterministic teacher IDs, found ${teacherIds.size}`);
   }
   return {
     failures,

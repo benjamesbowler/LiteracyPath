@@ -98,6 +98,54 @@ values
   ),
   (
     '00000000-0000-0000-0000-000000000000',
+    '10000000-0000-4000-8000-000000000003',
+    'authenticated',
+    'authenticated',
+    'audit-teacher-fresh@literacypath.invalid',
+    crypt('__AUDIT_PASSWORD__', gen_salt('bf')),
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '{"provider":"email","providers":["email"]}'::jsonb,
+    '{"display_name":"Audit Teacher Fresh","audit_only":true}'::jsonb,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    0,
+    false,
+    false
+  ),
+  (
+    '00000000-0000-0000-0000-000000000000',
+    '10000000-0000-4000-8000-000000000004',
+    'authenticated',
+    'authenticated',
+    'audit-teacher-demo@literacypath.invalid',
+    crypt('__AUDIT_PASSWORD__', gen_salt('bf')),
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '{"provider":"email","providers":["email"]}'::jsonb,
+    '{"display_name":"Audit Teacher Demo","audit_only":true}'::jsonb,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    0,
+    false,
+    false
+  ),
+  (
+    '00000000-0000-0000-0000-000000000000',
     '12000000-0000-4000-8000-000000000001',
     'authenticated',
     'authenticated',
@@ -140,6 +188,8 @@ delete from auth.identities
 where user_id in (
   '10000000-0000-4000-8000-000000000001',
   '10000000-0000-4000-8000-000000000002',
+  '10000000-0000-4000-8000-000000000003',
+  '10000000-0000-4000-8000-000000000004',
   '12000000-0000-4000-8000-000000000001'
 );
 
@@ -169,6 +219,26 @@ values
     '10000000-0000-4000-8000-000000000002',
     '10000000-0000-4000-8000-000000000002',
     '{"sub":"10000000-0000-4000-8000-000000000002","email":"audit-teacher-b@literacypath.invalid"}'::jsonb,
+    'email',
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz
+  ),
+  (
+    '11000000-0000-4000-8000-000000000003',
+    '10000000-0000-4000-8000-000000000003',
+    '10000000-0000-4000-8000-000000000003',
+    '{"sub":"10000000-0000-4000-8000-000000000003","email":"audit-teacher-fresh@literacypath.invalid"}'::jsonb,
+    'email',
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz
+  ),
+  (
+    '11000000-0000-4000-8000-000000000004',
+    '10000000-0000-4000-8000-000000000004',
+    '10000000-0000-4000-8000-000000000004',
+    '{"sub":"10000000-0000-4000-8000-000000000004","email":"audit-teacher-demo@literacypath.invalid"}'::jsonb,
     'email',
     '__AUDIT_ANCHOR__'::timestamptz,
     '__AUDIT_ANCHOR__'::timestamptz,
@@ -241,6 +311,38 @@ values
     '__AUDIT_ANCHOR__'::timestamptz,
     '__AUDIT_ANCHOR__'::timestamptz,
     '20000000-0000-4000-8000-000000000001'
+  ),
+  (
+    '21000000-0000-4000-8000-000000000003',
+    '10000000-0000-4000-8000-000000000003',
+    'audit-teacher-fresh@literacypath.invalid',
+    'audit_teacher_fresh',
+    'Audit Teacher Fresh',
+    'Audit Teacher Fresh',
+    'teacher',
+    'approved',
+    'approved',
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '20000000-0000-4000-8000-000000000001'
+  ),
+  (
+    '21000000-0000-4000-8000-000000000004',
+    '10000000-0000-4000-8000-000000000004',
+    'audit-teacher-demo@literacypath.invalid',
+    'audit_teacher_demo',
+    'Audit Teacher Demo',
+    'Audit Teacher Demo',
+    'teacher',
+    'approved',
+    'approved',
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '20000000-0000-4000-8000-000000000001'
   )
 on conflict (user_id) do update set
   role = excluded.role,
@@ -259,6 +361,14 @@ values (
 )
 on conflict (user_id) do update set
   email = excluded.email;
+
+-- Reapplying the seed always restores the onboarding account to a genuinely
+-- fresh state. Cascading foreign keys remove only this audit user's fixtures.
+delete from public.classes
+where teacher_id in (
+  '10000000-0000-4000-8000-000000000003',
+  '10000000-0000-4000-8000-000000000004'
+);
 
 insert into public.classes (
   id,
@@ -799,7 +909,9 @@ begin
   from auth.users
   where id in (
     '10000000-0000-4000-8000-000000000001',
-    '10000000-0000-4000-8000-000000000002'
+    '10000000-0000-4000-8000-000000000002',
+    '10000000-0000-4000-8000-000000000003',
+    '10000000-0000-4000-8000-000000000004'
   );
 
   select count(*) into admin_count
@@ -844,7 +956,7 @@ begin
   where attempt_id like 'audit-el-%'
     and administration_status = 'in_progress';
 
-  if teacher_count <> 2
+  if teacher_count <> 4
      or admin_count <> 1
      or class_count <> 2
      or learner_count <> 26

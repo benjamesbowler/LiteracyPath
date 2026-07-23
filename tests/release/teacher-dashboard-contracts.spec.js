@@ -204,6 +204,106 @@ test("@teacher-persistent-context drills through groups and three learners witho
   await expect(page).toHaveURL(/group=all&learner=40000000-0000-4000-8000-000000000005$/);
 });
 
+test("@teacher-onboarding fresh teacher completes the saved golden path", async ({ page }) => {
+  test.setTimeout(120_000);
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+
+  await logIn(page, "audit-teacher-fresh@literacypath.invalid");
+
+  let checklist = page.getByRole("region", { name: "Teacher setup checklist" });
+  await expect(checklist).toHaveAttribute("data-setup-complete", "false");
+  await expect(checklist.getByLabel("0 of 4 setup steps complete")).toBeVisible();
+  await expect(checklist.getByText("Create a class", { exact: true })).toBeVisible();
+  await expect(checklist.getByRole("button", { name: "Explore with a sample class", exact: true })).toBeVisible();
+  await expect(checklist.getByText(/contains no assessment evidence/)).toBeVisible();
+
+  await checklist.getByRole("button", { name: "Continue: Create a class", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+  await page.getByLabel("New class").fill("Golden Path Class");
+  await page.getByRole("button", { name: "Create Class", exact: true }).click();
+
+  checklist = page.getByRole("region", { name: "Teacher setup checklist" });
+  await expect(checklist.getByLabel("1 of 4 setup steps complete")).toBeVisible();
+  await expect(checklist.getByText("Add or import learners", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Import names", exact: true }).click();
+  const rosterImport = page.getByRole("region", { name: "Import learner names" });
+  await rosterImport.getByLabel("Learner names").fill("Ava");
+  await rosterImport.getByRole("button", { name: "Import learners", exact: true }).click();
+
+  await expect(checklist.getByLabel("2 of 4 setup steps complete")).toBeVisible();
+  await checklist.getByRole("button", { name: "Continue: Set login pictures", exact: true }).click();
+  const passwordDialog = page.getByRole("dialog", { name: "Change password for Ava" });
+  await expect(passwordDialog).toBeVisible();
+  for (const symbol of ["Cat", "Dog", "Fish"]) {
+    await passwordDialog.getByRole("button", { name: symbol, exact: true }).click();
+  }
+
+  await expect(passwordDialog).toHaveCount(0);
+  await expect(checklist.getByLabel("3 of 4 setup steps complete")).toBeVisible();
+  await checklist.getByRole("button", { name: "Continue: Run the first check", exact: true }).click();
+  await expect(page.locator('[data-teacher-intent="assess"]')).toBeVisible();
+
+  const checkpointCard = page.getByRole("article").filter({ hasText: "Start or review a checkpoint" });
+  await checkpointCard.getByRole("button", { name: "Open", exact: true }).click();
+  await expect(page.getByText("Student Overview", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Enter Full Screen Assessment", exact: true }).click();
+  await expect(page.locator(".assessment-question-layout")).toBeVisible({ timeout: 30_000 });
+
+  const pairChoices = page.locator(".initial-sound-image-button");
+  if (await pairChoices.count()) {
+    await pairChoices.nth(0).click();
+    await pairChoices.nth(1).click();
+    await page.getByRole("button", { name: "Submit", exact: true }).click();
+  } else {
+    const immediateChoice = page.locator([
+      ".visual-assessment-card-button",
+      ".ixl-answer-button",
+      ".choice-button",
+      ".sentence-option-button"
+    ].join(", ")).first();
+    await expect(immediateChoice).toBeVisible();
+    await immediateChoice.click();
+  }
+
+  await expect(page.locator(".assessment-feedback")).toBeVisible({ timeout: 20_000 });
+  await page.getByRole("button", { name: "End Assessment", exact: true }).click();
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Classes", exact: true })
+    .click();
+
+  checklist = page.getByRole("region", { name: "Teacher setup checklist" });
+  await expect(checklist).toHaveAttribute("data-setup-complete", "true", { timeout: 20_000 });
+  await expect(checklist.getByLabel("4 of 4 setup steps complete")).toBeVisible();
+  await expect(checklist.getByRole("heading", { name: "Your class is ready to use", exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("@teacher-onboarding-demo sample class is labelled, login-ready, and evidence-empty", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+
+  await logIn(page, "audit-teacher-demo@literacypath.invalid");
+  const checklist = page.getByRole("region", { name: "Teacher setup checklist" });
+  await checklist.getByRole("button", { name: "Explore with a sample class", exact: true }).click();
+
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+  await expect(page.getByLabel("Current class").locator("option:checked")).toHaveText("Demo Class (sample)");
+  await expect(checklist.getByLabel("3 of 4 setup steps complete")).toBeVisible();
+  await expect(checklist.getByText("Run the first check", { exact: true })).toBeVisible();
+
+  const roster = page.locator(".teacher-roster-table");
+  for (const learner of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
+    const row = roster.getByRole("row").filter({ hasText: learner });
+    await expect(row).toBeVisible();
+    await expect(row.getByText("Ready", { exact: true })).toBeVisible();
+    await expect(row.getByText("No practice yet", { exact: true })).toBeVisible();
+  }
+  await expect(roster.getByText("No practice yet", { exact: true })).toHaveCount(3);
+  await expect(page.getByRole("region", { name: "Class summary" }).getByText("0/3", { exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));

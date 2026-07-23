@@ -55,6 +55,116 @@ function StudentInitial({ name }) {
   );
 }
 
+function TeacherSetupChecklist({
+  hasClass,
+  hasLearners,
+  loginsReady,
+  firstCheckComplete,
+  onContinue,
+  onCreateDemo,
+  creatingDemo = false
+}) {
+  const steps = [
+    {
+      id: "class",
+      title: "Create a class",
+      description: "Use the class name your learners already know.",
+      complete: hasClass
+    },
+    {
+      id: "learners",
+      title: "Add or import learners",
+      description: "Use English names or classroom nicknames, never surnames.",
+      complete: hasLearners
+    },
+    {
+      id: "logins",
+      title: "Set login pictures",
+      description: "Every learner needs three teacher-set pictures.",
+      complete: loginsReady
+    },
+    {
+      id: "check",
+      title: "Run the first check",
+      description: "One recorded response makes the evidence trail live.",
+      complete: firstCheckComplete
+    }
+  ];
+  const completedCount = steps.filter(step => step.complete).length;
+  const nextStep = steps.find(step => !step.complete) || null;
+
+  return (
+    <section
+      className={`teacher-setup-checklist${nextStep ? "" : " is-complete"}`}
+      aria-label="Teacher setup checklist"
+      data-setup-complete={nextStep ? "false" : "true"}
+    >
+      <header>
+        <div>
+          <p className="panel-label">{nextStep ? "First class setup" : "Setup complete"}</p>
+          <h3>{nextStep ? "Four steps to your first useful result" : "Your class is ready to use"}</h3>
+          <p>
+            {nextStep
+              ? "Progress comes from saved class data, so it stays accurate on every device."
+              : "Class, learners, logins, and the first recorded check are all in place."}
+          </p>
+        </div>
+        <div className="teacher-setup-progress" aria-label={`${completedCount} of ${steps.length} setup steps complete`}>
+          <strong>{completedCount}/{steps.length}</strong>
+          <span>complete</span>
+        </div>
+      </header>
+
+      <ol>
+        {steps.map((step, index) => {
+          const current = nextStep?.id === step.id;
+          return (
+            <li
+              className={step.complete ? "is-complete" : current ? "is-current" : ""}
+              key={step.id}
+              aria-current={current ? "step" : undefined}
+            >
+              <span className="teacher-setup-step-mark" aria-hidden="true">
+                {step.complete ? "✓" : index + 1}
+              </span>
+              <div>
+                <strong>{step.title}</strong>
+                <p>{step.description}</p>
+              </div>
+              <span className="teacher-setup-step-state">
+                {step.complete ? "Done" : current ? "Next" : "Waiting"}
+              </span>
+            </li>
+          );
+        })}
+      </ol>
+
+      {nextStep && (
+        <footer>
+          <button className="lp-button lp-button-primary" type="button" onClick={() => onContinue?.(nextStep.id)}>
+            Continue: {nextStep.title}
+          </button>
+          {!hasClass && onCreateDemo && (
+            <button
+              className="lp-button lp-button-secondary"
+              type="button"
+              disabled={creatingDemo}
+              onClick={onCreateDemo}
+            >
+              {creatingDemo ? "Creating sample..." : "Explore with a sample class"}
+            </button>
+          )}
+          {!hasClass && (
+            <p>
+              Sample data is clearly labelled, uses fictional nicknames, and contains no assessment evidence.
+            </p>
+          )}
+        </footer>
+      )}
+    </section>
+  );
+}
+
 function TodayBriefing({
   rows,
   onLoadStudent,
@@ -416,10 +526,12 @@ export function TeacherDashboardPage({
   onOpenAssess,
   onOpenProgress,
   createClass,
+  createDemoClass,
   regenerateClassCode,
   newClassName,
   setNewClassName,
   createStudent,
+  importStudents,
   classDashboard = [],
   loadClassDashboard,
   skillTree = [],
@@ -432,6 +544,10 @@ export function TeacherDashboardPage({
   message
 }) {
   const [newStudentName, setNewStudentName] = useState("");
+  const [showRosterImport, setShowRosterImport] = useState(false);
+  const [rosterImportText, setRosterImportText] = useState("");
+  const [importingRoster, setImportingRoster] = useState(false);
+  const [creatingDemo, setCreatingDemo] = useState(false);
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [editingSchool, setEditingSchool] = useState(false);
   const [schoolDraft, setSchoolDraft] = useState("");
@@ -445,7 +561,12 @@ export function TeacherDashboardPage({
   const [heatOpenId, setHeatOpenId] = useState(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
+  const newClassInputRef = useRef(null);
   const newStudentInputRef = useRef(null);
+  function focusNewClassInput() {
+    newClassInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
+    newClassInputRef.current?.focus?.();
+  }
   function focusNewStudentInput() {
     newStudentInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
     newStudentInputRef.current?.focus?.();
@@ -575,6 +696,10 @@ export function TeacherDashboardPage({
   const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]
     || (selectedClass?.leaderboard_scope === "school" ? "school" : "class");
   const isClassesPage = pageIntent === "classes";
+  const hasSetupClass = Boolean(selectedClass);
+  const hasSetupLearners = studentRows.length > 0;
+  const setupLoginsReady = hasSetupLearners && studentRows.every(row => Boolean(row.symbol_password));
+  const firstCheckComplete = studentRows.some(row => row.answered > 0);
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
@@ -598,6 +723,62 @@ export function TeacherDashboardPage({
     if (!clean) return;
     await createStudent?.(clean);
     setNewStudentName("");
+  }
+
+  async function handleImportStudents() {
+    const names = rosterImportText
+      .split(/\r?\n|,/)
+      .map(name => name.trim())
+      .filter(Boolean);
+    if (!names.length || importingRoster) return;
+    setImportingRoster(true);
+    try {
+      const saved = await importStudents?.(names);
+      if (saved) {
+        setRosterImportText("");
+        setShowRosterImport(false);
+      }
+    } finally {
+      setImportingRoster(false);
+    }
+  }
+
+  async function handleSetupContinue(stepId) {
+    if (stepId === "class") {
+      if (!isClassesPage) onOpenClasses?.();
+      else focusNewClassInput();
+      return;
+    }
+    if (stepId === "learners") {
+      if (!isClassesPage) onOpenClasses?.();
+      else focusNewStudentInput();
+      return;
+    }
+    if (stepId === "logins") {
+      const learner = studentRows.find(row => !row.symbol_password);
+      if (!learner) return;
+      setEditingStudent(learner);
+      setEditingSequence("");
+      if (!isClassesPage) onOpenClasses?.();
+      return;
+    }
+    if (stepId === "check") {
+      const learner = selectedStudentRow || studentRows[0];
+      if (!learner) return;
+      await onLoadStudent?.(learner.id, learner.name);
+      onOpenAssess?.();
+    }
+  }
+
+  async function handleCreateDemo() {
+    if (creatingDemo) return;
+    setCreatingDemo(true);
+    try {
+      const created = await createDemoClass?.();
+      if (created && !isClassesPage) onOpenClasses?.();
+    } finally {
+      setCreatingDemo(false);
+    }
   }
 
   async function handleSaveSchool() {
@@ -755,6 +936,16 @@ export function TeacherDashboardPage({
 
       {message && <p className="message teacher-dashboard-message">{message}</p>}
 
+      <TeacherSetupChecklist
+        hasClass={hasSetupClass}
+        hasLearners={hasSetupLearners}
+        loginsReady={setupLoginsReady}
+        firstCheckComplete={firstCheckComplete}
+        onContinue={handleSetupContinue}
+        onCreateDemo={createDemoClass ? handleCreateDemo : null}
+        creatingDemo={creatingDemo}
+      />
+
       {selectedClass && (
         <section className="teacher-roster-metrics" aria-label="Class summary">
           <RosterMetric label="Students" value={studentRows.length} />
@@ -787,6 +978,7 @@ export function TeacherDashboardPage({
           <label className="teacher-dashboard-control">
             <span>New class</span>
             <input
+              ref={newClassInputRef}
               autoComplete="off"
               value={newClassName}
               placeholder="Enter class name"
@@ -1004,6 +1196,14 @@ export function TeacherDashboardPage({
               <button className="lp-button lp-button-secondary" disabled={!newStudentName.trim()} onClick={handleCreateStudent} type="button">
                 Add Student
               </button>
+              <button
+                className="lp-button lp-button-secondary"
+                onClick={() => setShowRosterImport(current => !current)}
+                type="button"
+                aria-expanded={showRosterImport}
+              >
+                {showRosterImport ? "Close import" : "Import names"}
+              </button>
               <button className="lp-button lp-button-secondary" disabled={!studentRows.length} onClick={printLoginCards} type="button">
                 Print Cards
               </button>
@@ -1014,31 +1214,50 @@ export function TeacherDashboardPage({
           </div>
         )}
 
+        {selectedClass && showRosterImport && (
+          <section className="teacher-roster-import" aria-label="Import learner names">
+            <div>
+              <strong>Paste learner display names</strong>
+              <p>One English name or classroom nickname per line. Up to 40 names; do not include surnames or other personal details.</p>
+            </div>
+            <label>
+              <span>Learner names</span>
+              <textarea
+                value={rosterImportText}
+                onChange={event => setRosterImportText(event.target.value)}
+                placeholder={"Ava\nBen\nChen"}
+                rows={5}
+              />
+            </label>
+            <button
+              className="lp-button lp-button-primary"
+              type="button"
+              disabled={!rosterImportText.trim() || importingRoster}
+              onClick={handleImportStudents}
+            >
+              {importingRoster ? "Importing..." : "Import learners"}
+            </button>
+          </section>
+        )}
+
         {selectedClass && !loadingStudents && studentRows.length > 0 && (
           <ClassHeatPanel rows={studentRows} />
         )}
 
         {!selectedClass ? (
           <div className="report-empty-state teacher-onboard-empty">
-            <div className="teacher-onboard-steps" aria-hidden="true">
-              <span className="active">1. Create a class</span>
-              <span>2. Add students</span>
-              <span>3. Start a check</span>
-            </div>
-            <strong>Welcome! Let&rsquo;s set up your class.</strong>
-            <p>Create a class above to get started — then you can add your students and begin.</p>
+            <strong>Your roster will appear here.</strong>
+            <p>Create a class above or continue from the setup checklist.</p>
+            <button className="lp-button lp-button-primary" type="button" onClick={focusNewClassInput}>
+              Create your first class
+            </button>
           </div>
         ) : loadingStudents ? (
           <p className="muted-text">Loading students...</p>
         ) : studentRows.length === 0 ? (
           <div className="report-empty-state teacher-onboard-empty">
-            <div className="teacher-onboard-steps" aria-hidden="true">
-              <span className="done">1. Create a class</span>
-              <span className="active">2. Add students</span>
-              <span>3. Start a check</span>
-            </div>
             <strong>Add your first student to {selectedClass.name}.</strong>
-            <p>Add an English name or classroom nickname, then set their three login pictures.</p>
+            <p>Add one learner above, or use Import names for a whole roster.</p>
             <button className="lp-button lp-button-primary" type="button" onClick={focusNewStudentInput}>
               Add your first student
             </button>
