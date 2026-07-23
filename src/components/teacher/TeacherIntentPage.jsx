@@ -1,8 +1,10 @@
+import { APP_VIEWS } from "../../appState/appViews.js";
+
 const INTENT_COPY = Object.freeze({
   assess: {
-    eyebrow: "Assess",
-    title: "Choose the evidence you need",
-    description: "Start with the purpose of the check, then open the right tool for the selected learner."
+    eyebrow: "Assessment hub",
+    title: "Choose an assessment purpose",
+    description: "Start with why you need evidence. The hub then opens the right route without asking you to learn internal product labels."
   },
   progress: {
     eyebrow: "Progress",
@@ -18,8 +20,8 @@ const INTENT_COPY = Object.freeze({
 
 function buildIntentActions({
   intent,
-  onOpenCheckpoint,
-  onOpenElBenchmark,
+  onOpenAssessment,
+  onOpenView,
   onOpenReports,
   onOpenGuidedReading,
   onOpenStoryQuests,
@@ -31,26 +33,34 @@ function buildIntentActions({
       {
         id: "universal-benchmark",
         category: "Universal benchmark",
-        label: "Start or review a checkpoint",
-        description: "Use the shared literacy sequence to establish the learner's current starting point.",
+        label: "Find the learner's starting point",
+        description: "Use the shared literacy sequence to establish a consistent starting point across the class.",
         requiresStudent: true,
-        onOpen: onOpenCheckpoint
+        onOpen: () => onOpenAssessment?.(false)
       },
       {
         id: "diagnostic-follow-up",
         category: "Diagnostic follow-up",
         label: "Investigate a specific gap",
-        description: "Open the learner checkpoint workspace and choose the skill that needs closer evidence.",
+        description: "Choose one skill when existing evidence points to a gap that needs a closer look.",
         requiresStudent: true,
-        onOpen: onOpenCheckpoint
+        onOpen: () => onOpenAssessment?.(true)
       },
       {
         id: "progress-monitoring",
         category: "Progress monitoring",
-        label: "Run an EL benchmark",
-        description: "Use the formal grade-and-window assessment route for comparable follow-up evidence.",
+        label: "Check change over time",
+        description: "Use a consistent grade and assessment window to collect comparable follow-up evidence.",
         requiresStudent: true,
-        onOpen: onOpenElBenchmark
+        onOpen: () => onOpenView?.(APP_VIEWS.EL_ASSESSMENTS)
+      },
+      {
+        id: "practice",
+        category: "Practice",
+        label: "Plan practice, not a test",
+        description: "Move to teaching resources and assigned rehearsal. Practice can guide support, but it is not formal assessment evidence.",
+        requiresStudent: false,
+        onOpen: () => onOpenView?.(APP_VIEWS.TEACHER_RESOURCES)
       }
     ];
   }
@@ -106,8 +116,8 @@ export function TeacherIntentPage({
   intent,
   className = "",
   studentName = "",
-  onOpenCheckpoint,
-  onOpenElBenchmark,
+  onOpenAssessment,
+  onOpenView,
   onOpenReports,
   onOpenGuidedReading,
   onOpenStoryQuests,
@@ -118,8 +128,8 @@ export function TeacherIntentPage({
   if (!copy) return null;
   const actions = buildIntentActions({
     intent,
-    onOpenCheckpoint,
-    onOpenElBenchmark,
+    onOpenAssessment,
+    onOpenView,
     onOpenReports,
     onOpenGuidedReading,
     onOpenStoryQuests,
@@ -146,27 +156,58 @@ export function TeacherIntentPage({
       </section>
 
       <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
-        {actions.map(action => (
-          <article className="teacher-action-card" key={action.id}>
-            <div>
-              <p className="panel-label">{action.category}</p>
-              <h3>{action.label}</h3>
-              <p>{action.description}</p>
-              {action.requiresStudent && !studentName && (
-                <small className="muted-text">Select a learner from Classes to use this tool.</small>
-              )}
-            </div>
-            <button
-              className="lp-button lp-button-secondary"
-              disabled={action.requiresStudent && !studentName}
-              onClick={action.onOpen}
-              type="button"
-            >
-              Open
-            </button>
-          </article>
-        ))}
+        {actions.map(action => {
+          const needsLearner = action.requiresStudent && !studentName;
+          return (
+            <article className="teacher-action-card" key={action.id}>
+              <div>
+                <p className="panel-label">{action.category}</p>
+                <h3>{action.label}</h3>
+                <p>{action.description}</p>
+                {needsLearner && (
+                  <small className="muted-text">Choose a learner to continue.</small>
+                )}
+              </div>
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={needsLearner && !onOpenView}
+                onClick={needsLearner
+                  ? () => onOpenView(APP_VIEWS.TEACHER_CLASSES)
+                  : action.onOpen}
+                type="button"
+              >
+                {needsLearner ? "Choose learner" : "Open"}
+              </button>
+            </article>
+          );
+        })}
       </section>
+
+      {intent === "assess" && (
+        <details className="teacher-assessment-language-guide">
+          <summary>Assessment language guide</summary>
+          <div>
+            <p>
+              Older records and training materials may use the labels below. The hub groups them by the
+              teacher decision they support.
+            </p>
+            <dl>
+              <div>
+                <dt>Checkpoints</dt>
+                <dd>Use Universal benchmark for a shared starting point or Diagnostic follow-up for one specific gap.</dd>
+              </div>
+              <div>
+                <dt>EL Checks</dt>
+                <dd>Use Progress monitoring when you need comparable evidence across a grade and assessment window.</dd>
+              </div>
+              <div>
+                <dt>Advanced Phonics</dt>
+                <dd>Use Diagnostic follow-up when a learner needs a closer look at phonics patterns.</dd>
+              </div>
+            </dl>
+          </div>
+        </details>
+      )}
     </main>
   );
 }

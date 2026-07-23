@@ -113,23 +113,19 @@ const TEACHER_INTENT_NAV_ITEMS = [
     ],
     modules: [
       {
-        id: "assessment",
-        label: "Checkpoints",
+        id: "assessment-hub",
+        label: "Assessment hub",
         views: [
+          APP_VIEWS.TEACHER_ASSESS,
           APP_VIEWS.OVERVIEW,
           APP_VIEWS.SKILLS,
           APP_VIEWS.ASSESSMENT,
           APP_VIEWS.CHECKPOINT,
           APP_VIEWS.LETTERS,
-          APP_VIEWS.ADVANCED_PHONICS
-        ],
-        requiresStudent: true
-      },
-      {
-        id: "el",
-        label: "EL Checks",
-        views: [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.EL_BENCHMARK],
-        requiresStudent: true
+          APP_VIEWS.ADVANCED_PHONICS,
+          APP_VIEWS.EL_ASSESSMENTS,
+          APP_VIEWS.EL_BENCHMARK
+        ]
       }
     ]
   },
@@ -194,9 +190,7 @@ export function Sidebar({
   studentName,
   className,
   teacherEmail,
-  goToOverview,
   goToStudentHome,
-  goToElAssessments,
   goToGuidedReading,
   goToLearn,
   goToReports,
@@ -237,8 +231,7 @@ export function Sidebar({
       case "resources":   return goToTeacherResources?.();
       case "dashboard":   return goToTeacherDashboard?.();
       case "studentHome": return goToStudentHome?.();
-      case "assessment":  return goToOverview?.();
-      case "el":          return goToElAssessments?.();
+      case "assessment-hub": return goToTeacherAssess?.();
       case "reading":     return goToGuidedReading?.();
       case "learn":       return goToLearn?.();
       case "reports":     return goToReports?.();

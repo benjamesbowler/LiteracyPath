@@ -74,7 +74,7 @@ test("@teacher-five-intention-ia reachable navigation has five intentions and co
 
   await primaryNav.getByRole("button", { name: "Assess", exact: true }).click();
   await expect(page.locator('[data-teacher-intent="assess"]')).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Choose the evidence you need", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose an assessment purpose", exact: true })).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Assess tools" })).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Progress", exact: true }).click();
@@ -85,6 +85,87 @@ test("@teacher-five-intention-ia reachable navigation has five intentions and co
   await expect(page.locator('[data-teacher-intent="resources"]')).toBeVisible();
   await expect(page.getByRole("heading", { name: "Prepare teaching and practice", exact: true })).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Plan/Resources tools" })).toBeVisible();
+});
+
+test("@teacher-assessment-hub uses purpose-led language and routes every purpose from one hub", async ({
+  page
+}) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  const primaryNav = page.getByTestId("teacher-primary-nav");
+  await primaryNav.getByRole("button", { name: "Assess", exact: true }).click();
+  const unscopedHub = page.locator('[data-teacher-intent="assess"]');
+  const unscopedActions = unscopedHub.getByRole("region", { name: "Assessment hub tools" });
+  await expect(unscopedActions.getByRole("button", { name: "Choose learner", exact: true })).toHaveCount(3);
+  await unscopedActions.getByRole("article").filter({ hasText: "Universal benchmark" })
+    .getByRole("button", { name: "Choose learner", exact: true })
+    .click();
+  await expect(page.getByRole("heading", { name: "Classes", exact: true })).toBeVisible();
+
+  const rosterAdmin = page.locator(".teacher-roster-admin");
+  if (!await rosterAdmin.evaluate(element => element.open)) {
+    await rosterAdmin.locator(":scope > summary").click();
+  }
+  const aaravRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" });
+  await aaravRow.getByRole("button", { name: "Open learner", exact: true }).click();
+  await page.getByRole("region", { name: "Learner detail: Aarav" })
+    .getByRole("button", { name: "Assess Aarav", exact: true })
+    .click();
+
+  const assessTools = page.getByRole("navigation", { name: "Assess tools" });
+  await expect(assessTools.getByRole("button")).toHaveCount(1);
+  await expect(assessTools.getByRole("button", { name: "Assessment hub", exact: true })).toBeVisible();
+  await expect(primaryNav).not.toContainText(/Checkpoints|EL Checks|Advanced Phonics/);
+
+  const hub = page.locator('[data-teacher-intent="assess"]');
+  await expect(hub.getByRole("heading", { name: "Choose an assessment purpose", exact: true })).toBeVisible();
+  const actions = hub.getByRole("region", { name: "Assessment hub tools" });
+  await expect(actions.getByRole("article")).toHaveCount(4);
+  for (const category of [
+    "Universal benchmark",
+    "Diagnostic follow-up",
+    "Progress monitoring",
+    "Practice"
+  ]) {
+    await expect(actions.getByText(category, { exact: true })).toBeVisible();
+  }
+  await expect(actions).not.toContainText(/Checkpoints|EL Checks|Advanced Phonics/);
+
+  const languageGuide = hub.locator(".teacher-assessment-language-guide");
+  await expect(languageGuide.getByText("Assessment language guide", { exact: true })).toBeVisible();
+  for (const legacyLabel of ["Checkpoints", "EL Checks", "Advanced Phonics"]) {
+    await expect(languageGuide.getByText(legacyLabel, { exact: true })).toBeAttached();
+  }
+
+  await actions.getByRole("article").filter({ hasText: "Universal benchmark" })
+    .getByRole("button", { name: "Open", exact: true })
+    .click();
+  await expect(page.getByText("Universal benchmark", { exact: true })).toBeVisible();
+  await expect(page.getByText(/consistent starting point/)).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Assess", exact: true }).click();
+  await page.getByRole("region", { name: "Assessment hub tools" })
+    .getByRole("article").filter({ hasText: "Diagnostic follow-up" })
+    .getByRole("button", { name: "Open", exact: true })
+    .click();
+  await expect(page.getByText("Diagnostic follow-up", { exact: true })).toBeVisible();
+  await expect(page.getByText(/closer evidence you need/)).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Assess", exact: true }).click();
+  await page.getByRole("region", { name: "Assessment hub tools" })
+    .getByRole("article").filter({ hasText: "Progress monitoring" })
+    .getByRole("button", { name: "Open", exact: true })
+    .click();
+  await expect(page.getByRole("heading", { name: "Choose a comparable assessment for Aarav", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Phonics Pattern Diagnostic", exact: true })).toBeVisible();
+
+  await primaryNav.getByRole("button", { name: "Assess", exact: true }).click();
+  await page.getByRole("region", { name: "Assessment hub tools" })
+    .getByRole("article").filter({ hasText: "Practice" })
+    .getByRole("button", { name: "Open", exact: true })
+    .click();
+  await expect(page.getByRole("heading", { name: "Prepare teaching and practice", exact: true })).toBeVisible();
 });
 
 test("@teacher-today-briefing reachable seeded briefing has four evidence zones and working actions", async ({ page }) => {
@@ -480,9 +561,9 @@ test("@teacher-onboarding fresh teacher completes the saved golden path", async 
   await checklist.getByRole("button", { name: "Continue: Run the first check", exact: true }).click();
   await expect(page.locator('[data-teacher-intent="assess"]')).toBeVisible();
 
-  const checkpointCard = page.getByRole("article").filter({ hasText: "Start or review a checkpoint" });
+  const checkpointCard = page.getByRole("article").filter({ hasText: "Find the learner's starting point" });
   await checkpointCard.getByRole("button", { name: "Open", exact: true }).click();
-  await expect(page.getByText("Student Overview", { exact: true })).toBeVisible();
+  await expect(page.getByText("Universal benchmark", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Enter Full Screen Assessment", exact: true }).click();
   await expect(page.locator(".assessment-question-layout")).toBeVisible({ timeout: 30_000 });
 

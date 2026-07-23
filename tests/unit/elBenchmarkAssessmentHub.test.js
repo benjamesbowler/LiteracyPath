@@ -95,8 +95,8 @@ test("the hub derives Decoding and Fluency starts from completed evidence, never
   assert.doesNotMatch(html, /<details class="el-assessment-advanced-starts" open/);
   assert.match(html, /<h3>Letter Name and Sound<\/h3>[\s\S]*?Name and sound recognition for uppercase and lowercase letters/);
   assert.match(html, />Start Letter Assessment<\/button>/);
-  assert.match(html, /<h3>Advanced Phonics Patterns<\/h3>[\s\S]*?without changing its established runner or scoring/);
-  assert.match(html, />Start Advanced Phonics<\/button>/);
+  assert.match(html, /<h3>Phonics Pattern Diagnostic<\/h3>[\s\S]*?established scoring route/);
+  assert.match(html, />Start Phonics Pattern Diagnostic<\/button>/);
 });
 
 test("a candidate-only Encoding indication is visibly provisional and is never treated as confirmed provenance", () => {

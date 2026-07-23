@@ -1153,6 +1153,7 @@ export function AdminDashboardPage({
 }
 
 export function StudentOverviewPage({
+  diagnosticFollowUp = false,
   studentName,
   currentSkillIndex,
   currentStage,
@@ -1196,14 +1197,20 @@ export function StudentOverviewPage({
     : 0;
   const checkpointPassed = roundCorrect >= passScore;
   const hasProgress = totalAnswered > 0 || roundCorrect > 0 || currentCoverage.mastered > 0;
+  const isDiagnosticFollowUp = diagnosticFollowUp;
+  const purposeLabel = isDiagnosticFollowUp ? "Diagnostic follow-up" : "Universal benchmark";
+  const purposeDescription = isDiagnosticFollowUp
+    ? "Choose the skill named by existing evidence and collect only the closer evidence you need."
+    : "Follow the shared literacy sequence to establish a consistent starting point.";
 
   return (
     <div className="card page-card teacher-overview-dashboard">
       <section className="teacher-overview-hero" aria-label="Student overview summary">
         <div className="teacher-student-title">
-          <p className="panel-label">Student Overview</p>
+          <p className="panel-label">{purposeLabel}</p>
           <h2>{studentName || "Unnamed student"}</h2>
-          <p>{currentSkillIndex + 1}. {currentStage.label}</p>
+          <p>{purposeDescription}</p>
+          <small>{currentSkillIndex + 1}. {currentStage.label}</small>
         </div>
 
         <div className="teacher-metric-strip" aria-label="Student progress summary">
@@ -1212,7 +1219,7 @@ export function StudentOverviewPage({
             <strong>{accuracy}%</strong>
           </div>
           <div>
-            <span>Checkpoint</span>
+            <span>Current round</span>
             <strong>{roundCorrect}/{roundLength}</strong>
           </div>
           <div>
@@ -1249,7 +1256,11 @@ export function StudentOverviewPage({
 
         <div className="teacher-primary-action">
           <div>
-            <strong>{hasProgress ? "Continue assessment path" : "Begin checkpoint path"}</strong>
+            <strong>
+              {hasProgress
+                ? `Continue ${purposeLabel.toLowerCase()}`
+                : `Begin ${purposeLabel.toLowerCase()}`}
+            </strong>
             <p>{passScore}/{roundLength} correct is enough evidence to move forward.</p>
           </div>
           <button className="lp-button lp-button-primary" onClick={startAssessment}>
@@ -1274,10 +1285,10 @@ export function StudentOverviewPage({
       <section className="teacher-progress-grid" aria-label="Progress details">
         <div className="coverage-card compact">
           <div className="coverage-card-header">
-            <strong>Checkpoint progress</strong>
+            <strong>Current round progress</strong>
             <span>{checkpointPassed ? "Passed" : `${roundCorrect}/${roundLength}`}</span>
           </div>
-          <div className="coverage-bar" aria-label="Checkpoint progress">
+          <div className="coverage-bar" aria-label="Current round progress">
             <span style={{ width: `${checkpointPercent}%` }}></span>
           </div>
         </div>
@@ -1833,8 +1844,8 @@ export function ELAssessmentsPage({
     <div className="teacher-product-page el-assessment-hub">
       <section className="teacher-page-header el-assessment-hub-hero">
         <div>
-          <p className="panel-label">EL-aligned benchmark suite</p>
-          <h2>Choose an assessment for {studentName || "this student"}</h2>
+          <p className="panel-label">Progress monitoring</p>
+          <h2>Choose a comparable assessment for {studentName || "this student"}</h2>
           <p>Set the grade and time of year once, then start the check you need.</p>
         </div>
         <span className="el-assessment-provisional-label">Six early literacy checks</span>
@@ -2030,12 +2041,12 @@ export function ELAssessmentsPage({
             <span className="el-assessment-card-index">02</span>
             <span className="el-assessment-recommendation supplemental">Established supplemental diagnostic</span>
           </div>
-          <h3>Advanced Phonics Patterns</h3>
-          <p>Assess the existing advanced phoneme and grapheme-pattern checks without changing its established runner or scoring.</p>
-          <small>Assessment 2 · existing assessment retained unchanged</small>
+          <h3>Phonics Pattern Diagnostic</h3>
+          <p>Take a closer look at advanced phoneme and grapheme-pattern knowledge using the established scoring route.</p>
+          <small>Assessment 2 · established supplemental diagnostic</small>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
-              Start Advanced Phonics
+              Start Phonics Pattern Diagnostic
             </button>
           </div>
         </article>
@@ -2875,7 +2886,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
           <div className="assessment-topbar letter-topbar">
             <div className="assessment-meta">
               <span>{studentName || "Unnamed student"}</span>
-              <strong>Advanced Phonics Pattern Assessment</strong>
+              <strong>Phonics Pattern Diagnostic</strong>
             </div>
 
             <div className="assessment-progress">

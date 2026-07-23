@@ -98,7 +98,7 @@ test("@a11y-teacher authenticated five-intention journey is keyboard and screen-
   await expect(newCodeButton).toBeFocused();
 
   const intentionChecks = [
-    ["Assess", "Choose the evidence you need"],
+    ["Assess", "Choose an assessment purpose"],
     ["Progress", "Turn evidence into a clear next step"],
     ["Plan/Resources", "Prepare teaching and practice"]
   ];

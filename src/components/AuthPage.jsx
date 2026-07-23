@@ -37,7 +37,7 @@ export function AuthPage({
               ? "Enter your email and we will send a password reset link."
               : isSignup
                 ? "Create an account request for your school. Approval is required before access opens."
-                : "Open your classes, checkpoints, reports, and reading records."}
+                : "Open your classes, assessment hub, reports, and reading records."}
         </p>
       </div>
 

@@ -1879,7 +1879,7 @@ export default function App() {
   const [totalAnswered, setTotalAnswered] = useState(0);
   const [correctAnswered, setCorrectAnswered] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [, setShowReport] = useState(false);
+  const [diagnosticFollowUp, setDiagnosticFollowUp] = useState(false);
   const [allowPassageAudio, setAllowPassageAudio] = useState(false);
   const [learnFullscreen, setLearnFullscreen] = useState(false);
   const [studentArcadeOpen, setStudentArcadeOpen] = useState(false);
@@ -2510,7 +2510,7 @@ export default function App() {
     setIsAdmin(false);
     setTotalAnswered(0);
     setCorrectAnswered(0);
-    setShowReport(false);
+    setDiagnosticFollowUp(false);
     setAssessmentMode("mastery");
     setLetterIndex(0);
     setLetterAssessment([]);
@@ -2542,7 +2542,7 @@ export default function App() {
     setCurrentQuestion(null);
     setFeedback(null);
     setAssessmentTransitioning(false);
-    setShowReport(false);
+    setDiagnosticFollowUp(false);
     setGuidedReadingRecords({});
     setItemSessionSeen({});
     setCheckpointDecision(null);
@@ -4221,7 +4221,7 @@ export default function App() {
     setCurrentQuestion(null);
     setFeedback(null);
     setCheckpointDecision(null);
-    setShowReport(false);
+    setDiagnosticFollowUp(false);
     setAssessmentMode("mastery");
     setTotalAnswered(0);
     setCorrectAnswered(0);
@@ -5583,7 +5583,7 @@ export default function App() {
     answerInFlightRef.current = false;
     setMessage("");
     setShowConfetti(false);
-    setShowReport(false);
+    setDiagnosticFollowUp(false);
     setCheckpointDecision(null);
 
     if (mode === "targetedReview") {
@@ -6407,7 +6407,7 @@ export default function App() {
         setTimeout(() => {
           answerInFlightRef.current = false;
           setAppView(APP_VIEWS.FINISHED);
-          setShowReport(true);
+          setDiagnosticFollowUp(true);
         }, 500);
         return;
       } else {
@@ -8177,7 +8177,7 @@ export default function App() {
     setFeedback(null);
     setCurrentQuestion(null);
     setCheckpointDecision(null);
-    setShowReport(false);
+    setDiagnosticFollowUp(false);
     setRoundAnswers([]);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
@@ -8223,7 +8223,7 @@ export default function App() {
     setFeedback(null);
     setCurrentQuestion(null);
     setCheckpointDecision(null);
-    setShowReport(false);
+    setDiagnosticFollowUp(false);
     setRoundAnswers([]);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
@@ -8247,7 +8247,7 @@ export default function App() {
     resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     resetAssessmentMediaUsage();
-    setShowReport(true);
+    setDiagnosticFollowUp(true);
     setStudentReportView("skills-check");
     if (typeof window !== "undefined") {
       window.history.replaceState(null, "", studentReportHash("skills-check"));
@@ -8255,22 +8255,21 @@ export default function App() {
     setAppView(APP_VIEWS.FINISHED);
   }
 
-  async function goToOverview() {
+  async function goToOverview(diagnosticFollowUp) {
     answerInFlightRef.current = false;
     setCurrentQuestion(null);
     setFeedback(null);
     setCheckpointDecision(null);
-    setShowReport(false);
+    setDiagnosticFollowUp(diagnosticFollowUp === true);
     setAppView(APP_VIEWS.OVERVIEW);
 
   }
-
   function returnToTeacherDashboard() {
     answerInFlightRef.current = false;
     setCurrentQuestion(null);
     setFeedback(null);
     setCheckpointDecision(null);
-    setShowReport(false);
+    setDiagnosticFollowUp(false);
     setAppView(APP_VIEWS.TEACHER_DASHBOARD);
   }
 
@@ -8687,7 +8686,7 @@ ${metricDefinitionsText}
                 <p>Structured literacy progression for classrooms, reading groups, and guided practice sessions.</p>
               </div>
               <ul className="auth-hero-features" aria-label="Features">
-                <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Adaptive skill checkpoints</li>
+                <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Skill assessments</li>
                 <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Guided reading with running records</li>
               </ul>
             </div>
@@ -8938,9 +8937,7 @@ ${metricDefinitionsText}
             nameSaved={nameSaved}
             studentName={studentName}
             className={getSelectedClassName(classList, selectedClassId)}
-            goToOverview={goToOverview}
             goToStudentHome={() => setAppView(APP_VIEWS.STUDENT_HOME)}
-            goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
             goToElSkillsQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
             goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
             goToLearn={() => setAppView(APP_VIEWS.LEARN)}
@@ -9195,8 +9192,8 @@ ${metricDefinitionsText}
               intent="assess"
               className={getSelectedClassName(classList, selectedClassId)}
               studentName={nameSaved ? studentName : ""}
-              onOpenCheckpoint={goToOverview}
-              onOpenElBenchmark={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+              onOpenAssessment={goToOverview}
+              onOpenView={setAppView}
             />
           </Suspense>
         </PageBoundary>
@@ -9234,6 +9231,7 @@ ${metricDefinitionsText}
       {appView === APP_VIEWS.OVERVIEW && nameSaved && (
         <PageBoundary resetKey={`overview-${studentId}`}>
           <StudentOverviewPage
+            diagnosticFollowUp={diagnosticFollowUp}
             studentName={studentName}
             currentSkillIndex={currentSkillIndex}
             currentStage={currentStage}

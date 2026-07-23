@@ -103,6 +103,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 7, 10]
   },
   {
+    id: "teacher-assessment-hub",
+    label: "Purpose-led teacher assessment hub and retired navigation taxonomy",
+    command: ["npm", "run", "check:teacher-assessment-hub"],
+    areas: [5, 6, 10]
+  },
+  {
     id: "teacher-context",
     label: "Persistent class, group, and learner teacher context",
     command: ["npm", "run", "check:teacher-context"],
