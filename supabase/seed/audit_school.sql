@@ -95,6 +95,30 @@ values
     0,
     false,
     false
+  ),
+  (
+    '00000000-0000-0000-0000-000000000000',
+    '12000000-0000-4000-8000-000000000001',
+    'authenticated',
+    'authenticated',
+    'audit-admin@literacypath.invalid',
+    crypt('__AUDIT_PASSWORD__', gen_salt('bf')),
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '{"provider":"email","providers":["email"]}'::jsonb,
+    '{"display_name":"Audit Admin","audit_only":true}'::jsonb,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    0,
+    false,
+    false
   )
 on conflict (id) do update set
   email = excluded.email,
@@ -115,7 +139,8 @@ on conflict (id) do update set
 delete from auth.identities
 where user_id in (
   '10000000-0000-4000-8000-000000000001',
-  '10000000-0000-4000-8000-000000000002'
+  '10000000-0000-4000-8000-000000000002',
+  '12000000-0000-4000-8000-000000000001'
 );
 
 insert into auth.identities (
@@ -144,6 +169,16 @@ values
     '10000000-0000-4000-8000-000000000002',
     '10000000-0000-4000-8000-000000000002',
     '{"sub":"10000000-0000-4000-8000-000000000002","email":"audit-teacher-b@literacypath.invalid"}'::jsonb,
+    'email',
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz,
+    '__AUDIT_ANCHOR__'::timestamptz
+  ),
+  (
+    '12100000-0000-4000-8000-000000000001',
+    '12000000-0000-4000-8000-000000000001',
+    '12000000-0000-4000-8000-000000000001',
+    '{"sub":"12000000-0000-4000-8000-000000000001","email":"audit-admin@literacypath.invalid"}'::jsonb,
     'email',
     '__AUDIT_ANCHOR__'::timestamptz,
     '__AUDIT_ANCHOR__'::timestamptz,
@@ -214,6 +249,16 @@ on conflict (user_id) do update set
   approved_at = excluded.approved_at,
   school_id = excluded.school_id,
   updated_at = excluded.updated_at;
+
+insert into public.app_admins (id, user_id, email, created_at)
+values (
+  '22000000-0000-4000-8000-000000000001',
+  '12000000-0000-4000-8000-000000000001',
+  'audit-admin@literacypath.invalid',
+  '__AUDIT_ANCHOR__'::timestamptz
+)
+on conflict (user_id) do update set
+  email = excluded.email;
 
 insert into public.classes (
   id,
@@ -694,6 +739,7 @@ declare
   learner_count integer;
   class_count integer;
   teacher_count integer;
+  admin_count integer;
   long_history_count integer;
   archived_count integer;
   guided_count integer;
@@ -718,6 +764,10 @@ begin
     '10000000-0000-4000-8000-000000000001',
     '10000000-0000-4000-8000-000000000002'
   );
+
+  select count(*) into admin_count
+  from public.app_admins
+  where user_id = '12000000-0000-4000-8000-000000000001';
 
   select count(*) into long_history_count
   from public.assessment_attempts
@@ -749,6 +799,7 @@ begin
     and administration_status = 'in_progress';
 
   if teacher_count <> 2
+     or admin_count <> 1
      or class_count <> 2
      or learner_count <> 26
      or long_history_count <> 520
@@ -758,8 +809,9 @@ begin
      or completed_el_count < 3
      or in_progress_el_count < 1 then
     raise exception
-      'audit_seed_verification_failed teachers=% classes=% learners=% long_history=% archived=% guided=% quest=% el_complete=% el_in_progress=%',
+      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% archived=% guided=% quest=% el_complete=% el_in_progress=%',
       teacher_count,
+      admin_count,
       class_count,
       learner_count,
       long_history_count,

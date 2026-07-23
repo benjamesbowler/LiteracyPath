@@ -13,6 +13,7 @@ test("canonical audit seed satisfies every deterministic fixture count", () => {
   assert.deepEqual(result.failures, []);
   assert.equal(result.learnerIds, 26);
   assert.equal(result.teacherIds, 2);
+  assert.equal(result.adminIds, 1);
   assert.equal(result.classIds, 2);
   assert.equal(result.highVolumeAttempts, 520);
 });

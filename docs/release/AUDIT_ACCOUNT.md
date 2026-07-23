@@ -7,6 +7,7 @@ The seeded school is for local and explicitly approved non-production test datab
 - School: `[AUDIT ONLY] LiteracyPath Seed School`
 - Teacher A: `audit-teacher-a@literacypath.invalid`
 - Teacher B: `audit-teacher-b@literacypath.invalid`
+- Admin: `audit-admin@literacypath.invalid` (admin-only route contract checks)
 - Classes: `Audit Class A` and `Audit Class B`
 - Learners: 26 synthetic first names across the two teachers
 - Class codes: `QA7M2K` and `QA8N3P`
@@ -50,7 +51,7 @@ LP_AUDIT_PROJECT_LABEL='literacypath-e2e-test' \
 npm run seed:audit-school
 ```
 
-The SQL finishes with assertions for two teachers, two classes, 26 learners, one archive, 520 long-history attempts, Guided Reading, Sound Seekers, and both completed/in-progress EL evidence. Any mismatch rolls back the transaction.
+The SQL finishes with assertions for two teachers, one separate admin, two classes, 26 learners, one archive, 520 long-history attempts, Guided Reading, Sound Seekers, and both completed/in-progress EL evidence. Any mismatch rolls back the transaction.
 
 ## Verify Auth and teacher isolation
 

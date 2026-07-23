@@ -54,6 +54,8 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "__AUDIT_ANCHOR__",
     "audit-teacher-a@literacypath.invalid",
     "audit-teacher-b@literacypath.invalid",
+    "audit-admin@literacypath.invalid",
+    "public.app_admins",
     "[AUDIT ONLY] LiteracyPath Seed School",
     "generate_series(1, 520)",
     "administration_status = 'completed'",
@@ -79,6 +81,9 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     learnerNames: EXPECTED_NAMES,
     learnerIds: uniqueStudentIds.size,
     teacherIds: teacherIds.size,
+    adminIds: new Set([...sql.matchAll(
+      /'12000000-0000-4000-8000-(\d{12})'/g
+    )].map(match => match[0])).size,
     classIds: new Set([...sql.matchAll(
       /'30000000-0000-4000-8000-(\d{12})'/g
     )].map(match => match[0])).size,
@@ -159,6 +164,7 @@ export async function main(argv = process.argv.slice(2)) {
   const inspection = inspectAuditSeed();
   console.log(`Audit seed learners: ${inspection.learnerIds}`);
   console.log(`Audit seed teachers: ${inspection.teacherIds}`);
+  console.log(`Audit seed admins: ${inspection.adminIds}`);
   console.log(`Audit seed classes: ${inspection.classIds}`);
   console.log(`High-volume attempt rows: ${inspection.highVolumeAttempts}`);
   if (inspection.failures.length) {
