@@ -1800,6 +1800,8 @@ export default function App() {
   const [newClassName, setNewClassName] = useState("");
   const [classDashboard, setClassDashboard] = useState([]);
   const [appView, rawSetAppView] = useState(APP_VIEWS.SELECT);
+  const [studentPreview, setStudentPreview] = useState(null);
+  const [studentPreviewStatus, setStudentPreviewStatus] = useState("");
   const [studentReportView, setStudentReportView] = useState("whole-child");
   const [selectedStudentEvidenceReady, setSelectedStudentEvidenceReady] = useState(true);
 
@@ -2436,6 +2438,15 @@ export default function App() {
     }
     return undefined;
   }, [sessionMode, appView, setAppView]);
+
+  useEffect(() => {
+    function handlePreviewWriteBlocked(event) {
+      if (!studentPreview || event.detail?.studentId !== studentPreview.studentId) return;
+      setStudentPreviewStatus("Preview activity was blocked and was not saved to the learner record.");
+    }
+    window.addEventListener("lp-preview-write-blocked", handlePreviewWriteBlocked);
+    return () => window.removeEventListener("lp-preview-write-blocked", handlePreviewWriteBlocked);
+  }, [studentPreview]);
 
   function getGuidedReadingStorageKey(selectedStudentId = studentId) {
     // TODO(guided-reading-persistence): Move these records into Supabase once a stable table/schema is approved.
@@ -8261,6 +8272,46 @@ export default function App() {
     setAppView(APP_VIEWS.TEACHER_DASHBOARD);
   }
 
+  function openStudentPreview(nextView) {
+    if (!teacherId || !studentId) return;
+    setStudentPreview({
+      returnView: appView,
+      classId: selectedClassId,
+      groupId: teacherGroupId,
+      studentId,
+      studentName
+    });
+    setStudentPreviewStatus("Preview mode is read-only. Activity will not be saved to this learner.");
+    configureProgressSync({
+      mode: "preview",
+      studentId,
+      studentName,
+      classId: selectedClassId,
+      teacherId
+    });
+    setAppView(nextView);
+  }
+
+  function returnFromStudentPreview() {
+    if (!studentPreview) return;
+    setSelectedClassId(studentPreview.classId);
+    setTeacherGroupId(studentPreview.groupId);
+    setTeacherStudentContext({
+      studentId: studentPreview.studentId,
+      studentName: studentPreview.studentName
+    });
+    configureProgressSync({
+      mode: "teacher",
+      studentId: studentPreview.studentId,
+      studentName: studentPreview.studentName,
+      classId: studentPreview.classId,
+      teacherId
+    });
+    setAppView(studentPreview.returnView);
+    setStudentPreview(null);
+    setStudentPreviewStatus("");
+  }
+
   function continueCheckpointSkill() {
     const stageIndex = checkpointDecision?.skillIndex ?? currentSkillIndex;
     void startAssessment(stageIndex);
@@ -8787,6 +8838,9 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     APP_VIEWS.SKILLS_BLOCK_QUEST,
     APP_VIEWS.STUDENT_REWARDS
   ].includes(appView);
+  const childProgressScopeKey = studentPreview
+    ? `teacher-preview:${teacherId}:${studentPreview.studentId}`
+    : studentId || studentName || "default";
   const appShellClassName = [
     "app",
     isStudentMode ? "student-mode-app no-sidebar" : "",
@@ -8909,6 +8963,19 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       )}
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
+      {studentPreview && isChildPreviewView && (
+        <aside className="teacher-student-preview-banner" aria-label={`Previewing as ${studentPreview.studentName}`}>
+          <div>
+            <strong>Previewing as {studentPreview.studentName}</strong>
+            <span>Read-only preview · learner progress is protected</span>
+          </div>
+          <p role="status" aria-live="polite">{studentPreviewStatus}</p>
+          <button className="lp-button lp-button-secondary" type="button" onClick={returnFromStudentPreview}>
+            Return to {studentPreview.returnView === APP_VIEWS.TEACHER_RESOURCES ? "Plan/Resources" : "teacher view"}
+          </button>
+        </aside>
+      )}
+
       {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && (
         <button
           className="student-home-float"
@@ -8937,7 +9004,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         <PageBoundary resetKey={`student-home-${studentId}`}>
           <StudentHomePage
             studentName={studentName}
-            progressScopeKey={studentId || studentName || "default"}
+            progressScopeKey={childProgressScopeKey}
             onOpenPhonicsLearn={() => {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.PHONICS_LEARN);
@@ -8981,7 +9048,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             <Suspense fallback={<LazyPageFallback label="Loading your Hollow..." />}>
               <HollowPage
                 studentName={studentName}
-                progressScopeKey={studentId || studentName || "default"}
+                progressScopeKey={childProgressScopeKey}
               />
             </Suspense>
           </div>
@@ -9148,7 +9215,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               className={getSelectedClassName(classList, selectedClassId)}
               studentName={nameSaved ? studentName : ""}
               onOpenGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-              onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
+              onOpenStoryQuests={() => openStudentPreview(APP_VIEWS.LEARN)}
               onOpenWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
               onOpenPresent={() => setAppView(APP_VIEWS.PRESENT)}
             />
@@ -9273,7 +9340,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             {withStudentRail("stories", (
               <div className="learn-fullscreen-frame student-surface-frame student-surface-story">
                 {renderLearnFullscreenButton()}
-                <LearnAreaPage key={studentId || studentName || "default"} progressScopeKey={studentId || studentName || "default"} />
+                <LearnAreaPage key={childProgressScopeKey} progressScopeKey={childProgressScopeKey} />
               </div>
             ))}
           </Suspense>
@@ -9288,7 +9355,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
                 {renderLearnFullscreenButton()}
                 <PhonicsLearnPage
                   initialIsland={studentArcadeOpen ? "games" : "letters"}
-                  progressScopeKey={studentId || studentName || "default"}
+                  progressScopeKey={childProgressScopeKey}
                 />
               </div>
             ))}

@@ -217,6 +217,18 @@ async function flushQueuedKey(identity, session = activeSession) {
 }
 
 export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
+  if (activeSession?.mode === "preview") {
+    if (isBrowser()) {
+      window.dispatchEvent(new CustomEvent("lp-preview-write-blocked", {
+        detail: {
+          studentId: activeSession.studentId,
+          area,
+          key
+        }
+      }));
+    }
+    return false;
+  }
   if (!activeSession?.studentId || activeSession.studentId !== scopeKey) return;
   const entry = {
     mode: activeSession.mode || "teacher",

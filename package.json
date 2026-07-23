@@ -131,6 +131,7 @@
     "check:teacher-class-code": "npm run test:release-teacher -- --grep @teacher-class-code",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",
     "check:teacher-login-cards": "npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",
+    "check:teacher-student-preview": "npm run test:release-teacher -- --grep @teacher-student-preview",
     "check:teacher-dashboard-consolidation": "node tools/checkTeacherDashboardConsolidation.mjs",
     "check:product-finish-surface": "npm run test:release-teacher -- --grep @product-finish-surface",
     "check:cvc-learn-assets": "node tools/checkCvcLearnAssets.js",

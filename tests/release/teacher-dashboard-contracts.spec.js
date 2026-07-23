@@ -479,6 +479,51 @@ test("@teacher-login-card-print opens an accessible A4 route and prints exact cl
   expect(pageErrors).toEqual([]);
 });
 
+test("@teacher-student-preview blocks writes and returns to the exact teacher context", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+  const roster = page.locator(".teacher-roster-table");
+  await roster.getByRole("row").filter({ hasText: "Aarav" })
+    .getByRole("button", { name: "Open learner", exact: true })
+    .click();
+  const shell = page.locator(".lg-app-shell");
+  await expect(shell).toHaveAttribute("data-teacher-class-id", "30000000-0000-4000-8000-000000000001");
+  await expect(shell).toHaveAttribute("data-teacher-group-id", "all");
+  await expect(shell).toHaveAttribute("data-teacher-learner-id", "40000000-0000-4000-8000-000000000001");
+
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Plan/Resources", exact: true })
+    .click();
+  const exactTeacherUrl = page.url();
+  const storyAction = page.getByRole("article").filter({ hasText: "Story Quests" });
+  const learnerProgressKey = "literacyPath.storyQuestProgress.v1.40000000-0000-4000-8000-000000000001";
+  const learnerProgressBefore = await page.evaluate(key => localStorage.getItem(key), learnerProgressKey);
+  await storyAction.getByRole("button", { name: "Open", exact: true }).click();
+
+  const previewBanner = page.getByRole("complementary", { name: "Previewing as Aarav" });
+  await expect(previewBanner).toBeVisible();
+  await expect(previewBanner.getByText("Read-only preview · learner progress is protected", { exact: true })).toBeVisible();
+  const firstStory = page.locator(".learn-story-quest-card").first();
+  await expect(firstStory).toBeVisible();
+  await firstStory.click();
+  await expect(previewBanner.getByRole("status")).toHaveText(
+    "Preview activity was blocked and was not saved to the learner record."
+  );
+  const learnerProgressAfter = await page.evaluate(key => localStorage.getItem(key), learnerProgressKey);
+  expect(learnerProgressAfter).toBe(learnerProgressBefore);
+
+  await previewBanner.getByRole("button", { name: "Return to Plan/Resources", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Prepare teaching and practice", exact: true })).toBeVisible();
+  await expect(page).toHaveURL(exactTeacherUrl);
+  await expect(shell).toHaveAttribute("data-teacher-class-id", "30000000-0000-4000-8000-000000000001");
+  await expect(shell).toHaveAttribute("data-teacher-group-id", "all");
+  await expect(shell).toHaveAttribute("data-teacher-learner-id", "40000000-0000-4000-8000-000000000001");
+  expect(pageErrors).toEqual([]);
+});
+
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));

@@ -121,6 +121,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 5, 6, 8, 10]
   },
   {
+    id: "teacher-student-preview",
+    label: "Read-only student preview with exact teacher return",
+    command: ["npm", "run", "check:teacher-student-preview"],
+    areas: [3, 5, 6, 8, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],
