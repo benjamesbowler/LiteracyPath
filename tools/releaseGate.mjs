@@ -103,6 +103,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 8, 9, 10]
   },
   {
+    id: "teacher-roster-scale",
+    label: "Real-class roster import, bulk cards, archive, and transfer",
+    command: ["npm", "run", "check:teacher-roster-scale"],
+    areas: [5, 6, 8, 9, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

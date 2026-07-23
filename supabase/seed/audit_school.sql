@@ -370,6 +370,16 @@ where teacher_id in (
   '10000000-0000-4000-8000-000000000004'
 );
 
+delete from public.classes
+where teacher_id in (
+  '10000000-0000-4000-8000-000000000001',
+  '10000000-0000-4000-8000-000000000002'
+)
+and id not in (
+  '30000000-0000-4000-8000-000000000001',
+  '30000000-0000-4000-8000-000000000002'
+);
+
 insert into public.classes (
   id,
   teacher_id,
@@ -406,7 +416,10 @@ on conflict (id) do update set
   updated_at = excluded.updated_at;
 
 delete from public.students
-where id::text like '40000000-0000-4000-8000-%';
+where class_id in (
+  '30000000-0000-4000-8000-000000000001',
+  '30000000-0000-4000-8000-000000000002'
+);
 
 insert into public.students (
   id,

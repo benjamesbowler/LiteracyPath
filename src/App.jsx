@@ -1793,6 +1793,7 @@ export default function App() {
     ? studentSessionId
     : teacherStudentContext.studentId;
   const [studentList, setStudentList] = useState([]);
+  const [archivedStudentList, setArchivedStudentList] = useState([]);
   const [loadingStudents, setLoadingStudents] = useState(false);
   const [classList, setClassList] = useState([]);
   const [selectedClassId, setSelectedClassId] = useState(null);
@@ -2474,6 +2475,7 @@ export default function App() {
     setTeacherStudentContext({ studentId: null, studentName: "" });
     setTeacherGroupId("all");
     setStudentList([]);
+    setArchivedStudentList([]);
     setClassList([]);
     setSelectedClassId(null);
     setNewClassName("");
@@ -3909,6 +3911,7 @@ export default function App() {
   async function loadStudents(classId = selectedClassId) {
     if (!teacherId || !classId) {
       setStudentList([]);
+      setArchivedStudentList([]);
       setLoadingStudents(false);
       return;
     }
@@ -3917,7 +3920,7 @@ export default function App() {
 
     const { data, error } = await supabase
       .from("students")
-      .select("id, name, class_id, created_at, symbol_password")
+      .select("id, name, class_id, created_at, updated_at, symbol_password, archived_at")
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)
       .order("name", { ascending: true });
@@ -3929,7 +3932,8 @@ export default function App() {
       return;
     }
 
-    setStudentList(data || []);
+    setStudentList((data || []).filter(row => !row.archived_at));
+    setArchivedStudentList((data || []).filter(row => Boolean(row.archived_at)));
     setLoadingStudents(false);
   }
 
@@ -3949,6 +3953,7 @@ export default function App() {
       .select("id, name, created_at")
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)
+      .is("archived_at", null)
       .order("name", { ascending: true });
 
     if (studentsError) {
@@ -4579,46 +4584,6 @@ export default function App() {
     await loadStudents(selectedClassId);
     await loadClassDashboard(selectedClassId);
     setMessage(`Student created and selected: ${data.name || clean}`);
-  }
-
-  async function importStudentsForSelectedClass(names = []) {
-    const cleanNames = [...new Set(
-      names
-        .map(name => String(name || "").trim())
-        .filter(Boolean)
-    )];
-    if (!cleanNames.length) return false;
-    if (cleanNames.length > 40) {
-      setMessage("Import up to 40 learner display names at a time.");
-      return false;
-    }
-    if (!teacherId || !selectedClassId) {
-      setMessage("Please select or create a class first.");
-      return false;
-    }
-
-    const { error } = await supabase
-      .from("students")
-      .insert(cleanNames.map(name => ({
-        name,
-        class_id: selectedClassId,
-        teacher_id: teacherId
-      })));
-
-    if (error) {
-      console.error("Roster import error:", error);
-      setMessage(
-        /duplicate|unique/i.test(error.message || "")
-          ? "Import stopped: one of those display names already exists in this class."
-          : "Could not import that roster. No learners were added."
-      );
-      return false;
-    }
-
-    await loadStudents(selectedClassId);
-    await loadClassDashboard(selectedClassId);
-    setMessage(`${cleanNames.length} learner${cleanNames.length === 1 ? "" : "s"} imported. Set login pictures next.`);
-    return true;
   }
 
   function isInitialSoundsStage(stage) {
@@ -9096,6 +9061,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               }}
               setStudentList={setStudentList}
               studentList={studentList}
+              archivedStudentList={archivedStudentList}
               loadingStudents={loadingStudents}
               loadStudents={loadStudents}
               assignQuestPractice={assignQuestPractice}
@@ -9127,7 +9093,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               newClassName={newClassName}
               setNewClassName={setNewClassName}
               createStudent={name => createStudentForSelectedClass(name, { navigate: false })}
-              importStudents={importStudentsForSelectedClass}
+              teacherId={teacherId}
               classDashboard={classDashboard}
               loadClassDashboard={loadClassDashboard}
               skillTree={skillTree}

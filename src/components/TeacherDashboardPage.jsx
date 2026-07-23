@@ -6,6 +6,11 @@ import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/work
 import { classHeatSummary } from "../utils/questReport.js";
 import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
 import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
+import {
+  insertRosterStudents,
+  setRosterStudentArchived,
+  transferRosterStudent
+} from "../data/teacherRosterOperations.js";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
 
@@ -36,6 +41,39 @@ function formatLoginCardPassword(sequence) {
     .split("")
     .map(digit => symbolIconByDigit[digit]?.label || `Picture ${digit}`)
     .join(" - ");
+}
+
+function parseCsvNames(text = "") {
+  const rows = [];
+  let cell = "";
+  let row = [];
+  let quoted = false;
+  const source = String(text || "").replace(/^\uFEFF/, "");
+  for (let index = 0; index <= source.length; index += 1) {
+    const character = source[index] ?? "\n";
+    if (character === "\"") {
+      if (quoted && source[index + 1] === "\"") {
+        cell += "\"";
+        index += 1;
+      } else {
+        quoted = !quoted;
+      }
+    } else if (character === "," && !quoted) {
+      row.push(cell.trim());
+      cell = "";
+    } else if ((character === "\n" || character === "\r") && !quoted) {
+      if (character === "\r" && source[index + 1] === "\n") index += 1;
+      row.push(cell.trim());
+      if (row.some(Boolean)) rows.push(row);
+      row = [];
+      cell = "";
+    } else {
+      cell += character;
+    }
+  }
+  const names = rows.map(columns => columns[0]).filter(Boolean);
+  if (/^(name|display name|learner|student)$/i.test(names[0] || "")) names.shift();
+  return names;
 }
 
 function RosterMetric({ label, value, tone = "" }) {
@@ -513,6 +551,7 @@ export function TeacherDashboardPage({
   setSelectedClassId,
   setStudentList,
   studentList = [],
+  archivedStudentList = [],
   loadingStudents = false,
   loadStudents,
   assignQuestPractice,
@@ -531,7 +570,7 @@ export function TeacherDashboardPage({
   newClassName,
   setNewClassName,
   createStudent,
-  importStudents,
+  teacherId,
   classDashboard = [],
   loadClassDashboard,
   skillTree = [],
@@ -546,8 +585,18 @@ export function TeacherDashboardPage({
   const [newStudentName, setNewStudentName] = useState("");
   const [showRosterImport, setShowRosterImport] = useState(false);
   const [rosterImportText, setRosterImportText] = useState("");
+  const [rosterImportPreview, setRosterImportPreview] = useState(null);
   const [importingRoster, setImportingRoster] = useState(false);
   const [creatingDemo, setCreatingDemo] = useState(false);
+  const [rosterSearch, setRosterSearch] = useState("");
+  const [rosterSort, setRosterSort] = useState("name");
+  const [rosterStatusFilter, setRosterStatusFilter] = useState("all");
+  const [selectedRosterIds, setSelectedRosterIds] = useState([]);
+  const [loginCardRows, setLoginCardRows] = useState([]);
+  const [rosterOperation, setRosterOperation] = useState(null);
+  const [operationTargetClassId, setOperationTargetClassId] = useState("");
+  const [operationBusy, setOperationBusy] = useState(false);
+  const [rosterOperationStatus, setRosterOperationStatus] = useState("");
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [editingSchool, setEditingSchool] = useState(false);
   const [schoolDraft, setSchoolDraft] = useState("");
@@ -678,9 +727,34 @@ export function TeacherDashboardPage({
 
   const groupFilterIds = selectedRosterGroup.id === "all" ? null : selectedRosterGroup.studentIds;
   const effectiveRosterFilterIds = rosterFilterIds || groupFilterIds;
-  const visibleStudentRows = effectiveRosterFilterIds
+  const groupedStudentRows = effectiveRosterFilterIds
     ? studentRows.filter(row => effectiveRosterFilterIds.includes(row.id))
     : studentRows;
+  const normalizedRosterSearch = rosterSearch.trim().toLowerCase();
+  const visibleStudentRows = groupedStudentRows
+    .filter(row => !normalizedRosterSearch || row.name.toLowerCase().includes(normalizedRosterSearch))
+    .filter(row => {
+      if (rosterStatusFilter === "login-missing") return !row.symbol_password;
+      if (rosterStatusFilter === "not-started") return row.answered === 0;
+      if (rosterStatusFilter === "needs-attention") {
+        return row.answered >= 8 && row.accuracy !== null && row.accuracy < 70;
+      }
+      return true;
+    })
+    .sort((left, right) => {
+      if (rosterSort === "progress") {
+        return right.masteredCount - left.masteredCount || left.name.localeCompare(right.name);
+      }
+      if (rosterSort === "last-active") {
+        return String(right.lastActive || "").localeCompare(String(left.lastActive || ""))
+          || left.name.localeCompare(right.name);
+      }
+      if (rosterSort === "focus") {
+        return left.currentSkill.localeCompare(right.currentSkill) || left.name.localeCompare(right.name);
+      }
+      return left.name.localeCompare(right.name);
+    });
+  const selectedVisibleCount = visibleStudentRows.filter(row => selectedRosterIds.includes(row.id)).length;
 
   const skillTotal = skillTree.length;
   const startedCount = studentRows.filter(row => row.answered > 0).length;
@@ -725,19 +799,62 @@ export function TeacherDashboardPage({
     setNewStudentName("");
   }
 
+  function reviewRosterImport(names) {
+    const existingNames = new Set(studentRows.map(row => row.name.trim().toLowerCase()));
+    const seenNames = new Set();
+    const accepted = [];
+    const duplicates = [];
+    for (const rawName of names) {
+      const name = String(rawName || "").trim();
+      if (!name) continue;
+      const key = name.toLowerCase();
+      if (existingNames.has(key)) {
+        duplicates.push({ name, reason: "Already in this class" });
+      } else if (seenNames.has(key)) {
+        duplicates.push({ name, reason: "Repeated in this import" });
+      } else {
+        seenNames.add(key);
+        accepted.push(name);
+      }
+    }
+    setRosterImportPreview({ total: accepted.length + duplicates.length, accepted, duplicates });
+  }
+
+  async function handleCsvFile(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const names = parseCsvNames(await file.text());
+    setRosterImportText(names.join("\n"));
+    reviewRosterImport(names);
+    event.target.value = "";
+  }
+
   async function handleImportStudents() {
-    const names = rosterImportText
-      .split(/\r?\n|,/)
-      .map(name => name.trim())
-      .filter(Boolean);
+    const names = rosterImportPreview?.accepted || [];
     if (!names.length || importingRoster) return;
+    if (names.length > 40 || !teacherId || !selectedClassId) {
+      setRosterOperationStatus("Import up to 40 learners into a selected class.");
+      return;
+    }
     setImportingRoster(true);
     try {
-      const saved = await importStudents?.(names);
-      if (saved) {
-        setRosterImportText("");
-        setShowRosterImport(false);
+      const { error } = await insertRosterStudents({
+        supabase,
+        names,
+        classId: selectedClassId,
+        teacherId
+      });
+      if (error) {
+        console.error("Roster import error:", error);
+        setRosterOperationStatus("Could not import that roster. No learners were added.");
+        return;
       }
+      await loadStudents?.(selectedClassId);
+      await loadClassDashboard?.(selectedClassId);
+      setRosterOperationStatus(`${names.length} learners imported. Set login pictures next.`);
+      setRosterImportText("");
+      setRosterImportPreview(null);
+      setShowRosterImport(false);
     } finally {
       setImportingRoster(false);
     }
@@ -818,26 +935,70 @@ export function TeacherDashboardPage({
     }
   }
 
-  function printLoginCards() {
-    const printableRows = studentRows
-      .map(row => {
-        const password = formatLoginCardPassword(row.symbol_password);
-        return `${selectedClass?.name || "Class"} | ${row.name} | ${password}`;
-      })
-      .join("\n");
-    const win = window.open("", "student-login-cards", "width=900,height=700");
-    if (!win) return;
-    win.document.write(`
-      <html><head><title>Login Cards</title><style>
-        body{font-family:Arial,sans-serif;padding:24px}
-        pre{white-space:pre-wrap;font-size:18px;line-height:1.7}
-      </style></head><body>
-      <h1>${selectedClass?.name || "Class"} Login Cards</h1>
-      <pre>${printableRows}</pre>
-      </body></html>
-    `);
-    win.document.close();
-    win.print();
+  function openLoginCardPreview(rows) {
+    setLoginCardRows(rows.filter(row => row.symbol_password));
+  }
+
+  async function confirmRosterOperation() {
+    if (!rosterOperation || operationBusy) return;
+    setOperationBusy(true);
+    try {
+      let saved = false;
+      if (rosterOperation.kind === "archive") {
+        const { data, error } = await setRosterStudentArchived({
+          supabase,
+          studentId: rosterOperation.student.id,
+          classId: selectedClassId,
+          archived: true
+        });
+        saved = !error && Boolean(data?.length);
+        if (saved) {
+          setRosterOperationStatus(`${rosterOperation.student.name} archived. Their evidence is retained.`);
+        }
+      } else if (rosterOperation.kind === "transfer") {
+        const targetClass = classList.find(row => row.id === operationTargetClassId);
+        const { data, error } = await transferRosterStudent({
+          supabase,
+          studentId: rosterOperation.student.id,
+          sourceClassId: selectedClassId,
+          targetClassId: operationTargetClassId
+        });
+        saved = !error && Boolean(data?.length);
+        if (saved) {
+          setRosterOperationStatus(
+            `${rosterOperation.student.name} transferred to ${targetClass?.name || "the selected class"}. Their evidence moved with them.`
+          );
+        }
+      }
+      if (saved) {
+        if (selectedStudentId === rosterOperation.student.id) onClearStudent?.();
+        await loadStudents?.(selectedClassId);
+        await loadClassDashboard?.(selectedClassId);
+        setSelectedRosterIds(previous => previous.filter(id => id !== rosterOperation.student.id));
+        setRosterOperation(null);
+        setOperationTargetClassId("");
+      } else {
+        setRosterOperationStatus(`Could not ${rosterOperation.kind} that learner.`);
+      }
+    } finally {
+      setOperationBusy(false);
+    }
+  }
+
+  async function handleRestoreStudent(row) {
+    const { data, error } = await setRosterStudentArchived({
+      supabase,
+      studentId: row.id,
+      classId: selectedClassId,
+      archived: false
+    });
+    if (error || !data?.length) {
+      setRosterOperationStatus(`Could not restore ${row.name}.`);
+      return;
+    }
+    await loadStudents?.(selectedClassId);
+    await loadClassDashboard?.(selectedClassId);
+    setRosterOperationStatus(`${row.name} restored to the active roster.`);
   }
 
   return (
@@ -935,6 +1096,9 @@ export function TeacherDashboardPage({
       </section>
 
       {message && <p className="message teacher-dashboard-message">{message}</p>}
+      {rosterOperationStatus && (
+        <p className="message teacher-dashboard-message" role="status">{rosterOperationStatus}</p>
+      )}
 
       <TeacherSetupChecklist
         hasClass={hasSetupClass}
@@ -1198,14 +1362,30 @@ export function TeacherDashboardPage({
               </button>
               <button
                 className="lp-button lp-button-secondary"
-                onClick={() => setShowRosterImport(current => !current)}
+                onClick={() => {
+                  setShowRosterImport(current => !current);
+                  setRosterImportPreview(null);
+                }}
                 type="button"
                 aria-expanded={showRosterImport}
               >
-                {showRosterImport ? "Close import" : "Import names"}
+                {showRosterImport ? "Close import" : "Import CSV"}
               </button>
-              <button className="lp-button lp-button-secondary" disabled={!studentRows.length} onClick={printLoginCards} type="button">
-                Print Cards
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={!selectedRosterIds.length}
+                onClick={() => openLoginCardPreview(studentRows.filter(row => selectedRosterIds.includes(row.id)))}
+                type="button"
+              >
+                Preview selected cards ({selectedRosterIds.length})
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={!studentRows.some(row => row.symbol_password)}
+                onClick={() => openLoginCardPreview(studentRows)}
+                type="button"
+              >
+                Preview all cards
               </button>
               <button className="lp-button lp-button-primary" onClick={startStudentLogin} type="button">
                 Student Login
@@ -1217,26 +1397,98 @@ export function TeacherDashboardPage({
         {selectedClass && showRosterImport && (
           <section className="teacher-roster-import" aria-label="Import learner names">
             <div>
-              <strong>Paste learner display names</strong>
-              <p>One English name or classroom nickname per line. Up to 40 names; do not include surnames or other personal details.</p>
+              <strong>Import a CSV roster</strong>
+              <p>Use a first column named “name”, or paste one display name per line. Up to 40 new learners; surnames and other personal details should be removed first.</p>
+              <label className="lp-button lp-button-secondary teacher-csv-file-button">
+                <span>Choose CSV file</span>
+                <input accept=".csv,text/csv" onChange={handleCsvFile} type="file" />
+              </label>
             </div>
             <label>
               <span>Learner names</span>
               <textarea
                 value={rosterImportText}
-                onChange={event => setRosterImportText(event.target.value)}
+                onChange={event => {
+                  setRosterImportText(event.target.value);
+                  setRosterImportPreview(null);
+                }}
                 placeholder={"Ava\nBen\nChen"}
                 rows={5}
               />
             </label>
-            <button
-              className="lp-button lp-button-primary"
-              type="button"
-              disabled={!rosterImportText.trim() || importingRoster}
-              onClick={handleImportStudents}
-            >
-              {importingRoster ? "Importing..." : "Import learners"}
-            </button>
+            <div className="teacher-roster-import-actions">
+              {!rosterImportPreview ? (
+                <button
+                  className="lp-button lp-button-primary"
+                  type="button"
+                  disabled={!rosterImportText.trim()}
+                  onClick={() => reviewRosterImport(parseCsvNames(rosterImportText))}
+                >
+                  Review import
+                </button>
+              ) : (
+                <>
+                  <p role="status">
+                    <strong>{rosterImportPreview.accepted.length} ready</strong>
+                    {" · "}
+                    {rosterImportPreview.duplicates.length} duplicate
+                    {rosterImportPreview.duplicates.length === 1 ? "" : "s"} skipped
+                  </p>
+                  {rosterImportPreview.duplicates.length > 0 && (
+                    <ul aria-label="Duplicate learner names">
+                      {rosterImportPreview.duplicates.map((row, index) => (
+                        <li key={`${row.name}-${index}`}>{row.name}: {row.reason}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <button
+                    className="lp-button lp-button-primary"
+                    type="button"
+                    disabled={!rosterImportPreview.accepted.length || importingRoster}
+                    onClick={handleImportStudents}
+                  >
+                    {importingRoster
+                      ? "Importing..."
+                      : `Import ${rosterImportPreview.accepted.length} unique learners`}
+                  </button>
+                </>
+              )}
+            </div>
+          </section>
+        )}
+
+        {selectedClass && studentRows.length > 0 && (
+          <section className="teacher-roster-tools" aria-label="Roster search, sort, and filters">
+            <label>
+              <span>Search roster</span>
+              <input
+                type="search"
+                value={rosterSearch}
+                onChange={event => setRosterSearch(event.target.value)}
+                placeholder="Search display names"
+              />
+            </label>
+            <label>
+              <span>Filter</span>
+              <select value={rosterStatusFilter} onChange={event => setRosterStatusFilter(event.target.value)}>
+                <option value="all">All active learners</option>
+                <option value="login-missing">Login pictures missing</option>
+                <option value="not-started">Not started</option>
+                <option value="needs-attention">Needs attention</option>
+              </select>
+            </label>
+            <label>
+              <span>Sort</span>
+              <select value={rosterSort} onChange={event => setRosterSort(event.target.value)}>
+                <option value="name">Display name</option>
+                <option value="last-active">Last active</option>
+                <option value="focus">Current focus</option>
+                <option value="progress">Progress</option>
+              </select>
+            </label>
+            <p role="status">
+              Showing <strong>{visibleStudentRows.length}</strong> of {studentRows.length} active learners
+            </p>
           </section>
         )}
 
@@ -1267,6 +1519,19 @@ export function TeacherDashboardPage({
             <table className="dashboard-table teacher-roster-table">
               <thead>
                 <tr>
+                  <th>
+                    <input
+                      aria-label="Select all visible learners"
+                      type="checkbox"
+                      checked={visibleStudentRows.length > 0 && selectedVisibleCount === visibleStudentRows.length}
+                      onChange={event => {
+                        const visibleIds = visibleStudentRows.map(row => row.id);
+                        setSelectedRosterIds(previous => event.target.checked
+                          ? [...new Set([...previous, ...visibleIds])]
+                          : previous.filter(id => !visibleIds.includes(id)));
+                      }}
+                    />
+                  </th>
                   <th>Display name</th>
                   <th>Focus</th>
                   <th>Progress</th>
@@ -1283,6 +1548,16 @@ export function TeacherDashboardPage({
                   return (
                   <Fragment key={row.id}>
                   <tr className={loginReady ? "login-ready" : "login-missing"}>
+                    <td>
+                      <input
+                        aria-label={`Select ${row.name}`}
+                        type="checkbox"
+                        checked={selectedRosterIds.includes(row.id)}
+                        onChange={event => setSelectedRosterIds(previous => event.target.checked
+                          ? [...new Set([...previous, row.id])]
+                          : previous.filter(id => id !== row.id))}
+                      />
+                    </td>
                     <td>
                       <div className="teacher-student-cell">
                         <StudentInitial name={row.name} />
@@ -1353,14 +1628,35 @@ export function TeacherDashboardPage({
                     </td>
                     <td>{formatLastActive(row.lastActive)}</td>
                     <td>
-                      <button className="lp-button lp-button-secondary teacher-open-student" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
-                        Open learner
-                      </button>
+                      <div className="teacher-row-actions">
+                        <button className="lp-button lp-button-secondary teacher-open-student" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
+                          Open learner
+                        </button>
+                        {classList.length > 1 && (
+                          <button
+                            className="text-button"
+                            type="button"
+                            onClick={() => {
+                              setRosterOperation({ kind: "transfer", student: row });
+                              setOperationTargetClassId("");
+                            }}
+                          >
+                            Transfer
+                          </button>
+                        )}
+                        <button
+                          className="text-button"
+                          type="button"
+                          onClick={() => setRosterOperation({ kind: "archive", student: row })}
+                        >
+                          Archive
+                        </button>
+                      </div>
                     </td>
                   </tr>
                   {heatOpenId === row.id && row.soundSeekers && (
                     <tr className="teacher-heat-row">
-                      <td colSpan={7}>
+                      <td colSpan={8}>
                         <QuestHeatPanel
                           report={row.soundSeekers}
                           studentName={row.name}
@@ -1378,6 +1674,32 @@ export function TeacherDashboardPage({
           </div>
         )}
       </section>}
+
+      {isClassesPage && selectedClass && archivedStudentList.length > 0 && (
+        <section className="teacher-archived-roster" aria-label="Archived learners">
+          <details>
+            <summary>Archived learners ({archivedStudentList.length})</summary>
+            <p>Archived learners cannot sign in, but their evidence is retained. Restore one to return them to this class.</p>
+            <ul>
+              {archivedStudentList.map(row => (
+                <li key={row.id}>
+                  <span>
+                    <strong>{row.name}</strong>
+                    <small>Archived {formatLastActive(row.archived_at)}</small>
+                  </span>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    onClick={() => handleRestoreStudent(row)}
+                  >
+                    Restore {row.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </details>
+        </section>
+      )}
 
       {isClassesPage && <section className="card page-stack question-type-guide" aria-label="Question type guide">
         <details>
@@ -1410,6 +1732,103 @@ export function TeacherDashboardPage({
           </div>
         </details>
       </section>}
+
+      {loginCardRows.length > 0 && (
+        <div className="symbol-password-modal teacher-login-card-modal" role="dialog" aria-modal="true" aria-label="Login card preview">
+          <div className="symbol-password-modal-card">
+            <header>
+              <div>
+                <p className="panel-label">Print preview</p>
+                <h3>{loginCardRows.length} login card{loginCardRows.length === 1 ? "" : "s"}</h3>
+                <p>{schoolName || "School"} · {selectedClass?.name || "Class"}</p>
+              </div>
+              <button className="text-button" type="button" onClick={() => setLoginCardRows([])}>
+                Close preview
+              </button>
+            </header>
+            <div className="teacher-login-card-sheet">
+              {loginCardRows.map(row => (
+                <article className="teacher-print-login-card" key={row.id}>
+                  <img src={logoUrl} alt="" />
+                  <p>{schoolName || "School"}</p>
+                  <h4>{row.name}</h4>
+                  <span>{selectedClass?.name || "Class"} · Code {selectedClass?.access_code || "—"}</span>
+                  <SymbolSequence sequence={row.symbol_password || ""} size={34} />
+                  <small>{formatLoginCardPassword(row.symbol_password)}</small>
+                </article>
+              ))}
+            </div>
+            <button className="lp-button lp-button-primary" type="button" onClick={() => window.print()}>
+              Print these cards
+            </button>
+          </div>
+        </div>
+      )}
+
+      {rosterOperation && (
+        <div
+          className="symbol-password-modal teacher-roster-operation-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${rosterOperation.kind === "archive" ? "Archive" : "Transfer"} ${rosterOperation.student.name}`}
+        >
+          <div className="symbol-password-modal-card">
+            <h3>
+              {rosterOperation.kind === "archive"
+                ? `Archive ${rosterOperation.student.name}?`
+                : `Transfer ${rosterOperation.student.name}?`}
+            </h3>
+            {rosterOperation.kind === "archive" ? (
+              <p>
+                This removes the learner from active sign-in and class groups. Their complete evidence stays attached and can be restored.
+              </p>
+            ) : (
+              <>
+                <p>
+                  The learner and their complete evidence history move together. Nothing is copied or deleted.
+                </p>
+                <label className="teacher-dashboard-control">
+                  <span>Destination class</span>
+                  <select
+                    value={operationTargetClassId}
+                    onChange={event => setOperationTargetClassId(event.target.value)}
+                  >
+                    <option value="">Choose another class</option>
+                    {classList.filter(row => row.id !== selectedClassId).map(row => (
+                      <option key={row.id} value={row.id}>{row.name}</option>
+                    ))}
+                  </select>
+                </label>
+              </>
+            )}
+            <div className="teacher-roster-operation-actions">
+              <button
+                className={rosterOperation.kind === "archive" ? "lp-button lp-button-danger-outline" : "lp-button lp-button-primary"}
+                type="button"
+                disabled={operationBusy || (rosterOperation.kind === "transfer" && !operationTargetClassId)}
+                onClick={confirmRosterOperation}
+              >
+                {operationBusy
+                  ? "Saving..."
+                  : rosterOperation.kind === "archive"
+                    ? "Archive learner"
+                    : "Transfer learner"}
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                disabled={operationBusy}
+                onClick={() => {
+                  setRosterOperation(null);
+                  setOperationTargetClassId("");
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {editingStudent && (
         <div className="symbol-password-modal" role="dialog" aria-modal="true" aria-label={`Change password for ${editingStudent.name}`}>

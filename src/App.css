@@ -4978,6 +4978,189 @@ body {
   font: inherit;
 }
 
+.teacher-csv-file-button {
+  position: relative;
+  display: inline-flex;
+  margin-top: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.teacher-csv-file-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.teacher-roster-import-actions {
+  display: grid;
+  gap: 8px;
+  align-content: end;
+}
+
+.teacher-roster-import-actions ul {
+  max-height: 100px;
+  margin: 0;
+  padding-left: 20px;
+  overflow: auto;
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+}
+
+.teacher-roster-tools {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) repeat(2, minmax(150px, 0.55fr)) auto;
+  align-items: end;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 14px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-roster-tools label {
+  display: grid;
+  gap: 5px;
+  color: var(--lp-color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.teacher-roster-tools input,
+.teacher-roster-tools select {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 9px;
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+  font: inherit;
+}
+
+.teacher-roster-tools p {
+  margin: 0 0 9px;
+  color: var(--lp-color-text-muted);
+  white-space: nowrap;
+}
+
+.teacher-row-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+}
+
+.teacher-archived-roster {
+  padding: 15px 18px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 14px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-archived-roster summary {
+  cursor: pointer;
+  color: var(--lp-color-text-strong);
+  font-weight: 800;
+}
+
+.teacher-archived-roster p {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-archived-roster ul {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-archived-roster li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-archived-roster li span {
+  display: grid;
+  gap: 3px;
+}
+
+.teacher-archived-roster li small {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-login-card-modal .symbol-password-modal-card {
+  width: min(980px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+}
+
+.teacher-login-card-modal header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.teacher-login-card-sheet {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.teacher-print-login-card {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  min-height: 220px;
+  padding: 20px;
+  border: 2px solid var(--lp-color-text-strong);
+  border-radius: 12px;
+  background: white;
+  break-inside: avoid;
+  text-align: center;
+}
+
+.teacher-print-login-card > img {
+  width: 42px;
+  height: 42px;
+}
+
+.teacher-print-login-card p,
+.teacher-print-login-card h4,
+.teacher-print-login-card span,
+.teacher-print-login-card small {
+  margin: 0;
+}
+
+.teacher-print-login-card h4 {
+  color: var(--lp-color-text-strong);
+  font-size: 1.45rem;
+}
+
+.teacher-print-login-card > span,
+.teacher-print-login-card small {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-roster-operation-modal .symbol-password-modal-card {
+  width: min(520px, calc(100vw - 32px));
+}
+
+.teacher-roster-operation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
 @media (max-width: 900px) {
   .teacher-setup-checklist ol {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4985,6 +5168,10 @@ body {
 
   .teacher-roster-import {
     grid-template-columns: 1fr;
+  }
+
+  .teacher-roster-tools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -5003,6 +5190,30 @@ body {
 
   .teacher-setup-checklist li {
     min-height: 0;
+  }
+
+  .teacher-roster-tools,
+  .teacher-login-card-sheet {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  body:has(.teacher-login-card-modal) * {
+    visibility: hidden !important;
+  }
+
+  body:has(.teacher-login-card-modal) .teacher-login-card-sheet,
+  body:has(.teacher-login-card-modal) .teacher-login-card-sheet * {
+    visibility: visible !important;
+  }
+
+  body:has(.teacher-login-card-modal) .teacher-login-card-sheet {
+    position: absolute;
+    inset: 0;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10mm;
+    background: white;
   }
 }
 

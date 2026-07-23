@@ -226,10 +226,11 @@ test("@teacher-onboarding fresh teacher completes the saved golden path", async 
   checklist = page.getByRole("region", { name: "Teacher setup checklist" });
   await expect(checklist.getByLabel("1 of 4 setup steps complete")).toBeVisible();
   await expect(checklist.getByText("Add or import learners", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Import names", exact: true }).click();
+  await page.getByRole("button", { name: "Import CSV", exact: true }).click();
   const rosterImport = page.getByRole("region", { name: "Import learner names" });
   await rosterImport.getByLabel("Learner names").fill("Ava");
-  await rosterImport.getByRole("button", { name: "Import learners", exact: true }).click();
+  await rosterImport.getByRole("button", { name: "Review import", exact: true }).click();
+  await rosterImport.getByRole("button", { name: "Import 1 unique learners", exact: true }).click();
 
   await expect(checklist.getByLabel("2 of 4 setup steps complete")).toBeVisible();
   await checklist.getByRole("button", { name: "Continue: Set login pictures", exact: true }).click();
@@ -304,6 +305,90 @@ test("@teacher-onboarding-demo sample class is labelled, login-ready, and eviden
   expect(pageErrors).toEqual([]);
 });
 
+test("@teacher-roster-scale imports duplicates, bulk previews cards, archives, and transfers safely", async ({ page }) => {
+  test.setTimeout(120_000);
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+
+  await logIn(page, "audit-teacher-b@literacypath.invalid");
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Classes", exact: true })
+    .click();
+  await page.getByLabel("New class").fill("Transfer Target");
+  await page.getByRole("button", { name: "Create Class", exact: true }).click();
+  const classSelect = page.getByLabel("Current class");
+  await expect(classSelect.locator("option:checked")).toHaveText("Transfer Target");
+  await classSelect.selectOption({ label: "Audit Class B" });
+  await expect(classSelect.locator("option:checked")).toHaveText("Audit Class B");
+  await expect(page.getByRole("heading", { name: "Students - Audit Class B", exact: true })).toBeVisible();
+  await expect(page.locator(".teacher-roster-table").getByText("Mateo", { exact: true })).toBeVisible();
+
+  const importNames = [
+    "Mateo",
+    "Mei",
+    ...Array.from({ length: 26 }, (_, index) => `Bulk ${String(index + 1).padStart(2, "0")}`)
+  ];
+  const csv = `name\n${importNames.map(name => `"${name}"`).join("\n")}\n`;
+  await page.getByRole("button", { name: "Import CSV", exact: true }).click();
+  const rosterImport = page.getByRole("region", { name: "Import learner names" });
+  await rosterImport.locator('input[type="file"]').setInputFiles({
+    name: "roster.csv",
+    mimeType: "text/csv",
+    buffer: Buffer.from(csv)
+  });
+  await expect(rosterImport.getByText("26 ready", { exact: true })).toBeVisible();
+  await expect(rosterImport.getByRole("status")).toContainText("2 duplicates skipped");
+  await expect(rosterImport.getByRole("list", { name: "Duplicate learner names" }).getByRole("listitem")).toHaveCount(2);
+  await rosterImport.getByRole("button", { name: "Import 26 unique learners", exact: true }).click();
+
+  const classSummary = page.getByRole("region", { name: "Class summary" });
+  await expect(classSummary.locator(".teacher-roster-metric").filter({ hasText: "Students" }).getByText("39", { exact: true })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Roster groups" })
+    .getByRole("button", { name: "Whole class 39", exact: true })).toBeVisible();
+  const rosterTools = page.getByRole("region", { name: "Roster search, sort, and filters" });
+  await rosterTools.getByLabel("Search roster").fill("Bulk 01");
+  await expect(page.locator(".teacher-roster-table tbody > tr")).toHaveCount(1);
+  await rosterTools.getByLabel("Sort").selectOption("last-active");
+  await rosterTools.getByLabel("Filter").selectOption("not-started");
+  await expect(rosterTools.getByText(/Showing/)).toContainText("1");
+  await rosterTools.getByLabel("Search roster").fill("");
+  await rosterTools.getByLabel("Filter").selectOption("all");
+
+  const roster = page.locator(".teacher-roster-table");
+  for (const learner of ["Mateo", "Mei"]) {
+    await roster.getByRole("checkbox", { name: `Select ${learner}`, exact: true }).check();
+  }
+  await page.getByRole("button", { name: "Preview selected cards (2)", exact: true }).click();
+  const cardPreview = page.getByRole("dialog", { name: "Login card preview" });
+  await expect(cardPreview.locator(".teacher-print-login-card")).toHaveCount(2);
+  await expect(cardPreview.getByText("2 login cards", { exact: true })).toBeVisible();
+  await expect(cardPreview.getByText("Mateo", { exact: true })).toBeVisible();
+  await expect(cardPreview.getByText("Mei", { exact: true })).toBeVisible();
+  await cardPreview.getByRole("button", { name: "Close preview", exact: true }).click();
+
+  const bulk03 = roster.getByRole("row").filter({ hasText: "Bulk 03" });
+  await bulk03.getByRole("button", { name: "Archive", exact: true }).click();
+  const archiveDialog = page.getByRole("dialog", { name: "Archive Bulk 03" });
+  await expect(archiveDialog.getByText(/complete evidence stays attached/)).toBeVisible();
+  await archiveDialog.getByRole("button", { name: "Archive learner", exact: true }).click();
+  await expect(classSummary.locator(".teacher-roster-metric").filter({ hasText: "Students" }).getByText("38", { exact: true })).toBeVisible();
+  await expect(page.getByText("Archived learners (1)", { exact: true })).toBeVisible();
+
+  const bulk04 = roster.getByRole("row").filter({ hasText: "Bulk 04" });
+  await bulk04.getByRole("button", { name: "Transfer", exact: true }).click();
+  const transferDialog = page.getByRole("dialog", { name: "Transfer Bulk 04" });
+  await expect(transferDialog.getByText(/complete evidence history move together/)).toBeVisible();
+  await transferDialog.getByLabel("Destination class").selectOption({ label: "Transfer Target" });
+  await transferDialog.getByRole("button", { name: "Transfer learner", exact: true }).click();
+  await expect(classSummary.locator(".teacher-roster-metric").filter({ hasText: "Students" }).getByText("37", { exact: true })).toBeVisible();
+
+  await classSelect.selectOption({ label: "Transfer Target" });
+  await expect(page.getByRole("heading", { name: "Students - Transfer Target", exact: true })).toBeVisible();
+  await expect(page.locator(".teacher-roster-table").getByText("Bulk 04", { exact: true })).toBeVisible();
+  await expect(page.locator(".teacher-roster-table").getByText("No practice yet", { exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
@@ -332,7 +417,7 @@ test("@teacher-dashboard-data reachable seeded roster columns and rows", async (
   ]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
   }
-  await expect(roster.locator("tbody > tr")).toHaveCount(13);
+  await expect(roster.locator("tbody > tr")).toHaveCount(12);
   for (const learner of ["Aarav", "Aisha", "Amara", "Bao", "Camila"]) {
     await expect(roster.getByText(learner, { exact: true })).toBeVisible();
   }
