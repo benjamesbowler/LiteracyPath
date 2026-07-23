@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -43,6 +44,22 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
   ]) {
     assert.equal(ids.has(required), true, `missing ${required}`);
   }
+});
+
+test("CI runs the canonical release gate against a fresh seeded local database", () => {
+  const workflow = readFileSync(
+    new URL("../../.github/workflows/ci.yml", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(workflow, /^[ ]{2}release-gate:$/m);
+  assert.match(workflow, /supabase\/setup-cli@v2/);
+  assert.match(workflow, /supabase db reset --local --no-seed/);
+  assert.match(workflow, /npm run seed:audit-school/);
+  assert.match(workflow, /npm run check:release/);
+  assert.match(workflow, /docs\/release\/manifest\.json/);
+  assert.match(workflow, /if: steps\.whole-product\.outcome != 'success'/);
+  assert.match(workflow, /npm run lint -- --max-warnings=0/);
 });
 
 test("missing npm scripts are explicitly not implemented", () => {

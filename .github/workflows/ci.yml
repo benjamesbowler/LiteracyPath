@@ -6,15 +6,17 @@
 # "where the tests stop and the CI doesn't exist." A commit that broke
 # check:quest shipped to production green.
 #
-# Two jobs:
+# Three required jobs:
 #   checks   — lint, the full unit suite (450 tests incl. the full-trail
 #              simulation), and every node-only quest gate. Fast, no browser.
 #   visual   — build + the Playwright gates (route renders receive pixel-level
 #              nonblank checks; shots fails on console errors / 404s / stuck
 #              loads since 2026-07-15). Screenshots upload as artifacts so a
 #              red run shows you the actual pixels.
+#   release-gate — the canonical whole-product manifest, against a freshly
+#              migrated and deterministically seeded local Supabase stack.
 #
-# Branch protection: make BOTH jobs required, and point Vercel at the same
+# Branch protection: make ALL THREE jobs required, and point Vercel at the same
 # branch so nothing deploys around them.
 
 name: CI
@@ -36,7 +38,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Lint
-        run: npm run lint
+        run: npm run lint -- --max-warnings=0
       - name: Unit tests (includes the full-trail simulation)
         run: npm test
       - name: Quest content gate
@@ -82,3 +84,64 @@ jobs:
             docs/previews/slice/
           if-no-files-found: ignore
           retention-days: 14
+
+  release-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v2
+        with:
+          version: 2.109.1
+          github-token: ${{ github.token }}
+      - name: Start fresh local Supabase
+        run: |
+          supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector
+          supabase db reset --local --no-seed
+      - name: Export local audit environment
+        run: |
+          supabase status -o env > "$RUNNER_TEMP/supabase.env"
+          source "$RUNNER_TEMP/supabase.env"
+          audit_password="$(openssl rand -base64 24 | tr -d '\n')"
+          echo "::add-mask::$ANON_KEY"
+          echo "::add-mask::$audit_password"
+          {
+            echo "VITE_SUPABASE_URL=$API_URL"
+            echo "VITE_SUPABASE_ANON_KEY=$ANON_KEY"
+            echo "LP_AUDIT_SUPABASE_URL=$API_URL"
+            echo "LP_AUDIT_SUPABASE_ANON_KEY=$ANON_KEY"
+            echo "LP_AUDIT_DATABASE_URL=$DB_URL"
+            echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
+          } >> "$GITHUB_ENV"
+      - name: Seed deterministic audit school
+        run: npm run seed:audit-school
+      - name: Run canonical whole-product release gate
+        id: whole-product
+        continue-on-error: true
+        run: npm run check:release
+      - name: Upload release manifest and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-gate-evidence
+          path: |
+            docs/release/manifest.json
+            docs/release/artifacts/
+            test-results/
+            playwright-report/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Stop local Supabase
+        if: always()
+        run: supabase stop --no-backup
+      - name: Enforce whole-product result
+        if: steps.whole-product.outcome != 'success'
+        run: exit 1

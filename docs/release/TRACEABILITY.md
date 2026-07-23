@@ -96,9 +96,9 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A9.8 | 9 | P1 | TODO | domain-boundary validation + Supabase-call-site guard | — |
 | A9.9 | 9 | P1 | TODO | fleet-health dashboard + error-budget evidence | — |
 | A9.10 | 9 | P1 | TODO | `check:sync-chaos` | — |
-| A10.1 | 10 | P0 | TODO | required whole-product CI release job | — |
+| A10.1 | 10 | P0 | IN-PROGRESS | required whole-product CI release job | `release-gate` job implemented with fresh DB, audit seed, manifest artifact, and enforced result; hosted CI + branch-protection evidence pending |
 | A10.2 | 10 | P0 | IN-PROGRESS | `check:release` manifest + generated scorecard | Implementation added; full manifest and scorecard evidence pending Phase 0 exit |
-| A10.3 | 10 | P1 | TODO | zero-warning lint gate | — |
+| A10.3 | 10 | P1 | IN-PROGRESS | zero-warning lint gate | CI invokes `npm run lint -- --max-warnings=0`; existing A4.5 warning backlog remains intentionally red |
 | A10.4 | 10 | P1 | TODO | enforced bundle budgets + PR trend table | — |
 | A10.5 | 10 | P2 | TODO | zero-failure baselined repo hygiene | — |
 | A10.6 | 10 | P2 | TODO | read-only audit check-mode guard | — |
