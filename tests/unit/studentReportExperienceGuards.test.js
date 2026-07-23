@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { buildStudentWorkspaceCsvRows } from "../../src/utils/exportStudentWorkspaceCsv.js";
 
 const appSource = readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8");
 const appCss = readFileSync(new URL("../../src/App.css", import.meta.url), "utf8");
@@ -26,5 +27,13 @@ test("report actions stay specific to their evidence area", () => {
   assert.match(finishedReportSource, /Open EL assessments/);
   assert.match(finishedReportSource, /Start Skills Check/);
   assert.match(finishedReportSource, /Download practice data/);
-  assert.match(finishedReportSource, /Descriptive evidence \(not a mastery rating\)/);
+  const rows = buildStudentWorkspaceCsvRows("whole-child", {
+    wholeChild: {
+      descriptiveAssessments: [{
+        title: "EL Encoding",
+        interpretation: "Descriptive evidence only."
+      }]
+    }
+  });
+  assert.equal(rows[0].Status, "Descriptive evidence (not a mastery rating)");
 });

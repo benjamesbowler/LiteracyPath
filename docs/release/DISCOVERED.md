@@ -67,3 +67,13 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** the first canonical release manifest recorded four desktop/mobile smoke failures. Both specs requested `/guided-reading-preview.html` or `/student-home-preview.html`, but the maintained preview entry points live under `/preview/`. Vite therefore served the main application fallback; with the canonical Supabase environment enabled, the tests saw the teacher/student gateway rather than either preview.
 **Fix:** target the maintained `/preview/` entry points, assert the expected preview surface before behavior checks, and add a Guided Reading keyboard/page-lifecycle journey so the hook correction is behavior-protected.
 **Gate:** `test:smoke` passes on desktop and mobile while the canonical Supabase environment is present; a wrong fallback route cannot satisfy the preview assertions.
+
+## D-013 · P0 · Area 4/7 — Selecting a learner collapsed complete cloud history to the 400-row browser cache
+**Evidence:** after cloud hydration, the signed-in Aarav Skills Check route initially showed 174 attempts for the newest skill. Selecting Aarav then called `loadAssessmentAttempts()` and replaced live state with the bounded local cache, leaving only 133 attempts for that skill and making a complete formal export impossible.
+**Fix:** hydrate the selected learner from cloud storage, build mastery from that complete result, and merge it into live report state; the bounded browser cache remains a resilience layer, never the formal-report source of truth.
+**Gate:** the reachable teacher route shows the 174-attempt high-volume skill and exports all 520 seeded attempts plus 520 unique question records.
+
+## D-014 · P0 · Area 7/10 — The 520-item audit fixture contained attempt summaries but no production-readable item records
+**Evidence:** the fixture stored per-question rows under payload key `items`, while `normalizeAssessmentAttempt` consumes `questionRecords`. The first reachable download therefore had 520 attempt rows but zero question-evidence rows and zero seeded item summaries.
+**Fix:** seed 520 uniquely keyed `questionRecords`, assert their count inside the SQL transaction, and make the static seed contract check require the production key and item identity.
+**Gate:** the SQL seed aborts unless both long-history attempts and question records equal 520; the signed-in download proves 520 unique `audit-item-*` question IDs.

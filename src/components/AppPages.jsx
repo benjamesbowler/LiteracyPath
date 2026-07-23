@@ -1165,7 +1165,6 @@ export function StudentOverviewPage({
   startAdvancedPhonicsAssessment,
   startTargetedReview,
   weaknessSnapshot,
-  itemMasterySnapshot,
   coverageSnapshot,
   switchStudent,
   openResetStudentProgress,
@@ -1179,25 +1178,6 @@ export function StudentOverviewPage({
 
   const suggestedFocus =
     weaknessSnapshot.suggestedNextFocus;
-
-  const itemSnapshot = itemMasterySnapshot || {
-    mastered: [],
-    attempting: [],
-    evidence: [],
-    unseenCount: 0,
-    trackedCount: 0
-  };
-
-  const formatItemLabel = item =>
-    item.itemKey + " (" + item.itemType.replace(/_/g, " ") + ", " + item.correct + "/" + item.attempts + ")";
-
-  const formatEvidenceLabel = item => {
-    const formats = item.formatTypes?.length ? item.formatTypes.join(", ") : "none yet";
-    const positions = item.phonicsPositions?.length ? item.phonicsPositions.join(", ") : "none";
-    const blockers = item.masteryBlockers?.length ? item.masteryBlockers.join("; ") : "No blockers";
-
-    return item.itemKey + " (" + item.itemType.replace(/_/g, " ") + "): formats " + formats + "; PTD " + (item.hadPTDExposure ? "yes" : "no") + "; cross-pattern " + (item.crossPatternExposure ? "yes" : "no") + "; positions " + positions + "; " + blockers;
-  };
 
   const currentCoverage = coverageSnapshot?.[currentStage.id] || {
     mastered: 0,

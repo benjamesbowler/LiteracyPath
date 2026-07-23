@@ -34,6 +34,13 @@ async function openAaravReports(page) {
   await expect(page.getByRole("heading", { name: "Reports", exact: true })).toBeVisible();
 }
 
+async function readDownloadText(download) {
+  const stream = await download.createReadStream();
+  const chunks = [];
+  for await (const chunk of stream) chunks.push(chunk);
+  return Buffer.concat(chunks).toString("utf8");
+}
+
 test("@teacher-dashboard-data reachable seeded roster columns and rows", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
@@ -108,5 +115,44 @@ test("@release-readiness-surface reachable admin release workflow", async ({ pag
   await expect(releasePanel).toBeVisible();
   await expect(releasePanel.getByRole("heading", { name: "Cleanup Tools", exact: true })).toBeVisible();
   await expect(releasePanel.getByRole("heading", { name: "Content QA Workflow", exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("@release-readiness-surface reachable 520-item report is paginated from storage and exported completely", async ({ page }) => {
+  test.setTimeout(120_000);
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+  await openAaravReports(page);
+  await page.getByRole("button", { name: "Open Skills Check", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Skills Check", exact: true })).toBeVisible({
+    timeout: 20_000
+  });
+  await expect(page.getByText(/Attempt history \(17[34]\)/)).toBeVisible();
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download Skills Check data", exact: true }).click();
+  const csv = await readDownloadText(await downloadPromise);
+  const csvLines = csv.split("\n");
+  const itemSummaries = csvLines.filter(line => line.includes('"Item summary"'));
+  const seededQuestionEvidence = csvLines.filter(line => (
+    line.includes('"Question evidence"') && /audit-item-\d+/.test(line)
+  ));
+  const seededQuestionIds = new Set(seededQuestionEvidence.map(line => (
+    line.match(/audit-item-\d+/)?.[0]
+  )).filter(Boolean));
+
+  expect(itemSummaries.length).toBeGreaterThanOrEqual(520);
+  expect((csv.match(/"Assessment attempt"/g) || [])).toHaveLength(520);
+  expect(seededQuestionEvidence).toHaveLength(520);
+  expect(seededQuestionIds.size).toBe(520);
+  expect(csv).toContain("audit-long-history-0001");
+  expect(csv).toContain("audit-long-history-0520");
+  expect(csv).toContain("audit-item-1");
+  expect(csv).toContain("audit-item-520");
+  expect(csv).toContain('"Summary"');
+  expect(csv).toContain('"Evidence appendix"');
   expect(pageErrors).toEqual([]);
 });

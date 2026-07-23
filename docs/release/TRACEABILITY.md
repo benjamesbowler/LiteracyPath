@@ -41,7 +41,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A4.3 | 4 | P1 | TODO | class-summary aggregation unit + DOM tests | — |
 | A4.4 | 4 | P1 | TODO | recommendation-explanation DOM tests | — |
 | A4.5 | 4 | P1 | DONE | `lint --max-warnings=0` + focused regression tests | `docs/release/artifacts/2026-07-23T12-46-12-124Z/manifest.partial.json`: lint, 976 unit tests, build, 10 desktop/mobile smoke journeys, authenticated teacher/admin routes, and bundle budget all pass |
-| A4.6 | 4 | P0 | TODO | `check:release-readiness-surface` + export completeness | — |
+| A4.6 | 4 | P0 | DONE | `check:release-readiness-surface` + export completeness | `docs/release/artifacts/2026-07-23T13-06-59-764Z/manifest.partial.json`: reachable signed-in route exports all 520 seeded attempts and 520 unique question records; checkpoint persistence no longer caps remaining/mastered/covered item lists |
 | A4.7 | 4 | P1 | TODO | activity-queue unit + sync-health + chaos tests | — |
 | A4.8 | 4 | P0 | IN-PROGRESS | composed curriculum gate in `check:release` | Implementation added; full manifest evidence pending Phase 0 exit |
 | A4.9 | 4 | P0 | TODO | route-level teacher-data + product-finish gates | — |
@@ -67,7 +67,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A6.9 | 6 | P1 | TODO | teacher state-matrix fixture tests | — |
 | A6.10 | 6 | P1 | TODO | teacher UI duplication guard + visual snapshots | — |
 | A7.1 | 7 | P0 | TODO | route-level teacher-data + product-finish gates | — |
-| A7.2 | 7 | P0 | TODO | report release-readiness + 500-item export test | — |
+| A7.2 | 7 | P0 | DONE | report release-readiness + 500-item export test | Same 9/9 partial manifest: Skills Check CSV separates Summary from Evidence appendix and includes complete item, attempt, and question rows; storage pagination is covered beyond 5,000 attempts |
 | A7.3 | 7 | P1 | TODO | class-to-item-evidence E2E | — |
 | A7.4 | 7 | P1 | TODO | evidence-basis + insufficient-evidence DOM tests | — |
 | A7.5 | 7 | P1 | TODO | seeded growth-chart + version-marker tests | — |
@@ -125,3 +125,5 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 | D-010 | 8, 10 | P0 | DONE | `check:database-bootstrap-schema` + fresh local Supabase reset | Fresh local reset applied all 20 migrations; canonical `docs/release/manifest.json` passes schema reconstruction, deterministic seed, live Auth, fixtures, and RLS isolation |
 | D-011 | 9 | P2 | DONE | reachable teacher dashboard/report Playwright journey | Zero `pageerror` events; `docs/release/artifacts/2026-07-23T11-59-30-807Z/manifest.partial.json` passes all three authenticated route gates |
 | D-012 | 10 | P1 | DONE | canonical-env `test:smoke` preview-route journey | Same partial manifest passes 10/10 desktop/mobile smoke tests against the maintained `/preview/` entry points under canonical Supabase configuration |
+| D-013 | 4, 7 | P0 | DONE | reachable 520-item report/export journey | Same 9/9 partial manifest: learner selection hydrates and merges complete cloud history instead of replacing it with the 400-row browser cache |
+| D-014 | 7, 10 | P0 | DONE | SQL item-count assertion + reachable export journey | Same 9/9 partial manifest: audit seed has 520 production-readable `questionRecords`; signed-in CSV proves 520 unique item IDs |

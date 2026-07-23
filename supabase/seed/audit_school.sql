@@ -571,8 +571,10 @@ select
     'classId', '30000000-0000-4000-8000-000000000001',
     'teacherId', '10000000-0000-4000-8000-000000000001',
     'policyVersion', 'audit-seed-v1',
-    'items', jsonb_build_array(jsonb_build_object(
+    'questionRecords', jsonb_build_array(jsonb_build_object(
       'questionId', 'audit-item-' || series.attempt_number,
+      'itemType', 'audit_item',
+      'itemKey', 'audit-item-' || series.attempt_number,
       'responseStatus', 'correct',
       'isCorrect', true
     ))
@@ -741,6 +743,7 @@ declare
   teacher_count integer;
   admin_count integer;
   long_history_count integer;
+  long_history_item_count integer;
   archived_count integer;
   guided_count integer;
   quest_count integer;
@@ -770,6 +773,10 @@ begin
   where user_id = '12000000-0000-4000-8000-000000000001';
 
   select count(*) into long_history_count
+  from public.assessment_attempts
+  where attempt_id like 'audit-long-history-%';
+
+  select coalesce(sum(jsonb_array_length(payload -> 'questionRecords')), 0) into long_history_item_count
   from public.assessment_attempts
   where attempt_id like 'audit-long-history-%';
 
@@ -803,18 +810,20 @@ begin
      or class_count <> 2
      or learner_count <> 26
      or long_history_count <> 520
+     or long_history_item_count <> 520
      or archived_count <> 1
      or guided_count <> 25
      or quest_count <> 25
      or completed_el_count < 3
      or in_progress_el_count < 1 then
     raise exception
-      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% archived=% guided=% quest=% el_complete=% el_in_progress=%',
+      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% long_history_items=% archived=% guided=% quest=% el_complete=% el_in_progress=%',
       teacher_count,
       admin_count,
       class_count,
       learner_count,
       long_history_count,
+      long_history_item_count,
       archived_count,
       guided_count,
       quest_count,

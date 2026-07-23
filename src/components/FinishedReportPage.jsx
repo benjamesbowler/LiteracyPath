@@ -13,6 +13,7 @@ import {
   buildStoryQuestRows,
   collectStudentEngagementAreas
 } from "../utils/exportReportSections.js";
+import { buildStudentWorkspaceCsvRows } from "../utils/exportStudentWorkspaceCsv.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
 import { StudentReportShell } from "./reports/StudentReportShell.jsx";
@@ -695,78 +696,6 @@ function safeReportFilename(value = "student") {
     .replace(/^-+|-+$/g, "") || "student";
 }
 
-function workspaceCsvRows(viewId, workspace = {}) {
-  if (viewId === "whole-child") {
-    return [
-      ...(workspace.wholeChild?.concepts || []).map(item => ({
-        "Literacy area": item.domainLabel,
-        "Knowledge or skill": item.label,
-        "Status": item.status?.label,
-        "Interpretation": item.explanation,
-        "Evidence sources": (item.evidence || []).map(row => row.sourceLabel).filter(Boolean),
-        "Latest evidence": item.latestAt || ""
-      })),
-      ...(workspace.wholeChild?.descriptiveAssessments || []).map(assessment => ({
-        "Literacy area": "EL Assessments",
-        "Knowledge or skill": assessment.title || assessment.label,
-        "Status": "Descriptive evidence (not a mastery rating)",
-        "Interpretation": assessment.interpretation || assessment.resultLabel || "Evidence recorded",
-        "Evidence sources": "EL Assessments",
-        "Latest evidence": assessment.latestAt || ""
-      }))
-    ];
-  }
-  if (viewId === "skills-check") {
-    return [
-      ...(workspace.skillsCheck?.skills || []).map(skill => ({
-        "Row type": "Skill",
-        "Skill": skill.skillName,
-        "Status": skill.currentStatus?.label,
-        "Attempts": skill.attemptCount,
-        "Accuracy": skill.accuracy == null ? "" : `${skill.accuracy}%`,
-        "Latest evidence": skill.latestAt || ""
-      })),
-      ...(workspace.skillsCheck?.items || []).map(item => ({
-        "Row type": "Item",
-        "Skill": item.concept?.label,
-        "Status": item.status?.label,
-        "Attempts": item.details?.observations || "",
-        "Accuracy": item.details?.accuracy == null ? "" : `${item.details.accuracy}%`,
-        "Latest evidence": item.observedAt || ""
-      }))
-    ];
-  }
-  if (viewId === "other-learning") {
-    const report = workspace.otherLearning || {};
-    return [
-      ...(report.soundSeekers?.sounds || [])
-        .filter(sound => Number(sound.seen || 0) > 0)
-        .map(sound => ({
-          "Learning area": "Sound Seekers",
-          "Activity": sound.label,
-          "Evidence": sound.sourceResult || "Practised",
-          "Practice count": sound.seen || "",
-          "Latest evidence": sound.lastActiveAt || ""
-        })),
-      ...(report.arcade?.games || []).map(game => ({
-        "Learning area": "Arcade",
-        "Activity": game.title || game.gameId,
-        "Evidence": game.skillPractised ? `Practised: ${game.skillPractised}` : "Game practice",
-        "Practice count": game.plays || "",
-        "Latest evidence": game.lastPlayedAt || ""
-      })),
-      ...(report.storyQuests?.stories || []).map(story => ({
-        "Learning area": "Story Quests",
-        "Activity": story.title || story.questId,
-        "Evidence": story.completed ? "Completed" : "In progress",
-        "Words encountered": story.wordsEncountered || [],
-        "Latest evidence": story.lastActivityAt || story.completedAt || ""
-      }))
-    ];
-  }
-  return [];
-}
-
 export function FinishedReportPage({
   startAssessment,
   openElAssessments,
@@ -987,7 +916,7 @@ export function FinishedReportPage({
       } else if (activeReportView === "guided-reading") {
         await exportReadingReport?.();
       } else {
-        const rows = workspaceCsvRows(activeReportView, reportingWorkspace);
+        const rows = buildStudentWorkspaceCsvRows(activeReportView, reportingWorkspace);
         const date = new Date().toISOString().slice(0, 10);
         const downloaded = downloadReportRows(
           rows,
@@ -1012,7 +941,11 @@ export function FinishedReportPage({
             reportingWorkspace.wholeChild?.descriptiveAssessments?.length
           ) }
         : activeReportView === "skills-check"
-          ? { label: "Download Skills Check data", enabled: Boolean(reportingWorkspace.skillsCheck?.items?.length || reportingWorkspace.skillsCheck?.skills?.length) }
+          ? { label: "Download Skills Check data", enabled: Boolean(
+              reportingWorkspace.skillsCheck?.items?.length ||
+              reportingWorkspace.skillsCheck?.skills?.length ||
+              reportingWorkspace.skillsCheck?.attempts?.length
+            ) }
           : activeReportView === "other-learning"
             ? { label: "Download practice data", enabled: Boolean(reportingWorkspace.otherLearning?.evidence?.length) }
             : { label: "", enabled: false };

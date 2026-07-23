@@ -13,7 +13,7 @@ The seeded school is for local and explicitly approved non-production test datab
 - Class codes: `QA7M2K` and `QA8N3P`
 - One archived learner
 - Explicit high-, low-, sparse-, and no-evidence learners
-- 520 assessment attempts for export/pagination testing
+- 520 assessment attempts with 520 uniquely keyed question records for export/pagination testing
 - Completed and in-progress EL benchmark attempts across BOY and MOY
 - Guided Reading and Sound Seekers progress records
 
@@ -51,7 +51,7 @@ LP_AUDIT_PROJECT_LABEL='literacypath-e2e-test' \
 npm run seed:audit-school
 ```
 
-The SQL finishes with assertions for two teachers, one separate admin, two classes, 26 learners, one archive, 520 long-history attempts, Guided Reading, Sound Seekers, and both completed/in-progress EL evidence. Any mismatch rolls back the transaction.
+The SQL finishes with assertions for two teachers, one separate admin, two classes, 26 learners, one archive, 520 long-history attempts with 520 item records, Guided Reading, Sound Seekers, and both completed/in-progress EL evidence. Any mismatch rolls back the transaction.
 
 ## Verify Auth and teacher isolation
 

@@ -4273,6 +4273,11 @@ export default function App() {
     setNameSaved(true);
     setAppView(APP_VIEWS.OVERVIEW);
     setCheckpointDecision(null);
+    const selectedAttemptHistoryPromise = hydrateAssessmentAttempts({
+      teacherId,
+      studentId: selectedStudentId,
+      supabase: isSupabaseConfigured ? supabase : null
+    });
 
     const { data: answerRows, error: answerError } = await supabase
       .from("answers")
@@ -4342,16 +4347,16 @@ export default function App() {
       rebuiltItemMastery[key] = normalizeItemMasteryRow(row);
     });
 
-    const archivedAttemptsForStudent = loadAssessmentAttempts({
-      teacherId,
-      studentId: selectedStudentId
-    });
+    const archivedAttemptsForStudent = await selectedAttemptHistoryPromise;
     const masteryFromAttempts = archivedAttemptsForStudent.reduce(
       (rows, attempt) => mergeAssessmentAttemptIntoItemMastery(rows, attempt),
       {}
     );
 
-    setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
+    setAssessmentHistory(previous => mergeAssessmentAttemptRecords(
+      previous,
+      archivedAttemptsForStudent
+    ));
     setItemMastery({
       ...masteryFromAttempts,
       ...rebuiltItemMastery
@@ -4382,8 +4387,8 @@ export default function App() {
 
     // Recover retake-failure stamps from the persisted attempt history so
     // the report's "retested today" hint survives reloads and device swaps.
-    for (const attempt of loadAssessmentAttempts({ teacherId })) {
-      if (attempt.studentId !== selectedStudentId || attempt.passed) continue;
+    for (const attempt of archivedAttemptsForStudent) {
+      if (attempt.passed) continue;
       const entry = rebuiltMastery[attempt.skillId];
       const at = attempt.completedAt || attempt.startedAt || "";
       if (entry?.mastered && at && (!entry.lastRetakeFailedAt || at > entry.lastRetakeFailedAt)) {
@@ -5780,44 +5785,6 @@ export default function App() {
     }
   }
 
-  function getItemMasterySnapshot() {
-    const trackedItems = allQuestionsRef.current
-      .map(question => inferItemMetadata(question))
-      .filter(Boolean)
-      .map(metadata => getItemMasteryStateKey(metadata.itemKey, metadata.itemType));
-
-    letterAssessmentOrder.forEach(letter => {
-      trackedItems.push(getItemMasteryStateKey(letter, "letter_name"));
-      trackedItems.push(getItemMasteryStateKey(letter, "letter_sound"));
-    });
-
-    advancedPhonicsPatterns.forEach(pattern => {
-      trackedItems.push(getItemMasteryStateKey(pattern.pattern, "phonics_pattern"));
-      pattern.examples.forEach(example => {
-        trackedItems.push(getItemMasteryStateKey(example, "phonics_pattern_word"));
-      });
-    });
-
-    const trackedUnique = new Set(trackedItems);
-    const rows = Object.values(itemMastery || {});
-    const ranked = rows
-      .filter(row => row.itemKey && row.itemType)
-      .sort((a, b) =>
-        Number(b.mastered) - Number(a.mastered) ||
-        b.attempts - a.attempts ||
-        a.itemType.localeCompare(b.itemType) ||
-        a.itemKey.localeCompare(b.itemKey)
-      );
-
-    return {
-      mastered: ranked.filter(row => row.mastered).slice(0, 12),
-      attempting: ranked.filter(row => !row.mastered).slice(0, 12),
-      evidence: ranked.slice(0, 16),
-      unseenCount: Math.max(0, trackedUnique.size - rows.length),
-      trackedCount: trackedUnique.size
-    };
-  }
-
   function getSkillIdForMasteryRow(row) {
     if (row.skillId) return row.skillId;
     const configuredStage = skillTree.find(stage => {
@@ -6122,8 +6089,7 @@ export default function App() {
     const coverageUnit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
     const remainingItems = expectedKeys
       .filter(key => !coveredKeys.has(key))
-      .map(formatCoverageKeyLabel)
-      .slice(0, 40);
+      .map(formatCoverageKeyLabel);
     const coveredThisRound = Array.from(new Set(
       nextRoundCorrectItemKeys
         .filter(key => expectedKeySet.has(key))
@@ -6131,11 +6097,9 @@ export default function App() {
     ));
     const alreadyMastered = Array.from(alreadyCoveredKeys)
       .filter(key => !nextRoundItemKeys.includes(key))
-      .map(formatCoverageKeyLabel)
-      .slice(0, 40);
+      .map(formatCoverageKeyLabel);
     const totalCoveredItems = Array.from(coveredKeys)
-      .map(formatCoverageKeyLabel)
-      .slice(0, 60);
+      .map(formatCoverageKeyLabel);
     const learnedCorrectly = getRoundItemLabels(currentRoundRecords, { correctOnly: true });
     const missedThisRound = getRoundItemLabels(currentRoundRecords, { correctOnly: false });
     const coverageComplete = expectedKeys.length
@@ -9000,7 +8964,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
             startTargetedReview={startTargetedReview}
             weaknessSnapshot={weaknessSnapshot}
-            itemMasterySnapshot={getItemMasterySnapshot()}
             coverageSnapshot={coverageSnapshot}
             switchStudent={switchStudent}
             openResetStudentProgress={() => setResetProgressDialogOpen(true)}
