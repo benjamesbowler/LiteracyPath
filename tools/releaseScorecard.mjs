@@ -46,6 +46,20 @@ export function parseTraceability(text) {
   })).filter(row => /^A\d+\.\d+$/.test(row.item) && row.area >= 1 && row.area <= 10);
 }
 
+export function parseDiscoveredTraceability(text) {
+  return parseMarkdownTable(text).map(cells => ({
+    id: cells[0],
+    areas: [...new Set(String(cells[1] || "")
+      .match(/\d+/g)
+      ?.map(Number)
+      .filter(area => area >= 1 && area <= 10) || [])],
+    severity: cells[2],
+    status: cells[3],
+    gate: cells[4],
+    evidence: cells[5]
+  })).filter(row => /^D-\d{3}$/.test(row.id) && row.areas.length > 0);
+}
+
 function parseWaivers(text, now = new Date()) {
   return parseMarkdownTable(text).map(cells => ({
     item: cells[0],
@@ -66,17 +80,6 @@ function parseWaivers(text, now = new Date()) {
         && expiry > now.getTime()
     };
   });
-}
-
-function parseDiscovered(text) {
-  return parseMarkdownTable(text).map(cells => ({
-    id: cells[0],
-    severity: cells[1],
-    area: Number(cells[2]),
-    status: cells[3],
-    summary: cells[4],
-    evidence: cells[5]
-  })).filter(row => /^D-\d{3}$/.test(row.id));
 }
 
 function externalRows(text) {
@@ -152,7 +155,7 @@ export function calculateScorecard({
       && /\bP[01]\b/.test(row.priority)
     ));
     const openDiscoveredP01 = discovered.filter(row => (
-      row.area === area
+      row.areas.includes(area)
       && /^P[01]$/.test(row.severity)
       && !["DONE", "CLOSED", "WAIVED"].includes(row.status)
     ));
@@ -254,13 +257,21 @@ export function generateScorecard() {
   if (!manifest || manifest.partial !== false) {
     throw new Error("A complete canonical docs/release/manifest.json is required before generating a scorecard.");
   }
-  const traceRows = parseTraceability(readText("docs/release/TRACEABILITY.md"));
+  const traceabilityText = readText("docs/release/TRACEABILITY.md");
+  const traceRows = parseTraceability(traceabilityText);
   if (traceRows.length !== 100) {
     throw new Error(`TRACEABILITY.md must contain exactly 100 A-item rows; found ${traceRows.length}.`);
   }
+  const discovered = parseDiscoveredTraceability(traceabilityText);
+  const discoveredDetails = readText("docs/release/DISCOVERED.md");
+  const missingDiscoveredDetails = discovered
+    .filter(row => !discoveredDetails.includes(`## ${row.id} `))
+    .map(row => row.id);
+  if (missingDiscoveredDetails.length) {
+    throw new Error(`Discovered trace rows are missing detailed findings: ${missingDiscoveredDetails.join(", ")}.`);
+  }
   const now = new Date();
   const waivers = parseWaivers(readText("docs/release/WAIVERS.md"), now);
-  const discovered = parseDiscovered(readText("docs/release/DISCOVERED.md"));
   const externals = externalRows(readText("docs/release/EXTERNAL.md"));
   const loopCAuditCount = cleanReauditCount();
   const result = calculateScorecard({
@@ -294,4 +305,3 @@ if (isMain) {
     process.exitCode = 1;
   }
 }
-

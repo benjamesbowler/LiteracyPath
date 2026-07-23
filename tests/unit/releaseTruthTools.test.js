@@ -9,6 +9,7 @@ import {
 } from "../../tools/releaseGate.mjs";
 import {
   calculateScorecard,
+  parseDiscoveredTraceability,
   parseMarkdownTable,
   parseTraceability
 } from "../../tools/releaseScorecard.mjs";
@@ -99,12 +100,20 @@ test("traceability parser requires explicit A-item rows", () => {
   const text = `| Item | Area | Priority | Status | Named gate | Evidence |
 |---|---:|---|---|---|---|
 | A1.1 | 1 | P0 | TODO | gate | — |
-| D-001 | 1 | P0 | TODO | gate | — |`;
+| D-001 | 1, 8 | P0 | TODO | gate | — |`;
   assert.equal(parseMarkdownTable(text).length, 2);
   assert.deepEqual(parseTraceability(text), [{
     item: "A1.1",
     area: 1,
     priority: "P0",
+    status: "TODO",
+    gate: "gate",
+    evidence: "—"
+  }]);
+  assert.deepEqual(parseDiscoveredTraceability(text), [{
+    id: "D-001",
+    areas: [1, 8],
+    severity: "P0",
     status: "TODO",
     gate: "gate",
     evidence: "—"
@@ -131,11 +140,17 @@ test("scorecard never grants a ten while mapped gates or Loop C remain open", ()
       gates: [{ id: "gate", status: "fail", areas: [1] }]
     },
     waivers: [],
-    discovered: [],
+    discovered: [{
+      id: "D-999",
+      areas: [1, 8],
+      severity: "P0",
+      status: "IN-PROGRESS"
+    }],
     externals: [],
     loopCAuditCount: 0
   });
   assert.equal(result.areas[0].score, 9);
   assert.equal(result.areas[0].blockers.some(blocker => blocker.includes("mapped gate")), true);
+  assert.equal(result.areas[0].openDiscoveredP01.includes("D-999"), true);
+  assert.equal(result.areas[7].openDiscoveredP01.includes("D-999"), true);
 });
-

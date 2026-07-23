@@ -106,3 +106,20 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | A10.8 | 10 | P0 + EXTERNAL MANUAL AUDIT | TODO | automated a11y gates + manual-program readiness | — |
 | A10.9 | 10 | P1 | TODO | live admin content-QA route + Loop D board test | — |
 | A10.10 | 10 | P1 EXTERNAL | TODO | research-program external-readiness check | — |
+
+## Discovered findings
+
+These rows are mechanically consumed by the scorecard. Each ID also has a full evidence, fix, and gate specification in `DISCOVERED.md`.
+
+| Item | Area | Priority | Status | Named gate | Evidence |
+|---|---:|---|---|---|---|
+| D-001 | 7, 8 | P0 | TODO | seeded cross-export evidence-consistency integration test | `DISCOVERED.md` D-001 |
+| D-002 | 7 | P0 | TODO | zero-evidence export interstitial + empty-export snapshot | `DISCOVERED.md` D-002 |
+| D-003 | 4, 7 | P1 | TODO | per-attempt timestamp provenance export test | `DISCOVERED.md` D-003 |
+| D-004 | 1, 4, 7 | P1 | TODO | skill-spine reconciliation + evidence-basis export tests | `DISCOVERED.md` D-004 |
+| D-005 | 4, 6 | P1 | TODO | assessment-item directive DOM + administration-copy review | `DISCOVERED.md` D-005 |
+| D-006 | 3, 4, 6 | P0 | TODO | assessment completion device-matrix E2E | `DISCOVERED.md` D-006 |
+| D-007 | 6 | P1 | TODO | assessment header copy DOM + jargon guard | `DISCOVERED.md` D-007 |
+| D-008 | 9 | P2 | TODO | assessment deep-link refresh/resume E2E | `DISCOVERED.md` D-008 |
+| D-009 | 4 | P2 | TODO | final-item correction + finish-tally E2E | `DISCOVERED.md` D-009 |
+| D-010 | 8, 10 | P0 | IN-PROGRESS | `check:database-bootstrap-schema` + fresh local Supabase reset | Static schema gate pending; live reset evidence required |
