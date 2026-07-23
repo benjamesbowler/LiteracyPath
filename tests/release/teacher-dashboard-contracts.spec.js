@@ -359,12 +359,13 @@ test("@teacher-roster-scale imports duplicates, bulk previews cards, archives, a
     await roster.getByRole("checkbox", { name: `Select ${learner}`, exact: true }).check();
   }
   await page.getByRole("button", { name: "Preview selected cards (2)", exact: true }).click();
-  const cardPreview = page.getByRole("dialog", { name: "Login card preview" });
+  const cardPreview = page.getByRole("region", { name: "Login cards", exact: true });
+  await expect(cardPreview).toHaveAttribute("data-teacher-route", "login-cards");
   await expect(cardPreview.locator(".teacher-print-login-card")).toHaveCount(2);
-  await expect(cardPreview.getByText("2 login cards", { exact: true })).toBeVisible();
+  await expect(cardPreview.getByText("2 cards", { exact: false }).first()).toBeVisible();
   await expect(cardPreview.getByText("Mateo", { exact: true })).toBeVisible();
   await expect(cardPreview.getByText("Mei", { exact: true })).toBeVisible();
-  await cardPreview.getByRole("button", { name: "Close preview", exact: true }).click();
+  await cardPreview.getByRole("button", { name: "Return to roster", exact: true }).click();
 
   const bulk03 = roster.getByRole("row").filter({ hasText: "Bulk 03" });
   await bulk03.getByRole("button", { name: "Archive", exact: true }).click();
@@ -439,6 +440,42 @@ test("@teacher-class-code copies with an announcement and regenerates in-product
     `New class code ${newCode} is ready. The old code no longer works.`
   );
   expect(nativeDialogs).toEqual([]);
+  expect(pageErrors).toEqual([]);
+});
+
+test("@teacher-login-card-print opens an accessible A4 route and prints exact class context", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  await page.addInitScript(() => {
+    window.print = () => {
+      window.__literacyPathLoginCardsPrinted = true;
+    };
+  });
+
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+  const roster = page.locator(".teacher-roster-table");
+  for (const learner of ["Aarav", "Aisha"]) {
+    await roster.getByRole("checkbox", { name: `Select ${learner}`, exact: true }).check();
+  }
+  await page.getByRole("button", { name: "Preview selected cards (2)", exact: true }).click();
+
+  const printRoute = page.getByRole("region", { name: "Login cards", exact: true });
+  await expect(printRoute).toHaveAttribute("data-teacher-route", "login-cards");
+  await expect(printRoute.getByRole("status")).toHaveText("Print preview ready with 2 login cards.");
+  const printPage = printRoute.getByRole("region", { name: "Login cards page 1 of 1" });
+  await expect(printPage).toBeVisible();
+  await expect(printPage.getByText("Audit Class A login cards", { exact: true })).toBeVisible();
+  await expect(printPage.getByText("Class code QA7M2K", { exact: true })).toBeVisible();
+  await expect(printPage.getByRole("article", { name: "Aarav login card" })).toBeVisible();
+  await expect(printPage.getByRole("article", { name: "Aisha login card" })).toBeVisible();
+  await expect.poll(() => printPage.evaluate(element => parseFloat(getComputedStyle(element).minHeight))).toBeGreaterThan(1000);
+
+  await printRoute.getByRole("button", { name: "Print cards", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__literacyPathLoginCardsPrinted)).toBe(true);
+  await printRoute.getByRole("button", { name: "Return to roster", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Students - Audit Class A", exact: true })).toBeVisible();
+  await expect(page.getByLabel("Current class").locator("option:checked")).toHaveText("Audit Class A");
   expect(pageErrors).toEqual([]);
 });
 

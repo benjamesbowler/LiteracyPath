@@ -76,6 +76,83 @@ function parseCsvNames(text = "") {
   return names;
 }
 
+function LoginCardPrintRoute({
+  rows,
+  schoolName,
+  className,
+  classCode,
+  onClose
+}) {
+  const pages = Array.from(
+    { length: Math.ceil(rows.length / 4) },
+    (_unused, pageIndex) => rows.slice(pageIndex * 4, pageIndex * 4 + 4)
+  );
+
+  return (
+    <section
+      className="teacher-login-card-route"
+      data-teacher-route="login-cards"
+      aria-labelledby="teacher-login-card-route-title"
+    >
+      <header className="teacher-login-card-route-toolbar">
+        <div>
+          <p className="panel-label">Print preview</p>
+          <h2 id="teacher-login-card-route-title">Login cards</h2>
+          <p>
+            {schoolName || "School"} · {className || "Class"} · {rows.length} card{rows.length === 1 ? "" : "s"}
+          </p>
+        </div>
+        <div className="teacher-login-card-route-actions">
+          <button className="lp-button lp-button-secondary" type="button" onClick={onClose}>
+            Return to roster
+          </button>
+          <button className="lp-button lp-button-primary" type="button" onClick={() => window.print()}>
+            Print cards
+          </button>
+        </div>
+      </header>
+      <p className="sr-only" role="status">
+        Print preview ready with {rows.length} login card{rows.length === 1 ? "" : "s"}.
+      </p>
+      <div className="teacher-login-card-pages" aria-label="Page-sized login card preview">
+        {pages.map((pageRows, pageIndex) => (
+          <section
+            className="teacher-login-card-page"
+            aria-label={`Login cards page ${pageIndex + 1} of ${pages.length}`}
+            key={`page-${pageRows[0]?.id || pageIndex}`}
+          >
+            <header className="teacher-login-card-page-header">
+              <img src={logoUrl} alt="" />
+              <div>
+                <p>{schoolName || "School"}</p>
+                <h3>{className || "Class"} login cards</h3>
+                <span>Class code {classCode || "—"}</span>
+              </div>
+              <small>Page {pageIndex + 1} of {pages.length}</small>
+            </header>
+            <div className="teacher-login-card-sheet">
+              {pageRows.map(row => (
+                <article
+                  className="teacher-print-login-card"
+                  aria-label={`${row.name} login card`}
+                  key={row.id}
+                >
+                  <img src={logoUrl} alt="" />
+                  <p>{schoolName || "School"}</p>
+                  <h4>{row.name}</h4>
+                  <span>{className || "Class"} · Code {classCode || "—"}</span>
+                  <SymbolSequence sequence={row.symbol_password || ""} size={34} />
+                  <small>{formatLoginCardPassword(row.symbol_password)}</small>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function RosterMetric({ label, value, tone = "" }) {
   return (
     <div className={["teacher-roster-metric", tone].filter(Boolean).join(" ")}>
@@ -1034,6 +1111,18 @@ export function TeacherDashboardPage({
     setRosterOperationStatus(`${row.name} restored to the active roster.`);
   }
 
+  if (loginCardRows.length > 0) {
+    return (
+      <LoginCardPrintRoute
+        rows={loginCardRows}
+        schoolName={schoolName}
+        className={selectedClass?.name}
+        classCode={selectedClass?.access_code}
+        onClose={() => setLoginCardRows([])}
+      />
+    );
+  }
+
   return (
     <div
       className="teacher-product-page teacher-dashboard-page"
@@ -1758,38 +1847,6 @@ export function TeacherDashboardPage({
           </div>
         </details>
       </section>}
-
-      {loginCardRows.length > 0 && (
-        <div className="symbol-password-modal teacher-login-card-modal" role="dialog" aria-modal="true" aria-label="Login card preview">
-          <div className="symbol-password-modal-card">
-            <header>
-              <div>
-                <p className="panel-label">Print preview</p>
-                <h3>{loginCardRows.length} login card{loginCardRows.length === 1 ? "" : "s"}</h3>
-                <p>{schoolName || "School"} · {selectedClass?.name || "Class"}</p>
-              </div>
-              <button className="text-button" type="button" onClick={() => setLoginCardRows([])}>
-                Close preview
-              </button>
-            </header>
-            <div className="teacher-login-card-sheet">
-              {loginCardRows.map(row => (
-                <article className="teacher-print-login-card" key={row.id}>
-                  <img src={logoUrl} alt="" />
-                  <p>{schoolName || "School"}</p>
-                  <h4>{row.name}</h4>
-                  <span>{selectedClass?.name || "Class"} · Code {selectedClass?.access_code || "—"}</span>
-                  <SymbolSequence sequence={row.symbol_password || ""} size={34} />
-                  <small>{formatLoginCardPassword(row.symbol_password)}</small>
-                </article>
-              ))}
-            </div>
-            <button className="lp-button lp-button-primary" type="button" onClick={() => window.print()}>
-              Print these cards
-            </button>
-          </div>
-        </div>
-      )}
 
       {showClassCodeDialog && selectedClass && (
         <div

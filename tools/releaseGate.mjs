@@ -115,6 +115,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 5, 6, 8, 10]
   },
   {
+    id: "teacher-login-cards",
+    label: "Page-sized login-card route without document stream writes",
+    command: ["npm", "run", "check:teacher-login-cards"],
+    areas: [3, 5, 6, 8, 10]
+  },
+  {
     id: "teacher-dashboard-consolidation",
     label: "Single teacher product and parity matrix",
     command: ["npm", "run", "check:teacher-dashboard-consolidation"],

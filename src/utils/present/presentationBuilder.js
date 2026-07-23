@@ -12,6 +12,7 @@ import { getChildWordAsset } from "../../data/childAssets.js";
 import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
 import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
+import { openHtmlDocument } from "../openHtmlDocument.js";
 
 function isFluencyCycle(cycle) {
   return (cycle?.cycleNumber || 0) >= 25;
@@ -872,21 +873,13 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
 
 export function openCyclePresentation(cycleId, { day = "" } = {}) {
   const { html, title } = buildCyclePresentation(cycleId, { day });
-  if (typeof window === "undefined") return { ok: false, url: "", title };
-  const win = window.open("", "lp-present", "width=1280,height=800");
-  if (win) {
-    win.document.write(html);
-    win.document.close();
-    win.document.title = title;
-    return { ok: true, url: "", title };
-  }
-  // Pop-up blocked: hand back a Blob URL the page offers as a direct link -
-  // a click on a real anchor is a user gesture, so browsers allow it.
-  try {
-    return { ok: false, url: URL.createObjectURL(new Blob([html], { type: "text/html" })), title };
-  } catch {
-    return { ok: false, url: "", title };
-  }
+  const result = openHtmlDocument({
+    html,
+    name: "lp-present",
+    features: "width=1280,height=800",
+    keepUrlWhenBlocked: true
+  });
+  return { ok: result.ok, url: result.url, title };
 }
 
 // The system-font fallbacks keep the deck legible on an OFFLINE classroom

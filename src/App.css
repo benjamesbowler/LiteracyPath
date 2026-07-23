@@ -5096,23 +5096,80 @@ body {
   color: var(--lp-color-text-muted);
 }
 
-.teacher-login-card-modal .symbol-password-modal-card {
-  width: min(980px, calc(100vw - 32px));
-  max-height: calc(100vh - 32px);
-  overflow: auto;
+.teacher-login-card-route {
+  display: grid;
+  gap: 20px;
+  min-height: 100%;
+  padding: clamp(16px, 3vw, 32px);
+  background: var(--lp-color-surface-subtle);
 }
 
-.teacher-login-card-modal header {
+.teacher-login-card-route-toolbar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
+  width: min(210mm, 100%);
+  margin: 0 auto;
+}
+
+.teacher-login-card-route-toolbar h2,
+.teacher-login-card-route-toolbar p {
+  margin: 0;
+}
+
+.teacher-login-card-route-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.teacher-login-card-pages {
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+}
+
+.teacher-login-card-page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10mm;
+  width: min(210mm, 100%);
+  min-height: 297mm;
+  padding: 12mm;
+  background: white;
+  box-shadow: 0 12px 36px rgba(16, 24, 40, 0.12);
+}
+
+.teacher-login-card-page-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 6mm;
+  border-bottom: 1px solid var(--lp-color-border-strong);
+}
+
+.teacher-login-card-page-header img {
+  width: 46px;
+  height: 46px;
+}
+
+.teacher-login-card-page-header p,
+.teacher-login-card-page-header h3 {
+  margin: 0;
+}
+
+.teacher-login-card-page-header span,
+.teacher-login-card-page-header small {
+  color: var(--lp-color-text-muted);
 }
 
 .teacher-login-card-sheet {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 14px;
-  margin: 18px 0;
 }
 
 .teacher-print-login-card {
@@ -5208,24 +5265,75 @@ body {
   .teacher-login-card-sheet {
     grid-template-columns: 1fr;
   }
+
+  .teacher-login-card-route-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-login-card-page {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .teacher-login-card-page-header {
+    grid-template-columns: auto 1fr;
+  }
+
+  .teacher-login-card-page-header > small {
+    grid-column: 2;
+  }
 }
 
 @media print {
-  body:has(.teacher-login-card-modal) * {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body:has([data-teacher-route="login-cards"]) * {
     visibility: hidden !important;
   }
 
-  body:has(.teacher-login-card-modal) .teacher-login-card-sheet,
-  body:has(.teacher-login-card-modal) .teacher-login-card-sheet * {
+  body:has([data-teacher-route="login-cards"]) .teacher-login-card-route,
+  body:has([data-teacher-route="login-cards"]) .teacher-login-card-route * {
     visibility: visible !important;
   }
 
-  body:has(.teacher-login-card-modal) .teacher-login-card-sheet {
+  body:has([data-teacher-route="login-cards"]) .teacher-login-card-route {
     position: absolute;
     inset: 0;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 10mm;
+    display: block;
+    padding: 0;
     background: white;
+  }
+
+  .teacher-login-card-route-toolbar,
+  .teacher-login-card-route > .sr-only {
+    display: none !important;
+  }
+
+  .teacher-login-card-pages {
+    display: block;
+  }
+
+  .teacher-login-card-page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 12mm;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .teacher-login-card-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .teacher-login-card-sheet {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

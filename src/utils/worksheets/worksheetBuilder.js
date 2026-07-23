@@ -11,6 +11,7 @@
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
+import { openHtmlDocument } from "../openHtmlDocument.js";
 
 export const WORKSHEET_TYPES = [
   { id: "letterFormation", label: "Letter formation", blurb: "Trace and write the cycle's focus letters, then hunt for them." },
@@ -503,11 +504,11 @@ export function buildWorksheetDocument({ cycleId, type, pages = 1 }) {
 
 // Open the worksheet in a new window and trigger the print / save-as-PDF dialog.
 export function printWorksheet(recipe) {
-  const { title, html } = buildWorksheetDocument(recipe);
-  const win = window.open("", "lp-worksheet", "width=900,height=1100");
-  if (!win) return false;
-  win.document.write(html.replace("<body>", '<body onload="setTimeout(function(){window.print()},300)">'));
-  win.document.close();
-  win.document.title = title;
-  return true;
+  const { html } = buildWorksheetDocument(recipe);
+  return openHtmlDocument({
+    html,
+    name: "lp-worksheet",
+    features: "width=900,height=1100",
+    autoPrint: true
+  }).ok;
 }
