@@ -123,3 +123,4 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 | D-008 | 9 | P2 | TODO | assessment deep-link refresh/resume E2E | `DISCOVERED.md` D-008 |
 | D-009 | 4 | P2 | TODO | final-item correction + finish-tally E2E | `DISCOVERED.md` D-009 |
 | D-010 | 8, 10 | P0 | IN-PROGRESS | `check:database-bootstrap-schema` + fresh local Supabase reset | Static schema gate pending; live reset evidence required |
+| D-011 | 9 | P2 | DONE | reachable teacher dashboard/report Playwright journey | Zero `pageerror` events; `docs/release/artifacts/2026-07-23T11-59-30-807Z/manifest.partial.json` passes all three authenticated route gates |

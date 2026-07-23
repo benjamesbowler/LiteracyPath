@@ -57,3 +57,8 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** before this finding, the first managed migration was `20260528000000_create_app_admins.sql`, while later migrations altered or referenced `classes`, `students`, `answers`, `mastery`, and `item_mastery`; no managed migration created those five load-bearing tables. A clean local/CI Supabase instance therefore could not apply the repository's migration history without undocumented dashboard state.
 **Fix:** add the missing first migration with the production-used columns, ownership constraints, grants, indexes, RLS policies, and update triggers; add an idempotent reconciliation migration for installations whose tables predate the managed history.
 **Gate:** `check:database-bootstrap-schema` must prove every core table is created before first reference and that the first migration contains the ownership controls; a fresh local Supabase reset must apply every migration successfully before this finding can close.
+
+## D-011 · P2 · Area 9 — Rapid reachable-route changes raise an unhandled View Transition rejection
+**Evidence:** the first route-level teacher Playwright run completed the dashboard-to-report journey but captured `pageerror: Transition was skipped`. `setAppView` started browser View Transitions without observing the `finished` promise, so the expected abort from an overlapping transition became an unhandled rejection.
+**Fix:** explicitly consume expected `AbortError` rejections, report unexpected transition failures, and fall back to the immediate React state change if the browser cannot start a transition.
+**Gate:** the reachable teacher dashboard/report Playwright journey completes with zero `pageerror` events.
