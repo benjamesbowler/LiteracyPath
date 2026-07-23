@@ -290,7 +290,7 @@ export function Sidebar({
 
       {/* ── Nav items ── */}
       <nav className="lg-sb-nav" aria-label="App sections">
-        <div data-testid="teacher-primary-nav">
+        <div data-testid="teacher-primary-nav" role="group" aria-label="Teacher primary">
           {TEACHER_INTENT_NAV_ITEMS.map(item => (
             <div key={item.id} className="lg-sb-intent">
               <button

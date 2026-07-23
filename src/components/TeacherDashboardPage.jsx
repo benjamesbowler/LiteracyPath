@@ -171,6 +171,86 @@ function StudentInitial({ name }) {
   );
 }
 
+function TeacherModal({
+  label,
+  className = "",
+  onClose,
+  closeOnEscape = true,
+  children
+}) {
+  const dialogRef = useRef(null);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
+    const previouslyFocused = document.activeElement;
+    const dialog = dialogRef.current;
+    if (!dialog) return undefined;
+
+    const focusableSelector = [
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      "a[href]",
+      "[tabindex]:not([tabindex='-1'])"
+    ].join(",");
+    const focusable = () => [...dialog.querySelectorAll(focusableSelector)]
+      .filter(element => !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true");
+
+    const first = focusable()[0];
+    (first || dialog).focus();
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape" && closeOnEscape && onCloseRef.current) {
+        event.preventDefault();
+        onCloseRef.current();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const candidates = focusable();
+      if (!candidates.length) {
+        event.preventDefault();
+        dialog.focus();
+        return;
+      }
+      const firstCandidate = candidates[0];
+      const lastCandidate = candidates.at(-1);
+      if (event.shiftKey && document.activeElement === firstCandidate) {
+        event.preventDefault();
+        lastCandidate.focus();
+      } else if (!event.shiftKey && document.activeElement === lastCandidate) {
+        event.preventDefault();
+        firstCandidate.focus();
+      }
+    }
+
+    dialog.addEventListener("keydown", handleKeyDown);
+    return () => {
+      dialog.removeEventListener("keydown", handleKeyDown);
+      if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
+        previouslyFocused.focus();
+      }
+    };
+  }, [closeOnEscape]);
+
+  return (
+    <div
+      ref={dialogRef}
+      className={["symbol-password-modal", className].filter(Boolean).join(" ")}
+      role="dialog"
+      aria-modal="true"
+      aria-label={label}
+      tabIndex={-1}
+    >
+      {children}
+    </div>
+  );
+}
+
 function TeacherSetupChecklist({
   hasClass,
   hasLearners,
@@ -1134,7 +1214,7 @@ export function TeacherDashboardPage({
   }
 
   return (
-    <div
+    <main
       className="teacher-product-page teacher-dashboard-page"
       data-teacher-product="class-dashboard"
     >
@@ -1877,11 +1957,12 @@ export function TeacherDashboardPage({
       </section>}
 
       {showClassCodeDialog && selectedClass && (
-        <div
-          className="symbol-password-modal teacher-class-code-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Make a new class code"
+        <TeacherModal
+          className="teacher-class-code-modal"
+          label="Make a new class code"
+          onClose={() => {
+            if (!regeneratingClassCode) setShowClassCodeDialog(false);
+          }}
         >
           <div className="symbol-password-modal-card">
             <p className="panel-label">Class access</p>
@@ -1910,15 +1991,18 @@ export function TeacherDashboardPage({
               </button>
             </div>
           </div>
-        </div>
+        </TeacherModal>
       )}
 
       {rosterOperation && (
-        <div
-          className="symbol-password-modal teacher-roster-operation-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${rosterOperation.kind === "archive" ? "Archive" : "Transfer"} ${rosterOperation.student.name}`}
+        <TeacherModal
+          className="teacher-roster-operation-modal"
+          label={`${rosterOperation.kind === "archive" ? "Archive" : "Transfer"} ${rosterOperation.student.name}`}
+          onClose={() => {
+            if (operationBusy) return;
+            setRosterOperation(null);
+            setOperationTargetClassId("");
+          }}
         >
           <div className="symbol-password-modal-card">
             <h3>
@@ -1975,11 +2059,17 @@ export function TeacherDashboardPage({
               </button>
             </div>
           </div>
-        </div>
+        </TeacherModal>
       )}
 
       {editingStudent && (
-        <div className="symbol-password-modal" role="dialog" aria-modal="true" aria-label={`Change password for ${editingStudent.name}`}>
+        <TeacherModal
+          label={`Change password for ${editingStudent.name}`}
+          onClose={() => {
+            setEditingStudent(null);
+            setEditingSequence("");
+          }}
+        >
           <div className="symbol-password-modal-card">
             <h3>Change {editingStudent.name}'s pictures</h3>
             <p className="muted-text">This child gate is teacher-visible by design; real data protection remains in the signed-in teacher account.</p>
@@ -1996,8 +2086,8 @@ export function TeacherDashboardPage({
               Cancel
             </button>
           </div>
-        </div>
+        </TeacherModal>
       )}
-    </div>
+    </main>
   );
 }

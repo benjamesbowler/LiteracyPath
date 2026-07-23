@@ -18269,7 +18269,7 @@ body {
 .quest-heat-tile.is-got-it { background: #4c8b7d; }
 .quest-heat-tile.is-almost { background: #e8b33c; color: #4a3608; }
 .quest-heat-tile.is-reteach { background: #d85a30; }
-.quest-heat-tile.is-unseen { background: #fff; color: #8b857a; border-color: #cfc8b8; }
+.quest-heat-tile.is-unseen { background: #fff; color: #5f5a52; border-color: #9f988b; }
 .quest-heat-tile.is-selected {
   outline: 3px solid #12141f;
   outline-offset: 1px;
