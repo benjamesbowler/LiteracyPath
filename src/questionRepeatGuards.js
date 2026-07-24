@@ -58,6 +58,15 @@ export function getRepeatTargetWord(question = {}) {
     question.audioKey ||
     question.anchorWord;
 
+  if (format.includes("pair_select") || ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(normalizeRepeatValue(question.questionType))) {
+    return normalizeRepeatValue(
+      question.anchorWord ||
+      question.correctWords?.[0] ||
+      question.correctAnswers?.[0] ||
+      question.targetWord
+    );
+  }
+
   if (hasExplicitTarget) {
     return normalizeRepeatValue(
       question.targetWord ||

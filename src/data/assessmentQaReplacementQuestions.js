@@ -248,7 +248,7 @@ export const assessmentQaReplacementQuestions = [
       itemType: "plural_word"
     })
   ),
-  ...pluralCards.slice(0, 3).map((card, index) =>
+  ...pluralCards.slice(0, 5).map((card, index) =>
     makeVisualChoiceQuestion({
       id: `qa_plurals_l1_extra_${String(index + 1).padStart(2, "0")}`,
       skillId: "plurals",

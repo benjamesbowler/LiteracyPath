@@ -172,6 +172,7 @@
     "audit:assessment-media-registry": "node tools/runAuditScript.mjs --write-report tools/auditAssessmentMediaRegistry.js",
     "check:audit:assessment-media-registry": "node tools/runAuditScript.mjs --check tools/auditAssessmentMediaRegistry.js",
     "check:assessment-runtime-variation": "node tools/runAuditScript.mjs --check tools/checkAssessmentRuntimeVariation.js",
+    "check:runtime-variation-simulation": "node tools/runAuditScript.mjs --check tools/simulateRuntimeVariation.mjs",
     "check:database-bootstrap-schema": "node tools/checkDatabaseBootstrapSchema.mjs",
     "check:audit-school-seed": "node tools/seedAuditSchool.mjs --check",
     "check:audit-school-live": "node tools/verifyAuditSchoolLive.mjs",

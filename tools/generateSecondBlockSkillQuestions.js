@@ -3,6 +3,7 @@ import path from "node:path";
 import JSZip from "jszip";
 
 import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
+import { getChildWordAsset } from "../src/data/childAssets.js";
 import { getImportedVocabularyMedia } from "../src/data/importedVocabularyMediaManifest.js";
 import { repoRoot, publicPathExists, writeFile } from "./phonicsRuntimeUtils.js";
 
@@ -48,6 +49,7 @@ function publicMediaPath(kind, word) {
 }
 
 function existingImagePath(word, preferred = "") {
+  if (getChildWordAsset(word)?.qaStatus === "needs_image_replacement") return "";
   const candidates = unique([
     preferred,
     getImportedVocabularyMedia(word)?.image,
@@ -747,8 +749,8 @@ function makePlurals() {
         singularWord: singular,
         pluralRule: suffix,
         runtimeTemplateKey: `PLURAL_IMAGE_SPELLING_${suffix}_${slug(singular)}_${slug(plural)}`,
-        itemType: "plural",
-        itemKey: suffix,
+        itemType: "plural_word",
+        itemKey: plural,
         explanation: `${plural} means more than one ${singular}.`
       }
     })];

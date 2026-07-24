@@ -1,6 +1,7 @@
 import path from "node:path";
 import process from "node:process";
 import { spawnSync } from "node:child_process";
+import fs from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import os from "node:os";
 
@@ -38,6 +39,9 @@ export function runAuditScript(argv = process.argv.slice(2), environment = proce
     scriptId
   );
   const tempRoot = path.resolve(environment.TMPDIR || os.tmpdir());
+  if (invocation.mode === "check") {
+    fs.mkdirSync(artifactRoot, { recursive: true });
+  }
   const inheritedNodeOptions = String(environment.NODE_OPTIONS || "").trim();
   const nodeOptions = invocation.mode === "check"
     ? [inheritedNodeOptions, `--import=${guardPath}`].filter(Boolean).join(" ")

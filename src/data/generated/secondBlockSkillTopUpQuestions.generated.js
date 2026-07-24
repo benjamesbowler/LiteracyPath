@@ -30,7 +30,7 @@ export const secondBlockSkillTopUpQuestions = [
       "cake",
       "shake",
       "beautiful",
-      "boy"
+      "bread"
     ],
     "answerOptions": [
       {
@@ -49,8 +49,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "boy",
-        "label": "boy",
+        "value": "bread",
+        "label": "bread",
         "partOfSpeech": "noun"
       }
     ],
@@ -89,15 +89,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "beautiful adjective card"
       },
       {
-        "id": "second_noun_boy",
-        "word": "boy",
-        "label": "boy",
-        "value": "boy",
+        "id": "second_noun_bread",
+        "word": "bread",
+        "label": "bread",
+        "value": "bread",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/boy.webp",
-        "imagePath": "/media/vocabulary/images/boy.webp",
-        "imageUrl": "/media/vocabulary/images/boy.webp",
-        "alt": "boy noun card"
+        "image": "/media/vocabulary/images/bread.webp",
+        "imagePath": "/media/vocabulary/images/bread.webp",
+        "imageUrl": "/media/vocabulary/images/bread.webp",
+        "alt": "bread noun card"
       }
     ],
     "correctAnswer": "beautiful",
@@ -243,7 +243,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "fly",
       "brown",
-      "field",
+      "fish",
       "game"
     ],
     "answerOptions": [
@@ -258,8 +258,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "field",
-        "label": "field",
+        "value": "fish",
+        "label": "fish",
         "partOfSpeech": "noun"
       },
       {
@@ -292,15 +292,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "brown adjective card"
       },
       {
-        "id": "second_noun_field",
-        "word": "field",
-        "label": "field",
-        "value": "field",
+        "id": "second_noun_fish",
+        "word": "fish",
+        "label": "fish",
+        "value": "fish",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/field.webp",
-        "imagePath": "/media/vocabulary/images/field.webp",
-        "imageUrl": "/media/vocabulary/images/field.webp",
-        "alt": "field noun card"
+        "image": "/images/child-mode/cvc/fish.png",
+        "imagePath": "/images/child-mode/cvc/fish.png",
+        "imageUrl": "/images/child-mode/cvc/fish.png",
+        "alt": "fish noun card"
       },
       {
         "id": "second_noun_game",
@@ -1419,7 +1419,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "loud",
-      "food",
+      "frog",
       "game",
       "share"
     ],
@@ -1430,8 +1430,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "food",
-        "label": "food",
+        "value": "frog",
+        "label": "frog",
         "partOfSpeech": "noun"
       },
       {
@@ -1458,15 +1458,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "loud adjective card"
       },
       {
-        "id": "second_noun_food",
-        "word": "food",
-        "label": "food",
-        "value": "food",
+        "id": "second_noun_frog",
+        "word": "frog",
+        "label": "frog",
+        "value": "frog",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/food.webp",
-        "imagePath": "/media/vocabulary/images/food.webp",
-        "imageUrl": "/media/vocabulary/images/food.webp",
-        "alt": "food noun card"
+        "image": "/images/child-mode/initial-sounds/frog.png",
+        "imagePath": "/images/child-mode/initial-sounds/frog.png",
+        "imageUrl": "/images/child-mode/initial-sounds/frog.png",
+        "alt": "frog noun card"
       },
       {
         "id": "second_noun_game",
@@ -1527,7 +1527,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "swayed",
       "new",
-      "chair",
+      "cheese",
       "desk"
     ],
     "answerOptions": [
@@ -1542,8 +1542,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "chair",
-        "label": "chair",
+        "value": "cheese",
+        "label": "cheese",
         "partOfSpeech": "noun"
       },
       {
@@ -1576,15 +1576,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "new adjective card"
       },
       {
-        "id": "second_noun_chair",
-        "word": "chair",
-        "label": "chair",
-        "value": "chair",
+        "id": "second_noun_cheese",
+        "word": "cheese",
+        "label": "cheese",
+        "value": "cheese",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/chair.png",
-        "imagePath": "/images/child-mode/initial-sounds/chair.png",
-        "imageUrl": "/images/child-mode/initial-sounds/chair.png",
-        "alt": "chair noun card"
+        "image": "/media/vocabulary/images/cheese.webp",
+        "imagePath": "/media/vocabulary/images/cheese.webp",
+        "imageUrl": "/media/vocabulary/images/cheese.webp",
+        "alt": "cheese noun card"
       },
       {
         "id": "second_noun_desk",
@@ -1740,7 +1740,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "old",
-      "cloud",
+      "corn",
       "desk",
       "cook"
     ],
@@ -1751,8 +1751,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "cloud",
-        "label": "cloud",
+        "value": "corn",
+        "label": "corn",
         "partOfSpeech": "noun"
       },
       {
@@ -1779,15 +1779,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "old adjective card"
       },
       {
-        "id": "second_noun_cloud",
-        "word": "cloud",
-        "label": "cloud",
-        "value": "cloud",
+        "id": "second_noun_corn",
+        "word": "corn",
+        "label": "corn",
+        "value": "corn",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/cloud.webp",
-        "imagePath": "/media/vocabulary/images/cloud.webp",
-        "imageUrl": "/media/vocabulary/images/cloud.webp",
-        "alt": "cloud noun card"
+        "image": "/images/child-mode/initial-sounds/corn.png",
+        "imagePath": "/images/child-mode/initial-sounds/corn.png",
+        "imageUrl": "/images/child-mode/initial-sounds/corn.png",
+        "alt": "corn noun card"
       },
       {
         "id": "second_noun_desk",
@@ -2167,15 +2167,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "hand",
+      "key",
       "baked",
       "purple",
-      "ground"
+      "hand"
     ],
     "answerOptions": [
       {
-        "value": "hand",
-        "label": "hand",
+        "value": "key",
+        "label": "key",
         "partOfSpeech": "noun"
       },
       {
@@ -2189,22 +2189,22 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "ground",
-        "label": "ground",
+        "value": "hand",
+        "label": "hand",
         "partOfSpeech": "noun"
       }
     ],
     "imageCards": [
       {
-        "id": "second_noun_hand",
-        "word": "hand",
-        "label": "hand",
-        "value": "hand",
+        "id": "second_noun_key",
+        "word": "key",
+        "label": "key",
+        "value": "key",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/hand.png",
-        "imagePath": "/images/child-mode/initial-sounds/hand.png",
-        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
-        "alt": "hand noun card"
+        "image": "/images/child-mode/initial-sounds/key.png",
+        "imagePath": "/images/child-mode/initial-sounds/key.png",
+        "imageUrl": "/images/child-mode/initial-sounds/key.png",
+        "alt": "key noun card"
       },
       {
         "id": "second_verb_baked",
@@ -2229,15 +2229,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "purple adjective card"
       },
       {
-        "id": "second_noun_ground",
-        "word": "ground",
-        "label": "ground",
-        "value": "ground",
+        "id": "second_noun_hand",
+        "word": "hand",
+        "label": "hand",
+        "value": "hand",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/ground.webp",
-        "imagePath": "/media/vocabulary/images/ground.webp",
-        "imageUrl": "/media/vocabulary/images/ground.webp",
-        "alt": "ground noun card"
+        "image": "/images/child-mode/initial-sounds/hand.png",
+        "imagePath": "/images/child-mode/initial-sounds/hand.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
+        "alt": "hand noun card"
       }
     ],
     "correctAnswer": "purple",
@@ -2383,7 +2383,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "sharp",
       "men",
-      "nut",
+      "pear",
       "carry"
     ],
     "answerOptions": [
@@ -2398,8 +2398,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "nut",
-        "label": "nut",
+        "value": "pear",
+        "label": "pear",
         "partOfSpeech": "noun"
       },
       {
@@ -2432,15 +2432,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "men noun card"
       },
       {
-        "id": "second_noun_nut",
-        "word": "nut",
-        "label": "nut",
-        "value": "nut",
+        "id": "second_noun_pear",
+        "word": "pear",
+        "label": "pear",
+        "value": "pear",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/nut.png",
-        "imagePath": "/images/child-mode/initial-sounds/nut.png",
-        "imageUrl": "/images/child-mode/initial-sounds/nut.png",
-        "alt": "nut noun card"
+        "image": "/media/vocabulary/images/pear.webp",
+        "imagePath": "/media/vocabulary/images/pear.webp",
+        "imageUrl": "/media/vocabulary/images/pear.webp",
+        "alt": "pear noun card"
       },
       {
         "id": "second_verb_carry",
@@ -2488,15 +2488,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "pear",
+      "pen",
       "rat",
       "baked",
       "shiny"
     ],
     "answerOptions": [
       {
-        "value": "pear",
-        "label": "pear",
+        "value": "pen",
+        "label": "pen",
         "partOfSpeech": "noun"
       },
       {
@@ -2517,15 +2517,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_pear",
-        "word": "pear",
-        "label": "pear",
-        "value": "pear",
+        "id": "second_noun_pen",
+        "word": "pen",
+        "label": "pen",
+        "value": "pen",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/pear.webp",
-        "imagePath": "/media/vocabulary/images/pear.webp",
-        "imageUrl": "/media/vocabulary/images/pear.webp",
-        "alt": "pear noun card"
+        "image": "/images/child-mode/initial-sounds/pen.png",
+        "imagePath": "/images/child-mode/initial-sounds/pen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+        "alt": "pen noun card"
       },
       {
         "id": "second_noun_rat",
@@ -2598,7 +2598,7 @@ export const secondBlockSkillTopUpQuestions = [
       "seal",
       "builds",
       "silent",
-      "rat"
+      "rice"
     ],
     "answerOptions": [
       {
@@ -2617,8 +2617,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "rat",
-        "label": "rat",
+        "value": "rice",
+        "label": "rice",
         "partOfSpeech": "noun"
       }
     ],
@@ -2657,15 +2657,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "silent adjective card"
       },
       {
-        "id": "second_noun_rat",
-        "word": "rat",
-        "label": "rat",
-        "value": "rat",
+        "id": "second_noun_rice",
+        "word": "rice",
+        "label": "rice",
+        "value": "rice",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/rat.png",
-        "imagePath": "/images/child-mode/initial-sounds/rat.png",
-        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
-        "alt": "rat noun card"
+        "image": "/media/vocabulary/images/rice.webp",
+        "imagePath": "/media/vocabulary/images/rice.webp",
+        "imageUrl": "/media/vocabulary/images/rice.webp",
+        "alt": "rice noun card"
       }
     ],
     "correctAnswer": "silent",
@@ -2704,8 +2704,8 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "dance",
       "smelly",
-      "room",
-      "seal"
+      "seal",
+      "toast"
     ],
     "answerOptions": [
       {
@@ -2719,13 +2719,13 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "room",
-        "label": "room",
+        "value": "seal",
+        "label": "seal",
         "partOfSpeech": "noun"
       },
       {
-        "value": "seal",
-        "label": "seal",
+        "value": "toast",
+        "label": "toast",
         "partOfSpeech": "noun"
       }
     ],
@@ -2753,17 +2753,6 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "smelly adjective card"
       },
       {
-        "id": "second_noun_room",
-        "word": "room",
-        "label": "room",
-        "value": "room",
-        "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/room.webp",
-        "imagePath": "/media/vocabulary/images/room.webp",
-        "imageUrl": "/media/vocabulary/images/room.webp",
-        "alt": "room noun card"
-      },
-      {
         "id": "second_noun_seal",
         "word": "seal",
         "label": "seal",
@@ -2773,6 +2762,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/images/child-mode/initial-sounds/seal.png",
         "imageUrl": "/images/child-mode/initial-sounds/seal.png",
         "alt": "seal noun card"
+      },
+      {
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
       }
     ],
     "correctAnswer": "smelly",
@@ -2810,7 +2810,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "smooth",
-      "sky",
+      "sock",
       "toast",
       "fell"
     ],
@@ -2821,8 +2821,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "sky",
-        "label": "sky",
+        "value": "sock",
+        "label": "sock",
         "partOfSpeech": "noun"
       },
       {
@@ -2849,15 +2849,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "smooth adjective card"
       },
       {
-        "id": "second_noun_sky",
-        "word": "sky",
-        "label": "sky",
-        "value": "sky",
+        "id": "second_noun_sock",
+        "word": "sock",
+        "label": "sock",
+        "value": "sock",
         "partOfSpeech": "noun",
-        "image": "/images/assessment/long-vowels/sky.webp",
-        "imagePath": "/images/assessment/long-vowels/sky.webp",
-        "imageUrl": "/images/assessment/long-vowels/sky.webp",
-        "alt": "sky noun card"
+        "image": "/images/child-mode/initial-sounds/sock.png",
+        "imagePath": "/images/child-mode/initial-sounds/sock.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+        "alt": "sock noun card"
       },
       {
         "id": "second_noun_toast",
@@ -2918,8 +2918,8 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "builds",
       "sour",
-      "house",
-      "key"
+      "key",
+      "lake"
     ],
     "answerOptions": [
       {
@@ -2933,13 +2933,13 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "house",
-        "label": "house",
+        "value": "key",
+        "label": "key",
         "partOfSpeech": "noun"
       },
       {
-        "value": "key",
-        "label": "key",
+        "value": "lake",
+        "label": "lake",
         "partOfSpeech": "noun"
       }
     ],
@@ -2967,17 +2967,6 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sour adjective card"
       },
       {
-        "id": "second_noun_house",
-        "word": "house",
-        "label": "house",
-        "value": "house",
-        "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/house.png",
-        "imagePath": "/images/child-mode/initial-sounds/house.png",
-        "imageUrl": "/images/child-mode/initial-sounds/house.png",
-        "alt": "house noun card"
-      },
-      {
         "id": "second_noun_key",
         "word": "key",
         "label": "key",
@@ -2987,6 +2976,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/images/child-mode/initial-sounds/key.png",
         "imageUrl": "/images/child-mode/initial-sounds/key.png",
         "alt": "key noun card"
+      },
+      {
+        "id": "second_noun_lake",
+        "word": "lake",
+        "label": "lake",
+        "value": "lake",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/lake.webp",
+        "imagePath": "/images/assessment/long-vowels/lake.webp",
+        "imageUrl": "/images/assessment/long-vowels/lake.webp",
+        "alt": "lake noun card"
       }
     ],
     "correctAnswer": "sour",
@@ -3023,20 +3023,20 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "sun",
       "toast",
+      "wood",
       "jumped",
       "sparkly"
     ],
     "answerOptions": [
       {
-        "value": "sun",
-        "label": "sun",
+        "value": "toast",
+        "label": "toast",
         "partOfSpeech": "noun"
       },
       {
-        "value": "toast",
-        "label": "toast",
+        "value": "wood",
+        "label": "wood",
         "partOfSpeech": "noun"
       },
       {
@@ -3052,17 +3052,6 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_sun",
-        "word": "sun",
-        "label": "sun",
-        "value": "sun",
-        "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/sun.png",
-        "imagePath": "/images/child-mode/cvc/sun.png",
-        "imageUrl": "/images/child-mode/cvc/sun.png",
-        "alt": "sun noun card"
-      },
-      {
         "id": "second_noun_toast",
         "word": "toast",
         "label": "toast",
@@ -3072,6 +3061,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/media/vocabulary/images/toast.webp",
         "imageUrl": "/media/vocabulary/images/toast.webp",
         "alt": "toast noun card"
+      },
+      {
+        "id": "second_noun_wood",
+        "word": "wood",
+        "label": "wood",
+        "value": "wood",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/wood.webp",
+        "imagePath": "/media/vocabulary/images/wood.webp",
+        "imageUrl": "/media/vocabulary/images/wood.webp",
+        "alt": "wood noun card"
       },
       {
         "id": "second_verb_jumped",
@@ -3130,15 +3130,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "child",
+      "school",
       "observe",
       "square",
-      "word"
+      "child"
     ],
     "answerOptions": [
       {
-        "value": "child",
-        "label": "child",
+        "value": "school",
+        "label": "school",
         "partOfSpeech": "noun"
       },
       {
@@ -3152,22 +3152,22 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "word",
-        "label": "word",
+        "value": "child",
+        "label": "child",
         "partOfSpeech": "noun"
       }
     ],
     "imageCards": [
       {
-        "id": "second_noun_child",
-        "word": "child",
-        "label": "child",
-        "value": "child",
+        "id": "second_noun_school",
+        "word": "school",
+        "label": "school",
+        "value": "school",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-child.webp",
-        "imagePath": "/media/vocabulary/images/noun-child.webp",
-        "imageUrl": "/media/vocabulary/images/noun-child.webp",
-        "alt": "child noun card"
+        "image": "/media/vocabulary/images/noun-school.webp",
+        "imagePath": "/media/vocabulary/images/noun-school.webp",
+        "imageUrl": "/media/vocabulary/images/noun-school.webp",
+        "alt": "school noun card"
       },
       {
         "id": "second_verb_observe",
@@ -3192,15 +3192,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "square adjective card"
       },
       {
-        "id": "second_noun_word",
-        "word": "word",
-        "label": "word",
-        "value": "word",
+        "id": "second_noun_child",
+        "word": "child",
+        "label": "child",
+        "value": "child",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/word.webp",
-        "imagePath": "/media/vocabulary/images/word.webp",
-        "imageUrl": "/media/vocabulary/images/word.webp",
-        "alt": "word noun card"
+        "image": "/media/vocabulary/images/noun-child.webp",
+        "imagePath": "/media/vocabulary/images/noun-child.webp",
+        "imageUrl": "/media/vocabulary/images/noun-child.webp",
+        "alt": "child noun card"
       }
     ],
     "correctAnswer": "square",
@@ -3239,7 +3239,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "predict",
       "striped",
-      "air",
+      "ant",
       "baby"
     ],
     "answerOptions": [
@@ -3254,8 +3254,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "air",
-        "label": "air",
+        "value": "ant",
+        "label": "ant",
         "partOfSpeech": "noun"
       },
       {
@@ -3288,15 +3288,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "striped adjective card"
       },
       {
-        "id": "second_noun_air",
-        "word": "air",
-        "label": "air",
-        "value": "air",
+        "id": "second_noun_ant",
+        "word": "ant",
+        "label": "ant",
+        "value": "ant",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/air.webp",
-        "imagePath": "/media/vocabulary/images/air.webp",
-        "imageUrl": "/media/vocabulary/images/air.webp",
-        "alt": "air noun card"
+        "image": "/images/child-mode/initial-sounds/ant.png",
+        "imagePath": "/images/child-mode/initial-sounds/ant.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ant.png",
+        "alt": "ant noun card"
       },
       {
         "id": "second_noun_baby",
@@ -3345,7 +3345,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "strong",
-      "baby",
+      "beach",
       "cake",
       "reads"
     ],
@@ -3356,8 +3356,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "baby",
-        "label": "baby",
+        "value": "beach",
+        "label": "beach",
         "partOfSpeech": "noun"
       },
       {
@@ -3384,15 +3384,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "strong adjective card"
       },
       {
-        "id": "second_noun_baby",
-        "word": "baby",
-        "label": "baby",
-        "value": "baby",
+        "id": "second_noun_beach",
+        "word": "beach",
+        "label": "beach",
+        "value": "beach",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-baby.webp",
-        "imagePath": "/media/vocabulary/images/noun-baby.webp",
-        "imageUrl": "/media/vocabulary/images/noun-baby.webp",
-        "alt": "baby noun card"
+        "image": "/media/vocabulary/images/beach.webp",
+        "imagePath": "/media/vocabulary/images/beach.webp",
+        "imageUrl": "/media/vocabulary/images/beach.webp",
+        "alt": "beach noun card"
       },
       {
         "id": "second_noun_cake",
@@ -3451,15 +3451,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "girl",
+      "grape",
       "hand",
       "carry",
       "sweet"
     ],
     "answerOptions": [
       {
-        "value": "girl",
-        "label": "girl",
+        "value": "grape",
+        "label": "grape",
         "partOfSpeech": "noun"
       },
       {
@@ -3480,15 +3480,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_girl",
-        "word": "girl",
-        "label": "girl",
-        "value": "girl",
+        "id": "second_noun_grape",
+        "word": "grape",
+        "label": "grape",
+        "value": "grape",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/girl.png",
-        "imagePath": "/images/child-mode/initial-sounds/girl.png",
-        "imageUrl": "/images/child-mode/initial-sounds/girl.png",
-        "alt": "girl noun card"
+        "image": "/images/assessment/long-vowels/grape.webp",
+        "imagePath": "/images/assessment/long-vowels/grape.webp",
+        "imageUrl": "/images/assessment/long-vowels/grape.webp",
+        "alt": "grape noun card"
       },
       {
         "id": "second_noun_hand",
@@ -3558,15 +3558,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "belt",
+      "bird",
       "cake",
       "runs",
       "tiny"
     ],
     "answerOptions": [
       {
-        "value": "belt",
-        "label": "belt",
+        "value": "bird",
+        "label": "bird",
         "partOfSpeech": "noun"
       },
       {
@@ -3587,15 +3587,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_belt",
-        "word": "belt",
-        "label": "belt",
-        "value": "belt",
+        "id": "second_noun_bird",
+        "word": "bird",
+        "label": "bird",
+        "value": "bird",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/belt.webp",
-        "imagePath": "/media/vocabulary/images/belt.webp",
-        "imageUrl": "/media/vocabulary/images/belt.webp",
-        "alt": "belt noun card"
+        "image": "/images/child-mode/initial-sounds/bird.png",
+        "imagePath": "/images/child-mode/initial-sounds/bird.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bird.png",
+        "alt": "bird noun card"
       },
       {
         "id": "second_noun_cake",
@@ -3665,15 +3665,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "desk",
+      "dirt",
       "farm",
       "build",
       "warm"
     ],
     "answerOptions": [
       {
-        "value": "desk",
-        "label": "desk",
+        "value": "dirt",
+        "label": "dirt",
         "partOfSpeech": "noun"
       },
       {
@@ -3694,15 +3694,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_desk",
-        "word": "desk",
-        "label": "desk",
-        "value": "desk",
+        "id": "second_noun_dirt",
+        "word": "dirt",
+        "label": "dirt",
+        "value": "dirt",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/desk.png",
-        "imagePath": "/images/child-mode/initial-sounds/desk.png",
-        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
-        "alt": "desk noun card"
+        "image": "/media/vocabulary/images/dirt.webp",
+        "imagePath": "/media/vocabulary/images/dirt.webp",
+        "imageUrl": "/media/vocabulary/images/dirt.webp",
+        "alt": "dirt noun card"
       },
       {
         "id": "second_noun_farm",
@@ -3775,7 +3775,7 @@ export const secondBlockSkillTopUpQuestions = [
       "game",
       "drive",
       "young",
-      "farm"
+      "farmer"
     ],
     "answerOptions": [
       {
@@ -3794,8 +3794,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "farm",
-        "label": "farm",
+        "value": "farmer",
+        "label": "farmer",
         "partOfSpeech": "noun"
       }
     ],
@@ -3834,15 +3834,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "young adjective card"
       },
       {
-        "id": "second_noun_farm",
-        "word": "farm",
-        "label": "farm",
-        "value": "farm",
+        "id": "second_noun_farmer",
+        "word": "farmer",
+        "label": "farmer",
+        "value": "farmer",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/farm.png",
-        "imagePath": "/images/child-mode/initial-sounds/farm.png",
-        "imageUrl": "/images/child-mode/initial-sounds/farm.png",
-        "alt": "farm noun card"
+        "image": "/media/vocabulary/images/noun-farmer.webp",
+        "imagePath": "/media/vocabulary/images/noun-farmer.webp",
+        "imageUrl": "/media/vocabulary/images/noun-farmer.webp",
+        "alt": "farmer noun card"
       }
     ],
     "correctAnswer": "young",
@@ -9241,7 +9241,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "y completes cry."
   },
   {
-    "id": "second_nouns_l1_70_air",
+    "id": "second_nouns_l1_69_air",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -9265,10 +9265,117 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
+      "air",
+      "ate",
+      "baked",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "air",
+        "label": "air",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ate",
+        "label": "ate",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_air",
+        "word": "air",
+        "label": "air",
+        "value": "air",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/air.webp",
+        "imagePath": "/media/vocabulary/images/air.webp",
+        "imageUrl": "/media/vocabulary/images/air.webp",
+        "alt": "air noun card"
+      },
+      {
+        "id": "second_verb_ate",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ate.webp",
+        "imagePath": "/media/vocabulary/images/verb-ate.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
+        "alt": "ate verb card"
+      },
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "air",
+    "answer": "air",
+    "itemType": "grammar_noun",
+    "itemKey": "air",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "air is a noun."
+  },
+  {
+    "id": "second_nouns_l1_70_ant",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "ant",
+    "imagePath": "/images/child-mode/initial-sounds/ant.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ant.png",
+    "targetImage": "/images/child-mode/initial-sounds/ant.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/ant.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
       "blow",
       "compare",
       "old",
-      "air"
+      "ant"
     ],
     "answerOptions": [
       {
@@ -9287,8 +9394,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "air",
-        "label": "air",
+        "value": "ant",
+        "label": "ant",
         "partOfSpeech": "noun"
       }
     ],
@@ -9327,25 +9434,25 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "old adjective card"
       },
       {
-        "id": "second_noun_air",
-        "word": "air",
-        "label": "air",
-        "value": "air",
+        "id": "second_noun_ant",
+        "word": "ant",
+        "label": "ant",
+        "value": "ant",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/air.webp",
-        "imagePath": "/media/vocabulary/images/air.webp",
-        "imageUrl": "/media/vocabulary/images/air.webp",
-        "alt": "air noun card"
+        "image": "/images/child-mode/initial-sounds/ant.png",
+        "imagePath": "/images/child-mode/initial-sounds/ant.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ant.png",
+        "alt": "ant noun card"
       }
     ],
-    "correctAnswer": "air",
-    "answer": "air",
+    "correctAnswer": "ant",
+    "answer": "ant",
     "itemType": "grammar_noun",
-    "itemKey": "air",
+    "itemKey": "ant",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "air is a noun."
+    "explanation": "ant is a noun."
   },
   {
     "id": "second_nouns_l1_10_ape",
@@ -10846,7 +10953,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "cat is a noun."
   },
   {
-    "id": "second_nouns_l1_68_child",
+    "id": "second_nouns_l1_67_child",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -10870,15 +10977,20 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "square",
+      "share",
+      "smelly",
       "child",
-      "write",
-      "carry"
+      "hide"
     ],
     "answerOptions": [
       {
-        "value": "square",
-        "label": "square",
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "smelly",
+        "label": "smelly",
         "partOfSpeech": "adjective"
       },
       {
@@ -10887,27 +10999,33 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "write",
-        "label": "write",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "carry",
-        "label": "carry",
+        "value": "hide",
+        "label": "hide",
         "partOfSpeech": "verb"
       }
     ],
     "imageCards": [
       {
-        "id": "second_adjective_square",
-        "word": "square",
-        "label": "square",
-        "value": "square",
+        "id": "second_verb_share",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
         "partOfSpeech": "adjective",
-        "image": "/media/vocabulary/images/adjective-square.webp",
-        "imagePath": "/media/vocabulary/images/adjective-square.webp",
-        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
-        "alt": "square adjective card"
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
       },
       {
         "id": "second_noun_child",
@@ -10921,26 +11039,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "child noun card"
       },
       {
-        "id": "second_verb_write",
-        "word": "write",
-        "label": "write",
-        "value": "write",
+        "id": "second_verb_hide",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-write.webp",
-        "imagePath": "/media/vocabulary/images/verb-write.webp",
-        "imageUrl": "/media/vocabulary/images/verb-write.webp",
-        "alt": "write verb card"
-      },
-      {
-        "id": "second_verb_carry",
-        "word": "carry",
-        "label": "carry",
-        "value": "carry",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-carry.webp",
-        "imagePath": "/media/vocabulary/images/verb-carry.webp",
-        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
-        "alt": "carry verb card"
+        "image": "/media/vocabulary/images/verb-hide.webp",
+        "imagePath": "/media/vocabulary/images/verb-hide.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+        "alt": "hide verb card"
       }
     ],
     "correctAnswer": "child",
@@ -14484,7 +14591,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "museum is a noun."
   },
   {
-    "id": "second_nouns_l1_51_nut",
+    "id": "second_nouns_l1_51_pear",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -14497,11 +14604,11 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "nut",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
-    "imageUrl": "/images/child-mode/initial-sounds/nut.png",
-    "targetImage": "/images/child-mode/initial-sounds/nut.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/nut.png",
+    "targetWord": "pear",
+    "imagePath": "/media/vocabulary/images/pear.webp",
+    "imageUrl": "/media/vocabulary/images/pear.webp",
+    "targetImage": "/media/vocabulary/images/pear.webp",
+    "targetImagePath": "/media/vocabulary/images/pear.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -14510,7 +14617,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "carry",
       "fierce",
-      "nut",
+      "pear",
       "write"
     ],
     "answerOptions": [
@@ -14525,8 +14632,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "nut",
-        "label": "nut",
+        "value": "pear",
+        "label": "pear",
         "partOfSpeech": "noun"
       },
       {
@@ -14559,15 +14666,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "fierce adjective card"
       },
       {
-        "id": "second_noun_nut",
-        "word": "nut",
-        "label": "nut",
-        "value": "nut",
+        "id": "second_noun_pear",
+        "word": "pear",
+        "label": "pear",
+        "value": "pear",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/nut.png",
-        "imagePath": "/images/child-mode/initial-sounds/nut.png",
-        "imageUrl": "/images/child-mode/initial-sounds/nut.png",
-        "alt": "nut noun card"
+        "image": "/media/vocabulary/images/pear.webp",
+        "imagePath": "/media/vocabulary/images/pear.webp",
+        "imageUrl": "/media/vocabulary/images/pear.webp",
+        "alt": "pear noun card"
       },
       {
         "id": "second_verb_write",
@@ -14581,17 +14688,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "write verb card"
       }
     ],
-    "correctAnswer": "nut",
-    "answer": "nut",
+    "correctAnswer": "pear",
+    "answer": "pear",
     "itemType": "grammar_noun",
-    "itemKey": "nut",
+    "itemKey": "pear",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "nut is a noun."
+    "explanation": "pear is a noun."
   },
   {
-    "id": "second_nouns_l1_52_pear",
+    "id": "second_nouns_l1_52_pen",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -14604,11 +14711,11 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "pear",
-    "imagePath": "/media/vocabulary/images/pear.webp",
-    "imageUrl": "/media/vocabulary/images/pear.webp",
-    "targetImage": "/media/vocabulary/images/pear.webp",
-    "targetImagePath": "/media/vocabulary/images/pear.webp",
+    "targetWord": "pen",
+    "imagePath": "/images/child-mode/initial-sounds/pen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+    "targetImage": "/images/child-mode/initial-sounds/pen.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/pen.png",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -14616,7 +14723,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "huge",
-      "pear",
+      "pen",
       "ate",
       "baked"
     ],
@@ -14627,8 +14734,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "pear",
-        "label": "pear",
+        "value": "pen",
+        "label": "pen",
         "partOfSpeech": "noun"
       },
       {
@@ -14655,15 +14762,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "huge adjective card"
       },
       {
-        "id": "second_noun_pear",
-        "word": "pear",
-        "label": "pear",
-        "value": "pear",
+        "id": "second_noun_pen",
+        "word": "pen",
+        "label": "pen",
+        "value": "pen",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/pear.webp",
-        "imagePath": "/media/vocabulary/images/pear.webp",
-        "imageUrl": "/media/vocabulary/images/pear.webp",
-        "alt": "pear noun card"
+        "image": "/images/child-mode/initial-sounds/pen.png",
+        "imagePath": "/images/child-mode/initial-sounds/pen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+        "alt": "pen noun card"
       },
       {
         "id": "second_verb_ate",
@@ -14688,17 +14795,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "baked verb card"
       }
     ],
-    "correctAnswer": "pear",
-    "answer": "pear",
+    "correctAnswer": "pen",
+    "answer": "pen",
     "itemType": "grammar_noun",
-    "itemKey": "pear",
+    "itemKey": "pen",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "pear is a noun."
+    "explanation": "pen is a noun."
   },
   {
-    "id": "second_nouns_l1_53_pen",
+    "id": "second_nouns_l1_53_pig",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -14711,26 +14818,26 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "pen",
-    "imagePath": "/images/child-mode/initial-sounds/pen.png",
-    "imageUrl": "/images/child-mode/initial-sounds/pen.png",
-    "targetImage": "/images/child-mode/initial-sounds/pen.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/pen.png",
+    "targetWord": "pig",
+    "imagePath": "/images/child-mode/initial-sounds/pig.png",
+    "imageUrl": "/images/child-mode/initial-sounds/pig.png",
+    "targetImage": "/images/child-mode/initial-sounds/pig.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/pig.png",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "pen",
+      "pig",
       "blow",
       "compare",
       "prickly"
     ],
     "answerOptions": [
       {
-        "value": "pen",
-        "label": "pen",
+        "value": "pig",
+        "label": "pig",
         "partOfSpeech": "noun"
       },
       {
@@ -14751,15 +14858,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_pen",
-        "word": "pen",
-        "label": "pen",
-        "value": "pen",
+        "id": "second_noun_pig",
+        "word": "pig",
+        "label": "pig",
+        "value": "pig",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/pen.png",
-        "imagePath": "/images/child-mode/initial-sounds/pen.png",
-        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
-        "alt": "pen noun card"
+        "image": "/images/child-mode/initial-sounds/pig.png",
+        "imagePath": "/images/child-mode/initial-sounds/pig.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pig.png",
+        "alt": "pig noun card"
       },
       {
         "id": "second_verb_blow",
@@ -14793,113 +14900,6 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
         "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
         "alt": "prickly adjective card"
-      }
-    ],
-    "correctAnswer": "pen",
-    "answer": "pen",
-    "itemType": "grammar_noun",
-    "itemKey": "pen",
-    "partOfSpeech": "noun",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "pen is a noun."
-  },
-  {
-    "id": "second_nouns_l1_54_pig",
-    "grade": "K-3",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "visual_card_choice",
-    "templateType": "GRAMMAR_IMAGE_CHOICE",
-    "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "pig",
-    "imagePath": "/images/child-mode/initial-sounds/pig.png",
-    "imageUrl": "/images/child-mode/initial-sounds/pig.png",
-    "targetImage": "/images/child-mode/initial-sounds/pig.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/pig.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Tap the picture that shows a noun.",
-    "question": "Tap the picture that shows a noun.",
-    "choices": [
-      "cried",
-      "dance",
-      "sharp",
-      "pig"
-    ],
-    "answerOptions": [
-      {
-        "value": "cried",
-        "label": "cried",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "dance",
-        "label": "dance",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "sharp",
-        "label": "sharp",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "value": "pig",
-        "label": "pig",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "imageCards": [
-      {
-        "id": "second_verb_cried",
-        "word": "cried",
-        "label": "cried",
-        "value": "cried",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-cried.webp",
-        "imagePath": "/media/vocabulary/images/verb-cried.webp",
-        "imageUrl": "/media/vocabulary/images/verb-cried.webp",
-        "alt": "cried verb card"
-      },
-      {
-        "id": "second_verb_dance",
-        "word": "dance",
-        "label": "dance",
-        "value": "dance",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-dance.webp",
-        "imagePath": "/media/vocabulary/images/verb-dance.webp",
-        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
-        "alt": "dance verb card"
-      },
-      {
-        "id": "second_adjective_sharp",
-        "word": "sharp",
-        "label": "sharp",
-        "value": "sharp",
-        "partOfSpeech": "adjective",
-        "image": "/media/vocabulary/images/adjective-sharp.webp",
-        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
-        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
-        "alt": "sharp adjective card"
-      },
-      {
-        "id": "second_noun_pig",
-        "word": "pig",
-        "label": "pig",
-        "value": "pig",
-        "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/pig.png",
-        "imagePath": "/images/child-mode/initial-sounds/pig.png",
-        "imageUrl": "/images/child-mode/initial-sounds/pig.png",
-        "alt": "pig noun card"
       }
     ],
     "correctAnswer": "pig",
@@ -15019,7 +15019,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "pilot is a noun."
   },
   {
-    "id": "second_nouns_l1_55_rat",
+    "id": "second_nouns_l1_54_rat",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -15043,9 +15043,116 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
+      "cried",
+      "dance",
+      "sharp",
+      "rat"
+    ],
+    "answerOptions": [
+      {
+        "value": "cried",
+        "label": "cried",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "dance",
+        "label": "dance",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sharp",
+        "label": "sharp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "rat",
+        "label": "rat",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_cried",
+        "word": "cried",
+        "label": "cried",
+        "value": "cried",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cried.webp",
+        "imagePath": "/media/vocabulary/images/verb-cried.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cried.webp",
+        "alt": "cried verb card"
+      },
+      {
+        "id": "second_verb_dance",
+        "word": "dance",
+        "label": "dance",
+        "value": "dance",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_rat",
+        "word": "rat",
+        "label": "rat",
+        "value": "rat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/rat.png",
+        "imagePath": "/images/child-mode/initial-sounds/rat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+        "alt": "rat noun card"
+      }
+    ],
+    "correctAnswer": "rat",
+    "answer": "rat",
+    "itemType": "grammar_noun",
+    "itemKey": "rat",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "rat is a noun."
+  },
+  {
+    "id": "second_nouns_l1_55_rice",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "rice",
+    "imagePath": "/media/vocabulary/images/rice.webp",
+    "imageUrl": "/media/vocabulary/images/rice.webp",
+    "targetImage": "/media/vocabulary/images/rice.webp",
+    "targetImagePath": "/media/vocabulary/images/rice.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
       "fell",
       "smelly",
-      "rat",
+      "rice",
       "explain"
     ],
     "answerOptions": [
@@ -15060,8 +15167,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "rat",
-        "label": "rat",
+        "value": "rice",
+        "label": "rice",
         "partOfSpeech": "noun"
       },
       {
@@ -15094,15 +15201,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "smelly adjective card"
       },
       {
-        "id": "second_noun_rat",
-        "word": "rat",
-        "label": "rat",
-        "value": "rat",
+        "id": "second_noun_rice",
+        "word": "rice",
+        "label": "rice",
+        "value": "rice",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/rat.png",
-        "imagePath": "/images/child-mode/initial-sounds/rat.png",
-        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
-        "alt": "rat noun card"
+        "image": "/media/vocabulary/images/rice.webp",
+        "imagePath": "/media/vocabulary/images/rice.webp",
+        "imageUrl": "/media/vocabulary/images/rice.webp",
+        "alt": "rice noun card"
       },
       {
         "id": "second_verb_explain",
@@ -15116,17 +15223,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "explain verb card"
       }
     ],
-    "correctAnswer": "rat",
-    "answer": "rat",
+    "correctAnswer": "rice",
+    "answer": "rice",
     "itemType": "grammar_noun",
-    "itemKey": "rat",
+    "itemKey": "rice",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "rat is a noun."
+    "explanation": "rice is a noun."
   },
   {
-    "id": "second_nouns_l1_56_rice",
+    "id": "second_nouns_l1_56_road",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -15139,11 +15246,11 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "rice",
-    "imagePath": "/media/vocabulary/images/rice.webp",
-    "imageUrl": "/media/vocabulary/images/rice.webp",
-    "targetImage": "/media/vocabulary/images/rice.webp",
-    "targetImagePath": "/media/vocabulary/images/rice.webp",
+    "targetWord": "road",
+    "imagePath": "/media/vocabulary/images/road.webp",
+    "imageUrl": "/media/vocabulary/images/road.webp",
+    "targetImage": "/media/vocabulary/images/road.webp",
+    "targetImagePath": "/media/vocabulary/images/road.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -15151,7 +15258,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "square",
-      "rice",
+      "road",
       "hung",
       "jumped"
     ],
@@ -15162,8 +15269,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "rice",
-        "label": "rice",
+        "value": "road",
+        "label": "road",
         "partOfSpeech": "noun"
       },
       {
@@ -15190,15 +15297,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "square adjective card"
       },
       {
-        "id": "second_noun_rice",
-        "word": "rice",
-        "label": "rice",
-        "value": "rice",
+        "id": "second_noun_road",
+        "word": "road",
+        "label": "road",
+        "value": "road",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/rice.webp",
-        "imagePath": "/media/vocabulary/images/rice.webp",
-        "imageUrl": "/media/vocabulary/images/rice.webp",
-        "alt": "rice noun card"
+        "image": "/media/vocabulary/images/road.webp",
+        "imagePath": "/media/vocabulary/images/road.webp",
+        "imageUrl": "/media/vocabulary/images/road.webp",
+        "alt": "road noun card"
       },
       {
         "id": "second_verb_hung",
@@ -15223,17 +15330,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "jumped verb card"
       }
     ],
-    "correctAnswer": "rice",
-    "answer": "rice",
+    "correctAnswer": "road",
+    "answer": "road",
     "itemType": "grammar_noun",
-    "itemKey": "rice",
+    "itemKey": "road",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "rice is a noun."
+    "explanation": "road is a noun."
   },
   {
-    "id": "second_nouns_l1_57_road",
+    "id": "second_nouns_l1_57_room",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -15246,26 +15353,26 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "road",
-    "imagePath": "/media/vocabulary/images/road.webp",
-    "imageUrl": "/media/vocabulary/images/road.webp",
-    "targetImage": "/media/vocabulary/images/road.webp",
-    "targetImagePath": "/media/vocabulary/images/road.webp",
+    "targetWord": "room",
+    "imagePath": "/media/vocabulary/images/room.webp",
+    "imageUrl": "/media/vocabulary/images/room.webp",
+    "targetImage": "/media/vocabulary/images/room.webp",
+    "targetImagePath": "/media/vocabulary/images/room.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "road",
+      "room",
       "melt",
       "observe",
       "tiny"
     ],
     "answerOptions": [
       {
-        "value": "road",
-        "label": "road",
+        "value": "room",
+        "label": "room",
         "partOfSpeech": "noun"
       },
       {
@@ -15286,15 +15393,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_road",
-        "word": "road",
-        "label": "road",
-        "value": "road",
+        "id": "second_noun_room",
+        "word": "room",
+        "label": "room",
+        "value": "room",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/road.webp",
-        "imagePath": "/media/vocabulary/images/road.webp",
-        "imageUrl": "/media/vocabulary/images/road.webp",
-        "alt": "road noun card"
+        "image": "/media/vocabulary/images/room.webp",
+        "imagePath": "/media/vocabulary/images/room.webp",
+        "imageUrl": "/media/vocabulary/images/room.webp",
+        "alt": "room noun card"
       },
       {
         "id": "second_verb_melt",
@@ -15330,17 +15437,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "tiny adjective card"
       }
     ],
-    "correctAnswer": "road",
-    "answer": "road",
+    "correctAnswer": "room",
+    "answer": "room",
     "itemType": "grammar_noun",
-    "itemKey": "road",
+    "itemKey": "room",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "road is a noun."
+    "explanation": "room is a noun."
   },
   {
-    "id": "second_nouns_l1_58_room",
+    "id": "second_nouns_l1_68_school",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -15353,11 +15460,118 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "room",
-    "imagePath": "/media/vocabulary/images/room.webp",
-    "imageUrl": "/media/vocabulary/images/room.webp",
-    "targetImage": "/media/vocabulary/images/room.webp",
-    "targetImagePath": "/media/vocabulary/images/room.webp",
+    "targetWord": "school",
+    "imagePath": "/media/vocabulary/images/noun-school.webp",
+    "imageUrl": "/media/vocabulary/images/noun-school.webp",
+    "targetImage": "/media/vocabulary/images/noun-school.webp",
+    "targetImagePath": "/media/vocabulary/images/noun-school.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "square",
+      "school",
+      "write",
+      "carry"
+    ],
+    "answerOptions": [
+      {
+        "value": "square",
+        "label": "square",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "school",
+        "label": "school",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "write",
+        "label": "write",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_school",
+        "word": "school",
+        "label": "school",
+        "value": "school",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-school.webp",
+        "imagePath": "/media/vocabulary/images/noun-school.webp",
+        "imageUrl": "/media/vocabulary/images/noun-school.webp",
+        "alt": "school noun card"
+      },
+      {
+        "id": "second_verb_write",
+        "word": "write",
+        "label": "write",
+        "value": "write",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-write.webp",
+        "imagePath": "/media/vocabulary/images/verb-write.webp",
+        "imageUrl": "/media/vocabulary/images/verb-write.webp",
+        "alt": "write verb card"
+      },
+      {
+        "id": "second_verb_carry",
+        "word": "carry",
+        "label": "carry",
+        "value": "carry",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
+      }
+    ],
+    "correctAnswer": "school",
+    "answer": "school",
+    "itemType": "grammar_noun",
+    "itemKey": "school",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "school is a noun."
+  },
+  {
+    "id": "second_nouns_l1_58_seal",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "seal",
+    "imagePath": "/images/child-mode/initial-sounds/seal.png",
+    "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+    "targetImage": "/images/child-mode/initial-sounds/seal.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/seal.png",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -15367,7 +15581,7 @@ export const secondBlockSkillTopUpQuestions = [
       "pour",
       "raised",
       "old",
-      "room"
+      "seal"
     ],
     "answerOptions": [
       {
@@ -15386,8 +15600,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "room",
-        "label": "room",
+        "value": "seal",
+        "label": "seal",
         "partOfSpeech": "noun"
       }
     ],
@@ -15426,28 +15640,28 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "old adjective card"
       },
       {
-        "id": "second_noun_room",
-        "word": "room",
-        "label": "room",
-        "value": "room",
+        "id": "second_noun_seal",
+        "word": "seal",
+        "label": "seal",
+        "value": "seal",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/room.webp",
-        "imagePath": "/media/vocabulary/images/room.webp",
-        "imageUrl": "/media/vocabulary/images/room.webp",
-        "alt": "room noun card"
+        "image": "/images/child-mode/initial-sounds/seal.png",
+        "imagePath": "/images/child-mode/initial-sounds/seal.png",
+        "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+        "alt": "seal noun card"
       }
     ],
-    "correctAnswer": "room",
-    "answer": "room",
+    "correctAnswer": "seal",
+    "answer": "seal",
     "itemType": "grammar_noun",
-    "itemKey": "room",
+    "itemKey": "seal",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "room is a noun."
+    "explanation": "seal is a noun."
   },
   {
-    "id": "second_nouns_l1_69_school",
+    "id": "second_nouns_l1_59_shoe",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -15460,118 +15674,11 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "school",
-    "imagePath": "/media/vocabulary/images/noun-school.webp",
-    "imageUrl": "/media/vocabulary/images/noun-school.webp",
-    "targetImage": "/media/vocabulary/images/noun-school.webp",
-    "targetImagePath": "/media/vocabulary/images/noun-school.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Tap the picture that shows a noun.",
-    "question": "Tap the picture that shows a noun.",
-    "choices": [
-      "school",
-      "ate",
-      "baked",
-      "tiny"
-    ],
-    "answerOptions": [
-      {
-        "value": "school",
-        "label": "school",
-        "partOfSpeech": "noun"
-      },
-      {
-        "value": "ate",
-        "label": "ate",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "baked",
-        "label": "baked",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "tiny",
-        "label": "tiny",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "imageCards": [
-      {
-        "id": "second_noun_school",
-        "word": "school",
-        "label": "school",
-        "value": "school",
-        "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-school.webp",
-        "imagePath": "/media/vocabulary/images/noun-school.webp",
-        "imageUrl": "/media/vocabulary/images/noun-school.webp",
-        "alt": "school noun card"
-      },
-      {
-        "id": "second_verb_ate",
-        "word": "ate",
-        "label": "ate",
-        "value": "ate",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-ate.webp",
-        "imagePath": "/media/vocabulary/images/verb-ate.webp",
-        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
-        "alt": "ate verb card"
-      },
-      {
-        "id": "second_verb_baked",
-        "word": "baked",
-        "label": "baked",
-        "value": "baked",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-baked.webp",
-        "imagePath": "/media/vocabulary/images/verb-baked.webp",
-        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
-        "alt": "baked verb card"
-      },
-      {
-        "id": "second_adjective_tiny",
-        "word": "tiny",
-        "label": "tiny",
-        "value": "tiny",
-        "partOfSpeech": "adjective",
-        "image": "/media/vocabulary/images/adjective-tiny.webp",
-        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
-        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
-        "alt": "tiny adjective card"
-      }
-    ],
-    "correctAnswer": "school",
-    "answer": "school",
-    "itemType": "grammar_noun",
-    "itemKey": "school",
-    "partOfSpeech": "noun",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "school is a noun."
-  },
-  {
-    "id": "second_nouns_l1_59_seal",
-    "grade": "K-3",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "visual_card_choice",
-    "templateType": "GRAMMAR_IMAGE_CHOICE",
-    "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "seal",
-    "imagePath": "/images/child-mode/initial-sounds/seal.png",
-    "imageUrl": "/images/child-mode/initial-sounds/seal.png",
-    "targetImage": "/images/child-mode/initial-sounds/seal.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/seal.png",
+    "targetWord": "shoe",
+    "imagePath": "/images/child-mode/initial-sounds/shoe.png",
+    "imageUrl": "/images/child-mode/initial-sounds/shoe.png",
+    "targetImage": "/images/child-mode/initial-sounds/shoe.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/shoe.png",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -15580,7 +15687,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "sang",
       "brown",
-      "seal",
+      "shoe",
       "ran"
     ],
     "answerOptions": [
@@ -15595,8 +15702,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "seal",
-        "label": "seal",
+        "value": "shoe",
+        "label": "shoe",
         "partOfSpeech": "noun"
       },
       {
@@ -15629,15 +15736,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "brown adjective card"
       },
       {
-        "id": "second_noun_seal",
-        "word": "seal",
-        "label": "seal",
-        "value": "seal",
+        "id": "second_noun_shoe",
+        "word": "shoe",
+        "label": "shoe",
+        "value": "shoe",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/seal.png",
-        "imagePath": "/images/child-mode/initial-sounds/seal.png",
-        "imageUrl": "/images/child-mode/initial-sounds/seal.png",
-        "alt": "seal noun card"
+        "image": "/images/child-mode/initial-sounds/shoe.png",
+        "imagePath": "/images/child-mode/initial-sounds/shoe.png",
+        "imageUrl": "/images/child-mode/initial-sounds/shoe.png",
+        "alt": "shoe noun card"
       },
       {
         "id": "second_verb_ran",
@@ -15651,17 +15758,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "ran verb card"
       }
     ],
-    "correctAnswer": "seal",
-    "answer": "seal",
+    "correctAnswer": "shoe",
+    "answer": "shoe",
     "itemType": "grammar_noun",
-    "itemKey": "seal",
+    "itemKey": "shoe",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "seal is a noun."
+    "explanation": "shoe is a noun."
   },
   {
-    "id": "second_nouns_l1_60_shoe",
+    "id": "second_nouns_l1_60_sky",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -15674,11 +15781,11 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "shoe",
-    "imagePath": "/images/child-mode/initial-sounds/shoe.png",
-    "imageUrl": "/images/child-mode/initial-sounds/shoe.png",
-    "targetImage": "/images/child-mode/initial-sounds/shoe.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/shoe.png",
+    "targetWord": "sky",
+    "imagePath": "/images/assessment/long-vowels/sky.webp",
+    "imageUrl": "/images/assessment/long-vowels/sky.webp",
+    "targetImage": "/images/assessment/long-vowels/sky.webp",
+    "targetImagePath": "/images/assessment/long-vowels/sky.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -15686,7 +15793,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "purple",
-      "shoe",
+      "sky",
       "rises",
       "sang"
     ],
@@ -15697,8 +15804,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "shoe",
-        "label": "shoe",
+        "value": "sky",
+        "label": "sky",
         "partOfSpeech": "noun"
       },
       {
@@ -15725,15 +15832,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "purple adjective card"
       },
       {
-        "id": "second_noun_shoe",
-        "word": "shoe",
-        "label": "shoe",
-        "value": "shoe",
+        "id": "second_noun_sky",
+        "word": "sky",
+        "label": "sky",
+        "value": "sky",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/shoe.png",
-        "imagePath": "/images/child-mode/initial-sounds/shoe.png",
-        "imageUrl": "/images/child-mode/initial-sounds/shoe.png",
-        "alt": "shoe noun card"
+        "image": "/images/assessment/long-vowels/sky.webp",
+        "imagePath": "/images/assessment/long-vowels/sky.webp",
+        "imageUrl": "/images/assessment/long-vowels/sky.webp",
+        "alt": "sky noun card"
       },
       {
         "id": "second_verb_rises",
@@ -15758,17 +15865,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sang verb card"
       }
     ],
-    "correctAnswer": "shoe",
-    "answer": "shoe",
+    "correctAnswer": "sky",
+    "answer": "sky",
     "itemType": "grammar_noun",
-    "itemKey": "shoe",
+    "itemKey": "sky",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "shoe is a noun."
+    "explanation": "sky is a noun."
   },
   {
-    "id": "second_nouns_l1_61_sky",
+    "id": "second_nouns_l1_61_sock",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -15781,26 +15888,26 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "sky",
-    "imagePath": "/images/assessment/long-vowels/sky.webp",
-    "imageUrl": "/images/assessment/long-vowels/sky.webp",
-    "targetImage": "/images/assessment/long-vowels/sky.webp",
-    "targetImagePath": "/images/assessment/long-vowels/sky.webp",
+    "targetWord": "sock",
+    "imagePath": "/images/child-mode/initial-sounds/sock.png",
+    "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+    "targetImage": "/images/child-mode/initial-sounds/sock.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/sock.png",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "sky",
+      "sock",
       "sat",
       "walked",
       "bumpy"
     ],
     "answerOptions": [
       {
-        "value": "sky",
-        "label": "sky",
+        "value": "sock",
+        "label": "sock",
         "partOfSpeech": "noun"
       },
       {
@@ -15821,15 +15928,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_sky",
-        "word": "sky",
-        "label": "sky",
-        "value": "sky",
+        "id": "second_noun_sock",
+        "word": "sock",
+        "label": "sock",
+        "value": "sock",
         "partOfSpeech": "noun",
-        "image": "/images/assessment/long-vowels/sky.webp",
-        "imagePath": "/images/assessment/long-vowels/sky.webp",
-        "imageUrl": "/images/assessment/long-vowels/sky.webp",
-        "alt": "sky noun card"
+        "image": "/images/child-mode/initial-sounds/sock.png",
+        "imagePath": "/images/child-mode/initial-sounds/sock.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+        "alt": "sock noun card"
       },
       {
         "id": "second_verb_sat",
@@ -15863,113 +15970,6 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
         "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
         "alt": "bumpy adjective card"
-      }
-    ],
-    "correctAnswer": "sky",
-    "answer": "sky",
-    "itemType": "grammar_noun",
-    "itemKey": "sky",
-    "partOfSpeech": "noun",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "sky is a noun."
-  },
-  {
-    "id": "second_nouns_l1_62_sock",
-    "grade": "K-3",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "visual_card_choice",
-    "templateType": "GRAMMAR_IMAGE_CHOICE",
-    "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "sock",
-    "imagePath": "/images/child-mode/initial-sounds/sock.png",
-    "imageUrl": "/images/child-mode/initial-sounds/sock.png",
-    "targetImage": "/images/child-mode/initial-sounds/sock.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/sock.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Tap the picture that shows a noun.",
-    "question": "Tap the picture that shows a noun.",
-    "choices": [
-      "swam",
-      "walked",
-      "cute",
-      "sock"
-    ],
-    "answerOptions": [
-      {
-        "value": "swam",
-        "label": "swam",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "walked",
-        "label": "walked",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "cute",
-        "label": "cute",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "value": "sock",
-        "label": "sock",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "imageCards": [
-      {
-        "id": "second_verb_swam",
-        "word": "swam",
-        "label": "swam",
-        "value": "swam",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-swam.webp",
-        "imagePath": "/media/vocabulary/images/verb-swam.webp",
-        "imageUrl": "/media/vocabulary/images/verb-swam.webp",
-        "alt": "swam verb card"
-      },
-      {
-        "id": "second_verb_walked",
-        "word": "walked",
-        "label": "walked",
-        "value": "walked",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-walked.webp",
-        "imagePath": "/media/vocabulary/images/verb-walked.webp",
-        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
-        "alt": "walked verb card"
-      },
-      {
-        "id": "second_adjective_cute",
-        "word": "cute",
-        "label": "cute",
-        "value": "cute",
-        "partOfSpeech": "adjective",
-        "image": "/media/vocabulary/images/adjective-cute.webp",
-        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
-        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
-        "alt": "cute adjective card"
-      },
-      {
-        "id": "second_noun_sock",
-        "word": "sock",
-        "label": "sock",
-        "value": "sock",
-        "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/sock.png",
-        "imagePath": "/images/child-mode/initial-sounds/sock.png",
-        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
-        "alt": "sock noun card"
       }
     ],
     "correctAnswer": "sock",
@@ -16089,7 +16089,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "station is a noun."
   },
   {
-    "id": "second_nouns_l1_63_stream",
+    "id": "second_nouns_l1_62_stream",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -16113,9 +16113,116 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
+      "swam",
+      "walked",
+      "cute",
+      "stream"
+    ],
+    "answerOptions": [
+      {
+        "value": "swam",
+        "label": "swam",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "walked",
+        "label": "walked",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "stream",
+        "label": "stream",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_swam",
+        "word": "swam",
+        "label": "swam",
+        "value": "swam",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swam.webp",
+        "imagePath": "/media/vocabulary/images/verb-swam.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swam.webp",
+        "alt": "swam verb card"
+      },
+      {
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_stream",
+        "word": "stream",
+        "label": "stream",
+        "value": "stream",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/stream.webp",
+        "imagePath": "/media/vocabulary/images/stream.webp",
+        "imageUrl": "/media/vocabulary/images/stream.webp",
+        "alt": "stream noun card"
+      }
+    ],
+    "correctAnswer": "stream",
+    "answer": "stream",
+    "itemType": "grammar_noun",
+    "itemKey": "stream",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "stream is a noun."
+  },
+  {
+    "id": "second_nouns_l1_63_sun",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sun",
+    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/cvc/sun.png",
+    "targetImage": "/images/child-mode/cvc/sun.png",
+    "targetImagePath": "/images/child-mode/cvc/sun.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
       "cook",
       "fierce",
-      "stream",
+      "sun",
       "galloped"
     ],
     "answerOptions": [
@@ -16130,8 +16237,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "stream",
-        "label": "stream",
+        "value": "sun",
+        "label": "sun",
         "partOfSpeech": "noun"
       },
       {
@@ -16164,102 +16271,6 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "fierce adjective card"
       },
       {
-        "id": "second_noun_stream",
-        "word": "stream",
-        "label": "stream",
-        "value": "stream",
-        "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/stream.webp",
-        "imagePath": "/media/vocabulary/images/stream.webp",
-        "imageUrl": "/media/vocabulary/images/stream.webp",
-        "alt": "stream noun card"
-      },
-      {
-        "id": "second_verb_galloped",
-        "word": "galloped",
-        "label": "galloped",
-        "value": "galloped",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-galloped.webp",
-        "imagePath": "/media/vocabulary/images/verb-galloped.webp",
-        "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
-        "alt": "galloped verb card"
-      }
-    ],
-    "correctAnswer": "stream",
-    "answer": "stream",
-    "itemType": "grammar_noun",
-    "itemKey": "stream",
-    "partOfSpeech": "noun",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "stream is a noun."
-  },
-  {
-    "id": "second_nouns_l1_64_sun",
-    "grade": "K-3",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "visual_card_choice",
-    "templateType": "GRAMMAR_IMAGE_CHOICE",
-    "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "sun",
-    "imagePath": "/images/child-mode/cvc/sun.png",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "targetImage": "/images/child-mode/cvc/sun.png",
-    "targetImagePath": "/images/child-mode/cvc/sun.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Tap the picture that shows a noun.",
-    "question": "Tap the picture that shows a noun.",
-    "choices": [
-      "huge",
-      "sun",
-      "bake",
-      "catch"
-    ],
-    "answerOptions": [
-      {
-        "value": "huge",
-        "label": "huge",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "value": "sun",
-        "label": "sun",
-        "partOfSpeech": "noun"
-      },
-      {
-        "value": "bake",
-        "label": "bake",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "catch",
-        "label": "catch",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "imageCards": [
-      {
-        "id": "second_adjective_huge",
-        "word": "huge",
-        "label": "huge",
-        "value": "huge",
-        "partOfSpeech": "adjective",
-        "image": "/media/vocabulary/images/adjective-huge.webp",
-        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
-        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
-        "alt": "huge adjective card"
-      },
-      {
         "id": "second_noun_sun",
         "word": "sun",
         "label": "sun",
@@ -16271,26 +16282,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sun noun card"
       },
       {
-        "id": "second_verb_bake",
-        "word": "bake",
-        "label": "bake",
-        "value": "bake",
+        "id": "second_verb_galloped",
+        "word": "galloped",
+        "label": "galloped",
+        "value": "galloped",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-bake.webp",
-        "imagePath": "/media/vocabulary/images/verb-bake.webp",
-        "imageUrl": "/media/vocabulary/images/verb-bake.webp",
-        "alt": "bake verb card"
-      },
-      {
-        "id": "second_verb_catch",
-        "word": "catch",
-        "label": "catch",
-        "value": "catch",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-catch.webp",
-        "imagePath": "/media/vocabulary/images/verb-catch.webp",
-        "imageUrl": "/media/vocabulary/images/verb-catch.webp",
-        "alt": "catch verb card"
+        "image": "/media/vocabulary/images/verb-galloped.webp",
+        "imagePath": "/media/vocabulary/images/verb-galloped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
+        "alt": "galloped verb card"
       }
     ],
     "correctAnswer": "sun",
@@ -16410,7 +16410,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "ticket is a noun."
   },
   {
-    "id": "second_nouns_l1_65_toast",
+    "id": "second_nouns_l1_64_toast",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -16434,15 +16434,122 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
+      "huge",
       "toast",
+      "bake",
+      "catch"
+    ],
+    "answerOptions": [
+      {
+        "value": "huge",
+        "label": "huge",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "toast",
+        "label": "toast",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bake",
+        "label": "bake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "catch",
+        "label": "catch",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
+      },
+      {
+        "id": "second_verb_bake",
+        "word": "bake",
+        "label": "bake",
+        "value": "bake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-bake.webp",
+        "imagePath": "/media/vocabulary/images/verb-bake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-bake.webp",
+        "alt": "bake verb card"
+      },
+      {
+        "id": "second_verb_catch",
+        "word": "catch",
+        "label": "catch",
+        "value": "catch",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-catch.webp",
+        "imagePath": "/media/vocabulary/images/verb-catch.webp",
+        "imageUrl": "/media/vocabulary/images/verb-catch.webp",
+        "alt": "catch verb card"
+      }
+    ],
+    "correctAnswer": "toast",
+    "answer": "toast",
+    "itemType": "grammar_noun",
+    "itemKey": "toast",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "toast is a noun."
+  },
+  {
+    "id": "second_nouns_l1_65_wood",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "wood",
+    "imagePath": "/media/vocabulary/images/wood.webp",
+    "imageUrl": "/media/vocabulary/images/wood.webp",
+    "targetImage": "/media/vocabulary/images/wood.webp",
+    "targetImagePath": "/media/vocabulary/images/wood.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "wood",
       "count",
       "drive",
       "prickly"
     ],
     "answerOptions": [
       {
-        "value": "toast",
-        "label": "toast",
+        "value": "wood",
+        "label": "wood",
         "partOfSpeech": "noun"
       },
       {
@@ -16463,15 +16570,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_toast",
-        "word": "toast",
-        "label": "toast",
-        "value": "toast",
+        "id": "second_noun_wood",
+        "word": "wood",
+        "label": "wood",
+        "value": "wood",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/toast.webp",
-        "imagePath": "/media/vocabulary/images/toast.webp",
-        "imageUrl": "/media/vocabulary/images/toast.webp",
-        "alt": "toast noun card"
+        "image": "/media/vocabulary/images/wood.webp",
+        "imagePath": "/media/vocabulary/images/wood.webp",
+        "imageUrl": "/media/vocabulary/images/wood.webp",
+        "alt": "wood noun card"
       },
       {
         "id": "second_verb_count",
@@ -16507,17 +16614,17 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "prickly adjective card"
       }
     ],
-    "correctAnswer": "toast",
-    "answer": "toast",
+    "correctAnswer": "wood",
+    "answer": "wood",
     "itemType": "grammar_noun",
-    "itemKey": "toast",
+    "itemKey": "wood",
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "toast is a noun."
+    "explanation": "wood is a noun."
   },
   {
-    "id": "second_nouns_l1_66_wood",
+    "id": "second_nouns_l1_66_word",
     "grade": "K-3",
     "skillId": "nouns",
     "skillName": "Nouns",
@@ -16530,11 +16637,11 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "visual_card_choice",
     "templateType": "GRAMMAR_IMAGE_CHOICE",
     "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "wood",
-    "imagePath": "/media/vocabulary/images/wood.webp",
-    "imageUrl": "/media/vocabulary/images/wood.webp",
-    "targetImage": "/media/vocabulary/images/wood.webp",
-    "targetImagePath": "/media/vocabulary/images/wood.webp",
+    "targetWord": "word",
+    "imagePath": "/media/vocabulary/images/word.webp",
+    "imageUrl": "/media/vocabulary/images/word.webp",
+    "targetImage": "/media/vocabulary/images/word.webp",
+    "targetImagePath": "/media/vocabulary/images/word.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -16544,7 +16651,7 @@ export const secondBlockSkillTopUpQuestions = [
       "fall",
       "help",
       "sharp",
-      "wood"
+      "word"
     ],
     "answerOptions": [
       {
@@ -16563,8 +16670,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "adjective"
       },
       {
-        "value": "wood",
-        "label": "wood",
+        "value": "word",
+        "label": "word",
         "partOfSpeech": "noun"
       }
     ],
@@ -16603,102 +16710,6 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sharp adjective card"
       },
       {
-        "id": "second_noun_wood",
-        "word": "wood",
-        "label": "wood",
-        "value": "wood",
-        "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/wood.webp",
-        "imagePath": "/media/vocabulary/images/wood.webp",
-        "imageUrl": "/media/vocabulary/images/wood.webp",
-        "alt": "wood noun card"
-      }
-    ],
-    "correctAnswer": "wood",
-    "answer": "wood",
-    "itemType": "grammar_noun",
-    "itemKey": "wood",
-    "partOfSpeech": "noun",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "wood is a noun."
-  },
-  {
-    "id": "second_nouns_l1_67_word",
-    "grade": "K-3",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "visual_card_choice",
-    "templateType": "GRAMMAR_IMAGE_CHOICE",
-    "formatType": "GRAMMAR_IMAGE_CHOICE",
-    "targetWord": "word",
-    "imagePath": "/media/vocabulary/images/word.webp",
-    "imageUrl": "/media/vocabulary/images/word.webp",
-    "targetImage": "/media/vocabulary/images/word.webp",
-    "targetImagePath": "/media/vocabulary/images/word.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Tap the picture that shows a noun.",
-    "question": "Tap the picture that shows a noun.",
-    "choices": [
-      "share",
-      "smelly",
-      "word",
-      "hide"
-    ],
-    "answerOptions": [
-      {
-        "value": "share",
-        "label": "share",
-        "partOfSpeech": "verb"
-      },
-      {
-        "value": "smelly",
-        "label": "smelly",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "value": "word",
-        "label": "word",
-        "partOfSpeech": "noun"
-      },
-      {
-        "value": "hide",
-        "label": "hide",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "imageCards": [
-      {
-        "id": "second_verb_share",
-        "word": "share",
-        "label": "share",
-        "value": "share",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-share.webp",
-        "imagePath": "/media/vocabulary/images/verb-share.webp",
-        "imageUrl": "/media/vocabulary/images/verb-share.webp",
-        "alt": "share verb card"
-      },
-      {
-        "id": "second_adjective_smelly",
-        "word": "smelly",
-        "label": "smelly",
-        "value": "smelly",
-        "partOfSpeech": "adjective",
-        "image": "/media/vocabulary/images/adjective-smelly.webp",
-        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
-        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
-        "alt": "smelly adjective card"
-      },
-      {
         "id": "second_noun_word",
         "word": "word",
         "label": "word",
@@ -16708,17 +16719,6 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/media/vocabulary/images/word.webp",
         "imageUrl": "/media/vocabulary/images/word.webp",
         "alt": "word noun card"
-      },
-      {
-        "id": "second_verb_hide",
-        "word": "hide",
-        "label": "hide",
-        "value": "hide",
-        "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-hide.webp",
-        "imagePath": "/media/vocabulary/images/verb-hide.webp",
-        "imageUrl": "/media/vocabulary/images/verb-hide.webp",
-        "alt": "hide verb card"
       }
     ],
     "correctAnswer": "word",
@@ -19131,7 +19131,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "leg fits the sentence as a noun."
   },
   {
-    "id": "second_plurals_l1_01_cats",
+    "id": "second_plurals_l1_07_bags",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -19144,55 +19144,51 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "cats",
-    "imagePath": "/images/child-mode/cvc/cat.png",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "targetImage": "/images/child-mode/cvc/cat.png",
-    "targetImagePath": "/images/child-mode/cvc/cat.png",
-    "audioPath": "/audio/child-mode/clean-human/words/cats.mp3",
-    "audioUrl": "/audio/child-mode/clean-human/words/cats.mp3",
-    "audioText": "cats",
-    "audioKey": "cats",
+    "targetWord": "bags",
+    "imagePath": "/media/vocabulary/images/bags.webp",
+    "imageUrl": "/media/vocabulary/images/bags.webp",
+    "targetImage": "/media/vocabulary/images/bags.webp",
+    "targetImagePath": "/media/vocabulary/images/bags.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "cats",
-      "dog",
-      "book",
-      "cup"
+      "bags",
+      "fox",
+      "bus",
+      "dish"
     ],
     "answerOptions": [
       {
-        "value": "cats",
-        "label": "cats"
+        "value": "bags",
+        "label": "bags"
       },
       {
-        "value": "dog",
-        "label": "dog"
+        "value": "fox",
+        "label": "fox"
       },
       {
-        "value": "book",
-        "label": "book"
+        "value": "bus",
+        "label": "bus"
       },
       {
-        "value": "cup",
-        "label": "cup"
+        "value": "dish",
+        "label": "dish"
       }
     ],
-    "correctAnswer": "cats",
-    "answer": "cats",
-    "singularWord": "cat",
+    "correctAnswer": "bags",
+    "answer": "bags",
+    "singularWord": "bag",
     "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_cat_cats",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "cats means more than one cat."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_bag_bags",
+    "itemType": "plural_word",
+    "itemKey": "bags",
+    "explanation": "bags means more than one bag."
   },
   {
-    "id": "second_plurals_l1_02_dogs",
+    "id": "second_plurals_l1_08_balls",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -19205,52 +19201,162 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "dogs",
-    "imagePath": "/images/child-mode/cvc/dog.png",
-    "imageUrl": "/images/child-mode/cvc/dog.png",
-    "targetImage": "/images/child-mode/cvc/dog.png",
-    "targetImagePath": "/images/child-mode/cvc/dog.png",
-    "audioPath": "/audio/child-mode/clean-human/words/dogs.mp3",
-    "audioUrl": "/audio/child-mode/clean-human/words/dogs.mp3",
-    "audioText": "dogs",
-    "audioKey": "dogs",
+    "targetWord": "balls",
+    "imagePath": "/media/vocabulary/images/balls.webp",
+    "imageUrl": "/media/vocabulary/images/balls.webp",
+    "targetImage": "/media/vocabulary/images/balls.webp",
+    "targetImagePath": "/media/vocabulary/images/balls.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "dogs",
-      "car",
-      "hat",
-      "bag"
+      "balls",
+      "wish",
+      "class",
+      "church"
     ],
     "answerOptions": [
       {
-        "value": "dogs",
-        "label": "dogs"
+        "value": "balls",
+        "label": "balls"
       },
       {
-        "value": "car",
-        "label": "car"
+        "value": "wish",
+        "label": "wish"
       },
       {
-        "value": "hat",
-        "label": "hat"
+        "value": "class",
+        "label": "class"
       },
       {
-        "value": "bag",
-        "label": "bag"
+        "value": "church",
+        "label": "church"
       }
     ],
-    "correctAnswer": "dogs",
-    "answer": "dogs",
-    "singularWord": "dog",
+    "correctAnswer": "balls",
+    "answer": "balls",
+    "singularWord": "ball",
     "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_dog_dogs",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "dogs means more than one dog."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_ball_balls",
+    "itemType": "plural_word",
+    "itemKey": "balls",
+    "explanation": "balls means more than one ball."
+  },
+  {
+    "id": "second_plurals_l1_09_bats",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "bats",
+    "imagePath": "/media/vocabulary/images/bats.webp",
+    "imageUrl": "/media/vocabulary/images/bats.webp",
+    "targetImage": "/media/vocabulary/images/bats.webp",
+    "targetImagePath": "/media/vocabulary/images/bats.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "bats",
+      "lunch",
+      "glass",
+      "kiss"
+    ],
+    "answerOptions": [
+      {
+        "value": "bats",
+        "label": "bats"
+      },
+      {
+        "value": "lunch",
+        "label": "lunch"
+      },
+      {
+        "value": "glass",
+        "label": "glass"
+      },
+      {
+        "value": "kiss",
+        "label": "kiss"
+      }
+    ],
+    "correctAnswer": "bats",
+    "answer": "bats",
+    "singularWord": "bat",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_bat_bats",
+    "itemType": "plural_word",
+    "itemKey": "bats",
+    "explanation": "bats means more than one bat."
+  },
+  {
+    "id": "second_plurals_l1_10_beds",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "beds",
+    "imagePath": "/media/vocabulary/images/beds.webp",
+    "imageUrl": "/media/vocabulary/images/beds.webp",
+    "targetImage": "/media/vocabulary/images/beds.webp",
+    "targetImagePath": "/media/vocabulary/images/beds.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "beds",
+      "mitten",
+      "stair",
+      "puppy"
+    ],
+    "answerOptions": [
+      {
+        "value": "beds",
+        "label": "beds"
+      },
+      {
+        "value": "mitten",
+        "label": "mitten"
+      },
+      {
+        "value": "stair",
+        "label": "stair"
+      },
+      {
+        "value": "puppy",
+        "label": "puppy"
+      }
+    ],
+    "correctAnswer": "beds",
+    "answer": "beds",
+    "singularWord": "bed",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_bed_beds",
+    "itemType": "plural_word",
+    "itemKey": "beds",
+    "explanation": "beds means more than one bed."
   },
   {
     "id": "second_plurals_l1_03_books",
@@ -19309,9 +19415,127 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "book",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_book_books",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "books",
     "explanation": "books means more than one book."
+  },
+  {
+    "id": "second_plurals_l1_05_cars",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "cars",
+    "imagePath": "/media/vocabulary/images/cars.webp",
+    "imageUrl": "/media/vocabulary/images/cars.webp",
+    "targetImage": "/media/vocabulary/images/cars.webp",
+    "targetImagePath": "/media/vocabulary/images/cars.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "cars",
+      "pen",
+      "pig",
+      "hen"
+    ],
+    "answerOptions": [
+      {
+        "value": "cars",
+        "label": "cars"
+      },
+      {
+        "value": "pen",
+        "label": "pen"
+      },
+      {
+        "value": "pig",
+        "label": "pig"
+      },
+      {
+        "value": "hen",
+        "label": "hen"
+      }
+    ],
+    "correctAnswer": "cars",
+    "answer": "cars",
+    "singularWord": "car",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_car_cars",
+    "itemType": "plural_word",
+    "itemKey": "cars",
+    "explanation": "cars means more than one car."
+  },
+  {
+    "id": "second_plurals_l1_01_cats",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "cats",
+    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/cat.png",
+    "targetImage": "/images/child-mode/cvc/cat.png",
+    "targetImagePath": "/images/child-mode/cvc/cat.png",
+    "audioPath": "/audio/child-mode/clean-human/words/cats.mp3",
+    "audioUrl": "/audio/child-mode/clean-human/words/cats.mp3",
+    "audioText": "cats",
+    "audioKey": "cats",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "cats",
+      "dog",
+      "book",
+      "cup"
+    ],
+    "answerOptions": [
+      {
+        "value": "cats",
+        "label": "cats"
+      },
+      {
+        "value": "dog",
+        "label": "dog"
+      },
+      {
+        "value": "book",
+        "label": "book"
+      },
+      {
+        "value": "cup",
+        "label": "cup"
+      }
+    ],
+    "correctAnswer": "cats",
+    "answer": "cats",
+    "singularWord": "cat",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_cat_cats",
+    "itemType": "plural_word",
+    "itemKey": "cats",
+    "explanation": "cats means more than one cat."
   },
   {
     "id": "second_plurals_l1_04_cups",
@@ -19370,12 +19594,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "cup",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_cup_cups",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "cups",
     "explanation": "cups means more than one cup."
   },
   {
-    "id": "second_plurals_l1_05_cars",
+    "id": "second_plurals_l1_02_dogs",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -19388,48 +19612,166 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "cars",
-    "imagePath": "/media/vocabulary/images/cars.webp",
-    "imageUrl": "/media/vocabulary/images/cars.webp",
-    "targetImage": "/media/vocabulary/images/cars.webp",
-    "targetImagePath": "/media/vocabulary/images/cars.webp",
+    "targetWord": "dogs",
+    "imagePath": "/images/child-mode/cvc/dog.png",
+    "imageUrl": "/images/child-mode/cvc/dog.png",
+    "targetImage": "/images/child-mode/cvc/dog.png",
+    "targetImagePath": "/images/child-mode/cvc/dog.png",
+    "audioPath": "/audio/child-mode/clean-human/words/dogs.mp3",
+    "audioUrl": "/audio/child-mode/clean-human/words/dogs.mp3",
+    "audioText": "dogs",
+    "audioKey": "dogs",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "cars",
-      "pen",
-      "pig",
-      "hen"
+      "dogs",
+      "car",
+      "hat",
+      "bag"
     ],
     "answerOptions": [
       {
-        "value": "cars",
-        "label": "cars"
+        "value": "dogs",
+        "label": "dogs"
       },
       {
-        "value": "pen",
-        "label": "pen"
+        "value": "car",
+        "label": "car"
       },
       {
-        "value": "pig",
-        "label": "pig"
+        "value": "hat",
+        "label": "hat"
       },
       {
-        "value": "hen",
-        "label": "hen"
+        "value": "bag",
+        "label": "bag"
       }
     ],
-    "correctAnswer": "cars",
-    "answer": "cars",
-    "singularWord": "car",
+    "correctAnswer": "dogs",
+    "answer": "dogs",
+    "singularWord": "dog",
     "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_car_cars",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "cars means more than one car."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_dog_dogs",
+    "itemType": "plural_word",
+    "itemKey": "dogs",
+    "explanation": "dogs means more than one dog."
+  },
+  {
+    "id": "second_plurals_l1_11_ducks",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "ducks",
+    "imagePath": "/media/vocabulary/images/ducks.webp",
+    "imageUrl": "/media/vocabulary/images/ducks.webp",
+    "targetImage": "/media/vocabulary/images/ducks.webp",
+    "targetImagePath": "/media/vocabulary/images/ducks.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "ducks",
+      "baby",
+      "party",
+      "leaf"
+    ],
+    "answerOptions": [
+      {
+        "value": "ducks",
+        "label": "ducks"
+      },
+      {
+        "value": "baby",
+        "label": "baby"
+      },
+      {
+        "value": "party",
+        "label": "party"
+      },
+      {
+        "value": "leaf",
+        "label": "leaf"
+      }
+    ],
+    "correctAnswer": "ducks",
+    "answer": "ducks",
+    "singularWord": "duck",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_duck_ducks",
+    "itemType": "plural_word",
+    "itemKey": "ducks",
+    "explanation": "ducks means more than one duck."
+  },
+  {
+    "id": "second_plurals_l1_12_frogs",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "frogs",
+    "imagePath": "/media/vocabulary/images/frogs.webp",
+    "imageUrl": "/media/vocabulary/images/frogs.webp",
+    "targetImage": "/media/vocabulary/images/frogs.webp",
+    "targetImagePath": "/media/vocabulary/images/frogs.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "frogs",
+      "wolf",
+      "shelf",
+      "peach"
+    ],
+    "answerOptions": [
+      {
+        "value": "frogs",
+        "label": "frogs"
+      },
+      {
+        "value": "wolf",
+        "label": "wolf"
+      },
+      {
+        "value": "shelf",
+        "label": "shelf"
+      },
+      {
+        "value": "peach",
+        "label": "peach"
+      }
+    ],
+    "correctAnswer": "frogs",
+    "answer": "frogs",
+    "singularWord": "frog",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_frog_frogs",
+    "itemType": "plural_word",
+    "itemKey": "frogs",
+    "explanation": "frogs means more than one frog."
   },
   {
     "id": "second_plurals_l1_06_hats",
@@ -19488,354 +19830,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "hat",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_hat_hats",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "hats",
     "explanation": "hats means more than one hat."
   },
   {
-    "id": "second_plurals_l1_07_bags",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "bags",
-    "imagePath": "/media/vocabulary/images/bags.webp",
-    "imageUrl": "/media/vocabulary/images/bags.webp",
-    "targetImage": "/media/vocabulary/images/bags.webp",
-    "targetImagePath": "/media/vocabulary/images/bags.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "bags",
-      "fox",
-      "bus",
-      "dish"
-    ],
-    "answerOptions": [
-      {
-        "value": "bags",
-        "label": "bags"
-      },
-      {
-        "value": "fox",
-        "label": "fox"
-      },
-      {
-        "value": "bus",
-        "label": "bus"
-      },
-      {
-        "value": "dish",
-        "label": "dish"
-      }
-    ],
-    "correctAnswer": "bags",
-    "answer": "bags",
-    "singularWord": "bag",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_bag_bags",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "bags means more than one bag."
-  },
-  {
-    "id": "second_plurals_l1_08_balls",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "balls",
-    "imagePath": "/media/vocabulary/images/balls.webp",
-    "imageUrl": "/media/vocabulary/images/balls.webp",
-    "targetImage": "/media/vocabulary/images/balls.webp",
-    "targetImagePath": "/media/vocabulary/images/balls.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "balls",
-      "wish",
-      "class",
-      "church"
-    ],
-    "answerOptions": [
-      {
-        "value": "balls",
-        "label": "balls"
-      },
-      {
-        "value": "wish",
-        "label": "wish"
-      },
-      {
-        "value": "class",
-        "label": "class"
-      },
-      {
-        "value": "church",
-        "label": "church"
-      }
-    ],
-    "correctAnswer": "balls",
-    "answer": "balls",
-    "singularWord": "ball",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_ball_balls",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "balls means more than one ball."
-  },
-  {
-    "id": "second_plurals_l1_09_bats",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "bats",
-    "imagePath": "/media/vocabulary/images/bats.webp",
-    "imageUrl": "/media/vocabulary/images/bats.webp",
-    "targetImage": "/media/vocabulary/images/bats.webp",
-    "targetImagePath": "/media/vocabulary/images/bats.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "bats",
-      "lunch",
-      "glass",
-      "kiss"
-    ],
-    "answerOptions": [
-      {
-        "value": "bats",
-        "label": "bats"
-      },
-      {
-        "value": "lunch",
-        "label": "lunch"
-      },
-      {
-        "value": "glass",
-        "label": "glass"
-      },
-      {
-        "value": "kiss",
-        "label": "kiss"
-      }
-    ],
-    "correctAnswer": "bats",
-    "answer": "bats",
-    "singularWord": "bat",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_bat_bats",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "bats means more than one bat."
-  },
-  {
-    "id": "second_plurals_l1_10_beds",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "beds",
-    "imagePath": "/media/vocabulary/images/beds.webp",
-    "imageUrl": "/media/vocabulary/images/beds.webp",
-    "targetImage": "/media/vocabulary/images/beds.webp",
-    "targetImagePath": "/media/vocabulary/images/beds.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "beds",
-      "mitten",
-      "stair",
-      "puppy"
-    ],
-    "answerOptions": [
-      {
-        "value": "beds",
-        "label": "beds"
-      },
-      {
-        "value": "mitten",
-        "label": "mitten"
-      },
-      {
-        "value": "stair",
-        "label": "stair"
-      },
-      {
-        "value": "puppy",
-        "label": "puppy"
-      }
-    ],
-    "correctAnswer": "beds",
-    "answer": "beds",
-    "singularWord": "bed",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_bed_beds",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "beds means more than one bed."
-  },
-  {
-    "id": "second_plurals_l1_11_ducks",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "ducks",
-    "imagePath": "/media/vocabulary/images/ducks.webp",
-    "imageUrl": "/media/vocabulary/images/ducks.webp",
-    "targetImage": "/media/vocabulary/images/ducks.webp",
-    "targetImagePath": "/media/vocabulary/images/ducks.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "ducks",
-      "baby",
-      "party",
-      "leaf"
-    ],
-    "answerOptions": [
-      {
-        "value": "ducks",
-        "label": "ducks"
-      },
-      {
-        "value": "baby",
-        "label": "baby"
-      },
-      {
-        "value": "party",
-        "label": "party"
-      },
-      {
-        "value": "leaf",
-        "label": "leaf"
-      }
-    ],
-    "correctAnswer": "ducks",
-    "answer": "ducks",
-    "singularWord": "duck",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_duck_ducks",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "ducks means more than one duck."
-  },
-  {
-    "id": "second_plurals_l1_12_frogs",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "frogs",
-    "imagePath": "/media/vocabulary/images/frogs.webp",
-    "imageUrl": "/media/vocabulary/images/frogs.webp",
-    "targetImage": "/media/vocabulary/images/frogs.webp",
-    "targetImagePath": "/media/vocabulary/images/frogs.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "frogs",
-      "wolf",
-      "shelf",
-      "peach"
-    ],
-    "answerOptions": [
-      {
-        "value": "frogs",
-        "label": "frogs"
-      },
-      {
-        "value": "wolf",
-        "label": "wolf"
-      },
-      {
-        "value": "shelf",
-        "label": "shelf"
-      },
-      {
-        "value": "peach",
-        "label": "peach"
-      }
-    ],
-    "correctAnswer": "frogs",
-    "answer": "frogs",
-    "singularWord": "frog",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_frog_frogs",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "frogs means more than one frog."
-  },
-  {
-    "id": "second_plurals_l2_17_grapes",
+    "id": "second_plurals_l2_32_babies",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -19848,52 +19848,105 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "grapes",
-    "imagePath": "/media/vocabulary/images/grapes.webp",
-    "imageUrl": "/media/vocabulary/images/grapes.webp",
-    "targetImage": "/media/vocabulary/images/grapes.webp",
-    "targetImagePath": "/media/vocabulary/images/grapes.webp",
-    "audioPath": "/media/vocabulary/audio/grapes.mp3",
-    "audioUrl": "/media/vocabulary/audio/grapes.mp3",
-    "audioText": "grapes",
-    "audioKey": "grapes",
+    "targetWord": "babies",
+    "imagePath": "/media/vocabulary/images/baby.webp",
+    "imageUrl": "/media/vocabulary/images/baby.webp",
+    "targetImage": "/media/vocabulary/images/baby.webp",
+    "targetImagePath": "/media/vocabulary/images/baby.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "grapes",
-      "sock",
-      "drum",
-      "flag"
+      "babies",
+      "plane",
+      "clock",
+      "cloud"
     ],
     "answerOptions": [
       {
-        "value": "grapes",
-        "label": "grapes"
+        "value": "babies",
+        "label": "babies"
       },
       {
-        "value": "sock",
-        "label": "sock"
+        "value": "plane",
+        "label": "plane"
       },
       {
-        "value": "drum",
-        "label": "drum"
+        "value": "clock",
+        "label": "clock"
       },
       {
-        "value": "flag",
-        "label": "flag"
+        "value": "cloud",
+        "label": "cloud"
       }
     ],
-    "correctAnswer": "grapes",
-    "answer": "grapes",
-    "singularWord": "grape",
+    "correctAnswer": "babies",
+    "answer": "babies",
+    "singularWord": "baby",
+    "pluralRule": "ies",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_ies_baby_babies",
+    "itemType": "plural_word",
+    "itemKey": "babies",
+    "explanation": "babies means more than one baby."
+  },
+  {
+    "id": "second_plurals_l2_38_benches",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "benches",
+    "imagePath": "/media/vocabulary/images/bench.webp",
+    "imageUrl": "/media/vocabulary/images/bench.webp",
+    "targetImage": "/media/vocabulary/images/bench.webp",
+    "targetImagePath": "/media/vocabulary/images/bench.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "benches",
+      "hat",
+      "bag",
+      "ball"
+    ],
+    "answerOptions": [
+      {
+        "value": "benches",
+        "label": "benches"
+      },
+      {
+        "value": "hat",
+        "label": "hat"
+      },
+      {
+        "value": "bag",
+        "label": "bag"
+      },
+      {
+        "value": "ball",
+        "label": "ball"
+      }
+    ],
+    "correctAnswer": "benches",
+    "answer": "benches",
+    "singularWord": "bench",
     "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_grape_grapes",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "grapes means more than one grape."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_bench_benches",
+    "itemType": "plural_word",
+    "itemKey": "benches",
+    "explanation": "benches means more than one bench."
   },
   {
     "id": "second_plurals_l2_19_boxes",
@@ -19952,66 +20005,9 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "box",
     "pluralRule": "es",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_box_boxes",
-    "itemType": "plural",
-    "itemKey": "es",
+    "itemType": "plural_word",
+    "itemKey": "boxes",
     "explanation": "boxes means more than one box."
-  },
-  {
-    "id": "second_plurals_l2_20_foxes",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "foxes",
-    "imagePath": "/media/vocabulary/images/foxes.webp",
-    "imageUrl": "/media/vocabulary/images/foxes.webp",
-    "targetImage": "/media/vocabulary/images/foxes.webp",
-    "targetImagePath": "/media/vocabulary/images/foxes.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "foxes",
-      "car",
-      "hat",
-      "bag"
-    ],
-    "answerOptions": [
-      {
-        "value": "foxes",
-        "label": "foxes"
-      },
-      {
-        "value": "car",
-        "label": "car"
-      },
-      {
-        "value": "hat",
-        "label": "hat"
-      },
-      {
-        "value": "bag",
-        "label": "bag"
-      }
-    ],
-    "correctAnswer": "foxes",
-    "answer": "foxes",
-    "singularWord": "fox",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_fox_foxes",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "foxes means more than one fox."
   },
   {
     "id": "second_plurals_l2_21_buses",
@@ -20070,9 +20066,237 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "bus",
     "pluralRule": "es",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_bus_buses",
-    "itemType": "plural",
-    "itemKey": "es",
+    "itemType": "plural_word",
+    "itemKey": "buses",
     "explanation": "buses means more than one bus."
+  },
+  {
+    "id": "second_plurals_l2_25_churches",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "churches",
+    "imagePath": "/media/vocabulary/images/churches.webp",
+    "imageUrl": "/media/vocabulary/images/churches.webp",
+    "targetImage": "/media/vocabulary/images/churches.webp",
+    "targetImagePath": "/media/vocabulary/images/churches.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "churches",
+      "fox",
+      "bus",
+      "dish"
+    ],
+    "answerOptions": [
+      {
+        "value": "churches",
+        "label": "churches"
+      },
+      {
+        "value": "fox",
+        "label": "fox"
+      },
+      {
+        "value": "bus",
+        "label": "bus"
+      },
+      {
+        "value": "dish",
+        "label": "dish"
+      }
+    ],
+    "correctAnswer": "churches",
+    "answer": "churches",
+    "singularWord": "church",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_church_churches",
+    "itemType": "plural_word",
+    "itemKey": "churches",
+    "explanation": "churches means more than one church."
+  },
+  {
+    "id": "second_plurals_l2_24_classes",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "classes",
+    "imagePath": "/media/vocabulary/images/classes.webp",
+    "imageUrl": "/media/vocabulary/images/classes.webp",
+    "targetImage": "/media/vocabulary/images/classes.webp",
+    "targetImagePath": "/media/vocabulary/images/classes.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "classes",
+      "grape",
+      "pea",
+      "box"
+    ],
+    "answerOptions": [
+      {
+        "value": "classes",
+        "label": "classes"
+      },
+      {
+        "value": "grape",
+        "label": "grape"
+      },
+      {
+        "value": "pea",
+        "label": "pea"
+      },
+      {
+        "value": "box",
+        "label": "box"
+      }
+    ],
+    "correctAnswer": "classes",
+    "answer": "classes",
+    "singularWord": "class",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_class_classes",
+    "itemType": "plural_word",
+    "itemKey": "classes",
+    "explanation": "classes means more than one class."
+  },
+  {
+    "id": "second_plurals_l2_43_clocks",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "clocks",
+    "imagePath": "/media/vocabulary/images/clock.webp",
+    "imageUrl": "/media/vocabulary/images/clock.webp",
+    "targetImage": "/media/vocabulary/images/clock.webp",
+    "targetImagePath": "/media/vocabulary/images/clock.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "clocks",
+      "bus",
+      "dish",
+      "wish"
+    ],
+    "answerOptions": [
+      {
+        "value": "clocks",
+        "label": "clocks"
+      },
+      {
+        "value": "bus",
+        "label": "bus"
+      },
+      {
+        "value": "dish",
+        "label": "dish"
+      },
+      {
+        "value": "wish",
+        "label": "wish"
+      }
+    ],
+    "correctAnswer": "clocks",
+    "answer": "clocks",
+    "singularWord": "clock",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_clock_clocks",
+    "itemType": "plural_word",
+    "itemKey": "clocks",
+    "explanation": "clocks means more than one clock."
+  },
+  {
+    "id": "second_plurals_l2_44_clouds",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "clouds",
+    "imagePath": "/media/vocabulary/images/cloud.webp",
+    "imageUrl": "/media/vocabulary/images/cloud.webp",
+    "targetImage": "/media/vocabulary/images/cloud.webp",
+    "targetImagePath": "/media/vocabulary/images/cloud.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "clouds",
+      "class",
+      "church",
+      "lunch"
+    ],
+    "answerOptions": [
+      {
+        "value": "clouds",
+        "label": "clouds"
+      },
+      {
+        "value": "class",
+        "label": "class"
+      },
+      {
+        "value": "church",
+        "label": "church"
+      },
+      {
+        "value": "lunch",
+        "label": "lunch"
+      }
+    ],
+    "correctAnswer": "clouds",
+    "answer": "clouds",
+    "singularWord": "cloud",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_cloud_clouds",
+    "itemType": "plural_word",
+    "itemKey": "clouds",
+    "explanation": "clouds means more than one cloud."
   },
   {
     "id": "second_plurals_l2_22_dishes",
@@ -20131,12 +20355,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "dish",
     "pluralRule": "es",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_dish_dishes",
-    "itemType": "plural",
-    "itemKey": "es",
+    "itemType": "plural_word",
+    "itemKey": "dishes",
     "explanation": "dishes means more than one dish."
   },
   {
-    "id": "second_plurals_l2_23_wishes",
+    "id": "second_plurals_l2_39_dresses",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -20149,51 +20373,51 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "wishes",
-    "imagePath": "/media/vocabulary/images/wishes.webp",
-    "imageUrl": "/media/vocabulary/images/wishes.webp",
-    "targetImage": "/media/vocabulary/images/wishes.webp",
-    "targetImagePath": "/media/vocabulary/images/wishes.webp",
+    "targetWord": "dresses",
+    "imagePath": "/media/vocabulary/images/dress.webp",
+    "imageUrl": "/media/vocabulary/images/dress.webp",
+    "targetImage": "/media/vocabulary/images/dress.webp",
+    "targetImagePath": "/media/vocabulary/images/dress.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "wishes",
-      "pen",
-      "pig",
-      "hen"
+      "dresses",
+      "bat",
+      "bed",
+      "duck"
     ],
     "answerOptions": [
       {
-        "value": "wishes",
-        "label": "wishes"
+        "value": "dresses",
+        "label": "dresses"
       },
       {
-        "value": "pen",
-        "label": "pen"
+        "value": "bat",
+        "label": "bat"
       },
       {
-        "value": "pig",
-        "label": "pig"
+        "value": "bed",
+        "label": "bed"
       },
       {
-        "value": "hen",
-        "label": "hen"
+        "value": "duck",
+        "label": "duck"
       }
     ],
-    "correctAnswer": "wishes",
-    "answer": "wishes",
-    "singularWord": "wish",
+    "correctAnswer": "dresses",
+    "answer": "dresses",
+    "singularWord": "dress",
     "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_wish_wishes",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "wishes means more than one wish."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_dress_dresses",
+    "itemType": "plural_word",
+    "itemKey": "dresses",
+    "explanation": "dresses means more than one dress."
   },
   {
-    "id": "second_plurals_l2_24_classes",
+    "id": "second_plurals_l2_51_drums",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -20206,51 +20430,51 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "classes",
-    "imagePath": "/media/vocabulary/images/classes.webp",
-    "imageUrl": "/media/vocabulary/images/classes.webp",
-    "targetImage": "/media/vocabulary/images/classes.webp",
-    "targetImagePath": "/media/vocabulary/images/classes.webp",
+    "targetWord": "drums",
+    "imagePath": "/images/child-mode/initial-sounds/drum.png",
+    "imageUrl": "/images/child-mode/initial-sounds/drum.png",
+    "targetImage": "/images/child-mode/initial-sounds/drum.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/drum.png",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "classes",
-      "grape",
-      "pea",
-      "box"
+      "drums",
+      "plant",
+      "spider",
+      "stone"
     ],
     "answerOptions": [
       {
-        "value": "classes",
-        "label": "classes"
+        "value": "drums",
+        "label": "drums"
       },
       {
-        "value": "grape",
-        "label": "grape"
+        "value": "plant",
+        "label": "plant"
       },
       {
-        "value": "pea",
-        "label": "pea"
+        "value": "spider",
+        "label": "spider"
       },
       {
-        "value": "box",
-        "label": "box"
+        "value": "stone",
+        "label": "stone"
       }
     ],
-    "correctAnswer": "classes",
-    "answer": "classes",
-    "singularWord": "class",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_class_classes",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "classes means more than one class."
+    "correctAnswer": "drums",
+    "answer": "drums",
+    "singularWord": "drum",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_drum_drums",
+    "itemType": "plural_word",
+    "itemKey": "drums",
+    "explanation": "drums means more than one drum."
   },
   {
-    "id": "second_plurals_l2_25_churches",
+    "id": "second_plurals_l2_52_flags",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -20263,51 +20487,51 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "churches",
-    "imagePath": "/media/vocabulary/images/churches.webp",
-    "imageUrl": "/media/vocabulary/images/churches.webp",
-    "targetImage": "/media/vocabulary/images/churches.webp",
-    "targetImagePath": "/media/vocabulary/images/churches.webp",
+    "targetWord": "flags",
+    "imagePath": "/images/child-mode/initial-sounds/flag.png",
+    "imageUrl": "/images/child-mode/initial-sounds/flag.png",
+    "targetImage": "/images/child-mode/initial-sounds/flag.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/flag.png",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "churches",
-      "fox",
-      "bus",
-      "dish"
+      "flags",
+      "star",
+      "tree",
+      "sock"
     ],
     "answerOptions": [
       {
-        "value": "churches",
-        "label": "churches"
+        "value": "flags",
+        "label": "flags"
       },
       {
-        "value": "fox",
-        "label": "fox"
+        "value": "star",
+        "label": "star"
       },
       {
-        "value": "bus",
-        "label": "bus"
+        "value": "tree",
+        "label": "tree"
       },
       {
-        "value": "dish",
-        "label": "dish"
+        "value": "sock",
+        "label": "sock"
       }
     ],
-    "correctAnswer": "churches",
-    "answer": "churches",
-    "singularWord": "church",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_church_churches",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "churches means more than one church."
+    "correctAnswer": "flags",
+    "answer": "flags",
+    "singularWord": "flag",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_flag_flags",
+    "itemType": "plural_word",
+    "itemKey": "flags",
+    "explanation": "flags means more than one flag."
   },
   {
-    "id": "second_plurals_l2_26_lunches",
+    "id": "second_plurals_l2_20_foxes",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -20320,48 +20544,48 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "lunches",
-    "imagePath": "/media/vocabulary/images/lunches.webp",
-    "imageUrl": "/media/vocabulary/images/lunches.webp",
-    "targetImage": "/media/vocabulary/images/lunches.webp",
-    "targetImagePath": "/media/vocabulary/images/lunches.webp",
+    "targetWord": "foxes",
+    "imagePath": "/media/vocabulary/images/foxes.webp",
+    "imageUrl": "/media/vocabulary/images/foxes.webp",
+    "targetImage": "/media/vocabulary/images/foxes.webp",
+    "targetImagePath": "/media/vocabulary/images/foxes.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "lunches",
-      "wish",
-      "class",
-      "church"
+      "foxes",
+      "car",
+      "hat",
+      "bag"
     ],
     "answerOptions": [
       {
-        "value": "lunches",
-        "label": "lunches"
+        "value": "foxes",
+        "label": "foxes"
       },
       {
-        "value": "wish",
-        "label": "wish"
+        "value": "car",
+        "label": "car"
       },
       {
-        "value": "class",
-        "label": "class"
+        "value": "hat",
+        "label": "hat"
       },
       {
-        "value": "church",
-        "label": "church"
+        "value": "bag",
+        "label": "bag"
       }
     ],
-    "correctAnswer": "lunches",
-    "answer": "lunches",
-    "singularWord": "lunch",
+    "correctAnswer": "foxes",
+    "answer": "foxes",
+    "singularWord": "fox",
     "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_lunch_lunches",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "lunches means more than one lunch."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_fox_foxes",
+    "itemType": "plural_word",
+    "itemKey": "foxes",
+    "explanation": "foxes means more than one fox."
   },
   {
     "id": "second_plurals_l2_27_glasses",
@@ -20420,12 +20644,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "glass",
     "pluralRule": "es",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_glass_glasses",
-    "itemType": "plural",
-    "itemKey": "es",
+    "itemType": "plural_word",
+    "itemKey": "glasses",
     "explanation": "glasses means more than one glass."
   },
   {
-    "id": "second_plurals_l2_28_kisses",
+    "id": "second_plurals_l2_17_grapes",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -20438,425 +20662,34 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "kisses",
-    "imagePath": "/media/vocabulary/images/kisses.webp",
-    "imageUrl": "/media/vocabulary/images/kisses.webp",
-    "targetImage": "/media/vocabulary/images/kisses.webp",
-    "targetImagePath": "/media/vocabulary/images/kisses.webp",
+    "targetWord": "grapes",
+    "imagePath": "/media/vocabulary/images/grapes.webp",
+    "imageUrl": "/media/vocabulary/images/grapes.webp",
+    "targetImage": "/media/vocabulary/images/grapes.webp",
+    "targetImagePath": "/media/vocabulary/images/grapes.webp",
+    "audioPath": "/media/vocabulary/audio/grapes.mp3",
+    "audioUrl": "/media/vocabulary/audio/grapes.mp3",
+    "audioText": "grapes",
+    "audioKey": "grapes",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "kisses",
-      "stair",
-      "puppy",
-      "baby"
-    ],
-    "answerOptions": [
-      {
-        "value": "kisses",
-        "label": "kisses"
-      },
-      {
-        "value": "stair",
-        "label": "stair"
-      },
-      {
-        "value": "puppy",
-        "label": "puppy"
-      },
-      {
-        "value": "baby",
-        "label": "baby"
-      }
-    ],
-    "correctAnswer": "kisses",
-    "answer": "kisses",
-    "singularWord": "kiss",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_kiss_kisses",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "kisses means more than one kiss."
-  },
-  {
-    "id": "second_plurals_l2_37_peaches",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "peaches",
-    "imagePath": "/media/vocabulary/images/peach.webp",
-    "imageUrl": "/media/vocabulary/images/peach.webp",
-    "targetImage": "/media/vocabulary/images/peach.webp",
-    "targetImagePath": "/media/vocabulary/images/peach.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "peaches",
-      "book",
-      "cup",
-      "car"
-    ],
-    "answerOptions": [
-      {
-        "value": "peaches",
-        "label": "peaches"
-      },
-      {
-        "value": "book",
-        "label": "book"
-      },
-      {
-        "value": "cup",
-        "label": "cup"
-      },
-      {
-        "value": "car",
-        "label": "car"
-      }
-    ],
-    "correctAnswer": "peaches",
-    "answer": "peaches",
-    "singularWord": "peach",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_peach_peaches",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "peaches means more than one peach."
-  },
-  {
-    "id": "second_plurals_l2_38_benches",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "benches",
-    "imagePath": "/media/vocabulary/images/bench.webp",
-    "imageUrl": "/media/vocabulary/images/bench.webp",
-    "targetImage": "/media/vocabulary/images/bench.webp",
-    "targetImagePath": "/media/vocabulary/images/bench.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "benches",
-      "hat",
-      "bag",
-      "ball"
-    ],
-    "answerOptions": [
-      {
-        "value": "benches",
-        "label": "benches"
-      },
-      {
-        "value": "hat",
-        "label": "hat"
-      },
-      {
-        "value": "bag",
-        "label": "bag"
-      },
-      {
-        "value": "ball",
-        "label": "ball"
-      }
-    ],
-    "correctAnswer": "benches",
-    "answer": "benches",
-    "singularWord": "bench",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_bench_benches",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "benches means more than one bench."
-  },
-  {
-    "id": "second_plurals_l2_39_dresses",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "dresses",
-    "imagePath": "/media/vocabulary/images/dress.webp",
-    "imageUrl": "/media/vocabulary/images/dress.webp",
-    "targetImage": "/media/vocabulary/images/dress.webp",
-    "targetImagePath": "/media/vocabulary/images/dress.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "dresses",
-      "bat",
-      "bed",
-      "duck"
-    ],
-    "answerOptions": [
-      {
-        "value": "dresses",
-        "label": "dresses"
-      },
-      {
-        "value": "bat",
-        "label": "bat"
-      },
-      {
-        "value": "bed",
-        "label": "bed"
-      },
-      {
-        "value": "duck",
-        "label": "duck"
-      }
-    ],
-    "correctAnswer": "dresses",
-    "answer": "dresses",
-    "singularWord": "dress",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_dress_dresses",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "dresses means more than one dress."
-  },
-  {
-    "id": "second_plurals_l2_42_planes",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "planes",
-    "imagePath": "/media/vocabulary/images/plane.webp",
-    "imageUrl": "/media/vocabulary/images/plane.webp",
-    "targetImage": "/media/vocabulary/images/plane.webp",
-    "targetImagePath": "/media/vocabulary/images/plane.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "planes",
-      "pea",
-      "box",
-      "fox"
-    ],
-    "answerOptions": [
-      {
-        "value": "planes",
-        "label": "planes"
-      },
-      {
-        "value": "pea",
-        "label": "pea"
-      },
-      {
-        "value": "box",
-        "label": "box"
-      },
-      {
-        "value": "fox",
-        "label": "fox"
-      }
-    ],
-    "correctAnswer": "planes",
-    "answer": "planes",
-    "singularWord": "plane",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_plane_planes",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "planes means more than one plane."
-  },
-  {
-    "id": "second_plurals_l2_47_stones",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "stones",
-    "imagePath": "/media/vocabulary/images/stone.webp",
-    "imageUrl": "/media/vocabulary/images/stone.webp",
-    "targetImage": "/media/vocabulary/images/stone.webp",
-    "targetImagePath": "/media/vocabulary/images/stone.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "stones",
-      "party",
-      "leaf",
-      "wolf"
-    ],
-    "answerOptions": [
-      {
-        "value": "stones",
-        "label": "stones"
-      },
-      {
-        "value": "party",
-        "label": "party"
-      },
-      {
-        "value": "leaf",
-        "label": "leaf"
-      },
-      {
-        "value": "wolf",
-        "label": "wolf"
-      }
-    ],
-    "correctAnswer": "stones",
-    "answer": "stones",
-    "singularWord": "stone",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_stone_stones",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "stones means more than one stone."
-  },
-  {
-    "id": "second_plurals_l2_49_trees",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "trees",
-    "imagePath": "/images/child-mode/blends/tree.png",
-    "imageUrl": "/images/child-mode/blends/tree.png",
-    "targetImage": "/images/child-mode/blends/tree.png",
-    "targetImagePath": "/images/child-mode/blends/tree.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "trees",
-      "dress",
-      "plum",
-      "pear"
-    ],
-    "answerOptions": [
-      {
-        "value": "trees",
-        "label": "trees"
-      },
-      {
-        "value": "dress",
-        "label": "dress"
-      },
-      {
-        "value": "plum",
-        "label": "plum"
-      },
-      {
-        "value": "pear",
-        "label": "pear"
-      }
-    ],
-    "correctAnswer": "trees",
-    "answer": "trees",
-    "singularWord": "tree",
-    "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_tree_trees",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "trees means more than one tree."
-  },
-  {
-    "id": "second_plurals_l2_53_kites",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "kites",
-    "imagePath": "/images/child-mode/initial-sounds/kite.png",
-    "imageUrl": "/images/child-mode/initial-sounds/kite.png",
-    "targetImage": "/images/child-mode/initial-sounds/kite.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/kite.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "kites",
+      "grapes",
+      "sock",
       "drum",
-      "flag",
-      "ring"
+      "flag"
     ],
     "answerOptions": [
       {
-        "value": "kites",
-        "label": "kites"
+        "value": "grapes",
+        "label": "grapes"
+      },
+      {
+        "value": "sock",
+        "label": "sock"
       },
       {
         "value": "drum",
@@ -20865,305 +20698,16 @@ export const secondBlockSkillTopUpQuestions = [
       {
         "value": "flag",
         "label": "flag"
-      },
-      {
-        "value": "ring",
-        "label": "ring"
       }
     ],
-    "correctAnswer": "kites",
-    "answer": "kites",
-    "singularWord": "kite",
+    "correctAnswer": "grapes",
+    "answer": "grapes",
+    "singularWord": "grape",
     "pluralRule": "es",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_kite_kites",
-    "itemType": "plural",
-    "itemKey": "es",
-    "explanation": "kites means more than one kite."
-  },
-  {
-    "id": "second_plurals_l2_31_puppies",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "puppies",
-    "imagePath": "/media/vocabulary/images/puppy.webp",
-    "imageUrl": "/media/vocabulary/images/puppy.webp",
-    "targetImage": "/media/vocabulary/images/puppy.webp",
-    "targetImagePath": "/media/vocabulary/images/puppy.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "puppies",
-      "dress",
-      "plum",
-      "pear"
-    ],
-    "answerOptions": [
-      {
-        "value": "puppies",
-        "label": "puppies"
-      },
-      {
-        "value": "dress",
-        "label": "dress"
-      },
-      {
-        "value": "plum",
-        "label": "plum"
-      },
-      {
-        "value": "pear",
-        "label": "pear"
-      }
-    ],
-    "correctAnswer": "puppies",
-    "answer": "puppies",
-    "singularWord": "puppy",
-    "pluralRule": "ies",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_ies_puppy_puppies",
-    "itemType": "plural",
-    "itemKey": "ies",
-    "explanation": "puppies means more than one puppy."
-  },
-  {
-    "id": "second_plurals_l2_32_babies",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "babies",
-    "imagePath": "/media/vocabulary/images/baby.webp",
-    "imageUrl": "/media/vocabulary/images/baby.webp",
-    "targetImage": "/media/vocabulary/images/baby.webp",
-    "targetImagePath": "/media/vocabulary/images/baby.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "babies",
-      "plane",
-      "clock",
-      "cloud"
-    ],
-    "answerOptions": [
-      {
-        "value": "babies",
-        "label": "babies"
-      },
-      {
-        "value": "plane",
-        "label": "plane"
-      },
-      {
-        "value": "clock",
-        "label": "clock"
-      },
-      {
-        "value": "cloud",
-        "label": "cloud"
-      }
-    ],
-    "correctAnswer": "babies",
-    "answer": "babies",
-    "singularWord": "baby",
-    "pluralRule": "ies",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_ies_baby_babies",
-    "itemType": "plural",
-    "itemKey": "ies",
-    "explanation": "babies means more than one baby."
-  },
-  {
-    "id": "second_plurals_l2_13_maps",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "maps",
-    "imagePath": "/media/vocabulary/images/maps.webp",
-    "imageUrl": "/media/vocabulary/images/maps.webp",
-    "targetImage": "/media/vocabulary/images/maps.webp",
-    "targetImagePath": "/media/vocabulary/images/maps.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "maps",
-      "bench",
-      "dress",
-      "plum"
-    ],
-    "answerOptions": [
-      {
-        "value": "maps",
-        "label": "maps"
-      },
-      {
-        "value": "bench",
-        "label": "bench"
-      },
-      {
-        "value": "dress",
-        "label": "dress"
-      },
-      {
-        "value": "plum",
-        "label": "plum"
-      }
-    ],
-    "correctAnswer": "maps",
-    "answer": "maps",
-    "singularWord": "map",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_map_maps",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "maps means more than one map."
-  },
-  {
-    "id": "second_plurals_l2_14_pens",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "pens",
-    "imagePath": "/media/vocabulary/images/pens.webp",
-    "imageUrl": "/media/vocabulary/images/pens.webp",
-    "targetImage": "/media/vocabulary/images/pens.webp",
-    "targetImagePath": "/media/vocabulary/images/pens.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "pens",
-      "pear",
-      "plane",
-      "clock"
-    ],
-    "answerOptions": [
-      {
-        "value": "pens",
-        "label": "pens"
-      },
-      {
-        "value": "pear",
-        "label": "pear"
-      },
-      {
-        "value": "plane",
-        "label": "plane"
-      },
-      {
-        "value": "clock",
-        "label": "clock"
-      }
-    ],
-    "correctAnswer": "pens",
-    "answer": "pens",
-    "singularWord": "pen",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pen_pens",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "pens means more than one pen."
-  },
-  {
-    "id": "second_plurals_l2_15_pigs",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "pigs",
-    "imagePath": "/media/vocabulary/images/pigs.webp",
-    "imageUrl": "/media/vocabulary/images/pigs.webp",
-    "targetImage": "/media/vocabulary/images/pigs.webp",
-    "targetImagePath": "/media/vocabulary/images/pigs.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "pigs",
-      "cloud",
-      "plant",
-      "spider"
-    ],
-    "answerOptions": [
-      {
-        "value": "pigs",
-        "label": "pigs"
-      },
-      {
-        "value": "cloud",
-        "label": "cloud"
-      },
-      {
-        "value": "plant",
-        "label": "plant"
-      },
-      {
-        "value": "spider",
-        "label": "spider"
-      }
-    ],
-    "correctAnswer": "pigs",
-    "answer": "pigs",
-    "singularWord": "pig",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pig_pigs",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "pigs means more than one pig."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_grape_grapes",
+    "itemType": "plural_word",
+    "itemKey": "grapes",
+    "explanation": "grapes means more than one grape."
   },
   {
     "id": "second_plurals_l2_16_hens",
@@ -21218,12 +20762,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "hen",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_hen_hens",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "hens",
     "explanation": "hens means more than one hen."
   },
   {
-    "id": "second_plurals_l2_18_peas",
+    "id": "second_plurals_l2_28_kisses",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -21236,52 +20780,276 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "peas",
-    "imagePath": "/media/vocabulary/images/peas.webp",
-    "imageUrl": "/media/vocabulary/images/peas.webp",
-    "targetImage": "/media/vocabulary/images/peas.webp",
-    "targetImagePath": "/media/vocabulary/images/peas.webp",
-    "audioPath": "/media/vocabulary/audio/peas.mp3",
-    "audioUrl": "/media/vocabulary/audio/peas.mp3",
-    "audioText": "peas",
-    "audioKey": "peas",
+    "targetWord": "kisses",
+    "imagePath": "/media/vocabulary/images/kisses.webp",
+    "imageUrl": "/media/vocabulary/images/kisses.webp",
+    "targetImage": "/media/vocabulary/images/kisses.webp",
+    "targetImagePath": "/media/vocabulary/images/kisses.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "peas",
-      "kite",
-      "ring",
-      "cat"
+      "kisses",
+      "stair",
+      "puppy",
+      "baby"
     ],
     "answerOptions": [
       {
-        "value": "peas",
-        "label": "peas"
+        "value": "kisses",
+        "label": "kisses"
       },
       {
-        "value": "kite",
-        "label": "kite"
+        "value": "stair",
+        "label": "stair"
+      },
+      {
+        "value": "puppy",
+        "label": "puppy"
+      },
+      {
+        "value": "baby",
+        "label": "baby"
+      }
+    ],
+    "correctAnswer": "kisses",
+    "answer": "kisses",
+    "singularWord": "kiss",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_kiss_kisses",
+    "itemType": "plural_word",
+    "itemKey": "kisses",
+    "explanation": "kisses means more than one kiss."
+  },
+  {
+    "id": "second_plurals_l2_53_kites",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "kites",
+    "imagePath": "/images/child-mode/initial-sounds/kite.png",
+    "imageUrl": "/images/child-mode/initial-sounds/kite.png",
+    "targetImage": "/images/child-mode/initial-sounds/kite.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/kite.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "kites",
+      "drum",
+      "flag",
+      "ring"
+    ],
+    "answerOptions": [
+      {
+        "value": "kites",
+        "label": "kites"
+      },
+      {
+        "value": "drum",
+        "label": "drum"
+      },
+      {
+        "value": "flag",
+        "label": "flag"
       },
       {
         "value": "ring",
         "label": "ring"
-      },
-      {
-        "value": "cat",
-        "label": "cat"
       }
     ],
-    "correctAnswer": "peas",
-    "answer": "peas",
-    "singularWord": "pea",
+    "correctAnswer": "kites",
+    "answer": "kites",
+    "singularWord": "kite",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_kite_kites",
+    "itemType": "plural_word",
+    "itemKey": "kites",
+    "explanation": "kites means more than one kite."
+  },
+  {
+    "id": "second_plurals_l2_34_leaves",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "leaves",
+    "imagePath": "/images/child-mode/initial-sounds/leaf.png",
+    "imageUrl": "/images/child-mode/initial-sounds/leaf.png",
+    "targetImage": "/images/child-mode/initial-sounds/leaf.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/leaf.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "leaves",
+      "star",
+      "tree",
+      "sock"
+    ],
+    "answerOptions": [
+      {
+        "value": "leaves",
+        "label": "leaves"
+      },
+      {
+        "value": "star",
+        "label": "star"
+      },
+      {
+        "value": "tree",
+        "label": "tree"
+      },
+      {
+        "value": "sock",
+        "label": "sock"
+      }
+    ],
+    "correctAnswer": "leaves",
+    "answer": "leaves",
+    "singularWord": "leaf",
+    "pluralRule": "ves",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_ves_leaf_leaves",
+    "itemType": "plural_word",
+    "itemKey": "leaves",
+    "explanation": "leaves means more than one leaf."
+  },
+  {
+    "id": "second_plurals_l2_26_lunches",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "lunches",
+    "imagePath": "/media/vocabulary/images/lunches.webp",
+    "imageUrl": "/media/vocabulary/images/lunches.webp",
+    "targetImage": "/media/vocabulary/images/lunches.webp",
+    "targetImagePath": "/media/vocabulary/images/lunches.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "lunches",
+      "wish",
+      "class",
+      "church"
+    ],
+    "answerOptions": [
+      {
+        "value": "lunches",
+        "label": "lunches"
+      },
+      {
+        "value": "wish",
+        "label": "wish"
+      },
+      {
+        "value": "class",
+        "label": "class"
+      },
+      {
+        "value": "church",
+        "label": "church"
+      }
+    ],
+    "correctAnswer": "lunches",
+    "answer": "lunches",
+    "singularWord": "lunch",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_lunch_lunches",
+    "itemType": "plural_word",
+    "itemKey": "lunches",
+    "explanation": "lunches means more than one lunch."
+  },
+  {
+    "id": "second_plurals_l2_13_maps",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "maps",
+    "imagePath": "/media/vocabulary/images/maps.webp",
+    "imageUrl": "/media/vocabulary/images/maps.webp",
+    "targetImage": "/media/vocabulary/images/maps.webp",
+    "targetImagePath": "/media/vocabulary/images/maps.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "maps",
+      "bench",
+      "dress",
+      "plum"
+    ],
+    "answerOptions": [
+      {
+        "value": "maps",
+        "label": "maps"
+      },
+      {
+        "value": "bench",
+        "label": "bench"
+      },
+      {
+        "value": "dress",
+        "label": "dress"
+      },
+      {
+        "value": "plum",
+        "label": "plum"
+      }
+    ],
+    "correctAnswer": "maps",
+    "answer": "maps",
+    "singularWord": "map",
     "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pea_peas",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "peas means more than one pea."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_map_maps",
+    "itemType": "plural_word",
+    "itemKey": "maps",
+    "explanation": "maps means more than one map."
   },
   {
     "id": "second_plurals_l2_29_mittens",
@@ -21340,12 +21108,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "mitten",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_mitten_mittens",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "mittens",
     "explanation": "mittens means more than one mitten."
   },
   {
-    "id": "second_plurals_l2_30_stairs",
+    "id": "second_plurals_l2_37_peaches",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -21358,109 +21126,48 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "stairs",
-    "imagePath": "/media/vocabulary/images/stairs.webp",
-    "imageUrl": "/media/vocabulary/images/stairs.webp",
-    "targetImage": "/media/vocabulary/images/stairs.webp",
-    "targetImagePath": "/media/vocabulary/images/stairs.webp",
-    "audioPath": "/media/vocabulary/audio/stairs.mp3",
-    "audioUrl": "/media/vocabulary/audio/stairs.mp3",
-    "audioText": "stairs",
-    "audioKey": "stairs",
+    "targetWord": "peaches",
+    "imagePath": "/media/vocabulary/images/peach.webp",
+    "imageUrl": "/media/vocabulary/images/peach.webp",
+    "targetImage": "/media/vocabulary/images/peach.webp",
+    "targetImagePath": "/media/vocabulary/images/peach.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "stairs",
-      "shelf",
-      "peach",
-      "bench"
+      "peaches",
+      "book",
+      "cup",
+      "car"
     ],
     "answerOptions": [
       {
-        "value": "stairs",
-        "label": "stairs"
+        "value": "peaches",
+        "label": "peaches"
       },
       {
-        "value": "shelf",
-        "label": "shelf"
+        "value": "book",
+        "label": "book"
       },
       {
-        "value": "peach",
-        "label": "peach"
+        "value": "cup",
+        "label": "cup"
       },
       {
-        "value": "bench",
-        "label": "bench"
+        "value": "car",
+        "label": "car"
       }
     ],
-    "correctAnswer": "stairs",
-    "answer": "stairs",
-    "singularWord": "stair",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_stair_stairs",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "stairs means more than one stair."
-  },
-  {
-    "id": "second_plurals_l2_40_plums",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "plums",
-    "imagePath": "/media/vocabulary/images/plum.webp",
-    "imageUrl": "/media/vocabulary/images/plum.webp",
-    "targetImage": "/media/vocabulary/images/plum.webp",
-    "targetImagePath": "/media/vocabulary/images/plum.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "plums",
-      "frog",
-      "map",
-      "pen"
-    ],
-    "answerOptions": [
-      {
-        "value": "plums",
-        "label": "plums"
-      },
-      {
-        "value": "frog",
-        "label": "frog"
-      },
-      {
-        "value": "map",
-        "label": "map"
-      },
-      {
-        "value": "pen",
-        "label": "pen"
-      }
-    ],
-    "correctAnswer": "plums",
-    "answer": "plums",
-    "singularWord": "plum",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_plum_plums",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "plums means more than one plum."
+    "correctAnswer": "peaches",
+    "answer": "peaches",
+    "singularWord": "peach",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_peach_peaches",
+    "itemType": "plural_word",
+    "itemKey": "peaches",
+    "explanation": "peaches means more than one peach."
   },
   {
     "id": "second_plurals_l2_41_pears",
@@ -21515,12 +21222,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "pear",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pear_pears",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "pears",
     "explanation": "pears means more than one pear."
   },
   {
-    "id": "second_plurals_l2_43_clocks",
+    "id": "second_plurals_l2_18_peas",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -21533,51 +21240,169 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "clocks",
-    "imagePath": "/media/vocabulary/images/clock.webp",
-    "imageUrl": "/media/vocabulary/images/clock.webp",
-    "targetImage": "/media/vocabulary/images/clock.webp",
-    "targetImagePath": "/media/vocabulary/images/clock.webp",
+    "targetWord": "peas",
+    "imagePath": "/media/vocabulary/images/peas.webp",
+    "imageUrl": "/media/vocabulary/images/peas.webp",
+    "targetImage": "/media/vocabulary/images/peas.webp",
+    "targetImagePath": "/media/vocabulary/images/peas.webp",
+    "audioPath": "/media/vocabulary/audio/peas.mp3",
+    "audioUrl": "/media/vocabulary/audio/peas.mp3",
+    "audioText": "peas",
+    "audioKey": "peas",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "clocks",
-      "bus",
-      "dish",
-      "wish"
+      "peas",
+      "kite",
+      "ring",
+      "cat"
     ],
     "answerOptions": [
       {
-        "value": "clocks",
-        "label": "clocks"
+        "value": "peas",
+        "label": "peas"
       },
       {
-        "value": "bus",
-        "label": "bus"
+        "value": "kite",
+        "label": "kite"
       },
       {
-        "value": "dish",
-        "label": "dish"
+        "value": "ring",
+        "label": "ring"
       },
       {
-        "value": "wish",
-        "label": "wish"
+        "value": "cat",
+        "label": "cat"
       }
     ],
-    "correctAnswer": "clocks",
-    "answer": "clocks",
-    "singularWord": "clock",
+    "correctAnswer": "peas",
+    "answer": "peas",
+    "singularWord": "pea",
     "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_clock_clocks",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "clocks means more than one clock."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pea_peas",
+    "itemType": "plural_word",
+    "itemKey": "peas",
+    "explanation": "peas means more than one pea."
   },
   {
-    "id": "second_plurals_l2_44_clouds",
+    "id": "second_plurals_l2_14_pens",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "pens",
+    "imagePath": "/media/vocabulary/images/pens.webp",
+    "imageUrl": "/media/vocabulary/images/pens.webp",
+    "targetImage": "/media/vocabulary/images/pens.webp",
+    "targetImagePath": "/media/vocabulary/images/pens.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "pens",
+      "pear",
+      "plane",
+      "clock"
+    ],
+    "answerOptions": [
+      {
+        "value": "pens",
+        "label": "pens"
+      },
+      {
+        "value": "pear",
+        "label": "pear"
+      },
+      {
+        "value": "plane",
+        "label": "plane"
+      },
+      {
+        "value": "clock",
+        "label": "clock"
+      }
+    ],
+    "correctAnswer": "pens",
+    "answer": "pens",
+    "singularWord": "pen",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pen_pens",
+    "itemType": "plural_word",
+    "itemKey": "pens",
+    "explanation": "pens means more than one pen."
+  },
+  {
+    "id": "second_plurals_l2_15_pigs",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "pigs",
+    "imagePath": "/media/vocabulary/images/pigs.webp",
+    "imageUrl": "/media/vocabulary/images/pigs.webp",
+    "targetImage": "/media/vocabulary/images/pigs.webp",
+    "targetImagePath": "/media/vocabulary/images/pigs.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "pigs",
+      "cloud",
+      "plant",
+      "spider"
+    ],
+    "answerOptions": [
+      {
+        "value": "pigs",
+        "label": "pigs"
+      },
+      {
+        "value": "cloud",
+        "label": "cloud"
+      },
+      {
+        "value": "plant",
+        "label": "plant"
+      },
+      {
+        "value": "spider",
+        "label": "spider"
+      }
+    ],
+    "correctAnswer": "pigs",
+    "answer": "pigs",
+    "singularWord": "pig",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pig_pigs",
+    "itemType": "plural_word",
+    "itemKey": "pigs",
+    "explanation": "pigs means more than one pig."
+  },
+  {
+    "id": "second_plurals_l2_42_planes",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -21590,48 +21415,48 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "clouds",
-    "imagePath": "/media/vocabulary/images/cloud.webp",
-    "imageUrl": "/media/vocabulary/images/cloud.webp",
-    "targetImage": "/media/vocabulary/images/cloud.webp",
-    "targetImagePath": "/media/vocabulary/images/cloud.webp",
+    "targetWord": "planes",
+    "imagePath": "/media/vocabulary/images/plane.webp",
+    "imageUrl": "/media/vocabulary/images/plane.webp",
+    "targetImage": "/media/vocabulary/images/plane.webp",
+    "targetImagePath": "/media/vocabulary/images/plane.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "clouds",
-      "class",
-      "church",
-      "lunch"
+      "planes",
+      "pea",
+      "box",
+      "fox"
     ],
     "answerOptions": [
       {
-        "value": "clouds",
-        "label": "clouds"
+        "value": "planes",
+        "label": "planes"
       },
       {
-        "value": "class",
-        "label": "class"
+        "value": "pea",
+        "label": "pea"
       },
       {
-        "value": "church",
-        "label": "church"
+        "value": "box",
+        "label": "box"
       },
       {
-        "value": "lunch",
-        "label": "lunch"
+        "value": "fox",
+        "label": "fox"
       }
     ],
-    "correctAnswer": "clouds",
-    "answer": "clouds",
-    "singularWord": "cloud",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_cloud_clouds",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "clouds means more than one cloud."
+    "correctAnswer": "planes",
+    "answer": "planes",
+    "singularWord": "plane",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_plane_planes",
+    "itemType": "plural_word",
+    "itemKey": "planes",
+    "explanation": "planes means more than one plane."
   },
   {
     "id": "second_plurals_l2_45_plants",
@@ -21686,12 +21511,12 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "plant",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_plant_plants",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "plants",
     "explanation": "plants means more than one plant."
   },
   {
-    "id": "second_plurals_l2_46_spiders",
+    "id": "second_plurals_l2_40_plums",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -21704,51 +21529,51 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "spiders",
-    "imagePath": "/media/vocabulary/images/spider.webp",
-    "imageUrl": "/media/vocabulary/images/spider.webp",
-    "targetImage": "/media/vocabulary/images/spider.webp",
-    "targetImagePath": "/media/vocabulary/images/spider.webp",
+    "targetWord": "plums",
+    "imagePath": "/media/vocabulary/images/plum.webp",
+    "imageUrl": "/media/vocabulary/images/plum.webp",
+    "targetImage": "/media/vocabulary/images/plum.webp",
+    "targetImagePath": "/media/vocabulary/images/plum.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "spiders",
-      "stair",
-      "puppy",
-      "baby"
+      "plums",
+      "frog",
+      "map",
+      "pen"
     ],
     "answerOptions": [
       {
-        "value": "spiders",
-        "label": "spiders"
+        "value": "plums",
+        "label": "plums"
       },
       {
-        "value": "stair",
-        "label": "stair"
+        "value": "frog",
+        "label": "frog"
       },
       {
-        "value": "puppy",
-        "label": "puppy"
+        "value": "map",
+        "label": "map"
       },
       {
-        "value": "baby",
-        "label": "baby"
+        "value": "pen",
+        "label": "pen"
       }
     ],
-    "correctAnswer": "spiders",
-    "answer": "spiders",
-    "singularWord": "spider",
+    "correctAnswer": "plums",
+    "answer": "plums",
+    "singularWord": "plum",
     "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_spider_spiders",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "spiders means more than one spider."
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_plum_plums",
+    "itemType": "plural_word",
+    "itemKey": "plums",
+    "explanation": "plums means more than one plum."
   },
   {
-    "id": "second_plurals_l2_48_stars",
+    "id": "second_plurals_l2_31_puppies",
     "grade": "K-3",
     "skillId": "plurals",
     "skillName": "Plurals",
@@ -21761,219 +21586,48 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "multiple_choice",
     "templateType": "PLURAL_IMAGE_SPELLING",
     "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "stars",
-    "imagePath": "/images/child-mode/initial-sounds/star.png",
-    "imageUrl": "/images/child-mode/initial-sounds/star.png",
-    "targetImage": "/images/child-mode/initial-sounds/star.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/star.png",
+    "targetWord": "puppies",
+    "imagePath": "/media/vocabulary/images/puppy.webp",
+    "imageUrl": "/media/vocabulary/images/puppy.webp",
+    "targetImage": "/media/vocabulary/images/puppy.webp",
+    "targetImagePath": "/media/vocabulary/images/puppy.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",
     "prompt": "Choose the word that names more than one.",
     "question": "Choose the word that names more than one.",
     "choices": [
-      "stars",
-      "shelf",
-      "peach",
-      "bench"
+      "puppies",
+      "dress",
+      "plum",
+      "pear"
     ],
     "answerOptions": [
       {
-        "value": "stars",
-        "label": "stars"
+        "value": "puppies",
+        "label": "puppies"
       },
       {
-        "value": "shelf",
-        "label": "shelf"
+        "value": "dress",
+        "label": "dress"
       },
       {
-        "value": "peach",
-        "label": "peach"
+        "value": "plum",
+        "label": "plum"
       },
       {
-        "value": "bench",
-        "label": "bench"
+        "value": "pear",
+        "label": "pear"
       }
     ],
-    "correctAnswer": "stars",
-    "answer": "stars",
-    "singularWord": "star",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_star_stars",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "stars means more than one star."
-  },
-  {
-    "id": "second_plurals_l2_50_socks",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "socks",
-    "imagePath": "/images/child-mode/initial-sounds/sock.png",
-    "imageUrl": "/images/child-mode/initial-sounds/sock.png",
-    "targetImage": "/images/child-mode/initial-sounds/sock.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/sock.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "socks",
-      "plane",
-      "clock",
-      "cloud"
-    ],
-    "answerOptions": [
-      {
-        "value": "socks",
-        "label": "socks"
-      },
-      {
-        "value": "plane",
-        "label": "plane"
-      },
-      {
-        "value": "clock",
-        "label": "clock"
-      },
-      {
-        "value": "cloud",
-        "label": "cloud"
-      }
-    ],
-    "correctAnswer": "socks",
-    "answer": "socks",
-    "singularWord": "sock",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_sock_socks",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "socks means more than one sock."
-  },
-  {
-    "id": "second_plurals_l2_51_drums",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "drums",
-    "imagePath": "/images/child-mode/initial-sounds/drum.png",
-    "imageUrl": "/images/child-mode/initial-sounds/drum.png",
-    "targetImage": "/images/child-mode/initial-sounds/drum.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/drum.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "drums",
-      "plant",
-      "spider",
-      "stone"
-    ],
-    "answerOptions": [
-      {
-        "value": "drums",
-        "label": "drums"
-      },
-      {
-        "value": "plant",
-        "label": "plant"
-      },
-      {
-        "value": "spider",
-        "label": "spider"
-      },
-      {
-        "value": "stone",
-        "label": "stone"
-      }
-    ],
-    "correctAnswer": "drums",
-    "answer": "drums",
-    "singularWord": "drum",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_drum_drums",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "drums means more than one drum."
-  },
-  {
-    "id": "second_plurals_l2_52_flags",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "flags",
-    "imagePath": "/images/child-mode/initial-sounds/flag.png",
-    "imageUrl": "/images/child-mode/initial-sounds/flag.png",
-    "targetImage": "/images/child-mode/initial-sounds/flag.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/flag.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "flags",
-      "star",
-      "tree",
-      "sock"
-    ],
-    "answerOptions": [
-      {
-        "value": "flags",
-        "label": "flags"
-      },
-      {
-        "value": "star",
-        "label": "star"
-      },
-      {
-        "value": "tree",
-        "label": "tree"
-      },
-      {
-        "value": "sock",
-        "label": "sock"
-      }
-    ],
-    "correctAnswer": "flags",
-    "answer": "flags",
-    "singularWord": "flag",
-    "pluralRule": "s",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_flag_flags",
-    "itemType": "plural",
-    "itemKey": "s",
-    "explanation": "flags means more than one flag."
+    "correctAnswer": "puppies",
+    "answer": "puppies",
+    "singularWord": "puppy",
+    "pluralRule": "ies",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_ies_puppy_puppies",
+    "itemType": "plural_word",
+    "itemKey": "puppies",
+    "explanation": "puppies means more than one puppy."
   },
   {
     "id": "second_plurals_l2_54_rings",
@@ -22028,8 +21682,8 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "ring",
     "pluralRule": "s",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_ring_rings",
-    "itemType": "plural",
-    "itemKey": "s",
+    "itemType": "plural_word",
+    "itemKey": "rings",
     "explanation": "rings means more than one ring."
   },
   {
@@ -22529,63 +22183,6 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "Add s to make balls."
   },
   {
-    "id": "second_plurals_l2_34_leaves",
-    "grade": "K-3",
-    "skillId": "plurals",
-    "skillName": "Plurals",
-    "skill": "Plurals",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
-    "questionType": "multiple_choice",
-    "templateType": "PLURAL_IMAGE_SPELLING",
-    "formatType": "PLURAL_IMAGE_SPELLING",
-    "targetWord": "leaves",
-    "imagePath": "/images/child-mode/initial-sounds/leaf.png",
-    "imageUrl": "/images/child-mode/initial-sounds/leaf.png",
-    "targetImage": "/images/child-mode/initial-sounds/leaf.png",
-    "targetImagePath": "/images/child-mode/initial-sounds/leaf.png",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "second_block_k3_topup_2026_06",
-    "prompt": "Choose the word that names more than one.",
-    "question": "Choose the word that names more than one.",
-    "choices": [
-      "leaves",
-      "star",
-      "tree",
-      "sock"
-    ],
-    "answerOptions": [
-      {
-        "value": "leaves",
-        "label": "leaves"
-      },
-      {
-        "value": "star",
-        "label": "star"
-      },
-      {
-        "value": "tree",
-        "label": "tree"
-      },
-      {
-        "value": "sock",
-        "label": "sock"
-      }
-    ],
-    "correctAnswer": "leaves",
-    "answer": "leaves",
-    "singularWord": "leaf",
-    "pluralRule": "ves",
-    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_ves_leaf_leaves",
-    "itemType": "plural",
-    "itemKey": "ves",
-    "explanation": "leaves means more than one leaf."
-  },
-  {
     "id": "second_plurals_l2_36_shelves",
     "grade": "K-3",
     "skillId": "plurals",
@@ -22638,9 +22235,412 @@ export const secondBlockSkillTopUpQuestions = [
     "singularWord": "shelf",
     "pluralRule": "ves",
     "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_ves_shelf_shelves",
-    "itemType": "plural",
-    "itemKey": "ves",
+    "itemType": "plural_word",
+    "itemKey": "shelves",
     "explanation": "shelves means more than one shelf."
+  },
+  {
+    "id": "second_plurals_l2_50_socks",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "socks",
+    "imagePath": "/images/child-mode/initial-sounds/sock.png",
+    "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+    "targetImage": "/images/child-mode/initial-sounds/sock.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/sock.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "socks",
+      "plane",
+      "clock",
+      "cloud"
+    ],
+    "answerOptions": [
+      {
+        "value": "socks",
+        "label": "socks"
+      },
+      {
+        "value": "plane",
+        "label": "plane"
+      },
+      {
+        "value": "clock",
+        "label": "clock"
+      },
+      {
+        "value": "cloud",
+        "label": "cloud"
+      }
+    ],
+    "correctAnswer": "socks",
+    "answer": "socks",
+    "singularWord": "sock",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_sock_socks",
+    "itemType": "plural_word",
+    "itemKey": "socks",
+    "explanation": "socks means more than one sock."
+  },
+  {
+    "id": "second_plurals_l2_46_spiders",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "spiders",
+    "imagePath": "/media/vocabulary/images/spider.webp",
+    "imageUrl": "/media/vocabulary/images/spider.webp",
+    "targetImage": "/media/vocabulary/images/spider.webp",
+    "targetImagePath": "/media/vocabulary/images/spider.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "spiders",
+      "stair",
+      "puppy",
+      "baby"
+    ],
+    "answerOptions": [
+      {
+        "value": "spiders",
+        "label": "spiders"
+      },
+      {
+        "value": "stair",
+        "label": "stair"
+      },
+      {
+        "value": "puppy",
+        "label": "puppy"
+      },
+      {
+        "value": "baby",
+        "label": "baby"
+      }
+    ],
+    "correctAnswer": "spiders",
+    "answer": "spiders",
+    "singularWord": "spider",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_spider_spiders",
+    "itemType": "plural_word",
+    "itemKey": "spiders",
+    "explanation": "spiders means more than one spider."
+  },
+  {
+    "id": "second_plurals_l2_30_stairs",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "stairs",
+    "imagePath": "/media/vocabulary/images/stairs.webp",
+    "imageUrl": "/media/vocabulary/images/stairs.webp",
+    "targetImage": "/media/vocabulary/images/stairs.webp",
+    "targetImagePath": "/media/vocabulary/images/stairs.webp",
+    "audioPath": "/media/vocabulary/audio/stairs.mp3",
+    "audioUrl": "/media/vocabulary/audio/stairs.mp3",
+    "audioText": "stairs",
+    "audioKey": "stairs",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "stairs",
+      "shelf",
+      "peach",
+      "bench"
+    ],
+    "answerOptions": [
+      {
+        "value": "stairs",
+        "label": "stairs"
+      },
+      {
+        "value": "shelf",
+        "label": "shelf"
+      },
+      {
+        "value": "peach",
+        "label": "peach"
+      },
+      {
+        "value": "bench",
+        "label": "bench"
+      }
+    ],
+    "correctAnswer": "stairs",
+    "answer": "stairs",
+    "singularWord": "stair",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_stair_stairs",
+    "itemType": "plural_word",
+    "itemKey": "stairs",
+    "explanation": "stairs means more than one stair."
+  },
+  {
+    "id": "second_plurals_l2_48_stars",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "stars",
+    "imagePath": "/images/child-mode/initial-sounds/star.png",
+    "imageUrl": "/images/child-mode/initial-sounds/star.png",
+    "targetImage": "/images/child-mode/initial-sounds/star.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/star.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "stars",
+      "shelf",
+      "peach",
+      "bench"
+    ],
+    "answerOptions": [
+      {
+        "value": "stars",
+        "label": "stars"
+      },
+      {
+        "value": "shelf",
+        "label": "shelf"
+      },
+      {
+        "value": "peach",
+        "label": "peach"
+      },
+      {
+        "value": "bench",
+        "label": "bench"
+      }
+    ],
+    "correctAnswer": "stars",
+    "answer": "stars",
+    "singularWord": "star",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_star_stars",
+    "itemType": "plural_word",
+    "itemKey": "stars",
+    "explanation": "stars means more than one star."
+  },
+  {
+    "id": "second_plurals_l2_47_stones",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "stones",
+    "imagePath": "/media/vocabulary/images/stone.webp",
+    "imageUrl": "/media/vocabulary/images/stone.webp",
+    "targetImage": "/media/vocabulary/images/stone.webp",
+    "targetImagePath": "/media/vocabulary/images/stone.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "stones",
+      "party",
+      "leaf",
+      "wolf"
+    ],
+    "answerOptions": [
+      {
+        "value": "stones",
+        "label": "stones"
+      },
+      {
+        "value": "party",
+        "label": "party"
+      },
+      {
+        "value": "leaf",
+        "label": "leaf"
+      },
+      {
+        "value": "wolf",
+        "label": "wolf"
+      }
+    ],
+    "correctAnswer": "stones",
+    "answer": "stones",
+    "singularWord": "stone",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_stone_stones",
+    "itemType": "plural_word",
+    "itemKey": "stones",
+    "explanation": "stones means more than one stone."
+  },
+  {
+    "id": "second_plurals_l2_49_trees",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "trees",
+    "imagePath": "/images/child-mode/blends/tree.png",
+    "imageUrl": "/images/child-mode/blends/tree.png",
+    "targetImage": "/images/child-mode/blends/tree.png",
+    "targetImagePath": "/images/child-mode/blends/tree.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "trees",
+      "dress",
+      "plum",
+      "pear"
+    ],
+    "answerOptions": [
+      {
+        "value": "trees",
+        "label": "trees"
+      },
+      {
+        "value": "dress",
+        "label": "dress"
+      },
+      {
+        "value": "plum",
+        "label": "plum"
+      },
+      {
+        "value": "pear",
+        "label": "pear"
+      }
+    ],
+    "correctAnswer": "trees",
+    "answer": "trees",
+    "singularWord": "tree",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_tree_trees",
+    "itemType": "plural_word",
+    "itemKey": "trees",
+    "explanation": "trees means more than one tree."
+  },
+  {
+    "id": "second_plurals_l2_23_wishes",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "wishes",
+    "imagePath": "/media/vocabulary/images/wishes.webp",
+    "imageUrl": "/media/vocabulary/images/wishes.webp",
+    "targetImage": "/media/vocabulary/images/wishes.webp",
+    "targetImagePath": "/media/vocabulary/images/wishes.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "wishes",
+      "pen",
+      "pig",
+      "hen"
+    ],
+    "answerOptions": [
+      {
+        "value": "wishes",
+        "label": "wishes"
+      },
+      {
+        "value": "pen",
+        "label": "pen"
+      },
+      {
+        "value": "pig",
+        "label": "pig"
+      },
+      {
+        "value": "hen",
+        "label": "hen"
+      }
+    ],
+    "correctAnswer": "wishes",
+    "answer": "wishes",
+    "singularWord": "wish",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_wish_wishes",
+    "itemType": "plural_word",
+    "itemKey": "wishes",
+    "explanation": "wishes means more than one wish."
   },
   {
     "id": "second_prepositions_l1_01_above",
@@ -25723,7 +25723,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "bake",
-      "lamp",
+      "land",
       "meat",
       "bumpy"
     ],
@@ -25734,8 +25734,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "lamp",
-        "label": "lamp",
+        "value": "land",
+        "label": "land",
         "partOfSpeech": "noun"
       },
       {
@@ -25762,15 +25762,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bake verb card"
       },
       {
-        "id": "second_noun_lamp",
-        "word": "lamp",
-        "label": "lamp",
-        "value": "lamp",
+        "id": "second_noun_land",
+        "word": "land",
+        "label": "land",
+        "value": "land",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/lamp.png",
-        "imagePath": "/images/child-mode/initial-sounds/lamp.png",
-        "imageUrl": "/images/child-mode/initial-sounds/lamp.png",
-        "alt": "lamp noun card"
+        "image": "/media/vocabulary/images/land.webp",
+        "imagePath": "/media/vocabulary/images/land.webp",
+        "imageUrl": "/media/vocabulary/images/land.webp",
+        "alt": "land noun card"
       },
       {
         "id": "second_noun_meat",
@@ -26150,15 +26150,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "meat",
+      "mom",
       "nose",
       "cute",
       "build"
     ],
     "answerOptions": [
       {
-        "value": "meat",
-        "label": "meat",
+        "value": "mom",
+        "label": "mom",
         "partOfSpeech": "noun"
       },
       {
@@ -26179,15 +26179,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_meat",
-        "word": "meat",
-        "label": "meat",
-        "value": "meat",
+        "id": "second_noun_mom",
+        "word": "mom",
+        "label": "mom",
+        "value": "mom",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/meat.png",
-        "imagePath": "/images/child-mode/initial-sounds/meat.png",
-        "imageUrl": "/images/child-mode/initial-sounds/meat.png",
-        "alt": "meat noun card"
+        "image": "/media/vocabulary/images/mom.webp",
+        "imagePath": "/media/vocabulary/images/mom.webp",
+        "imageUrl": "/media/vocabulary/images/mom.webp",
+        "alt": "mom noun card"
       },
       {
         "id": "second_noun_nose",
@@ -26364,15 +26364,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "body",
+      "brother",
       "camel",
       "cute",
       "carry"
     ],
     "answerOptions": [
       {
-        "value": "body",
-        "label": "body",
+        "value": "brother",
+        "label": "brother",
         "partOfSpeech": "noun"
       },
       {
@@ -26393,15 +26393,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_body",
-        "word": "body",
-        "label": "body",
-        "value": "body",
+        "id": "second_noun_brother",
+        "word": "brother",
+        "label": "brother",
+        "value": "brother",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/body.webp",
-        "imagePath": "/media/vocabulary/images/body.webp",
-        "imageUrl": "/media/vocabulary/images/body.webp",
-        "alt": "body noun card"
+        "image": "/media/vocabulary/images/brother.webp",
+        "imagePath": "/media/vocabulary/images/brother.webp",
+        "imageUrl": "/media/vocabulary/images/brother.webp",
+        "alt": "brother noun card"
       },
       {
         "id": "second_noun_camel",
@@ -26471,15 +26471,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "page",
+      "rain",
       "fierce",
       "catch",
-      "nose"
+      "page"
     ],
     "answerOptions": [
       {
-        "value": "page",
-        "label": "page",
+        "value": "rain",
+        "label": "rain",
         "partOfSpeech": "noun"
       },
       {
@@ -26493,22 +26493,22 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "nose",
-        "label": "nose",
+        "value": "page",
+        "label": "page",
         "partOfSpeech": "noun"
       }
     ],
     "imageCards": [
       {
-        "id": "second_noun_page",
-        "word": "page",
-        "label": "page",
-        "value": "page",
+        "id": "second_noun_rain",
+        "word": "rain",
+        "label": "rain",
+        "value": "rain",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/page.webp",
-        "imagePath": "/media/vocabulary/images/page.webp",
-        "imageUrl": "/media/vocabulary/images/page.webp",
-        "alt": "page noun card"
+        "image": "/images/child-mode/initial-sounds/rain.png",
+        "imagePath": "/images/child-mode/initial-sounds/rain.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rain.png",
+        "alt": "rain noun card"
       },
       {
         "id": "second_adjective_fierce",
@@ -26533,15 +26533,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "catch verb card"
       },
       {
-        "id": "second_noun_nose",
-        "word": "nose",
-        "label": "nose",
-        "value": "nose",
+        "id": "second_noun_page",
+        "word": "page",
+        "label": "page",
+        "value": "page",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/nose.png",
-        "imagePath": "/images/child-mode/initial-sounds/nose.png",
-        "imageUrl": "/images/child-mode/initial-sounds/nose.png",
-        "alt": "nose noun card"
+        "image": "/media/vocabulary/images/page.webp",
+        "imagePath": "/media/vocabulary/images/page.webp",
+        "imageUrl": "/media/vocabulary/images/page.webp",
+        "alt": "page noun card"
       }
     ],
     "correctAnswer": "catch",
@@ -26685,15 +26685,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "hand",
+      "key",
       "brown",
       "cook",
-      "ground"
+      "hand"
     ],
     "answerOptions": [
       {
-        "value": "hand",
-        "label": "hand",
+        "value": "key",
+        "label": "key",
         "partOfSpeech": "noun"
       },
       {
@@ -26707,22 +26707,22 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "ground",
-        "label": "ground",
+        "value": "hand",
+        "label": "hand",
         "partOfSpeech": "noun"
       }
     ],
     "imageCards": [
       {
-        "id": "second_noun_hand",
-        "word": "hand",
-        "label": "hand",
-        "value": "hand",
+        "id": "second_noun_key",
+        "word": "key",
+        "label": "key",
+        "value": "key",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/hand.png",
-        "imagePath": "/images/child-mode/initial-sounds/hand.png",
-        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
-        "alt": "hand noun card"
+        "image": "/images/child-mode/initial-sounds/key.png",
+        "imagePath": "/images/child-mode/initial-sounds/key.png",
+        "imageUrl": "/images/child-mode/initial-sounds/key.png",
+        "alt": "key noun card"
       },
       {
         "id": "second_adjective_brown",
@@ -26747,15 +26747,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "cook verb card"
       },
       {
-        "id": "second_noun_ground",
-        "word": "ground",
-        "label": "ground",
-        "value": "ground",
+        "id": "second_noun_hand",
+        "word": "hand",
+        "label": "hand",
+        "value": "hand",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/ground.webp",
-        "imagePath": "/media/vocabulary/images/ground.webp",
-        "imageUrl": "/media/vocabulary/images/ground.webp",
-        "alt": "ground noun card"
+        "image": "/images/child-mode/initial-sounds/hand.png",
+        "imagePath": "/images/child-mode/initial-sounds/hand.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
+        "alt": "hand noun card"
       }
     ],
     "correctAnswer": "cook",
@@ -26794,7 +26794,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "huge",
       "count",
-      "park",
+      "path",
       "rain"
     ],
     "answerOptions": [
@@ -26809,8 +26809,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "park",
-        "label": "park",
+        "value": "path",
+        "label": "path",
         "partOfSpeech": "noun"
       },
       {
@@ -26843,15 +26843,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "count verb card"
       },
       {
-        "id": "second_noun_park",
-        "word": "park",
-        "label": "park",
-        "value": "park",
+        "id": "second_noun_path",
+        "word": "path",
+        "label": "path",
+        "value": "path",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/park.png",
-        "imagePath": "/images/child-mode/initial-sounds/park.png",
-        "imageUrl": "/images/child-mode/initial-sounds/park.png",
-        "alt": "park noun card"
+        "image": "/media/vocabulary/images/path.webp",
+        "imagePath": "/media/vocabulary/images/path.webp",
+        "imageUrl": "/media/vocabulary/images/path.webp",
+        "alt": "path noun card"
       },
       {
         "id": "second_noun_rain",
@@ -27221,7 +27221,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "drive",
-      "plum",
+      "puppy",
       "rain",
       "prickly"
     ],
@@ -27232,8 +27232,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "plum",
-        "label": "plum",
+        "value": "puppy",
+        "label": "puppy",
         "partOfSpeech": "noun"
       },
       {
@@ -27260,15 +27260,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "drive verb card"
       },
       {
-        "id": "second_noun_plum",
-        "word": "plum",
-        "label": "plum",
-        "value": "plum",
+        "id": "second_noun_puppy",
+        "word": "puppy",
+        "label": "puppy",
+        "value": "puppy",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/plum.webp",
-        "imagePath": "/media/vocabulary/images/plum.webp",
-        "imageUrl": "/media/vocabulary/images/plum.webp",
-        "alt": "plum noun card"
+        "image": "/media/vocabulary/images/noun-puppy.webp",
+        "imagePath": "/media/vocabulary/images/noun-puppy.webp",
+        "imageUrl": "/media/vocabulary/images/noun-puppy.webp",
+        "alt": "puppy noun card"
       },
       {
         "id": "second_noun_rain",
@@ -27327,15 +27327,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "scarf",
+      "sea",
       "teacher",
       "sharp",
       "eat"
     ],
     "answerOptions": [
       {
-        "value": "scarf",
-        "label": "scarf",
+        "value": "sea",
+        "label": "sea",
         "partOfSpeech": "noun"
       },
       {
@@ -27356,15 +27356,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_scarf",
-        "word": "scarf",
-        "label": "scarf",
-        "value": "scarf",
+        "id": "second_noun_sea",
+        "word": "sea",
+        "label": "sea",
+        "value": "sea",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/scarf.webp",
-        "imagePath": "/media/vocabulary/images/scarf.webp",
-        "imageUrl": "/media/vocabulary/images/scarf.webp",
-        "alt": "scarf noun card"
+        "image": "/images/child-mode/initial-sounds/sea.png",
+        "imagePath": "/images/child-mode/initial-sounds/sea.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sea.png",
+        "alt": "sea noun card"
       },
       {
         "id": "second_noun_teacher",
@@ -27544,7 +27544,7 @@ export const secondBlockSkillTopUpQuestions = [
       "teacher",
       "smelly",
       "fall",
-      "shelf"
+      "shirt"
     ],
     "answerOptions": [
       {
@@ -27563,8 +27563,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "shelf",
-        "label": "shelf",
+        "value": "shirt",
+        "label": "shirt",
         "partOfSpeech": "noun"
       }
     ],
@@ -27603,15 +27603,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "fall verb card"
       },
       {
-        "id": "second_noun_shelf",
-        "word": "shelf",
-        "label": "shelf",
-        "value": "shelf",
+        "id": "second_noun_shirt",
+        "word": "shirt",
+        "label": "shirt",
+        "value": "shirt",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/shelf.webp",
-        "imagePath": "/media/vocabulary/images/shelf.webp",
-        "imageUrl": "/media/vocabulary/images/shelf.webp",
-        "alt": "shelf noun card"
+        "image": "/media/vocabulary/images/shirt.webp",
+        "imagePath": "/media/vocabulary/images/shirt.webp",
+        "imageUrl": "/media/vocabulary/images/shirt.webp",
+        "alt": "shirt noun card"
       }
     ],
     "correctAnswer": "fall",
@@ -27864,7 +27864,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "square",
       "fly",
-      "skunk",
+      "snake",
       "teacher"
     ],
     "answerOptions": [
@@ -27879,8 +27879,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "skunk",
-        "label": "skunk",
+        "value": "snake",
+        "label": "snake",
         "partOfSpeech": "noun"
       },
       {
@@ -27913,15 +27913,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "fly verb card"
       },
       {
-        "id": "second_noun_skunk",
-        "word": "skunk",
-        "label": "skunk",
-        "value": "skunk",
+        "id": "second_noun_snake",
+        "word": "snake",
+        "label": "snake",
+        "value": "snake",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/skunk.webp",
-        "imagePath": "/media/vocabulary/images/skunk.webp",
-        "imageUrl": "/media/vocabulary/images/skunk.webp",
-        "alt": "skunk noun card"
+        "image": "/images/child-mode/initial-sounds/snake.png",
+        "imagePath": "/images/child-mode/initial-sounds/snake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/snake.png",
+        "alt": "snake noun card"
       },
       {
         "id": "second_noun_teacher",
@@ -27969,15 +27969,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "girl",
+      "grape",
       "hand",
       "old",
       "galloped"
     ],
     "answerOptions": [
       {
-        "value": "girl",
-        "label": "girl",
+        "value": "grape",
+        "label": "grape",
         "partOfSpeech": "noun"
       },
       {
@@ -27998,15 +27998,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_girl",
-        "word": "girl",
-        "label": "girl",
-        "value": "girl",
+        "id": "second_noun_grape",
+        "word": "grape",
+        "label": "grape",
+        "value": "grape",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/girl.png",
-        "imagePath": "/images/child-mode/initial-sounds/girl.png",
-        "imageUrl": "/images/child-mode/initial-sounds/girl.png",
-        "alt": "girl noun card"
+        "image": "/images/assessment/long-vowels/grape.webp",
+        "imagePath": "/images/assessment/long-vowels/grape.webp",
+        "imageUrl": "/images/assessment/long-vowels/grape.webp",
+        "alt": "grape noun card"
       },
       {
         "id": "second_noun_hand",
@@ -28077,7 +28077,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "help",
-      "soup",
+      "star",
       "teacher",
       "tiny"
     ],
@@ -28088,8 +28088,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "soup",
-        "label": "soup",
+        "value": "star",
+        "label": "star",
         "partOfSpeech": "noun"
       },
       {
@@ -28116,15 +28116,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "help verb card"
       },
       {
-        "id": "second_noun_soup",
-        "word": "soup",
-        "label": "soup",
-        "value": "soup",
+        "id": "second_noun_star",
+        "word": "star",
+        "label": "star",
+        "value": "star",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/soup.webp",
-        "imagePath": "/media/vocabulary/images/soup.webp",
-        "imageUrl": "/media/vocabulary/images/soup.webp",
-        "alt": "soup noun card"
+        "image": "/images/child-mode/initial-sounds/star.png",
+        "imagePath": "/images/child-mode/initial-sounds/star.png",
+        "imageUrl": "/images/child-mode/initial-sounds/star.png",
+        "alt": "star noun card"
       },
       {
         "id": "second_noun_teacher",
@@ -28183,20 +28183,20 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "street",
       "teacher",
+      "wall",
       "old",
       "hide"
     ],
     "answerOptions": [
       {
-        "value": "street",
-        "label": "street",
+        "value": "teacher",
+        "label": "teacher",
         "partOfSpeech": "noun"
       },
       {
-        "value": "teacher",
-        "label": "teacher",
+        "value": "wall",
+        "label": "wall",
         "partOfSpeech": "noun"
       },
       {
@@ -28212,17 +28212,6 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_street",
-        "word": "street",
-        "label": "street",
-        "value": "street",
-        "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/street.webp",
-        "imagePath": "/media/vocabulary/images/street.webp",
-        "imageUrl": "/media/vocabulary/images/street.webp",
-        "alt": "street noun card"
-      },
-      {
         "id": "second_noun_teacher",
         "word": "teacher",
         "label": "teacher",
@@ -28232,6 +28221,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/media/vocabulary/images/noun-teacher.webp",
         "imageUrl": "/media/vocabulary/images/noun-teacher.webp",
         "alt": "teacher noun card"
+      },
+      {
+        "id": "second_noun_wall",
+        "word": "wall",
+        "label": "wall",
+        "value": "wall",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/wall.webp",
+        "imagePath": "/media/vocabulary/images/wall.webp",
+        "imageUrl": "/media/vocabulary/images/wall.webp",
+        "alt": "wall noun card"
       },
       {
         "id": "second_adjective_old",
@@ -28507,7 +28507,7 @@ export const secondBlockSkillTopUpQuestions = [
       "driver",
       "fierce",
       "listen",
-      "camel"
+      "chicken"
     ],
     "answerOptions": [
       {
@@ -28526,8 +28526,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "camel",
-        "label": "camel",
+        "value": "chicken",
+        "label": "chicken",
         "partOfSpeech": "noun"
       }
     ],
@@ -28566,15 +28566,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "listen verb card"
       },
       {
-        "id": "second_noun_camel",
-        "word": "camel",
-        "label": "camel",
-        "value": "camel",
+        "id": "second_noun_chicken",
+        "word": "chicken",
+        "label": "chicken",
+        "value": "chicken",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/camel.webp",
-        "imagePath": "/media/vocabulary/images/camel.webp",
-        "imageUrl": "/media/vocabulary/images/camel.webp",
-        "alt": "camel noun card"
+        "image": "/media/vocabulary/images/chicken.webp",
+        "imagePath": "/media/vocabulary/images/chicken.webp",
+        "imageUrl": "/media/vocabulary/images/chicken.webp",
+        "alt": "chicken noun card"
       }
     ],
     "correctAnswer": "listen",
@@ -28827,7 +28827,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "observe",
       "men",
-      "nut",
+      "pear",
       "prickly"
     ],
     "answerOptions": [
@@ -28842,8 +28842,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "nut",
-        "label": "nut",
+        "value": "pear",
+        "label": "pear",
         "partOfSpeech": "noun"
       },
       {
@@ -28876,15 +28876,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "men noun card"
       },
       {
-        "id": "second_noun_nut",
-        "word": "nut",
-        "label": "nut",
-        "value": "nut",
+        "id": "second_noun_pear",
+        "word": "pear",
+        "label": "pear",
+        "value": "pear",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/nut.png",
-        "imagePath": "/images/child-mode/initial-sounds/nut.png",
-        "imageUrl": "/images/child-mode/initial-sounds/nut.png",
-        "alt": "nut noun card"
+        "image": "/media/vocabulary/images/pear.webp",
+        "imagePath": "/media/vocabulary/images/pear.webp",
+        "imageUrl": "/media/vocabulary/images/pear.webp",
+        "alt": "pear noun card"
       },
       {
         "id": "second_adjective_prickly",
@@ -28932,15 +28932,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "pear",
+      "pen",
       "rat",
       "sharp",
       "played"
     ],
     "answerOptions": [
       {
-        "value": "pear",
-        "label": "pear",
+        "value": "pen",
+        "label": "pen",
         "partOfSpeech": "noun"
       },
       {
@@ -28961,15 +28961,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_pear",
-        "word": "pear",
-        "label": "pear",
-        "value": "pear",
+        "id": "second_noun_pen",
+        "word": "pen",
+        "label": "pen",
+        "value": "pen",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/pear.webp",
-        "imagePath": "/media/vocabulary/images/pear.webp",
-        "imageUrl": "/media/vocabulary/images/pear.webp",
-        "alt": "pear noun card"
+        "image": "/images/child-mode/initial-sounds/pen.png",
+        "imagePath": "/images/child-mode/initial-sounds/pen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+        "alt": "pen noun card"
       },
       {
         "id": "second_noun_rat",
@@ -29042,7 +29042,7 @@ export const secondBlockSkillTopUpQuestions = [
       "seal",
       "smelly",
       "pour",
-      "rat"
+      "rice"
     ],
     "answerOptions": [
       {
@@ -29061,8 +29061,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "rat",
-        "label": "rat",
+        "value": "rice",
+        "label": "rice",
         "partOfSpeech": "noun"
       }
     ],
@@ -29101,15 +29101,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "pour verb card"
       },
       {
-        "id": "second_noun_rat",
-        "word": "rat",
-        "label": "rat",
-        "value": "rat",
+        "id": "second_noun_rice",
+        "word": "rice",
+        "label": "rice",
+        "value": "rice",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/rat.png",
-        "imagePath": "/images/child-mode/initial-sounds/rat.png",
-        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
-        "alt": "rat noun card"
+        "image": "/media/vocabulary/images/rice.webp",
+        "imagePath": "/media/vocabulary/images/rice.webp",
+        "imageUrl": "/media/vocabulary/images/rice.webp",
+        "alt": "rice noun card"
       }
     ],
     "correctAnswer": "pour",
@@ -29148,8 +29148,8 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "square",
       "predict",
-      "room",
-      "seal"
+      "seal",
+      "toast"
     ],
     "answerOptions": [
       {
@@ -29163,13 +29163,13 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "room",
-        "label": "room",
+        "value": "seal",
+        "label": "seal",
         "partOfSpeech": "noun"
       },
       {
-        "value": "seal",
-        "label": "seal",
+        "value": "toast",
+        "label": "toast",
         "partOfSpeech": "noun"
       }
     ],
@@ -29197,17 +29197,6 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "predict verb card"
       },
       {
-        "id": "second_noun_room",
-        "word": "room",
-        "label": "room",
-        "value": "room",
-        "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/room.webp",
-        "imagePath": "/media/vocabulary/images/room.webp",
-        "imageUrl": "/media/vocabulary/images/room.webp",
-        "alt": "room noun card"
-      },
-      {
         "id": "second_noun_seal",
         "word": "seal",
         "label": "seal",
@@ -29217,6 +29206,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/images/child-mode/initial-sounds/seal.png",
         "imageUrl": "/images/child-mode/initial-sounds/seal.png",
         "alt": "seal noun card"
+      },
+      {
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
       }
     ],
     "correctAnswer": "predict",
@@ -29254,7 +29254,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "raised",
-      "sky",
+      "sock",
       "toast",
       "tiny"
     ],
@@ -29265,8 +29265,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "sky",
-        "label": "sky",
+        "value": "sock",
+        "label": "sock",
         "partOfSpeech": "noun"
       },
       {
@@ -29293,15 +29293,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "raised verb card"
       },
       {
-        "id": "second_noun_sky",
-        "word": "sky",
-        "label": "sky",
-        "value": "sky",
+        "id": "second_noun_sock",
+        "word": "sock",
+        "label": "sock",
+        "value": "sock",
         "partOfSpeech": "noun",
-        "image": "/images/assessment/long-vowels/sky.webp",
-        "imagePath": "/images/assessment/long-vowels/sky.webp",
-        "imageUrl": "/images/assessment/long-vowels/sky.webp",
-        "alt": "sky noun card"
+        "image": "/images/child-mode/initial-sounds/sock.png",
+        "imagePath": "/images/child-mode/initial-sounds/sock.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+        "alt": "sock noun card"
       },
       {
         "id": "second_noun_toast",
@@ -29360,20 +29360,20 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "sun",
       "toast",
+      "wood",
       "old",
       "ran"
     ],
     "answerOptions": [
       {
-        "value": "sun",
-        "label": "sun",
+        "value": "toast",
+        "label": "toast",
         "partOfSpeech": "noun"
       },
       {
-        "value": "toast",
-        "label": "toast",
+        "value": "wood",
+        "label": "wood",
         "partOfSpeech": "noun"
       },
       {
@@ -29389,17 +29389,6 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_sun",
-        "word": "sun",
-        "label": "sun",
-        "value": "sun",
-        "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/sun.png",
-        "imagePath": "/images/child-mode/cvc/sun.png",
-        "imageUrl": "/images/child-mode/cvc/sun.png",
-        "alt": "sun noun card"
-      },
-      {
         "id": "second_noun_toast",
         "word": "toast",
         "label": "toast",
@@ -29409,6 +29398,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/media/vocabulary/images/toast.webp",
         "imageUrl": "/media/vocabulary/images/toast.webp",
         "alt": "toast noun card"
+      },
+      {
+        "id": "second_noun_wood",
+        "word": "wood",
+        "label": "wood",
+        "value": "wood",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/wood.webp",
+        "imagePath": "/media/vocabulary/images/wood.webp",
+        "imageUrl": "/media/vocabulary/images/wood.webp",
+        "alt": "wood noun card"
       },
       {
         "id": "second_adjective_old",
@@ -29467,15 +29467,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "child",
+      "school",
       "brown",
       "reads",
-      "word"
+      "child"
     ],
     "answerOptions": [
       {
-        "value": "child",
-        "label": "child",
+        "value": "school",
+        "label": "school",
         "partOfSpeech": "noun"
       },
       {
@@ -29489,22 +29489,22 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "word",
-        "label": "word",
+        "value": "child",
+        "label": "child",
         "partOfSpeech": "noun"
       }
     ],
     "imageCards": [
       {
-        "id": "second_noun_child",
-        "word": "child",
-        "label": "child",
-        "value": "child",
+        "id": "second_noun_school",
+        "word": "school",
+        "label": "school",
+        "value": "school",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-child.webp",
-        "imagePath": "/media/vocabulary/images/noun-child.webp",
-        "imageUrl": "/media/vocabulary/images/noun-child.webp",
-        "alt": "child noun card"
+        "image": "/media/vocabulary/images/noun-school.webp",
+        "imagePath": "/media/vocabulary/images/noun-school.webp",
+        "imageUrl": "/media/vocabulary/images/noun-school.webp",
+        "alt": "school noun card"
       },
       {
         "id": "second_adjective_brown",
@@ -29529,15 +29529,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "reads verb card"
       },
       {
-        "id": "second_noun_word",
-        "word": "word",
-        "label": "word",
-        "value": "word",
+        "id": "second_noun_child",
+        "word": "child",
+        "label": "child",
+        "value": "child",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/word.webp",
-        "imagePath": "/media/vocabulary/images/word.webp",
-        "imageUrl": "/media/vocabulary/images/word.webp",
-        "alt": "word noun card"
+        "image": "/media/vocabulary/images/noun-child.webp",
+        "imagePath": "/media/vocabulary/images/noun-child.webp",
+        "imageUrl": "/media/vocabulary/images/noun-child.webp",
+        "alt": "child noun card"
       }
     ],
     "correctAnswer": "reads",
@@ -29576,7 +29576,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "purple",
       "repair",
-      "air",
+      "ant",
       "baby"
     ],
     "answerOptions": [
@@ -29591,8 +29591,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "air",
-        "label": "air",
+        "value": "ant",
+        "label": "ant",
         "partOfSpeech": "noun"
       },
       {
@@ -29625,15 +29625,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "repair verb card"
       },
       {
-        "id": "second_noun_air",
-        "word": "air",
-        "label": "air",
-        "value": "air",
+        "id": "second_noun_ant",
+        "word": "ant",
+        "label": "ant",
+        "value": "ant",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/air.webp",
-        "imagePath": "/media/vocabulary/images/air.webp",
-        "imageUrl": "/media/vocabulary/images/air.webp",
-        "alt": "air noun card"
+        "image": "/images/child-mode/initial-sounds/ant.png",
+        "imagePath": "/images/child-mode/initial-sounds/ant.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ant.png",
+        "alt": "ant noun card"
       },
       {
         "id": "second_noun_baby",
@@ -29682,7 +29682,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "rises",
-      "baby",
+      "beach",
       "cake",
       "bumpy"
     ],
@@ -29693,8 +29693,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "baby",
-        "label": "baby",
+        "value": "beach",
+        "label": "beach",
         "partOfSpeech": "noun"
       },
       {
@@ -29721,15 +29721,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "rises verb card"
       },
       {
-        "id": "second_noun_baby",
-        "word": "baby",
-        "label": "baby",
-        "value": "baby",
+        "id": "second_noun_beach",
+        "word": "beach",
+        "label": "beach",
+        "value": "beach",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-baby.webp",
-        "imagePath": "/media/vocabulary/images/noun-baby.webp",
-        "imageUrl": "/media/vocabulary/images/noun-baby.webp",
-        "alt": "baby noun card"
+        "image": "/media/vocabulary/images/beach.webp",
+        "imagePath": "/media/vocabulary/images/beach.webp",
+        "imageUrl": "/media/vocabulary/images/beach.webp",
+        "alt": "beach noun card"
       },
       {
         "id": "second_noun_cake",
@@ -29788,15 +29788,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "belt",
+      "bird",
       "cake",
       "cute",
       "runs"
     ],
     "answerOptions": [
       {
-        "value": "belt",
-        "label": "belt",
+        "value": "bird",
+        "label": "bird",
         "partOfSpeech": "noun"
       },
       {
@@ -29817,15 +29817,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_belt",
-        "word": "belt",
-        "label": "belt",
-        "value": "belt",
+        "id": "second_noun_bird",
+        "word": "bird",
+        "label": "bird",
+        "value": "bird",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/belt.webp",
-        "imagePath": "/media/vocabulary/images/belt.webp",
-        "imageUrl": "/media/vocabulary/images/belt.webp",
-        "alt": "belt noun card"
+        "image": "/images/child-mode/initial-sounds/bird.png",
+        "imagePath": "/images/child-mode/initial-sounds/bird.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bird.png",
+        "alt": "bird noun card"
       },
       {
         "id": "second_noun_cake",
@@ -29898,7 +29898,7 @@ export const secondBlockSkillTopUpQuestions = [
       "cake",
       "fierce",
       "sang",
-      "boy"
+      "bread"
     ],
     "answerOptions": [
       {
@@ -29917,8 +29917,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "boy",
-        "label": "boy",
+        "value": "bread",
+        "label": "bread",
         "partOfSpeech": "noun"
       }
     ],
@@ -29957,15 +29957,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sang verb card"
       },
       {
-        "id": "second_noun_boy",
-        "word": "boy",
-        "label": "boy",
-        "value": "boy",
+        "id": "second_noun_bread",
+        "word": "bread",
+        "label": "bread",
+        "value": "bread",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/boy.webp",
-        "imagePath": "/media/vocabulary/images/boy.webp",
-        "imageUrl": "/media/vocabulary/images/boy.webp",
-        "alt": "boy noun card"
+        "image": "/media/vocabulary/images/bread.webp",
+        "imagePath": "/media/vocabulary/images/bread.webp",
+        "imageUrl": "/media/vocabulary/images/bread.webp",
+        "alt": "bread noun card"
       }
     ],
     "correctAnswer": "sang",
@@ -30004,7 +30004,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "huge",
       "sat",
-      "chair",
+      "cheese",
       "desk"
     ],
     "answerOptions": [
@@ -30019,8 +30019,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "chair",
-        "label": "chair",
+        "value": "cheese",
+        "label": "cheese",
         "partOfSpeech": "noun"
       },
       {
@@ -30053,15 +30053,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sat verb card"
       },
       {
-        "id": "second_noun_chair",
-        "word": "chair",
-        "label": "chair",
-        "value": "chair",
+        "id": "second_noun_cheese",
+        "word": "cheese",
+        "label": "cheese",
+        "value": "cheese",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/chair.png",
-        "imagePath": "/images/child-mode/initial-sounds/chair.png",
-        "imageUrl": "/images/child-mode/initial-sounds/chair.png",
-        "alt": "chair noun card"
+        "image": "/media/vocabulary/images/cheese.webp",
+        "imagePath": "/media/vocabulary/images/cheese.webp",
+        "imageUrl": "/media/vocabulary/images/cheese.webp",
+        "alt": "cheese noun card"
       },
       {
         "id": "second_noun_desk",
@@ -30110,7 +30110,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "shake",
-      "cloud",
+      "corn",
       "desk",
       "prickly"
     ],
@@ -30121,8 +30121,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "cloud",
-        "label": "cloud",
+        "value": "corn",
+        "label": "corn",
         "partOfSpeech": "noun"
       },
       {
@@ -30149,15 +30149,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "shake verb card"
       },
       {
-        "id": "second_noun_cloud",
-        "word": "cloud",
-        "label": "cloud",
-        "value": "cloud",
+        "id": "second_noun_corn",
+        "word": "corn",
+        "label": "corn",
+        "value": "corn",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/cloud.webp",
-        "imagePath": "/media/vocabulary/images/cloud.webp",
-        "imageUrl": "/media/vocabulary/images/cloud.webp",
-        "alt": "cloud noun card"
+        "image": "/images/child-mode/initial-sounds/corn.png",
+        "imagePath": "/images/child-mode/initial-sounds/corn.png",
+        "imageUrl": "/images/child-mode/initial-sounds/corn.png",
+        "alt": "corn noun card"
       },
       {
         "id": "second_noun_desk",
@@ -30219,7 +30219,7 @@ export const secondBlockSkillTopUpQuestions = [
       "wall",
       "brown",
       "share",
-      "toy"
+      "tree"
     ],
     "answerOptions": [
       {
@@ -30238,8 +30238,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "toy",
-        "label": "toy",
+        "value": "tree",
+        "label": "tree",
         "partOfSpeech": "noun"
       }
     ],
@@ -30278,15 +30278,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "share verb card"
       },
       {
-        "id": "second_noun_toy",
-        "word": "toy",
-        "label": "toy",
-        "value": "toy",
+        "id": "second_noun_tree",
+        "word": "tree",
+        "label": "tree",
+        "value": "tree",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/toy.webp",
-        "imagePath": "/media/vocabulary/images/toy.webp",
-        "imageUrl": "/media/vocabulary/images/toy.webp",
-        "alt": "toy noun card"
+        "image": "/images/child-mode/blends/tree.png",
+        "imagePath": "/images/child-mode/blends/tree.png",
+        "imageUrl": "/images/child-mode/blends/tree.png",
+        "alt": "tree noun card"
       }
     ],
     "correctAnswer": "share",
@@ -30325,8 +30325,8 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "purple",
       "sing",
-      "house",
-      "key"
+      "key",
+      "lake"
     ],
     "answerOptions": [
       {
@@ -30340,13 +30340,13 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "house",
-        "label": "house",
+        "value": "key",
+        "label": "key",
         "partOfSpeech": "noun"
       },
       {
-        "value": "key",
-        "label": "key",
+        "value": "lake",
+        "label": "lake",
         "partOfSpeech": "noun"
       }
     ],
@@ -30374,17 +30374,6 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sing verb card"
       },
       {
-        "id": "second_noun_house",
-        "word": "house",
-        "label": "house",
-        "value": "house",
-        "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/house.png",
-        "imagePath": "/images/child-mode/initial-sounds/house.png",
-        "imageUrl": "/images/child-mode/initial-sounds/house.png",
-        "alt": "house noun card"
-      },
-      {
         "id": "second_noun_key",
         "word": "key",
         "label": "key",
@@ -30394,6 +30383,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/images/child-mode/initial-sounds/key.png",
         "imageUrl": "/images/child-mode/initial-sounds/key.png",
         "alt": "key noun card"
+      },
+      {
+        "id": "second_noun_lake",
+        "word": "lake",
+        "label": "lake",
+        "value": "lake",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/lake.webp",
+        "imagePath": "/images/assessment/long-vowels/lake.webp",
+        "imageUrl": "/images/assessment/long-vowels/lake.webp",
+        "alt": "lake noun card"
       }
     ],
     "correctAnswer": "sing",
@@ -30430,15 +30430,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "desk",
+      "dirt",
       "farm",
       "sharp",
       "smiled"
     ],
     "answerOptions": [
       {
-        "value": "desk",
-        "label": "desk",
+        "value": "dirt",
+        "label": "dirt",
         "partOfSpeech": "noun"
       },
       {
@@ -30459,15 +30459,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_desk",
-        "word": "desk",
-        "label": "desk",
-        "value": "desk",
+        "id": "second_noun_dirt",
+        "word": "dirt",
+        "label": "dirt",
+        "value": "dirt",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/desk.png",
-        "imagePath": "/images/child-mode/initial-sounds/desk.png",
-        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
-        "alt": "desk noun card"
+        "image": "/media/vocabulary/images/dirt.webp",
+        "imagePath": "/media/vocabulary/images/dirt.webp",
+        "imageUrl": "/media/vocabulary/images/dirt.webp",
+        "alt": "dirt noun card"
       },
       {
         "id": "second_noun_farm",
@@ -30540,7 +30540,7 @@ export const secondBlockSkillTopUpQuestions = [
       "game",
       "smelly",
       "swam",
-      "farm"
+      "farmer"
     ],
     "answerOptions": [
       {
@@ -30559,8 +30559,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "farm",
-        "label": "farm",
+        "value": "farmer",
+        "label": "farmer",
         "partOfSpeech": "noun"
       }
     ],
@@ -30599,15 +30599,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "swam verb card"
       },
       {
-        "id": "second_noun_farm",
-        "word": "farm",
-        "label": "farm",
-        "value": "farm",
+        "id": "second_noun_farmer",
+        "word": "farmer",
+        "label": "farmer",
+        "value": "farmer",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/farm.png",
-        "imagePath": "/images/child-mode/initial-sounds/farm.png",
-        "imageUrl": "/images/child-mode/initial-sounds/farm.png",
-        "alt": "farm noun card"
+        "image": "/media/vocabulary/images/noun-farmer.webp",
+        "imagePath": "/media/vocabulary/images/noun-farmer.webp",
+        "imageUrl": "/media/vocabulary/images/noun-farmer.webp",
+        "alt": "farmer noun card"
       }
     ],
     "correctAnswer": "swam",
@@ -30646,7 +30646,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "square",
       "swayed",
-      "field",
+      "fish",
       "game"
     ],
     "answerOptions": [
@@ -30661,8 +30661,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "field",
-        "label": "field",
+        "value": "fish",
+        "label": "fish",
         "partOfSpeech": "noun"
       },
       {
@@ -30695,15 +30695,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "swayed verb card"
       },
       {
-        "id": "second_noun_field",
-        "word": "field",
-        "label": "field",
-        "value": "field",
+        "id": "second_noun_fish",
+        "word": "fish",
+        "label": "fish",
+        "value": "fish",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/field.webp",
-        "imagePath": "/media/vocabulary/images/field.webp",
-        "imageUrl": "/media/vocabulary/images/field.webp",
-        "alt": "field noun card"
+        "image": "/images/child-mode/cvc/fish.png",
+        "imagePath": "/images/child-mode/cvc/fish.png",
+        "imageUrl": "/images/child-mode/cvc/fish.png",
+        "alt": "fish noun card"
       },
       {
         "id": "second_noun_game",
@@ -30753,7 +30753,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "purple",
       "think",
-      "whale",
+      "wind",
       "children"
     ],
     "answerOptions": [
@@ -30768,8 +30768,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "whale",
-        "label": "whale",
+        "value": "wind",
+        "label": "wind",
         "partOfSpeech": "noun"
       },
       {
@@ -30802,15 +30802,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "think verb card"
       },
       {
-        "id": "second_noun_whale",
-        "word": "whale",
-        "label": "whale",
-        "value": "whale",
+        "id": "second_noun_wind",
+        "word": "wind",
+        "label": "wind",
+        "value": "wind",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/whale.png",
-        "imagePath": "/images/child-mode/initial-sounds/whale.png",
-        "imageUrl": "/images/child-mode/initial-sounds/whale.png",
-        "alt": "whale noun card"
+        "image": "/media/vocabulary/images/wind.webp",
+        "imagePath": "/media/vocabulary/images/wind.webp",
+        "imageUrl": "/media/vocabulary/images/wind.webp",
+        "alt": "wind noun card"
       },
       {
         "id": "second_noun_children",
@@ -30859,7 +30859,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "walked",
-      "food",
+      "frog",
       "game",
       "tiny"
     ],
@@ -30870,8 +30870,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "food",
-        "label": "food",
+        "value": "frog",
+        "label": "frog",
         "partOfSpeech": "noun"
       },
       {
@@ -30898,15 +30898,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "walked verb card"
       },
       {
-        "id": "second_noun_food",
-        "word": "food",
-        "label": "food",
-        "value": "food",
+        "id": "second_noun_frog",
+        "word": "frog",
+        "label": "frog",
+        "value": "frog",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/food.webp",
-        "imagePath": "/media/vocabulary/images/food.webp",
-        "imageUrl": "/media/vocabulary/images/food.webp",
-        "alt": "food noun card"
+        "image": "/images/child-mode/initial-sounds/frog.png",
+        "imagePath": "/images/child-mode/initial-sounds/frog.png",
+        "imageUrl": "/images/child-mode/initial-sounds/frog.png",
+        "alt": "frog noun card"
       },
       {
         "id": "second_noun_game",
@@ -30966,8 +30966,8 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "write",
-      "children",
       "apple",
+      "baker",
       "bumpy"
     ],
     "answerOptions": [
@@ -30977,13 +30977,13 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "children",
-        "label": "children",
+        "value": "apple",
+        "label": "apple",
         "partOfSpeech": "noun"
       },
       {
-        "value": "apple",
-        "label": "apple",
+        "value": "baker",
+        "label": "baker",
         "partOfSpeech": "noun"
       },
       {
@@ -31005,17 +31005,6 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "write verb card"
       },
       {
-        "id": "second_noun_children",
-        "word": "children",
-        "label": "children",
-        "value": "children",
-        "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-children.webp",
-        "imagePath": "/media/vocabulary/images/noun-children.webp",
-        "imageUrl": "/media/vocabulary/images/noun-children.webp",
-        "alt": "children noun card"
-      },
-      {
         "id": "second_noun_apple",
         "word": "apple",
         "label": "apple",
@@ -31025,6 +31014,17 @@ export const secondBlockSkillTopUpQuestions = [
         "imagePath": "/images/child-mode/initial-sounds/apple.png",
         "imageUrl": "/images/child-mode/initial-sounds/apple.png",
         "alt": "apple noun card"
+      },
+      {
+        "id": "second_noun_baker",
+        "word": "baker",
+        "label": "baker",
+        "value": "baker",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/baker.webp",
+        "imagePath": "/media/vocabulary/images/baker.webp",
+        "imageUrl": "/media/vocabulary/images/baker.webp",
+        "alt": "baker noun card"
       },
       {
         "id": "second_adjective_bumpy",

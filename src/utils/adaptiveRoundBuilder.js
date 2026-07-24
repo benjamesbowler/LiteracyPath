@@ -1,5 +1,5 @@
 export function createSeededRandom(seed = Date.now()) {
-  let value = Number(seed) || 1;
+  let value = (Number(seed) || 1) >>> 0;
   return () => {
     value = (value * 1664525 + 1013904223) % 4294967296;
     return value / 4294967296;

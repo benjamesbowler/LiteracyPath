@@ -48,13 +48,17 @@ import {
 } from "./data/coverageExpectations";
 import {
   getQuestionRoutingFormat,
-  isQuestionAllowedForSkill,
-  isSingleTemplateSkill
+  isQuestionAllowedForSkill
 } from "./data/skillTemplateRouting";
 import {
   getAssessmentSkillLabel,
   resolveAssessmentSkillId
 } from "./data/assessmentSkillMapping";
+import {
+  createAssessmentRoundDuplicateProfile,
+  getAssessmentRoundDuplicateFlags,
+  selectAssessmentRoundCandidate
+} from "./data/assessmentRoundSelector.js";
 import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question,
@@ -5425,122 +5429,51 @@ export default function App() {
   }
 
   function getRoundDuplicateProfile() {
-    const currentRoundQuestions = getCurrentRoundQuestionObjects();
-
-    return {
-      questionIds: new Set(roundQuestionIdsRef.current.filter(Boolean)),
-      targetWords: new Set(currentRoundQuestions.map(getQuestionTargetWord).filter(Boolean)),
-      itemKeys: new Set(roundItemKeysRef.current.filter(Boolean)),
-      correctAnswers: new Set(currentRoundQuestions.map(getQuestionAnswer).map(normalizeItemKey).filter(Boolean)),
-      promptAnswers: new Set(currentRoundQuestions.map(getRuntimeQuestionPromptAnswerSignature).filter(Boolean)),
-      optionSets: new Set(currentRoundQuestions.map(getRepeatOptionSetSignature).filter(Boolean)),
-      signatures: new Set(currentRoundQuestions.map(getRuntimeQuestionSignature).filter(Boolean))
-    };
+    return createAssessmentRoundDuplicateProfile(getCurrentRoundQuestionObjects(), {
+      selectedItemKeys: roundItemKeysRef.current,
+      getItemKey: getQuestionItemKey
+    });
   }
 
   function getRoundDuplicateFlags(question, profile = getRoundDuplicateProfile()) {
-    const metadata = inferItemMetadata(question);
-    const itemStateKey = metadata?.itemKey && metadata?.itemType
-      ? getItemMasteryStateKey(metadata.itemKey, metadata.itemType)
-      : "";
-    const target = getQuestionTargetWord(question);
-    const correct = normalizeItemKey(getQuestionAnswer(question));
-    const promptAnswer = getRuntimeQuestionPromptAnswerSignature(question);
-    const optionSet = getRepeatOptionSetSignature(question);
-    const signature = getRuntimeQuestionSignature(question);
-
-    return {
-      questionId: Boolean(question.id && profile.questionIds.has(question.id)),
-      targetWord: Boolean(target && profile.targetWords.has(target)),
-      itemKey: Boolean(itemStateKey && profile.itemKeys.has(itemStateKey)),
-      correctAnswer: Boolean(correct && profile.correctAnswers.has(correct)),
-      promptAnswer: Boolean(promptAnswer && profile.promptAnswers.has(promptAnswer)),
-      optionSet: Boolean(optionSet && profile.optionSets.has(optionSet)),
-      signature: Boolean(signature && profile.signatures.has(signature))
-    };
+    return getAssessmentRoundDuplicateFlags(question, profile, {
+      getItemKey: getQuestionItemKey
+    });
   }
 
   function selectNonDuplicateRoundCandidate(prioritized, activeStage) {
-    const profile = getRoundDuplicateProfile();
-    const currentRoundFormats = getCurrentRoundQuestionObjects()
-      .map(question => getQuestionFormatMetadata(question).formatType || getQuestionRoutingFormat(question));
-    const formatCounts = currentRoundFormats.reduce((counts, format) => ({
-      ...counts,
-      [format]: (counts[format] || 0) + 1
-    }), {});
-    const maxFormatCount = Math.max(1, Math.floor(ROUND_LENGTH * 0.35));
-    const respectsTemplateCap = question => {
-      if (isSingleTemplateSkill(activeStage?.id)) return true;
-      const format = getQuestionFormatMetadata(question).formatType || getQuestionRoutingFormat(question);
-      return (formatCounts[format] || 0) < maxFormatCount;
-    };
-    const underTemplateCap = prioritized.filter(respectsTemplateCap);
-    const routedPrioritized = underTemplateCap.length > 0 ? underTemplateCap : prioritized;
-    const roundFormatTypes = new Set(
-      currentRoundFormats
-    );
-    const exactSafe = routedPrioritized.filter(question => {
-      const flags = getRoundDuplicateFlags(question, profile);
-      return !flags.questionId && !flags.signature;
+    const selection = selectAssessmentRoundCandidate(prioritized, {
+      selectedQuestions: getCurrentRoundQuestionObjects(),
+      selectedItemKeys: roundItemKeysRef.current,
+      skillId: activeStage?.id,
+      roundLength: ROUND_LENGTH,
+      getItemKey: getQuestionItemKey
     });
-
-    if (exactSafe.length === 0) {
+    const picked = selection.question;
+    if (!picked) {
       debugAssessmentCoverage("round duplicate guard blocked pool", {
         studentId,
         skill: activeStage.label,
-        poolSize: routedPrioritized.length,
+        poolSize: prioritized.length,
         currentRoundQuestionIds: roundQuestionIdsRef.current,
         currentRoundItemKeys: roundItemKeysRef.current
       });
       return null;
     }
 
-    const strict = exactSafe.filter(question => {
-      const flags = getRoundDuplicateFlags(question, profile);
-      return !flags.targetWord && !flags.promptAnswer && !flags.optionSet;
-    });
-    const relaxPrompt = exactSafe.filter(question => {
-      const flags = getRoundDuplicateFlags(question, profile);
-      return !flags.targetWord && !flags.optionSet;
-    });
-    const relaxOptionSet = exactSafe.filter(question => {
-      const flags = getRoundDuplicateFlags(question, profile);
-      return !flags.targetWord;
-    });
-    const candidatePool =
-      strict.length > 0
-        ? strict
-        : relaxPrompt.length > 0
-          ? relaxPrompt
-          : relaxOptionSet.length > 0
-            ? relaxOptionSet
-            : exactSafe;
-    const duplicateRelaxation =
-      strict.length > 0
-        ? "none"
-        : relaxPrompt.length > 0
-          ? "prompt-answer"
-          : relaxOptionSet.length > 0
-            ? "option-set"
-            : "target-word";
-
-    const picked =
-      candidatePool.find(question => !roundFormatTypes.has(getQuestionFormatMetadata(question).formatType)) ||
-      candidatePool[0];
-
     debugAssessmentCoverage("round duplicate guard", {
       studentId,
       skill: activeStage.label,
-      poolSize: routedPrioritized.length,
-      exactSafeCandidates: exactSafe.length,
-      strictCandidates: strict.length,
-      duplicateRelaxation,
-      templateCap: `${maxFormatCount}/${ROUND_LENGTH}`,
+      poolSize: prioritized.length,
+      exactSafeCandidates: selection.exactSafeCount,
+      strictCandidates: selection.strictCount,
+      duplicateRelaxation: selection.duplicateRelaxation,
+      templateCap: `${selection.maxTemplateCount}/${ROUND_LENGTH}`,
       selectedQuestionId: picked?.id || "",
       selectedTargetWord: picked ? getQuestionTargetWord(picked) : "",
       selectedItemKey: picked ? getQuestionItemKey(picked) : "",
       selectedSignature: picked ? getRuntimeQuestionSignature(picked) : "",
-      duplicateFlags: picked ? getRoundDuplicateFlags(picked, profile) : {}
+      duplicateFlags: picked ? getRoundDuplicateFlags(picked, selection.profile) : {}
     });
 
     return picked;
@@ -5696,19 +5629,10 @@ export default function App() {
       return;
     }
 
-    const keysAlreadyInRound =
-      new Set(roundItemKeysRef.current);
-
-    const unusedItemKeys =
-      available.filter(question => {
-        const key = getQuestionItemKey(question);
-        return !key || !keysAlreadyInRound.has(key);
-      });
-
-    // A checkpoint round must NEVER repeat an item the child already answered
-    // this round. If the bank runs out mid-round the graceful stop below
-    // surfaces the content gap to the teacher instead of quietly re-asking.
-    const pool = unusedItemKeys;
+    // The shared selector applies the per-round phoneme/item cap. This permits
+    // a skill with a small concept set (for example five short vowels) to use
+    // different words for the same concept without repeating an exact item.
+    const pool = available;
 
     const coveragePrioritized = prioritizeCoverageQuestions(pool, activeStage);
     // Diagnostic mode ADAPTS: items whose diagnostic target the child recently

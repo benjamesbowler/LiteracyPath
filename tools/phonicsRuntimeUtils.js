@@ -45,6 +45,7 @@ import { isLevelOneContentQualityAllowed } from "../src/data/levelOneContentQual
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
+import { highQualityComprehensionReplacementQuestions } from "../src/data/highQualityComprehensionReplacements.js";
 import { managedAssessmentSkillDepthConfig } from "../src/data/skillLevelDepthConfig.js";
 import { rhymingPhaseItemKeysByLevel } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion } from "../src/data/listenAndFindAssets.js";
@@ -52,6 +53,7 @@ import { enrichInitialSoundPairQuestion } from "../src/data/initialSoundPairAsse
 import { enrichQuestionWithExistingMedia } from "../src/data/questionMediaResolver.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
+import { normalizeAssessmentMediaWord } from "../src/data/assessmentMediaRegistry.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
 import {
   getRuntimeSourceIssues,
@@ -124,7 +126,8 @@ const questionBanks = [
   ["assessmentQaReplacementQuestions", assessmentQaReplacementQuestions],
   ["generatedQuestions", generatedQuestions],
   ["fixSentenceQuestions", fixSentenceQuestions],
-  ["templateComprehensionAdvanced", templateComprehensionAdvanced]
+  ["templateComprehensionAdvanced", templateComprehensionAdvanced],
+  ["highQualityComprehensionReplacementQuestions", highQualityComprehensionReplacementQuestions]
 ];
 
 const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
@@ -143,6 +146,22 @@ const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
   "context_clues",
   "theme_higher_comprehension"
 ]);
+const COMPREHENSION_SKILLS = new Set([
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme_higher_comprehension"
+]);
+
+function normalizeRuntimeSkillId(skillId = "") {
+  if (skillId === "r_controlled_vowels") return "r_controlled";
+  if (skillId === "prepositions_of_place") return "prepositions";
+  return skillId;
+}
 
 export function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -205,9 +224,9 @@ export function getQuestionTargetWord(question = {}) {
     question.word ||
     question.correctAnswer ||
     question.answer;
-  if (direct && !Array.isArray(direct)) return normalizeWord(direct);
+  if (direct && !Array.isArray(direct)) return normalizeAssessmentMediaWord(direct);
   const image = getQuestionImagePaths(question)[0];
-  if (image) return normalizeWord(path.basename(image).replace(/\.[^.]+$/, ""));
+  if (image) return normalizeAssessmentMediaWord(path.basename(image).replace(/\.[^.]+$/, ""));
   return "";
 }
 
@@ -323,6 +342,7 @@ function keepRuntimeQuestion(question = {}) {
     question._source === "secondBlockSkillTopUpQuestions" ||
     question._source === "languageSkillQuestions" ||
     question.source === "assessment_qa_replacement_2026_06" ||
+    question.source === "high_quality_comprehension_replacement_2026_06" ||
     question.source === "second_block_k3_topup_2026_06" ||
     question.source === "skill_word_bank_workbook" ||
     question.source === "skill_level_depth_gap_generator" ||
@@ -538,6 +558,14 @@ export function getCoreSkillId(question = {}) {
   if (id === "prefixes_suffixes" || id === "prefix_suffix" || label.includes("prefix") || label.includes("suffix")) return "prefixes_suffixes";
   if (id === "antonyms_synonyms" || label.includes("antonym") || label.includes("synonym")) return "antonyms_synonyms";
   if (id === "homophones_homonyms" || id === "homophones" || label.includes("homophone") || label.includes("homonym")) return "homophones_homonyms";
+  if (id === "sentence_comprehension" || label.includes("sentence comprehension")) return "sentence_comprehension";
+  if (id === "key_details" || label.includes("key detail")) return "key_details";
+  if (id === "sequencing" || label.includes("sequencing")) return "sequencing";
+  if (id === "main_idea" || label.includes("main idea")) return "main_idea";
+  if (id === "inference" || label.includes("inference")) return "inference";
+  if (id === "cause_effect" || label.includes("cause and effect") || label.includes("cause effect")) return "cause_effect";
+  if (id === "context_clues" || label.includes("context clue")) return "context_clues";
+  if (id === "theme" || id === "theme_higher_comprehension" || label.includes("theme")) return "theme_higher_comprehension";
   return "";
 }
 
@@ -591,6 +619,7 @@ export function questionFilterReason(question = {}) {
       const longVowelIssues = getLongVowelsRuntimeEligibilityIssues(question, skillId);
       return longVowelIssues.length > 0 ? `long vowels runtime ineligible: ${longVowelIssues.join("; ")}` : "";
     }
+    if (COMPREHENSION_SKILLS.has(skillId)) return "";
     const eligibilityIssues = getEarlySkillRuntimeEligibilityIssues(question, {
       skillId: normalizeEarlySkillId(skillId),
       level: question.level || question.difficulty || 1,
@@ -643,9 +672,10 @@ export function questionFilterReason(question = {}) {
 }
 
 export function buildRuntimeQuestionsForSkill(skillId) {
+  const runtimeSkillId = normalizeRuntimeSkillId(skillId);
   const seen = new Set();
   return loadCoreQuestionPool()
-    .filter(question => getCoreSkillId(question) === skillId)
+    .filter(question => getCoreSkillId(question) === runtimeSkillId)
     .filter(question => {
       const signature = getQuestionSignature(question) || question.id;
       if (!signature || seen.has(signature)) return false;
@@ -660,28 +690,29 @@ export function buildRuntimeQuestionsForSkill(skillId) {
 }
 
 export function selectableRuntimeQuestionsForSkill(skillId) {
-  if (String(skillId || "").startsWith("hfw_")) {
-    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+  const runtimeSkillId = normalizeRuntimeSkillId(skillId);
+  if (String(runtimeSkillId || "").startsWith("hfw_")) {
+    return buildRuntimeQuestionsForSkill(runtimeSkillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
-      isRuntimeEligibleHfwQuestion(question, skillId)
+      isRuntimeEligibleHfwQuestion(question, runtimeSkillId)
     );
   }
-  if (skillId === "blends") {
-    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+  if (runtimeSkillId === "blends") {
+    return buildRuntimeQuestionsForSkill(runtimeSkillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
-      isRuntimeEligibleBlendsQuestion(question, skillId)
+      isRuntimeEligibleBlendsQuestion(question, runtimeSkillId)
     );
   }
-  if (skillId === "digraphs") {
-    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+  if (runtimeSkillId === "digraphs") {
+    return buildRuntimeQuestionsForSkill(runtimeSkillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
-      isRuntimeEligibleDigraphsQuestion(question, skillId)
+      isRuntimeEligibleDigraphsQuestion(question, runtimeSkillId)
     );
   }
-  if (skillId === "long_vowels_silent_e") {
-    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+  if (runtimeSkillId === "long_vowels_silent_e") {
+    return buildRuntimeQuestionsForSkill(runtimeSkillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
-      isRuntimeEligibleLongVowelsQuestion(question, skillId)
+      isRuntimeEligibleLongVowelsQuestion(question, runtimeSkillId)
     );
   }
   if ([
@@ -695,15 +726,15 @@ export function selectableRuntimeQuestionsForSkill(skillId) {
     "prefixes_suffixes",
     "antonyms_synonyms",
     "homophones_homonyms"
-  ].includes(skillId)) {
-    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+  ].includes(runtimeSkillId) || COMPREHENSION_SKILLS.has(runtimeSkillId)) {
+    return buildRuntimeQuestionsForSkill(runtimeSkillId).filter(question =>
       !question.filterReason || question.filterReason.startsWith("missing optional audio")
     );
   }
-  return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+  return buildRuntimeQuestionsForSkill(runtimeSkillId).filter(question =>
     (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
     isRuntimeEligibleEarlySkillQuestion(question, {
-      skillId,
+      skillId: runtimeSkillId,
       level: question.level || question.difficulty || 1,
       pathExists: publicPathExists
     })
