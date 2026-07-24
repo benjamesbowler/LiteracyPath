@@ -104,6 +104,24 @@ test("A3.5 every registered game overlay passes contrast and visible-focus check
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
     await expect(dialog).toBeVisible();
     await expectNoColourContrastViolations(page, ".lg-game-player", game.title);
+    const onboarding = page.getByRole("dialog", {
+      name: `How to play ${game.title}`,
+      exact: true
+    });
+    if (await onboarding.isVisible().catch(() => false)) {
+      await expectNoColourContrastViolations(
+        page,
+        ".lg-game-player",
+        `${game.title} first-run instructions`
+      );
+      await expectAllVisibleControlsHaveFocus(
+        page,
+        onboarding,
+        `${game.title} first-run instructions`
+      );
+      await onboarding.getByRole("button", { name: "Tap to play", exact: true }).click();
+      await expect(onboarding).toBeHidden();
+    }
     await expectSolidTextContrast(
       dialog.locator(".lg-game-title-chip span"),
       `${game.title} difficulty badge`

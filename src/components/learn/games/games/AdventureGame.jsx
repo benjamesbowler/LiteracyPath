@@ -66,7 +66,8 @@ function markOnboarded(key) {
 function AdventureOnboarding({ title, copy, onStart }) {
   useEffect(() => {
     const onKey = event => {
-      if (event.key === "Escape") return; // GamePlayer owns Esc (quit dialog).
+      if (!["Enter", " "].includes(event.key)) return;
+      if (event.target instanceof HTMLButtonElement) return;
       onStart();
     };
     window.addEventListener("keydown", onKey);
@@ -111,7 +112,7 @@ function AdventureOnboarding({ title, copy, onStart }) {
         </div>
         <div>
           <button type="button" className="lg-game-primary" onClick={onStart}>Tap to play</button>
-          <div style={{ marginTop: 8, fontSize: "0.74rem", fontWeight: 700, color: "#64748B" }}>or press any key</div>
+          <div style={{ marginTop: 8, fontSize: "0.74rem", fontWeight: 700, color: "#64748B" }}>or press Enter</div>
         </div>
       </div>
     </div>
