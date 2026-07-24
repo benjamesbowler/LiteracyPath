@@ -953,7 +953,11 @@
 }
 
 .phonics-island-card.locked .phonics-island-label small {
-  color: #98a1a6;
+  color: #626b70;
+}
+
+.phonics-island-card.locked .phonics-island-label > span {
+  color: #626b70;
 }
 
 .phonics-island-card.active {

@@ -2726,10 +2726,11 @@ function startGame(THREE, mount, opts) {
       overlay.style.display = "none";
       overlay.removeAttribute("aria-modal");
       overlay.removeAttribute("role");
+      overlay.removeAttribute("aria-label");
     }
   }
 
-  function showOverlay(html) {
+  function showOverlay(html, accessibleName) {
     const overlay = el("overlay");
     overlayActive = true;
     pausedFrameRendered = false;
@@ -2737,6 +2738,7 @@ function startGame(THREE, mount, opts) {
     overlay.style.display = "grid";
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", accessibleName);
     return overlay;
   }
 
@@ -2886,7 +2888,8 @@ function startGame(THREE, mount, opts) {
         '<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">' +
           '<button data-sr="retry" aria-label="Retry this track" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#f8fbff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:13px 22px;cursor:pointer">↻ Retry track</button>' +
           '<button data-sr="next" aria-label="Go to the next map" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#071033;background:#ffd34e;border:0;padding:13px 24px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Next map</button>' +
-        '</div></div>'
+        '</div></div>',
+      "Track cleared"
     );
     overlay.querySelector('[data-sr="retry"]').addEventListener("click", () => {
       sfx(playTapSound);
@@ -2920,7 +2923,8 @@ function startGame(THREE, mount, opts) {
         `<div style="font-size:2.45rem;letter-spacing:8px">${"★".repeat(stars)}${"✩".repeat(3 - stars)}</div>` +
         `<div style="font-size:1.1rem;opacity:.92">Score <b>${score}</b> · Words <b>${correct}</b></div>` +
         '<button data-sr="done" aria-label="Finish Sound Racer" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Done</button>' +
-      '</div>'
+      '</div>',
+      "Sound Racer complete"
     );
     const doneButton = overlay.querySelector('[data-sr="done"]');
     doneButton.addEventListener("click", () => {
@@ -3236,7 +3240,8 @@ function startGame(THREE, mount, opts) {
         '</section>' +
         '<button data-sr="intro-play" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">Tap to play</button>' +
         '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press Space / Enter / a steer key</div>' +
-      '</div>'
+      '</div>',
+      "Sound Racer instructions"
     );
     overlay.querySelector('[data-sr="intro-play"]').addEventListener("click", dismissIntro);
     overlay.querySelector('[data-sr="intro-hear"]').addEventListener("click", () => playTutorialExample(tutorial));

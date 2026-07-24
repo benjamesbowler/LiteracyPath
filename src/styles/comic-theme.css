@@ -945,19 +945,19 @@
 }
 .student-mode-app .story-quest-learn-page .learn-story-level-button.active,
 .student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] {
-  background: var(--comic-red) !important;
-  color: #fff !important;
+  background: var(--comic-red);
+  color: #fff;
 }
 /* A=red (active), B=blue, C=green chips regardless of active (mockup) */
-.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(2).active { background: var(--comic-blue) !important; }
-.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(3).active { background: var(--comic-green) !important; }
+.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(2).active { background: var(--comic-blue); }
+.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(3).active { background: var(--comic-green); }
 /* Active chip: force the whole label (incl. the "0/5 complete" span) white so it
    is never dark-blue-on-red. */
 .student-mode-app .story-quest-learn-page .learn-story-level-button.active,
 .student-mode-app .story-quest-learn-page .learn-story-level-button.active *,
 .student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"],
 .student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] * {
-  color: #fff !important;
+  color: #fff;
 }
 
 /* ═══ G. ARCADE HUB — dark comic tile grid (no-scroll) ═════════════════ */

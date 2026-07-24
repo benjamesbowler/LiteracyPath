@@ -155,6 +155,7 @@
     "check:fullscreen-overlay-semantics": "node --test tests/unit/fullscreenOverlayNames.test.js && playwright test tests/release/fullscreen-overlay-semantics.spec.js --project=desktop",
     "check:child-surface-rules": "node --test tests/unit/childSurfaceRules.test.js && playwright test tests/release/child-surface-rules.spec.js --project=desktop",
     "check:key-route-visuals": "playwright test tests/release/key-route-visuals.spec.js --project=desktop",
+    "check:a11y-routes": "node --test tests/unit/primaryRouteA11yInventory.test.js && playwright test tests/release/a11y-routes.spec.js --project=desktop",
     "check:report-audience-templates": "node --test tests/unit/reportAudienceTemplates.test.js && playwright test tests/release/report-audience-templates.spec.js --project=desktop",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

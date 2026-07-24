@@ -415,8 +415,7 @@ export const RELEASE_GATES = Object.freeze([
     id: "a11y-routes",
     label: "All-route accessibility",
     command: ["npm", "run", "check:a11y-routes"],
-    areas: [3, 10],
-    planned: true
+    areas: [3, 10]
   },
   {
     id: "a11y-teacher",

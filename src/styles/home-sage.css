@@ -22,14 +22,14 @@
 }
 
 .lp-home-sage {
-  --hs-sage: #5CA091;
-  --hs-pill: rgba(255, 255, 255, 0.28);
+  --hs-sage: #3E776B;
+  --hs-pill: rgba(0, 0, 0, 0.16);
   --hs-cream: #FBF4EA;
   --hs-ink: #182620;
   --hs-ink-soft: #4A5A52;
   --hs-line: #E9E1D4;
   --hs-forest: #2E4B3E;
-  --hs-tan: #C98F54;
+  --hs-tan: #9F5B23;
   --hs-promo: #D9924E;
   --hs-gold: #F2B33D;
   --hs-sky: #BFE3D8;
@@ -227,7 +227,7 @@
 }
 
 .lp-home-sage .hs-logo-copy > span {
-  color: #C4512B;
+  color: #B44322;
 }
 
 .lp-home-sage .hs-top-actions {

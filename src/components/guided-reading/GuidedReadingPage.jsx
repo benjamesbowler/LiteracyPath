@@ -1679,9 +1679,26 @@ export function GuidedReadingPage({
                 <p data-child-instruction="">Choose one book to read. Your clearest next book is marked first.</p>
               </div>
               <div className="guided-filter-chips" role="tablist" aria-label="Book levels">
-                <button type="button" className={!selectedLibraryLevel ? "active" : ""} onClick={() => setSelectedLibraryLevel("")}>All</button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={!selectedLibraryLevel}
+                  className={!selectedLibraryLevel ? "active" : ""}
+                  onClick={() => setSelectedLibraryLevel("")}
+                >
+                  All
+                </button>
                 {shelfLevels.map(level => (
-                  <button type="button" key={level} className={selectedLibraryLevel === level ? "active" : ""} onClick={() => setSelectedLibraryLevel(level)}>Level {level}</button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={selectedLibraryLevel === level}
+                    key={level}
+                    className={selectedLibraryLevel === level ? "active" : ""}
+                    onClick={() => setSelectedLibraryLevel(level)}
+                  >
+                    Level {level}
+                  </button>
                 ))}
               </div>
             </div>
