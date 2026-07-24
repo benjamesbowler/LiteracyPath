@@ -1649,9 +1649,14 @@ export function GuidedReadingPage({
                   {!isStudentMode && (
                     <span className="guided-reading-mode-pill compact">Teacher conference</span>
                   )}
+                  {isStudentMode && (
+                    <span className="guided-child-level-badge">Level {selectedBook.level}</span>
+                  )}
                 </div>
                 <h3>{selectedBook.title}</h3>
-                <p>{(selectedBook.targetSkills || selectedBook.recommendedSkillsToReinforce || []).join(" · ")}</p>
+                {!isStudentMode && (
+                  <p>{(selectedBook.targetSkills || selectedBook.recommendedSkillsToReinforce || []).join(" · ")}</p>
+                )}
               </div>
               <div className="guided-page-controls">
                 {isReaderFullscreen && (

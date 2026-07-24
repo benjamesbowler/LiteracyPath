@@ -62,4 +62,19 @@ test.describe("Guided Reading post-book quiz", () => {
     await expect(reader.getByText(/Page 1 of \d+/, { exact: true })).toBeVisible();
     expect(pageErrors).toEqual([]);
   });
+
+  test("student reader replaces internal book metadata with a child-friendly level badge", async ({ page }) => {
+    const pageErrors = [];
+    page.on("pageerror", error => pageErrors.push(error.message));
+
+    await page.goto("/preview/guided-reading-preview.html?book=moonwood-tales-c-25");
+
+    const reader = page.getByLabel("One Night in the Deep Dark full-screen reader");
+    await expect(reader).toBeVisible();
+    await expect(reader.getByText("Level C", { exact: true })).toBeVisible();
+    await expect(reader).not.toContainText("level-c");
+    await expect(reader).not.toContainText("moonwood-tales");
+    await expect(reader).not.toContainText("longer-story-pages");
+    expect(pageErrors).toEqual([]);
+  });
 });

@@ -4663,6 +4663,20 @@ body {
   margin-bottom: 2px;
 }
 
+.guided-child-level-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 2px solid var(--lp-color-text-strong);
+  border-radius: 999px;
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-text-strong);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
 .guided-reader-header h3,
 .guided-reader-header p,
 .guided-notes-panel h3,
