@@ -31,6 +31,9 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
   const availableLetters = useMemo(() => new Set(getAvailableLetters()), []);
   const completedCount = Object.values(progress).filter(status => status === "completed").length;
   const totalLetters = letters.length;
+  const recommendedLetter = letters.find(letter => (
+    availableLetters.has(letter) && progress[letter] !== "completed"
+  )) || letters.find(letter => availableLetters.has(letter));
 
   function getStatus(letter) {
     if (!availableLetters.has(letter)) return "locked";
@@ -44,15 +47,15 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
 
   return (
     <div className="phonics-picker">
-      <motion.h1 initial={{ y: -15, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+      <motion.h2 initial={{ y: -15, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
         Choose a letter
-      </motion.h1>
+      </motion.h2>
 
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         Tap a letter to hear its sound and start practising.
       </motion.p>
 
-      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="phonics-letter-grid">
+      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="phonics-letter-grid" data-child-choices="">
         {letters.map(letter => {
           const status = getStatus(letter);
           const isClickable = status !== "locked";
@@ -65,9 +68,10 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
               whileTap={isClickable ? { scale: 0.95 } : {}}
               onClick={() => handleLetterClick(letter, status)}
               disabled={!isClickable}
-              className={`phonics-letter-card ${status}`}
+              className={`phonics-letter-card ${status}${letter === recommendedLetter ? " recommended" : ""}`}
               aria-label={`Letter ${letter}${status === "locked" ? " locked" : ""}`}
               type="button"
+              data-child-primary={letter === recommendedLetter ? "" : undefined}
             >
               <span className="phonics-letter-symbol">{letter}</span>
               <span className="phonics-letter-status" aria-hidden="true">

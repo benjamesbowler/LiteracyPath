@@ -403,6 +403,16 @@
   transform: none;
 }
 
+.student-mode-app.lp-skin-sage :is(.story-quest-title-logo, .guided-library-logo, .guided-title-logo) .child-surface-title-text {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
 /* ═════════════════════════════════════════════════════════════════════════
  * PART 3 — THE HARDCODED COLOURS NO VARIABLE CAN REACH
  *

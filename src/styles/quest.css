@@ -1199,6 +1199,26 @@
 /* ── Creator ───────────────────────────────────────────────────────────────── */
 .q-creator { padding: 18px 16px 24px; background: radial-gradient(120% 80% at 50% 0%, #33285c, #14112a 70%); }
 .q-creator .q-title { text-align: center; }
+.q-creator-instruction {
+  max-width: 58ch;
+  margin: 6px auto 0;
+  color: rgba(255, 255, 255, .82);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-align: center;
+}
+.q-creator-step {
+  width: fit-content;
+  margin: 8px auto 0;
+  padding: 4px 9px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
 .q-creator-stage { display: grid; place-items: center; min-height: 250px; }
 
 .q-tabs { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 6px; }

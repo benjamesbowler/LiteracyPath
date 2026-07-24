@@ -83,8 +83,8 @@ function StepHeader({ title, subtitle }) {
     <div className="student-flow-header">
       <img src="/images/pals/poses/meadow-wave.webp" alt="" />
       <div>
-        <h1>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
+        <h1 data-child-title="">{title}</h1>
+        {subtitle && <p data-child-instruction="">{subtitle}</p>}
       </div>
     </div>
   );
@@ -98,7 +98,7 @@ function getProgressStep(step) {
 function StepProgress({ step }) {
   const currentIndex = STEP_ITEMS.findIndex(item => item.id === getProgressStep(step));
   return (
-    <ol className="student-flow-stepper" aria-label="Student sign in steps">
+    <ol className="student-flow-stepper" aria-label="Student sign in steps" data-child-progress="">
       {STEP_ITEMS.map((item, index) => {
         const isCurrent = index === currentIndex;
         const isComplete = currentIndex > index;
@@ -378,13 +378,13 @@ export function StudentLoginFlow({
   }
 
   return (
-    <main className="student-login-flow">
+    <main className="student-login-flow" data-child-surface="student-login">
       <section className={`student-flow-card${status ? " has-status" : ""}${locked ? " locked" : ""}`}>
         {step === "code" && (
           <>
             <StepHeader title="Enter your class code" subtitle="Your teacher will tell you the code." />
             <StepProgress step={step} />
-            <div className="student-code-entry-layout">
+            <div className="student-code-entry-layout" data-child-choices="">
               <div className="student-code-entry-form">
                 <label htmlFor="student-class-code">Your class code</label>
                 <input
@@ -411,6 +411,7 @@ export function StudentLoginFlow({
                   type="button"
                   onClick={submitCode}
                   disabled={loading || normalizedCodeInput.length < 4}
+                  data-child-primary=""
                 >
                   {loading ? "Checking…" : "Go"}
                 </button>

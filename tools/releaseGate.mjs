@@ -119,6 +119,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 10]
   },
   {
+    id: "child-surface-rules",
+    label: "Five-region child-surface contract with exactly one primary action on every student route",
+    command: ["npm", "run", "check:child-surface-rules"],
+    areas: [2, 3, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],

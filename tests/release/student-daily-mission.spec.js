@@ -15,7 +15,7 @@ test("A2.3 completing a mission step celebrates once and routes the primary acti
     "data-mission-state",
     "next"
   );
-  await expect(page.locator(".hs-btn-primary")).toHaveAttribute(
+  await expect(page.locator('[data-home-priority="primary"]')).toHaveAttribute(
     "data-mission-primary-kind",
     "quest"
   );
@@ -41,8 +41,8 @@ test("A2.3 completing a mission step celebrates once and routes the primary acti
     "data-mission-state",
     "next"
   );
-  const primary = page.locator(".hs-btn-primary");
-  await expect(primary).toHaveText("Continue Reading Library — 2 tasks left today");
+  const primary = page.locator('[data-home-priority="primary"]');
+  await expect(primary.locator(".hs-card-action")).toHaveText("Continue Reading Library — 2 tasks left today");
   await expect(primary).toHaveAttribute("data-mission-primary-kind", "book");
 
   const celebratedSteps = await page.evaluate(() => {

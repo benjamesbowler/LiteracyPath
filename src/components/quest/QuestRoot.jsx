@@ -894,6 +894,7 @@ export default function QuestRoot({
       data-fullbleed=""
       data-view={view}
       data-surface-name={activeQuestSurfaceName}
+      data-child-surface="sound-seekers"
       data-high-contrast={state.settings?.highContrast ? "true" : undefined}
       role="dialog"
       aria-modal="true"

@@ -8,14 +8,14 @@ test("A2.2 continuation names the policy activity and its seeded remaining goal"
   await page.goto("/preview/student-home-preview.html?scenario=continuation");
 
   const home = page.locator(".lp-home-sage");
-  const continuation = page.locator(".hs-btn-primary");
+  const continuation = page.locator('[data-home-priority="primary"]');
 
   await expect(home).toHaveAttribute(
     "data-recommendation-source",
     "daily-mission-complete:fallback"
   );
   await expect(page.locator('[data-home-priority="primary"] h3')).toHaveText("Sound Seekers");
-  await expect(continuation).toHaveText("Continue Sound Seekers — 2 trails left");
+  await expect(continuation.locator(".hs-card-action")).toHaveText("Continue Sound Seekers — 2 trails left");
   await expect(continuation).toHaveAttribute("data-continuation-activity", "sound-seekers");
   await expect(continuation).toHaveAttribute("data-continuation-goal", "Sound Seekers trails");
   await expect(continuation).toHaveAttribute("data-continuation-remaining", "2");

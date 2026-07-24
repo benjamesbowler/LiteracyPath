@@ -677,6 +677,27 @@
   line-height: 1.35;
 }
 
+.lp-home-sage .hs-card-action {
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--hs-forest);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.lp-home-sage .hs-card-action svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
 .lp-home-sage .hs-card-state-row {
   min-height: 25px;
   margin-top: 8px;

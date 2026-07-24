@@ -64,12 +64,26 @@
   text-transform: uppercase;
 }
 
+.learn-story-quest-copy h1,
 .learn-story-quest-copy h2,
 .learn-story-quest-card h3,
 .story-quest-header h2 {
   margin: 0;
   color: var(--lp-color-text);
   letter-spacing: 0;
+}
+
+.story-quest-primary-action {
+  width: fit-content;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--lp-color-primary);
+  color: #fff;
+  cursor: pointer;
+  font: 850 0.95rem/1.25 var(--lp-font-ui);
 }
 
 .learn-story-quest-copy p,

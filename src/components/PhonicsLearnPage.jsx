@@ -6,7 +6,11 @@ export function PhonicsLearnPage({
   progressScopeKey = "default"
 }) {
   return (
-    <main className="learn-area-page phonics-learn-page" aria-label="Phonics Learning">
+    <main
+      className="learn-area-page phonics-learn-page"
+      aria-label="Phonics Learning"
+      data-child-surface={initialIsland === "games" ? "arcade" : "phonics"}
+    >
       <section className="phonics-tab-shell" aria-label="Phonics">
         <PhonicsLearnTab
           key={`${progressScopeKey}-${initialIsland}`}

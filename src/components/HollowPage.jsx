@@ -283,6 +283,9 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     }] : [])
   ];
   const room = rooms[Math.min(roomIndex, rooms.length - 1)];
+  const recommendedSpotId = room?.kind === "open"
+    ? room.spots.find(spot => !hollow.slots[spot.spotId])?.spotId || ""
+    : "";
 
   const earnWays = [
     { icon: "⭐", label: "Quest star", pays: `${COIN_RATES.questStar}` },
@@ -308,10 +311,13 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
       <button
         key={spot.spotId}
         type="button"
-        className="hollow-spot empty"
+        className={`hollow-spot empty${spot.spotId === recommendedSpotId ? " recommended" : ""}`}
         style={style}
-        aria-label="Empty spot - add something"
+        aria-label={spot.spotId === recommendedSpotId
+          ? "Empty spot - add something. Recommended next."
+          : "Empty spot - add something"}
         onClick={() => setPickingSpot({ id: spot.spotId, x: spot.x, y: spot.y })}
+        data-child-primary={spot.spotId === recommendedSpotId ? "" : undefined}
       >
         ＋
       </button>
@@ -350,11 +356,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   return (
-    <main className="hollow-page" data-pal-world={activeTheme.id}>
+    <main className="hollow-page" data-pal-world={activeTheme.id} data-child-surface="my-hollow">
       <header className="hollow-topbar">
         {/* Global student back circle sits top-left; keep the corner clear. */}
-        <h1 className="hollow-title">{studentName ? `${studentName}'s Hollow` : "My Hollow"}</h1>
-        <nav className="hollow-tabs" aria-label="Hollow areas">
+        <h1 className="hollow-title" data-child-title="">{studentName ? `${studentName}'s Hollow` : "My Hollow"}</h1>
+        <nav className="hollow-tabs" aria-label="Hollow areas" data-child-choices="">
           {[
             { id: "hollow", label: "My Hollow" },
             { id: "pal", label: "My Pal" },
@@ -372,7 +378,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
             </button>
           ))}
         </nav>
-        <span className="hollow-wallet" aria-label={`${hollow.coins} coins and ${hollow.berries} berries`}>
+        <span className="hollow-wallet" aria-label={`${hollow.coins} coins and ${hollow.berries} berries`} data-child-progress="">
           <strong className="hollow-wallet-coins"><CoinIcon size={20} /> {hollow.coins}</strong>
           <em className="hollow-wallet-berries"><BerryIcon size={17} /> {hollow.berries}</em>
         </span>
@@ -392,8 +398,13 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   </span>
                 ))}
                 {renderPicker()}
-                <p className="hollow-room-hint">Tap a glowing spot to place something you own. Tap a placed thing to put it away.</p>
-                <button type="button" className="hollow-world-button" onClick={() => setPickingWorld(v => !v)}>
+                <p className="hollow-room-hint" data-child-instruction="">Tap a glowing spot to place something you own. Tap a placed thing to put it away.</p>
+                <button
+                  type="button"
+                  className="hollow-world-button"
+                  onClick={() => setPickingWorld(v => !v)}
+                  data-child-primary={!recommendedSpotId ? "" : undefined}
+                >
                   🌍 World
                 </button>
                 {pickingWorld && (

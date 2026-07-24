@@ -139,7 +139,8 @@ function SageCard({
   priority,
   recommendationSource,
   recommendationReason,
-  cardState
+  cardState,
+  continuation
 }) {
   function artError(event) {
     const img = event.currentTarget;
@@ -160,6 +161,12 @@ function SageCard({
       data-recommendation-source={recommendationSource || undefined}
       data-learning-state={cardState?.label || "New"}
       data-progress-marker={cardState?.progressText || undefined}
+      data-child-primary={hero ? "" : undefined}
+      data-continuation-activity={hero ? continuation?.activityId : undefined}
+      data-continuation-goal={hero ? continuation?.goal : undefined}
+      data-continuation-remaining={hero ? continuation?.remaining ?? undefined : undefined}
+      data-mission-primary-kind={hero ? continuation?.missionKind || undefined : undefined}
+      aria-label={hero ? continuation?.label : undefined}
     >
       <span className="hs-thumb" aria-hidden="true">
         <img src={art} alt="" loading="eager" decoding="async" onError={artError} />
@@ -179,12 +186,22 @@ function SageCard({
         {fillChip && <span className="hs-chip is-fill">{fillChip}</span>}
         {lineChips.map(chip => <span key={chip} className="hs-chip is-line">{chip}</span>)}
       </span>
-      <hr />
-      <span className="hs-foot">
-        <span className="hs-mini"><SageIcon name={locked ? "arcade" : "play"} /></span>
-        {locked && lockedLabel ? lockedLabel : foot}
-        {footNote && !locked && <em>&nbsp;· {footNote}</em>}
-      </span>
+      {hero && continuation?.label && (
+        <span className="hs-card-action">
+          <SageIcon name="play" />
+          {continuation.label}
+        </span>
+      )}
+      {!hero && (
+        <>
+          <hr />
+          <span className="hs-foot">
+            <span className="hs-mini"><SageIcon name={locked ? "arcade" : "play"} /></span>
+            {locked && lockedLabel ? lockedLabel : foot}
+            {footNote && !locked && <em>&nbsp;· {footNote}</em>}
+          </span>
+        </>
+      )}
     </button>
   );
 }
@@ -504,6 +521,13 @@ export function StudentHomePage({
         priority={priority}
         recommendationSource={priority === "primary" ? recommendation.source : undefined}
         recommendationReason={priority === "primary" ? recommendation.childReason : undefined}
+        continuation={priority === "primary"
+          ? {
+            ...continuation,
+            activityId: recommendation.primary.id,
+            missionKind: recommendation.primary.missionKind
+          }
+          : undefined}
       />
     );
   }
@@ -514,6 +538,7 @@ export function StudentHomePage({
         data-recommendation-policy={recommendation.policyId}
         data-recommendation-version={recommendation.policyVersion}
         data-recommendation-source={recommendation.source}
+        data-child-surface="student-home"
       >
         <aside className="hs-side">
           <span className="hs-avatar" aria-hidden="true">
@@ -554,22 +579,6 @@ export function StudentHomePage({
               >
                 <SageIcon name="person" />Grown-ups
               </button>
-              {recommendation.primary && (
-                <button
-                  className="hs-btn-primary"
-                  type="button"
-                  onClick={recommendation.primary.missionKind
-                    ? missionTargets[recommendation.primary.missionKind]
-                    : recommendation.primary.onClick}
-                  data-continuation-activity={recommendation.primary.id}
-                  data-continuation-goal={continuation.goal}
-                  data-continuation-remaining={continuation.remaining ?? undefined}
-                  data-mission-primary-kind={recommendation.primary.missionKind || undefined}
-                >
-                  <SageIcon name="play" />
-                  <span className="hs-btn-label">{continuation.label}</span>
-                </button>
-              )}
               {accountOpen && (
                 <div className="hs-menu" role="menu">
                   <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}>
@@ -585,8 +594,8 @@ export function StudentHomePage({
 
           <section className="hs-sheet" aria-label="Student learning areas">
             <div className="hs-sheet-head">
-              <h1>Hello, {studentName || "friend"}!</h1>
-              <p className="hs-sub">
+              <h1 data-child-title="">Hello, {studentName || "friend"}!</h1>
+              <p className="hs-sub" data-child-instruction="">
                 {status.missionComplete
                   ? "All three tasks done. Anything you like now!"
                   : "What shall we play today?"}
@@ -597,6 +606,7 @@ export function StudentHomePage({
               className="hs-mission-main"
               aria-labelledby="hs-mission-heading"
               data-mission-next-kind={nextMission?.kind || "complete"}
+              data-child-progress=""
             >
               <div className="hs-mission-main-head">
                 <div>
@@ -638,7 +648,7 @@ export function StudentHomePage({
 
             {recommendation.primary ? (
               <>
-                <div className="hs-recommendation-grid" aria-label="Recommended learning choices">
+                <div className="hs-recommendation-grid" aria-label="Recommended learning choices" data-child-choices="">
                   <section className="hs-primary-choice" aria-label="Recommended next activity">
                     {renderActivity(recommendation.primary, "primary")}
                   </section>

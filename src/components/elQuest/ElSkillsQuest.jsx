@@ -709,18 +709,28 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   }, [celebration, activeCycle]);
 
   if (!activeCycle) {
+    const completedCycles = playableCycles.filter(cycle => (
+      (progress.cycles?.[cycle.id]?.stars || 0) > 0
+    )).length;
     return (
-      <main className="skills-block-quest" data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}>
+      <main
+        className="skills-block-quest"
+        data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}
+        data-child-surface="adventure-map"
+      >
         <header className="sbq-top">
           <div>
             <p className="sbq-kicker">Adventure Map</p>
-            <h1>Your sound and word path</h1>
-            <p className="sbq-sub">Hi {studentName}, pick your stop. Each one teaches two new sounds and some quick words.</p>
+            <h1 data-child-title="">Your sound and word path</h1>
+            <p className="sbq-sub" data-child-instruction="">Hi {studentName}, follow “you are here” to learn two sounds and some quick words.</p>
+            <p className="sbq-map-progress" data-child-progress="">
+              {completedCycles} of {playableCycles.length} stops complete
+            </p>
           </div>
         </header>
         {(() => {
           return (
-            <div className="sbq-adventure" data-pal-world={region.id}>
+            <div className="sbq-adventure" data-pal-world={region.id} data-child-choices="">
               <div className="sbq-world-tabs" role="tablist" aria-label="Choose a land">
                 {WORLD_REGIONS.map(world => (
                   <button
@@ -774,6 +784,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                           style={{ left: `${x}%`, top: `${y}%` }}
                           onClick={() => { if (panRef.current.moved) return; openCycle(cycle); }}
                           aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
+                          data-child-primary={isRecommended ? "" : undefined}
                         >
                           <span className="sbq-stop-marker" aria-hidden="true">
                             {cycleProgress?.stars ? "★" : cycle.cycleNumber}

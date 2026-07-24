@@ -158,12 +158,19 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   }
 
   const world = worldForDifficulty(progress.difficulty);
+  const visibleGames = (TABS.find(entry => entry.id === tab) || TABS[0]).games;
+  const recommendedGame = visibleGames.find(game => (
+    (getLearnGameProgress(progress, game.id).stars || 0) === 0
+  )) || visibleGames[0];
 
   return (
     <section className="lg-arcade lg-arcade-comic" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
       {/* Slim top band with the 8-bit title + difficulty + sound */}
       <div className="lg-arcade-topband">
-        <h1 id="lg-arcade-title" className="lg-arcade-8bit">Arcade Area</h1>
+        <div>
+          <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">Arcade Area</h1>
+          <p className="lg-arcade-instruction" data-child-instruction="">Pick one game. Your next unplayed game is marked first.</p>
+        </div>
         <div className="lg-arcade-topband-controls">
           <div className="lg-segmented-control" aria-label="Difficulty">
             {DIFFICULTIES.map(difficulty => (
@@ -207,16 +214,19 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         id="lg-arcade-tabpanel"
         role="tabpanel"
         aria-labelledby={`lg-arcade-tab-${tab}`}
+        data-child-choices=""
       >
-        {(TABS.find(entry => entry.id === tab) || TABS[0]).games.map(game => {
+        {visibleGames.map(game => {
           const gameProgress = getLearnGameProgress(progress, game.id);
+          const isRecommended = game.id === recommendedGame?.id;
           return (
             <button
               key={game.id}
               type="button"
-              className="lg-game-tile"
+              className={`lg-game-tile${isRecommended ? " is-recommended" : ""}`}
               style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
               onClick={() => setActiveGame(game)}
+              data-child-primary={isRecommended ? "" : undefined}
             >
               <span className="lg-game-tile-art" aria-hidden="true">
                 <img
@@ -230,6 +240,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
                 />
               </span>
               <span className="lg-game-tile-name">{game.title}</span>
+              {isRecommended && <span className="lg-game-tile-next">Play next</span>}
               <span className="lg-game-tile-foot">
                 <ProgressStars stars={gameProgress.stars || 0} />
                 {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
@@ -240,7 +251,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       </div>
 
       {/* Slim bottom banner: points + high-score board */}
-      <div className="lg-arcade-bottomband">
+      <div className="lg-arcade-bottomband" data-child-progress="">
         <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
         <span className="lg-arcade-played">{totals.completed}/{ARCADE_GAMES.length} games played</span>
         <button

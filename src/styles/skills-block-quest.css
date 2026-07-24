@@ -42,6 +42,18 @@
   font-size: 0.95rem;
 }
 
+.sbq-map-progress {
+  width: fit-content;
+  margin: 8px 0 0;
+  padding: 4px 9px;
+  border-radius: 7px;
+  background: var(--lp-color-surface-muted);
+  color: var(--lp-color-text-strong);
+  font-size: 0.82rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
 .sbq-primary-button,
 .sbq-ghost-button {
   min-height: 44px;

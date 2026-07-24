@@ -75,6 +75,12 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
       return progress.opened && !progress.completed;
     })
     .slice(0, 3), [questProgress]);
+  const selectedLevelQuests = questGroups.find(level => level.key === selectedLevelKey)?.quests || [];
+  const primaryQuest = continueQuests[0]
+    || selectedLevelQuests.find(quest => !questProgress[quest.id]?.completed)
+    || selectedLevelQuests[0]
+    || storyQuests[0];
+  const primaryQuestStarted = Boolean(primaryQuest && questProgress[primaryQuest.id]?.opened);
   const activeQuestProgress = activeQuest ? questProgress[activeQuest.id] || {} : {};
   const activeQuestInitialPageId =
     activeQuest && !activeQuestProgress.completed && activeQuestProgress.lastPageId
@@ -142,18 +148,35 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
   }
 
   return (
-    <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quests">
+    <main
+      className="learn-area-page story-quest-learn-page page-stack"
+      aria-label="Story Quests"
+      data-child-surface="story-quests"
+    >
       <section className="learn-story-quest-library card">
         <div className="story-quest-header-row">
           <div className="learn-story-quest-copy">
             <span className="story-quest-kicker">Read · Discover · Adventure</span>
-            <h2 className="story-quest-title-logo"><img src="/images/comic/story-quests-logo.webp" alt="Story Quests" /></h2>
-            <p>Read bright guided stories, hear each page, and choose what happens next.</p>
-            <div className="story-quest-library-stats" aria-label="Story Quest progress">
+            <h1 className="story-quest-title-logo" data-child-title="">
+              <span className="child-surface-title-text">Story Quests</span>
+              <img src="/images/comic/story-quests-logo.webp" alt="" />
+            </h1>
+            <p data-child-instruction="">Read a guided story, hear each page, and choose what happens next.</p>
+            <div className="story-quest-library-stats" aria-label="Story Quest progress" data-child-progress="">
               <span><strong>{questSummary.completed}</strong> complete</span>
               <span><strong>{questSummary.inProgress}</strong> in progress</span>
               <span><strong>{questSummary.foundWords}/{questSummary.targetWords}</strong> words found</span>
             </div>
+            {primaryQuest && (
+              <button
+                className="story-quest-primary-action"
+                type="button"
+                onClick={() => startQuest(primaryQuest.id)}
+                data-child-primary=""
+              >
+                {primaryQuestStarted ? "Continue" : "Start"} {primaryQuest.title}
+              </button>
+            )}
           </div>
 
           <div className="learn-story-level-selector" aria-label="Story Quest level menu">
@@ -192,7 +215,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
           </div>
         )}
 
-        <div className="story-quest-body">
+        <div className="story-quest-body" data-child-choices="">
         <div className="learn-story-level-list">
           {questGroups.map(level => (
             <section className="learn-story-level-section" id={`story-quest-level-${level.key}`} key={level.key}>
