@@ -197,7 +197,15 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
 // it before the clock runs out. A timeout is a real miss (hesitation is the
 // thing being measured), said kindly: the cue replays and the clock re-arms.
 // The correction ladder applies exactly as everywhere else.
-export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
+export function TrailRun({
+  beat,
+  isSoundEnabled,
+  onBeat,
+  onDone,
+  index,
+  total,
+  extendedResponse = false
+}) {
   const [done, mark] = useOnce(beat);
   const [picked, setPicked] = useState(null);
   const [lap, setLap] = useState(0);
@@ -216,7 +224,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
   // taught, and re-arms fresh after either — hesitation is what it measures,
   // not the time the game itself spends talking.
   useEffect(() => {
-    if (done || teaching || picked) return undefined;
+    if (extendedResponse || done || teaching || picked) return undefined;
     const timer = window.setTimeout(() => {
       if (isSoundEnabled) playSoftBuzz();
       // A timeout is HESITATION, not a wrong answer: tagged so mastery logs
@@ -227,7 +235,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
       setLap(l => l + 1);
     }, seconds * 1000);
     return () => window.clearTimeout(timer);
-  }, [lap, done, teaching, picked, beat, seconds, isSoundEnabled]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [lap, done, teaching, picked, beat, seconds, isSoundEnabled, extendedResponse]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function dash(g) {
     if (picked || done || teaching) return;
@@ -247,12 +255,17 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
 
   return (
     <div className="qw-enc qw-run">
-      <p className="qw-say">Quick — take the fork that says it!</p>
+      <p className="qw-say">
+        {extendedResponse ? "Take your time — choose the fork that says it." : "Quick — take the fork that says it!"}
+      </p>
       <Listen onClick={() => playLetterBeatCue(beat, isSoundEnabled)} disabled={!hasLetterBeatCue(beat)} />
-      {!done && !teaching && (
+      {!extendedResponse && !done && !teaching && (
         <span className="qw-run-clock" aria-hidden="true">
           <span key={`${lap}-${beat.target}-${index}`} className="qw-run-sand" style={{ animationDuration: `${seconds}s` }} />
         </span>
+      )}
+      {extendedResponse && !done && !teaching && (
+        <p className="qw-hint" role="status">No countdown — answer when you are ready.</p>
       )}
       <div className="qw-run-forks">
         {showing.map(g => {

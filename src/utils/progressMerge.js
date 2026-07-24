@@ -200,11 +200,17 @@ export function sanitizeCloudProgressPayload(area, payload) {
       reducedChoiceMode,
       reducedChoiceModeAt,
       reducedChoiceModeBy,
+      accessibilitySettings,
+      accessibilitySettingsAt,
+      accessibilitySettingsBy,
       ...safePayload
     } = payload;
     void reducedChoiceMode;
     void reducedChoiceModeAt;
     void reducedChoiceModeBy;
+    void accessibilitySettings;
+    void accessibilitySettingsAt;
+    void accessibilitySettingsBy;
     return safePayload;
   }
   return payload;

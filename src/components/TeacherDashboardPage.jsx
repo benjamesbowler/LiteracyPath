@@ -30,6 +30,10 @@ import {
   TeacherModal
 } from "./teacher/ui/TeacherDialog.jsx";
 import { metricDefinitionText } from "../utils/metricDefinitions.js";
+import {
+  LEARNER_ACCESSIBILITY_FIELDS,
+  normalizeLearnerAccessibilitySettings
+} from "../accessibility/learnerAccessibility.js";
 import { supabase } from "../supabaseClient.js";
 import logoUrl from "../assets/logo.svg";
 
@@ -326,6 +330,78 @@ function QuestionTypeGuideDialog({ query, onQueryChange, onClose }) {
             <p>Try a skill such as rhyme, blending, digraphs, grammar, or sight words.</p>
           </div>
         )}
+      </section>
+    </TeacherModal>
+  );
+}
+
+function LearnerAccessibilityDialog({ student, saving = false, onSave, onClose }) {
+  const [draft, setDraft] = useState(
+    () => normalizeLearnerAccessibilitySettings(student?.accessibilitySettings)
+  );
+
+  async function save() {
+    const saved = await onSave?.(student, draft);
+    if (saved !== false) onClose?.();
+  }
+
+  return (
+    <TeacherModal
+      className="teacher-accessibility-settings-modal"
+      label={`Accessibility settings for ${student.name}`}
+      onClose={() => {
+        if (!saving) onClose?.();
+      }}
+    >
+      <section className="symbol-password-modal-card teacher-accessibility-settings-card">
+        <header>
+          <div>
+            <p className="panel-label">Learner access</p>
+            <h2>{student.name}&apos;s accessibility settings</h2>
+            <p>These choices follow this learner across signed-in devices.</p>
+          </div>
+          <button className="text-button" type="button" disabled={saving} onClick={onClose}>
+            Close settings
+          </button>
+        </header>
+        <fieldset className="teacher-accessibility-setting-list">
+          <legend>Comfort and response supports</legend>
+          {LEARNER_ACCESSIBILITY_FIELDS.map(field => (
+            <label key={field.id}>
+              <input
+                type="checkbox"
+                checked={draft[field.id]}
+                disabled={saving}
+                onChange={event => setDraft(current => ({
+                  ...current,
+                  [field.id]: event.target.checked
+                }))}
+              />
+              <span>
+                <strong>{field.label}</strong>
+                <small>{field.description}</small>
+              </span>
+            </label>
+          ))}
+        </fieldset>
+        <div className="teacher-roster-operation-actions">
+          <button
+            className="lp-button lp-button-primary"
+            type="button"
+            disabled={saving}
+            onClick={save}
+          >
+            {saving ? "Saving settings..." : "Save accessibility settings"}
+          </button>
+          <button
+            className="lp-button lp-button-secondary"
+            type="button"
+            disabled={saving}
+            onClick={onClose}
+          >
+            Cancel
+          </button>
+        </div>
       </section>
     </TeacherModal>
   );
@@ -815,6 +891,7 @@ export function TeacherDashboardPage({
   assignQuestPractice,
   clearQuestPractice,
   setReducedChoiceMode,
+  setAccessibilitySettings,
   onLoadStudent,
   selectedStudentId,
   onClearStudent,
@@ -882,6 +959,8 @@ export function TeacherDashboardPage({
   const [questionGuideSearch, setQuestionGuideSearch] = useState("");
   const [rosterAdminOpen, setRosterAdminOpen] = useState(false);
   const [savingChoiceModeIds, setSavingChoiceModeIds] = useState([]);
+  const [savingAccessibilityIds, setSavingAccessibilityIds] = useState([]);
+  const [accessibilityStudent, setAccessibilityStudent] = useState(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const newClassInputRef = useRef(null);
@@ -918,7 +997,10 @@ export function TeacherDashboardPage({
         previousAnswers: dashboardRow.previousAnswers ?? 0,
         recentMastered: dashboardRow.recentMastered ?? 0,
         previousMastered: dashboardRow.previousMastered ?? 0,
-        reducedChoiceMode: Boolean(dashboardRow.reducedChoiceMode)
+        reducedChoiceMode: Boolean(dashboardRow.reducedChoiceMode),
+        accessibilitySettings: normalizeLearnerAccessibilitySettings(
+          dashboardRow.accessibilitySettings
+        )
       };
     }),
     [dashboardById, studentList]
@@ -1145,6 +1227,16 @@ export function TeacherDashboardPage({
       await setReducedChoiceMode(row.id, !row.reducedChoiceMode);
     } finally {
       setSavingChoiceModeIds(ids => ids.filter(id => id !== row.id));
+    }
+  }
+
+  async function handleAccessibilitySettings(row, settings) {
+    if (!setAccessibilitySettings || savingAccessibilityIds.includes(row.id)) return false;
+    setSavingAccessibilityIds(ids => [...ids, row.id]);
+    try {
+      return await setAccessibilitySettings(row.id, settings);
+    } finally {
+      setSavingAccessibilityIds(ids => ids.filter(id => id !== row.id));
     }
   }
 
@@ -2226,6 +2318,16 @@ export function TeacherDashboardPage({
                               ? "Use all choices"
                               : "Reduce choices"}
                         </button>
+                        <button
+                          className="text-button teacher-accessibility-settings-open"
+                          type="button"
+                          disabled={savingAccessibilityIds.includes(row.id)}
+                          onClick={() => setAccessibilityStudent(row)}
+                        >
+                          {savingAccessibilityIds.includes(row.id)
+                            ? "Saving accessibility..."
+                            : "Accessibility settings"}
+                        </button>
                         {classList.length > 1 && (
                           <button
                             className="text-button"
@@ -2302,6 +2404,16 @@ export function TeacherDashboardPage({
           query={questionGuideSearch}
           onQueryChange={setQuestionGuideSearch}
           onClose={() => setShowQuestionGuide(false)}
+        />
+      )}
+
+      {accessibilityStudent && (
+        <LearnerAccessibilityDialog
+          key={accessibilityStudent.id}
+          student={accessibilityStudent}
+          saving={savingAccessibilityIds.includes(accessibilityStudent.id)}
+          onSave={handleAccessibilitySettings}
+          onClose={() => setAccessibilityStudent(null)}
         />
       )}
 

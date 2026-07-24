@@ -1,3 +1,5 @@
+import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
+
 let audioContext = null;
 let activeMusic = null;
 
@@ -25,7 +27,7 @@ function playTone(frequency, duration, type = "sine", startTime = 0, volume = 0.
 
   oscillator.frequency.value = frequency;
   oscillator.type = type;
-  gainNode.gain.setValueAtTime(volume, context.currentTime + startTime);
+  gainNode.gain.setValueAtTime(applyLearnerAudioIntensity(volume), context.currentTime + startTime);
   gainNode.gain.exponentialRampToValueAtTime(0.01, context.currentTime + startTime + duration);
 
   oscillator.start(context.currentTime + startTime);
@@ -46,7 +48,7 @@ function pulseOscillator(context, output, { frequency, start, duration, type = "
   osc.type = type;
   osc.frequency.setValueAtTime(frequency, start);
   osc.frequency.exponentialRampToValueAtTime(Math.max(1, endFrequency), start + duration);
-  gain.gain.setValueAtTime(volume, start);
+  gain.gain.setValueAtTime(applyLearnerAudioIntensity(volume), start);
   gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
   osc.connect(gain);
   gain.connect(output);
@@ -61,7 +63,7 @@ function pulseNoise(context, output, { start, duration = 0.06, volume = 0.08, fi
   source.buffer = createNoiseBuffer(context, duration);
   band.type = "highpass";
   band.frequency.setValueAtTime(filter, start);
-  gain.gain.setValueAtTime(volume, start);
+  gain.gain.setValueAtTime(applyLearnerAudioIntensity(volume), start);
   gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
   source.connect(band);
   band.connect(gain);
@@ -77,7 +79,10 @@ export function startSoundBeatMusic({ bpm = 96, volume = 0.14 } = {}) {
 
   const master = context.createGain();
   master.gain.setValueAtTime(0.001, context.currentTime);
-  master.gain.exponentialRampToValueAtTime(Math.max(0.001, volume), context.currentTime + 0.35);
+  master.gain.exponentialRampToValueAtTime(
+    Math.max(0.001, applyLearnerAudioIntensity(volume)),
+    context.currentTime + 0.35
+  );
   master.connect(context.destination);
 
   const stepSeconds = 60 / Math.max(70, Math.min(150, bpm)) / 2;
@@ -151,7 +156,7 @@ function playSoundFile(name, fallback, volume = 0.55) {
       soundFileCache[name] = base;
     }
     const sound = base.cloneNode();
-    sound.volume = volume;
+    sound.volume = applyLearnerAudioIntensity(volume);
     const result = sound.play();
     if (result?.catch) result.catch(() => fallback?.());
   } catch {

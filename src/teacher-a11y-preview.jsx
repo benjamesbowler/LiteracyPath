@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";
@@ -11,6 +11,14 @@ import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
 import { FinishedReportPage } from "./components/FinishedReportPage.jsx";
 import { ELBenchmarkAssessmentPage } from "./components/assessment/ELBenchmarkAssessmentPage.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
+import { TrailRun } from "./components/quest/world/Encounters.jsx";
+import {
+  applyLearnerAccessibilityToDocument,
+  learnerAccessibilityFromProfile
+} from "./accessibility/learnerAccessibility.js";
+import { saveStudentAccessibilitySettings } from "./data/studentRailSettings.js";
+import { loadStudentProfile } from "./utils/studentProfile.js";
+import { computeHydratedValue } from "./utils/progressMerge.js";
 
 const params = new URLSearchParams(window.location.search);
 const surface = params.get("surface") || "today";
@@ -127,13 +135,58 @@ function viewForSurface(value) {
     resources: APP_VIEWS.TEACHER_RESOURCES,
     report: APP_VIEWS.FINISHED,
     assessment: APP_VIEWS.EL_BENCHMARK,
-    "guided-reading": APP_VIEWS.GUIDED_READING
+    "guided-reading": APP_VIEWS.GUIDED_READING,
+    accessibility: APP_VIEWS.STUDENT_HOME
   }[value] || APP_VIEWS.TEACHER_DASHBOARD;
 }
 
 function Dashboard({ pageIntent }) {
   const [selectedClassId, setSelectedClassId] = useState(classId);
   const [newClassName, setNewClassName] = useState("");
+  const [dashboardRows, setDashboardRows] = useState(() => progressRows.map(row => ({
+    ...row,
+    accessibilitySettings: learnerAccessibilityFromProfile(loadStudentProfile(row.id))
+  })));
+
+  async function setAccessibilitySettings(rowStudentId, settings) {
+    let writtenRow = null;
+    const result = await saveStudentAccessibilitySettings({
+      supabase: {
+        from() {
+          return {
+            async upsert(row) {
+              writtenRow = row;
+              return { error: null };
+            }
+          };
+        }
+      },
+      studentId: rowStudentId,
+      settings,
+      teacherId: "teacher-a",
+      now: () => "2026-07-24T17:30:00.000Z"
+    });
+    if (!result.ok || !writtenRow) return false;
+    const profile = computeHydratedValue(
+      "profile",
+      "__all__",
+      loadStudentProfile(rowStudentId),
+      writtenRow.payload
+    );
+    window.localStorage.setItem(`lp-student-profile:${rowStudentId}`, JSON.stringify(profile));
+    window.__lpLastAccessibilityWrite = writtenRow;
+    setDashboardRows(rows => rows.map(row => row.id === rowStudentId
+      ? { ...row, accessibilitySettings: result.payload.accessibilitySettings }
+      : row));
+    window.dispatchEvent(new CustomEvent("lp-progress-hydrated", {
+      detail: {
+        studentId: rowStudentId,
+        rows: [{ area: "profile", key: "__all__", payload: writtenRow.payload }]
+      }
+    }));
+    return true;
+  }
+
   return (
     <TeacherDashboardPage
       pageIntent={pageIntent}
@@ -147,6 +200,7 @@ function Dashboard({ pageIntent }) {
       assignQuestPractice={asyncNoop}
       clearQuestPractice={asyncNoop}
       setReducedChoiceMode={asyncNoop}
+      setAccessibilitySettings={setAccessibilitySettings}
       onLoadStudent={asyncNoop}
       selectedStudentId={showLearnerDrawer ? studentId : ""}
       onClearStudent={noop}
@@ -161,7 +215,7 @@ function Dashboard({ pageIntent }) {
       setNewClassName={setNewClassName}
       createStudent={asyncNoop}
       teacherId=""
-      classDashboard={progressRows}
+      classDashboard={dashboardRows}
       loadClassDashboard={asyncNoop}
       skillTree={[{ id: "initial_sounds", label: "Initial Sounds" }]}
       updateStudentSymbolPassword={asyncNoop}
@@ -171,6 +225,61 @@ function Dashboard({ pageIntent }) {
       hasSchool={true}
       saveSchool={asyncNoop}
     />
+  );
+}
+
+function AccessibilityEffects() {
+  const [settings] = useState(
+    () => learnerAccessibilityFromProfile(loadStudentProfile(studentId))
+  );
+  const [records, setRecords] = useState({});
+
+  useEffect(
+    () => applyLearnerAccessibilityToDocument(settings),
+    [settings]
+  );
+
+  return (
+    <main
+      className="student-mode-app lp-skin-sage learner-accessibility-preview"
+      aria-label="Learner accessibility effects"
+      data-accessibility-settings={JSON.stringify(settings)}
+    >
+      <h1>Aarav&apos;s learner view</h1>
+      <div
+        className="learner-accessibility-effect-sample"
+        data-effect-sample
+        style={{
+          animation: "pulse 2s infinite",
+          backgroundImage: "linear-gradient(135deg, rgb(46, 75, 62), rgb(130, 174, 152))"
+        }}
+      >
+        Comfort preview
+      </div>
+      <section aria-label="Timed trail response">
+        <TrailRun
+          beat={{ target: "m", answer: "m", choices: ["m", "s", "a"], seconds: 3 }}
+          extendedResponse={settings.extendedResponse}
+          index={0}
+          total={1}
+          isSoundEnabled={false}
+          onBeat={noop}
+          onDone={noop}
+        />
+      </section>
+      <GuidedReadingPage
+        guidedReadingRecords={records}
+        launchBookId="gr-a-26"
+        mode="student"
+        autoNarration={settings.narration}
+        saveGuidedReadingRecord={(bookId, record) => {
+          setRecords(current => ({ ...current, [bookId]: record }));
+        }}
+        speakText={noop}
+        studentId={studentId}
+        studentName="Aarav"
+      />
+    </main>
   );
 }
 
@@ -250,7 +359,7 @@ function GuidedReading() {
   return (
     <GuidedReadingPage
       guidedReadingRecords={records}
-      initialBookId="level-c-nonfiction-01-bees"
+      initialBookId="gr-a-26"
       mode="teacher"
       saveGuidedReadingRecord={(bookId, record) => {
         setRecords(current => ({ ...current, [bookId]: record }));
@@ -278,6 +387,8 @@ function Surface() {
       return <Assessment />;
     case "guided-reading":
       return <GuidedReading />;
+    case "accessibility":
+      return <AccessibilityEffects />;
     case "today":
     default:
       return <Dashboard pageIntent="today" />;
@@ -286,7 +397,7 @@ function Surface() {
 
 export function TeacherA11yPreview() {
   const appView = viewForSurface(surface);
-  const focused = surface === "assessment";
+  const focused = surface === "assessment" || surface === "accessibility";
   return (
     <div
       className={`lg-app-shell${focused ? " no-sidebar assessment-fullscreen-shell" : ""}`}

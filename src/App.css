@@ -961,6 +961,133 @@ body {
   .student-home-card-art { animation: none; background: #eef2f7; }
 }
 
+/* Per-learner accessibility profile. These selectors deliberately target
+   decorative motion and scenery only; teaching animations (for example the
+   letter-formation stroke) keep their instructional timing. */
+html[data-lp-reduced-effects="true"]::view-transition-old(root),
+html[data-lp-reduced-effects="true"]::view-transition-new(root) {
+  animation-duration: 0.001ms;
+}
+
+html[data-lp-reduced-effects="true"] .hs-hero-art,
+html[data-lp-reduced-effects="true"] .hs-card-art,
+html[data-lp-reduced-effects="true"] .guided-levelup img,
+html[data-lp-reduced-effects="true"] .q-ceremony-ring,
+html[data-lp-reduced-effects="true"] .q-map-shortcut-centre,
+html[data-lp-reduced-effects="true"] .learner-accessibility-effect-sample {
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-lp-simplified-backgrounds="true"] .student-mode-app,
+html[data-lp-simplified-backgrounds="true"] .lp-home-sage,
+html[data-lp-simplified-backgrounds="true"] .student-surface-frame,
+html[data-lp-simplified-backgrounds="true"] .q-root,
+html[data-lp-simplified-backgrounds="true"] .learner-accessibility-effect-sample {
+  background-image: none !important;
+}
+
+html[data-lp-simplified-backgrounds="true"] .student-mode-app::before,
+html[data-lp-simplified-backgrounds="true"] .student-mode-app::after,
+html[data-lp-simplified-backgrounds="true"] .hs-main::before,
+html[data-lp-simplified-backgrounds="true"] .hs-main::after {
+  content: none !important;
+}
+
+.teacher-accessibility-settings-card {
+  width: min(680px, calc(100vw - 32px));
+  max-height: min(760px, calc(100dvh - 32px));
+  overflow: auto;
+}
+
+.teacher-accessibility-settings-card > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.teacher-accessibility-settings-card > header h2 {
+  margin: 0 0 6px;
+}
+
+.teacher-accessibility-settings-card > header p {
+  margin: 0;
+}
+
+.teacher-accessibility-setting-list {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 0;
+  border: 0;
+}
+
+.teacher-accessibility-setting-list legend {
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.teacher-accessibility-setting-list label {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-height: 64px;
+  padding: 12px 14px;
+  border: 1px solid var(--lp-border, #d9dedb);
+  border-radius: 12px;
+  background: var(--lp-surface, #fff);
+  cursor: pointer;
+}
+
+.teacher-accessibility-setting-list input {
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0;
+}
+
+.teacher-accessibility-setting-list span {
+  display: grid;
+  gap: 4px;
+}
+
+.teacher-accessibility-setting-list small {
+  color: var(--lp-text-muted, #52605a);
+  line-height: 1.4;
+}
+
+.teacher-accessibility-settings-card .teacher-roster-operation-actions {
+  position: sticky;
+  z-index: 2;
+  bottom: -1px;
+  margin: 0;
+  padding: 12px 0 2px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 12px);
+}
+
+.teacher-accessibility-settings-card .lp-button,
+.teacher-accessibility-settings-card .text-button {
+  min-height: 44px !important;
+}
+
+.guided-narration-status {
+  margin: 0;
+  color: var(--lp-text-muted, #52605a);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .teacher-accessibility-settings-card > header {
+    display: grid;
+  }
+
+  .teacher-accessibility-settings-card > header .text-button {
+    justify-self: start;
+  }
+}
+
 .student-home-card-art img {
   width: 100%;
   height: 100%;
@@ -21023,3 +21150,10 @@ body {
 .report-heat-assignment { margin-top: 10px; font-size: 13.5px; }
 
 .quest-heat-tile:focus-visible { outline: 3px solid #12141f; outline-offset: 2px; }
+
+/* This file still contains later legacy 40px teacher-button rules. Keep the
+   new learner-accessibility dialog at the product's 44px target contract. */
+.teacher-accessibility-settings-card .lp-button,
+.teacher-accessibility-settings-card .text-button {
+  min-height: 44px !important;
+}

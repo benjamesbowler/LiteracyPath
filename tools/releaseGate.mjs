@@ -418,6 +418,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 10]
   },
   {
+    id: "learner-accessibility-settings",
+    label: "Persisted per-learner accessibility settings and runtime effects",
+    command: ["npm", "run", "check:learner-accessibility-settings"],
+    areas: [3, 8, 10]
+  },
+  {
     id: "a11y-teacher",
     label: "Authenticated teacher accessibility",
     command: ["npm", "run", "check:a11y-teacher"],

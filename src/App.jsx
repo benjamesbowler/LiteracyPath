@@ -36,7 +36,16 @@ import StudentRail from "./components/StudentRail.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { RouteLoadingFallback as LazyPageFallback } from "./components/RouteLoadingFallback.jsx";
 import { STUDENT_RAIL_DESTINATIONS } from "./policy/studentRailPolicy.js";
-import { saveStudentReducedChoiceMode } from "./data/studentRailSettings.js";
+import {
+  saveStudentAccessibilitySettings,
+  saveStudentReducedChoiceMode
+} from "./data/studentRailSettings.js";
+import {
+  applyLearnerAccessibilityToDocument,
+  learnerAccessibilityDataAttributes,
+  learnerAccessibilityFromProfile
+} from "./accessibility/learnerAccessibility.js";
+import { loadStudentProfile } from "./utils/studentProfile.js";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { studentReportHash } from "./components/reports/studentReportUiUtils.js";
 import { worldForScope } from "./utils/palWorlds.js";
@@ -1804,6 +1813,29 @@ export default function App() {
   const studentId = sessionMode === "student"
     ? studentSessionId
     : teacherStudentContext.studentId;
+  const [learnerAccessibilityRevision, setLearnerAccessibilityRevision] = useState(0);
+  const learnerAccessibility = useMemo(() => {
+    void learnerAccessibilityRevision;
+    return learnerAccessibilityFromProfile(
+      loadStudentProfile(studentId || studentName || "default")
+    );
+  }, [learnerAccessibilityRevision, studentId, studentName]);
+  useEffect(() => {
+    function handleProfileHydration(event) {
+      if (event.detail?.studentId && event.detail.studentId !== studentId) return;
+      if (
+        Array.isArray(event.detail?.rows)
+        && !event.detail.rows.some(row => row.area === "profile")
+      ) return;
+      setLearnerAccessibilityRevision(revision => revision + 1);
+    }
+    window.addEventListener("lp-progress-hydrated", handleProfileHydration);
+    return () => window.removeEventListener("lp-progress-hydrated", handleProfileHydration);
+  }, [studentId]);
+  useEffect(() => {
+    if (sessionMode !== "student") return undefined;
+    return applyLearnerAccessibilityToDocument(learnerAccessibility);
+  }, [learnerAccessibility, sessionMode]);
   const [studentList, setStudentList] = useState([]);
   const [archivedStudentList, setArchivedStudentList] = useState([]);
   const [loadingStudents, setLoadingStudents] = useState(false);
@@ -1832,6 +1864,7 @@ export default function App() {
       typeof document !== "undefined"
       && typeof document.startViewTransition === "function"
       && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      && !learnerAccessibility.reducedEffects
     ) {
       try {
         const transition = document.startViewTransition(() => {
@@ -1855,7 +1888,7 @@ export default function App() {
       return;
     }
     rawSetAppView(next);
-  }, []);
+  }, [learnerAccessibility.reducedEffects]);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [nameSaved, setNameSaved] = useState(false);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -4152,7 +4185,8 @@ export default function App() {
           recentMastered,
           previousMastered,
           soundSeekers,
-          reducedChoiceMode: Boolean(studentProfile.reducedChoiceMode)
+          reducedChoiceMode: Boolean(studentProfile.reducedChoiceMode),
+          accessibilitySettings: learnerAccessibilityFromProfile(studentProfile)
         };
       });
 
@@ -4216,6 +4250,23 @@ export default function App() {
     setMessage(enabled
       ? "Reduced choices are on for this learner."
       : "All navigation choices are on for this learner.");
+    return true;
+  }
+
+  async function setStudentAccessibilitySettings(studentRowId, settings) {
+    const result = await saveStudentAccessibilitySettings({
+      supabase,
+      studentId: studentRowId,
+      settings,
+      teacherId
+    });
+    if (!result.ok) {
+      console.error("Save learner accessibility settings error:", result.error);
+      setMessage("Could not save that learner's accessibility settings.");
+      return false;
+    }
+    await loadClassDashboard(selectedClassId);
+    setMessage("Learner accessibility settings saved.");
     return true;
   }
 
@@ -8795,6 +8846,7 @@ export default function App() {
       data-teacher-group-id={!isStudentMode ? teacherGroupId : undefined}
       data-teacher-learner-id={!isStudentMode ? studentId || "" : undefined}
       data-student-session-id={isStudentMode ? studentSessionId || "" : ""}
+      {...(isStudentMode ? learnerAccessibilityDataAttributes(learnerAccessibility) : {})}
     >
       {!isFocusedShell && (
         <Suspense fallback={<aside className="lg-sidebar" aria-label="Loading main navigation" />}>
@@ -8832,7 +8884,9 @@ export default function App() {
           <code>VITE_SUPABASE_ANON_KEY</code> in the deploy environment.
         </div>
       )}
-      {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
+      {showConfetti && !prefersReducedMotion && !learnerAccessibility.reducedEffects && (
+        <Confetti recycle={false} numberOfPieces={90} />
+      )}
 
       {studentPreview && isChildPreviewView && (
         <aside className="teacher-student-preview-banner" aria-label={`Previewing as ${studentPreview.studentName}`}>
@@ -8947,6 +9001,7 @@ export default function App() {
           <Suspense fallback={<LazyPageFallback label="Loading Sound Seekers..." />}>
             <QuestRoot
               progressScopeKey={studentId || studentName || "default"}
+              accessibilitySettings={learnerAccessibility}
               onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
             />
           </Suspense>
@@ -9005,6 +9060,7 @@ export default function App() {
               assignQuestPractice={assignQuestPractice}
               clearQuestPractice={clearQuestPractice}
               setReducedChoiceMode={setStudentReducedChoiceMode}
+              setAccessibilitySettings={setStudentAccessibilitySettings}
               onLoadStudent={async (id, name) => {
                 const loadPromise = loadStudentProgress(id, name, { navigate: false });
                 if (appView !== APP_VIEWS.TEACHER_CLASSES) {
@@ -9223,6 +9279,7 @@ export default function App() {
               studentId={studentId}
               studentName={studentName}
               mode={sessionMode === "student" ? "student" : "teacher"}
+              autoNarration={sessionMode === "student" && learnerAccessibility.narration}
               guidedReadingRecords={guidedReadingRecords}
               saveGuidedReadingRecord={saveGuidedReadingRecord}
               speakText={speakText}

@@ -36,6 +36,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "child-surface-rules",
     "key-route-visuals",
     "a11y-routes",
+    "learner-accessibility-settings",
     "assessment-runtime-variation",
     "strict-curriculum",
     "skill-progression",

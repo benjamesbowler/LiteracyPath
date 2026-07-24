@@ -35,6 +35,7 @@ import {
   getNextDecodingSupportStep
 } from "../../utils/guidedReading/decodingSupport.js";
 import { preloadMediaSet } from "../../utils/preloadMedia.js";
+import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 
@@ -466,6 +467,7 @@ export function GuidedReadingPage({
   saveGuidedReadingRecord,
   speakText,
   mode = "teacher",
+  autoNarration = false,
   launchBookId = "",
   onLaunchBookHandled = null
 }) {
@@ -503,6 +505,7 @@ export function GuidedReadingPage({
   const lastVisitedPageRef = useRef("");
   const readAloudPageChangeRef = useRef(false);
   const autoAdvanceReadAloudRef = useRef(autoAdvanceReadAloud);
+  const autoNarratedPageRef = useRef("");
   const touchStartRef = useRef(null);
   const decodingSupportStageRef = useRef(new Map());
   const decodingSupportEventCounterRef = useRef(0);
@@ -542,6 +545,9 @@ export function GuidedReadingPage({
   const stopCurrentPageAudio = useEffectEvent(() => stopPageAudio());
   const recordCurrentGuidedPageVisit = useEffectEvent(nextPageIndex => {
     recordGuidedPageVisit(nextPageIndex);
+  });
+  const autoNarrateCurrentPage = useEffectEvent(() => {
+    void togglePageAudio({ automatic: true });
   });
   const fetchCurrentWholeBookSyncData = useEffectEvent(audioPath => (
     fetchWholeBookSyncData(selectedBook, audioPath)
@@ -679,6 +685,31 @@ export function GuidedReadingPage({
     if (!readerOpen || !selectedBookId || !page) return;
     recordCurrentGuidedPageVisit(pageIndex);
   }, [readerOpen, selectedBookId, pageIndex, page]);
+
+  useEffect(() => {
+    if (
+      !autoNarration
+      || !isStudentMode
+      || !readerOpen
+      || showSummary
+      || showQuiz
+      || !currentPageAudioPath
+    ) return undefined;
+    const pageKey = `${selectedBookId}:${pageIndex}`;
+    if (autoNarratedPageRef.current === pageKey) return undefined;
+    autoNarratedPageRef.current = pageKey;
+    const timer = window.setTimeout(autoNarrateCurrentPage, 0);
+    return () => window.clearTimeout(timer);
+  }, [
+    autoNarration,
+    currentPageAudioPath,
+    isStudentMode,
+    pageIndex,
+    readerOpen,
+    selectedBookId,
+    showQuiz,
+    showSummary
+  ]);
 
   useEffect(() => {
     autoAdvanceReadAloudRef.current = autoAdvanceReadAloud;
@@ -1048,7 +1079,11 @@ export function GuidedReadingPage({
     setIsReadAloudPaused(false);
   }
 
-  async function togglePageAudio() {
+  async function togglePageAudio(options = {}) {
+    const automatic = options?.automatic === true;
+    if (automatic && (pageAudioRef.current || isPageAudioPlaying || isReadAloudLoading)) {
+      return;
+    }
     if (pageAudioRef.current && isPageAudioPlaying) {
       stopPageAudio();
       return;
@@ -1059,21 +1094,23 @@ export function GuidedReadingPage({
     }
 
     stopPageAudio();
-    const previous = guidedReadingRecords[selectedBook.id] || record || {};
-    const previousStats = previous.pageStats || {};
-    const pageKey = String(pageIndex + 1);
-    const previousPageStats = previousStats[pageKey] || {};
-    touchBookProgress(pageIndex, {
-      readPageButtonUses: Number(previous.readPageButtonUses || 0) + 1,
-      pageStats: {
-        ...previousStats,
-        [pageKey]: {
-          ...previousPageStats,
-          readPageButtonUses: Number(previousPageStats.readPageButtonUses || 0) + 1,
-          lastReadPageAt: new Date().toISOString()
+    if (!automatic) {
+      const previous = guidedReadingRecords[selectedBook.id] || record || {};
+      const previousStats = previous.pageStats || {};
+      const pageKey = String(pageIndex + 1);
+      const previousPageStats = previousStats[pageKey] || {};
+      touchBookProgress(pageIndex, {
+        readPageButtonUses: Number(previous.readPageButtonUses || 0) + 1,
+        pageStats: {
+          ...previousStats,
+          [pageKey]: {
+            ...previousPageStats,
+            readPageButtonUses: Number(previousPageStats.readPageButtonUses || 0) + 1,
+            lastReadPageAt: new Date().toISOString()
+          }
         }
-      }
-    });
+      });
+    }
 
     if (!currentPageAudioPath) {
       setAudioNotice("Read-aloud audio is not available for this page yet.");
@@ -1084,6 +1121,7 @@ export function GuidedReadingPage({
     try {
       const audio = new Audio(currentPageAudioPath);
       audio.playbackRate = 0.92;
+      audio.volume = applyLearnerAudioIntensity(1);
       pageAudioRef.current = audio;
       setIsReadAloudPaused(false);
       runSentenceHighlights(pageSentences);
@@ -1137,6 +1175,7 @@ export function GuidedReadingPage({
     try {
       const audio = new Audio(audioPath);
       audio.playbackRate = 0.92; // narration pacing: slightly slower for young readers
+      audio.volume = applyLearnerAudioIntensity(1);
       pageAudioRef.current = audio;
       setIsWholeBookReading(true);
       setIsReadAloudPaused(false);
@@ -1184,7 +1223,8 @@ export function GuidedReadingPage({
         const syncData = wholeBookSyncData || await fetchWholeBookSyncData(selectedBook, fullBookAudioPath);
         if (syncData && !wholeBookSyncData) setWholeBookSyncData(syncData);
         const audio = new Audio(fullBookAudioPath);
-      audio.playbackRate = 0.92;
+        audio.playbackRate = 0.92;
+        audio.volume = applyLearnerAudioIntensity(1);
         const fullBookStartIndex = Math.min(pageIndex, selectedBook.pages.length - 1);
         let pageCues = [];
         const syncPageToFullBookAudio = () => {
@@ -1356,6 +1396,7 @@ export function GuidedReadingPage({
       const audio = new Audio(resolvedAudioPath);
       wordSupportAudioRef.current = audio;
       audio.playbackRate = 0.92;
+      audio.volume = applyLearnerAudioIntensity(1);
       audio.onended = () => {
         if (wordSupportAudioRef.current === audio) wordSupportAudioRef.current = null;
       };
@@ -1388,6 +1429,7 @@ export function GuidedReadingPage({
         const audio = new Audio(audioPath);
         wordSupportAudioRef.current = audio;
         audio.playbackRate = 0.88;
+        audio.volume = applyLearnerAudioIntensity(1);
         audio.onended = resolve;
         audio.onerror = resolve;
         audio.play().catch(resolve);
@@ -1534,6 +1576,7 @@ export function GuidedReadingPage({
     <div
       className={guidedReadingPageClassName}
       data-child-surface={isStudentMode ? "reading-library" : undefined}
+      data-auto-narration={isStudentMode && autoNarration ? "true" : "false"}
     >
       {showQuiz && selectedBook && (
         <BookQuiz key={selectedBook.id} book={selectedBook} onFinish={handleQuizFinish} />
@@ -1876,6 +1919,11 @@ export function GuidedReadingPage({
                 )}
               </div>
               <div className="guided-page-controls">
+                {isStudentMode && autoNarration && (
+                  <p className="guided-narration-status" role="status">
+                    Narration is on — each page reads aloud.
+                  </p>
+                )}
                 <div className="guided-read-aloud-controls" role="group" aria-label="Read aloud controls">
                   <button
                     className={[

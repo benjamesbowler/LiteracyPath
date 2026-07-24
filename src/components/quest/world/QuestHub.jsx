@@ -3195,6 +3195,7 @@ export default function QuestHub({
   state,
   resume = null,
   isSoundEnabled = true,
+  extendedResponse = false,
   isInteractive = true,
   journeyStatus = "active",
   mode = "journey",
@@ -5242,6 +5243,7 @@ export default function QuestHub({
             index={beatIndex}
             total={active.beats.length}
             isSoundEnabled={isSoundEnabled}
+            extendedResponse={extendedResponse}
             onBeat={answer}
             onDone={nextBeat}
           />
