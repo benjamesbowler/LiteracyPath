@@ -131,8 +131,26 @@ export default function SoundBeatGame({ onEngineReady, isSoundEnabled = true, ..
                 <li key={hint}>{hint}</li>
               ))}
             </ul>
-            <div style={{ marginTop: 16, fontSize: 17, fontWeight: 900, color: "#ff3d8b" }}>
-              Tap to play · or press Space / Enter
+            <button
+              type="button"
+              onClick={dismissOnboarding}
+              onPointerDown={event => event.stopPropagation()}
+              style={{
+                marginTop: 16,
+                border: "2px solid #ff3d8b",
+                borderRadius: 12,
+                background: "rgba(255,61,139,.14)",
+                color: "#ff8cbb",
+                padding: "10px 20px",
+                fontSize: 17,
+                fontWeight: 900,
+                cursor: "pointer"
+              }}
+            >
+              Tap to play
+            </button>
+            <div style={{ marginTop: 8, fontSize: 13, fontWeight: 800, color: "#dce8ff" }}>
+              or press Space / Enter
             </div>
           </div>
         </div>

@@ -523,7 +523,7 @@ function startGame(mount, opts) {
     introEl = document.createElement("div");
     introEl.setAttribute("role", "dialog");
     introEl.setAttribute("aria-modal", "true");
-    introEl.setAttribute("aria-label", "How to play Reel and Read");
+    introEl.setAttribute("aria-label", "How to play Reel & Read");
     // Static card (no animated intro) so prefers-reduced-motion is respected.
     introEl.style.cssText =
       "position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;" +
@@ -537,9 +537,17 @@ function startGame(mount, opts) {
           '<span>Cast: Space, Enter, or E, tap CAST, or tap the water.</span>' +
           '<span>Hook every word in the list to clear the pond.</span>' +
         '</div>' +
-        `<div style="margin-top:18px;color:${theme.accent};font-weight:950;font-size:1.05rem;letter-spacing:.04em">Tap to play</div>` +
-        '<div style="margin-top:4px;color:rgba(255,255,255,.62);font-weight:700;font-size:.74rem">or press any key</div>' +
+        `<button type="button" style="margin-top:18px;border:2px solid ${theme.accent};border-radius:10px;background:rgba(255,255,255,.08);color:${theme.accent};padding:9px 20px;font:inherit;font-weight:950;font-size:1.05rem;letter-spacing:.04em;cursor:pointer">Tap to play</button>` +
+        '<div style="margin-top:6px;color:rgba(255,255,255,.72);font-weight:700;font-size:.74rem">or press Enter</div>' +
       '</div>';
+    const startButton = introEl.querySelector("button");
+    startButton?.addEventListener("pointerdown", event => {
+      event.stopPropagation();
+    });
+    startButton?.addEventListener("click", event => {
+      event.preventDefault();
+      dismissIntro();
+    });
     introEl.addEventListener("pointerdown", event => {
       event.preventDefault();
       dismissIntro();
@@ -1098,8 +1106,7 @@ function startGame(mount, opts) {
 
   function onKeyDown(event) {
     if (introOpen) {
-      // Esc stays with GamePlayer (quit dialog); every other key starts play.
-      if (event.key !== "Escape") {
+      if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         dismissIntro();
       }

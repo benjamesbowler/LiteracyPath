@@ -98,11 +98,12 @@ test.beforeEach(async ({ page }) => {
 test("A3.5 every registered game overlay passes contrast and visible-focus checks", async ({
   page
 }) => {
-  test.setTimeout(90_000);
+  test.setTimeout(150_000);
   for (const game of GAME_LIST) {
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}`);
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
     await expect(dialog).toBeVisible();
+    await expect(dialog.locator(".lg-game-loading")).toHaveCount(0);
     await expectNoColourContrastViolations(page, ".lg-game-player", game.title);
     const onboarding = page.getByRole("dialog", {
       name: `How to play ${game.title}`,
@@ -147,6 +148,7 @@ test("A3.5 every registered game overlay retains focus in forced-colours mode", 
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}`);
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
     await expect(dialog).toBeVisible();
+    await expect(dialog.locator(".lg-game-loading")).toHaveCount(0);
     await expectAllVisibleControlsHaveFocus(page, dialog, `${game.title} forced-colours overlay`);
   }
 });
