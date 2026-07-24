@@ -7,7 +7,7 @@ Status values are limited to `TODO`, `IN-PROGRESS`, `DONE`, `WAIVED`, `EXTERNAL-
 | Item | Area | Priority | Status | Named gate | Evidence |
 |---|---:|---|---|---|---|
 | A1.1 | 1 | P0 | TODO | `check:curriculum-release-standard` | — |
-| A1.2 | 1 | P0 | TODO | `check:assessment-runtime-variation` + `check:runtime-variation-simulation` | — |
+| A1.2 | 1 | P0 | DONE | `check:assessment-runtime-variation` + `check:runtime-variation-simulation` | Commit `11b5c990`; the reachable assessment selector enforces template, item/phoneme, distractor-set, exact-signature, and content-diversity budgets while preserving feasible rounds for thin pools. `docs/release/artifacts/2026-07-24T08-01-04-019Z/manifest.partial.json` passes 5/5 against the committed tree: zero-warning lint, 1,103/1,103 unit tests, production build, zero runtime-audit failures, and 500 deterministic sessions for each of all 30 skills (15,000 sessions total) with zero failures. |
 | A1.3 | 1 | P0 | TODO | `check:media-runtime-resolution` | — |
 | A1.4 | 1 | P1 | TODO | strict audit balance report | — |
 | A1.5 | 1 | P1 | TODO | `check:skill-progression` | — |
