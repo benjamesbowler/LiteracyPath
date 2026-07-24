@@ -218,14 +218,16 @@ async function currentSnapshots() {
     classEl: await createClassElAssessmentWorkbook(reports.classReport)
   };
   const snapshots = {};
+  const normalizedWorkbooks = {};
   for (const [id, workbook] of Object.entries(workbooks)) {
     const { normalized } = await serializeAndNormalize(workbook);
+    normalizedWorkbooks[id] = normalized;
     snapshots[id] = {
       sha256: digest(normalized),
       ...workbookSummary(normalized)
     };
   }
-  return snapshots;
+  return { snapshots, normalizedWorkbooks };
 }
 
 function assertLazyCspCompatibleBundle() {
@@ -316,7 +318,11 @@ async function assertLargeExportMemory() {
 }
 
 async function main() {
-  const snapshots = await currentSnapshots();
+  const { snapshots, normalizedWorkbooks } = await currentSnapshots();
+  if (process.argv.includes("--print-normalized")) {
+    console.log(JSON.stringify({ schemaVersion: 1, normalizedWorkbooks }, null, 2));
+    return;
+  }
   if (process.argv.includes("--print-snapshots")) {
     console.log(JSON.stringify({ schemaVersion: 1, snapshots }, null, 2));
     return;

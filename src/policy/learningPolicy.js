@@ -11,6 +11,7 @@ import {
  * may ask this module for a conclusion; it must not recreate these rules.
  */
 export const LEARNING_POLICY_VERSION = "2026.07.24-a4";
+export const STUDENT_HOME_RECOMMENDATION_POLICY_VERSION = "2026.07.24";
 
 export const LEARNING_STATUS_IDS = Object.freeze({
   SECURE: "secure",
@@ -230,7 +231,7 @@ export function meetsLearningProgressionRule({
 
 export const STUDENT_HOME_RECOMMENDATION_POLICY = Object.freeze({
   id: "student-home-next-activity",
-  version: LEARNING_POLICY_VERSION,
+  version: STUDENT_HOME_RECOMMENDATION_POLICY_VERSION,
   dailyMissionOrder: Object.freeze(["quest", "book", "game"]),
   fallbackActivityOrder: Object.freeze([
     "sound-seekers",

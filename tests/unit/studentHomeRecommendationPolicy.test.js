@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
-  LEARNING_POLICY_VERSION,
   STUDENT_HOME_RECOMMENDATION_POLICY,
+  STUDENT_HOME_RECOMMENDATION_POLICY_VERSION,
   buildStudentHomeCardState,
   buildStudentHomeContinuation,
   countCompletedSoundSeekersTrails,
@@ -31,7 +31,7 @@ test("student-home policy recommends the first incomplete daily mission step", (
   assert.deepEqual(result.secondary.map(activity => activity.id), ["reading-library", "arcade"]);
   assert.equal(result.explore.length, 4);
   assert.equal(result.policyId, STUDENT_HOME_RECOMMENDATION_POLICY.id);
-  assert.equal(result.policyVersion, LEARNING_POLICY_VERSION);
+  assert.equal(result.policyVersion, STUDENT_HOME_RECOMMENDATION_POLICY_VERSION);
 });
 
 test("student-home policy advances past completed and unavailable mission steps", () => {
