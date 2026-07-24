@@ -37,6 +37,10 @@ import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { RouteLoadingFallback as LazyPageFallback } from "./components/RouteLoadingFallback.jsx";
 import { STUDENT_RAIL_DESTINATIONS } from "./policy/studentRailPolicy.js";
 import {
+  excludeFailedAssessmentMediaQuestions,
+  questionUsesFailedAssessmentMedia
+} from "./policy/assessmentMediaEvidence.js";
+import {
   saveStudentAccessibilitySettings,
   saveStudentReducedChoiceMode
 } from "./data/studentRailSettings.js";
@@ -1991,6 +1995,10 @@ export default function App() {
   const assessmentWarmupStartedRef = useRef(false);
   const assessmentMediaPickerRef = useRef(null);
   const assessmentMediaUsageRef = useRef(null);
+  const failedAssessmentMediaRef = useRef({
+    failedQuestionIds: new Set(),
+    failedSources: new Set()
+  });
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
   const initialSoundForcedLevelRef = useRef(null);
@@ -2166,6 +2174,20 @@ export default function App() {
     assessmentMediaUsageRef.current = assessmentMediaPickerRef.current
       ? assessmentMediaPickerRef.current.createAssessmentSessionMediaUsage()
       : null;
+  }
+
+  function resetFailedAssessmentMedia() {
+    failedAssessmentMediaRef.current = {
+      failedQuestionIds: new Set(),
+      failedSources: new Set()
+    };
+  }
+
+  function excludeSessionMediaFailures(questions = []) {
+    return excludeFailedAssessmentMediaQuestions(
+      questions,
+      failedAssessmentMediaRef.current
+    );
   }
 
   async function loadRuntimeQuestionsForSkill(skillOrStageId = "") {
@@ -4999,10 +5021,13 @@ export default function App() {
       roundNumber: null,
       seed: Date.now() + Math.floor(Math.random() * 1000000),
       excludeLetters,
-      itemFilter: item => isRuntimeEligibleEarlySkillQuestion(item, {
-        skillId: "initial_sounds",
-        level
-      })
+      itemFilter: item => (
+        !questionUsesFailedAssessmentMedia(item, failedAssessmentMediaRef.current) &&
+        isRuntimeEligibleEarlySkillQuestion(item, {
+          skillId: "initial_sounds",
+          level
+        })
+      )
     });
 
     initialSoundRoundQueueRef.current = plan.items;
@@ -5032,7 +5057,21 @@ export default function App() {
       });
     }
 
-    const next = initialSoundRoundQueueRef.current.shift();
+    let skippedFailedItem = false;
+    let next = initialSoundRoundQueueRef.current.shift();
+    while (
+      next &&
+      questionUsesFailedAssessmentMedia(next, failedAssessmentMediaRef.current)
+    ) {
+      skippedFailedItem = true;
+      next = initialSoundRoundQueueRef.current.shift();
+    }
+    if (!next && skippedFailedItem) {
+      buildInitialSoundRoundQueue({
+        excludeLetters: [...initialSoundRoundAskedLettersRef.current]
+      });
+      next = initialSoundRoundQueueRef.current.shift();
+    }
     if (!next) return null;
 
     if (next.letter) initialSoundRoundAskedLettersRef.current.add(next.letter);
@@ -5094,12 +5133,16 @@ export default function App() {
     const stage = skillTree[stageIndex];
     if (!stage) return [];
     if (isInitialSoundsStage(stage)) {
-      return initialSoundRoundQueueRef.current.length
-        ? [...initialSoundRoundQueueRef.current]
-        : buildInitialSoundRoundQueue().items;
+      return excludeSessionMediaFailures(
+        initialSoundRoundQueueRef.current.length
+          ? [...initialSoundRoundQueueRef.current]
+          : buildInitialSoundRoundQueue().items
+      );
     }
 
-    const stageQuestions = allQuestionsRef.current.filter(q => getStageIndex(q) === stageIndex && !isQuestionBlockedByMediaQa(q));
+    const stageQuestions = excludeSessionMediaFailures(
+      allQuestionsRef.current.filter(q => getStageIndex(q) === stageIndex && !isQuestionBlockedByMediaQa(q))
+    );
     const pathStep = getNextAssessmentPathStep(stage);
     const levelFilteredStageQuestions = stageQuestions.filter(question =>
       getAssessmentQuestionLevel(stage, question) === pathStep.level
@@ -5241,6 +5284,7 @@ export default function App() {
             getDiagnosticTarget(question) === weakness.target &&
             !usedQuestionIds.has(question.id) &&
             !isQuestionBlockedByMediaQa(question) &&
+            !questionUsesFailedAssessmentMedia(question, failedAssessmentMediaRef.current) &&
             (
               !isPureEarlyPhonicsStage(stage) ||
               isRuntimeEligibleEarlySkillQuestion(question, {
@@ -5648,6 +5692,49 @@ export default function App() {
     void preloadQuestionMediaBatch(questions.filter(Boolean).slice(0, 3), {
       source: "assessment-candidate-window"
     });
+  }
+
+  function handleAssessmentEvidenceImageError({
+    questionId = "",
+    src = "",
+    role = "evidence"
+  } = {}) {
+    const failedQuestion = currentQuestion;
+    const failedQuestionId = String(failedQuestion?.id || "");
+    if (
+      !failedQuestion ||
+      (questionId && questionId !== failedQuestionId) ||
+      failedAssessmentMediaRef.current.failedQuestionIds.has(failedQuestionId)
+    ) {
+      return;
+    }
+
+    if (failedQuestionId) {
+      failedAssessmentMediaRef.current.failedQuestionIds.add(failedQuestionId);
+    }
+    if (src) {
+      failedAssessmentMediaRef.current.failedSources.add(src);
+    }
+
+    const failedStageIndex = getStageIndex(failedQuestion);
+    const failedMode = assessmentMode;
+    answerInFlightRef.current = true;
+    setCurrentQuestion(null);
+    setAssessmentTransitioning(true);
+    setMessage("That picture did not load. Replacing the question...");
+
+    debugAssessmentCoverage("assessment evidence image removed", {
+      questionId: failedQuestionId,
+      skillId: failedQuestion.skillId,
+      role,
+      src,
+      roundAnswers: roundAnswers.length
+    });
+
+    window.setTimeout(() => {
+      if (!assessmentActiveRef.current) return;
+      pickQuestion(failedMode, failedStageIndex);
+    }, 0);
   }
 
   function pickQuestion(mode = assessmentMode, stageIndexOverride = currentSkillIndex) {
@@ -8121,6 +8208,7 @@ export default function App() {
 
   async function startAssessment(stageIndex = currentSkillIndex) {
     answerInFlightRef.current = false;
+    resetFailedAssessmentMedia();
     const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
     const nextStage = skillTree[nextStageIndex] || currentStage;
     setAssessmentTransitioning(true);
@@ -8191,6 +8279,7 @@ export default function App() {
 
   async function startTargetedReview() {
     answerInFlightRef.current = false;
+    resetFailedAssessmentMedia();
     assessmentActiveRef.current = true;
     setAssessmentTransitioning(true);
     setMessage("Loading review questions...");
@@ -8238,6 +8327,7 @@ export default function App() {
     resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     resetAssessmentMediaUsage();
+    resetFailedAssessmentMedia();
     setDiagnosticFollowUp(true);
     setStudentReportView("skills-check");
     if (typeof window !== "undefined") {
@@ -8248,6 +8338,7 @@ export default function App() {
 
   async function goToOverview(diagnosticFollowUp) {
     answerInFlightRef.current = false;
+    resetFailedAssessmentMedia();
     setCurrentQuestion(null);
     setFeedback(null);
     setCheckpointDecision(null);
@@ -9440,6 +9531,7 @@ export default function App() {
             isAssessmentTransitioning={assessmentTransitioning}
             assessmentFullscreen={effectiveAssessmentFullscreen}
             toggleAssessmentFullscreen={toggleAssessmentFullscreen}
+            onEvidenceImageError={handleAssessmentEvidenceImageError}
           />
         </AssessmentErrorBoundary>
       )}

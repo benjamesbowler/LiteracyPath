@@ -32,6 +32,11 @@ import {
   getGuidedReadingLandingMeta,
   getSkillsCheckLandingMeta
 } from "./reports/studentReportUiUtils.js";
+import {
+  getAssessmentDecorativeMediaProps,
+  getAssessmentEvidenceAccessibleName,
+  getAssessmentMainImageLabel
+} from "../policy/assessmentMediaEvidence.js";
 import { importWithRetry, lazyWithRetry } from "../utils/lazyWithRetry.js";
 import {
   EL_BENCHMARK_CATALOG,
@@ -282,7 +287,41 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
   );
 }
 
-function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
+function AssessmentEvidenceImage({
+  alt = "",
+  className = "",
+  currentQuestion,
+  label = "",
+  onEvidenceImageError,
+  role = "evidence",
+  src
+}) {
+  const accessibleName = getAssessmentEvidenceAccessibleName({ alt, label, role });
+
+  return (
+    <img
+      src={src}
+      alt={accessibleName}
+      className={className || undefined}
+      data-assessment-media-kind="evidence"
+      data-assessment-media-role={role}
+      loading="lazy"
+      decoding="async"
+      onError={() => onEvidenceImageError?.({
+        questionId: currentQuestion?.id || "",
+        src,
+        role
+      })}
+    />
+  );
+}
+
+function PairSelectionQuestion({
+  currentQuestion,
+  answerQuestion,
+  speakText,
+  onEvidenceImageError
+}) {
   const [selectedWords, setSelectedWords] = useState([]);
   const showCardAudio = shouldShowUniformCardAudio(currentQuestion.imageCards || []);
   const isFinalSoundsPair = currentQuestion?.skillId === "final_sounds" || currentQuestion?.questionType === "final_sound_pair";
@@ -330,7 +369,14 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
                 aria-label={`Select picture for ${label}`}
                 type="button"
               >
-                <img src={image} alt={card.alt || `Picture for ${label}`} loading="lazy" decoding="async" />
+                <AssessmentEvidenceImage
+                  src={image}
+                  alt={card.alt}
+                  label={label}
+                  role="choice"
+                  currentQuestion={currentQuestion}
+                  onEvidenceImageError={onEvidenceImageError}
+                />
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
 
@@ -360,7 +406,12 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
   );
 }
 
-function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }) {
+function VisualCardChoiceQuestion({
+  currentQuestion,
+  answerQuestion,
+  speakText,
+  onEvidenceImageError
+}) {
   const [selectedValues, setSelectedValues] = useState([]);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const showCardAudio = !isRhymingPictureItem && shouldShowUniformCardAudio(currentQuestion.imageCards || []);
@@ -410,7 +461,14 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
                 type="button"
               >
                 {image && (
-                  <img src={image} alt={card.alt || `Picture for ${label}`} loading="lazy" decoding="async" />
+                  <AssessmentEvidenceImage
+                    src={image}
+                    alt={card.alt}
+                    label={label}
+                    role="choice"
+                    currentQuestion={currentQuestion}
+                    onEvidenceImageError={onEvidenceImageError}
+                  />
                 )}
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
@@ -543,7 +601,12 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
   );
 }
 
-function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
+function IxlStyleTemplateQuestion({
+  currentQuestion,
+  answerQuestion,
+  speakText,
+  onEvidenceImageError
+}) {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isHfwLetterBuild = isHfwLetterBuildQuestion(currentQuestion);
   const isGrammarSentenceFit = isGrammarSentenceFitQuestion(currentQuestion);
@@ -719,7 +782,14 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
                 type="button"
               >
                 {!isGraphemeChoiceItem && image && (
-                  <img src={image} alt={rawOption.alt || rawOption.imageAlt || `Picture for ${label}`} loading="lazy" decoding="async" />
+                  <AssessmentEvidenceImage
+                    src={image}
+                    alt={rawOption.alt || rawOption.imageAlt}
+                    label={label}
+                    role="choice"
+                    currentQuestion={currentQuestion}
+                    onEvidenceImageError={onEvidenceImageError}
+                  />
                 )}
                 <strong>{label}</strong>
               </button>
@@ -783,7 +853,10 @@ function QuestionFlagControls({ currentQuestion, currentStage, visiblePrompt }) 
 
 function ListeningVisual() {
   return (
-    <div className="assessment-listening-visual" aria-hidden="true">
+    <div
+      className="assessment-listening-visual"
+      {...getAssessmentDecorativeMediaProps()}
+    >
       <span>🔊</span>
     </div>
   );
@@ -860,7 +933,19 @@ function formatAnswerForFeedback(value = "") {
   return String(value || "").split("|").filter(Boolean).join(", ");
 }
 
-function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, isShortVowelWordChoice, isListenChooseVowel, isGrammarSentenceFit, speakText, shouldShowImage }) {
+function AssessmentStimulus({
+  currentQuestion,
+  isListenAndFindWord,
+  isPairSelection,
+  isVisualCardChoice,
+  isIxlStyleTemplate,
+  isShortVowelWordChoice,
+  isListenChooseVowel,
+  isGrammarSentenceFit,
+  speakText,
+  shouldShowImage,
+  onEvidenceImageError
+}) {
   if (!currentQuestion) return null;
 
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
@@ -945,13 +1030,15 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
       {hasPromptImages && (
         <div className="prompt-image-row" aria-label="Question picture">
           {currentQuestion.promptImageCards.map(card => (
-            <img
+            <AssessmentEvidenceImage
               key={card.id || card.word}
               src={card.image}
-              alt={card.alt || `Picture for ${card.word}`}
+              alt={card.alt}
+              label={card.label || card.word || card.value}
+              role="prompt"
+              currentQuestion={currentQuestion}
+              onEvidenceImageError={onEvidenceImageError}
               className="prompt-image-card"
-              loading="lazy"
-              decoding="async"
             />
           ))}
         </div>
@@ -959,13 +1046,15 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
 
       {hasMainImage && !hasPromptImages && (
         <div className="image-box assessment-main-image-wrap">
-          <img
+          <AssessmentEvidenceImage
             src={stimulusImage}
-              alt={isRhymingPictureItem ? `Picture for ${currentQuestion.targetWord}` : isFinalSoundsEndingItem ? "Picture for the listening word" : "question visual"}
-              className="question-image assessment-main-image"
-              loading="lazy"
-              decoding="async"
-            />
+            alt={currentQuestion.imageAlt || currentQuestion.alt}
+            label={getAssessmentMainImageLabel(currentQuestion)}
+            role="stimulus"
+            currentQuestion={currentQuestion}
+            onEvidenceImageError={onEvidenceImageError}
+            className="question-image assessment-main-image"
+          />
           {isRhymingPictureItem && currentQuestion.targetWord && (
             <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
           )}
@@ -3032,7 +3121,8 @@ export function AssessmentPage({
   assessmentMode,
   isAssessmentTransitioning = false,
   assessmentFullscreen = false,
-  toggleAssessmentFullscreen = null
+  toggleAssessmentFullscreen = null,
+  onEvidenceImageError = null
 }) {
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
@@ -3097,7 +3187,15 @@ export function AssessmentPage({
           ></div>
         </div>
 
-        <div className="assessment-progress-dots" aria-label={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}>
+        <div
+          className="assessment-progress-dots"
+          role="progressbar"
+          aria-label="Assessment progress"
+          aria-valuemin="1"
+          aria-valuemax={roundLength}
+          aria-valuenow={Math.min(roundAnswers.length + 1, roundLength)}
+          aria-valuetext={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}
+        >
           {Array.from({ length: roundLength }, (_, index) => (
             <span
               className={
@@ -3188,7 +3286,13 @@ export function AssessmentPage({
                     const card = feedback.support.cardsByWord?.[word];
                     return card ? (
                       <figure key={word}>
-                        <img src={card.image} alt={card.alt || `Picture for ${word}`} loading="lazy" decoding="async" />
+                        <img
+                          src={card.image}
+                          alt={card.alt || `Picture for ${word}`}
+                          data-assessment-media-kind="feedback"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </figure>
                     ) : null;
                   })}
@@ -3202,7 +3306,13 @@ export function AssessmentPage({
                     const card = feedback.support.cardsByWord?.[word];
                     return card ? (
                       <figure key={word}>
-                        <img src={card.image} alt={card.alt || `Picture for ${word}`} loading="lazy" decoding="async" />
+                        <img
+                          src={card.image}
+                          alt={card.alt || `Picture for ${word}`}
+                          data-assessment-media-kind="feedback"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </figure>
                     ) : null;
                   })}
@@ -3384,6 +3494,7 @@ export function AssessmentPage({
               isComprehensionPassageItem ? "comprehension-assessment-layout" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
+            data-assessment-question-id={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.96, opacity: 0 }}
@@ -3413,6 +3524,7 @@ export function AssessmentPage({
               isGrammarSentenceFit={isGrammarSentenceFitItem}
               speakText={speakText}
               shouldShowImage={shouldShowImage}
+              onEvidenceImageError={onEvidenceImageError}
             />
 
             {isPairSelection ? (
@@ -3420,18 +3532,21 @@ export function AssessmentPage({
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
+                onEvidenceImageError={onEvidenceImageError}
               />
             ) : isVisualCardChoice ? (
               <VisualCardChoiceQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
+                onEvidenceImageError={onEvidenceImageError}
               />
             ) : isIxlStyleTemplate ? (
               <IxlStyleTemplateQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
+                onEvidenceImageError={onEvidenceImageError}
               />
             ) : currentQuestion.questionType === "fix_sentence" ? (
               <FixSentenceQuestion
@@ -3479,12 +3594,14 @@ export function AssessmentPage({
                       type="button"
                     >
                       {isListenAndFindWord && !isShortVowelWordChoiceItem && !isGraphemeChoiceItem && choiceImage.image && (
-                        <img
+                        <AssessmentEvidenceImage
                           src={choiceImage.image}
-                          alt={choiceImage.alt || `Picture for ${choice.label}`}
+                          alt={choiceImage.alt}
+                          label={choice.label}
+                          role="choice"
+                          currentQuestion={currentQuestion}
+                          onEvidenceImageError={onEvidenceImageError}
                           className="visual-word-choice-image"
-                          loading="lazy"
-                          decoding="async"
                         />
                       )}
                       <span>{choice.label}</span>

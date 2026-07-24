@@ -143,6 +143,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 10]
   },
   {
+    id: "assessment-media-evidence",
+    label: "Meaningfully named assessment evidence with failed-image removal and round refill",
+    command: ["npm", "run", "check:assessment-media-evidence"],
+    areas: [1, 3, 4, 8, 10]
+  },
+  {
     id: "key-route-visuals",
     label: "Desktop and phone visual baselines plus delayed child-route placeholders",
     command: ["npm", "run", "check:key-route-visuals"],
