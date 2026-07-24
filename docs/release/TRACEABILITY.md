@@ -118,7 +118,7 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 | D-003 | 4, 7 | P1 | TODO | per-attempt timestamp provenance export test | `DISCOVERED.md` D-003 |
 | D-004 | 1, 4, 7 | P1 | TODO | skill-spine reconciliation + evidence-basis export tests | `DISCOVERED.md` D-004 |
 | D-005 | 4, 6 | P1 | TODO | assessment-item directive DOM + administration-copy review | `DISCOVERED.md` D-005 |
-| D-006 | 3, 4, 6 | P0 | TODO | assessment completion device-matrix E2E | `DISCOVERED.md` D-006 |
+| D-006 | 3, 4, 6 | P0 | DONE | `check:el-assessment-completion-device-matrix` | Commit `96be1f64`; EL runner outer overflow no longer clips, the sticky bar keeps progress + Save & exit + Finish reachable, and the final placement scroll target is fully usable. Authenticated Amara journeys complete and persist all 8 items at 1280×720, 1366×768, iPad landscape, and iPad portrait; four reviewed screenshot baselines guard the layout. `docs/release/artifacts/2026-07-24T04-47-27-501Z/manifest.partial.json`: 6/6 bounded gates and 1,084/1,084 unit tests pass. |
 | D-007 | 6 | P1 | TODO | assessment header copy DOM + jargon guard | `DISCOVERED.md` D-007 |
 | D-008 | 9 | P2 | TODO | assessment deep-link refresh/resume E2E | `DISCOVERED.md` D-008 |
 | D-009 | 4 | P2 | TODO | final-item correction + finish-tally E2E | `DISCOVERED.md` D-009 |
