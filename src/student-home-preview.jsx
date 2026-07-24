@@ -10,7 +10,12 @@ import "./styles/sage-subpages.css";
 import "./styles/sage-soft.generated.css";
 import "./styles/sage-form.css";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
-import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
+import {
+  COMPANIONS,
+  loadStudentProfile,
+  saveStudentProfile,
+  setCompanion
+} from "./utils/studentProfile.js";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { markMissionDone } from "./utils/dailyMission.js";
 
@@ -18,6 +23,15 @@ const PREVIEW_SCOPE = "student-home-preview";
 const PREVIEW_SCENARIO = new URLSearchParams(window.location.search).get("scenario");
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
+
+if (PREVIEW_SCENARIO === "reduced-choice") {
+  saveStudentProfile(PREVIEW_SCOPE, {
+    ...loadStudentProfile(PREVIEW_SCOPE),
+    reducedChoiceMode: true,
+    reducedChoiceModeAt: "2026-07-24T13:30:00.000Z",
+    reducedChoiceModeBy: "teacher-preview"
+  });
+}
 
 if (PREVIEW_SCENARIO === "continuation") {
   const now = new Date();

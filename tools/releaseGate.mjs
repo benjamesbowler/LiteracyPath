@@ -83,6 +83,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 4, 10]
   },
   {
+    id: "student-rail-accessibility",
+    label: "Named and spoken child navigation with teacher-owned reduced-choice persistence",
+    command: ["npm", "run", "check:student-rail-accessibility"],
+    areas: [2, 3, 4, 8, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],

@@ -7,7 +7,12 @@ import {
   markMissionCelebrated,
   markMissionStepCelebrated
 } from "../utils/dailyMission.js";
-import { COMPANIONS, getCompanion, setCompanion } from "../utils/studentProfile.js";
+import {
+  COMPANIONS,
+  getCompanion,
+  loadStudentProfile,
+  setCompanion
+} from "../utils/studentProfile.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
@@ -20,6 +25,8 @@ import {
   buildStudentHomeContinuation,
   selectStudentHomeRecommendation
 } from "../policy/learningPolicy.js";
+import { STUDENT_RAIL_DESTINATIONS } from "../policy/studentRailPolicy.js";
+import StudentRailNav from "./StudentRailNav.jsx";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -364,18 +371,25 @@ export function StudentHomePage({
   );
 
   const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
-  const sageNav = [
-    { id: "sounds", label: "Sound Seekers", icon: "sound", go: onOpenSoundSeekers },
-    { id: "phonics", label: "Phonics", icon: "phonics", go: onOpenPhonicsLearn },
-    { id: "map", label: "Adventure Map", icon: "map", go: onOpenSkillsBlockQuest },
-    { id: "books", label: "Books", icon: "book", go: onOpenGuidedReading ? () => onOpenGuidedReading("") : null },
-    { id: "stories", label: "Story Quests", icon: "story", go: onOpenStoryQuests },
-    { id: "arcade", label: "Arcade", icon: "arcade", go: arcadeLocked ? null : () => openArcade() },
-    { id: "hollow", label: "My Hollow", icon: "hollow", go: onOpenRewards }
-  ].filter(item => item.go);
+  const railActions = {
+    sounds: onOpenSoundSeekers,
+    phonics: onOpenPhonicsLearn,
+    map: onOpenSkillsBlockQuest,
+    books: onOpenGuidedReading ? () => onOpenGuidedReading("") : null,
+    stories: onOpenStoryQuests,
+    arcade: arcadeLocked ? null : () => openArcade(),
+    hollow: onOpenRewards
+  };
+  const sageNav = STUDENT_RAIL_DESTINATIONS
+    .map(item => ({ ...item, go: railActions[item.id] }))
+    .filter(item => item.go);
   const homeProgress = useMemo(() => {
     void hydrationTick;
     return readStudentHomeProgress(progressScopeKey);
+  }, [progressScopeKey, hydrationTick]);
+  const reducedChoiceMode = useMemo(() => {
+    void hydrationTick;
+    return Boolean(loadStudentProfile(progressScopeKey).reducedChoiceMode);
   }, [progressScopeKey, hydrationTick]);
   const activities = [
     {
@@ -512,12 +526,11 @@ export function StudentHomePage({
             <CoinIcon size={16} /> {hollow.coins}
           </button>
 
-          <nav className="hs-nav" aria-label="Places to play">
-            <button type="button" className="is-active"><SageIcon name="home" />Home</button>
-            {sageNav.map(item => (
-              <button key={item.id} type="button" onClick={item.go}><SageIcon name={item.icon} />{item.label}</button>
-            ))}
-          </nav>
+          <StudentRailNav
+            active="home"
+            nav={sageNav}
+            reducedChoiceMode={reducedChoiceMode}
+          />
 
           <span className="hs-side-spacer" />
         </aside>

@@ -113,25 +113,71 @@
   gap: 4px;
 }
 
-.lp-home-sage .hs-nav button {
+.lp-home-sage .hs-nav-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 3px;
+}
+
+.lp-home-sage .hs-nav-destination {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
   background: none;
   border: 0;
   color: #fff;
   font: 700 15px "Nunito", sans-serif;
   text-align: left;
-  padding: 12px 14px;
+  padding: 10px;
   min-height: 48px;
   border-radius: 14px;
   cursor: pointer;
 }
 
-.lp-home-sage .hs-nav button:hover { background: rgba(255, 255, 255, 0.14); }
-.lp-home-sage .hs-nav button.is-active { background: var(--hs-pill); }
-.lp-home-sage .hs-nav svg { width: 20px; height: 20px; flex: 0 0 20px; }
+.lp-home-sage .hs-nav-destination:hover,
+.lp-home-sage .hs-nav-hear:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.lp-home-sage .hs-nav-destination.is-active { background: var(--hs-pill); }
+
+.lp-home-sage .hs-nav-destination svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.lp-home-sage .hs-nav-hear {
+  display: grid;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: rgba(255, 255, 255, 0.86);
+  cursor: pointer;
+}
+
+.lp-home-sage .hs-nav-hear svg {
+  width: 19px;
+  height: 19px;
+}
+
+.lp-home-sage .hs-nav-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 .lp-home-sage .hs-side-spacer { flex: 1; }
 

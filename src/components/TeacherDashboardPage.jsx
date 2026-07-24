@@ -814,6 +814,7 @@ export function TeacherDashboardPage({
   loadStudents,
   assignQuestPractice,
   clearQuestPractice,
+  setReducedChoiceMode,
   onLoadStudent,
   selectedStudentId,
   onClearStudent,
@@ -880,6 +881,7 @@ export function TeacherDashboardPage({
   const [showQuestionGuide, setShowQuestionGuide] = useState(false);
   const [questionGuideSearch, setQuestionGuideSearch] = useState("");
   const [rosterAdminOpen, setRosterAdminOpen] = useState(false);
+  const [savingChoiceModeIds, setSavingChoiceModeIds] = useState([]);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const newClassInputRef = useRef(null);
@@ -915,7 +917,8 @@ export function TeacherDashboardPage({
         recentAnswers: dashboardRow.recentAnswers ?? 0,
         previousAnswers: dashboardRow.previousAnswers ?? 0,
         recentMastered: dashboardRow.recentMastered ?? 0,
-        previousMastered: dashboardRow.previousMastered ?? 0
+        previousMastered: dashboardRow.previousMastered ?? 0,
+        reducedChoiceMode: Boolean(dashboardRow.reducedChoiceMode)
       };
     }),
     [dashboardById, studentList]
@@ -1133,6 +1136,16 @@ export function TeacherDashboardPage({
     if (!clean) return;
     await createStudent?.(clean);
     setNewStudentName("");
+  }
+
+  async function handleReducedChoiceMode(row) {
+    if (!setReducedChoiceMode || savingChoiceModeIds.includes(row.id)) return;
+    setSavingChoiceModeIds(ids => [...ids, row.id]);
+    try {
+      await setReducedChoiceMode(row.id, !row.reducedChoiceMode);
+    } finally {
+      setSavingChoiceModeIds(ids => ids.filter(id => id !== row.id));
+    }
   }
 
   async function handleCreateClass() {
@@ -2198,6 +2211,20 @@ export function TeacherDashboardPage({
                       <div className="teacher-row-actions">
                         <button className="lp-button lp-button-secondary teacher-open-student" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
                           Open learner
+                        </button>
+                        <button
+                          className="text-button teacher-choice-mode-toggle"
+                          type="button"
+                          aria-pressed={row.reducedChoiceMode}
+                          disabled={savingChoiceModeIds.includes(row.id)}
+                          title="Reduced choices keep Home, Sound Seekers, Phonics, and Books in the child navigation."
+                          onClick={() => handleReducedChoiceMode(row)}
+                        >
+                          {savingChoiceModeIds.includes(row.id)
+                            ? "Saving choices..."
+                            : row.reducedChoiceMode
+                              ? "Use all choices"
+                              : "Reduce choices"}
                         </button>
                         {classList.length > 1 && (
                           <button

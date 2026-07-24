@@ -7,6 +7,7 @@ const playerStyles = readFileSync("src/components/StoryQuestPlayer.css", "utf8")
 const learnAreaSource = readFileSync("src/components/LearnAreaPage.jsx", "utf8");
 const studentHomeSource = readFileSync("src/components/StudentHomePage.jsx", "utf8");
 const studentRailSource = readFileSync("src/components/StudentRail.jsx", "utf8");
+const studentRailPolicySource = readFileSync("src/policy/studentRailPolicy.js", "utf8");
 const appSource = readFileSync("src/App.jsx", "utf8");
 const sageFormStyles = readFileSync("src/styles/sage-form.css", "utf8");
 
@@ -93,13 +94,11 @@ test("Story Quest reader reserves one viewport without nested story-text scrolli
 });
 
 test("Story Quests appears in both child navigation sources with a real story icon", () => {
-  const homeNav = studentHomeSource.match(/const sageNav = \[[\s\S]*?\n\s*\]\.filter/);
-  const sharedNav = appSource.match(/const railNav = \[[\s\S]*?\n\s*\];/);
-  assert.ok(homeNav, "could not locate Student Home sageNav");
-  assert.ok(sharedNav, "could not locate App railNav");
-  assert.match(homeNav[0], /id: "stories", label: "Story Quests", icon: "story", go: onOpenStoryQuests/);
-  assert.match(sharedNav[0], /id: "stories", label: "Story Quests", icon: "story"[\s\S]*?setAppView\(APP_VIEWS\.LEARN\)/);
-  assert.match(studentRailSource, /story:\s*"[^"\n]+"/);
+  assert.match(studentRailPolicySource, /id: "stories", label: "Story Quests", icon: "story"/);
+  assert.match(studentHomeSource, /stories:\s*onOpenStoryQuests/);
+  assert.match(appSource, /stories:\s*\(\)\s*=>\s*\{[\s\S]*?setAppView\(APP_VIEWS\.LEARN\)/);
+  assert.match(studentRailPolicySource, /story:\s*"[^"\n]+"/);
+  assert.match(studentRailSource, /<StudentRailNav/);
   assert.match(appSource, /withStudentRail\("stories"/);
 });
 

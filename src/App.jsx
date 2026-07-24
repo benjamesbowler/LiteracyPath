@@ -34,6 +34,8 @@ import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import StudentRail from "./components/StudentRail.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
+import { STUDENT_RAIL_DESTINATIONS } from "./policy/studentRailPolicy.js";
+import { saveStudentReducedChoiceMode } from "./data/studentRailSettings.js";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { studentReportHash } from "./components/reports/studentReportUiUtils.js";
 import { worldForScope } from "./utils/palWorlds.js";
@@ -4076,6 +4078,20 @@ export default function App() {
         syncedAt: row.updated_at || ""
       }])
     );
+    const { data: profileRows, error: profileError } = await supabase
+      .from("student_progress")
+      .select("student_id, payload")
+      .eq("area", "profile")
+      .eq("key", "__all__")
+      .in("student_id", studentIds);
+
+    if (profileError) {
+      console.error("Dashboard student profile settings error:", profileError);
+    }
+
+    const profilesByStudent = new Map(
+      (profileRows || []).map(row => [row.student_id, row.payload || {}])
+    );
 
     const changeWindowMs = 7 * 24 * 60 * 60 * 1000;
     const changeWindowEnd = Date.now();
@@ -4149,6 +4165,7 @@ export default function App() {
           .filter(Boolean)
           .sort()
           .at(-1) || null;
+        const studentProfile = profilesByStudent.get(student.id) || {};
 
         return {
           id: student.id,
@@ -4164,7 +4181,8 @@ export default function App() {
           previousAnswers,
           recentMastered,
           previousMastered,
-          soundSeekers
+          soundSeekers,
+          reducedChoiceMode: Boolean(studentProfile.reducedChoiceMode)
         };
       });
 
@@ -4210,6 +4228,25 @@ export default function App() {
 
   async function clearQuestPractice(studentRowId) {
     return saveQuestAssignment(studentRowId, [], "");
+  }
+
+  async function setStudentReducedChoiceMode(studentRowId, enabled) {
+    const result = await saveStudentReducedChoiceMode({
+      supabase,
+      studentId: studentRowId,
+      enabled,
+      teacherId
+    });
+    if (!result.ok) {
+      console.error("Save reduced-choice mode error:", result.error);
+      setMessage("Could not save that learner's navigation setting.");
+      return false;
+    }
+    await loadClassDashboard(selectedClassId);
+    setMessage(enabled
+      ? "Reduced choices are on for this learner."
+      : "All navigation choices are on for this learner.");
+    return true;
   }
 
   async function updateStudentSymbolPassword(studentRowId, sequence, selectedStudentName = "student") {
@@ -8743,15 +8780,19 @@ export default function App() {
     }
     setAppView(nextView);
   };
-  const railNav = [
-    { id: "sounds", label: "Sound Seekers", icon: "sound", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_QUEST); } },
-    { id: "phonics", label: "Phonics", icon: "phonics", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_LEARN); } },
-    { id: "map", label: "Adventure Map", icon: "map", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST); } },
-    { id: "books", label: "Books", icon: "book", go: () => { setStudentArcadeOpen(false); setGuidedInitialBookId(""); setAppView(APP_VIEWS.GUIDED_READING); } },
-    { id: "stories", label: "Story Quests", icon: "story", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.LEARN); } },
-    { id: "arcade", label: "Arcade", icon: "arcade", go: () => { setStudentArcadeOpen(true); setAppView(APP_VIEWS.PHONICS_LEARN); } },
-    { id: "hollow", label: "My Hollow", icon: "hollow", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.STUDENT_REWARDS); } }
-  ];
+  const railActions = {
+    sounds: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_QUEST); },
+    phonics: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_LEARN); },
+    map: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST); },
+    books: () => { setStudentArcadeOpen(false); setGuidedInitialBookId(""); setAppView(APP_VIEWS.GUIDED_READING); },
+    stories: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.LEARN); },
+    arcade: () => { setStudentArcadeOpen(true); setAppView(APP_VIEWS.PHONICS_LEARN); },
+    hollow: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.STUDENT_REWARDS); }
+  };
+  const railNav = STUDENT_RAIL_DESTINATIONS.map(item => ({
+    ...item,
+    go: railActions[item.id]
+  }));
   // Wraps a menu sub-page so it keeps the rail. Fullscreen mode still strips
   // it — a child who asked for fullscreen asked for the content, not the menu.
   const withStudentRail = (activeId, content) => {
@@ -8992,6 +9033,7 @@ export default function App() {
               loadStudents={loadStudents}
               assignQuestPractice={assignQuestPractice}
               clearQuestPractice={clearQuestPractice}
+              setReducedChoiceMode={setStudentReducedChoiceMode}
               onLoadStudent={async (id, name) => {
                 const loadPromise = loadStudentProgress(id, name, { navigate: false });
                 if (appView !== APP_VIEWS.TEACHER_CLASSES) {
