@@ -16,6 +16,7 @@ import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 import {
+  buildStudentHomeCardState,
   buildStudentHomeContinuation,
   selectStudentHomeRecommendation
 } from "../policy/learningPolicy.js";
@@ -40,15 +41,27 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-function readSoundSeekersProgress(scopeKey) {
+function readProgressArea(area, scopeKey) {
   if (typeof window === "undefined") return {};
   try {
     return JSON.parse(
-      window.localStorage.getItem(localProgressStorageKey("phonics_quest", scopeKey)) || "{}"
+      window.localStorage.getItem(localProgressStorageKey(area, scopeKey)) || "{}"
     );
   } catch {
     return {};
   }
+}
+
+function readStudentHomeProgress(scopeKey) {
+  return {
+    soundSeekers: readProgressArea("phonics_quest", scopeKey),
+    phonics: readProgressArea("phonics_letters", scopeKey),
+    adventureMap: readProgressArea("el_quest", scopeKey),
+    arcade: readProgressArea("learn_games", scopeKey),
+    storyQuests: readProgressArea("story_quests", scopeKey),
+    readingLibrary: readProgressArea("guided_reading", scopeKey),
+    hollow: readProgressArea("hollow", scopeKey)
+  };
 }
 
 function SignOutIcon() {
@@ -118,7 +131,8 @@ function SageCard({
   onClick,
   priority,
   recommendationSource,
-  recommendationReason
+  recommendationReason,
+  cardState
 }) {
   function artError(event) {
     const img = event.currentTarget;
@@ -137,6 +151,8 @@ function SageCard({
       aria-disabled={locked || undefined}
       data-home-priority={priority}
       data-recommendation-source={recommendationSource || undefined}
+      data-learning-state={cardState?.label || "New"}
+      data-progress-marker={cardState?.progressText || undefined}
     >
       <span className="hs-thumb" aria-hidden="true">
         <img src={art} alt="" loading="eager" decoding="async" onError={artError} />
@@ -144,6 +160,14 @@ function SageCard({
       {hero && <span className="hs-card-kicker">Recommended next</span>}
       <h3>{title}</h3>
       {recommendationReason && <span className="hs-card-reason">{recommendationReason}</span>}
+      <span className="hs-card-state-row">
+        <strong className={`hs-card-state is-${cardState?.tone || "new"}`}>
+          {cardState?.label || "New"}
+        </strong>
+        {cardState?.progressText && (
+          <small className="hs-card-progress">{cardState.progressText}</small>
+        )}
+      </span>
       <span className="hs-chips">
         {fillChip && <span className="hs-chip is-fill">{fillChip}</span>}
         {lineChips.map(chip => <span key={chip} className="hs-chip is-line">{chip}</span>)}
@@ -349,6 +373,10 @@ export function StudentHomePage({
     { id: "arcade", label: "Arcade", icon: "arcade", go: arcadeLocked ? null : () => openArcade() },
     { id: "hollow", label: "My Hollow", icon: "hollow", go: onOpenRewards }
   ].filter(item => item.go);
+  const homeProgress = useMemo(() => {
+    void hydrationTick;
+    return readStudentHomeProgress(progressScopeKey);
+  }, [progressScopeKey, hydrationTick]);
   const activities = [
     {
       id: "sound-seekers",
@@ -434,18 +462,18 @@ export function StudentHomePage({
       foot: "Visit your Hollow"
     }
   ];
+  const statefulActivities = activities.map(activity => ({
+    ...activity,
+    cardState: buildStudentHomeCardState(activity.id, homeProgress)
+  }));
   const recommendation = selectStudentHomeRecommendation({
-    activities,
+    activities: statefulActivities,
     missionStatus: status
   });
-  const soundSeekersProgress = useMemo(() => {
-    void hydrationTick;
-    return readSoundSeekersProgress(progressScopeKey);
-  }, [progressScopeKey, hydrationTick]);
   const continuation = buildStudentHomeContinuation({
     activity: recommendation.primary,
     missionStatus: status,
-    soundSeekersProgress
+    soundSeekersProgress: homeProgress.soundSeekers
   });
 
   function renderActivity(activity, priority) {

@@ -48,6 +48,41 @@ if (PREVIEW_SCENARIO === "continuation") {
   );
 }
 
+if (PREVIEW_SCENARIO === "card-states") {
+  window.localStorage.setItem(
+    localProgressStorageKey("phonics_quest", PREVIEW_SCOPE),
+    JSON.stringify({
+      assignment: {
+        targets: ["m", "s"],
+        note: "Teacher practice"
+      },
+      trail: {
+        stopsDone: Array.from({ length: 38 }, (_, index) => `s${index + 1}`)
+      }
+    })
+  );
+  window.localStorage.setItem(
+    localProgressStorageKey("el_quest", PREVIEW_SCOPE),
+    JSON.stringify({
+      cycles: {
+        cycle1: { stars: 3 },
+        cycle2: { stations: { first: true } }
+      }
+    })
+  );
+  window.localStorage.setItem(
+    localProgressStorageKey("guided_reading", PREVIEW_SCOPE),
+    JSON.stringify({
+      book1: { completed: true },
+      book2: {
+        completedPages: 3,
+        lastReadAt: "2026-07-24T08:00:00.000Z",
+        readCount: 1
+      }
+    })
+  );
+}
+
 window.__completeStudentHomeMissionStep = kind => {
   markMissionDone(PREVIEW_SCOPE, kind);
 };

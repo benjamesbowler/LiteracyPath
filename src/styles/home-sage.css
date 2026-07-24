@@ -631,6 +631,48 @@
   line-height: 1.35;
 }
 
+.lp-home-sage .hs-card-state-row {
+  min-height: 25px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lp-home-sage .hs-card-state {
+  min-height: 23px;
+  padding: 4px 9px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.lp-home-sage .hs-card-state.is-new {
+  border: 1px solid #E0C9AA;
+  background: #FFF9EF;
+  color: #79552E;
+}
+
+.lp-home-sage .hs-card-state.is-continue {
+  background: var(--hs-sky);
+  color: var(--hs-forest);
+}
+
+.lp-home-sage .hs-card-state.is-teacher {
+  background: var(--hs-forest);
+  color: #fff;
+}
+
+.lp-home-sage .hs-card-progress {
+  color: var(--hs-ink-soft);
+  font-size: 11px;
+  font-weight: 800;
+}
+
 .lp-home-sage .hs-chips {
   display: flex;
   gap: 7px;

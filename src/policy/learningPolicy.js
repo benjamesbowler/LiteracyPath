@@ -127,8 +127,126 @@ export function countCompletedSoundSeekersTrails(progress = {}) {
   return new Set(stops.filter(isSoundSeekersTrailId)).size;
 }
 
-function countLabel(value, singular, plural = `${singular}s`) {
+function pluralized(value, singular, plural = `${singular}s`) {
   return `${value} ${value === 1 ? singular : plural}`;
+}
+
+function stateResult(label, progressText = "") {
+  return {
+    label,
+    tone: label === "Teacher picked"
+      ? "teacher"
+      : label === "Continue"
+        ? "continue"
+        : "new",
+    progressText
+  };
+}
+
+export function buildStudentHomeCardState(activityId, progress = {}) {
+  if (activityId === "sound-seekers") {
+    const completed = countCompletedSoundSeekersTrails(progress.soundSeekers);
+    const assignmentTargets = Array.isArray(progress.soundSeekers?.assignment?.targets)
+      ? [...new Set(progress.soundSeekers.assignment.targets.filter(Boolean))]
+      : [];
+    const progressText = completed > 0
+      ? `${completed} of ${SOUND_SEEKERS_TRAIL_COUNT} trails`
+      : assignmentTargets.length > 0
+        ? pluralized(assignmentTargets.length, "sound")
+        : "";
+    if (assignmentTargets.length > 0) return stateResult("Teacher picked", progressText);
+    return stateResult(completed > 0 ? "Continue" : "New", progressText);
+  }
+
+  if (activityId === "phonics-learning") {
+    const rows = Object.values(progress.phonics || {});
+    const completed = rows.filter(value => (
+      value === "completed" || value?.status === "completed"
+    )).length;
+    const started = rows.filter(value => {
+      const status = typeof value === "string" ? value : value?.status;
+      return status === "completed" || status === "inprogress";
+    }).length;
+    return stateResult(
+      started > 0 ? "Continue" : "New",
+      completed > 0
+        ? `${pluralized(completed, "letter")} complete`
+        : started > 0
+          ? `${pluralized(started, "letter")} started`
+          : ""
+    );
+  }
+
+  if (activityId === "adventure-map") {
+    const cycles = Object.values(progress.adventureMap?.cycles || {});
+    const completed = cycles.filter(row => Number(row?.stars) > 0).length;
+    return stateResult(
+      cycles.length > 0 ? "Continue" : "New",
+      completed > 0 ? `${pluralized(completed, "map stop")} complete` : ""
+    );
+  }
+
+  if (activityId === "arcade") {
+    const games = Object.values(progress.arcade?.games || {});
+    const played = games.filter(row => (
+      Number(row?.plays) > 0 || Boolean(row?.lastPlayedAt) || Number(row?.wordsCompleted) > 0
+    )).length;
+    return stateResult(
+      played > 0 ? "Continue" : "New",
+      played > 0 ? `${pluralized(played, "game")} tried` : ""
+    );
+  }
+
+  if (activityId === "story-quests") {
+    const rows = Object.values(progress.storyQuests || {}).filter(row => (
+      row && (row.completed || row.completedAt || row.updatedAt || row.lastPageId)
+    ));
+    const completed = rows.filter(row => row.completed || row.completedAt).length;
+    return stateResult(
+      rows.length > 0 ? "Continue" : "New",
+      completed > 0
+        ? `${pluralized(completed, "story")} complete`
+        : rows.length > 0
+          ? `${pluralized(rows.length, "story")} started`
+          : ""
+    );
+  }
+
+  if (activityId === "reading-library") {
+    const rows = Object.values(progress.readingLibrary || {}).filter(row => (
+      row && typeof row === "object" && (
+        row.completed
+        || row.completedAt
+        || row.lastReadAt
+        || Number(row.completedPages) > 0
+        || Number(row.readCount) > 0
+      )
+    ));
+    const completed = rows.filter(row => row.completed || row.completedAt).length;
+    return stateResult(
+      rows.length > 0 ? "Continue" : "New",
+      completed > 0
+        ? `${pluralized(completed, "book")} read`
+        : rows.length > 0
+          ? `${pluralized(rows.length, "book")} started`
+          : ""
+    );
+  }
+
+  if (activityId === "my-hollow") {
+    const ledger = progress.hollow || {};
+    const changes = (ledger.purchases?.length || 0)
+      + (ledger.feeds?.length || 0)
+      + (ledger.chests?.length || 0)
+      + Object.keys(ledger.layout?.equipped || {}).length
+      + Object.keys(ledger.layout?.slots || {}).length;
+    return stateResult(
+      changes > 0 ? "Continue" : "New",
+      changes > 0 ? `${pluralized(changes, "change")} saved` : ""
+    );
+  }
+
+  return stateResult("New");
 }
 
 /**
@@ -153,7 +271,7 @@ export function buildStudentHomeContinuation({
     const remaining = Math.max(0, SOUND_SEEKERS_TRAIL_COUNT - completed);
     return {
       label: remaining > 0
-        ? `Continue Sound Seekers — ${countLabel(remaining, "trail")} left`
+        ? `Continue Sound Seekers — ${pluralized(remaining, "trail")} left`
         : "Replay Sound Seekers — trail complete",
       remaining,
       goal: "Sound Seekers trails"
@@ -166,7 +284,7 @@ export function buildStudentHomeContinuation({
       : Object.values(missionStatus.done || {}).filter(Boolean).length;
     const remaining = Math.max(1, 3 - doneCount);
     return {
-      label: `Continue ${activity.title} — ${countLabel(remaining, "task")} left today`,
+      label: `Continue ${activity.title} — ${pluralized(remaining, "task")} left today`,
       remaining,
       goal: "daily mission tasks"
     };

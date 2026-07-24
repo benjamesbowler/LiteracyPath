@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   LEARNING_POLICY_VERSION,
   STUDENT_HOME_RECOMMENDATION_POLICY,
+  buildStudentHomeCardState,
   buildStudentHomeContinuation,
   countCompletedSoundSeekersTrails,
   selectStudentHomeRecommendation
@@ -147,4 +148,87 @@ test("Sound Seekers completion never reports a negative remainder", () => {
 
   assert.equal(continuation.label, "Replay Sound Seekers — trail complete");
   assert.equal(continuation.remaining, 0);
+});
+
+test("teacher-picked Sound Seekers state wins while preserving a child-safe progress marker", () => {
+  const state = buildStudentHomeCardState("sound-seekers", {
+    soundSeekers: {
+      assignment: { targets: ["m", "s", "m"] },
+      trail: {
+        stopsDone: Array.from({ length: 38 }, (_, index) => `s${index + 1}`)
+      }
+    }
+  });
+
+  assert.deepEqual(state, {
+    label: "Teacher picked",
+    tone: "teacher",
+    progressText: "38 of 40 trails"
+  });
+});
+
+test("card state distinguishes Continue from New without child-facing scores", () => {
+  const adventure = buildStudentHomeCardState("adventure-map", {
+    adventureMap: {
+      cycles: {
+        cycle1: { stars: 3 },
+        cycle2: { stations: { first: true } }
+      }
+    }
+  });
+  const story = buildStudentHomeCardState("story-quests", {});
+
+  assert.deepEqual(adventure, {
+    label: "Continue",
+    tone: "continue",
+    progressText: "1 map stop complete"
+  });
+  assert.deepEqual(story, {
+    label: "New",
+    tone: "new",
+    progressText: ""
+  });
+  assert.doesNotMatch(
+    JSON.stringify([adventure, story]),
+    /accuracy|high.?score|percent|%/i
+  );
+});
+
+test("reading, arcade, phonics, story, and Hollow progress use completion counts, not raw scores", () => {
+  const progress = {
+    phonics: { a: "completed", m: "inprogress" },
+    arcade: { games: { pop: { plays: 2, highScore: 999 } } },
+    storyQuests: { one: { completed: true, updatedAt: "2026-07-24T00:00:00Z" } },
+    readingLibrary: {
+      one: { completed: true },
+      two: {
+        completedPages: 3,
+        lastReadAt: "2026-07-24T08:00:00.000Z",
+        readCount: 1
+      },
+      malformed: { lastPage: 999 }
+    },
+    hollow: {
+      purchases: [{ id: "one" }],
+      feeds: [],
+      chests: [],
+      layout: { equipped: {}, slots: {} }
+    }
+  };
+
+  assert.equal(buildStudentHomeCardState("phonics-learning", progress).progressText, "1 letter complete");
+  assert.equal(buildStudentHomeCardState("arcade", progress).progressText, "1 game tried");
+  assert.equal(buildStudentHomeCardState("story-quests", progress).progressText, "1 story complete");
+  assert.equal(buildStudentHomeCardState("reading-library", progress).progressText, "1 book read");
+  assert.equal(buildStudentHomeCardState("my-hollow", progress).progressText, "1 change saved");
+  assert.doesNotMatch(
+    JSON.stringify([
+      buildStudentHomeCardState("phonics-learning", progress),
+      buildStudentHomeCardState("arcade", progress),
+      buildStudentHomeCardState("story-quests", progress),
+      buildStudentHomeCardState("reading-library", progress),
+      buildStudentHomeCardState("my-hollow", progress)
+    ]),
+    /999|accuracy|high.?score|percent|%/i
+  );
 });

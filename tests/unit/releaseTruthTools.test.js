@@ -26,6 +26,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "student-home-hierarchy",
     "student-home-continuation",
     "student-daily-mission",
+    "student-home-card-states",
     "assessment-runtime-variation",
     "strict-curriculum",
     "skill-progression",

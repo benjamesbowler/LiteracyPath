@@ -146,6 +146,7 @@
     "check:student-home-hierarchy": "node --test tests/unit/studentHomeRecommendationPolicy.test.js && playwright test tests/release/student-home-hierarchy.spec.js --project=desktop",
     "check:student-home-continuation": "node --test tests/unit/studentHomeRecommendationPolicy.test.js && playwright test tests/release/student-home-continuation.spec.js --project=desktop",
     "check:student-daily-mission": "node --test tests/unit/dailyMissionState.test.js tests/unit/studentHomeRecommendationPolicy.test.js && playwright test tests/release/student-daily-mission.spec.js --project=desktop",
+    "check:student-home-card-states": "node --test tests/unit/studentHomeRecommendationPolicy.test.js && playwright test tests/release/student-home-card-states.spec.js --project=desktop",
     "check:report-audience-templates": "node --test tests/unit/reportAudienceTemplates.test.js && playwright test tests/release/report-audience-templates.spec.js --project=desktop",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

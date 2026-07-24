@@ -77,6 +77,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 4, 10]
   },
   {
+    id: "student-home-card-states",
+    label: "Child-safe student-home New, Continue, Teacher picked, and progress states",
+    command: ["npm", "run", "check:student-home-card-states"],
+    areas: [2, 4, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],
