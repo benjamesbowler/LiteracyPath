@@ -96,6 +96,7 @@ const RUNTIME_SKILL_IDS = {
 
 const GRAMMAR_SENTENCE_FIT_SKILLS = new Set(["nouns", "verbs", "adjectives", "adverbs"]);
 const EARLY_PHONICS_GENERATED_SKILLS = new Set([
+  "initial_sounds",
   "final_sounds",
   "rhyming",
   "cvc_short_vowels",
@@ -597,7 +598,26 @@ export function getAssessmentSkillPublicationStatus(skillId = "") {
 export async function loadAssessmentSkillBank(skillId) {
   const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
   if (!publicationStatus.releaseReady) return [];
-  return loadAssessmentSkillBankCandidates(skillId);
+  const candidates = await loadAssessmentSkillBankCandidates(skillId);
+  if (publicationStatus.publicationMode !== "audited-id-set") return candidates;
+  const publishedLevels = new Map(
+    (publicationStatus.publishedQuestions || []).map(item => [
+      String(item.questionId || ""),
+      Number(item.level || 1)
+    ])
+  );
+  if (!publishedLevels.size) return [];
+  return candidates
+    .filter(question => publishedLevels.has(String(question.id || question.questionId || "")))
+    .map(question => {
+      const releaseLevel = publishedLevels.get(String(question.id || question.questionId || ""));
+      return {
+        ...question,
+        level: releaseLevel,
+        assessmentLevel: releaseLevel,
+        releaseStandardVersion: publicationStatus.standardVersion
+      };
+    });
 }
 
 export function preloadAssessmentSkillBank(skillId) {
@@ -620,7 +640,11 @@ export async function loadHfwAssessmentBankCandidates(skillId) {
 export async function loadHfwAssessmentBank(skillId) {
   const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
   if (!publicationStatus.releaseReady) return [];
-  return loadHfwAssessmentBankCandidates(skillId);
+  const normalizedSkillId = normalizeSkillId(skillId);
+  if (getAssessmentSkillGroup(normalizedSkillId) !== "hfw") return [];
+  const { isRuntimeEligibleHfwQuestion } = await import("./hfwRuntimeEligibility.js");
+  return (await loadAssessmentSkillBank(normalizedSkillId))
+    .filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
 }
 
 export function getActiveAssessmentSkillIds() {

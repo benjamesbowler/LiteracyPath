@@ -3,20 +3,26 @@ import { auditStrictProductionReadiness } from "./auditAllSkillsStrictProduction
 
 export function buildAssessmentReleaseStatus() {
   const report = auditStrictProductionReadiness();
-  return report.perSkill.map(skill => ({
-    skillId: skill.skillId,
-    skillName: skill.skillName,
-    standardVersion: skill.releaseStandardDecision.standardVersion,
-    releaseReady: skill.releaseStandardDecision.releaseReady,
-    dimensions: skill.releaseStandardDecision.dimensions,
-    reasons: skill.releaseStandardDecision.reasons,
-    runtimeSelectableQuestions: skill.strictUsableQuestionCount,
-    levels: skill.releaseStandardDecision.levels,
-    accessibilityIssueCount: skill.accessibilityIssueCount,
-    missingRequiredImages: skill.missingImageCount,
-    missingRequiredAudio: skill.missingAudioCount,
-    wiringDefects: skill.mediaWiringFixCount
-  }));
+  return report.perSkill.map(skill => {
+    const exactPublication = skill.skillId === "initial_sounds";
+    return {
+      skillId: skill.skillId,
+      skillName: skill.skillName,
+      standardVersion: skill.releaseStandardDecision.standardVersion,
+      releaseReady: skill.releaseStandardDecision.releaseReady,
+      dimensions: skill.releaseStandardDecision.dimensions,
+      reasons: skill.releaseStandardDecision.reasons,
+      runtimeSelectableQuestions: skill.strictUsableQuestionCount,
+      publicationMode: exactPublication ? "audited-id-set" : "all-runtime-candidates",
+      publishedQuestionIds: exactPublication ? skill.strictUsableQuestionIds : [],
+      publishedQuestions: exactPublication ? skill.publishedQuestions : [],
+      levels: skill.releaseStandardDecision.levels,
+      accessibilityIssueCount: skill.accessibilityIssueCount,
+      missingRequiredImages: skill.missingImageCount,
+      missingRequiredAudio: skill.missingAudioCount,
+      wiringDefects: skill.mediaWiringFixCount
+    };
+  });
 }
 
 export function renderAssessmentReleaseStatus(statuses = buildAssessmentReleaseStatus()) {

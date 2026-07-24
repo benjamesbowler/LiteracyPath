@@ -9,9 +9,12 @@ import {
 } from "../src/data/coverageExpectations.js";
 import {
   assessmentReleaseStandard,
+  buildAssessmentReleaseBalanceReport,
   evaluateAssessmentSkillReleaseSummary,
+  getAssessmentPromptFamily,
   getAssessmentQuestionAccessibilityIssues,
-  getAssessmentReleaseMediaRequirement
+  getAssessmentReleaseMediaRequirement,
+  selectAssessmentReleaseQuestions
 } from "../src/content/releaseStandard.js";
 import {
   managedAssessmentSkillDepthConfig
@@ -151,7 +154,7 @@ function getAnswerOptions(question = {}) {
 }
 
 function getQuestionLevel(question = {}) {
-  return getDepthLevel(question);
+  return Number(question.releaseLevel || 0) || getDepthLevel(question);
 }
 
 function getQuestionSkill(question = {}) {
@@ -177,6 +180,12 @@ function getItemKey(skillId, question = {}) {
 
 function getTarget(skillId, question = {}) {
   return normalizeToken(getQuestionTargetWord(question) || getItemKey(skillId, question) || question.id);
+}
+
+function getBalanceTarget(skillId, question = {}) {
+  return skillId === "initial_sounds"
+    ? getItemKey(skillId, question)
+    : getTarget(skillId, question);
 }
 
 function countBy(items, getKey) {
@@ -381,8 +390,8 @@ function buildSkillList() {
 function summarizeLevel(skill, level, questions) {
   const raw = questions.filter(question => getQuestionLevel(question) === level);
   const runtimeSafe = raw.filter(question => question.runtimeSafe);
-  const strictUsable = raw.filter(question => question.strictUsable);
-  const targets = countBy(strictUsable, question => getTarget(skill.skillId, question));
+  const strictUsable = raw.filter(question => question.releaseSelectable);
+  const targets = countBy(strictUsable, question => getBalanceTarget(skill.skillId, question));
   const itemKeys = countBy(strictUsable, question => getItemKey(skill.skillId, question));
   const templates = countBy(strictUsable, getTemplate);
   const uniqueTargets = Object.keys(targets).filter(key => key !== "(missing)");
@@ -538,9 +547,46 @@ export function auditStrictProductionReadiness() {
           signature: getQuestionSignature(question) || question.id
         };
       });
-    const uniqueQuestions = uniqueRuntimeQuestions(skillQuestions);
+    let uniqueQuestions = uniqueRuntimeQuestions(skillQuestions);
+    const selectedQuestions = selectAssessmentReleaseQuestions(
+      skill.skillId,
+      uniqueQuestions.filter(question => question.strictUsable),
+      {
+        getId: question => String(question.id || question.questionId || ""),
+        getLevel: getQuestionLevel,
+        getFormat: getTemplate,
+        getPhoneme: question => getItemKey("initial_sounds", question)
+      }
+    );
+    const selectedById = new Map(selectedQuestions.map(selection => [
+      selection.questionId,
+      selection.releaseLevel
+    ]));
+    uniqueQuestions = uniqueQuestions.map(question => {
+      const questionId = String(question.id || question.questionId || "");
+      return {
+        ...question,
+        releaseSelectable: selectedById.has(questionId),
+        releaseLevel: selectedById.get(questionId) || getQuestionLevel(question)
+      };
+    });
     const level1 = summarizeLevel(skill, 1, uniqueQuestions);
     const level2 = summarizeLevel(skill, 2, uniqueQuestions);
+    const releaseSelectable = uniqueQuestions.filter(question => question.releaseSelectable);
+    const balanceReport = buildAssessmentReleaseBalanceReport(
+      skill.skillId,
+      releaseSelectable,
+      {
+        getLevel: getQuestionLevel,
+        getFormat: getTemplate,
+        getPhoneme: question => getItemKey("initial_sounds", question),
+        getPromptFamily: question => getAssessmentPromptFamily(
+          skill.skillId,
+          question,
+          { format: getTemplate(question) }
+        )
+      }
+    );
     const mediaNeeds = uniqueQuestions.flatMap(question => mediaNeedsForQuestion(skill, question, mediaIndex));
     const exactMediaNeeds = mediaNeeds.filter((item, index, arr) =>
       arr.findIndex(other =>
@@ -575,7 +621,7 @@ export function auditStrictProductionReadiness() {
     ).length;
 
     let status = statusForSkill(level1, level2, exactMediaNeeds);
-    const strictUsable = uniqueQuestions.filter(question => question.strictUsable);
+    const strictUsable = releaseSelectable;
     const runtimeSafe = uniqueQuestions.filter(question => question.runtimeSafe);
     const accessibilityIssues = strictUsable.flatMap(question =>
       getAssessmentQuestionAccessibilityIssues(question, {
@@ -595,12 +641,14 @@ export function auditStrictProductionReadiness() {
         1: {
           eligibleQuestionCount: level1.strictUsableCount,
           uniqueTargetCount: level1.uniqueTargetCount,
-          maximumTargetShare: level1.maximumTargetShare
+          maximumTargetShare: level1.maximumTargetShare,
+          additionalBalancePass: balanceReport?.levels?.[1]?.pass
         },
         2: {
           eligibleQuestionCount: level2.strictUsableCount,
           uniqueTargetCount: level2.uniqueTargetCount,
-          maximumTargetShare: level2.maximumTargetShare
+          maximumTargetShare: level2.maximumTargetShare,
+          additionalBalancePass: balanceReport?.levels?.[2]?.pass
         }
       },
       media: {
@@ -620,7 +668,7 @@ export function auditStrictProductionReadiness() {
       status = "BLOCKED";
     }
     const rejectedExamples = uniqueQuestions
-      .filter(question => !question.runtimeSafe || !question.strictUsable)
+      .filter(question => !question.runtimeSafe || !question.strictUsable || !question.releaseSelectable)
       .slice(0, 30)
       .map(question => ({
         id: question.id,
@@ -628,7 +676,11 @@ export function auditStrictProductionReadiness() {
         level: getQuestionLevel(question),
         target: getTarget(skill.skillId, question),
         runtimeReason: question.runtimeReason,
-        strictReason: question.runtimeSafe && !question.strictUsable ? "fails strict level/media/template standard" : question.runtimeReason
+        strictReason: question.runtimeSafe && !question.strictUsable
+          ? "fails strict level/media/template standard"
+          : question.strictUsable && !question.releaseSelectable
+            ? "not selected by canonical release balance policy"
+            : question.runtimeReason
       }));
 
     const action = [
@@ -646,6 +698,12 @@ export function auditStrictProductionReadiness() {
       rawQuestionCount: uniqueQuestions.length,
       runtimeSafeQuestionCount: runtimeSafe.length,
       strictUsableQuestionCount: strictUsable.length,
+      strictCandidateQuestionCount: uniqueQuestions.filter(question => question.strictUsable).length,
+      strictUsableQuestionIds: strictUsable.map(question => String(question.id || question.questionId || "")),
+      publishedQuestions: strictUsable.map(question => ({
+        questionId: String(question.id || question.questionId || ""),
+        level: getQuestionLevel(question)
+      })),
       level1,
       level2,
       level1MissingTo30: level1.missingTo30,
@@ -664,12 +722,15 @@ export function auditStrictProductionReadiness() {
       textOnlyProblematicCount,
       accessibilityIssueCount: accessibilityIssues.length,
       accessibilityIssueExamples: accessibilityIssues.slice(0, 30),
+      balanceReport,
       releaseStandardDecision,
       exactNextAction: action || "No immediate content action.",
       rejectedExamples,
       finalSoundsSpecial: skill.skillId === "final_sounds" ? buildFinalSoundsSpecial(uniqueQuestions) : null,
       rhymingSpecial: skill.skillId === "rhyming" ? buildRhymingSpecial(uniqueQuestions) : null,
-      initialSoundsSpecial: skill.skillId === "initial_sounds" ? buildInitialSoundsSpecial(uniqueQuestions) : null
+      initialSoundsSpecial: skill.skillId === "initial_sounds"
+        ? buildInitialSoundsSpecial(uniqueQuestions, balanceReport)
+        : null
     };
     perSkill.push(row);
     missingQuestionNeeds.push(...makeMissingQuestionNeeds(skill, level1, exactMediaNeeds));
@@ -719,12 +780,12 @@ export function auditStrictProductionReadiness() {
   };
 }
 
-function buildInitialSoundsSpecial(questions) {
-  const strict = questions.filter(question => question.strictUsable);
+function buildInitialSoundsSpecial(questions, balanceReport) {
+  const strict = questions.filter(question => question.releaseSelectable);
   const letters = countBy(strict, question => getItemKey("initial_sounds", question));
   const weakLetters = "abcdefghijklmnopqrstuvwxyz".split("").filter(letter => !letters[letter] || letters[letter] < 2);
   const overusedLetters = Object.entries(letters).filter(([, count]) => strict.length && count / strict.length > maxTargetDominance).map(([letter, count]) => `${letter}:${count}`);
-  return { letters, weakLetters, overusedLetters };
+  return { letters, weakLetters, overusedLetters, balanceReport };
 }
 
 function buildFinalSoundsSpecial(questions) {
@@ -854,7 +915,16 @@ function buildMarkdown(report) {
     .filter(skill => skill.initialSoundsSpecial || skill.finalSoundsSpecial || skill.rhymingSpecial)
     .map(skill => {
       if (skill.initialSoundsSpecial) {
-        return `### Initial Sounds\n\n- Weak/missing letters: ${display(skill.initialSoundsSpecial.weakLetters)}\n- Overused letters: ${display(skill.initialSoundsSpecial.overusedLetters)}`;
+        const balanceRows = Object.entries(skill.initialSoundsSpecial.balanceReport?.levels || {}).map(([level, row]) => [
+          level,
+          row.questionCount,
+          `${(row.maximumPhonemeShare * 100).toFixed(1)}% / ${(row.caps.maximumPhonemeShare * 100).toFixed(1)}%`,
+          `${(row.maximumPromptFamilyShare * 100).toFixed(1)}% / ${(row.caps.maximumPromptFamilyShare * 100).toFixed(1)}%`,
+          `${(row.maximumResponseFormatShare * 100).toFixed(1)}% / ${(row.caps.maximumResponseFormatShare * 100).toFixed(1)}%`,
+          `${(row.listenAndFindShare * 100).toFixed(1)}% / <${(row.caps.maximumListenAndFindShare * 100).toFixed(1)}%`,
+          row.pass ? "PASS" : "FAIL"
+        ]);
+        return `### Initial Sounds\n\n- Weak/missing letters: ${display(skill.initialSoundsSpecial.weakLetters)}\n- Overused letters: ${display(skill.initialSoundsSpecial.overusedLetters)}\n- Canonical balance gate: ${skill.initialSoundsSpecial.balanceReport?.pass ? "PASS" : "FAIL"}\n\n${markdownTable(["Level", "Published", "Max phoneme / cap", "Max prompt family / cap", "Max response format / cap", "Listen and find / cap", "Result"], balanceRows)}`;
       }
       if (skill.finalSoundsSpecial) {
         return `### Final Sounds\n\n- Level 1 allowed endings only: ${skill.finalSoundsSpecial.level1AllowedOnly ? "yes" : "no"}\n- Forbidden Level 1 leaks: ${display(skill.finalSoundsSpecial.forbiddenLevel1Leaks)}\n- /b/ deep enough: ${skill.finalSoundsSpecial.bDeepEnough ? "yes" : "no"}\n- /l/ deep enough: ${skill.finalSoundsSpecial.lDeepEnough ? "yes" : "no"}\n- Unique Level 1 words per sound: ${JSON.stringify(skill.finalSoundsSpecial.uniqueWordsPerLevel1Sound)}`;

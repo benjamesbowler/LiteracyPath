@@ -66,6 +66,19 @@ if (strictReport.strictStandard.version !== ASSESSMENT_RELEASE_STANDARD_VERSION)
 if (strictReport.perSkill.length !== ASSESSMENT_RELEASE_MANAGED_SKILL_IDS.length) {
   fail(`Strict audit covered ${strictReport.perSkill.length}/${ASSESSMENT_RELEASE_MANAGED_SKILL_IDS.length} release-managed skills.`);
 }
+const initialSoundsStrict = strictReport.perSkill.find(skill => skill.skillId === "initial_sounds");
+if (!initialSoundsStrict?.balanceReport?.pass) {
+  fail("initial_sounds: strict-audit phoneme and interaction balance report did not pass.");
+}
+if (!initialSoundsStrict?.releaseStandardDecision?.releaseReady) {
+  fail("initial_sounds: the canonical release decision is not ready.");
+}
+for (const level of [1, 2]) {
+  const balance = initialSoundsStrict?.balanceReport?.levels?.[level];
+  if (!balance || balance.listenAndFindShare >= balance.caps.maximumListenAndFindShare) {
+    fail(`initial_sounds: level ${level} listen-and-find share is not below its configured cap.`);
+  }
+}
 
 for (const strictSkill of strictReport.perSkill) {
   const generated = assessmentReleaseStatus.find(status => status.skillId === strictSkill.skillId);
@@ -83,8 +96,45 @@ for (const strictSkill of strictReport.perSkill) {
 
   const candidates = await loadAssessmentSkillBankCandidates(strictSkill.skillId);
   const published = await loadAssessmentSkillBank(strictSkill.skillId);
-  if (generated.releaseReady && published.length !== candidates.length) {
-    fail(`${strictSkill.skillId}: a ready skill published ${published.length}/${candidates.length} candidate questions.`);
+  const expectedPublished = generated.releaseReady ? (generated.publishedQuestions || []) : [];
+  const expectedById = new Map(expectedPublished.map(item => [
+    String(item.questionId || ""),
+    Number(item.level || 1)
+  ]));
+  const publishedById = new Map(published.map(question => [
+    String(question.id || question.questionId || ""),
+    Number(question.level || question.assessmentLevel || 1)
+  ]));
+  if (generated.releaseReady && generated.publicationMode === "audited-id-set") {
+    if (expectedById.size !== publishedById.size) {
+      fail(`${strictSkill.skillId}: loader published ${publishedById.size}/${expectedById.size} audited questions.`);
+    }
+    for (const [questionId, level] of expectedById) {
+      if (!publishedById.has(questionId)) {
+        fail(`${strictSkill.skillId}: audited question ${questionId} is absent from the student loader.`);
+      } else if (publishedById.get(questionId) !== level) {
+        fail(`${strictSkill.skillId}: audited question ${questionId} has loader level ${publishedById.get(questionId)}, expected ${level}.`);
+      }
+    }
+    if (expectedById.size > candidates.length) {
+      fail(`${strictSkill.skillId}: audited publication set exceeds its candidate pool.`);
+    }
+  } else if (generated.releaseReady && published.length !== candidates.length) {
+    fail(`${strictSkill.skillId}: all-candidate publication returned ${published.length}/${candidates.length} questions.`);
+  }
+  if (generated.publicationMode === "audited-id-set" && strictSkill.skillId !== "initial_sounds") {
+    fail(`${strictSkill.skillId}: audited-id publication is not yet authorized for this plan item.`);
+  }
+  if (strictSkill.skillId === "initial_sounds" && generated.publicationMode !== "audited-id-set") {
+    fail("initial_sounds: canonical balance must publish only the audited ID set.");
+  }
+  if (strictSkill.skillId === "initial_sounds" && generated.releaseReady) {
+    for (const level of [1, 2]) {
+      const scoped = published.filter(question => Number(question.level || 1) === level);
+      if (scoped.length !== assessmentReleaseStandard.defaults.questionCount.minimumPerLevel) {
+        fail(`initial_sounds: level ${level} published ${scoped.length} questions instead of the canonical floor.`);
+      }
+    }
   }
   if (!generated.releaseReady && published.length !== 0) {
     fail(`${strictSkill.skillId}: a failing skill still published ${published.length} questions.`);
@@ -117,7 +167,8 @@ const sourceGuards = [
     file: "src/data/loadAssessmentSkillBank.js",
     required: [
       /assessmentReleaseStatusBySkillId/u,
-      /if \(!publicationStatus\.releaseReady\) return \[\]/u
+      /if \(!publicationStatus\.releaseReady\) return \[\]/u,
+      /publishedQuestions/u
     ],
     forbidden: []
   }
@@ -138,6 +189,16 @@ console.log(`Canonical release standard: ${ASSESSMENT_RELEASE_STANDARD_VERSION}`
 console.log(`Release-managed skills: ${assessmentReleaseStatus.length}`);
 console.log(`Published skills: ${readyCount}`);
 console.log(`Blocked skills: ${assessmentReleaseStatus.length - readyCount}`);
+for (const level of [1, 2]) {
+  const balance = initialSoundsStrict.balanceReport.levels[level];
+  console.log(
+    `Initial Sounds L${level}: ${balance.questionCount} published; ` +
+    `phoneme ${(balance.maximumPhonemeShare * 100).toFixed(1)}%; ` +
+    `prompt-family ${(balance.maximumPromptFamilyShare * 100).toFixed(1)}%; ` +
+    `response-format ${(balance.maximumResponseFormatShare * 100).toFixed(1)}%; ` +
+    `listen-and-find ${(balance.listenAndFindShare * 100).toFixed(1)}%; PASS`
+  );
+}
 console.log(`Strict/loader/generator mismatches: ${failures.length}`);
 if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);

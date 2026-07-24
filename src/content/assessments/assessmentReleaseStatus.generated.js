@@ -5,30 +5,495 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "initial_sounds",
     "skillName": "Initial Sounds",
-    "standardVersion": "2026.07.24",
-    "releaseReady": false,
+    "standardVersion": "2026.07.24-a1.4",
+    "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
-      "balance": "fail",
+      "balance": "pass",
       "media": "pass",
       "accessibility": "pass"
     },
-    "reasons": [
-      "Target diversity or concentration is outside the release balance standard."
+    "reasons": [],
+    "runtimeSelectableQuestions": 92,
+    "publicationMode": "audited-id-set",
+    "publishedQuestionIds": [
+      "extra_initial_1",
+      "extra_initial_2",
+      "extra_initial_3",
+      "extra_initial_4",
+      "extra_initial_6",
+      "extra_initial_7",
+      "extra_initial_8",
+      "extra_initial_9",
+      "extra_initial_10",
+      "extra_initial_11",
+      "extra_initial_12",
+      "extra_initial_13",
+      "extra_initial_15",
+      "coverage_initial_a_001",
+      "coverage_initial_a_002",
+      "coverage_initial_c_002",
+      "coverage_initial_d_001",
+      "coverage_initial_e_001",
+      "coverage_initial_e_002",
+      "coverage_initial_g_002",
+      "coverage_initial_h_001",
+      "coverage_initial_i_001",
+      "coverage_initial_i_002",
+      "coverage_initial_j_001",
+      "coverage_initial_j_002",
+      "coverage_initial_k_001",
+      "coverage_initial_k_002",
+      "coverage_initial_l_001",
+      "coverage_initial_m_001",
+      "coverage_initial_n_002",
+      "coverage_initial_o_001",
+      "coverage_initial_p_002",
+      "coverage_initial_q_001",
+      "coverage_initial_q_002",
+      "coverage_initial_r_002",
+      "coverage_initial_s_002",
+      "coverage_initial_t_001",
+      "coverage_initial_u_001",
+      "coverage_initial_u_002",
+      "coverage_initial_v_001",
+      "coverage_initial_v_002",
+      "coverage_initial_w_001",
+      "coverage_initial_w_002",
+      "coverage_initial_y_002",
+      "coverage_initial_z_001",
+      "coverage_initial_z_002",
+      "ixl_first_sound_1",
+      "ixl_first_sound_2",
+      "ixl_first_sound_3",
+      "ixl_first_sound_4",
+      "ixl_first_sound_5",
+      "ixl_first_sound_6",
+      "ixl_first_sound_7",
+      "ixl_first_sound_8",
+      "ixl_first_sound_9",
+      "ixl_first_sound_10",
+      "ixl_first_sound_11",
+      "ixl_first_sound_12",
+      "ixl_first_sound_13",
+      "ixl_first_sound_14",
+      "ixl_first_sound_15",
+      "ixl_first_sound_16",
+      "ixl_first_sound_17",
+      "ixl_first_sound_18",
+      "ixl_first_sound_19",
+      "ixl_first_sound_21",
+      "ixl_first_sound_22",
+      "ixl_first_sound_23",
+      "ixl_first_sound_24",
+      "ixl_first_sound_26",
+      "ixl_first_sound_27",
+      "ixl_first_sound_28",
+      "ixl_first_sound_29",
+      "ixl_first_sound_30",
+      "gap_initial_l2_airplane",
+      "gap_initial_l2_alligator",
+      "gap_initial_l2_almond_replaced_ant",
+      "gap_initial_l2_anteater_replaced_apple",
+      "gap_initial_l2_arch",
+      "gap_initial_l2_arm",
+      "gap_initial_l2_armchair_replaced_apple",
+      "gap_initial_l2_artichoke_replaced_apple",
+      "gap_initial_l2_ash",
+      "gap_initial_l2_back",
+      "gap_initial_l2_badge",
+      "gap_initial_l2_badger",
+      "gap_initial_l2_bamboo",
+      "gap_initial_l2_bark",
+      "gap_initial_l2_beef",
+      "gap_initial_l2_berry",
+      "gap_initial_l2_block",
+      "gap_initial_l2_boot"
     ],
-    "runtimeSelectableQuestions": 131,
+    "publishedQuestions": [
+      {
+        "questionId": "extra_initial_1",
+        "level": 2
+      },
+      {
+        "questionId": "extra_initial_2",
+        "level": 1
+      },
+      {
+        "questionId": "extra_initial_3",
+        "level": 2
+      },
+      {
+        "questionId": "extra_initial_4",
+        "level": 1
+      },
+      {
+        "questionId": "extra_initial_6",
+        "level": 1
+      },
+      {
+        "questionId": "extra_initial_7",
+        "level": 2
+      },
+      {
+        "questionId": "extra_initial_8",
+        "level": 2
+      },
+      {
+        "questionId": "extra_initial_9",
+        "level": 1
+      },
+      {
+        "questionId": "extra_initial_10",
+        "level": 1
+      },
+      {
+        "questionId": "extra_initial_11",
+        "level": 1
+      },
+      {
+        "questionId": "extra_initial_12",
+        "level": 2
+      },
+      {
+        "questionId": "extra_initial_13",
+        "level": 1
+      },
+      {
+        "questionId": "extra_initial_15",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_a_001",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_a_002",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_c_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_d_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_e_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_e_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_g_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_h_001",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_i_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_i_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_j_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_j_002",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_k_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_k_002",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_l_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_m_001",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_n_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_o_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_p_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_q_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_q_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_r_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_s_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_t_001",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_u_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_u_002",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_v_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_v_002",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_w_001",
+        "level": 1
+      },
+      {
+        "questionId": "coverage_initial_w_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_y_002",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_z_001",
+        "level": 2
+      },
+      {
+        "questionId": "coverage_initial_z_002",
+        "level": 2
+      },
+      {
+        "questionId": "ixl_first_sound_1",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_2",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_3",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_4",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_5",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_6",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_7",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_8",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_9",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_10",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_11",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_12",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_13",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_14",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_15",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_16",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_17",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_18",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_19",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_21",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_22",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_23",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_24",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_26",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_27",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_28",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_29",
+        "level": 1
+      },
+      {
+        "questionId": "ixl_first_sound_30",
+        "level": 1
+      },
+      {
+        "questionId": "gap_initial_l2_airplane",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_alligator",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_almond_replaced_ant",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_anteater_replaced_apple",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_arch",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_arm",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_armchair_replaced_apple",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_artichoke_replaced_apple",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_ash",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_back",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_badge",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_badger",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_bamboo",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_bark",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_beef",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_berry",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_block",
+        "level": 2
+      },
+      {
+        "questionId": "gap_initial_l2_boot",
+        "level": 2
+      }
+    ],
     "levels": {
       "1": {
-        "eligibleQuestionCount": 78,
-        "uniqueTargetCount": 29,
-        "maximumTargetShare": 0.6410256410256411,
+        "eligibleQuestionCount": 46,
+        "uniqueTargetCount": 20,
+        "maximumTargetShare": 0.08695652173913043,
+        "additionalBalancePass": true,
         "questionCountPass": true,
-        "balancePass": false
+        "balancePass": true
       },
       "2": {
-        "eligibleQuestionCount": 53,
-        "uniqueTargetCount": 51,
-        "maximumTargetShare": 0.05660377358490566,
+        "eligibleQuestionCount": 46,
+        "uniqueTargetCount": 25,
+        "maximumTargetShare": 0.1956521739130435,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -41,7 +506,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -51,11 +516,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 366,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 189,
         "uniqueTargetCount": 121,
         "maximumTargetShare": 0.021164021164021163,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -63,6 +532,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 177,
         "uniqueTargetCount": 141,
         "maximumTargetShare": 0.022598870056497175,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -75,7 +545,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "rhyming",
     "skillName": "Rhyming",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -85,11 +555,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 666,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 476,
         "uniqueTargetCount": 82,
         "maximumTargetShare": 0.018907563025210083,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -97,6 +571,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 190,
         "uniqueTargetCount": 64,
         "maximumTargetShare": 0.031578947368421054,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -109,7 +584,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "cvc_short_vowels",
     "skillName": "CVC Short Vowels",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -119,11 +594,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 412,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 266,
         "uniqueTargetCount": 72,
         "maximumTargetShare": 0.03007518796992481,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -131,6 +610,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 146,
         "uniqueTargetCount": 50,
         "maximumTargetShare": 0.02054794520547945,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -143,7 +623,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -153,11 +633,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 314,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 118,
         "uniqueTargetCount": 70,
         "maximumTargetShare": 0.01694915254237288,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -165,6 +649,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 196,
         "uniqueTargetCount": 95,
         "maximumTargetShare": 0.02040816326530612,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -177,7 +662,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "hfw_1_25",
     "skillName": "High-Frequency Words 1-25",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -187,14 +672,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 0,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -202,6 +691,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       }
@@ -214,7 +704,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "hfw_26_50",
     "skillName": "High-Frequency Words 26-50",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -224,14 +714,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 0,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -239,6 +733,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       }
@@ -251,7 +746,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "hfw_51_75",
     "skillName": "High-Frequency Words 51-75",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -261,14 +756,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 0,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -276,6 +775,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       }
@@ -288,7 +788,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "hfw_76_100",
     "skillName": "High-Frequency Words 76-100",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -298,14 +798,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 0,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -313,6 +817,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       }
@@ -325,7 +830,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "blends",
     "skillName": "Blends",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -335,11 +840,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 97,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 47,
         "uniqueTargetCount": 47,
         "maximumTargetShare": 0.02127659574468085,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -347,6 +856,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 50,
         "uniqueTargetCount": 50,
         "maximumTargetShare": 0.02,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -359,7 +869,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "digraphs",
     "skillName": "Digraphs",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -369,11 +879,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 120,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 60,
         "uniqueTargetCount": 60,
         "maximumTargetShare": 0.016666666666666666,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -381,6 +895,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 60,
         "uniqueTargetCount": 60,
         "maximumTargetShare": 0.016666666666666666,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -393,7 +908,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "long_vowels_silent_e",
     "skillName": "Long Vowels and Silent E",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -403,11 +918,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 106,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 50,
         "uniqueTargetCount": 44,
         "maximumTargetShare": 0.04,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -415,6 +934,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 56,
         "uniqueTargetCount": 53,
         "maximumTargetShare": 0.03571428571428571,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -427,7 +947,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "vowel_teams",
     "skillName": "Vowel Teams",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -437,14 +957,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 101,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 16,
         "uniqueTargetCount": 16,
         "maximumTargetShare": 0.0625,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -452,6 +976,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 85,
         "uniqueTargetCount": 76,
         "maximumTargetShare": 0.023529411764705882,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -464,7 +989,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "r_controlled_vowels",
     "skillName": "R-Controlled Vowels",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -474,14 +999,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 97,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 16,
         "uniqueTargetCount": 16,
         "maximumTargetShare": 0.0625,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -489,6 +1018,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 81,
         "uniqueTargetCount": 40,
         "maximumTargetShare": 0.07407407407407407,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -501,7 +1031,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "nouns",
     "skillName": "Nouns",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -511,11 +1041,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 184,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 70,
         "uniqueTargetCount": 70,
         "maximumTargetShare": 0.014285714285714285,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -523,6 +1057,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 114,
         "uniqueTargetCount": 87,
         "maximumTargetShare": 0.02631578947368421,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -535,7 +1070,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "verbs",
     "skillName": "Verbs",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -545,11 +1080,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 161,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 51,
         "uniqueTargetCount": 51,
         "maximumTargetShare": 0.0196078431372549,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -557,6 +1096,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 110,
         "uniqueTargetCount": 98,
         "maximumTargetShare": 0.01818181818181818,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -569,7 +1109,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "adjectives",
     "skillName": "Adjectives",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -581,11 +1121,15 @@ export const assessmentReleaseStatus = Object.freeze([
       "Question-count floor is not met at both levels."
     ],
     "runtimeSelectableQuestions": 127,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 36,
         "uniqueTargetCount": 36,
         "maximumTargetShare": 0.027777777777777776,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": true
       },
@@ -593,6 +1137,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 91,
         "uniqueTargetCount": 80,
         "maximumTargetShare": 0.02197802197802198,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -605,7 +1150,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "prepositions_of_place",
     "skillName": "Prepositions of Place",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -615,14 +1160,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 46,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -630,6 +1179,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -642,7 +1192,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "plurals",
     "skillName": "Plurals",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -652,14 +1202,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 96,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 10,
         "uniqueTargetCount": 10,
         "maximumTargetShare": 0.1,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -667,6 +1221,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 86,
         "uniqueTargetCount": 83,
         "maximumTargetShare": 0.023255813953488372,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -679,7 +1234,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "prefixes_suffixes",
     "skillName": "Prefixes and Suffixes",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -689,11 +1244,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -701,6 +1260,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -713,7 +1273,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "antonyms_synonyms",
     "skillName": "Antonyms and Synonyms",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": false,
     "dimensions": {
       "questionCount": "fail",
@@ -723,14 +1283,18 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
-      "Target diversity or concentration is outside the release balance standard."
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
     ],
     "runtimeSelectableQuestions": 46,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
         "uniqueTargetCount": 0,
         "maximumTargetShare": 0,
+        "additionalBalancePass": true,
         "questionCountPass": false,
         "balancePass": false
       },
@@ -738,6 +1302,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -750,7 +1315,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "homophones_homonyms",
     "skillName": "Homophones and Homonyms",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -760,11 +1325,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -772,6 +1341,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -784,7 +1354,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "sentence_comprehension",
     "skillName": "Sentence Comprehension",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -794,11 +1364,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -806,6 +1380,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -818,7 +1393,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "key_details",
     "skillName": "Key Details",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -828,11 +1403,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 185,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 92,
         "uniqueTargetCount": 92,
         "maximumTargetShare": 0.010869565217391304,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -840,6 +1419,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 93,
         "uniqueTargetCount": 93,
         "maximumTargetShare": 0.010752688172043012,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -852,7 +1432,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "sequencing",
     "skillName": "Sequencing",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -862,11 +1442,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -874,6 +1458,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -886,7 +1471,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "main_idea",
     "skillName": "Main Idea",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -896,11 +1481,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -908,6 +1497,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -920,7 +1510,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "inference",
     "skillName": "Inference",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -930,11 +1520,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -942,6 +1536,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -954,7 +1549,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "cause_effect",
     "skillName": "Cause and Effect",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -964,11 +1559,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -976,6 +1575,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -988,7 +1588,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "context_clues",
     "skillName": "Context Clues",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -998,11 +1598,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -1010,6 +1614,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -1022,7 +1627,7 @@ export const assessmentReleaseStatus = Object.freeze([
   {
     "skillId": "theme_higher_comprehension",
     "skillName": "Theme and Higher Comprehension",
-    "standardVersion": "2026.07.24",
+    "standardVersion": "2026.07.24-a1.4",
     "releaseReady": true,
     "dimensions": {
       "questionCount": "pass",
@@ -1032,11 +1637,15 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "runtimeSelectableQuestions": 92,
+    "publicationMode": "all-runtime-candidates",
+    "publishedQuestionIds": [],
+    "publishedQuestions": [],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
@@ -1044,6 +1653,7 @@ export const assessmentReleaseStatus = Object.freeze([
         "eligibleQuestionCount": 46,
         "uniqueTargetCount": 46,
         "maximumTargetShare": 0.021739130434782608,
+        "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       }
@@ -1059,4 +1669,4 @@ export const assessmentReleaseStatusBySkillId = Object.freeze(Object.fromEntries
   assessmentReleaseStatus.map(status => [status.skillId, status])
 ));
 
-export const assessmentReleaseStatusVersion = "2026.07.24";
+export const assessmentReleaseStatusVersion = "2026.07.24-a1.4";

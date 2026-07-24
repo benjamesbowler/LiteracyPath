@@ -4,13 +4,17 @@ import test from "node:test";
 import {
   ASSESSMENT_RELEASE_MANAGED_SKILL_IDS,
   assessmentReleaseStandard,
+  buildAssessmentReleaseBalanceReport,
   evaluateAssessmentSkillReleaseSummary,
-  getAssessmentQuestionAccessibilityIssues
+  getAssessmentQuestionAccessibilityIssues,
+  selectAssessmentReleaseQuestions
 } from "../../src/content/releaseStandard.js";
 import {
   assessmentReleaseStatus,
+  assessmentReleaseStatusBySkillId,
   assessmentReleaseStatusVersion
 } from "../../src/content/assessments/assessmentReleaseStatus.generated.js";
+import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
 
 function passingSummary(skillId = "initial_sounds") {
   return {
@@ -101,4 +105,63 @@ test("generated publication status covers the canonical skill set and version", 
     assessmentReleaseStatus.map(status => status.skillId).sort(),
     [...ASSESSMENT_RELEASE_MANAGED_SKILL_IDS].sort()
   );
+});
+
+test("Initial Sounds canonical selection caps phoneme, prompt-family, response-format, and listen-and-find concentration", () => {
+  const makeQuestion = (id, level, formatType, itemKey, length = 3) => ({
+    id,
+    level,
+    formatType,
+    itemKey,
+    targetWord: `${itemKey}${"x".repeat(length - 1)}`,
+    imageCards: formatType === "INITIAL_SOUND_PAIR_SELECT"
+      ? [{ word: `${itemKey}${"x".repeat(length - 1)}` }]
+      : []
+  });
+  const questions = [
+    ..."bcdfghjklmnpqrstvwxyz".split("").flatMap((phoneme, index) => [
+      makeQuestion(`l1-${phoneme}-1`, 1, "FIRST_SOUND", phoneme, 3 + (index % 2)),
+      makeQuestion(`l1-${phoneme}-2`, 1, "FIRST_SOUND", phoneme, 4)
+    ]),
+    ...Array.from({ length: 20 }, (_, index) => (
+      makeQuestion(`l2-a-${index}`, 2, "FIRST_SOUND", "a", 6)
+    )),
+    ...Array.from({ length: 20 }, (_, index) => (
+      makeQuestion(`l2-b-${index}`, 2, "FIRST_SOUND", "b", 7)
+    )),
+    ..."abcdefghijklmnopqrstuvwxyz".split("").flatMap((phoneme, index) => [
+      makeQuestion(`pair-${phoneme}-easy`, 1, "INITIAL_SOUND_PAIR_SELECT", phoneme, 3),
+      makeQuestion(`pair-${phoneme}-hard`, 1, "INITIAL_SOUND_PAIR_SELECT", phoneme, 7 + (index % 3))
+    ])
+  ];
+  const selected = selectAssessmentReleaseQuestions("initial_sounds", questions);
+  const released = selected.map(item => ({ ...item.question, releaseLevel: item.releaseLevel }));
+  const report = buildAssessmentReleaseBalanceReport("initial_sounds", released);
+
+  assert.equal(released.filter(question => question.releaseLevel === 1).length, 46);
+  assert.equal(released.filter(question => question.releaseLevel === 2).length, 46);
+  assert.equal(report.pass, true);
+  assert.ok(report.levels[1].maximumPhonemeShare <= 0.2);
+  assert.ok(report.levels[2].maximumPhonemeShare <= 0.2);
+  assert.ok(report.levels[1].maximumResponseFormatShare <= report.levels[1].caps.maximumResponseFormatShare);
+  assert.ok(report.levels[2].maximumPromptFamilyShare <= report.levels[2].caps.maximumPromptFamilyShare);
+  assert.ok(report.levels[2].listenAndFindShare < report.levels[2].caps.maximumListenAndFindShare);
+});
+
+test("Initial Sounds student loader returns exactly the audited publication IDs and levels", async () => {
+  const status = assessmentReleaseStatusBySkillId.initial_sounds;
+  const expected = new Map(status.publishedQuestions.map(item => [
+    item.questionId,
+    item.level
+  ]));
+  const published = await loadAssessmentSkillBank("initial_sounds");
+
+  assert.equal(status.publicationMode, "audited-id-set");
+  assert.equal(published.length, expected.size);
+  assert.equal(published.filter(question => question.level === 1).length, 46);
+  assert.equal(published.filter(question => question.level === 2).length, 46);
+  for (const question of published) {
+    assert.equal(expected.get(question.id), question.level, question.id);
+    assert.equal(question.releaseStandardVersion, assessmentReleaseStatusVersion);
+  }
 });
