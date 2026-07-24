@@ -173,6 +173,8 @@
     "check:audit:assessment-media-registry": "node tools/runAuditScript.mjs --check tools/auditAssessmentMediaRegistry.js",
     "check:assessment-runtime-variation": "node tools/runAuditScript.mjs --check tools/checkAssessmentRuntimeVariation.js",
     "check:runtime-variation-simulation": "node tools/runAuditScript.mjs --check tools/simulateRuntimeVariation.mjs",
+    "generate:media-board": "node tools/generateMediaBoard.mjs",
+    "check:media-runtime-resolution": "npm run build && node tools/runAuditScript.mjs --check tools/auditAllSkillsStrictProductionReadiness.js && node tools/runAuditScript.mjs --check tools/checkMediaRuntimeResolution.mjs",
     "check:database-bootstrap-schema": "node tools/checkDatabaseBootstrapSchema.mjs",
     "check:audit-school-seed": "node tools/seedAuditSchool.mjs --check",
     "check:audit-school-live": "node tools/verifyAuditSchoolLive.mjs",

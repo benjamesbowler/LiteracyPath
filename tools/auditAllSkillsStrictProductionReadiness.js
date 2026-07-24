@@ -264,7 +264,7 @@ function existingMediaFor(index, kind, target = "", expectedPath = "") {
 function questionRequiresImage(skillId, question = {}) {
   const template = getTemplate(question).toLowerCase();
   const prompt = `${question.prompt || ""} ${question.question || ""}`.toLowerCase();
-  if (["initial_sounds", "final_sounds", "rhyming"].includes(skillId)) return true;
+  if (skillId === "initial_sounds") return true;
   if (earlyMediaSkills.has(skillId)) {
     return Boolean(
       question.image || question.imageUrl || question.imagePath ||
@@ -292,7 +292,7 @@ function questionRequiresAudio(skillId, question = {}) {
   const prompt = `${question.prompt || ""} ${question.question || ""} ${question.spokenPrompt || ""}`.toLowerCase();
   if (["initial_sounds", "final_sounds"].includes(skillId)) return true;
   if (template.includes("listen") || template.includes("audio")) return true;
-  if (prompt.includes("listen") || prompt.includes("hear") || prompt.includes("sound")) return true;
+  if (/\b(?:listen|hear|sound|sounds)\b/u.test(prompt)) return true;
   return Boolean(question.audio || question.audioUrl || question.audioPath);
 }
 

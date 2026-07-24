@@ -10,6 +10,11 @@ import {
   isMediaPairingQuarantined
 } from "./mediaQaReviewStatus.js";
 import { getLexiconEntry } from "../content/lexicon/masterWordLexicon.js";
+import {
+  getAssessmentHfwAudioWiring,
+  getAssessmentMediaWiring,
+  resolveLegacyAssessmentAudioPath
+} from "../content/assessments/assessmentMediaReleaseManifest.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
 const MEDIA_SKILLS = new Set([
@@ -357,37 +362,99 @@ function isHfwSentenceSkill(skillId = "") {
 }
 
 export function enrichQuestionWithExistingMedia(question = {}) {
+  const releaseWiring = getAssessmentMediaWiring(question.id);
+  const normalizeAudioFields = value => {
+    if (!value || typeof value !== "object") return value;
+    const normalized = { ...value };
+    for (const field of ["audio", "audioUrl", "audioPath"]) {
+      if (!normalized[field]) continue;
+      const replacement = resolveLegacyAssessmentAudioPath(normalized[field]);
+      if (replacement) normalized[field] = replacement;
+      else delete normalized[field];
+    }
+    if (normalized.media && typeof normalized.media === "object") {
+      normalized.media = normalizeAudioFields(normalized.media);
+    }
+    for (const field of ["answerOptions", "imageCards"]) {
+      if (Array.isArray(normalized[field])) {
+        normalized[field] = normalized[field].map(normalizeAudioFields);
+      }
+    }
+    return normalized;
+  };
+  const applyReleaseWiring = value => {
+    const wiredQuestion = normalizeAudioFields(value);
+    if (!releaseWiring.length) return wiredQuestion;
+    wiredQuestion.assessmentMediaWiringApplied = true;
+    for (const entry of releaseWiring) {
+      if (entry.mediaType === "image") {
+        wiredQuestion.image = entry.filePath;
+        wiredQuestion.imageUrl = entry.filePath;
+        wiredQuestion.imagePath = entry.filePath;
+      } else {
+        wiredQuestion.audio = entry.filePath;
+        wiredQuestion.audioUrl = entry.filePath;
+        wiredQuestion.audioPath = entry.filePath;
+      }
+      for (const field of ["answerOptions", "imageCards"]) {
+        if (!Array.isArray(wiredQuestion[field])) continue;
+        wiredQuestion[field] = wiredQuestion[field].map(option => {
+          if (!option || typeof option !== "object" || optionWord(option) !== normalizeWord(entry.target)) {
+            return option;
+          }
+          return entry.mediaType === "image"
+            ? { ...option, image: entry.filePath, imageUrl: entry.filePath, imagePath: entry.filePath }
+            : { ...option, audio: entry.filePath, audioUrl: entry.filePath, audioPath: entry.filePath };
+        });
+      }
+    }
+    return wiredQuestion;
+  };
+
   const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
   if (isHfwSentenceSkill(skillId)) {
+    const targetWord = inferTargetWord(question);
+    const existingAudio = firstPath(question.audioPath, question.audioUrl, question.audio);
+    const approvedAudio = getAssessmentHfwAudioWiring(targetWord) ||
+      getApprovedAudioPath(`hfw:${targetWord}`, existingAudio);
+    const audioWiredQuestion = approvedAudio
+      ? {
+          ...question,
+          targetWord: question.targetWord || targetWord,
+          audio: approvedAudio,
+          audioUrl: approvedAudio,
+          audioPath: approvedAudio
+        }
+      : question;
     const questionId = question.approvedQuestionId || question.questionId || question.id || "";
     const existingImage = firstPath(
-      question.imagePath,
-      question.imageUrl,
-      question.image,
-      question.primaryImage,
-      question.questionImage,
-      question.targetImagePath,
-      question.targetImageUrl,
-      question.targetImage
+      audioWiredQuestion.imagePath,
+      audioWiredQuestion.imageUrl,
+      audioWiredQuestion.image,
+      audioWiredQuestion.primaryImage,
+      audioWiredQuestion.questionImage,
+      audioWiredQuestion.targetImagePath,
+      audioWiredQuestion.targetImageUrl,
+      audioWiredQuestion.targetImage
     );
     const pairing = { area: "assessment", skillId, questionId, imagePath: existingImage };
     if (!existingImage || isMediaPairingQuarantined(pairing) || !(isHfwQuestionImagePairApproved(question, existingImage) || isMediaPairingApproved(pairing))) {
-      return stripHfwQuestionImageFields({
-        ...question,
+      return applyReleaseWiring(stripHfwQuestionImageFields({
+        ...audioWiredQuestion,
         imageRequired: false,
         imagePolicy: "no_image",
         hfwImagePolicy: "none",
         hfwImageQaStatus: existingImage ? "not_approved_exact_pair" : "no_image_required"
-      });
+      }));
     }
-    return question;
+    return applyReleaseWiring(audioWiredQuestion);
   }
 
   const inferredTargetWord = inferTargetWord(question);
   const answerWord = normalizeWord(answerValue(question.correctAnswer || question.answer));
   const importedMediaWord = [inferredTargetWord, answerWord]
     .find(word => word && getImportedVocabularyMedia(word));
-  if (!MEDIA_SKILLS.has(skillId) && !importedMediaWord) return question;
+  if (!MEDIA_SKILLS.has(skillId) && !importedMediaWord) return applyReleaseWiring(question);
 
   const targetWord = inferredTargetWord || importedMediaWord;
   const targetAsset = resolveWordAsset(targetWord);
@@ -451,5 +518,5 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     }
   }
 
-  return enriched;
+  return applyReleaseWiring(enriched);
 }

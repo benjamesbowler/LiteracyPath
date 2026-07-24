@@ -54,6 +54,7 @@ import { enrichQuestionWithExistingMedia } from "../src/data/questionMediaResolv
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
 import { normalizeAssessmentMediaWord } from "../src/data/assessmentMediaRegistry.js";
+import { isAssessmentMediaReleaseExcluded } from "../src/content/assessments/assessmentMediaReleaseManifest.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
 import {
   getRuntimeSourceIssues,
@@ -333,6 +334,7 @@ function getCanonicalAssessmentLevel(question = {}) {
 }
 
 function keepRuntimeQuestion(question = {}) {
+  if (isAssessmentMediaReleaseExcluded(question.id)) return false;
   if (getRuntimeSourceIssues(question).length > 0) return false;
   const skillId = getCanonicalAssessmentSkillId(question);
   if (!isLevelOneContentQualityAllowed(question)) return false;
