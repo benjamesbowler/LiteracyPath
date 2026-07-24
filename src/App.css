@@ -488,6 +488,79 @@ body {
   font: 900 22px var(--lp-font-reading);
 }
 
+.student-login-recovery {
+  width: min(100%, 640px);
+  min-height: 176px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+  padding: 20px 24px;
+  border: 2px solid #c5d7d2;
+  border-radius: 18px;
+  background: #f2faf7;
+  color: var(--lp-color-text);
+}
+
+.student-login-recovery[data-login-recovery="code-not-found"] {
+  border-style: dashed;
+}
+
+.student-login-recovery[data-login-recovery="offline"] {
+  border-color: #b8c7d6;
+  background: #f3f7fb;
+}
+
+.student-login-recovery[data-login-recovery="ask-teacher"] {
+  border-color: #d8c7a3;
+  background: #fffaf0;
+}
+
+.student-login-recovery > img {
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 8px rgba(15, 23, 42, 0.16));
+}
+
+.student-login-recovery h2 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font: 900 25px var(--lp-font-reading);
+}
+
+.student-login-recovery p {
+  margin: 7px 0 14px;
+  color: var(--lp-color-text);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.student-recovery-hear {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 16px;
+  border: 1px solid var(--lp-color-primary);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--lp-color-primary-strong);
+  font: 800 15px var(--lp-font-ui);
+  cursor: pointer;
+}
+
+.student-recovery-hear:hover {
+  background: var(--lp-color-primary-soft);
+}
+
+.student-recovery-hear svg {
+  width: 21px;
+  height: 21px;
+}
+
 .student-flow-state {
   width: min(100%, 640px);
   min-height: 150px;
@@ -888,6 +961,17 @@ body {
   .student-flow-header {
     text-align: center;
     flex-direction: column;
+  }
+
+  .student-login-recovery {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .student-login-recovery > img {
+    width: 84px;
+    height: 84px;
   }
 }
 

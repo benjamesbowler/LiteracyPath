@@ -3,6 +3,7 @@ import { supabase } from "../supabaseClient.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 import { SYMBOL_PASSWORD_LENGTH } from "../data/symbolPasswordIcons.js";
+import { classifyStudentCodeRecovery } from "../policy/studentLoginRecovery.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 
 // Recorded child-voice prompts (public/audio/ui/voice). Missing clips stay
@@ -11,6 +12,7 @@ const VOICE_LINES = {
   "class-code": "Ask your teacher for your class code.",
   "who-are-you": "Who are you?",
   "tap-your-pictures": "Tap your three secret pictures.",
+  "did-not-match": "That did not match.",
   "try-again": "Try again.",
   "ask-teacher": "Ask your teacher for help."
 };
@@ -105,6 +107,41 @@ function StudentFlowState({ title, detail, loading = false }) {
   );
 }
 
+function SpeakerIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 10v4h3l4 3V7l-4 3H5Z" fill="currentColor" />
+      <path d="M15.5 9.5a4 4 0 0 1 0 5M18 7a8 8 0 0 1 0 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function StudentLoginRecovery({ recovery, onHear }) {
+  return (
+    <section
+      className="student-login-recovery"
+      data-login-recovery={recovery.id}
+      role="alert"
+      aria-live="assertive"
+    >
+      <img src={recovery.image} alt="" data-recovery-illustration={recovery.id} />
+      <div>
+        <h2>{recovery.title}</h2>
+        <p>{recovery.detail}</p>
+        <button
+          className="student-recovery-hear"
+          type="button"
+          aria-label={`Hear: ${recovery.title}`}
+          onClick={onHear}
+        >
+          <SpeakerIcon />
+          Hear what to do
+        </button>
+      </div>
+    </section>
+  );
+}
+
 function TileGrid({ rows, onPick, selectedId, renderTitle, disabled = false }) {
   return (
     <div className="student-flow-tile-grid">
@@ -126,7 +163,11 @@ function TileGrid({ rows, onPick, selectedId, renderTitle, disabled = false }) {
   );
 }
 
-export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
+export function StudentLoginFlow({
+  client = supabase,
+  onTeacherEntry,
+  onSessionStart
+}) {
   const [step, setStep] = useState("code");
   // Seed from the remembered class so a shared device shows its code while the
   // roster re-verifies (avoids a setState-in-effect just to prefill this).
@@ -137,6 +178,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [sequence, setSequence] = useState("");
   const [status, setStatus] = useState("");
+  const [recovery, setRecovery] = useState(null);
   const [locked, setLocked] = useState(false);
   const [loading, setLoading] = useState(false);
   // Synchronous guard so a fast double-tap can't fire the same RPC twice
@@ -155,6 +197,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setStudents(normalizeRows(payload.students));
     setSelectedStudent(null);
     setStatus("");
+    setRecovery(null);
     setStep("student");
     speakLine("who-are-you", { rate: 0.9 });
     try {
@@ -170,15 +213,26 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   async function resolveCode(rawCode, { silentOnFail = false } = {}) {
     const code = String(rawCode || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
     if (code.length < 4) {
-      if (!silentOnFail) setStatus("Enter the class code your teacher gave you.");
+      if (!silentOnFail) {
+        setRecovery(null);
+        setStatus("Enter the class code your teacher gave you.");
+      }
       return false;
     }
     setLoading(true);
-    const { data, error } = await supabase.rpc("student_class_by_code", { p_code: code });
+    setRecovery(null);
+    const { data, error } = await client.rpc("student_class_by_code", { p_code: code });
     setLoading(false);
     if (error || !data?.ok) {
       if (!silentOnFail) {
-        setStatus(data?.error === "not_found" ? "That code did not match. Check with your teacher." : "Class list is not ready yet. Ask your teacher.");
+        const nextRecovery = classifyStudentCodeRecovery({
+          data,
+          error,
+          online: typeof navigator === "undefined" ? true : navigator.onLine
+        });
+        setStatus("");
+        setRecovery(nextRecovery);
+        speakLine(nextRecovery.audioKey);
       }
       return false;
     }
@@ -224,6 +278,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setSelectedStudent(row);
     setSequence("");
     setStatus("");
+    setRecovery(null);
     setLocked(false);
     if (!row.has_password) {
       setStep("not-ready");
@@ -246,6 +301,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setSelectedSchool(null);
     setSelectedStudent(null);
     setStatus("");
+    setRecovery(null);
     setStep("code");
   }
 
@@ -276,7 +332,8 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     if (!selectedStudent || nextSequence.length !== SYMBOL_PASSWORD_LENGTH) return;
     setLoading(true);
     setStatus("");
-    const { data, error } = await supabase.rpc("student_login", {
+    setRecovery(null);
+    const { data, error } = await client.rpc("student_login", {
       p_student_id: selectedStudent.id,
       p_sequence: nextSequence
     });
@@ -311,7 +368,11 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
               className="student-flow-search student-flow-code"
               value={codeInput}
               placeholder="ABC123"
-              onChange={event => setCodeInput(event.target.value)}
+              onChange={event => {
+                setCodeInput(event.target.value);
+                setStatus("");
+                setRecovery(null);
+              }}
               onKeyDown={event => {
                 if (event.key === "Enter") submitCode();
               }}
@@ -372,6 +433,12 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
           </>
         )}
 
+        {recovery && (
+          <StudentLoginRecovery
+            recovery={recovery}
+            onHear={() => speakLine(recovery.audioKey)}
+          />
+        )}
         {status && <p className="student-flow-status" role="status" aria-live="polite">{status}</p>}
         <div className="student-flow-footer">
           {step === "student" && (
@@ -382,6 +449,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
           {(step === "password" || step === "not-ready") && (
             <button className="student-flow-back" onClick={() => {
               setStatus("");
+              setRecovery(null);
               setLocked(false);
               setStep("student");
             }} type="button">
