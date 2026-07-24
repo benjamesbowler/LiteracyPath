@@ -302,16 +302,16 @@ body {
 }
 
 .student-flow-card {
-  max-width: 960px;
-  min-height: min(860px, calc(100dvh - 48px));
-  padding: clamp(18px, 4vw, 38px);
+  max-width: 760px;
+  min-height: min(560px, calc(100dvh - 48px));
+  padding: clamp(18px, 3vw, 30px);
   border: 1px solid var(--lp-color-border);
   border-radius: 12px;
   background: #ffffff;
   box-shadow: var(--lp-shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .student-flow-header {
@@ -323,21 +323,43 @@ body {
 }
 
 .student-flow-header img {
-  width: 96px;
-  height: 96px;
+  width: 84px;
+  height: 84px;
   object-fit: contain;
 }
 
 .student-flow-header p {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   color: var(--lp-color-text-muted);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
+}
+
+.student-code-entry-layout {
+  width: min(100%, 660px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  align-items: stretch;
+  gap: 16px;
+}
+
+.student-code-entry-form {
+  min-width: 0;
+  display: grid;
+  align-content: center;
+}
+
+.student-code-entry-form label {
+  margin: 0 0 8px;
+  color: var(--lp-color-text-strong);
+  font-size: 14px;
+  font-weight: 850;
 }
 
 .student-flow-search {
   min-height: 64px;
-  width: min(100%, 640px);
+  width: 100%;
   margin-inline: auto;
   border: 2px solid var(--lp-color-border);
   border-radius: 12px;
@@ -355,9 +377,57 @@ body {
 
 .student-flow-code-go {
   display: block;
-  width: min(100%, 640px);
-  margin: 16px auto 0;
+  width: 100%;
+  margin: 12px auto 0;
   min-height: 56px;
+}
+
+.student-class-code-example {
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 16px;
+  border: 1px dashed color-mix(in srgb, var(--lp-color-primary) 45%, var(--lp-color-border));
+  border-radius: 16px;
+  background: var(--lp-color-primary-soft);
+  text-align: center;
+}
+
+.student-class-code-example > span {
+  color: var(--lp-color-primary-strong);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.student-class-code-example > div {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.student-class-code-example strong {
+  width: 28px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--lp-color-primary) 34%, white);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  font: 800 18px var(--lp-font-reading);
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.08);
+}
+
+.student-class-code-example p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .student-flow-stepper {
@@ -465,7 +535,6 @@ body {
 }
 
 .student-flow-back,
-.student-flow-text-link,
 .symbol-password-backspace {
   min-height: 56px;
   border: 1px solid var(--lp-color-border);
@@ -475,6 +544,24 @@ body {
   color: var(--lp-color-text);
   font-weight: 800;
   cursor: pointer;
+}
+
+.student-flow-text-link {
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  padding: 0 8px;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.student-flow-footer > .student-flow-text-link:only-child {
+  margin-inline: auto;
 }
 
 .student-flow-status {
@@ -961,6 +1048,42 @@ body {
   .student-flow-header {
     text-align: center;
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .student-flow-header img {
+    width: auto;
+    height: 68px;
+  }
+
+  .student-code-entry-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .student-class-code-example {
+    grid-template-columns: auto 1fr;
+    place-items: center start;
+    gap: 6px 10px;
+    text-align: left;
+  }
+
+  .student-class-code-example > span,
+  .student-class-code-example p {
+    grid-column: 2;
+  }
+
+  .student-class-code-example > div {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: grid;
+    grid-template-columns: repeat(3, 24px);
+  }
+
+  .student-class-code-example strong {
+    width: 24px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 14px;
   }
 
   .student-login-recovery {
@@ -972,6 +1095,27 @@ body {
   .student-login-recovery > img {
     width: 84px;
     height: 84px;
+  }
+}
+
+@media (max-width: 430px) {
+  .student-entry-page,
+  .student-login-flow,
+  .student-home-page {
+    padding: 12px;
+  }
+
+  .student-flow-card {
+    min-height: calc(100dvh - 24px);
+    padding: 16px;
+  }
+
+  .student-flow-header h1 {
+    font-size: 30px;
+  }
+
+  .student-flow-header p {
+    font-size: 16px;
   }
 }
 
@@ -20073,6 +20217,11 @@ select:focus {
 }
 
 /* ── Pals look for the student sign-in flow ───────────────────────────── */
+.app.student-mode-app {
+  padding: 0;
+  gap: 0;
+}
+
 .student-login-flow {
   background:
     radial-gradient(900px 540px at 50% -10%, rgba(255, 255, 255, 0.32), transparent 60%),
@@ -20090,6 +20239,15 @@ select:focus {
   height: 84px;
   width: auto;
   filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.22));
+}
+
+.student-login-flow .student-flow-code-go {
+  min-height: 56px !important;
+  font-size: 16px !important;
+}
+
+.student-login-flow .student-teacher-escape {
+  font-size: 13px;
 }
 
 /* ── Breathing room at the bottom of child screens ────────────────────── */

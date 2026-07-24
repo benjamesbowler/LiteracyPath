@@ -95,6 +95,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 4, 8, 10]
   },
   {
+    id: "student-login-panel",
+    label: "Focused class-code panel with subordinate teacher escape and visual example",
+    command: ["npm", "run", "check:student-login-panel"],
+    areas: [2, 3, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],

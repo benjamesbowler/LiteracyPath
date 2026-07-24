@@ -52,9 +52,29 @@ function readRememberedContext() {
 
 function FriendlyBack({ onClick }) {
   return (
-    <button className="student-flow-text-link" onClick={onClick} type="button">
+    <button
+      className="student-flow-text-link student-teacher-escape"
+      onClick={onClick}
+      type="button"
+    >
       I am a teacher
     </button>
+  );
+}
+
+const EXAMPLE_CLASS_CODE = "ABC123";
+
+function ClassCodeExample() {
+  return (
+    <aside className="student-class-code-example" aria-label={`Class code example: ${EXAMPLE_CLASS_CODE}`}>
+      <span>Example class code</span>
+      <div aria-hidden="true">
+        {EXAMPLE_CLASS_CODE.split("").map((character, index) => (
+          <strong key={`${character}-${index}`}>{character}</strong>
+        ))}
+      </div>
+      <p>Type the letters and numbers your teacher shows you.</p>
+    </aside>
   );
 }
 
@@ -364,32 +384,39 @@ export function StudentLoginFlow({
           <>
             <StepHeader title="Enter your class code" subtitle="Your teacher will tell you the code." />
             <StepProgress step={step} />
-            <input
-              className="student-flow-search student-flow-code"
-              value={codeInput}
-              placeholder="ABC123"
-              onChange={event => {
-                setCodeInput(event.target.value);
-                setStatus("");
-                setRecovery(null);
-              }}
-              onKeyDown={event => {
-                if (event.key === "Enter") submitCode();
-              }}
-              autoComplete="off"
-              autoCapitalize="characters"
-              spellCheck={false}
-              aria-label="Class code"
-              inputMode="text"
-            />
-            <button
-              className="lp-button lp-button-primary student-flow-code-go"
-              type="button"
-              onClick={submitCode}
-              disabled={loading || normalizedCodeInput.length < 4}
-            >
-              {loading ? "Checking…" : "Go"}
-            </button>
+            <div className="student-code-entry-layout">
+              <div className="student-code-entry-form">
+                <label htmlFor="student-class-code">Your class code</label>
+                <input
+                  id="student-class-code"
+                  className="student-flow-search student-flow-code"
+                  value={codeInput}
+                  placeholder="ABC123"
+                  onChange={event => {
+                    setCodeInput(event.target.value);
+                    setStatus("");
+                    setRecovery(null);
+                  }}
+                  onKeyDown={event => {
+                    if (event.key === "Enter") submitCode();
+                  }}
+                  autoComplete="off"
+                  autoCapitalize="characters"
+                  spellCheck={false}
+                  aria-label="Class code"
+                  inputMode="text"
+                />
+                <button
+                  className="lp-button lp-button-primary student-flow-code-go"
+                  type="button"
+                  onClick={submitCode}
+                  disabled={loading || normalizedCodeInput.length < 4}
+                >
+                  {loading ? "Checking…" : "Go"}
+                </button>
+              </div>
+              <ClassCodeExample />
+            </div>
           </>
         )}
 
