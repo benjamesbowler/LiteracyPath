@@ -3,12 +3,22 @@ import assert from "node:assert/strict";
 import {
   soundRacerLadder,
   buildTrack,
+  buildSoundRacerTutorial,
   worldObstacles
 } from "../../src/utils/soundRacerTracks.js";
+import { AUDIO_FILE_PATHS } from "../../src/data/generated/audioFilePaths.generated.js";
 import { rocketRunTargets } from "../../src/utils/rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
 
 const isDigraph = g => /^(sh|ch|th|ng|ck|qu)$/.test(g);
+const hasRecordedWordAudio = word => [
+  `/audio/child-mode/clean-human/words/${word}.mp3`,
+  `/audio/child-mode/words/${word}.mp3`,
+  `/audio/child-mode/clean-human/hfw/${word}.mp3`,
+  `/audio/child-mode/hfw/${word}.mp3`,
+  `/guided-reading/audio/words/${word}.mp3`,
+  `/audio/vocabulary/${word}.mp3`
+].some(path => AUDIO_FILE_PATHS.has(path));
 
 // Cover every target Sound Racer can inherit from the sound ladder.
 const TEST_TARGETS = rocketRunTargets();
@@ -120,6 +130,34 @@ test("same seed produces an identical track", () => {
           t2.gates[i],
           `${g}/${d}: gate ${i} differs between identical-seed runs`
         );
+      }
+    }
+  }
+});
+
+test("tutorial example always matches the current level target and has recorded word audio", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    const ladder = soundRacerLadder(difficulty);
+    for (let level = 0; level < ladder.length; level += 1) {
+      const target = ladder[level];
+      for (const seed of [0, 7, 42]) {
+        const track = buildTrack(target, { difficulty, seed });
+        const tutorial = buildSoundRacerTutorial(track, { hasRecordedAudio: hasRecordedWordAudio });
+        assert.equal(tutorial.target, target, `${difficulty}/${level}/${seed}: tutorial target drifted`);
+        assert.equal(tutorial.targetLabel, target.toUpperCase());
+        assert.equal(
+          onsetGrapheme(tutorial.exampleWord),
+          target,
+          `${difficulty}/${level}/${seed}: "${tutorial.exampleWord}" does not model ${target}`
+        );
+        assert.equal(
+          hasRecordedWordAudio(tutorial.exampleWord),
+          true,
+          `${difficulty}/${level}/${seed}: "${tutorial.exampleWord}" needs recorded example audio`
+        );
+        assert.match(tutorial.phonicsInstruction, new RegExp(`^Listen: ${target.toUpperCase()} starts `));
+        assert.match(tutorial.motorInstruction, /Steer left or right/);
+        assert.doesNotMatch(tutorial.phonicsInstruction, /arrow keys|swipe|change lanes/i);
       }
     }
   }

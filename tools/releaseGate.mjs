@@ -107,6 +107,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 10]
   },
   {
+    id: "sound-racer-tutorial",
+    label: "Current-target Sound Racer tutorial with recorded example audio and separate steering help",
+    command: ["npm", "run", "check:sound-racer-tutorial"],
+    areas: [2, 4, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],
