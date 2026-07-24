@@ -11,6 +11,20 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
+async function dismissActiveGameOnboarding(page) {
+  await page.locator(".lg-game-loading").waitFor({ state: "hidden", timeout: 15_000 });
+  const onboarding = page.getByRole("dialog", { name: /^How to play / }).last();
+  await onboarding.waitFor({ state: "visible", timeout: 1_000 }).catch(() => {});
+  if (!await onboarding.isVisible().catch(() => false)) return;
+  const startButton = onboarding.getByRole("button").first();
+  if (await startButton.isVisible().catch(() => false)) {
+    await startButton.click();
+  } else {
+    await onboarding.click({ position: { x: 12, y: 12 } });
+  }
+  await expect(onboarding).toBeHidden();
+}
+
 test("A2.10 every Sound Seekers fullscreen surface exposes its active name", async ({ page }) => {
   const surfaces = [
     { query: "view=creator", name: "Change your creature", close: "Close Change your creature" },
@@ -42,6 +56,7 @@ test("A2.10 fresh creature creation names the close control from the visible sur
 });
 
 test("A2.10 every registered game overlay and quit prompt uses the game title", async ({ page }) => {
+  test.setTimeout(120_000);
   for (const game of GAME_LIST) {
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}`);
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
@@ -51,6 +66,7 @@ test("A2.10 every registered game overlay and quit prompt uses the game title", 
 
     const close = dialog.getByRole("button", { name: `Close ${game.title}`, exact: true });
     await expect(close).toBeVisible();
+    await dismissActiveGameOnboarding(page);
     await close.click();
     await expect(page.getByRole("alertdialog", { name: `Quit ${game.title}`, exact: true })).toBeVisible();
   }
