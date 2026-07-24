@@ -20217,7 +20217,7 @@ select:focus {
 }
 
 /* ── Pals look for the student sign-in flow ───────────────────────────── */
-.app.student-mode-app {
+.app.student-login-app-shell {
   padding: 0;
   gap: 0;
 }

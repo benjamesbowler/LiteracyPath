@@ -26,7 +26,7 @@ const client = {
 
 export function StudentLoginPreview() {
   return (
-    <div className="app student-mode-app lp-skin-sage">
+    <div className="app student-mode-app student-login-app-shell lp-skin-sage">
       <StudentLoginFlow
         client={client}
         onTeacherEntry={() => {
