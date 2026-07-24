@@ -15,6 +15,10 @@ test("Today attention requires enough evidence and states the policy basis", () 
   assert.deepEqual(briefing.attention.map(row => row.id), ["ready"]);
   assert.match(briefing.attention[0].evidence, /20 responses · 35% accuracy/);
   assert.match(briefing.attention[0].policyBasis, /at least 8 responses/);
+  assert.deepEqual(
+    Object.keys(briefing.attention[0].explanation),
+    ["evidence", "dependency", "confidence", "unlock"]
+  );
   assert.equal(briefing.insufficientEvidenceCount, 1);
 });
 
@@ -29,6 +33,12 @@ test("Today due separates unstarted learners from inactive learners", () => {
   assert.deepEqual(briefing.due.map(row => row.id), ["new", "quiet"]);
   assert.equal(briefing.due[0].title, "First checkpoint due");
   assert.match(briefing.due[1].evidence, /10 days/);
+  briefing.due.forEach(row => {
+    assert.deepEqual(
+      Object.keys(row.explanation),
+      ["evidence", "dependency", "confidence", "unlock"]
+    );
+  });
 });
 
 test("Today changes show current-window evidence beside the prior window", () => {

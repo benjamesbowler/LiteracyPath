@@ -28,6 +28,7 @@ import { addQuestionFlag } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
+import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import {
   getGuidedReadingLandingMeta,
   getSkillsCheckLandingMeta
@@ -1408,6 +1409,17 @@ export function StudentOverviewPage({
             Start Targeted Review
           </button>
         </div>
+        {suggestedFocus && (
+          <TeacherRecommendationExplanation
+            surface="targeted-review"
+            explanation={{
+              evidence: `${suggestedFocus.incorrect || 0} recorded miss${suggestedFocus.incorrect === 1 ? "" : "es"} identify ${suggestedFocus.target} as the strongest current practice signal.`,
+              dependency: `${suggestedFocus.target} sits within ${suggestedFocus.stage} and should be checked before advancing related skills.`,
+              confidence: `${totalAnswered} total scored responses are available; the recommendation ranks recorded misses and remains teacher-reviewable.`,
+              unlock: "A targeted review can confirm the gap, update the evidence, and determine whether to re-teach or move on."
+            }}
+          />
+        )}
 
         <div className="weakness-grid compact">
           <div>

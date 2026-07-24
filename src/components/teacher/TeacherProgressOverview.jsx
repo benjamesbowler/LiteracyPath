@@ -5,6 +5,7 @@ import { TeacherGrowthChart } from "./TeacherGrowthChart.jsx";
 import { TeacherInsightActions } from "./TeacherInsightActions.jsx";
 import { TeacherInstructionalGroups } from "./TeacherInstructionalGroups.jsx";
 import { TeacherChart } from "./ui/TeacherPrimitives.jsx";
+import { TeacherRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 
 function bucketLabel(bucket) {
   if (bucket === "got-it") return "Got it";
@@ -296,10 +297,21 @@ export function TeacherProgressOverview({
               rows={summary.rows}
               onChooseLearner={chooseLearner}
               renderEvidence={group => (
-                <EvidenceDisclosure
-                  basis={group.evidence}
-                  label={`${group.label} group conclusion`}
-                />
+                <>
+                  <TeacherRecommendationExplanation
+                    surface="teacher-progress"
+                    explanation={{
+                      evidence: `${group.learners.length} learners share this policy-ready signal: ${group.basis}.`,
+                      dependency: `${group.basis} is the common recorded focus to address before dependent practice advances.`,
+                      confidence: `${group.evidence.confidence.label}: ${group.evidence.confidence.detail}.`,
+                      unlock: "A focused group session creates one teachable target and a shared point for the next evidence check."
+                    }}
+                  />
+                  <EvidenceDisclosure
+                    basis={group.evidence}
+                    label={`${group.label} group conclusion`}
+                  />
+                </>
               )}
               renderActions={group => (
                 <TeacherInsightActions
@@ -346,6 +358,15 @@ export function TeacherProgressOverview({
                         <EvidenceDisclosure
                           basis={learner.evidence}
                           label={`${learner.name} outlier conclusion`}
+                        />
+                        <TeacherRecommendationExplanation
+                          surface="teacher-progress"
+                          explanation={{
+                            evidence: `${learner.answered} scored responses place ${learner.name} ${Math.abs(learner.difference)} points ${learner.direction} the class median.`,
+                            dependency: "The learner evidence should be reviewed before changing teaching or placement.",
+                            confidence: `${learner.evidence.confidence.label}: ${learner.evidence.confidence.detail}.`,
+                            unlock: "Review can distinguish a genuine teaching need from a healthy strength or an evidence-context difference."
+                          }}
                         />
                       </div>
                       <button

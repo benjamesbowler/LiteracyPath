@@ -21,6 +21,7 @@ import {
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
+import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
 import {
   MetricFigure
@@ -574,6 +575,10 @@ function TodayBriefing({
                     <span>{row.focus}</span>
                     <small>{row.evidence}</small>
                     <small>{row.policyBasis}</small>
+                    <TeacherRecommendationExplanation
+                      explanation={row.explanation}
+                      surface="teacher-today"
+                    />
                   </div>
                   <button
                     className="text-button"
@@ -616,6 +621,10 @@ function TodayBriefing({
                     <strong>{row.name}</strong>
                     <span>{row.title}</span>
                     <small>{row.evidence}</small>
+                    <TeacherRecommendationExplanation
+                      explanation={row.explanation}
+                      surface="teacher-today"
+                    />
                   </div>
                   <button
                     className="text-button"
@@ -1074,11 +1083,18 @@ export function TeacherDashboardPage({
     });
     const reteach = [...bySkill.entries()].filter(([, rows]) => rows.length >= 2).sort((a, b) => b[1].length - a[1].length)[0];
     if (reteach) {
+      const reteachNames = `${reteach[1].map(row => row.name).slice(0, 4).join(", ")}${reteach[1].length > 4 ? ` +${reteach[1].length - 4}` : ""}`;
       cards.push({
         id: "reteach",
         tone: "warn",
         title: `Reteach ${reteach[0]}`,
-        detail: `${reteach[1].map(row => row.name).slice(0, 4).join(", ")}${reteach[1].length > 4 ? ` +${reteach[1].length - 4}` : ""} are below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}% on this skill.`,
+        detail: `${reteachNames} are below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}% on this skill.`,
+        explanation: {
+          evidence: `${reteachNames} have policy-ready evidence below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}% on ${reteach[0]}.`,
+          dependency: `${reteach[0]} is their current recorded focus and should be secured before dependent practice advances.`,
+          confidence: `${reteach[1].length} learners meet the minimum-evidence and recency rules; individual evidence remains available for review.`,
+          unlock: "A focused re-teach creates a shared practice target and a clear point for the next evidence check."
+        },
         action: "Show group",
         studentIds: reteach[1].map(row => row.id)
       });
@@ -1087,11 +1103,19 @@ export function TeacherDashboardPage({
     // Nudge: students who haven't started or have gone quiet.
     const inactive = studentRows.filter(row => row.answered === 0 || !row.lastActive || formatLastActive(row.lastActive).includes("days ago"));
     if (inactive.length >= 1 && studentRows.length > 1) {
+      const inactiveNames = `${inactive.map(row => row.name).slice(0, 4).join(", ")}${inactive.length > 4 ? ` +${inactive.length - 4}` : ""}`;
+      const notStartedCount = inactive.filter(row => row.answered === 0).length;
       cards.push({
         id: "nudge",
         tone: "info",
         title: inactive.some(row => row.answered === 0) ? "Get everyone started" : "Re-engage quiet readers",
-        detail: `${inactive.map(row => row.name).slice(0, 4).join(", ")}${inactive.length > 4 ? ` +${inactive.length - 4}` : ""} ${inactive.length === 1 ? "has" : "have"} little or no recent practice.`,
+        detail: `${inactiveNames} ${inactive.length === 1 ? "has" : "have"} little or no recent practice.`,
+        explanation: {
+          evidence: `${inactiveNames}: ${notStartedCount} ${notStartedCount === 1 ? "learner has" : "learners have"} no scored responses; the rest have no recent recorded activity.`,
+          dependency: "Current practice evidence is required before the learning policy can make a current attainment recommendation.",
+          confidence: "This is an activity-coverage signal only; it does not infer low attainment.",
+          unlock: "New responses restore a current evidence base and enable a defensible next-skill decision."
+        },
         action: "Show students",
         studentIds: inactive.map(row => row.id)
       });
@@ -1105,6 +1129,14 @@ export function TeacherDashboardPage({
         tone: "good",
         title: `Celebrate ${star.name}`,
         detail: `${star.masteredCount} skill${star.masteredCount === 1 ? "" : "s"} mastered - worth a shout-out today.`,
+        explanation: {
+          evidence: `${star.name} has ${star.masteredCount} recorded mastered skill${star.masteredCount === 1 ? "" : "s"}, the highest current total in this class.`,
+          dependency: "Recognition follows a recorded mastery milestone; the private comparison does not label or rank learners publicly.",
+          confidence: star.learningConclusion?.ready
+            ? `${star.learningConclusion.confidence.label}: ${star.learningConclusion.confidence.detail}.`
+            : "The recommendation relies on the mastery record only; no current accuracy conclusion is inferred.",
+          unlock: "A private or class-appropriate celebration reinforces secured learning and opens a positive check-in."
+        },
         action: "Open profile",
         onClick: () => onLoadStudent?.(star.id, star.name)
       });
@@ -1917,10 +1949,18 @@ export function TeacherDashboardPage({
       {isClassesPage && selectedClass && actionCards.length > 0 && (
         <section className="teacher-action-cards" aria-label="Suggested next steps">
           {actionCards.map(card => (
-            <article key={card.id} className={`teacher-action-card ${card.tone}`}>
-              <div>
+            <article
+              key={card.id}
+              className={`teacher-action-card ${card.tone}`}
+              data-teacher-recommendation={card.id}
+            >
+              <div className="teacher-action-card-copy">
                 <strong>{card.title}</strong>
                 <p>{card.detail}</p>
+                <TeacherRecommendationExplanation
+                  explanation={card.explanation}
+                  surface="teacher-dashboard-next-steps"
+                />
               </div>
               <button
                 className="lp-button lp-button-secondary"

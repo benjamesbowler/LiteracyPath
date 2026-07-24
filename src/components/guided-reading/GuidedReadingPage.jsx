@@ -37,6 +37,10 @@ import {
 import { preloadMediaSet } from "../../utils/preloadMedia.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
+import {
+  ChildRecommendationExplanation,
+  TeacherRecommendationExplanation
+} from "../recommendations/RecommendationExplanation.jsx";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 
@@ -1718,6 +1722,19 @@ export function GuidedReadingPage({
               <span className="guided-shelf-card-tag">Level {book.level}</span>
               <span className="guided-shelf-card-title">{book.title}</span>
               {isPrimary && <span className="guided-shelf-card-next" data-child-emphasis-cue="">{prog(book).completed ? "Read again" : prog(book).completedPages > 0 ? "Continue next" : "Start next"}</span>}
+              {isPrimary && (
+                <ChildRecommendationExplanation
+                  className="guided-shelf-card-reason"
+                  surface="guided-reading"
+                  reason={primaryPlacement === "continue"
+                    ? "You already started this book, so it is ready to continue."
+                    : primaryPlacement === "recommended"
+                      ? "This book matches what you are practising now."
+                      : primaryPlacement === "already"
+                        ? "You know this book, so it is a good one to read again."
+                        : "This is the first book in your chosen set."}
+                />
+              )}
             </button>
             );
           };
@@ -1891,11 +1908,22 @@ export function GuidedReadingPage({
           </div>
           <div className="guided-recommendation-list">
             {recommendedBooks.map(item => (
-              <button key={item.book.id} onClick={() => changeBook(item.book.id)} type="button">
-                <strong>{item.book.title}</strong>
-                <span>Level {item.book.level} · {item.book.recommendedMicrophase || "early reading"}</span>
-                <small>{item.reasons.slice(0, 2).join(" · ")}</small>
-              </button>
+              <article key={item.book.id} data-teacher-recommendation="guided-reading">
+                <button onClick={() => changeBook(item.book.id)} type="button">
+                  <strong>{item.book.title}</strong>
+                  <span>Level {item.book.level} · {item.book.recommendedMicrophase || "early reading"}</span>
+                  <small>{item.reasons.slice(0, 2).join(" · ")}</small>
+                </button>
+                <TeacherRecommendationExplanation
+                  surface="guided-reading"
+                  explanation={{
+                    evidence: item.reasons.join(" · "),
+                    dependency: `${item.book.recommendedMicrophase || "Early reading"} is the book's recorded decoding demand.`,
+                    confidence: `Rule-based match score ${item.score}; teacher review remains required before assignment.`,
+                    unlock: "A matched read provides connected-text practice and creates fresh decoding and comprehension evidence."
+                  }}
+                />
+              </article>
             ))}
           </div>
         </section>

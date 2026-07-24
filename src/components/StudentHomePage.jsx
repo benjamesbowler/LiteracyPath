@@ -27,6 +27,7 @@ import {
 } from "../policy/learningPolicy.js";
 import { STUDENT_RAIL_DESTINATIONS } from "../policy/studentRailPolicy.js";
 import StudentRailNav from "./StudentRailNav.jsx";
+import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -190,7 +191,13 @@ function SageCard({
           {continuation.label}
         </span>
       )}
-      {recommendationReason && <span className="hs-card-reason">{recommendationReason}</span>}
+      {recommendationReason && (
+        <ChildRecommendationExplanation
+          className="hs-card-reason"
+          reason={recommendationReason}
+          surface="student-home"
+        />
+      )}
       <span className="hs-card-state-row">
         <strong className={`hs-card-state is-${cardState?.tone || "new"}`}>
           {cardState?.label || "New"}

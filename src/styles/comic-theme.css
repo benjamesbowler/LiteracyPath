@@ -1047,6 +1047,16 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+.lg-arcade-comic .lg-arcade-recommendation-reason {
+  margin: 4px 0 0;
+  color: #e8f7ff;
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+.lg-arcade-comic .lg-arcade-recommendation-reason strong {
+  color: #FFD166;
+}
 .lg-arcade-comic .lg-game-tile:hover { transform: translateY(-3px); box-shadow: 0 0 0 2px #000, 8px 10px 0 rgba(0,0,0,0.5); }
 .lg-arcade-comic .lg-game-tile-art {
   display: block; aspect-ratio: 1 / 1; background: #05060f;
@@ -1360,6 +1370,14 @@
   font-family: var(--comic-label);
   font-size: 0.7rem;
   font-weight: 900;
+}
+
+.student-guided-reading-page .guided-shelf-card-reason {
+  display: block;
+  color: #4c3b2f;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.3;
 }
 .student-guided-reading-page .guided-shelf-row.wrap .guided-shelf-card { width: auto; }
 .student-guided-reading-page .guided-shelf-card:hover { transform: translate(-2px,-3px); box-shadow: var(--comic-shadow); }

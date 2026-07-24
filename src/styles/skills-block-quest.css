@@ -1031,6 +1031,17 @@
   text-transform: uppercase;
 }
 
+.sbq-stop-reason {
+  display: block;
+  max-width: 180px;
+  margin-top: 4px;
+  color: #fff8e8;
+  font-size: 0.68rem;
+  font-weight: 750;
+  line-height: 1.25;
+  text-transform: none;
+}
+
 /* The traveler. JS sets left/top to a point ON the route each frame; the bob
    lives on a child element so it never fights the path positioning. */
 .sbq-mapboard .sbq-journey-avatar {

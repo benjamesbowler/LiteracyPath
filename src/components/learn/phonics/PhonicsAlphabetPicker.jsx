@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { getAllLetters, getAvailableLetters } from "../../../data/phonicsLessons";
+import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
 
 export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
   const letters = useMemo(() => getAllLetters(), []);
@@ -26,6 +27,17 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
       <h2>Choose a letter</h2>
 
       <p>Tap a letter to hear its sound and start practising.</p>
+      {recommendedLetter && (
+        <p className="phonics-recommendation-reason">
+          <strong>Why this one?</strong>{" "}
+          <ChildRecommendationExplanation
+            surface="phonics-letter"
+            reason={progress[recommendedLetter] === "inprogress"
+              ? "You already started this letter, so it is ready to continue."
+              : "This is your next available letter to learn."}
+          />
+        </p>
+      )}
 
       <div className="phonics-letter-grid" data-child-choices="">
         {letters.map(letter => {

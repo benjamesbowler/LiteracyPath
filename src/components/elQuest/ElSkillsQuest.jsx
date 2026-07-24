@@ -17,6 +17,7 @@ import {
 } from "../../data/mapStops.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
+import { ChildRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 import {
   stationsForCycle,
   buildStationRounds,
@@ -796,7 +797,14 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                               {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
                             </span>
                             {isRecommended && (
-                              <span className="sbq-stop-next" data-child-emphasis-cue="">Go next</span>
+                              <>
+                                <span className="sbq-stop-next" data-child-emphasis-cue="">Go next</span>
+                                <ChildRecommendationExplanation
+                                  className="sbq-stop-reason"
+                                  reason="This is the next map stop you have not completed yet."
+                                  surface="adventure-map"
+                                />
+                              </>
                             )}
                             {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
                           </span>

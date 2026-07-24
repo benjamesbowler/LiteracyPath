@@ -10,6 +10,7 @@ import {
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
+import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
 import "../../../styles/learn-games.css";
 import "../../../styles/arcade-dark.css";
 
@@ -170,6 +171,17 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         <div>
           <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">Arcade Area</h1>
           <p className="lg-arcade-instruction" data-child-instruction="">Pick one game. Your next unplayed game is marked first.</p>
+          {recommendedGame && (
+            <p className="lg-arcade-recommendation-reason">
+              <strong>Why this one?</strong>{" "}
+              <ChildRecommendationExplanation
+                surface="arcade"
+                reason={(getLearnGameProgress(progress, recommendedGame.id).stars || 0) > 0
+                  ? "You have played every game here, so this one is ready to replay."
+                  : "This is the next game here that you have not played yet."}
+              />
+            </p>
+          )}
         </div>
         <div className="lg-arcade-topband-controls">
           <div className="lg-segmented-control" aria-label="Difficulty">
@@ -241,7 +253,9 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
                 />
               </span>
               <span className="lg-game-tile-name">{game.title}</span>
-              {isRecommended && <span className="lg-game-tile-next" data-child-emphasis-cue="">Play next</span>}
+              {isRecommended && (
+                <span className="lg-game-tile-next" data-child-emphasis-cue="">Play next</span>
+              )}
               <span className="lg-game-tile-foot">
                 <ProgressStars stars={gameProgress.stars || 0} />
                 {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}

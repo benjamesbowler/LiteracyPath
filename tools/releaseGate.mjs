@@ -161,6 +161,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [4, 5, 6, 7, 10]
   },
   {
+    id: "recommendation-explanations",
+    label: "Brief child and evidence/dependency/confidence/unlock teacher recommendation explanations",
+    command: ["npm", "run", "check:recommendation-explanations"],
+    areas: [2, 4, 5, 6, 7, 10]
+  },
+  {
     id: "key-route-visuals",
     label: "Desktop and phone visual baselines plus delayed child-route placeholders",
     command: ["npm", "run", "check:key-route-visuals"],

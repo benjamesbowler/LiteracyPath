@@ -4549,7 +4549,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   gap: 10px;
 }
 
-.guided-recommendation-list button,
+.guided-recommendation-list > article,
 .guided-insight-grid article,
 .guided-insight-recommendations {
   display: grid;
@@ -4560,6 +4560,19 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   border-radius: 14px;
   background: #f8fafc;
   color: var(--lp-color-text-strong);
+  text-align: left;
+}
+
+.guided-recommendation-list > article > button {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--lp-color-text-strong);
+  cursor: pointer;
+  font: inherit;
   text-align: left;
 }
 
@@ -18453,6 +18466,11 @@ select:focus {
   font-size: 15px;
 }
 
+.teacher-action-card-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
 .teacher-action-card p {
   margin: 3px 0 0;
   color: var(--lp-color-text-muted);
@@ -18462,6 +18480,62 @@ select:focus {
 .teacher-action-card .lp-button {
   flex: 0 0 auto;
   white-space: nowrap;
+}
+
+.teacher-recommendation-explanation {
+  margin-top: 8px;
+  border-top: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-recommendation-explanation summary {
+  min-height: var(--teacher-ui-target-min);
+  display: flex;
+  align-items: center;
+  color: var(--lp-color-primary-strong);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.teacher-recommendation-explanation dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 4px;
+}
+
+.teacher-recommendation-explanation dl > div {
+  padding: 8px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-recommendation-explanation dt {
+  color: var(--lp-color-text-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.teacher-recommendation-explanation dd {
+  margin: 3px 0 0;
+  color: var(--lp-color-text);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .teacher-action-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-recommendation-explanation dl {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Class-first teacher progress ─────────────────────────────────────── */
