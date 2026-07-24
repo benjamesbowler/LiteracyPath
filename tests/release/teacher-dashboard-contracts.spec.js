@@ -1756,6 +1756,32 @@ test("@release-readiness-surface reachable admin release workflow", async ({ pag
   expect(pageErrors).toEqual([]);
 });
 
+test("@admin-content-qa shows authored, approved, and runtime-selectable counts for a seeded skill", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+
+  await logIn(page, "audit-admin@literacypath.invalid");
+  await page.getByRole("button", { name: "Admin", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Admin Dashboard", exact: true })).toBeVisible();
+  await page.getByRole("tab", { name: /Release Check/ }).click();
+  await page.getByRole("button", { name: /Content coverage/ }).click();
+
+  const coveragePanel = page.getByRole("heading", { name: "Content Coverage", exact: true }).locator("..");
+  await expect(coveragePanel.getByText(
+    "Authored is the deduplicated source bank, approved passes the canonical level, format, and media rules, and runtime-selectable is the exact student pool after the release gate.",
+    { exact: true }
+  )).toBeVisible();
+  await expect(coveragePanel.locator("tbody tr")).toHaveCount(30);
+
+  const initialSoundsRow = page.getByRole("row").filter({
+    has: page.getByRole("cell", { name: "Initial Sounds", exact: true })
+  });
+  await expect(initialSoundsRow.getByRole("cell", { name: "150", exact: true })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", { name: "131", exact: true })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", { name: "92", exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
 test("@release-readiness-surface reachable 520-item report is paginated from storage and exported completely", async ({ page }) => {
   test.setTimeout(120_000);
   const pageErrors = [];

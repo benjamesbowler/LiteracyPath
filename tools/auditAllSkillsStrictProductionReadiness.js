@@ -19,6 +19,7 @@ import {
 import {
   managedAssessmentSkillDepthConfig
 } from "../src/data/skillLevelDepthConfig.js";
+import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
 import { getQuestionRoutingFormat } from "../src/data/skillTemplateRouting.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import {
@@ -349,6 +350,14 @@ function runtimeReason(question = {}) {
   if (missingImage.length) return `missing image: ${missingImage.slice(0, 3).join(", ")}`;
   if (missingAudio.length && questionRequiresAudio(skillId, question)) return `missing required audio: ${missingAudio.slice(0, 3).join(", ")}`;
   return "";
+}
+
+function hasUnapprovedAudio(question = {}) {
+  const target = getQuestionTargetWord(question) || question.audioKey || question.audioText || "";
+  return getQuestionAudioPaths(question).some(assetPath =>
+    String(assetPath).startsWith("/") &&
+    (!publicPathExists(assetPath) || !getApprovedAudioPath(target, assetPath))
+  );
 }
 
 function isStrictUsable(skill, question, runtimeSafe) {
@@ -699,6 +708,7 @@ export function auditStrictProductionReadiness() {
       runtimeSafeQuestionCount: runtimeSafe.length,
       strictUsableQuestionCount: strictUsable.length,
       strictCandidateQuestionCount: uniqueQuestions.filter(question => question.strictUsable).length,
+      unapprovedAudioQuestionCount: uniqueQuestions.filter(hasUnapprovedAudio).length,
       strictUsableQuestionIds: strictUsable.map(question => String(question.id || question.questionId || "")),
       publishedQuestions: strictUsable.map(question => ({
         questionId: String(question.id || question.questionId || ""),

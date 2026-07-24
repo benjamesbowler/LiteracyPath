@@ -12,7 +12,13 @@ export function buildAssessmentReleaseStatus() {
       releaseReady: skill.releaseStandardDecision.releaseReady,
       dimensions: skill.releaseStandardDecision.dimensions,
       reasons: skill.releaseStandardDecision.reasons,
-      runtimeSelectableQuestions: skill.strictUsableQuestionCount,
+      authoredQuestions: skill.rawQuestionCount,
+      approvedQuestions: skill.strictCandidateQuestionCount,
+      runtimeSelectableQuestions: skill.releaseStandardDecision.releaseReady
+        ? skill.strictUsableQuestionCount
+        : 0,
+      releaseEligibleQuestions: skill.strictUsableQuestionCount,
+      unapprovedAudioQuestions: skill.unapprovedAudioQuestionCount,
       publicationMode: exactPublication ? "audited-id-set" : "all-runtime-candidates",
       publishedQuestionIds: exactPublication ? skill.strictUsableQuestionIds : [],
       publishedQuestions: exactPublication ? skill.publishedQuestions : [],

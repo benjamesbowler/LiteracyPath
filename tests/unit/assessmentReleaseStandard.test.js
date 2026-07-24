@@ -105,6 +105,18 @@ test("generated publication status covers the canonical skill set and version", 
     assessmentReleaseStatus.map(status => status.skillId).sort(),
     [...ASSESSMENT_RELEASE_MANAGED_SKILL_IDS].sort()
   );
+  for (const status of assessmentReleaseStatus) {
+    assert.ok(Number.isInteger(status.authoredQuestions));
+    assert.ok(Number.isInteger(status.approvedQuestions));
+    assert.ok(Number.isInteger(status.runtimeSelectableQuestions));
+    assert.ok(Number.isInteger(status.unapprovedAudioQuestions));
+    assert.ok(status.authoredQuestions >= status.approvedQuestions);
+    assert.ok(status.approvedQuestions >= status.runtimeSelectableQuestions);
+    assert.equal(
+      status.runtimeSelectableQuestions,
+      status.releaseReady ? status.releaseEligibleQuestions : 0
+    );
+  }
 });
 
 test("Initial Sounds canonical selection caps phoneme, prompt-family, response-format, and listen-and-find concentration", () => {

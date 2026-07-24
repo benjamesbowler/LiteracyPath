@@ -46,6 +46,7 @@ import {
   finalSoundLevelOneAllowedItemKeys,
   rhymingPhaseItemKeysByLevel
 } from "./data/coverageExpectations";
+import { assessmentReleaseStatus } from "./content/assessments/assessmentReleaseStatus.generated.js";
 import {
   getQuestionRoutingFormat,
   isQuestionAllowedForSkill
@@ -1675,7 +1676,7 @@ function buildCoverageSnapshot(itemMasteryRows = {}, debugContext = null, answer
   }, {});
 }
 
-function buildQuestionBankCoverage(questions = []) {
+function buildQuestionBankCoverage(questions = [], releaseStatuses = []) {
   const rowsBySkill = new Map();
   const mergeCounts = (target, source, key) => {
     Object.entries(source[key] || {}).forEach(([name, count]) => {
@@ -1774,6 +1775,38 @@ function buildQuestionBankCoverage(questions = []) {
     }
   });
 
+  releaseStatuses.forEach(status => {
+    const existing = rowsBySkill.get(status.skillName) || {
+      skill: status.skillName,
+      total: 0,
+      active: 0,
+      inactive: 0,
+      templates: {},
+      difficulties: {},
+      patterns: {},
+      missingImage: 0,
+      missingAudio: 0,
+      badMedia: 0,
+      runtimeSelectable: 0
+    };
+    rowsBySkill.set(status.skillName, {
+      ...existing,
+      authored: Number(status.authoredQuestions || 0),
+      approved: Number(status.approvedQuestions || 0),
+      total: Number(status.authoredQuestions || 0),
+      runtimeSelectable: Number(status.runtimeSelectableQuestions || 0),
+      unapprovedAudio: Number(status.unapprovedAudioQuestions || 0),
+      releaseReady: status.releaseReady === true,
+      releaseReasons: status.reasons || []
+    });
+  });
+
+  if (releaseStatuses.length) {
+    return releaseStatuses
+      .map(status => rowsBySkill.get(status.skillName))
+      .filter(Boolean)
+      .sort((a, b) => a.skill.localeCompare(b.skill));
+  }
   return Array.from(rowsBySkill.values()).sort((a, b) => a.skill.localeCompare(b.skill));
 }
 
@@ -8365,7 +8398,7 @@ export default function App() {
   [itemMastery, studentId, answerHistory]);
 
   const questionBankCoverage = useMemo(() =>
-    buildQuestionBankCoverage(allQuestions),
+    buildQuestionBankCoverage(allQuestions, assessmentReleaseStatus),
   [allQuestions]);
 
   const showSkillsQuestPrototype = typeof window !== "undefined"
