@@ -149,6 +149,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 3, 4, 8, 10]
   },
   {
+    id: "learning-policy",
+    label: "Versioned learning thresholds with minimum evidence, recency, confidence, and sparse-learner UI",
+    command: ["npm", "run", "check:learning-policy"],
+    areas: [1, 4, 7, 8, 10]
+  },
+  {
     id: "key-route-visuals",
     label: "Desktop and phone visual baselines plus delayed child-route placeholders",
     command: ["npm", "run", "check:key-route-visuals"],

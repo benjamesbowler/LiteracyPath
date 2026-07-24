@@ -138,7 +138,8 @@ test("D-004: Whole Child reconciles related sound evidence and exports an honest
   assert.ok(statusRows.every(row => [
     "Secure",
     "Developing",
-    "Needs teaching",
+    "Needs support",
+    "Not enough evidence",
     "Mixed evidence",
     "Not checked"
   ].includes(row.Status)));

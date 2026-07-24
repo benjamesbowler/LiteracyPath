@@ -1,5 +1,11 @@
-const POLICY_MIN_RESPONSES = 8;
-const ACQUISITION_ACCURACY = 80;
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_STATUS_IDS,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
+
+const POLICY_MIN_RESPONSES =
+  LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses;
 
 export const GROWTH_METRICS = Object.freeze([
   {
@@ -7,7 +13,7 @@ export const GROWTH_METRICS = Object.freeze([
     label: "Skill acquisition",
     shortLabel: "Acquisition",
     unit: "skills",
-    description: "Cumulative skills first demonstrated at 80% or better across at least eight scored responses."
+    description: `Cumulative skills first demonstrated as Secure (${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}% or better) across at least ${POLICY_MIN_RESPONSES} scored responses.`
   },
   {
     id: "retention",
@@ -131,7 +137,7 @@ function buildAcquisition(attempts) {
       || acquired.has(skill)
       || attemptTotal(attempt) < POLICY_MIN_RESPONSES
       || accuracy === null
-      || accuracy < ACQUISITION_ACCURACY
+      || rawLearningStatus(accuracy) !== LEARNING_STATUS_IDS.SECURE
     ) continue;
     acquired.add(skill);
     points.push({
@@ -158,7 +164,7 @@ function buildRetention(attempts) {
         evidenceCount: 1
       });
     }
-    if (accuracy >= ACQUISITION_ACCURACY) acquired.add(skill);
+    if (rawLearningStatus(accuracy) === LEARNING_STATUS_IDS.SECURE) acquired.add(skill);
   }
   return bucketMonthly(repeated);
 }

@@ -7,7 +7,7 @@ export const METRIC_DEFINITIONS = Object.freeze({
     definition: "Correct scored responses divided by administered scored responses, multiplied by 100.",
     denominator: "Administered responses that have a scored correct or incorrect result.",
     dateRange: "All saved evidence in the selected learner, class, assessment, or report scope unless a shorter range is named.",
-    minimumEvidence: "At least eight administered scored responses for an accuracy conclusion; smaller samples render Insufficient evidence."
+    minimumEvidence: "At least eight administered scored responses for an accuracy conclusion; smaller samples render Not enough evidence."
   }),
   mastered: Object.freeze({
     id: "mastered",

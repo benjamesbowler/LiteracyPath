@@ -135,7 +135,7 @@ test("growth model exposes all five dated evidence series without inventing valu
   const byId = new Map(model.series.map(series => [series.id, series]));
   assert.deepEqual(
     byId.get("skill-acquisition").points.map(point => point.value),
-    [1, 2, 3]
+    [1, 2]
   );
   assert.ok(byId.get("retention").points.length >= 3);
   assert.deepEqual(byId.get("fluency").points.map(point => point.value), [38, 52, 67]);

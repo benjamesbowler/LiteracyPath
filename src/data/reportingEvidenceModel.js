@@ -5,11 +5,16 @@
  * cloud rows, or render UI. Callers hydrate the existing source stores first,
  * then pass their records to the report builders.
  */
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_POLICY_VERSION
+} from "../policy/learningPolicy.js";
 
 export const REPORTING_STATUS_IDS = Object.freeze({
   SECURE: "secure",
   DEVELOPING: "developing",
   NEEDS_TEACHING: "needs_teaching",
+  NOT_ENOUGH_EVIDENCE: "not_enough_evidence",
   MIXED_EVIDENCE: "mixed_evidence",
   NOT_CHECKED: "not_checked"
 });
@@ -17,7 +22,8 @@ export const REPORTING_STATUS_IDS = Object.freeze({
 export const REPORTING_STATUS_LABELS = Object.freeze({
   [REPORTING_STATUS_IDS.SECURE]: "Secure",
   [REPORTING_STATUS_IDS.DEVELOPING]: "Developing",
-  [REPORTING_STATUS_IDS.NEEDS_TEACHING]: "Needs teaching",
+  [REPORTING_STATUS_IDS.NEEDS_TEACHING]: "Needs support",
+  [REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: "Not enough evidence",
   [REPORTING_STATUS_IDS.MIXED_EVIDENCE]: "Mixed evidence",
   [REPORTING_STATUS_IDS.NOT_CHECKED]: "Not checked"
 });
@@ -76,6 +82,10 @@ const STATUS_ALIASES = Object.freeze({
   incorrect: REPORTING_STATUS_IDS.NEEDS_TEACHING,
   no_response: REPORTING_STATUS_IDS.NEEDS_TEACHING,
   skipped: REPORTING_STATUS_IDS.NEEDS_TEACHING,
+  not_enough_evidence: REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+  "not enough evidence": REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+  insufficient_evidence: REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+  "insufficient evidence": REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
   mixed_evidence: REPORTING_STATUS_IDS.MIXED_EVIDENCE,
   "mixed evidence": REPORTING_STATUS_IDS.MIXED_EVIDENCE,
   not_checked: REPORTING_STATUS_IDS.NOT_CHECKED,
@@ -127,7 +137,11 @@ export function normalizeReportingStatus(value, { practiceOnly = false } = {}) {
 
 export function reportingStatus(statusId) {
   const id = normalizeReportingStatus(statusId) || REPORTING_STATUS_IDS.NOT_CHECKED;
-  return { id, label: REPORTING_STATUS_LABELS[id] };
+  return {
+    id,
+    label: REPORTING_STATUS_LABELS[id],
+    policyVersion: LEARNING_POLICY_VERSION
+  };
 }
 
 export function createReportingConcept({
@@ -316,7 +330,10 @@ function resolveDecisiveStatus(decisive = []) {
   return REPORTING_STATUS_IDS.NOT_CHECKED;
 }
 
-function keepCurrentConflictWindow(evidence = [], conflictWindowDays = 90) {
+function keepCurrentConflictWindow(
+  evidence = [],
+  conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays
+) {
   const days = Number(conflictWindowDays);
   if (!Number.isFinite(days) || days < 0) return evidence;
   const newestTimestamp = evidence.reduce((newest, row) => (
@@ -442,7 +459,7 @@ function datedSourceSummary(item = {}) {
 export function resolveWholeChildConcepts({
   evidence = [],
   expectedConcepts = [],
-  conflictWindowDays = 90
+  conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays
 } = {}) {
   const dedupedEvidence = dedupeReportingEvidence(evidence);
   const concepts = new Map();
@@ -506,6 +523,7 @@ export function resolveWholeChildConcepts({
       variant: concept.variant,
       label: concept.label,
       status: reportingStatus(statusId),
+      policyVersion: LEARNING_POLICY_VERSION,
       latestAt,
       evidenceCount: conceptEvidence.length,
       decisiveEvidenceCount: decisive.length,

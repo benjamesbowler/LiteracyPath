@@ -491,7 +491,7 @@ export function TeacherInstructionalGroups({
                           <ComparisonMetric
                             label="Mean accuracy"
                             value={group.snapshot.averageAccuracy === null
-                              ? "Insufficient evidence"
+                              ? "Not enough evidence"
                               : `${group.snapshot.averageAccuracy}%`}
                           />
                           <ComparisonMetric

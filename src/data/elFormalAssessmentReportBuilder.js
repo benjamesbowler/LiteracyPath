@@ -8,6 +8,12 @@ import {
   isElBenchmarkAssessmentRecord,
   resolveElBenchmarkReportScope
 } from "./elBenchmarkReportScope.js";
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_POLICY_VERSION,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion
+} from "../policy/learningPolicy.js";
 
 export {
   EL_BENCHMARK_ASSESSMENT_IDS,
@@ -75,11 +81,12 @@ export const EL_FORMAL_CLASS_EVIDENCE_SCHEMA = Object.freeze([
 ]);
 
 const STATUS_LABELS = {
-  mastered: "Mastered",
+  mastered: "Secure",
   developing: "Developing",
-  needs_support: "Needs Support",
+  needs_support: "Needs support",
+  not_enough_evidence: "Not enough evidence",
   unscored_evidence: "Unscored evidence",
-  not_assessed: "Not assessed"
+  not_assessed: "Not checked"
 };
 
 const UNSCORED_RESPONSE_STATUSES = new Set([
@@ -732,8 +739,15 @@ function getClassId(student = {}) {
 function getStatus(correct = 0, attempts = 0) {
   if (!attempts) return "not_assessed";
   const accuracy = Math.round((correct / attempts) * 100);
-  if (accuracy >= 80) return "mastered";
-  if (accuracy >= 60) return "developing";
+  const conclusion = evaluateLearningConclusion({
+    accuracy,
+    attempts,
+    minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
+    requireRecency: false
+  });
+  if (!conclusion.ready) return "not_enough_evidence";
+  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) return "mastered";
+  if (conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING) return "developing";
   return "needs_support";
 }
 
@@ -741,6 +755,7 @@ function makeCell() {
   return {
     status: "not_assessed",
     statusLabel: STATUS_LABELS.not_assessed,
+    policyVersion: LEARNING_POLICY_VERSION,
     evidenceCount: 0,
     unscoredCount: 0,
     attempts: 0,

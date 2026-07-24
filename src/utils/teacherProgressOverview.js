@@ -1,24 +1,34 @@
-export const PROGRESS_MIN_RESPONSES = 8;
-export const PROGRESS_ITEM_MIN_ATTEMPTS = 3;
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_POLICY_VERSION,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion,
+  learningConfidence
+} from "../policy/learningPolicy.js";
+
+export const PROGRESS_MIN_RESPONSES =
+  LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses;
+export const PROGRESS_ITEM_MIN_ATTEMPTS =
+  LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts;
 
 const DISTRIBUTION_BANDS = Object.freeze([
   {
     id: "secure",
-    label: "85–100%",
+    label: `${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}–100%`,
     description: "Current evidence is consistently accurate.",
-    matches: accuracy => accuracy >= 85
+    statusId: LEARNING_STATUS_IDS.SECURE
   },
   {
     id: "developing",
-    label: "70–84%",
+    label: `${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%`,
     description: "Current evidence is developing.",
-    matches: accuracy => accuracy >= 70 && accuracy < 85
+    statusId: LEARNING_STATUS_IDS.DEVELOPING
   },
   {
     id: "needs-support",
-    label: "Below 70%",
+    label: `Below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%`,
     description: "Current evidence suggests targeted follow-up.",
-    matches: accuracy => accuracy < 70
+    statusId: LEARNING_STATUS_IDS.NEEDS_SUPPORT
   }
 ]);
 
@@ -33,8 +43,7 @@ function normalizedHeat(row) {
 }
 
 function evidenceReady(row) {
-  return finiteNumber(row?.answered) >= PROGRESS_MIN_RESPONSES
-    && Number.isFinite(Number(row?.accuracy));
+  return Boolean(row?.conclusion?.ready);
 }
 
 function evidenceSkillsFor(row) {
@@ -66,35 +75,6 @@ export function formatEvidenceRecency(value) {
   }).format(date);
 }
 
-function confidenceFor({ attempts, diversity, minimum = PROGRESS_MIN_RESPONSES }) {
-  if (attempts < minimum) {
-    return {
-      id: "insufficient",
-      label: "Insufficient evidence",
-      detail: `${attempts} of ${minimum} required attempts`
-    };
-  }
-  if (attempts >= 20 && diversity >= 3) {
-    return {
-      id: "stronger",
-      label: "Stronger evidence",
-      detail: `${attempts} attempts across ${diversity} skills`
-    };
-  }
-  if (diversity >= 2) {
-    return {
-      id: "moderate",
-      label: "Moderate evidence",
-      detail: `${attempts} attempts across ${diversity} skills`
-    };
-  }
-  return {
-    id: "limited-diversity",
-    label: "Limited diversity",
-    detail: `${attempts} attempts across ${diversity || 0} recorded skills`
-  };
-}
-
 function supportSummary(itemEvidence) {
   const recorded = itemEvidence.reduce((sum, item) => sum + item.seen, 0);
   const independent = itemEvidence.reduce(
@@ -118,8 +98,13 @@ function evidenceBasisFor({
 }) {
   const diversity = skills.length;
   const support = supportSummary(itemEvidence);
-  const confidence = confidenceOverride || confidenceFor({ attempts, diversity, minimum });
+  const confidence = confidenceOverride || learningConfidence({
+    attempts,
+    skillDiversity: diversity,
+    minimumAttempts: minimum
+  });
   return {
+    policyVersion: LEARNING_POLICY_VERSION,
     attempts,
     diversity,
     recency,
@@ -145,7 +130,7 @@ function median(values) {
     : Math.round((sorted[middle - 1] + sorted[middle]) / 2);
 }
 
-function itemEvidenceFor(row) {
+function itemEvidenceFor(row, now) {
   return normalizedHeat(row)
     .filter(item => finiteNumber(item.seen) > 0)
     .map(item => {
@@ -166,7 +151,17 @@ function itemEvidenceFor(row) {
         itemEvidence: [evidence],
         minimum: PROGRESS_ITEM_MIN_ATTEMPTS
       });
-      evidence.policyReady = evidence.evidence.ready;
+      evidence.conclusion = evaluateLearningConclusion({
+        accuracy: evidence.accuracy,
+        attempts: evidence.independentSeen,
+        skillDiversity: 1,
+        observedAt: evidence.updatedAt,
+        now,
+        minimumAttempts: PROGRESS_ITEM_MIN_ATTEMPTS
+      });
+      evidence.evidence.ready = evidence.conclusion.ready;
+      evidence.policyReady = evidence.conclusion.ready;
+      evidence.policyVersion = LEARNING_POLICY_VERSION;
       return evidence;
     });
 }
@@ -196,7 +191,11 @@ function buildGroups(rows) {
     }
 
     for (const item of row.itemEvidence) {
-      if (item.bucket !== "reteach" || !item.policyReady) continue;
+      if (
+        item.bucket !== "reteach"
+        || !item.policyReady
+        || item.conclusion.status.id !== LEARNING_STATUS_IDS.NEEDS_SUPPORT
+      ) continue;
       const group = soundGroups.get(item.id) || {
         id: `sound:${item.id}`,
         label: `${item.label || item.id} re-teaching`,
@@ -232,7 +231,8 @@ function buildGroups(rows) {
           confidenceOverride: {
             id: "policy-ready-group",
             label: "Policy-ready group",
-            detail: `${group.learners.length} learners meet the evidence minimum`
+            detail: `${group.learners.length} learners meet the evidence minimum`,
+            policyVersion: LEARNING_POLICY_VERSION
           }
         })
       };
@@ -244,7 +244,7 @@ function buildGroups(rows) {
     .slice(0, 6);
 }
 
-export function buildTeacherProgressOverview(sourceRows = []) {
+export function buildTeacherProgressOverview(sourceRows = [], { now = new Date() } = {}) {
   const rows = sourceRows
     .filter(row => row?.id)
     .map(row => {
@@ -256,7 +256,7 @@ export function buildTeacherProgressOverview(sourceRows = []) {
         masteredCount: Math.max(0, finiteNumber(row.masteredCount)),
         accuracy: Number.isFinite(Number(row.accuracy)) ? Number(row.accuracy) : null,
         evidenceSkills: evidenceSkillsFor(row),
-        itemEvidence: itemEvidenceFor(row)
+        itemEvidence: itemEvidenceFor(row, now)
       };
       normalized.evidence = evidenceBasisFor({
         attempts: normalized.answered,
@@ -267,6 +267,15 @@ export function buildTeacherProgressOverview(sourceRows = []) {
         ]),
         itemEvidence: normalized.itemEvidence
       });
+      normalized.conclusion = evaluateLearningConclusion({
+        accuracy: normalized.accuracy,
+        attempts: normalized.answered,
+        skillDiversity: normalized.evidenceSkills.length,
+        observedAt: normalized.evidence.recency,
+        now
+      });
+      normalized.evidence.ready = normalized.conclusion.ready;
+      normalized.evidence.policyVersion = normalized.conclusion.policyVersion;
       return normalized;
     });
 
@@ -277,15 +286,17 @@ export function buildTeacherProgressOverview(sourceRows = []) {
     id: band.id,
     label: band.label,
     description: band.description,
-    count: readyRows.filter(row => band.matches(row.accuracy)).length,
+    policyVersion: LEARNING_POLICY_VERSION,
+    count: readyRows.filter(row => row.conclusion.status.id === band.statusId).length,
     learners: readyRows
-      .filter(row => band.matches(row.accuracy))
+      .filter(row => row.conclusion.status.id === band.statusId)
       .map(row => ({ id: row.id, name: row.name }))
   }));
   distribution.push({
-    id: "insufficient",
+    id: LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
     label: `Fewer than ${PROGRESS_MIN_RESPONSES}`,
     description: "More evidence is needed before placing these learners in an accuracy band.",
+    policyVersion: LEARNING_POLICY_VERSION,
     count: insufficientRows.length,
     learners: insufficientRows.map(row => ({ id: row.id, name: row.name }))
   });
@@ -293,11 +304,12 @@ export function buildTeacherProgressOverview(sourceRows = []) {
   const learnersWithAnyEvidence = rows.filter(row =>
     row.answered > 0 || row.itemEvidence.length > 0
   ).length;
-  const itemTargetCount = rows.reduce(
+  const configuredItemTargetCount = rows.reduce(
     (maximum, row) => Math.max(maximum, normalizedHeat(row).length),
     0
   );
   const seenItemIds = new Set(rows.flatMap(row => row.itemEvidence.map(item => item.id)));
+  const itemTargetCount = Math.max(configuredItemTargetCount, seenItemIds.size);
   const coverage = {
     totalLearners: rows.length,
     learnersWithAnyEvidence,
@@ -322,7 +334,8 @@ export function buildTeacherProgressOverview(sourceRows = []) {
       confidenceOverride: {
         id: "coverage-only",
         label: "Coverage only",
-        detail: `${readyRows.length} of ${rows.length} learners meet the accuracy minimum`
+        detail: `${readyRows.length} of ${rows.length} learners meet the accuracy minimum`,
+        policyVersion: LEARNING_POLICY_VERSION
       }
     })
   };
@@ -336,12 +349,14 @@ export function buildTeacherProgressOverview(sourceRows = []) {
       ? {
           id: "policy-ready-class",
           label: "Policy-ready class summary",
-          detail: `${readyRows.length} learners meet the evidence minimum`
+          detail: `${readyRows.length} learners meet the evidence minimum`,
+          policyVersion: LEARNING_POLICY_VERSION
         }
       : {
-          id: "insufficient",
-          label: "Insufficient evidence",
-          detail: `No learner has ${PROGRESS_MIN_RESPONSES} scored responses`
+          id: "not-enough-evidence",
+          label: "Not enough evidence",
+          detail: `No learner has ${PROGRESS_MIN_RESPONSES} scored responses`,
+          policyVersion: LEARNING_POLICY_VERSION
         }
   });
 
@@ -358,7 +373,10 @@ export function buildTeacherProgressOverview(sourceRows = []) {
         itemEvidence: row.itemEvidence,
         evidence: row.evidence
       }))
-      .filter(row => Math.abs(row.difference) >= 15)
+      .filter(row => (
+        Math.abs(row.difference)
+        >= LEARNING_EVIDENCE_POLICY.comparison.classOutlierPercentagePoints
+      ))
       .sort((left, right) =>
         Math.abs(right.difference) - Math.abs(left.difference)
         || left.name.localeCompare(right.name)
@@ -372,9 +390,13 @@ export function buildTeacherProgressOverview(sourceRows = []) {
     outliers,
     classMedian,
     classEvidence,
+    policyVersion: LEARNING_POLICY_VERSION,
     policy: {
       minimumResponses: PROGRESS_MIN_RESPONSES,
-      outlierDistance: 15
+      itemMinimumAttempts: PROGRESS_ITEM_MIN_ATTEMPTS,
+      recencyWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
+      outlierDistance: LEARNING_EVIDENCE_POLICY.comparison.classOutlierPercentagePoints,
+      version: LEARNING_POLICY_VERSION
     }
   };
 }

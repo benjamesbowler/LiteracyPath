@@ -8,6 +8,11 @@ import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
 import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
 import { PROGRESS_MIN_RESPONSES } from "../utils/teacherProgressOverview.js";
 import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion
+} from "../policy/learningPolicy.js";
+import {
   insertRosterStudents,
   setRosterStudentArchived,
   transferRosterStudent
@@ -54,9 +59,14 @@ function formatLastActive(value) {
 }
 
 function accuracyConclusion(row) {
-  if (!row?.answered) return "Not checked";
-  if (row.answered < PROGRESS_MIN_RESPONSES) return "Insufficient evidence";
-  return `${row.accuracy}%`;
+  if (!row?.learningConclusion) return "Not checked";
+  if (!row.learningConclusion.ready) return row.learningConclusion.status.label;
+  return `${row.learningConclusion.accuracy}%`;
+}
+
+function needsSupportConclusion(row) {
+  return row?.learningConclusion?.ready
+    && row.learningConclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT;
 }
 
 function latestMetricUpdate(values = []) {
@@ -985,7 +995,7 @@ export function TeacherDashboardPage({
   const studentRows = useMemo(
     () => studentList.map(student => {
       const dashboardRow = dashboardById.get(student.id) || {};
-      return {
+      const normalized = {
         ...student,
         answered: dashboardRow.answered ?? 0,
         accuracy: dashboardRow.accuracy ?? null,
@@ -1002,6 +1012,17 @@ export function TeacherDashboardPage({
           dashboardRow.accessibilitySettings
         )
       };
+      normalized.learningConclusion = evaluateLearningConclusion({
+        accuracy: normalized.accuracy,
+        attempts: normalized.answered,
+        skillDiversity: Array.isArray(dashboardRow.evidenceSkills)
+          ? dashboardRow.evidenceSkills.length
+          : normalized.currentSkill && normalized.currentSkill !== "Not started"
+            ? 1
+            : 0,
+        observedAt: normalized.lastActive
+      });
+      return normalized;
     }),
     [dashboardById, studentList]
   );
@@ -1015,7 +1036,7 @@ export function TeacherDashboardPage({
       id: "attention",
       label: "Needs attention",
       studentIds: studentRows
-        .filter(row => row.answered >= 8 && row.accuracy !== null && row.accuracy < 70)
+        .filter(needsSupportConclusion)
         .map(row => row.id)
     },
     {
@@ -1039,9 +1060,7 @@ export function TeacherDashboardPage({
 
     // Reteach: 2+ students stuck on the same skill with low accuracy.
     const struggling = studentRows.filter(row =>
-      row.answered >= PROGRESS_MIN_RESPONSES
-      && row.accuracy !== null
-      && row.accuracy < 70
+      needsSupportConclusion(row)
       && row.currentSkill
       && row.currentSkill !== "Not started"
     );
@@ -1055,7 +1074,7 @@ export function TeacherDashboardPage({
         id: "reteach",
         tone: "warn",
         title: `Reteach ${reteach[0]}`,
-        detail: `${reteach[1].map(row => row.name).slice(0, 4).join(", ")}${reteach[1].length > 4 ? ` +${reteach[1].length - 4}` : ""} are below 70% on this skill.`,
+        detail: `${reteach[1].map(row => row.name).slice(0, 4).join(", ")}${reteach[1].length > 4 ? ` +${reteach[1].length - 4}` : ""} are below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}% on this skill.`,
         action: "Show group",
         studentIds: reteach[1].map(row => row.id)
       });
@@ -1102,7 +1121,7 @@ export function TeacherDashboardPage({
       if (rosterStatusFilter === "login-missing") return !row.symbol_password;
       if (rosterStatusFilter === "not-started") return row.answered === 0;
       if (rosterStatusFilter === "needs-attention") {
-        return row.answered >= 8 && row.accuracy !== null && row.accuracy < 70;
+        return needsSupportConclusion(row);
       }
       return true;
     })
@@ -1128,10 +1147,7 @@ export function TeacherDashboardPage({
   const loginReadyCount = studentRows.filter(row => row.symbol_password).length;
   const activeTodayCount = studentRows.filter(row => formatLastActive(row.lastActive) === "Today").length;
   const rowsWithAccuracy = studentRows.filter(row =>
-    row.answered >= PROGRESS_MIN_RESPONSES
-    && row.accuracy !== null
-    && row.accuracy !== undefined
-    && Number.isFinite(Number(row.accuracy))
+    row.learningConclusion?.ready
   );
   const averageAccuracy = rowsWithAccuracy.length
     ? Math.round(rowsWithAccuracy.reduce((sum, row) => sum + Number(row.accuracy), 0) / rowsWithAccuracy.length)
@@ -1721,7 +1737,7 @@ export function TeacherDashboardPage({
             }}
             label="Avg accuracy"
             value={averageAccuracy === null
-              ? studentRows.some(row => row.answered > 0) ? "Insufficient evidence" : "Not checked"
+              ? studentRows.some(row => row.answered > 0) ? "Not enough evidence" : "Not checked"
               : `${averageAccuracy}%`}
           />
           <RosterMetric

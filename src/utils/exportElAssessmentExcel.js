@@ -22,6 +22,10 @@ import {
   buildExportProvenanceRows,
   REPORT_PROVENANCE_SHEET_NAME
 } from "./exportProvenance.js";
+import {
+  LEARNING_STATUS_IDS,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
 
 // EL workbooks are intentionally limited to Assessments 1-6. Other learning
 // areas have their own reports and must not leak into these exports.
@@ -244,14 +248,15 @@ function parsePercent(value) {
 function fillForAccuracy(value) {
   const percent = parsePercent(value);
   if (percent === null) return null;
-  if (percent >= 80) return EXPORT_COLORS.greenSoft;
-  if (percent >= 60) return EXPORT_COLORS.amberSoft;
+  const status = rawLearningStatus(percent);
+  if (status === LEARNING_STATUS_IDS.SECURE) return EXPORT_COLORS.greenSoft;
+  if (status === LEARNING_STATUS_IDS.DEVELOPING) return EXPORT_COLORS.amberSoft;
   return EXPORT_COLORS.redSoft;
 }
 
 function fillForStatus(value) {
   const normalized = String(value || "").toLowerCase();
-  if (/pass|master|on track|yes|correct/.test(normalized)) return EXPORT_COLORS.greenSoft;
+  if (/pass|master|secure|yes|correct/.test(normalized)) return EXPORT_COLORS.greenSoft;
   if (/develop|current|progress|attempt|retry/.test(normalized)) return EXPORT_COLORS.amberSoft;
   if (/support|miss|incorrect|no|risk/.test(normalized)) return EXPORT_COLORS.redSoft;
   if (/not|unseen|reached/.test(normalized)) return EXPORT_COLORS.greySoft;

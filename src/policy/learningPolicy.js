@@ -6,12 +6,227 @@ import {
 /**
  * Canonical learning-policy owner.
  *
- * A4.1/A4.2 will extend this module with the product-wide evidence thresholds.
- * A2.1 starts the policy boundary here so the student-home recommendation is
- * deterministic, versioned, and testable instead of being implied by card
- * order or visual emphasis.
+ * Accuracy bands, evidence sufficiency, confidence, recency, progression, and
+ * student-home recommendations all live here. Reporting and presentation code
+ * may ask this module for a conclusion; it must not recreate these rules.
  */
-export const LEARNING_POLICY_VERSION = "2026.07.24";
+export const LEARNING_POLICY_VERSION = "2026.07.24-a4";
+
+export const LEARNING_STATUS_IDS = Object.freeze({
+  SECURE: "secure",
+  DEVELOPING: "developing",
+  NEEDS_SUPPORT: "needs_support",
+  NOT_ENOUGH_EVIDENCE: "not_enough_evidence",
+  NOT_CHECKED: "not_checked"
+});
+
+export const LEARNING_STATUS_LABELS = Object.freeze({
+  [LEARNING_STATUS_IDS.SECURE]: "Secure",
+  [LEARNING_STATUS_IDS.DEVELOPING]: "Developing",
+  [LEARNING_STATUS_IDS.NEEDS_SUPPORT]: "Needs support",
+  [LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: "Not enough evidence",
+  [LEARNING_STATUS_IDS.NOT_CHECKED]: "Not checked"
+});
+
+export const LEARNING_EVIDENCE_POLICY = Object.freeze({
+  id: "literacy-learning-evidence",
+  version: LEARNING_POLICY_VERSION,
+  accuracyPercent: Object.freeze({
+    secureMinimum: 85,
+    developingMinimum: 70,
+    intensiveSupportMaximum: 50
+  }),
+  minimumEvidence: Object.freeze({
+    learnerScoredResponses: 8,
+    exactItemIndependentAttempts: 3
+  }),
+  recency: Object.freeze({
+    conclusionWindowDays: 90
+  }),
+  confidence: Object.freeze({
+    moderateMinimumSkillDiversity: 2,
+    strongerMinimumResponses: 20,
+    strongerMinimumSkillDiversity: 3
+  }),
+  progression: Object.freeze({
+    minimumCorrectResponses: 2,
+    classMasteryProportion: 0.7
+  }),
+  comparison: Object.freeze({
+    classOutlierPercentagePoints: 15,
+    classFocusProportion: 0.3
+  })
+});
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function finitePolicyNumber(value) {
+  if (value === "" || value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function finitePolicyTimestamp(value) {
+  if (!value) return null;
+  const timestamp = value instanceof Date ? value.getTime() : new Date(value).getTime();
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+export function normalizeAccuracyPercent(value) {
+  const number = finitePolicyNumber(value);
+  if (number === null) return null;
+  return Math.max(0, Math.min(100, number));
+}
+
+export function isLearningEvidenceRecent(
+  observedAt,
+  {
+    now = new Date(),
+    maximumAgeDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
+    allowUndated = false
+  } = {}
+) {
+  const observedTimestamp = finitePolicyTimestamp(observedAt);
+  if (observedTimestamp === null) return Boolean(allowUndated);
+  const nowTimestamp = finitePolicyTimestamp(now);
+  if (nowTimestamp === null) return false;
+  const age = nowTimestamp - observedTimestamp;
+  return age >= 0 && age <= maximumAgeDays * DAY_MS;
+}
+
+export function learningConfidence({
+  attempts = 0,
+  skillDiversity = 0,
+  minimumAttempts = LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses
+} = {}) {
+  const normalizedAttempts = Math.max(0, finitePolicyNumber(attempts) || 0);
+  const normalizedDiversity = Math.max(0, finitePolicyNumber(skillDiversity) || 0);
+  if (normalizedAttempts < minimumAttempts) {
+    return {
+      id: "not-enough-evidence",
+      label: LEARNING_STATUS_LABELS[LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE],
+      detail: `${normalizedAttempts} of ${minimumAttempts} required attempts`,
+      sufficient: false,
+      policyVersion: LEARNING_POLICY_VERSION
+    };
+  }
+  if (
+    normalizedAttempts >= LEARNING_EVIDENCE_POLICY.confidence.strongerMinimumResponses
+    && normalizedDiversity >= LEARNING_EVIDENCE_POLICY.confidence.strongerMinimumSkillDiversity
+  ) {
+    return {
+      id: "stronger",
+      label: "Stronger evidence",
+      detail: `${normalizedAttempts} attempts across ${normalizedDiversity} skills`,
+      sufficient: true,
+      policyVersion: LEARNING_POLICY_VERSION
+    };
+  }
+  if (normalizedDiversity >= LEARNING_EVIDENCE_POLICY.confidence.moderateMinimumSkillDiversity) {
+    return {
+      id: "moderate",
+      label: "Moderate evidence",
+      detail: `${normalizedAttempts} attempts across ${normalizedDiversity} skills`,
+      sufficient: true,
+      policyVersion: LEARNING_POLICY_VERSION
+    };
+  }
+  return {
+    id: "limited-diversity",
+    label: "Limited diversity",
+    detail: `${normalizedAttempts} attempts across ${normalizedDiversity} recorded skills`,
+    sufficient: true,
+    policyVersion: LEARNING_POLICY_VERSION
+  };
+}
+
+export function rawLearningStatus(accuracy) {
+  const normalizedAccuracy = normalizeAccuracyPercent(accuracy);
+  if (normalizedAccuracy === null) return LEARNING_STATUS_IDS.NOT_CHECKED;
+  if (normalizedAccuracy >= LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum) {
+    return LEARNING_STATUS_IDS.SECURE;
+  }
+  if (normalizedAccuracy >= LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum) {
+    return LEARNING_STATUS_IDS.DEVELOPING;
+  }
+  return LEARNING_STATUS_IDS.NEEDS_SUPPORT;
+}
+
+export function evaluateLearningConclusion({
+  accuracy = null,
+  attempts = 0,
+  skillDiversity = 0,
+  observedAt = "",
+  now = new Date(),
+  minimumAttempts = LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
+  requireRecency = true,
+  allowUndated = false
+} = {}) {
+  const normalizedAccuracy = normalizeAccuracyPercent(accuracy);
+  const normalizedAttempts = Math.max(0, finitePolicyNumber(attempts) || 0);
+  const confidence = learningConfidence({
+    attempts: normalizedAttempts,
+    skillDiversity,
+    minimumAttempts
+  });
+  const recent = !requireRecency || isLearningEvidenceRecent(observedAt, { now, allowUndated });
+  const hasScoredEvidence = normalizedAttempts > 0 && normalizedAccuracy !== null;
+  const evidenceReady = hasScoredEvidence && confidence.sufficient && recent;
+  const statusId = !hasScoredEvidence
+    ? LEARNING_STATUS_IDS.NOT_CHECKED
+    : evidenceReady
+      ? rawLearningStatus(normalizedAccuracy)
+      : LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE;
+
+  return {
+    policyId: LEARNING_EVIDENCE_POLICY.id,
+    policyVersion: LEARNING_POLICY_VERSION,
+    status: {
+      id: statusId,
+      label: LEARNING_STATUS_LABELS[statusId]
+    },
+    accuracy: normalizedAccuracy,
+    attempts: normalizedAttempts,
+    minimumAttempts,
+    observedAt: observedAt || "",
+    recent,
+    confidence,
+    ready: evidenceReady,
+    reason: !hasScoredEvidence
+      ? "No scored evidence has been recorded."
+      : !confidence.sufficient
+        ? confidence.detail
+        : !recent
+          ? `The latest evidence is older than ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
+          : "The evidence meets the published learning-policy requirements."
+  };
+}
+
+export function meetsLearningProgressionRule({
+  accuracy = null,
+  attempts = 0,
+  correct = 0,
+  observedAt = "",
+  now = new Date(),
+  minimumAttempts = LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
+  allowUndated = false
+} = {}) {
+  const conclusion = evaluateLearningConclusion({
+    accuracy,
+    attempts,
+    skillDiversity: 1,
+    observedAt,
+    now,
+    minimumAttempts,
+    allowUndated
+  });
+  return {
+    ...conclusion,
+    progresses: conclusion.ready
+      && conclusion.status.id === LEARNING_STATUS_IDS.SECURE
+      && Number(correct || 0) >= LEARNING_EVIDENCE_POLICY.progression.minimumCorrectResponses
+  };
+}
 
 export const STUDENT_HOME_RECOMMENDATION_POLICY = Object.freeze({
   id: "student-home-next-activity",

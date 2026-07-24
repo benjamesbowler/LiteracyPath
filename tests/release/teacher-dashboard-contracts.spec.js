@@ -186,14 +186,14 @@ test("@teacher-evidence-basis exposes every basis and withholds the seeded spars
   const learner = page.getByRole("region", { name: "Learner progress evidence: Amara" });
   await expect(learner).toBeVisible();
   await expect(learner).toContainText("1 scored response");
-  await expect(learner).toContainText("Insufficient evidence for an accuracy conclusion");
+  await expect(learner).toContainText("Not enough evidence for an accuracy conclusion");
   await expect(learner).not.toContainText("100% accuracy");
 
   const learnerBasis = learner.getByLabel("Amara learner conclusion evidence basis");
   await expect(learnerBasis.getByText("1 scored response", { exact: true })).toBeVisible();
   await expect(learnerBasis.getByText("1 assessment skill", { exact: true })).toBeVisible();
   await expect(learnerBasis.getByText(/Jul 2026/, { exact: true })).toBeVisible();
-  await expect(learnerBasis.getByText("Insufficient evidence · 1 of 8 required attempts", {
+  await expect(learnerBasis.getByText("Not enough evidence · 1 of 8 required attempts", {
     exact: true
   })).toBeVisible();
   await expect(learnerBasis.getByText("0 supported of 10 recorded Sound Seekers encounters", {

@@ -467,7 +467,7 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
 
   const individual = buildIndividualElFormalAssessmentReport({ student, assessmentHistory: history });
   const letterA = individual.individualLetterMatrix.find(row => row.letter === "a");
-  assert.equal(letterA.uppercaseName.statusLabel, "Mastered");
+  assert.equal(letterA.uppercaseName.statusLabel, "Not enough evidence");
   assert.equal(letterA.uppercaseSound.statusLabel, "Unscored evidence");
   assert.equal(letterA.uppercaseSound.attempts, 0);
   assert.equal(letterA.uppercaseSound.incorrect, 0);

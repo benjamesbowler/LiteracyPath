@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { buildTeacherProgressOverview } from "../../utils/teacherProgressOverview.js";
+import { LEARNING_STATUS_IDS } from "../../policy/learningPolicy.js";
 import { TeacherGrowthChart } from "./TeacherGrowthChart.jsx";
 import { TeacherInsightActions } from "./TeacherInsightActions.jsx";
 import { TeacherInstructionalGroups } from "./TeacherInstructionalGroups.jsx";
@@ -74,11 +75,15 @@ export function TeacherProgressOverview({
   onSelectClass,
   rows = [],
   selectedLearnerId = "",
+  policyNow,
   onSelectLearner,
   onClearLearner,
   onOpenReports
 }) {
-  const summary = useMemo(() => buildTeacherProgressOverview(rows), [rows]);
+  const summary = useMemo(
+    () => buildTeacherProgressOverview(rows, { now: policyNow || new Date() }),
+    [policyNow, rows]
+  );
   const [itemSelection, setItemSelection] = useState({
     learnerId: "",
     itemId: ""
@@ -88,7 +93,9 @@ export function TeacherProgressOverview({
     ? itemSelection.itemId
     : "";
   const selectedItem = selectedLearner?.itemEvidence.find(item => item.id === selectedItemId) || null;
-  const insufficientLearners = summary.distribution.find(band => band.id === "insufficient")?.learners || [];
+  const insufficientLearners = summary.distribution.find(
+    band => band.id === LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+  )?.learners || [];
 
   function chooseLearner(learnerId) {
     const learner = summary.rows.find(row => row.id === learnerId);
@@ -102,7 +109,10 @@ export function TeacherProgressOverview({
   }
 
   return (
-    <div className="teacher-progress-overview">
+    <div
+      className="teacher-progress-overview"
+      data-learning-policy-version={summary.policyVersion}
+    >
       <section className="teacher-progress-scope" aria-label="Progress class scope">
         <label>
           <span>Current class</span>
@@ -175,7 +185,7 @@ export function TeacherProgressOverview({
                 Accuracy bands require at least {summary.policy.minimumResponses} scored responses.
               </p>
               {insufficientLearners.length > 0 && (
-                <ul className="teacher-progress-insufficient-list" aria-label="Learners with insufficient evidence">
+                <ul className="teacher-progress-insufficient-list" aria-label="Learners with not enough evidence">
                   {insufficientLearners.map(learner => (
                     <li key={learner.id}>
                       <span>{learner.name}</span>
@@ -345,7 +355,7 @@ export function TeacherProgressOverview({
                     {selectedLearner.answered} scored responses ·
                     {" "}{selectedLearner.evidence.ready
                       ? `${percentLabel(selectedLearner.accuracy)} accuracy`
-                      : "Insufficient evidence for an accuracy conclusion"} ·
+                      : "Not enough evidence for an accuracy conclusion"} ·
                     {" "}{selectedLearner.masteredCount} mastered skills
                   </p>
                 </div>
@@ -382,7 +392,10 @@ export function TeacherProgressOverview({
                           }))}
                         >
                           <strong>{item.label}</strong>
-                          <span>{bucketLabel(item.bucket)} · {item.seen} recorded encounters</span>
+                          <span>
+                            {item.policyReady ? bucketLabel(item.bucket) : "Not enough evidence"}
+                            {" "}· {item.seen} recorded encounters
+                          </span>
                         </button>
                       </li>
                     ))}
@@ -405,7 +418,7 @@ export function TeacherProgressOverview({
                   <dl>
                     <div>
                       <dt>Current signal</dt>
-                      <dd>{selectedItem.policyReady ? bucketLabel(selectedItem.bucket) : "Insufficient evidence"}</dd>
+                      <dd>{selectedItem.policyReady ? bucketLabel(selectedItem.bucket) : "Not enough evidence"}</dd>
                     </div>
                     <div>
                       <dt>Recorded encounters</dt>
@@ -420,7 +433,7 @@ export function TeacherProgressOverview({
                       <dd>
                         {selectedItem.policyReady
                           ? percentLabel(selectedItem.accuracy)
-                          : "Insufficient evidence"}
+                          : "Not enough evidence"}
                       </dd>
                     </div>
                   </dl>
@@ -442,7 +455,7 @@ export function TeacherProgressOverview({
                       label: `${selectedLearner.name} · ${selectedItem.label}`,
                       focus: `${selectedItem.policyReady
                         ? bucketLabel(selectedItem.bucket)
-                        : "Insufficient evidence"} for ${selectedItem.label}`,
+                        : "Not enough evidence"} for ${selectedItem.label}`,
                       reason: selectedItem.policyReady
                         ? `${selectedItem.independentSeen} independent attempts currently classify this item as ${bucketLabel(selectedItem.bucket)}.`
                         : `${selectedItem.independentSeen} independent attempts do not yet meet the exact-item evidence minimum.`,

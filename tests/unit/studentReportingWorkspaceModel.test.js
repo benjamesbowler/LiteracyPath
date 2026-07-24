@@ -201,7 +201,10 @@ test("EL Assessments 1 and 2 prefer completed history and only use legacy state 
   assert.equal(model.descriptiveEvidence[0].knowledgeEligible, false);
   assert.equal(model.knowledgeEvidence.some(row => row.sourceRecordType === "el_phonological_awareness"), false);
   assert.equal(model.assessments[5].resultLabel, "Not checked");
-  assert.equal(model.letterMatrix.find(row => row.letter === "m").uppercaseName.status, "mastered");
+  assert.equal(
+    model.letterMatrix.find(row => row.letter === "m").uppercaseName.status,
+    "not_enough_evidence"
+  );
   assert.equal(Array.isArray(model.advancedPhonicsMatrix), true);
   assert.equal(model.provenance.completedHistoryIsCanonical, true);
 });
@@ -728,7 +731,7 @@ test("EL 1 and 2 keep the latest terminal result current when a newer attempt is
   const letter = model.elAssessments.assessments[0];
 
   assert.equal(letter.latestAttempt.attemptId, "completed-letter");
-  assert.equal(letter.resultLabel, "Secure");
+  assert.equal(letter.resultLabel, "Not enough evidence");
   assert.deepEqual(letter.attempts.map(row => row.attemptId), ["partial-letter", "completed-letter"]);
   assert.equal(model.elAssessments.knowledgeEvidence[0].sourceRecordId, "completed-letter");
   assert.equal(model.wholeChild.concepts.find(row => row.key === "m").status.id, REPORTING_STATUS_IDS.SECURE);
@@ -820,7 +823,10 @@ test("Skills Check current status, score and item judgment come from the newest 
   const failedItem = failedLatest.skillsCheck.items.find(row => row.concept.key === "m");
 
   assert.equal(failedSkill.latestAttempt.attemptId, "latest-fail");
-  assert.equal(failedSkill.currentStatus.id, REPORTING_STATUS_IDS.NEEDS_TEACHING);
+  assert.equal(
+    failedSkill.currentStatus.id,
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+  );
   assert.equal(failedSkill.latestCorrectCount, 0);
   assert.equal(failedSkill.latestTotalQuestions, 1);
   assert.equal(failedSkill.latestAccuracy, 0);
@@ -841,7 +847,10 @@ test("Skills Check current status, score and item judgment come from the newest 
     student,
     assessmentHistory: [latestFail, latestPass]
   });
-  assert.equal(passedLatest.skillsCheck.skills[0].currentStatus.id, REPORTING_STATUS_IDS.SECURE);
+  assert.equal(
+    passedLatest.skillsCheck.skills[0].currentStatus.id,
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+  );
   assert.equal(passedLatest.skillsCheck.items[0].statusCandidate, REPORTING_STATUS_IDS.SECURE);
   assert.equal(passedLatest.wholeChild.concepts.find(row => row.key === "m").status.id, REPORTING_STATUS_IDS.SECURE);
 });
@@ -1036,8 +1045,8 @@ test("Whole Child priorities are deterministic and ordered by need, evidence str
     "Sound for oa"
   ]);
   assert.deepEqual(model.nextSteps.map(row => row.statusLabel), [
-    "Needs teaching",
-    "Needs teaching",
+    "Needs support",
+    "Needs support",
     "Mixed evidence",
     "Developing"
   ]);

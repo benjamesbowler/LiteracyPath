@@ -22,6 +22,7 @@ import {
 } from "../utils/guidedReading/bookLevelOverrides";
 import { exportAssessmentAttemptsCsv } from "../data/assessmentHistoryStore";
 import { buildClassReportModel } from "../data/reportingSystem.js";
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
   deleteSavedElAssessmentReport,
   getSavedElAssessmentReports,
@@ -302,13 +303,13 @@ export function FormalClassReportDocument({
     generatedAt: model.generatedAt,
     filters: { Class: model.className },
     evidenceSource: model.provenanceEvidence || [],
-    definitions: "Average accuracy = correct responses ÷ scored responses; On track = at least 80%; Developing = 60–79%; Needs support = below 60%.",
+    definitions: `Average accuracy = correct responses ÷ scored responses; Secure = at least ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%; Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%; Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%; Not enough evidence = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses.`,
     ...provenanceOptions
   });
   const generated = formatClassReportDate(model.generatedAt);
   const metricRows = [
     ["Avg Accuracy", `${model.snapshot.averageAccuracy}%`, "teal"],
-    ["On Track", `${model.snapshot.onTrack}/${model.snapshot.totalStudents}`, "green"],
+    ["Secure", `${model.snapshot.onTrack}/${model.snapshot.totalStudents}`, "green"],
     ["Developing", `${model.snapshot.developing}/${model.snapshot.totalStudents}`, "amber"],
     ["Needs Support", `${model.snapshot.needsSupport}/${model.snapshot.totalStudents}`, "red"],
     ["Avg Reading Level", model.snapshot.avgReadingLevel, "green"],
@@ -1899,7 +1900,7 @@ export function AdminDashboardPage({
     generatedAt: classReportingModel.generatedAt,
     filters: { Class: classReportingModel.className },
     evidenceSource: classReportingModel.provenanceEvidence,
-    definitions: "Average accuracy = correct responses ÷ scored responses; On track = at least 80%; Developing = 60–79%; Needs support = below 60%."
+    definitions: `Average accuracy = correct responses ÷ scored responses; Secure = at least ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%; Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%; Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%; Not enough evidence = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses.`
   }), [
     classReportingModel,
     selectedClassRow.schoolName,

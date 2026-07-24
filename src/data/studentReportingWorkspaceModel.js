@@ -24,6 +24,11 @@ import {
   initialSoundExpectedItemKeys
 } from "./coverageExpectations.js";
 import { normalizeDecodingSupportEvent } from "../utils/guidedReading/decodingSupport.js";
+import {
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -514,16 +519,38 @@ function scoredAssessmentStatus(attempt = null, fallbackEvidence = []) {
     if (attempt.administrationStatus === ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED) {
       return reportingStatus(REPORTING_STATUS_IDS.DEVELOPING);
     }
-    return reportingStatus(attempt.passed ? REPORTING_STATUS_IDS.SECURE : REPORTING_STATUS_IDS.NEEDS_TEACHING);
+    const conclusion = evaluateLearningConclusion({
+      accuracy: attempt.accuracy,
+      attempts: attempt.scoredCount || attempt.totalQuestions,
+      observedAt: attempt.completedAt
+    });
+    if (!conclusion.ready) {
+      return reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+    }
+    return reportingStatus(
+      conclusion.status.id === LEARNING_STATUS_IDS.SECURE
+        ? REPORTING_STATUS_IDS.SECURE
+        : conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING
+          ? REPORTING_STATUS_IDS.DEVELOPING
+          : REPORTING_STATUS_IDS.NEEDS_TEACHING
+    );
   }
   const scored = fallbackEvidence.filter(row => row.statusCandidate);
   if (!scored.length) return reportingStatus(REPORTING_STATUS_IDS.NOT_CHECKED);
   const correct = scored.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length;
   const accuracy = Math.round((correct / scored.length) * 100);
+  const conclusion = evaluateLearningConclusion({
+    accuracy,
+    attempts: scored.length,
+    observedAt: scored.map(row => row.observedAt).filter(Boolean).sort().at(-1) || ""
+  });
+  if (!conclusion.ready) {
+    return reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+  }
   return reportingStatus(
-    accuracy >= 80
+    conclusion.status.id === LEARNING_STATUS_IDS.SECURE
       ? REPORTING_STATUS_IDS.SECURE
-      : accuracy >= 60
+      : conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING
         ? REPORTING_STATUS_IDS.DEVELOPING
         : REPORTING_STATUS_IDS.NEEDS_TEACHING
   );
@@ -893,13 +920,14 @@ function guidedWordEvidence({
 
 function guidedQuizEvidence({ studentId, bookId, title, score, total, observedAt, raw }) {
   const percent = total > 0 ? Math.round((score / total) * 100) : null;
-  const candidate = percent === null
-    ? null
-    : percent >= 80
-      ? REPORTING_STATUS_IDS.SECURE
-      : percent >= 60
-        ? REPORTING_STATUS_IDS.DEVELOPING
-        : REPORTING_STATUS_IDS.NEEDS_TEACHING;
+  const learningStatus = percent === null ? null : rawLearningStatus(percent);
+  const candidate = learningStatus === LEARNING_STATUS_IDS.SECURE
+    ? REPORTING_STATUS_IDS.SECURE
+    : learningStatus === LEARNING_STATUS_IDS.DEVELOPING
+      ? REPORTING_STATUS_IDS.DEVELOPING
+      : learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
+        ? REPORTING_STATUS_IDS.NEEDS_TEACHING
+        : null;
   return createReportingEvidence({
     evidenceId: `guided_reading:${bookId}:quiz`,
     studentId,
@@ -1400,9 +1428,12 @@ function legacyItemMasteryEvidence({
       attempts > 0 ? Math.round((Number(row.correct || 0) / attempts) * 100) : null
     );
     const status = normalizeReportingKey(row.status);
+    const learningStatus = accuracy === null ? null : rawLearningStatus(accuracy);
     const statusCandidate = row.mastered || status === "mastered"
       ? REPORTING_STATUS_IDS.SECURE
-      : row.needsSupport || status === "needs_support" || (accuracy !== null && accuracy < 60)
+      : row.needsSupport
+        || status === "needs_support"
+        || learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
         ? REPORTING_STATUS_IDS.NEEDS_TEACHING
         : REPORTING_STATUS_IDS.DEVELOPING;
     return [createReportingEvidence({
@@ -1464,9 +1495,10 @@ function legacySkillSummaryEvidence({ skillMasterySummary = {}, studentId = "", 
     const accuracy = finiteNumber(row.accuracy) ?? (
       Number(row.total || 0) > 0 ? Math.round((Number(row.score || 0) / Number(row.total)) * 100) : null
     );
+    const learningStatus = accuracy === null ? null : rawLearningStatus(accuracy);
     const statusCandidate = row.mastered
       ? REPORTING_STATUS_IDS.SECURE
-      : accuracy !== null && accuracy < 60
+      : learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
         ? REPORTING_STATUS_IDS.NEEDS_TEACHING
         : REPORTING_STATUS_IDS.DEVELOPING;
     const concept = createReportingConcept({

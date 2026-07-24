@@ -1,3 +1,11 @@
+import {
+  LEARNING_POLICY_VERSION,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion,
+  meetsLearningProgressionRule,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
+
 const STORAGE_PREFIX = "lpAssessmentHistory:v1";
 const SYNC_QUEUE_PREFIX = "lpAssessmentSyncQueue:v1";
 const activeSyncQueueFlushes = new Map();
@@ -676,7 +684,14 @@ export function normalizeAssessmentAttempt(record = {}) {
   const discontinued = Boolean(record.discontinued || administrationStatus === ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED);
   const passed = isDescriptiveElBenchmark
     ? Boolean(record.passed ?? false)
-    : Boolean(record.passed ?? record.mastered ?? (!discontinued && accuracy >= 80));
+    : Boolean(
+      record.passed
+      ?? record.mastered
+      ?? (
+        !discontinued
+        && rawLearningStatus(accuracy) === LEARNING_STATUS_IDS.SECURE
+      )
+    );
   const hasRichFields = hasExplicitResponseStates || [
     "framework",
     "formVersion",
@@ -881,10 +896,15 @@ export function extractMasteryFromAssessmentAttempt(record = {}) {
 
   const rows = Array.from(groups.values()).map(group => {
     const accuracy = group.attempts ? Math.round((group.correct / group.attempts) * 100) : 0;
-    // Mastery requires BOTH enough correct answers AND a real accuracy floor — a
-    // bare `correct >= 2` marked a child mastered even at 2-of-8 (25%) accuracy.
-    const mastered = group.correct >= 2 && accuracy >= 80;
-    const needsSupport = group.attempts > 0 && (group.correct === 0 || accuracy < 60);
+    const conclusion = meetsLearningProgressionRule({
+      accuracy,
+      attempts: group.attempts,
+      correct: group.correct,
+      observedAt: group.lastAssessed
+    });
+    const mastered = conclusion.progresses;
+    const needsSupport = conclusion.ready
+      && conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT;
     return {
       itemKey: group.itemKey,
       itemType: group.itemType,
@@ -894,7 +914,14 @@ export function extractMasteryFromAssessmentAttempt(record = {}) {
       correct: group.correct,
       accuracy,
       mastered,
-      status: mastered ? "mastered" : needsSupport ? "needs_support" : "developing",
+      status: mastered
+        ? "mastered"
+        : needsSupport
+          ? "needs_support"
+          : conclusion.ready
+            ? "developing"
+            : "not_enough_evidence",
+      policyVersion: conclusion.policyVersion,
       examples: Array.from(group.examples).slice(0, 6),
       missedExamples: Array.from(group.missedExamples).slice(0, 6),
       lastAssessed: group.lastAssessed
@@ -950,7 +977,16 @@ export function mergeAssessmentAttemptIntoItemMastery(itemMastery = {}, record =
       // Recompute each merge instead of carrying previous.mastered forward:
       // a child who later fails an item repeatedly must drop out of "mastered"
       // so remediation can re-teach it.
-      mastered: Boolean(row.mastered || accuracy >= 80),
+      mastered: Boolean(
+        row.mastered
+        || meetsLearningProgressionRule({
+          accuracy,
+          attempts,
+          correct,
+          observedAt: row.lastAssessed || attempt.completedAt
+        }).progresses
+      ),
+      policyVersion: LEARNING_POLICY_VERSION,
       examples: Array.from(new Set([...(previous.examples || []), ...row.examples])).slice(0, 8),
       missedExamples: Array.from(new Set([...(previous.missedExamples || []), ...row.missedExamples])).slice(0, 8),
       updatedAt: attempt.completedAt
@@ -1685,9 +1721,11 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
       total: 0,
       mastered: 0,
       descriptiveEvidence: 0,
-      isDescriptiveBenchmark
+      isDescriptiveBenchmark,
+      latestAt: ""
     };
     skill.attempts += 1;
+    skill.latestAt = [skill.latestAt, record.completedAt].filter(Boolean).sort().at(-1) || "";
     if (isDescriptiveBenchmark) skill.descriptiveEvidence += 1;
     else {
       skill.correct += record.correctCount;
@@ -1725,25 +1763,39 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
     studentMap.set(record.studentId, student);
   });
 
-  const skills = Array.from(skillMap.values()).map(skill => ({
-    ...skill,
-    accuracy: skill.total ? Math.round((skill.correct / skill.total) * 100) : 0,
-    status: skill.isDescriptiveBenchmark
-      ? skill.descriptiveEvidence > 0 ? "evidence recorded" : "not assessed"
-      : skill.total === 0
-        ? "not assessed"
-        : skill.correct / skill.total >= 0.85
-          ? "on track"
-          : skill.correct / skill.total >= 0.65
-            ? "developing"
-            : "needs support"
-  }));
-  const studentsSummary = Array.from(studentMap.values()).map(student => ({
-    ...student,
-    accuracy: student.total ? Math.round((student.correct / student.total) * 100) : 0,
-    masteredSkills: Array.from(student.masteredSkills),
-    supportSkills: Array.from(student.supportSkills)
-  }));
+  const skills = Array.from(skillMap.values()).map(skill => {
+    const accuracy = skill.total ? Math.round((skill.correct / skill.total) * 100) : 0;
+    const conclusion = evaluateLearningConclusion({
+      accuracy,
+      attempts: skill.total,
+      observedAt: skill.latestAt
+    });
+    return {
+      ...skill,
+      accuracy,
+      conclusion,
+      policyVersion: conclusion.policyVersion,
+      status: skill.isDescriptiveBenchmark
+        ? skill.descriptiveEvidence > 0 ? "evidence recorded" : "not checked"
+        : conclusion.status.label.toLowerCase()
+    };
+  });
+  const studentsSummary = Array.from(studentMap.values()).map(student => {
+    const accuracy = student.total ? Math.round((student.correct / student.total) * 100) : 0;
+    const conclusion = evaluateLearningConclusion({
+      accuracy,
+      attempts: student.total,
+      observedAt: student.latestScored?.completedAt || ""
+    });
+    return {
+      ...student,
+      accuracy,
+      conclusion,
+      policyVersion: conclusion.policyVersion,
+      masteredSkills: Array.from(student.masteredSkills),
+      supportSkills: Array.from(student.supportSkills)
+    };
+  });
 
   return {
     attempts: normalized.length,
@@ -1766,7 +1818,11 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
       .sort((a, b) => a.accuracy - b.accuracy)
       .slice(0, 5),
     studentsNeedingSupport: studentsSummary.filter(student => (
-      (student.total > 0 && student.accuracy < 70) || student.supportSkills.length > 0
+      (
+        student.conclusion.ready
+        && student.conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT
+      )
+      || student.supportSkills.length > 0
     )).slice(0, 8),
     studentsReadyToLevelUp: studentsSummary.filter(student => student.latestScored?.passed).slice(0, 8)
   };

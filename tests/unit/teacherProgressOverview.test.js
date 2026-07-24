@@ -83,6 +83,7 @@ const rows = [
     currentSkill: "CVC Short Vowels",
     evidenceSkills: ["Initial Sounds", "Final Sounds", "CVC Short Vowels"],
     soundSeekers: {
+      lastActiveAt: "2026-07-23T09:00:00.000Z",
       heat: [
         {
           id: "m",
@@ -115,6 +116,7 @@ const rows = [
     soundSeekers: null
   }
 ];
+const POLICY_NOW = new Date("2026-07-24T12:00:00.000Z");
 
 let TeacherProgressOverview;
 let vite;
@@ -136,7 +138,7 @@ test.after(async () => {
 });
 
 test("class distribution keeps sparse evidence outside accuracy bands", () => {
-  const summary = buildTeacherProgressOverview(rows);
+  const summary = buildTeacherProgressOverview(rows, { now: POLICY_NOW });
   const counts = Object.fromEntries(summary.distribution.map(band => [band.id, band.count]));
 
   assert.equal(PROGRESS_MIN_RESPONSES, 8);
@@ -144,13 +146,13 @@ test("class distribution keeps sparse evidence outside accuracy bands", () => {
     secure: 1,
     developing: 1,
     "needs-support": 1,
-    insufficient: 1
+    not_enough_evidence: 1
   });
   assert.equal(summary.classMedian, 75);
 });
 
 test("coverage distinguishes evidence presence, policy readiness, and exact item reach", () => {
-  const { coverage } = buildTeacherProgressOverview(rows);
+  const { coverage } = buildTeacherProgressOverview(rows, { now: POLICY_NOW });
 
   assert.deepEqual({
     totalLearners: coverage.totalLearners,
@@ -177,7 +179,7 @@ test("coverage distinguishes evidence presence, policy readiness, and exact item
 });
 
 test("groups expose transparent shared-focus and shared-item membership", () => {
-  const { groups } = buildTeacherProgressOverview(rows);
+  const { groups } = buildTeacherProgressOverview(rows, { now: POLICY_NOW });
   const soundGroup = groups.find(group => group.id === "sound:m");
   const focusGroup = groups.find(group => group.id === "focus:cvc short vowels");
 
@@ -188,7 +190,7 @@ test("groups expose transparent shared-focus and shared-item membership", () => 
 });
 
 test("outliers require policy-ready evidence and a 15-point median distance", () => {
-  const { outliers } = buildTeacherProgressOverview(rows);
+  const { outliers } = buildTeacherProgressOverview(rows, { now: POLICY_NOW });
 
   assert.deepEqual(
     outliers.map(row => ({
@@ -205,7 +207,7 @@ test("outliers require policy-ready evidence and a 15-point median distance", ()
 });
 
 test("evidence bases expose attempts, diversity, recency, confidence, and support use", () => {
-  const summary = buildTeacherProgressOverview(rows);
+  const summary = buildTeacherProgressOverview(rows, { now: POLICY_NOW });
   const aisha = summary.rows.find(row => row.id === "aisha");
   const item = aisha.itemEvidence.find(row => row.id === "m");
 
@@ -219,7 +221,7 @@ test("evidence bases expose attempts, diversity, recency, confidence, and suppor
   assert.match(item.evidence.confidenceLabel, /^Limited diversity/);
 });
 
-test("a sparse learner renders insufficient evidence instead of a bare percentage", () => {
+test("a sparse learner renders Not enough evidence instead of a bare percentage", () => {
   const sparse = {
     id: "amara",
     name: "Amara",
@@ -231,10 +233,10 @@ test("a sparse learner renders insufficient evidence instead of a bare percentag
     lastActive: "2026-07-23T08:00:00.000Z",
     soundSeekers: null
   };
-  const summary = buildTeacherProgressOverview([sparse]);
+  const summary = buildTeacherProgressOverview([sparse], { now: POLICY_NOW });
 
   assert.equal(summary.rows[0].evidence.ready, false);
-  assert.equal(summary.rows[0].evidence.confidence.label, "Insufficient evidence");
+  assert.equal(summary.rows[0].evidence.confidence.label, "Not enough evidence");
 
   const html = renderToStaticMarkup(
     React.createElement(TeacherProgressOverview, {
@@ -243,6 +245,7 @@ test("a sparse learner renders insufficient evidence instead of a bare percentag
       selectedClassId: "class-a",
       rows: [sparse],
       selectedLearnerId: "amara",
+      policyNow: POLICY_NOW,
       onSelectClass() {},
       onSelectLearner() {},
       onClearLearner() {},
@@ -250,7 +253,7 @@ test("a sparse learner renders insufficient evidence instead of a bare percentag
     })
   );
 
-  assert.match(html, /Insufficient evidence for an accuracy conclusion/);
+  assert.match(html, /Not enough evidence for an accuracy conclusion/);
   assert.doesNotMatch(html, /100% accuracy/);
   assert.match(html, /aria-label="Amara learner conclusion evidence basis"/);
   for (const label of ["Attempts", "Diversity", "Recency", "Confidence", "Support use"]) {
@@ -266,6 +269,7 @@ test("class-first progress renders all four insights and a learner item path", (
       selectedClassId: "class-a",
       rows,
       selectedLearnerId: "aisha",
+      policyNow: POLICY_NOW,
       onSelectClass() {},
       onSelectLearner() {},
       onClearLearner() {},

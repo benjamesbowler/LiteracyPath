@@ -1,10 +1,18 @@
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_POLICY_VERSION,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
 
 const STATUS_LABELS = {
-  on_track: "On track",
+  on_track: "Secure",
   developing: "Developing",
   needs_support: "Needs support",
-  not_started: "Not started"
+  not_enough_evidence: "Not enough evidence",
+  not_started: "Not checked"
 };
 
 const DESCRIPTIVE_EL_BENCHMARK_IDS = new Set([
@@ -175,16 +183,21 @@ function classReportSkillSortValue(skillName = "") {
 
 function getClassReportStatusId(accuracy = 0, attempts = 0) {
   if (!attempts) return "not_assessed";
-  if (accuracy >= 80) return "mastered";
-  if (accuracy >= 60) return "developing";
-  return "needs_support";
+  if (attempts < LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses) {
+    return "not_enough_evidence";
+  }
+  const status = rawLearningStatus(accuracy);
+  if (status === LEARNING_STATUS_IDS.SECURE) return "mastered";
+  if (status === LEARNING_STATUS_IDS.DEVELOPING) return "developing";
+  return status === LEARNING_STATUS_IDS.NEEDS_SUPPORT ? "needs_support" : "not_assessed";
 }
 
 function getClassReportStatusLabel(statusId = "") {
-  if (statusId === "mastered") return "Mastered";
+  if (statusId === "mastered") return "Secure";
   if (statusId === "developing") return "Developing";
   if (statusId === "needs_support") return "Needs support";
-  return "Not assessed";
+  if (statusId === "not_enough_evidence") return "Not enough evidence";
+  return "Not checked";
 }
 
 function getClassReportActivity(point = {}) {
@@ -210,32 +223,53 @@ export function formatReportDate(value) {
   });
 }
 
-export function getAccuracyStatus(accuracy = 0, hasData = true) {
+export function getAccuracyStatus(
+  accuracy = 0,
+  hasData = true,
+  attempts = hasData ? LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses : 0
+) {
   if (!hasData) {
     return {
       id: "not_started",
       label: STATUS_LABELS.not_started,
-      description: "No assessment evidence yet."
+      description: "No assessment evidence yet.",
+      policyVersion: LEARNING_POLICY_VERSION
     };
   }
-  if (accuracy >= 80) {
+  const conclusion = evaluateLearningConclusion({
+    accuracy,
+    attempts,
+    requireRecency: false
+  });
+  if (!conclusion.ready) {
+    return {
+      id: "not_enough_evidence",
+      label: STATUS_LABELS.not_enough_evidence,
+      description: conclusion.reason,
+      policyVersion: conclusion.policyVersion
+    };
+  }
+  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) {
     return {
       id: "on_track",
       label: STATUS_LABELS.on_track,
-      description: "Checkpoint evidence is strong."
+      description: "Checkpoint evidence is secure.",
+      policyVersion: conclusion.policyVersion
     };
   }
-  if (accuracy >= 60) {
+  if (conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING) {
     return {
       id: "developing",
       label: STATUS_LABELS.developing,
-      description: "Useful progress, with some targeted review needed."
+      description: "Useful progress, with some targeted review needed.",
+      policyVersion: conclusion.policyVersion
     };
   }
   return {
     id: "needs_support",
     label: STATUS_LABELS.needs_support,
-    description: "Plan a short, focused reteach before moving on."
+    description: "Plan a short, focused reteach before moving on.",
+    policyVersion: conclusion.policyVersion
   };
 }
 
@@ -321,8 +355,16 @@ function getItemStatus(row = {}) {
   const correct = Number(row.correct || 0);
   const accuracy = attempts ? clampPercent((correct / attempts) * 100) : clampPercent(row.accuracy);
   if (!attempts) return "not_assessed";
-  if (correct >= 2 || accuracy >= 80 || row.mastered) return "mastered";
-  if (correct === 0 || accuracy < 60) return "needs_support";
+  const conclusion = evaluateLearningConclusion({
+    accuracy,
+    attempts,
+    observedAt: row.lastAssessed || row.updatedAt || "",
+    minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
+    requireRecency: Boolean(row.lastAssessed || row.updatedAt)
+  });
+  if (!conclusion.ready) return "not_enough_evidence";
+  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE || row.mastered) return "mastered";
+  if (conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT) return "needs_support";
   return "developing";
 }
 
@@ -392,7 +434,16 @@ export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = [
       ...row,
       accuracy,
       status,
-      statusLabel: status === "mastered" ? "Mastered" : status === "developing" ? "Developing" : status === "needs_support" ? "Needs support" : "Not assessed",
+      statusLabel: status === "mastered"
+        ? "Secure"
+        : status === "developing"
+          ? "Developing"
+          : status === "needs_support"
+            ? "Needs support"
+            : status === "not_enough_evidence"
+              ? "Not enough evidence"
+              : "Not checked",
+      policyVersion: LEARNING_POLICY_VERSION,
       label: formatItemLabel(row.itemType, row.itemKey),
       itemTypeLabel: ITEM_TYPE_LABELS[row.itemType] || "Skill item",
       examples: Array.from(row.examples).filter(Boolean).slice(0, 8),
@@ -477,11 +528,17 @@ export function buildRecommendations({
   const supportRows = (currentRows.length ? currentRows : itemRows).filter(row => row.status === "needs_support");
   const developingRows = (currentRows.length ? currentRows : itemRows).filter(row => row.status === "developing");
   const focusItems = [
-    ...supportRows.filter(row => row.correct === 0 && row.attempts >= 2),
-    ...supportRows.filter(row => row.attempts >= 3 && row.accuracy < 50),
+    ...supportRows.filter(row => (
+      row.correct === 0
+      && row.attempts >= LEARNING_EVIDENCE_POLICY.progression.minimumCorrectResponses
+    )),
+    ...supportRows.filter(row => (
+      row.attempts >= LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts
+      && row.accuracy < LEARNING_EVIDENCE_POLICY.accuracyPercent.intensiveSupportMaximum
+    )),
     ...unseenRows.filter(row => row.unseenCount > 0),
     ...supportRows.filter(row => row.attempts === 1),
-    ...developingRows.filter(row => row.accuracy < 80)
+    ...developingRows
   ].filter((row, index, rows) => rows.findIndex(item => `${item.itemType}::${item.itemKey}` === `${row.itemType}::${row.itemKey}`) === index).slice(0, 5);
 
   let recommendedSkill = currentStage?.label || "First assessment";
@@ -495,8 +552,12 @@ export function buildRecommendations({
     reason = "The current checkpoint has been attempted but not passed yet.";
   } else if (!currentMastery) {
     reason = "The current checkpoint has not been attempted yet.";
-  } else if (coverage.total && coverage.mastered / coverage.total < 0.6) {
-    reason = "The checkpoint is passed, but item coverage is still below 60%.";
+  } else if (
+    coverage.total
+    && coverage.mastered / coverage.total
+      < LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum / 100
+  ) {
+    reason = `The checkpoint is passed, but item coverage is still below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%.`;
   } else if (currentMastery.mastered) {
     recommendedSkill = skillTree[currentSkillIndex + 1]?.label || currentStage?.label || "Maintain mastered skills";
     reason = skillTree[currentSkillIndex + 1]
@@ -505,7 +566,8 @@ export function buildRecommendations({
   }
 
   const quickWins = developingRows
-    .filter(row => row.accuracy >= 60 && row.accuracy < 80 && row.attempts >= 2)
+    .filter(row => rawLearningStatus(row.accuracy) === LEARNING_STATUS_IDS.DEVELOPING)
+    .filter(row => row.attempts >= LEARNING_EVIDENCE_POLICY.progression.minimumCorrectResponses)
     .filter(row => !focusItems.some(item => `${item.itemType}::${item.itemKey}` === `${row.itemType}::${row.itemKey}`))
     .slice(0, 3)
     .map(row => `Almost there: ${row.label} (${row.correct}/${row.attempts} correct)`);
@@ -575,7 +637,7 @@ export function buildStudentReportModel({
   const sameSkillDelta = sameSkillAttempts.length >= 2
     ? clampPercent(sameSkillAttempts.at(-1).accuracy) - clampPercent(sameSkillAttempts.at(-2).accuracy)
     : null;
-  const status = getAccuracyStatus(effectiveAccuracy, answered > 0);
+  const status = getAccuracyStatus(effectiveAccuracy, answered > 0, answered);
   const skillMapRows = skillTree.map((stage, index) => {
     const skillRecords = records.filter(record => record.skillId === stage.id || record.skillName === stage.label);
     const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
@@ -708,19 +770,38 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       totalQuestions: total,
       correctCount: correct,
       accuracy,
-      status: getAccuracyStatus(accuracy, studentRecords.length > 0),
+      status: getAccuracyStatus(accuracy, studentRecords.length > 0, total),
       latestDate: latest?.completedAt || "",
       currentLevel: latest?.skillName || "No data yet",
-      supportSkills: Array.from(new Set(studentRecords.filter(record => !record.passed || record.accuracy < 70).map(record => record.skillName))).slice(0, 4)
+      supportSkills: Array.from(new Set(studentRecords
+        .filter(record => getAccuracyStatus(
+          record.accuracy,
+          record.totalQuestions > 0,
+          record.totalQuestions
+        ).id === "needs_support")
+        .map(record => record.skillName))).slice(0, 4),
+      policyVersion: LEARNING_POLICY_VERSION
     };
   }).sort((a, b) => {
-    const statusOrder = { needs_support: 0, developing: 1, on_track: 2, not_started: 3 };
+    const statusOrder = {
+      needs_support: 0,
+      developing: 1,
+      on_track: 2,
+      not_enough_evidence: 3,
+      not_started: 4
+    };
     return (statusOrder[a.status.id] ?? 4) - (statusOrder[b.status.id] ?? 4) ||
       a.accuracy - b.accuracy ||
       a.studentName.localeCompare(b.studentName);
   });
 
-  const statusDistribution = ["on_track", "developing", "needs_support", "not_started"].map(statusId => {
+  const statusDistribution = [
+    "on_track",
+    "developing",
+    "needs_support",
+    "not_enough_evidence",
+    "not_started"
+  ].map(statusId => {
     const rows = studentRows.filter(row => row.status.id === statusId);
     return {
       statusId,
@@ -737,7 +818,7 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
       const correct = skillRecords.reduce((sum, record) => sum + record.correctCount, 0);
       const accuracy = total ? clampPercent((correct / total) * 100) : 0;
-      const statusId = getClassReportStatusId(accuracy, skillRecords.length);
+      const statusId = getClassReportStatusId(accuracy, total);
       return {
         studentId: student.studentId,
         studentName: student.studentName,
@@ -745,7 +826,8 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
         accuracy,
         statusId,
         statusLabel: getClassReportStatusLabel(statusId),
-        status: getAccuracyStatus(accuracy, skillRecords.length > 0)
+        status: getAccuracyStatus(accuracy, skillRecords.length > 0, total),
+        policyVersion: LEARNING_POLICY_VERSION
       };
     });
     const attemptedCells = cells.filter(cell => cell.attempts);
@@ -782,7 +864,16 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
   });
 
   const masteryRows = heatmap
-    .filter(row => row.classAccuracy >= 80 || row.masteredCount >= Math.max(1, Math.ceil(classStudents.length * 0.7)))
+    .filter(row => (
+      rawLearningStatus(row.classAccuracy) === LEARNING_STATUS_IDS.SECURE
+      || row.masteredCount >= Math.max(
+        1,
+        Math.ceil(
+          classStudents.length
+          * LEARNING_EVIDENCE_POLICY.progression.classMasteryProportion
+        )
+      )
+    ))
     .sort((a, b) => b.classAccuracy - a.classAccuracy || b.masteredCount - a.masteredCount)
     .slice(0, 8)
     .map(row => ({
@@ -795,7 +886,13 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
     }));
 
   const focusRows = heatmap
-    .filter(row => row.cells.some(cell => cell.attempts) && (row.classAccuracy < 70 || row.needsSupportCount > 0))
+    .filter(row => (
+      row.cells.some(cell => cell.attempts)
+      && (
+        rawLearningStatus(row.classAccuracy) === LEARNING_STATUS_IDS.NEEDS_SUPPORT
+        || row.needsSupportCount > 0
+      )
+    ))
     .sort((a, b) => b.needsSupportCount - a.needsSupportCount || a.classAccuracy - b.classAccuracy)
     .slice(0, 8)
     .map(row => ({
@@ -812,7 +909,11 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       students: row.cells.filter(cell => cell.statusId === "needs_support").map(cell => cell.studentName),
       classAccuracy: row.classAccuracy
     }))
-    .filter(row => classStudents.length && row.studentCount / classStudents.length >= 0.3)
+    .filter(row => (
+      classStudents.length
+      && row.studentCount / classStudents.length
+        >= LEARNING_EVIDENCE_POLICY.comparison.classFocusProportion
+    ))
     .sort((a, b) => b.studentCount - a.studentCount || a.classAccuracy - b.classAccuracy)
     .slice(0, 8);
 
@@ -823,7 +924,7 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
   const itemWeakMap = new Map();
   itemRowsByStudent.forEach((rows, studentId) => {
     const student = studentRows.find(row => row.studentId === studentId);
-    rows.filter(row => row.attempts > 0 && row.accuracy < 70).forEach(row => {
+    rows.filter(row => row.status === "needs_support").forEach(row => {
       const key = `${row.itemType}::${row.itemKey}`;
       const item = itemWeakMap.get(key) || {
         itemType: row.itemType,
@@ -850,7 +951,11 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       averageAccuracy: item.attempts ? clampPercent(item.totalAccuracy / item.attempts) : 0,
       examples: Array.from(item.examples).slice(0, 6)
     }))
-    .filter(item => classStudents.length && item.affectedStudents.length / classStudents.length >= 0.3)
+    .filter(item => (
+      classStudents.length
+      && item.affectedStudents.length / classStudents.length
+        >= LEARNING_EVIDENCE_POLICY.comparison.classFocusProportion
+    ))
     .sort((a, b) => b.affectedCount - a.affectedCount || a.averageAccuracy - b.averageAccuracy)
     .slice(0, 12);
 
@@ -865,7 +970,7 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       focus: focusLabel,
       skill: point.skillName || focusLabel,
       students: names,
-      reason: `${point.affectedCount || point.studentCount} student(s) below 70%.`,
+      reason: `${point.affectedCount || point.studentCount} student(s) below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%.`,
       suggestedActivity: getClassReportActivity(point),
       style: CLASS_REPORT_GROUP_STYLES[index % CLASS_REPORT_GROUP_STYLES.length]
     };
