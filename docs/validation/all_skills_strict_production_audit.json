@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-24T08:33:19.496Z",
+    "generatedAt": "2026-07-24T08:55:07.037Z",
     "totalSkillsAudited": 30,
     "skillsFullyProductionReady": 19,
     "skillsQuantityReadyButWeak": 1,
@@ -71,6 +71,7 @@
           "wig",
           "zebra"
         ],
+        "maximumTargetShare": 0.6410256410256411,
         "uniqueItemKeyCount": 25,
         "overusedTargets": [
           "listen_and_find:50"
@@ -183,6 +184,7 @@
           "bowl",
           "bracelet"
         ],
+        "maximumTargetShare": 0.05660377358490566,
         "uniqueItemKeyCount": 2,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -249,6 +251,39 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "initial_sounds",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 78,
+            "uniqueTargetCount": 29,
+            "maximumTargetShare": 0.6410256410256411,
+            "questionCountPass": true,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 53,
+            "uniqueTargetCount": 51,
+            "maximumTargetShare": 0.05660377358490566,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 131,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Quantity is present, but rebalance targets before production. No immediate content action.",
       "rejectedExamples": [
         {
@@ -585,6 +620,7 @@
           "win",
           "yam"
         ],
+        "maximumTargetShare": 0.021164021164021163,
         "uniqueItemKeyCount": 8,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -763,6 +799,7 @@
           "snake",
           "soft"
         ],
+        "maximumTargetShare": 0.022598870056497175,
         "uniqueItemKeyCount": 26,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -828,6 +865,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "final_sounds",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 189,
+            "uniqueTargetCount": 121,
+            "maximumTargetShare": 0.021164021164021163,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 177,
+            "uniqueTargetCount": 141,
+            "maximumTargetShare": 0.022598870056497175,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 366,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -1323,6 +1391,7 @@
           "hut",
           "net"
         ],
+        "maximumTargetShare": 0.018907563025210083,
         "uniqueItemKeyCount": 21,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -1445,6 +1514,7 @@
           "third",
           "trash"
         ],
+        "maximumTargetShare": 0.031578947368421054,
         "uniqueItemKeyCount": 24,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -1502,12 +1572,43 @@
       "requiredImageCount": 807,
       "validImageCount": 807,
       "missingImageCount": 0,
-      "requiredAudioCount": 732,
-      "validAudioCount": 732,
+      "requiredAudioCount": 771,
+      "validAudioCount": 771,
       "missingAudioCount": 0,
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 5,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "rhyming",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 476,
+            "uniqueTargetCount": 82,
+            "maximumTargetShare": 0.018907563025210083,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 190,
+            "uniqueTargetCount": 64,
+            "maximumTargetShare": 0.031578947368421054,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 666,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -2104,6 +2205,7 @@
           "sock",
           "van"
         ],
+        "maximumTargetShare": 0.03007518796992481,
         "uniqueItemKeyCount": 42,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -2217,6 +2319,7 @@
           "men",
           "pit"
         ],
+        "maximumTargetShare": 0.02054794520547945,
         "uniqueItemKeyCount": 5,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -2289,6 +2392,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 1,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "cvc_short_vowels",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 266,
+            "uniqueTargetCount": 72,
+            "maximumTargetShare": 0.03007518796992481,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 146,
+            "uniqueTargetCount": 50,
+            "maximumTargetShare": 0.02054794520547945,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 412,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -2628,6 +2762,7 @@
           "pin",
           "wig"
         ],
+        "maximumTargetShare": 0.01694915254237288,
         "uniqueItemKeyCount": 5,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -2782,6 +2917,7 @@
           "win",
           "zip"
         ],
+        "maximumTargetShare": 0.02040816326530612,
         "uniqueItemKeyCount": 5,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -2848,6 +2984,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 12,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "short_vowel_discrimination",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 118,
+            "uniqueTargetCount": 70,
+            "maximumTargetShare": 0.01694915254237288,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 196,
+            "uniqueTargetCount": 95,
+            "maximumTargetShare": 0.02040816326530612,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 314,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -3116,6 +3283,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -3139,6 +3307,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -3165,6 +3334,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "hfw_1_25",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          }
+        },
+        "totalEligible": 0,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Write new level-aligned question content.",
       "rejectedExamples": [
         {
@@ -3433,6 +3636,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -3456,6 +3660,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -3482,6 +3687,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "hfw_26_50",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          }
+        },
+        "totalEligible": 0,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Write new level-aligned question content.",
       "rejectedExamples": [
         {
@@ -3750,6 +3989,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -3773,6 +4013,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -3799,6 +4040,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "hfw_51_75",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          }
+        },
+        "totalEligible": 0,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Write new level-aligned question content.",
       "rejectedExamples": [
         {
@@ -4067,6 +4342,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -4090,6 +4366,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -4116,6 +4393,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "hfw_76_100",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          }
+        },
+        "totalEligible": 0,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Write new level-aligned question content.",
       "rejectedExamples": [
         {
@@ -4432,6 +4743,7 @@
           "truck",
           "twin"
         ],
+        "maximumTargetShare": 0.02127659574468085,
         "uniqueItemKeyCount": 24,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -4540,6 +4852,7 @@
           "train",
           "wasp"
         ],
+        "maximumTargetShare": 0.02,
         "uniqueItemKeyCount": 30,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -4603,6 +4916,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 19,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "blends",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 47,
+            "uniqueTargetCount": 47,
+            "maximumTargetShare": 0.02127659574468085,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 50,
+            "uniqueTargetCount": 50,
+            "maximumTargetShare": 0.02,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 97,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -4932,6 +5276,7 @@
           "white",
           "wish"
         ],
+        "maximumTargetShare": 0.016666666666666666,
         "uniqueItemKeyCount": 6,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -5050,6 +5395,7 @@
           "white",
           "wish"
         ],
+        "maximumTargetShare": 0.016666666666666666,
         "uniqueItemKeyCount": 6,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -5113,6 +5459,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 12,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "digraphs",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 60,
+            "uniqueTargetCount": 60,
+            "maximumTargetShare": 0.016666666666666666,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 60,
+            "uniqueTargetCount": 60,
+            "maximumTargetShare": 0.016666666666666666,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 120,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -5426,6 +5803,7 @@
           "these",
           "tube"
         ],
+        "maximumTargetShare": 0.04,
         "uniqueItemKeyCount": 5,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -5537,6 +5915,7 @@
           "tree",
           "weight"
         ],
+        "maximumTargetShare": 0.03571428571428571,
         "uniqueItemKeyCount": 16,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -5600,6 +5979,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 7,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "long_vowels_silent_e",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 50,
+            "uniqueTargetCount": 44,
+            "maximumTargetShare": 0.04,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 56,
+            "uniqueTargetCount": 53,
+            "maximumTargetShare": 0.03571428571428571,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 106,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -5885,6 +6295,7 @@
           "pail",
           "paint"
         ],
+        "maximumTargetShare": 0.0625,
         "uniqueItemKeyCount": 5,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -6005,6 +6416,7 @@
           "suit",
           "weight"
         ],
+        "maximumTargetShare": 0.023529411764705882,
         "uniqueItemKeyCount": 18,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -6068,6 +6480,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "vowel_teams",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 16,
+            "uniqueTargetCount": 16,
+            "maximumTargetShare": 0.0625,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 85,
+            "uniqueTargetCount": 76,
+            "maximumTargetShare": 0.023529411764705882,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 101,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Generate controlled gap-fill questions from approved media/lexicon. No immediate content action.",
       "rejectedExamples": [
         {
@@ -6233,6 +6679,7 @@
           "shirt",
           "star"
         ],
+        "maximumTargetShare": 0.0625,
         "uniqueItemKeyCount": 12,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -6318,6 +6765,7 @@
           "stir",
           "yard"
         ],
+        "maximumTargetShare": 0.07407407407407407,
         "uniqueItemKeyCount": 33,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -6384,6 +6832,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "r_controlled_vowels",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 16,
+            "uniqueTargetCount": 16,
+            "maximumTargetShare": 0.0625,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 81,
+            "uniqueTargetCount": 40,
+            "maximumTargetShare": 0.07407407407407407,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 97,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Generate controlled gap-fill questions from approved media/lexicon. No immediate content action.",
       "rejectedExamples": [
         {
@@ -6611,6 +7093,7 @@
           "wood",
           "word"
         ],
+        "maximumTargetShare": 0.014285714285714285,
         "uniqueItemKeyCount": 70,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -6756,6 +7239,7 @@
           "truck",
           "zoo"
         ],
+        "maximumTargetShare": 0.02631578947368421,
         "uniqueItemKeyCount": 87,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -6810,15 +7294,46 @@
         "GRAMMAR_IMAGE_CHOICE:70",
         "GRAMMAR_SENTENCE_FIT:114"
       ],
-      "requiredImageCount": 272,
-      "validImageCount": 272,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
-      "requiredAudioCount": 5,
-      "validAudioCount": 5,
+      "requiredAudioCount": 217,
+      "validAudioCount": 217,
       "missingAudioCount": 0,
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 95,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "nouns",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 70,
+            "uniqueTargetCount": 70,
+            "maximumTargetShare": 0.014285714285714285,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 114,
+            "uniqueTargetCount": 87,
+            "maximumTargetShare": 0.02631578947368421,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 184,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -7139,6 +7654,7 @@
           "walked",
           "write"
         ],
+        "maximumTargetShare": 0.0196078431372549,
         "uniqueItemKeyCount": 51,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -7295,6 +7811,7 @@
           "wear",
           "zip"
         ],
+        "maximumTargetShare": 0.01818181818181818,
         "uniqueItemKeyCount": 98,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -7349,15 +7866,46 @@
         "GRAMMAR_IMAGE_CHOICE:51",
         "GRAMMAR_SENTENCE_FIT:110"
       ],
-      "requiredImageCount": 260,
-      "validImageCount": 260,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
-      "requiredAudioCount": 13,
-      "validAudioCount": 13,
+      "requiredAudioCount": 187,
+      "validAudioCount": 187,
       "missingAudioCount": 0,
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 119,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "verbs",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 51,
+            "uniqueTargetCount": 51,
+            "maximumTargetShare": 0.0196078431372549,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 110,
+            "uniqueTargetCount": 98,
+            "maximumTargetShare": 0.01818181818181818,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 161,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -7663,6 +8211,7 @@
           "warm",
           "young"
         ],
+        "maximumTargetShare": 0.027777777777777776,
         "uniqueItemKeyCount": 36,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -7801,6 +8350,7 @@
           "weak",
           "windy"
         ],
+        "maximumTargetShare": 0.02197802197802198,
         "uniqueItemKeyCount": 80,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -7855,15 +8405,48 @@
         "GRAMMAR_IMAGE_CHOICE:36",
         "GRAMMAR_SENTENCE_FIT:91"
       ],
-      "requiredImageCount": 201,
-      "validImageCount": 201,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
-      "requiredAudioCount": 11,
-      "validAudioCount": 11,
+      "requiredAudioCount": 158,
+      "validAudioCount": 158,
       "missingAudioCount": 0,
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 120,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "adjectives",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 36,
+            "uniqueTargetCount": 36,
+            "maximumTargetShare": 0.027777777777777776,
+            "questionCountPass": false,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 91,
+            "uniqueTargetCount": 80,
+            "maximumTargetShare": 0.02197802197802198,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 127,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels."
+        ]
+      },
       "exactNextAction": "Generate controlled gap-fill questions from approved media/lexicon. No immediate content action.",
       "rejectedExamples": [
         {
@@ -8132,6 +8715,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -8202,6 +8786,7 @@
           "underneath",
           "within"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -8255,8 +8840,8 @@
       "repeatedTemplates": [
         "GRAMMAR_BASICS:46"
       ],
-      "requiredImageCount": 264,
-      "validImageCount": 264,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 30,
       "validAudioCount": 30,
@@ -8264,6 +8849,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 39,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "prepositions_of_place",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 46,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Generate controlled gap-fill questions from approved media/lexicon. No immediate content action.",
       "rejectedExamples": [
         {
@@ -8543,6 +9162,7 @@
           "ducks",
           "hats"
         ],
+        "maximumTargetShare": 0.1,
         "uniqueItemKeyCount": 10,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -8663,6 +9283,7 @@
           "wishes",
           "women"
         ],
+        "maximumTargetShare": 0.023255813953488372,
         "uniqueItemKeyCount": 86,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -8719,8 +9340,8 @@
         "PLURAL_SPELLING_CONTEXT:46",
         "PLURAL_IMAGE_SPELLING:40"
       ],
-      "requiredImageCount": 106,
-      "validImageCount": 106,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 22,
       "validAudioCount": 22,
@@ -8728,6 +9349,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 47,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "plurals",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 10,
+            "uniqueTargetCount": 10,
+            "maximumTargetShare": 0.1,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 86,
+            "uniqueTargetCount": 83,
+            "maximumTargetShare": 0.023255813953488372,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 96,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Generate controlled gap-fill questions from approved media/lexicon. No immediate content action.",
       "rejectedExamples": [
         {
@@ -9043,6 +9698,7 @@
           "useless",
           "washable"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 18,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -9147,6 +9803,7 @@
           "washable",
           "wireless"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 19,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -9200,8 +9857,8 @@
       "repeatedTemplates": [
         "MORPHEME_MEANING_CONTEXT:46"
       ],
-      "requiredImageCount": 5,
-      "validImageCount": 5,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 6,
       "validAudioCount": 6,
@@ -9209,6 +9866,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 311,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "prefixes_suffixes",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -9477,6 +10165,7 @@
         "missingTo30": 46,
         "uniqueTargetCount": 0,
         "uniqueTargets": [],
+        "maximumTargetShare": 0,
         "uniqueItemKeyCount": 0,
         "overusedTargets": [],
         "repeatedTemplates": [],
@@ -9547,6 +10236,7 @@
           "under",
           "wet"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -9600,8 +10290,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 155,
-      "validImageCount": 155,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 32,
       "validAudioCount": 32,
@@ -9609,6 +10299,40 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 45,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "antonyms_synonyms",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 0,
+            "uniqueTargetCount": 0,
+            "maximumTargetShare": 0,
+            "questionCountPass": false,
+            "balancePass": false
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 46,
+        "dimensions": {
+          "questionCount": "fail",
+          "balance": "fail",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": false,
+        "reasons": [
+          "Question-count floor is not met at both levels.",
+          "Target diversity or concentration is outside the release balance standard."
+        ]
+      },
       "exactNextAction": "Generate controlled gap-fill questions from approved media/lexicon. No immediate content action.",
       "rejectedExamples": [
         {
@@ -9924,6 +10648,7 @@
           "whole",
           "write"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -10028,6 +10753,7 @@
           "whole",
           "write"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -10081,8 +10807,8 @@
       "repeatedTemplates": [
         "HOMOPHONE_MEANING:46"
       ],
-      "requiredImageCount": 72,
-      "validImageCount": 72,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 3,
       "validAudioCount": 3,
@@ -10090,6 +10816,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 90,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "homophones_homonyms",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [
         {
@@ -10405,6 +11162,7 @@
           "sentence_comprehension_1_8",
           "sentence_comprehension_1_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -10509,6 +11267,7 @@
           "sentence_comprehension_2_8",
           "sentence_comprehension_2_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -10562,8 +11321,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 92,
-      "validImageCount": 92,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -10571,6 +11330,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "sentence_comprehension",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -10691,6 +11481,7 @@
           "key_details_1_8",
           "key_details_1_9"
         ],
+        "maximumTargetShare": 0.010869565217391304,
         "uniqueItemKeyCount": 92,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -10842,6 +11633,7 @@
           "key_details_2_8",
           "key_details_2_9"
         ],
+        "maximumTargetShare": 0.010752688172043012,
         "uniqueItemKeyCount": 93,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -10896,8 +11688,8 @@
         "COMPREHENSION:92",
         "COMPREHENSION:93"
       ],
-      "requiredImageCount": 185,
-      "validImageCount": 185,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -10905,6 +11697,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "key_details",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 92,
+            "uniqueTargetCount": 92,
+            "maximumTargetShare": 0.010869565217391304,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 93,
+            "uniqueTargetCount": 93,
+            "maximumTargetShare": 0.010752688172043012,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 185,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -10979,6 +11802,7 @@
           "sequencing_1_8",
           "sequencing_1_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11083,6 +11907,7 @@
           "sequencing_2_8",
           "sequencing_2_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11136,8 +11961,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 92,
-      "validImageCount": 92,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -11145,6 +11970,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "sequencing",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -11219,6 +12075,7 @@
           "main_idea_1_8",
           "main_idea_1_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11323,6 +12180,7 @@
           "main_idea_2_8",
           "main_idea_2_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11376,8 +12234,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 92,
-      "validImageCount": 92,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -11385,6 +12243,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "main_idea",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -11459,6 +12348,7 @@
           "inference_1_8",
           "inference_1_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11563,6 +12453,7 @@
           "inference_2_8",
           "inference_2_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11616,8 +12507,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 92,
-      "validImageCount": 92,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -11625,6 +12516,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "inference",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -11699,6 +12621,7 @@
           "cause_effect_1_8",
           "cause_effect_1_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11803,6 +12726,7 @@
           "cause_effect_2_8",
           "cause_effect_2_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -11856,8 +12780,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 92,
-      "validImageCount": 92,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -11865,6 +12789,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "cause_effect",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -11939,6 +12894,7 @@
           "context_clues_1_8",
           "context_clues_1_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -12043,6 +12999,7 @@
           "context_clues_2_8",
           "context_clues_2_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -12096,8 +13053,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 92,
-      "validImageCount": 92,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -12105,6 +13062,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "context_clues",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -12179,6 +13167,7 @@
           "theme_higher_comprehension_1_8",
           "theme_higher_comprehension_1_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -12283,6 +13272,7 @@
           "theme_higher_comprehension_2_8",
           "theme_higher_comprehension_2_9"
         ],
+        "maximumTargetShare": 0.021739130434782608,
         "uniqueItemKeyCount": 46,
         "overusedTargets": [],
         "repeatedTemplates": [
@@ -12336,8 +13326,8 @@
       "repeatedTemplates": [
         "COMPREHENSION:46"
       ],
-      "requiredImageCount": 92,
-      "validImageCount": 92,
+      "requiredImageCount": 0,
+      "validImageCount": 0,
       "missingImageCount": 0,
       "requiredAudioCount": 0,
       "validAudioCount": 0,
@@ -12345,6 +13335,37 @@
       "mediaWiringFixCount": 0,
       "textOnlyAcceptableCount": 0,
       "textOnlyProblematicCount": 0,
+      "accessibilityIssueCount": 0,
+      "accessibilityIssueExamples": [],
+      "releaseStandardDecision": {
+        "skillId": "theme_higher_comprehension",
+        "standardVersion": "2026.07.24",
+        "levels": {
+          "1": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          },
+          "2": {
+            "eligibleQuestionCount": 46,
+            "uniqueTargetCount": 46,
+            "maximumTargetShare": 0.021739130434782608,
+            "questionCountPass": true,
+            "balancePass": true
+          }
+        },
+        "totalEligible": 92,
+        "dimensions": {
+          "questionCount": "pass",
+          "balance": "pass",
+          "media": "pass",
+          "accessibility": "pass"
+        },
+        "releaseReady": true,
+        "reasons": []
+      },
       "exactNextAction": "No immediate content action.",
       "rejectedExamples": [],
       "finalSoundsSpecial": null,
@@ -12514,11 +13535,968 @@
     "staleUnwiredMediaWarnings": []
   },
   "strictStandard": {
-    "minimumTotal": 92,
-    "minimumPerLevel": 46,
-    "phaseSize": 15,
-    "minimumUniqueTargetsPerLevel": 20,
-    "maxTargetDominance": 0.2
+    "version": "2026.07.24",
+    "managedSkillIds": [
+      "initial_sounds",
+      "final_sounds",
+      "rhyming",
+      "cvc_short_vowels",
+      "short_vowel_discrimination",
+      "hfw_1_25",
+      "hfw_26_50",
+      "hfw_51_75",
+      "hfw_76_100",
+      "blends",
+      "digraphs",
+      "long_vowels_silent_e",
+      "vowel_teams",
+      "r_controlled_vowels",
+      "nouns",
+      "verbs",
+      "adjectives",
+      "prepositions_of_place",
+      "plurals",
+      "prefixes_suffixes",
+      "antonyms_synonyms",
+      "homophones_homonyms",
+      "sentence_comprehension",
+      "key_details",
+      "sequencing",
+      "main_idea",
+      "inference",
+      "cause_effect",
+      "context_clues",
+      "theme_higher_comprehension"
+    ],
+    "defaults": {
+      "questionCount": {
+        "requiredLevels": [
+          1,
+          2
+        ],
+        "minimumPerLevel": 46,
+        "minimumTotal": 92,
+        "phaseSize": 15
+      },
+      "balance": {
+        "minimumUniqueTargetsPerLevel": 20,
+        "maximumTargetSharePerLevel": 0.2
+      },
+      "media": {
+        "maximumMissingRequiredImages": 0,
+        "maximumMissingRequiredAudio": 0,
+        "maximumWiringDefects": 0
+      },
+      "accessibility": {
+        "maximumQuestionIssues": 0,
+        "minimumChoiceCount": 2,
+        "requireVisiblePrompt": true,
+        "requireLabeledChoices": true,
+        "requireSemanticMediaAlternative": true
+      }
+    },
+    "skills": {
+      "initial_sounds": {
+        "skillId": "initial_sounds",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "image-and-audio"
+      },
+      "final_sounds": {
+        "skillId": "final_sounds",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "audio"
+      },
+      "rhyming": {
+        "skillId": "rhyming",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "cvc_short_vowels": {
+        "skillId": "cvc_short_vowels",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "short_vowel_discrimination": {
+        "skillId": "short_vowel_discrimination",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "hfw_1_25": {
+        "skillId": "hfw_1_25",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "hfw_26_50": {
+        "skillId": "hfw_26_50",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "hfw_51_75": {
+        "skillId": "hfw_51_75",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "hfw_76_100": {
+        "skillId": "hfw_76_100",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "blends": {
+        "skillId": "blends",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "digraphs": {
+        "skillId": "digraphs",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "long_vowels_silent_e": {
+        "skillId": "long_vowels_silent_e",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "vowel_teams": {
+        "skillId": "vowel_teams",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "r_controlled_vowels": {
+        "skillId": "r_controlled_vowels",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "prompt-dependent"
+      },
+      "nouns": {
+        "skillId": "nouns",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "verbs": {
+        "skillId": "verbs",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "adjectives": {
+        "skillId": "adjectives",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "prepositions_of_place": {
+        "skillId": "prepositions_of_place",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "plurals": {
+        "skillId": "plurals",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "prefixes_suffixes": {
+        "skillId": "prefixes_suffixes",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "antonyms_synonyms": {
+        "skillId": "antonyms_synonyms",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "homophones_homonyms": {
+        "skillId": "homophones_homonyms",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "sentence_comprehension": {
+        "skillId": "sentence_comprehension",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "key_details": {
+        "skillId": "key_details",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "sequencing": {
+        "skillId": "sequencing",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "main_idea": {
+        "skillId": "main_idea",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "inference": {
+        "skillId": "inference",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "cause_effect": {
+        "skillId": "cause_effect",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "context_clues": {
+        "skillId": "context_clues",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      },
+      "theme_higher_comprehension": {
+        "skillId": "theme_higher_comprehension",
+        "version": "2026.07.24",
+        "questionCount": {
+          "requiredLevels": [
+            1,
+            2
+          ],
+          "minimumPerLevel": 46,
+          "minimumTotal": 92,
+          "phaseSize": 15
+        },
+        "balance": {
+          "minimumUniqueTargetsPerLevel": 20,
+          "maximumTargetSharePerLevel": 0.2
+        },
+        "media": {
+          "maximumMissingRequiredImages": 0,
+          "maximumMissingRequiredAudio": 0,
+          "maximumWiringDefects": 0
+        },
+        "accessibility": {
+          "maximumQuestionIssues": 0,
+          "minimumChoiceCount": 2,
+          "requireVisiblePrompt": true,
+          "requireLabeledChoices": true,
+          "requireSemanticMediaAlternative": true
+        },
+        "mediaProfile": "text-first"
+      }
+    }
   },
   "desktopCopies": {
     "markdown": "/Users/benjaminbowler/Desktop/LiteracyPath_Strict_Audit_For_ChatGPT.md",

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T08:54:55.495Z",
+  "startedAt": "2026-07-24T08:54:07.450Z",
+  "finishedAt": "2026-07-24T08:54:55.495Z",
+  "commitSha": "fd4bda93c3fe36f6a111d782f50dc0f2ad9df376",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 20783,
+      "startedAt": "2026-07-24T08:54:07.544Z",
+      "finishedAt": "2026-07-24T08:54:28.327Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T08-54-07-450Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6209,
+      "startedAt": "2026-07-24T08:54:28.328Z",
+      "finishedAt": "2026-07-24T08:54:34.537Z",
+      "counts": {
+        "tests": 1110,
+        "passed": 1110,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T08-54-07-450Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 16647,
+      "startedAt": "2026-07-24T08:54:34.537Z",
+      "finishedAt": "2026-07-24T08:54:51.184Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T08-54-07-450Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "strict-curriculum",
+      "label": "Strict production curriculum audit",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "node tools/runAuditScript.mjs --check tools/auditAllSkillsStrictProductionReadiness.js",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1501,
+      "startedAt": "2026-07-24T08:54:51.185Z",
+      "finishedAt": "2026-07-24T08:54:52.686Z",
+      "counts": {
+        "productionReadySkills": 19,
+        "auditedSkills": 30,
+        "missingImages": 0,
+        "missingAudio": 0,
+        "mediaWiringFixes": 0,
+        "newQuestionsNeeded": 566
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T08-54-07-450Z/strict-curriculum.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "curriculum-release-standard",
+      "label": "Canonical assessment publication standard",
+      "areas": [
+        1,
+        4,
+        10
+      ],
+      "command": "npm run check:curriculum-release-standard",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2809,
+      "startedAt": "2026-07-24T08:54:52.686Z",
+      "finishedAt": "2026-07-24T08:54:55.495Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T08-54-07-450Z/curriculum-release-standard.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

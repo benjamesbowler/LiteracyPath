@@ -1,6 +1,6 @@
 # Media Wiring Fixes Needed From Strict Audit
 
-Generated: 2026-07-24T08:33:19.499Z
+Generated: 2026-07-24T08:55:07.041Z
 
 These are stale path or unwired-media warnings. Do not send these to Kimi unless human review rejects the existing asset.
 
