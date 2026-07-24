@@ -512,6 +512,7 @@ test("a realistic 25-student, 100-attempt class report compacts below the bounde
   assert.ok(compact.formalAssessments);
   assert.ok(Array.isArray(compact.classWeakPointRows));
   assert.ok(Array.isArray(compact.weeklyAccuracyRows));
+  assert.ok(compact.formalAssessments.classEvidenceDictionaries);
 
   const priorStorage = globalThis.localStorage;
   globalThis.localStorage = createLocalStorage({ maxBytes: 4_000_000 });
@@ -520,7 +521,16 @@ test("a realistic 25-student, 100-attempt class report compacts below the bounde
     else globalThis.localStorage = priorStorage;
   });
   await saveElAssessmentReport(report, { teacherId: "teacher-1" });
-  assert.equal(getSavedElAssessmentReports({ teacherId: "teacher-1" }).length, 1);
+  const saved = getSavedElAssessmentReports({ teacherId: "teacher-1" });
+  assert.equal(saved.length, 1);
+  const workbook = await createClassElAssessmentWorkbook(saved[0]);
+  const letterRows = worksheetRows(workbook.getWorksheet("Letter Sound Class Matrix"));
+  assert.match(
+    letterRows.flatMap(row => Object.entries(row)
+      .filter(([header]) => header.includes("evidence provenance"))
+      .map(([, value]) => value)).join("\n"),
+    /Content: content-/
+  );
 });
 
 test("a 25-student, 100-attempt benchmark class retains flat item evidence without duplicate nested payloads", async t => {

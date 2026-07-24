@@ -1472,7 +1472,9 @@ export function scoreElBenchmarkSession(session = {}) {
   const routingProvenance = routingProvenanceFor(session);
   return {
     schemaVersion: EL_BENCHMARK_SCHEMA_VERSION,
+    assessmentVersion: plan.planId,
     contentVersion: plan.contentVersion,
+    policyVersion: EL_BENCHMARK_SCORING_VERSION,
     scoringVersion: EL_BENCHMARK_SCORING_VERSION,
     scoringRuleVersion: EL_BENCHMARK_SCORING_VERSION,
     administrationVersion: session.administrationVersion || "legacy_unspecified",
@@ -1663,7 +1665,18 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
     },
     appVersion: ownership.appVersion || session.appVersion || "local",
     schemaVersion: EL_BENCHMARK_ATTEMPT_SCHEMA_VERSION,
+    assessmentVersion: score.assessmentVersion,
     contentVersion: score.contentVersion,
+    policyVersion: score.policyVersion,
+    policySnapshot: {
+      framework: score.framework,
+      administrationRange: score.administrationRange,
+      expectedAnchor: score.expectedAnchor,
+      scoringSuppressed: [
+        EL_ADMINISTRATION_STATUSES.NOT_ADMINISTERED,
+        EL_ADMINISTRATION_STATUSES.NOT_SCORABLE
+      ].includes(score.administrationStatus)
+    },
     scoringVersion: EL_BENCHMARK_SCORING_VERSION,
     metadata: {
       attemptSchemaVersion: EL_BENCHMARK_ATTEMPT_SCHEMA_VERSION,

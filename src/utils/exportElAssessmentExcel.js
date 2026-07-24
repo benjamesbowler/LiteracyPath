@@ -402,9 +402,16 @@ function formalEvidenceList(details = [], options = {}) {
 
 function decodeClassEvidenceRows(report = {}, rows = []) {
   const schema = report.formalAssessments?.classEvidenceSchema || EL_FORMAL_CLASS_EVIDENCE_SCHEMA;
+  const dictionaries = report.formalAssessments?.classEvidenceDictionaries || {};
   return (Array.isArray(rows) ? rows : []).map(row => {
     if (!Array.isArray(row)) return row || {};
-    return Object.fromEntries(schema.map((key, index) => [key, row[index] ?? ""]));
+    return Object.fromEntries(schema.map((key, index) => {
+      const dictionary = dictionaries[key];
+      const value = row[index];
+      return [key, Array.isArray(dictionary) && Number.isInteger(value)
+        ? dictionary[value] ?? ""
+        : value ?? ""];
+    }));
   });
 }
 

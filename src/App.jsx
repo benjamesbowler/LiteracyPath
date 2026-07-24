@@ -6475,7 +6475,15 @@ export default function App() {
         stage,
         checkpoint,
         questionRecords: roundRecords,
-        assessmentType: getAssessmentAttemptType(assessmentMode)
+        assessmentType: getAssessmentAttemptType(assessmentMode),
+        policySnapshot: {
+          rule: "stage mastery rule at administration time",
+          roundLength: ROUND_LENGTH,
+          passScore: PASS_SCORE,
+          stageId: stage.id,
+          level: checkpoint?.pathStatus?.level ?? null,
+          phase: checkpoint?.pathStatus?.phase ?? null
+        }
       });
 
       setMastery(prev => ({

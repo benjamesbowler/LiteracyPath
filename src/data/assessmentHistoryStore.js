@@ -3,6 +3,9 @@ const SYNC_QUEUE_PREFIX = "lpAssessmentSyncQueue:v1";
 const activeSyncQueueFlushes = new Map();
 
 export const CURRENT_ASSESSMENT_ATTEMPT_SCHEMA_VERSION = 2;
+export const ASSESSMENT_EVIDENCE_SCHEMA_VERSION = 1;
+export const ADAPTIVE_CHECKPOINT_ASSESSMENT_VERSION = "adaptive-checkpoint-2026.07.24-v1";
+export const ADAPTIVE_CHECKPOINT_POLICY_VERSION = "adaptive-checkpoint-policy-2026.07.24-v1";
 
 export const ASSESSMENT_RESPONSE_STATUSES = Object.freeze({
   CORRECT: "correct",
@@ -105,6 +108,72 @@ function cloneJsonValue(value, fallback) {
   } catch {
     return fallback;
   }
+}
+
+function stableJsonValue(value) {
+  if (Array.isArray(value)) return value.map(stableJsonValue);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.keys(value)
+        .sort()
+        .map(key => [key, stableJsonValue(value[key])])
+    );
+  }
+  return value;
+}
+
+function evidenceFingerprint(value) {
+  const source = JSON.stringify(stableJsonValue(value));
+  let hash = 2166136261;
+  for (let index = 0; index < source.length; index += 1) {
+    hash ^= source.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, "0");
+}
+
+function assessmentContentSnapshot(questionRecords = []) {
+  return questionRecords.map(({
+    questionId,
+    subtestId,
+    prompt,
+    stimulus,
+    pattern,
+    targetWord,
+    targetLetter,
+    targetSound,
+    targetPattern,
+    itemKey,
+    itemType,
+    correctAnswer,
+    expectedResponse,
+    pointsPossible,
+    skillId,
+    templateType,
+    tags,
+    level,
+    phase
+  }) => ({
+    questionId,
+    subtestId,
+    prompt,
+    stimulus,
+    pattern,
+    targetWord,
+    targetLetter,
+    targetSound,
+    targetPattern,
+    itemKey,
+    itemType,
+    correctAnswer,
+    expectedResponse,
+    pointsPossible,
+    skillId,
+    templateType,
+    tags,
+    level,
+    phase
+  }));
 }
 
 function normalizeResponseStatus(item = {}) {
@@ -617,6 +686,32 @@ export function normalizeAssessmentAttempt(record = {}) {
     "candidatePlacement",
     "confirmedPlacement"
   ].some(field => record[field] !== undefined);
+  const attemptSchemaVersion = normalizeCount(
+    record.schemaVersion,
+    hasRichFields ? CURRENT_ASSESSMENT_ATTEMPT_SCHEMA_VERSION : 1
+  ) || 1;
+  const assessmentType = record.assessmentType || "skill_checkpoint";
+  const formVersion = record.formVersion || "";
+  const scoringRuleVersion = record.scoringRuleVersion || "";
+  const contentVersion = record.contentVersion
+    || record.metadata?.contentVersion
+    || `content-${evidenceFingerprint(assessmentContentSnapshot(questionRecords))}`;
+  const assessmentVersion = record.assessmentVersion
+    || record.metadata?.assessmentVersion
+    || formVersion
+    || `${assessmentType}-schema-${attemptSchemaVersion}`;
+  const policySnapshot = cloneJsonValue(
+    record.policySnapshot || record.metadata?.policySnapshot,
+    null
+  );
+  const policyVersion = record.policyVersion
+    || record.metadata?.policyVersion
+    || scoringRuleVersion
+    || record.scoringVersion
+    || record.metadata?.scoringVersion
+    || (policySnapshot
+      ? `policy-${evidenceFingerprint(policySnapshot)}`
+      : `legacy-unspecified-${assessmentType}-schema-${attemptSchemaVersion}`);
 
   return {
     id: record.id || record.attemptId || "",
@@ -625,7 +720,7 @@ export function normalizeAssessmentAttempt(record = {}) {
     studentName: record.studentName || "Student",
     classId: record.classId || "",
     teacherId: record.teacherId || "",
-    assessmentType: record.assessmentType || "skill_checkpoint",
+    assessmentType,
     skillId: record.skillId || "",
     skillName: record.skillName || record.stage || "Assessment",
     skillLevel: Number(record.skillLevel ?? 1),
@@ -688,9 +783,16 @@ export function normalizeAssessmentAttempt(record = {}) {
     answers: Array.isArray(record.answers) ? cloneJsonValue(record.answers, []) : [],
     questionRecords,
     framework: record.framework || "",
-    formVersion: record.formVersion || "",
-    scoringRuleVersion: record.scoringRuleVersion || "",
-    contentVersion: record.contentVersion || record.metadata?.contentVersion || "",
+    formVersion,
+    scoringRuleVersion,
+    assessmentVersion,
+    contentVersion,
+    policyVersion,
+    policySnapshot,
+    evidenceSchemaVersion: normalizeCount(
+      record.evidenceSchemaVersion ?? record.metadata?.evidenceSchemaVersion,
+      ASSESSMENT_EVIDENCE_SCHEMA_VERSION
+    ) || ASSESSMENT_EVIDENCE_SCHEMA_VERSION,
     scoringVersion: record.scoringVersion || record.metadata?.scoringVersion || "",
     administrationVersion: record.administrationVersion || record.metadata?.administrationVersion || "legacy_unspecified",
     responseSchemaVersion: normalizeCount(
@@ -734,7 +836,7 @@ export function normalizeAssessmentAttempt(record = {}) {
     benchmark: cloneJsonValue(record.benchmark, record.benchmark ?? null),
     durationMs: normalizeOptionalNumber(record.durationMs, { minimum: 0 }),
     appVersion: record.appVersion || "local",
-    schemaVersion: normalizeCount(record.schemaVersion, hasRichFields ? CURRENT_ASSESSMENT_ATTEMPT_SCHEMA_VERSION : 1) || 1
+    schemaVersion: attemptSchemaVersion
   };
 }
 
@@ -932,6 +1034,19 @@ export function compactAssessmentAttemptForStorage(record = {}) {
   return compact;
 }
 
+export function archiveAssessmentEvidence(record = {}) {
+  const normalized = normalizeAssessmentAttempt(record);
+  return {
+    schemaVersion: ASSESSMENT_EVIDENCE_SCHEMA_VERSION,
+    attemptId: normalized.attemptId,
+    capturedAt: normalized.completedAt,
+    assessmentVersion: normalized.assessmentVersion,
+    contentVersion: normalized.contentVersion,
+    policyVersion: normalized.policyVersion,
+    result: compactAssessmentAttemptForStorage(normalized)
+  };
+}
+
 function saveAssessmentAttemptListLocal(records, { teacherId = "local", returnStatus = false } = {}) {
   const normalized = sortAttemptsNewestFirst(mergeAssessmentAttemptRecords(records)).slice(0, MAX_LOCAL_ATTEMPTS);
   if (typeof localStorage === "undefined") {
@@ -1055,6 +1170,7 @@ function enqueueAssessmentAttemptSync(record, { teacherId = record?.teacherId ||
 
 function cloudRowForAssessmentAttempt(record = {}) {
   const normalized = normalizeAssessmentAttempt(record);
+  const rawEvidence = archiveAssessmentEvidence(normalized);
   return {
     attempt_id: normalized.attemptId,
     student_id: normalized.studentId,
@@ -1073,6 +1189,11 @@ function cloudRowForAssessmentAttempt(record = {}) {
     status: normalized.status,
     administration_status: normalized.administrationStatus,
     schema_version: normalized.schemaVersion,
+    evidence_schema_version: normalized.evidenceSchemaVersion,
+    assessment_version: normalized.assessmentVersion,
+    content_version: normalized.contentVersion,
+    policy_version: normalized.policyVersion,
+    raw_evidence: rawEvidence,
     updated_at: normalized.updatedAt,
     payload: compactAssessmentAttemptForStorage(normalized)
   };
@@ -1092,8 +1213,10 @@ async function upsertAssessmentAttemptCloud(record, supabase) {
         if (error) throw error;
         if (data) {
           const remoteRecord = normalizeCloudAssessmentAttempt(data);
-          recordToPersist = mergeAssessmentAttemptRecords(recordToPersist, remoteRecord)
-            .find(candidate => candidate.attemptId === recordToPersist.attemptId) || recordToPersist;
+          recordToPersist = isTerminalAssessmentAttempt(remoteRecord)
+            ? remoteRecord
+            : mergeAssessmentAttemptRecords(recordToPersist, remoteRecord)
+              .find(candidate => candidate.attemptId === recordToPersist.attemptId) || recordToPersist;
         }
       }
     } catch (error) {
@@ -1233,6 +1356,18 @@ export function normalizeCloudAssessmentAttempt(row = {}) {
     accuracy: row.accuracy ?? payload.accuracy,
     status: row.status || payload.status,
     administrationStatus: row.administration_status || row.administrationStatus || payload.administrationStatus || "",
+    evidenceSchemaVersion: row.evidence_schema_version
+      ?? row.evidenceSchemaVersion
+      ?? payload.evidenceSchemaVersion,
+    assessmentVersion: row.assessment_version
+      || row.assessmentVersion
+      || payload.assessmentVersion,
+    contentVersion: row.content_version
+      || row.contentVersion
+      || payload.contentVersion,
+    policyVersion: row.policy_version
+      || row.policyVersion
+      || payload.policyVersion,
     updatedAt: row.updated_at || row.updatedAt || payload.updatedAt || payload.completedAt || row.completed_at || "",
     schemaVersion: payload.schemaVersion ?? row.schema_version ?? row.schemaVersion
   });
@@ -1327,7 +1462,7 @@ export function saveAssessmentAttemptLocal(record, {
   teacherId = record.teacherId || "local",
   returnStatus = false
 } = {}) {
-  const normalized = normalizeAssessmentAttempt({
+  let normalized = normalizeAssessmentAttempt({
     ...record,
     teacherId: record.teacherId || teacherId,
     updatedAt: record.updatedAt || nowIso()
@@ -1336,6 +1471,11 @@ export function saveAssessmentAttemptLocal(record, {
     return returnStatus ? { records: [normalized], saved: false, error: null } : [normalized];
   }
   const existing = loadAssessmentAttempts({ teacherId });
+  const existingTerminal = existing.find(candidate => (
+    candidate.attemptId === normalized.attemptId
+    && isTerminalAssessmentAttempt(candidate)
+  ));
+  if (existingTerminal) normalized = existingTerminal;
   return saveAssessmentAttemptListLocal([normalized, ...existing], { teacherId, returnStatus });
 }
 
@@ -1452,7 +1592,10 @@ export function buildAssessmentAttemptRecord({
   stage,
   checkpoint,
   questionRecords = [],
-  assessmentType = "skill_checkpoint"
+  assessmentType = "skill_checkpoint",
+  assessmentVersion = ADAPTIVE_CHECKPOINT_ASSESSMENT_VERSION,
+  policyVersion = ADAPTIVE_CHECKPOINT_POLICY_VERSION,
+  policySnapshot = null
 }) {
   const normalizedQuestions = questionRecords.map(record => ({
     questionId: record.questionId,
@@ -1484,6 +1627,9 @@ export function buildAssessmentAttemptRecord({
     classId,
     teacherId,
     assessmentType,
+    assessmentVersion,
+    policyVersion,
+    policySnapshot,
     skillId: checkpoint?.skillId || stage?.id || normalizedQuestions[0]?.skillId || "",
     skillName: stage?.label || checkpoint?.skillLabel || "Assessment",
     skillLevel: checkpoint?.pathStatus?.level ?? normalizedQuestions[0]?.level ?? 1,

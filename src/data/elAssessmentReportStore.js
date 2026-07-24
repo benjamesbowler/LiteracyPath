@@ -1064,6 +1064,74 @@ function compactClassBenchmarkDetail(detail = {}) {
   return compact;
 }
 
+const CLASS_EVIDENCE_DICTIONARY_FIELDS = new Set([
+  "studentId",
+  "studentName",
+  "attemptId",
+  "itemKey",
+  "itemType",
+  "responseStatus",
+  "administrationStatus",
+  "formVersion",
+  "contentVersion",
+  "scoringVersion",
+  "scoringRuleVersion",
+  "administrationVersion",
+  "date",
+  "targetWord",
+  "correctAnswer",
+  "selectedAnswer",
+  "resultType"
+]);
+
+function compactClassEvidenceRows(formalAssessments = {}) {
+  if (formalAssessments.classEvidenceDictionaries) return formalAssessments;
+  const schema = formalAssessments.classEvidenceSchema || [];
+  const cells = [
+    ...(formalAssessments.classLetterMatrix || []).flatMap(row => [
+      row.uppercaseName,
+      row.uppercaseSound,
+      row.lowercaseName,
+      row.lowercaseSound
+    ]),
+    ...(formalAssessments.classAdvancedPhonicsMatrix || [])
+  ].filter(cell => Array.isArray(cell?.evidenceRows));
+  const evidenceRows = cells.flatMap(cell => cell.evidenceRows);
+  if (evidenceRows.length < 20) return formalAssessments;
+
+  const dictionaries = {};
+  schema.forEach((key, index) => {
+    if (!CLASS_EVIDENCE_DICTIONARY_FIELDS.has(key)) return;
+    const values = evidenceRows.map(row => row[index] ?? "");
+    if (values.every(value => typeof value === "string")) {
+      dictionaries[key] = Array.from(new Set(values));
+    }
+  });
+  const dictionaryIndexes = Object.fromEntries(
+    Object.entries(dictionaries).map(([key, values]) => [
+      key,
+      new Map(values.map((value, index) => [value, index]))
+    ])
+  );
+  const encodeRows = rows => rows.map(row => row.map((value, index) => {
+    const dictionary = dictionaryIndexes[schema[index]];
+    return dictionary && typeof value === "string" ? dictionary.get(value) : value;
+  }));
+  const compactCells = row => Object.fromEntries(Object.entries(row).map(([key, value]) => [
+    key,
+    Array.isArray(value?.evidenceRows)
+      ? { ...value, evidenceRows: encodeRows(value.evidenceRows) }
+      : value
+  ]));
+
+  return {
+    ...formalAssessments,
+    classEvidenceDictionaries: dictionaries,
+    classLetterMatrix: (formalAssessments.classLetterMatrix || []).map(compactCells),
+    classAdvancedPhonicsMatrix: (formalAssessments.classAdvancedPhonicsMatrix || []).map(compactCells)
+  };
+}
+
 export function compactElAssessmentReportForStorage(report = {}) {
   const compact = {
     ...report,
@@ -1092,6 +1160,7 @@ export function compactElAssessmentReportForStorage(report = {}) {
         classBenchmarkDetails: compact.formalAssessments.classBenchmarkDetails.map(compactClassBenchmarkDetail)
       };
     }
+    compact.formalAssessments = compactClassEvidenceRows(compact.formalAssessments);
   }
   if (compact.advancedPhonics?.patternRows && compact.patternDetailRows) {
     compact.advancedPhonics = { ...compact.advancedPhonics };

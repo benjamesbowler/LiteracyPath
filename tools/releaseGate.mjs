@@ -157,6 +157,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 7, 8, 10]
   },
   {
+    id: "immutable-assessment-evidence",
+    label: "Versioned immutable assessment evidence and content-independent report replay",
+    command: ["npm", "run", "check:immutable-assessment-evidence"],
+    areas: [7, 8, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],
