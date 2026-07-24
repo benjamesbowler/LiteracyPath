@@ -16,6 +16,21 @@ export function CoinIcon({ size = 18 }) {
   );
 }
 
+export function SparkIcon({ size = 18 }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false">
+      <path
+        d="M12 1.8l2.2 6 6 2.2-6 2.2-2.2 6-2.2-6-6-2.2 6-2.2 2.2-6z"
+        fill="#FFD166"
+        stroke="#101820"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <circle cx="18.2" cy="17.8" r="2.4" fill="#FFF0A8" stroke="#101820" strokeWidth="1.4" />
+    </svg>
+  );
+}
+
 export function BerryIcon({ size = 16 }) {
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false">

@@ -18,10 +18,20 @@ import {
   defaultCreature
 } from "../../data/creatureParts.js";
 import { playPopSound, playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
+import { lockedItemAffordance } from "../../policy/lockedItemAffordance.js";
+import { SparkIcon } from "../shared/CurrencyIcons.jsx";
 
 const PART_TABS = CREATURE_SLOTS.filter(s => s.kind === "part" && s.id !== "body" && s.id !== "pattern");
 
-export default function CreatureCreator({ creature, owned, isSoundEnabled = true, onChange, onDone, hatched = false }) {
+export default function CreatureCreator({
+  creature,
+  owned,
+  sparkBalance = 0,
+  isSoundEnabled = true,
+  onChange,
+  onDone,
+  hatched = false
+}) {
   const [tab, setTab] = useState("body");
   const [hatching, setHatching] = useState(false);
   const own = owned || new Set();
@@ -98,6 +108,7 @@ export default function CreatureCreator({ creature, owned, isSoundEnabled = true
             key={body.id}
             label={body.label}
             cost={body.cost}
+            balance={sparkBalance}
             locked={!own.has(body.id) && body.cost > 0}
             selected={creature.body === body.id}
             onPick={() => set("body", body.id)}
@@ -111,6 +122,7 @@ export default function CreatureCreator({ creature, owned, isSoundEnabled = true
             key={dye.id}
             label={dye.label}
             cost={dye.cost}
+            balance={sparkBalance}
             locked={!own.has(dye.id) && dye.cost > 0}
             selected={creature.dye === dye.id}
             onPick={() => set("dye", dye.id)}
@@ -124,6 +136,7 @@ export default function CreatureCreator({ creature, owned, isSoundEnabled = true
             key={piece.id}
             label={piece.label}
             cost={piece.cost}
+            balance={sparkBalance}
             locked={!own.has(piece.id) && piece.cost > 0}
             selected={creature[tab] === piece.id}
             onPick={() => set(tab, piece.id)}
@@ -144,12 +157,23 @@ export default function CreatureCreator({ creature, owned, isSoundEnabled = true
   );
 }
 
-function Option({ label, cost, locked, selected, onPick, children }) {
+function Option({ label, cost, balance, locked, selected, onPick, children }) {
+  const affordance = locked
+    ? lockedItemAffordance({
+      cost,
+      balance,
+      currency: { singular: "Spark", plural: "Sparks" }
+    })
+    : null;
+  const lockedCopy = affordance?.text || "";
+
   return (
     <button
       type="button"
       className={`q-option${selected ? " is-on" : ""}${locked ? " is-locked" : ""}`}
       aria-pressed={selected}
+      aria-label={locked ? `${label}. ${lockedCopy}` : label}
+      data-locked-item={locked ? "quest-creature" : undefined}
       disabled={locked}
       onClick={onPick}
     >
@@ -157,7 +181,16 @@ function Option({ label, cost, locked, selected, onPick, children }) {
       <span className="q-option-label">{label}</span>
       {/* A locked piece shows its PRICE, not a padlock. A padlock says "no".
           A price says "walk a bit further". */}
-      {locked && <span className="q-option-cost">{cost}</span>}
+      {locked && (
+        <span className="q-option-cost">
+          <SparkIcon size={14} />
+          <span className="q-option-cost-copy">
+            <span className="q-option-price">{affordance.priceText}</span>
+            {" — earn "}
+            {affordance.shortfall} more
+          </span>
+        </span>
+      )}
     </button>
   );
 }

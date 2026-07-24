@@ -113,6 +113,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 3, 10]
   },
   {
+    id: "locked-item-affordance",
+    label: "Visible and spoken locked-item currency cost, shortfall, and disabled-state contrast",
+    command: ["npm", "run", "check:locked-item-affordance"],
+    areas: [3, 10]
+  },
+  {
     id: "sound-racer-tutorial",
     label: "Current-target Sound Racer tutorial with recorded example audio and separate steering help",
     command: ["npm", "run", "check:sound-racer-tutorial"],

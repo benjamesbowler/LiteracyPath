@@ -948,6 +948,7 @@ export default function QuestRoot({
         <CreatureCreator
           creature={state.creature}
           owned={owned}
+          sparkBalance={availableSparks(state)}
           hatched={state.hatched}
           isSoundEnabled={isSoundEnabled}
           onChange={creature => commit({ ...state, creature, creatureAt: new Date().toISOString() })}

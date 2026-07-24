@@ -289,8 +289,8 @@
   transition: transform 100ms ease;
 }
 .hollow-buy:hover:not(:disabled) { transform: translateY(-2px); }
-.hollow-buy:disabled {
-  background: #EFE8D8; color: #9A8A6E; border-color: rgba(139, 90, 43, 0.25);
+.hollow-page .hollow-buy:disabled {
+  background: #EFE8D8; color: #5E4A30; border-color: #7A6546;
   cursor: default; box-shadow: none;
 }
 .hollow-buy.small { padding: 7px 14px; font-size: 0.85rem; }
@@ -301,7 +301,19 @@
   border: 1px solid rgba(122, 82, 12, 0.45);
   border-radius: 999px; padding: 4px 14px;
 }
-.hollow-price.cant { color: var(--hw-ink-soft); font-size: 0.84rem; }
+.hollow-price.cant {
+  max-width: 100%;
+  justify-content: center;
+  color: #4B381F;
+  background: #FFF4D6;
+  border: 1.5px dashed #6B5233;
+  border-radius: 10px;
+  padding: 5px 8px;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  text-align: left;
+}
+.hollow-price.cant svg { flex: 0 0 auto; }
 .hollow-price.owned { color: var(--hw-green); }
 
 /* ── Pal dressing ── */
@@ -418,8 +430,13 @@
 .hollow-ware:hover:not(:disabled) { transform: translateY(-3px); }
 /* A broke wallet must never grey the dream - art stays vivid; only the
    price pill changes. Disabled just means "not clickable yet". */
-.hollow-ware:disabled { cursor: default; }
-.hollow-ware:disabled:hover { transform: none; }
+.hollow-page .hollow-ware:disabled {
+  border: 2px dashed #6B5233;
+  color: var(--hw-ink);
+  cursor: default;
+  opacity: 1;
+}
+.hollow-page .hollow-ware:disabled:hover { transform: none; }
 .hollow-egg-note { font-style: normal; font-size: 0.76rem; color: var(--hw-ink-soft); font-weight: 700; }
 .hollow-eggs { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
 .hollow-eggs .hollow-ware { padding: 20px 14px; }
@@ -556,4 +573,15 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .hollow-pal-figure, .hollow-pal-ground, .hollow-pal-figure.spin { animation: none; }
+}
+
+@media (forced-colors: active) {
+  .hollow-ware:disabled,
+  .hollow-buy:disabled,
+  .hollow-price.cant {
+    border: 2px dashed GrayText;
+    background: Canvas;
+    color: GrayText;
+    opacity: 1;
+  }
 }

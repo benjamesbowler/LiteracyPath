@@ -1276,10 +1276,37 @@
   background: rgba(255, 255, 255, .12);
   color: #f7faf8;
   cursor: not-allowed;
+  min-height: 132px;
+  min-width: 116px;
 }
 .q-option-art { display: grid; place-items: center; height: 60px; }
 .q-option-label { color: #e7eeeb; font-size: 11px; }
-.q-option-cost { position: absolute; top: 4px; right: 6px; padding: 1px 7px; border-radius: 999px; background: rgba(255, 209, 102, .9); color: #3a2a06; font-size: 10px; font-weight: 700; }
+.q-option-cost {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  align-items: center;
+  gap: 4px;
+  width: calc(100% - 4px);
+  min-height: 34px;
+  padding: 3px 5px;
+  border: 1px solid rgba(58, 42, 6, .55);
+  border-radius: 10px;
+  background: #ffd978;
+  color: #3a2a06;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: left;
+}
+.q-option-cost svg { flex: 0 0 auto; }
+.q-option-cost-copy { min-width: 0; }
+.q-option-price { white-space: nowrap; }
+@media (max-width: 700px) {
+  .q-creator .q-option.is-locked {
+    width: 100%;
+    min-width: 0;
+  }
+}
 .q-swatch { width: 46px; height: 46px; border: 3px solid; border-radius: 50%; }
 
 .q-creator .q-primary { justify-self: center; margin-top: auto; }

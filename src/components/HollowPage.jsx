@@ -10,6 +10,7 @@ import { hollowSpotsFor, getCachedHollowOverride, loadHollowSpotsOverride } from
 import { loadStudentProfile, saveStudentProfile, getCompanion } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
 import { CoinIcon, BerryIcon } from "./shared/CurrencyIcons.jsx";
+import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
 
 // My Hollow - Rewards V2. A GAME ROOM, not a webpage: one slim top bar
 // (title + tabs + wallet) and a stage that fills the rest of the screen.
@@ -59,8 +60,25 @@ function ItemArt({ id, stage, size = 52 }) {
 function CoinPrice({ verdict, price }) {
   if (verdict.reason === "owned") return <span className="hollow-price owned">Owned ✓</span>;
   if (verdict.reason === "complete") return <span className="hollow-price owned">All hatched ✓</span>;
-  if (verdict.ok) return <span className="hollow-price can"><CoinIcon size={15} /> {price}</span>;
-  return <span className="hollow-price cant"><CoinIcon size={13} /> {price} · {verdict.short} to go</span>;
+  const balance = Math.max(0, Number(price) - (Number(verdict.short) || 0));
+  const affordance = lockedItemAffordance({ cost: price, balance });
+  if (verdict.ok) {
+    return (
+      <span className="hollow-price can" aria-label={affordance.priceText}>
+        <CoinIcon size={15} /> {affordance.priceText}
+      </span>
+    );
+  }
+  return (
+    <span
+      className="hollow-price cant"
+      data-locked-item="hollow-market"
+      data-shortfall={affordance.shortfall}
+    >
+      <CoinIcon size={15} />
+      <span>{affordance.text}</span>
+    </span>
+  );
 }
 
 // Where the trophy/decoration spots sit on each room's painted shelves and
@@ -346,11 +364,12 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   function renderWare(item) {
+    const verdict = canBuy(hollow, item.id);
     return (
-      <button key={item.id} type="button" className="hollow-ware" disabled={!canBuy(hollow, item.id).ok} onClick={() => buy(item.id)}>
+      <button key={item.id} type="button" className="hollow-ware" disabled={!verdict.ok} onClick={() => buy(item.id)}>
         <ItemArt id={item.id} size={62} />
         <strong>{item.name}</strong>
-        <CoinPrice verdict={canBuy(hollow, item.id)} price={item.price} />
+        <CoinPrice verdict={verdict} price={item.price} />
       </button>
     );
   }

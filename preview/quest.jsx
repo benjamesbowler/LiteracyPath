@@ -42,6 +42,7 @@ import { localProgressStorageKey } from "../src/utils/progressKeys.js";
 import {
   baseQuestState,
   normalizeQuestState,
+  recordPurchaseAndEquip,
   recordQuestAttempt,
   recordStopResult,
   saveQuestCheckpoint
@@ -62,12 +63,13 @@ import {
   PIXEL_BEASTIE_FRAME,
   PIXEL_BEASTIE_FRAMES_PER_DIRECTION
 } from "../src/components/quest/world/questPixelAvatar.js";
-import { defaultCreature } from "../src/data/creatureParts.js";
+import { defaultCreature, getPiece } from "../src/data/creatureParts.js";
 
 const params = new URLSearchParams(window.location.search);
 const view = params.get("view") || "den";
 const stopId = params.get("stop") || "s1";
 const done = Number(params.get("done") || 0);
+const requestedSparkBalance = Number(params.get("sparks"));
 const checkpointMode = params.get("checkpoint");
 const activeIndex = params.has("active") ? Number(params.get("active")) : null;
 const requestedBeatIndex = params.has("beat") ? Number(params.get("beat")) : 0;
@@ -178,6 +180,12 @@ function seedState() {
     }
     state = recordStopResult(state, stop.id, 3, 12);
     n += 1;
+  }
+  if (requestedSparkBalance === 8) {
+    // A real reachable economy state for the locked-item release fixture:
+    // 1 star + 8 trail drops = 28 Sparks; buying a 20-Spark piece leaves 8.
+    state = recordStopResult({ ...baseQuestState(), hatched: true }, "s1", 1, 8);
+    state = recordPurchaseAndEquip(state, getPiece("pebble"), "2026-07-24T08:00:00.000Z");
   }
   if (creatureMode === "showcase") {
     state = {
