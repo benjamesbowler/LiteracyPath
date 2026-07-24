@@ -36,6 +36,7 @@ import {
 } from "../../utils/guidedReading/decodingSupport.js";
 import { preloadMediaSet } from "../../utils/preloadMedia.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
+import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 
@@ -482,6 +483,8 @@ export function GuidedReadingPage({
   const [levelUp, setLevelUp] = useState(null);
   const [readerOpen, setReaderOpen] = useState(false);
   const [readingMode, setReadingMode] = useState("reading");
+  const [lineFocusEnabled, setLineFocusEnabled] = useState(false);
+  const [focusedSentenceIndex, setFocusedSentenceIndex] = useState(0);
   const [highlightedWordIndex, setHighlightedWordIndex] = useState(null);
   const [highlightedSentenceIndex, setHighlightedSentenceIndex] = useState(null);
   const [audioNotice, setAudioNotice] = useState("");
@@ -515,6 +518,7 @@ export function GuidedReadingPage({
   const runtimeGuidedReadingBooks = getRuntimeGuidedReadingBooks();
   const selectedBook = runtimeGuidedReadingBooks.find(book => book.id === selectedBookId) || runtimeGuidedReadingBooks[0];
   const page = selectedBook?.pages?.[pageIndex];
+  const readingMeasure = getGuidedReadingMeasure(selectedBook?.level);
   const record = guidedReadingRecords[selectedBook?.id] || {
     bookId: selectedBook?.id,
     title: selectedBook?.title,
@@ -588,6 +592,7 @@ export function GuidedReadingPage({
     setActiveDecodingSupport(null);
     decodingSupportStageRef.current.clear();
     setHighlightedSentenceIndex(null);
+    setFocusedSentenceIndex(0);
     wordSupportPlaybackTokenRef.current += 1;
     stopWordSupportAudio();
   }, [pageIndex, selectedBookId]);
@@ -1510,6 +1515,10 @@ export function GuidedReadingPage({
     const word = (page.words || [])[wordIndex] || (pageAnalysis?.words?.[wordIndex] ? { text: pageAnalysis.words[wordIndex] } : null);
     if (!word) return;
 
+    if (lineFocusEnabled) {
+      setFocusedSentenceIndex(sentenceIndexForWord(wordIndex) ?? 0);
+    }
+
     if (!isStudentMode && readingMode === "marking" && !event.altKey) {
       cycleWordMark(wordIndex);
       return;
@@ -1999,6 +2008,17 @@ export function GuidedReadingPage({
                       Teacher Notes
                     </button>
                   )}
+                  <button
+                    aria-pressed={lineFocusEnabled}
+                    className={`lp-button lp-button-secondary ${lineFocusEnabled ? "active" : ""}`}
+                    onClick={() => {
+                      setLineFocusEnabled(value => !value);
+                      setFocusedSentenceIndex(0);
+                    }}
+                    type="button"
+                  >
+                    Line Focus
+                  </button>
                   <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
                     {isReaderFullscreen ? "Exit" : "Full Screen"}
                   </button>
@@ -2054,11 +2074,19 @@ export function GuidedReadingPage({
               <motion.div
                 animate={{ opacity: 1, x: 0 }}
                 className="guided-page-layout"
+                data-reading-level={readingMeasure.level}
+                data-reading-template={readingMeasure.templateId}
                 exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -18 }}
                 initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: 18 }}
                 key={`${selectedBook.id}-${pageIndex}`}
                 onTouchEnd={handlePageTouchEnd}
                 onTouchStart={handlePageTouchStart}
+                style={{
+                  "--guided-image-track": `${readingMeasure.imageFraction}fr`,
+                  "--guided-text-track": `${readingMeasure.textFraction}fr`,
+                  "--guided-max-line-measure": `${readingMeasure.maxLineMeasureCh}ch`,
+                  "--guided-stacked-image-height": `${readingMeasure.stackedImageViewportHeight}dvh`
+                }}
                 transition={{ duration: prefersReducedMotion ? 0.01 : 0.18, ease: "easeOut" }}
               >
                 <div className="guided-page-image-card">
@@ -2075,13 +2103,20 @@ export function GuidedReadingPage({
                 <div className="guided-page-reading">
                   <AutoFitReadingText
                     aria-label="Page text"
-                    className={`guided-page-text ${readingMode}`}
+                    className={`guided-page-text ${readingMode} ${lineFocusEnabled ? "line-focus-enabled" : ""}`}
                     layoutVersion={readerLayoutVersion}
-                    text={`${selectedBook.id}-${pageIndex}-${page.text || ""}-${readingMode}-${isReaderFullscreen ? "fullscreen" : "windowed"}`}
+                    lineHeight={readingMeasure.lineHeight}
+                    maxFontSize={readingMeasure.maxFontSizePx}
+                    minFontSize={readingMeasure.minFontSizePx}
+                    text={`${selectedBook.id}-${pageIndex}-${page.text || ""}-${readingMode}-${readingMeasure.templateId}-${isReaderFullscreen ? "fullscreen" : "windowed"}`}
                   >
                     {sentenceTokenGroups.map(group => (
                       <span
-                        className={highlightedSentenceIndex === group.sentenceIndex ? "guided-sentence active" : "guided-sentence"}
+                        className={[
+                          "guided-sentence",
+                          highlightedSentenceIndex === group.sentenceIndex ? "active" : "",
+                          lineFocusEnabled && focusedSentenceIndex === group.sentenceIndex ? "line-focused" : ""
+                        ].filter(Boolean).join(" ")}
                         key={`sentence-${group.sentenceIndex}`}
                       >
                         {group.tokens.map(item => {

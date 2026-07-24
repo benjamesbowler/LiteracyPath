@@ -31,6 +31,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "student-login-recovery",
     "student-login-panel",
     "guided-reading-control-hierarchy",
+    "guided-reading-measure",
     "sound-racer-tutorial",
     "fullscreen-overlay-semantics",
     "child-surface-rules",

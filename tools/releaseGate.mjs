@@ -107,6 +107,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 10]
   },
   {
+    id: "guided-reading-measure",
+    label: "Level-specific Guided Reading line length, line focus, and image/text templates",
+    command: ["npm", "run", "check:guided-reading-measure"],
+    areas: [1, 3, 10]
+  },
+  {
     id: "sound-racer-tutorial",
     label: "Current-target Sound Racer tutorial with recorded example audio and separate steering help",
     command: ["npm", "run", "check:sound-racer-tutorial"],
