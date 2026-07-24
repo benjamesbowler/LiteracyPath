@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T11:54:32.926Z",
+  "startedAt": "2026-07-24T11:53:45.757Z",
+  "finishedAt": "2026-07-24T11:54:32.926Z",
+  "commitSha": "a9fed892d465086794976200eb2cd5e7d4d78945",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21028,
+      "startedAt": "2026-07-24T11:53:45.823Z",
+      "finishedAt": "2026-07-24T11:54:06.851Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T11-53-45-757Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6799,
+      "startedAt": "2026-07-24T11:54:06.851Z",
+      "finishedAt": "2026-07-24T11:54:13.650Z",
+      "counts": {
+        "tests": 1121,
+        "passed": 1121,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T11-53-45-757Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 17207,
+      "startedAt": "2026-07-24T11:54:13.650Z",
+      "finishedAt": "2026-07-24T11:54:30.857Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T11-53-45-757Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "guided-reading-decoding-support",
+      "label": "Guided Reading decoding ladder and teacher-visible support events",
+      "areas": [
+        1,
+        6,
+        7,
+        10
+      ],
+      "command": "npm run check:guided-reading-decoding-support",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2069,
+      "startedAt": "2026-07-24T11:54:30.857Z",
+      "finishedAt": "2026-07-24T11:54:32.926Z",
+      "counts": {
+        "tests": 60,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T11-53-45-757Z/guided-reading-decoding-support.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}
