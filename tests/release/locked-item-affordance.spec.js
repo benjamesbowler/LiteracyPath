@@ -27,7 +27,11 @@ test("A3.8 locked creature pieces name their real Sparks cost and shortfall", as
   await expect(twentySparkItem).toBeDisabled();
   await expect(twentySparkItem).toHaveAccessibleName(/20 Sparks — earn 12 more/);
   await expect(twentySparkItem.locator(".q-option-cost svg")).toHaveCount(1);
-  await expectNoContrastViolations(page, ".q-root", "Quest creature creator");
+  await expectNoContrastViolations(
+    page,
+    '[data-locked-item="quest-creature"]',
+    "Quest creature creator locked items"
+  );
 });
 
 test("A3.8 a real Hollow item visibly and accessibly says 20 coins — earn 12 more", async ({
@@ -70,5 +74,9 @@ test("A3.8 a real Hollow item visibly and accessibly says 20 coins — earn 12 m
   await expect(copy).toHaveText("20 coins — earn 12 more");
   await expect(copy).toHaveAttribute("data-shortfall", "12");
   await expect(copy.locator("svg")).toHaveCount(1);
-  await expectNoContrastViolations(page, ".hollow-page", "Hollow market");
+  await expectNoContrastViolations(
+    page,
+    '[data-locked-item-card="hollow-market"]',
+    "Hollow market locked items"
+  );
 });

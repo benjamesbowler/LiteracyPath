@@ -366,7 +366,14 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   function renderWare(item) {
     const verdict = canBuy(hollow, item.id);
     return (
-      <button key={item.id} type="button" className="hollow-ware" disabled={!verdict.ok} onClick={() => buy(item.id)}>
+      <button
+        key={item.id}
+        type="button"
+        className="hollow-ware"
+        data-locked-item-card={verdict.reason === "coins" ? "hollow-market" : undefined}
+        disabled={!verdict.ok}
+        onClick={() => buy(item.id)}
+      >
         <ItemArt id={item.id} size={62} />
         <strong>{item.name}</strong>
         <CoinPrice verdict={verdict} price={item.price} />
