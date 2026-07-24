@@ -7,8 +7,12 @@ import { recordDailyChest } from "./hollowState.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
-
-const MISSION_KINDS = ["quest", "book", "game"];
+import {
+  DAILY_MISSION_KINDS,
+  firstUncelebratedMissionStep,
+  normalizeMissionCelebratedSteps,
+  withMissionStepCelebrated
+} from "./dailyMissionState.js";
 
 function storageKey(scope) {
   return `lp-daily-mission:${scope || "default"}`;
@@ -55,13 +59,34 @@ function readJson(key, fallback) {
 
 export function loadMissionState(scope) {
   const state = readJson(storageKey(scope), null);
-  const base = { streak: 0, lastCompletedDay: "", shieldWeek: "", day: "", done: {}, celebratedDay: "" };
-  if (!state || typeof state !== "object") return base;
+  const base = {
+    streak: 0,
+    lastCompletedDay: "",
+    shieldWeek: "",
+    day: "",
+    done: {},
+    celebratedDay: "",
+    celebratedSteps: []
+  };
+  if (!state || typeof state !== "object") {
+    return { ...base, day: todayKey() };
+  }
   const merged = { ...base, ...state };
   // New day: reset the per-day checklist but keep streak metadata.
   if (merged.day !== todayKey()) {
     merged.day = todayKey();
     merged.done = {};
+    merged.celebratedSteps = [];
+  } else {
+    merged.celebratedSteps = normalizeMissionCelebratedSteps(
+      state.celebratedSteps,
+      merged.done,
+      {
+        // Backward compatibility: a mission celebrated before per-step
+        // tracking shipped must not replay three old celebrations.
+        missionAlreadyCelebrated: merged.celebratedDay === merged.day
+      }
+    );
   }
   return merged;
 }
@@ -77,13 +102,13 @@ function persist(scope, state) {
 }
 
 export function markMissionDone(scope, kind) {
-  if (!MISSION_KINDS.includes(kind)) return null;
+  if (!DAILY_MISSION_KINDS.includes(kind)) return null;
   const state = loadMissionState(scope);
   if (state.done[kind]) return state;
   state.done = { ...state.done, [kind]: true };
 
   const today = todayKey();
-  const complete = MISSION_KINDS.every(item => state.done[item]);
+  const complete = DAILY_MISSION_KINDS.every(item => state.done[item]);
   if (complete && state.lastCompletedDay !== today) {
     const previous = state.lastCompletedDay;
     if (previous === previousSchoolDay(today)) {
@@ -123,7 +148,7 @@ export function notifyMissionTaskDone(scope, kind, options = {}) {
   // Engagement logging (fire-and-forget): one event per newly-finished task,
   // plus a mission_complete event carrying the streak when all three are done.
   logStudentActivity("mission", kind, "task_done");
-  if (after && MISSION_KINDS.every(item => after.done?.[item])) {
+  if (after && DAILY_MISSION_KINDS.every(item => after.done?.[item])) {
     logStudentActivity("mission", "all", "mission_complete", { streak: after.streak });
   }
   if (!deferReturn && typeof window !== "undefined") {
@@ -148,14 +173,28 @@ export function markMissionCelebrated(scope) {
   return state;
 }
 
+export function markMissionStepCelebrated(scope, kind) {
+  const state = loadMissionState(scope);
+  const next = withMissionStepCelebrated(state, kind);
+  if (next === state) return state;
+  persist(scope, next);
+  return next;
+}
+
 export function getMissionStatus(scope) {
   const state = loadMissionState(scope);
-  const doneCount = MISSION_KINDS.filter(kind => state.done[kind]).length;
+  const doneCount = DAILY_MISSION_KINDS.filter(kind => state.done[kind]).length;
+  const uncelebratedStep = firstUncelebratedMissionStep(
+    state.done,
+    state.celebratedSteps
+  );
   return {
     ...state,
     doneCount,
-    missionComplete: doneCount === MISSION_KINDS.length,
-    needsCelebration: doneCount === MISSION_KINDS.length && state.celebratedDay !== todayKey()
+    uncelebratedStep,
+    needsStepCelebration: Boolean(uncelebratedStep),
+    missionComplete: doneCount === DAILY_MISSION_KINDS.length,
+    needsCelebration: doneCount === DAILY_MISSION_KINDS.length && state.celebratedDay !== todayKey()
   };
 }
 

@@ -12,6 +12,7 @@ import "./styles/sage-form.css";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
+import { markMissionDone } from "./utils/dailyMission.js";
 
 const PREVIEW_SCOPE = "student-home-preview";
 const PREVIEW_SCENARIO = new URLSearchParams(window.location.search).get("scenario");
@@ -33,7 +34,8 @@ if (PREVIEW_SCENARIO === "continuation") {
       streak: 1,
       lastCompletedDay: day,
       shieldWeek: "",
-      celebratedDay: day
+      celebratedDay: day,
+      celebratedSteps: ["quest", "book", "game"]
     })
   );
   window.localStorage.setItem(
@@ -45,6 +47,10 @@ if (PREVIEW_SCENARIO === "continuation") {
     })
   );
 }
+
+window.__completeStudentHomeMissionStep = kind => {
+  markMissionDone(PREVIEW_SCOPE, kind);
+};
 
 export function StudentHomePreview() {
   function openDestination(destination) {

@@ -4,7 +4,8 @@ import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
 import {
   buildDailyMission,
   getMissionStatus,
-  markMissionCelebrated
+  markMissionCelebrated,
+  markMissionStepCelebrated
 } from "../utils/dailyMission.js";
 import { COMPANIONS, getCompanion, setCompanion } from "../utils/studentProfile.js";
 import { worldForScope } from "../utils/palWorlds.js";
@@ -63,12 +64,9 @@ function SignOutIcon() {
 const ARCADE_REQUIRES_DAILY_TASKS = false;
 
 const MISSION_TILES = [
-  // "Skills Quest", not "Quest": this tile routes to the EL Skills Quest, and
-  // the bare word "Quest" sat one header away from the Sound Seekers button —
-  // two different modes, one name, and the flagship lost the coin toss.
-  { kind: "quest", label: "Skills Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
-  { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-library.webp" },
-  { kind: "game", label: "Game", art: "/images/learn-games/art/pop-the-word.webp" }
+  { kind: "quest", label: "Adventure Map", art: "/images/learn-games/art/word-hopscotch.webp" },
+  { kind: "book", label: "Reading Library", art: "/images/learn-games/home/home-reading-library.webp" },
+  { kind: "game", label: "Arcade", art: "/images/learn-games/art/pop-the-word.webp" }
 ];
 
 // ── the "sage" home skin ─────────────────────────────────────────────────────
@@ -178,7 +176,7 @@ export function StudentHomePage({
   // the mission state fresh after each activity.
   const [status] = useState(() => getMissionStatus(progressScopeKey));
   const mission = useMemo(() => buildDailyMission(progressScopeKey), [progressScopeKey]);
-  const [showCelebration, setShowCelebration] = useState(false);
+  const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
   // Cloud progress hydrates asynchronously AFTER this page mounts. Until it
@@ -215,14 +213,17 @@ export function StudentHomePage({
   }, [progressScopeKey]);
 
   useEffect(() => {
-    if (!status.needsCelebration) return undefined;
+    const stepKind = status.uncelebratedStep;
+    const type = stepKind ? "step" : status.needsCelebration ? "mission" : "";
+    if (!type) return undefined;
     const timer = window.setTimeout(() => {
-      setShowCelebration(true);
+      setCelebration({ type, kind: stepKind || "" });
       playCelebrationFanfare();
-      markMissionCelebrated(progressScopeKey);
-    }, 350);
+      if (stepKind) markMissionStepCelebrated(progressScopeKey, stepKind);
+      else markMissionCelebrated(progressScopeKey);
+    }, 300);
     return () => window.clearTimeout(timer);
-  }, [progressScopeKey, status.needsCelebration]);
+  }, [progressScopeKey, status.needsCelebration, status.uncelebratedStep]);
 
   function openArcade(gameId = "") {
     try {
@@ -237,6 +238,18 @@ export function StudentHomePage({
     book: () => onOpenGuidedReading?.(mission.book?.bookId || ""),
     game: () => openArcade(mission.game?.gameId || "")
   };
+  const nextMission = MISSION_TILES.find(tile => !status.done[tile.kind]);
+  const celebratedMissionTile = MISSION_TILES.find(tile => tile.kind === celebration?.kind);
+
+  function closeCelebration() {
+    if (celebration?.type === "step" && status.missionComplete && status.needsCelebration) {
+      setCelebration({ type: "mission", kind: "" });
+      playCelebrationFanfare();
+      markMissionCelebrated(progressScopeKey);
+      return;
+    }
+    setCelebration(null);
+  }
 
   // Presentation-only overlays for the home screen.
   const overlays = (
@@ -285,19 +298,40 @@ export function StudentHomePage({
         </div>
       )}
 
-      {showCelebration && (
-        <div className="student-mission-celebrate" role="dialog" aria-label="Mission complete">
+      {celebration && (
+        <div
+          className="student-mission-celebrate"
+          role="dialog"
+          aria-modal="true"
+          aria-label={celebration.type === "step"
+            ? `${celebratedMissionTile?.label || "Adventure"} step complete`
+            : "Mission complete"}
+        >
           <ConfettiCelebration show />
           <div className="student-mission-celebrate-card">
             <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={hideOnError} />
-            <h2>Mission complete!</h2>
-            <p>
-              {status.streak > 1
-                ? `That's ${status.streak} school days in a row. See you tomorrow!`
-                : "Your streak starts today. See you tomorrow!"}
-            </p>
-            <button className="main-button" type="button" onClick={() => setShowCelebration(false)}>
-              Keep exploring
+            <h2>
+              {celebration.type === "step"
+                ? `${celebratedMissionTile?.label || "Adventure"} complete!`
+                : "Mission complete!"}
+            </h2>
+            {celebration.type === "step" ? (
+              <p>
+                {nextMission
+                  ? `Nice work. Next up: ${nextMission.label}.`
+                  : "That was the final step in today’s adventure."}
+              </p>
+            ) : (
+              <p>
+                {status.streak > 1
+                  ? `That's ${status.streak} school days in a row. See you tomorrow!`
+                  : "Your streak starts today. See you tomorrow!"}
+              </p>
+            )}
+            <button className="main-button" type="button" onClick={closeCelebration}>
+              {celebration.type === "step"
+                ? status.missionComplete ? "See mission complete" : "See what’s next"
+                : "Keep exploring"}
             </button>
           </div>
         </div>
@@ -305,8 +339,6 @@ export function StudentHomePage({
     </>
   );
 
-  const missionLeft = MISSION_TILES.filter(tile => !status.done[tile.kind]).length;
-  const nextMission = MISSION_TILES.find(tile => !status.done[tile.kind]);
   const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
   const sageNav = [
     { id: "sounds", label: "Sound Seekers", icon: "sound", go: onOpenSoundSeekers },
@@ -418,10 +450,14 @@ export function StudentHomePage({
 
   function renderActivity(activity, priority) {
     if (!activity) return null;
+    const primaryMissionAction = priority === "primary" && activity.missionKind
+      ? missionTargets[activity.missionKind]
+      : null;
     return (
       <SageCard
         key={activity.id}
         {...activity}
+        onClick={primaryMissionAction || activity.onClick}
         hero={priority === "primary"}
         priority={priority}
         recommendationSource={priority === "primary" ? recommendation.source : undefined}
@@ -456,22 +492,6 @@ export function StudentHomePage({
           </nav>
 
           <span className="hs-side-spacer" />
-
-          <div className="hs-daily">
-            <h3>Today&rsquo;s adventure</h3>
-            <p>Quest, story, then game — go!</p>
-            <div className="hs-daily-dots" aria-label={`${status.doneCount} of 3 complete`}>
-              {MISSION_TILES.map(tile => (
-                <span key={tile.kind} className={status.done[tile.kind] ? "is-done" : ""} />
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => (nextMission ? missionTargets[nextMission.kind]?.() : onOpenRewards?.())}
-            >
-              {status.missionComplete ? "All done — go spend!" : missionLeft === 1 ? "One to go — play it" : `${missionLeft} to go — play one`}
-            </button>
-          </div>
         </aside>
 
         <div className="hs-main">
@@ -497,10 +517,13 @@ export function StudentHomePage({
                 <button
                   className="hs-btn-primary"
                   type="button"
-                  onClick={recommendation.primary.onClick}
+                  onClick={recommendation.primary.missionKind
+                    ? missionTargets[recommendation.primary.missionKind]
+                    : recommendation.primary.onClick}
                   data-continuation-activity={recommendation.primary.id}
                   data-continuation-goal={continuation.goal}
                   data-continuation-remaining={continuation.remaining ?? undefined}
+                  data-mission-primary-kind={recommendation.primary.missionKind || undefined}
                 >
                   <SageIcon name="play" />
                   <span className="hs-btn-label">{continuation.label}</span>
@@ -528,6 +551,49 @@ export function StudentHomePage({
                   : "What shall we play today?"}
               </p>
             </div>
+
+            <section
+              className="hs-mission-main"
+              aria-labelledby="hs-mission-heading"
+              data-mission-next-kind={nextMission?.kind || "complete"}
+            >
+              <div className="hs-mission-main-head">
+                <div>
+                  <span>Today</span>
+                  <h2 id="hs-mission-heading">Your daily adventure</h2>
+                </div>
+                <strong>{status.doneCount} of 3 complete</strong>
+              </div>
+              <progress
+                className="hs-mission-progress"
+                max="3"
+                value={status.doneCount}
+                aria-label={`${status.doneCount} of 3 daily adventure steps complete`}
+              />
+              <ol className="hs-mission-steps">
+                {MISSION_TILES.map((tile, index) => {
+                  const isDone = Boolean(status.done[tile.kind]);
+                  const isNext = nextMission?.kind === tile.kind;
+                  return (
+                    <li
+                      key={tile.kind}
+                      className={isDone ? "is-done" : isNext ? "is-next" : ""}
+                      data-mission-step={tile.kind}
+                      data-mission-state={isDone ? "done" : isNext ? "next" : "later"}
+                      aria-current={isNext ? "step" : undefined}
+                    >
+                      <span className="hs-mission-step-number" aria-hidden="true">
+                        {isDone ? "✓" : index + 1}
+                      </span>
+                      <span>
+                        <strong>{tile.label}</strong>
+                        <small>{isDone ? "Done" : isNext ? "Up next" : "Later"}</small>
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
 
             {recommendation.primary ? (
               <>
