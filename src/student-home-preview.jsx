@@ -13,13 +13,15 @@ import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
 
 const PREVIEW_SCOPE = "student-home-preview";
-const noOp = () => {};
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 
 export function StudentHomePreview() {
-  function openHollow() {
-    document.documentElement.dataset.hollowOpened = "true";
+  function openDestination(destination) {
+    document.documentElement.dataset.studentDestination = destination;
+    if (destination === "my-hollow") {
+      document.documentElement.dataset.hollowOpened = "true";
+    }
   }
 
   return (
@@ -27,14 +29,14 @@ export function StudentHomePreview() {
       <StudentHomePage
         studentName="Aaron"
         progressScopeKey={PREVIEW_SCOPE}
-        onOpenPhonicsLearn={noOp}
-        onOpenArcade={noOp}
-        onOpenSkillsBlockQuest={noOp}
-        onOpenSoundSeekers={noOp}
-        onOpenStoryQuests={noOp}
-        onOpenGuidedReading={noOp}
-        onOpenRewards={openHollow}
-        onLogout={noOp}
+        onOpenPhonicsLearn={() => openDestination("phonics-learning")}
+        onOpenArcade={() => openDestination("arcade")}
+        onOpenSkillsBlockQuest={() => openDestination("adventure-map")}
+        onOpenSoundSeekers={() => openDestination("sound-seekers")}
+        onOpenStoryQuests={() => openDestination("story-quests")}
+        onOpenGuidedReading={() => openDestination("reading-library")}
+        onOpenRewards={() => openDestination("my-hollow")}
+        onLogout={() => openDestination("logout")}
       />
     </div>
   );

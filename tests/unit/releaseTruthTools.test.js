@@ -23,6 +23,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "build",
     "smoke",
     "assessment-question-integrity",
+    "student-home-hierarchy",
     "assessment-runtime-variation",
     "strict-curriculum",
     "skill-progression",
