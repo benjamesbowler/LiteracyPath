@@ -140,6 +140,7 @@
     "check:immutable-assessment-evidence": "node --test tests/unit/assessmentEvidenceReplay.test.js tests/unit/assessmentHistoryRichPersistence.test.js && node tools/verifyAssessmentEvidenceArchive.mjs",
     "check:report-export-provenance": "node --test tests/unit/reportExportProvenance.test.js && npm run test:release-teacher -- --grep @report-export-provenance && npm run check:export-compatibility",
     "check:el-export-consistency": "node --test tests/unit/elExportEvidenceConsistency.test.js && npm run test:release-teacher -- --grep '@el-(empty-export-policy|export-consistency)'",
+    "check:whole-child-evidence-integrity": "node --test tests/unit/wholeChildEvidenceIntegrity.test.js",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",
     "check:teacher-roster-device-matrix": "playwright test tests/release/teacher-roster-device-matrix.spec.js --project=desktop",

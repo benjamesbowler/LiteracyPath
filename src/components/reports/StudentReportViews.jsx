@@ -95,6 +95,13 @@ function EvidenceDisclosure({ evidence = [], itemLabel = "item" }) {
   );
 }
 
+function evidenceBasisLabel(basis = {}) {
+  const observations = Number(basis.observations || 0);
+  const attempts = Number(basis.attemptCount || 0);
+  const accuracy = basis.accuracy == null ? "" : ` · ${basis.accuracy}% accuracy`;
+  return `${observations} observation${observations === 1 ? "" : "s"} across ${attempts} attempt${attempts === 1 ? "" : "s"}${accuracy}`;
+}
+
 function normalizeDomains(report = {}) {
   if (Array.isArray(report.byDomain)) {
     return report.byDomain.map(domain => ({ ...domain, items: domain.items || domain.concepts || [] }));
@@ -117,7 +124,7 @@ function normalizeDomains(report = {}) {
 }
 
 export function WholeChildReportView({ report = {} }) {
-  const domains = normalizeDomains(report).filter(domain => asArray(domain.items || domain.rows).length);
+  const domains = normalizeDomains(report);
   const descriptiveAssessments = asArray(report.descriptiveAssessments);
   const statusCounts = report.statusCounts || report.summary?.statusCounts || report.summary || {};
   const totalEvidence = descriptiveAssessments.length + domains.reduce((sum, domain) => sum + asArray(domain.items || domain.rows).length, 0);
@@ -214,12 +221,27 @@ export function WholeChildReportView({ report = {} }) {
                   <span>{items.length} item{items.length === 1 ? "" : "s"}</span>
                 </div>
                 <div className="lg-report-knowledge-list">
+                  {!items.length && (
+                    <p className="lg-report-domain-empty">
+                      No data yet. This area has not been checked in the available evidence.
+                    </p>
+                  )}
                   {items.map((item, index) => (
                     <article key={`${item.itemId || item.id || item.conceptId || item.key || "concept"}-${index}`}>
                       <div className="lg-report-knowledge-summary">
                         <div>
                           <strong>{item.label || item.itemLabel || item.name || item.key}</strong>
                           {(item.detail || item.interpretation || item.explanation) && <p>{item.detail || item.interpretation || item.explanation}</p>}
+                          {item.evidenceBasis && (
+                            <small className="lg-report-evidence-basis">
+                              {evidenceBasisLabel(item.evidenceBasis)}
+                            </small>
+                          )}
+                          {item.reconciliationNote && (
+                            <small className="lg-report-reconciliation-note">
+                              {item.reconciliationNote}
+                            </small>
+                          )}
                         </div>
                         <ReportStatus value={item.statusLabel || item.status} />
                       </div>

@@ -91,7 +91,8 @@ export function questHeatTiles(state = {}) {
       bucket,
       seen,
       independentSeen,
-      accuracy: independentSeen ? Math.round(Math.min(1, correct / independentSeen) * 100) : null
+      accuracy: independentSeen ? Math.round(Math.min(1, correct / independentSeen) * 100) : null,
+      lastActiveAt: record?.lastAt || ""
     };
   });
 }

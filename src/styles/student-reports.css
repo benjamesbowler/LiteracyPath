@@ -587,6 +587,17 @@
   border-radius: var(--lp-radius-lg);
 }
 
+.lg-report-domain-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 14px;
+  border: 1px dashed var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 .lg-report-knowledge-summary {
   align-items: flex-start;
 }
@@ -601,6 +612,20 @@
   color: var(--lp-color-text-muted);
   font-size: 13px;
   line-height: 1.4;
+}
+
+.lg-report-evidence-basis,
+.lg-report-reconciliation-note {
+  display: block;
+  margin-top: 6px;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.lg-report-reconciliation-note {
+  padding-left: 8px;
+  border-left: 2px solid var(--lp-color-border);
 }
 
 .lg-report-status {

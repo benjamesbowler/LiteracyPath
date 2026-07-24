@@ -13,11 +13,16 @@ import {
   dedupeReportingEvidence,
   normalizeReportingKey,
   reportingStatus,
+  REPORTING_DOMAIN_LABELS,
   REPORTING_EVIDENCE_KINDS,
   REPORTING_STATUS_IDS,
   REPORTING_STATUS_LABELS,
   resolveWholeChildConcepts
 } from "./reportingEvidenceModel.js";
+import {
+  finalSoundExpectedItemKeys,
+  initialSoundExpectedItemKeys
+} from "./coverageExpectations.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -225,6 +230,14 @@ function readablePattern(value = "") {
   return String(value || "").replace(/_/g, " ").trim();
 }
 
+function canonicalPhonemeKey(value = "") {
+  const normalized = normalizeReportingKey(value);
+  if (["c", "k"].includes(normalized)) return "k";
+  if (["q", "qu"].includes(normalized)) return "kw";
+  if (normalized === "x") return "ks";
+  return normalized;
+}
+
 /** Keep constructs separate: a letter name is not its sound, and reading a
  * word in a book is not isolated decoding or spelling. */
 export function getReportingConceptForAssessmentQuestion(question = {}, attempt = {}) {
@@ -270,7 +283,7 @@ export function getReportingConceptForAssessmentQuestion(question = {}, attempt 
   }
 
   if (itemType === "initial_sound" || skillId === "initial_sounds") {
-    const key = normalizeReportingKey(
+    const key = canonicalPhonemeKey(
       question.targetSound || question.targetLetter || question.itemKey || cleanWord(question.targetWord).slice(0, 1)
     );
     return createReportingConcept({
@@ -283,7 +296,7 @@ export function getReportingConceptForAssessmentQuestion(question = {}, attempt 
 
   if (itemType === "final_sound" || skillId === "final_sounds") {
     const targetWord = cleanWord(question.targetWord);
-    const key = normalizeReportingKey(
+    const key = canonicalPhonemeKey(
       question.targetSound || question.targetPattern || question.itemKey || targetWord.slice(-1)
     );
     return createReportingConcept({
@@ -1626,6 +1639,21 @@ export function buildSkillsCheckReportModel({
   });
   const skills = [...primarySkills, ...legacySkillRows]
     .sort((a, b) => finiteTimestamp(b.latestAt) - finiteTimestamp(a.latestAt) || a.skillName.localeCompare(b.skillName));
+  const activeSkillIds = new Set(skills.map(row => normalizeReportingKey(row.skillId)));
+  const expectedConcepts = [
+    ...(activeSkillIds.has("initial_sounds") ? initialSoundExpectedItemKeys.map(key => ({
+      domain: "phonological_awareness",
+      construct: "initial_sound",
+      key: canonicalPhonemeKey(key),
+      label: `Initial sound /${readablePattern(canonicalPhonemeKey(key))}/`
+    })) : []),
+    ...(activeSkillIds.has("final_sounds") ? finalSoundExpectedItemKeys.map(key => ({
+      domain: "phonological_awareness",
+      construct: "final_sound",
+      key: canonicalPhonemeKey(key),
+      label: `Final sound /${readablePattern(canonicalPhonemeKey(key))}/`
+    })) : [])
+  ].map(createReportingConcept);
 
   return {
     reportKey: "skills_check",
@@ -1649,6 +1677,7 @@ export function buildSkillsCheckReportModel({
     items: knowledgeEvidence,
     evidence: dedupeReportingEvidence([...rawEvidence, ...legacyItems, ...legacySkills]),
     knowledgeEvidence,
+    expectedConcepts,
     provenance: {
       canonicalAttemptIds: attempts.map(row => row.attemptId),
       attemptQuestionsAreCanonical: true,
@@ -1822,12 +1851,16 @@ export function buildOtherLearningReportModel({
         concept,
         outcome: bucket,
         statusCandidate: candidate,
-        observedAt: soundSeekersReport.lastActiveAt || soundSeekersReport?.interaction?.lastActiveAt || "",
+        observedAt: tile.lastActiveAt || "",
         administrationStatus: "practice",
         scorable: true,
         knowledgeEligible: true,
         details: { sourceResult, bucket, seen: tile.seen, independentSeen: tile.independentSeen, accuracy: tile.accuracy, rawTile: tile },
-        provenance: { masteryGateResult: bucket, sourceRecordKind: "current_sound_seekers_heat_tile" }
+        provenance: {
+          masteryGateResult: bucket,
+          sourceRecordKind: "current_sound_seekers_heat_tile",
+          timestampBasis: tile.lastActiveAt ? "per_sound_last_evidence" : "undated_snapshot"
+        }
       }));
     }
     const sharedStatus = soundEvidence.at(-1)?.sourceRecordId === tile.id
@@ -1841,6 +1874,7 @@ export function buildOtherLearningReportModel({
       practiceOnly: true,
       seen: Number(tile.seen || 0),
       accuracy: finiteNumber(tile.accuracy),
+      lastActiveAt: tile.lastActiveAt || "",
       raw: tile
     };
   });
@@ -2109,6 +2143,18 @@ export function buildWholeChildKnowledgeModel({
     domain.items.push(concept);
     byDomainMap.set(concept.domain, domain);
   });
+  Object.entries(REPORTING_DOMAIN_LABELS).forEach(([domainId, domainLabel]) => {
+    if (byDomainMap.has(domainId)) return;
+    byDomainMap.set(domainId, {
+      id: domainId,
+      domain: domainId,
+      label: domainLabel,
+      domainLabel,
+      concepts: [],
+      items: [],
+      noData: true
+    });
+  });
   const statusCounts = Object.values(REPORTING_STATUS_IDS).reduce((counts, statusId) => {
     counts[statusId] = concepts.filter(row => row.status.id === statusId).length;
     return counts;
@@ -2142,7 +2188,10 @@ export function buildWholeChildKnowledgeModel({
       mixedEvidence: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.MIXED_EVIDENCE),
       notChecked: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.NOT_CHECKED)
     },
-    byDomain: Array.from(byDomainMap.values()).sort((a, b) => a.domainLabel.localeCompare(b.domainLabel)),
+    byDomain: Array.from(byDomainMap.values()).sort((a, b) => (
+      Number(Boolean(a.noData)) - Number(Boolean(b.noData))
+      || a.domainLabel.localeCompare(b.domainLabel)
+    )),
     nextSteps,
     descriptiveAssessments: checkedDescriptiveAssessments,
     concepts,
@@ -2257,9 +2306,13 @@ export function buildStudentReportingWorkspaceModel({
   const wholeChild = buildWholeChildKnowledgeModel({
     student: resolvedStudent,
     evidence: wholeChildEvidence,
-    // Optional practice becomes evidence only after the child uses it. Unseen
-    // practice must not appear as a long list of formal learning gaps.
-    expectedConcepts: asArray(expectedConcepts),
+    // Once an area has been used, include its curriculum coverage as
+    // Not checked rows so omissions are visible rather than silent.
+    expectedConcepts: [
+      ...asArray(expectedConcepts),
+      ...asArray(skillsCheck.expectedConcepts),
+      ...asArray(otherLearning.expectedConcepts)
+    ],
     descriptiveAssessments: elAssessments.assessments.filter(row => row.descriptive),
     conflictWindowDays: wholeChildConflictWindowDays
   });

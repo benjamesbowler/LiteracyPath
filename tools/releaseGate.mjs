@@ -175,6 +175,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [7, 8, 10]
   },
   {
+    id: "whole-child-evidence-integrity",
+    label: "Per-item timestamps, phoneme coverage, evidence basis, and reconciled Whole Child reporting",
+    command: ["npm", "run", "check:whole-child-evidence-integrity"],
+    areas: [1, 4, 7, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],
