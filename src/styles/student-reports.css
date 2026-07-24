@@ -1028,6 +1028,46 @@
   line-height: 1.45;
 }
 
+.lg-report-decoding-support-list {
+  display: grid;
+  gap: 7px;
+  margin: 7px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lg-report-decoding-support-list li {
+  display: grid;
+  grid-template-columns: minmax(80px, 0.7fr) minmax(150px, 1fr) minmax(170px, auto);
+  gap: 8px 14px;
+  align-items: baseline;
+  margin: 0;
+  padding: 9px 10px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 9px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.lg-report-decoding-support-list strong {
+  color: var(--lp-color-text-strong);
+}
+
+.lg-report-decoding-support-list small {
+  color: var(--lp-color-text-muted);
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .lg-report-decoding-support-list li {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .lg-report-decoding-support-list small {
+    text-align: left;
+  }
+}
+
 .lg-report-two-column {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

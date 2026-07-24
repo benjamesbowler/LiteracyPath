@@ -73,6 +73,12 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "audit-class-a-boy-formal-report.xlsx",
     "\"benchmarkScope\":{\"grade\":\"1\",\"benchmarkWindow\":\"BOY\"",
     "'guided_reading'",
+    "'moonwood-tales-c-25'",
+    "'supportUseEvents'",
+    "'whole_word_audio'",
+    "'segmented_phonemes'",
+    "'reread_prompt'",
+    "guided_support_count <> 25",
     "'phonics_quest'",
     "'learn_games'",
     "learn_games_count <> 25",
@@ -87,7 +93,8 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "'el_benchmark_decoding'",
     "'el_benchmark_oral_reading_fluency'",
     "'formal_class'",
-    "audit-class-a-boy-formal-report.pdf"
+    "audit-class-a-boy-formal-report.pdf",
+    "'moonwood-tales-book-01'"
   ]) {
     if (sql.includes(forbidden)) failures.push(`non-production EL seed identifier: ${forbidden}`);
   }

@@ -23,6 +23,7 @@ import {
   finalSoundExpectedItemKeys,
   initialSoundExpectedItemKeys
 } from "./coverageExpectations.js";
+import { normalizeDecodingSupportEvent } from "../utils/guidedReading/decodingSupport.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -932,8 +933,16 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
     const title = rawRecord.title || bookId;
     const level = rawRecord.level || "";
     const wordMarks = [];
+    const supportUseEvents = [];
     Object.entries(rawRecord.pages || {}).forEach(([pageKey, rawPage = {}]) => {
       const page = Number(pageKey) + 1;
+      asArray(rawPage.supportUseEvents).forEach(rawEvent => {
+        const event = normalizeDecodingSupportEvent({
+          ...rawEvent,
+          pageNumber: rawEvent?.pageNumber || page
+        });
+        if (event) supportUseEvents.push(event);
+      });
       Object.entries(rawPage.wordMarks || {}).forEach(([wordIndex, mark]) => {
         if (!["correct", "support"].includes(mark)) return;
         const word = rawPage.wordTexts?.[wordIndex] || rawPage.words?.[wordIndex] || "";
@@ -970,7 +979,12 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
     const completed = Boolean(rawRecord.completed || rawRecord.completedAt);
     const readCount = Math.max(Number(rawRecord.readCount || 0), completed ? 1 : 0);
     const notes = normalizedNoteRows(rawRecord);
-    const hasActivity = completed || readCount > 0 || Number(rawRecord.completedPages || 0) > 0 || wordMarks.length || notes.length;
+    supportUseEvents.sort((a, b) => (
+      finiteTimestamp(b.occurredAt) - finiteTimestamp(a.occurredAt) ||
+      a.pageNumber - b.pageNumber ||
+      a.wordIndex - b.wordIndex
+    ));
+    const hasActivity = completed || readCount > 0 || Number(rawRecord.completedPages || 0) > 0 || wordMarks.length || notes.length || supportUseEvents.length;
     if (!hasActivity) return;
     books.push({
       bookId,
@@ -994,6 +1008,7 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
       wordMarks,
       correctWords: [...new Set(wordMarks.filter(row => row.mark === "correct").map(row => row.word))],
       supportWords: [...new Set(wordMarks.filter(row => row.mark === "support").map(row => row.word))],
+      supportUseEvents,
       notes,
       provenance: { bookId, rawRecord }
     });
@@ -1022,6 +1037,7 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
     wordMarks: [],
     correctWords: asArray(row.correctWords).map(cleanWord).filter(Boolean),
     supportWords: asArray(row.supportWords).map(cleanWord).filter(Boolean),
+    supportUseEvents: asArray(row.supportUseEvents).map(normalizeDecodingSupportEvent).filter(Boolean),
     notes: asArray(row.notes).map(note => {
       if (typeof note === "string") {
         return {
@@ -1224,6 +1240,7 @@ export function buildGuidedReadingReportModel({
       wordsReadCorrectlyInText: correctWordRows.length,
       wordsNeedingSupportInText: supportWordRows.length,
       teacherNotes: books.reduce((sum, row) => sum + row.notes.length, 0),
+      decodingSupportUses: books.reduce((sum, row) => sum + row.supportUseEvents.length, 0),
       latestAt: latestDate(books.map(row => row.lastReadAt))
     },
     books,
@@ -1247,6 +1264,17 @@ export function buildGuidedReadingReportModel({
       finiteTimestamp(b.date) - finiteTimestamp(a.date) ||
       a.title.localeCompare(b.title) ||
       Number(a.page ?? -1) - Number(b.page ?? -1)
+    )),
+    supportUseEvents: books.flatMap(book => book.supportUseEvents.map(event => ({
+      ...event,
+      bookId: book.bookId,
+      title: book.title,
+      level: book.level
+    }))).sort((a, b) => (
+      finiteTimestamp(b.occurredAt) - finiteTimestamp(a.occurredAt) ||
+      a.title.localeCompare(b.title) ||
+      a.pageNumber - b.pageNumber ||
+      a.wordIndex - b.wordIndex
     )),
     evidence: rawEvidence,
     knowledgeEvidence,

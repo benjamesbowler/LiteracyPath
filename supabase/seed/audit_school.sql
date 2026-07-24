@@ -653,16 +653,59 @@ select
   pg_temp.audit_uuid('guided:' || s.id),
   s.id,
   'guided_reading',
-  'moonwood-tales-book-01',
+  'moonwood-tales-c-25',
   jsonb_build_object(
     'v', 1,
-    'bookId', 'moonwood-tales-book-01',
+    'bookId', 'moonwood-tales-c-25',
     'title', 'One Night in the Deep Dark',
+    'type', 'fiction',
     'level', 'C',
     'completed', (substring(s.id::text, 36, 1)::integer % 2 = 0),
+    'completedPages', 12,
+    'totalPages', 12,
+    'readCount', 1,
     'lastPage', 12,
     'quizScore', 4,
     'quizTotal', 5,
+    'pages', jsonb_build_object(
+      '0', jsonb_build_object(
+        'wordTexts', to_jsonb(array['It', 'was', 'the', 'deepest', 'part', 'of', 'the', 'night']),
+        'wordMarks', jsonb_build_object('7', 'support'),
+        'supportUseEvents', jsonb_build_array(
+          jsonb_build_object(
+            'eventId', 'audit-night-whole-word',
+            'stage', 'whole_word_audio',
+            'word', 'night',
+            'wordIndex', 7,
+            'pageNumber', 1,
+            'occurredAt', '__AUDIT_ANCHOR__',
+            'segments', to_jsonb(array['n', 'igh', 't']),
+            'audioAvailable', true
+          ),
+          jsonb_build_object(
+            'eventId', 'audit-night-segmented',
+            'stage', 'segmented_phonemes',
+            'word', 'night',
+            'wordIndex', 7,
+            'pageNumber', 1,
+            'occurredAt', '__AUDIT_ANCHOR__',
+            'segments', to_jsonb(array['n', 'igh', 't']),
+            'audioAvailable', true
+          ),
+          jsonb_build_object(
+            'eventId', 'audit-night-reread',
+            'stage', 'reread_prompt',
+            'word', 'night',
+            'wordIndex', 7,
+            'pageNumber', 1,
+            'occurredAt', '__AUDIT_ANCHOR__',
+            'segments', to_jsonb(array['n', 'igh', 't']),
+            'audioAvailable', false
+          )
+        ),
+        'updatedAt', '__AUDIT_ANCHOR__'
+      )
+    ),
     'lastReadAt', '__AUDIT_ANCHOR__'
   ),
   '__AUDIT_ANCHOR__'::timestamptz
@@ -1222,6 +1265,7 @@ declare
   long_history_item_count integer;
   archived_count integer;
   guided_count integer;
+  guided_support_count integer;
   quest_count integer;
   learn_games_count integer;
   completed_el_count integer;
@@ -1269,6 +1313,12 @@ begin
   where area = 'guided_reading'
     and student_id::text like '40000000-0000-4000-8000-%';
 
+  select count(*) into guided_support_count
+  from public.student_progress
+  where area = 'guided_reading'
+    and student_id::text like '40000000-0000-4000-8000-%'
+    and jsonb_array_length(payload -> 'pages' -> '0' -> 'supportUseEvents') = 3;
+
   select count(*) into quest_count
   from public.student_progress
   where area = 'phonics_quest'
@@ -1297,12 +1347,13 @@ begin
      or long_history_item_count <> 520
      or archived_count <> 1
      or guided_count <> 25
+     or guided_support_count <> 25
      or quest_count <> 25
      or learn_games_count <> 25
      or completed_el_count < 3
      or in_progress_el_count < 1 then
     raise exception
-      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% long_history_items=% archived=% guided=% quest=% games=% el_complete=% el_in_progress=%',
+      'audit_seed_verification_failed teachers=% admins=% classes=% learners=% long_history=% long_history_items=% archived=% guided=% guided_support=% quest=% games=% el_complete=% el_in_progress=%',
       teacher_count,
       admin_count,
       class_count,
@@ -1311,6 +1362,7 @@ begin
       long_history_item_count,
       archived_count,
       guided_count,
+      guided_support_count,
       quest_count,
       learn_games_count,
       completed_el_count,

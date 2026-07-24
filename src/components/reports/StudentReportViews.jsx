@@ -424,8 +424,8 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
 
   const books = guidedBooks(report);
   const completed = books.filter(book => book.completed).length;
-  const inProgress = books.filter(book => !book.completed && (book.pagesRead || book.completedPages || book.readCount)).length;
   const rereads = books.reduce((sum, book) => sum + Math.max(0, Number(book.readCount || 0) - (book.completed ? 1 : 0)), 0);
+  const decodingSupports = books.reduce((sum, book) => sum + asArray(book.supportUseEvents).length, 0);
   const correctWords = asArray(report.correctWords || report.wordsReadCorrectly).slice();
   const supportWords = asArray(report.supportWords || report.wordsNeedingSupport).slice();
   const notes = asArray(report.notes || report.teacherNotes).slice().sort((a, b) => {
@@ -463,8 +463,8 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
     <div className="lg-report-view-stack">
       <ReportMetricStrip metrics={[
         { label: "Books completed", value: completed },
-        { label: "Books in progress", value: inProgress },
-        { label: "Rereads", value: rereads }
+        { label: "Rereads", value: rereads },
+        { label: "Decoding supports", value: decodingSupports }
       ]} />
 
       <ReportSection description="Every saved book is included. Open a book for words, quiz evidence and notes." title="Books">
@@ -508,6 +508,20 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
                 )}
                 {asArray(book.supportWords).length > 0 && (
                   <div><h4>Needed support in this book</h4><p>{book.supportWords.join(", ")}</p></div>
+                )}
+                {asArray(book.supportUseEvents).length > 0 && (
+                  <div>
+                    <h4>Decoding support used</h4>
+                    <ul className="lg-report-decoding-support-list">
+                      {book.supportUseEvents.map((event, eventIndex) => (
+                        <li key={event.eventId || `${event.stage}-${event.word}-${eventIndex}`}>
+                          <strong>{event.word}</strong>
+                          <span>{event.stageLabel || "Decoding support"}</span>
+                          <small>Page {event.pageNumber} · {formatEvidenceDate(event.occurredAt)}</small>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
                 {asArray(book.notes).length > 0 && (
                   <div>

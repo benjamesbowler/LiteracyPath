@@ -47,6 +47,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 4, 10]
   },
   {
+    id: "guided-reading-decoding-support",
+    label: "Guided Reading decoding ladder and teacher-visible support events",
+    command: ["npm", "run", "check:guided-reading-decoding-support"],
+    areas: [1, 6, 7, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],

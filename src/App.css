@@ -5016,6 +5016,56 @@ body {
   font-weight: 800;
 }
 
+.guided-decoding-support {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(79, 70, 229, 0.22);
+  border-radius: 14px;
+  background: rgba(238, 242, 255, 0.92);
+  color: var(--lp-color-text-strong);
+}
+
+.guided-decoding-support > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.guided-decoding-support span,
+.guided-decoding-support small {
+  color: var(--lp-color-text-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.guided-decoding-support p {
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.guided-decoding-segments {
+  display: flex !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+}
+
+.guided-decoding-segments span {
+  min-width: 38px;
+  padding: 7px 10px;
+  border: 1px solid rgba(79, 70, 229, 0.24);
+  border-radius: 10px;
+  background: #fff;
+  color: #312e81;
+  font-size: 1rem;
+  text-align: center;
+}
+
 .guided-complete-message {
   margin: -2px 0 0;
   padding: 8px 10px;
