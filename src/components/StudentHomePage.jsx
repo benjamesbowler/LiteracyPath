@@ -14,7 +14,11 @@ import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
-import { selectStudentHomeRecommendation } from "../policy/learningPolicy.js";
+import {
+  buildStudentHomeContinuation,
+  selectStudentHomeRecommendation
+} from "../policy/learningPolicy.js";
+import { localProgressStorageKey } from "../utils/progressKeys.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
 // Branded placeholder for card/tile artwork: a sage-sky rounded tile with a
@@ -33,6 +37,17 @@ function placeholderOnError(event) {
 
 function hideOnError(event) {
   event.currentTarget.style.display = "none";
+}
+
+function readSoundSeekersProgress(scopeKey) {
+  if (typeof window === "undefined") return {};
+  try {
+    return JSON.parse(
+      window.localStorage.getItem(localProgressStorageKey("phonics_quest", scopeKey)) || "{}"
+    );
+  } catch {
+    return {};
+  }
 }
 
 function SignOutIcon() {
@@ -391,6 +406,15 @@ export function StudentHomePage({
     activities,
     missionStatus: status
   });
+  const soundSeekersProgress = useMemo(() => {
+    void hydrationTick;
+    return readSoundSeekersProgress(progressScopeKey);
+  }, [progressScopeKey, hydrationTick]);
+  const continuation = buildStudentHomeContinuation({
+    activity: recommendation.primary,
+    missionStatus: status,
+    soundSeekersProgress
+  });
 
   function renderActivity(activity, priority) {
     if (!activity) return null;
@@ -470,8 +494,16 @@ export function StudentHomePage({
                 <SageIcon name="person" />Grown-ups
               </button>
               {recommendation.primary && (
-                <button className="hs-btn-primary" type="button" onClick={recommendation.primary.onClick}>
-                  <SageIcon name="play" />Keep playing
+                <button
+                  className="hs-btn-primary"
+                  type="button"
+                  onClick={recommendation.primary.onClick}
+                  data-continuation-activity={recommendation.primary.id}
+                  data-continuation-goal={continuation.goal}
+                  data-continuation-remaining={continuation.remaining ?? undefined}
+                >
+                  <SageIcon name="play" />
+                  <span className="hs-btn-label">{continuation.label}</span>
                 </button>
               )}
               {accountOpen && (

@@ -1,3 +1,8 @@
+import {
+  SOUND_SEEKERS_TRAIL_COUNT,
+  isSoundSeekersTrailId
+} from "../data/soundSeekersContract.js";
+
 /**
  * Canonical learning-policy owner.
  *
@@ -112,5 +117,64 @@ export function selectStudentHomeRecommendation({
     primary,
     secondary: orderedRemaining.slice(0, 2),
     explore: orderedRemaining.slice(2)
+  };
+}
+
+export function countCompletedSoundSeekersTrails(progress = {}) {
+  const stops = Array.isArray(progress?.trail?.stopsDone)
+    ? progress.trail.stopsDone
+    : [];
+  return new Set(stops.filter(isSoundSeekersTrailId)).size;
+}
+
+function countLabel(value, singular, plural = `${singular}s`) {
+  return `${value} ${value === 1 ? singular : plural}`;
+}
+
+/**
+ * Turn the policy-selected activity into an explicit, measurable continuation
+ * CTA. The label never falls back to the ambiguous "Keep playing".
+ */
+export function buildStudentHomeContinuation({
+  activity,
+  missionStatus = {},
+  soundSeekersProgress = {}
+} = {}) {
+  if (!activity) {
+    return {
+      label: "Choose an activity",
+      remaining: null,
+      goal: "available activity"
+    };
+  }
+
+  if (activity.id === "sound-seekers") {
+    const completed = countCompletedSoundSeekersTrails(soundSeekersProgress);
+    const remaining = Math.max(0, SOUND_SEEKERS_TRAIL_COUNT - completed);
+    return {
+      label: remaining > 0
+        ? `Continue Sound Seekers — ${countLabel(remaining, "trail")} left`
+        : "Replay Sound Seekers — trail complete",
+      remaining,
+      goal: "Sound Seekers trails"
+    };
+  }
+
+  if (activity.missionKind && !missionStatus.done?.[activity.missionKind]) {
+    const doneCount = Number.isFinite(Number(missionStatus.doneCount))
+      ? Number(missionStatus.doneCount)
+      : Object.values(missionStatus.done || {}).filter(Boolean).length;
+    const remaining = Math.max(1, 3 - doneCount);
+    return {
+      label: `Continue ${activity.title} — ${countLabel(remaining, "task")} left today`,
+      remaining,
+      goal: "daily mission tasks"
+    };
+  }
+
+  return {
+    label: `Continue ${activity.title} — choose your next activity`,
+    remaining: null,
+    goal: "next activity"
   };
 }

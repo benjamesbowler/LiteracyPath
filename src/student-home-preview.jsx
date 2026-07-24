@@ -11,10 +11,40 @@ import "./styles/sage-soft.generated.css";
 import "./styles/sage-form.css";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
+import { localProgressStorageKey } from "./utils/progressKeys.js";
 
 const PREVIEW_SCOPE = "student-home-preview";
+const PREVIEW_SCENARIO = new URLSearchParams(window.location.search).get("scenario");
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
+
+if (PREVIEW_SCENARIO === "continuation") {
+  const now = new Date();
+  const day = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("-");
+  window.localStorage.setItem(
+    localProgressStorageKey("daily_mission", PREVIEW_SCOPE),
+    JSON.stringify({
+      day,
+      done: { quest: true, book: true, game: true },
+      streak: 1,
+      lastCompletedDay: day,
+      shieldWeek: "",
+      celebratedDay: day
+    })
+  );
+  window.localStorage.setItem(
+    localProgressStorageKey("phonics_quest", PREVIEW_SCOPE),
+    JSON.stringify({
+      trail: {
+        stopsDone: Array.from({ length: 38 }, (_, index) => `s${index + 1}`)
+      }
+    })
+  );
+}
 
 export function StudentHomePreview() {
   function openDestination(destination) {

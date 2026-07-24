@@ -264,6 +264,10 @@
 .lp-home-sage .hs-btn-primary:hover { background: var(--hs-forest-hi); }
 .lp-home-sage .hs-btn-ghost svg,
 .lp-home-sage .hs-btn-primary svg { width: 16px; height: 16px; }
+.lp-home-sage .hs-btn-primary .hs-btn-label {
+  line-height: 1.2;
+  white-space: nowrap;
+}
 
 .lp-home-sage .hs-menu {
   position: absolute;
@@ -645,8 +649,38 @@
   .lp-home-sage .hs-topbar { padding: 10px 14px 4px; }
 }
 
+@media (max-width: 1100px) {
+  .lp-home-sage .hs-topbar {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .lp-home-sage .hs-logo {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .lp-home-sage .hs-top-actions {
+    grid-column: 2;
+  }
+}
+
 @media (max-width: 620px) {
   .lp-home-sage .hs-logo-copy { display: none; }
+  .lp-home-sage .hs-top-actions {
+    min-width: 0;
+    gap: 6px;
+  }
+  .lp-home-sage .hs-btn-ghost {
+    padding-inline: 10px;
+  }
+  .lp-home-sage .hs-btn-primary {
+    min-width: 0;
+    padding-inline: 10px;
+    font-size: 12px;
+  }
+  .lp-home-sage .hs-btn-primary .hs-btn-label {
+    white-space: normal;
+  }
 }
 
 /* ── keyboard + motion accessibility ─────────────────────────────────────── */

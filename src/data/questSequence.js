@@ -32,6 +32,7 @@
 //             decodable set and needs no clip. (Getting this wrong is what made
 //             the first draft segment "thing" as th|ing — a syllable, not a
 //             sound, and two planks on the Stone Bridge for three phonemes.)
+import { SOUND_SEEKERS_TRAIL_COUNT } from "./soundSeekersContract.js";
 
 export const QUEST_ACTS = [
   { n: 1, id: "meadow", title: "Sunlit Meadow", world: "meadow", blurb: "Where the road begins." },
@@ -425,6 +426,11 @@ const ACT_III = [
 ];
 
 export const QUEST_STOPS = [...ACT_I, ...ACT_II, ...ACT_III];
+if (QUEST_STOPS.length !== SOUND_SEEKERS_TRAIL_COUNT) {
+  throw new Error(
+    `Sound Seekers contract expects ${SOUND_SEEKERS_TRAIL_COUNT} trails; found ${QUEST_STOPS.length}.`
+  );
+}
 
 export const QUEST_SHELL_IDS = [
   "knowledge-tree",
@@ -523,5 +529,5 @@ export function wordsThrough(stopIndex, stops = QUEST_STOPS) {
   return words;
 }
 
-export const TOTAL_STOPS = QUEST_STOPS.length;
+export const TOTAL_STOPS = SOUND_SEEKERS_TRAIL_COUNT;
 export const ALL_TARGETS = QUEST_STOPS.flatMap(stop => (stop.teach || []).map(entry => entry.id));

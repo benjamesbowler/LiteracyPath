@@ -4,6 +4,8 @@ import test from "node:test";
 import {
   LEARNING_POLICY_VERSION,
   STUDENT_HOME_RECOMMENDATION_POLICY,
+  buildStudentHomeContinuation,
+  countCompletedSoundSeekersTrails,
   selectStudentHomeRecommendation
 } from "../../src/policy/learningPolicy.js";
 
@@ -95,4 +97,54 @@ test("student-home policy fails closed when no activity is available", () => {
   assert.equal(result.source, "no-available-activity");
   assert.deepEqual(result.secondary, []);
   assert.deepEqual(result.explore, []);
+});
+
+test("continuation CTA names the selected daily activity and remaining tasks", () => {
+  const continuation = buildStudentHomeContinuation({
+    activity: { id: "adventure-map", title: "Adventure Map", missionKind: "quest" },
+    missionStatus: {
+      done: { quest: false, book: false, game: true },
+      doneCount: 1
+    }
+  });
+
+  assert.equal(continuation.label, "Continue Adventure Map — 2 tasks left today");
+  assert.equal(continuation.remaining, 2);
+  assert.equal(continuation.goal, "daily mission tasks");
+});
+
+test("Sound Seekers continuation uses unique valid trail evidence", () => {
+  const soundSeekersProgress = {
+    trail: {
+      stopsDone: [
+        ...Array.from({ length: 38 }, (_, index) => `s${index + 1}`),
+        "s38",
+        "s41",
+        "not-a-trail"
+      ]
+    }
+  };
+  const continuation = buildStudentHomeContinuation({
+    activity: { id: "sound-seekers", title: "Sound Seekers" },
+    soundSeekersProgress
+  });
+
+  assert.equal(countCompletedSoundSeekersTrails(soundSeekersProgress), 38);
+  assert.equal(continuation.label, "Continue Sound Seekers — 2 trails left");
+  assert.equal(continuation.remaining, 2);
+  assert.equal(continuation.goal, "Sound Seekers trails");
+});
+
+test("Sound Seekers completion never reports a negative remainder", () => {
+  const continuation = buildStudentHomeContinuation({
+    activity: { id: "sound-seekers", title: "Sound Seekers" },
+    soundSeekersProgress: {
+      trail: {
+        stopsDone: Array.from({ length: 40 }, (_, index) => `s${index + 1}`)
+      }
+    }
+  });
+
+  assert.equal(continuation.label, "Replay Sound Seekers — trail complete");
+  assert.equal(continuation.remaining, 0);
 });
