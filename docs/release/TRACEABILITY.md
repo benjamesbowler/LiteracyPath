@@ -113,8 +113,8 @@ These rows are mechanically consumed by the scorecard. Each ID also has a full e
 
 | Item | Area | Priority | Status | Named gate | Evidence |
 |---|---:|---|---|---|---|
-| D-001 | 7, 8 | P0 | TODO | seeded cross-export evidence-consistency integration test | `DISCOVERED.md` D-001 |
-| D-002 | 7 | P0 | TODO | zero-evidence export interstitial + empty-export snapshot | `DISCOVERED.md` D-002 |
+| D-001 | 7, 8 | P0 | DONE | `check:el-export-consistency` | Commits `70d1be5d` + `64634b87`; shared canonical evidence read, production-shaped Bao Skills Check seed, and authenticated parsed CSV/XLSX comparison prove matching letter evidence/statuses, source/read/sync provenance, and no duplicate case-less fallback rows. `docs/release/artifacts/2026-07-24T04-26-55-008Z/manifest.partial.json`: 37/37 gates and 1,083/1,083 unit tests pass. |
+| D-002 | 7 | P0 | DONE | `check:el-export-consistency` | Commits `70d1be5d` + `64634b87`; grade/window are required before export, zero saved EL evidence opens an explicit accessible warning, filenames remain clean, and authenticated workbook parsing proves exactly three banner/provenance/definitions sheets with no zero-filled assessment rows. Same 37/37 manifest. |
 | D-003 | 4, 7 | P1 | TODO | per-attempt timestamp provenance export test | `DISCOVERED.md` D-003 |
 | D-004 | 1, 4, 7 | P1 | TODO | skill-spine reconciliation + evidence-basis export tests | `DISCOVERED.md` D-004 |
 | D-005 | 4, 6 | P1 | TODO | assessment-item directive DOM + administration-copy review | `DISCOVERED.md` D-005 |
