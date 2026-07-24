@@ -32,6 +32,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "student-login-panel",
     "guided-reading-control-hierarchy",
     "sound-racer-tutorial",
+    "fullscreen-overlay-semantics",
     "assessment-runtime-variation",
     "strict-curriculum",
     "skill-progression",

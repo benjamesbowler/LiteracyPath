@@ -15,6 +15,12 @@ import {
 import { announceMissionReturn, notifyMissionTaskDone } from "../../../utils/dailyMission.js";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { worldForDifficulty, worldStyle, sceneForKey } from "../../../utils/palWorlds.js";
+import {
+  closeFullscreenSurfaceName,
+  gameFullscreenSurfaceName,
+  quitFullscreenSurfaceName,
+  resumeFullscreenSurfaceName
+} from "../../../utils/fullscreenOverlayNames.js";
 import { LEARN_GAMES } from "./games/index.js";
 
 function CloseIcon() {
@@ -83,6 +89,7 @@ export function GamePlayer({
   const GameComponent = LEARN_GAMES[game.id];
   const world = worldForDifficulty(difficulty);
   const scene = sceneForKey(world, game.id);
+  const activeGameSurfaceName = gameFullscreenSurfaceName(game);
 
   useEffect(() => {
     setActiveLearnGamesProgressScope(progressScopeKey);
@@ -234,7 +241,8 @@ export function GamePlayer({
       className="lg-game-player"
       role="dialog"
       aria-modal="true"
-      aria-label={game.title}
+      aria-label={activeGameSurfaceName}
+      data-surface-name={activeGameSurfaceName}
       data-pal-world={world.id}
       data-fullbleed={game.fullBleed ? "" : undefined}
       style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, ...worldStyle(world), "--pal-scene": `url(${scene})` }}
@@ -264,7 +272,12 @@ export function GamePlayer({
             </button>
           )}
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
-          <button type="button" className="lg-game-close" onClick={requestClose} aria-label="Close game">
+          <button
+            type="button"
+            className="lg-game-close"
+            onClick={requestClose}
+            aria-label={closeFullscreenSurfaceName(activeGameSurfaceName)}
+          >
             <CloseIcon />
           </button>
         </div>
@@ -297,7 +310,12 @@ export function GamePlayer({
       </main>
 
       {resumePoint && startLevel === null && (
-        <div className="lg-game-confirm" role="alertdialog" aria-modal="true" aria-label="Resume game">
+        <div
+          className="lg-game-confirm"
+          role="alertdialog"
+          aria-modal="true"
+          aria-label={resumeFullscreenSurfaceName(activeGameSurfaceName)}
+        >
           <div>
             <h2>Welcome back</h2>
             <p>You reached level {resumePoint.level + 1}{resumePoint.totalLevels ? ` of ${resumePoint.totalLevels}` : ""}. Pick up where you left off?</p>
@@ -310,7 +328,12 @@ export function GamePlayer({
       )}
 
       {showQuit && (
-        <div className="lg-game-confirm" role="alertdialog" aria-modal="true" aria-label="Quit game">
+        <div
+          className="lg-game-confirm"
+          role="alertdialog"
+          aria-modal="true"
+          aria-label={quitFullscreenSurfaceName(activeGameSurfaceName)}
+        >
           <div>
             <h2>Leave this game?</h2>
             <p>Your current round will not be saved.</p>

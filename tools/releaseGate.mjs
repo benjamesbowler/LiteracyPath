@@ -113,6 +113,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 4, 10]
   },
   {
+    id: "fullscreen-overlay-semantics",
+    label: "Active-surface names and modal semantics across every fullscreen quest and game overlay",
+    command: ["npm", "run", "check:fullscreen-overlay-semantics"],
+    areas: [2, 3, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],

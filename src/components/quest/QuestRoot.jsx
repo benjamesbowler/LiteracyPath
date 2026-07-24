@@ -62,6 +62,10 @@ import {
 } from "../../utils/offlineShell.js";
 import { chapterShortcutReviewPlan, freeRoamReviewPlan } from "../../utils/questReviewMode.js";
 import {
+  closeFullscreenSurfaceName,
+  questFullscreenSurfaceName
+} from "../../utils/fullscreenOverlayNames.js";
+import {
   anticipatedJourneyState,
   finishJourneyLayer,
   markJourneyLayerReady,
@@ -214,6 +218,11 @@ export default function QuestRoot({
   const use2d = activeQuality.id === "2d";
   const usePixel = activeQuality.id === "pixel";
   const useSimpleWorld = use2d || usePixel;
+  const activeQuestSurfaceName = questFullscreenSurfaceName({
+    view,
+    hatched: state.hatched,
+    activeStopName: getStop(activeStop)?.name
+  });
   const musicChapter = [VIEW.WORLD, VIEW.CEREMONY].includes(view) ? chapterForStop(activeStop) : null;
   const baseMusicTrack = musicChapter?.audio?.score || "meadow";
   const musicTrack = musicChapter?.id === "seedwake-meadow"
@@ -884,14 +893,25 @@ export default function QuestRoot({
       className="q-root"
       data-fullbleed=""
       data-view={view}
+      data-surface-name={activeQuestSurfaceName}
       data-high-contrast={state.settings?.highContrast ? "true" : undefined}
+      role="dialog"
+      aria-modal="true"
+      aria-label={activeQuestSurfaceName}
     >
       {/* ONE exit per screen. The Den (and the hatch screen) own "Close" —
           leaving the whole mode is a Den decision. Everywhere else the only
           way out is "Back to the Den", so a child is never shown two doors
           marked leave and asked to know the difference. */}
       {[VIEW.DEN, VIEW.CREATOR].includes(view) && (
-        <button type="button" className="q-exit" onClick={closeQuest} aria-label="Close Sound Seekers">Close</button>
+        <button
+          type="button"
+          className="q-exit"
+          onClick={closeQuest}
+          aria-label={closeFullscreenSurfaceName(activeQuestSurfaceName)}
+        >
+          Close
+        </button>
       )}
 
       {view === VIEW.CREATOR && (
