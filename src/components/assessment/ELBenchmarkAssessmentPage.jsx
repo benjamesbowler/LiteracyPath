@@ -2727,6 +2727,68 @@ function PlacementConfirmationPanel({
   );
 }
 
+function FinishConfirmationPanel({
+  completionState,
+  onCancel,
+  onConfirm,
+  panelRef,
+  tally
+}) {
+  const saving = completionState.status === "saving";
+  return (
+    <section
+      aria-labelledby="el-benchmark-finish-review-title"
+      className="el-benchmark-finish-review"
+      ref={panelRef}
+      role="dialog"
+      tabIndex="-1"
+    >
+      <span>Final review</span>
+      <h2 id="el-benchmark-finish-review-title">Check the tally before finishing</h2>
+      <p>This archives the assessment. Go back now if the final tap was not what you intended.</p>
+      <dl aria-label="Assessment completion tally">
+        <div><dt>Scored</dt><dd>{tally.scored}</dd></div>
+        <div><dt>Skipped</dt><dd>{tally.skipped}</dd></div>
+        <div><dt>Not scorable</dt><dd>{tally.notScorable}</dd></div>
+      </dl>
+      <strong>{tally.scored} scored · {tally.skipped} skipped</strong>
+      {completionState.status === "error" && (
+        <p className="el-benchmark-inline-alert" role="alert">{completionState.message}</p>
+      )}
+      <div className="el-benchmark-button-row">
+        <button
+          className="el-benchmark-button secondary"
+          disabled={saving}
+          onClick={onCancel}
+          type="button"
+        >
+          Change final answer
+        </button>
+        <button
+          aria-busy={saving ? "true" : undefined}
+          className="el-benchmark-button primary"
+          disabled={saving}
+          onClick={onConfirm}
+          type="button"
+        >
+          {saving ? "Finishing..." : completionState.status === "error" ? "Retry save" : "Confirm and finish"}
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function getAssessmentFinishTally(items = [], responses = {}, kind = "") {
+  return items.reduce((tally, item, index) => {
+    const itemId = getItemId(item, index, kind);
+    const response = responses[itemId] || {};
+    if (response.status === "not_scorable") tally.notScorable += 1;
+    else if (response.status === "not_administered") tally.skipped += 1;
+    else if (isResponseComplete(kind, response, item)) tally.scored += 1;
+    return tally;
+  }, { scored: 0, skipped: 0, notScorable: 0 });
+}
+
 function isDiscontinueEvidenceComplete(reason, note = "") {
   const normalizedReason = String(reason || "").trim();
   return Boolean(normalizedReason) && (
@@ -2786,8 +2848,10 @@ export function ELBenchmarkAssessmentPage({
   onCancel
 }) {
   const [showDiscontinue, setShowDiscontinue] = useState(false);
+  const [showFinishConfirmation, setShowFinishConfirmation] = useState(false);
   const [completionState, setCompletionState] = useState({ status: "idle", message: "" });
   const completionLockRef = useRef(false);
+  const finishConfirmationRef = useRef(null);
   const placementPanelRef = useRef(null);
   const planResult = useMemo(() => getPlanResult({
     assessmentId: session.assessmentId,
@@ -2949,6 +3013,7 @@ export function ELBenchmarkAssessmentPage({
 
   const updateCurrentResponse = useCallback((patch, options = {}) => {
     if (!currentItemId) return;
+    setShowFinishConfirmation(false);
     const now = new Date().toISOString();
     const rawPrevious = responses[currentItemId] || {};
     const previous = kind === ASSESSMENT_KINDS.DECODING
@@ -3185,7 +3250,12 @@ export function ELBenchmarkAssessmentPage({
   };
 
   const completeAssessment = async () => {
-    if (timerIsRunning || !canCompleteAssessment || completionLockRef.current) return null;
+    if (
+      timerIsRunning ||
+      !canCompleteAssessment ||
+      !showFinishConfirmation ||
+      completionLockRef.current
+    ) return null;
     completionLockRef.current = true;
     setCompletionState({ status: "saving", message: "Finishing and saving the assessment." });
     const now = new Date().toISOString();
@@ -3212,6 +3282,20 @@ export function ELBenchmarkAssessmentPage({
     } finally {
       completionLockRef.current = false;
     }
+  };
+
+  const finishTally = useMemo(
+    () => getAssessmentFinishTally(items, responses, kind),
+    [items, kind, responses]
+  );
+
+  const openFinishConfirmation = () => {
+    if (!canCompleteAssessment || completionIsSaving) return;
+    setShowFinishConfirmation(true);
+    window.requestAnimationFrame(() => {
+      finishConfirmationRef.current?.scrollIntoView?.({ block: "center" });
+      finishConfirmationRef.current?.focus?.({ preventScroll: true });
+    });
   };
 
   const recordFluencyAccuracyAndRoute = (accurate) => {
@@ -3682,7 +3766,7 @@ export function ELBenchmarkAssessmentPage({
                 focusPlacementStep();
                 return;
               }
-              void completeAssessment();
+              openFinishConfirmation();
             }}
             type="button"
           >
@@ -3794,6 +3878,19 @@ export function ELBenchmarkAssessmentPage({
               preview={placementPreview}
             />
           )}
+
+          {showFinishConfirmation && canCompleteAssessment && (
+            <FinishConfirmationPanel
+              completionState={completionState}
+              onCancel={() => {
+                setShowFinishConfirmation(false);
+                selectItem(items.length - 1);
+              }}
+              onConfirm={() => void completeAssessment()}
+              panelRef={finishConfirmationRef}
+              tally={finishTally}
+            />
+          )}
         </section>
       </div>
 
@@ -3822,6 +3919,7 @@ export function ELBenchmarkAssessmentPage({
 }
 
 ELBenchmarkAssessmentPage.getDecodingEvaluationPatch = getDecodingEvaluationPatch;
+ELBenchmarkAssessmentPage.getAssessmentFinishTally = getAssessmentFinishTally;
 ELBenchmarkAssessmentPage.getFluencyTimerInterruptionPatch = getFluencyTimerInterruptionPatch;
 ELBenchmarkAssessmentPage.getFluencyTimerResetPatch = getFluencyTimerResetPatch;
 ELBenchmarkAssessmentPage.isDiscontinueEvidenceComplete = isDiscontinueEvidenceComplete;

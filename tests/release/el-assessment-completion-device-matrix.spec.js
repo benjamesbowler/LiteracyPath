@@ -126,6 +126,9 @@ test("@el-assessment-completion-device-matrix completes an 8-item route with rea
     await expect(readyFinish).toBeEnabled();
     await expectFullyInViewport(readyFinish);
     await readyFinish.click();
+    const finishReview = page.getByRole("dialog", { name: "Check the tally before finishing" });
+    await expect(finishReview).toContainText("8 scored · 0 skipped");
+    await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
     await expect(page.getByRole("heading", {
       name: "Choose a comparable assessment for Amara",
       exact: true

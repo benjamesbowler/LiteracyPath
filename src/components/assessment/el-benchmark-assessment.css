@@ -1377,6 +1377,54 @@
   resize: vertical;
 }
 
+.el-benchmark-finish-review {
+  display: grid;
+  gap: 12px;
+  padding: clamp(18px, 2.5vw, 28px);
+  border: 2px solid var(--el-accent);
+  border-radius: 14px;
+  background: var(--el-surface);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+.el-benchmark-finish-review > span {
+  color: var(--el-accent);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.el-benchmark-finish-review h2,
+.el-benchmark-finish-review p {
+  margin: 0;
+}
+
+.el-benchmark-finish-review dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.el-benchmark-finish-review dl > div {
+  padding: 10px;
+  border-radius: 9px;
+  background: var(--el-surface-subtle);
+}
+
+.el-benchmark-finish-review dt {
+  color: var(--el-muted);
+  font-size: 12px;
+}
+
+.el-benchmark-finish-review dd {
+  margin: 2px 0 0;
+  color: var(--el-ink);
+  font-size: 22px;
+  font-weight: 850;
+}
+
 .el-benchmark-override-form {
   display: grid;
   gap: 9px;

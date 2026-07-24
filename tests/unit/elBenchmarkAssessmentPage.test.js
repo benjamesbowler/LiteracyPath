@@ -10,6 +10,7 @@ import {
 } from "../../src/data/elBenchmarkAssessments.js";
 
 let AssessmentPage;
+let getAssessmentFinishTally;
 let getDecodingEvaluationPatch;
 let getFluencyTimerInterruptionPatch;
 let getFluencyTimerResetPatch;
@@ -37,6 +38,7 @@ test.before(async () => {
   });
   const module = await vite.ssrLoadModule("/src/components/assessment/ELBenchmarkAssessmentPage.jsx");
   AssessmentPage = module.ELBenchmarkAssessmentPage;
+  getAssessmentFinishTally = AssessmentPage.getAssessmentFinishTally;
   getDecodingEvaluationPatch = AssessmentPage.getDecodingEvaluationPatch;
   getFluencyTimerInterruptionPatch = AssessmentPage.getFluencyTimerInterruptionPatch;
   getFluencyTimerResetPatch = AssessmentPage.getFluencyTimerResetPatch;
@@ -518,6 +520,33 @@ test("quick outcomes auto-advance only after the resulting item is complete", ()
   assert.match(assessmentPageSource, /kind !== ASSESSMENT_KINDS\.FLUENCY/);
   assert.match(assessmentPageSource, /currentBand\?\.indexes\.includes\(currentIndex \+ 1\)/);
   assert.doesNotMatch(assessmentPageSource, />\s*Next item\s*</);
+});
+
+test("finish requires a deliberate tally review and counts every terminal outcome", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    formId: "form-a-v2",
+    grade: "K",
+    window: "BOY"
+  });
+  const responses = completedEncodingResponses(plan);
+  responses[plan.items[6].id] = {
+    itemId: plan.items[6].id,
+    status: "not_administered"
+  };
+  responses[plan.items[7].id] = {
+    itemId: plan.items[7].id,
+    status: "not_scorable"
+  };
+
+  assert.deepEqual(
+    getAssessmentFinishTally(plan.items, responses, "encoding"),
+    { scored: 6, skipped: 1, notScorable: 1 }
+  );
+  assert.match(assessmentPageSource, /!showFinishConfirmation/);
+  assert.match(assessmentPageSource, /Check the tally before finishing/);
+  assert.match(assessmentPageSource, /Change final answer/);
+  assert.match(assessmentPageSource, /Confirm and finish/);
 });
 
 test("typed Encoding and Decoding contradictions remain unresolved instead of auto-advancing", () => {

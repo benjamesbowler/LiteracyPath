@@ -146,6 +146,7 @@
     "check:teacher-roster-device-matrix": "playwright test tests/release/teacher-roster-device-matrix.spec.js --project=desktop",
     "check:el-assessment-completion-device-matrix": "node --test tests/unit/elBenchmarkAssessmentPage.test.js && playwright test tests/release/el-assessment-completion-device-matrix.spec.js --project=desktop",
     "check:el-assessment-item-copy": "node --test tests/unit/elBenchmarkAssessmentPage.test.js",
+    "check:el-assessment-route-final-review": "node --test tests/unit/appViewHelpers.test.js tests/unit/elBenchmarkAssessmentPage.test.js && playwright test tests/release/el-assessment-route-and-final-review.spec.js --project=desktop",
     "check:teacher-contextual-help": "npm run test:release-teacher -- --grep @teacher-contextual-help",
     "check:teacher-class-code": "npm run test:release-teacher -- --grep @teacher-class-code",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",

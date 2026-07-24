@@ -126,8 +126,10 @@ import { APP_VIEWS } from "./appState/appViews.js";
 import {
   getPersistedAppView,
   getRestoredAppView,
+  elBenchmarkAssessmentHash,
   isFocusedAssessmentView,
   isStudentAllowedView,
+  restoreElBenchmarkSessionFromHash,
   shouldShowDashboardSummary,
   shouldShowFooterUtilityActions,
   teacherIntentHash
@@ -2736,7 +2738,7 @@ export default function App() {
           restoredStudentId && data.elBenchmarkSession?.studentId === restoredStudentId
             ? data.elBenchmarkSession
             : null;
-        const restoredElBenchmarkSession = restoredStudentId
+        let restoredElBenchmarkSession = restoredStudentId
           ? loadElBenchmarkDraft({ teacherId, studentId: restoredStudentId }) || legacyElBenchmarkSession
           : null;
         if (legacyElBenchmarkSession && restoredElBenchmarkSession === legacyElBenchmarkSession) {
@@ -2746,7 +2748,16 @@ export default function App() {
             session: legacyElBenchmarkSession
           });
         }
-        const requestedRestoredAppView = getRestoredAppView({ restoredStudentId, storedAppView: data.appView });
+        const hashRestoredSession = restoreElBenchmarkSessionFromHash({
+          hash: window.location.hash,
+          session: restoredElBenchmarkSession,
+          studentId: restoredStudentId
+        });
+        if (hashRestoredSession) restoredElBenchmarkSession = hashRestoredSession;
+        const requestedRestoredAppView = getRestoredAppView({
+          restoredStudentId,
+          storedAppView: hashRestoredSession ? APP_VIEWS.EL_BENCHMARK : data.appView
+        });
         const restoredAppView = requestedRestoredAppView === APP_VIEWS.EL_BENCHMARK && !restoredElBenchmarkSession
           ? APP_VIEWS.EL_ASSESSMENTS
           : requestedRestoredAppView;
@@ -2888,18 +2899,27 @@ export default function App() {
   useLayoutEffect(() => {
     if (sessionMode === "student" || !teacherId) return;
 
-    const nextHash = teacherIntentHash({
-      appView,
-      classId: selectedClassId,
-      groupId: teacherGroupId,
-      learnerId: studentId
-    });
+    const nextHash = appView === APP_VIEWS.EL_BENCHMARK
+      ? elBenchmarkAssessmentHash({
+          classId: selectedClassId,
+          learnerId: studentId,
+          session: elBenchmarkSession
+        })
+      : teacherIntentHash({
+          appView: appView === APP_VIEWS.EL_ASSESSMENTS
+            ? APP_VIEWS.TEACHER_ASSESS
+            : appView,
+          classId: selectedClassId,
+          groupId: teacherGroupId,
+          learnerId: studentId
+        });
     if (!nextHash) return;
     if (window.location.hash !== nextHash) {
       window.history.replaceState(window.history.state, "", nextHash);
     }
   }, [
     appView,
+    elBenchmarkSession,
     selectedClassId,
     sessionMode,
     studentId,

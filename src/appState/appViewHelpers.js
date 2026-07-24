@@ -143,3 +143,63 @@ export function teacherIntentHash({
   }
   return `#teacher/${intent}${context.size ? `?${context.toString()}` : ""}`;
 }
+
+export function elBenchmarkAssessmentHash({
+  classId = "",
+  learnerId = "",
+  session = null
+} = {}) {
+  if (!session?.sessionId || !session?.assessmentId || !learnerId) return "";
+  const context = new URLSearchParams();
+  if (classId) context.set("class", classId);
+  context.set("learner", learnerId);
+  context.set("assessment", session.assessmentId);
+  context.set("session", session.sessionId);
+  const itemIndex = Math.max(0, Number(session.currentItemIndex ?? session.itemIndex ?? 0) || 0);
+  context.set("item", String(itemIndex + 1));
+  return `#teacher/assess/el-benchmark?${context.toString()}`;
+}
+
+export function parseElBenchmarkAssessmentHash(hash = "") {
+  const normalized = String(hash || "").replace(/^#/, "");
+  const [path, query = ""] = normalized.split("?");
+  if (path !== "teacher/assess/el-benchmark") return null;
+  const params = new URLSearchParams(query);
+  const learnerId = params.get("learner") || "";
+  const assessmentId = params.get("assessment") || "";
+  const sessionId = params.get("session") || "";
+  const itemNumber = Number(params.get("item"));
+  if (!learnerId || !assessmentId || !sessionId || !Number.isInteger(itemNumber) || itemNumber < 1) {
+    return null;
+  }
+  return {
+    classId: params.get("class") || "",
+    learnerId,
+    assessmentId,
+    sessionId,
+    currentItemIndex: itemNumber - 1
+  };
+}
+
+export function restoreElBenchmarkSessionFromHash({
+  hash = "",
+  session = null,
+  studentId = ""
+} = {}) {
+  const route = parseElBenchmarkAssessmentHash(hash);
+  if (
+    !route
+    || !session
+    || route.learnerId !== studentId
+    || route.learnerId !== session.studentId
+    || route.assessmentId !== session.assessmentId
+    || route.sessionId !== session.sessionId
+  ) {
+    return null;
+  }
+  return {
+    ...session,
+    currentItemIndex: route.currentItemIndex,
+    itemIndex: route.currentItemIndex
+  };
+}

@@ -217,6 +217,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [4, 6, 10]
   },
   {
+    id: "el-assessment-route-final-review",
+    label: "Exact EL assessment refresh/resume route and deliberate final-tally confirmation",
+    command: ["npm", "run", "check:el-assessment-route-final-review"],
+    areas: [4, 9, 10]
+  },
+  {
     id: "teacher-contextual-help",
     label: "Searchable question-type help reachable from learner evidence",
     command: ["npm", "run", "check:teacher-contextual-help"],

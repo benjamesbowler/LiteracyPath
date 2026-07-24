@@ -7,8 +7,11 @@ import {
   isStudentAllowedView,
   isFocusedAssessmentView,
   shouldShowFooterUtilityActions,
+  elBenchmarkAssessmentHash,
   getRestoredAppView,
   getPersistedAppView,
+  parseElBenchmarkAssessmentHash,
+  restoreElBenchmarkSessionFromHash,
   teacherIntentHash
 } from "../../src/appState/appViewHelpers.js";
 
@@ -170,4 +173,45 @@ test("all five teacher intentions expose an honest class, group, and learner has
     "#teacher/resources?class=class-a&group=all&learner=learner-a"
   );
   assert.equal(teacherIntentHash({ appView: APP_VIEWS.REPORTS }), "");
+});
+
+test("an EL benchmark URL names the live session and restores its exact item", () => {
+  const session = {
+    assessmentId: "el_encoding",
+    currentItemIndex: 3,
+    sessionId: "session-123",
+    studentId: "learner-a"
+  };
+  const hash = elBenchmarkAssessmentHash({
+    classId: "class-a",
+    learnerId: "learner-a",
+    session
+  });
+  assert.equal(
+    hash,
+    "#teacher/assess/el-benchmark?class=class-a&learner=learner-a&assessment=el_encoding&session=session-123&item=4"
+  );
+  assert.deepEqual(parseElBenchmarkAssessmentHash(hash), {
+    classId: "class-a",
+    learnerId: "learner-a",
+    assessmentId: "el_encoding",
+    sessionId: "session-123",
+    currentItemIndex: 3
+  });
+  assert.equal(
+    restoreElBenchmarkSessionFromHash({
+      hash: hash.replace("item=4", "item=6"),
+      session,
+      studentId: "learner-a"
+    }).currentItemIndex,
+    5
+  );
+  assert.equal(
+    restoreElBenchmarkSessionFromHash({
+      hash: hash.replace("learner-a", "learner-b"),
+      session,
+      studentId: "learner-a"
+    }),
+    null
+  );
 });
