@@ -142,6 +142,7 @@
     "check:el-export-consistency": "node --test tests/unit/elExportEvidenceConsistency.test.js && npm run test:release-teacher -- --grep '@el-(empty-export-policy|export-consistency)'",
     "check:whole-child-evidence-integrity": "node --test tests/unit/wholeChildEvidenceIntegrity.test.js",
     "check:guided-reading-decoding-support": "node --test tests/unit/guidedReadingDecodingSupport.test.js tests/unit/progressMerge.test.js tests/unit/studentReportingWorkspaceModel.test.js && playwright test tests/release/guided-reading-decoding-support.spec.js --project=desktop",
+    "check:research-pilot-pack": "node tools/checkResearchPilotPack.mjs && node --test tests/unit/researchPilotPack.test.js",
     "check:report-audience-templates": "node --test tests/unit/reportAudienceTemplates.test.js && playwright test tests/release/report-audience-templates.spec.js --project=desktop",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

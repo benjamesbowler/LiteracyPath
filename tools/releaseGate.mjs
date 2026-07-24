@@ -53,6 +53,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 6, 7, 10]
   },
   {
+    id: "research-pilot-pack",
+    label: "Expert review, learning-measurement, and child/teacher pilot pack",
+    command: ["npm", "run", "check:research-pilot-pack"],
+    areas: [1, 2, 4, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],
