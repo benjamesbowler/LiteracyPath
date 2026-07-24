@@ -50,6 +50,23 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
   }
 });
 
+test("the permanent integrity gate fails on unresolved active-book image flags", () => {
+  const integritySource = readFileSync(
+    new URL("../../tools/checkAssessmentQuestionIntegrity.js", import.meta.url),
+    "utf8"
+  );
+  const integrityGate = RELEASE_GATES.find(gate => gate.id === "assessment-question-integrity");
+
+  assert.deepEqual(
+    integrityGate?.command,
+    ["npm", "run", "check:assessment-question-integrity", "--", "--check"]
+  );
+  assert.match(
+    integritySource,
+    /if\s*\([\s\S]*?\|\|\s*guidedRows\.length\s*\)[\s\S]*?process\.exit\(1\)/
+  );
+});
+
 test("CI runs the canonical release gate against a fresh seeded local database", () => {
   const workflow = readFileSync(
     new URL("../../.github/workflows/ci.yml", import.meta.url),

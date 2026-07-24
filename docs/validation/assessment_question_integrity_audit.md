@@ -1,19 +1,19 @@
 # Assessment Question Integrity Audit
 
-Generated: 2026-07-23T08:04:09.861Z
+Generated: 2026-07-24T09:57:49.235Z
 
 ## Summary
 
-- Active runtime question candidates checked: 7471
+- Active runtime question candidates checked: 7453
 - Active question integrity failures: 0
 - CVC selectable runtime questions checked: 412
 - CVC selectable runtime failures: 0
-- Short Vowel Discrimination selectable runtime questions checked: 304
+- Short Vowel Discrimination selectable runtime questions checked: 314
 - Short Vowel Discrimination selectable runtime failures: 0
 - HFW spelling panel rows checked: 299
 - HFW spelling panel readiness failures: 0
-- Active candidates blocked by unapproved audio: 287
-- Guided Reading pages marked for replacement / QA failed: 1
+- Active candidates blocked by unapproved audio: 61
+- Guided Reading pages marked for replacement / QA failed: 0
 
 ## Active Question Failures
 
@@ -31,5 +31,5 @@ Generated: 2026-07-23T08:04:09.861Z
 
 | Book ID | Title | Page | Image | QA Status | Reason |
 |---|---|---:|---|---|---|
-| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | 9 | /guided-reading/series/meadow-pals/book-09/page-009.webp | needs_kimi | Rabbit character on right side is cropped / missing ear detail. |
+| none | none | none | none | none | No guided reading pages currently need replacement. |
 

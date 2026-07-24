@@ -1,16 +1,16 @@
 # Reading Media Size Audit
 
-Generated: 2026-07-22T10:00:04.326Z
+Generated: 2026-07-24T09:58:50.558Z
 
 ## Summary
 
 - Files scanned: 3330
-- Findings: 714
+- Findings: 703
 - Failing live file issues: 0
 
 | Type | Count |
 | --- | --- |
-| Story Quest image > 250 KB | 314 |
+| Story Quest image > 250 KB | 303 |
 | Guided Reading cover > 250 KB | 47 |
 | Guided Reading page image > 300 KB | 353 |
 
@@ -136,19 +136,18 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p06_twig_fixed.webp | 276 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p07_berry_everywhere.webp | 291 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p07_grumpy_naps.webp | 262 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p07_one_thing_done.webp | 298 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p07_one_thing_done.webp | 360 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p07_peaceful_stream.webp | 270 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p07_tower_rebuilt.webp | 346 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p08_nap_ending.webp | 271 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/grumpy-almost-good-day/p08_stone_ending.webp | 339 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p01_start.webp | 301 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p01_start.webp | 278 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p03_cozy_cave.webp | 264 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p03_dry_rock.webp | 306 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p03_puddle.webp | 308 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p04_splash.webp | 311 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p04_wait.webp | 338 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p04_wiggly_tail.webp | 279 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p05_dozy_splash.webp | 270 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p04_splash.webp | 285 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p04_wait.webp | 334 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p04_wiggly_tail.webp | 268 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p05_honky_rain.webp | 338 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p05_leaf_roof.webp | 301 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p05_tail_wave.webp | 251 KB | Target 120-220 KB where quality allows. |
@@ -157,7 +156,7 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_dry.webp | 253 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p06_leaf_rain.webp | 357 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p06_sorry_grumpy.webp | 267 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p07_everyone_puddle.webp | 296 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p07_everyone_puddle.webp | 273 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p07_leaf_boat.webp | 287 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p08_grumpy_laugh_ending.webp | 284 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/dino-pals/sunny-rainy-rescue/p08_quiet_ending.webp | 291 KB | Target 120-220 KB where quality allows. |
@@ -246,7 +245,7 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.webp | 325 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_purr.webp | 296 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p08_wave_from_tree.webp | 303 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.webp | 312 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.webp | 344 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_quiet_ending.webp | 366 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_soft_hug_ending.webp | 285 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/meadow-pals/shy-cuddly-quiet/p09_tree_happy_ending.webp | 348 KB | Target 120-220 KB where quality allows. |
@@ -255,7 +254,6 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_pip_lamp.webp | 358 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_smoke_arrow.webp | 281 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_spark_water.webp | 322 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_stone_lifts.webp | 251 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_wren_stops.webp | 330 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_crack_opens.webp | 265 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_caught.webp | 326 KB | Target 120-220 KB where quality allows. |
@@ -271,13 +269,7 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_puddle_laugh.webp | 297 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_soft_feet.webp | 361 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_water_call.webp | 262 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_fern_repairs.webp | 293 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_glow_chooses.webp | 272 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_stream_returns.webp | 597 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_wren_rule.webp | 358 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_frog_ending.webp | 403 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_gentle_ending.webp | 813 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_pip_ending.webp | 824 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_splash_ending.webp | 464 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_wren_ending.webp | 272 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/fern-wren-walking-garden/p01_start.webp | 305 KB | Target 120-220 KB where quality allows. |
@@ -316,11 +308,8 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_star_fish.webp | 258 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_blue_path.webp | 256 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_gold_path.webp | 434 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_kind_sleep.webp | 280 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_star_choice.webp | 275 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_free_seed.webp | 306 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_funny_ending.webp | 462 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_home_seed.webp | 397 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_home_seed.webp | 315 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_marsh_light.webp | 306 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.webp | 413 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_stone_star.webp | 305 KB | Target 120-220 KB where quality allows. |
@@ -339,7 +328,7 @@ These are warnings only. Do not automatically recompress in this phase.
 | Story Quest image > 250 KB | public/images/story-quests/sam-pam/page-06.webp | 310 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/sam-pam/page-07.webp | 287 KB | Target 120-220 KB where quality allows. |
 | Story Quest image > 250 KB | public/images/story-quests/sam-pam/page-08.webp | 325 KB | Target 120-220 KB where quality allows. |
-| Story Quest image > 250 KB | public/images/story-quests/sam-pam/page-09.webp | 265 KB | Target 120-220 KB where quality allows. |
+| Story Quest image > 250 KB | public/images/story-quests/sam-pam/page-09.webp | 332 KB | Target 120-220 KB where quality allows. |
 | Guided Reading cover > 250 KB | public/guided-reading/series/aiden-and-betty/book-01/cover.webp | 290 KB | Target under 200 KB where quality allows. |
 | Guided Reading page image > 300 KB | public/guided-reading/series/aiden-and-betty/book-01/page-001.webp | 452 KB | Target 150-300 KB where quality allows. |
 | Guided Reading page image > 300 KB | public/guided-reading/series/aiden-and-betty/book-01/page-003.webp | 367 KB | Target 150-300 KB where quality allows. |
