@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { buildTeacherProgressOverview } from "../../utils/teacherProgressOverview.js";
 import { TeacherGrowthChart } from "./TeacherGrowthChart.jsx";
+import { TeacherInsightActions } from "./TeacherInsightActions.jsx";
 import { TeacherInstructionalGroups } from "./TeacherInstructionalGroups.jsx";
 import { TeacherChart } from "./ui/TeacherPrimitives.jsx";
 
@@ -13,6 +14,17 @@ function bucketLabel(bucket) {
 
 function percentLabel(value) {
   return Number.isFinite(Number(value)) ? `${Number(value)}%` : "Not scored";
+}
+
+function snapshotEvidenceBasis(basis) {
+  if (!basis) return null;
+  return {
+    attempts: basis.attempts,
+    diversity: basis.diversity,
+    recency: basis.recency || null,
+    confidence: basis.confidence,
+    support: basis.support
+  };
 }
 
 function EvidenceBasis({ basis, label }) {
@@ -228,6 +240,28 @@ export function TeacherProgressOverview({
                   label={`${group.label} group conclusion`}
                 />
               )}
+              renderActions={group => (
+                <TeacherInsightActions
+                  supabase={supabase}
+                  classId={selectedClassId}
+                  className={className}
+                  insight={{
+                    key: group.id,
+                    kind: "instructional-group",
+                    label: group.label,
+                    focus: group.basis,
+                    reason: group.evidence.confidence.detail,
+                    criterion: {
+                      id: group.id,
+                      basis: group.basis,
+                      policy: group.evidence.confidence.detail
+                    },
+                    evidence: snapshotEvidenceBasis(group.evidence),
+                    learners: group.learners
+                  }}
+                  rows={summary.rows}
+                />
+              )}
             />
 
             <article className="teacher-progress-panel">
@@ -260,6 +294,32 @@ export function TeacherProgressOverview({
                       >
                         Review {learner.name} evidence
                       </button>
+                      <TeacherInsightActions
+                        supabase={supabase}
+                        classId={selectedClassId}
+                        className={className}
+                        insight={{
+                          key: `outlier:${learner.id}`,
+                          kind: "learner-outlier",
+                          label: `${learner.name} evidence variance`,
+                          focus: `${learner.accuracy}% accuracy · ${Math.abs(learner.difference)} points ${learner.direction} class median`,
+                          reason: `Policy-ready evidence is ${Math.abs(learner.difference)} points ${learner.direction} the ${summary.classMedian}% class median.`,
+                          criterion: {
+                            type: "class-median-distance",
+                            minimumResponses: summary.policy.minimumResponses,
+                            minimumDistancePoints: summary.policy.outlierDistance
+                          },
+                          evidence: {
+                            accuracy: learner.accuracy,
+                            classMedian: summary.classMedian,
+                            difference: learner.difference,
+                            direction: learner.direction,
+                            basis: snapshotEvidenceBasis(learner.evidence)
+                          },
+                          learners: [{ id: learner.id, name: learner.name }]
+                        }}
+                        rows={summary.rows}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -372,6 +432,41 @@ export function TeacherProgressOverview({
                     Evidence source: saved Sound Seekers item history
                     {selectedItem.updatedAt ? ` · updated ${new Date(selectedItem.updatedAt).toLocaleString()}` : ""}.
                   </p>
+                  <TeacherInsightActions
+                    supabase={supabase}
+                    classId={selectedClassId}
+                    className={className}
+                    insight={{
+                      key: `sound:${selectedItem.id}`,
+                      kind: "exact-item-evidence",
+                      label: `${selectedLearner.name} · ${selectedItem.label}`,
+                      focus: `${selectedItem.policyReady
+                        ? bucketLabel(selectedItem.bucket)
+                        : "Insufficient evidence"} for ${selectedItem.label}`,
+                      reason: selectedItem.policyReady
+                        ? `${selectedItem.independentSeen} independent attempts currently classify this item as ${bucketLabel(selectedItem.bucket)}.`
+                        : `${selectedItem.independentSeen} independent attempts do not yet meet the exact-item evidence minimum.`,
+                      criterion: {
+                        type: "exact-sound-item",
+                        itemId: selectedItem.id,
+                        minimumIndependentAttempts: 3
+                      },
+                      evidence: {
+                        bucket: selectedItem.bucket,
+                        policyReady: selectedItem.policyReady,
+                        independentAttempts: selectedItem.independentSeen,
+                        accuracy: selectedItem.accuracy,
+                        stopName: selectedItem.stopName,
+                        updatedAt: selectedItem.updatedAt || null,
+                        basis: snapshotEvidenceBasis(selectedItem.evidence)
+                      },
+                      learners: [{
+                        id: selectedLearner.id,
+                        name: selectedLearner.name
+                      }]
+                    }}
+                    rows={summary.rows}
+                  />
                 </article>
               )}
 

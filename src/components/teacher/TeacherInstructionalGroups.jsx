@@ -55,7 +55,8 @@ export function TeacherInstructionalGroups({
   suggestions = [],
   rows = [],
   onChooseLearner,
-  renderEvidence
+  renderEvidence,
+  renderActions
 }) {
   const requestKey = [teacherId, classId].filter(Boolean).join(":");
   const [loadResult, setLoadResult] = useState({
@@ -285,6 +286,7 @@ export function TeacherInstructionalGroups({
                     Save group
                   </button>
                 </div>
+                {renderActions?.(group)}
               </li>
             ))}
           </ul>

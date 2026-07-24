@@ -415,6 +415,178 @@ test("@teacher-instructional-groups creates, saves, compares, reviews, and assig
   expect(consoleErrors).toEqual([]);
 });
 
+test("@teacher-insight-actions wires every actionable insight into practice, planning, print, and observation", async ({
+  page
+}) => {
+  const pageErrors = [];
+  const consoleErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  page.on("console", message => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Progress", exact: true })
+    .click();
+
+  const insights = page.locator('[data-actionable-insight="true"]');
+  await expect(insights.first()).toBeVisible({ timeout: 20_000 });
+  const insightCount = await insights.count();
+  expect(insightCount).toBeGreaterThan(0);
+  for (let index = 0; index < insightCount; index += 1) {
+    const insight = insights.nth(index);
+    for (const label of [
+      "Assign practice",
+      "Plan small group",
+      "Print resource",
+      "Record observation"
+    ]) {
+      await expect(insight.getByRole("button", { name: label, exact: true })).toBeVisible();
+      await expect(insight.getByRole("button", { name: label, exact: true })).toBeEnabled();
+    }
+  }
+
+  for (const viewport of [
+    { width: 1366, height: 768, label: "1366" },
+    { width: 1024, height: 768, label: "1024" },
+    { width: 768, height: 1024, label: "768" },
+    { width: 390, height: 844, label: "390" }
+  ]) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await expect.poll(() => page.evaluate(() => ({
+      viewport: window.innerWidth,
+      documentWidth: document.documentElement.scrollWidth,
+      actionHeights: [...document.querySelectorAll(
+        '[data-actionable-insight="true"] > .teacher-insight-action-buttons > button'
+      )].map(element => Math.round(element.getBoundingClientRect().height))
+    }))).toEqual(expect.objectContaining({
+      viewport: viewport.width,
+      documentWidth: viewport.width
+    }));
+    const undersizedActions = await page.evaluate(() => (
+      [...document.querySelectorAll(
+        '[data-actionable-insight="true"] > .teacher-insight-action-buttons > button'
+      )].filter(element => Math.round(element.getBoundingClientRect().height) < 44)
+        .map(element => element.textContent?.trim())
+    ));
+    expect(undersizedActions).toEqual([]);
+    await expect(insights.first()).toHaveScreenshot(
+      `teacher-insight-actions-${viewport.label}.png`,
+      { animations: "disabled", maxDiffPixelRatio: 0.025 }
+    );
+  }
+  await page.setViewportSize({ width: 1366, height: 768 });
+
+  const exactInsight = insights.first();
+  await expect(exactInsight).toHaveCount(1);
+  const exactInsightLabel = await exactInsight.getAttribute("data-insight-label");
+  expect(exactInsightLabel).toBeTruthy();
+
+  await exactInsight.getByRole("button", { name: "Assign practice", exact: true }).click();
+  let dialog = page.getByRole("dialog", {
+    name: `Assign practice for ${exactInsightLabel}`
+  });
+  await expect(dialog).toBeVisible();
+  const dialogAxe = await new AxeBuilder({ page }).include(".teacher-insight-action-modal").analyze();
+  expect(dialogAxe.violations.filter(
+    violation => violation.impact === "serious" || violation.impact === "critical"
+  )).toEqual([]);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect.poll(() => dialog.evaluate(element => ({
+    left: Math.round(element.getBoundingClientRect().left),
+    right: Math.round(element.getBoundingClientRect().right),
+    viewport: window.innerWidth,
+    controlHeights: [...element.querySelectorAll("button, input:not([type='checkbox']), textarea")]
+      .map(control => Math.round(control.getBoundingClientRect().height))
+  }))).toEqual(expect.objectContaining({
+    left: 0,
+    right: 390,
+    viewport: 390
+  }));
+  const undersizedDialogControls = await dialog.evaluate(element => (
+    [...element.querySelectorAll("button, input:not([type='checkbox']), textarea")]
+      .filter(control => Math.round(control.getBoundingClientRect().height) < 44)
+      .map(control => control.getAttribute("aria-label") || control.textContent?.trim())
+  ));
+  expect(undersizedDialogControls).toEqual([]);
+  await expect(dialog.locator(".teacher-insight-action-dialog")).toHaveScreenshot(
+    "teacher-insight-action-dialog-390.png",
+    { animations: "disabled", maxDiffPixelRatio: 0.025 }
+  );
+  await page.setViewportSize({ width: 1366, height: 768 });
+  await expect(
+    dialog.locator("fieldset").nth(1).locator('input[type="checkbox"]:checked').first()
+  ).toBeChecked();
+  await dialog.getByRole("button", {
+    name: "Assign practice and track response",
+    exact: true
+  }).click();
+  await expect(exactInsight.getByRole("status")).toContainText(
+    `Practice assigned for ${exactInsightLabel}; its response is tracked on Today.`
+  );
+
+  await exactInsight.getByRole("button", { name: "Plan small group", exact: true }).click();
+  dialog = page.getByRole("dialog", {
+    name: `Plan small group for ${exactInsightLabel}`
+  });
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole("button", {
+    name: "Plan small group and track response",
+    exact: true
+  }).click();
+  await expect(exactInsight.getByRole("status")).toContainText(
+    `Small-group plan saved for ${exactInsightLabel}; its response is tracked on Today.`
+  );
+
+  const popupPromise = page.waitForEvent("popup");
+  await exactInsight.getByRole("button", { name: "Print resource", exact: true }).click();
+  const popup = await popupPromise;
+  await popup.waitForLoadState("domcontentloaded");
+  await expect(popup).toHaveTitle(/sound practice pack/);
+  await popup.close();
+  await expect(exactInsight.getByRole("status")).toContainText(
+    `Printable decodable resource opened for ${exactInsightLabel}.`
+  );
+
+  await exactInsight.getByRole("button", { name: "Record observation", exact: true }).click();
+  dialog = page.getByRole("dialog", {
+    name: `Record observation for ${exactInsightLabel}`
+  });
+  await dialog.getByLabel("Observed evidence").fill(
+    "Learners segmented the initial phoneme accurately with counters but needed a model before blending."
+  );
+  await dialog.getByRole("button", {
+    name: "Record observation and track response",
+    exact: true
+  }).click();
+  await expect(exactInsight.getByRole("status")).toContainText(
+    `Observation recorded for ${exactInsightLabel}; its follow-up is tracked on Today.`
+  );
+
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Today", exact: true })
+    .click();
+  const practiceIntervention = page.getByRole("article", {
+    name: `Intervention for ${exactInsightLabel} practice`
+  });
+  const groupIntervention = page.getByRole("article", {
+    name: `Intervention for ${exactInsightLabel} group`
+  });
+  const observationIntervention = page.getByRole("article", {
+    name: `Intervention for ${exactInsightLabel} observation follow-up`
+  });
+  await expect(practiceIntervention).toHaveCount(1, { timeout: 20_000 });
+  await expect(groupIntervention).toHaveCount(1);
+  await expect(observationIntervention).toHaveCount(1);
+  await expect(practiceIntervention).toContainText("Planned · delivery needed");
+  await expect(groupIntervention).toContainText("Planned · delivery needed");
+  await expect(observationIntervention).toContainText("Planned · delivery needed");
+
+  expect(pageErrors).toEqual([]);
+  expect(consoleErrors).toEqual([]);
+});
+
 test("@teacher-assessment-hub uses purpose-led language and routes every purpose from one hub", async ({
   page
 }) => {

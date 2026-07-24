@@ -1,6 +1,6 @@
 # Class-first Progress contract
 
-Plan items: **A7.3, A7.4, A7.5**
+Plan items: **A7.3, A7.4, A7.5, A7.6, A7.7**
 
 The real teacher `Progress` intention is class-first. It reads the same live
 class-dashboard dataset used by Today and Classes, then keeps the selected
@@ -90,6 +90,27 @@ saved group and its latest reviewed membership. It therefore enters the
 existing plan → deliver → record → review lifecycle on Today instead of
 becoming an untracked report action.
 
+## Insight actions
+
+Every actionable group, outlier, and exact-item insight exposes the same four
+next steps:
+
+| Action | Contract |
+|---|---|
+| Assign practice | The teacher chooses learners and one to six exact targets supported by the current insight. The assignment is forward-merged into Sound Seekers progress and a normal dated intervention is created for response tracking. |
+| Plan small group | The teacher confirms the learner membership, owner, date, and teaching activity. The plan is stored as a normal dated intervention. |
+| Print resource | A real browser print view opens for a Sound Seekers practice pack at the lowest evidenced curriculum stop represented by the selected learners. |
+| Record observation | Directly observed evidence is stored as an immutable insight snapshot and atomically linked to a dated intervention describing the next teaching response. |
+
+Actions never infer a target or curriculum stop from absent evidence. Practice
+assignments retain their exact targets and bounded insight snapshot.
+Observation rows retain the insight label, focus, reason, criterion, learner
+membership, and current evidence at the moment the teacher acted; they are
+append-only, class-owned, and inaccessible across teacher tenants. Small-group
+plans retain their confirmed membership, owner, date, focus, and activity in
+the intervention record. Every tracked action appears on Today so the
+follow-up can be measured through the existing intervention lifecycle.
+
 ## Persistence and recovery
 
 - The route is `#teacher/progress?class=…&group=…&learner=…`.
@@ -115,5 +136,14 @@ becoming an untracked report action.
 - `@teacher-instructional-groups` creates and reloads two criterion-backed
   groups, compares aggregate evidence, appends a movement review, assigns a
   linked follow-up, and proves the intervention appears on Today.
+- `tests/unit/teacherInsightActions.test.js` pins exact target selection,
+  lowest-stop print decodability, evidence withholding, and secure-focus
+  fallback rules.
+- `@teacher-insight-actions` sweeps every actionable insight card for all four
+  wired controls, executes each action, proves the three tracked actions on
+  Today, audits the modal, and verifies 1366, 1024, 768, and 390 widths.
+- `tools/verifyTeacherInsightActionsBackend.mjs` proves assignment writes,
+  observation/follow-up atomicity, append-only snapshots, tenant isolation,
+  foreign-learner rejection, and malformed-snapshot rollback.
 - The manual critic covers 1366×768, 1024×768, 768×1024, and 390×844 with no
   horizontal overflow or runtime console errors.

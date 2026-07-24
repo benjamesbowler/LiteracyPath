@@ -18052,6 +18052,7 @@ select:focus {
 
 .teacher-progress-insight-list li {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -18081,6 +18082,159 @@ select:focus {
   display: grid;
   justify-items: end;
   gap: 2px;
+}
+
+.teacher-insight-actions {
+  width: 100%;
+  flex: 0 0 auto;
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  padding-top: 9px;
+  border-top: 1px dashed var(--lp-color-border-subtle);
+}
+
+.teacher-insight-action-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.teacher-insight-action-buttons .lp-button {
+  min-width: 0;
+  min-height: var(--teacher-ui-target-min) !important;
+  padding: 7px 8px;
+  white-space: normal;
+}
+
+.teacher-insight-action-status {
+  min-height: 18px;
+  margin: 0;
+  color: var(--lp-color-primary-strong);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.teacher-insight-action-modal {
+  z-index: 95;
+}
+
+.teacher-insight-action-modal .symbol-password-modal-card {
+  width: min(760px, calc(100vw - 32px));
+  max-height: min(880px, calc(100dvh - 32px));
+  overflow: auto;
+}
+
+.teacher-insight-action-dialog {
+  display: grid;
+  gap: 14px;
+}
+
+.teacher-insight-action-dialog > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.teacher-insight-action-dialog h3,
+.teacher-insight-action-dialog p {
+  margin: 0;
+}
+
+.teacher-insight-action-dialog header p:last-child {
+  margin-top: 4px;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-insight-action-dialog fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-control-radius);
+}
+
+.teacher-insight-action-dialog legend,
+.teacher-insight-action-dialog > label > span,
+.teacher-insight-action-form-grid label > span {
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.teacher-insight-action-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 5px;
+}
+
+.teacher-insight-action-options label {
+  min-height: var(--teacher-ui-target-min);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-insight-action-options input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.teacher-insight-action-dialog > label,
+.teacher-insight-action-form-grid label {
+  display: grid;
+  gap: 6px;
+}
+
+.teacher-insight-action-dialog textarea,
+.teacher-insight-action-dialog input[type="text"],
+.teacher-insight-action-dialog input[type="date"],
+.teacher-insight-action-form-grid input {
+  width: 100%;
+  min-height: var(--teacher-ui-target-min);
+  padding: 10px 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-control-radius);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+  font: inherit;
+}
+
+.teacher-insight-action-dialog textarea {
+  resize: vertical;
+}
+
+.teacher-insight-action-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.teacher-insight-action-form-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.teacher-insight-action-form-actions > button {
+  min-height: var(--teacher-ui-target-min) !important;
+}
+
+.teacher-insight-action-form-actions > span {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 750;
 }
 
 .teacher-progress-basis {
@@ -18487,6 +18641,7 @@ select:focus {
   color: var(--lp-color-text-muted);
   font-size: 12px;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .teacher-saved-group-actions {
@@ -18547,6 +18702,10 @@ select:focus {
   border: 1px solid var(--lp-color-border);
   border-radius: var(--teacher-ui-control-radius);
   background: var(--lp-color-surface);
+}
+
+.teacher-group-comparison-grid article > p {
+  font-variant-numeric: tabular-nums;
 }
 
 .teacher-group-comparison-grid dl {
@@ -19050,6 +19209,10 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
+  .teacher-insight-action-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .teacher-saved-group-list,
   .teacher-group-comparison-grid {
     grid-template-columns: 1fr;
@@ -19086,6 +19249,15 @@ select:focus {
     padding: 14px;
   }
 
+  .teacher-insight-action-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-insight-action-dialog {
+    padding: 16px;
+  }
+
+  .teacher-insight-action-dialog > header,
   .teacher-progress-insight-list li,
   .teacher-saved-group-card > header {
     align-items: stretch;

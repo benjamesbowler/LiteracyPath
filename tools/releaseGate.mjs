@@ -151,6 +151,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 7, 8, 10]
   },
   {
+    id: "teacher-insight-actions",
+    label: "Every actionable insight closes into practice, group planning, print, or observed follow-up",
+    command: ["npm", "run", "check:teacher-insight-actions"],
+    areas: [5, 7, 8, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],
