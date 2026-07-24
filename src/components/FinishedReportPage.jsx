@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { buildStudentReportingWorkspaceModel } from "../data/studentReportingWorkspaceModel.js";
+import { WHOLE_CHILD_REPORT_AUDIENCES } from "../data/reportAudienceTemplates.js";
 import {
   buildIndividualElFormalAssessmentReport,
   isReportableElBenchmarkCandidatePlacement,
@@ -802,6 +803,15 @@ export function FinishedReportPage({
   const [benchmarkExporting, setBenchmarkExporting] = useState(false);
   const [emptyElExportScope, setEmptyElExportScope] = useState(null);
   const [actionFeedback, setActionFeedback] = useState(null);
+  const [wholeChildAudienceSelection, setWholeChildAudienceSelection] = useState({
+    contextKey: reportContextKey,
+    audience: WHOLE_CHILD_REPORT_AUDIENCES.TEACHER
+  });
+  const wholeChildAudience = wholeChildAudienceSelection.contextKey === reportContextKey
+    ? wholeChildAudienceSelection.audience
+    : WHOLE_CHILD_REPORT_AUDIENCES.TEACHER;
+  const familyReportActive = activeReportView === "whole-child"
+    && wholeChildAudience === WHOLE_CHILD_REPORT_AUDIENCES.FAMILY;
   const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
   const hasCurrentGuidedReadingLoad = guidedReadingLoad.records === guidedReadingRecords
     && guidedReadingLoad.retry === guidedReadingRetry;
@@ -1129,19 +1139,32 @@ export function FinishedReportPage({
       exportDisabled={benchmarkExporting || actionFeedback?.kind === "pending"}
       exportLabel={exportConfig.label}
       generatedLabel={`Generated ${generatedDate}`}
+      headingDescription={familyReportActive
+        ? "A strengths-based update with clear ways to help at home."
+        : ""}
+      headingLabel={familyReportActive ? "Family reading update" : ""}
       onBack={returnToTeacherDashboard}
       onExport={exportConfig.enabled ? exportActiveReport : null}
       onPrint={printActiveReport}
       onStartAssessment={assessmentAction?.handler}
       onViewChange={changeReportView}
-      provenanceRows={reportProvenanceRows}
+      provenanceRows={familyReportActive ? [] : reportProvenanceRows}
       startAssessmentLabel={assessmentAction?.label}
       feedback={actionFeedback}
       statusMessage={reportStatusMessage}
       studentName={studentName}
     >
       {activeReportView === "whole-child" && (
-        <WholeChildReportView report={reportingWorkspace.wholeChild} />
+        <WholeChildReportView
+          activeAudience={wholeChildAudience}
+          className={className}
+          onAudienceChange={audience => setWholeChildAudienceSelection({
+            contextKey: reportContextKey,
+            audience
+          })}
+          report={reportingWorkspace.wholeChild}
+          studentName={studentName}
+        />
       )}
 
       {activeReportView === "el-assessments" && (
@@ -1233,7 +1256,9 @@ export function FinishedReportPage({
       )}
 
       <footer className="lg-report-footer">
-        Literacy Guide. Evidence is shown in the report where it was collected. Whole Child combines current knowledge without counting the same evidence twice.
+        {familyReportActive
+          ? "Literacy Guide. This update shares current strengths and the next small steps for learning."
+          : "Literacy Guide. Evidence is shown in the report where it was collected. Whole Child combines current knowledge without counting the same evidence twice."}
       </footer>
     </StudentReportShell>
     <TeacherDialog

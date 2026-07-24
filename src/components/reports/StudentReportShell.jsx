@@ -15,6 +15,8 @@ export function StudentReportShell({
   exportLabel = "Download spreadsheet data",
   feedback = null,
   generatedLabel = "",
+  headingDescription = "",
+  headingLabel = "",
   onBack,
   onExport,
   onPrint,
@@ -123,8 +125,8 @@ export function StudentReportShell({
           <div className="lg-report-view-heading">
             <div>
               <p>{studentName || "Selected student"}</p>
-              <h1 ref={headingRef} tabIndex="-1">{current.label}</h1>
-              <span>{current.description}</span>
+              <h1 ref={headingRef} tabIndex="-1">{headingLabel || current.label}</h1>
+              <span>{headingDescription || current.description}</span>
             </div>
             {generatedLabel && <small>{generatedLabel}</small>}
           </div>

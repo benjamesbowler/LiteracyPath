@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import {
+  buildWholeChildAudienceTemplates,
+  WHOLE_CHILD_REPORT_AUDIENCES
+} from "../../data/reportAudienceTemplates.js";
 import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
 import { MetricFigure } from "../MetricDefinition.jsx";
@@ -123,7 +127,132 @@ function normalizeDomains(report = {}) {
   return [];
 }
 
-export function WholeChildReportView({ report = {} }) {
+const REPORT_AUDIENCE_OPTIONS = Object.freeze([
+  Object.freeze({
+    id: WHOLE_CHILD_REPORT_AUDIENCES.TEACHER,
+    label: "Teacher diagnostic",
+    description: "Detailed decisions and source trails"
+  }),
+  Object.freeze({
+    id: WHOLE_CHILD_REPORT_AUDIENCES.LEADERSHIP,
+    label: "Class and leadership",
+    description: "Concise coverage and priority summary"
+  }),
+  Object.freeze({
+    id: WHOLE_CHILD_REPORT_AUDIENCES.FAMILY,
+    label: "Family update",
+    description: "Strengths and practical next steps"
+  })
+]);
+
+function ReportAudiencePicker({ activeAudience, onChange }) {
+  return (
+    <section className="lg-report-audience-picker screen-only" aria-labelledby="lg-report-audience-title">
+      <div>
+        <span>Report audience</span>
+        <h2 id="lg-report-audience-title">Choose who this view is for</h2>
+        <p>Each view uses the same saved learner record. Only the purpose and language change.</p>
+      </div>
+      <div aria-label="Choose report audience" role="group">
+        {REPORT_AUDIENCE_OPTIONS.map(option => (
+          <button
+            aria-pressed={activeAudience === option.id}
+            key={option.id}
+            onClick={() => onChange(option.id)}
+            type="button"
+          >
+            <strong>{option.label}</strong>
+            <span>{option.description}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function LeadershipReportTemplate({ template = {} }) {
+  return (
+    <section
+      aria-labelledby="lg-report-leadership-title"
+      className="lg-report-audience-template leadership"
+      data-report-audience={WHOLE_CHILD_REPORT_AUDIENCES.LEADERSHIP}
+    >
+      <header>
+        <span>For class review and leadership planning</span>
+        <h2 id="lg-report-leadership-title">{template.title}</h2>
+        <p>{template.description}</p>
+      </header>
+      <ReportMetricStrip metrics={template.metrics} />
+      <ReportSection
+        description="Coverage and support priorities are shown together so missing checks cannot look like low performance."
+        title="Literacy-area summary"
+      >
+        <div className="lg-report-leadership-domains">
+          {asArray(template.domains).map(domain => (
+            <article key={domain.id}>
+              <div>
+                <h3>{domain.label}</h3>
+                <span>{domain.checked} of {domain.total} checked</span>
+              </div>
+              <strong>{domain.priorityCount} priorit{domain.priorityCount === 1 ? "y" : "ies"}</strong>
+              {domain.priorityLabels.length > 0
+                ? <p>{domain.priorityLabels.join(" · ")}</p>
+                : <p>No current priority is recorded in this area.</p>}
+            </article>
+          ))}
+        </div>
+      </ReportSection>
+      <ReportSection title="Interpretation safeguards">
+        <ul className="lg-report-assurance-list">
+          {asArray(template.assurances).map(assurance => <li key={assurance}>{assurance}</li>)}
+        </ul>
+      </ReportSection>
+    </section>
+  );
+}
+
+function FamilyReportTemplate({ template = {} }) {
+  return (
+    <section
+      aria-labelledby="lg-report-family-title"
+      className="lg-report-audience-template family"
+      data-report-audience={WHOLE_CHILD_REPORT_AUDIENCES.FAMILY}
+    >
+      <header>
+        <span>Share with family</span>
+        <h2 id="lg-report-family-title">{template.title}</h2>
+        <p>{template.description}</p>
+      </header>
+      <div className="lg-report-family-sections">
+        {asArray(template.sections).map(section => (
+          <section key={section.id}>
+            <h3>{section.title}</h3>
+            <p>{section.description}</p>
+            <ul>
+              {asArray(section.items).map(item => <li key={item}>{item}</li>)}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function WholeChildReportView({
+  activeAudience: controlledAudience,
+  className = "",
+  onAudienceChange,
+  report = {},
+  studentName = "Student"
+}) {
+  const [internalAudience, setInternalAudience] = useState(WHOLE_CHILD_REPORT_AUDIENCES.TEACHER);
+  const activeAudience = controlledAudience || internalAudience;
+  const changeAudience = onAudienceChange || setInternalAudience;
+  const audienceTemplates = useMemo(() => buildWholeChildAudienceTemplates({
+    report,
+    studentName,
+    className
+  }), [className, report, studentName]);
   const domains = normalizeDomains(report);
   const descriptiveAssessments = asArray(report.descriptiveAssessments);
   const statusCounts = report.statusCounts || report.summary?.statusCounts || report.summary || {};
@@ -133,7 +262,7 @@ export function WholeChildReportView({ report = {} }) {
     { label: "Developing", value: statusCounts.developing ?? report.developingCount ?? 0 },
     { label: "Needs teaching", value: statusCounts.needsTeaching ?? statusCounts.needs_teaching ?? report.needsTeachingCount ?? 0 }
   ];
-  const nextSteps = asArray(report.nextSteps || report.priorities || report.recommendations);
+  const nextSteps = [...asArray(report.nextSteps || report.priorities || report.recommendations)];
   if (!nextSteps.length) {
     nextSteps.push(
       ...asArray(report.groups?.needsTeaching).map(item => ({
@@ -162,8 +291,29 @@ export function WholeChildReportView({ report = {} }) {
     );
   }
 
+  const audiencePicker = (
+    <ReportAudiencePicker activeAudience={activeAudience} onChange={changeAudience} />
+  );
+  if (activeAudience === WHOLE_CHILD_REPORT_AUDIENCES.LEADERSHIP) {
+    return (
+      <div className="lg-report-view-stack">
+        {audiencePicker}
+        <LeadershipReportTemplate template={audienceTemplates[activeAudience]} />
+      </div>
+    );
+  }
+  if (activeAudience === WHOLE_CHILD_REPORT_AUDIENCES.FAMILY) {
+    return (
+      <div className="lg-report-view-stack">
+        {audiencePicker}
+        <FamilyReportTemplate template={audienceTemplates[activeAudience]} />
+      </div>
+    );
+  }
+
   return (
     <div className="lg-report-view-stack">
+      {audiencePicker}
       <ReportMetricStrip metrics={metrics} />
 
       {nextSteps.length > 0 && (

@@ -181,6 +181,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 4, 7, 10]
   },
   {
+    id: "report-audience-templates",
+    label: "Teacher diagnostic, class/leadership, and plain-language family report templates",
+    command: ["npm", "run", "check:report-audience-templates"],
+    areas: [6, 7, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],

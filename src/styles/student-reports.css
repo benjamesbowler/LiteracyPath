@@ -452,6 +452,245 @@
   gap: 20px;
 }
 
+.lg-report-audience-picker {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.7fr);
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-xl);
+  background: var(--lp-color-surface-subtle);
+}
+
+.lg-report-audience-picker > div:first-child {
+  align-content: center;
+}
+
+.lg-report-audience-picker > div:first-child,
+.lg-report-audience-picker [role="group"] {
+  display: grid;
+  gap: 6px;
+}
+
+.lg-report-audience-picker > div > span,
+.lg-report-audience-template > header > span {
+  color: var(--lp-color-primary-strong);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lg-report-audience-picker h2,
+.lg-report-audience-picker p,
+.lg-report-audience-template > header h2,
+.lg-report-audience-template > header p {
+  margin: 0;
+}
+
+.lg-report-audience-picker h2 {
+  color: var(--lp-color-text-strong);
+  font: 800 19px/1.2 var(--lp-font-reading);
+}
+
+.lg-report-audience-picker p {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.lg-report-audience-picker [role="group"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lg-report-audience-picker button {
+  min-width: 0;
+  min-height: 72px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-strong);
+  text-align: left;
+  cursor: pointer;
+}
+
+.lg-report-audience-picker button:hover {
+  border-color: var(--lp-color-primary);
+}
+
+.lg-report-audience-picker button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--lp-color-primary) 28%, transparent);
+  outline-offset: 2px;
+}
+
+.lg-report-audience-picker button[aria-pressed="true"] {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary-strong);
+  box-shadow: inset 0 0 0 1px var(--lp-color-primary);
+}
+
+.lg-report-audience-picker button strong {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.lg-report-audience-picker button span {
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.lg-report-audience-template {
+  display: grid;
+  gap: 24px;
+}
+
+.lg-report-audience-template > header {
+  display: grid;
+  gap: 7px;
+  padding: 24px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-xl);
+  background: var(--lp-color-surface);
+}
+
+.lg-report-audience-template > header h2 {
+  color: var(--lp-color-text-strong);
+  font: 800 clamp(25px, 3vw, 34px)/1.08 var(--lp-font-reading);
+}
+
+.lg-report-audience-template > header p {
+  max-width: 65ch;
+  color: var(--lp-color-text-muted);
+  line-height: 1.55;
+}
+
+.lg-report-leadership-domains {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lg-report-leadership-domains article {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+}
+
+.lg-report-leadership-domains article > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lg-report-leadership-domains h3,
+.lg-report-leadership-domains p {
+  margin: 0;
+}
+
+.lg-report-leadership-domains h3 {
+  color: var(--lp-color-text-strong);
+  font-size: 16px;
+}
+
+.lg-report-leadership-domains span,
+.lg-report-leadership-domains p {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.lg-report-leadership-domains > article > strong {
+  color: var(--lp-color-primary-strong);
+  font-size: 14px;
+}
+
+.lg-report-assurance-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lg-report-assurance-list li {
+  padding: 12px 14px 12px 38px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text);
+  line-height: 1.45;
+  position: relative;
+}
+
+.lg-report-assurance-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 14px;
+  color: var(--lp-color-success-text);
+  font-weight: 900;
+}
+
+.lg-report-audience-template.family {
+  max-width: 850px;
+}
+
+.lg-report-audience-template.family > header {
+  border-color: color-mix(in srgb, var(--lp-color-primary) 24%, var(--lp-color-border));
+  background: color-mix(in srgb, var(--lp-color-primary-soft) 54%, var(--lp-color-surface));
+}
+
+.lg-report-family-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lg-report-family-sections > section {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-xl);
+  background: var(--lp-color-surface);
+}
+
+.lg-report-family-sections h3,
+.lg-report-family-sections p {
+  margin: 0;
+}
+
+.lg-report-family-sections h3 {
+  color: var(--lp-color-text-strong);
+  font: 800 19px/1.2 var(--lp-font-reading);
+}
+
+.lg-report-family-sections p {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.lg-report-family-sections ul {
+  display: grid;
+  gap: 10px;
+  margin: 6px 0 0;
+  padding-left: 20px;
+  color: var(--lp-color-text);
+  line-height: 1.5;
+}
+
 .lg-report-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1025,6 +1264,14 @@
 }
 
 @media (max-width: 1050px) {
+  .lg-report-audience-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .lg-report-family-sections {
+    grid-template-columns: 1fr;
+  }
+
   .lg-report-priority-list,
   .lg-report-practice-groups {
     grid-template-columns: 1fr;
@@ -1116,6 +1363,11 @@
 }
 
 @media (max-width: 620px) {
+  .lg-report-audience-picker [role="group"],
+  .lg-report-leadership-domains {
+    grid-template-columns: 1fr;
+  }
+
   .lg-report-assessment-grid {
     grid-template-columns: 1fr;
   }
