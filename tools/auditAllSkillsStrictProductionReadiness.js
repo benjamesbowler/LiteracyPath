@@ -1,14 +1,20 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
   finalSoundExpectedItemKeys,
   finalSoundLevelOneForbiddenItemKeys
 } from "../src/data/coverageExpectations.js";
 import {
-  managedAssessmentSkillDepthConfig,
-  SKILL_LEVEL_DEPTH_TARGETS
+  assessmentReleaseStandard,
+  evaluateAssessmentSkillReleaseSummary,
+  getAssessmentQuestionAccessibilityIssues,
+  getAssessmentReleaseMediaRequirement
+} from "../src/content/releaseStandard.js";
+import {
+  managedAssessmentSkillDepthConfig
 } from "../src/data/skillLevelDepthConfig.js";
 import { getQuestionRoutingFormat } from "../src/data/skillTemplateRouting.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
@@ -42,11 +48,11 @@ const claudePath = path.join(assetsDir, "claude_question_writing_request_from_st
 const desktopMd = path.join(os.homedir(), "Desktop", "LiteracyPath_Strict_Audit_For_ChatGPT.md");
 const desktopJson = path.join(os.homedir(), "Desktop", "LiteracyPath_Strict_Audit_For_ChatGPT.json");
 
-const phaseSize = SKILL_LEVEL_DEPTH_TARGETS.phaseSize || 15;
-const minimumPerLevel = SKILL_LEVEL_DEPTH_TARGETS.minimumPerLevel || 30;
-const minimumTotal = minimumPerLevel * 2;
-const minimumUniqueTargetsPerLevel = 20;
-const maxTargetDominance = 0.2;
+const phaseSize = assessmentReleaseStandard.defaults.questionCount.phaseSize;
+const minimumPerLevel = assessmentReleaseStandard.defaults.questionCount.minimumPerLevel;
+const minimumTotal = assessmentReleaseStandard.defaults.questionCount.minimumTotal;
+const minimumUniqueTargetsPerLevel = assessmentReleaseStandard.defaults.balance.minimumUniqueTargetsPerLevel;
+const maxTargetDominance = assessmentReleaseStandard.defaults.balance.maximumTargetSharePerLevel;
 
 const skillCategories = {
   initial_sounds: "Phonics",
@@ -92,19 +98,6 @@ const mediaSearchRoots = [
   "src/data/kimiVocabulary500Lexicon.js",
   "src/content/lexicon/masterWordLexicon.js"
 ];
-
-const earlyMediaSkills = new Set([
-  "initial_sounds",
-  "final_sounds",
-  "rhyming",
-  "cvc_short_vowels",
-  "short_vowel_discrimination",
-  "blends",
-  "digraphs",
-  "long_vowels_silent_e",
-  "vowel_teams",
-  "r_controlled_vowels"
-]);
 
 const comprehensionSkills = new Set([
   "sentence_comprehension",
@@ -262,38 +255,15 @@ function existingMediaFor(index, kind, target = "", expectedPath = "") {
 }
 
 function questionRequiresImage(skillId, question = {}) {
-  const template = getTemplate(question).toLowerCase();
-  const prompt = `${question.prompt || ""} ${question.question || ""}`.toLowerCase();
-  if (skillId === "initial_sounds") return true;
-  if (earlyMediaSkills.has(skillId)) {
-    return Boolean(
-      question.image || question.imageUrl || question.imagePath ||
-      question.targetImage || question.targetImageUrl || question.targetImagePath ||
-      question.imageCards?.length ||
-      question.promptImageCards?.length ||
-      Object.keys(question.choiceImages || {}).length ||
-      template.includes("picture") ||
-      template.includes("image") ||
-      prompt.includes("picture")
-    );
-  }
-  return Boolean(
-    question.image || question.imageUrl || question.imagePath ||
-    question.imageCards?.length ||
-    question.promptImageCards?.length ||
-    Object.keys(question.choiceImages || {}).length ||
-    template.includes("picture") ||
-    template.includes("image")
-  );
+  return getAssessmentReleaseMediaRequirement(skillId, question, {
+    template: getTemplate(question)
+  }).requiresImage;
 }
 
 function questionRequiresAudio(skillId, question = {}) {
-  const template = getTemplate(question).toLowerCase();
-  const prompt = `${question.prompt || ""} ${question.question || ""} ${question.spokenPrompt || ""}`.toLowerCase();
-  if (["initial_sounds", "final_sounds"].includes(skillId)) return true;
-  if (template.includes("listen") || template.includes("audio")) return true;
-  if (/\b(?:listen|hear|sound|sounds)\b/u.test(prompt)) return true;
-  return Boolean(question.audio || question.audioUrl || question.audioPath);
+  return getAssessmentReleaseMediaRequirement(skillId, question, {
+    template: getTemplate(question)
+  }).requiresAudio;
 }
 
 function textOnlyAcceptable(skillId, question = {}) {
@@ -416,6 +386,9 @@ function summarizeLevel(skill, level, questions) {
   const itemKeys = countBy(strictUsable, question => getItemKey(skill.skillId, question));
   const templates = countBy(strictUsable, getTemplate);
   const uniqueTargets = Object.keys(targets).filter(key => key !== "(missing)");
+  const maximumTargetShare = strictUsable.length
+    ? Math.max(0, ...Object.values(targets)) / strictUsable.length
+    : 0;
   const overusedTargets = Object.entries(targets)
     .filter(([, count]) => strictUsable.length && count / strictUsable.length > maxTargetDominance)
     .map(([key, count]) => `${key}:${count}`);
@@ -436,6 +409,7 @@ function summarizeLevel(skill, level, questions) {
     missingTo30: designed ? Math.max(0, minimumPerLevel - strictUsable.length) : minimumPerLevel,
     uniqueTargetCount: uniqueTargets.length,
     uniqueTargets: uniqueTargets.slice(0, 120),
+    maximumTargetShare,
     uniqueItemKeyCount: Object.keys(itemKeys).filter(key => key !== "(missing)").length,
     overusedTargets,
     repeatedTemplates: Object.entries(templates).filter(([, count]) => count > 1).map(([key, count]) => `${key}:${count}`),
@@ -533,7 +507,7 @@ function statusForSkill(level1, level2, mediaNeeds) {
   return "BLOCKED";
 }
 
-function audit() {
+export function auditStrictProductionReadiness() {
   const mediaIndex = createMediaIndex();
   const skills = buildSkillList();
   const rawPool = loadCoreQuestionPool().map((question, index) => ({
@@ -600,9 +574,51 @@ function audit() {
       !textOnlyAcceptable(skill.skillId, question)
     ).length;
 
-    const status = statusForSkill(level1, level2, exactMediaNeeds);
+    let status = statusForSkill(level1, level2, exactMediaNeeds);
     const strictUsable = uniqueQuestions.filter(question => question.strictUsable);
     const runtimeSafe = uniqueQuestions.filter(question => question.runtimeSafe);
+    const accessibilityIssues = strictUsable.flatMap(question =>
+      getAssessmentQuestionAccessibilityIssues(question, {
+        skillId: skill.skillId,
+        template: getTemplate(question),
+        mediaRequirement: getAssessmentReleaseMediaRequirement(skill.skillId, question, {
+          template: getTemplate(question)
+        })
+      }).map(issue => ({
+        questionId: question.id || "(missing id)",
+        issue
+      }))
+    );
+    const releaseStandardDecision = evaluateAssessmentSkillReleaseSummary({
+      skillId: skill.skillId,
+      levels: {
+        1: {
+          eligibleQuestionCount: level1.strictUsableCount,
+          uniqueTargetCount: level1.uniqueTargetCount,
+          maximumTargetShare: level1.maximumTargetShare
+        },
+        2: {
+          eligibleQuestionCount: level2.strictUsableCount,
+          uniqueTargetCount: level2.uniqueTargetCount,
+          maximumTargetShare: level2.maximumTargetShare
+        }
+      },
+      media: {
+        missingRequiredImages: exactMediaNeeds.filter(item =>
+          item.mediaType === "image" && !item.matchingFileExistsElsewhere
+        ).length,
+        missingRequiredAudio: exactMediaNeeds.filter(item =>
+          item.mediaType === "audio" && !item.matchingFileExistsElsewhere
+        ).length,
+        wiringDefects: exactMediaNeeds.filter(item => item.matchingFileExistsElsewhere).length
+      },
+      accessibility: {
+        issueCount: accessibilityIssues.length
+      }
+    });
+    if (!releaseStandardDecision.releaseReady && status === "PRODUCTION READY") {
+      status = "BLOCKED";
+    }
     const rejectedExamples = uniqueQuestions
       .filter(question => !question.runtimeSafe || !question.strictUsable)
       .slice(0, 30)
@@ -646,6 +662,9 @@ function audit() {
       mediaWiringFixCount: exactMediaNeeds.filter(item => item.matchingFileExistsElsewhere).length,
       textOnlyAcceptableCount,
       textOnlyProblematicCount,
+      accessibilityIssueCount: accessibilityIssues.length,
+      accessibilityIssueExamples: accessibilityIssues.slice(0, 30),
+      releaseStandardDecision,
       exactNextAction: action || "No immediate content action.",
       rejectedExamples,
       finalSoundsSpecial: skill.skillId === "final_sounds" ? buildFinalSoundsSpecial(uniqueQuestions) : null,
@@ -665,7 +684,7 @@ function audit() {
   const summary = {
     generatedAt: new Date().toISOString(),
     totalSkillsAudited: perSkill.length,
-    skillsFullyProductionReady: perSkill.filter(item => item.status === "PRODUCTION READY").length,
+    skillsFullyProductionReady: perSkill.filter(item => item.releaseStandardDecision.releaseReady).length,
     skillsQuantityReadyButWeak: weakButPassing.length,
     skillsMissingLevel1Depth: perSkill.filter(item => item.level1MissingTo30 > 0).length,
     skillsMissingLevel2Depth: perSkill.filter(item => item.level2MissingTo30 > 0).length,
@@ -692,13 +711,7 @@ function audit() {
       missingAudio: trueMissingAudio,
       staleUnwiredMediaWarnings: mediaWiring
     },
-    strictStandard: {
-      minimumTotal,
-      minimumPerLevel,
-      phaseSize,
-      minimumUniqueTargetsPerLevel,
-      maxTargetDominance
-    },
+    strictStandard: assessmentReleaseStandard,
     desktopCopies: {
       markdown: desktopMd,
       json: desktopJson
@@ -849,7 +862,7 @@ function buildMarkdown(report) {
       return `### Rhyming\n\n- Rime families with fewer than 3 examples: ${display(skill.rhymingSpecial.fewerThanThreeExamples)}`;
     }).join("\n\n");
 
-  return `# LiteracyPath Strict Production Assessment Audit\n\nGenerated: ${report.summary.generatedAt}\n\n## Strict Standard\n\nEach designed skill is checked against 60 total strict-usable questions, 30 Level 1, 30 Level 2, 15 questions per phase, at least 20 unique targets per designed level, complete required media, and no target dominating more than 20% of a level unless flagged.\n\n## Top-Level Summary\n\n${markdownTable(["Metric", "Value"], topSummary)}\n\n## Status Labels\n\n- PRODUCTION READY\n- QUANTITY READY BUT WEAK\n- NEEDS QUESTIONS\n- NEEDS LEVEL 2 DESIGN\n- NEEDS IMAGES\n- NEEDS AUDIO\n- NEEDS MEDIA WIRING\n- BLOCKED\n\n## Per-Skill Strict Table\n\n${markdownTable(["#", "Skill", "Skill ID", "Category", "Order", "Status", "Raw", "Runtime-safe", "Strict usable", "L1 raw", "L1 runtime", "L1 strict", "L2 raw", "L2 runtime", "L2 strict", "L1 missing", "L2 missing", "Total missing", "L1 unique", "L2 unique", "Overused targets", "Repeated templates", "Req images", "Valid images", "Missing images", "Req audio", "Valid audio", "Missing audio", "Text-only OK", "Text-only problem", "Exact next action"], perSkillRows)}\n\n## Exact Missing Question Needs\n\n${markdownTable(["Skill", "Level", "Missing count", "Needed target/type", "Existing media?", "New media needed?", "Recommended source", "Recommended action"], questionRows)}\n\n## Exact Missing Media Needs\n\n### Missing Images\n\n${markdownTable(["Skill", "Level", "Question ID", "Source file", "Target word/sentence", "Expected filename", "Expected path", "Exists elsewhere?", "Existing path", "Final action"], mediaRows(report.exactMissingMediaNeeds.missingImages))}\n\n### Missing Audio\n\n${markdownTable(["Skill", "Level", "Question ID", "Source file", "Target word/sentence", "Expected filename", "Expected path", "Exists elsewhere?", "Existing path", "Final action"], mediaRows(report.exactMissingMediaNeeds.missingAudio))}\n\n### Stale/Unwired Media Warnings\n\n${markdownTable(["Skill", "Level", "Question ID", "Source file", "Target word/sentence", "Expected filename", "Expected path", "Exists elsewhere?", "Existing path", "Final action"], mediaRows(report.exactMissingMediaNeeds.staleUnwiredMediaWarnings))}\n\n## Early Phonics Special Checks\n\n${specialSections || "No early phonics special rows found."}\n\n## HFW Level 2 Decision\n\nThe strict audit treats HFW Level 2 as required for production readiness. Recommended Level 2 design: sentence cloze, choose correct word in context, read sentence and find HFW, and audio-supported word recognition.\n\n${hfwSection}\n`;
+  return `# LiteracyPath Strict Production Assessment Audit\n\nGenerated: ${report.summary.generatedAt}\n\n## Strict Standard\n\nThe audit imports \`src/content/releaseStandard.js\` version ${assessmentReleaseStandard.version}. Each managed skill requires ${minimumTotal} total strict-usable questions (${minimumPerLevel} at both Level 1 and Level 2), ${phaseSize} questions per phase, at least ${minimumUniqueTargetsPerLevel} unique targets per level, complete required media, zero accessibility content issues, and no target above ${Math.round(maxTargetDominance * 100)}% of a level.\n\n## Top-Level Summary\n\n${markdownTable(["Metric", "Value"], topSummary)}\n\n## Status Labels\n\n- PRODUCTION READY\n- QUANTITY READY BUT WEAK\n- NEEDS QUESTIONS\n- NEEDS LEVEL 2 DESIGN\n- NEEDS IMAGES\n- NEEDS AUDIO\n- NEEDS MEDIA WIRING\n- BLOCKED\n\n## Per-Skill Strict Table\n\n${markdownTable(["#", "Skill", "Skill ID", "Category", "Order", "Status", "Raw", "Runtime-safe", "Strict usable", "L1 raw", "L1 runtime", "L1 strict", "L2 raw", "L2 runtime", "L2 strict", "L1 missing", "L2 missing", "Total missing", "L1 unique", "L2 unique", "Overused targets", "Repeated templates", "Req images", "Valid images", "Missing images", "Req audio", "Valid audio", "Missing audio", "Text-only OK", "Text-only problem", "Exact next action"], perSkillRows)}\n\n## Exact Missing Question Needs\n\n${markdownTable(["Skill", "Level", "Missing count", "Needed target/type", "Existing media?", "New media needed?", "Recommended source", "Recommended action"], questionRows)}\n\n## Exact Missing Media Needs\n\n### Missing Images\n\n${markdownTable(["Skill", "Level", "Question ID", "Source file", "Target word/sentence", "Expected filename", "Expected path", "Exists elsewhere?", "Existing path", "Final action"], mediaRows(report.exactMissingMediaNeeds.missingImages))}\n\n### Missing Audio\n\n${markdownTable(["Skill", "Level", "Question ID", "Source file", "Target word/sentence", "Expected filename", "Expected path", "Exists elsewhere?", "Existing path", "Final action"], mediaRows(report.exactMissingMediaNeeds.missingAudio))}\n\n### Stale/Unwired Media Warnings\n\n${markdownTable(["Skill", "Level", "Question ID", "Source file", "Target word/sentence", "Expected filename", "Expected path", "Exists elsewhere?", "Existing path", "Final action"], mediaRows(report.exactMissingMediaNeeds.staleUnwiredMediaWarnings))}\n\n## Early Phonics Special Checks\n\n${specialSections || "No early phonics special rows found."}\n\n## HFW Level 2 Decision\n\nThe strict audit treats HFW Level 2 as required for production readiness. Recommended Level 2 design: sentence cloze, choose correct word in context, read sentence and find HFW, and audio-supported word recognition.\n\n${hfwSection}\n`;
 }
 
 function buildMediaRequest(title, items) {
@@ -905,31 +918,38 @@ function writeDesktopCopies(markdown, jsonText) {
   return results;
 }
 
-const report = audit();
-const markdown = buildMarkdown(report);
-const jsonText = JSON.stringify(report, null, 2);
+export function writeStrictProductionReadinessAudit() {
+  const report = auditStrictProductionReadiness();
+  const markdown = buildMarkdown(report);
+  const jsonText = JSON.stringify(report, null, 2);
 
-writeFile(outputMd, markdown);
-writeFile(outputJson, jsonText);
-writeFile(kimiImagesPath, buildMediaRequest("Kimi Strict Missing Images Request", report.exactMissingMediaNeeds.missingImages));
-writeFile(kimiAudioPath, buildMediaRequest("Kimi Strict Missing Audio Request", report.exactMissingMediaNeeds.missingAudio));
-writeFile(kimiCombinedPath, buildMediaRequest("Kimi Strict Missing Media Combined Request", [
-  ...report.exactMissingMediaNeeds.missingImages,
-  ...report.exactMissingMediaNeeds.missingAudio
-]));
-writeFile(wiringPath, buildWiringRequest(report.exactMissingMediaNeeds.staleUnwiredMediaWarnings));
-writeFile(claudePath, buildClaudeRequest(report.exactMissingQuestionNeeds));
-report.desktopCopyResults = writeDesktopCopies(markdown, jsonText);
-writeFile(outputJson, JSON.stringify(report, null, 2));
+  writeFile(outputMd, markdown);
+  writeFile(outputJson, jsonText);
+  writeFile(kimiImagesPath, buildMediaRequest("Kimi Strict Missing Images Request", report.exactMissingMediaNeeds.missingImages));
+  writeFile(kimiAudioPath, buildMediaRequest("Kimi Strict Missing Audio Request", report.exactMissingMediaNeeds.missingAudio));
+  writeFile(kimiCombinedPath, buildMediaRequest("Kimi Strict Missing Media Combined Request", [
+    ...report.exactMissingMediaNeeds.missingImages,
+    ...report.exactMissingMediaNeeds.missingAudio
+  ]));
+  writeFile(wiringPath, buildWiringRequest(report.exactMissingMediaNeeds.staleUnwiredMediaWarnings));
+  writeFile(claudePath, buildClaudeRequest(report.exactMissingQuestionNeeds));
+  report.desktopCopyResults = writeDesktopCopies(markdown, jsonText);
+  writeFile(outputJson, JSON.stringify(report, null, 2));
 
-console.log(`Strict assessment skills audited: ${report.summary.totalSkillsAudited}`);
-console.log(`Production-ready skills: ${report.summary.skillsFullyProductionReady}`);
-console.log(`True missing images: ${report.summary.totalExactMissingImages}`);
-console.log(`True missing audio: ${report.summary.totalExactMissingAudio}`);
-console.log(`Media wiring fixes: ${report.summary.totalMediaWiringFixes}`);
-console.log(`New questions needed: ${report.summary.totalExactMissingQuestions}`);
-console.log(`Wrote ${path.relative(repoRoot, outputMd)}`);
-console.log(`Wrote ${path.relative(repoRoot, outputJson)}`);
-for (const result of report.desktopCopyResults) {
-  console.log(`${result.written ? "Wrote" : "Could not write"} ${result.path}${result.error ? ` (${result.error})` : ""}`);
+  console.log(`Strict assessment skills audited: ${report.summary.totalSkillsAudited}`);
+  console.log(`Production-ready skills: ${report.summary.skillsFullyProductionReady}`);
+  console.log(`True missing images: ${report.summary.totalExactMissingImages}`);
+  console.log(`True missing audio: ${report.summary.totalExactMissingAudio}`);
+  console.log(`Media wiring fixes: ${report.summary.totalMediaWiringFixes}`);
+  console.log(`New questions needed: ${report.summary.totalExactMissingQuestions}`);
+  console.log(`Wrote ${path.relative(repoRoot, outputMd)}`);
+  console.log(`Wrote ${path.relative(repoRoot, outputJson)}`);
+  for (const result of report.desktopCopyResults) {
+    console.log(`${result.written ? "Wrote" : "Could not write"} ${result.path}${result.error ? ` (${result.error})` : ""}`);
+  }
+  return report;
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  writeStrictProductionReadinessAudit();
 }

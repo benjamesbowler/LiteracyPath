@@ -4,6 +4,8 @@ import path from "node:path";
 import process from "node:process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import { assessmentReleaseStandard } from "../src/content/releaseStandard.js";
+
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalManifestPath = path.join(repoRoot, "docs", "release", "manifest.json");
 const strictAuditJsonPath = path.join(
@@ -57,6 +59,12 @@ export const RELEASE_GATES = Object.freeze([
       "node", "tools/runAuditScript.mjs", "--check",
       "tools/auditAllSkillsStrictProductionReadiness.js"
     ],
+    areas: [1, 4, 10]
+  },
+  {
+    id: "curriculum-release-standard",
+    label: "Canonical assessment publication standard",
+    command: ["npm", "run", "check:curriculum-release-standard"],
     areas: [1, 4, 10]
   },
   {
@@ -386,15 +394,16 @@ export const RELEASE_GATES = Object.freeze([
 
 const CURRICULUM_DIMENSIONS = Object.freeze({
   correctness: ["assessment-question-integrity"],
-  depth: ["strict-curriculum"],
+  depth: ["strict-curriculum", "curriculum-release-standard"],
   variation: [
     "assessment-runtime-variation",
     "skill-progression",
     "runtime-variation-simulation"
   ],
-  media: ["strict-curriculum", "media-runtime-resolution"],
+  media: ["strict-curriculum", "curriculum-release-standard", "media-runtime-resolution"],
   runtimeSelectability: [
     "strict-curriculum",
+    "curriculum-release-standard",
     "assessment-question-integrity",
     "runtime-variation-simulation"
   ]
@@ -555,17 +564,17 @@ export function composeCurriculumResult(results, strictAudit = readStrictAudit()
 
   const globalDimensionsPass = Object.values(dimensions).every(item => item.status === "pass");
   const skills = (strictAudit?.perSkill || []).map(skill => {
-    const depthPass = Number(skill.level1MissingTo30 || 0) === 0
-      && Number(skill.level2MissingTo30 || 0) === 0;
-    const mediaPass = Number(skill.missingImageCount || 0) === 0
-      && Number(skill.missingAudioCount || 0) === 0
-      && Number(skill.mediaWiringFixCount || 0) === 0;
+    const canonicalDecision = skill.releaseStandardDecision || {};
+    const depthPass = canonicalDecision.dimensions?.questionCount === "pass";
+    const balancePass = canonicalDecision.dimensions?.balance === "pass";
+    const mediaPass = canonicalDecision.dimensions?.media === "pass";
     const strictRuntimePass = Number(skill.strictUsableQuestionCount || 0)
-      >= Number(strictAudit?.strictStandard?.minimumTotal || 60);
+      >= assessmentReleaseStandard.defaults.questionCount.minimumTotal
+      && canonicalDecision.releaseReady === true;
     const skillDimensions = {
       correctness: dimensions.correctness.status,
       depth: depthPass ? "pass" : "fail",
-      variation: dimensions.variation.status,
+      variation: balancePass && dimensions.variation.status === "pass" ? "pass" : "fail",
       media: mediaPass && dimensions.media.status === "pass" ? "pass" : "fail",
       runtimeSelectability: strictRuntimePass
         && dimensions.runtimeSelectability.status === "pass"

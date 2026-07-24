@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node tools/generateAudioManifest.js && node tools/generateBookIndex.js && node tools/generateGuidedReadingQuizIndex.js && node tools/generateItemUniverse.js && node tools/generateHfwEligibilityKeys.js && node tools/generateSageSoft.mjs",
+    "prebuild": "node tools/generateAudioManifest.js && node tools/generateBookIndex.js && node tools/generateGuidedReadingQuizIndex.js && node tools/generateItemUniverse.js && node tools/generateHfwEligibilityKeys.js && node tools/generateAssessmentReleaseStatus.mjs && node tools/generateSageSoft.mjs",
     "build": "vite build",
     "gen:image": "node tools/generateImage.mjs",
     "gr:images": "node tools/guidedReadingImageFactory.mjs",
@@ -173,6 +173,8 @@
     "check:audit:assessment-media-registry": "node tools/runAuditScript.mjs --check tools/auditAssessmentMediaRegistry.js",
     "check:assessment-runtime-variation": "node tools/runAuditScript.mjs --check tools/checkAssessmentRuntimeVariation.js",
     "check:runtime-variation-simulation": "node tools/runAuditScript.mjs --check tools/simulateRuntimeVariation.mjs",
+    "generate:assessment-release-status": "node tools/generateAssessmentReleaseStatus.mjs",
+    "check:curriculum-release-standard": "node tools/checkCurriculumReleaseStandard.mjs",
     "generate:media-board": "node tools/generateMediaBoard.mjs",
     "check:media-runtime-resolution": "npm run build && node tools/runAuditScript.mjs --check tools/auditAllSkillsStrictProductionReadiness.js && node tools/runAuditScript.mjs --check tools/checkMediaRuntimeResolution.mjs",
     "check:database-bootstrap-schema": "node tools/checkDatabaseBootstrapSchema.mjs",

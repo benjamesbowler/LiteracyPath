@@ -1,4 +1,9 @@
 import { skillTree } from "../skillTree.js";
+import { ASSESSMENT_RELEASE_STANDARD_VERSION } from "../content/releaseStandard.js";
+import {
+  assessmentReleaseStatusBySkillId,
+  assessmentReleaseStatusVersion
+} from "../content/assessments/assessmentReleaseStatus.generated.js";
 import { resolveAssessmentSkillId } from "./assessmentSkillMapping.js";
 import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
@@ -551,7 +556,7 @@ export function getAssessmentSkillIdsForGroup(groupId) {
   return ASSESSMENT_SKILL_GROUPS.find(group => group.id === groupId)?.skillIds.slice() || [];
 }
 
-export async function loadAssessmentSkillBank(skillId) {
+export async function loadAssessmentSkillBankCandidates(skillId) {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (skillBankCache.has(normalizedSkillId)) return skillBankCache.get(normalizedSkillId);
 
@@ -574,6 +579,27 @@ export async function loadAssessmentSkillBank(skillId) {
   return eligibleQuestions;
 }
 
+export function getAssessmentSkillPublicationStatus(skillId = "") {
+  const normalizedSkillId = normalizeSkillId(skillId);
+  const status = assessmentReleaseStatusBySkillId[normalizedSkillId] || null;
+  if (!status || assessmentReleaseStatusVersion !== ASSESSMENT_RELEASE_STANDARD_VERSION) {
+    return {
+      skillId: normalizedSkillId,
+      standardVersion: ASSESSMENT_RELEASE_STANDARD_VERSION,
+      releaseReady: false,
+      dimensions: {},
+      reasons: ["Release status is missing or was generated from a different standard version."]
+    };
+  }
+  return status;
+}
+
+export async function loadAssessmentSkillBank(skillId) {
+  const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
+  if (!publicationStatus.releaseReady) return [];
+  return loadAssessmentSkillBankCandidates(skillId);
+}
+
 export function preloadAssessmentSkillBank(skillId) {
   loadAssessmentSkillBank(skillId);
 }
@@ -583,12 +609,18 @@ export async function loadAssessmentBanksForSkills(skillIds = []) {
   return dedupeQuestions(banks.flat());
 }
 
-export async function loadHfwAssessmentBank(skillId) {
+export async function loadHfwAssessmentBankCandidates(skillId) {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (getAssessmentSkillGroup(normalizedSkillId) !== "hfw") return [];
   const { isRuntimeEligibleHfwQuestion } = await import("./hfwRuntimeEligibility.js");
-  return (await loadAssessmentSkillBank(normalizedSkillId))
+  return (await loadAssessmentSkillBankCandidates(normalizedSkillId))
     .filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
+}
+
+export async function loadHfwAssessmentBank(skillId) {
+  const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
+  if (!publicationStatus.releaseReady) return [];
+  return loadHfwAssessmentBankCandidates(skillId);
 }
 
 export function getActiveAssessmentSkillIds() {

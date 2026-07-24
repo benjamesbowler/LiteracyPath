@@ -95,6 +95,7 @@ test("composed curriculum gate requires all five dimensions for every skill", ()
   const dependencies = [
     "assessment-question-integrity",
     "strict-curriculum",
+    "curriculum-release-standard",
     "assessment-runtime-variation",
     "skill-progression",
     "runtime-variation-simulation",
@@ -110,7 +111,16 @@ test("composed curriculum gate requires all five dimensions for every skill", ()
       missingImageCount: 0,
       missingAudioCount: 0,
       mediaWiringFixCount: 0,
-      strictUsableQuestionCount: 60
+      strictUsableQuestionCount: 92,
+      releaseStandardDecision: {
+        releaseReady: true,
+        dimensions: {
+          questionCount: "pass",
+          balance: "pass",
+          media: "pass",
+          accessibility: "pass"
+        }
+      }
     }]
   };
   assert.equal(composeCurriculumResult(dependencies, strictAudit).status, "pass");

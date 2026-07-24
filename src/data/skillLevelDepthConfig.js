@@ -4,11 +4,12 @@ import {
   rhymingExpectedItemKeys,
   rhymingLevelTwoExpectedItemKeys
 } from "./coverageExpectations.js";
+import { assessmentReleaseStandard } from "../content/releaseStandard.js";
 
 export const SKILL_LEVEL_DEPTH_TARGETS = {
-  phaseSize: 15,
+  phaseSize: assessmentReleaseStandard.defaults.questionCount.phaseSize,
   phaseBufferSize: 23,
-  minimumPerLevel: 46,
+  minimumPerLevel: assessmentReleaseStandard.defaults.questionCount.minimumPerLevel,
   simulationRounds: 100
 };
 
