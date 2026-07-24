@@ -462,8 +462,8 @@
 /* Reading Library's orange goal panel and Story Quests' level buttons were the
    two other saturated blocks. Both become sage-family fills. */
 .student-mode-app.lp-skin-sage .guided-goal-panel:not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #2E4B3E;
-  color: #FFFFFF;
+  background: #EAF3EF;
+  color: #20382F;
 }
 
 .student-mode-app.lp-skin-sage .guided-shelf-card-tag:not(:is(.hollow-page, .student-surface-arcade) *) {

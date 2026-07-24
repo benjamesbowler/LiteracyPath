@@ -1024,14 +1024,17 @@
 }
 .lg-arcade-comic .lg-game-tile {
   display: flex; flex-direction: column; padding: 0;
-  border: 3px solid var(--game-accent, #23c4de); border-radius: 14px;
+  border: 3px solid #566087; border-radius: 14px;
   background: #0b0d1c; box-shadow: 0 0 0 2px #000, 5px 5px 0 rgba(0,0,0,0.5);
   overflow: hidden; cursor: pointer;
   transition: transform 120ms ease-out, box-shadow 120ms ease-out;
 }
 .lg-arcade-comic .lg-game-tile.is-recommended {
-  outline: 3px solid #FFD166;
+  z-index: 1;
+  border-color: #FFD166;
+  outline: 4px solid #23c4de;
   outline-offset: 3px;
+  box-shadow: 0 0 0 2px #000, 7px 7px 0 rgba(0,0,0,0.55), 0 0 28px rgba(35,196,222,0.62);
 }
 .lg-arcade-comic .lg-game-tile-next {
   width: fit-content;
@@ -1047,9 +1050,18 @@
 .lg-arcade-comic .lg-game-tile:hover { transform: translateY(-3px); box-shadow: 0 0 0 2px #000, 8px 10px 0 rgba(0,0,0,0.5); }
 .lg-arcade-comic .lg-game-tile-art {
   display: block; aspect-ratio: 1 / 1; background: #05060f;
-  border-bottom: 3px solid var(--game-accent, #23c4de);
+  border-bottom: 3px solid #566087;
 }
-.lg-arcade-comic .lg-game-tile-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lg-arcade-comic .lg-game-tile-art img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: saturate(0.62) brightness(0.82);
+}
+.lg-arcade-comic .lg-game-tile.is-recommended .lg-game-tile-art {
+  border-bottom-color: #FFD166;
+}
+.lg-arcade-comic .lg-game-tile.is-recommended .lg-game-tile-art img {
+  filter: saturate(1.08) brightness(1.04);
+}
 .lg-arcade-comic .lg-game-tile-art img.is-icon { object-fit: contain; padding: 14%; }
 .lg-arcade-comic .lg-game-tile-name {
   font-family: var(--comic-display, "Anton"), sans-serif; font-style: italic; text-transform: uppercase;
@@ -1334,13 +1346,16 @@
   overflow: hidden; background: #fff; cursor: pointer; position: relative; text-align: left;
 }
 .student-guided-reading-page .guided-shelf-card.is-primary {
-  outline: 4px solid var(--comic-yellow);
+  z-index: 1;
+  width: 166px;
+  outline: 4px solid #2E4B3E;
   outline-offset: 3px;
+  box-shadow: 0 0 0 7px #DCEDE7, 0 10px 20px rgba(24, 56, 45, 0.24);
 }
 .student-guided-reading-page .guided-shelf-card-next {
   margin-top: auto;
   padding: 7px 10px;
-  background: var(--comic-ink);
+  background: #2E4B3E;
   color: #fff;
   font-family: var(--comic-label);
   font-size: 0.7rem;
@@ -1359,11 +1374,11 @@
   padding: 8px 10px; font-family: var(--comic-label); font-weight: 900; font-size: 0.85rem; color: var(--comic-ink); line-height: 1.05;
 }
 .student-guided-reading-page .guided-goal-panel {
-  width: 260px; flex-shrink: 0; border: var(--comic-bw-lg) solid var(--comic-ink); border-radius: var(--comic-r-lg);
-  box-shadow: var(--comic-shadow); background: var(--comic-red); color: #fff; padding: 18px; text-align: center;
+  width: 230px; flex-shrink: 0; border: 2px solid #9BB8AA; border-radius: var(--comic-r-lg);
+  box-shadow: none; background: #EAF3EF; color: #20382F; padding: 16px; text-align: center;
 }
 .student-guided-reading-page .guided-goal-panel h3 { margin: 0 0 10px; font-family: var(--comic-display); font-style: italic; text-transform: uppercase; }
-.student-guided-reading-page .guided-goal-stat strong { display: block; font-family: var(--comic-display); font-style: italic; font-size: 3rem; line-height: 1; }
+.student-guided-reading-page .guided-goal-stat strong { display: block; font-family: var(--comic-display); font-style: italic; font-size: 2.35rem; line-height: 1; }
 .student-guided-reading-page .guided-goal-stat span { font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
 .student-guided-reading-page .guided-goal-bar { height: 14px; border-radius: 999px; background: rgba(255,255,255,0.28); border: 2px solid var(--comic-ink); box-shadow: 2px 2px 0 var(--comic-ink); overflow: hidden; margin: 12px 0 2px; }
 .student-guided-reading-page .guided-goal-bar span { display: block; height: 100%; background: var(--comic-yellow); transition: width 0.4s ease; }
@@ -1434,6 +1449,26 @@
 }
 .student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-level-button {
   border-radius: 12px; /* stand alone, not a bottom-open tab */
+}
+
+@media (max-width: 760px) {
+  .student-mode-app .story-quest-learn-page .story-quest-header-row {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-quest-copy {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-level-selector {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Reading Library: logo on the left, All / Level A–C chips fill the space right */

@@ -961,7 +961,8 @@
 /* Current stop: a STATIC glow ring (no animation - the avatar shows movement). */
 .sbq-mapboard .sbq-stop.next .sbq-stop-marker {
   box-shadow:
-    0 0 0 4px color-mix(in srgb, var(--pal-accent) 45%, transparent),
+    0 0 0 5px #fff4bb,
+    0 0 0 10px color-mix(in srgb, var(--pal-accent) 56%, transparent),
     0 4px 12px rgba(15, 23, 42, 0.45);
 }
 
@@ -1016,6 +1017,18 @@
   text-transform: uppercase;
   color: #ffe1a8;
   white-space: normal;
+}
+
+.sbq-stop-next {
+  margin-top: 3px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fff4bb;
+  color: #3f2c16;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* The traveler. JS sets left/top to a point ON the route each frame; the bob

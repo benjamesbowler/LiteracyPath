@@ -336,8 +336,12 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
           : "Empty spot - add something"}
         onClick={() => setPickingSpot({ id: spot.spotId, x: spot.x, y: spot.y })}
         data-child-primary={spot.spotId === recommendedSpotId ? "" : undefined}
+        data-child-emphasis={spot.spotId === recommendedSpotId ? "primary" : "choice"}
       >
-        ＋
+        <span aria-hidden="true">＋</span>
+        {spot.spotId === recommendedSpotId && (
+          <span className="hollow-spot-next" data-child-emphasis-cue="">Place next</span>
+        )}
       </button>
     );
   }
@@ -430,6 +434,8 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   className="hollow-world-button"
                   onClick={() => setPickingWorld(v => !v)}
                   data-child-primary={!recommendedSpotId ? "" : undefined}
+                  data-child-emphasis={!recommendedSpotId ? "primary" : "choice"}
+                  data-child-emphasis-cue={!recommendedSpotId ? "" : undefined}
                 >
                   🌍 World
                 </button>

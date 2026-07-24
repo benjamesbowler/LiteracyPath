@@ -150,7 +150,15 @@ export default function CreatureCreator({
         ))}
       </div>
 
-      <button type="button" className="q-primary" onClick={hatch} disabled={hatching} data-child-primary="">
+      <button
+        type="button"
+        className="q-primary"
+        onClick={hatch}
+        disabled={hatching}
+        data-child-primary=""
+        data-child-emphasis="primary"
+        data-child-emphasis-cue=""
+      >
         {hatched ? "Done" : "Hatch my creature"}
       </button>
     </div>

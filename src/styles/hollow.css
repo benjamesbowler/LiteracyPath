@@ -158,11 +158,17 @@
   background: radial-gradient(circle, rgba(255, 221, 117, 0.55) 0%, rgba(255, 221, 117, 0.18) 55%, transparent 72%);
   border: 2px dashed rgba(255, 235, 170, 0.85);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-  animation: hollow-glow 2.2s ease-in-out infinite;
+  opacity: 0.72;
 }
 .hollow-spot.empty.recommended {
-  outline: 3px solid #FFE08A;
-  outline-offset: 3px;
+  width: 82px;
+  height: 82px;
+  opacity: 1;
+  border: 3px solid #FFF1B8;
+  outline: 4px solid #8A4F08;
+  outline-offset: 4px;
+  background: radial-gradient(circle, rgba(255, 221, 117, 0.96) 0%, rgba(255, 187, 67, 0.52) 58%, transparent 74%);
+  animation: hollow-glow 2.2s ease-in-out infinite;
 }
 .hollow-spot.empty:hover { background: radial-gradient(circle, rgba(255, 221, 117, 0.8) 0%, rgba(255, 221, 117, 0.3) 55%, transparent 75%); }
 @keyframes hollow-glow {
@@ -170,7 +176,24 @@
   50% { box-shadow: 0 0 20px 6px rgba(255, 221, 117, 0.55); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hollow-spot.empty { animation: none; }
+  .hollow-spot.empty.recommended { animation: none; }
+}
+.hollow-spot-next {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 9px;
+  border: 2px solid #5B3510;
+  border-radius: 999px;
+  background: #FFF1B8;
+  color: #3A220D;
+  box-shadow: 0 3px 8px rgba(5, 8, 14, 0.42);
+  font-size: 0.7rem;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: none;
+  white-space: nowrap;
 }
 .hollow-spot.filled .hollow-art { filter: drop-shadow(0 8px 8px rgba(5, 8, 14, 0.55)); }
 .hollow-spot.filled:hover .hollow-spot-name { background: #FFEFC2; }

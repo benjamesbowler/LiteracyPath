@@ -227,6 +227,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
               style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
               onClick={() => setActiveGame(game)}
               data-child-primary={isRecommended ? "" : undefined}
+              data-child-emphasis={isRecommended ? "primary" : "choice"}
             >
               <span className="lg-game-tile-art" aria-hidden="true">
                 <img
@@ -240,7 +241,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
                 />
               </span>
               <span className="lg-game-tile-name">{game.title}</span>
-              {isRecommended && <span className="lg-game-tile-next">Play next</span>}
+              {isRecommended && <span className="lg-game-tile-next" data-child-emphasis-cue="">Play next</span>}
               <span className="lg-game-tile-foot">
                 <ProgressStars stars={gameProgress.stars || 0} />
                 {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}

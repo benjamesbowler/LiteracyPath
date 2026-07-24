@@ -165,6 +165,7 @@ function SageCard({
       data-learning-state={cardState?.label || "New"}
       data-progress-marker={cardState?.progressText || undefined}
       data-child-primary={hero ? "" : undefined}
+      data-child-emphasis={hero ? "primary" : "choice"}
       data-continuation-activity={hero ? continuation?.activityId : undefined}
       data-continuation-goal={hero ? continuation?.goal : undefined}
       data-continuation-remaining={hero ? continuation?.remaining ?? undefined : undefined}
@@ -183,6 +184,12 @@ function SageCard({
       </span>
       {hero && <span className="hs-card-kicker">Recommended next</span>}
       <h3>{title}</h3>
+      {hero && continuation?.label && (
+        <span className="hs-card-action" data-child-emphasis-cue="">
+          <SageIcon name="play" />
+          {continuation.label}
+        </span>
+      )}
       {recommendationReason && <span className="hs-card-reason">{recommendationReason}</span>}
       <span className="hs-card-state-row">
         <strong className={`hs-card-state is-${cardState?.tone || "new"}`}>
@@ -196,12 +203,6 @@ function SageCard({
         {fillChip && <span className="hs-chip is-fill">{fillChip}</span>}
         {lineChips.map(chip => <span key={chip} className="hs-chip is-line">{chip}</span>)}
       </span>
-      {hero && continuation?.label && (
-        <span className="hs-card-action">
-          <SageIcon name="play" />
-          {continuation.label}
-        </span>
-      )}
       {!hero && (
         <>
           <hr />

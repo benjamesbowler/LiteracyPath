@@ -1712,11 +1712,12 @@ export function GuidedReadingPage({
               type="button"
               onClick={() => changeBook(book.id)}
               data-child-primary={isPrimary ? "" : undefined}
+              data-child-emphasis={isPrimary ? "primary" : "choice"}
             >
               <span className="guided-shelf-card-cover"><GuidedBookCover book={book} /></span>
               <span className="guided-shelf-card-tag">Level {book.level}</span>
               <span className="guided-shelf-card-title">{book.title}</span>
-              {isPrimary && <span className="guided-shelf-card-next">{prog(book).completed ? "Read again" : prog(book).completedPages > 0 ? "Continue next" : "Start next"}</span>}
+              {isPrimary && <span className="guided-shelf-card-next" data-child-emphasis-cue="">{prog(book).completed ? "Read again" : prog(book).completedPages > 0 ? "Continue next" : "Start next"}</span>}
             </button>
             );
           };

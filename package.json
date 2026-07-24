@@ -156,6 +156,7 @@
     "check:sound-racer-tutorial": "node --test tests/unit/soundRacerTracks.test.js tests/unit/soundSeekersArcadeAudit.test.js && playwright test tests/release/sound-racer-tutorial.spec.js --project=desktop",
     "check:fullscreen-overlay-semantics": "node --test tests/unit/fullscreenOverlayNames.test.js && playwright test tests/release/fullscreen-overlay-semantics.spec.js --project=desktop",
     "check:child-surface-rules": "node --test tests/unit/childSurfaceRules.test.js && playwright test tests/release/child-surface-rules.spec.js --project=desktop",
+    "check:student-emphasis-budget": "node --test tests/unit/studentEmphasisBudget.test.js && playwright test tests/release/student-emphasis-budget.spec.js --project=desktop",
     "check:key-route-visuals": "playwright test tests/release/key-route-visuals.spec.js --project=desktop",
     "check:a11y-routes": "node --test tests/unit/primaryRouteA11yInventory.test.js && playwright test tests/release/a11y-routes.spec.js --project=desktop",
     "check:learner-accessibility-settings": "node --test tests/unit/learnerAccessibility.test.js && playwright test tests/release/learner-accessibility-settings.spec.js --project=desktop",

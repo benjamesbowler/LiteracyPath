@@ -185,6 +185,8 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                 type="button"
                 onClick={() => startQuest(primaryQuest.id)}
                 data-child-primary=""
+                data-child-emphasis="primary"
+                data-child-emphasis-cue=""
               >
                 {primaryQuestStarted ? "Continue" : "Start"} {primaryQuest.title}
               </button>

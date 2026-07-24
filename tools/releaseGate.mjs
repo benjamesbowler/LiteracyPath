@@ -137,6 +137,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 10]
   },
   {
+    id: "student-emphasis-budget",
+    label: "One visually dominant recommended learning action on every child route and review width",
+    command: ["npm", "run", "check:student-emphasis-budget"],
+    areas: [2, 3, 10]
+  },
+  {
     id: "key-route-visuals",
     label: "Desktop and phone visual baselines plus delayed child-route placeholders",
     command: ["npm", "run", "check:key-route-visuals"],

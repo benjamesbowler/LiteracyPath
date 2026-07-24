@@ -141,6 +141,21 @@
 .phonics-letter-card.recommended:not(:disabled) {
   outline: 3px solid #F2B84B;
   outline-offset: 2px;
+  background: #FFF8E8;
+  box-shadow: 0 0 0 5px rgba(242, 184, 75, 0.2), 0 10px 22px rgba(37, 51, 64, 0.16);
+}
+
+.phonics-letter-next {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #8A4F08;
+  color: #FFFFFF;
+  font: 900 0.65rem/1 var(--phonics-font-body);
+  white-space: nowrap;
 }
 
 .phonics-letter-card.locked {

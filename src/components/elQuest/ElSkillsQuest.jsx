@@ -785,6 +785,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                           onClick={() => { if (panRef.current.moved) return; openCycle(cycle); }}
                           aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                           data-child-primary={isRecommended ? "" : undefined}
+                          data-child-emphasis={isRecommended ? "primary" : "choice"}
                         >
                           <span className="sbq-stop-marker" aria-hidden="true">
                             {cycleProgress?.stars ? "★" : cycle.cycleNumber}
@@ -794,6 +795,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                             <span className="sbq-stop-skill">
                               {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
                             </span>
+                            {isRecommended && (
+                              <span className="sbq-stop-next" data-child-emphasis-cue="">Go next</span>
+                            )}
                             {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
                           </span>
                         </button>

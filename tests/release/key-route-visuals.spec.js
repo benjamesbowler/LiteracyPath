@@ -25,9 +25,34 @@ async function waitForVisibleImages(page) {
     [...document.images]
       .filter(image => {
         const rect = image.getBoundingClientRect();
-        return rect.width > 0 && rect.height > 0
-          && rect.bottom > 0 && rect.top < window.innerHeight
-          && rect.right > 0 && rect.left < window.innerWidth;
+        let visibleLeft = Math.max(0, rect.left);
+        let visibleTop = Math.max(0, rect.top);
+        let visibleRight = Math.min(window.innerWidth, rect.right);
+        let visibleBottom = Math.min(window.innerHeight, rect.bottom);
+        let ancestor = image.parentElement;
+
+        while (ancestor && visibleRight > visibleLeft && visibleBottom > visibleTop) {
+          const style = getComputedStyle(ancestor);
+          const clipsX = /(auto|hidden|scroll|clip)/.test(style.overflowX);
+          const clipsY = /(auto|hidden|scroll|clip)/.test(style.overflowY);
+          if (clipsX || clipsY) {
+            const ancestorRect = ancestor.getBoundingClientRect();
+            if (clipsX) {
+              visibleLeft = Math.max(visibleLeft, ancestorRect.left);
+              visibleRight = Math.min(visibleRight, ancestorRect.right);
+            }
+            if (clipsY) {
+              visibleTop = Math.max(visibleTop, ancestorRect.top);
+              visibleBottom = Math.min(visibleBottom, ancestorRect.bottom);
+            }
+          }
+          ancestor = ancestor.parentElement;
+        }
+
+        return rect.width > 0
+          && rect.height > 0
+          && visibleRight > visibleLeft
+          && visibleBottom > visibleTop;
       })
       .every(image => image.complete)
   ));

@@ -74,16 +74,20 @@
 }
 
 .story-quest-primary-action {
-  width: fit-content;
-  min-height: 44px;
-  margin-top: 8px;
-  padding: 10px 16px;
-  border: 0;
-  border-radius: 10px;
-  background: var(--lp-color-primary);
+  box-sizing: border-box;
+  width: min(100%, 440px);
+  max-width: 100%;
+  min-height: 52px;
+  margin-top: 12px;
+  padding: 12px 20px;
+  border: 3px solid #18382D;
+  border-radius: 12px;
+  background: #2E4B3E;
   color: #fff;
+  box-shadow: 0 5px 0 #18382D, 0 12px 24px rgba(24, 56, 45, 0.2);
   cursor: pointer;
-  font: 850 0.95rem/1.25 var(--lp-font-ui);
+  font: 900 1rem/1.25 var(--lp-font-ui);
+  overflow-wrap: anywhere;
 }
 
 .learn-story-quest-copy p,

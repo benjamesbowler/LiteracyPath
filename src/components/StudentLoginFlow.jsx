@@ -412,6 +412,8 @@ export function StudentLoginFlow({
                   onClick={submitCode}
                   disabled={loading || normalizedCodeInput.length < 4}
                   data-child-primary=""
+                  data-child-emphasis="primary"
+                  data-child-emphasis-cue=""
                 >
                   {loading ? "Checking…" : "Go"}
                 </button>

@@ -948,6 +948,12 @@
   .lp-home-sage .hs-mission-steps li {
     padding-block: 6px;
   }
+  .lp-home-sage .hs-recommendation-grid {
+    margin-top: 16px;
+  }
+  .lp-home-sage .hs-card.is-hero .hs-thumb {
+    height: 128px;
+  }
 }
 
 /* ── keyboard + motion accessibility ─────────────────────────────────────── */
