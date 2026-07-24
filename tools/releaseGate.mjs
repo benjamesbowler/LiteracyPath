@@ -475,8 +475,7 @@ export const RELEASE_GATES = Object.freeze([
     id: "device-matrix",
     label: "Student device matrix",
     command: ["npm", "run", "check:device-matrix"],
-    areas: [2, 3, 10],
-    planned: true
+    areas: [2, 3, 10]
   },
   {
     id: "sync-chaos",

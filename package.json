@@ -158,6 +158,7 @@
     "check:a11y-routes": "node --test tests/unit/primaryRouteA11yInventory.test.js && playwright test tests/release/a11y-routes.spec.js --project=desktop",
     "check:learner-accessibility-settings": "node --test tests/unit/learnerAccessibility.test.js && playwright test tests/release/learner-accessibility-settings.spec.js --project=desktop",
     "check:overlay-contrast-focus": "playwright test tests/release/overlay-contrast-focus.spec.js --project=desktop",
+    "check:device-matrix": "node --test tests/unit/studentDeviceMatrix.test.js && playwright test tests/release/student-device-matrix.spec.js --project=desktop",
     "check:report-audience-templates": "node --test tests/unit/reportAudienceTemplates.test.js && playwright test tests/release/report-audience-templates.spec.js --project=desktop",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

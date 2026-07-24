@@ -915,8 +915,8 @@
 .sbq-stop-marker {
   display: grid;
   place-items: center;
-  width: calc(40px * var(--map-zoom, 1));
-  height: calc(40px * var(--map-zoom, 1));
+  width: max(44px, calc(40px * var(--map-zoom, 1)));
+  height: max(44px, calc(40px * var(--map-zoom, 1)));
   border-radius: 50%;
   font: 800 calc(1rem * var(--map-zoom, 1)) / 1 var(--lp-font-reading);
   color: #fff5e1;

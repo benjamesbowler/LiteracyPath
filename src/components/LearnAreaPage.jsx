@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { loadStoryQuestProgress, saveStoryQuestProgress } from "../utils/storyQuestProgress.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
@@ -96,7 +96,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     saveStoryQuestProgress(progressScopeKey, questProgress);
   }, [progressScopeKey, questProgress]);
 
-  function updateQuestProgress(questId, patch) {
+  const updateQuestProgress = useCallback((questId, patch) => {
     setQuestProgress(previous => ({
       ...previous,
       [questId]: {
@@ -106,7 +106,26 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
         updatedAt: new Date().toISOString()
       }
     }));
-  }
+  }, []);
+
+  const handleQuestComplete = useCallback((progressPatch = {}) => {
+    if (!activeQuestId) return;
+    updateQuestProgress(activeQuestId, {
+      ...progressPatch,
+      completed: true,
+      completedAt: progressPatch.completedAt || new Date().toISOString()
+    });
+  }, [activeQuestId, updateQuestProgress]);
+
+  const handleQuestExit = useCallback(() => setActiveQuestId(""), []);
+
+  const handleQuestProgress = useCallback((pageId, progressPatch = {}) => {
+    if (!activeQuestId) return;
+    updateQuestProgress(activeQuestId, {
+      ...progressPatch,
+      lastPageId: pageId
+    });
+  }, [activeQuestId, updateQuestProgress]);
 
   function startQuest(questId) {
     if (typeof window !== "undefined") {
@@ -131,16 +150,9 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
       <main className="learn-area-page story-quest-learn-page story-quest-active-page" aria-label="Story Quests">
         <StoryQuestPlayer
           initialPageId={activeQuestInitialPageId}
-          onComplete={(progressPatch = {}) => updateQuestProgress(activeQuest.id, {
-            ...progressPatch,
-            completed: true,
-            completedAt: progressPatch.completedAt || new Date().toISOString()
-          })}
-          onExit={() => setActiveQuestId("")}
-          onProgress={(pageId, progressPatch = {}) => updateQuestProgress(activeQuest.id, {
-            ...progressPatch,
-            lastPageId: pageId
-          })}
+          onComplete={handleQuestComplete}
+          onExit={handleQuestExit}
+          onProgress={handleQuestProgress}
           quest={activeQuest}
         />
       </main>
