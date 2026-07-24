@@ -3017,7 +3017,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
 
 .teacher-roster-metrics {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -3041,6 +3041,14 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
 .teacher-roster-metric.good {
   border-color: rgba(21, 128, 61, 0.24);
   background: var(--lp-color-success-soft);
+}
+
+.teacher-roster-metric-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .teacher-dashboard-controls,
@@ -18521,6 +18529,19 @@ select:focus {
   gap: 14px;
 }
 
+.teacher-progress-class-accuracy {
+  grid-column: 1 / -1;
+}
+
+.teacher-progress-accuracy-facts small {
+  display: block;
+  margin-top: 5px;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 .teacher-progress-panel-heading,
 .teacher-progress-learner-heading {
   display: flex;
@@ -18578,6 +18599,8 @@ select:focus {
 }
 
 .teacher-progress-distribution-chart .is-insufficient,
+.teacher-progress-distribution-chart .is-not_enough_evidence,
+.teacher-progress-key.is-not_enough_evidence,
 .teacher-progress-key.is-insufficient {
   background: var(--lp-color-text-muted);
 }

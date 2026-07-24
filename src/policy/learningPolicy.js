@@ -10,7 +10,7 @@ import {
  * student-home recommendations all live here. Reporting and presentation code
  * may ask this module for a conclusion; it must not recreate these rules.
  */
-export const LEARNING_POLICY_VERSION = "2026.07.24-a4";
+export const LEARNING_POLICY_VERSION = "2026.07.24-a4.3";
 export const STUDENT_HOME_RECOMMENDATION_POLICY_VERSION = "2026.07.24";
 
 export const LEARNING_STATUS_IDS = Object.freeze({
@@ -55,7 +55,10 @@ export const LEARNING_EVIDENCE_POLICY = Object.freeze({
   }),
   comparison: Object.freeze({
     classOutlierPercentagePoints: 15,
-    classFocusProportion: 0.3
+    classFocusProportion: 0.3,
+    minimumPolicyReadyLearners: 2,
+    minimumPolicyReadyProportion: 0.7,
+    maximumResponseImbalanceRatio: 4
   })
 });
 
@@ -200,6 +203,64 @@ export function evaluateLearningConclusion({
         : !recent
           ? `The latest evidence is older than ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
           : "The evidence meets the published learning-policy requirements."
+  };
+}
+
+export function evaluateClassComparability({
+  totalLearners = 0,
+  policyReadyLearners = 0,
+  responseCounts = []
+} = {}) {
+  const total = Math.max(0, finitePolicyNumber(totalLearners) || 0);
+  const ready = Math.max(0, finitePolicyNumber(policyReadyLearners) || 0);
+  const counts = responseCounts
+    .map(value => Math.max(0, finitePolicyNumber(value) || 0))
+    .filter(value => value > 0);
+  const readyProportion = total > 0 ? ready / total : 0;
+  const responseImbalanceRatio = counts.length > 1
+    ? Math.max(...counts) / Math.min(...counts)
+    : counts.length === 1
+      ? 1
+      : null;
+  const reasons = [];
+
+  if (ready < LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners) {
+    reasons.push(
+      `${ready} of ${LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners} required policy-ready learners`
+    );
+  }
+  if (readyProportion < LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyProportion) {
+    reasons.push(
+      `${Math.round(readyProportion * 100)}% of learners are policy-ready; `
+      + `${Math.round(LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyProportion * 100)}% required`
+    );
+  }
+  if (counts.length !== ready) {
+    reasons.push("one or more policy-ready learners has no response count");
+  }
+  if (
+    responseImbalanceRatio !== null
+    && responseImbalanceRatio
+      > LEARNING_EVIDENCE_POLICY.comparison.maximumResponseImbalanceRatio
+  ) {
+    reasons.push(
+      `${Math.round(responseImbalanceRatio * 10) / 10}:1 response imbalance; `
+      + `${LEARNING_EVIDENCE_POLICY.comparison.maximumResponseImbalanceRatio}:1 maximum`
+    );
+  }
+
+  return {
+    policyId: LEARNING_EVIDENCE_POLICY.id,
+    policyVersion: LEARNING_POLICY_VERSION,
+    comparable: reasons.length === 0,
+    totalLearners: total,
+    policyReadyLearners: ready,
+    readyProportion,
+    responseImbalanceRatio,
+    reasons,
+    reason: reasons.length
+      ? reasons.join("; ")
+      : "The class meets the policy-ready learner coverage and response-balance requirements."
   };
 }
 

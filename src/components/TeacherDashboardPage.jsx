@@ -6,7 +6,10 @@ import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/work
 import { classHeatSummary } from "../utils/questReport.js";
 import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
 import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
-import { PROGRESS_MIN_RESPONSES } from "../utils/teacherProgressOverview.js";
+import {
+  PROGRESS_MIN_RESPONSES,
+  buildClassAccuracySummary
+} from "../utils/teacherProgressOverview.js";
 import {
   LEARNING_EVIDENCE_POLICY,
   LEARNING_STATUS_IDS,
@@ -998,6 +1001,7 @@ export function TeacherDashboardPage({
       const normalized = {
         ...student,
         answered: dashboardRow.answered ?? 0,
+        correct: dashboardRow.correct ?? null,
         accuracy: dashboardRow.accuracy ?? null,
         masteredCount: dashboardRow.masteredCount ?? 0,
         currentSkill: dashboardRow.currentSkill || "Not started",
@@ -1146,12 +1150,13 @@ export function TeacherDashboardPage({
   const startedCount = studentRows.filter(row => row.answered > 0).length;
   const loginReadyCount = studentRows.filter(row => row.symbol_password).length;
   const activeTodayCount = studentRows.filter(row => formatLastActive(row.lastActive) === "Today").length;
-  const rowsWithAccuracy = studentRows.filter(row =>
-    row.learningConclusion?.ready
+  const classAccuracySummary = useMemo(
+    () => buildClassAccuracySummary(studentRows.map(row => ({
+      ...row,
+      conclusion: row.learningConclusion
+    }))),
+    [studentRows]
   );
-  const averageAccuracy = rowsWithAccuracy.length
-    ? Math.round(rowsWithAccuracy.reduce((sum, row) => sum + Number(row.accuracy), 0) / rowsWithAccuracy.length)
-    : null;
   const classMetricUpdatedAt = latestMetricUpdate(studentRows.map(row => row.lastActive));
   const className = selectedClass?.name || "No class selected";
   const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]
@@ -1731,14 +1736,26 @@ export function TeacherDashboardPage({
           <RosterMetric
             definitionId="accuracy"
             definitionOptions={{
-              denominator: `${rowsWithAccuracy.length} policy-ready learner accuracies, each with at least ${PROGRESS_MIN_RESPONSES} scored responses.`,
+              denominator: `${classAccuracySummary.policyReadyLearnerCount} policy-ready learner accuracies, each with at least ${PROGRESS_MIN_RESPONSES} scored responses.`,
               dateRange: "All saved scored responses for the selected class.",
               updatedAt: classMetricUpdatedAt
             }}
-            label="Avg accuracy"
-            value={averageAccuracy === null
+            label={`Learner-weighted (${classAccuracySummary.policyReadyLearnerCount})`}
+            value={classAccuracySummary.learnerWeightedAccuracy === null
               ? studentRows.some(row => row.answered > 0) ? "Not enough evidence" : "Not checked"
-              : `${averageAccuracy}%`}
+              : `${classAccuracySummary.learnerWeightedAccuracy}%`}
+          />
+          <RosterMetric
+            definitionId="accuracy"
+            definitionOptions={{
+              denominator: `${classAccuracySummary.responseCount} scored responses from ${classAccuracySummary.policyReadyLearnerCount} policy-ready learners.`,
+              dateRange: "All saved scored responses for the selected class.",
+              updatedAt: classMetricUpdatedAt
+            }}
+            label={`Response-weighted (${classAccuracySummary.responseCount})`}
+            value={classAccuracySummary.responseWeightedAccuracy === null
+              ? studentRows.some(row => row.answered > 0) ? "Not enough evidence" : "Not checked"
+              : `${classAccuracySummary.responseWeightedAccuracy}%`}
           />
           <RosterMetric
             definitionId="active"
@@ -1749,6 +1766,15 @@ export function TeacherDashboardPage({
             label="Active today"
             value={`${activeTodayCount}/${studentRows.length || 0}`}
           />
+          <p
+            className="teacher-roster-metric-note"
+            role="status"
+            data-class-average-suppressed={!classAccuracySummary.comparability.comparable}
+          >
+            {classAccuracySummary.comparability.comparable
+              ? "Class evidence is comparable under the learning policy; both accuracy views remain visible."
+              : `No single class average: ${classAccuracySummary.comparability.reason}.`}
+          </p>
         </section>
       )}
 

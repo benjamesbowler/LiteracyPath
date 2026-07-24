@@ -14,6 +14,7 @@ const rows = [
     id: "aarav",
     name: "Aarav",
     answered: 20,
+    correct: 18,
     accuracy: 90,
     masteredCount: 3,
     currentSkill: "CVC Short Vowels",
@@ -46,6 +47,7 @@ const rows = [
     id: "aisha",
     name: "Aisha",
     answered: 20,
+    correct: 6,
     accuracy: 30,
     masteredCount: 0,
     currentSkill: "Initial Sounds",
@@ -78,6 +80,7 @@ const rows = [
     id: "camila",
     name: "Camila",
     answered: 12,
+    correct: 9,
     accuracy: 75,
     masteredCount: 2,
     currentSkill: "CVC Short Vowels",
@@ -149,6 +152,46 @@ test("class distribution keeps sparse evidence outside accuracy bands", () => {
     not_enough_evidence: 1
   });
   assert.equal(summary.classMedian, 75);
+});
+
+test("class accuracy exposes learner-weighted and response-weighted views with evidence counts", () => {
+  const { classAccuracy } = buildTeacherProgressOverview(rows, { now: POLICY_NOW });
+
+  assert.equal(classAccuracy.learnerWeightedAccuracy, 65);
+  assert.equal(classAccuracy.responseWeightedAccuracy, 63.5);
+  assert.equal(classAccuracy.policyReadyLearnerCount, 3);
+  assert.equal(classAccuracy.totalLearnerCount, 4);
+  assert.equal(classAccuracy.responseCount, 52);
+  assert.equal(classAccuracy.comparability.comparable, true);
+  assert.equal(classAccuracy.headlineAccuracy, 65);
+});
+
+test("weak class comparability suppresses the single headline without hiding both views", () => {
+  const imbalanced = [
+    {
+      id: "one",
+      name: "One",
+      answered: 8,
+      accuracy: 100,
+      evidenceSkills: ["Initial Sounds", "Final Sounds"],
+      lastActive: "2026-07-23T09:00:00.000Z"
+    },
+    {
+      id: "two",
+      name: "Two",
+      answered: 40,
+      accuracy: 50,
+      evidenceSkills: ["Initial Sounds", "Final Sounds"],
+      lastActive: "2026-07-23T09:00:00.000Z"
+    }
+  ];
+  const { classAccuracy } = buildTeacherProgressOverview(imbalanced, { now: POLICY_NOW });
+
+  assert.equal(classAccuracy.learnerWeightedAccuracy, 75);
+  assert.equal(classAccuracy.responseWeightedAccuracy, 58.3);
+  assert.equal(classAccuracy.comparability.comparable, false);
+  assert.equal(classAccuracy.headlineAccuracy, null);
+  assert.match(classAccuracy.comparability.reason, /5:1 response imbalance/);
 });
 
 test("coverage distinguishes evidence presence, policy readiness, and exact item reach", () => {
@@ -278,6 +321,13 @@ test("class-first progress renders all four insights and a learner item path", (
   );
 
   assert.match(html, /aria-label="Class progress overview"/);
+  assert.match(html, /aria-label="Class accuracy comparison"/);
+  assert.match(html, /Learner-weighted accuracy/);
+  assert.match(html, /65%/);
+  assert.match(html, /3 policy-ready learners of 4/);
+  assert.match(html, /Response-weighted accuracy/);
+  assert.match(html, /63.5%/);
+  assert.match(html, /52 scored responses/);
   for (const label of ["Distribution", "Coverage", "Groups", "Outliers"]) {
     assert.match(html, new RegExp(`>${label}<`));
   }

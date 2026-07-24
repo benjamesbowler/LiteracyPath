@@ -11,6 +11,7 @@ const rows = [
     id: "amara",
     name: "Amara",
     answered: 1,
+    correct: 1,
     accuracy: 100,
     masteredCount: 0,
     currentSkill: "Final Sounds",
@@ -33,6 +34,7 @@ const rows = [
     id: "aisha",
     name: "Aisha",
     answered: 12,
+    correct: 5,
     accuracy: 42,
     masteredCount: 0,
     currentSkill: "Initial Sounds",
@@ -50,6 +52,18 @@ const rows = [
         accuracy: 38
       }]
     }
+  },
+  {
+    id: "noah",
+    name: "Noah",
+    answered: 20,
+    correct: 18,
+    accuracy: 90,
+    masteredCount: 3,
+    currentSkill: "CVC Short Vowels",
+    evidenceSkills: ["Initial Sounds", "Final Sounds", "CVC Short Vowels"],
+    lastActive: "2026-07-23T10:00:00.000Z",
+    soundSeekers: null
   }
 ];
 

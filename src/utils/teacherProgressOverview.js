@@ -2,6 +2,7 @@ import {
   LEARNING_EVIDENCE_POLICY,
   LEARNING_POLICY_VERSION,
   LEARNING_STATUS_IDS,
+  evaluateClassComparability,
   evaluateLearningConclusion,
   learningConfidence
 } from "../policy/learningPolicy.js";
@@ -44,6 +45,56 @@ function normalizedHeat(row) {
 
 function evidenceReady(row) {
   return Boolean(row?.conclusion?.ready);
+}
+
+function roundedAccuracy(value) {
+  return Math.round(value * 10) / 10;
+}
+
+export function buildClassAccuracySummary(rows = []) {
+  const policyReadyRows = rows
+    .filter(evidenceReady)
+    .map(row => ({
+      ...row,
+      answered: Math.max(0, finiteNumber(row.answered)),
+      accuracy: finiteNumber(row.accuracy)
+    }));
+  const responseCount = policyReadyRows.reduce((sum, row) => sum + row.answered, 0);
+  const weightedCorrect = policyReadyRows.reduce((sum, row) => {
+    const hasExactCorrect = row.correct !== null
+      && row.correct !== undefined
+      && row.correct !== "";
+    const exactCorrect = Number(row.correct);
+    if (hasExactCorrect && Number.isFinite(exactCorrect)) {
+      return sum + Math.max(0, Math.min(row.answered, exactCorrect));
+    }
+    return sum + ((row.accuracy / 100) * row.answered);
+  }, 0);
+  const learnerWeightedAccuracy = policyReadyRows.length
+    ? roundedAccuracy(
+      policyReadyRows.reduce((sum, row) => sum + row.accuracy, 0)
+      / policyReadyRows.length
+    )
+    : null;
+  const responseWeightedAccuracy = responseCount
+    ? roundedAccuracy((weightedCorrect / responseCount) * 100)
+    : null;
+  const comparability = evaluateClassComparability({
+    totalLearners: rows.length,
+    policyReadyLearners: policyReadyRows.length,
+    responseCounts: policyReadyRows.map(row => row.answered)
+  });
+
+  return {
+    policyVersion: LEARNING_POLICY_VERSION,
+    learnerWeightedAccuracy,
+    responseWeightedAccuracy,
+    headlineAccuracy: comparability.comparable ? learnerWeightedAccuracy : null,
+    policyReadyLearnerCount: policyReadyRows.length,
+    totalLearnerCount: rows.length,
+    responseCount,
+    comparability
+  };
 }
 
 function evidenceSkillsFor(row) {
@@ -253,6 +304,12 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
         id: String(row.id),
         name: String(row.name || "Learner"),
         answered: Math.max(0, finiteNumber(row.answered)),
+        correct: row.correct !== null
+          && row.correct !== undefined
+          && row.correct !== ""
+          && Number.isFinite(Number(row.correct))
+          ? Math.max(0, finiteNumber(row.correct))
+          : null,
         masteredCount: Math.max(0, finiteNumber(row.masteredCount)),
         accuracy: Number.isFinite(Number(row.accuracy)) ? Number(row.accuracy) : null,
         evidenceSkills: evidenceSkillsFor(row),
@@ -281,6 +338,7 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
 
   const readyRows = rows.filter(evidenceReady);
   const insufficientRows = rows.filter(row => !evidenceReady(row));
+  const classAccuracy = buildClassAccuracySummary(rows);
   const classMedian = median(readyRows.map(row => row.accuracy));
   const distribution = DISTRIBUTION_BANDS.map(band => ({
     id: band.id,
@@ -388,6 +446,7 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
     coverage,
     groups: buildGroups(rows),
     outliers,
+    classAccuracy,
     classMedian,
     classEvidence,
     policyVersion: LEARNING_POLICY_VERSION,
@@ -396,6 +455,12 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
       itemMinimumAttempts: PROGRESS_ITEM_MIN_ATTEMPTS,
       recencyWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
       outlierDistance: LEARNING_EVIDENCE_POLICY.comparison.classOutlierPercentagePoints,
+      minimumComparableLearners:
+        LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners,
+      minimumComparableProportion:
+        LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyProportion,
+      maximumResponseImbalance:
+        LEARNING_EVIDENCE_POLICY.comparison.maximumResponseImbalanceRatio,
       version: LEARNING_POLICY_VERSION
     }
   };

@@ -159,6 +159,7 @@
     "check:student-emphasis-budget": "node --test tests/unit/studentEmphasisBudget.test.js && playwright test tests/release/student-emphasis-budget.spec.js --project=desktop",
     "check:assessment-media-evidence": "node --test tests/unit/assessmentMediaEvidence.test.js && playwright test tests/release/assessment-media-evidence.spec.js --project=desktop",
     "check:learning-policy": "node tools/checkLearningPolicyThresholds.mjs && node --test tests/unit/learningPolicy.test.js tests/unit/teacherProgressOverview.test.js && playwright test tests/release/learning-policy.spec.js --project=desktop",
+    "check:class-summary-accuracy": "node --test tests/unit/learningPolicy.test.js tests/unit/teacherProgressOverview.test.js && playwright test tests/release/class-summary-accuracy.spec.js --project=desktop",
     "check:key-route-visuals": "playwright test tests/release/key-route-visuals.spec.js --project=desktop",
     "check:a11y-routes": "node --test tests/unit/primaryRouteA11yInventory.test.js && playwright test tests/release/a11y-routes.spec.js --project=desktop",
     "check:learner-accessibility-settings": "node --test tests/unit/learnerAccessibility.test.js && playwright test tests/release/learner-accessibility-settings.spec.js --project=desktop",

@@ -39,6 +39,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "student-emphasis-budget",
     "assessment-media-evidence",
     "learning-policy",
+    "class-summary-accuracy",
     "key-route-visuals",
     "a11y-routes",
     "learner-accessibility-settings",

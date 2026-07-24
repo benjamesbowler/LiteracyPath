@@ -146,6 +146,57 @@ export function TeacherProgressOverview({
       ) : (
         <>
           <section className="teacher-progress-grid" aria-label="Class progress overview">
+            <article
+              className="teacher-progress-panel teacher-progress-class-accuracy"
+              aria-label="Class accuracy comparison"
+              data-class-comparable={summary.classAccuracy.comparability.comparable}
+            >
+              <div className="teacher-progress-panel-heading">
+                <div>
+                  <p className="panel-label">Class accuracy</p>
+                  <h3>Learners and responses tell different stories</h3>
+                </div>
+                <strong>
+                  {summary.classAccuracy.headlineAccuracy === null
+                    ? "No single class average"
+                    : `${percentLabel(summary.classAccuracy.headlineAccuracy)} learner-weighted`}
+                </strong>
+              </div>
+              <dl className="teacher-progress-facts teacher-progress-accuracy-facts">
+                <div>
+                  <dt>Learner-weighted accuracy</dt>
+                  <dd>
+                    {percentLabel(summary.classAccuracy.learnerWeightedAccuracy)}
+                    <small>
+                      {summary.classAccuracy.policyReadyLearnerCount} policy-ready learner
+                      {summary.classAccuracy.policyReadyLearnerCount === 1 ? "" : "s"}
+                      {" "}of {summary.classAccuracy.totalLearnerCount}
+                    </small>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Response-weighted accuracy</dt>
+                  <dd>
+                    {percentLabel(summary.classAccuracy.responseWeightedAccuracy)}
+                    <small>
+                      {summary.classAccuracy.responseCount} scored response
+                      {summary.classAccuracy.responseCount === 1 ? "" : "s"}
+                    </small>
+                  </dd>
+                </div>
+              </dl>
+              <p
+                className="teacher-progress-basis"
+                role="status"
+                data-class-average-suppressed={!summary.classAccuracy.comparability.comparable}
+              >
+                {summary.classAccuracy.comparability.comparable
+                  ? "Comparable class evidence. Both views remain visible so response volume cannot hide learner differences."
+                  : `No single class average is shown because comparability is weak: ${summary.classAccuracy.comparability.reason}.`}
+              </p>
+              <EvidenceBasis basis={summary.classEvidence} label="Class accuracy conclusion" />
+            </article>
+
             <article className="teacher-progress-panel teacher-progress-distribution">
               <div className="teacher-progress-panel-heading">
                 <div>

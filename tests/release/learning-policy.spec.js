@@ -18,7 +18,7 @@ test("A4.1/A4.2 sparse evidence is withheld by the versioned live UI policy", as
 
   const preview = page.locator('[data-preview-surface="learning-policy"]');
   const policySurface = preview.locator("[data-learning-policy-version]");
-  await expect(policySurface).toHaveAttribute("data-learning-policy-version", "2026.07.24-a4");
+  await expect(policySurface).toHaveAttribute("data-learning-policy-version", "2026.07.24-a4.3");
   await expect(preview.getByText(/Not enough evidence for an accuracy conclusion/)).toBeVisible();
   await expect(preview.getByText("Not enough evidence · 1 of 8 required attempts", { exact: true })).toBeVisible();
   await expect(preview.getByText("1 scored response", { exact: true })).toBeVisible();

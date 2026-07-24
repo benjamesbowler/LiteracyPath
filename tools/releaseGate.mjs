@@ -155,6 +155,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 4, 7, 8, 10]
   },
   {
+    id: "class-summary-accuracy",
+    label: "Learner-weighted and response-weighted class accuracy with comparability suppression",
+    command: ["npm", "run", "check:class-summary-accuracy"],
+    areas: [4, 5, 6, 7, 10]
+  },
+  {
     id: "key-route-visuals",
     label: "Desktop and phone visual baselines plus delayed child-route placeholders",
     command: ["npm", "run", "check:key-route-visuals"],

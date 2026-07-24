@@ -25,6 +25,13 @@ numeric cutoff.
   responses. Practice exposure alone cannot establish progression.
 - Class outliers require policy-ready learner evidence and a distance of at
   least 15 percentage points from the policy-ready class median.
+- Class summaries always distinguish learner-weighted accuracy (each
+  policy-ready learner counts once) from response-weighted accuracy (each
+  scored response counts once), with both denominators visible.
+- A single headline class average is comparable only with at least two
+  policy-ready learners, at least 70% policy-ready learner coverage, and no
+  more than a 4:1 response-count imbalance. When any condition fails, both
+  descriptive views remain visible but the single headline is suppressed.
 
 Every derived conclusion stores `policyVersion`. Historical assessment records
 retain their recorded scoring-policy version; current report conclusions also
