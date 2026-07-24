@@ -16,7 +16,9 @@ export function normalizeSkillLevelProgress(progress = {}, level = 1) {
     coveredTargets: Array.isArray(source.coveredTargets) ? source.coveredTargets : [],
     masteredTargets: Array.isArray(source.masteredTargets) ? source.masteredTargets : [],
     usedTargetWordsByTarget: source.usedTargetWordsByTarget || {},
-    weakTargets: Array.isArray(source.weakTargets) ? source.weakTargets : []
+    weakTargets: Array.isArray(source.weakTargets) ? source.weakTargets : [],
+    recentQuestionIds: Array.isArray(source.recentQuestionIds) ? source.recentQuestionIds : [],
+    recentTargetWords: Array.isArray(source.recentTargetWords) ? source.recentTargetWords : []
   };
 }
 
@@ -37,7 +39,9 @@ export function buildSkillProgressFromHistory(records = [], skillId) {
           coveredTargets: [],
           masteredTargets: [],
           weakTargets: [],
-          usedTargetWordsByTarget: {}
+          usedTargetWordsByTarget: {},
+          recentQuestionIds: [],
+          recentTargetWords: []
         };
       }
 
@@ -51,6 +55,11 @@ export function buildSkillProgressFromHistory(records = [], skillId) {
           word
         ].filter((item, index, list) => list.indexOf(item) === index);
       }
+      const questionId = String(record.questionId || record.id || "");
+      if (questionId) levelProgress.recentQuestionIds.push(questionId);
+      if (word) levelProgress.recentTargetWords.push(word);
+      levelProgress.recentQuestionIds = levelProgress.recentQuestionIds.slice(-INITIAL_SOUND_ROUND_LENGTH);
+      levelProgress.recentTargetWords = levelProgress.recentTargetWords.slice(-INITIAL_SOUND_ROUND_LENGTH);
     });
 
   return progress;
@@ -95,6 +104,8 @@ export function buildSkillRoundPlan({
     candidates: levelItems,
     targetOrder: orderedTargets,
     usedTargetWordsByTarget: levelProgress.usedTargetWordsByTarget,
+    avoidQuestionIds: levelProgress.recentQuestionIds,
+    avoidTargetWords: levelProgress.recentTargetWords,
     roundLength,
     seed
   });
