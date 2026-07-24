@@ -199,6 +199,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [5, 6, 10]
   },
   {
+    id: "el-assessment-completion-device-matrix",
+    label: "Reachable 8-item EL completion, placement, and finish controls across laptop and iPad viewports",
+    command: ["npm", "run", "check:el-assessment-completion-device-matrix"],
+    areas: [3, 4, 6, 10]
+  },
+  {
     id: "teacher-contextual-help",
     label: "Searchable question-type help reachable from learner evidence",
     command: ["npm", "run", "check:teacher-contextual-help"],

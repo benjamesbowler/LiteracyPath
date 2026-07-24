@@ -207,6 +207,32 @@
   justify-content: flex-end;
 }
 
+.el-benchmark-header-completion {
+  flex: 1 0 100%;
+  min-width: 0;
+}
+
+.el-benchmark-header-completion p {
+  margin: 0;
+  color: var(--el-muted);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.el-benchmark-header-completion.error {
+  padding: 7px 9px;
+  border: 1px solid #fca5a5;
+  border-radius: 9px;
+  background: var(--el-danger-soft);
+}
+
+.el-benchmark-header-completion.error p,
+.el-benchmark-header-completion.error strong {
+  color: #7f1d1d;
+}
+
 .el-benchmark-button {
   display: inline-flex;
   align-items: center;
@@ -1847,28 +1873,9 @@
   background: var(--el-surface);
 }
 
-.el-benchmark-footer p {
-  margin: 0;
-  color: var(--el-muted);
-  font-size: 12px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.el-benchmark-footer-status {
-  min-width: 0;
-}
-
-.el-benchmark-footer-status.error {
-  padding: 9px 11px;
-  border: 1px solid #fca5a5;
-  border-radius: 10px;
-  background: var(--el-danger-soft);
-}
-
-.el-benchmark-footer-status.error p,
-.el-benchmark-footer-status.error strong {
-  color: #7f1d1d;
+.el-benchmark-footer-secondary {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
 }
 
 .el-benchmark-footer-more {
@@ -1996,22 +2003,26 @@
   }
 
   .el-benchmark-topbar {
-    position: static;
+    position: sticky;
+    top: max(6px, env(safe-area-inset-top, 0px));
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
     padding: 13px;
   }
 
-  .el-benchmark-tablet-counters {
-    top: max(8px, env(safe-area-inset-top, 0px));
+  .el-benchmark-header-progress {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
 
-  .el-benchmark-header-progress {
-    max-width: none;
+  .el-benchmark-tablet-counters {
+    position: static;
+    top: auto;
   }
 
   .el-benchmark-header-actions {
-    grid-column: auto;
+    grid-column: 1 / -1;
+    grid-row: 3;
     justify-content: stretch;
   }
 
@@ -2060,9 +2071,6 @@
     width: 100%;
   }
 
-  .el-benchmark-footer p {
-    grid-row: 1;
-  }
 }
 
 @media (max-width: 620px) {

@@ -3582,6 +3582,27 @@ export function ELBenchmarkAssessmentPage({
           ) : (
             <span className="el-benchmark-autosave-note">Saved automatically</span>
           )}
+          <div
+            aria-live="polite"
+            className={`el-benchmark-header-completion${completionState.status === "error" ? " error" : ""}`}
+            id="el-benchmark-completion-status"
+          >
+            {completionState.status === "error" ? (
+              <p role="alert"><strong>Could not finish.</strong> {completionState.message} Select Retry finish.</p>
+            ) : (
+              <p>
+                {completionIsSaving
+                  ? "Saving the completed assessment. Keep this page open."
+                  : canCompleteAssessment
+                    ? "Everything is ready to save."
+                    : needsPlacementConfirmation
+                      ? "One final step: choose the student’s next starting point."
+                      : resolvedItems.length === items.length
+                        ? "Review the suggested next step below."
+                        : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} left.`}
+              </p>
+            )}
+          </div>
           <button
             className="el-benchmark-button secondary"
             disabled={timerIsRunning || completionIsSaving || terminalSessionStatus === "completed"}
@@ -3594,6 +3615,28 @@ export function ELBenchmarkAssessmentPage({
             type="button"
           >
             Save &amp; exit
+          </button>
+          <button
+            aria-busy={completionIsSaving ? "true" : undefined}
+            aria-describedby="el-benchmark-completion-status"
+            className="el-benchmark-button primary"
+            disabled={timerIsRunning || completionIsSaving || (!canCompleteAssessment && !needsPlacementConfirmation)}
+            onClick={() => {
+              if (needsPlacementConfirmation) {
+                focusPlacementStep();
+                return;
+              }
+              void completeAssessment();
+            }}
+            type="button"
+          >
+            {completionIsSaving
+              ? "Finishing..."
+              : completionState.status === "error"
+                ? "Retry finish"
+                : needsPlacementConfirmation
+                  ? "Choose starting point"
+                  : "Finish assessment"}
           </button>
         </div>
       </header>
@@ -3705,7 +3748,7 @@ export function ELBenchmarkAssessmentPage({
         />
       )}
 
-      <footer className="el-benchmark-footer">
+      <footer className="el-benchmark-footer el-benchmark-footer-secondary">
         <details className="el-benchmark-footer-more">
           <summary>More options</summary>
           <button
@@ -3717,49 +3760,6 @@ export function ELBenchmarkAssessmentPage({
             {showDiscontinue ? "Close stop-early panel" : "Stop assessment early"}
           </button>
         </details>
-        <div
-          aria-live="polite"
-          className={`el-benchmark-footer-status${completionState.status === "error" ? " error" : ""}`}
-          id="el-benchmark-completion-status"
-        >
-          {completionState.status === "error" ? (
-            <p role="alert"><strong>Could not finish.</strong> {completionState.message} Select Retry finish.</p>
-          ) : (
-            <p>
-              {completionIsSaving
-                ? "Saving the completed assessment. Keep this page open."
-                : canCompleteAssessment
-                  ? "Everything is ready to save."
-                  : needsPlacementConfirmation
-                    ? "One final step: choose the student’s next starting point."
-                    : resolvedItems.length === items.length
-                      ? "Review the suggested next step above."
-                      : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} left.`}
-            </p>
-          )}
-        </div>
-        <button
-          aria-busy={completionIsSaving ? "true" : undefined}
-          aria-describedby="el-benchmark-completion-status"
-          className="el-benchmark-button primary"
-          disabled={timerIsRunning || completionIsSaving || (!canCompleteAssessment && !needsPlacementConfirmation)}
-          onClick={() => {
-            if (needsPlacementConfirmation) {
-              focusPlacementStep();
-              return;
-            }
-            void completeAssessment();
-          }}
-          type="button"
-        >
-          {completionIsSaving
-            ? "Finishing..."
-            : completionState.status === "error"
-              ? "Retry finish"
-              : needsPlacementConfirmation
-                ? "Choose starting point"
-                : "Finish assessment"}
-        </button>
       </footer>
     </main>
   );

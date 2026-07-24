@@ -24,6 +24,10 @@ const assessmentPageStyles = readFileSync(
   new URL("../../src/components/assessment/el-benchmark-assessment.css", import.meta.url),
   "utf8"
 );
+const appStyles = readFileSync(
+  new URL("../../src/App.css", import.meta.url),
+  "utf8"
+);
 
 test.before(async () => {
   vite = await createServer({
@@ -173,6 +177,34 @@ test("the simplified shell has one safe exit, one collapsed review drawer, and n
   assert.match(buttonOpeningTag(html, "↶ Change previous answer"), /disabled/);
   assert.match(html, /Choose one answer above — it saves and moves on/);
   assert.doesNotMatch(html, /Return to assessments|Save partial &amp; exit/);
+});
+
+test("D-006 keeps progress, Save & exit, and Finish in the sticky action bar without clipping the EL page", () => {
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, {
+    grade: "K",
+    startMicrophase: undefined,
+    window: "BOY"
+  }));
+  const header = html.match(/<header class="el-benchmark-topbar">([\s\S]*?)<\/header>/)?.[1] || "";
+  const footer = html.match(/<footer class="el-benchmark-footer el-benchmark-footer-secondary">([\s\S]*?)<\/footer>/)?.[1] || "";
+
+  assert.match(header, /Progress/);
+  assert.match(header, /Save &amp; exit/);
+  assert.match(header, /Finish assessment/);
+  assert.doesNotMatch(footer, /Finish assessment/);
+  assert.match(assessmentPageStyles, /\.el-benchmark-topbar\s*\{[\s\S]*?position: sticky;/);
+  assert.match(
+    assessmentPageStyles,
+    /@media \(max-width: 820px\)[\s\S]*?\.el-benchmark-topbar\s*\{[\s\S]*?position: sticky;/
+  );
+  assert.match(
+    assessmentPageStyles,
+    /@media \(max-width: 820px\)[\s\S]*?\.el-benchmark-tablet-counters\s*\{[\s\S]*?position: static;/
+  );
+  assert.match(
+    appStyles,
+    /\.assessment-app\.el-benchmark-app\s*\{[\s\S]*?justify-content: flex-start;[\s\S]*?overflow: visible;/
+  );
 });
 
 test("a device-save failure stays prominent without reintroducing competing exit controls", () => {

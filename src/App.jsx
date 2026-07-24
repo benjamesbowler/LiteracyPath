@@ -8718,6 +8718,7 @@ export default function App() {
     isChildPreviewView ? "student-mode-app teacher-child-preview" : "",
     (isStudentMode || isChildPreviewView) ? "lp-skin-sage" : "",
     isFocusedAssessment ? "assessment-app no-sidebar" : "",
+    appView === APP_VIEWS.EL_BENCHMARK ? "el-benchmark-app" : "",
     effectiveAssessmentFullscreen ? "assessment-fullscreen-app" : "",
     isStudentSurfaceView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
