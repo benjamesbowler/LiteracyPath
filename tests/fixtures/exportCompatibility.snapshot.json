@@ -16,7 +16,7 @@
       "cells": 204
     },
     "studentEl": {
-      "sha256": "92625b29769202ee6d8ab9763ff36da3950afe336ee4c02895971752bae8f62c",
+      "sha256": "e796c08408e979a43023b4b746340d2e4a8d72a0b0759c14bac016abdbcecddd",
       "sheetNames": [
         "Student Summary",
         "Letter Names & Sounds",
@@ -29,8 +29,8 @@
         "Report Provenance",
         "Metric Definitions"
       ],
-      "rows": 108,
-      "cells": 1489
+      "rows": 110,
+      "cells": 1493
     },
     "classEl": {
       "sha256": "6df31a62d4d6eb1df9f521884fb02787c28ed7c25a2697fdf693a0215b69f21f",

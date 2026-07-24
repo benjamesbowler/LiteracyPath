@@ -10,7 +10,9 @@ import {
   EL_FORMAL_CLASS_EVIDENCE_SCHEMA,
   isReportableElBenchmarkCandidatePlacement
 } from "../data/elFormalAssessmentReportBuilder.js";
+import { buildStudentAssessmentEvidenceReadModel } from "../data/studentReportingWorkspaceModel.js";
 import { formatExportDateTime } from "./exportReportSections.js";
+import { normalizeElExportScope } from "./elAssessmentExportPolicy.js";
 import {
   addMetricDefinitionsWorksheet,
   METRIC_DEFINITIONS_SHEET_NAME
@@ -42,6 +44,12 @@ export const EL_STUDENT_REPORT_SHEETS = [
   "Letter Names & Sounds",
   "Advanced Phonics Patterns",
   ...EL_STUDENT_BENCHMARK_SHEETS,
+  REPORT_PROVENANCE_SHEET_NAME,
+  METRIC_DEFINITIONS_SHEET_NAME
+];
+
+export const EL_EMPTY_STUDENT_REPORT_SHEETS = [
+  "Student Summary",
   REPORT_PROVENANCE_SHEET_NAME,
   METRIC_DEFINITIONS_SHEET_NAME
 ];
@@ -87,6 +95,96 @@ export function getElAssessmentTypeId(record = {}) {
 export function filterElAssessmentHistory(assessmentHistory = []) {
   return (Array.isArray(assessmentHistory) ? assessmentHistory : [])
     .filter(record => Boolean(getElAssessmentTypeId(record)));
+}
+
+function formalStatusFromReportingStatus(status = "") {
+  const normalized = String(status || "").trim().toLowerCase();
+  if (normalized === "secure") return { status: "mastered", statusLabel: "Mastered" };
+  if (normalized === "developing") return { status: "developing", statusLabel: "Developing" };
+  if (normalized === "needs_teaching") return { status: "needs_support", statusLabel: "Needs Support" };
+  return { status: "not_assessed", statusLabel: "Not assessed" };
+}
+
+function skillsCheckLetterCellKey(concept = {}) {
+  if (!["letter_name", "letter_sound"].includes(concept.construct)) return "";
+  const letterCase = concept.variant === "uppercase" ? "uppercase" : "lowercase";
+  const mode = concept.construct === "letter_sound" ? "Sound" : "Name";
+  return `${letterCase}${mode}`;
+}
+
+function skillsCheckDetail(raw = {}, aggregate = {}) {
+  const status = raw.statusCandidate || aggregate.statusCandidate || "";
+  return {
+    sourceLabel: "Skills Check",
+    sourceStore: "assessment_attempts",
+    attemptId: raw.provenance?.attemptId || raw.sourceRecordId || aggregate.details?.currentAttemptId || "",
+    questionId: raw.provenance?.questionId || "",
+    itemKey: aggregate.concept?.key || "",
+    itemType: aggregate.concept?.construct || "",
+    targetLetter: aggregate.concept?.key || "",
+    responseStatus: raw.details?.responseStatus || status || "recorded",
+    isCorrect: status === "secure" ? true : status === "needs_teaching" ? false : null,
+    scored: Boolean(status),
+    administrationStatus: raw.administrationStatus || aggregate.administrationStatus || "",
+    formVersion: raw.provenance?.formVersion || "",
+    contentVersion: raw.provenance?.contentVersion || "",
+    scoringVersion: raw.provenance?.scoringVersion || "",
+    responseSchemaVersion: raw.provenance?.schemaVersion ?? "",
+    date: raw.observedAt || aggregate.observedAt || ""
+  };
+}
+
+function mergeSkillsCheckLettersIntoFormalAssessment(formalAssessments = {}, skillsCheck = {}) {
+  const rawById = new Map((skillsCheck.evidence || []).map(row => [row.evidenceId, row]));
+  const aggregateRows = (skillsCheck.knowledgeEvidence || []).filter(row => (
+    row?.concept?.domain === "alphabet_knowledge" &&
+    ["letter_name", "letter_sound"].includes(row?.concept?.construct) &&
+    row.statusCandidate
+  ));
+  if (!aggregateRows.length) return formalAssessments;
+
+  const byLetter = new Map((formalAssessments.individualLetterMatrix || []).map(row => [row.letter, row]));
+  let reconciledCellCount = 0;
+  aggregateRows.forEach(aggregate => {
+    const letter = String(aggregate.concept?.key || "").toLowerCase().match(/[a-z]/)?.[0] || "";
+    const cellKey = skillsCheckLetterCellKey(aggregate.concept);
+    const row = byLetter.get(letter);
+    if (!row || !cellKey || Number(row[cellKey]?.evidenceCount || 0) > 0) return;
+    const contributingIds = aggregate.details?.contributingEvidenceIds || [];
+    const rawDetails = contributingIds.map(id => rawById.get(id)).filter(Boolean);
+    const details = (rawDetails.length ? rawDetails : [aggregate])
+      .map(raw => skillsCheckDetail(raw, aggregate));
+    const attempts = Number(aggregate.details?.observations || details.length || 0);
+    const correct = Number(aggregate.details?.correct || 0);
+    const normalizedStatus = formalStatusFromReportingStatus(aggregate.statusCandidate);
+    row[cellKey] = {
+      ...row[cellKey],
+      ...normalizedStatus,
+      evidenceCount: details.length,
+      unscoredCount: Math.max(0, details.length - attempts),
+      attempts,
+      correct,
+      incorrect: Math.max(0, attempts - correct),
+      accuracy: aggregate.details?.accuracy ?? (attempts ? Math.round((correct / attempts) * 100) : null),
+      lastAssessed: formatDate(aggregate.observedAt),
+      details,
+      evidenceSources: ["Skills Check"],
+      reconciledFromSkillSpine: true
+    };
+    row.lastAssessed = [row.lastAssessed, formatDate(aggregate.observedAt)].filter(Boolean).sort().at(-1) || "";
+    reconciledCellCount += 1;
+  });
+
+  return {
+    ...formalAssessments,
+    individualLetterMatrix: Array.from(byLetter.values()),
+    reconciledSkillSpine: {
+      source: "Skills Check",
+      letterConceptCount: aggregateRows.length,
+      reconciledCellCount,
+      precedence: "EL Assessment 1 evidence is used when present; otherwise the canonical Skills Check concept supplies the same current skill-spine status."
+    }
+  };
 }
 
 const EL_DESCRIPTIVE_BENCHMARK_SHEETS = new Set([
@@ -382,6 +480,9 @@ function formalEvidenceProvenance(detail = {}, { includeStudent = false } = {}) 
   if (includeStudent && (detail.studentName || detail.studentId)) {
     parts.push(`Student: ${detail.studentName || detail.studentId}`);
   }
+  if (detail.sourceLabel || detail.sourceStore) {
+    parts.push(`Source: ${detail.sourceLabel || detail.sourceStore}`);
+  }
   parts.push(`Attempt: ${detail.attemptId || "not recorded"}`);
   parts.push(`Item: ${detail.questionId || detail.itemKey || "not recorded"}`);
   if (detail.itemType) parts.push(`Item type: ${detail.itemType}`);
@@ -467,6 +568,15 @@ function studentAdvancedEvidence(report = {}) {
   }, { evidenceCount: 0, unscoredCount: 0, attempts: 0, correct: 0, latestDate: "" });
 }
 
+export function getStudentElReportEvidenceCount(report = {}) {
+  const letter = studentLetterEvidence(report);
+  const advanced = studentAdvancedEvidence(report);
+  const benchmark = benchmarkProfileRows(report)
+    .filter(profile => profile.hasSavedEvidence)
+    .reduce((total, profile) => total + Math.max(1, Number(profile.attemptCount || 0)), 0);
+  return letter.evidenceCount + advanced.evidenceCount + benchmark;
+}
+
 function benchmarkProfileSummary(profile = {}) {
   if (!profile.hasSavedEvidence) return "No saved evidence";
   const metrics = profile.metrics || {};
@@ -498,15 +608,39 @@ function buildStudentElSummaryRows(report = {}) {
     const unscored = evidence.unscoredCount ? `; ${evidence.unscoredCount} unscored evidence item(s)` : "";
     return `${scored}${unscored}${evidence.latestDate ? `; latest ${evidence.latestDate}` : ""}`;
   };
-
-  return [
+  const sourceReads = Array.isArray(report.evidenceSourceReads) ? report.evidenceSourceReads : [];
+  const sourceSummary = sourceReads.length
+    ? sourceReads.map(source => `${source.store}: ${source.recordCount} row(s)`).join("; ")
+    : "No evidence-store read metadata";
+  const latestSync = sourceReads.map(source => source.lastSyncedAt).filter(Boolean).sort().at(-1) || "";
+  const contextRows = [
     ["Student Name", report.studentName || "Unknown Student"],
     ["Class Name", report.className || "Unknown Class"],
     ["Report Date", formatDate(report.generatedAt)],
     ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
     ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
     ["EL Assessment Date Range", getElReportDateRange(report)],
+    ["Evidence Stores Read", sourceSummary],
+    ["Evidence Read / Sync Completed", latestSync ? formatExportDateTime(latestSync) : "Sync time unavailable"]
+  ];
+  if (getStudentElReportEvidenceCount(report) === 0) {
+    return [
+      [
+        "Nothing to report",
+        `Nothing to report for ${report.studentName || "this student"} — no saved EL or reconciled Skills Check evidence. Run or save an assessment first.`
+      ],
+      ...contextRows,
+      [
+        "How To Read This Workbook",
+        "No assessment result rows are included because no evidence was saved. Provenance and definitions remain available for audit."
+      ]
+    ];
+  }
+
+  return [
+    ...contextRows.slice(0, 6),
     ["Assessments With Saved Evidence", `${savedAssessmentCount}/6`],
+    ...contextRows.slice(6),
     ["Assessment 1 — Letter Names & Sounds", evidenceSummary(letter, "letter/name/sound response(s)")],
     ["Assessment 2 — Advanced Phonics Patterns", evidenceSummary(advanced, "pattern response(s)")],
     ["Assessment 3 — Phonological Awareness", benchmarkProfileSummary(profileByDomain.get("phonologicalAwareness"))],
@@ -1756,7 +1890,19 @@ function buildElExportProvenanceRows(report = {}, reportType = report.reportType
     timeZone: report.timeZone,
     filters: {
       "EL benchmark scope": report.benchmarkScope?.label || "No benchmark route selected",
-      "Assessment window": report.assessmentWindow || "All included evidence"
+      "Assessment window": report.assessmentWindow || "All included evidence",
+      ...(Array.isArray(report.evidenceSourceReads)
+        ? {
+            "Evidence stores read": report.evidenceSourceReads
+              .map(source => `${source.store} (${source.recordCount} row(s))`)
+              .join("; "),
+            "Latest evidence-store sync": report.evidenceSourceReads
+              .map(source => source.lastSyncedAt)
+              .filter(Boolean)
+              .sort()
+              .at(-1) || "Sync time unavailable"
+          }
+        : {})
     },
     evidenceWindow: elEvidenceWindow(report),
     evidenceSource: report.sourceSnapshot?.records || [],
@@ -1772,6 +1918,21 @@ export async function createStudentElAssessmentWorkbook(report) {
   setColumns(summarySheet, ["Field", "Value"], ["Value"]);
   buildStudentElSummaryRows(report)
     .forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
+  if (getStudentElReportEvidenceCount(report) === 0) {
+    const bannerRow = summarySheet.getRow(2);
+    bannerRow.eachCell(cell => {
+      cell.font = { bold: true, color: { argb: EXPORT_COLORS.navy } };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: EXPORT_COLORS.amberSoft }
+      };
+    });
+    addExportProvenanceWorksheet(workbook, buildElExportProvenanceRows(report, "individual"));
+    addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
+    applyWorkbookPresentation(workbook, EL_EMPTY_STUDENT_REPORT_SHEETS);
+    return workbook;
+  }
 
   const letterSheet = workbook.addWorksheet("Letter Names & Sounds");
   setColumns(letterSheet, [
@@ -2112,6 +2273,17 @@ export async function createClassElAssessmentWorkbook(report) {
 
 export function buildStudentElAssessmentExportReport(options = {}) {
   const assessmentHistory = filterElAssessmentHistory(options.assessmentHistory);
+  const evidenceRead = buildStudentAssessmentEvidenceReadModel({
+    student: (Array.isArray(options.students) ? options.students : [])
+      .find(row => row?.id === options.studentId) || { id: options.studentId },
+    studentId: options.studentId,
+    assessmentHistory: options.assessmentHistory,
+    localAssessmentHistory: options.localAssessmentHistory,
+    cloudAssessmentHistory: options.cloudAssessmentHistory,
+    itemMastery: options.itemMastery,
+    skillMasterySummary: options.skillMasterySummary,
+    evidenceReadState: options.evidenceReadState
+  });
   const report = buildStudentElAssessmentReportData({
     ...options,
     assessmentHistory
@@ -2131,7 +2303,12 @@ export function buildStudentElAssessmentExportReport(options = {}) {
   });
   return {
     ...report,
-    formalAssessments,
+    evidenceSourceReads: evidenceRead.sourceReads,
+    evidenceReadCompletedAt: evidenceRead.completedAt,
+    formalAssessments: mergeSkillsCheckLettersIntoFormalAssessment(
+      formalAssessments,
+      evidenceRead.skillsCheck
+    ),
     benchmarkProfile: formalAssessments.individualBenchmarkProfile || [],
     benchmarkDetails: formalAssessments.individualBenchmarkDetails || []
   };
@@ -2160,6 +2337,26 @@ export function buildClassElAssessmentExportReport(options = {}) {
   };
 }
 
+export function hasResolvedElExportScope(report = {}) {
+  return normalizeElExportScope(report.benchmarkScope).isRouteScoped;
+}
+
+function assertResolvedElExportScope(report = {}) {
+  if (hasResolvedElExportScope(report)) return;
+  const error = new Error("Choose a grade and assessment window before exporting this EL report.");
+  error.code = "EL_EXPORT_SCOPE_REQUIRED";
+  throw error;
+}
+
+function safeElAssessmentFileName(fileName = "", fallback = "el-assessment-report.xlsx") {
+  const cleaned = String(fileName || fallback)
+    .replace(/grade[-_\s]*not[-_\s]*recorded/gi, "scope-required")
+    .replace(/window[-_\s]*not[-_\s]*recorded/gi, "")
+    .replace(/-{2,}/g, "-")
+    .replace(/-+(\.xlsx)$/i, "$1");
+  return cleaned || fallback;
+}
+
 export async function exportStudentElAssessmentExcel(options = {}) {
   const previousReports = await hydrateElAssessmentReports({
     teacherId: options.teacherId || "local",
@@ -2169,8 +2366,9 @@ export async function exportStudentElAssessmentExcel(options = {}) {
     studentId: options.studentId || ""
   });
   const report = buildStudentElAssessmentExportReport({ ...options, previousReports });
+  assertResolvedElExportScope(report);
   const workbook = await createStudentElAssessmentWorkbook(report);
-  await downloadWorkbook(workbook, report.fileName);
+  await downloadWorkbook(workbook, safeElAssessmentFileName(report.fileName));
   report.persistence = await saveElAssessmentReport(report, options);
   return report;
 }
@@ -2193,6 +2391,12 @@ export async function downloadElAssessmentReport(report = {}) {
   const workbook = report.reportType === "individual"
     ? await createStudentElAssessmentWorkbook(report)
     : await createClassElAssessmentWorkbook(report);
-  await downloadWorkbook(workbook, report.fileName || `el-assessment-report-${formatDate(new Date())}.xlsx`);
+  await downloadWorkbook(
+    workbook,
+    safeElAssessmentFileName(
+      report.fileName,
+      `el-assessment-report-${formatDate(new Date())}.xlsx`
+    )
+  );
   return report;
 }

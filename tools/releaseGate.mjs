@@ -169,6 +169,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [7, 8, 10]
   },
   {
+    id: "el-export-consistency",
+    label: "Cross-export skill-spine consistency and explicit zero-evidence handling",
+    command: ["npm", "run", "check:el-export-consistency"],
+    areas: [7, 8, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],

@@ -155,7 +155,34 @@ function elReports() {
     class_id: "snapshot-class"
   }];
   const classes = [{ id: "snapshot-class", name: "Snapshot Class" }];
+  const studentAssessmentHistory = [{
+    attemptId: "snapshot-letter-attempt",
+    assessmentType: "el_letter_assessment",
+    skillId: "el_letter_assessment",
+    skillName: "Letter Name and Sound Recognition",
+    studentId: "snapshot-student",
+    studentName: "Snapshot Student",
+    classId: "snapshot-class",
+    teacherId: "snapshot-teacher",
+    administrationStatus: "completed",
+    completedAt: "2026-07-22T10:05:00.000Z",
+    updatedAt: "2026-07-22T10:05:00.000Z",
+    totalQuestions: 1,
+    correctCount: 1,
+    accuracy: 100,
+    passed: true,
+    questionRecords: [{
+      questionId: "snapshot-uppercase-m-name",
+      itemType: "letter_name",
+      itemKey: "m",
+      targetLetter: "M",
+      responseStatus: "correct",
+      isCorrect: true,
+      timestamp: "2026-07-22T10:04:00.000Z"
+    }]
+  }];
   const student = buildStudentElAssessmentReportData({
+    assessmentHistory: studentAssessmentHistory,
     students,
     classes,
     studentId: "snapshot-student",

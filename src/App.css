@@ -16708,6 +16708,35 @@ select:focus {
   white-space: nowrap;
 }
 
+.student-report-manual-scope {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.student-report-manual-scope label {
+  margin: 0;
+}
+
+.student-report-manual-scope label span {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.empty-el-export-dialog {
+  display: grid;
+  gap: 14px;
+}
+
+.empty-el-export-dialog h2,
+.empty-el-export-dialog p {
+  margin: 0;
+}
+
+.empty-el-export-dialog .button-row {
+  justify-content: flex-end;
+}
+
 .student-report-benchmark-grid {
   display: grid;
   gap: 12px;
@@ -17126,6 +17155,10 @@ select:focus {
 
   .student-report-benchmark-scope-control .report-button {
     width: 100%;
+  }
+
+  .student-report-manual-scope {
+    grid-template-columns: 1fr;
   }
 }
 

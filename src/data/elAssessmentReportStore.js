@@ -693,7 +693,9 @@ export function buildStudentElAssessmentReportData({
     benchmarkDetails: formalAssessments.individualBenchmarkDetails || [],
     exportVersionSummary: buildExportVersionSummary(records),
     ...storedArtifacts,
-    fileName: `el-assessment-student-${slugify(studentName)}-${slugify(resolvedBenchmarkScope.label)}-${formatDate(generatedAt)}.xlsx`,
+    fileName: `el-assessment-student-${slugify(studentName)}-${slugify(
+      resolvedBenchmarkScope.isRouteScoped ? resolvedBenchmarkScope.label : "scope-required"
+    )}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
   };
   const previous = findPreviousReport({

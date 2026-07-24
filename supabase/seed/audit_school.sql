@@ -768,6 +768,105 @@ on conflict (attempt_id) do update set
   payload = excluded.payload,
   updated_at = excluded.updated_at;
 
+-- A Skills Check letter spine without a matching EL administration proves
+-- that Whole Child and the focused EL workbook reconcile the same evidence.
+insert into public.assessment_attempts (
+  attempt_id,
+  student_id,
+  class_id,
+  teacher_id,
+  assessment_type,
+  skill_id,
+  skill_name,
+  skill_level,
+  skill_phase,
+  started_at,
+  completed_at,
+  total_questions,
+  correct_count,
+  accuracy,
+  status,
+  administration_status,
+  schema_version,
+  payload,
+  created_at,
+  updated_at
+)
+values (
+  'audit-bao-letter-spine',
+  '40000000-0000-4000-8000-000000000004',
+  '30000000-0000-4000-8000-000000000001',
+  '10000000-0000-4000-8000-000000000001',
+  'skill_checkpoint',
+  'letter_names_and_sounds',
+  'Letter names and sounds',
+  1,
+  1,
+  '__AUDIT_ANCHOR__'::timestamptz - interval '42 days',
+  '__AUDIT_ANCHOR__'::timestamptz - interval '42 days' + interval '4 minutes',
+  4,
+  3,
+  75,
+  'completed',
+  'completed',
+  1,
+  jsonb_build_object(
+    'attemptId', 'audit-bao-letter-spine',
+    'studentId', '40000000-0000-4000-8000-000000000004',
+    'classId', '30000000-0000-4000-8000-000000000001',
+    'teacherId', '10000000-0000-4000-8000-000000000001',
+    'assessmentType', 'skill_checkpoint',
+    'skillId', 'letter_names_and_sounds',
+    'skillName', 'Letter names and sounds',
+    'administrationStatus', 'completed',
+    'policyVersion', 'audit-seed-v1',
+    'curriculumVersion', 'LP-CURRICULUM-2026.2',
+    'questionRecords', jsonb_build_array(
+      jsonb_build_object(
+        'questionId', 'bao-m-uppercase-name',
+        'itemType', 'letter_name',
+        'itemKey', 'm',
+        'targetLetter', 'M',
+        'responseStatus', 'correct',
+        'isCorrect', true,
+        'timestamp', '__AUDIT_ANCHOR__'::timestamptz - interval '42 days' + interval '1 minute'
+      ),
+      jsonb_build_object(
+        'questionId', 'bao-m-uppercase-sound',
+        'itemType', 'letter_sound',
+        'itemKey', 'm',
+        'targetLetter', 'M',
+        'responseStatus', 'correct',
+        'isCorrect', true,
+        'timestamp', '__AUDIT_ANCHOR__'::timestamptz - interval '42 days' + interval '2 minutes'
+      ),
+      jsonb_build_object(
+        'questionId', 'bao-m-lowercase-name',
+        'itemType', 'letter_name',
+        'itemKey', 'm',
+        'targetLetter', 'm',
+        'responseStatus', 'correct',
+        'isCorrect', true,
+        'timestamp', '__AUDIT_ANCHOR__'::timestamptz - interval '42 days' + interval '3 minutes'
+      ),
+      jsonb_build_object(
+        'questionId', 'bao-m-lowercase-sound',
+        'itemType', 'letter_sound',
+        'itemKey', 'm',
+        'targetLetter', 'm',
+        'responseStatus', 'incorrect',
+        'isCorrect', false,
+        'timestamp', '__AUDIT_ANCHOR__'::timestamptz - interval '42 days' + interval '4 minutes'
+      )
+    )
+  ),
+  '__AUDIT_ANCHOR__'::timestamptz - interval '42 days',
+  '__AUDIT_ANCHOR__'::timestamptz - interval '42 days' + interval '4 minutes'
+)
+on conflict (attempt_id) do update set
+  payload = excluded.payload,
+  updated_at = excluded.updated_at;
+
 insert into public.assessment_attempts (
   attempt_id,
   student_id,

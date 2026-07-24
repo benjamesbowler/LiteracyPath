@@ -1328,7 +1328,18 @@ function itemMasteryRows(itemMastery = {}) {
   });
 }
 
-function legacyItemMasteryEvidence({ itemMastery = {}, studentId = "", coveredConceptIds = new Set() } = {}) {
+function conceptSpineKey(concept = {}) {
+  return [concept.domain, concept.construct, concept.key]
+    .map(normalizeReportingKey)
+    .join("::");
+}
+
+function legacyItemMasteryEvidence({
+  itemMastery = {},
+  studentId = "",
+  coveredConceptIds = new Set(),
+  coveredConceptSpineKeys = new Set()
+} = {}) {
   return itemMasteryRows(itemMastery).flatMap((row, index) => {
     const skillId = normalizeReportingKey(row.skillId);
     if (EL_ASSESSMENT_IDS.has(skillId) || DESCRIPTIVE_EL_IDS.has(skillId)) return [];
@@ -1339,7 +1350,11 @@ function legacyItemMasteryEvidence({ itemMastery = {}, studentId = "", coveredCo
       skillId: row.skillId,
       skillName: row.skillName
     });
-    if (!concept.conceptId || coveredConceptIds.has(concept.conceptId)) return [];
+    if (
+      !concept.conceptId ||
+      coveredConceptIds.has(concept.conceptId) ||
+      coveredConceptSpineKeys.has(conceptSpineKey(concept))
+    ) return [];
     const accuracy = finiteNumber(row.accuracy) ?? (
       attempts > 0 ? Math.round((Number(row.correct || 0) / attempts) * 100) : null
     );
@@ -1370,7 +1385,11 @@ function legacyItemMasteryEvidence({ itemMastery = {}, studentId = "", coveredCo
   });
 }
 
-function countSuppressedItemMasteryRows(itemMastery = {}, coveredConceptIds = new Set()) {
+function countSuppressedItemMasteryRows(
+  itemMastery = {},
+  coveredConceptIds = new Set(),
+  coveredConceptSpineKeys = new Set()
+) {
   return itemMasteryRows(itemMastery).filter(row => {
     const skillId = normalizeReportingKey(row.skillId);
     if (EL_ASSESSMENT_IDS.has(skillId) || DESCRIPTIVE_EL_IDS.has(skillId)) return false;
@@ -1381,7 +1400,12 @@ function countSuppressedItemMasteryRows(itemMastery = {}, coveredConceptIds = ne
       skillId: row.skillId,
       skillName: row.skillName
     });
-    return Boolean(concept.conceptId && coveredConceptIds.has(concept.conceptId));
+    return Boolean(
+      concept.conceptId && (
+        coveredConceptIds.has(concept.conceptId) ||
+        coveredConceptSpineKeys.has(conceptSpineKey(concept))
+      )
+    );
   }).length;
 }
 
@@ -1461,8 +1485,14 @@ export function buildSkillsCheckReportModel({
   });
   const primaryKnowledge = aggregateSkillEvidence(rawEvidence);
   const coveredConceptIds = new Set(rawEvidence.map(row => row.concept.conceptId).filter(Boolean));
+  const coveredConceptSpineKeys = new Set(rawEvidence.map(row => conceptSpineKey(row.concept)).filter(Boolean));
   const coveredSkillIds = new Set(attempts.map(row => normalizeReportingKey(row.skillId)));
-  const legacyItems = legacyItemMasteryEvidence({ itemMastery, studentId: resolvedStudentId, coveredConceptIds });
+  const legacyItems = legacyItemMasteryEvidence({
+    itemMastery,
+    studentId: resolvedStudentId,
+    coveredConceptIds,
+    coveredConceptSpineKeys
+  });
   const legacySkills = legacySkillSummaryEvidence({ skillMasterySummary, studentId: resolvedStudentId, coveredSkillIds });
   const knowledgeEvidence = dedupeReportingEvidence([...primaryKnowledge, ...legacyItems, ...legacySkills]);
   const bySkill = new Map();
@@ -1623,8 +1653,102 @@ export function buildSkillsCheckReportModel({
       canonicalAttemptIds: attempts.map(row => row.attemptId),
       attemptQuestionsAreCanonical: true,
       itemMasteryIsFallbackOnly: true,
-      suppressedItemMasteryConceptCount: countSuppressedItemMasteryRows(itemMastery, coveredConceptIds)
+      suppressedItemMasteryConceptCount: countSuppressedItemMasteryRows(
+        itemMastery,
+        coveredConceptIds,
+        coveredConceptSpineKeys
+      )
     }
+  };
+}
+
+function latestSourceTimestamp(rows = []) {
+  return latestDate(rows.flatMap(row => [
+    row?.updatedAt,
+    row?.updated_at,
+    row?.lastAssessed,
+    row?.completedAt,
+    row?.completed_at
+  ]).filter(Boolean));
+}
+
+function evidenceReadSourceState(evidenceReadState = {}, key = "") {
+  const source = evidenceReadState?.sources?.[key];
+  return source && typeof source === "object" ? source : {};
+}
+
+/**
+ * One read model for every student assessment report. Both the focused EL
+ * workbook and the Whole Child/Skills Check views consume this result so a
+ * store cannot silently exist in one export and disappear from the other.
+ */
+export function buildStudentAssessmentEvidenceReadModel({
+  student = {},
+  studentId = "",
+  assessmentHistory = [],
+  localAssessmentHistory = [],
+  cloudAssessmentHistory = [],
+  itemMastery = {},
+  skillMasterySummary = {},
+  evidenceReadState = {}
+} = {}) {
+  const resolvedStudentId = getStudentId(student, studentId);
+  const canonicalAttempts = getCanonicalStudentAssessmentAttempts({
+    student: { ...student, id: resolvedStudentId },
+    assessmentHistory,
+    localAssessmentHistory,
+    cloudAssessmentHistory
+  });
+  const itemRows = itemMasteryRows(itemMastery);
+  const skillRows = skillSummaryRows(skillMasterySummary);
+  const completedAt = evidenceReadState.completedAt || "";
+  const sourceDefinitions = [
+    {
+      key: "assessmentAttempts",
+      store: "assessment_attempts",
+      purpose: "Canonical completed and in-progress assessment attempts",
+      rows: canonicalAttempts
+    },
+    {
+      key: "itemMastery",
+      store: "item_mastery",
+      purpose: "Legacy item-level fallback when canonical question evidence is absent",
+      rows: itemRows
+    },
+    {
+      key: "skillMastery",
+      store: "mastery",
+      purpose: "Legacy skill-level fallback when canonical attempt evidence is absent",
+      rows: skillRows
+    }
+  ];
+  const sourceReads = sourceDefinitions.map(definition => {
+    const state = evidenceReadSourceState(evidenceReadState, definition.key);
+    return {
+      store: definition.store,
+      purpose: definition.purpose,
+      recordCount: definition.rows.length,
+      latestRecordAt: latestSourceTimestamp(definition.rows),
+      lastSyncedAt: state.lastSyncedAt || completedAt,
+      syncStatus: state.syncStatus || evidenceReadState.syncStatus || (
+        completedAt ? "complete" : "not_recorded"
+      )
+    };
+  });
+  const skillsCheck = buildSkillsCheckReportModel({
+    student: { ...student, id: resolvedStudentId },
+    assessmentHistory: canonicalAttempts,
+    itemMastery,
+    skillMasterySummary
+  });
+
+  return {
+    studentId: resolvedStudentId,
+    canonicalAttempts,
+    skillsCheck,
+    sourceReads,
+    completedAt,
+    latestSyncedAt: latestDate(sourceReads.map(row => row.lastSyncedAt))
   };
 }
 
@@ -2061,7 +2185,8 @@ export function buildStudentReportingWorkspaceModel({
   arcade = {},
   engagement = {},
   expectedConcepts = [],
-  wholeChildConflictWindowDays = 90
+  wholeChildConflictWindowDays = 90,
+  evidenceReadState = {}
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const suppliedStudentId = String(student.id || student.studentId || "");
@@ -2074,12 +2199,16 @@ export function buildStudentReportingWorkspaceModel({
     name: hasConflictingStudentIdentity ? "Student" : getStudentName(student),
     classId: hasConflictingStudentIdentity ? "" : getClassId(student)
   };
-  const canonicalAttempts = getCanonicalStudentAssessmentAttempts({
+  const evidenceRead = buildStudentAssessmentEvidenceReadModel({
     student: requestedStudent,
     assessmentHistory,
     localAssessmentHistory,
-    cloudAssessmentHistory
+    cloudAssessmentHistory,
+    itemMastery,
+    skillMasterySummary,
+    evidenceReadState
   });
+  const canonicalAttempts = evidenceRead.canonicalAttempts;
   const identityHistory = canonicalAttempts.slice().sort((a, b) => (
     finiteTimestamp(b.completedAt || b.updatedAt) - finiteTimestamp(a.completedAt || a.updatedAt)
   ));
@@ -2111,12 +2240,7 @@ export function buildStudentReportingWorkspaceModel({
     guidedReadingRows,
     guidedReadingWordRows
   });
-  const skillsCheck = buildSkillsCheckReportModel({
-    student: resolvedStudent,
-    assessmentHistory: canonicalAttempts,
-    itemMastery,
-    skillMasterySummary
-  });
+  const skillsCheck = evidenceRead.skillsCheck;
   const otherLearning = buildOtherLearningReportModel({
     student: resolvedStudent,
     soundSeekersReport,
@@ -2159,6 +2283,9 @@ export function buildStudentReportingWorkspaceModel({
         flattenRecordCount(cloudAssessmentHistory),
       canonicalAssessmentAttemptCount: canonicalAttempts.length,
       wholeChildEvidenceCount: wholeChildEvidence.length,
+      evidenceReadCompletedAt: evidenceRead.completedAt,
+      evidenceLatestSyncedAt: evidenceRead.latestSyncedAt,
+      sourceReads: evidenceRead.sourceReads,
       sourceReportKeys: [
         elAssessments.reportKey,
         guidedReading.reportKey,

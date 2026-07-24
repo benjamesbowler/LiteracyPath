@@ -1805,6 +1805,11 @@ export default function App() {
   const [studentPreviewStatus, setStudentPreviewStatus] = useState("");
   const [studentReportView, setStudentReportView] = useState("whole-child");
   const [selectedStudentEvidenceReady, setSelectedStudentEvidenceReady] = useState(true);
+  const [selectedStudentEvidenceReadState, setSelectedStudentEvidenceReadState] = useState({
+    completedAt: "",
+    syncStatus: "not_recorded",
+    sources: {}
+  });
 
   // Page changes MORPH instead of cutting. document.startViewTransition
   // snapshots the old frame and cross-fades to the new one (duration set in
@@ -4358,6 +4363,11 @@ export default function App() {
     });
     setNameSaved(true);
     setSelectedStudentEvidenceReady(false);
+    setSelectedStudentEvidenceReadState({
+      completedAt: "",
+      syncStatus: "loading",
+      sources: {}
+    });
     answerInFlightRef.current = false;
     if (elBenchmarkSession?.studentId) {
       saveElBenchmarkDraft({
@@ -4541,6 +4551,25 @@ export default function App() {
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage(`Loaded ${selectedStudentName}.`);
+    const evidenceReadCompletedAt = new Date().toISOString();
+    setSelectedStudentEvidenceReadState({
+      completedAt: evidenceReadCompletedAt,
+      syncStatus: "complete",
+      sources: {
+        assessmentAttempts: {
+          lastSyncedAt: evidenceReadCompletedAt,
+          syncStatus: "complete"
+        },
+        itemMastery: {
+          lastSyncedAt: evidenceReadCompletedAt,
+          syncStatus: "complete"
+        },
+        skillMastery: {
+          lastSyncedAt: evidenceReadCompletedAt,
+          syncStatus: "complete"
+        }
+      }
+    });
     setSelectedStudentEvidenceReady(true);
   }
 
@@ -7811,6 +7840,9 @@ export default function App() {
         classId: selectedClassId || "",
         teacherId: teacherId || "local",
         benchmarkScope,
+        itemMastery,
+        skillMasterySummary: reportSkillMasterySummary,
+        evidenceReadState: selectedStudentEvidenceReadState,
         supabase: isSupabaseConfigured ? supabase : null
       });
       setMessage(report.persistence?.durable === false
@@ -9439,6 +9471,7 @@ export default function App() {
               skillMasterySummary={reportSkillMasterySummary}
               itemMastery={itemMastery}
               assessmentHistory={reportsAssessmentHistory}
+              evidenceReadState={selectedStudentEvidenceReadState}
               allowPassageAudio={allowPassageAudio}
               setAllowPassageAudio={setAllowPassageAudio}
               exportData={exportData}

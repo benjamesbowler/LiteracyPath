@@ -15,9 +15,16 @@ import {
 } from "../utils/exportReportSections.js";
 import { buildStudentWorkspaceCsvRows } from "../utils/exportStudentWorkspaceCsv.js";
 import { buildExportProvenanceRows, resolveExportTimeZone } from "../utils/exportProvenance.js";
+import {
+  EL_EXPORT_GRADE_OPTIONS,
+  EL_EXPORT_WINDOW_OPTIONS,
+  getStudentElExportEntryDecision,
+  normalizeElExportScope
+} from "../utils/elAssessmentExportPolicy.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
 import { MetricFigure } from "./MetricDefinition.jsx";
+import { TeacherDialog } from "./teacher/ui/TeacherDialog.jsx";
 import { StudentReportShell } from "./reports/StudentReportShell.jsx";
 import {
   GuidedReadingReportView,
@@ -121,14 +128,17 @@ function BenchmarkScopeControl({
   activeScope = {},
   exporting = false,
   exportStudentExcel,
+  manualScope = {},
   onChange,
+  onManualChange,
   options = []
 }) {
   const hasRoutes = options.length > 0;
+  const scopeReady = Boolean(activeScope.grade && activeScope.benchmarkWindow);
   return (
     <>
       <p className="student-report-benchmark-scope-line">
-        Benchmark scope: <strong>{activeScope.label || "Grade not recorded · Window not recorded"}</strong>
+        Benchmark scope: <strong>{activeScope.label || "Choose grade and assessment window"}</strong>
       </p>
       <div className="student-report-benchmark-scope-control screen-only">
         <div>
@@ -136,27 +146,56 @@ function BenchmarkScopeControl({
           <small>
             {hasRoutes
               ? "The most recent saved route is selected first. Choose an earlier route to review or export it."
-              : "Complete a benchmark assessment to add a report route."}
+              : "No saved benchmark route can supply this context. Choose both fields before exporting."}
           </small>
         </div>
-        <select
-          aria-label="Benchmark grade and assessment window"
-          disabled={!hasRoutes}
-          id="student-report-benchmark-scope"
-          onChange={event => onChange(event.target.value)}
-          value={hasRoutes ? benchmarkScopeKey(activeScope) : ""}
-        >
-          {!hasRoutes && <option value="">No saved benchmark routes</option>}
-          {options.map((scope, index) => (
-            <option key={benchmarkScopeKey(scope)} value={benchmarkScopeKey(scope)}>
-              {scope.label} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " - most recent" : ""}
-            </option>
-          ))}
-        </select>
+        {hasRoutes ? (
+          <select
+            aria-label="Benchmark grade and assessment window"
+            id="student-report-benchmark-scope"
+            onChange={event => onChange(event.target.value)}
+            value={benchmarkScopeKey(activeScope)}
+          >
+            {options.map((scope, index) => (
+              <option key={benchmarkScopeKey(scope)} value={benchmarkScopeKey(scope)}>
+                {scope.label} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " - most recent" : ""}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <div className="student-report-manual-scope">
+            <label>
+              <span>Grade</span>
+              <select
+                aria-label="EL report grade"
+                onChange={event => onManualChange({ ...manualScope, grade: event.target.value })}
+                value={manualScope.grade || ""}
+              >
+                <option value="">Choose grade</option>
+                {EL_EXPORT_GRADE_OPTIONS.map(option => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <span>Assessment window</span>
+              <select
+                aria-label="EL report assessment window"
+                onChange={event => onManualChange({ ...manualScope, benchmarkWindow: event.target.value })}
+                value={manualScope.benchmarkWindow || ""}
+              >
+                <option value="">Choose window</option>
+                {EL_EXPORT_WINDOW_OPTIONS.map(option => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
         {exportStudentExcel && (
           <button
             className="report-button"
-            disabled={!hasRoutes || exporting}
+            disabled={!scopeReady || exporting}
             onClick={() => exportStudentExcel({
               grade: activeScope.grade,
               benchmarkWindow: activeScope.benchmarkWindow
@@ -724,6 +763,7 @@ export function FinishedReportPage({
   skillMasterySummary = [],
   itemMastery = {},
   assessmentHistory = [],
+  evidenceReadState = {},
   exportStudentExcel,
   exportReadingReport,
   letterAssessment = [],
@@ -754,7 +794,13 @@ export function FinishedReportPage({
   });
   const [guidedReadingRetry, setGuidedReadingRetry] = useState(0);
   const [benchmarkScopeSelection, setBenchmarkScopeSelection] = useState({ owner: "", key: "" });
+  const [manualBenchmarkScope, setManualBenchmarkScope] = useState({
+    owner: "",
+    grade: "",
+    benchmarkWindow: ""
+  });
   const [benchmarkExporting, setBenchmarkExporting] = useState(false);
+  const [emptyElExportScope, setEmptyElExportScope] = useState(null);
   const [actionFeedback, setActionFeedback] = useState(null);
   const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
   const hasCurrentGuidedReadingLoad = guidedReadingLoad.records === guidedReadingRecords
@@ -829,10 +875,14 @@ export function FinishedReportPage({
     records: assessmentHistory
   }), [assessmentHistory]);
   const benchmarkScopeOptions = benchmarkScopeResolution.availableRoutes || [];
+  const activeManualBenchmarkScope = manualBenchmarkScope.owner === progressScopeKey
+    ? manualBenchmarkScope
+    : { grade: "", benchmarkWindow: "" };
+  const normalizedManualBenchmarkScope = normalizeElExportScope(activeManualBenchmarkScope);
   const activeBenchmarkScope = benchmarkScopeOptions.find(scope => (
     benchmarkScopeSelection.owner === progressScopeKey &&
     benchmarkScopeKey(scope) === benchmarkScopeSelection.key
-  )) || benchmarkScopeOptions[0] || benchmarkScopeResolution;
+  )) || benchmarkScopeOptions[0] || normalizedManualBenchmarkScope;
   const elBenchmarkReport = useMemo(() => buildIndividualElFormalAssessmentReport({
     student: {
       id: progressScopeKey || assessmentHistory[0]?.studentId || "",
@@ -843,15 +893,6 @@ export function FinishedReportPage({
     benchmarkScope: activeBenchmarkScope
   }), [activeBenchmarkScope, assessmentHistory, className, progressScopeKey, studentName]);
 
-  async function exportSelectedBenchmarkScope(scope) {
-    if (!exportStudentExcel || benchmarkExporting) return;
-    setBenchmarkExporting(true);
-    try {
-      await exportStudentExcel(scope);
-    } finally {
-      setBenchmarkExporting(false);
-    }
-  }
   const reportingWorkspace = useMemo(() => buildStudentReportingWorkspaceModel({
     student: {
       id: progressScopeKey || assessmentHistory[0]?.studentId || "",
@@ -867,6 +908,7 @@ export function FinishedReportPage({
     guidedReadingWordRows: activeGuidedReadingWordRows,
     itemMastery,
     skillMasterySummary,
+    evidenceReadState,
     storyQuestSummary: storyQuestRows,
     soundSeekersReport,
     arcade: progressAreas.games || {},
@@ -878,6 +920,7 @@ export function FinishedReportPage({
     assessmentHistory,
     className,
     engagementRow,
+    evidenceReadState,
     guidedReadingRecords,
     itemMastery,
     letterAssessment,
@@ -889,6 +932,35 @@ export function FinishedReportPage({
     storyQuestRows,
     studentName
   ]);
+
+  async function exportSelectedBenchmarkScope(scope, { emptyConfirmed = false } = {}) {
+    if (!exportStudentExcel || benchmarkExporting) return;
+    const decision = getStudentElExportEntryDecision({
+      scope,
+      savedElAssessmentCount: reportingWorkspace.elAssessments?.summary?.assessmentsChecked || 0,
+      reconciledEvidenceCount: reportingWorkspace.skillsCheck?.knowledgeEvidence?.filter(row => (
+        row?.concept?.domain === "alphabet_knowledge" &&
+        ["letter_name", "letter_sound"].includes(row?.concept?.construct)
+      )).length || 0,
+      studentName
+    });
+    if (decision.action === "block") {
+      setActionFeedback({ kind: "error", message: decision.message });
+      return false;
+    }
+    if (decision.action === "warn" && !emptyConfirmed) {
+      setEmptyElExportScope(decision);
+      setActionFeedback(null);
+      return false;
+    }
+    setBenchmarkExporting(true);
+    try {
+      await exportStudentExcel(decision.scope);
+      return true;
+    } finally {
+      setBenchmarkExporting(false);
+    }
+  }
 
   const guidedReadingViewModel = useMemo(() => {
     const report = reportingWorkspace.guidedReading;
@@ -965,7 +1037,8 @@ export function FinishedReportPage({
     setActionFeedback({ kind: "pending", message: "Preparing report data..." });
     try {
       if (activeReportView === "el-assessments") {
-        await exportSelectedBenchmarkScope(activeBenchmarkScope);
+        const downloaded = await exportSelectedBenchmarkScope(activeBenchmarkScope);
+        if (!downloaded) return;
       } else if (activeReportView === "guided-reading") {
         await exportReadingReport?.();
       } else {
@@ -1014,7 +1087,14 @@ export function FinishedReportPage({
   }
 
   const exportConfig = activeReportView === "el-assessments"
-    ? { label: benchmarkExporting ? "Preparing EL data..." : "Download EL data", enabled: Boolean(exportStudentExcel) }
+    ? {
+        label: benchmarkExporting
+          ? "Preparing EL data..."
+          : activeBenchmarkScope.isRouteScoped
+            ? "Download EL data"
+            : "Choose report scope",
+        enabled: Boolean(exportStudentExcel && activeBenchmarkScope.isRouteScoped)
+      }
     : activeReportView === "guided-reading"
       ? { label: "Download reading data", enabled: Boolean(exportReadingReport) }
       : activeReportView === "whole-child"
@@ -1041,6 +1121,7 @@ export function FinishedReportPage({
       : null;
 
   return (
+    <>
     <StudentReportShell
       activeView={activeReportView}
       className={formatClassLabel(className)}
@@ -1103,7 +1184,13 @@ export function FinishedReportPage({
               activeScope={activeBenchmarkScope}
               exporting={benchmarkExporting}
               exportStudentExcel={exportStudentExcel ? exportSelectedBenchmarkScope : null}
+              manualScope={activeManualBenchmarkScope}
               onChange={key => setBenchmarkScopeSelection({ owner: progressScopeKey, key })}
+              onManualChange={scope => setManualBenchmarkScope({
+                owner: progressScopeKey,
+                grade: scope.grade || "",
+                benchmarkWindow: scope.benchmarkWindow || ""
+              })}
               options={benchmarkScopeOptions}
             />
             <div className="lg-report-assessment-grid">
@@ -1148,5 +1235,65 @@ export function FinishedReportPage({
         Literacy Guide. Evidence is shown in the report where it was collected. Whole Child combines current knowledge without counting the same evidence twice.
       </footer>
     </StudentReportShell>
+    <TeacherDialog
+      className="modal-backdrop"
+      labelledBy="empty-el-export-title"
+      onClose={() => setEmptyElExportScope(null)}
+      open={Boolean(emptyElExportScope)}
+    >
+      <section className="modal-card empty-el-export-dialog">
+        <h2 id="empty-el-export-title">
+          {emptyElExportScope?.emptyReport
+            ? `Nothing to report for ${studentName || "this student"}`
+            : `No saved EL administrations for ${studentName || "this student"}`}
+        </h2>
+        <p>No saved EL evidence is available. Run or save an assessment first.</p>
+        <p>
+          {emptyElExportScope?.emptyReport
+            ? "If you export anyway, the workbook will contain one clear no-evidence banner, the chosen grade and window, evidence-source details, provenance, and definitions. It will not contain zero-filled assessment rows."
+            : "If you export anyway, the workbook will include the relevant Skills Check letter evidence, its source and sync details, and no zero-filled EL assessment rows."}
+        </p>
+        <div className="button-row">
+          <button
+            className="report-button"
+            disabled={benchmarkExporting}
+            onClick={() => setEmptyElExportScope(null)}
+            type="button"
+          >
+            Go back
+          </button>
+          <button
+            className="lp-button lp-button-primary"
+            data-autofocus
+            disabled={benchmarkExporting}
+            onClick={async () => {
+              const pendingDecision = emptyElExportScope;
+              setEmptyElExportScope(null);
+              try {
+                const downloaded = await exportSelectedBenchmarkScope(
+                  pendingDecision?.scope,
+                  { emptyConfirmed: true }
+                );
+                if (downloaded) {
+                  setActionFeedback({
+                    kind: "success",
+                    message: pendingDecision?.emptyReport
+                      ? "Empty report downloaded with a no-evidence banner."
+                      : "Report downloaded with reconciled Skills Check evidence."
+                  });
+                }
+              } catch (error) {
+                console.error("Empty EL report export failed:", error);
+                setActionFeedback({ kind: "error", message: "The empty report could not be downloaded. Try again." });
+              }
+            }}
+            type="button"
+          >
+            Export anyway
+          </button>
+        </div>
+      </section>
+    </TeacherDialog>
+    </>
   );
 }

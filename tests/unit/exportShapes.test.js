@@ -30,6 +30,7 @@ import {
   createStudentElAssessmentWorkbook,
   EL_ASSESSMENT_TYPE_IDS,
   EL_CLASS_REPORT_SHEETS,
+  EL_EMPTY_STUDENT_REPORT_SHEETS,
   EL_STUDENT_REPORT_SHEETS,
   filterElAssessmentHistory
 } from "../../src/utils/exportElAssessmentExcel.js";
@@ -174,7 +175,7 @@ const UNRELATED_EL_EXPORT_SHEETS = [
   "Progress Comparison"
 ];
 
-test("student EL workbook contains only focused Assessment 1-6 sheets, including for a saved legacy payload", async () => {
+test("empty student EL workbook omits assessment filler sheets and unrelated saved legacy payload data", async () => {
   const report = buildStudentElAssessmentReportData({ assessmentHistory: [], students: [], classes: [] });
   const savedLegacyPayload = {
     ...report,
@@ -186,9 +187,10 @@ test("student EL workbook contains only focused Assessment 1-6 sheets, including
   };
   const workbook = await createStudentElAssessmentWorkbook(savedLegacyPayload);
   const sheetNames = workbook.worksheets.map(sheet => sheet.name);
-  assert.deepEqual(sheetNames, EL_STUDENT_REPORT_SHEETS);
+  assert.deepEqual(sheetNames, EL_EMPTY_STUDENT_REPORT_SHEETS);
   UNRELATED_EL_EXPORT_SHEETS.forEach(name => assert.ok(!sheetNames.includes(name), `${name} must stay outside the student EL workbook`));
   assert.doesNotMatch(workbook.getWorksheet("Student Summary").getColumn(2).values.join(" "), /Must not leak/);
+  assert.match(workbook.getWorksheet("Student Summary").getColumn(2).values.join(" "), /Nothing to report/);
 });
 
 test("class EL workbook contains only focused Assessment 1-6 matrices and details", async () => {

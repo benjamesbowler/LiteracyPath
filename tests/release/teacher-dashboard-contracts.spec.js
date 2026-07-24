@@ -1,4 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
+import ExcelJS from "exceljs";
 import { expect, test } from "@playwright/test";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
@@ -830,6 +831,124 @@ test("@teacher-action-feedback announces clipboard, undo, print, and export stat
   await downloadPromise;
   await expect(reportFeedback).toHaveAttribute("data-feedback-kind", "success");
   await expect(reportFeedback).toContainText("Report data downloaded");
+});
+
+test("@el-empty-export-policy requires scope, warns, and downloads a banner-only workbook", async ({
+  page
+}) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  const roster = page.locator(".teacher-roster-table");
+  const amaraRow = roster.getByRole("row").filter({ hasText: "Amara" });
+  await amaraRow.getByRole("button", { name: "Open learner", exact: true }).click();
+  const learnerDetail = page.getByRole("region", { name: "Learner detail: Amara" });
+  await learnerDetail.getByRole("button", { name: "Review Amara’s progress", exact: true }).click();
+  await page.getByRole("navigation", { name: "Progress tools" })
+    .getByRole("button", { name: "Reports", exact: true })
+    .click();
+  await expect(page.getByRole("button", { name: "Open EL Assessments", exact: true })).toBeEnabled({
+    timeout: 20_000
+  });
+  await page.getByRole("button", { name: "Open EL Assessments", exact: true }).click();
+
+  const benchmarkScopeLine = page.locator(".student-report-benchmark-scope-line");
+  await expect(benchmarkScopeLine).toContainText(
+    "Choose grade and assessment window"
+  );
+  await expect(page.getByRole("button", { name: "Export This Route", exact: true })).toBeDisabled();
+  await page.getByLabel("EL report grade").selectOption("K");
+  await page.getByLabel("EL report assessment window").selectOption("BOY");
+  await expect(benchmarkScopeLine).toContainText(
+    "Kindergarten · Beginning of year"
+  );
+
+  await page.getByRole("button", { name: "Download EL data", exact: true }).click();
+  const warning = page.getByRole("dialog", { name: "Nothing to report for Amara" });
+  await expect(warning).toBeVisible();
+  await expect(warning).toContainText(/No saved EL evidence/i);
+  await expect(warning).toContainText("It will not contain zero-filled assessment rows.");
+
+  const downloadPromise = page.waitForEvent("download");
+  await warning.getByRole("button", { name: "Export anyway", exact: true }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/kindergarten-boy.*\.xlsx$/i);
+  expect(download.suggestedFilename()).not.toMatch(/not[-_\s]*recorded/i);
+
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.readFile(await download.path());
+  expect(workbook.worksheets.map(sheet => sheet.name)).toEqual([
+    "Student Summary",
+    "Report Provenance",
+    "Metric Definitions"
+  ]);
+  const summary = workbook.getWorksheet("Student Summary");
+  expect(summary.getCell("A2").value).toBe("Nothing to report");
+  expect(String(summary.getCell("B2").value)).toContain("Nothing to report for Amara");
+  expect(workbook.getWorksheet("Letter Names & Sounds")).toBeUndefined();
+  expect(workbook.getWorksheet("Advanced Phonics Patterns")).toBeUndefined();
+});
+
+test("@el-export-consistency reconciles seeded Skills Check letters into both reachable exports", async ({
+  page
+}) => {
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+
+  const roster = page.locator(".teacher-roster-table");
+  const baoRow = roster.getByRole("row").filter({ hasText: "Bao" });
+  await baoRow.getByRole("button", { name: "Open learner", exact: true }).click();
+  const learnerDetail = page.getByRole("region", { name: "Learner detail: Bao" });
+  await learnerDetail.getByRole("button", { name: "Review Bao’s progress", exact: true }).click();
+  await page.getByRole("navigation", { name: "Progress tools" })
+    .getByRole("button", { name: "Reports", exact: true })
+    .click();
+  await expect(page.getByRole("button", { name: "Open Whole Child", exact: true })).toBeEnabled({
+    timeout: 20_000
+  });
+  await page.getByRole("button", { name: "Open Whole Child", exact: true }).click();
+
+  const csvDownloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download knowledge data", exact: true }).click();
+  const wholeChildCsv = await readDownloadText(await csvDownloadPromise);
+  expect(wholeChildCsv).toContain("Uppercase M: letter name");
+  expect(wholeChildCsv).toContain("Lowercase M: letter sound");
+  expect(wholeChildCsv).toContain("Skills Check");
+  expect(wholeChildCsv).toMatch(/"Uppercase M: letter name","Secure"/);
+  expect(wholeChildCsv).toMatch(/"Lowercase M: letter sound","Needs teaching"/);
+  expect(wholeChildCsv).not.toMatch(/"M: letter (?:name|sound)"/);
+
+  await page.getByRole("link", { name: /EL Assessments/ }).click();
+  await page.getByLabel("EL report grade").selectOption("K");
+  await page.getByLabel("EL report assessment window").selectOption("BOY");
+  await page.getByRole("button", { name: "Download EL data", exact: true }).click();
+  const warning = page.getByRole("dialog", { name: "No saved EL administrations for Bao" });
+  await expect(warning).toContainText("relevant Skills Check letter evidence");
+
+  const workbookDownloadPromise = page.waitForEvent("download");
+  await warning.getByRole("button", { name: "Export anyway", exact: true }).click();
+  const workbookDownload = await workbookDownloadPromise;
+  expect(workbookDownload.suggestedFilename()).not.toMatch(/not[-_\s]*recorded/i);
+
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.readFile(await workbookDownload.path());
+  const letterSheet = workbook.getWorksheet("Letter Names & Sounds");
+  expect(letterSheet).toBeDefined();
+  const headers = letterSheet.getRow(1).values.slice(1);
+  let letterM = null;
+  letterSheet.eachRow((row, rowNumber) => {
+    if (rowNumber === 1 || row.getCell(1).value !== "M/m") return;
+    const values = row.values.slice(1);
+    letterM = Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]));
+  });
+  expect(letterM).not.toBeNull();
+  expect(letterM["Uppercase name result"]).toBe("Mastered");
+  expect(letterM["Lowercase sound result"]).toBe("Needs Support");
+  expect(letterM["Uppercase name evidence provenance"]).toContain("Source: Skills Check");
+
+  const summaryValues = workbook.getWorksheet("Student Summary").getColumn(2).values.join(" ");
+  expect(summaryValues).toContain("assessment_attempts:");
+  expect(summaryValues).toMatch(/Evidence Read|2026-/);
 });
 
 test("@teacher-metric-definitions exposes complete definitions on every core figure and in exports", async ({
