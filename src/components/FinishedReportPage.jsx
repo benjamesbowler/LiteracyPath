@@ -1086,14 +1086,15 @@ export function FinishedReportPage({
     });
   }
 
+  const hasResolvedBenchmarkExportScope = normalizeElExportScope(activeBenchmarkScope).isRouteScoped;
   const exportConfig = activeReportView === "el-assessments"
     ? {
         label: benchmarkExporting
           ? "Preparing EL data..."
-          : activeBenchmarkScope.isRouteScoped
+          : hasResolvedBenchmarkExportScope
             ? "Download EL data"
             : "Choose report scope",
-        enabled: Boolean(exportStudentExcel && activeBenchmarkScope.isRouteScoped)
+        enabled: Boolean(exportStudentExcel && hasResolvedBenchmarkExportScope)
       }
     : activeReportView === "guided-reading"
       ? { label: "Download reading data", enabled: Boolean(exportReadingReport) }
