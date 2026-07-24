@@ -14,6 +14,7 @@ import {
   collectStudentEngagementAreas
 } from "../utils/exportReportSections.js";
 import { buildStudentWorkspaceCsvRows } from "../utils/exportStudentWorkspaceCsv.js";
+import { buildExportProvenanceRows, resolveExportTimeZone } from "../utils/exportProvenance.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
 import { MetricFigure } from "./MetricDefinition.jsx";
@@ -911,11 +912,45 @@ export function FinishedReportPage({
       storyQuestRows
     });
   }, [progressAreas, reportingWorkspace.otherLearning, soundSeekersReport, storyQuestRows]);
-  const generatedDate = new Date().toLocaleDateString(undefined, {
+  const reportGeneratedAt = reportingWorkspace.generatedAt;
+  const reportTimeZone = resolveExportTimeZone();
+  const generatedDate = new Date(reportGeneratedAt).toLocaleDateString(undefined, {
     month: "short",
     day: "numeric",
     year: "numeric"
   });
+  const reportEvidenceSource = useMemo(() => [
+    ...assessmentHistory,
+    ...activeGuidedReadingReportRows,
+    ...storyQuestRows
+  ], [activeGuidedReadingReportRows, assessmentHistory, storyQuestRows]);
+  const reportProvenanceRows = useMemo(() => buildExportProvenanceRows({
+    reportTitle: `Student ${activeReportView} report`,
+    className,
+    learnerName: studentName,
+    learnerId: progressScopeKey || assessmentHistory[0]?.studentId || "",
+    learnerCount: 1,
+    generatedAt: reportGeneratedAt,
+    timeZone: reportTimeZone,
+    filters: {
+      "Report view": activeReportView,
+      ...(activeReportView === "el-assessments"
+        ? { "EL benchmark scope": activeBenchmarkScope?.label || "No benchmark route selected" }
+        : {})
+    },
+    evidenceSource: reportEvidenceSource,
+    definitions: "Accuracy, mastery, status, and evidence terms are defined in the report sections where they appear."
+  }), [
+    activeBenchmarkScope?.label,
+    activeReportView,
+    assessmentHistory,
+    className,
+    progressScopeKey,
+    reportEvidenceSource,
+    reportGeneratedAt,
+    reportTimeZone,
+    studentName
+  ]);
 
   const changeReportView = useCallback(viewId => {
     setReportSelection({
@@ -934,7 +969,15 @@ export function FinishedReportPage({
       } else if (activeReportView === "guided-reading") {
         await exportReadingReport?.();
       } else {
-        const rows = buildStudentWorkspaceCsvRows(activeReportView, reportingWorkspace);
+        const rows = buildStudentWorkspaceCsvRows(activeReportView, reportingWorkspace, {
+          className,
+          learnerName: studentName,
+          learnerId: progressScopeKey || assessmentHistory[0]?.studentId || "",
+          generatedAt: reportGeneratedAt,
+          timeZone: reportTimeZone,
+          filters: { "Report view": activeReportView },
+          evidenceSource: reportEvidenceSource
+        });
         const date = new Date().toISOString().slice(0, 10);
         const downloaded = downloadReportRows(
           rows,
@@ -1009,6 +1052,7 @@ export function FinishedReportPage({
       onPrint={printActiveReport}
       onStartAssessment={assessmentAction?.handler}
       onViewChange={changeReportView}
+      provenanceRows={reportProvenanceRows}
       startAssessmentLabel={assessmentAction?.label}
       feedback={actionFeedback}
       statusMessage={reportStatusMessage}

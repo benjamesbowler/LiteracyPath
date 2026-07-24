@@ -15,6 +15,11 @@ import {
   addMetricDefinitionsWorksheet,
   METRIC_DEFINITIONS_SHEET_NAME
 } from "./metricDefinitions.js";
+import {
+  addExportProvenanceWorksheet,
+  buildExportProvenanceRows,
+  REPORT_PROVENANCE_SHEET_NAME
+} from "./exportProvenance.js";
 
 // EL workbooks are intentionally limited to Assessments 1-6. Other learning
 // areas have their own reports and must not leak into these exports.
@@ -37,6 +42,7 @@ export const EL_STUDENT_REPORT_SHEETS = [
   "Letter Names & Sounds",
   "Advanced Phonics Patterns",
   ...EL_STUDENT_BENCHMARK_SHEETS,
+  REPORT_PROVENANCE_SHEET_NAME,
   METRIC_DEFINITIONS_SHEET_NAME
 ];
 
@@ -47,6 +53,7 @@ export const EL_CLASS_REPORT_SHEETS = [
   "Advanced Phonics Patterns",
   "Pattern Detail",
   ...EL_CLASS_BENCHMARK_SHEETS,
+  REPORT_PROVENANCE_SHEET_NAME,
   METRIC_DEFINITIONS_SHEET_NAME
 ];
 
@@ -1726,6 +1733,38 @@ async function downloadWorkbook(workbook, fileName) {
   URL.revokeObjectURL(url);
 }
 
+function elEvidenceWindow(report = {}) {
+  const start = report.dateRange?.start || "";
+  const end = report.dateRange?.end || "";
+  if (start && end) return start === end ? start : `${start} to ${end}`;
+  return report.assessmentWindow || "";
+}
+
+function buildElExportProvenanceRows(report = {}, reportType = report.reportType) {
+  const isIndividual = reportType === "individual";
+  const learnerCount = isIndividual ? 1 : (
+    report.summary?.totalStudents || report.studentRows?.length || null
+  );
+  return buildExportProvenanceRows({
+    reportTitle: isIndividual ? "Student EL Assessment Report" : "Class EL Assessment Report",
+    schoolName: report.schoolName,
+    className: report.className,
+    learnerName: isIndividual ? report.studentName : "",
+    learnerId: isIndividual ? report.studentId : "",
+    learnerCount,
+    generatedAt: report.generatedAt,
+    timeZone: report.timeZone,
+    filters: {
+      "EL benchmark scope": report.benchmarkScope?.label || "No benchmark route selected",
+      "Assessment window": report.assessmentWindow || "All included evidence"
+    },
+    evidenceWindow: elEvidenceWindow(report),
+    evidenceSource: report.sourceSnapshot?.records || [],
+    versionSummary: report.exportVersionSummary,
+    definitions: `Definitions are included in the ${METRIC_DEFINITIONS_SHEET_NAME} sheet.`
+  });
+}
+
 export async function createStudentElAssessmentWorkbook(report) {
   const workbook = await createWorkbook(report?.generatedAt);
 
@@ -1856,6 +1895,7 @@ export async function createStudentElAssessmentWorkbook(report) {
   });
 
   addStudentBenchmarkSheets(workbook, report);
+  addExportProvenanceWorksheet(workbook, buildElExportProvenanceRows(report, "individual"));
   addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_STUDENT_REPORT_SHEETS);
@@ -2063,6 +2103,7 @@ export async function createClassElAssessmentWorkbook(report) {
   });
 
   addClassBenchmarkSheets(workbook, report);
+  addExportProvenanceWorksheet(workbook, buildElExportProvenanceRows(report, "whole_class"));
   addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_CLASS_REPORT_SHEETS);

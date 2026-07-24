@@ -898,6 +898,75 @@ test("@teacher-metric-definitions exposes complete definitions on every core fig
   }
 });
 
+test("@report-export-provenance keeps the complete provenance snapshot in reachable PDF and CSV surfaces", async ({
+  page
+}) => {
+  const requiredFields = [
+    "Report",
+    "School / organisation",
+    "Class",
+    "Learner",
+    "Learner ID",
+    "Learner ID policy",
+    "Generated at",
+    "Time zone",
+    "Filters",
+    "Evidence window",
+    "App version(s)",
+    "Assessment version(s)",
+    "Content version(s)",
+    "Policy version(s)",
+    "Definitions",
+    "Privacy classification"
+  ];
+  const readRenderedSnapshot = async locator => locator.locator("dl > div").evaluateAll(rows => (
+    rows.map(row => ({
+      field: row.querySelector("dt")?.textContent?.trim() || "",
+      value: row.querySelector("dd")?.textContent?.trim() || ""
+    }))
+  ));
+
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  await selectAuditClass(page);
+  await openAaravReports(page);
+
+  await page.getByRole("button", { name: "Class Report", exact: true }).click();
+  const classProvenance = page
+    .getByRole("region", { name: "Class Report" })
+    .getByRole("region", { name: "Report provenance" });
+  await expect(classProvenance).toBeVisible();
+  const classSnapshot = await readRenderedSnapshot(classProvenance);
+  expect(classSnapshot.map(row => row.field)).toEqual(requiredFields);
+  expect(classSnapshot.every(row => row.value.length > 0)).toBe(true);
+  expect(classSnapshot.find(row => row.field === "Filters")?.value).toContain("Audit Class A");
+  expect(classSnapshot.find(row => row.field === "Privacy classification")?.value).toBe(
+    "CONFIDENTIAL — student educational record — authorised school staff only"
+  );
+
+  await page.getByRole("button", { name: "Student Report", exact: true }).click();
+  await page.getByRole("button", { name: "Open Skills Check", exact: true }).click();
+  const studentProvenance = page.getByRole("region", { name: "Report provenance" });
+  await expect(studentProvenance).toBeVisible({ timeout: 20_000 });
+  const studentSnapshot = await readRenderedSnapshot(studentProvenance);
+  expect(studentSnapshot.map(row => row.field)).toEqual(requiredFields);
+  expect(studentSnapshot.find(row => row.field === "Learner")?.value).toBe("Aarav");
+  expect(studentSnapshot.find(row => row.field === "Class")?.value).toBe("Audit Class A");
+  expect(studentSnapshot.find(row => row.field === "Generated at")?.value).toMatch(
+    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/
+  );
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download Skills Check data", exact: true }).click();
+  const csv = await readDownloadText(await downloadPromise);
+  for (const field of requiredFields) {
+    expect(csv).toContain(`"${field}"`);
+  }
+  expect(csv).toContain('"Report provenance"');
+  expect(csv).toContain('"CONFIDENTIAL — student educational record — authorised school staff only"');
+  expect(csv).toMatch(/"Content version\(s\)","(?:content-|\d+ distinct exact versions; complete-set FNV-1a checksum)/);
+  expect(csv).toMatch(/"Policy version\(s\)","(?!No versioned)[^"]+"/);
+});
+
 test("@teacher-persistent-context drills through groups and three learners without swapping the student session", async ({ page }) => {
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);

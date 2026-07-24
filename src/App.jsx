@@ -842,30 +842,14 @@ function AssessmentErrorBoundary({ children, resetKey, returnToStudentOverview, 
   );
 }
 
-function formatExportValue(value) {
-  if (Array.isArray(value)) {
-    return value.map(formatExportValue).filter(Boolean).join(" | ");
-  }
-
-  if (value && typeof value === "object") {
-    if (value.word) return formatExportValue(value.word);
-    if (value.label) return formatExportValue(value.label);
-    if (value.text) return formatExportValue(value.text);
-    return JSON.stringify(value);
-  }
-
-  return String(value ?? "");
-}
-
-function buildQuestionExportText(item = {}) {
-  const passage = formatExportValue(item.passage);
-  const question = formatExportValue(item.question || item.prompt);
-  return [passage, question].filter(Boolean).join(" ");
-}
-
 async function createExcelWorkbook() {
   const metricDefinitions = await importWithRetry(() => import("./utils/metricDefinitions.js"));
   return metricDefinitions.createDefinedExcelWorkbook(importWithRetry);
+}
+
+async function addWorkbookExportProvenance(workbook, preset, context) {
+  const provenance = await importWithRetry(() => import("./utils/exportProvenance.js"));
+  return provenance.addPresetExportProvenanceWorksheet(workbook, preset, context);
 }
 
 function downloadBlob(blob, filename) {
@@ -6907,55 +6891,6 @@ export default function App() {
     return question.skill || "general skill";
   }
 
-  function summarizeTargets(records) {
-    const targetStats = {};
-
-    records.forEach(record => {
-      const target =
-        record.diagnosticTarget || "general";
-
-      if (!targetStats[target]) {
-        targetStats[target] = {
-          correct: 0,
-          total: 0
-        };
-      }
-
-      targetStats[target].total += 1;
-
-      if (record.isCorrect) {
-        targetStats[target].correct += 1;
-      }
-    });
-
-    const secure = [];
-    const developing = [];
-    const needsPractice = [];
-
-    Object.entries(targetStats).forEach(([target, stats]) => {
-      const accuracy =
-        stats.correct / stats.total;
-
-      const label =
-        `${target} (${stats.correct}/${stats.total})`;
-
-      if (stats.total >= 2 && accuracy >= 0.9) {
-        secure.push(label);
-      } else if (accuracy >= 0.6) {
-        developing.push(label);
-      } else {
-        needsPractice.push(label);
-      }
-    });
-
-    return {
-      secure,
-      developing,
-      needsPractice
-    };
-  }
-
-
   const letterItems = letterAssessmentOrder.map(letter => ({
     display: letter,
     type: letter === letter.toUpperCase() ? "uppercase" : "lowercase"
@@ -7431,8 +7366,9 @@ export default function App() {
 
   async function exportLetterAssessment() {
     try {
+      const generatedAt = new Date();
       const today =
-        new Date().toISOString().slice(0, 10);
+        generatedAt.toISOString().slice(0, 10);
 
       const safeName =
         (studentName || "Unnamed student")
@@ -7627,6 +7563,14 @@ export default function App() {
 
     worksheet.views = [{ state: "frozen", ySplit: 10 }];
 
+    await addWorkbookExportProvenance(workbook, "letter", {
+      className: classList.find(row => row.id === selectedClassId)?.name || "",
+      learnerName: studentName || "Unnamed student",
+      learnerId: studentId,
+      generatedAt,
+      evidenceSource: letterAssessment
+    });
+
     const workbookBuffer =
       await workbook.xlsx.writeBuffer();
 
@@ -7644,8 +7588,9 @@ export default function App() {
 
   async function exportPatternAssessment() {
     try {
+      const generatedAt = new Date();
       const today =
-        new Date().toISOString().slice(0, 10);
+        generatedAt.toISOString().slice(0, 10);
 
       const safeName =
         (studentName || "Unnamed student")
@@ -7805,6 +7750,14 @@ export default function App() {
 
     worksheet.views = [{ state: "frozen", ySplit: 10 }];
 
+    await addWorkbookExportProvenance(workbook, "pattern", {
+      className: classList.find(row => row.id === selectedClassId)?.name || "",
+      learnerName: studentName || "Unnamed student",
+      learnerId: studentId,
+      generatedAt,
+      evidenceSource: patternAssessment
+    });
+
     const workbookBuffer =
       await workbook.xlsx.writeBuffer();
 
@@ -7822,77 +7775,17 @@ export default function App() {
 
 
   async function exportCSVData() {
-    const today =
-      new Date().toISOString().slice(0, 10);
-
-    const safeName =
-      (studentName || "Unnamed student")
-        .replace(/[^a-z0-9]/gi, "_")
-        .toLowerCase();
-
-    const rows = [
-      [
-        "Date",
-        "Student",
-        "Skill",
-        "Coverage Level 1",
-        "Coverage Level 2",
-        "Coverage Total",
-        "Diagnostic Target",
-        "Question",
-        "Student Answer",
-        "Correct Answer",
-        "Result"
-      ]
-    ];
-    const formatCoveragePart = part =>
-      part?.total ? `${part.mastered || 0}/${part.total}` : "";
-    const getCoverageForExport = item => {
-      const skillId = item.skillId || skillTree.find(stage => stage.label === (item.stage || item.skill))?.id || "";
-      const coverage = coverageSnapshot?.[skillId] || {};
-      return {
-        level1: formatCoveragePart(coverage.level1),
-        level2: formatCoveragePart(coverage.level2),
-        total: coverage.total ? `${coverage.mastered || 0}/${coverage.total}` : ""
-      };
-    };
-
-    answerHistory.forEach(item => {
-      const coverage = getCoverageForExport(item);
-      rows.push([
-        formatExportValue(item.date),
-        studentName || "Unnamed student",
-        formatExportValue(item.stage || item.skill),
-        coverage.level1,
-        coverage.level2,
-        coverage.total,
-        formatExportValue(item.diagnosticTarget),
-        buildQuestionExportText(item),
-        formatExportValue(item.chosen),
-        formatExportValue(item.correct),
-        item.isCorrect ? "Correct" : "Incorrect"
-      ]);
+    const { exportStudentAnswerHistoryCsv } = await importWithRetry(() => (
+      import("./utils/exportStudentAnswerHistoryCsv.js")
+    ));
+    return exportStudentAnswerHistoryCsv({
+      answerHistory,
+      className: classList.find(row => row.id === selectedClassId)?.name || "",
+      coverageSnapshot,
+      skillTree,
+      studentId,
+      studentName
     });
-
-    const metricDefinitions = await importWithRetry(() => import("./utils/metricDefinitions.js"));
-    rows.push(...metricDefinitions.buildMetricDefinitionCsvRows());
-
-    const csv =
-      rows
-        .map(row =>
-          row
-            .map(cell =>
-              `"${String(cell).replace(/"/g, '""')}"`
-            )
-            .join(",")
-        )
-        .join("\n");
-
-    const blob = new Blob([csv], {
-      type: "text/csv"
-    });
-
-    downloadBlob(blob, `${safeName}_reading_data_${today}.csv`);
   }
 
   async function exportStudentAssessmentWorkbook(benchmarkScope = null) {
@@ -7946,9 +7839,10 @@ export default function App() {
       const studentLabel = studentName || "Student";
       const filenameDate = formatExportDateForFilename(new Date());
       const filename = `${safeExportFilename(studentLabel)} - ${filenameDate} - Reading Report.xlsx`;
+      const generatedAt = new Date();
 
       workbook.creator = "Literacy Guide";
-      workbook.created = new Date();
+      workbook.created = generatedAt;
 
       const summarySheet = workbook.addWorksheet("Summary");
       summarySheet.columns = [
@@ -8132,6 +8026,14 @@ export default function App() {
           fgColor: { argb: "FFEFF6FF" }
         };
         sheet.views = [{ state: "frozen", ySplit: 1 }];
+      });
+
+      await addWorkbookExportProvenance(workbook, "guided-reading", {
+        className: classList.find(row => row.id === selectedClassId)?.name || "",
+        learnerName: studentLabel,
+        learnerId: studentId,
+        generatedAt,
+        evidenceSource: guidedReadingRecords
       });
 
       const buffer = await workbook.xlsx.writeBuffer();
@@ -8361,122 +8263,30 @@ export default function App() {
 
 
   async function exportData() {
-    const today =
-      new Date().toISOString().slice(0, 10);
-
-    const safeName =
-      (studentName || "Unnamed student")
-        .replace(/[^a-z0-9]/gi, "_")
-        .toLowerCase();
-
-    function summarizeSkill(stage) {
-      const records =
-        answerHistory.filter(item =>
-          item.stage === stage.label
-        );
-
-      const data =
-        mastery[stage.id];
-
-      if (records.length === 0 && !data) {
-        return `${stage.label}: Not yet reached or tested.`;
-      }
-
-      if (records.length === 0) {
-        return `${stage.label}: Started, but no individual question data has been recorded yet.`;
-      }
-
-      const correct =
-        records.filter(r => r.isCorrect).length;
-
-      const summary =
-        summarizeTargets(records);
-
-      let note =
-        `${stage.label}: ${correct}/${records.length} correct. `;
-
-      if (data?.mastered) {
-        note += `Status: checkpoint passed. `;
-      } else if (stage.id === currentStage.id) {
-        note += `Status: current working skill. `;
-      } else {
-        note += `Status: attempted, checkpoint not yet passed. `;
-      }
-
-      note += `\nSecure: ${
-        summary.secure.length
-          ? summary.secure.join(", ")
-          : "No secure subskills recorded yet."
-      }`;
-
-      note += `\nDeveloping: ${
-        summary.developing.length
-          ? summary.developing.join(", ")
-          : "No developing subskills recorded yet."
-      }`;
-
-      note += `\nNeeds practice: ${
-        summary.needsPractice.length
-          ? summary.needsPractice.join(", ")
-          : "No specific needs recorded yet."
-      }`;
-
-      return note;
-    }
-
+    const generatedAt = new Date();
     const { summarizeGuidedReadingRecords } = await loadGuidedReadingBooksModule();
-    const { buildMetricDefinitionsText } = await importWithRetry(() => import("./utils/metricDefinitions.js"));
-    const guidedReadingSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
-    const metricDefinitionsText = buildMetricDefinitionsText();
-
-    const reportText = `
-Reading Mastery Report
-
-Student: ${studentName || "Unnamed student"}
-Date: ${today}
-
-Overall Summary
-Questions answered: ${totalAnswered}
-Correct answers: ${correctAnswered}
-Accuracy: ${accuracy}%
-
-Current Position
-Current skill: ${currentSkillIndex + 1}. ${currentStage.label}
-Current round score: ${roundCorrect}/${ROUND_LENGTH}
-Checkpoint rule: ${PASS_SCORE}/${ROUND_LENGTH} correct to unlock the next skill.
-
-Guided Reading
-
-${guidedReadingSummaries.length
-  ? guidedReadingSummaries.map(item =>
-      `${item.title} (${item.type}, Level ${item.level}): ${item.correct}/${item.attempted} words read correctly (${item.accuracy}%). Support words: ${item.supportWords.length ? item.supportWords.join(", ") : "none"}. Notes: ${[item.wholeBookNote, ...item.pageNotes.map(note => `Page ${note.page}: ${note.note}`)].filter(Boolean).join(" | ") || "none"}`
-    ).join("\n")
-  : "No guided reading records saved yet."}
-
-Teacher Notes by Skill
-
-${skillTree.map(stage => summarizeSkill(stage)).join("\n\n")}
-
-Recent Question Evidence
-
-${answerHistory.slice(-30).map((item, index) => {
-  return `${index + 1}. Skill: ${item.stage}
-Question: ${buildQuestionExportText(item)}
-Student answered: ${formatExportValue(item.chosen)}
-Correct answer: ${formatExportValue(item.correct)}
-Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
-}).join("\n\n")}
-
-Metric Definitions
-
-${metricDefinitionsText}
-`.trim();
-
-    const blob = new Blob([reportText], {
-      type: "text/plain"
+    const { exportReadingMasteryText } = await importWithRetry(() => (
+      import("./utils/exportReadingMasteryText.js")
+    ));
+    return exportReadingMasteryText({
+      accuracy,
+      answerHistory,
+      className: classList.find(row => row.id === selectedClassId)?.name || "",
+      correctAnswered,
+      currentSkillIndex,
+      currentStage,
+      generatedAt,
+      guidedReadingRecords,
+      guidedReadingSummaries: summarizeGuidedReadingRecords(guidedReadingRecords),
+      mastery,
+      passScore: PASS_SCORE,
+      roundCorrect,
+      roundLength: ROUND_LENGTH,
+      skillTree,
+      studentId,
+      studentName,
+      totalAnswered
     });
-
-    downloadBlob(blob, `${safeName}_reading_mastery_report_${today}.txt`);
   }
 
   function resetStudent() {

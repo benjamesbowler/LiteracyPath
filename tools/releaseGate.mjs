@@ -163,6 +163,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [7, 8, 10]
   },
   {
+    id: "report-export-provenance",
+    label: "Complete PDF, Excel, and CSV provenance snapshots",
+    command: ["npm", "run", "check:report-export-provenance"],
+    areas: [7, 8, 10]
+  },
+  {
     id: "audit-school-live",
     label: "Audit school Auth, fixtures, and RLS isolation",
     command: ["npm", "run", "check:audit-school-live"],

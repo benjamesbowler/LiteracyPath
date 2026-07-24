@@ -893,9 +893,11 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
   const mostUrgentFocus = focusRows[0]?.skill || weakItems[0]?.skillName || weakPoints[0]?.skillName || "No class focus yet";
 
   return {
+    classId,
     className,
     teacherName,
     generatedAt: new Date().toISOString(),
+    provenanceEvidence: records,
     snapshot: {
       totalStudents: classStudents.length,
       assessedStudents: assessedStudentCount,

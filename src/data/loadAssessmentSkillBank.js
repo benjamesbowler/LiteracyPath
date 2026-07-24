@@ -71,7 +71,6 @@ const ASSESSMENT_SKILL_GROUPS = [
     ]
   }
 ];
-
 const SKILL_ALIASES = {
   long_vowels: "long_vowels_silent_e",
   r_controlled: "r_controlled_vowels",
@@ -136,28 +135,6 @@ const AUTHORED_COMPREHENSION_BANKS = new Set([
   "qbAssess_cause_effect",
   "qbAssess_sequencing"
 ]);
-
-function hasQuestionImage(question = {}) {
-  return Boolean(
-    question.imagePath ||
-    question.imageUrl ||
-    question.targetImage ||
-    question.targetImagePath ||
-    question.targetImageUrl ||
-    question.image
-  );
-}
-
-function isGrammarSentenceFitRuntimeQuestion(question = {}) {
-  const format = String(question.formatType || question.templateType || "").toUpperCase();
-  const answerOptions = Array.isArray(question.answerOptions) ? question.answerOptions : [];
-  return (
-    format === "GRAMMAR_SENTENCE_FIT" &&
-    question.questionType === "ixl_template" &&
-    hasQuestionImage(question) &&
-    answerOptions.length === 4
-  );
-}
 
 // Hand-written expansion banks, imported lazily per assessment skill family so
 // the first question of a skill only downloads that family's banks (~kB scale)
@@ -369,7 +346,7 @@ const EXPANSION_BANK_LOADERS = [
 const dynamicBankCache = new Map();
 const skillBankCache = new Map();
 
-function normalizeSkillId(value = "") {
+function normalizeSkillId(value) {
   const normalized = String(value || "")
     .toLowerCase()
     .replace(/&/g, "and")
@@ -378,12 +355,12 @@ function normalizeSkillId(value = "") {
   return SKILL_ALIASES[normalized] || normalized;
 }
 
-function runtimeSkillIdFor(skillId = "") {
+function runtimeSkillIdFor(skillId) {
   const normalized = normalizeSkillId(skillId);
   return RUNTIME_SKILL_IDS[normalized] || normalized;
 }
 
-function groupForSkill(skillId = "") {
+function groupForSkill(skillId) {
   const normalized = normalizeSkillId(skillId);
   return ASSESSMENT_SKILL_GROUPS.find(group => group.skillIds.includes(normalized)) || null;
 }
@@ -559,9 +536,8 @@ function dedupeQuestions(questions = []) {
   });
 }
 
-export function getAssessmentSkillGroup(skillId = "") {
-  const group = groupForSkill(skillId);
-  return group?.id || null;
+export function getAssessmentSkillGroup(skillId) {
+  return groupForSkill(skillId)?.id || null;
 }
 
 export function getAssessmentSkillGroupMetadata() {
@@ -571,48 +547,48 @@ export function getAssessmentSkillGroupMetadata() {
   }));
 }
 
-export function getAssessmentSkillIdsForGroup(groupId = "") {
+export function getAssessmentSkillIdsForGroup(groupId) {
   return ASSESSMENT_SKILL_GROUPS.find(group => group.id === groupId)?.skillIds.slice() || [];
 }
 
-export async function loadAssessmentSkillBank(skillId = "") {
+export async function loadAssessmentSkillBank(skillId) {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (skillBankCache.has(normalizedSkillId)) return skillBankCache.get(normalizedSkillId);
 
   const allAssessmentQuestions = dedupeQuestions(await loadQuestionBanksForSkill(normalizedSkillId));
   const runtimeSkillId = runtimeSkillIdFor(normalizedSkillId);
-  const questions = allAssessmentQuestions.filter(question =>
-    (
+  const questions = allAssessmentQuestions.filter(question => {
+    const questionSkillId = normalizeSkillId(question.skillId);
+    return (
       question.assessmentSkillId === normalizedSkillId ||
-      normalizeSkillId(question.skillId) === normalizedSkillId ||
-      normalizeSkillId(question.skillId) === runtimeSkillId
-    ) &&
-    getRuntimeSourceIssues(question).length === 0
-  );
+      questionSkillId === normalizedSkillId ||
+      questionSkillId === runtimeSkillId
+    ) && getRuntimeSourceIssues(question).length === 0;
+  });
+  let eligibleQuestions = questions;
   if (GRAMMAR_SENTENCE_FIT_SKILLS.has(normalizedSkillId)) {
-    const filtered = questions.filter(isGrammarSentenceFitRuntimeQuestion);
-    skillBankCache.set(normalizedSkillId, filtered);
-    return filtered;
+    const { isGrammarSentenceFitRuntimeQuestion } = await import("./grammarSentenceFitRuntime.js");
+    eligibleQuestions = questions.filter(isGrammarSentenceFitRuntimeQuestion);
   }
-  skillBankCache.set(normalizedSkillId, questions);
-  return questions;
+  skillBankCache.set(normalizedSkillId, eligibleQuestions);
+  return eligibleQuestions;
 }
 
-export function preloadAssessmentSkillBank(skillId = "") {
-  void loadAssessmentSkillBank(skillId);
+export function preloadAssessmentSkillBank(skillId) {
+  loadAssessmentSkillBank(skillId);
 }
 
 export async function loadAssessmentBanksForSkills(skillIds = []) {
-  const banks = await Promise.all(skillIds.map(skillId => loadAssessmentSkillBank(skillId)));
+  const banks = await Promise.all(skillIds.map(loadAssessmentSkillBank));
   return dedupeQuestions(banks.flat());
 }
 
-export async function loadHfwAssessmentBank(skillId = "") {
+export async function loadHfwAssessmentBank(skillId) {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (getAssessmentSkillGroup(normalizedSkillId) !== "hfw") return [];
-  const questions = await loadAssessmentSkillBank(normalizedSkillId);
   const { isRuntimeEligibleHfwQuestion } = await import("./hfwRuntimeEligibility.js");
-  return questions.filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
+  return (await loadAssessmentSkillBank(normalizedSkillId))
+    .filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
 }
 
 export function getActiveAssessmentSkillIds() {

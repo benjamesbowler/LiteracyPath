@@ -10,6 +10,11 @@ import {
   addMetricDefinitionsWorksheet,
   METRIC_DEFINITIONS_SHEET_NAME
 } from "./metricDefinitions.js";
+import {
+  addExportProvenanceWorksheet,
+  buildExportProvenanceRows,
+  REPORT_PROVENANCE_SHEET_NAME
+} from "./exportProvenance.js";
 
 export const GUIDED_READING_COMPLETION_SHEETS = {
   reportInfo: REPORT_INFO_SHEET_NAME,
@@ -17,6 +22,7 @@ export const GUIDED_READING_COMPLETION_SHEETS = {
   studentCompletion: "Student Completion",
   booksCompleted: "Books Completed",
   studentSummary: "Student Summary",
+  provenance: REPORT_PROVENANCE_SHEET_NAME,
   definitions: METRIC_DEFINITIONS_SHEET_NAME
 };
 
@@ -313,10 +319,26 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
       { field: "Guided Reading Sessions", value: rows.reduce((sum, row) => sum + row.readCount, 0) }
     ]
   });
+  const provenanceRows = buildExportProvenanceRows({
+    reportTitle: "Guided Reading Completion",
+    schoolName: options.schoolName,
+    classNames,
+    learnerCount: students.length || new Set(rows.map(row => row.studentId)).size,
+    generatedAt: exportDate,
+    timeZone: options.timeZone,
+    filters: options.filters || "Included roster and all available Guided Reading completion records",
+    evidenceSource: rows.map(row => ({
+      completedAt: row.rawCompletedAt,
+      observedAt: row.rawLastReadAt
+    })),
+    appVersion: options.appVersion,
+    definitions: `Definitions are included in the ${METRIC_DEFINITIONS_SHEET_NAME} sheet.`
+  });
 
   return {
     generatedAt: exportDate.toISOString(),
     reportInfoRows,
+    provenanceRows,
     summaryRows,
     studentCompletionRows: rows,
     booksCompletedRows: Array.from(booksById.values()).map(row => ({
@@ -470,6 +492,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Recent Book": ""
   });
 
+  addExportProvenanceWorksheet(workbook, data.provenanceRows);
   addMetricDefinitionsWorksheet(workbook, { generatedAt: data.generatedAt });
   workbook.worksheets.forEach(styleWorksheet);
   return { workbook, data };

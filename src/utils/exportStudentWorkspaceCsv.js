@@ -1,4 +1,5 @@
 import { buildMetricDefinitionRows } from "./metricDefinitions.js";
+import { buildExportProvenanceRows } from "./exportProvenance.js";
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
@@ -156,7 +157,7 @@ function otherLearningRows(workspace = {}) {
   ];
 }
 
-export function buildStudentWorkspaceCsvRows(viewId, workspace = {}) {
+export function buildStudentWorkspaceCsvRows(viewId, workspace = {}, options = {}) {
   const reportRows = viewId === "whole-child"
     ? wholeChildRows(workspace)
     : viewId === "skills-check"
@@ -170,5 +171,25 @@ export function buildStudentWorkspaceCsvRows(viewId, workspace = {}) {
     "Row type": "Metric definition",
     ...row
   }));
-  return [...reportRows, ...definitionRows];
+  const provenanceRows = buildExportProvenanceRows({
+    reportTitle: options.reportTitle || `Student ${viewId} report`,
+    schoolName: options.schoolName,
+    className: options.className,
+    learnerName: options.learnerName || workspace.student?.name,
+    learnerId: options.learnerId || workspace.student?.id,
+    learnerCount: 1,
+    generatedAt: options.generatedAt || workspace.generatedAt,
+    timeZone: options.timeZone,
+    filters: options.filters || { "Report view": viewId },
+    evidenceSource: options.evidenceSource || workspace.skillsCheck?.attempts || [],
+    versionSummary: options.versionSummary,
+    appVersion: options.appVersion,
+    definitions: "Metric definition rows are included in this CSV file."
+  }).map(row => ({
+    "Section": "Report provenance",
+    "Row type": "Provenance",
+    "Field": row.field,
+    "Value": row.value
+  }));
+  return [...provenanceRows, ...reportRows, ...definitionRows];
 }

@@ -73,7 +73,15 @@ const adoptions = [
   },
   {
     file: "src/App.jsx",
-    tokens: ["createDefinedExcelWorkbook", "buildMetricDefinitionCsvRows", "buildMetricDefinitionsText"]
+    tokens: ["createDefinedExcelWorkbook"]
+  },
+  {
+    file: "src/utils/exportStudentAnswerHistoryCsv.js",
+    tokens: ["buildMetricDefinitionCsvRows"]
+  },
+  {
+    file: "src/utils/exportReadingMasteryText.js",
+    tokens: ["buildMetricDefinitionsText"]
   }
 ];
 

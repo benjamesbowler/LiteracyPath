@@ -19,6 +19,7 @@ export function StudentReportShell({
   onExport,
   onPrint,
   onStartAssessment,
+  provenanceRows = [],
   startAssessmentLabel = "Start assessment",
   onViewChange,
   statusMessage = "",
@@ -132,6 +133,20 @@ export function StudentReportShell({
             feedback={feedback || statusMessage}
           />
           {children}
+          {provenanceRows.length > 0 && (
+            <section className="lg-report-provenance" aria-label="Report provenance">
+              <h2>Report provenance</h2>
+              <p>Use this block to identify the exact scope, evidence, versions, and privacy handling of this report.</p>
+              <dl>
+                {provenanceRows.map(row => (
+                  <div key={row.field}>
+                    <dt>{row.field}</dt>
+                    <dd>{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
         </main>
       </div>
     </div>

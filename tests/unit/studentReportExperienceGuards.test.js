@@ -35,5 +35,8 @@ test("report actions stay specific to their evidence area", () => {
       }]
     }
   });
-  assert.equal(rows[0].Status, "Descriptive evidence (not a mastery rating)");
+  const descriptiveAssessment = rows.find(
+    row => row["Row type"] === "Descriptive assessment summary"
+  );
+  assert.equal(descriptiveAssessment?.Status, "Descriptive evidence (not a mastery rating)");
 });

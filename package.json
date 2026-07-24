@@ -138,6 +138,7 @@
     "check:teacher-instructional-groups": "node --test tests/unit/teacherInstructionalGroups.test.js && npm run test:release-teacher -- --grep @teacher-instructional-groups && node tools/verifyTeacherInstructionalGroupsBackend.mjs",
     "check:teacher-insight-actions": "node --test tests/unit/teacherInsightActions.test.js && npm run test:release-teacher -- --grep @teacher-insight-actions && node tools/verifyTeacherInsightActionsBackend.mjs",
     "check:immutable-assessment-evidence": "node --test tests/unit/assessmentEvidenceReplay.test.js tests/unit/assessmentHistoryRichPersistence.test.js && node tools/verifyAssessmentEvidenceArchive.mjs",
+    "check:report-export-provenance": "node --test tests/unit/reportExportProvenance.test.js && npm run test:release-teacher -- --grep @report-export-provenance && npm run check:export-compatibility",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",
     "check:teacher-roster-device-matrix": "playwright test tests/release/teacher-roster-device-matrix.spec.js --project=desktop",

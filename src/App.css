@@ -10299,6 +10299,45 @@ select:focus {
   text-align: center;
 }
 
+.formal-class-report-provenance dl,
+.formal-class-report-provenance dd {
+  margin: 0;
+}
+
+.formal-class-report-provenance h3 {
+  margin: 0 0 12px;
+  color: #1e293b;
+  font-size: 18px;
+}
+
+.formal-class-report-provenance dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid #cbd5e1;
+}
+
+.formal-class-report-provenance dl > div {
+  min-width: 0;
+  padding: 9px 11px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.formal-class-report-provenance dt {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.formal-class-report-provenance dd {
+  margin-top: 3px;
+  color: #1e293b;
+  font-size: 11px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .formal-class-report-empty,
 .formal-class-report-note {
   background: #ffffff;

@@ -2289,6 +2289,17 @@ export function TeacherReportsPage({
       teacherName
     }),
   [students, classList, filteredAssessmentHistory, effectiveSelectedClassId, teacherName]);
+  const classReportProvenanceOptions = useMemo(() => ({
+    filters: {
+      Class: classReportingModel.className,
+      "Assessment period": {
+        last30: "Last 30 days",
+        last90: "Last 90 days",
+        schoolYear: "This school year",
+        all: "All time"
+      }[dateRange] || dateRange
+    }
+  }), [classReportingModel, dateRange]);
   const getClassOptionLabel = cls => cls.name || cls.className || cls.class_name || "Class";
 
   useEffect(() => {
@@ -2461,7 +2472,10 @@ export function TeacherReportsPage({
             />
           </Suspense>
           <Suspense fallback={<div className="teacher-action-panel">Loading class report...</div>}>
-            <FormalClassReportDocument model={classReportingModel} />
+            <FormalClassReportDocument
+              model={classReportingModel}
+              provenanceOptions={classReportProvenanceOptions}
+            />
           </Suspense>
         </section>
       )}

@@ -15,6 +15,7 @@ import {
   getSkillArea,
   normalizeItemMasteryRows
 } from "./reportingSystem.js";
+import { buildExportVersionSummary } from "../utils/exportProvenance.js";
 
 const STORAGE_PREFIX = "lpElAssessmentReports:v1";
 const LOCAL_REPORT_CACHE_MAX_COUNT = 12;
@@ -690,6 +691,7 @@ export function buildStudentElAssessmentReportData({
     formalAssessments,
     benchmarkProfile: formalAssessments.individualBenchmarkProfile || [],
     benchmarkDetails: formalAssessments.individualBenchmarkDetails || [],
+    exportVersionSummary: buildExportVersionSummary(records),
     ...storedArtifacts,
     fileName: `el-assessment-student-${slugify(studentName)}-${slugify(resolvedBenchmarkScope.label)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
@@ -922,6 +924,7 @@ export function buildClassElAssessmentReportData({
     benchmarkMatrix: formalAssessments.classBenchmarkMatrix || [],
     benchmarkDomainSummaries: formalAssessments.classBenchmarkDomainSummaries || [],
     benchmarkDetails: formalAssessments.classBenchmarkDetails || [],
+    exportVersionSummary: buildExportVersionSummary(records),
     classWeakPointRows: buildStoredClassWeakPointRows(records, classStudents),
     weeklyAccuracyRows: buildStoredClassWeeklyRows(records),
     fileName: `el-assessment-class-${slugify(className)}-${slugify(resolvedBenchmarkScope.label)}-${formatDate(generatedAt)}.xlsx`,
