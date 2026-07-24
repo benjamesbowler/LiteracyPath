@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T21:00:36.317Z",
+  "startedAt": "2026-07-24T20:51:53.821Z",
+  "finishedAt": "2026-07-24T21:00:36.317Z",
+  "commitSha": "cb01e5bee19b61a3ce7bb64b4214a96632b4b209",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21109,
+      "startedAt": "2026-07-24T20:51:53.929Z",
+      "finishedAt": "2026-07-24T20:52:15.038Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6500,
+      "startedAt": "2026-07-24T20:52:15.038Z",
+      "finishedAt": "2026-07-24T20:52:21.538Z",
+      "counts": {
+        "tests": 1172,
+        "passed": 1172,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 16796,
+      "startedAt": "2026-07-24T20:52:21.538Z",
+      "finishedAt": "2026-07-24T20:52:38.334Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "smoke",
+      "label": "Reachable-product smoke tests",
+      "areas": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "command": "npm run test:smoke",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 12142,
+      "startedAt": "2026-07-24T20:52:38.334Z",
+      "finishedAt": "2026-07-24T20:52:50.476Z",
+      "counts": {
+        "passed": 12
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/smoke.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-home-hierarchy",
+      "label": "One policy-led student-home recommendation, two secondary choices, and disclosed exploration",
+      "areas": [
+        2,
+        4,
+        10
+      ],
+      "command": "npm run check:student-home-hierarchy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1902,
+      "startedAt": "2026-07-24T20:52:50.476Z",
+      "finishedAt": "2026-07-24T20:52:52.378Z",
+      "counts": {
+        "tests": 12,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/student-home-hierarchy.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-home-continuation",
+      "label": "Specific student-home continuation with a progress-derived remaining goal",
+      "areas": [
+        2,
+        4,
+        10
+      ],
+      "command": "npm run check:student-home-continuation",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1685,
+      "startedAt": "2026-07-24T20:52:52.378Z",
+      "finishedAt": "2026-07-24T20:52:54.064Z",
+      "counts": {
+        "tests": 12,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/student-home-continuation.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-daily-mission",
+      "label": "Main-hierarchy daily mission with durable per-step celebration and next-step routing",
+      "areas": [
+        2,
+        4,
+        10
+      ],
+      "command": "npm run check:student-daily-mission",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2188,
+      "startedAt": "2026-07-24T20:52:54.064Z",
+      "finishedAt": "2026-07-24T20:52:56.252Z",
+      "counts": {
+        "tests": 16,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/student-daily-mission.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-home-card-states",
+      "label": "Child-safe student-home New, Continue, Teacher picked, and progress states",
+      "areas": [
+        2,
+        4,
+        10
+      ],
+      "command": "npm run check:student-home-card-states",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1991,
+      "startedAt": "2026-07-24T20:52:56.252Z",
+      "finishedAt": "2026-07-24T20:52:58.243Z",
+      "counts": {
+        "tests": 12,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/student-home-card-states.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-rail-accessibility",
+      "label": "Named and spoken child navigation with teacher-owned reduced-choice persistence",
+      "areas": [
+        2,
+        3,
+        4,
+        8,
+        10
+      ],
+      "command": "npm run check:student-rail-accessibility",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2414,
+      "startedAt": "2026-07-24T20:52:58.243Z",
+      "finishedAt": "2026-07-24T20:53:00.657Z",
+      "counts": {
+        "tests": 38,
+        "passed": 2,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/student-rail-accessibility.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-login-recovery",
+      "label": "Illustrated and spoken student-login recovery with preserved class code",
+      "areas": [
+        2,
+        3,
+        4,
+        8,
+        10
+      ],
+      "command": "npm run check:student-login-recovery",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2623,
+      "startedAt": "2026-07-24T20:53:00.657Z",
+      "finishedAt": "2026-07-24T20:53:03.280Z",
+      "counts": {
+        "tests": 4,
+        "passed": 3,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/student-login-recovery.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-login-panel",
+      "label": "Focused class-code panel with subordinate teacher escape and visual example",
+      "areas": [
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:student-login-panel",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2128,
+      "startedAt": "2026-07-24T20:53:03.280Z",
+      "finishedAt": "2026-07-24T20:53:05.408Z",
+      "counts": {
+        "passed": 2
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/student-login-panel.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "guided-reading-control-hierarchy",
+      "label": "Primary Read Page action with status-only progress and grouped reader view controls",
+      "areas": [
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:guided-reading-control-hierarchy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3168,
+      "startedAt": "2026-07-24T20:53:05.408Z",
+      "finishedAt": "2026-07-24T20:53:08.576Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/guided-reading-control-hierarchy.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "guided-reading-measure",
+      "label": "Level-specific Guided Reading line length, line focus, and image/text templates",
+      "areas": [
+        1,
+        3,
+        10
+      ],
+      "command": "npm run check:guided-reading-measure",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 16229,
+      "startedAt": "2026-07-24T20:53:08.576Z",
+      "finishedAt": "2026-07-24T20:53:24.805Z",
+      "counts": {
+        "tests": 4,
+        "passed": 3,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/guided-reading-measure.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "locked-item-affordance",
+      "label": "Visible and spoken locked-item currency cost, shortfall, and disabled-state contrast",
+      "areas": [
+        3,
+        10
+      ],
+      "command": "npm run check:locked-item-affordance",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3414,
+      "startedAt": "2026-07-24T20:53:24.805Z",
+      "finishedAt": "2026-07-24T20:53:28.219Z",
+      "counts": {
+        "tests": 3,
+        "passed": 2,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/locked-item-affordance.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "sound-racer-tutorial",
+      "label": "Current-target Sound Racer tutorial with recorded example audio and separate steering help",
+      "areas": [
+        2,
+        4,
+        10
+      ],
+      "command": "npm run check:sound-racer-tutorial",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3456,
+      "startedAt": "2026-07-24T20:53:28.219Z",
+      "finishedAt": "2026-07-24T20:53:31.675Z",
+      "counts": {
+        "tests": 17,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/sound-racer-tutorial.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "fullscreen-overlay-semantics",
+      "label": "Active-surface names and modal semantics across every fullscreen quest and game overlay",
+      "areas": [
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:fullscreen-overlay-semantics",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 46863,
+      "startedAt": "2026-07-24T20:53:31.675Z",
+      "finishedAt": "2026-07-24T20:54:18.538Z",
+      "counts": {
+        "tests": 3,
+        "passed": 4,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/fullscreen-overlay-semantics.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "child-surface-rules",
+      "label": "Five-region child-surface contract with exactly one primary action on every student route",
+      "areas": [
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:child-surface-rules",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 9073,
+      "startedAt": "2026-07-24T20:54:18.538Z",
+      "finishedAt": "2026-07-24T20:54:27.611Z",
+      "counts": {
+        "tests": 2,
+        "passed": 9,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/child-surface-rules.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "key-route-visuals",
+      "label": "Desktop and phone visual baselines plus delayed child-route placeholders",
+      "areas": [
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:key-route-visuals",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 20546,
+      "startedAt": "2026-07-24T20:54:27.611Z",
+      "finishedAt": "2026-07-24T20:54:48.157Z",
+      "counts": {
+        "passed": 15
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/key-route-visuals.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "a11y-routes",
+      "label": "All-route accessibility",
+      "areas": [
+        3,
+        10
+      ],
+      "command": "npm run check:a11y-routes",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 52124,
+      "startedAt": "2026-07-24T20:54:48.157Z",
+      "finishedAt": "2026-07-24T20:55:40.281Z",
+      "counts": {
+        "tests": 2,
+        "passed": 48,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/a11y-routes.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "learner-accessibility-settings",
+      "label": "Persisted per-learner accessibility settings and runtime effects",
+      "areas": [
+        3,
+        8,
+        10
+      ],
+      "command": "npm run check:learner-accessibility-settings",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 4803,
+      "startedAt": "2026-07-24T20:55:40.281Z",
+      "finishedAt": "2026-07-24T20:55:45.084Z",
+      "counts": {
+        "tests": 5,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/learner-accessibility-settings.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "overlay-contrast-focus",
+      "label": "Game-overlay contrast, disabled-state legibility, and visible keyboard focus",
+      "areas": [
+        3,
+        10
+      ],
+      "command": "npm run check:overlay-contrast-focus",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 214362,
+      "startedAt": "2026-07-24T20:55:45.084Z",
+      "finishedAt": "2026-07-24T20:59:19.446Z",
+      "counts": {
+        "passed": 4
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/overlay-contrast-focus.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "device-matrix",
+      "label": "Student device matrix",
+      "areas": [
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:device-matrix",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 76871,
+      "startedAt": "2026-07-24T20:59:19.446Z",
+      "finishedAt": "2026-07-24T21:00:36.317Z",
+      "counts": {
+        "tests": 3,
+        "passed": 12,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T20-51-53-821Z/device-matrix.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}
