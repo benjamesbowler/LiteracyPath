@@ -150,6 +150,7 @@
     "check:student-rail-accessibility": "node --test tests/unit/studentRailPolicy.test.js tests/unit/progressMerge.test.js && playwright test tests/release/student-rail-accessibility.spec.js --project=desktop",
     "check:student-login-recovery": "node --test tests/unit/studentLoginRecovery.test.js tests/unit/studentLoginPolicy.test.js && playwright test tests/release/student-login-recovery.spec.js --project=desktop",
     "check:student-login-panel": "playwright test tests/release/student-login-panel.spec.js --project=desktop",
+    "check:guided-reading-control-hierarchy": "playwright test tests/release/guided-reading-control-hierarchy.spec.js --project=desktop",
     "check:report-audience-templates": "node --test tests/unit/reportAudienceTemplates.test.js && playwright test tests/release/report-audience-templates.spec.js --project=desktop",
     "check:teacher-onboarding": "npm run test:release-teacher -- --grep @teacher-onboarding",
     "check:teacher-roster-scale": "npm run test:release-teacher -- --grep @teacher-roster-scale",

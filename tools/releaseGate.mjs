@@ -101,6 +101,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 10]
   },
   {
+    id: "guided-reading-control-hierarchy",
+    label: "Primary Read Page action with status-only progress and grouped reader view controls",
+    command: ["npm", "run", "check:guided-reading-control-hierarchy"],
+    areas: [2, 3, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],

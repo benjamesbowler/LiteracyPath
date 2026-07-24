@@ -1819,48 +1819,45 @@ export function GuidedReadingPage({
                 )}
               </div>
               <div className="guided-page-controls">
-                {isReaderFullscreen && (
+                <div className="guided-read-aloud-controls" role="group" aria-label="Read aloud controls">
                   <button
-                    className="lp-button lp-button-secondary"
-                    disabled={pageIndex === 0}
-                    onClick={goToPreviousPage}
+                    className={[
+                      "lp-button lp-button-primary guided-read-page-primary",
+                      isPageAudioPlaying ? "active audio-feedback-playing" : "",
+                      isReadAloudLoading && !isWholeBookReading ? "audio-feedback-loading" : ""
+                    ].filter(Boolean).join(" ")}
+                    data-control-priority="primary"
+                    disabled={!currentPageAudioPath || isWholeBookReading || isReadAloudLoading}
+                    onClick={togglePageAudio}
                     type="button"
                   >
-                    Previous
+                    {isReadAloudLoading && !isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
+                    {isReadAloudLoading && !isWholeBookReading ? "Loading Page" : isPageAudioPlaying ? "Stop Reading" : "Read Page"}
                   </button>
-                )}
-                <button
-                  className={[
-                    "lp-button lp-button-secondary",
-                    isPageAudioPlaying ? "active audio-feedback-playing" : "",
-                    isReadAloudLoading && !isWholeBookReading ? "audio-feedback-loading" : ""
-                  ].filter(Boolean).join(" ")}
-                  disabled={!currentPageAudioPath || isWholeBookReading || isReadAloudLoading}
-                  onClick={togglePageAudio}
-                  type="button"
-                >
-                  {isReadAloudLoading && !isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
-                  {isReadAloudLoading && !isWholeBookReading ? "Loading Page" : isPageAudioPlaying ? "Stop Reading" : "Read Page"}
-                </button>
-                <button
-                  className={[
-                    "lp-button lp-button-secondary",
-                    isWholeBookReading ? "active audio-feedback-playing" : "",
-                    isReadAloudLoading && isWholeBookReading ? "audio-feedback-loading" : ""
-                  ].filter(Boolean).join(" ")}
-                  disabled={!canReadWholeBook || (isReadAloudLoading && !isWholeBookReading)}
-                  onClick={isWholeBookReading ? stopPageAudio : startWholeBookReadAloud}
-                  type="button"
-                >
-                  {isReadAloudLoading && isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
-                  {isReadAloudLoading && isWholeBookReading ? "Loading Book" : isWholeBookReading ? "Stop Book" : "Read Whole Book"}
-                </button>
-                {!isReaderFullscreen && (isPageAudioPlaying || isWholeBookReading) && (
-                  <button className="lp-button lp-button-secondary" onClick={toggleReadAloudPause} type="button">
-                    {isReadAloudPaused ? "Resume" : "Pause"}
+                  <button
+                    className={[
+                      "lp-button lp-button-secondary",
+                      isWholeBookReading ? "active audio-feedback-playing" : "",
+                      isReadAloudLoading && isWholeBookReading ? "audio-feedback-loading" : ""
+                    ].filter(Boolean).join(" ")}
+                    disabled={!canReadWholeBook || (isReadAloudLoading && !isWholeBookReading)}
+                    onClick={isWholeBookReading ? stopPageAudio : startWholeBookReadAloud}
+                    type="button"
+                  >
+                    {isReadAloudLoading && isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
+                    {isReadAloudLoading && isWholeBookReading ? "Loading Book" : isWholeBookReading ? "Stop Book" : "Read Whole Book"}
                   </button>
+                  {!isReaderFullscreen && (isPageAudioPlaying || isWholeBookReading) && (
+                    <button className="lp-button lp-button-secondary" onClick={toggleReadAloudPause} type="button">
+                      {isReadAloudPaused ? "Resume" : "Pause"}
+                    </button>
+                  )}
+                </div>
+                {!isReaderFullscreen && (
+                  <p className="guided-page-status" role="status" aria-live="polite" aria-label="Reading progress">
+                    Page {pageIndex + 1} of {selectedBook.pages.length}
+                  </p>
                 )}
-                {!isReaderFullscreen && <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>}
                 {!isReaderFullscreen && !isStudentMode && (
                   <label className="guided-auto-advance-toggle">
                     <input
@@ -1871,34 +1868,46 @@ export function GuidedReadingPage({
                     Auto-advance
                   </label>
                 )}
-                {!isStudentMode && !isReaderFullscreen && (
-                  <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
-                    Teacher Notes
-                  </button>
-                )}
                 {isReaderFullscreen && (
-                  <button
-                    className="lp-button lp-button-primary"
-                    disabled={pageIndex >= selectedBook.pages.length - 1}
-                    onClick={goToNextPage}
-                    type="button"
-                  >
-                    Next
-                  </button>
+                  <div className="guided-page-pagination" role="group" aria-label="Page navigation">
+                    <button
+                      className="lp-button lp-button-secondary"
+                      disabled={pageIndex === 0}
+                      onClick={goToPreviousPage}
+                      type="button"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      className="lp-button lp-button-primary"
+                      disabled={pageIndex >= selectedBook.pages.length - 1}
+                      onClick={goToNextPage}
+                      type="button"
+                    >
+                      Next
+                    </button>
+                  </div>
                 )}
-                <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
-                  {isReaderFullscreen ? "Exit" : "Full Screen"}
-                </button>
-                {!isReaderFullscreen && (
-                  <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
-                    {isStudentMode ? "Back to Library" : "Close Reader"}
+                <div className="guided-reader-secondary-controls" role="group" aria-label="Reader view controls">
+                  {!isStudentMode && !isReaderFullscreen && (
+                    <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
+                      Teacher Notes
+                    </button>
+                  )}
+                  <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
+                    {isReaderFullscreen ? "Exit" : "Full Screen"}
                   </button>
-                )}
+                  {!isReaderFullscreen && (
+                    <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
+                      {isStudentMode ? "Back to Library" : "Close Reader"}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 
             {isReaderFullscreen && (
-              <p className="guided-fullscreen-info">
+              <p className="guided-fullscreen-info guided-page-status" role="status" aria-live="polite" aria-label="Reading progress">
                 Page {pageIndex + 1} of {selectedBook.pages.length}
               </p>
             )}
