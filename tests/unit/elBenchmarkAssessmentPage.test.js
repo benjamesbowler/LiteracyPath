@@ -207,6 +207,118 @@ test("D-006 keeps progress, Save & exit, and Finish in the sticky action bar wit
   );
 });
 
+test("D-005 gives every benchmark item a large task heading and exact teacher directive", () => {
+  const routes = [
+    ["K", "BOY"],
+    ["K", "MOY"],
+    ["K", "EOY"],
+    ["1", "BOY"],
+    ["1", "MOY"],
+    ["1", "EOY"],
+    ["2", "BOY"],
+    ["2", "MOY"],
+    ["2", "EOY"]
+  ];
+  const paItemsByTask = new Map();
+  routes.forEach(([grade, window]) => {
+    const plan = getElBenchmarkPlan({
+      assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+      formId: "form-a-v2",
+      grade,
+      window
+    });
+    plan.items.forEach((item, index) => {
+      const taskKey = `${item.strand}:${item.task}`;
+      if (!paItemsByTask.has(taskKey)) paItemsByTask.set(taskKey, { grade, index, item, window });
+    });
+  });
+  assert.ok(paItemsByTask.size >= 9, "Expected directive coverage across the PA strand/task catalog");
+
+  const representativeSessions = [
+    ...Array.from(paItemsByTask.values()).map(({ grade, index, window }) => makeSession(
+      EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+      { currentItemIndex: index, grade, startMicrophase: undefined, window }
+    )),
+    makeSession(EL_BENCHMARK_IDS.ENCODING, {
+      grade: "K",
+      startMicrophase: undefined,
+      window: "BOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.DECODING, {
+      grade: "1",
+      startMicrophase: "early_partial",
+      window: "BOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+      grade: "2",
+      startMicrophase: "middle_full",
+      window: "BOY"
+    })
+  ];
+
+  representativeSessions.forEach(session => {
+    const html = renderAssessment(session);
+    const instruction = html.match(/<section class="el-benchmark-item-instruction" aria-label="Teacher instruction">([\s\S]*?)<\/section>/)?.[1] || "";
+    assert.match(instruction, /<strong>[^<]{3,}<\/strong>/);
+    assert.match(instruction, /<p>[^<]{20,}<\/p>/);
+  });
+
+  const rhymeHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
+    grade: "K",
+    startMicrophase: undefined,
+    window: "BOY"
+  }));
+  assert.match(rhymeHtml, /<strong>Rhyme — yes or no\?<\/strong>/);
+  assert.match(rhymeHtml, /Say aloud: “Do moon and spoon rhyme\?” Say both words naturally — never show this screen to the student\./);
+
+  const encodingHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, {
+    grade: "K",
+    startMicrophase: undefined,
+    window: "BOY"
+  }));
+  const encodingPlan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    formId: "form-a-v2",
+    grade: "K",
+    window: "BOY"
+  });
+  assert.match(encodingHtml, /<strong>Dictated spelling<\/strong>/);
+  assert.ok(encodingHtml.includes(
+    `Dictate aloud — word, sentence, word. The student writes only “${encodingPlan.items[0].targetWord}” on paper.`
+  ));
+  assert.match(assessmentPageStyles, /\.el-benchmark-item-instruction strong\s*\{[\s\S]*?font-size: clamp\(18px,/);
+  assert.match(assessmentPageStyles, /\.el-benchmark-item-instruction p\s*\{[\s\S]*?font-size: clamp\(17px,/);
+});
+
+test("D-007 renders plain assessment-window and starting-band copy without raw route jargon", () => {
+  const sessions = [
+    makeSession(EL_BENCHMARK_IDS.ENCODING, {
+      grade: "K",
+      startMicrophase: undefined,
+      window: "BOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.DECODING, {
+      grade: "1",
+      startMicrophase: "late_partial",
+      window: "MOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+      grade: "2",
+      startMicrophase: "middle_consolidated",
+      window: "EOY"
+    })
+  ];
+
+  sessions.forEach(session => {
+    const html = renderAssessment(session);
+    assert.match(html, new RegExp(`${session.window === "BOY" ? "Beginning" : session.window === "MOY" ? "Middle" : "End"} of year · starting band:`));
+    assert.doesNotMatch(html, />[^<]*(?:BOY:|MOY:|EOY:)[^<]*</);
+    assert.doesNotMatch(html, /Kindergarten BOY|Grade [12] (?:BOY|MOY|EOY)/);
+  });
+  assert.doesNotMatch(assessmentPageSource, /\{plan\.route\?\.microphaseLabel/);
+  assert.doesNotMatch(assessmentPageSource, /\{administrationRange\.label/);
+});
+
 test("a device-save failure stays prominent without reintroducing competing exit controls", () => {
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
     grade: "K",
@@ -281,7 +393,7 @@ test("rhyme recognition is a teacher-only two-word cue with large Yes, No, and O
   assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no response, or add what they said<\/summary>/);
   assert.match(html, /<button class="el-benchmark-button secondary" type="button">No response<\/button>/);
   assert.doesNotMatch(html, /aria-label="Teacher prompt"/);
-  assert.equal(countText(html, item.teacherSay), 0, "the full rhyme prompt must not be duplicated above the pair");
+  assert.equal(countText(html, item.teacherSay), 1, "the exact oral question must appear once in the teacher instruction");
 });
 
 test("open PA tasks keep normal scoring to three choices and place No response under Other", () => {

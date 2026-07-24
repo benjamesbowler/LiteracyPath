@@ -211,6 +211,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 4, 6, 10]
   },
   {
+    id: "el-assessment-item-copy",
+    label: "Exact teacher directives and jargon-free EL assessment item headers",
+    command: ["npm", "run", "check:el-assessment-item-copy"],
+    areas: [4, 6, 10]
+  },
+  {
     id: "teacher-contextual-help",
     label: "Searchable question-type help reachable from learner evidence",
     command: ["npm", "run", "check:teacher-contextual-help"],

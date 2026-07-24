@@ -570,11 +570,60 @@ function getPrompt(item = {}) {
   return item.teacherSay || item.prompt || item.question || item.directions || "Administer this item using the scoring guidance.";
 }
 
-function getMicrophaseLabel(plan = {}, item = {}) {
-  return item.microphase ||
-    plan.route?.microphaseLabel ||
-    plan.route?.selectedStartMicrophase ||
-    "Provisional route";
+function getStartingBandLabel(plan = {}, item = {}) {
+  const band = item.microphase
+    || item.bandId
+    || plan.route?.selectedStartMicrophase
+    || plan.route?.defaultStartMicrophase;
+  return `${formatWindow(plan.window)} · starting band: ${humanize(band) || "Provisional"}`;
+}
+
+function getAdministrationRangeLabel(administrationRange = {}) {
+  const start = humanize(administrationRange.startMicrophase);
+  const end = humanize(administrationRange.endMicrophase);
+  if (start && end && start !== end) return `${start} to ${end}`;
+  return start || end || "Provisional range";
+}
+
+function getItemTaskHeading(kind, item = {}) {
+  if (kind === ASSESSMENT_KINDS.ENCODING) return "Dictated spelling";
+  if (kind === ASSESSMENT_KINDS.DECODING) return "Word reading";
+  if (kind === ASSESSMENT_KINDS.FLUENCY) return "One-minute oral reading";
+
+  const strand = String(item.strand || "");
+  const task = String(item.task || "");
+  if (strand === "rhyme" && task === "recognition") return "Rhyme — yes or no?";
+  if (strand === "rhyme" && task === "production") return "Rhyme — say a matching word";
+  if (strand === "syllable" && task === "blending") return "Blend syllables";
+  if (strand === "syllable" && task === "segmentation") return "Segment syllables";
+  if (strand === "onset_rime" && task === "blending") return "Blend onset and rime";
+  if (strand === "phoneme_isolation") {
+    return `Identify the ${task === "initial" ? "first" : task === "final" ? "last" : "middle"} sound`;
+  }
+  if (strand === "phoneme_blending") return "Blend phonemes";
+  if (strand === "phoneme_segmentation") return "Segment phonemes";
+  if (strand === "phoneme_manipulation") return "Change one sound";
+  return humanize([strand, task].filter(Boolean).join(" ")) || "Oral sound task";
+}
+
+function getItemTeacherDirective(kind, item = {}) {
+  const teacherSay = String(item.teacherSay || item.prompt || "").trim();
+  if (kind === ASSESSMENT_KINDS.ENCODING) {
+    const word = item.targetWord || item.word || "target word";
+    return `Dictate aloud — word, sentence, word. The student writes only “${word}” on paper.`;
+  }
+  if (kind === ASSESSMENT_KINDS.DECODING) {
+    return "Ask the student to read the word aloud. Do not name it, sound it out, or point to parts of it.";
+  }
+  if (kind === ASSESSMENT_KINDS.FLUENCY) {
+    return "Place the student copy in front of the student. Start timing on the first spoken word and mark the last word reached at 60 seconds.";
+  }
+  if (item.strand === "rhyme" && item.task === "recognition") {
+    return `Say aloud: “${teacherSay}” Say both words naturally — never show this screen to the student.`;
+  }
+  return teacherSay
+    ? `Say aloud: “${teacherSay}” Listen to the student's oral response.`
+    : "Give the oral task exactly as written and listen to the student's response.";
 }
 
 function getPassage(plan = {}, item = {}) {
@@ -2003,7 +2052,9 @@ function ItemPanel({
     headingRef.current?.focus();
   }, [item.id]);
 
-  const label = item.strand || item.task || item.microphaseLabel || getMicrophaseLabel(plan, item);
+  const routeLabel = getStartingBandLabel(plan, item);
+  const taskHeading = getItemTaskHeading(kind, item);
+  const teacherDirective = getItemTeacherDirective(kind, item);
   const decodingWord = item.displayWord || item.targetWord || item.word || "";
   const isFluency = kind === ASSESSMENT_KINDS.FLUENCY;
   const isRhymeRecognition = kind === ASSESSMENT_KINDS.PHONOLOGICAL_AWARENESS &&
@@ -2013,16 +2064,21 @@ function ItemPanel({
     <article className="el-benchmark-item-card">
       <header className="el-benchmark-item-header">
         <div>
-          <span>{label || `Item ${itemNumber}`}</span>
+          <span>{routeLabel}</span>
           <h2 ref={headingRef} tabIndex="-1">
             {isFluency ? "Record the one-minute read" : `Item ${itemNumber} of ${itemCount}`}
           </h2>
         </div>
       </header>
 
+      <section className="el-benchmark-item-instruction" aria-label="Teacher instruction">
+        <strong>{taskHeading}</strong>
+        <p>{teacherDirective}</p>
+      </section>
+
       {!isFluency && kind !== ASSESSMENT_KINDS.ENCODING && !isRhymeRecognition && (
         <section className="el-benchmark-prompt-panel" aria-label="Teacher prompt">
-          <span>Teacher prompt</span>
+          <span>{item.teacherSay ? "Say exactly" : "Teacher prompt"}</span>
           <p>{getPrompt(item)}</p>
           {item.sentence && <small>Context sentence: {item.sentence}</small>}
         </section>
@@ -2400,7 +2456,7 @@ function RouteSummary({
     <aside className="el-benchmark-route-summary" aria-label="Assessment route and progress">
       <div className="el-benchmark-route-heading">
         <span>Assessment route</span>
-        <strong>{plan.route?.microphaseLabel || humanize(plan.route?.selectedStartMicrophase) || "Provisional starting point"}</strong>
+        <strong>{getStartingBandLabel(plan)}</strong>
         <small>{formatGrade(session.grade)} | {formatWindow(session.window)}</small>
       </div>
 
@@ -2588,7 +2644,7 @@ function PlacementConfirmationPanel({
                   ? "Encoding does not use an automatic spelling-to-reading conversion. The grade and assessment window provide a safe default that the teacher can change."
                   : "The suggestion uses the completed word-reading evidence and the assessment’s supported route.")}</p>
                 <small>Evidence status: {scoreStatus} · {scoredCount} scored item{scoredCount === 1 ? "" : "s"}</small>
-                {administrationRange?.label && <small>Expected range: {administrationRange.label}</small>}
+                {administrationRange && <small>Expected range: {getAdministrationRangeLabel(administrationRange)}</small>}
               </details>
             </div>
           )}
