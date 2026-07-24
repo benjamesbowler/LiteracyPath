@@ -424,6 +424,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 8, 10]
   },
   {
+    id: "overlay-contrast-focus",
+    label: "Game-overlay contrast, disabled-state legibility, and visible keyboard focus",
+    command: ["npm", "run", "check:overlay-contrast-focus"],
+    areas: [3, 10]
+  },
+  {
     id: "a11y-teacher",
     label: "Authenticated teacher accessibility",
     command: ["npm", "run", "check:a11y-teacher"],

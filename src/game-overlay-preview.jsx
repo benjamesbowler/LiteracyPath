@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 
 import "./index.css";
 import "./App.css";
+import "./styles/learn-games.css";
+import "./styles/arcade-dark.css";
 import "./styles/student-vibrant.css";
 import "./styles/comic-theme.css";
 import { GAME_LIST } from "./data/learnGamesData.js";

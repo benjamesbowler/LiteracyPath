@@ -229,6 +229,11 @@
 .q-primary:active { transform: translateY(3px); box-shadow: 0 3px 0 #c07f22; }
 .q-primary:disabled { opacity: 0.6; }
 
+.q-root :where(button, select, input, [href], [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 4px solid #ffdc56;
+  outline-offset: 3px;
+}
+
 .q-ghost {
   padding: 0 20px;
   border: 2px solid rgba(255, 255, 255, 0.35);
@@ -420,6 +425,12 @@
 .q-root[data-high-contrast="true"] .q2d-header { background: #050505; color: #fff; }
 .q-root[data-high-contrast="true"] .q2d-cue,
 .q-root[data-high-contrast="true"] .q2d-choices button { border-color: #fff; background: #111; color: #fff; }
+.q-root[data-high-contrast="true"] .q-option.is-locked {
+  border-color: #fff;
+  background: #050505;
+  color: #fff;
+}
+.q-root[data-high-contrast="true"] .q-option-label { color: #fff; }
 .q-root[data-high-contrast="true"] button:focus-visible,
 .q-root[data-high-contrast="true"] select:focus-visible,
 .q-root[data-high-contrast="true"] input:focus-visible { outline: 4px solid #ffdc56; outline-offset: 3px; }
@@ -1260,9 +1271,14 @@
 }
 
 .q-option.is-on { border-color: #ffd166; background: rgba(255, 209, 102, .18); }
-.q-option.is-locked { opacity: .4; }
+.q-option.is-locked {
+  border-color: rgba(255, 255, 255, .42);
+  background: rgba(255, 255, 255, .12);
+  color: #f7faf8;
+  cursor: not-allowed;
+}
 .q-option-art { display: grid; place-items: center; height: 60px; }
-.q-option-label { font-size: 11px; opacity: .8; }
+.q-option-label { color: #e7eeeb; font-size: 11px; }
 .q-option-cost { position: absolute; top: 4px; right: 6px; padding: 1px 7px; border-radius: 999px; background: rgba(255, 209, 102, .9); color: #3a2a06; font-size: 10px; font-weight: 700; }
 .q-swatch { width: 46px; height: 46px; border: 3px solid; border-radius: 50%; }
 
@@ -4280,6 +4296,26 @@
   border-radius: 6px;
   background: #1f2b2a;
   overflow: visible;
+}
+
+@media (forced-colors: active) {
+  .q-root,
+  .q-root :where(.q-den-panel, .q-post, .q-reward-card, .q-option, .q2d-root, .q2d-task, .q2d-header, .q2d-cue) {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .q-root .q-option.is-locked {
+    border: 2px dashed GrayText;
+    color: GrayText;
+    opacity: 1;
+  }
+
+  .q-root :where(button, select, input, [href], [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 4px solid Highlight !important;
+    outline-offset: 3px !important;
+  }
 }
 
 /* A short landscape phone cannot stack the prompt, answer panel and D-pad
