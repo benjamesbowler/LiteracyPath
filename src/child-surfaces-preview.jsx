@@ -19,10 +19,12 @@ import QuestRoot from "./components/quest/QuestRoot.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
+import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
 
 const SURFACE_ID = new URLSearchParams(window.location.search).get("surface") || "student-home";
 const PREVIEW_SCOPE = "child-surface-preview";
 
+setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("phonics", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));

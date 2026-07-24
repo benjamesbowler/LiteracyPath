@@ -142,6 +142,9 @@ function SageCard({
   cardState,
   continuation
 }) {
+  const [loadedArt, setLoadedArt] = useState("");
+  const artReady = loadedArt === art;
+
   function artError(event) {
     const img = event.currentTarget;
     if (fallbackArt && img.dataset.fellBack !== "true") {
@@ -168,8 +171,15 @@ function SageCard({
       data-mission-primary-kind={hero ? continuation?.missionKind || undefined : undefined}
       aria-label={hero ? continuation?.label : undefined}
     >
-      <span className="hs-thumb" aria-hidden="true">
-        <img src={art} alt="" loading="eager" decoding="async" onError={artError} />
+      <span className="hs-thumb" aria-hidden="true" data-media-state={artReady ? "ready" : "loading"}>
+        <img
+          src={art}
+          alt=""
+          loading="eager"
+          decoding="async"
+          onError={artError}
+          onLoad={() => setLoadedArt(art)}
+        />
       </span>
       {hero && <span className="hs-card-kicker">Recommended next</span>}
       <h3>{title}</h3>

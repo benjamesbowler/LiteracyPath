@@ -1295,7 +1295,14 @@
 }
 
 /* ═══ K. READING LIBRARY — student shelf layout ═══════════════════════ */
-.student-guided-reading-page .guided-shelf-layout { display: flex; gap: 18px; align-items: flex-start; }
+.student-guided-reading-page .guided-shelf-layout {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  gap: 18px;
+  align-items: flex-start;
+}
 .student-guided-reading-page .guided-shelf-main { flex: 1; min-width: 0; }
 .student-guided-reading-page .guided-filter-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
 .student-guided-reading-page .guided-filter-chips button {

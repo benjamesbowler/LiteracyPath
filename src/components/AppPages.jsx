@@ -27,6 +27,7 @@ import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
 import { addQuestionFlag } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
+import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
 import {
   getGuidedReadingLandingMeta,
   getSkillsCheckLandingMeta
@@ -2101,7 +2102,11 @@ const LazyGuidedReadingPage = lazyWithRetry(() =>
   }))
 );
 
-function GuidedReadingLoadingFallback() {
+function GuidedReadingLoadingFallback({ mode = "teacher" }) {
+  if (mode === "student") {
+    return <RouteLoadingFallback label="Loading Reading Library..." />;
+  }
+
   return (
     <div className="teacher-product-page guided-reading-page">
       <section className="teacher-page-header">
@@ -2117,7 +2122,7 @@ function GuidedReadingLoadingFallback() {
 
 export function GuidedReadingPage(props) {
   return (
-    <Suspense fallback={<GuidedReadingLoadingFallback />}>
+    <Suspense fallback={<GuidedReadingLoadingFallback mode={props.mode} />}>
       <LazyGuidedReadingPage {...props} />
     </Suspense>
   );

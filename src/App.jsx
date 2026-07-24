@@ -34,6 +34,7 @@ import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import StudentRail from "./components/StudentRail.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
+import { RouteLoadingFallback as LazyPageFallback } from "./components/RouteLoadingFallback.jsx";
 import { STUDENT_RAIL_DESTINATIONS } from "./policy/studentRailPolicy.js";
 import { saveStudentReducedChoiceMode } from "./data/studentRailSettings.js";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
@@ -329,37 +330,6 @@ const PhonicsLearnPage = lazyWithRetry(() =>
     default: module.PhonicsLearnPage
   }))
 );
-
-// A load screen a child can enjoy: three letter tiles hop while a reading tip
-// shows (rotates every 20s so repeat loads feel fresh). Reduced-motion users
-// get static tiles; screen readers get the label via role=status as before.
-const LOADING_TIPS = [
-  "Sound it out, then say it smoothly.",
-  "Tricky words are just words you have not met yet.",
-  "Five minutes of reading a day grows a mighty brain.",
-  "Reading out loud to a pet still counts as reading out loud."
-];
-
-// Picked once at module load (render must stay pure): each app session shows
-// a different tip, which is rotation enough for a loading screen.
-const LOADING_TIP_INDEX = Math.floor(Date.now() / 20000) % LOADING_TIPS.length;
-
-function LazyPageFallback({ label = "Loading..." }) {
-  const tip = LOADING_TIPS[LOADING_TIP_INDEX];
-  return (
-    <div className="lazy-page-fallback" role="status" aria-live="polite">
-      <div className="lazy-page-fallback-card">
-        <div className="lazy-letter-row" aria-hidden="true">
-          <span className="lazy-letter">a</span>
-          <span className="lazy-letter">b</span>
-          <span className="lazy-letter">c</span>
-        </div>
-        <strong>{label}</strong>
-        <p className="lazy-page-tip">{tip}</p>
-      </div>
-    </div>
-  );
-}
 
 function NewVersionAvailableCard({ message = "A new version is available." }) {
   return (

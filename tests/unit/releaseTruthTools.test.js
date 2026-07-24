@@ -34,6 +34,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "sound-racer-tutorial",
     "fullscreen-overlay-semantics",
     "child-surface-rules",
+    "key-route-visuals",
     "assessment-runtime-variation",
     "strict-curriculum",
     "skill-progression",

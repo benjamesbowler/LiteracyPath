@@ -125,6 +125,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 3, 10]
   },
   {
+    id: "key-route-visuals",
+    label: "Desktop and phone visual baselines plus delayed child-route placeholders",
+    command: ["npm", "run", "check:key-route-visuals"],
+    areas: [2, 3, 10]
+  },
+  {
     id: "assessment-runtime-variation",
     label: "Assessment runtime variation",
     command: ["npm", "run", "check:assessment-runtime-variation", "--", "--check"],
