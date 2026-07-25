@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T07:35:59.046Z",
+  "generatedAt": "2026-07-25T10:20:41.705Z",
   "sessionsPerSkill": 500,
   "skillCount": 30,
   "failureCount": 0,
@@ -7,7 +7,7 @@
     {
       "skillId": "initial_sounds",
       "sessions": 500,
-      "poolSize": 131,
+      "poolSize": 92,
       "phaseUniqueRounds": {
         "L1": 500,
         "L2": 500
@@ -18,12 +18,12 @@
     {
       "skillId": "final_sounds",
       "sessions": 500,
-      "poolSize": 458,
+      "poolSize": 366,
       "phaseUniqueRounds": {
         "L1P1": 500,
-        "L1P2": 497,
+        "L1P2": 464,
         "L2P1": 500,
-        "L2P2": 500
+        "L2P2": 491
       },
       "failureCount": 0,
       "failures": []
@@ -31,10 +31,10 @@
     {
       "skillId": "rhyming",
       "sessions": 500,
-      "poolSize": 666,
+      "poolSize": 656,
       "phaseUniqueRounds": {
-        "L1P1": 497,
-        "L1P2": 448,
+        "L1P1": 500,
+        "L1P2": 486,
         "L2P1": 500,
         "L2P2": 500
       },
@@ -49,7 +49,7 @@
         "L1P1": 500,
         "L1P2": 500,
         "L2P1": 500,
-        "L2P2": 500
+        "L2P2": 499
       },
       "failureCount": 0,
       "failures": []
@@ -57,12 +57,12 @@
     {
       "skillId": "short_vowel_discrimination",
       "sessions": 500,
-      "poolSize": 304,
+      "poolSize": 299,
       "phaseUniqueRounds": {
-        "L1P1": 500,
-        "L1P2": 490,
-        "L2P1": 497,
-        "L2P2": 498
+        "L1P1": 498,
+        "L1P2": 485,
+        "L2P1": 482,
+        "L2P2": 500
       },
       "failureCount": 0,
       "failures": []
@@ -161,10 +161,10 @@
     {
       "skillId": "vowel_teams",
       "sessions": 500,
-      "poolSize": 116,
+      "poolSize": 141,
       "phaseUniqueRounds": {
-        "L1P1": 301,
-        "L1P2": 383,
+        "L1P1": 492,
+        "L1P2": 500,
         "L2P1": 500,
         "L2P2": 500
       },
@@ -174,12 +174,11 @@
     {
       "skillId": "r_controlled_vowels",
       "sessions": 500,
-      "poolSize": 118,
+      "poolSize": 128,
       "phaseUniqueRounds": {
-        "L1P1": 146,
-        "L1P2": 444,
-        "L2P1": 479,
-        "L2P2": 500
+        "L1P1": 496,
+        "L1P2": 482,
+        "L2P1": 500
       },
       "failureCount": 0,
       "failures": []
@@ -187,12 +186,12 @@
     {
       "skillId": "nouns",
       "sessions": 500,
-      "poolSize": 130,
+      "poolSize": 146,
       "phaseUniqueRounds": {
         "L1P1": 500,
         "L1P2": 500,
         "L2P1": 499,
-        "L2P2": 498
+        "L2P2": 500
       },
       "failureCount": 0,
       "failures": []
@@ -200,12 +199,12 @@
     {
       "skillId": "verbs",
       "sessions": 500,
-      "poolSize": 73,
+      "poolSize": 111,
       "phaseUniqueRounds": {
         "L1P1": 500,
         "L1P2": 500,
         "L2P1": 500,
-        "L2P2": 7
+        "L2P2": 500
       },
       "failureCount": 0,
       "failures": []
@@ -213,12 +212,12 @@
     {
       "skillId": "adjectives",
       "sessions": 500,
-      "poolSize": 57,
+      "poolSize": 110,
       "phaseUniqueRounds": {
         "L1P1": 491,
         "L1P2": 500,
-        "L2P1": 447,
-        "L2P2": 92
+        "L2P1": 496,
+        "L2P2": 491
       },
       "failureCount": 0,
       "failures": []
@@ -226,11 +225,11 @@
     {
       "skillId": "prepositions_of_place",
       "sessions": 500,
-      "poolSize": 264,
+      "poolSize": 303,
       "phaseUniqueRounds": {
         "L1P1": 500,
         "L1P2": 500,
-        "L2P1": 495,
+        "L2P1": 500,
         "L2P2": 500
       },
       "failureCount": 0,
@@ -239,24 +238,11 @@
     {
       "skillId": "plurals",
       "sessions": 500,
-      "poolSize": 106,
+      "poolSize": 138,
       "phaseUniqueRounds": {
-        "L1P1": 460,
-        "L1P2": 43,
-        "L2P1": 311,
-        "L2P2": 500
-      },
-      "failureCount": 0,
-      "failures": []
-    },
-    {
-      "skillId": "prefixes_suffixes",
-      "sessions": 500,
-      "poolSize": 317,
-      "phaseUniqueRounds": {
-        "L1P1": 500,
+        "L1P1": 485,
         "L1P2": 500,
-        "L2P1": 500,
+        "L2P1": 499,
         "L2P2": 500
       },
       "failureCount": 0,
@@ -265,10 +251,10 @@
     {
       "skillId": "antonyms_synonyms",
       "sessions": 500,
-      "poolSize": 155,
+      "poolSize": 234,
       "phaseUniqueRounds": {
         "L1P1": 500,
-        "L1P2": 7,
+        "L1P2": 255,
         "L2P1": 500,
         "L2P2": 500
       },
@@ -278,11 +264,24 @@
     {
       "skillId": "homophones_homonyms",
       "sessions": 500,
-      "poolSize": 72,
+      "poolSize": 116,
       "phaseUniqueRounds": {
-        "L1P1": 1,
-        "L1P2": 1,
+        "L1P1": 500,
+        "L1P2": 500,
         "L2P2": 177
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "prefixes_suffixes",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P1": 500,
+        "L2P2": 499
       },
       "failureCount": 0,
       "failures": []

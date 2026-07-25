@@ -1,6 +1,6 @@
 # Media QA Admin Pages Report
 
-Date: 2026-07-04
+Date: 2026-07-25
 
 ## Routes Added
 
@@ -45,15 +45,15 @@ Kimi markdown groups records by skill and includes strict image/audio rules.
 
 ## Validation Results
 
-- Total QA records: 2051
-- Total images: 1076
-- Total audio: 975
-- Unreviewed: 1997
+- Total QA records: 2127
+- Total images: 1134
+- Total audio: 993
+- Unreviewed: 1958
 - Approved: 0
-- Rejected: 0
-- Blocked: 54
+- Rejected: 39
+- Blocked: 130
 - Needs Kimi: 0
-- Missing file paths/files: 49
+- Missing file paths/files: 63
 - Runtime source questions using blocked/rejected media: 0
 - Confirmed active bad image mappings from visual audit: 0
 
