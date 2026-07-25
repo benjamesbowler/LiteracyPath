@@ -6,7 +6,7 @@ import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const appPath = path.join(root, "src/App.jsx");
-const appPagesPath = path.join(root, "src/components/AppPages.jsx");
+const elAssessmentsPath = path.join(root, "src/components/assessment/ELAssessmentsPage.jsx");
 const adminPath = path.join(root, "src/components/AdminDashboardPage.jsx");
 const storePath = path.join(root, "src/data/assessmentHistoryStore.js");
 const reportStorePath = path.join(root, "src/data/elAssessmentReportStore.js");
@@ -48,11 +48,10 @@ const store = await import(pathToFileURL(storePath).href);
 const reportStore = await import(pathToFileURL(reportStorePath).href);
 const exportHelpers = await import(pathToFileURL(exportPath).href);
 const appSource = fs.readFileSync(appPath, "utf8");
-const appPagesSource = fs.readFileSync(appPagesPath, "utf8");
+const elAssessmentsSource = fs.readFileSync(elAssessmentsPath, "utf8");
 const adminSource = fs.readFileSync(adminPath, "utf8");
 const storeSource = fs.readFileSync(storePath, "utf8");
 const exportSource = fs.readFileSync(exportPath, "utf8");
-const elAssessmentsSource = appPagesSource.match(/export function ELAssessmentsPage[\s\S]*?\nexport function GuidedReadingPage/)?.[0] || "";
 
 [
   "extractMasteryFromAssessmentAttempt",

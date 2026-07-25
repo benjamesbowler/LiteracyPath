@@ -73,6 +73,11 @@ export const ELBenchmarkAssessmentPage = lazyWithRetry(() =>
     default: module.ELBenchmarkAssessmentPage
   }))
 );
+export const ELAssessmentsPage = lazyWithRetry(() =>
+  import("../components/assessment/ELAssessmentsPage.jsx").then(module => ({
+    default: module.ELAssessmentsPage
+  }))
+);
 
 // The student view allowlist now lives in appState/appViewHelpers.js (exported,
 // and held against the Student Home's own links by a unit test). It was a

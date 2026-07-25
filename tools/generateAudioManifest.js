@@ -9,6 +9,7 @@ import { fileURLToPath } from "url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
 const outFile = path.join(root, "src", "data", "generated", "audioFilePaths.generated.js");
+const choiceKeysOutFile = path.join(root, "src", "data", "generated", "audioChoiceKeys.generated.js");
 
 const files = [];
 function walk(dir) {
@@ -59,4 +60,11 @@ export const AUDIO_FILE_PATHS = Object.freeze({ has: hasAudioFilePath });
 `;
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
 fs.writeFileSync(outFile, body);
+const choiceKeys = files
+  .map(file => file.match(/^\/audio\/choices\/([0-9a-f]{16})\.mp3$/)?.[1] || "")
+  .filter(Boolean);
+fs.writeFileSync(
+  choiceKeysOutFile,
+  `${banner}export const AUDIO_CHOICE_KEYS = new Set(${JSON.stringify(choiceKeys)});\n`
+);
 console.log(`audio manifest: ${files.length} files -> ${path.relative(root, outFile)}`);

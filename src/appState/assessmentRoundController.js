@@ -1,5 +1,6 @@
 import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentPathKey, getAssessmentPathLabel, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getItemMasteryStateKeyForValues, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
-import { loadAudioManifestModule } from "./appRuntimeServices.js";
+import { AUDIO_CHOICE_KEYS } from "../data/generated/audioChoiceKeys.generated.js";
+import { getGeneratedAudioKey } from "../utils/audioManifestKey.js";
 import { supabase } from "../supabaseClient";
 import { skillTree } from "../skillTree";
 import { questionUsesFailedAssessmentMedia } from "../policy/assessmentMediaEvidence.js";
@@ -1955,17 +1956,14 @@ export function createAssessmentRoundController(context) {
     }
 
     const normalizedText = normalizeAudioText(text);
-    const { audioManifest, audioTextIndex } = await loadAudioManifestModule();
-    const audioKey = audioTextIndex[normalizedText];
-    const audioEntry = audioKey ? audioManifest[audioKey] : null;
+    const audioKey = await getGeneratedAudioKey(normalizedText);
 
     if (requireApprovedAudio) return;
 
-    if (audioEntry?.path) {
-      const preferredManifestPath = audioEntry.path;
-      const audioPaths = audioEntry.kinds?.includes("choice")
-        ? [`/audio/choices/${audioKey}.mp3`, preferredManifestPath]
-        : [preferredManifestPath];
+    if (audioKey) {
+      const audioPaths = AUDIO_CHOICE_KEYS.has(audioKey)
+        ? [`/audio/choices/${audioKey}.mp3`]
+        : [];
 
       try {
         for (const audioPath of audioPaths) {

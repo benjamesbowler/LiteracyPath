@@ -552,8 +552,15 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "split-boundaries",
-    label: "Effective assessment-bank dynamic imports and build-time lexicon isolation",
+    label: "Effective per-skill data splits, route/data ceilings, and build-time lexicon isolation",
     command: ["npm", "run", "check:split-boundaries"],
+    areas: [9, 10],
+    planned: true
+  },
+  {
+    id: "first-load-network",
+    label: "Production student and teacher shells exclude deferred banks and heavy routes",
+    command: ["npm", "run", "check:first-load-network"],
     areas: [9, 10],
     planned: true
   },

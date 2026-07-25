@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node tools/generateAudioManifest.js && node tools/generateKimiVocabularyRuntime.mjs && node tools/generateLexiconMediaIndex.mjs && node tools/generateBookIndex.js && node tools/generateGuidedReadingQuizIndex.js && node tools/generateItemUniverse.js && node tools/generateHfwEligibilityKeys.js && node tools/generateAssessmentReleaseStatus.mjs && node tools/generateSageSoft.mjs",
+    "prebuild": "node tools/generateAudioManifest.js && node tools/generateKimiVocabularyRuntime.mjs && node tools/generateLexiconMediaIndex.mjs && node tools/generateBookIndex.js && node tools/generateGuidedReadingQuizIndex.js && node tools/generateItemUniverse.js && node tools/generateHfwEligibilityKeys.js && node tools/generateAssessmentReleaseStatus.mjs && node tools/generateRuntimeQuestionBankShards.mjs && node tools/generateSageSoft.mjs",
     "build": "vite build",
     "gen:image": "node tools/generateImage.mjs",
     "gr:images": "node tools/guidedReadingImageFactory.mjs",
@@ -186,6 +186,7 @@
     "check:learner-data-rights": "node tools/verifyLearnerDataRightsBackend.mjs && node --test tests/unit/learnerDataRights.test.js && playwright test tests/release/learner-data-rights.spec.js --project=desktop --workers=1",
     "check:retention-policy": "node tools/verifySchoolRetention.mjs && node --test tests/unit/schoolRetention.test.js",
     "check:split-boundaries": "node tools/checkSplitBoundaries.mjs",
+    "check:first-load-network": "node tools/checkFirstLoadNetwork.mjs",
     "check:legal-pack": "node tools/checkLegalPack.mjs && node --test tests/unit/legalPack.test.js",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",
     "check:teacher-login-cards": "npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",

@@ -129,11 +129,72 @@ export default defineConfig({
           if (id.includes('/node_modules/@supabase/')) {
             return 'vendor-supabase'
           }
+          if (
+            id.includes('/node_modules/phaser/src/physics/') ||
+            id.includes('/node_modules/phaser/src/geom/')
+          ) {
+            return 'vendor-phaser-physics'
+          }
+          if (
+            id.includes('/node_modules/phaser/src/math/') ||
+            id.includes('/node_modules/phaser/src/input/')
+          ) {
+            return 'vendor-phaser-input-math'
+          }
+          if (id.includes('/node_modules/phaser/src/gameobjects/components/')) {
+            return 'vendor-phaser-gameobject-components'
+          }
+          if (
+            id.includes('/node_modules/phaser/src/gameobjects/text/') ||
+            id.includes('/node_modules/phaser/src/gameobjects/graphics/') ||
+            id.includes('/node_modules/phaser/src/gameobjects/shape/')
+          ) {
+            return 'vendor-phaser-drawing'
+          }
+          if (id.includes('/node_modules/phaser/src/gameobjects/')) {
+            return 'vendor-phaser-gameobjects'
+          }
+          if (
+            id.includes('/node_modules/phaser/src/textures/') ||
+            id.includes('/node_modules/phaser/src/renderer/') ||
+            id.includes('/node_modules/phaser/src/display/') ||
+            id.includes('/node_modules/phaser/src/filters/') ||
+            id.includes('/node_modules/phaser/src/animations/')
+          ) {
+            return 'vendor-phaser-renderer'
+          }
+          if (
+            id.includes('/node_modules/phaser/src/loader/') ||
+            id.includes('/node_modules/phaser/src/cameras/') ||
+            id.includes('/node_modules/phaser/src/tweens/') ||
+            id.includes('/node_modules/phaser/src/time/')
+          ) {
+            return 'vendor-phaser-scene-motion'
+          }
+          if (id.includes('/node_modules/phaser/')) {
+            return 'vendor-phaser-runtime'
+          }
           if (id.includes('/src/data/publicMediaInventory')) {
             return 'admin-media-inventory'
           }
-          if (id.includes('/src/data/audioManifest')) {
-            return 'audio-manifest'
+          if (id.includes('/src/data/generated/kimiHighQualityMediaStyleManifest.generated')) {
+            return 'child-assets-kimi-style'
+          }
+          if (id.includes('/src/data/kimiVocabulary500AudioPreferences')) {
+            return 'child-assets-vocabulary-audio'
+          }
+          if (id.includes('/src/data/generated/k3VocabularyMediaManifest.generated')) {
+            return 'child-assets-k3-media'
+          }
+          if (
+            id.includes('/src/data/kimiAssets2Manifest') ||
+            id.includes('/src/data/kimiAssets3Manifest') ||
+            id.includes('/src/data/kimiAssets4Manifest')
+          ) {
+            return 'child-assets-kimi-packs'
+          }
+          if (id.includes('/src/data/kimiCleanAudioManifest')) {
+            return 'child-assets-clean-audio'
           }
           if (
             id.includes('/node_modules/exceljs') ||
@@ -199,12 +260,29 @@ export default defineConfig({
           ) {
             return 'generated-word-banks'
           }
-          if (
-            id.includes('/src/data/guidedReadingBooks') ||
-            id.includes('/src/data/guidedReadingRegenBooks') ||
-            id.includes('/src/data/guidedStoryBooks')
-          ) {
-            return 'guided-reading-data'
+          if (id.includes('/src/data/firstFactsLevelABooks')) {
+            return 'guided-reading-first-facts-a'
+          }
+          if (id.includes('/src/data/firstFactsActualLevelABooks')) {
+            return 'guided-reading-first-facts-a-original'
+          }
+          if (id.includes('/src/data/firstFactsLevelCBooks')) {
+            return 'guided-reading-first-facts-c'
+          }
+          if (id.includes('/src/data/moonwoodTalesBooks')) {
+            return 'guided-reading-moonwood'
+          }
+          if (id.includes('/src/data/guidedReadingSeriesBooks')) {
+            return 'guided-reading-series'
+          }
+          if (id.includes('/src/data/guidedReadingRegenBooks')) {
+            return 'guided-reading-regen'
+          }
+          if (id.includes('/src/data/guidedStoryBooks')) {
+            return 'guided-reading-stories'
+          }
+          if (id.includes('/src/data/guidedReadingBooks')) {
+            return 'guided-reading-runtime'
           }
         }
       }

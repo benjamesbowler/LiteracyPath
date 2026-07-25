@@ -95,14 +95,6 @@ const RUNTIME_SKILL_IDS = {
 };
 
 const GRAMMAR_SENTENCE_FIT_SKILLS = new Set(["nouns", "verbs", "adjectives", "adverbs"]);
-const EARLY_PHONICS_GENERATED_SKILLS = new Set([
-  "initial_sounds",
-  "final_sounds",
-  "rhyming",
-  "cvc_short_vowels",
-  "short_vowel_discrimination"
-]);
-const HFW_SKILLS = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]);
 const REPLACEMENT_PHONICS_SKILLS = new Set([
   "blends",
   "digraphs",
@@ -124,17 +116,6 @@ const LANGUAGE_SKILLS = new Set([
   "antonyms_synonyms",
   "homophones_homonyms",
   "homophones"
-]);
-const COMPREHENSION_SKILLS = new Set([
-  "sentence_comprehension",
-  "key_details",
-  "sequencing",
-  "main_idea",
-  "inference",
-  "cause_effect",
-  "context_clues",
-  "theme_higher_comprehension",
-  "theme"
 ]);
 const AUTHORED_COMPREHENSION_BANKS = new Set([
   "qbAssess_main_idea",
@@ -379,8 +360,10 @@ function getQuestionSkillId(question = {}) {
 }
 
 function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
+  const runtimeQuestion = { ...question };
+  delete runtimeQuestion.__runtimeSourceIndex;
   const enriched = enrichQuestionWithExistingMedia(
-    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
+    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(runtimeQuestion))
   );
   const skillId = getQuestionSkillId(enriched);
   const approvedSource = AUTHORED_COMPREHENSION_BANKS.has(source)
@@ -398,7 +381,11 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
 }
 
 function normalizeQuestionBank(source, bank = []) {
-  return bank.map((question, index) => normalizeQuestion(question, source, index));
+  return bank.map((question, index) => normalizeQuestion(
+    question,
+    source,
+    Number.isInteger(question.__runtimeSourceIndex) ? question.__runtimeSourceIndex : index
+  ));
 }
 
 function expansionBankAppliesToSkill(families = [], skillId = "") {
@@ -411,6 +398,16 @@ function expansionBankAppliesToSkill(families = [], skillId = "") {
 
 function shouldLoadForSkill(skillId, aliases = []) {
   return aliases.some(alias => normalizeSkillId(alias) === skillId || runtimeSkillIdFor(alias) === skillId);
+}
+
+function runtimeSkillShard({ source, skillId, load, bankName = source, shard }) {
+  return {
+    source,
+    bankName,
+    cacheKey: `${source}:${shard}`,
+    shouldLoad: requestedSkillId => requestedSkillId === skillId,
+    load
+  };
 }
 
 const DYNAMIC_BANK_LOADERS = [
@@ -437,22 +434,43 @@ const DYNAMIC_BANK_LOADERS = [
     shouldLoad: skillId => skillId === "short_vowel_discrimination",
     load: () => import("./generated/shortVowel.generated.js").then(module => module.shortVowelGeneratedQuestions)
   },
-  {
+  ...[
+    "level-1-part-a",
+    "level-1-part-b",
+    "level-1-part-c",
+    "level-1-part-d",
+    "level-2-part-a",
+    "level-2-part-b"
+  ].map(shard => runtimeSkillShard({
     source: "rhymingGeneratedQuestions",
     bankName: "generatedEarlySkillQuestions",
-    shouldLoad: skillId => skillId === "rhyming",
-    load: () => import("./generated/rhyming.generated.js").then(module => module.rhymingGeneratedQuestions)
-  },
-  {
+    skillId: "rhyming",
+    shard,
+    load: () => import(`./generated/runtimeShards/rhyming.${shard}.generated.js`).then(module => module.questions)
+  })),
+  ...[
+    ["hfw_1_25", ["hfw-1-25-part-a", "hfw-1-25-part-b"]],
+    ["hfw_26_50", ["hfw-26-50-part-a", "hfw-26-50-part-b"]],
+    ["hfw_51_75", ["hfw-51-75-part-a", "hfw-51-75-part-b"]],
+    ["hfw_76_100", ["hfw-76-100-part-a", "hfw-76-100-part-b"]]
+  ].flatMap(([skillId, shards]) => shards.map(shard => runtimeSkillShard({
     source: "hfwAssessmentQuestions",
-    shouldLoad: skillId => HFW_SKILLS.has(skillId),
-    load: () => import("./generated/hfwAssessmentQuestions.generated.js").then(module => module.hfwAssessmentQuestions)
-  },
-  {
+    skillId,
+    shard,
+    load: () => import(`./generated/runtimeShards/hfw.${shard}.generated.js`).then(module => module.questions)
+  }))),
+  runtimeSkillShard({
     source: "hfwLevel2Questions",
-    shouldLoad: skillId => HFW_SKILLS.has(skillId),
-    load: () => import("./generated/hfwLevel2Questions.generated.js").then(module => module.hfwLevel2Questions)
-  },
+    skillId: "hfw_1_25",
+    shard: "hfw-level-2-1-25",
+    load: () => import("./generated/runtimeShards/hfw-level-2.high-frequency-words-1-25.generated.js").then(module => module.questions)
+  }),
+  runtimeSkillShard({
+    source: "hfwLevel2Questions",
+    skillId: "hfw_26_50",
+    shard: "hfw-level-2-26-50",
+    load: () => import("./generated/runtimeShards/hfw-level-2.high-frequency-words-26-50.generated.js").then(module => module.questions)
+  }),
   {
     source: "firstTenSkillTopUpQuestions",
     shouldLoad: skillId => skillId === "blends",
@@ -488,31 +506,57 @@ const DYNAMIC_BANK_LOADERS = [
     shouldLoad: skillId => ["nouns", "verbs", "adjectives"].includes(skillId),
     load: () => import("./generated/grammarAssessmentQuestions.generated.js").then(module => module.grammarAssessmentQuestions)
   },
-  {
+  ...[
+    ["nouns", ["nouns-part-a", "nouns-part-b"]],
+    ["verbs", ["verbs-part-a", "verbs-part-b"]],
+    ["adjectives", ["adjectives-part-a", "adjectives-part-b"]],
+    ["prepositions_of_place", ["prepositions-of-place-part-a", "prepositions-of-place-part-b", "prepositions-of-place-part-c"]],
+    ["plurals", ["plurals-part-a", "plurals-part-b"]],
+    ["prefixes_suffixes", ["prefixes-suffixes-part-a", "prefixes-suffixes-part-b", "prefixes-suffixes-part-c"]],
+    ["antonyms_synonyms", ["antonyms-synonyms-part-a", "antonyms-synonyms-part-b", "antonyms-synonyms-part-c"]],
+    ["homophones_homonyms", ["homophones-homonyms-part-a"]]
+  ].flatMap(([skillId, shards]) => shards.map(shard => runtimeSkillShard({
     source: "languageSkillQuestions",
-    shouldLoad: skillId => LANGUAGE_SKILLS.has(skillId),
-    load: () => import("./generated/languageSkillQuestions.generated.js").then(module => module.languageSkillQuestions)
-  },
-  {
+    skillId,
+    shard,
+    load: () => import(`./generated/runtimeShards/language.${shard}.generated.js`).then(module => module.questions)
+  }))),
+  ...[
+    ["initial_sounds", "initial-sounds"],
+    ["rhyming", "rhyming"],
+    ["short_vowel_discrimination", "short-vowel-discrimination"],
+    ["vowel_teams", "vowel-teams"],
+    ["r_controlled_vowels", "r-controlled-vowels"],
+    ["prepositions_of_place", "prepositions-of-place"],
+    ["plurals", "plurals"],
+    ["prefixes_suffixes", "prefixes-suffixes"],
+    ["antonyms_synonyms", "antonyms-synonyms"],
+    ["homophones_homonyms", "homophones-homonyms"],
+    ["sentence_comprehension", "sentence-comprehension"],
+    ["key_details", "key-details"],
+    ["sequencing", "sequencing"],
+    ["main_idea", "main-idea"],
+    ["inference", "inference"],
+    ["cause_effect", "cause-effect"],
+    ["context_clues", "context-clues"],
+    ["theme_higher_comprehension", "theme-higher-comprehension"]
+  ].map(([skillId, shard]) => runtimeSkillShard({
     source: "skillLevelGapQuestions",
-    shouldLoad: skillId =>
-      EARLY_PHONICS_GENERATED_SKILLS.has(skillId) ||
-      HFW_SKILLS.has(skillId) ||
-      REPLACEMENT_PHONICS_SKILLS.has(skillId) ||
-      LANGUAGE_SKILLS.has(skillId) ||
-      COMPREHENSION_SKILLS.has(skillId),
-    load: () => import("./generated/skillLevelGapQuestions.generated.js").then(module => module.skillLevelGapQuestions)
-  }
+    skillId,
+    shard,
+    load: () => import(`./generated/runtimeShards/skill-gap.${shard}.generated.js`).then(module => module.questions)
+  }))
 ];
 
 async function loadDynamicBank(loader) {
-  if (!dynamicBankCache.has(loader.source)) {
+  const cacheKey = loader.cacheKey || loader.source;
+  if (!dynamicBankCache.has(cacheKey)) {
     dynamicBankCache.set(
-      loader.source,
+      cacheKey,
       loader.load().then(bank => normalizeQuestionBank(loader.bankName || loader.source, bank || []))
     );
   }
-  return dynamicBankCache.get(loader.source);
+  return dynamicBankCache.get(cacheKey);
 }
 
 async function loadQuestionBanksForSkill(normalizedSkillId) {

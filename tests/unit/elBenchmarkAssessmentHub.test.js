@@ -15,7 +15,7 @@ test.before(async () => {
     logLevel: "silent",
     server: { middlewareMode: true }
   });
-  const module = await vite.ssrLoadModule("/src/components/AppPages.jsx");
+  const module = await vite.ssrLoadModule("/src/components/assessment/ELAssessmentsPage.jsx");
   ELAssessmentsPage = module.ELAssessmentsPage;
 });
 

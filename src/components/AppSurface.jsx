@@ -10,7 +10,6 @@ import {
   AuthPage,
   CheckpointDecisionPage,
   DashboardSummary,
-  ELAssessmentsPage,
   GuidedReadingPage,
   LetterAssessmentPage,
   SkillsProgressPage,
@@ -28,6 +27,7 @@ import {
   AdminDashboardPage,
   AssessmentErrorBoundary,
   ConfirmActionDialog,
+  ELAssessmentsPage,
   ELBenchmarkAssessmentPage,
   ElSkillsQuest,
   FinishedReportPage,
@@ -851,17 +851,19 @@ export function AppSurface({ surface }) {
                 />
               </Suspense>
             )}
-            <ELAssessmentsPage
-              studentId={studentId}
-              studentName={studentName}
-              startLetterAssessment={startLetterAssessment}
-              startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-              startElBenchmarkAssessment={startElBenchmarkAssessment}
-              resumeElBenchmarkAssessment={resumeElBenchmarkAssessment}
-              discardElBenchmarkDraft={discardElBenchmarkDraft}
-              elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
-              assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
-            />
+            <Suspense fallback={<LazyPageFallback label="Loading assessments..." />}>
+              <ELAssessmentsPage
+                studentId={studentId}
+                studentName={studentName}
+                startLetterAssessment={startLetterAssessment}
+                startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+                startElBenchmarkAssessment={startElBenchmarkAssessment}
+                resumeElBenchmarkAssessment={resumeElBenchmarkAssessment}
+                discardElBenchmarkDraft={discardElBenchmarkDraft}
+                elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
+                assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
+              />
+            </Suspense>
           </>
         </PageBoundary>
       )}

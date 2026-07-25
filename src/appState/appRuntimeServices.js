@@ -2,7 +2,6 @@ import { APP_VIEWS } from "./appViews.js";
 import { teacherIntentHash } from "./appViewHelpers.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
 
-let audioManifestModulePromise = null;
 let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
 let assessmentMediaPickerModulePromise = null;
@@ -25,17 +24,6 @@ export function pushRouteHash(nextHash) {
   if (nextHash && window.location.hash !== nextHash) {
     window.history.pushState(window.history.state, "", nextHash);
   }
-}
-
-export function loadAudioManifestModule() {
-  if (!audioManifestModulePromise) {
-    audioManifestModulePromise = importWithRetry(() => import("../data/audioManifest"))
-      .catch(error => {
-        audioManifestModulePromise = null;
-        throw error;
-      });
-  }
-  return audioManifestModulePromise;
 }
 
 export function loadGuidedReadingBooksModule() {
