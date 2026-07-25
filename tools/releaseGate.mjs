@@ -512,6 +512,13 @@ export const RELEASE_GATES = Object.freeze([
     planned: true
   },
   {
+    id: "recovery-drill",
+    label: "Isolated backup restore with class, evidence, and report verification",
+    command: ["npm", "run", "check:recovery-drill"],
+    areas: [8, 10],
+    planned: true
+  },
+  {
     id: "e2e-teacher",
     label: "Authenticated teacher end-to-end",
     command: ["npm", "run", "check:e2e-teacher"],
