@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -49,6 +50,25 @@ test("gzip budgets ignore content-hash churn in imported chunk filenames", () =>
 test("ratchet selects the latest step effective on the run date", () => {
   assert.equal(activeRatchet(config.ratchetSchedule, "2026-07-31").milestone, "baseline");
   assert.equal(activeRatchet(config.ratchetSchedule, "2026-08-01").milestone, "ratchet");
+});
+
+test("production bundle schedule permanently enforces the completed WS9 target", () => {
+  const productionConfig = JSON.parse(readFileSync(
+    new URL("../../tools/bundle-budgets.json", import.meta.url),
+    "utf8"
+  ));
+  const finalRatchet = activeRatchet(productionConfig.ratchetSchedule, "2099-01-01");
+  assert.equal(finalRatchet.mainEntryRawBytes, 500000);
+  assert.equal(finalRatchet.mainEntryGzipBytes, 150000);
+  assert.ok(finalRatchet.routeChunkRawBytes <= 700000);
+
+  for (let index = 1; index < productionConfig.ratchetSchedule.length; index += 1) {
+    const previous = productionConfig.ratchetSchedule[index - 1];
+    const current = productionConfig.ratchetSchedule[index];
+    assert.ok(current.mainEntryRawBytes <= previous.mainEntryRawBytes);
+    assert.ok(current.mainEntryGzipBytes <= previous.mainEntryGzipBytes);
+    assert.ok(current.routeChunkRawBytes <= previous.routeChunkRawBytes);
+  }
 });
 
 test("baseline freezes current main and route chunks without hiding future targets", () => {

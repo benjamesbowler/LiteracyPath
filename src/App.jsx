@@ -5,7 +5,7 @@ import { useReducedMotion } from "framer-motion";
 import "./App.css";
 import { DEBUG_ASSESSMENT_COVERAGE, buildCoverageSnapshot, buildQuestionBankCoverage, calculateWeaknessSnapshot, debugAssessmentCoverage, dedupeQuestionsByRuntimeSignature, downloadBlob, findQuestionForAnswerRecord, formatExportDateForFilename, formatReportDate, getAdminSetupMessage, getQuestionTargetWord, getRuntimeQuestionSignature, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isApprovalSchemaError, isDuplicateAuthSignupError, isInitialSoundsStage, isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, letterAssessmentOrder, logAdminSupabaseError, normalizeItemKey, normalizeRuntimeSkillId, prepareRuntimeQuestionBank, safeExportFilename, setRuntimeQuestionCache, startupQuestions } from "./appState/assessmentRuntime.js";
 import { useAppSessionController } from "./appState/useAppSessionController.js";
-import { STUDENT_SESSION_STORAGE_KEY, addWorkbookExportProvenance, createExcelWorkbook, loadAssessmentMediaPickerModule, loadAssessmentSkillBankLoaderModule, loadFinishedReportPageModule, loadGuidedReadingBooksModule, loadTeacherRouteRuntime, pushRouteHash, teacherReportHash } from "./appState/appRuntimeServices.js";
+import { STUDENT_SESSION_STORAGE_KEY, addWorkbookExportProvenance, createExcelWorkbook, loadAssessmentMediaPickerModule, loadAssessmentSkillBankLoaderModule, loadElBenchmarkEngineModule, loadFinishedReportPageModule, loadGuidedReadingBooksModule, loadTeacherRouteRuntime, pushRouteHash, teacherReportHash } from "./appState/appRuntimeServices.js";
 import { supabase, isSupabaseConfigured } from "./supabaseClient";
 import { getMasteryRule } from "./masterySystem";
 import { skillTree } from "./skillTree";
@@ -20,8 +20,6 @@ import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepeatOptionSetSignature } from "./questionRepeatGuards";
 import { deleteAssessmentAttemptsForStudent, flushAssessmentAttemptSyncQueue, hydrateAssessmentAttempts, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
 import { deleteSavedClassElAssessmentReportsForStudent } from "./data/elAssessmentReportStore.js";
-import { buildElBenchmarkAttempt } from "./data/elBenchmarkAssessments.js";
-import { createElBenchmarkSession } from "./data/elBenchmarkSession.js";
 import { APP_VIEWS } from "./appState/appViews.js";
 import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isStudentAllowedView, restoreElBenchmarkSessionFromHash, teacherIntentHash } from "./appState/appViewHelpers.js";
 import { deleteElBenchmarkDraft, loadElBenchmarkDraft, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
@@ -201,6 +199,7 @@ export default function App() {
     useState(null);
   const [elBenchmarkDraftSaveFailed, setElBenchmarkDraftSaveFailed] =
     useState(false);
+  const elBenchmarkStartPendingRef = useRef(false);
   const [answerHistory, setAnswerHistory] = useState([]);
   const [assessmentHistory, setAssessmentHistory] = useState([]);
   const [guidedReadingRecords, setGuidedReadingRecords] = useState({});
@@ -726,14 +725,18 @@ export default function App() {
     exampleWord: item.examples[(patternAttempt + index) % item.examples.length]
   }));
 
-  function startElBenchmarkAssessment(assessmentId, options = {}) {
+  async function startElBenchmarkAssessment(assessmentId, options = {}) {
     if (!studentId) return;
+    if (elBenchmarkStartPendingRef.current) return;
     if (elBenchmarkSession?.studentId === studentId) {
       setMessage("Resume or discard the saved EL benchmark draft before starting another one.");
       return;
     }
 
+    elBenchmarkStartPendingRef.current = true;
+    setMessage("Preparing the benchmark assessment…");
     try {
+      const { createElBenchmarkSession } = await loadElBenchmarkEngineModule();
       const startedAt = new Date().toISOString();
       const sessionToken = globalThis.crypto?.randomUUID?.() ||
         `${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
@@ -764,6 +767,8 @@ export default function App() {
     } catch (error) {
       console.warn("Could not start the EL benchmark assessment.", error);
       setMessage(error instanceof Error ? error.message : "This assessment route could not be started.");
+    } finally {
+      elBenchmarkStartPendingRef.current = false;
     }
   }
 
@@ -794,6 +799,7 @@ export default function App() {
 
   async function archiveElBenchmarkSession(nextSession) {
     if (!nextSession || nextSession.studentId !== studentId) return null;
+    const { buildElBenchmarkAttempt } = await loadElBenchmarkEngineModule();
     const administrationStatus = nextSession.administrationStatus || nextSession.status || "partial";
     const snapshotAt = nextSession.completedAt || nextSession.discontinuedAt || nextSession.savedAt || new Date().toISOString();
     const attempt = buildElBenchmarkAttempt({

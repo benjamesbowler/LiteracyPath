@@ -12,6 +12,13 @@ const lazyBankModules = [
   "/src/data/ixlStyleSeedQuestions.js",
   "/src/data/rhymingCoverageQuestions.js"
 ];
+const elBenchmarkEngineModule = "/src/appState/elBenchmarkEngine.js";
+const elBenchmarkCoreModules = [
+  "/src/data/elBenchmarkAssessmentCatalog.js",
+  "/src/data/elBenchmarkAssessments.js",
+  "/src/data/elBenchmarkSession.js",
+  "/src/utils/elBenchmarkAssessmentScoring.js"
+];
 
 function runBuild() {
   return new Promise(resolve => {
@@ -49,6 +56,7 @@ if (!fs.existsSync(analysisPath)) {
 
 const analysis = JSON.parse(fs.readFileSync(analysisPath, "utf8"));
 const failures = [];
+const normalizedModuleId = module => module.id.replaceAll("\\", "/");
 for (const moduleSuffix of lazyBankModules) {
   const chunks = analysis.chunks.filter(chunk =>
     chunk.modules.some(module => module.id.replaceAll("\\", "/").endsWith(moduleSuffix))
@@ -62,6 +70,47 @@ for (const moduleSuffix of lazyBankModules) {
       `${moduleSuffix}: not isolated to dynamic entries (${chunks.map(chunk => chunk.fileName).join(", ")})`
     );
   }
+}
+
+const chunkByFileName = new Map(analysis.chunks.map(chunk => [chunk.fileName, chunk]));
+const entryChunk = analysis.chunks.find(chunk => chunk.isEntry);
+if (!entryChunk) {
+  failures.push("main entry chunk: absent from build analysis");
+} else {
+  const staticallyReachable = new Set();
+  const visitStaticImports = chunk => {
+    if (!chunk || staticallyReachable.has(chunk.fileName)) return;
+    staticallyReachable.add(chunk.fileName);
+    for (const importedFile of chunk.imports || []) {
+      visitStaticImports(chunkByFileName.get(importedFile));
+    }
+  };
+  visitStaticImports(entryChunk);
+  for (const moduleSuffix of elBenchmarkCoreModules) {
+    const leakedChunks = analysis.chunks.filter(chunk =>
+      staticallyReachable.has(chunk.fileName)
+      && chunk.modules.some(module => normalizedModuleId(module).endsWith(moduleSuffix))
+    );
+    if (leakedChunks.length) {
+      failures.push(
+        `${moduleSuffix}: statically reachable from main entry (${leakedChunks
+          .map(chunk => chunk.fileName)
+          .join(", ")})`
+      );
+    }
+  }
+}
+
+const engineChunks = analysis.chunks.filter(chunk =>
+  chunk.modules.some(module => normalizedModuleId(module).endsWith(elBenchmarkEngineModule))
+);
+if (engineChunks.length !== 1 || !engineChunks[0].isDynamicEntry || engineChunks[0].isEntry) {
+  failures.push(
+    `${elBenchmarkEngineModule}: expected one dynamic entry, found ${
+      engineChunks.map(chunk => `${chunk.fileName}:${chunk.isDynamicEntry ? "dynamic" : "static"}`).join(", ")
+      || "none"
+    }`
+  );
 }
 
 const browserMasterLexiconChunks = analysis.chunks.filter(chunk =>
@@ -83,5 +132,6 @@ if (failures.length) {
 }
 console.log(
   `Split boundaries verified: ${lazyBankModules.length} assessment banks are dynamic, `
+  + "the EL benchmark engine is outside the main-entry static graph, "
   + "the build-time lexicon is absent, and zero ineffective dynamic imports were reported."
 );

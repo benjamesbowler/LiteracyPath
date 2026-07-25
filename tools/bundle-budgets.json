@@ -11,22 +11,29 @@
       "routeChunkRawBytes": 1840996
     },
     {
+      "effectiveDate": "2026-07-25",
+      "milestone": "WS9 main-entry target achieved early",
+      "mainEntryRawBytes": 500000,
+      "mainEntryGzipBytes": 150000,
+      "routeChunkRawBytes": 1840996
+    },
+    {
       "effectiveDate": "2026-08-20",
-      "milestone": "WS9 first-load split",
-      "mainEntryRawBytes": 950000,
-      "mainEntryGzipBytes": 220000,
+      "milestone": "WS9 first route/data split",
+      "mainEntryRawBytes": 500000,
+      "mainEntryGzipBytes": 150000,
       "routeChunkRawBytes": 1500000
     },
     {
       "effectiveDate": "2026-09-17",
-      "milestone": "WS9 data-bank split",
-      "mainEntryRawBytes": 750000,
-      "mainEntryGzipBytes": 185000,
+      "milestone": "WS9 route/data-bank split",
+      "mainEntryRawBytes": 500000,
+      "mainEntryGzipBytes": 150000,
       "routeChunkRawBytes": 1000000
     },
     {
       "effectiveDate": "2026-10-15",
-      "milestone": "WS9 final target",
+      "milestone": "WS9 final route target",
       "mainEntryRawBytes": 500000,
       "mainEntryGzipBytes": 150000,
       "routeChunkRawBytes": 700000

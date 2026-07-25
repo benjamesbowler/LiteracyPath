@@ -7,6 +7,7 @@ let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
 let assessmentMediaPickerModulePromise = null;
 let finishedReportPageModulePromise = null;
+let elBenchmarkEngineModulePromise = null;
 
 export const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
 export const loadTeacherRouteRuntime = () => import("./routes.js");
@@ -79,6 +80,17 @@ export function loadFinishedReportPageModule() {
       });
   }
   return finishedReportPageModulePromise;
+}
+
+export function loadElBenchmarkEngineModule() {
+  if (!elBenchmarkEngineModulePromise) {
+    elBenchmarkEngineModulePromise = importWithRetry(() => import("./elBenchmarkEngine.js"))
+      .catch(error => {
+        elBenchmarkEngineModulePromise = null;
+        throw error;
+      });
+  }
+  return elBenchmarkEngineModulePromise;
 }
 
 export async function createExcelWorkbook() {
