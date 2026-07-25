@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-25T06:16:46.484Z",
+  "startedAt": "2026-07-25T06:15:48.440Z",
+  "finishedAt": "2026-07-25T06:16:46.484Z",
+  "commitSha": "a681bd5605d1474dc96b868c386b721627fc5487",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 22000,
+      "startedAt": "2026-07-25T06:15:48.501Z",
+      "finishedAt": "2026-07-25T06:16:10.501Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T06-15-48-440Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6842,
+      "startedAt": "2026-07-25T06:16:10.501Z",
+      "finishedAt": "2026-07-25T06:16:17.343Z",
+      "counts": {
+        "tests": 1262,
+        "passed": 1262,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T06-15-48-440Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 16658,
+      "startedAt": "2026-07-25T06:16:17.343Z",
+      "finishedAt": "2026-07-25T06:16:34.001Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T06-15-48-440Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "smoke",
+      "label": "Reachable-product smoke tests",
+      "areas": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "command": "npm run test:smoke",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 11863,
+      "startedAt": "2026-07-25T06:16:34.001Z",
+      "finishedAt": "2026-07-25T06:16:45.864Z",
+      "counts": {
+        "passed": 12
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T06-15-48-440Z/smoke.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "app-decomposition",
+      "label": "App controller decomposition ratchet and explicit runtime/rendering boundaries",
+      "areas": [
+        4,
+        9,
+        10
+      ],
+      "command": "npm run check:app-decomposition",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 242,
+      "startedAt": "2026-07-25T06:16:45.864Z",
+      "finishedAt": "2026-07-25T06:16:46.106Z",
+      "counts": {
+        "tests": 2,
+        "passed": 2,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T06-15-48-440Z/app-decomposition.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "bundle-size",
+      "label": "Enforced bundle budgets",
+      "areas": [
+        9,
+        10
+      ],
+      "command": "npm run check:bundle-size",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 378,
+      "startedAt": "2026-07-25T06:16:46.106Z",
+      "finishedAt": "2026-07-25T06:16:46.484Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T06-15-48-440Z/bundle-size.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}
