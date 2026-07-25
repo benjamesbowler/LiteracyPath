@@ -53,7 +53,7 @@ test("retention policy rejects unsafe periods and unsupported annual actions", (
 test("policy load and save use admin-only RPC boundaries", async () => {
   const calls = [];
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       calls.push([name, payload]);
       return { data: rawPolicy, error: null };
     }
@@ -71,7 +71,7 @@ test("policy load and save use admin-only RPC boundaries", async () => {
 
 test("preview requires complete non-negative candidate evidence", async () => {
   const client = {
-    async rpc() {
+    async call() {
       return {
         data: {
           inactiveArchiveCandidates: 2,
@@ -91,7 +91,7 @@ test("preview requires complete non-negative candidate evidence", async () => {
 test("destructive retention never calls the backend without exact confirmation", async () => {
   let called = false;
   const client = {
-    async rpc() {
+    async call() {
       called = true;
       return { data: {}, error: null };
     }
@@ -105,7 +105,7 @@ test("destructive retention never calls the backend without exact confirmation",
 
 test("completed retention requires counts and a residual preview", async () => {
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       assert.equal(name, "admin_run_school_retention");
       assert.equal(payload.p_confirmation, RETENTION_CONFIRMATION);
       return {
@@ -135,7 +135,7 @@ test("completed retention requires counts and a residual preview", async () => {
 
 test("deletion propagation loads only through the admin RPC", async () => {
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       assert.equal(name, "admin_list_deletion_propagation");
       assert.equal(payload.p_school_id, schoolId);
       return { data: [{ requestId: "request-1", status: "awaiting_expiry" }], error: null };
@@ -148,7 +148,7 @@ test("deletion propagation loads only through the admin RPC", async () => {
 test("a date passing cannot verify provider and backup deletion without evidence", async () => {
   let called = false;
   const client = {
-    async rpc() {
+    async call() {
       called = true;
       return { data: {}, error: null };
     }
@@ -167,7 +167,7 @@ test("a date passing cannot verify provider and backup deletion without evidence
 
 test("provider and backup verification requires evidence and exact confirmation", async () => {
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       assert.equal(name, "admin_verify_deletion_propagation");
       assert.equal(payload.p_evidence_reference, "SUPPORT-12345");
       assert.equal(payload.p_confirmation, PROPAGATION_CONFIRMATION);

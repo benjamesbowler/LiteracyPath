@@ -3060,14 +3060,14 @@ function RemoteErrorMonitorPanel({ client }) {
   const [status, setStatus] = useState(client ? "loading" : "unavailable");
 
   async function loadMonitor() {
-    if (!client?.rpc) {
+    if (!client?.call) {
       setStatus("unavailable");
       return;
     }
     setStatus("loading");
     const [summaryResult, eventResult] = await Promise.all([
-      client.rpc("admin_error_monitor_summary"),
-      client.rpc("admin_recent_error_events", { p_limit: 25 })
+      client.call("admin_error_monitor_summary"),
+      client.call("admin_recent_error_events", { p_limit: 25 })
     ]);
     if (summaryResult.error || eventResult.error) {
       setStatus("error");

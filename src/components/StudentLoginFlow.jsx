@@ -256,7 +256,7 @@ export function StudentLoginFlow({
     }
     setLoading(true);
     setRecovery(null);
-    const { data, error } = await client.rpc("student_class_by_code", {
+    const { data, error } = await client.call("student_class_by_code", {
       p_code: code,
       p_device_id: deviceIdRef.current
     });
@@ -371,7 +371,7 @@ export function StudentLoginFlow({
     setLoading(true);
     setStatus("");
     setRecovery(null);
-    const { data, error } = await client.rpc("student_login", {
+    const { data, error } = await client.call("student_login", {
       p_student_id: selectedStudent.id,
       p_sequence: nextSequence,
       p_device_id: deviceIdRef.current,

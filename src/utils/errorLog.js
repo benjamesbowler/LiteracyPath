@@ -166,7 +166,7 @@ export async function reportRemoteError(event, {
   configured = isSupabaseConfigured,
   random = Math.random
 } = {}) {
-  if (!configured || typeof client?.rpc !== "function") {
+  if (!configured || typeof client?.call !== "function") {
     return { ok: false, reason: "remote-unavailable" };
   }
   if (!shouldSampleError(event, random)) {
@@ -174,7 +174,7 @@ export async function reportRemoteError(event, {
   }
 
   try {
-    const { data, error } = await client.rpc("report_app_error", {
+    const { data, error } = await client.call("report_app_error", {
       p_client_event_id: event.clientEventId,
       p_release_id: event.releaseId,
       p_fingerprint: event.fingerprint,

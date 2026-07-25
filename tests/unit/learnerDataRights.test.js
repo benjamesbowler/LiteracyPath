@@ -16,7 +16,7 @@ const subjectRef = "a".repeat(64);
 test("verified export uses the owned learner RPC and requires request evidence", async () => {
   const calls = [];
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       calls.push([name, payload]);
       return {
         data: {
@@ -54,7 +54,7 @@ test("verified export uses the owned learner RPC and requires request evidence",
 test("deletion must be prepared and confirmed exactly before the destructive RPC", async () => {
   const calls = [];
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       calls.push([name, payload]);
       if (name === "teacher_prepare_learner_deletion") {
         return {
@@ -112,7 +112,7 @@ test("deletion must be prepared and confirmed exactly before the destructive RPC
 
 test("deletion rejects a backend response that cannot prove zero residual records", async () => {
   const client = {
-    async rpc() {
+    async call() {
       return {
         data: {
           requestId: "request-delete",
@@ -138,7 +138,7 @@ test("deletion rejects a backend response that cannot prove zero residual record
 test("request history is loaded through an owned learner RPC", async () => {
   const calls = [];
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       calls.push([name, payload]);
       return {
         data: {
@@ -163,7 +163,7 @@ test("request history is loaded through an owned learner RPC", async () => {
 
 test("request history fails closed on malformed audit evidence", async () => {
   const client = {
-    async rpc() {
+    async call() {
       return { data: { subjectRef: "not-a-hash", requests: [] }, error: null };
     }
   };
@@ -176,7 +176,7 @@ test("request history fails closed on malformed audit evidence", async () => {
 test("request inputs fail closed before any backend call", async () => {
   let called = false;
   const client = {
-    async rpc() {
+    async call() {
       called = true;
       return { data: {}, error: null };
     }

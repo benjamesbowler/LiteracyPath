@@ -46,7 +46,7 @@ test("remote error payload keeps release attribution and excludes arbitrary erro
   });
   const calls = [];
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       calls.push({ name, payload });
       return {
         data: { ok: true, alert_required: false, retention_days: 30 },

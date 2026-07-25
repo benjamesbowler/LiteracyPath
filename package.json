@@ -164,6 +164,7 @@
     "check:engagement-sync": "node tools/verifyEngagementSyncBackend.mjs && node --test tests/unit/engagementQueue.test.js tests/unit/activitySyncHealth.test.js && playwright test tests/release/engagement-sync.spec.js --project=desktop",
     "check:key-route-visuals": "playwright test tests/release/key-route-visuals.spec.js --project=desktop",
     "check:a11y-routes": "node --test tests/unit/primaryRouteA11yInventory.test.js && playwright test tests/release/a11y-routes.spec.js --project=desktop",
+    "check:external-program-readiness": "node tools/verifyExternalPrograms.mjs && npm run check:a11y-routes && npm run check:research-pilot-pack",
     "check:learner-accessibility-settings": "node --test tests/unit/learnerAccessibility.test.js && playwright test tests/release/learner-accessibility-settings.spec.js --project=desktop",
     "check:overlay-contrast-focus": "playwright test tests/release/overlay-contrast-focus.spec.js --project=desktop",
     "check:device-matrix": "node --test tests/unit/studentDeviceMatrix.test.js && playwright test tests/release/student-device-matrix.spec.js --project=desktop",

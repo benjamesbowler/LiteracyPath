@@ -26,7 +26,7 @@ export function normalizeClassAccessSummary(payload) {
 }
 
 export async function loadClassAccessSummary({ client, classId }) {
-  const { data, error } = await client.rpc("teacher_class_access_summary", {
+  const { data, error } = await client.call("teacher_class_access_summary", {
     p_class_id: classId
   });
   return {
@@ -36,7 +36,7 @@ export async function loadClassAccessSummary({ client, classId }) {
 }
 
 export async function loadClassAccessLog({ client, classId, limit = 20 }) {
-  const { data, error } = await client.rpc("teacher_class_access_log", {
+  const { data, error } = await client.call("teacher_class_access_log", {
     p_class_id: classId,
     p_limit: limit
   });
@@ -54,7 +54,7 @@ export async function loadClassAccessLog({ client, classId, limit = 20 }) {
 }
 
 export async function saveClassCodeExpiry({ client, classId, expiresAt }) {
-  const { data, error } = await client.rpc("teacher_set_class_code_expiry", {
+  const { data, error } = await client.call("teacher_set_class_code_expiry", {
     p_class_id: classId,
     p_expires_at: expiresAt || null
   });

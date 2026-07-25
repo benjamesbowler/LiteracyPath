@@ -496,6 +496,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 10]
   },
   {
+    id: "external-program-readiness",
+    label: "Manual accessibility and recurring observation programmes ready for human execution",
+    command: ["npm", "run", "check:external-program-readiness"],
+    areas: [1, 2, 3, 10]
+  },
+  {
     id: "learner-accessibility-settings",
     label: "Persisted per-learner accessibility settings and runtime effects",
     command: ["npm", "run", "check:learner-accessibility-settings"],

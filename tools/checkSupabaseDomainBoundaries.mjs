@@ -34,6 +34,25 @@ function sourceFiles(directory) {
 }
 
 const failures = [];
+const privateQueryPattern = /\b(?!Array\b)[A-Za-z_$][\w$]*\s*\.\s*(?:from|rpc)\s*\(/;
+
+function hasPrivateQueryAccess(source) {
+  return privateQueryPattern.test(source);
+}
+
+for (const fixture of [
+  "client.rpc('student_login')",
+  "serviceClient.from('students')",
+  "supabase.rpc('teacher_create_demo_class')"
+]) {
+  if (!hasPrivateQueryAccess(fixture)) {
+    failures.push(`The private-query detector missed its regression fixture: ${fixture}`);
+  }
+}
+if (hasPrivateQueryAccess("Array.from(rows)")) {
+  failures.push("The private-query detector misclassified Array.from.");
+}
+
 for (const file of requiredBoundaryFiles) {
   if (!fs.existsSync(file)) failures.push(`Missing domain boundary: ${path.relative(root, file)}`);
 }
@@ -63,16 +82,13 @@ for (const file of files) {
   ) {
     failures.push(`${relative} creates an unvalidated Supabase client.`);
   }
-  if (
-    /\bsupabase\s*\.\s*(?:from|rpc)\s*\(/.test(source)
-    && !relative.startsWith("src/data/boundaries/")
-  ) {
+  if (hasPrivateQueryAccess(source) && !relative.startsWith("src/data/boundaries/")) {
     failures.push(`${relative} directly calls the private Supabase SDK query interface.`);
   }
-  for (const match of source.matchAll(/\bsupabase\s*\.\s*table\s*\(\s*["']([^"']+)["']/g)) {
+  for (const match of source.matchAll(/\.\s*table\s*\(\s*["']([^"']+)["']/g)) {
     literalTables.add(match[1]);
   }
-  for (const match of source.matchAll(/\bsupabase\s*\.\s*call\s*\(\s*["']([^"']+)["']/g)) {
+  for (const match of source.matchAll(/\.\s*call\s*\(\s*["']([^"']+)["']/g)) {
     literalRpcs.add(match[1]);
   }
 }
@@ -94,7 +110,9 @@ if (!/export const supabase = createValidatedSupabaseClient\(rawSupabase\)/.test
 if (/export\s+(?:const|let|var)\s+rawSupabase/.test(supabaseClient)) {
   failures.push("The raw Supabase client must never be exported.");
 }
-if (/\bsupabase\s*\.\s*(?:from|rpc)\s*\(/.test(files.map(file => fs.readFileSync(file, "utf8")).join("\n"))) {
+if (files
+  .filter(file => path.relative(root, file) !== "src/data/boundaries/facade.js")
+  .some(file => hasPrivateQueryAccess(fs.readFileSync(file, "utf8")))) {
   failures.push("Application code must use table/call domain boundaries, never from/rpc.");
 }
 

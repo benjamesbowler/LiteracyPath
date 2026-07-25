@@ -23,7 +23,7 @@ export const DATA_RIGHTS_VERIFICATION_METHODS = Object.freeze([
 ]);
 
 function assertClient(client) {
-  if (!client?.rpc) {
+  if (!client?.call) {
     throw new Error("The managed data-rights service is unavailable.");
   }
 }
@@ -62,7 +62,7 @@ export async function exportLearnerData({
   assertClient(client);
   assertLearnerId(studentId);
   assertRequestInputs({ requesterRole, verificationMethod });
-  const result = await client.rpc("teacher_export_learner_data", {
+  const result = await client.call("teacher_export_learner_data", {
     p_student_id: studentId,
     p_requester_role: requesterRole,
     p_verification_method: verificationMethod
@@ -77,7 +77,7 @@ export async function exportLearnerData({
 export async function loadLearnerDataRightsHistory({ client, studentId }) {
   assertClient(client);
   assertLearnerId(studentId);
-  const result = await client.rpc("teacher_list_learner_data_rights", {
+  const result = await client.call("teacher_list_learner_data_rights", {
     p_student_id: studentId
   });
   const data = unwrapRpc(result, "Learner data-rights history");
@@ -99,7 +99,7 @@ export async function prepareLearnerDeletion({
   assertClient(client);
   assertLearnerId(studentId);
   assertRequestInputs({ requesterRole, verificationMethod });
-  const result = await client.rpc("teacher_prepare_learner_deletion", {
+  const result = await client.call("teacher_prepare_learner_deletion", {
     p_student_id: studentId,
     p_requester_role: requesterRole,
     p_verification_method: verificationMethod
@@ -129,7 +129,7 @@ export async function deleteLearnerData({
   if (confirmation !== LEARNER_DELETION_CONFIRMATION) {
     throw new Error(`Type ${LEARNER_DELETION_CONFIRMATION} exactly.`);
   }
-  const result = await client.rpc("teacher_delete_learner_data", {
+  const result = await client.call("teacher_delete_learner_data", {
     p_request_id: preparedRequest.requestId,
     p_student_id: studentId,
     p_subject_ref: preparedRequest.subjectRef,

@@ -33,7 +33,7 @@ test("class access summaries normalize counts and preserve anomaly state", () =>
 test("teacher access data helpers use class-scoped RPCs and generic event copy", async () => {
   const calls = [];
   const client = {
-    async rpc(name, payload) {
+    async call(name, payload) {
       calls.push([name, payload]);
       if (name === "teacher_class_access_summary") {
         return {
@@ -82,7 +82,7 @@ test("teacher access data helpers use class-scoped RPCs and generic event copy",
 
 test("class access data helpers do not turn denied RPCs into empty success", async () => {
   const client = {
-    async rpc() {
+    async call() {
       return { data: { ok: false, error: "forbidden" }, error: null };
     }
   };

@@ -23,7 +23,7 @@ export const YEAR_END_MONTHS = Object.freeze([
 ].map((label, index) => Object.freeze({ value: index + 1, label })));
 
 function assertClient(client) {
-  if (!client?.rpc) throw new Error("The managed retention service is unavailable.");
+  if (!client?.call) throw new Error("The managed retention service is unavailable.");
 }
 
 function assertSchoolId(schoolId) {
@@ -99,7 +99,7 @@ export function normalizeRetentionPolicy(raw = {}) {
 export async function loadSchoolRetentionPolicy({ client, schoolId }) {
   assertClient(client);
   assertSchoolId(schoolId);
-  const result = await client.rpc("admin_get_school_retention_policy", {
+  const result = await client.call("admin_get_school_retention_policy", {
     p_school_id: schoolId
   });
   return normalizeRetentionPolicy(unwrap(result, "Retention policy load"));
@@ -109,7 +109,7 @@ export async function saveSchoolRetentionPolicy({ client, schoolId, policy }) {
   assertClient(client);
   assertSchoolId(schoolId);
   const normalized = normalizeRetentionPolicy({ ...policy, schoolId });
-  const result = await client.rpc("admin_save_school_retention_policy", {
+  const result = await client.call("admin_save_school_retention_policy", {
     p_school_id: schoolId,
     p_inactive_after_days: normalized.inactiveAfterDays,
     p_archived_delete_after_days: normalized.archivedDeleteAfterDays,
@@ -124,7 +124,7 @@ export async function saveSchoolRetentionPolicy({ client, schoolId, policy }) {
 export async function previewSchoolRetention({ client, schoolId }) {
   assertClient(client);
   assertSchoolId(schoolId);
-  const result = await client.rpc("admin_preview_school_retention", {
+  const result = await client.call("admin_preview_school_retention", {
     p_school_id: schoolId
   });
   const data = unwrap(result, "Retention preview");
@@ -145,7 +145,7 @@ export async function previewSchoolRetention({ client, schoolId }) {
 export async function listDeletionPropagation({ client, schoolId }) {
   assertClient(client);
   assertSchoolId(schoolId);
-  const result = await client.rpc("admin_list_deletion_propagation", {
+  const result = await client.call("admin_list_deletion_propagation", {
     p_school_id: schoolId
   });
   if (result?.error) {
@@ -173,7 +173,7 @@ export async function verifyDeletionPropagation({
   if (confirmation !== PROPAGATION_CONFIRMATION) {
     throw new Error(`Type ${PROPAGATION_CONFIRMATION} exactly.`);
   }
-  const result = await client.rpc("admin_verify_deletion_propagation", {
+  const result = await client.call("admin_verify_deletion_propagation", {
     p_request_id: requestId,
     p_evidence_reference: String(evidenceReference).trim(),
     p_confirmation: confirmation
@@ -191,7 +191,7 @@ export async function runSchoolRetention({
   if (confirmation !== RETENTION_CONFIRMATION) {
     throw new Error(`Type ${RETENTION_CONFIRMATION} exactly.`);
   }
-  const result = await client.rpc("admin_run_school_retention", {
+  const result = await client.call("admin_run_school_retention", {
     p_school_id: schoolId,
     p_confirmation: confirmation
   });
