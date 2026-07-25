@@ -226,7 +226,7 @@ test("destructive class-report cleanup fails closed when cloud history cannot be
 
   const cloudReadError = new Error("cloud report history unavailable");
   const failingSupabase = {
-    from() {
+    table() {
       const builder = {
         select() { return builder; },
         eq() { return builder; },

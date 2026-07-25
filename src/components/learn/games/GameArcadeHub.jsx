@@ -52,7 +52,7 @@ function Leaderboard({ refreshSignal }) {
     let cancelled = false;
     if (!token) return undefined;
     supabase
-      .rpc("get_game_leaderboard", { p_limit: 5, p_student_token: token })
+      .call("get_game_leaderboard", { p_limit: 5, p_student_token: token })
       .then(({ data, error }) => {
         if (cancelled) return;
         if (error || !Array.isArray(data?.rows)) {

@@ -49,7 +49,7 @@ test("teacher accessibility patch is complete, attributed, and stored on the pro
   );
   const now = () => "2026-07-24T17:30:00.000Z";
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "student_progress");
       return {
         async upsert(row, options) {

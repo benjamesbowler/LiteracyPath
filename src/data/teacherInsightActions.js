@@ -10,7 +10,7 @@ export async function createTeacherInsightIntervention({
   plannedFor
 }) {
   const { data, error } = await supabase
-    .rpc("teacher_create_insight_intervention", {
+    .call("teacher_create_insight_intervention", {
       p_action_type: actionType,
       p_class_id: classId,
       p_insight: insight,
@@ -36,7 +36,7 @@ export async function recordTeacherInsightObservation({
   followUpOn
 }) {
   const { data, error } = await supabase
-    .rpc("teacher_record_insight_observation", {
+    .call("teacher_record_insight_observation", {
       p_class_id: classId,
       p_insight: insight,
       p_student_ids: studentIds,

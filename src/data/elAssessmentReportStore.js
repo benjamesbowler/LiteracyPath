@@ -1293,7 +1293,7 @@ export async function hydrateElAssessmentReports({
       const seenCloudRows = new Set();
       for (let from = 0; ; from += pageSize) {
         const query = supabase
-          .from("el_assessment_reports")
+          .table("el_assessment_reports")
           .select("report_id, report_type, class_id, student_id, teacher_id, generated_at, file_name, schema_version, payload")
           .eq("teacher_id", teacherId);
         const orderedByDate = query.order("generated_at", { ascending: false });
@@ -1374,7 +1374,7 @@ export async function saveElAssessmentReport(report, { teacherId = report.teache
   let cloudError = null;
   if (supabase) {
     try {
-      const result = await supabase.from("el_assessment_reports").upsert({
+      const result = await supabase.table("el_assessment_reports").upsert({
         report_id: normalized.reportId,
         report_type: normalized.reportType,
         class_id: normalized.classId || null,
@@ -1413,7 +1413,7 @@ export async function deleteSavedElAssessmentReport(reportId, { teacherId = "loc
   if (supabase) {
     try {
       const result = await supabase
-        .from("el_assessment_reports")
+        .table("el_assessment_reports")
         .delete()
         .eq("report_id", reportId)
         .eq("teacher_id", teacherId);

@@ -24,7 +24,7 @@ export async function saveStudentReducedChoiceMode({
     return { ok: false, error: new Error("A student and database client are required.") };
   }
   const payload = buildReducedChoiceProfilePatch(enabled, { teacherId, now });
-  const { error } = await supabase.from("student_progress").upsert({
+  const { error } = await supabase.table("student_progress").upsert({
     student_id: studentId,
     area: "profile",
     key: "__all__",
@@ -46,7 +46,7 @@ export async function saveStudentAccessibilitySettings({
     return { ok: false, error: new Error("A student and database client are required.") };
   }
   const payload = buildLearnerAccessibilityProfilePatch(settings, { teacherId, now });
-  const { error } = await supabase.from("student_progress").upsert({
+  const { error } = await supabase.table("student_progress").upsert({
     student_id: studentId,
     area: "profile",
     key: "__all__",

@@ -76,7 +76,7 @@ export function hollowSpotsFor(roomId, override) {
 // Fetch the saved override from Supabase (cached). Always resolves; never throws.
 export async function loadHollowSpotsOverride() {
   try {
-    const { data, error } = await supabase.from("app_config").select("value").eq("key", CONFIG_KEY).maybeSingle();
+    const { data, error } = await supabase.table("app_config").select("value").eq("key", CONFIG_KEY).maybeSingle();
     if (error || !data?.value) return getCachedHollowOverride();
     const clean = sanitize(data.value);
     writeCache(clean);
@@ -89,7 +89,7 @@ export async function loadHollowSpotsOverride() {
 // Admin save. Throws on failure (e.g. not authorised) so the editor can report it.
 export async function saveHollowSpots(spots) {
   const clean = sanitize(spots);
-  const { error } = await supabase.rpc("set_app_config", { p_key: CONFIG_KEY, p_value: clean });
+  const { error } = await supabase.call("set_app_config", { p_key: CONFIG_KEY, p_value: clean });
   if (error) throw error;
   writeCache(clean);
   return clean;

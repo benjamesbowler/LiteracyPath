@@ -14,7 +14,7 @@ export function SchoolNameInput({ value, onChange, placeholder = "Choose or type
     if (cachedSchoolNames) return;
     let cancelled = false;
     supabase
-      .rpc("list_school_names")
+      .call("list_school_names")
       .then(({ data, error }) => {
         if (cancelled || error || !Array.isArray(data)) return;
         cachedSchoolNames = data.map(row => row.name).filter(Boolean);

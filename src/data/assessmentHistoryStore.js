@@ -1237,7 +1237,7 @@ function cloudRowForAssessmentAttempt(record = {}) {
 
 async function upsertAssessmentAttemptCloud(record, supabase) {
   let recordToPersist = normalizeAssessmentAttempt(record);
-  const readTable = supabase.from("assessment_attempts");
+  const readTable = supabase.table("assessment_attempts");
   if (typeof readTable?.select === "function") {
     try {
       const selected = readTable.select("*");
@@ -1264,7 +1264,7 @@ async function upsertAssessmentAttemptCloud(record, supabase) {
       }
     }
   }
-  const writeTable = supabase.from("assessment_attempts");
+  const writeTable = supabase.table("assessment_attempts");
   const cloudRow = cloudRowForAssessmentAttempt(recordToPersist);
   // A partial/in-progress row uses insert-only semantics. If another device
   // completed the same attempt between our protective read and write, the
@@ -1441,7 +1441,7 @@ export async function hydrateAssessmentAttempts({
   try {
     const buildOrderedQuery = () => {
       let query = supabase
-        .from("assessment_attempts")
+        .table("assessment_attempts")
         .select("*")
         .eq("teacher_id", teacherId);
       if (studentId) query = query.eq("student_id", studentId);

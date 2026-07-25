@@ -5,7 +5,7 @@ export async function insertRosterStudents({
   teacherId
 }) {
   return supabase
-    .from("students")
+    .table("students")
     .insert(names.map(name => ({
       name,
       class_id: classId,
@@ -20,7 +20,7 @@ export async function setRosterStudentArchived({
   archived
 }) {
   return supabase
-    .from("students")
+    .table("students")
     .update({ archived_at: archived ? new Date().toISOString() : null })
     .eq("id", studentId)
     .eq("class_id", classId)
@@ -34,7 +34,7 @@ export async function transferRosterStudent({
   targetClassId
 }) {
   return supabase
-    .from("students")
+    .table("students")
     .update({ class_id: targetClassId })
     .eq("id", studentId)
     .eq("class_id", sourceClassId)

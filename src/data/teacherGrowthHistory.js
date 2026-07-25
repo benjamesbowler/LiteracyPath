@@ -37,7 +37,7 @@ async function loadAttemptPages({ supabase, teacherId, classId, studentId }) {
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const from = page * PAGE_SIZE;
     const { data, error } = await supabase
-      .from("assessment_attempts")
+      .table("assessment_attempts")
       .select(ATTEMPT_FIELDS)
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)
@@ -67,7 +67,7 @@ async function loadInterventions({ supabase, teacherId, classId, studentId }) {
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const from = page * PAGE_SIZE;
     const { data, error } = await supabase
-      .from("teacher_interventions")
+      .table("teacher_interventions")
       .select(INTERVENTION_FIELDS)
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)

@@ -1558,7 +1558,7 @@ export function TeacherDashboardPage({
     setSavingLeaderboardScope(true);
     setLeaderboardStatus("");
     try {
-      const { data, error } = await supabase.rpc("teacher_set_class_leaderboard_scope", {
+      const { data, error } = await supabase.call("teacher_set_class_leaderboard_scope", {
         p_class_id: selectedClass.id,
         p_scope: scope
       });

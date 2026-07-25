@@ -189,7 +189,7 @@ export function InterventionLoop({
     async function load() {
       if (!supabase || !teacherId || !classId) return;
       const { data, error } = await supabase
-        .from("teacher_interventions")
+        .table("teacher_interventions")
         .select(SELECT_FIELDS)
         .eq("teacher_id", teacherId)
         .eq("class_id", classId)
@@ -221,7 +221,7 @@ export function InterventionLoop({
     setBusyId("new");
     setStatus("");
     const request = draft.parentInterventionId
-      ? supabase.rpc("teacher_create_intervention_follow_up", {
+      ? supabase.call("teacher_create_intervention_follow_up", {
         p_parent_intervention_id: draft.parentInterventionId,
         p_owner_label: draft.ownerLabel.trim(),
         p_group_label: draft.groupLabel.trim(),
@@ -231,7 +231,7 @@ export function InterventionLoop({
         p_planned_for: draft.plannedFor
       }).single()
       : supabase
-        .from("teacher_interventions")
+        .table("teacher_interventions")
         .insert({
           teacher_id: teacherId,
           class_id: classId,
@@ -267,7 +267,7 @@ export function InterventionLoop({
     setBusyId(intervention.id);
     setStatus("");
     const { data, error } = await supabase
-      .from("teacher_interventions")
+      .table("teacher_interventions")
       .update(changes)
       .eq("id", intervention.id)
       .eq("teacher_id", teacherId)

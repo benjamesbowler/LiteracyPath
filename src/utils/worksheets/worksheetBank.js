@@ -7,7 +7,7 @@ import { supabase } from "../../supabaseClient.js";
 export async function listWorksheetRecipes() {
   try {
     const { data, error } = await supabase
-      .from("worksheet_bank")
+      .table("worksheet_bank")
       .select("id, cycle_id, type, pages, title, created_at")
       .order("created_at", { ascending: false });
     if (error) return { rows: [], error };
@@ -20,7 +20,7 @@ export async function listWorksheetRecipes() {
 export async function saveWorksheetRecipe({ cycleId, type, pages, title }) {
   try {
     const { data, error } = await supabase
-      .from("worksheet_bank")
+      .table("worksheet_bank")
       .insert({ cycle_id: cycleId, type, pages, title })
       .select("id, cycle_id, type, pages, title, created_at")
       .single();
@@ -32,7 +32,7 @@ export async function saveWorksheetRecipe({ cycleId, type, pages, title }) {
 
 export async function deleteWorksheetRecipe(id) {
   try {
-    const { error } = await supabase.from("worksheet_bank").delete().eq("id", id);
+    const { error } = await supabase.table("worksheet_bank").delete().eq("id", id);
     return { error: error || null };
   } catch (error) {
     return { error };

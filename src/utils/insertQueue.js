@@ -64,7 +64,7 @@ function bumpAttempts(itemSig) {
 }
 
 async function tryInsert(table, row) {
-  const { error } = await supabase.from(table).insert(row);
+  const { error } = await supabase.table(table).insert(row);
   if (error) throw error;
 }
 

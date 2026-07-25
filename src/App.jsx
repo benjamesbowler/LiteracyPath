@@ -3074,7 +3074,7 @@ export default function App() {
     }
 
     const { data, error } = await supabase
-      .from("app_admins")
+      .table("app_admins")
       .select("id, user_id, email")
       .eq("user_id", userId)
       .maybeSingle();
@@ -3136,7 +3136,7 @@ export default function App() {
 
   async function fetchTeacherAccountRecord(userId) {
     return supabase
-      .from("pending_teacher_accounts")
+      .table("pending_teacher_accounts")
       .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
       .eq("user_id", userId)
       .maybeSingle();
@@ -3161,7 +3161,7 @@ export default function App() {
     if (!data) {
       const pendingRecord = buildPendingAccountRecord(userId, email);
       const { data: insertedRecord, error: insertError } = await supabase
-        .from("pending_teacher_accounts")
+        .table("pending_teacher_accounts")
         .upsert(pendingRecord, { onConflict: "user_id" })
         .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .maybeSingle();
@@ -3346,14 +3346,14 @@ export default function App() {
     setAdminLoading(true);
 
     const [classesResult, studentsResult, answersResult, pendingAccountsResult, schoolsResult] = await Promise.all([
-      supabase.from("classes").select("id, name, teacher_id, school_id, created_at").order("created_at", { ascending: false }),
-      supabase.from("students").select("id, name, class_id, teacher_id, symbol_password, created_at").order("created_at", { ascending: false }),
-      supabase.from("answers").select("teacher_id"),
+      supabase.table("classes").select("id, name, teacher_id, school_id, created_at").order("created_at", { ascending: false }),
+      supabase.table("students").select("id, name, class_id, teacher_id, symbol_password, created_at").order("created_at", { ascending: false }),
+      supabase.table("answers").select("teacher_id"),
       supabase
-        .from("pending_teacher_accounts")
+        .table("pending_teacher_accounts")
         .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .order("created_at", { ascending: false }),
-      supabase.from("schools").select("id, name, created_at").order("name", { ascending: true })
+      supabase.table("schools").select("id, name, created_at").order("name", { ascending: true })
     ]);
 
     setAdminLoading(false);
@@ -3437,7 +3437,7 @@ export default function App() {
     if (!values || values.length === 0) return null;
 
     const { error } = await supabase
-      .from(tableName)
+      .table(tableName)
       .delete()
       .in(columnName, values);
 
@@ -3489,7 +3489,7 @@ export default function App() {
     }
 
     const { error: studentError } = await supabase
-      .from("students")
+      .table("students")
       .delete()
       .eq("id", selectedStudentId);
 
@@ -3522,7 +3522,7 @@ export default function App() {
   async function adminSetTeacherSchool(teacherUserId, schoolName) {
     if (!isAdmin || !teacherUserId || !schoolName?.trim()) return;
 
-    const { data: schoolRows, error: schoolError } = await supabase.rpc("find_or_create_school", { p_name: schoolName.trim() });
+    const { data: schoolRows, error: schoolError } = await supabase.call("find_or_create_school", { p_name: schoolName.trim() });
     const schoolId = schoolRows?.[0]?.id || null;
     if (schoolError || !schoolId) {
       console.error("Admin set school failed:", schoolError);
@@ -3531,12 +3531,12 @@ export default function App() {
     }
 
     const { error: accountError } = await supabase
-      .from("pending_teacher_accounts")
+      .table("pending_teacher_accounts")
       .update({ school_id: schoolId })
       .eq("user_id", teacherUserId);
 
     const { error: classError } = await supabase
-      .from("classes")
+      .table("classes")
       .update({ school_id: schoolId })
       .eq("teacher_id", teacherUserId);
 
@@ -3559,7 +3559,7 @@ export default function App() {
     if (!isAdmin || !classId) return;
 
     const { data: students, error: lookupError } = await supabase
-      .from("students")
+      .table("students")
       .select("id, name, teacher_id")
       .eq("class_id", classId);
 
@@ -3602,14 +3602,14 @@ export default function App() {
     }
 
     const { error: studentsError } = await supabase
-      .from("students")
+      .table("students")
       .delete()
       .eq("class_id", classId);
 
     if (studentsError) errors.push(studentsError);
 
     const { error: classError } = await supabase
-      .from("classes")
+      .table("classes")
       .delete()
       .eq("id", classId);
 
@@ -3670,7 +3670,7 @@ export default function App() {
     }
 
     const { data, error } = await supabase
-      .from("pending_teacher_accounts")
+      .table("pending_teacher_accounts")
       .update(statusUpdate)
       .eq("id", accountId)
       .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
@@ -3758,7 +3758,7 @@ export default function App() {
         display_name: displayName || username
       });
       const { data: pendingAccount, error: notificationError } = await supabase
-        .from("pending_teacher_accounts")
+        .table("pending_teacher_accounts")
         .upsert(pendingRecord, { onConflict: "user_id" })
         .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .maybeSingle();
@@ -3839,7 +3839,7 @@ export default function App() {
     const schoolId = teacherAccountRecord?.school_id;
     const namePromise = schoolId
       ? supabase
-          .from("schools")
+          .table("schools")
           .select("name")
           .eq("id", schoolId)
           .maybeSingle()
@@ -3863,7 +3863,7 @@ export default function App() {
     setAuthLoading(true);
     // Security-definer RPC: persists the school on the teacher's account row
     // (RLS blocks direct updates once approved) and stamps all their classes.
-    const { data: savedRows, error } = await supabase.rpc("teacher_set_school", { p_school_name: schoolName });
+    const { data: savedRows, error } = await supabase.call("teacher_set_school", { p_school_name: schoolName });
     const saved = savedRows?.[0] || null;
 
     setAuthLoading(false);
@@ -3956,7 +3956,7 @@ export default function App() {
     }
 
     const { data, error } = await supabase
-      .from("classes")
+      .table("classes")
       .select("id,name,school_id,access_code,access_code_created_at,access_code_expires_at,leaderboard_scope")
       .eq("teacher_id", teacherId)
       .order("name", { ascending: true });
@@ -3973,7 +3973,7 @@ export default function App() {
 
   async function regenerateClassCode(classId = selectedClassId) {
     if (!classId) return { ok: false, error: "missing-class" };
-    const { data, error } = await supabase.rpc("teacher_regenerate_class_code", { p_class_id: classId });
+    const { data, error } = await supabase.call("teacher_regenerate_class_code", { p_class_id: classId });
     if (error || !data?.ok) {
       console.error("Regenerate class code error:", error || data?.error);
       setMessage("Could not make a new class code.");
@@ -3993,7 +3993,7 @@ export default function App() {
     }
 
     const { data, error } = await supabase
-      .from("classes")
+      .table("classes")
       .insert({ name: clean, teacher_id: teacherId, school_id: teacherAccountRecord?.school_id || null })
       .select()
       .single();
@@ -4017,7 +4017,7 @@ export default function App() {
       return false;
     }
 
-    const { data, error } = await supabase.rpc("teacher_create_demo_class");
+    const { data, error } = await supabase.call("teacher_create_demo_class");
     const classId = data?.class_id;
     if (error || !classId) {
       console.error("Create demo class error:", error || data);
@@ -4047,7 +4047,7 @@ export default function App() {
     setLoadingStudents(true);
 
     const { data, error } = await supabase
-      .from("students")
+      .table("students")
       .select("id, name, class_id, created_at, updated_at, symbol_password, archived_at")
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)
@@ -4110,7 +4110,7 @@ export default function App() {
     }
 
     const { data: students, error: studentsError } = await supabase
-      .from("students")
+      .table("students")
       .select("id, name, created_at")
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)
@@ -4132,7 +4132,7 @@ export default function App() {
     }
 
     const { data: answers, error: answersError } = await supabase
-      .from("answers")
+      .table("answers")
       .select("student_id, skill, is_correct, answered_at")
       .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
@@ -4144,7 +4144,7 @@ export default function App() {
 
 
     const { data: masteryRows, error: masteryError } = await supabase
-      .from("mastery")
+      .table("mastery")
       .select("*")
       .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
@@ -4155,7 +4155,7 @@ export default function App() {
     }
 
     const { data: soundSeekerRows, error: soundSeekerError } = await supabase
-      .from("student_progress")
+      .table("student_progress")
       .select("student_id, payload, updated_at")
       .eq("area", "phonics_quest")
       .eq("key", "__all__")
@@ -4172,7 +4172,7 @@ export default function App() {
       }])
     );
     const { data: profileRows, error: profileError } = await supabase
-      .from("student_progress")
+      .table("student_progress")
       .select("student_id, payload")
       .eq("area", "profile")
       .eq("key", "__all__")
@@ -4300,7 +4300,7 @@ export default function App() {
       assignedAt: new Date().toISOString(),
       by: "teacher"
     };
-    const { error } = await supabase.from("student_progress").upsert({
+    const { error } = await supabase.table("student_progress").upsert({
       student_id: studentRowId,
       area: "phonics_quest",
       key: "__all__",
@@ -4366,7 +4366,7 @@ export default function App() {
     // student's own teacher or an app admin. Filtering by teacher_id made
     // admin edits silently update zero rows while still reporting success.
     const { data, error } = await supabase
-      .from("students")
+      .table("students")
       .update({
         symbol_password: sequence,
         password_set_at: new Date().toISOString(),
@@ -4392,7 +4392,7 @@ export default function App() {
     if (!window.confirm(`Reset ${selectedStudentName}'s login pictures? They will be unable to sign in until a teacher sets new pictures.`)) return;
 
     const { data, error } = await supabase
-      .from("students")
+      .table("students")
       .update({
         symbol_password: null,
         password_set_at: null,
@@ -4462,7 +4462,7 @@ export default function App() {
 
   async function deleteStudentProgressRows(tableName, selectedStudentId) {
     const { error } = await supabase
-      .from(tableName)
+      .table(tableName)
       .delete()
       .eq("student_id", selectedStudentId);
 
@@ -4531,7 +4531,7 @@ export default function App() {
     // Leave a cloud "tombstone" so OTHER devices (shared iPads) also wipe their
     // local copy on next hydrate, instead of re-pushing old progress. Best-effort.
     try {
-      await supabase.from("student_progress").upsert({
+      await supabase.table("student_progress").upsert({
         student_id: studentId,
         area: RESET_AREA,
         key: RESET_AREA,
@@ -4628,7 +4628,7 @@ export default function App() {
     });
 
     const { data: answerRows, error: answerError } = await supabase
-      .from("answers")
+      .table("answers")
       .select("*")
       .eq("teacher_id", teacherId)
       .eq("student_id", selectedStudentId)
@@ -4676,7 +4676,7 @@ export default function App() {
     setCorrectAnswered(rebuiltHistory.filter(x => x.isCorrect).length);
 
     const { data: itemMasteryRows, error: itemMasteryError } = await supabase
-      .from("item_mastery")
+      .table("item_mastery")
       .select("*")
       .eq("teacher_id", teacherId)
       .eq("student_id", selectedStudentId)
@@ -4712,7 +4712,7 @@ export default function App() {
     setItemSessionSeen({});
 
     const { data: masteryRows, error: masteryError } = await supabase
-      .from("mastery")
+      .table("mastery")
       .select("*")
       .eq("teacher_id", teacherId)
       .eq("student_id", selectedStudentId)
@@ -4794,7 +4794,7 @@ export default function App() {
     }
 
     const { data, error } = await supabase
-      .from("students")
+      .table("students")
       .insert({
         name: clean,
         class_id: selectedClassId,
@@ -6020,7 +6020,7 @@ export default function App() {
     if (!studentId || !teacherId || !row?.itemKey || !row?.itemType) return;
 
     const { error } = await supabase
-      .from("item_mastery")
+      .table("item_mastery")
       .upsert(
         {
           student_id: studentId,

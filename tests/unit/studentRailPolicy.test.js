@@ -77,7 +77,7 @@ test("tap-to-hear uses one child-paced utterance with the exact destination labe
 test("teacher reduced-choice setting persists while child profile saves cannot overwrite it", async () => {
   const writes = [];
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "student_progress");
       return {
         async upsert(row, options) {

@@ -381,6 +381,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [8, 9, 10]
   },
   {
+    id: "domain-boundaries",
+    label: "Runtime-validated auth, class, evidence, report, and content backend boundaries",
+    command: ["npm", "run", "check:domain-boundaries"],
+    areas: [4, 8, 9, 10]
+  },
+  {
     id: "teacher-contextual-help",
     label: "Searchable question-type help reachable from learner evidence",
     command: ["npm", "run", "check:teacher-contextual-help"],

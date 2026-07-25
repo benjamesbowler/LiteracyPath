@@ -86,7 +86,7 @@ export function buildClassActivitySyncHealth(
 export async function loadClassActivitySyncHealth(supabase, classId) {
   if (!supabase || !classId) return [];
   const { data, error } = await supabase
-    .from("activity_sync_health")
+    .table("activity_sync_health")
     .select(
       "student_id,device_id,attempted,delivered,recovered,storage_failures,"
       + "pending,lost,oldest_pending_at,observed_at"

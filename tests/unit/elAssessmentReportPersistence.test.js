@@ -56,7 +56,7 @@ function createSupabaseReportMock(initialRows = []) {
   };
   return {
     state,
-    from(table) {
+    table(table) {
       assert.equal(table, "el_assessment_reports");
       return {
         delete() {
@@ -327,7 +327,7 @@ test("saved-report hydration stops when a range adapter repeats a non-advancing 
   }));
   const requestedRanges = [];
   const supabase = {
-    from() {
+    table() {
       const builder = {
         select() { return this; },
         eq() { return this; },

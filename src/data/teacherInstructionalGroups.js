@@ -38,7 +38,7 @@ async function loadPages({
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const from = page * PAGE_SIZE;
     const { data, error } = await supabase
-      .from(table)
+      .table(table)
       .select(fields)
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)
@@ -97,7 +97,7 @@ export async function saveTeacherInstructionalGroup({
   evidenceSnapshot
 }) {
   const { data, error } = await supabase
-    .rpc("teacher_save_instructional_group", {
+    .call("teacher_save_instructional_group", {
       p_class_id: classId,
       p_name: name,
       p_criteria: criteria,
@@ -116,7 +116,7 @@ export async function reviewTeacherInstructionalGroup({
   evidenceSnapshot
 }) {
   const { data, error } = await supabase
-    .rpc("teacher_review_instructional_group", {
+    .call("teacher_review_instructional_group", {
       p_group_id: groupId,
       p_student_ids: studentIds,
       p_evidence_snapshot: evidenceSnapshot
@@ -134,7 +134,7 @@ export async function assignTeacherInstructionalGroupFollowUp({
   plannedFor
 }) {
   const { data, error } = await supabase
-    .rpc("teacher_assign_instructional_group_follow_up", {
+    .call("teacher_assign_instructional_group_follow_up", {
       p_group_id: groupId,
       p_owner_label: ownerLabel,
       p_activity: activity,

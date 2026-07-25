@@ -158,7 +158,7 @@ async function saveCloudProgress(entry) {
   const uploadPayload = sanitizeCloudProgressPayload(entry.area, entry.payload);
 
   if (entry.mode === "student" && entry.token) {
-    const { data, error } = await supabase.rpc("student_save_progress", {
+    const { data, error } = await supabase.call("student_save_progress", {
       p_token: entry.token,
       p_area: entry.area,
       p_key: entry.key,
@@ -169,7 +169,7 @@ async function saveCloudProgress(entry) {
   }
 
   const { error } = await supabase
-    .from("student_progress")
+    .table("student_progress")
     .upsert({
       student_id: entry.studentId,
       area: entry.area,
@@ -293,13 +293,13 @@ export async function flushQueuedProgressWrites(session = activeSession) {
 export async function fetchStudentCloudProgress(session) {
   if (!session?.studentId) return [];
   if (session.mode === "student" && session.token) {
-    const { data, error } = await supabase.rpc("student_get_progress", { p_token: session.token });
+    const { data, error } = await supabase.call("student_get_progress", { p_token: session.token });
     if (error) throw error;
     return data || [];
   }
 
   const { data, error } = await supabase
-    .from("student_progress")
+    .table("student_progress")
     .select("area, key, payload, updated_at")
     .eq("student_id", session.studentId);
   if (error) throw error;
@@ -378,7 +378,7 @@ export function clearProgressSyncSession() {
 }
 
 async function sendStudentActivity(session, entry) {
-  const { data, error } = await supabase.rpc("student_log_activity_v2", {
+  const { data, error } = await supabase.call("student_log_activity_v2", {
     p_token: session.token,
     p_client_event_id: entry.id,
     p_area: entry.area,
@@ -395,7 +395,7 @@ async function sendStudentActivity(session, entry) {
 
 async function reportStudentActivitySyncHealth(session, snapshot) {
   try {
-    const { data, error } = await supabase.rpc("student_report_activity_sync_health", {
+    const { data, error } = await supabase.call("student_report_activity_sync_health", {
       p_token: session.token,
       p_device_id: snapshot.deviceId,
       p_attempted: snapshot.attempted,
