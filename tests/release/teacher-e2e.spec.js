@@ -109,6 +109,40 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
   expect(pageErrors).toEqual([]);
 });
 
+test("A9.7 @teacher-route-deep-link owned class report survives refresh and browser history", async ({
+  page
+}) => {
+  test.setTimeout(90_000);
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+
+  const skillsCheckRoute =
+    `/#teacher/progress/report?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check`;
+  await page.goto(skillsCheckRoute);
+  await expect(page.getByRole("heading", { name: "Skills Check", exact: true })).toBeVisible({
+    timeout: 20_000
+  });
+  await expect(page.getByRole("region", { name: "Report provenance" })).toContainText("Aarav");
+  await expect(page).toHaveURL(new RegExp(
+    `#teacher/progress/report\\?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check$`
+  ));
+
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Skills Check", exact: true })).toBeVisible({
+    timeout: 20_000
+  });
+  await expect(page.getByRole("region", { name: "Report provenance" })).toContainText("Audit Class A");
+
+  await page.getByRole("link", { name: /Whole Child/ }).click();
+  await expect(page.getByRole("heading", { name: "Whole Child", exact: true })).toBeVisible();
+  await expect(page).toHaveURL(new RegExp("report=whole-child$"));
+
+  await page.goBack();
+  await expect(page.getByRole("heading", { name: "Skills Check", exact: true })).toBeVisible({
+    timeout: 20_000
+  });
+  await expect(page).toHaveURL(new RegExp("report=skills-check$"));
+});
+
 test("A10.7 teacher B cannot discover or deep-link into teacher A's class or learner", async ({
   page
 }) => {
@@ -122,7 +156,7 @@ test("A10.7 teacher B cannot discover or deep-link into teacher A's class or lea
   await expect(classSelect.locator("option").filter({ hasText: "Audit Class B" })).toHaveCount(1);
 
   await page.goto(
-    `/#teacher/progress?class=${AUDIT_CLASS_A_ID}&group=all&learner=${AARAV_ID}`
+    `/#teacher/progress/report?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check`
   );
   await expect(page.locator('[data-teacher-product="class-dashboard"]')).toBeVisible({
     timeout: 20_000
@@ -135,4 +169,5 @@ test("A10.7 teacher B cannot discover or deep-link into teacher A's class or lea
     .filter({ hasText: "Audit Class A" })).toHaveCount(0);
   await expect(page.getByRole("region", { name: "Learner progress evidence: Aarav" }))
     .toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Skills Check", exact: true })).toHaveCount(0);
 });

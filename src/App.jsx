@@ -51,7 +51,6 @@ import {
 } from "./accessibility/learnerAccessibility.js";
 import { loadStudentProfile } from "./utils/studentProfile.js";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
-import { studentReportHash } from "./components/reports/studentReportUiUtils.js";
 import { worldForScope } from "./utils/palWorlds.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
@@ -262,6 +261,20 @@ let audioManifestModulePromise = null;
 let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
 let assessmentMediaPickerModulePromise = null;
+const loadTeacherRouteRuntime = () => import("./appState/routes.js");
+function teacherReportHash(classId, learnerId, reportView) {
+  return teacherIntentHash({
+    appView: APP_VIEWS.FINISHED,
+    classId,
+    learnerId,
+    reportView
+  });
+}
+function pushRouteHash(nextHash) {
+  if (nextHash && window.location.hash !== nextHash) {
+    window.history.pushState(window.history.state, "", nextHash);
+  }
+}
 const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
 // The student view allowlist now lives in appState/appViewHelpers.js (exported,
 // and held against the Student Home's own links by a unit test). It was a
@@ -2731,7 +2744,7 @@ export default function App() {
     }
   }, [isAdmin, appView]);
 
-  const restoreTeacherProfile = useEffectEvent(() => {
+  const restoreTeacherProfile = useEffectEvent(async () => {
     if (!authReady) return;
 
     setProfileLoaded(false);
@@ -2754,6 +2767,8 @@ export default function App() {
       return;
     }
 
+    const { parse } = await loadTeacherRouteRuntime();
+    const teacherRoute = parse(window.location.hash);
     loadClasses();
 
     const saved = localStorage.getItem(profileStorageKey);
@@ -2762,6 +2777,9 @@ export default function App() {
       try {
         const data = JSON.parse(saved);
         const savedClassId = data.selectedClassId || null;
+        const restoredClassId = teacherRoute
+          ? teacherRoute.classId || null
+          : savedClassId;
 
         const isFreshLoginRestore = freshLoginResetPendingRef.current;
         if (isFreshLoginRestore) {
@@ -2784,20 +2802,29 @@ export default function App() {
           setAnswerHistory([]);
           answerHistoryRef.current = [];
           setItemMastery({});
-          loadStudents();
+          if (teacherRoute) {
+            await hydrateTeacherRouteContext(teacherRoute);
+          } else {
+            loadStudents();
+          }
           setProfileLoaded(true);
           return;
         }
 
-        setSelectedClassId(savedClassId);
+        setSelectedClassId(restoredClassId);
         setAssessmentMode(data.assessmentMode || "mastery");
         const restoredSkillIndex = Math.min(
           Math.max(0, Number(data.currentSkillIndex) || 0),
           skillTree.length - 1
         );
         const restoredRoundAnswers = Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
-        const restoredStudentId = data.teacherStudentId || data.studentId || null;
-        const restoredStudentName = data.teacherStudentName || data.studentName || "";
+        const savedStudentId = data.teacherStudentId || data.studentId || null;
+        const restoredStudentId = teacherRoute
+          ? teacherRoute.learnerId || null
+          : savedStudentId;
+        const restoredStudentName = restoredStudentId && restoredStudentId === savedStudentId
+          ? data.teacherStudentName || data.studentName || ""
+          : "";
         const legacyElBenchmarkSession =
           restoredStudentId && data.elBenchmarkSession?.studentId === restoredStudentId
             ? data.elBenchmarkSession
@@ -2820,7 +2847,9 @@ export default function App() {
         if (hashRestoredSession) restoredElBenchmarkSession = hashRestoredSession;
         const requestedRestoredAppView = getRestoredAppView({
           restoredStudentId,
-          storedAppView: hashRestoredSession ? APP_VIEWS.EL_BENCHMARK : data.appView
+          storedAppView: hashRestoredSession
+            ? APP_VIEWS.EL_BENCHMARK
+            : teacherRoute?.appView || data.appView
         });
         const restoredAppView = requestedRestoredAppView === APP_VIEWS.EL_BENCHMARK && !restoredElBenchmarkSession
           ? APP_VIEWS.EL_ASSESSMENTS
@@ -2830,12 +2859,17 @@ export default function App() {
           studentId: restoredStudentId,
           studentName: restoredStudentName
         });
-        setTeacherGroupId(data.teacherGroupId || "all");
+        setTeacherGroupId(teacherRoute?.groupId || data.teacherGroupId || "all");
+        if (teacherRoute?.reportView) {
+          setStudentReportView(teacherRoute.reportView);
+        }
         setNameSaved(Boolean(restoredStudentId && restoredStudentName));
         // Profile restoration is state hydration, not visible navigation.
         // Apply it synchronously so a view-transition callback cannot lose a
         // race to the post-auth "open Today" fallback.
-        rawSetAppView(restoredAppView);
+        rawSetAppView(teacherRoute?.appView === APP_VIEWS.FINISHED
+          ? APP_VIEWS.TEACHER_PROGRESS
+          : restoredAppView);
         setCurrentSkillIndex(restoredSkillIndex);
         // Restore the round's repeat-guard memory alongside its answers: the
         // in-round dedupe and coverage scoring index these arrays against
@@ -2873,8 +2907,12 @@ export default function App() {
         setFeedback(null);
         setCurrentQuestion(null);
 
-        loadStudents(savedClassId);
-        loadClassDashboard(savedClassId);
+        if (teacherRoute) {
+          await hydrateTeacherRouteContext(teacherRoute);
+        } else {
+          loadStudents(restoredClassId);
+          loadClassDashboard(restoredClassId);
+        }
         if (restoredAppView === APP_VIEWS.ASSESSMENT) {
           // Without this flag the correct-answer auto-advance timeout bails out
           // and the restored session soft-locks on the feedback screen.
@@ -2892,7 +2930,11 @@ export default function App() {
     } else {
       freshLoginResetPendingRef.current = false;
       resetSelectedStudentOnLogin();
-      loadStudents();
+      if (teacherRoute) {
+        await hydrateTeacherRouteContext(teacherRoute);
+      } else {
+        loadStudents();
+      }
     }
 
     setProfileLoaded(true);
@@ -2901,6 +2943,19 @@ export default function App() {
   useEffect(() => {
     restoreTeacherProfile();
   }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin, sessionMode, setAppView]);
+
+  const restoreTeacherRouteFromHistory = useEffectEvent(async () => {
+    const { parse } = await loadTeacherRouteRuntime();
+    const route = parse(window.location.hash);
+    if (route) void hydrateTeacherRouteContext(route);
+  });
+
+  useEffect(() => {
+    if (!profileLoaded || sessionMode === "student" || !teacherId) return undefined;
+    const handleHashChange = () => restoreTeacherRouteFromHistory();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [profileLoaded, sessionMode, teacherId]);
 
   const buildLatestSkillMasterySummary = useEffectEvent(buildSkillMasterySummary);
 
@@ -2961,7 +3016,7 @@ export default function App() {
   ]);
 
   useLayoutEffect(() => {
-    if (sessionMode === "student" || !teacherId) return;
+    if (!profileLoaded || sessionMode === "student" || !teacherId) return;
 
     const nextHash = appView === APP_VIEWS.EL_BENCHMARK
       ? elBenchmarkAssessmentHash({
@@ -2969,6 +3024,8 @@ export default function App() {
           learnerId: studentId,
           session: elBenchmarkSession
         })
+      : appView === APP_VIEWS.FINISHED
+        ? teacherReportHash(selectedClassId, studentId, studentReportView)
       : teacherIntentHash({
           appView: appView === APP_VIEWS.EL_ASSESSMENTS
             ? APP_VIEWS.TEACHER_ASSESS
@@ -2984,9 +3041,11 @@ export default function App() {
   }, [
     appView,
     elBenchmarkSession,
+    profileLoaded,
     selectedClassId,
     sessionMode,
     studentId,
+    studentReportView,
     teacherGroupId,
     teacherId
   ]);
@@ -3893,7 +3952,7 @@ export default function App() {
   async function loadClasses() {
     if (!teacherId) {
       setClassList([]);
-      return;
+      return [];
     }
 
     const { data, error } = await supabase
@@ -3905,10 +3964,11 @@ export default function App() {
     if (error) {
       console.error("Load classes error:", error);
       setMessage("Could not load classes from cloud.");
-      return;
+      return [];
     }
 
     setClassList(data || []);
+    return data || [];
   }
 
   async function regenerateClassCode(classId = selectedClassId) {
@@ -3981,7 +4041,7 @@ export default function App() {
       setStudentList([]);
       setArchivedStudentList([]);
       setLoadingStudents(false);
-      return;
+      return [];
     }
 
     setLoadingStudents(true);
@@ -3997,12 +4057,45 @@ export default function App() {
       console.error("Load students error:", error);
       setMessage("Could not load students from cloud.");
       setLoadingStudents(false);
-      return;
+      return [];
     }
 
     setStudentList((data || []).filter(row => !row.archived_at));
     setArchivedStudentList((data || []).filter(row => Boolean(row.archived_at)));
     setLoadingStudents(false);
+    return data || [];
+  }
+
+  async function hydrateTeacherRouteContext(route) {
+    const routeRuntime = await loadTeacherRouteRuntime();
+    return routeRuntime.hydrate([
+      route,
+      teacherId,
+      sessionMode,
+      loadClasses,
+      loadStudents,
+      loadClassDashboard,
+      loadStudentProgress,
+      [
+        () => {
+        setStudentList([]);
+        setArchivedStudentList([]);
+        setClassDashboard([]);
+        },
+        setSelectedClassId,
+        setTeacherGroupId,
+        setMessage,
+        setNameSaved,
+        setStudentReportView,
+        (nextStudentId, nextStudentName) => {
+          setTeacherStudentContext({
+            studentId: nextStudentId,
+            studentName: nextStudentName
+          });
+        },
+        rawSetAppView
+      ]
+    ]);
   }
 
   async function loadClassDashboard(classId = selectedClassId) {
@@ -4467,7 +4560,7 @@ export default function App() {
   async function loadStudentProgress(
     selectedStudentId,
     selectedStudentName,
-    { navigate = true } = {}
+    { navigate = true, classId = selectedClassId } = {}
   ) {
     setTeacherStudentContext({
       studentId: selectedStudentId,
@@ -4519,7 +4612,7 @@ export default function App() {
       mode: "teacher",
       studentId: selectedStudentId,
       studentName: selectedStudentName,
-      classId: selectedClassId,
+      classId,
       teacherId
     };
     configureProgressSync(progressSyncSession);
@@ -8305,9 +8398,7 @@ export default function App() {
     resetFailedAssessmentMedia();
     setDiagnosticFollowUp(true);
     setStudentReportView("skills-check");
-    if (typeof window !== "undefined") {
-      window.history.replaceState(null, "", studentReportHash("skills-check"));
-    }
+    pushRouteHash(teacherReportHash(selectedClassId, studentId, "skills-check"));
     setAppView(APP_VIEWS.FINISHED);
   }
 
@@ -8863,9 +8954,7 @@ export default function App() {
       groupId: teacherGroupId,
       learnerId: studentId
     });
-    if (nextHash && window.location.hash !== nextHash) {
-      window.history.replaceState(window.history.state, "", nextHash);
-    }
+    pushRouteHash(nextHash);
     setAppView(nextView);
   };
   const railActions = {
@@ -9391,9 +9480,7 @@ export default function App() {
             viewFinishedReport={viewId => {
               const nextReportView = viewId || "whole-child";
               setStudentReportView(nextReportView);
-              if (typeof window !== "undefined") {
-                window.history.replaceState(null, "", studentReportHash(nextReportView));
-              }
+              pushRouteHash(teacherReportHash(selectedClassId, studentId, nextReportView));
               setAppView(APP_VIEWS.FINISHED);
             }}
             guidedReadingRecords={guidedReadingRecords}
@@ -9562,6 +9649,9 @@ export default function App() {
         <PageBoundary resetKey="finished-report">
           <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
             <FinishedReportPage
+              buildReportHref={reportView => (
+                teacherReportHash(selectedClassId, studentId, reportView)
+              )}
               startAssessment={startAssessment}
               openElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
               initialReportView={studentReportView}

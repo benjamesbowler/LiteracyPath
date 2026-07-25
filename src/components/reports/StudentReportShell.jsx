@@ -9,6 +9,7 @@ import { ActionFeedback } from "../ActionFeedback.jsx";
 
 export function StudentReportShell({
   activeView,
+  buildViewHref = studentReportHash,
   children,
   className = "",
   exportDisabled = false,
@@ -22,6 +23,7 @@ export function StudentReportShell({
   onPrint,
   onStartAssessment,
   provenanceRows = [],
+  readHistoryView = readStudentReportHash,
   startAssessmentLabel = "Start assessment",
   onViewChange,
   statusMessage = "",
@@ -39,16 +41,17 @@ export function StudentReportShell({
 
   const selectView = useCallback((viewId, { updateHistory = true } = {}) => {
     const next = normalizeStudentReportView(viewId);
-    if (updateHistory && typeof window !== "undefined" && window.location.hash !== studentReportHash(next)) {
-      window.history.pushState(null, "", studentReportHash(next));
+    const nextHref = buildViewHref(next);
+    if (updateHistory && nextHref && typeof window !== "undefined" && window.location.hash !== nextHref) {
+      window.history.pushState(null, "", nextHref);
     }
     onViewChange(next);
-  }, [onViewChange]);
+  }, [buildViewHref, onViewChange]);
 
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
     const handleHistory = () => {
-      const hashView = readStudentReportHash();
+      const hashView = readHistoryView();
       if (hashView) selectView(hashView, { updateHistory: false });
     };
     window.addEventListener("hashchange", handleHistory);
@@ -57,7 +60,7 @@ export function StudentReportShell({
       window.removeEventListener("hashchange", handleHistory);
       window.removeEventListener("popstate", handleHistory);
     };
-  }, [selectView]);
+  }, [readHistoryView, selectView]);
 
   return (
     <div className="lg-report-shell">
@@ -99,7 +102,7 @@ export function StudentReportShell({
             {STUDENT_REPORT_VIEWS.map(view => (
               <a
                 aria-current={view.id === activeView ? "page" : undefined}
-                href={studentReportHash(view.id)}
+                href={buildViewHref(view.id) || studentReportHash(view.id)}
                 key={view.id}
                 onClick={event => {
                   event.preventDefault();

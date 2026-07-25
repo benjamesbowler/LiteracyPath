@@ -23,6 +23,7 @@ import {
   normalizeElExportScope
 } from "../utils/elAssessmentExportPolicy.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
+import { readTeacherReportRouteView } from "../appState/routes.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
 import { MetricFigure } from "./MetricDefinition.jsx";
 import { TeacherDialog } from "./teacher/ui/TeacherDialog.jsx";
@@ -38,8 +39,7 @@ import {
 import {
   buildGuidedReadingViewModel,
   buildOtherLearningViewModel,
-  normalizeStudentReportView,
-  readStudentReportHash
+  normalizeStudentReportView
 } from "./reports/studentReportUiUtils.js";
 
 const EMPTY_REPORT_ROWS = [];
@@ -756,6 +756,7 @@ function safeReportFilename(value = "student") {
 }
 
 export function FinishedReportPage({
+  buildReportHref,
   startAssessment,
   openElAssessments,
   initialReportView = "whole-child",
@@ -774,17 +775,18 @@ export function FinishedReportPage({
   // Optional; wired in App.jsx by Benjamin (pass progressScopeKey={studentId || studentName}).
   progressScopeKey = "",
   reportStatusMessage = "",
+  readReportRouteView = readTeacherReportRouteView,
   returnToTeacherDashboard
 }) {
   const initialView = normalizeStudentReportView(initialReportView);
   const reportContextKey = `${progressScopeKey}::${initialView}`;
   const [reportSelection, setReportSelection] = useState(() => ({
     contextKey: reportContextKey,
-    view: readStudentReportHash() || initialView
+    view: readReportRouteView() || initialView
   }));
   const activeReportView = reportSelection.contextKey === reportContextKey
     ? reportSelection.view
-    : readStudentReportHash() || initialView;
+    : readReportRouteView() || initialView;
   const [guidedReadingLoad, setGuidedReadingLoad] = useState({
     records: null,
     retry: -1,
@@ -1135,6 +1137,7 @@ export function FinishedReportPage({
     <>
     <StudentReportShell
       activeView={activeReportView}
+      buildViewHref={buildReportHref}
       className={formatClassLabel(className)}
       exportDisabled={benchmarkExporting || actionFeedback?.kind === "pending"}
       exportLabel={exportConfig.label}
@@ -1149,6 +1152,7 @@ export function FinishedReportPage({
       onStartAssessment={assessmentAction?.handler}
       onViewChange={changeReportView}
       provenanceRows={familyReportActive ? [] : reportProvenanceRows}
+      readHistoryView={readReportRouteView}
       startAssessmentLabel={assessmentAction?.label}
       feedback={actionFeedback}
       statusMessage={reportStatusMessage}

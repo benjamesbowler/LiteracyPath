@@ -14,6 +14,7 @@ import {
   restoreElBenchmarkSessionFromHash,
   teacherIntentHash
 } from "../../src/appState/appViewHelpers.js";
+import { parse as parseTeacherRouteHash } from "../../src/appState/routes.js";
 
 // ── THE REGRESSION THIS FILE EXISTS FOR ─────────────────────────────────────
 //
@@ -173,6 +174,57 @@ test("all five teacher intentions expose an honest class, group, and learner has
     "#teacher/resources?class=class-a&group=all&learner=learner-a"
   );
   assert.equal(teacherIntentHash({ appView: APP_VIEWS.REPORTS }), "");
+});
+
+test("teacher intention and report URLs parse into restorable owned context", () => {
+  assert.deepEqual(
+    parseTeacherRouteHash(
+      "#teacher/progress?class=class-a&group=attention&learner=learner-a"
+    ),
+    {
+      appView: APP_VIEWS.TEACHER_PROGRESS,
+      classId: "class-a",
+      groupId: "attention",
+      learnerId: "learner-a",
+      reportView: ""
+    }
+  );
+  const reportHash = teacherIntentHash({
+    appView: APP_VIEWS.FINISHED,
+    classId: "class-a",
+    learnerId: "learner-a",
+    reportView: "skills-check"
+  });
+  assert.equal(
+    reportHash,
+    "#teacher/progress/report?class=class-a&learner=learner-a&report=skills-check"
+  );
+  assert.deepEqual(parseTeacherRouteHash(reportHash), {
+    appView: APP_VIEWS.FINISHED,
+    classId: "class-a",
+    groupId: "all",
+    learnerId: "learner-a",
+    reportView: "skills-check"
+  });
+  assert.equal(teacherIntentHash({ appView: APP_VIEWS.FINISHED, classId: "class-a" }), "");
+  assert.equal(parseTeacherRouteHash("#teacher/progress/report?class=class-a"), null);
+  assert.equal(parseTeacherRouteHash("#student-report=skills-check"), null);
+});
+
+test("teacher route parsing rejects unknown paths and normalizes report views", () => {
+  assert.equal(parseTeacherRouteHash("#teacher/unknown?class=class-a"), null);
+  assert.deepEqual(
+    parseTeacherRouteHash(
+      "#teacher/progress/report?class=class-a&learner=learner-a&report=unknown"
+    ),
+    {
+      appView: APP_VIEWS.FINISHED,
+      classId: "class-a",
+      groupId: "all",
+      learnerId: "learner-a",
+      reportView: "whole-child"
+    }
+  );
 });
 
 test("an EL benchmark URL names the live session and restores its exact item", () => {

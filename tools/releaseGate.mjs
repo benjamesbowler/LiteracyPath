@@ -375,6 +375,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [4, 9, 10]
   },
   {
+    id: "teacher-routing",
+    label: "RLS-validated teacher class/report deep links with refresh and browser-history restoration",
+    command: ["npm", "run", "check:teacher-routing"],
+    areas: [8, 9, 10]
+  },
+  {
     id: "teacher-contextual-help",
     label: "Searchable question-type help reachable from learner evidence",
     command: ["npm", "run", "check:teacher-contextual-help"],

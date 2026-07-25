@@ -123,20 +123,28 @@ const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.TEACHER_CLASSES]: "classes",
   [APP_VIEWS.TEACHER_ASSESS]: "assess",
   [APP_VIEWS.TEACHER_PROGRESS]: "progress",
-  [APP_VIEWS.TEACHER_RESOURCES]: "resources"
+  [APP_VIEWS.TEACHER_RESOURCES]: "resources",
+  [APP_VIEWS.FINISHED]: "progress/report"
 });
 
 export function teacherIntentHash({
   appView,
   classId = "",
   groupId = "all",
-  learnerId = ""
+  learnerId = "",
+  reportView = "whole-child"
 } = {}) {
   const intent = TEACHER_INTENT_PATHS[appView];
   if (!intent) return "";
+  if (appView === APP_VIEWS.FINISHED && (!classId || !learnerId)) return "";
 
   const context = new URLSearchParams();
   if (classId) context.set("class", classId);
+  if (appView === APP_VIEWS.FINISHED) {
+    context.set("learner", learnerId);
+    context.set("report", reportView);
+    return `#teacher/${intent}?${context.toString()}`;
+  }
   if (intent !== "today") {
     context.set("group", groupId || "all");
     if (learnerId) context.set("learner", learnerId);
