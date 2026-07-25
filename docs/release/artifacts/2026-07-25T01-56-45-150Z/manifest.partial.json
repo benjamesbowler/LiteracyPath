@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-25T01:57:37.331Z",
+  "startedAt": "2026-07-25T01:56:45.150Z",
+  "finishedAt": "2026-07-25T01:57:37.331Z",
+  "commitSha": "a3e545bdea7bdc7c530830018c459d993857faee",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 23461,
+      "startedAt": "2026-07-25T01:56:45.222Z",
+      "finishedAt": "2026-07-25T01:57:08.683Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T01-56-45-150Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 8269,
+      "startedAt": "2026-07-25T01:57:08.683Z",
+      "finishedAt": "2026-07-25T01:57:16.952Z",
+      "counts": {
+        "tests": 1209,
+        "passed": 1209,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T01-56-45-150Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "csp",
+      "label": "Enforced content security policy",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:csp",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 20378,
+      "startedAt": "2026-07-25T01:57:16.952Z",
+      "finishedAt": "2026-07-25T01:57:37.330Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T01-56-45-150Z/csp.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}
