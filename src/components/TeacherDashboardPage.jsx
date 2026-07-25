@@ -20,6 +20,11 @@ import {
   setRosterStudentArchived,
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
+import {
+  loadClassAccessLog,
+  loadClassAccessSummary,
+  saveClassCodeExpiry
+} from "../data/classAccessSecurity.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
@@ -61,6 +66,16 @@ function formatLastActive(value) {
   if (diffDays === 1) return "Yesterday";
   if (diffDays < 7) return `${diffDays} days ago`;
   return date.toLocaleDateString();
+}
+
+function formatClassAccessTime(value) {
+  if (!value) return "No recent activity";
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "Time unavailable";
+  return date.toLocaleString([], {
+    dateStyle: "medium",
+    timeStyle: "short"
+  });
 }
 
 function accuracyConclusion(row) {
@@ -966,6 +981,13 @@ export function TeacherDashboardPage({
   const [classCodeStatus, setClassCodeStatus] = useState("");
   const [showClassCodeDialog, setShowClassCodeDialog] = useState(false);
   const [regeneratingClassCode, setRegeneratingClassCode] = useState(false);
+  const [classCodeExpiryOverrides, setClassCodeExpiryOverrides] = useState({});
+  const [classAccessSummary, setClassAccessSummary] = useState(null);
+  const [classAccessLog, setClassAccessLog] = useState([]);
+  const [classAccessLoading, setClassAccessLoading] = useState(false);
+  const [classAccessError, setClassAccessError] = useState("");
+  const [showClassAccessLog, setShowClassAccessLog] = useState(false);
+  const [savingClassCodeExpiry, setSavingClassCodeExpiry] = useState(false);
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [editingSchool, setEditingSchool] = useState(false);
   const [schoolDraft, setSchoolDraft] = useState("");
@@ -1192,6 +1214,15 @@ export function TeacherDashboardPage({
   );
   const classMetricUpdatedAt = latestMetricUpdate(studentRows.map(row => row.lastActive));
   const className = selectedClass?.name || "No class selected";
+  const classCodeExpiresAt = Object.prototype.hasOwnProperty.call(
+    classCodeExpiryOverrides,
+    selectedClass?.id
+  )
+    ? classCodeExpiryOverrides[selectedClass.id]
+    : selectedClass?.access_code_expires_at || null;
+  const visibleClassAccessSummary = classAccessSummary?.classId === selectedClass?.id
+    ? classAccessSummary.data
+    : null;
   const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]
     || (selectedClass?.leaderboard_scope === "school" ? "school" : "class");
   const isClassesPage = pageIntent === "classes";
@@ -1210,6 +1241,28 @@ export function TeacherDashboardPage({
     loadStudentsRef.current?.(selectedClassId);
     loadClassDashboardRef.current?.(selectedClassId);
   }, [selectedClassId]);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (!selectedClass?.id) return undefined;
+
+    (async () => {
+      const result = await loadClassAccessSummary({
+        client: supabase,
+        classId: selectedClass.id
+      });
+      if (cancelled) return;
+      if (result.error) {
+        setClassAccessError("Security activity is temporarily unavailable.");
+        return;
+      }
+      setClassAccessSummary({ classId: selectedClass.id, data: result.data });
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedClass?.id]);
 
   function saveVisibleRosterColumns(nextColumns) {
     setVisibleRosterColumns(nextColumns);
@@ -1256,6 +1309,65 @@ export function TeacherDashboardPage({
     setClassCodeStatus(
       `New class code ${result.accessCode} is ready. The old code no longer works.`
     );
+    const summaryResult = await loadClassAccessSummary({
+      client: supabase,
+      classId: selectedClass.id
+    });
+    if (!summaryResult.error) {
+      setClassAccessSummary({ classId: selectedClass.id, data: summaryResult.data });
+    }
+  }
+
+  async function handleClassCodeExpiryChange(event) {
+    if (!selectedClass?.id || savingClassCodeExpiry) return;
+    const days = Number(event.target.value);
+    const expiresAt = days > 0
+      ? new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString()
+      : null;
+    setSavingClassCodeExpiry(true);
+    setClassCodeStatus("Saving code expiry...");
+    const result = await saveClassCodeExpiry({
+      client: supabase,
+      classId: selectedClass.id,
+      expiresAt
+    });
+    setSavingClassCodeExpiry(false);
+    if (result.error) {
+      setClassCodeStatus("The code expiry could not be changed.");
+      return;
+    }
+    setClassCodeExpiryOverrides(previous => ({
+      ...previous,
+      [selectedClass.id]: result.data.access_code_expires_at || null
+    }));
+    setClassCodeStatus(
+      result.data.access_code_expires_at
+        ? `This code will expire ${formatClassAccessTime(result.data.access_code_expires_at)}.`
+        : "This code will not expire automatically."
+    );
+  }
+
+  async function handleToggleClassAccessLog() {
+    if (!selectedClass?.id) return;
+    if (showClassAccessLog) {
+      setShowClassAccessLog(false);
+      return;
+    }
+    setShowClassAccessLog(true);
+    setClassAccessLoading(true);
+    setClassAccessError("");
+    const result = await loadClassAccessLog({
+      client: supabase,
+      classId: selectedClass.id,
+      limit: 20
+    });
+    setClassAccessLoading(false);
+    if (result.error) {
+      setClassAccessError("Security activity is temporarily unavailable.");
+      setClassAccessLog([]);
+      return;
+    }
+    setClassAccessLog(result.data);
   }
 
   function handleClassChange(event) {
@@ -1263,6 +1375,9 @@ export function TeacherDashboardPage({
     setClassCodeStatus("");
     setShowClassCodeDialog(false);
     setRegeneratingClassCode(false);
+    setClassAccessLog([]);
+    setClassAccessError("");
+    setShowClassAccessLog(false);
     setSelectedClassId?.(nextClassId);
     setStudentList?.([]);
   }
@@ -1557,6 +1672,47 @@ export function TeacherDashboardPage({
             <span>Class code</span>
             <strong className="teacher-class-code-value">{selectedClass.access_code}</strong>
             <small>Children enter this on their device to sign in. Keep it inside the classroom.</small>
+            <label className="teacher-class-code-expiry">
+              <span>Automatic expiry</span>
+              <select
+                aria-label="Class code expiry"
+                disabled={savingClassCodeExpiry}
+                value={classCodeExpiresAt ? "active" : "none"}
+                onChange={handleClassCodeExpiryChange}
+              >
+                <option value="none">No automatic expiry</option>
+                {classCodeExpiresAt && (
+                  <option value="active">
+                    Expires {formatClassAccessTime(classCodeExpiresAt)}
+                  </option>
+                )}
+                <option value="7">In 7 days</option>
+                <option value="30">In 30 days</option>
+                <option value="90">In 90 days</option>
+              </select>
+            </label>
+            <div
+              className={`teacher-class-access-summary${visibleClassAccessSummary?.anomaly ? " anomaly" : ""}`}
+              role={visibleClassAccessSummary?.anomaly ? "alert" : undefined}
+              aria-live="polite"
+            >
+              {visibleClassAccessSummary?.anomaly ? (
+                <>
+                  <strong>Unusual access activity</strong>
+                  <span>
+                    {visibleClassAccessSummary.blocked} blocked and {visibleClassAccessSummary.denied} rejected
+                    {" "}attempt{visibleClassAccessSummary.blocked + visibleClassAccessSummary.denied === 1 ? "" : "s"} in 24 hours.
+                    Consider making a new code.
+                  </span>
+                </>
+              ) : (
+                <span>
+                  {visibleClassAccessSummary
+                    ? `No unusual activity · ${visibleClassAccessSummary.allowed} accepted in 24 hours`
+                    : "Checking recent access activity..."}
+                </span>
+              )}
+            </div>
             <div className="teacher-login-actions">
               <button
                 className="text-button"
@@ -1574,8 +1730,41 @@ export function TeacherDashboardPage({
                   New code
                 </button>
               )}
+              <button
+                className="text-button"
+                type="button"
+                aria-expanded={showClassAccessLog}
+                onClick={handleToggleClassAccessLog}
+              >
+                {showClassAccessLog ? "Hide access history" : "View access history"}
+              </button>
             </div>
             <ActionFeedback className="teacher-class-code-status" message={classCodeStatus} />
+            {showClassAccessLog && (
+              <section className="teacher-class-access-log" aria-label="Class access history">
+                <h3>Recent access history</h3>
+                <p>No child names, passwords, class codes, device IDs, or network addresses are stored here.</p>
+                {classAccessLoading ? (
+                  <p role="status">Loading access history...</p>
+                ) : classAccessError ? (
+                  <p role="alert">{classAccessError}</p>
+                ) : classAccessLog.length === 0 ? (
+                  <p>No access events recorded yet.</p>
+                ) : (
+                  <ol>
+                    {classAccessLog.map((event, index) => (
+                      <li
+                        className={`outcome-${event.outcome}`}
+                        key={`${event.occurredAt}-${event.eventType}-${index}`}
+                      >
+                        <strong>{event.label}</strong>
+                        <span>{event.deviceLabel} · {formatClassAccessTime(event.occurredAt)}</span>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </section>
+            )}
           </div>
         )}
         {isClassesPage && selectedClass && (

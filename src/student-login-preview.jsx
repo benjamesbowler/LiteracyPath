@@ -20,6 +20,15 @@ const client = {
         error: { code: "network_error", message: "Failed to fetch" }
       };
     }
+    if (scenario === "code-expired") {
+      return { data: { ok: false, error: "code_expired" }, error: null };
+    }
+    if (scenario === "rate-limited") {
+      return {
+        data: { ok: false, error: "rate_limited", retry_seconds: 120 },
+        error: null
+      };
+    }
     return { data: { ok: false, error: "class_unavailable" }, error: null };
   }
 };

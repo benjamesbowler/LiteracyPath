@@ -3015,6 +3015,124 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   color: var(--lp-color-primary) !important;
 }
 
+.teacher-class-code-expiry {
+  display: grid;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.teacher-class-code-expiry > span {
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.teacher-class-code-expiry select {
+  width: 100%;
+  min-height: 40px;
+  padding: 7px 30px 7px 9px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 7px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.teacher-class-access-summary {
+  display: grid;
+  gap: 3px;
+  margin-top: 6px;
+  padding: 8px;
+  border-radius: 7px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-class-access-summary > span,
+.teacher-class-access-summary > strong {
+  overflow: visible;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-transform: none;
+  white-space: normal;
+}
+
+.teacher-class-access-summary.anomaly {
+  border: 1px solid rgba(180, 83, 9, 0.3);
+  background: #fff7ed;
+}
+
+.teacher-class-access-summary.anomaly > strong {
+  color: #9a3412;
+}
+
+.teacher-class-access-log {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-class-access-log h3,
+.teacher-class-access-log p {
+  margin: 0;
+}
+
+.teacher-class-access-log h3 {
+  color: var(--lp-color-text-strong);
+  font-size: 14px;
+}
+
+.teacher-class-access-log p {
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.teacher-class-access-log ol {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-class-access-log li {
+  display: grid;
+  gap: 2px;
+  padding: 7px 8px;
+  border-left: 3px solid var(--lp-color-border-subtle);
+  border-radius: 5px;
+  background: #ffffff;
+}
+
+.teacher-class-access-log li.outcome-blocked,
+.teacher-class-access-log li.outcome-denied {
+  border-left-color: #c2410c;
+}
+
+.teacher-class-access-log li > strong {
+  overflow: visible;
+  font-size: 12px;
+  white-space: normal;
+}
+
+.teacher-class-access-log li > span {
+  color: var(--lp-color-text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .teacher-roster-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

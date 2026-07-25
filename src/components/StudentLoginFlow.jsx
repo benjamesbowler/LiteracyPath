@@ -29,6 +29,7 @@ function speakLine(key, options = {}) {
 // jumps straight to the name list. The code is the roster key, so it is what we
 // re-check on launch; the id/name are only a cached label for the header.
 const CLASS_CONTEXT_STORAGE_KEY = "lp-student-login-class-context-v1";
+const CLASS_ACCESS_DEVICE_STORAGE_KEY = "lp-class-access-device-v1";
 const STEP_ITEMS = [
   { id: "code", label: "Class" },
   { id: "student", label: "Name" },
@@ -47,6 +48,19 @@ function readRememberedContext() {
     return parsed && typeof parsed.code === "string" ? parsed : null;
   } catch {
     return null;
+  }
+}
+
+function readOrCreateClassAccessDeviceId() {
+  try {
+    const saved = window.localStorage.getItem(CLASS_ACCESS_DEVICE_STORAGE_KEY);
+    if (/^[A-Za-z0-9._:-]{16,120}$/.test(saved || "")) return saved;
+    const generated = globalThis.crypto?.randomUUID?.()
+      || `lp-device-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`;
+    window.localStorage.setItem(CLASS_ACCESS_DEVICE_STORAGE_KEY, generated);
+    return generated;
+  } catch {
+    return `lp-device-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`;
   }
 }
 
@@ -201,6 +215,7 @@ export function StudentLoginFlow({
   const [recovery, setRecovery] = useState(null);
   const [locked, setLocked] = useState(false);
   const [loading, setLoading] = useState(false);
+  const deviceIdRef = useRef(readOrCreateClassAccessDeviceId());
   // Synchronous guard so a fast double-tap can't fire the same RPC twice
   // before React state updates land.
   const busyRef = useRef(false);
@@ -241,7 +256,10 @@ export function StudentLoginFlow({
     }
     setLoading(true);
     setRecovery(null);
-    const { data, error } = await client.rpc("student_class_by_code", { p_code: code });
+    const { data, error } = await client.rpc("student_class_by_code", {
+      p_code: code,
+      p_device_id: deviceIdRef.current
+    });
     setLoading(false);
     if (error || !data?.ok) {
       if (!silentOnFail) {
@@ -355,13 +373,15 @@ export function StudentLoginFlow({
     setRecovery(null);
     const { data, error } = await client.rpc("student_login", {
       p_student_id: selectedStudent.id,
-      p_sequence: nextSequence
+      p_sequence: nextSequence,
+      p_device_id: deviceIdRef.current,
+      p_code: normalizedCodeInput
     });
     setLoading(false);
     setSequence("");
     if (error || !data?.ok) {
       const code = data?.error || error?.message || "wrong_password";
-      if (code === "locked") {
+      if (code === "locked" || code === "rate_limited") {
         setLocked(true);
         setStatus("Ask your teacher for help.");
       } else if (code === "no_password") {

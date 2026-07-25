@@ -386,6 +386,8 @@ insert into public.classes (
   school_id,
   name,
   access_code,
+  access_code_created_at,
+  access_code_expires_at,
   created_at,
   updated_at
 )
@@ -397,6 +399,8 @@ values
     'Audit Class A',
     'QA7M2K',
     '__AUDIT_ANCHOR__'::timestamptz,
+    null,
+    '__AUDIT_ANCHOR__'::timestamptz,
     '__AUDIT_ANCHOR__'::timestamptz
   ),
   (
@@ -406,6 +410,8 @@ values
     'Audit Class B',
     'QA8N3P',
     '__AUDIT_ANCHOR__'::timestamptz,
+    null,
+    '__AUDIT_ANCHOR__'::timestamptz,
     '__AUDIT_ANCHOR__'::timestamptz
   )
 on conflict (id) do update set
@@ -413,7 +419,57 @@ on conflict (id) do update set
   school_id = excluded.school_id,
   name = excluded.name,
   access_code = excluded.access_code,
+  access_code_created_at = excluded.access_code_created_at,
+  access_code_expires_at = excluded.access_code_expires_at,
   updated_at = excluded.updated_at;
+
+-- Security-history fixtures contain generic access events only. They prove the
+-- teacher log renders without placing child names, passwords, raw codes, device
+-- identifiers, or network addresses in the audit trail.
+delete from public.class_access_rate_limits;
+delete from public.class_access_events
+where class_id in (
+  '30000000-0000-4000-8000-000000000001',
+  '30000000-0000-4000-8000-000000000002'
+);
+
+insert into public.class_access_events (
+  class_id,
+  teacher_id,
+  event_type,
+  outcome,
+  device_fingerprint,
+  network_fingerprint,
+  occurred_at
+)
+values
+  (
+    '30000000-0000-4000-8000-000000000001',
+    '10000000-0000-4000-8000-000000000001',
+    'code_accepted',
+    'allowed',
+    repeat('a', 64),
+    repeat('b', 64),
+    '__AUDIT_ANCHOR__'::timestamptz
+  ),
+  (
+    '30000000-0000-4000-8000-000000000001',
+    '10000000-0000-4000-8000-000000000001',
+    'login_failed',
+    'denied',
+    repeat('c', 64),
+    repeat('d', 64),
+    '__AUDIT_ANCHOR__'::timestamptz + interval '1 minute'
+  ),
+  (
+    '30000000-0000-4000-8000-000000000001',
+    '10000000-0000-4000-8000-000000000001',
+    'rate_limited',
+    'blocked',
+    repeat('e', 64),
+    repeat('f', 64),
+    '__AUDIT_ANCHOR__'::timestamptz + interval '2 minutes'
+  );
 
 -- Intervention E2E runs are mutable by design. Clear only the fixed audit
 -- classes so every evidence run starts from the same empty lifecycle.

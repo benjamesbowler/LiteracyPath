@@ -176,6 +176,7 @@
     "check:el-assessment-route-final-review": "node --test tests/unit/appViewHelpers.test.js tests/unit/elBenchmarkAssessmentPage.test.js && playwright test tests/release/el-assessment-route-and-final-review.spec.js --project=desktop",
     "check:teacher-contextual-help": "npm run test:release-teacher -- --grep @teacher-contextual-help",
     "check:teacher-class-code": "npm run test:release-teacher -- --grep @teacher-class-code",
+    "check:class-access-security": "node tools/verifyClassAccessSecurity.mjs && node --test tests/unit/classAccessSecurity.test.js tests/unit/studentLoginPolicy.test.js tests/unit/studentLoginRecovery.test.js && playwright test tests/release/class-access-security.spec.js --project=desktop --workers=1",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",
     "check:teacher-login-cards": "npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",
     "check:teacher-student-preview": "npm run test:release-teacher -- --grep @teacher-student-preview",

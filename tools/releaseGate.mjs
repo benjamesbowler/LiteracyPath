@@ -498,6 +498,13 @@ export const RELEASE_GATES = Object.freeze([
     planned: true
   },
   {
+    id: "class-access-security",
+    label: "Class-code throttling, expiry, anomaly alert, and privacy-minimal access log",
+    command: ["npm", "run", "check:class-access-security"],
+    areas: [2, 5, 6, 8, 10],
+    planned: true
+  },
+  {
     id: "e2e-teacher",
     label: "Authenticated teacher end-to-end",
     command: ["npm", "run", "check:e2e-teacher"],

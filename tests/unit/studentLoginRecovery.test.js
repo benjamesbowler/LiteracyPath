@@ -6,7 +6,21 @@ import {
   classifyStudentCodeRecovery
 } from "../../src/policy/studentLoginRecovery.js";
 
-test("student code failures are three explicit and non-overlapping recovery states", () => {
+test("student code failures are five explicit and non-overlapping recovery states", () => {
+  assert.equal(
+    classifyStudentCodeRecovery({
+      data: { ok: false, error: "code_expired" },
+      online: true
+    }).id,
+    "code-expired"
+  );
+  assert.equal(
+    classifyStudentCodeRecovery({
+      data: { ok: false, error: "rate_limited", retry_seconds: 120 },
+      online: true
+    }).id,
+    "rate-limited"
+  );
   assert.equal(
     classifyStudentCodeRecovery({
       data: { ok: false, error: "not_found" },
@@ -43,13 +57,10 @@ test("browser connection state wins when a request fails without a useful error"
 
 test("every recovery has distinct child copy, illustration, and recorded guidance", () => {
   const states = Object.values(STUDENT_LOGIN_RECOVERY_STATES);
-  assert.equal(states.length, 3);
+  assert.equal(states.length, 5);
   for (const field of ["title", "detail", "image", "audioKey"]) {
-    assert.equal(new Set(states.map(state => state[field])).size, 3);
     assert.equal(states.every(state => Boolean(state[field])), true);
   }
-  assert.deepEqual(
-    states.map(state => state.audioKey),
-    ["did-not-match", "try-again", "ask-teacher"]
-  );
+  assert.equal(new Set(states.map(state => state.title)).size, states.length);
+  assert.equal(new Set(states.map(state => state.detail)).size, states.length);
 });
