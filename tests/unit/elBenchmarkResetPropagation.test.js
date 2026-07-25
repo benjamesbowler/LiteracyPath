@@ -187,11 +187,13 @@ test("a synced reset removes only the target learner from every local EL assessm
 });
 
 test("reset propagation is wired through tombstone hydration, live App state, and every teacher/admin deletion path", async () => {
-  const [progressSource, appSource, reportStoreSource] = await Promise.all([
+  const [progressSource, appControllerSource, sessionControllerSource, reportStoreSource] = await Promise.all([
     readFile(new URL("../../src/utils/progressSync.js", import.meta.url), "utf8"),
     readFile(new URL("../../src/App.jsx", import.meta.url), "utf8"),
+    readFile(new URL("../../src/appState/useAppSessionController.js", import.meta.url), "utf8"),
     readFile(new URL("../../src/data/elAssessmentReportStore.js", import.meta.url), "utf8")
   ]);
+  const appSource = `${appControllerSource}\n${sessionControllerSource}`;
 
   assert.match(progressSource, /async function applyResetTombstone\(session, rows\)/);
   assert.match(

@@ -4,11 +4,12 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const appPath = path.join(repoRoot, "src", "App.jsx");
-const maxAppLines = 7000;
+const maxAppLines = 5000;
 const requiredBoundaries = [
   "src/appState/assessmentRuntime.js",
   "src/appState/appRuntimeServices.js",
   "src/appState/appRuntimeSurfaces.jsx",
+  "src/appState/useAppSessionController.js",
   "src/components/AppSurface.jsx"
 ];
 
@@ -19,7 +20,7 @@ const missingBoundaries = requiredBoundaries.filter(relativePath =>
 
 if (appLines > maxAppLines || missingBoundaries.length > 0) {
   if (appLines > maxAppLines) {
-    console.error(`App.jsx has ${appLines} lines; milestone-one maximum is ${maxAppLines}.`);
+    console.error(`App.jsx has ${appLines} lines; milestone-two maximum is ${maxAppLines}.`);
   }
   if (missingBoundaries.length > 0) {
     console.error(`Missing App boundary modules: ${missingBoundaries.join(", ")}`);

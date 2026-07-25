@@ -77,7 +77,13 @@ test("teacher signup creates its bounded school inside the auth trigger", () => 
     new URL("../../supabase/migrations/20260725130000_security_definer_boundary.sql", import.meta.url),
     "utf8"
   );
-  const app = fs.readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8");
+  const app = [
+    fs.readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8"),
+    fs.readFileSync(
+      new URL("../../src/appState/useAppSessionController.js", import.meta.url),
+      "utf8"
+    )
+  ].join("\n");
   assert.match(migration, /requested_school_name := nullif\(btrim\(new\.raw_user_meta_data ->> 'school_name'\)/);
   assert.match(migration, /from public\.find_or_create_school\(requested_school_name\)/);
   assert.match(migration, /requested_school_id,[\s\S]*on conflict \(user_id\) do nothing/);
