@@ -1,7 +1,7 @@
 # LiteracyPath security summary
 
 > **Status:** EXTERNAL-READY IMPLEMENTATION SUMMARY — NOT A CERTIFICATION
-> **Version:** 2026-07-24
+> **Version:** 2026-07-25
 > **Audience:** school security/privacy reviewers and qualified external assessors
 
 This summary describes controls present in the repository. It is not a
@@ -64,6 +64,12 @@ Customer Data.
   child names.
 - Export provenance identifies evidence versions, filters, definitions, and
   privacy classification.
+- School retention policy supports inactivity archiving, delete-after-archive,
+  and annual archive-or-delete with a no-change preview, exact confirmation,
+  immutable run result, and the same zero-residual learner deletion transaction.
+- Provider and backup target dates are tracked without treating elapsed time as
+  proof; an administrator must record an external evidence reference before
+  propagation can be marked verified.
 
 ### Development and release
 
@@ -95,7 +101,7 @@ Customer Data.
 | Recovery | Procedure and tests exist; a real isolated restore artifact is outstanding |
 | Provider controls | Supabase/Vercel plan, regions, backups, logs, support access, assurance, and transfer evidence are unconfirmed |
 | Dependency review | A vulnerable archive chain was removed; the external registry-backed audit could not run under the current security policy |
-| Data rights/retention | The A8.8 tracked export/deletion workflow and its seeded browser gate are implemented; hydrated audit-database execution remains open. A8.9 configurable retention/deletion jobs are not complete. |
+| Data rights/retention | The A8.8 tracked export/deletion workflow and A8.9 configurable retention job are implemented. Hydrated destructive browser execution, approved school periods, scheduled production invocation, and provider/backup evidence remain open. |
 | Device storage | Local browser data depends on school/device access, account separation, patching, encryption, and disposal controls |
 | Source maps/operations | Production symbolication, service-level/error-budget targets, and alert exercise remain open |
 | Accessibility | Automated and route/device checks exist; independent manual assistive-technology review remains open |

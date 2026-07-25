@@ -49,6 +49,7 @@ import {
   updateHfwQuestionImageReviewOverride
 } from "../data/hfwQuestionImageReview.js";
 import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
+import { SchoolRetentionPolicyPanel } from "./admin/SchoolRetentionPolicyPanel.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
@@ -1752,6 +1753,7 @@ export function AdminDashboardPage({
 }) {
   const [skillFilter, setSkillFilter] = useState("all");
   const [expandedTeacherId, setExpandedTeacherId] = useState("");
+  const [retentionSchoolId, setRetentionSchoolId] = useState("");
   const [teacherSchoolDraft, setTeacherSchoolDraft] = useState("");
   const [adminQaPage, setAdminQaPage] = useState(() => {
     if (typeof window === "undefined") return "dashboard";
@@ -2036,6 +2038,18 @@ export function AdminDashboardPage({
       `${learner.name}'s data was deleted. The privacy-safe request reference remains in the audit log.`
     );
     await refreshDashboard?.();
+  }
+
+  async function handleRetentionLearnersDeleted(studentIds = []) {
+    for (const deletedStudentId of studentIds) {
+      const learner = students.find(row => row.id === deletedStudentId);
+      clearLocalProgressForStudent(deletedStudentId);
+      await clearLocalElAssessmentDataForStudent({
+        teacherId: learner?.teacher_id || "",
+        studentId: deletedStudentId,
+        studentName: learner?.name || ""
+      });
+    }
   }
 
   const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
@@ -2775,6 +2789,7 @@ export function AdminDashboardPage({
                   <th>Classes</th>
                   <th>Students</th>
                   <th>Created</th>
+                  <th>Retention</th>
                 </tr>
               </thead>
               <tbody>
@@ -2782,18 +2797,43 @@ export function AdminDashboardPage({
                   const schoolTeachers = pendingAccounts.filter(account => account.school_id === school.id);
                   const schoolClasses = classes.filter(row => row.school_id === school.id);
                   const schoolStudents = schoolClasses.reduce((sum, row) => sum + (row.studentCount || 0), 0);
+                  const retentionOpen = retentionSchoolId === school.id;
                   return (
-                    <tr key={school.id}>
-                      <td data-label="School"><strong>{school.name}</strong></td>
-                      <td data-label="Teachers">
-                        {schoolTeachers.length === 0
-                          ? "0"
-                          : schoolTeachers.map(account => account.display_name || account.username || account.email).join(", ")}
-                      </td>
-                      <td data-label="Classes">{schoolClasses.length}</td>
-                      <td data-label="Students">{schoolStudents}</td>
-                      <td data-label="Created">{school.created_at ? new Date(school.created_at).toLocaleDateString() : "-"}</td>
-                    </tr>
+                    <Fragment key={school.id}>
+                      <tr>
+                        <td data-label="School"><strong>{school.name}</strong></td>
+                        <td data-label="Teachers">
+                          {schoolTeachers.length === 0
+                            ? "0"
+                            : schoolTeachers.map(account => account.display_name || account.username || account.email).join(", ")}
+                        </td>
+                        <td data-label="Classes">{schoolClasses.length}</td>
+                        <td data-label="Students">{schoolStudents}</td>
+                        <td data-label="Created">{school.created_at ? new Date(school.created_at).toLocaleDateString() : "-"}</td>
+                        <td data-label="Retention">
+                          <button
+                            className="text-button"
+                            type="button"
+                            disabled={!supabase}
+                            onClick={() => setRetentionSchoolId(retentionOpen ? "" : school.id)}
+                          >
+                            {retentionOpen ? "Close policy" : "Open policy"}
+                          </button>
+                        </td>
+                      </tr>
+                      {retentionOpen && supabase && (
+                        <tr className="admin-retention-detail-row">
+                          <td colSpan={6}>
+                            <SchoolRetentionPolicyPanel
+                              client={supabase}
+                              school={school}
+                              onChanged={refreshDashboard}
+                              onLearnersDeleted={handleRetentionLearnersDeleted}
+                            />
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
                   );
                 })}
               </tbody>

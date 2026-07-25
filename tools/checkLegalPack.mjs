@@ -233,7 +233,7 @@ export function validatePublicPrivacyPage(root = repoRoot) {
   if (!fs.existsSync(publicPath)) return ["public/privacy.html: missing"];
   const publicPolicy = fs.readFileSync(publicPath, "utf8");
   const required = [
-    "24 July 2026",
+    "25 July 2026",
     "Accessibility and support settings",
     "Browser storage",
     "Operational security and reliability",

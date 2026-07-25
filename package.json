@@ -181,6 +181,7 @@
     "check:recovery-runbook": "node tools/verifyRecoveryRunbook.mjs && node --test tests/unit/recoveryDrill.test.js",
     "check:recovery-drill": "node tools/verifyRecoveryRunbook.mjs && node tools/recoveryDrill.mjs --execute",
     "check:learner-data-rights": "node tools/verifyLearnerDataRightsBackend.mjs && node --test tests/unit/learnerDataRights.test.js && playwright test tests/release/learner-data-rights.spec.js --project=desktop --workers=1",
+    "check:retention-policy": "node tools/verifySchoolRetention.mjs && node --test tests/unit/schoolRetention.test.js",
     "check:split-boundaries": "node tools/checkSplitBoundaries.mjs",
     "check:legal-pack": "node tools/checkLegalPack.mjs && node --test tests/unit/legalPack.test.js",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",

@@ -69,11 +69,19 @@ failure and the request remains open. Do not manually claim completion.
 
 ## Provider and backup propagation
 
-Active Supabase records are deleted by the transaction. Provider caches, logs,
-replicas, backups, and support copies follow the verified retention schedule
-once A8.9 is completed. Record the expected backup-expiry date. A restored backup
-must replay data-rights tombstones before it can serve users, as required by the
-recovery runbook.
+Active Supabase records are deleted by the transaction. The deletion-completed
+event creates a privacy-minimal propagation record with provider and backup
+target dates taken from the school policy. Until those dates pass, its status is
+`awaiting_expiry`. A retention run changes it to `evidence_required` when both
+dates have passed; it does not claim that any provider copy is gone.
+
+Check the relevant provider dashboard, backup report, support response, or
+approved signed checklist. In the admin school-retention panel, record the
+evidence reference and type `VERIFY PROVIDER AND BACKUP EXPIRY`. Only that
+explicit evidence step can set `expired_verified`. Never enter a learner name,
+raw learner ID, answer, credential, token, or report content in the evidence
+reference. A restored backup must replay data-rights tombstones before it can
+serve users, as required by the recovery runbook.
 
 Vercel request logs should not contain learner record payloads; provider log and
 cache expiry still require confirmation. Any separately exported file must be

@@ -62,6 +62,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "repo-hygiene",
     "audit-read-only",
     "database-bootstrap-schema",
+    "retention-policy",
     "audit-school-seed",
     "audit-school-live",
     "a11y-routes",

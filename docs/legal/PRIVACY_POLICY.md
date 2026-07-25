@@ -1,13 +1,14 @@
 # LiteracyPath privacy policy (source)
 
 > **Status:** EXTERNAL-READY DRAFT — QUALIFIED LEGAL REVIEW REQUIRED
-> **Last reviewed against the product:** 24 July 2026
+> **Last reviewed against the product:** 25 July 2026
 > **Live page:** `public/privacy.html`; keep the source and page in sync
 > **Approval boundary:** this draft describes current practice but is not legal advice or a compliance certification
 
 **Current operator/contact:** Benjamin Bowler — `benjamesbowler@gmail.com`.
 The final legal identity, address, dedicated contacts, provider regions, transfer
-terms, and retention schedule remain open in `LEGAL_DEPLOYMENT_FACTS.md`.
+terms, and approved contractual retention periods remain open in
+`LEGAL_DEPLOYMENT_FACTS.md`.
 
 LiteracyPath is a teacher-managed early-literacy and phonics service for learners
 roughly aged 4–7. A school or authorised adult creates and manages learner
@@ -80,9 +81,12 @@ request through the school to protect the learner and the education record.
   opens certain printable/exported HTML documents that request a font. Removing
   or self-hosting those fonts is an open launch decision.
 
-Provider entities, regions, support access, logs, backups, retention, contracts,
-and international transfer terms are deployment-specific and must be confirmed
-before school-scale launch. The full candid register is in `SUBPROCESSORS.md`.
+Supabase and Vercel are the current hosted-service providers. Their final
+contracting entities, project and support regions, onward-provider locations,
+log and backup periods, and international transfer terms are deployment-specific
+and remain unconfirmed. This policy does not claim a region that has not been
+checked in the provider dashboards and contracts. The full candid register is
+in `SUBPROCESSORS.md`.
 
 Local authoring tools may use OpenAI, BytePlus, Wikimedia Commons, or dictionary
 services to create or import non-personal product media. They are not part of
@@ -105,12 +109,20 @@ Indefinite retention is not authorised. Data should be kept only as long as
 reasonably necessary for the specific educational, security, support, legal, or
 contract purpose and securely deleted when no longer needed.
 
-The product does not yet have the final school-configurable retention and
-end-of-year deletion job required by A8.9. Before school-scale launch, the public
-policy and contract must state verified periods for active accounts, inactivity,
-end of year, termination/export, access and error logs, provider logs, and
-backup expiry. Deletion must propagate to active systems and subprocessors;
-restored backups must replay deletion controls before use.
+The product supports a per-school inactivity period, deletion after archive, and
+an annual archive-or-delete instruction. An administrator must save the school
+instruction, preview the affected learner counts, and type an exact confirmation
+before the retention job changes records. Active learner records are deleted
+through the verified data-rights workflow.
+
+Provider and backup target dates are tracked separately. A date passing does not
+prove that a provider copy is gone: an administrator must check provider or
+backup evidence and record its reference before marking propagation verified.
+The values shown in product defaults are operational safeguards, not approved
+legal periods. Before school-scale launch, the contract and this notice must
+state the school-approved periods and provider-verified log, replica, cache,
+support-copy, and backup expiry. Restored backups must replay deletion controls
+before use.
 
 To request access, correction, export, restriction, or deletion, contact the
 school or `benjamesbowler@gmail.com`. Final verification, secure delivery, and

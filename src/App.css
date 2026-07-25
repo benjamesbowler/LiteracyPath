@@ -18398,6 +18398,137 @@ select:focus {
   }
 }
 
+/* Admin retention policy and deletion propagation */
+.admin-retention-detail-row td {
+  padding: 0;
+  background: var(--lp-color-surface-subtle);
+}
+
+.admin-retention-policy {
+  padding: clamp(18px, 3vw, 28px);
+  text-align: left;
+}
+
+.admin-retention-policy header h4,
+.admin-retention-policy header p,
+.admin-retention-policy h5,
+.admin-retention-policy p {
+  margin: 0;
+}
+
+.admin-retention-policy header p:last-child,
+.admin-retention-propagation > p {
+  color: var(--lp-color-text-muted);
+}
+
+.admin-retention-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admin-retention-grid label,
+.admin-retention-confirm label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.admin-retention-grid input,
+.admin-retention-grid select,
+.admin-retention-confirm input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 9px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  padding: 9px 11px;
+  font: inherit;
+}
+
+.admin-retention-grid small {
+  color: var(--lp-color-text-muted);
+  font-weight: 600;
+}
+
+.admin-retention-preview,
+.admin-retention-propagation {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 16px;
+}
+
+.admin-retention-preview dl {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.admin-retention-preview dl div {
+  display: grid;
+  gap: 4px;
+  border-radius: 9px;
+  background: var(--lp-color-surface-subtle);
+  padding: 10px;
+}
+
+.admin-retention-preview dt {
+  color: var(--lp-color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.admin-retention-preview dd {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 1.35rem;
+  font-weight: 850;
+}
+
+.admin-retention-confirm {
+  max-width: 680px;
+  border: 1px solid #d9a5a1;
+  border-radius: 10px;
+  background: #fff8f7;
+  padding: 14px;
+}
+
+.admin-retention-policy .lp-button-danger {
+  border-color: #8f2525;
+  background: #8f2525;
+  color: #ffffff;
+}
+
+.admin-retention-policy .lp-button-danger:hover:not(:disabled) {
+  background: #741d1d;
+}
+
+@media (max-width: 900px) {
+  .admin-retention-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-retention-preview dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-retention-grid,
+  .admin-retention-preview dl {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ─── Daily Mission ─────────────────────────────────────────────────────── */
 
 .student-home-streak {

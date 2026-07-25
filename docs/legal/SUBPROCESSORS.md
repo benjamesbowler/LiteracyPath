@@ -1,7 +1,7 @@
 # LiteracyPath provider and subprocessor register
 
 > **Status:** EXTERNAL-READY DRAFT — DEPLOYMENT FACTS AND QUALIFIED LEGAL REVIEW REQUIRED
-> **Version:** 2026-07-24
+> **Version:** 2026-07-25
 > **Scope:** providers that can receive production user or Customer Data
 
 This register distinguishes the hosted runtime from authoring tools. Regions,
@@ -12,9 +12,15 @@ verified in provider dashboards and agreements before processing school data.
 
 | Provider/service | Role and purpose | Data classes | Location/remote access | Retention/deletion | Transfer position | Current decision |
 |---|---|---|---|---|---|---|
-| Supabase | Subprocessor for teacher authentication, PostgreSQL data, database functions, storage of first-party operational errors, backups, and platform support | Teacher/admin account data; learner roster, credential material, settings, learning activity, evidence, reports, interventions, reward state; privacy-minimal security/error events | Project region, replicas, backups, logs, and support access are deployment-specific and unconfirmed | Active records follow Customer/operator policy; provider backup/log periods and deletion propagation are unconfirmed | Provider DPA, contracting entity, destination chain, and any SCC/UK mechanism must be verified | Required for current hosted service; contract and region evidence outstanding |
+| Supabase | Subprocessor for teacher authentication, PostgreSQL data, database functions, storage of first-party operational errors, backups, and platform support | Teacher/admin account data; learner roster, credential material, settings, learning activity, evidence, reports, interventions, reward state; privacy-minimal security/error events | Project region, replicas, backups, logs, and support access are deployment-specific and unconfirmed | Active records follow the configured school policy. The product records provider/backup target dates and requires an evidence reference before marking propagation verified; actual provider periods remain unconfirmed | Provider DPA, contracting entity, destination chain, and any SCC/UK mechanism must be verified | Required for current hosted service; contract and region evidence outstanding |
 | Vercel | Subprocessor/service provider for web hosting, TLS, content delivery, deployment, and platform logs | Static application/media; ordinary request metadata such as IP, user agent, URL, time, and security/log data; application Customer Data is intended to travel directly between browser and Supabase | Deployment/CDN/log/support locations are plan- and configuration-specific and unconfirmed | Cache, deployment, request-log, and account deletion periods are unconfirmed | Provider DPA, contracting entity, destination chain, and any SCC/UK mechanism must be verified | Required for current hosted service; analytics/log settings and region evidence outstanding |
 | Google Fonts | External network recipient for fonts requested by some printable/exported HTML documents; not required for core data storage | Ordinary request metadata, potentially including IP address, user agent, referring context, time, and requested font | Google infrastructure; destination and support access not mapped | Controlled by provider; not verified by LiteracyPath | No school DPA or transfer assessment is recorded | Unresolved: self-host/remove before launch, or obtain counsel approval and disclose the residual request |
+
+The public disclosure is the “Storage, providers, and regions” section of
+`public/privacy.html`. It intentionally names current providers while describing
+regions and contractual periods as unconfirmed. Replace those statements only
+after the evidence below has been collected; do not infer a project region from
+an account owner, URL, latency, or provider default.
 
 ## Not production subprocessors
 

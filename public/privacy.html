@@ -38,13 +38,13 @@
   <main>
     <article class="card">
       <h1>LiteracyPath Privacy Policy</h1>
-      <p class="meta">Last reviewed against the product: 24 July 2026</p>
+      <p class="meta">Last reviewed against the product: 25 July 2026</p>
 
       <div class="note">
         This is an external-review-ready draft. Qualified legal review is still
         required before a paid, public, or school-scale launch. The final legal
-        identity, provider regions, transfer terms, and retention schedule are not
-        yet confirmed.
+        identity, provider regions, transfer terms, and approved contractual
+        retention periods are not yet confirmed.
       </div>
 
       <p>
@@ -120,7 +120,7 @@
         through the school to protect the learner and education record.
       </p>
 
-      <h2>Storage and providers</h2>
+      <h2 id="providers-regions">Storage, providers, and regions</h2>
       <ul>
         <li><strong>Supabase</strong> provides teacher authentication, database
           storage and functions, first-party operational error records, backups, and
@@ -134,9 +134,11 @@
           decision.</li>
       </ul>
       <p>
-        Provider entities, regions, support access, logs, backups, retention,
-        contracts, and international transfer terms are deployment-specific and
-        must be confirmed before school-scale launch.
+        Supabase and Vercel are the current hosted-service providers. Their final
+        contracting entities, project and support regions, onward-provider
+        locations, log and backup periods, and international transfer terms are
+        deployment-specific and remain unconfirmed. This page does not claim a
+        region that has not been checked in the provider dashboards and contracts.
       </p>
       <p>
         Local authoring tools may use AI or public-media services to create
@@ -160,12 +162,22 @@
         or contract purpose and securely deleted when no longer needed.
       </p>
       <p>
-        The final school-configurable and end-of-year retention job is not yet
-        complete. Before school-scale launch, this policy and the contract must state
-        verified periods for active accounts, inactivity, end of year,
-        termination/export, security and error logs, provider logs, and backup
-        expiry. Deletion must propagate to active systems and providers; restored
-        backups must replay deletion controls before use.
+        The product supports a per-school inactivity period, deletion after
+        archive, and an annual archive-or-delete instruction. An administrator
+        must save the school instruction, preview the affected learner counts, and
+        type an exact confirmation before the retention job changes records.
+        Active learner records are deleted through the verified data-rights
+        workflow.
+      </p>
+      <p>
+        Provider and backup target dates are tracked separately. A date passing
+        does not prove that a provider copy is gone: an administrator must check
+        provider or backup evidence and record its reference before marking
+        propagation verified. The values shown in product defaults are operational
+        safeguards, not approved legal periods. Before school-scale launch, the
+        contract and this notice must state the school-approved periods and
+        provider-verified log, replica, cache, support-copy, and backup expiry.
+        Restored backups must replay deletion controls before use.
       </p>
 
       <h2>Security and incidents</h2>

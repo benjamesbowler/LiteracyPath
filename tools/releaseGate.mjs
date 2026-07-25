@@ -526,6 +526,13 @@ export const RELEASE_GATES = Object.freeze([
     planned: true
   },
   {
+    id: "retention-policy",
+    label: "School-configurable retention, cleanup job, and evidence-gated deletion propagation",
+    command: ["npm", "run", "check:retention-policy"],
+    areas: [8, 10],
+    planned: true
+  },
+  {
     id: "split-boundaries",
     label: "Effective assessment-bank dynamic imports and build-time lexicon isolation",
     command: ["npm", "run", "check:split-boundaries"],

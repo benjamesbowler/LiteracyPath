@@ -1,7 +1,7 @@
 # Legal deployment facts and open decisions
 
 > **Status:** EXTERNAL-READY DRAFT — OWNER CONFIRMATION AND QUALIFIED LEGAL REVIEW REQUIRED
-> **Reviewed against repository:** 2026-07-24
+> **Reviewed against repository:** 2026-07-25
 > **Purpose:** prevent contracts and notices from inventing deployment facts
 
 ## Confirmed product facts
@@ -42,10 +42,10 @@ attach evidence, and date the decision before counsel approves final documents.
 | Supabase project organisation, plan, primary region, replicas, backups, support access, DPA, and transfer terms | Provider dashboard and executed provider terms | Unconfirmed |
 | Vercel team, plan, deployment regions, logs, analytics settings, DPA, and transfer terms | Provider dashboard and executed provider terms | Unconfirmed |
 | Google Fonts disposition | Remove/self-host, or approve and disclose provider/transfer position | Unresolved |
-| School-configurable retention schedule | Product policy and operational job evidence | Not yet implemented |
+| School-configurable retention schedule | Product policy and operational job evidence | Implemented with preview, exact confirmation, immutable run records, and tests; school/counsel-approved values remain unconfirmed |
 | Default inactive-account and end-of-year deletion periods | Counsel/customer decision and operational evidence | Unconfirmed |
-| Backup deletion/expiry and deletion propagation | Provider settings and tested procedure | Unconfirmed |
-| Data export, correction, restriction, objection, and deletion service levels | Operational owner and exercised workflow | Unconfirmed |
+| Backup deletion/expiry and deletion propagation | Provider settings and tested procedure | Product tracks target dates and requires an evidence reference before verification; provider settings and live evidence remain unconfirmed |
+| Data export, correction, restriction, objection, and deletion service levels | Operational owner and exercised workflow | Tracked access export and verified deletion are implemented with a 30-day operational target; hydrated release exercise and final contractual/legal target remain unconfirmed |
 | Breach-notification contractual target | Counsel and incident-owner approval | Proposed target in DPA; unconfirmed |
 | UK representative, EU representative, and DPO need | Role/establishment/monitoring assessment by counsel | Not assessed |
 | UK/EU lawful bases and role allocation | School/controller instructions and counsel review | Per-deployment decision |
