@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-25T02:12:01.179Z",
+  "startedAt": "2026-07-25T02:11:32.629Z",
+  "finishedAt": "2026-07-25T02:12:01.179Z",
+  "commitSha": "6ac32b8433213ef71852947f90592cb2d35f2447",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21140,
+      "startedAt": "2026-07-25T02:11:32.689Z",
+      "finishedAt": "2026-07-25T02:11:53.829Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T02-11-32-629Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 7350,
+      "startedAt": "2026-07-25T02:11:53.829Z",
+      "finishedAt": "2026-07-25T02:12:01.179Z",
+      "counts": {
+        "tests": 1211,
+        "passed": 1211,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T02-11-32-629Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}
