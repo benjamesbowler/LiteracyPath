@@ -6,16 +6,17 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
-test("App controller stays below the second decomposition ratchet", () => {
+test("App controller stays below the final decomposition ratchet", () => {
   const appSource = readFileSync(path.join(repoRoot, "src", "App.jsx"), "utf8");
   assert.ok(
-    appSource.split(/\r?\n/).length <= 5000,
-    "App.jsx exceeded the 5,000-line milestone; extract the new responsibility instead of growing the controller"
+    appSource.split(/\r?\n/).length <= 3000,
+    "App.jsx exceeded the 3,000-line final milestone; extract the new responsibility instead of growing the controller"
   );
 });
 
 test("App responsibilities remain behind explicit runtime and rendering boundaries", () => {
   const requiredBoundaries = [
+    "src/appState/assessmentRoundController.js",
     "src/appState/assessmentRuntime.js",
     "src/appState/appRuntimeServices.js",
     "src/appState/appRuntimeSurfaces.jsx",

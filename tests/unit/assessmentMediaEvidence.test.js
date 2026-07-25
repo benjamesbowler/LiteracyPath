@@ -124,10 +124,13 @@ test("generic image names are replaced, missing evidence names fail closed, and 
 });
 
 test("the production assessment renderer routes evidence failures into the unscored replacement path", () => {
-  const appSource = readFileSync(
-    new URL("../../src/App.jsx", import.meta.url),
-    "utf8"
-  );
+  const appSource = [
+    readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8"),
+    readFileSync(
+      new URL("../../src/appState/assessmentRoundController.js", import.meta.url),
+      "utf8"
+    )
+  ].join("\n");
   const surfaceSource = readFileSync(
     new URL("../../src/components/AppSurface.jsx", import.meta.url),
     "utf8"

@@ -38,10 +38,8 @@ const blockedAssessmentImageAssetNotes = {
   bud: "The current bud image is visually ambiguous and is blocked from active assessment use until a clear unopened flower bud replacement is QA-approved. Clean audio is preserved.",
   nut: "The current nut image looks like an acorn and is blocked from active assessment use. Audio is preserved."
 };
-const blockedAssessmentImageAssetKeys = new Set(Object.keys(blockedAssessmentImageAssetNotes));
-
 function blockAssessmentImageIfNeeded(key, asset, { allowBlockedAssessmentImage = false } = {}) {
-  if (!asset || !blockedAssessmentImageAssetKeys.has(key)) return asset;
+  if (!asset || !Object.hasOwn(blockedAssessmentImageAssetNotes, key)) return asset;
   if (allowBlockedAssessmentImage) return asset;
   return {
     ...asset,
