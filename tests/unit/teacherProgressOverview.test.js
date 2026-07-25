@@ -218,7 +218,7 @@ test("coverage distinguishes evidence presence, policy readiness, and exact item
     itemTargetCount: 2,
     itemPercent: 100
   });
-  assert.equal(coverage.evidence.confidence.label, "Coverage only");
+  assert.equal(coverage.evidence.confidence.label, "Results coverage");
 });
 
 test("groups expose transparent shared-focus and shared-item membership", () => {
@@ -227,7 +227,7 @@ test("groups expose transparent shared-focus and shared-item membership", () => 
   const focusGroup = groups.find(group => group.id === "focus:cvc short vowels");
 
   assert.deepEqual(soundGroup.learners.map(learner => learner.name), ["Aisha", "Camila"]);
-  assert.equal(soundGroup.basis, "Shared Sound Seekers re-teaching evidence");
+  assert.equal(soundGroup.basis, "Shared Sound Seekers re-teaching results");
   assert.deepEqual(focusGroup.learners.map(learner => learner.name), ["Aarav", "Camila"]);
   assert.equal(focusGroup.basis, "Shared current curriculum focus");
 });
@@ -256,15 +256,15 @@ test("evidence bases expose attempts, diversity, recency, confidence, and suppor
 
   assert.equal(PROGRESS_ITEM_MIN_ATTEMPTS, 3);
   assert.equal(aisha.evidence.attemptsLabel, "20 scored responses");
-  assert.equal(aisha.evidence.diversityLabel, "3 assessment skills");
+  assert.equal(aisha.evidence.diversityLabel, "3 check skills");
   assert.equal(aisha.evidence.recencyLabel, "23 Jul 2026");
-  assert.match(aisha.evidence.confidenceLabel, /^Stronger evidence/);
+  assert.match(aisha.evidence.confidenceLabel, /^Stronger results/);
   assert.equal(aisha.evidence.supportUseLabel, "0 supported of 12 recorded Sound Seekers encounters");
   assert.equal(item.policyReady, true);
   assert.match(item.evidence.confidenceLabel, /^Limited diversity/);
 });
 
-test("a sparse learner renders Not enough evidence instead of a bare percentage", () => {
+test("a sparse child renders Not enough results instead of a bare percentage", () => {
   const sparse = {
     id: "amara",
     name: "Amara",
@@ -279,7 +279,7 @@ test("a sparse learner renders Not enough evidence instead of a bare percentage"
   const summary = buildTeacherProgressOverview([sparse], { now: POLICY_NOW });
 
   assert.equal(summary.rows[0].evidence.ready, false);
-  assert.equal(summary.rows[0].evidence.confidence.label, "Not enough evidence");
+  assert.equal(summary.rows[0].evidence.confidence.label, "Not enough results");
 
   const html = renderToStaticMarkup(
     React.createElement(TeacherProgressOverview, {
@@ -296,9 +296,9 @@ test("a sparse learner renders Not enough evidence instead of a bare percentage"
     })
   );
 
-  assert.match(html, /Not enough evidence for an accuracy conclusion/);
+  assert.match(html, /Too few results for an accuracy figure/);
   assert.doesNotMatch(html, /100% accuracy/);
-  assert.match(html, /aria-label="Amara learner conclusion evidence basis"/);
+  assert.match(html, /aria-label="Amara result conclusion results used"/);
   for (const label of ["Attempts", "Diversity", "Recency", "Confidence", "Support use"]) {
     assert.match(html, new RegExp(`<dt>${label}</dt>`));
   }
@@ -322,18 +322,18 @@ test("class-first progress renders all four insights and a learner item path", (
 
   assert.match(html, /aria-label="Class progress overview"/);
   assert.match(html, /aria-label="Class accuracy comparison"/);
-  assert.match(html, /Learner-weighted accuracy/);
+  assert.match(html, /Averaging children equally/);
   assert.match(html, /65%/);
-  assert.match(html, /3 policy-ready learners of 4/);
-  assert.match(html, /Response-weighted accuracy/);
+  assert.match(html, /3 children have enough results/);
+  assert.match(html, /Averaging every answer equally/);
   assert.match(html, /63.5%/);
-  assert.match(html, /52 scored responses/);
+  assert.match(html, /52 scored answers/);
   for (const label of ["Distribution", "Coverage", "Groups", "Outliers"]) {
     assert.match(html, new RegExp(`>${label}<`));
   }
-  assert.match(html, /Review Aisha evidence/);
-  assert.match(html, /aria-label="Learner progress evidence: Aisha"/);
-  assert.match(html, /<h4>Sound item evidence<\/h4>/);
+  assert.match(html, /<h3>Aisha&#x27;s results<\/h3>/);
+  assert.match(html, /aria-label="Child progress results: Aisha"/);
+  assert.match(html, /<h4>Sound results<\/h4>/);
   assert.match(html, /aria-expanded="false"/);
   assert.match(html, /Needs re-teaching · 12 recorded encounters/);
 });

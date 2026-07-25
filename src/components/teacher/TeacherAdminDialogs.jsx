@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { TeacherDialog } from "./ui/TeacherDialog.jsx";
 
 export function ConfirmActionDialog({
@@ -45,7 +46,7 @@ export function ResetStudentProgressDialog({
   if (!open) return null;
 
   const canConfirmReset = resetPhrase.trim() === "RESET";
-  const studentLabel = studentName || "the student";
+  const studentLabel = studentName || "this child";
 
   function cancelReset() {
     setResetPhrase("");
@@ -64,19 +65,13 @@ export function ResetStudentProgressDialog({
       onClose={cancelReset}
     >
       <section className="modal-card reset-progress-dialog">
-        <h2 id="reset-progress-title">Reset Assessment Data</h2>
-        <p>
-          This resets assessment progress, scores, skill mastery, checkpoints, attempts, coverage,
-          level and phase progress, incorrect pattern tracking, and assessment history for {studentLabel}.
-        </p>
-        <p>
-          The student profile, class assignment, account login, Guided Reading history, and Story Quest progress
-          are kept in place.
-        </p>
+        <h2 id="reset-progress-title">{TEACHER_COPY.admin.resetTitle}</h2>
+        <p>{TEACHER_COPY.admin.resetBody(studentLabel)}</p>
+        <p>{TEACHER_COPY.admin.resetKeeps}</p>
 
         <div className="full-reset-confirmation" aria-live="polite">
-          <strong>Confirm assessment reset</strong>
-          <p>Type RESET to enable the final reset button.</p>
+          <strong>Confirm the reset</strong>
+          <p>{TEACHER_COPY.admin.resetConfirm}</p>
           <label>
             <span>Type RESET</span>
             <input
@@ -104,7 +99,7 @@ export function ResetStudentProgressDialog({
             onClick={confirmReset}
             type="button"
           >
-            Reset Assessment Data
+            {TEACHER_COPY.admin.resetAction}
           </button>
         </div>
       </section>

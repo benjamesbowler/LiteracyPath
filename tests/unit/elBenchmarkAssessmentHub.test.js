@@ -94,9 +94,9 @@ test("the hub derives Decoding and Fluency starts from completed evidence, never
   assert.match(html, /<details class="el-assessment-advanced-starts"><summary>[\s\S]*?Advanced starting points/);
   assert.doesNotMatch(html, /<details class="el-assessment-advanced-starts" open/);
   assert.match(html, /<h3>Letter Name and Sound<\/h3>[\s\S]*?Name and sound recognition for uppercase and lowercase letters/);
-  assert.match(html, />Start Letter Assessment<\/button>/);
+  assert.match(html, />Start letter check<\/button>/);
   assert.match(html, /<h3>Phonics Pattern Diagnostic<\/h3>[\s\S]*?established scoring route/);
-  assert.match(html, />Start Phonics Pattern Diagnostic<\/button>/);
+  assert.match(html, />Start phonics pattern check<\/button>/);
 });
 
 test("a candidate-only Encoding indication is visibly provisional and is never treated as confirmed provenance", () => {
@@ -123,7 +123,7 @@ test("a candidate-only Encoding indication is visibly provisional and is never t
 
   assert.equal(selectedValueForLabel(html, "Decoding start"), "late_partial");
   assert.match(html, /Set from a provisional Encoding result; review before starting Decoding/);
-  assert.match(html, /Quick evidence check needed before starting/);
+  assert.match(html, /Review an earlier result before starting/);
 
   const componentSource = ELAssessmentsPage.toString();
   assert.match(componentSource, /decodingStartSource === "confirmed_encoding_placement"/);

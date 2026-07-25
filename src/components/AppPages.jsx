@@ -39,6 +39,7 @@ import {
   getAssessmentMainImageLabel
 } from "../policy/assessmentMediaEvidence.js";
 import { importWithRetry, lazyWithRetry } from "../utils/lazyWithRetry.js";
+import { countPhrase, progressPhrase } from "../copy/teacherCopy.js";
 
 export { AuthPage } from "./AuthPage.jsx";
 
@@ -1151,7 +1152,7 @@ export function AdminDashboardPage({
                   <th>Email</th>
                   <th>User ID</th>
                   <th>Classes</th>
-                  <th>Students</th>
+                  <th>Children</th>
                   <th>Answers</th>
                 </tr>
               </thead>
@@ -1179,7 +1180,7 @@ export function AdminDashboardPage({
               <tr>
                 <th>Class</th>
                 <th>Teacher</th>
-                <th>Students</th>
+                <th>Children</th>
                 <th>Created</th>
                 <th>Delete</th>
               </tr>
@@ -1204,12 +1205,12 @@ export function AdminDashboardPage({
       </section>
 
       <section className="report-panel page-stack admin-section">
-        <h3>Students</h3>
+        <h3>Children</h3>
         <div className="admin-table-wrap">
           <table className="dashboard-table admin-table">
             <thead>
               <tr>
-                <th>Student</th>
+                <th>Child</th>
                 <th>Class</th>
                 <th>Teacher</th>
                 <th>Created</th>
@@ -1225,7 +1226,7 @@ export function AdminDashboardPage({
                   <td>{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
                   <td>
                     <button className="reset-button" onClick={() => deleteStudent(row.id, row.name)} type="button">
-                      Delete Student
+                      Delete child
                     </button>
                   </td>
                 </tr>
@@ -1284,33 +1285,33 @@ export function StudentOverviewPage({
   const checkpointPassed = roundCorrect >= passScore;
   const hasProgress = totalAnswered > 0 || roundCorrect > 0 || currentCoverage.mastered > 0;
   const isDiagnosticFollowUp = diagnosticFollowUp;
-  const purposeLabel = isDiagnosticFollowUp ? "Diagnostic follow-up" : "Universal benchmark";
+  const purposeLabel = isDiagnosticFollowUp ? "Focused follow-up" : "Skills check";
   const purposeDescription = isDiagnosticFollowUp
-    ? "Choose the skill named by existing evidence and collect only the closer evidence you need."
+    ? "Choose the skill named by earlier results and collect only the closer result you need."
     : "Follow the shared literacy sequence to establish a consistent starting point.";
 
   return (
     <div className="card page-card teacher-overview-dashboard">
-      <section className="teacher-overview-hero" aria-label="Student overview summary">
+      <section className="teacher-overview-hero" aria-label="Child overview summary">
         <div className="teacher-student-title">
           <p className="panel-label">{purposeLabel}</p>
-          <h2>{studentName || "Unnamed student"}</h2>
+          <h2>{studentName || "Unnamed child"}</h2>
           <p>{purposeDescription}</p>
           <small>{currentSkillIndex + 1}. {currentStage.label}</small>
         </div>
 
-        <div className="teacher-metric-strip" aria-label="Student progress summary">
+        <div className="teacher-metric-strip" aria-label="Child progress summary">
           <div>
             <span>Accuracy</span>
             <strong>{accuracy}%</strong>
           </div>
           <div>
             <span>Current round</span>
-            <strong>{roundCorrect}/{roundLength}</strong>
+            <strong>{progressPhrase(roundCorrect, roundLength)}</strong>
           </div>
           <div>
             <span>Coverage</span>
-            <strong>{currentCoverage.mastered}/{currentCoverage.total || 0}</strong>
+            <strong>{progressPhrase(currentCoverage.mastered, currentCoverage.total || 0)}</strong>
           </div>
           <div>
             <span>Answered</span>
@@ -1319,7 +1320,7 @@ export function StudentOverviewPage({
         </div>
       </section>
 
-      <section className="teacher-start-grid" aria-label="Start assessment">
+      <section className="teacher-start-grid" aria-label="Start check">
         <label className="teacher-skill-selector">
           <span>Start or adjust skill level</span>
           <select
@@ -1347,23 +1348,23 @@ export function StudentOverviewPage({
                 ? `Continue ${purposeLabel.toLowerCase()}`
                 : `Begin ${purposeLabel.toLowerCase()}`}
             </strong>
-            <p>{passScore}/{roundLength} correct is enough evidence to move forward.</p>
+            <p>{progressPhrase(passScore, roundLength)} correct answers are enough to move forward.</p>
           </div>
           <button className="lp-button lp-button-primary" onClick={startAssessment}>
-            {hasProgress ? "Resume Full Screen Assessment" : "Enter Full Screen Assessment"}
+            {hasProgress ? "Resume full-screen check" : "Start full-screen check"}
           </button>
         </div>
 
         <div className="teacher-quick-actions" aria-label="Quick actions">
           <button className="lp-button lp-button-secondary" onClick={switchStudent}>
-            Switch Student
+            Switch child
           </button>
           <button
             className="lp-button lp-button-danger-outline"
             onClick={openResetStudentProgress}
             type="button"
           >
-            Reset Assessment Data
+            Reset check data
           </button>
         </div>
       </section>
@@ -1372,7 +1373,7 @@ export function StudentOverviewPage({
         <div className="coverage-card compact">
           <div className="coverage-card-header">
             <strong>Current round progress</strong>
-            <span>{checkpointPassed ? "Passed" : `${roundCorrect}/${roundLength}`}</span>
+            <span>{checkpointPassed ? "Passed" : progressPhrase(roundCorrect, roundLength)}</span>
           </div>
           <div className="coverage-bar" aria-label="Current round progress">
             <span style={{ width: `${checkpointPercent}%` }}></span>
@@ -1382,7 +1383,7 @@ export function StudentOverviewPage({
         <div className="coverage-card compact">
           <div className="coverage-card-header">
             <strong>Coverage progress</strong>
-            <span>{currentCoverage.mastered}/{currentCoverage.total || 0} {currentCoverage.unit}</span>
+            <span>{progressPhrase(currentCoverage.mastered, currentCoverage.total || 0)} {currentCoverage.unit}</span>
           </div>
           <div className="coverage-bar secondary" aria-label="Item coverage progress">
             <span style={{ width: `${coveragePercent}%` }}></span>
@@ -1408,10 +1409,10 @@ export function StudentOverviewPage({
           <TeacherRecommendationExplanation
             surface="targeted-review"
             explanation={{
-              evidence: `${suggestedFocus.incorrect || 0} recorded miss${suggestedFocus.incorrect === 1 ? "" : "es"} identify ${suggestedFocus.target} as the strongest current practice signal.`,
+              evidence: `${countPhrase(suggestedFocus.incorrect || 0, "saved miss", "saved misses")} identify ${suggestedFocus.target} as the strongest current practice signal.`,
               dependency: `${suggestedFocus.target} sits within ${suggestedFocus.stage} and should be checked before advancing related skills.`,
-              confidence: `${totalAnswered} total scored responses are available; the recommendation ranks recorded misses and remains teacher-reviewable.`,
-              unlock: "A targeted review can confirm the gap, update the evidence, and determine whether to re-teach or move on."
+              confidence: `${countPhrase(totalAnswered, "scored answer")} are available; the suggestion ranks saved misses and remains teacher-reviewable.`,
+              unlock: "A focused review can confirm the gap, update the result, and show whether to re-teach or move on."
             }}
           />
         )}
@@ -1504,9 +1505,9 @@ export function SkillsProgressPage({
     <div className="teacher-product-page">
       <section className="teacher-page-header">
         <div>
-          <p className="panel-label">Skills / Progress</p>
-          <h2>{studentName || "Student"} Skill Map</h2>
-          <p>Browse adaptive checkpoints by category and jump into the next useful practice round.</p>
+          <p className="panel-label">Skills and progress</p>
+          <h2>{studentName || "Child"} skill map</h2>
+          <p>Browse skills by category and open the next useful practice round.</p>
         </div>
       </section>
 
@@ -1551,20 +1552,20 @@ export function SkillsProgressPage({
                       <div className="skill-index-badge">{index + 1}</div>
                       <div className="skill-row-main">
                         <strong>{stage.label}</strong>
-                        <span>{index === currentSkillIndex ? "Current focus" : data?.mastered ? "Checkpoint passed" : unlocked ? "Ready for practice" : "Not available yet"}</span>
+                        <span>{index === currentSkillIndex ? "Current focus" : data?.mastered ? "Check passed" : unlocked ? "Ready for practice" : "Not available yet"}</span>
                       </div>
                       <span className={`skill-status-badge ${status.toLowerCase()}`}>{status}</span>
                     </div>
 
                     <div className="skill-progress-grid">
                       <div className="skill-row-meter">
-                        <span><strong>Checkpoint</strong> {data ? `${data.lastScore}/${data.lastTotal}` : "Not started"}</span>
-                        <span className="mini-progress-bar" aria-label={`Checkpoint progress ${checkpointPercent}%`}>
+                        <span><strong>Check</strong> {data ? progressPhrase(data.lastScore, data.lastTotal) : "Not started"}</span>
+                        <span className="mini-progress-bar" aria-label={`Check progress ${checkpointPercent}%`}>
                           <span style={{ width: `${checkpointPercent}%` }}></span>
                         </span>
                       </div>
                       <div className="skill-row-meter">
-                        <span><strong>Coverage</strong> {coverage.mastered}/{coverage.total} {coverage.unit}</span>
+                        <span><strong>Coverage</strong> {progressPhrase(coverage.mastered, coverage.total)} {coverage.unit}</span>
                         <span className="mini-progress-bar secondary" aria-label={`Coverage progress ${coveragePercent}%`}>
                           <span style={{ width: `${coveragePercent}%` }}></span>
                         </span>
@@ -1796,7 +1797,7 @@ export function TeacherReportsPage({
   const classReportProvenanceOptions = useMemo(() => ({
     filters: {
       Class: classReportingModel.className,
-      "Assessment period": {
+      "Check period": {
         last30: "Last 30 days",
         last90: "Last 90 days",
         schoolYear: "This school year",
@@ -1822,11 +1823,11 @@ export function TeacherReportsPage({
         <div>
           <p className="panel-label">Reports</p>
           <h2>Reports</h2>
-          <p>Review student and class progress from one focused report area.</p>
+          <p>Review child and class progress from one focused report area.</p>
         </div>
         {reportTab === "class" && (
           <label className="report-filter-control">
-            <span>Class assessment period</span>
+            <span>Class check period</span>
             <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
               <option value="last30">Last 30 days</option>
               <option value="last90">Last 90 days</option>
@@ -1837,14 +1838,14 @@ export function TeacherReportsPage({
         )}
       </section>
 
-      <div className="teacher-tabs reports-tab-switcher" aria-label="Report scope">
+      <div className="teacher-tabs reports-tab-switcher" aria-label="Choose report type">
         <button
           type="button"
           className={reportTab === "student" ? "active" : ""}
           aria-pressed={reportTab === "student"}
           onClick={() => setReportTab("student")}
         >
-          Student Report
+          Child report
         </button>
         <button
           type="button"
@@ -1852,23 +1853,23 @@ export function TeacherReportsPage({
           aria-pressed={reportTab === "class"}
           onClick={() => setReportTab("class")}
         >
-          Class Report
+          Class report
         </button>
       </div>
 
       {reportTab === "student" && (
-      <section className="report-choice-workspace" aria-label="Student reports">
+      <section className="report-choice-workspace" aria-label="Child reports">
         <header className="report-choice-student">
           <div>
-            <span>Selected student</span>
-            <h3>{studentName || "Choose a student"}</h3>
+            <span>Selected child</span>
+            <h3>{studentName || "Choose a child"}</h3>
           </div>
-          <p>Start with the whole-child summary, or open the area where the evidence was collected.</p>
+          <p>Start with the whole-child summary, or open the area where the results were saved.</p>
         </header>
 
         {!evidenceReady && (
           <p className="message" role="status">
-            Loading the complete learner evidence record…
+            Loading the complete child results…
           </p>
         )}
 
@@ -1876,19 +1877,19 @@ export function TeacherReportsPage({
           {[
             {
               id: "whole-child",
-              title: "Whole Child",
-              description: "See what the student knows across every learning area, with evidence and next steps.",
-              meta: hasAssessmentData || hasReadingData ? "Evidence available" : "Ready for first evidence"
+              title: "Whole child",
+              description: "See what the child knows across every learning area, with results and next steps.",
+              meta: hasAssessmentData || hasReadingData ? "Results available" : "Ready for first result"
             },
             {
               id: "el-assessments",
-              title: "EL Assessments",
-              description: "Review Assessments 1-6 together without unrelated reading or game data.",
-              meta: elAssessmentAttemptCount ? `${elAssessmentAttemptCount} saved assessment${elAssessmentAttemptCount === 1 ? "" : "s"}` : "No saved attempts yet"
+              title: "EL checks",
+              description: "Review EL checks 1–6 together without unrelated reading or game data.",
+              meta: elAssessmentAttemptCount ? `${countPhrase(elAssessmentAttemptCount, "saved check")}` : "No saved checks yet"
             },
             {
               id: "guided-reading",
-              title: "Guided Reading",
+              title: "Guided reading",
               description: "Review books, words read correctly, support words and every teacher note.",
               meta: getGuidedReadingLandingMeta({
                 progress: readingProgress,
@@ -1897,8 +1898,8 @@ export function TeacherReportsPage({
             },
             {
               id: "skills-check",
-              title: "Skills Check",
-              description: "See formal checkpoint results, skill progress and question-level evidence.",
+              title: "Skills check",
+              description: "See check results, skill progress, and answers to each question.",
               meta: getSkillsCheckLandingMeta({
                 attemptCount: skillCheckpointAttemptCount,
                 skillMasterySummary
@@ -1906,9 +1907,9 @@ export function TeacherReportsPage({
             },
             {
               id: "other-learning",
-              title: "Other Learning",
-              description: "See simple practice evidence from Sound Seekers, Arcade and Story Quests.",
-              meta: "Practice evidence only"
+              title: "Other learning",
+              description: "See practice results from Sound Seekers, Arcade, and Story Quests.",
+              meta: "Practice results"
             }
           ].map(option => (
             <article className={`report-choice-card ${option.id === "whole-child" ? "featured" : ""}`} key={option.id}>
@@ -1932,11 +1933,11 @@ export function TeacherReportsPage({
         {!hasAssessmentData && startAssessment && (
           <div className="report-choice-first-step">
             <div>
-              <strong>No formal assessment evidence yet</strong>
-              <p>Start the first assessment to begin the student record.</p>
+              <strong>No saved check results yet</strong>
+              <p>Start the first check to begin the child's record.</p>
             </div>
             <button className="lp-button lp-button-secondary" onClick={startAssessment} type="button">
-              Start first assessment
+              Start first check
             </button>
           </div>
         )}
@@ -1944,7 +1945,7 @@ export function TeacherReportsPage({
       )}
 
       {reportTab === "class" && (
-        <section className="class-report-workspace" aria-label="Class Report">
+        <section className="class-report-workspace" aria-label="Class report">
           <div className="class-report-print-actions class-report-view-controls screen-only">
             <label>
               Class
@@ -2024,7 +2025,7 @@ export function CheckpointDecisionPage({
   return (
     <main className="assessment-shell checkpoint-decision-shell">
       <section className="card checkpoint-decision-card">
-        <p className="panel-label">Checkpoint complete</p>
+        <p className="panel-label">Check complete</p>
         <h2>You completed {completedText}.</h2>
         <div className="level-mastery-callout checkpoint-path-callout">
           <strong>{pathStatus.label}</strong>
@@ -2060,7 +2061,7 @@ export function CheckpointDecisionPage({
             <strong>{checkpoint.accuracy}%</strong>
           </div>
           <div>
-            <span>Checkpoint</span>
+            <span>Check</span>
             <strong>{checkpoint.passed ? "Passed" : "Needs retry"}</strong>
           </div>
           <div>
@@ -2226,7 +2227,7 @@ export function CheckpointDecisionPage({
           )}
 
           <button className="report-button" onClick={returnToOverview} type="button">
-            Return to Student Overview
+            Return to child overview
           </button>
         </div>
       </section>
@@ -2293,7 +2294,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
         <>
           <div className="assessment-topbar letter-topbar">
             <div className="assessment-meta">
-              <span>{studentName || "Unnamed student"}</span>
+              <span>{studentName || "Unnamed child"}</span>
               <strong>Phonics Pattern Diagnostic</strong>
             </div>
 
@@ -2311,7 +2312,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
             </div>
 
             <button className="reset-button assessment-end-button" onClick={endAssessment}>
-              End Assessment
+              End check
             </button>
           </div>
 
@@ -2354,7 +2355,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
         </>
       ) : (
         <section className="card letter-complete-card page-stack">
-          <h2>Assessment Complete</h2>
+          <h2>Check complete</h2>
 
           <p>
             Pattern sounds correct:
@@ -2373,7 +2374,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
               className="reset-button"
               onClick={resetPatternAssessment}
             >
-              Restart Pattern Assessment
+              Restart pattern check
             </button>
 
             {returnToTeacherDashboard && (
@@ -2418,7 +2419,7 @@ export function LetterAssessmentPage({
         <>
           <div className="assessment-topbar letter-topbar">
             <div className="assessment-meta">
-              <span>{studentName || "Unnamed student"}</span>
+              <span>{studentName || "Unnamed child"}</span>
               <strong>EL Letter Name and Sound</strong>
             </div>
 
@@ -2438,7 +2439,7 @@ export function LetterAssessmentPage({
             </div>
 
             <button className="reset-button assessment-end-button" onClick={endAssessment}>
-              End Assessment
+              End check
             </button>
           </div>
 
@@ -2473,18 +2474,18 @@ export function LetterAssessmentPage({
         </>
       ) : (
         <section className="card letter-complete-card page-stack">
-          <h2>Assessment Complete</h2>
+          <h2>Check complete</h2>
 
           <p>
             Letter names known:
             {" "}
-            {letterAssessment.filter(x => x.knowsName).length}/52
+            {progressPhrase(letterAssessment.filter(x => x.knowsName).length, 52)}
           </p>
 
           <p>
             Letter sounds known:
             {" "}
-            {letterAssessment.filter(x => x.knowsSound).length}/52
+            {progressPhrase(letterAssessment.filter(x => x.knowsSound).length, 52)}
           </p>
 
           <div className="button-row">
@@ -2492,7 +2493,7 @@ export function LetterAssessmentPage({
               className="reset-button"
               onClick={resetLetterAssessment}
             >
-              Restart Letter Assessment
+              Restart letter check
             </button>
 
             {returnToTeacherDashboard && (
@@ -2542,7 +2543,7 @@ export function AssessmentPage({
     null;
   const safeCurrentStage = currentStage || {
     id: safeSkillId || "unknown_skill",
-    label: currentQuestion?.skillName || currentQuestion?.skill || "Assessment"
+    label: currentQuestion?.skillName || currentQuestion?.skill || "Check"
   };
   const assessmentExit = returnToStudentOverview || endAssessment;
 
@@ -2577,7 +2578,7 @@ export function AssessmentPage({
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
-        <span>{studentName || "Unnamed student"}</span>
+        <span>{studentName || "Unnamed child"}</span>
         <strong>
           {assessmentMode === "targetedReview"
             ? "Targeted Review"
@@ -2600,7 +2601,7 @@ export function AssessmentPage({
         <div
           className="assessment-progress-dots"
           role="progressbar"
-          aria-label="Assessment progress"
+          aria-label="Check progress"
           aria-valuemin="1"
           aria-valuemax={roundLength}
           aria-valuenow={Math.min(roundAnswers.length + 1, roundLength)}
@@ -2640,12 +2641,12 @@ export function AssessmentPage({
         )}
 
         <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
-          End Assessment
+          End check
         </button>
       </div>
     </div>
   );
-  const renderAssessmentLoadingCard = ({ title = "Getting the assessment ready...", actionLabel = "" } = {}) => (
+  const renderAssessmentLoadingCard = ({ title = "Getting the check ready...", actionLabel = "" } = {}) => (
     <div className="card assessment-card assessment-loading-card">
       <div className="assessment-loading-mark" aria-hidden="true">
         <span></span>
@@ -2660,7 +2661,7 @@ export function AssessmentPage({
             {actionLabel}
           </button>
           <button className="report-button" onClick={assessmentExit} type="button">
-            Return to Student Overview
+            Return to child overview
           </button>
         </div>
       )}
@@ -2803,10 +2804,10 @@ export function AssessmentPage({
     return (
       <main className={assessmentShellClassName}>
         <div className="card assessment-card">
-          <h2>This assessment needs a quick fix.</h2>
+          <h2>This check needs a quick fix.</h2>
           <p>Please return and try again.</p>
           <button className="main-button" onClick={assessmentExit} type="button">
-            Return to Student Overview
+            Return to child overview
           </button>
         </div>
       </main>
@@ -3116,7 +3117,7 @@ export function FinishedReportPage({
         </button>
       </div>
 
-      <p><strong>Student:</strong> {studentName || "Unnamed student"}</p>
+      <p><strong>Child:</strong> {studentName || "Unnamed child"}</p>
       <p><strong>Total answered:</strong> {totalAnswered}</p>
       <p><strong>Accuracy:</strong> {accuracy}%</p>
       <p><strong>Current focus:</strong> {currentStage.label}</p>
@@ -3141,22 +3142,22 @@ export function FinishedReportPage({
         </select>
       </label>
       <p><strong>Available questions in this skill:</strong> {currentStageQuestions.length}</p>
-      <p><strong>Checkpoint rule:</strong> 9/10 correct to unlock the next skill.</p>
+      <p><strong>Check rule:</strong> 9 of 10 correct answers unlock the next skill.</p>
 
       {latestCheckpointStage && mastery[latestCheckpointStage.id]?.mastered && (
         <section className="checkpoint-complete-panel">
           <div>
-            <h3>Checkpoint Passed</h3>
+            <h3>Check passed</h3>
             <p>
               {latestCheckpointIncomplete
-                ? "Checkpoint passed. Student may move forward, but this skill is not fully covered yet."
-                : "Checkpoint passed and item coverage is complete for the tracked items in this skill."}
+                ? "The check passed. The child may move forward, but this skill is not fully covered yet."
+                : "The check passed and all tracked items in this skill are covered."}
             </p>
             {latestCheckpointCoverage && (
               <div className="coverage-card compact">
                 <div className="coverage-card-header">
-                  <strong>{latestCheckpointStage.label} Coverage</strong>
-                  <span>{latestCheckpointCoverage.mastered}/{latestCheckpointCoverage.total} {latestCheckpointCoverage.unit} mastered</span>
+                  <strong>{latestCheckpointStage.label} coverage</strong>
+                  <span>{progressPhrase(latestCheckpointCoverage.mastered, latestCheckpointCoverage.total)} {latestCheckpointCoverage.unit} mastered</span>
                 </div>
                 <div className="coverage-bar secondary" aria-label={`${latestCheckpointStage.label} coverage progress`}>
                   <span style={{ width: `${latestCheckpointCoverage.total ? Math.round((latestCheckpointCoverage.mastered / latestCheckpointCoverage.total) * 100) : 0}%` }}></span>
@@ -3180,7 +3181,7 @@ export function FinishedReportPage({
         </section>
       )}
 
-      <h3>Skill Checkpoints and Coverage</h3>
+      <h3>Skill checks and coverage</h3>
 
       {skillTree.map((stage, index) => {
         const data = mastery[stage.id];
@@ -3199,9 +3200,9 @@ export function FinishedReportPage({
         return (
           <div className="skill-row" key={stage.id}>
             <span>{index + 1}. {stage.label}</span>
-            <span>{data?.mastered ? "Checkpoint Passed" : index === currentSkillIndex ? "Current Checkpoint" : "Locked"}</span>
+            <span>{data?.mastered ? "Check passed" : index === currentSkillIndex ? "Current check" : "Locked"}</span>
             <span className="skill-row-progress">
-              <span>Checkpoint: {data ? `${data.lastScore}/${data.lastTotal}` : "-"}</span>
+              <span>Check: {data ? progressPhrase(data.lastScore, data.lastTotal) : "—"}</span>
               <span className="mini-progress-bar"><span style={{ width: `${checkpointPercent}%` }}></span></span>
             </span>
             <span className="skill-row-progress">

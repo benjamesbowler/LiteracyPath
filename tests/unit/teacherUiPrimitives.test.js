@@ -150,11 +150,11 @@ test("lazy destructive dialogs retain exact confirmation content and disabled re
   assert.match(confirmHtml, /role="dialog" aria-modal="true" aria-labelledby="confirm-action-title"/);
   assert.match(confirmHtml, /<h2 id="confirm-action-title">Delete class\?<\/h2>/);
   assert.match(confirmHtml, />Delete class<\/button>/);
-  assert.match(resetHtml, /<h2 id="reset-progress-title">Reset Assessment Data<\/h2>/);
-  assert.match(resetHtml, /history for Aarav/);
+  assert.match(resetHtml, /<h2 id="reset-progress-title">Reset check results<\/h2>/);
+  assert.match(resetHtml, /saved check results, scores and progress for Aarav/);
   assert.match(resetHtml, /data-autofocus="true"/);
   assert.match(
     resetHtml,
-    /<button(?=[^>]*class="reset-button")(?=[^>]*disabled="")[^>]*>Reset Assessment Data<\/button>/,
+    /<button(?=[^>]*class="reset-button")(?=[^>]*disabled="")[^>]*>Reset check results<\/button>/,
   );
 });

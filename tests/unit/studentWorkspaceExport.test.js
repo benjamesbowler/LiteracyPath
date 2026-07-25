@@ -63,19 +63,18 @@ test("the seeded 520-item Skills Check export keeps every summary, attempt, and 
   const rows = buildStudentWorkspaceCsvRows("skills-check", workspace);
   const skillSummaries = rows.filter(row => row["Row type"] === "Skill summary");
   const itemSummaries = rows.filter(row => row["Row type"] === "Item summary");
-  const attempts = rows.filter(row => row["Row type"] === "Assessment attempt");
-  const questions = rows.filter(row => row["Row type"] === "Question evidence");
+  const attempts = rows.filter(row => row["Row type"] === "Check attempt");
+  const questions = rows.filter(row => row["Row type"] === "Question result");
 
   assert.equal(skillSummaries.length, 3);
   assert.equal(itemSummaries.length, HIGH_VOLUME_COUNT);
   assert.equal(attempts.length, HIGH_VOLUME_COUNT);
   assert.equal(questions.length, HIGH_VOLUME_COUNT);
   assert.ok(skillSummaries.every(row => row.Section === "Summary"));
-  assert.ok([...itemSummaries, ...attempts, ...questions].every(row => row.Section === "Evidence appendix"));
-  assert.equal(new Set(attempts.map(row => row["Attempt ID"])).size, HIGH_VOLUME_COUNT);
-  assert.equal(new Set(questions.map(row => row["Question ID"])).size, HIGH_VOLUME_COUNT);
-  assert.ok(attempts.some(row => row["Attempt ID"] === "audit-long-history-0001"));
-  assert.ok(attempts.some(row => row["Attempt ID"] === "audit-long-history-0520"));
-  assert.ok(questions.some(row => row["Question ID"] === "audit-item-1"));
-  assert.ok(questions.some(row => row["Question ID"] === "audit-item-520"));
+  assert.ok([...itemSummaries, ...attempts, ...questions].every(row => row.Section === "Result details"));
+  assert.equal(attempts.length, HIGH_VOLUME_COUNT);
+  assert.equal(questions.length, HIGH_VOLUME_COUNT);
+  assert.ok(attempts.every(row => !Object.hasOwn(row, "Attempt ID")));
+  assert.ok(questions.every(row => !Object.hasOwn(row, "Question ID")));
+  assert.equal(new Set(questions.map(row => row.Question)).size, 1);
 });

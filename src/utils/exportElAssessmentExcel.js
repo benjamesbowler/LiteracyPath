@@ -1872,6 +1872,97 @@ async function downloadWorkbook(workbook, fileName) {
   URL.revokeObjectURL(url);
 }
 
+const INTERNAL_EXPORT_COLUMN = /\b(?:attempt id|assessment id|item id|question id|item key|source record id|response schema|provenance|app version|assessment version|form version|content version|policy version|scoring version|scoring rule version|administration interface)\b/i;
+const INTERNAL_EXPORT_ROW = /^(?:app version\(s\)|check version\(s\)|content version\(s\)|scoring version\(s\)|policy version\(s\)|child id|learner id|student id)$/i;
+
+function teacherExportCopy(value) {
+  const original = String(value ?? "");
+  const statusLabels = {
+    not_assessed: "Not checked",
+    not_administered: "Not checked",
+    not_recorded: "Not recorded",
+    not_scorable: "Not scored",
+    in_progress: "In progress",
+    needs_teaching: "Needs more practice",
+    incorrect: "Needs another look"
+  };
+  const statusKey = original.trim().toLowerCase();
+  if (statusLabels[statusKey]) return statusLabels[statusKey];
+
+  const mapped = original
+    .replace(/\bBOY\b/g, "Beginning of year")
+    .replace(/\bMOY\b/g, "Middle of year")
+    .replace(/\bEOY\b/g, "End of year")
+    .replace(/\bAssessments\b/g, "Checks")
+    .replace(/\bAssessment\b/g, "Check")
+    .replace(/\bassessments\b/g, "checks")
+    .replace(/\bassessment\b/g, "check")
+    .replace(/\bEvidence\b/g, "Results")
+    .replace(/\bevidence\b/g, "results")
+    .replace(/\bStudents\b/g, "Children")
+    .replace(/\bStudent\b/g, "Child")
+    .replace(/\bstudents\b/g, "children")
+    .replace(/\bstudent\b/g, "child")
+    .replace(/\bLearners\b/g, "Children")
+    .replace(/\bLearner\b/g, "Child")
+    .replace(/\blearners\b/g, "children")
+    .replace(/\blearner\b/g, "child")
+    .replace(/\bProvenance\b/g, "Source details")
+    .replace(/\bprovenance\b/g, "source details")
+    .replace(/\bScope\b/g, "Period")
+    .replace(/\bscope\b/g, "period")
+    .replace(/\bPolicy\b/g, "Fairness rule")
+    .replace(/\bpolicy\b/g, "fairness rule")
+    .replace(/\bLogin\b/g, "Sign-in")
+    .replace(/\blogin\b/g, "sign-in")
+    .replace(/\bCumulative\b/g, "All saved")
+    .replace(/\bcumulative\b/g, "all saved")
+    .replace(/\bBaseline\b/g, "Starting point")
+    .replace(/\bbaseline\b/g, "starting point")
+    .replace(/\bAdministration\b/g, "Check")
+    .replace(/\badministration\b/g, "check")
+    .replace(/\bNot assessed\b/g, "Not checked")
+    .replace(/\bIncorrect\b/g, "Needs another look")
+    .replace(/(\d+)\s*\/\s*(\d+)/g, "$1 of $2");
+
+  if (/^[a-z0-9]+(?:[_-][a-z0-9]+)+$/.test(mapped.trim())) {
+    return mapped
+      .replace(/[_-]+/g, " ")
+      .replace(/^\w/, letter => letter.toUpperCase());
+  }
+  return mapped;
+}
+
+export function applyTeacherFacingWorkbookCopy(workbook) {
+  workbook.worksheets.forEach(sheet => {
+    const internalColumns = [];
+    sheet.getRow(1).eachCell((cell, columnNumber) => {
+      if (INTERNAL_EXPORT_COLUMN.test(String(cell.value || ""))) {
+        internalColumns.push(columnNumber);
+      }
+    });
+    internalColumns.sort((a, b) => b - a).forEach(columnNumber => {
+      sheet.spliceColumns(columnNumber, 1);
+    });
+    const internalRows = [];
+    sheet.eachRow((row, rowNumber) => {
+      if (INTERNAL_EXPORT_ROW.test(String(row.getCell(1).value || "").trim())) {
+        internalRows.push(rowNumber);
+      }
+    });
+    internalRows.sort((a, b) => b - a).forEach(rowNumber => {
+      sheet.spliceRows(rowNumber, 1);
+    });
+    sheet.eachRow(row => {
+      row.eachCell(cell => {
+        if (typeof cell.value === "string") cell.value = teacherExportCopy(cell.value);
+      });
+    });
+    sheet.name = teacherExportCopy(sheet.name).slice(0, 31);
+  });
+  return workbook;
+}
+
 function elEvidenceWindow(report = {}) {
   const start = report.dateRange?.start || "";
   const end = report.dateRange?.end || "";
@@ -1885,7 +1976,7 @@ function buildElExportProvenanceRows(report = {}, reportType = report.reportType
     report.summary?.totalStudents || report.studentRows?.length || null
   );
   return buildExportProvenanceRows({
-    reportTitle: isIndividual ? "Student EL Assessment Report" : "Class EL Assessment Report",
+    reportTitle: isIndividual ? "Child EL check report" : "Class EL check report",
     schoolName: report.schoolName,
     className: report.className,
     learnerName: isIndividual ? report.studentName : "",
@@ -1894,14 +1985,14 @@ function buildElExportProvenanceRows(report = {}, reportType = report.reportType
     generatedAt: report.generatedAt,
     timeZone: report.timeZone,
     filters: {
-      "EL benchmark scope": report.benchmarkScope?.label || "No benchmark route selected",
-      "Assessment window": report.assessmentWindow || "All included evidence",
+      "EL check period": report.benchmarkScope?.label || "No check period selected",
+      "Time of year": report.assessmentWindow || "All included results",
       ...(Array.isArray(report.evidenceSourceReads)
         ? {
-            "Evidence stores read": report.evidenceSourceReads
+            "Saved result sources": report.evidenceSourceReads
               .map(source => `${source.store} (${source.recordCount} row(s))`)
               .join("; "),
-            "Latest evidence-store sync": report.evidenceSourceReads
+            "Latest saved-result update": report.evidenceSourceReads
               .map(source => source.lastSyncedAt)
               .filter(Boolean)
               .sort()
@@ -1916,7 +2007,7 @@ function buildElExportProvenanceRows(report = {}, reportType = report.reportType
   });
 }
 
-export async function createStudentElAssessmentWorkbook(report) {
+export async function createStudentElAssessmentWorkbook(report, { teacherFacing = false } = {}) {
   const workbook = await createWorkbook(report?.generatedAt);
 
   const summarySheet = workbook.addWorksheet("Student Summary");
@@ -1936,7 +2027,7 @@ export async function createStudentElAssessmentWorkbook(report) {
     addExportProvenanceWorksheet(workbook, buildElExportProvenanceRows(report, "individual"));
     addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
     applyWorkbookPresentation(workbook, EL_EMPTY_STUDENT_REPORT_SHEETS);
-    return workbook;
+    return teacherFacing ? applyTeacherFacingWorkbookCopy(workbook) : workbook;
   }
 
   const letterSheet = workbook.addWorksheet("Letter Names & Sounds");
@@ -2065,10 +2156,10 @@ export async function createStudentElAssessmentWorkbook(report) {
   addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_STUDENT_REPORT_SHEETS);
-  return workbook;
+  return teacherFacing ? applyTeacherFacingWorkbookCopy(workbook) : workbook;
 }
 
-export async function createClassElAssessmentWorkbook(report) {
+export async function createClassElAssessmentWorkbook(report, { teacherFacing = false } = {}) {
   const workbook = await createWorkbook(report?.generatedAt);
 
   const summarySheet = workbook.addWorksheet("Class Summary");
@@ -2273,7 +2364,7 @@ export async function createClassElAssessmentWorkbook(report) {
   addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_CLASS_REPORT_SHEETS);
-  return workbook;
+  return teacherFacing ? applyTeacherFacingWorkbookCopy(workbook) : workbook;
 }
 
 export function buildStudentElAssessmentExportReport(options = {}) {
@@ -2348,7 +2439,7 @@ export function hasResolvedElExportScope(report = {}) {
 
 function assertResolvedElExportScope(report = {}) {
   if (hasResolvedElExportScope(report)) return;
-  const error = new Error("Choose a grade and assessment window before exporting this EL report.");
+  const error = new Error("Choose a grade and time of year before downloading this EL report.");
   error.code = "EL_EXPORT_SCOPE_REQUIRED";
   throw error;
 }
@@ -2372,7 +2463,7 @@ export async function exportStudentElAssessmentExcel(options = {}) {
   });
   const report = buildStudentElAssessmentExportReport({ ...options, previousReports });
   assertResolvedElExportScope(report);
-  const workbook = await createStudentElAssessmentWorkbook(report);
+  const workbook = await createStudentElAssessmentWorkbook(report, { teacherFacing: true });
   await downloadWorkbook(workbook, safeElAssessmentFileName(report.fileName));
   report.persistence = await saveElAssessmentReport(report, options);
   return report;
@@ -2386,7 +2477,7 @@ export async function exportClassElAssessmentExcel(options = {}) {
     classId: options.classId || ""
   });
   const report = buildClassElAssessmentExportReport({ ...options, previousReports });
-  const workbook = await createClassElAssessmentWorkbook(report);
+  const workbook = await createClassElAssessmentWorkbook(report, { teacherFacing: true });
   await downloadWorkbook(workbook, report.fileName);
   report.persistence = await saveElAssessmentReport(report, options);
   return report;
@@ -2394,8 +2485,8 @@ export async function exportClassElAssessmentExcel(options = {}) {
 
 export async function downloadElAssessmentReport(report = {}) {
   const workbook = report.reportType === "individual"
-    ? await createStudentElAssessmentWorkbook(report)
-    : await createClassElAssessmentWorkbook(report);
+    ? await createStudentElAssessmentWorkbook(report, { teacherFacing: true })
+    : await createClassElAssessmentWorkbook(report, { teacherFacing: true });
   await downloadWorkbook(
     workbook,
     safeElAssessmentFileName(

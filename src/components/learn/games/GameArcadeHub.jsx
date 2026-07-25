@@ -268,7 +268,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       {/* Slim bottom banner: points + high-score board */}
       <div className="lg-arcade-bottomband" data-child-progress="">
         <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
-        <span className="lg-arcade-played">{totals.completed}/{ARCADE_GAMES.length} games played</span>
+        <span className="lg-arcade-played">{totals.completed} of {ARCADE_GAMES.length} games played</span>
         <button
           type="button"
           className="lg-arcade-highscores"

@@ -24,7 +24,7 @@ export function StudentReportShell({
   onStartAssessment,
   provenanceRows = [],
   readHistoryView = readStudentReportHash,
-  startAssessmentLabel = "Start assessment",
+  startAssessmentLabel = "Start check",
   onViewChange,
   statusMessage = "",
   studentName
@@ -66,8 +66,8 @@ export function StudentReportShell({
     <div className="lg-report-shell">
       <header className="lg-report-topbar screen-only">
         <div className="lg-report-topbar-copy">
-          <span className="lg-report-product-label">Student reports</span>
-          <strong>{studentName || "Selected student"}</strong>
+          <span className="lg-report-product-label">Child reports</span>
+          <strong>{studentName || "Selected child"}</strong>
           {className && <span>{className}</span>}
         </div>
         <div className="lg-report-actions" aria-label="Report actions">
@@ -93,10 +93,10 @@ export function StudentReportShell({
       </header>
 
       <div className="lg-report-workspace">
-        <nav className="lg-report-nav" aria-label="Student reports">
+        <nav className="lg-report-nav" aria-label="Child reports">
           <div className="lg-report-nav-intro">
             <strong>Report view</strong>
-            <span>Choose the evidence you need.</span>
+            <span>Choose the results you need.</span>
           </div>
           <div className="lg-report-nav-links">
             {STUDENT_REPORT_VIEWS.map(view => (
@@ -127,7 +127,7 @@ export function StudentReportShell({
         <main className="lg-report-main" id={`student-report-${current.id}`}>
           <div className="lg-report-view-heading">
             <div>
-              <p>{studentName || "Selected student"}</p>
+              <p>{studentName || "Selected child"}</p>
               <h1 ref={headingRef} tabIndex="-1">{headingLabel || current.label}</h1>
               <span>{headingDescription || current.description}</span>
             </div>
@@ -139,9 +139,9 @@ export function StudentReportShell({
           />
           {children}
           {provenanceRows.length > 0 && (
-            <section className="lg-report-provenance" aria-label="Report provenance">
-              <h2>Report provenance</h2>
-              <p>Use this block to identify the exact scope, evidence, versions, and privacy handling of this report.</p>
+            <section className="lg-report-provenance" aria-label="About this report">
+              <h2>About this report</h2>
+              <p>This shows which child, class, dates, results, and privacy choices are included.</p>
               <dl>
                 {provenanceRows.map(row => (
                   <div key={row.field}>

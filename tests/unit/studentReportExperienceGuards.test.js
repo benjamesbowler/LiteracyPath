@@ -34,8 +34,8 @@ test("the new report shell and collapsed evidence are printable", () => {
 });
 
 test("report actions stay specific to their evidence area", () => {
-  assert.match(finishedReportSource, /Open EL assessments/);
-  assert.match(finishedReportSource, /Start Skills Check/);
+  assert.match(finishedReportSource, /Open EL checks/);
+  assert.match(finishedReportSource, /Start a check/);
   assert.match(finishedReportSource, /Download practice data/);
   const rows = buildStudentWorkspaceCsvRows("whole-child", {
     wholeChild: {
@@ -46,7 +46,7 @@ test("report actions stay specific to their evidence area", () => {
     }
   });
   const descriptiveAssessment = rows.find(
-    row => row["Row type"] === "Descriptive assessment summary"
+    row => row["Row type"] === "Descriptive check summary"
   );
-  assert.equal(descriptiveAssessment?.Status, "Descriptive evidence (not a mastery rating)");
+  assert.equal(descriptiveAssessment?.Status, "Descriptive results (not a pass rating)");
 });

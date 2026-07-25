@@ -36,14 +36,14 @@ test("report landing helpers distinguish load failure, attempts, and mastery", (
   );
   assert.equal(
     getSkillsCheckLandingMeta({ attemptCount: 2, skillMasterySummary: [] }),
-    "2 checkpoint attempts saved"
+    "2 saved checks"
   );
   assert.equal(
     getSkillsCheckLandingMeta({
       attemptCount: 2,
       skillMasterySummary: [{ masteredCount: 1 }]
     }),
-    "Checkpoint evidence available"
+    "Saved check results available"
   );
 });
 
@@ -67,10 +67,9 @@ test("student report availability uses full history and treats a failed checkpoi
     skillMasterySummary: []
   }));
 
-  assert.match(html, /Evidence available/);
-  assert.match(html, /1 checkpoint attempt saved/);
-  assert.doesNotMatch(html, /Ready for first evidence/);
-  assert.doesNotMatch(html, /No passed checkpoints/);
+  assert.match(html, /Results available/);
+  assert.match(html, /1 saved check/);
+  assert.doesNotMatch(html, /Ready for first result/);
 });
 
 test("report choices wait for the complete selected-learner evidence record", () => {
@@ -80,6 +79,6 @@ test("report choices wait for the complete selected-learner evidence record", ()
     evidenceReady: false
   }));
 
-  assert.match(html, /Loading the complete learner evidence record/);
-  assert.match(html, /<button[^>]*disabled=""[^>]*>Open Skills Check<\/button>/);
+  assert.match(html, /Loading the complete child results/);
+  assert.match(html, /<button[^>]*disabled=""[^>]*>Open Skills check<\/button>/);
 });

@@ -267,7 +267,7 @@ export function TeacherInstructionalGroups({
                 <div>
                   <strong>{group.label}</strong>
                   <span>{group.learners.map(learner => learner.name).join(", ")}</span>
-                  <small>{group.basis} · {group.learners.length} learners</small>
+                  <small>{group.basis} · {group.learners.length} {group.learners.length === 1 ? "child" : "children"}</small>
                   {renderEvidence?.(group)}
                 </div>
                 <div className="teacher-progress-group-actions">
@@ -276,7 +276,7 @@ export function TeacherInstructionalGroups({
                     type="button"
                     onClick={() => onChooseLearner?.(group.learners[0].id)}
                   >
-                    Review first learner
+                    Review first child
                   </button>
                   <button
                     className="text-button"
@@ -291,7 +291,7 @@ export function TeacherInstructionalGroups({
             ))}
           </ul>
         ) : (
-          <p className="muted-text">No shared focus currently has two or more learners.</p>
+          <p className="muted-text">No shared focus currently has two or more children.</p>
         )}
         <p className="teacher-progress-basis">
           Suggestions group a shared current focus or the same re-teaching signal; teachers decide placement.
@@ -310,8 +310,8 @@ export function TeacherInstructionalGroups({
             <p className="panel-label">Saved cohorts · private teacher view</p>
             <h3>Instructional groups</h3>
             <p>
-              Save a transparent criterion, compare group-level evidence, review movement, and assign
-              the next teaching action. Learners are never ranked.
+              Save a clear group rule, compare group results, review movement, and choose
+              the next teaching action. Children are never ranked.
             </p>
           </div>
           <strong>{groups.length} saved</strong>
@@ -338,7 +338,7 @@ export function TeacherInstructionalGroups({
                   <dd>{draftSuggestion.basis}</dd>
                 </div>
                 <div>
-                  <dt>Policy</dt>
+                  <dt>Group rule</dt>
                   <dd>{criterionFromSuggestion(draftSuggestion)?.policy}</dd>
                 </div>
                 <div>
@@ -368,15 +368,15 @@ export function TeacherInstructionalGroups({
         )}
 
         {state === "loading" ? (
-          <div className="teacher-group-state" role="status">Loading saved instructional groups…</div>
+          <div className="teacher-group-state" role="status">Loading saved groups…</div>
         ) : state === "error" ? (
           <div className="teacher-group-state is-error" role="alert">
-            Saved groups could not be loaded. Suggested evidence above is unchanged.
+            Saved groups could not be loaded. The suggestions above are unchanged.
           </div>
         ) : state === "ready" && groups.length === 0 ? (
           <div className="teacher-group-state">
-            <strong>No instructional groups saved for {className || "this class"}.</strong>
-            <p>Use Save group beside a transparent suggestion above.</p>
+            <strong>No groups saved for {className || "this class"}.</strong>
+            <p>Use Save group beside a suggestion above.</p>
           </div>
         ) : state === "ready" ? (
           <>
@@ -387,7 +387,7 @@ export function TeacherInstructionalGroups({
                 return (
                   <article
                     className="teacher-saved-group-card"
-                    aria-label={`Saved instructional group: ${group.name}`}
+                    aria-label={`Saved group: ${group.name}`}
                     key={group.id}
                   >
                     <header>
@@ -396,15 +396,15 @@ export function TeacherInstructionalGroups({
                         <h4>{group.name}</h4>
                         <p>{group.criteria.label}</p>
                       </div>
-                      <strong>{review?.student_ids?.length || 0} learners</strong>
+                      <strong>{review?.student_ids?.length || 0} {review?.student_ids?.length === 1 ? "child" : "children"}</strong>
                     </header>
-                    <p className="teacher-saved-group-policy">{group.criteria.policy}</p>
+                    <p className="teacher-saved-group-policy">Saved group rule: {group.criteria.basis}</p>
                     <div className="teacher-saved-group-summary">
                       <span>Last reviewed {formatReviewDate(review?.reviewed_at)}</span>
                       <span>
                         {movement.criterionAvailable
                           ? `${movement.stayed.length} stayed · ${movement.joined.length} joined · ${movement.left.length} left`
-                          : "The original criterion is not available in current evidence"}
+                          : "The original group rule is not available in current results"}
                       </span>
                     </div>
                     <div className="teacher-saved-group-actions">
@@ -430,17 +430,17 @@ export function TeacherInstructionalGroups({
                         <MovementList
                           label="Stayed"
                           learners={movement.stayed}
-                          emptyLabel="No learners stayed under this criterion"
+                          emptyLabel="No children stayed under this rule"
                         />
                         <MovementList
                           label="Joined"
                           learners={movement.joined}
-                          emptyLabel="No learners joined"
+                          emptyLabel="No children joined"
                         />
                         <MovementList
                           label="Left"
                           learners={movement.left}
-                          emptyLabel="No learners left"
+                          emptyLabel="No children left"
                         />
                       </dl>
                       <button
@@ -467,7 +467,7 @@ export function TeacherInstructionalGroups({
               <header>
                 <div>
                   <p className="panel-label">Group-level comparison</p>
-                  <h4>Compare teaching evidence, not children</h4>
+                  <h4>Compare teaching results, not children</h4>
                 </div>
                 <strong>{comparison.length} of 2 selected</strong>
               </header>
@@ -481,17 +481,17 @@ export function TeacherInstructionalGroups({
                       </p>
                       {group.snapshot ? (
                         <dl>
-                          <ComparisonMetric label="Learners" value={group.snapshot.memberCount} />
+                          <ComparisonMetric label="Children" value={group.snapshot.memberCount} />
                           <ComparisonMetric label="Scored responses" value={group.snapshot.attempts} />
                           <ComparisonMetric label="Skill diversity" value={group.snapshot.skillDiversity} />
                           <ComparisonMetric
-                            label="Policy-ready learners"
+                            label="Children with enough results"
                             value={`${group.snapshot.policyReadyMembers}/${group.snapshot.memberCount}`}
                           />
                           <ComparisonMetric
                             label="Mean accuracy"
                             value={group.snapshot.averageAccuracy === null
-                              ? "Not enough evidence"
+                              ? "Too few results"
                               : `${group.snapshot.averageAccuracy}%`}
                           />
                           <ComparisonMetric
@@ -502,13 +502,13 @@ export function TeacherInstructionalGroups({
                           />
                         </dl>
                       ) : (
-                        <p>Captured evidence is unavailable for this review.</p>
+                        <p>Saved results are unavailable for this review.</p>
                       )}
                     </article>
                   ))}
                 </div>
               ) : (
-                <p>Select exactly two saved groups to compare their evidence basis side by side.</p>
+                <p>Select exactly two saved groups to compare the results used side by side.</p>
               )}
             </section>
           </>

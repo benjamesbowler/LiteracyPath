@@ -23,14 +23,14 @@ import {
 import { buildStudentWorkspaceCsvRows } from "../../src/utils/exportStudentWorkspaceCsv.js";
 
 const REQUIRED_METRICS = ["accuracy", "mastered", "active", "started", "current-skill", "trails"];
-const REQUIRED_FIELDS = ["Definition", "Denominator", "Date range", "Minimum evidence", "Update time"];
+const REQUIRED_FIELDS = ["Counts", "Time", "Excludes"];
 
 function assertDefinitionsSheet(workbook) {
   const sheet = workbook.getWorksheet(METRIC_DEFINITIONS_SHEET_NAME);
   assert.ok(sheet, `${METRIC_DEFINITIONS_SHEET_NAME} worksheet exists`);
   assert.deepEqual(
     sheet.getRow(1).values.slice(1),
-    ["Metric key", "Metric", ...REQUIRED_FIELDS, "Definitions exported at"]
+    ["Figure key", "Figure", ...REQUIRED_FIELDS, "Guide exported at"]
   );
   assert.deepEqual(
     sheet.getColumn(1).values.slice(2),
@@ -38,16 +38,15 @@ function assertDefinitionsSheet(workbook) {
   );
 }
 
-test("every required teacher metric has denominator, range, evidence, and update semantics", () => {
+test("every required teacher figure explains counts, time, and exclusions in three lines", () => {
   assert.deepEqual(Object.keys(METRIC_DEFINITIONS), REQUIRED_METRICS);
   for (const metricId of REQUIRED_METRICS) {
     const definition = METRIC_DEFINITIONS[metricId];
-    assert.ok(definition.definition);
-    assert.ok(definition.denominator);
-    assert.ok(definition.dateRange);
-    assert.ok(definition.minimumEvidence);
+    assert.ok(definition.counts);
+    assert.ok(definition.timeWindow);
+    assert.ok(definition.excludes);
     const tooltip = metricDefinitionText(metricId, { updatedAt: "2026-07-23T09:00:00.000Z" });
-    for (const label of ["Denominator:", "Date range:", "Minimum evidence:", "Updated:"]) {
+    for (const label of ["Counts:", "Time:", "Excludes:"]) {
       assert.match(tooltip, new RegExp(label));
     }
   }
@@ -55,7 +54,7 @@ test("every required teacher metric has denominator, range, evidence, and update
   assert.equal(rows.length, REQUIRED_METRICS.length);
   assert.ok(rows.every(row => REQUIRED_FIELDS.every(field => row[field])));
   const csvRows = buildMetricDefinitionCsvRows({ generatedAt: "2026-07-23T09:00:00.000Z" });
-  assert.deepEqual(csvRows[2], ["Metric key", "Metric", ...REQUIRED_FIELDS, "Definitions exported at"]);
+  assert.deepEqual(csvRows[2], ["Figure key", "Figure", ...REQUIRED_FIELDS, "Guide exported at"]);
   assert.deepEqual(csvRows.slice(3).map(row => row[0]), REQUIRED_METRICS);
   const definitionsText = buildMetricDefinitionsText({ generatedAt: "2026-07-23T09:00:00.000Z" });
   for (const metricId of REQUIRED_METRICS) {
@@ -110,6 +109,6 @@ test("student workspace CSV exports append the same metric definitions", () => {
   });
   const definitions = rows.filter(row => row["Row type"] === "Metric definition");
   assert.equal(definitions.length, REQUIRED_METRICS.length);
-  assert.deepEqual(definitions.map(row => row["Metric key"]), REQUIRED_METRICS);
+  assert.deepEqual(definitions.map(row => row["Figure key"]), REQUIRED_METRICS);
   assert.ok(definitions.every(row => REQUIRED_FIELDS.every(field => row[field])));
 });

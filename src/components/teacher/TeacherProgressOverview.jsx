@@ -6,6 +6,7 @@ import { TeacherInsightActions } from "./TeacherInsightActions.jsx";
 import { TeacherInstructionalGroups } from "./TeacherInstructionalGroups.jsx";
 import { TeacherChart } from "./ui/TeacherPrimitives.jsx";
 import { TeacherRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
+import { countPhrase, progressPhrase } from "../../copy/teacherCopy.js";
 
 function bucketLabel(bucket) {
   if (bucket === "got-it") return "Got it";
@@ -32,7 +33,7 @@ function snapshotEvidenceBasis(basis) {
 function EvidenceBasis({ basis, label }) {
   if (!basis) return null;
   return (
-    <dl className="teacher-evidence-basis" aria-label={`${label} evidence basis`}>
+    <dl className="teacher-evidence-basis" aria-label={`${label} results used`}>
       <div>
         <dt>Attempts</dt>
         <dd>{basis.attemptsLabel}</dd>
@@ -61,7 +62,7 @@ function EvidenceDisclosure({ basis, label }) {
   if (!basis) return null;
   return (
     <details className="teacher-evidence-disclosure">
-      <summary>Evidence basis · {basis.confidence.label}</summary>
+      <summary>Results used · {basis.confidence.label}</summary>
       <EvidenceBasis basis={basis} label={label} />
     </details>
   );
@@ -114,7 +115,7 @@ export function TeacherProgressOverview({
       className="teacher-progress-overview"
       data-learning-policy-version={summary.policyVersion}
     >
-      <section className="teacher-progress-scope" aria-label="Progress class scope">
+      <section className="teacher-progress-scope" aria-label="Choose progress class">
         <label>
           <span>Current class</span>
           <select
@@ -129,8 +130,8 @@ export function TeacherProgressOverview({
         </label>
         <p role="status">
           {selectedClassId
-            ? `${className || "Selected class"} · ${summary.coverage.totalLearners} active learners`
-            : "Choose a class to review its evidence."}
+            ? `${className || "Selected class"} · ${countPhrase(summary.coverage.totalLearners, "child", "children")}`
+            : "Choose a class to review its results."}
         </p>
       </section>
 
@@ -140,9 +141,9 @@ export function TeacherProgressOverview({
           <p>Distribution, coverage, groups, and outliers stay scoped to one class.</p>
         </section>
       ) : summary.rows.length === 0 ? (
-        <section className="report-empty-state" aria-label="No class progress evidence">
-          <strong>No learner evidence is available yet.</strong>
-          <p>Run the first check or collect practice evidence, then return to Progress.</p>
+        <section className="report-empty-state" aria-label="No class progress results">
+          <strong>No child results are available yet.</strong>
+          <p>Run the first check or collect practice results, then return to Progress.</p>
         </section>
       ) : (
         <>
@@ -155,44 +156,40 @@ export function TeacherProgressOverview({
               <div className="teacher-progress-panel-heading">
                 <div>
                   <p className="panel-label">Class accuracy</p>
-                  <h3>Learners and responses tell different stories</h3>
+                  <h3>Class accuracy</h3>
                 </div>
                 <strong>
                   {summary.classAccuracy.headlineAccuracy === null
                     ? "No single class average"
-                    : `${percentLabel(summary.classAccuracy.headlineAccuracy)} learner-weighted`}
+                    : percentLabel(summary.classAccuracy.headlineAccuracy)}
                 </strong>
               </div>
-              <dl className="teacher-progress-facts teacher-progress-accuracy-facts">
-                <div>
-                  <dt>Learner-weighted accuracy</dt>
-                  <dd>
-                    {percentLabel(summary.classAccuracy.learnerWeightedAccuracy)}
-                    <small>
-                      {summary.classAccuracy.policyReadyLearnerCount} policy-ready learner
-                      {summary.classAccuracy.policyReadyLearnerCount === 1 ? "" : "s"}
-                      {" "}of {summary.classAccuracy.totalLearnerCount}
-                    </small>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Response-weighted accuracy</dt>
-                  <dd>
-                    {percentLabel(summary.classAccuracy.responseWeightedAccuracy)}
-                    <small>
-                      {summary.classAccuracy.responseCount} scored response
-                      {summary.classAccuracy.responseCount === 1 ? "" : "s"}
-                    </small>
-                  </dd>
-                </div>
-              </dl>
+              <details>
+                <summary>See both averages</summary>
+                <dl className="teacher-progress-facts teacher-progress-accuracy-facts">
+                  <div>
+                    <dt>Averaging children equally</dt>
+                    <dd>
+                      {percentLabel(summary.classAccuracy.learnerWeightedAccuracy)}
+                      <small>{progressPhrase(summary.classAccuracy.policyReadyLearnerCount, summary.classAccuracy.totalLearnerCount)} children with enough results</small>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Averaging every answer equally</dt>
+                    <dd>
+                      {percentLabel(summary.classAccuracy.responseWeightedAccuracy)}
+                      <small>{countPhrase(summary.classAccuracy.responseCount, "scored answer")}</small>
+                    </dd>
+                  </div>
+                </dl>
+              </details>
               <p
                 className="teacher-progress-basis"
                 role="status"
                 data-class-average-suppressed={!summary.classAccuracy.comparability.comparable}
               >
                 {summary.classAccuracy.comparability.comparable
-                  ? "Comparable class evidence. Both views remain visible so response volume cannot hide learner differences."
+                  ? "Both averages use enough saved results to be compared fairly."
                   : `No single class average is shown because comparability is weak: ${summary.classAccuracy.comparability.reason}.`}
               </p>
               <EvidenceBasis basis={summary.classEvidence} label="Class accuracy conclusion" />
@@ -202,14 +199,14 @@ export function TeacherProgressOverview({
               <div className="teacher-progress-panel-heading">
                 <div>
                   <p className="panel-label">Distribution</p>
-                  <h3>Where current evidence sits</h3>
+                  <h3>Where current results sit</h3>
                 </div>
                 <strong>{summary.classMedian === null ? "No median" : `${summary.classMedian}% median`}</strong>
               </div>
               <TeacherChart
                 className="teacher-progress-distribution-chart"
                 label={summary.distribution
-                  .map(band => `${band.label}: ${band.count} learners`)
+                  .map(band => `${band.label}: ${countPhrase(band.count, "child", "children")}`)
                   .join(". ")}
               >
                 {summary.distribution.map(band => (
@@ -234,10 +231,10 @@ export function TeacherProgressOverview({
                 ))}
               </ul>
               <p className="teacher-progress-basis">
-                Accuracy bands require at least {summary.policy.minimumResponses} scored responses.
+                Accuracy bands appear after at least {summary.policy.minimumResponses} scored answers.
               </p>
               {insufficientLearners.length > 0 && (
-                <ul className="teacher-progress-insufficient-list" aria-label="Learners with not enough evidence">
+                <ul className="teacher-progress-insufficient-list" aria-label="Children with too few results">
                   {insufficientLearners.map(learner => (
                     <li key={learner.id}>
                       <span>{learner.name}</span>
@@ -246,7 +243,7 @@ export function TeacherProgressOverview({
                         type="button"
                         onClick={() => chooseLearner(learner.id)}
                       >
-                        Review {learner.name} evidence
+                        Review {learner.name}&apos;s results
                       </button>
                     </li>
                   ))}
@@ -259,30 +256,30 @@ export function TeacherProgressOverview({
               <div className="teacher-progress-panel-heading">
                 <div>
                   <p className="panel-label">Coverage</p>
-                  <h3>How much evidence exists</h3>
+                  <h3>How many results are saved</h3>
                 </div>
-                <strong>{summary.coverage.learnerPercent}% reached</strong>
+                <strong>{summary.coverage.learnerPercent}% have results</strong>
               </div>
               <dl className="teacher-progress-facts">
                 <div>
-                  <dt>Learners with evidence</dt>
-                  <dd>{summary.coverage.learnersWithAnyEvidence} of {summary.coverage.totalLearners}</dd>
+                  <dt>Children with results</dt>
+                  <dd>{progressPhrase(summary.coverage.learnersWithAnyEvidence, summary.coverage.totalLearners)}</dd>
                 </div>
                 <div>
-                  <dt>Policy-ready learners</dt>
+                  <dt>Children with enough results</dt>
                   <dd>{summary.coverage.learnersPolicyReady} · {summary.coverage.policyReadyPercent}%</dd>
                 </div>
                 <div>
-                  <dt>Scored responses</dt>
+                  <dt>Scored answers</dt>
                   <dd>{summary.coverage.responseCount}</dd>
                 </div>
                 <div>
                   <dt>Sound targets seen</dt>
-                  <dd>{summary.coverage.itemTargetsSeen} of {summary.coverage.itemTargetCount}</dd>
+                  <dd>{progressPhrase(summary.coverage.itemTargetsSeen, summary.coverage.itemTargetCount)}</dd>
                 </div>
               </dl>
               <p className="teacher-progress-basis">
-                Coverage reports presence of evidence, not learner mastery.
+                Coverage shows where results exist. It does not prove mastery.
               </p>
               <EvidenceBasis basis={summary.coverage.evidence} label="Class coverage conclusion" />
             </article>
@@ -301,10 +298,10 @@ export function TeacherProgressOverview({
                   <TeacherRecommendationExplanation
                     surface="teacher-progress"
                     explanation={{
-                      evidence: `${group.learners.length} learners share this policy-ready signal: ${group.basis}.`,
+                      evidence: `${countPhrase(group.learners.length, "child", "children")} share this result: ${group.basis}.`,
                       dependency: `${group.basis} is the common recorded focus to address before dependent practice advances.`,
                       confidence: `${group.evidence.confidence.label}: ${group.evidence.confidence.detail}.`,
-                      unlock: "A focused group session creates one teachable target and a shared point for the next evidence check."
+                      unlock: "A focused group session creates one teachable target and a shared point for the next check."
                     }}
                   />
                   <EvidenceDisclosure
@@ -341,7 +338,7 @@ export function TeacherProgressOverview({
               <div className="teacher-progress-panel-heading">
                 <div>
                   <p className="panel-label">Outliers</p>
-                  <h3>Evidence far from the class median</h3>
+                  <h3>Results far from the class middle</h3>
                 </div>
                 <strong>{summary.outliers.length} flagged</strong>
               </div>
@@ -354,7 +351,7 @@ export function TeacherProgressOverview({
                         <span>
                           {learner.accuracy}% · {Math.abs(learner.difference)} points {learner.direction} median
                         </span>
-                        <small>{learner.answered} scored responses</small>
+                        <small>{countPhrase(learner.answered, "scored answer")}</small>
                         <EvidenceDisclosure
                           basis={learner.evidence}
                           label={`${learner.name} outlier conclusion`}
@@ -362,10 +359,10 @@ export function TeacherProgressOverview({
                         <TeacherRecommendationExplanation
                           surface="teacher-progress"
                           explanation={{
-                            evidence: `${learner.answered} scored responses place ${learner.name} ${Math.abs(learner.difference)} points ${learner.direction} the class median.`,
-                            dependency: "The learner evidence should be reviewed before changing teaching or placement.",
+                            evidence: `${countPhrase(learner.answered, "scored answer")} place ${learner.name} ${Math.abs(learner.difference)} points ${learner.direction} the class middle.`,
+                            dependency: "Review the child's results before changing teaching or the suggested starting point.",
                             confidence: `${learner.evidence.confidence.label}: ${learner.evidence.confidence.detail}.`,
-                            unlock: "Review can distinguish a genuine teaching need from a healthy strength or an evidence-context difference."
+                            unlock: "Review can distinguish a teaching need from a healthy strength or a difference in how the result was collected."
                           }}
                         />
                       </div>
@@ -374,7 +371,7 @@ export function TeacherProgressOverview({
                         type="button"
                         onClick={() => chooseLearner(learner.id)}
                       >
-                        Review {learner.name} evidence
+                        Review {learner.name}&apos;s results
                       </button>
                       <TeacherInsightActions
                         supabase={supabase}
@@ -383,9 +380,9 @@ export function TeacherProgressOverview({
                         insight={{
                           key: `outlier:${learner.id}`,
                           kind: "learner-outlier",
-                          label: `${learner.name} evidence variance`,
+                          label: `${learner.name} result difference`,
                           focus: `${learner.accuracy}% accuracy · ${Math.abs(learner.difference)} points ${learner.direction} class median`,
-                          reason: `Policy-ready evidence is ${Math.abs(learner.difference)} points ${learner.direction} the ${summary.classMedian}% class median.`,
+                          reason: `The child's results are ${Math.abs(learner.difference)} points ${learner.direction} the ${summary.classMedian}% class median.`,
                           criterion: {
                             type: "class-median-distance",
                             minimumResponses: summary.policy.minimumResponses,
@@ -406,10 +403,10 @@ export function TeacherProgressOverview({
                   ))}
                 </ul>
               ) : (
-                <p className="muted-text">No policy-ready learner is 15 or more points from the median.</p>
+                <p className="muted-text">No child with enough results is 15 or more points from the class middle.</p>
               )}
               <p className="teacher-progress-basis">
-                Outliers require policy-ready evidence and a difference of at least {summary.policy.outlierDistance} points.
+                This list needs enough saved results and a difference of at least {summary.policy.outlierDistance} points.
               </p>
             </article>
           </section>
@@ -417,27 +414,27 @@ export function TeacherProgressOverview({
           {selectedLearner && (
             <section
               className="teacher-progress-learner"
-              aria-label={`Learner progress evidence: ${selectedLearner.name}`}
+              aria-label={`Child progress results: ${selectedLearner.name}`}
             >
               <div className="teacher-progress-learner-heading">
                 <div>
-                  <p className="panel-label">Learner drill-down</p>
-                  <h3>{selectedLearner.name} evidence</h3>
+                  <p className="panel-label">Child details</p>
+                  <h3>{selectedLearner.name}&apos;s results</h3>
                   <p>
-                    {selectedLearner.answered} scored responses ·
+                    {countPhrase(selectedLearner.answered, "scored answer")} ·
                     {" "}{selectedLearner.evidence.ready
                       ? `${percentLabel(selectedLearner.accuracy)} accuracy`
-                      : "Not enough evidence for an accuracy conclusion"} ·
+                      : "Too few results for an accuracy figure"} ·
                     {" "}{selectedLearner.masteredCount} mastered skills
                   </p>
                 </div>
                 <button className="text-button" type="button" onClick={clearLearner}>
-                  Close learner evidence
+                  Close child results
                 </button>
               </div>
               <EvidenceBasis
                 basis={selectedLearner.evidence}
-                label={`${selectedLearner.name} learner conclusion`}
+                label={`${selectedLearner.name} result conclusion`}
               />
               <TeacherGrowthChart
                 supabase={supabase}
@@ -449,7 +446,7 @@ export function TeacherProgressOverview({
 
               {selectedLearner.itemEvidence.length ? (
                 <div>
-                  <h4>Sound item evidence</h4>
+                  <h4>Sound results</h4>
                   <ul className="teacher-progress-item-list">
                     {selectedLearner.itemEvidence.map(item => (
                       <li key={item.id}>
@@ -465,7 +462,7 @@ export function TeacherProgressOverview({
                         >
                           <strong>{item.label}</strong>
                           <span>
-                            {item.policyReady ? bucketLabel(item.bucket) : "Not enough evidence"}
+                            {item.policyReady ? bucketLabel(item.bucket) : "Too few results"}
                             {" "}· {item.seen} recorded encounters
                           </span>
                         </button>
@@ -474,13 +471,13 @@ export function TeacherProgressOverview({
                   </ul>
                 </div>
               ) : (
-                <p className="muted-text">No Sound Seekers item evidence is available for this learner.</p>
+                <p className="muted-text">No Sound Seekers item results are available for this child.</p>
               )}
 
               {selectedItem && (
                 <article
                   className="teacher-progress-item-evidence"
-                  aria-label={`Item evidence: ${selectedItem.label}`}
+                  aria-label={`Item results: ${selectedItem.label}`}
                 >
                   <div>
                     <p className="panel-label">Exact item</p>
@@ -490,7 +487,7 @@ export function TeacherProgressOverview({
                   <dl>
                     <div>
                       <dt>Current signal</dt>
-                      <dd>{selectedItem.policyReady ? bucketLabel(selectedItem.bucket) : "Not enough evidence"}</dd>
+                      <dd>{selectedItem.policyReady ? bucketLabel(selectedItem.bucket) : "Too few results"}</dd>
                     </div>
                     <div>
                       <dt>Recorded encounters</dt>
@@ -505,7 +502,7 @@ export function TeacherProgressOverview({
                       <dd>
                         {selectedItem.policyReady
                           ? percentLabel(selectedItem.accuracy)
-                          : "Not enough evidence"}
+                          : "Too few results"}
                       </dd>
                     </div>
                   </dl>
@@ -514,7 +511,7 @@ export function TeacherProgressOverview({
                     label={`${selectedItem.label} item conclusion`}
                   />
                   <p className="teacher-progress-basis">
-                    Evidence source: saved Sound Seekers item history
+                    Results source: saved Sound Seekers item history
                     {selectedItem.updatedAt ? ` · updated ${new Date(selectedItem.updatedAt).toLocaleString()}` : ""}.
                   </p>
                   <TeacherInsightActions
@@ -527,10 +524,10 @@ export function TeacherProgressOverview({
                       label: `${selectedLearner.name} · ${selectedItem.label}`,
                       focus: `${selectedItem.policyReady
                         ? bucketLabel(selectedItem.bucket)
-                        : "Not enough evidence"} for ${selectedItem.label}`,
+                        : "Too few results"} for ${selectedItem.label}`,
                       reason: selectedItem.policyReady
                         ? `${selectedItem.independentSeen} independent attempts currently classify this item as ${bucketLabel(selectedItem.bucket)}.`
-                        : `${selectedItem.independentSeen} independent attempts do not yet meet the exact-item evidence minimum.`,
+                        : `${selectedItem.independentSeen} independent attempts are too few for this item.`,
                       criterion: {
                         type: "exact-sound-item",
                         itemId: selectedItem.id,
@@ -556,7 +553,7 @@ export function TeacherProgressOverview({
               )}
 
               <button className="lp-button lp-button-secondary" type="button" onClick={onOpenReports}>
-                Open full learner report
+                Open full child report
               </button>
             </section>
           )}

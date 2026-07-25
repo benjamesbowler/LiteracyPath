@@ -67,14 +67,14 @@ test("A7.10 builds three purpose-specific templates from one learner record", ()
   assert.deepEqual(leadership.source, family.source);
   assert.equal(teacher.source.studentId, "seeded-learner-1");
   assert.equal(teacher.source.evidenceCount, 3);
-  assert.match(teacher.description, /Detailed teaching priorities/);
+  assert.match(teacher.description, /Detailed results, teaching priorities/);
   assert.match(leadership.title, /Class and leadership summary/);
   assert.equal(leadership.metrics[0].value, "3 of 4");
   assert.equal(leadership.metrics[2].value, 2);
   assert.match(family.title, /Aarav’s reading update/);
   assert.deepEqual(family.sections.map(section => section.title), [
     "What is going well",
-    "What we are practising next",
+    "One thing to practise at home",
     "How we can help together"
   ]);
 });

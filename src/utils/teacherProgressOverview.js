@@ -16,19 +16,19 @@ const DISTRIBUTION_BANDS = Object.freeze([
   {
     id: "secure",
     label: `${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}–100%`,
-    description: "Current evidence is consistently accurate.",
+    description: "Current results are consistently accurate.",
     statusId: LEARNING_STATUS_IDS.SECURE
   },
   {
     id: "developing",
     label: `${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%`,
-    description: "Current evidence is developing.",
+    description: "Current results are developing.",
     statusId: LEARNING_STATUS_IDS.DEVELOPING
   },
   {
     id: "needs-support",
     label: `Below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%`,
-    description: "Current evidence suggests targeted follow-up.",
+    description: "Current results suggest targeted follow-up.",
     statusId: LEARNING_STATUS_IDS.NEEDS_SUPPORT
   }
 ]);
@@ -115,9 +115,9 @@ function latestEvidenceTime(values) {
 }
 
 export function formatEvidenceRecency(value) {
-  if (!value) return "No saved evidence time";
+  if (!value) return "No saved result time";
   const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) return "No saved evidence time";
+  if (!Number.isFinite(date.getTime())) return "No saved result time";
   return new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
     month: "short",
@@ -162,7 +162,7 @@ function evidenceBasisFor({
     confidence,
     support,
     attemptsLabel: `${attempts} scored response${attempts === 1 ? "" : "s"}`,
-    diversityLabel: `${diversity} assessment skill${diversity === 1 ? "" : "s"}`,
+    diversityLabel: `${diversity} check skill${diversity === 1 ? "" : "s"}`,
     recencyLabel: formatEvidenceRecency(recency),
     confidenceLabel: `${confidence.label} · ${confidence.detail}`,
     supportUseLabel: support.recorded
@@ -250,7 +250,7 @@ function buildGroups(rows) {
       const group = soundGroups.get(item.id) || {
         id: `sound:${item.id}`,
         label: `${item.label || item.id} re-teaching`,
-        basis: "Shared Sound Seekers re-teaching evidence",
+        basis: "Shared Sound Seekers re-teaching results",
         learners: []
       };
       group.learners.push({
@@ -281,8 +281,8 @@ function buildGroups(rows) {
           itemEvidence,
           confidenceOverride: {
             id: "policy-ready-group",
-            label: "Policy-ready group",
-            detail: `${group.learners.length} learners meet the evidence minimum`,
+            label: "Ready to compare",
+            detail: `${group.learners.length} children have enough results`,
             policyVersion: LEARNING_POLICY_VERSION
           }
         })
@@ -302,7 +302,7 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
       const normalized = {
         ...row,
         id: String(row.id),
-        name: String(row.name || "Learner"),
+        name: String(row.name || "Child"),
         answered: Math.max(0, finiteNumber(row.answered)),
         correct: row.correct !== null
           && row.correct !== undefined
@@ -353,7 +353,7 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
   distribution.push({
     id: LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
     label: `Fewer than ${PROGRESS_MIN_RESPONSES}`,
-    description: "More evidence is needed before placing these learners in an accuracy band.",
+    description: "More results are needed before placing these children in an accuracy band.",
     policyVersion: LEARNING_POLICY_VERSION,
     count: insufficientRows.length,
     learners: insufficientRows.map(row => ({ id: row.id, name: row.name }))
@@ -391,8 +391,8 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
       itemEvidence: rows.flatMap(row => row.itemEvidence),
       confidenceOverride: {
         id: "coverage-only",
-        label: "Coverage only",
-        detail: `${readyRows.length} of ${rows.length} learners meet the accuracy minimum`,
+        label: "Results coverage",
+        detail: `${readyRows.length} of ${rows.length} children have enough results`,
         policyVersion: LEARNING_POLICY_VERSION
       }
     })
@@ -406,14 +406,14 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
     confidenceOverride: readyRows.length
       ? {
           id: "policy-ready-class",
-          label: "Policy-ready class summary",
-          detail: `${readyRows.length} learners meet the evidence minimum`,
+          label: "Ready to compare",
+          detail: `${readyRows.length} children have enough results`,
           policyVersion: LEARNING_POLICY_VERSION
         }
       : {
           id: "not-enough-evidence",
-          label: "Not enough evidence",
-          detail: `No learner has ${PROGRESS_MIN_RESPONSES} scored responses`,
+          label: "Not enough results",
+          detail: `No child has ${PROGRESS_MIN_RESPONSES} scored answers`,
           policyVersion: LEARNING_POLICY_VERSION
         }
   });

@@ -93,12 +93,12 @@ const TEACHER_INTENT_NAV_ITEMS = [
     icon: "student",
     views: [APP_VIEWS.TEACHER_CLASSES, APP_VIEWS.STUDENT_HOME],
     modules: [
-      { id: "studentHome", label: "Student Page", views: [APP_VIEWS.STUDENT_HOME], requiresStudent: true }
+      { id: "studentHome", label: "Child preview", views: [APP_VIEWS.STUDENT_HOME], requiresStudent: true }
     ]
   },
   {
     id: "assess",
-    label: "Assess",
+    label: "Check",
     icon: "assessment",
     views: [
       APP_VIEWS.TEACHER_ASSESS,
@@ -114,7 +114,7 @@ const TEACHER_INTENT_NAV_ITEMS = [
     modules: [
       {
         id: "assessment-hub",
-        label: "Assessment hub",
+        label: "Checks",
         views: [
           APP_VIEWS.TEACHER_ASSESS,
           APP_VIEWS.OVERVIEW,
@@ -140,7 +140,7 @@ const TEACHER_INTENT_NAV_ITEMS = [
         label: "Reports",
         views: [APP_VIEWS.REPORTS, APP_VIEWS.FINISHED],
         requiresStudent: true,
-        description: "Progress reports and Excel exports for the selected student"
+        description: "Progress reports and downloads for the selected child"
       }
     ]
   },
@@ -278,7 +278,7 @@ export function Sidebar({
 
       {/* ── Class / context label ── */}
       <div className="lg-sb-class" aria-hidden={collapsed}>
-        {className || (studentName ? `Student: ${studentName}` : "No class selected")}
+        {className || (studentName ? `Child: ${studentName}` : "No class selected")}
       </div>
 
       {/* ── Nav items ── */}

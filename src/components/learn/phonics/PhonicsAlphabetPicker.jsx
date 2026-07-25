@@ -78,7 +78,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
       </div>
 
       <div className="phonics-picker-progress">
-        <span>{completedCount}/{totalLetters} letters learned</span>
+        <span>{completedCount} of {totalLetters} letters learned</span>
         <span className="phonics-picker-stars" aria-hidden="true">
           {Array.from({ length: 3 }).map((_, index) => (
             <span key={index}>{index < Math.floor((completedCount / totalLetters) * 3) ? "★" : "☆"}</span>

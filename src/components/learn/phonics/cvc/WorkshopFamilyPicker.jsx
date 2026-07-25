@@ -91,7 +91,7 @@ export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
       </motion.div>
 
       <motion.div className="phonics-picker-progress cvc-picker-progress" initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-        <span>{completedCount}/{cvcWordFamilies.length} word nests built</span>
+        <span>{completedCount} of {cvcWordFamilies.length} word nests built</span>
         <span className="phonics-picker-stars" aria-hidden="true">
           {Array.from({ length: 3 }).map((_, index) => (
             <span key={index}>{index < Math.floor((completedCount / cvcWordFamilies.length) * 3) ? "★" : "☆"}</span>

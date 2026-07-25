@@ -43,23 +43,23 @@ export function exportStudentAnswerHistoryCsv({
   studentId = "",
   studentName = ""
 } = {}) {
-  const safeName = (studentName || "Unnamed student")
+  const safeName = (studentName || "Unnamed child")
     .replace(/[^a-z0-9]/gi, "_")
     .toLowerCase();
   const rows = [[
     "Date",
-    "Student",
+    "Child",
     "Skill",
     "Coverage Level 1",
     "Coverage Level 2",
     "Coverage Total",
     "Diagnostic Target",
     "Question",
-    "Student Answer",
+    "Child Answer",
     "Correct Answer",
     "Result"
   ]];
-  const formatCoveragePart = part => part?.total ? `${part.mastered || 0}/${part.total}` : "";
+  const formatCoveragePart = part => part?.total ? `${part.mastered || 0} of ${part.total}` : "";
 
   answerHistory.forEach(item => {
     const skillId = item.skillId
@@ -68,16 +68,16 @@ export function exportStudentAnswerHistoryCsv({
     const coverage = coverageSnapshot?.[skillId] || {};
     rows.push([
       formatExportValue(item.date),
-      studentName || "Unnamed student",
+      studentName || "Unnamed child",
       formatExportValue(item.stage || item.skill),
       formatCoveragePart(coverage.level1),
       formatCoveragePart(coverage.level2),
-      coverage.total ? `${coverage.mastered || 0}/${coverage.total}` : "",
+      coverage.total ? `${coverage.mastered || 0} of ${coverage.total}` : "",
       formatExportValue(item.diagnosticTarget),
       buildQuestionExportText(item),
       formatExportValue(item.chosen),
       formatExportValue(item.correct),
-      item.isCorrect ? "Correct" : "Incorrect"
+      item.isCorrect ? "Correct" : "Needs another look"
     ]);
   });
 
@@ -87,7 +87,7 @@ export function exportStudentAnswerHistoryCsv({
     .join(","));
   const provenance = buildPresetExportProvenanceRows("reading-csv", {
     className,
-    learnerName: studentName || "Unnamed student",
+    learnerName: studentName || "Unnamed child",
     learnerId: studentId,
     generatedAt,
     evidenceSource: answerHistory

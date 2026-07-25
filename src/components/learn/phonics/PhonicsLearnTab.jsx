@@ -176,8 +176,8 @@ export function PhonicsLearnTab({
           <p data-child-instruction="">{nextStepText}</p>
         </div>
         <div className="phonics-practice-stats" aria-label="Quest totals" data-child-progress="">
-          <span><strong>{completedLettersCount}/26</strong> letters</span>
-          <span><strong>{completedWordFamiliesCount}/{cvcWordFamilies.length}</strong> word nests</span>
+          <span><strong>{completedLettersCount} of 26</strong> letters</span>
+          <span><strong>{completedWordFamiliesCount} of {cvcWordFamilies.length}</strong> word nests</span>
         </div>
       </section>
 
@@ -191,7 +191,7 @@ export function PhonicsLearnTab({
           <IslandIcon type="letters" />
           <span className="phonics-island-label">
             <span>Letters</span>
-            <small>{completedLettersCount}/26 complete</small>
+            <small>{completedLettersCount} of 26 complete</small>
           </span>
         </button>
         <button

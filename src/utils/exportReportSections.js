@@ -13,12 +13,12 @@ import { computeTreasuryFromAreas } from "./treasureTrail.js";
 import { earnedCoins } from "./hollowEconomy.js";
 import { localProgressStorageKey } from "./progressKeys.js";
 
-export const REPORT_INFO_SHEET_NAME = "Report Info";
+export const REPORT_INFO_SHEET_NAME = "Report summary";
 export const STORY_QUEST_SHEET_NAME = "Story Quests";
 export const ENGAGEMENT_SHEET_NAME = "Engagement";
 
 export const STORY_QUEST_HEADERS = [
-  "Student Name",
+  "Child Name",
   "Quest Title",
   "Level",
   "Series",
@@ -33,7 +33,7 @@ export const STORY_QUEST_HEADERS = [
 ];
 
 export const ENGAGEMENT_HEADERS = [
-  "Student Name",
+  "Child Name",
   "Class Name",
   "Daily Mission Streak",
   "Last Mission Completed",
@@ -83,12 +83,12 @@ export function buildReportContextRows({
   const rows = [];
   if (reportTitle) rows.push({ field: "Report", value: reportTitle });
   rows.push({ field: "Generated At", value: formatExportDateTime(generatedAt) || formatExportDateTime(new Date()) });
-  if (studentName) rows.push({ field: "Student", value: studentName });
+  if (studentName) rows.push({ field: "Child", value: studentName });
   if (className) rows.push({ field: "Class", value: className });
   const classList = (classNames || []).filter(Boolean);
   if (classList.length) rows.push({ field: "Classes Covered", value: classList.join(", ") });
   if (Number.isFinite(Number(studentCount)) && studentCount !== null) {
-    rows.push({ field: "Students Covered", value: Number(studentCount) });
+    rows.push({ field: "Children covered", value: Number(studentCount) });
   }
   (extraRows || []).forEach(row => {
     if (row && row.field) rows.push({ field: row.field, value: row.value ?? "" });
@@ -154,7 +154,7 @@ export function buildStoryQuestRows({ studentName = "", studentId = "", progress
 
 export function storyQuestRowToCells(row = {}) {
   return {
-    "Student Name": row.studentName || "",
+    "Child Name": row.studentName || "",
     "Quest Title": row.title || "",
     "Level": row.level || "",
     "Series": row.series || "",
@@ -171,7 +171,7 @@ export function storyQuestRowToCells(row = {}) {
 
 export function emptyStoryQuestCells(message = "No Story Quest records yet") {
   return {
-    "Student Name": message,
+    "Child Name": message,
     "Quest Title": "",
     "Level": "",
     "Series": "",
@@ -245,7 +245,7 @@ export function buildEngagementRow({ studentName = "", studentId = "", className
 
 export function engagementRowToCells(row = {}) {
   return {
-    "Student Name": row.studentName || "",
+    "Child Name": row.studentName || "",
     "Class Name": row.className || "",
     "Daily Mission Streak": Number(row.missionStreak) || 0,
     "Last Mission Completed": formatExportDate(row.lastMissionCompletedDay),
@@ -265,7 +265,7 @@ export function engagementRowToCells(row = {}) {
 
 export function emptyEngagementCells(message = "No engagement records yet") {
   return {
-    "Student Name": message,
+    "Child Name": message,
     "Class Name": "",
     "Daily Mission Streak": 0,
     "Last Mission Completed": "",
@@ -347,7 +347,7 @@ export function buildEngagementRows({ students = [], classes = [], engagementByS
   const lookup = byStudentLookup(engagementByStudent);
   return uniqueStudents(students)
     .map(student => buildEngagementRow({
-      studentName: student.name || "Unknown Student",
+      studentName: student.name || "Unknown child",
       studentId: student.id || "",
       className: resolveClassName(student, classes),
       areas: collectStudentEngagementAreas(student, lookup(student.id))
@@ -358,7 +358,7 @@ export function buildEngagementRows({ students = [], classes = [], engagementByS
 export function collectStoryQuestRowsForStudents({ students = [], storyQuestProgressByStudent = null, quests = [] } = {}) {
   const lookup = byStudentLookup(storyQuestProgressByStudent);
   return uniqueStudents(students).flatMap(student => buildStoryQuestRows({
-    studentName: student.name || "Unknown Student",
+    studentName: student.name || "Unknown child",
     studentId: student.id || "",
     progress: collectStoryQuestProgressForStudent(student, lookup(student.id)),
     quests

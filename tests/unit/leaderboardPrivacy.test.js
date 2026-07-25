@@ -40,6 +40,6 @@ test("school scope requires an authenticated teacher's explicit class control", 
   assert.match(migration, /c\.teacher_id = v_user_id/);
   assert.match(migration, /grant execute[\s\S]*to authenticated/);
   assert.match(dashboard, /teacher_set_class_leaderboard_scope/);
-  assert.match(dashboard, /Include this school/);
-  assert.match(dashboard, /No student names are shown/);
+  assert.match(dashboard, /TEACHER_COPY\.board\.toggle/);
+  assert.match(dashboard, /TEACHER_COPY\.board\.privacy/);
 });

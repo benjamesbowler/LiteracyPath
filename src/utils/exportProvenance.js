@@ -1,10 +1,10 @@
-export const REPORT_PROVENANCE_SHEET_NAME = "Report Provenance";
+export const REPORT_PROVENANCE_SHEET_NAME = "About this report";
 
 export const REPORT_PRIVACY_CLASSIFICATION =
-  "CONFIDENTIAL — student educational record — authorised school staff only";
+  "CONFIDENTIAL — child educational record — authorised school staff only";
 
 export const REPORT_LEARNER_ID_POLICY =
-  "Internal learner IDs are included only for authorised record matching; they must not be used as public identifiers.";
+  "Internal child IDs are not included in teacher or family downloads.";
 
 const VERSION_KEYS = Object.freeze({
   appVersions: new Set(["appVersion"]),
@@ -100,7 +100,7 @@ function sourceDates(source = []) {
 
 export function deriveExportEvidenceWindow(source = []) {
   const dates = sourceDates(source);
-  if (!dates.length) return "No dated evidence included";
+  if (!dates.length) return "No dated results included";
   return dates.length === 1 ? dates[0] : `${dates[0]} to ${dates.at(-1)}`;
 }
 
@@ -126,7 +126,7 @@ function versionLabel(values, fallback) {
   const versions = uniqueSorted(values);
   if (!versions.length) return fallback;
   if (versions.length <= 24) return versions.join(", ");
-  return `${versions.length} distinct exact versions; complete-set FNV-1a checksum ${versionSetChecksum(versions)}; full values remain in evidence-detail rows.`;
+  return `${versions.length} versions included (reference ${versionSetChecksum(versions)}).`;
 }
 
 function filterLabel(filters) {
@@ -148,9 +148,7 @@ export function buildExportProvenanceRows({
   className = "",
   classNames = [],
   learnerName = "",
-  learnerId = "",
   learnerCount = null,
-  learnerIdPolicy = REPORT_LEARNER_ID_POLICY,
   generatedAt = new Date(),
   timeZone = "",
   filters = "",
@@ -173,43 +171,36 @@ export function buildExportProvenanceRows({
   const coveredClasses = uniqueSorted([className, ...(classNames || [])]);
   const learnerLabel = learnerName || (
     Number.isFinite(Number(learnerCount)) && Number(learnerCount) > 0
-      ? `${Number(learnerCount)} learners`
+      ? `${Number(learnerCount)} children`
       : "Not specified"
-  );
-  const learnerIdLabel = learnerId || (
-    Number.isFinite(Number(learnerCount)) && Number(learnerCount) > 1
-      ? "Multiple internal learner IDs in report detail"
-      : "Not recorded"
   );
   return [
     { field: "Report", value: reportTitle },
     { field: "School / organisation", value: schoolName || "Not recorded by this deployment" },
     { field: "Class", value: coveredClasses.join(", ") || "Not specified" },
-    { field: "Learner", value: learnerLabel },
-    { field: "Learner ID", value: learnerIdLabel },
-    { field: "Learner ID policy", value: learnerIdPolicy },
+    { field: "Child", value: learnerLabel },
     { field: "Generated at", value: generatedDate.toISOString() },
     { field: "Time zone", value: resolveExportTimeZone(timeZone) },
     { field: "Filters", value: filterLabel(filters) },
     {
-      field: "Evidence window",
+      field: "Results period",
       value: evidenceWindow || deriveExportEvidenceWindow(evidenceSource)
     },
     {
       field: "App version(s)",
-      value: versionLabel(derivedVersions.appVersions, "local-unversioned-build")
+      value: versionLabel(derivedVersions.appVersions, "Local build")
     },
     {
-      field: "Assessment version(s)",
-      value: versionLabel(derivedVersions.assessmentVersions, "No versioned assessment evidence included")
+      field: "Check version(s)",
+      value: versionLabel(derivedVersions.assessmentVersions, "No check version details included")
     },
     {
       field: "Content version(s)",
-      value: versionLabel(derivedVersions.contentVersions, "No versioned content evidence included")
+      value: versionLabel(derivedVersions.contentVersions, "No content version details included")
     },
     {
-      field: "Policy version(s)",
-      value: versionLabel(derivedVersions.policyVersions, "No versioned scoring or administration policy included")
+      field: "Scoring version(s)",
+      value: versionLabel(derivedVersions.policyVersions, "No scoring version details included")
     },
     {
       field: "Definitions",
@@ -244,7 +235,7 @@ export function exportProvenanceCsvPreamble(rows = []) {
   return [
     [escape("Section"), escape("Field"), escape("Value")].join(","),
     ...rows.map(row => [
-      escape("Report provenance"),
+      escape("About this report"),
       escape(row.field),
       escape(row.value)
     ].join(","))
@@ -253,7 +244,7 @@ export function exportProvenanceCsvPreamble(rows = []) {
 
 export function exportProvenanceTextBlock(rows = []) {
   return [
-    "Report Provenance",
+    "About this report",
     "",
     ...rows.map(row => `${row.field}: ${row.value}`)
   ].join("\n");
@@ -261,28 +252,28 @@ export function exportProvenanceTextBlock(rows = []) {
 
 const REPORT_PROVENANCE_PRESETS = Object.freeze({
   letter: {
-    reportTitle: "Letter Name and Sound Assessment",
+    reportTitle: "Letter name and sound check",
     filters: "All recorded letter-name and letter-sound responses",
     definitions: "Knows Name and Knows Sound are teacher-recorded Y/N observations for each uppercase and lowercase letter."
   },
   pattern: {
-    reportTitle: "Advanced Phonics Pattern Assessment",
+    reportTitle: "Advanced phonics pattern check",
     filters: "All recorded advanced-phonics pattern responses",
     definitions: "Sound Correct and Word Correct are teacher-recorded Y/N observations for each assessed pattern."
   },
   "reading-csv": {
-    reportTitle: "Student Reading and Assessment Data",
-    filters: "All answer-history rows in the selected student workspace",
+    reportTitle: "Child reading and check data",
+    filters: "All answer-history rows for the selected child",
     definitions: "Metric definition rows are included in this CSV file."
   },
   "reading-text": {
     reportTitle: "Reading Mastery Report",
-    filters: "All answer-history and Guided Reading evidence in the selected student workspace",
+    filters: "All answer-history and Guided Reading results for the selected child",
     definitions: "Metric definitions are included in this text report."
   },
   "guided-reading": {
-    reportTitle: "Student Guided Reading Report",
-    filters: "All available Guided Reading records for the selected student",
+    reportTitle: "Child Guided Reading report",
+    filters: "All available Guided Reading records for the selected child",
     definitions: "Marked-word accuracy = words read correctly ÷ marked words; completion and reread totals are derived from saved book progress."
   }
 });

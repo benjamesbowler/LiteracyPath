@@ -29,7 +29,7 @@ export function AuthPage({
   return (
     <div className="card page-card page-stack auth-card" aria-busy={authLoading}>
       <div className="auth-heading">
-        <h2>{isResetPassword ? "Set new password" : isForgotPassword ? "Reset password" : isSignup ? "Create teacher account" : "Teacher login"}</h2>
+        <h2>{isResetPassword ? "Set new password" : isForgotPassword ? "Reset password" : isSignup ? "Create teacher account" : "Teacher sign-in"}</h2>
         <p className="muted-text">
           {isResetPassword
             ? "Enter a new password for your account."
@@ -37,7 +37,7 @@ export function AuthPage({
               ? "Enter your email and we will send a password reset link."
               : isSignup
                 ? "Create an account request for your school. Approval is required before access opens."
-                : "Open your classes, assessment hub, reports, and reading records."}
+                : "Open your classes, checks, reports and reading records."}
         </p>
       </div>
 
@@ -62,7 +62,7 @@ export function AuthPage({
             <input
               autoComplete="username"
               value={authUsername}
-              placeholder="teacher_name"
+              placeholder="teacher name"
               onChange={event => setAuthUsername(event.target.value)}
               type="text"
             />
@@ -117,7 +117,7 @@ export function AuthPage({
               Send reset email
             </button>
             <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
-              Back to login
+              Back to sign-in
             </button>
           </>
         ) : isResetPassword ? (
@@ -135,7 +135,7 @@ export function AuthPage({
               Submit request
             </button>
             <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
-              Back to login
+              Back to sign-in
             </button>
           </>
         ) : (

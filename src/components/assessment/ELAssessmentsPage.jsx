@@ -37,33 +37,33 @@ function getElPathGuidance(grade, windowName) {
     }
     return "Start with Letter Name and Sound and Sound Awareness. Add spelling and word reading when letter sounds are secure.";
   }
-  return "A useful order is Spelling, Word Reading, Reading Fluency, then Sound Awareness. Use Letter Name and Sound when earlier evidence suggests it.";
+  return "A useful order is Spelling, Word Reading, Reading Fluency, then Sound Awareness. Use Letter Name and Sound when earlier results suggest it.";
 }
 
 function getBenchmarkRecommendation(assessmentId, grade, windowName) {
   if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) {
-    return { label: "Recommended", tone: "recommended", detail: "One-to-one oral check at every benchmark window." };
+    return { label: "Recommended", tone: "recommended", detail: "One-to-one oral check at each time of year." };
   }
   if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY && grade === "K") {
-    return { label: "Optional in K", tone: "optional", detail: "Not on the routine Kindergarten path; use only when decoding evidence supports it." };
+    return { label: "Optional in K", tone: "optional", detail: "Not on the usual Kindergarten path; use only when word-reading results support it." };
   }
   if ([EL_BENCHMARK_IDS.ENCODING, EL_BENCHMARK_IDS.DECODING].includes(assessmentId) && grade === "K") {
     if (windowName === "BOY") {
-      return { label: "Not routine", tone: "as-needed", detail: "Begin with letter and oral sound evidence." };
+      return { label: "Not routine", tone: "as-needed", detail: "Begin with letter and spoken-sound results." };
     }
-    return { label: "Prerequisite", tone: "optional", detail: "Use only after the student accurately demonstrates the taught letter sounds." };
+    return { label: "Earlier result needed", tone: "optional", detail: "Use only after the child accurately shows the taught letter sounds." };
   }
   if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
     return { label: "After Decoding", tone: "recommended", detail: "Begin at the last decoding band read accurately and automatically." };
   }
   if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
-    return { label: "After Encoding", tone: "recommended", detail: "Start at the encoding-indicated band and retain automaticity evidence." };
+    return { label: "After Spelling", tone: "recommended", detail: "Start at the band suggested by the spelling result." };
   }
-  return { label: "Recommended", tone: "recommended", detail: "Use the selected grade and benchmark window route." };
+  return { label: "Recommended", tone: "recommended", detail: "Use the selected grade and time-of-year route." };
 }
 
 function formatAttemptStatus(attempt) {
-  if (!attempt) return "Not assessed";
+  if (!attempt) return "Not checked";
   const status = attempt.administrationStatus || attempt.status || "recorded";
   return status.replace(/_/g, " ").replace(/^\w/, letter => letter.toUpperCase());
 }
@@ -76,20 +76,20 @@ const EL_PREREQUISITE_REASON_OPTIONS = Object.freeze([
   {
     id: "recent_classroom_evidence",
     label: "Recent classroom work",
-    detail: "Current work shows the student is ready.",
-    reason: "Recent classroom evidence shows the student is ready for this assessment."
+    detail: "Current work shows the child is ready.",
+    reason: "Recent classroom work shows the child is ready for this check."
   },
   {
     id: "equivalent_assessment_evidence",
     label: "Equivalent check completed",
-    detail: "I have comparable assessment evidence.",
-    reason: "The teacher reviewed equivalent assessment evidence showing the student is ready for this assessment."
+    detail: "I have a comparable check result.",
+    reason: "The teacher reviewed a comparable result showing the child is ready for this check."
   },
   {
     id: "student_support_decision",
-    label: "Student support decision",
+    label: "Child support decision",
     detail: "This start matches an agreed support or accommodation.",
-    reason: "This starting decision follows the student's agreed support or accommodation."
+    reason: "This starting decision follows the child's agreed support or accommodation."
   },
   {
     id: "other",
@@ -106,16 +106,16 @@ function getPrerequisiteReasonText(reasonId = "", otherReason = "") {
 
 function getBenchmarkCardDescription(assessmentId, fallback = "") {
   if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) {
-    return "Listen to short sound tasks and tap the student's response.";
+    return "Listen to short sound tasks and tap the child's answer.";
   }
   if (assessmentId === EL_BENCHMARK_IDS.ENCODING) {
-    return "The student writes each word on paper; you tap the closest result.";
+    return "The child writes each word on paper; you tap the closest result.";
   }
   if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
-    return "The student reads words from the screen; you tap how they read each one.";
+    return "The child reads words from the screen; you tap how they read each one.";
   }
   if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
-    return "The student reads on screen while the built-in timer guides the check.";
+    return "The child reads on screen while the built-in timer guides the check.";
   }
   return fallback;
 }
@@ -123,7 +123,7 @@ function getBenchmarkCardDescription(assessmentId, fallback = "") {
 function getBenchmarkCardNote(assessmentId) {
   if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) return "Teacher-led · spoken responses";
   if (assessmentId === EL_BENCHMARK_IDS.ENCODING) return "Paper and pencil";
-  if (assessmentId === EL_BENCHMARK_IDS.DECODING) return "Student reads on screen";
+  if (assessmentId === EL_BENCHMARK_IDS.DECODING) return "Child reads on screen";
   if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) return "Built-in one-minute timer";
   return "Teacher paced";
 }
@@ -133,7 +133,7 @@ function getBenchmarkStartLabel(assessmentId) {
   if (assessmentId === EL_BENCHMARK_IDS.ENCODING) return "spelling";
   if (assessmentId === EL_BENCHMARK_IDS.DECODING) return "word reading";
   if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) return "reading fluency";
-  return "assessment";
+  return "check";
 }
 
 export function ELAssessmentsPage({
@@ -359,7 +359,7 @@ export function ELAssessmentsPage({
       <section className="teacher-page-header el-assessment-hub-hero">
         <div>
           <p className="panel-label">Progress monitoring</p>
-          <h2>Choose a comparable assessment for {studentName || "this student"}</h2>
+          <h2>Choose a check for {studentName || "this child"}</h2>
           <p>Set the grade and time of year once, then start the check you need.</p>
         </div>
         <span className="el-assessment-provisional-label">Six early literacy checks</span>
@@ -367,7 +367,7 @@ export function ELAssessmentsPage({
 
       <section className="el-assessment-route-panel" aria-labelledby="el-assessment-route-title">
         <div className="el-assessment-route-copy">
-          <p className="panel-label">Student level</p>
+          <p className="panel-label">Child&apos;s level</p>
           <h3 id="el-assessment-route-title">Grade and time of year</h3>
           <p>{getElPathGuidance(grade, windowName)}</p>
         </div>
@@ -393,7 +393,7 @@ export function ELAssessmentsPage({
         <details className="el-assessment-advanced-starts">
           <summary>
             <span>Advanced starting points</span>
-            <small>Optional · change only when earlier evidence supports a different start</small>
+            <small>Optional · change only when earlier results support a different start</small>
           </summary>
           <div className="el-assessment-advanced-start-grid">
             <label>
@@ -478,7 +478,7 @@ export function ELAssessmentsPage({
               <textarea
                 autoFocus
                 onChange={event => setPrerequisiteOtherReason(event.target.value)}
-                placeholder="Briefly note the evidence or reason."
+                placeholder="Briefly note the result or reason."
                 rows={2}
                 value={prerequisiteOtherReason}
               />
@@ -513,7 +513,7 @@ export function ELAssessmentsPage({
       )}
 
       {elBenchmarkDraft && draftCatalogEntry && (
-        <section className="el-assessment-draft-banner" aria-label="Saved benchmark draft">
+        <section className="el-assessment-draft-banner" aria-label="Saved check draft">
           <div>
             <span>Saved draft</span>
             <strong>{draftCatalogEntry.title}</strong>
@@ -528,24 +528,24 @@ export function ELAssessmentsPage({
 
       <div className="el-assessment-list-heading">
         <div>
-          <p className="panel-label">Assessments</p>
+          <p className="panel-label">Checks</p>
           <h3>Choose one check</h3>
         </div>
-        <p>Each assessment saves its own results. You can come back for another when you are ready.</p>
+        <p>Each check saves its own results. You can come back for another when you are ready.</p>
       </div>
 
       <section className="el-assessment-domain-grid">
         <article className="teacher-action-panel el-assessment-domain-card" data-domain="letters">
           <div className="el-assessment-card-topline">
             <span className="el-assessment-card-index">01</span>
-            <span className="el-assessment-recommendation recommended">Core evidence</span>
+            <span className="el-assessment-recommendation recommended">Recommended</span>
           </div>
           <h3>Letter Name and Sound</h3>
           <p>Name and sound recognition for uppercase and lowercase letters.</p>
-          <small>Assessment 1 · existing assessment retained unchanged · Kindergarten routine · Grade 1/2 as needed</small>
+          <small>Check 1 · Kindergarten routine · Grade 1 or 2 as needed</small>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startLetterAssessment}>
-              Start Letter Assessment
+              Start letter check
             </button>
           </div>
         </article>
@@ -553,14 +553,14 @@ export function ELAssessmentsPage({
         <article className="teacher-action-panel el-assessment-domain-card supplemental" data-domain="advanced-phonics">
           <div className="el-assessment-card-topline">
             <span className="el-assessment-card-index">02</span>
-            <span className="el-assessment-recommendation supplemental">Established supplemental diagnostic</span>
+            <span className="el-assessment-recommendation supplemental">Extra detail when needed</span>
           </div>
           <h3>Phonics Pattern Diagnostic</h3>
           <p>Take a closer look at advanced phoneme and grapheme-pattern knowledge using the established scoring route.</p>
-          <small>Assessment 2 · established supplemental diagnostic</small>
+          <small>Check 2 · use for a closer look</small>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
-              Start Phonics Pattern Diagnostic
+              Start phonics pattern check
             </button>
           </div>
         </article>
@@ -583,14 +583,14 @@ export function ELAssessmentsPage({
                 {latest?.completedAt && <time dateTime={latest.completedAt}>{new Date(latest.completedAt).toLocaleDateString()}</time>}
               </div>
               {prerequisite.state !== "ready" && (
-                <p className="el-assessment-prerequisite-note">Quick evidence check needed before starting.</p>
+                <p className="el-assessment-prerequisite-note">Review an earlier result before starting.</p>
               )}
               <div className="teacher-action-list">
                 <button
                   className="lp-button lp-button-secondary"
                   disabled={Boolean(elBenchmarkDraft)}
                   onClick={() => requestAssessmentStart(entry)}
-                  title={elBenchmarkDraft ? "Resume or discard the saved draft before starting another benchmark" : undefined}
+                  title={elBenchmarkDraft ? "Resume or discard the saved draft before starting another check" : undefined}
                   type="button"
                 >
                   {prerequisite.state === "ready" ? "Start" : "Check & start"} {getBenchmarkStartLabel(entry.id)}
@@ -603,7 +603,7 @@ export function ELAssessmentsPage({
       </section>
 
       <p className="el-assessment-validity-note">
-        These are original, versioned LiteracyPath instruments aligned to the supplied EL Skills Block overview. They are not official EL Education forms, nationally normed scores, or diagnostic tests for a disability.
+        These are original Literacy Guide checks aligned to the supplied EL Skills Block overview. They are not official EL Education forms, nationally normed scores, or diagnostic tests for a disability.
       </p>
     </div>
   );

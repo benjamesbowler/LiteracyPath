@@ -21,7 +21,7 @@ export function StudentEntryPage({ onStudent, onTeacher }) {
             aria-describedby="student-entry-description"
           >
             <span className="entry-card-accessible-title" id="student-entry-title">
-              Students: {CHILD_BRAND.name}
+              Children: {CHILD_BRAND.name}
             </span>
             <span className="entry-card-brand entry-student-brand" aria-hidden="true">
               <img
@@ -33,7 +33,7 @@ export function StudentEntryPage({ onStudent, onTeacher }) {
             <span className="student-entry-card-text" id="student-entry-description">
               Books, games and guided adventures made for young readers.
             </span>
-            <span className="student-entry-card-cta pals-cta">Students</span>
+            <span className="student-entry-card-cta pals-cta">Children</span>
           </button>
 
           <button
@@ -58,7 +58,7 @@ export function StudentEntryPage({ onStudent, onTeacher }) {
               </span>
             </span>
             <span className="student-entry-card-text" id="teacher-entry-description">
-              Assessment, planning, teaching resources and progress, all in one place.
+              Checks, planning, teaching resources, and progress in one place.
             </span>
             <span className="student-entry-card-cta pals-cta">Teachers</span>
           </button>

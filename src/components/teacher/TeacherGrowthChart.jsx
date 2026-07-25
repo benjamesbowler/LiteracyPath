@@ -147,16 +147,16 @@ export function TeacherGrowthChart({
   return (
     <section
       className="teacher-growth"
-      aria-label={`Learner growth over time: ${learnerName}`}
+      aria-label={`Child growth over time: ${learnerName}`}
       data-growth-state={state}
       data-growth-attempt-count={model.attemptCount}
     >
       <div className="teacher-growth-heading">
         <div>
-          <p className="panel-label">Longitudinal evidence</p>
+          <p className="panel-label">Saved results over time</p>
           <h4>Growth over time</h4>
           <p>
-            Five evidence views share one dated axis. Curriculum changes remain visible so unlike
+            Five results views share one dated axis. Curriculum changes remain visible so unlike
             versions are never silently blended.
           </p>
         </div>
@@ -169,17 +169,17 @@ export function TeacherGrowthChart({
 
       {state === "loading" ? (
         <div className="teacher-growth-state" role="status">
-          <strong>Loading dated growth evidence…</strong>
-          <p>Current learner evidence remains available above.</p>
+          <strong>Loading dated results…</strong>
+          <p>Current child results remain available above.</p>
         </div>
       ) : state === "error" ? (
         <div className="teacher-growth-state is-error" role="alert">
           <strong>Growth history could not be loaded.</strong>
-          <p>No trend conclusion is shown. Current evidence remains unchanged.</p>
+          <p>No trend is shown. Current results remain unchanged.</p>
         </div>
       ) : state === "ready" ? (
         <>
-          <div className="teacher-growth-metric-picker" aria-label="Choose growth evidence">
+          <div className="teacher-growth-metric-picker" aria-label="Choose growth results">
             {model.series.map(series => (
               <button
                 aria-pressed={series.id === selectedSeries.id}
@@ -217,7 +217,7 @@ export function TeacherGrowthChart({
                       <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Value</th>
-                        <th scope="col">Evidence records</th>
+                        <th scope="col">Result records</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -235,14 +235,14 @@ export function TeacherGrowthChart({
             ) : (
               <div className="teacher-growth-state">
                 <strong>No saved {selectedSeries.label.toLowerCase()} history.</strong>
-                <p>This view stays empty until dated source evidence is recorded.</p>
+                <p>This view stays empty until dated results are saved.</p>
               </div>
             )}
           </article>
         </>
       ) : (
         <div className="teacher-growth-state">
-          <strong>Choose a learner to inspect growth.</strong>
+          <strong>Choose a child to inspect growth.</strong>
         </div>
       )}
     </section>

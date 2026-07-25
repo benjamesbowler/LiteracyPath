@@ -26,6 +26,8 @@ import { importWithRetry } from "../utils/lazyWithRetry.js";
 import { readTeacherReportRouteView } from "../appState/routes.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
 import { MetricFigure } from "./MetricDefinition.jsx";
+import { countPhrase, progressPhrase } from "../copy/teacherCopy.js";
+import { FAMILY_COPY } from "../copy/familyCopy.js";
 import { TeacherDialog } from "./teacher/ui/TeacherDialog.jsx";
 import { StudentReportShell } from "./reports/StudentReportShell.jsx";
 import {
@@ -39,13 +41,60 @@ import {
 import {
   buildGuidedReadingViewModel,
   buildOtherLearningViewModel,
-  normalizeStudentReportView
+  normalizeStudentReportView,
+  STUDENT_REPORT_VIEWS
 } from "./reports/studentReportUiUtils.js";
 
 const EMPTY_REPORT_ROWS = [];
 
 function formatClassLabel(value = "") {
   return value || "Class not linked";
+}
+
+const CHECK_WINDOW_LABELS = Object.freeze({
+  BOY: "Beginning of year",
+  MOY: "Middle of year",
+  EOY: "End of year"
+});
+
+function teacherResultText(value = "") {
+  const preserveLeadingCase = (source, replacement) => (
+    /^[A-Z]/.test(source)
+      ? `${replacement.charAt(0).toUpperCase()}${replacement.slice(1)}`
+      : replacement
+  );
+  return String(value || "")
+    .replace(/\bevidence supports\b/gi, "results support")
+    .replace(/\bBOY\b/g, CHECK_WINDOW_LABELS.BOY)
+    .replace(/\bMOY\b/g, CHECK_WINDOW_LABELS.MOY)
+    .replace(/\bEOY\b/g, CHECK_WINDOW_LABELS.EOY)
+    .replace(/\bassessments?\b/gi, match => preserveLeadingCase(
+      match,
+      match.toLowerCase().endsWith("s") ? "checks" : "check"
+    ))
+    .replace(/\bevidence\b/gi, "results")
+    .replace(/\blearners?\b/gi, match => preserveLeadingCase(
+      match,
+      match.toLowerCase().endsWith("s") ? "children" : "child"
+    ))
+    .replace(/\bstudents?\b/gi, match => preserveLeadingCase(
+      match,
+      match.toLowerCase().endsWith("s") ? "children" : "child"
+    ))
+    .replace(/\bincorrect\b/gi, "needs another look");
+}
+
+function reportViewLabel(viewId = "") {
+  return STUDENT_REPORT_VIEWS.find(view => view.id === viewId)?.label || "Child results";
+}
+
+function visibleReportDetails(rows = []) {
+  return rows
+    .filter(row => !/\bversion/i.test(row.field))
+    .map(row => ({
+      ...row,
+      value: teacherResultText(row.value)
+    }));
 }
 
 function addSoundSeekersInteractionEvidence(report = {}) {
@@ -62,7 +111,7 @@ function addSoundSeekersInteractionEvidence(report = {}) {
 
 function ElItemChip({ label, known, partial = false }) {
   const cls = known ? "el-chip-known" : partial ? "el-chip-partial" : "el-chip-unknown";
-  const status = known ? "Correct" : partial ? "Developing" : "Needs teaching";
+  const status = known ? FAMILY_COPY.results.secure : partial ? FAMILY_COPY.results.developing : FAMILY_COPY.results.support;
   const marker = known ? "✓" : partial ? "~" : "×";
   return <span aria-label={`${label}: ${status}`} className={`el-item-chip ${cls}`} title={status}>{marker} {label}</span>;
 }
@@ -76,7 +125,7 @@ function ElCompletedAssessmentItems({ assessments = [] }) {
   if (!hasAny) {
     return (
       <div className="student-report-muted-card">
-        No item-level evidence was saved with the latest completed administration.
+        No answer details were saved with the latest completed check.
       </div>
     );
   }
@@ -90,8 +139,8 @@ function ElCompletedAssessmentItems({ assessments = [] }) {
         return (
           <article className="el-card lg-el-card" key={assessment.assessmentId}>
             <h3 className="lg-el-label">{assessment.title}</h3>
-            <strong className="lg-el-score">{correct} / {total}</strong>
-            <p>{assessment.resultLabel || "Completed evidence"}</p>
+            <strong className="lg-el-score">{progressPhrase(correct, total)}</strong>
+            <p>{teacherResultText(assessment.resultLabel) || "Check complete"}</p>
             {items.length > 0 && (
               <div className="el-chip-grid">
                 {items.map((item, index) => (
@@ -139,27 +188,27 @@ function BenchmarkScopeControl({
   return (
     <>
       <p className="student-report-benchmark-scope-line">
-        Benchmark scope: <strong>{activeScope.label || "Choose grade and assessment window"}</strong>
+        Check period: <strong>{teacherResultText(activeScope.label) || "Choose a grade and time of year"}</strong>
       </p>
       <div className="student-report-benchmark-scope-control screen-only">
         <div>
-          <label htmlFor="student-report-benchmark-scope">Grade and assessment window</label>
+          <label htmlFor="student-report-benchmark-scope">Grade and time of year</label>
           <small>
             {hasRoutes
-              ? "The most recent saved route is selected first. Choose an earlier route to review or export it."
-              : "No saved benchmark route can supply this context. Choose both fields before exporting."}
+              ? "The latest saved check is selected first. Choose an earlier one to review or download."
+              : "Choose both fields before downloading this report."}
           </small>
         </div>
         {hasRoutes ? (
           <select
-            aria-label="Benchmark grade and assessment window"
+            aria-label="Grade and time of year"
             id="student-report-benchmark-scope"
             onChange={event => onChange(event.target.value)}
             value={benchmarkScopeKey(activeScope)}
           >
             {options.map((scope, index) => (
               <option key={benchmarkScopeKey(scope)} value={benchmarkScopeKey(scope)}>
-                {scope.label} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " - most recent" : ""}
+                {teacherResultText(scope.label)} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " - most recent" : ""}
               </option>
             ))}
           </select>
@@ -179,9 +228,9 @@ function BenchmarkScopeControl({
               </select>
             </label>
             <label>
-              <span>Assessment window</span>
+              <span>Time of year</span>
               <select
-                aria-label="EL report assessment window"
+                aria-label="EL report time of year"
                 onChange={event => onManualChange({ ...manualScope, benchmarkWindow: event.target.value })}
                 value={manualScope.benchmarkWindow || ""}
               >
@@ -203,7 +252,7 @@ function BenchmarkScopeControl({
             })}
             type="button"
           >
-            {exporting ? "Exporting..." : "Export This Route"}
+            {exporting ? "Preparing…" : "Download this report"}
           </button>
         )}
       </div>
@@ -237,7 +286,7 @@ function benchmarkMetricRows(profile = {}) {
     ["Word accuracy", formatEvidencePercent(metrics.accuracyRate), "accuracy"],
     ["Prosody (optional)", formatEvidenceNumber(metrics.prosodyAverage, null) === null
       ? "Not scored"
-      : `${Number(metrics.prosodyAverage).toFixed(1)} / 4`]
+      : progressPhrase(Number(metrics.prosodyAverage).toFixed(1), 4)]
   ];
 }
 
@@ -249,9 +298,9 @@ function benchmarkEvidenceArray(value) {
 
 function formatBenchmarkEvidenceCode(value, fallback = "Not recorded") {
   if (value === undefined || value === null || String(value).trim() === "") return fallback;
-  return String(value)
+  return teacherResultText(String(value)
     .replace(/[_-]+/g, " ")
-    .replace(/\b\w/g, letter => letter.toUpperCase());
+    .replace(/\b\w/g, letter => letter.toUpperCase()));
 }
 
 function formatExactBenchmarkResponse(value, item = {}) {
@@ -286,9 +335,9 @@ function benchmarkItemLabel(item = {}, domainKey = "") {
     : item.targetWord || item.prompt || item.targetPattern || item.itemKey || item.questionId;
   const secondary = item.prompt && item.prompt !== primary ? item.prompt : "";
   return {
-    primary: primary || "Item not labeled",
+    primary: primary || "Question",
     secondary,
-    itemId: item.questionId || item.itemKey || item.passageId || ""
+    itemId: ""
   };
 }
 
@@ -299,7 +348,13 @@ function benchmarkItemStatus(item = {}) {
   const classKey = String(rawStatus).toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
   return {
     className: `status-${classKey}`,
-    label: formatBenchmarkEvidenceCode(rawStatus)
+    label: rawStatus === "correct"
+      ? "Correct"
+      : rawStatus === "incorrect"
+        ? "Needs another look"
+        : rawStatus === "not_recorded"
+          ? "Not recorded"
+          : formatBenchmarkEvidenceCode(rawStatus)
   };
 }
 
@@ -318,7 +373,7 @@ function BenchmarkEvidenceLines({ lines = [] }) {
 function benchmarkItemEvidenceLines(domainKey = "", item = {}, performanceSuppressed = false) {
   if (performanceSuppressed) {
     const auditLines = [
-      ["Performance metrics", "Not scored for this administration"]
+      ["Performance figures", "Not scored for this check"]
     ];
     if (domainKey === "phonologicalAwareness") {
       return [
@@ -348,7 +403,7 @@ function benchmarkItemEvidenceLines(domainKey = "", item = {}, performanceSuppre
   }
   if (domainKey === "phonologicalAwareness") {
     return [
-      ["Judgment", item.isCorrect === true ? "Correct" : item.isCorrect === false ? "Incorrect" : "Not scored"],
+      ["Judgment", item.isCorrect === true ? "Correct" : item.isCorrect === false ? "Needs another look" : "Not scored"],
       ["Strand", formatBenchmarkEvidenceCode(item.strand, "")],
       ["Task", formatBenchmarkEvidenceCode(item.task, "")]
     ];
@@ -413,12 +468,11 @@ function BenchmarkPrerequisiteReview({ detail = {} }) {
     ["Review state", formatBenchmarkEvidenceCode(review.state, "")],
     ["Review source", formatBenchmarkEvidenceCode(source, "")],
     ["Rule or code", formatBenchmarkEvidenceCode(ruleCode, "")],
-    ["Evidence attempt", review.evidenceAttemptId || review.sourceAttemptId || ""],
     ["Teacher confirmed", typeof review.teacherConfirmed === "boolean" ? (review.teacherConfirmed ? "Yes" : "No") : ""]
   ].filter(([, value]) => value !== undefined && value !== null && String(value).trim());
   if (state === "override") {
     lines.push(["Override applied", "Yes"]);
-    if (rationale) lines.push(["Override rationale", rationale]);
+    if (rationale) lines.push(["Override rationale", teacherResultText(rationale)]);
   }
   if (!lines.length) return null;
   return (
@@ -445,7 +499,7 @@ function formatBenchmarkNarrative(value) {
       .filter(Boolean)
       .join("; ");
   }
-  return String(value);
+  return teacherResultText(value);
 }
 
 function BenchmarkTeacherGuidance({ detail = {} }) {
@@ -457,7 +511,7 @@ function BenchmarkTeacherGuidance({ detail = {} }) {
     .filter(Boolean);
   if (!recommendations.length && !observations.length && !validationIssues.length) return null;
   return (
-    <section className="student-report-benchmark-guidance" aria-label="Benchmark teacher guidance and observations">
+    <section className="student-report-benchmark-guidance" aria-label="Check guidance and observations">
       {recommendations.length > 0 && (
         <div>
           <h4>Recommended follow-up</h4>
@@ -472,7 +526,7 @@ function BenchmarkTeacherGuidance({ detail = {} }) {
       )}
       {validationIssues.length > 0 && (
         <div>
-          <h4>Assessment notices</h4>
+          <h4>Check notes</h4>
           <ul>{validationIssues.map((note, index) => <li key={`validation-${index + 1}`}>{note}</li>)}</ul>
         </div>
       )}
@@ -480,50 +534,33 @@ function BenchmarkTeacherGuidance({ detail = {} }) {
   );
 }
 
-function BenchmarkProvenance({ domain = {} }) {
-  const rows = [
-    ["Form", domain.formVersion],
-    ["Content", domain.contentVersion],
-    ["Scoring", domain.scoringVersion],
-    ["Scoring rule", domain.scoringRuleVersion],
-    ["Administration interface", domain.administrationVersion],
-    ["Response schema", domain.responseSchemaVersion]
-  ].filter(([, value]) => value !== undefined && value !== null && String(value).trim());
-  if (!rows.length) return null;
-  return (
-    <p className="student-report-benchmark-provenance" aria-label="Benchmark version provenance">
-      {rows.map(([label, value]) => <span key={label}><strong>{label}:</strong> {value}</span>)}
-    </p>
-  );
-}
-
 function BenchmarkItemEvidenceTable({ detail = {} }) {
   const evidence = detail && typeof detail === "object" ? detail : {};
   const items = Array.isArray(evidence.itemDetails) ? evidence.itemDetails : [];
   if (!items.length) {
-    return <p className="student-report-benchmark-empty-items">No item-level evidence was saved for this attempt.</p>;
+    return <p className="student-report-benchmark-empty-items">No answer details were saved for this check.</p>;
   }
-  const domainLabel = evidence.domainLabel || "Benchmark domain";
+  const domainLabel = teacherResultText(evidence.domainLabel) || "Check area";
   return (
     <div
-      aria-label={`${domainLabel} item evidence table`}
+      aria-label={`${domainLabel} answer details`}
       className="student-report-benchmark-evidence-table-wrap"
       role="region"
       tabIndex="0"
     >
       <table className="student-report-benchmark-evidence-table">
-        <caption>{domainLabel} per-item evidence ({items.length} {items.length === 1 ? "item" : "items"})</caption>
+        <caption>{domainLabel} answer details ({countPhrase(items.length, "question")})</caption>
         <thead>
           <tr>
             <th scope="col">Item</th>
             <th scope="col">Exact response or transcription</th>
             <th scope="col">Response capture</th>
             <th scope="col">Status</th>
-            <th scope="col">Domain evidence</th>
-            <th scope="col">Error tags</th>
-            <th scope="col">Validation issues</th>
-            <th scope="col">Not-scorable reason</th>
-            <th scope="col">Not-scorable note</th>
+            <th scope="col">Results</th>
+            <th scope="col">What to review</th>
+            <th scope="col">Check notes</th>
+            <th scope="col">Why it was not scored</th>
+            <th scope="col">Teacher note</th>
           </tr>
         </thead>
         <tbody>
@@ -539,7 +576,6 @@ function BenchmarkItemEvidenceTable({ detail = {} }) {
                 <th data-label="Item" scope="row">
                   <strong>{label.primary}</strong>
                   {label.secondary && <span>{label.secondary}</span>}
-                  {label.itemId && <small>Item ID: {label.itemId}</small>}
                 </th>
                 <td className="student-report-benchmark-exact-response" data-label="Exact response or transcription">
                   {formatExactBenchmarkResponse(item.exactResponse, item)}
@@ -548,22 +584,22 @@ function BenchmarkItemEvidenceTable({ detail = {} }) {
                 <td data-label="Status">
                   <span className={`student-report-benchmark-item-status ${status.className}`}>{status.label}</span>
                 </td>
-                <td data-label="Domain evidence">
+                <td data-label="Results">
                   <BenchmarkEvidenceLines lines={benchmarkItemEvidenceLines(
                     evidence.domainKey,
                     item,
                     evidence.performanceSuppressed === true
                   )} />
                 </td>
-                <td data-label="Error tags">{errorTags.length ? errorTags.join(", ") : "None recorded"}</td>
-                <td data-label="Validation issues">
+                <td data-label="What to review">{errorTags.length ? errorTags.join(", ") : "None recorded"}</td>
+                <td data-label="Check notes">
                   {validationIssues.length ? validationIssues.join(", ") : "None recorded"}
                 </td>
-                <td data-label="Not-scorable reason">
+                <td data-label="Why it was not scored">
                   {item.notScorableReason ? formatBenchmarkEvidenceCode(item.notScorableReason) : "Not applicable"}
                 </td>
-                <td className="student-report-benchmark-exact-note" data-label="Not-scorable note">
-                  {item.notScorableNote ? String(item.notScorableNote) : "None recorded"}
+                <td className="student-report-benchmark-exact-note" data-label="Teacher note">
+                  {item.notScorableNote ? teacherResultText(item.notScorableNote) : "None recorded"}
                 </td>
               </tr>
             );
@@ -588,8 +624,7 @@ function BenchmarkDetail({ detail }) {
   if (detail.performanceSuppressed) {
     return (
       <p className="student-report-benchmark-unscored-note">
-        Performance metrics are not scored because this administration is {formatBenchmarkEvidenceCode(detail.administrationStatus).toLowerCase()}.
-        Raw responses and audit notes remain available below.
+        Figures are not shown because this check was not completed. Saved answers and teacher notes remain below.
       </p>
     );
   }
@@ -599,7 +634,7 @@ function BenchmarkDetail({ detail }) {
         {(detail.strandRows || []).map(row => (
           <li key={row.strand}>
             <strong>{String(row.strandLabel || row.strand).replace(/\b\w/g, letter => letter.toUpperCase())}</strong>
-            {` · ${row.correctCount}/${row.administeredCount} correct · ${formatEvidencePercent(row.accuracyRate)}`}
+            {` · ${progressPhrase(row.correctCount, row.administeredCount)} correct · ${formatEvidencePercent(row.accuracyRate)}`}
           </li>
         ))}
       </ul>
@@ -619,11 +654,11 @@ function BenchmarkDetail({ detail }) {
           {(detail.bandRows || []).map(row => (
             <li key={row.bandId}>
               <strong>{String(row.microphase || row.bandId).replace(/_/g, " ")}</strong>
-              {` · ${row.accurateCount}/${row.administeredCount} accurate · ${row.automaticCount}/${row.administeredCount} automatic`}
+              {` · ${progressPhrase(row.accurateCount, row.administeredCount)} accurate · ${progressPhrase(row.automaticCount, row.administeredCount)} automatic`}
             </li>
           ))}
         </ul>
-        {detail.stopEvidence?.reason && <p>Stopping evidence: {String(detail.stopEvidence.reason).replace(/_/g, " ")}.</p>}
+        {detail.stopEvidence?.reason && <p>Why the check stopped: {formatBenchmarkEvidenceCode(detail.stopEvidence.reason)}.</p>}
       </>
     );
   }
@@ -633,13 +668,13 @@ function BenchmarkDetail({ detail }) {
         {(detail.passageRows?.length ? detail.passageRows : [detail]).map((row, index) => (
           <li key={row.passageId || `fluency-passage-${index + 1}`}>
             <strong>{row.passageTitle || String(row.microphase || `Passage ${index + 1}`).replace(/_/g, " ")}</strong>
-            {` · ${row.wordsCorrect ?? "Not recorded"}/${row.wordsAttempted ?? "Not recorded"} correct`}
+            {` · ${progressPhrase(row.wordsCorrect ?? "Not recorded", row.wordsAttempted ?? "Not recorded")} correct`}
             {row.wcpm !== null && row.wcpm !== undefined ? ` · ${row.wcpm} WCPM` : " · WCPM not reported"}
             {row.passageAccurate === true ? " · teacher judged accurate" : row.passageAccurate === false ? " · teacher judged not accurate" : " · judgment not recorded"}
           </li>
         ))}
       </ul>
-      {detail.stopEvidence?.reason && <p>Stopping evidence: {String(detail.stopEvidence.reason).replace(/_/g, " ")}.</p>}
+      {detail.stopEvidence?.reason && <p>Why the check stopped: {formatBenchmarkEvidenceCode(detail.stopEvidence.reason)}.</p>}
     </>
   );
 }
@@ -663,16 +698,15 @@ function ElBenchmarkEvidenceSection({ report }) {
           <article className={`student-report-benchmark-card ${domain.hasSavedEvidence ? "has-evidence" : "no-evidence"}`} key={domain.assessmentId}>
             <div className="student-report-benchmark-heading">
               <h3>{domain.domainLabel}</h3>
-              <span>{domain.administrationStatusLabel}</span>
+              <span>{teacherResultText(domain.administrationStatusLabel)}</span>
             </div>
             {domain.hasSavedEvidence ? (
               <>
                 <small>
                   {domain.grade === "K" ? "Kindergarten" : domain.grade ? `Grade ${domain.grade}` : "Grade not recorded"}
-                  {domain.benchmarkWindow ? ` · ${domain.benchmarkWindow}` : ""}
+                  {domain.benchmarkWindow ? ` · ${teacherResultText(domain.benchmarkWindow)}` : ""}
                   {domain.latestDate ? ` · ${new Date(domain.latestDate).toLocaleDateString()}` : ""}
                 </small>
-                <BenchmarkProvenance domain={domain} />
                 <dl>
                   {benchmarkMetricRows(domain).map(([label, value, definitionId]) => (
                     <div key={label}>
@@ -681,10 +715,10 @@ function ElBenchmarkEvidenceSection({ report }) {
                         {definitionId
                           ? (
                             <MetricFigure
-                              dateRange={`The saved ${domain.grade || "ungraded"} ${domain.benchmarkWindow || "benchmark"} route shown on this card.`}
-                              denominator="Administered scored items in this benchmark domain."
+                              dateRange={`The saved ${domain.grade || "ungraded"} ${teacherResultText(domain.benchmarkWindow) || "check"} period shown on this card.`}
+                              denominator="Scored questions in this check area."
                               metricId={definitionId}
-                              minimumEvidence="At least one administered scored item; unscored administrations display Not scored."
+                              minimumEvidence="At least one scored question; unscored checks display Not scored."
                               updatedAt={domain.latestAt || domain.latestDate || detail?.updatedAt || detail?.completedAt}
                             >
                               {value}
@@ -697,12 +731,12 @@ function ElBenchmarkEvidenceSection({ report }) {
                 </dl>
                 {placementLabel && <p className="student-report-provisional-placement">{placementLabel}</p>}
                 {descriptiveInterpretation && (
-                  <p className="student-report-benchmark-interpretation">{descriptiveInterpretation}</p>
+                  <p className="student-report-benchmark-interpretation">{teacherResultText(descriptiveInterpretation)}</p>
                 )}
                 <BenchmarkTeacherGuidance detail={detail} />
                 <details className="student-report-benchmark-details">
                   <summary>
-                    View item evidence ({detail?.itemDetails?.length || 0})
+                    View answer details ({countPhrase(detail?.itemDetails?.length || 0, "question")})
                   </summary>
                   <div className="student-report-benchmark-detail-body">
                     <BenchmarkPrerequisiteReview detail={detail} />
@@ -712,13 +746,13 @@ function ElBenchmarkEvidenceSection({ report }) {
                 </details>
               </>
             ) : (
-              <p>No saved evidence for this domain.</p>
+              <p>No saved results for this area.</p>
             )}
           </article>
         );
       })}
       <p className="student-report-benchmark-disclaimer">
-        literacy.guide EL-aligned benchmark evidence is provisional and descriptive. No official EL Education or nationally normed mastery cut score is applied.
+        These EL-aligned results describe what was seen in this check. They do not use an official EL Education or nationally normed pass mark.
       </p>
     </div>
   );
@@ -1009,7 +1043,7 @@ export function FinishedReportPage({
     ...storyQuestRows
   ], [activeGuidedReadingReportRows, assessmentHistory, storyQuestRows]);
   const reportProvenanceRows = useMemo(() => buildExportProvenanceRows({
-    reportTitle: `Student ${activeReportView} report`,
+    reportTitle: `${reportViewLabel(activeReportView)} report`,
     className,
     learnerName: studentName,
     learnerId: progressScopeKey || assessmentHistory[0]?.studentId || "",
@@ -1017,13 +1051,13 @@ export function FinishedReportPage({
     generatedAt: reportGeneratedAt,
     timeZone: reportTimeZone,
     filters: {
-      "Report view": activeReportView,
+      "Report view": reportViewLabel(activeReportView),
       ...(activeReportView === "el-assessments"
-        ? { "EL benchmark scope": activeBenchmarkScope?.label || "No benchmark route selected" }
+        ? { "EL check period": teacherResultText(activeBenchmarkScope?.label) || "No check period selected" }
         : {})
     },
     evidenceSource: reportEvidenceSource,
-    definitions: "Accuracy, mastery, status, and evidence terms are defined in the report sections where they appear."
+    definitions: "Figures and result labels are explained in the report sections where they appear."
   }), [
     activeBenchmarkScope?.label,
     activeReportView,
@@ -1102,10 +1136,10 @@ export function FinishedReportPage({
   const exportConfig = activeReportView === "el-assessments"
     ? {
         label: benchmarkExporting
-          ? "Preparing EL data..."
+          ? "Preparing EL data…"
           : hasResolvedBenchmarkExportScope
             ? "Download EL data"
-            : "Choose report scope",
+            : "Choose a check period",
         enabled: Boolean(exportStudentExcel && hasResolvedBenchmarkExportScope)
       }
     : activeReportView === "guided-reading"
@@ -1128,9 +1162,9 @@ export function FinishedReportPage({
   const elReport = reportingWorkspace.elAssessments;
   const elAssessments = elReport?.assessments || [];
   const assessmentAction = activeReportView === "skills-check"
-    ? { label: "Start Skills Check", handler: startAssessment }
+    ? { label: "Start a check", handler: startAssessment }
     : ["whole-child", "el-assessments"].includes(activeReportView) && openElAssessments
-      ? { label: "Open EL assessments", handler: openElAssessments }
+      ? { label: "Open EL checks", handler: openElAssessments }
       : null;
 
   return (
@@ -1151,7 +1185,7 @@ export function FinishedReportPage({
       onPrint={printActiveReport}
       onStartAssessment={assessmentAction?.handler}
       onViewChange={changeReportView}
-      provenanceRows={familyReportActive ? [] : reportProvenanceRows}
+      provenanceRows={familyReportActive ? [] : visibleReportDetails(reportProvenanceRows)}
       readHistoryView={readReportRouteView}
       startAssessmentLabel={assessmentAction?.label}
       feedback={actionFeedback}
@@ -1174,39 +1208,39 @@ export function FinishedReportPage({
       {activeReportView === "el-assessments" && (
         <div className="lg-report-view-stack">
           <ReportMetricStrip metrics={[
-            { label: "Assessments checked", value: `${elReport?.summary?.assessmentsChecked || 0} of 6` },
-            { label: "Saved attempts", value: elReport?.summary?.completedHistoryAttempts || 0 },
-            { label: "Latest evidence", value: elReport?.summary?.latestAt ? new Date(elReport.summary.latestAt).toLocaleDateString() : "Not checked" }
+            { label: "Checks completed", value: progressPhrase(elReport?.summary?.assessmentsChecked || 0, 6) },
+            { label: "Saved checks", value: elReport?.summary?.completedHistoryAttempts || 0 },
+            { label: "Latest results", value: elReport?.summary?.latestAt ? new Date(elReport.summary.latestAt).toLocaleDateString() : "Not checked" }
           ]} />
 
           <ReportSection
-            description="The existing letter and advanced-sound assessments remain scored exactly as before."
-            title="Assessments 1 and 2"
+            description="Letter and advanced-sound checks keep their original scoring."
+            title="Letter and sound checks"
           >
             <div className="lg-report-assessment-grid two-up">
               {elAssessments.slice(0, 2).map(assessment => (
                 <article className="lg-report-assessment-card" key={assessment.assessmentId}>
                   <div>
-                    <span>Assessment {assessment.number}</span>
+                    <span>Check {assessment.number}</span>
                     <h3>{assessment.title}</h3>
                   </div>
-                  <strong>{assessment.resultLabel || "Not checked"}</strong>
+                  <strong>{teacherResultText(assessment.resultLabel) || "Not checked"}</strong>
                   <p>{assessment.checked
-                    ? `${assessment.attemptCount || 1} saved administration${(assessment.attemptCount || 1) === 1 ? "" : "s"}.`
+                    ? `${countPhrase(assessment.attemptCount || 1, "saved check")}.`
                     : "No completed result has been recorded."}</p>
                   {assessment.latestAt && <small>Latest: {new Date(assessment.latestAt).toLocaleDateString()}</small>}
                 </article>
               ))}
             </div>
             <details className="lg-report-technical-details">
-              <summary>View item results from the latest completed administrations</summary>
+              <summary>View answers from the latest checks</summary>
               <ElCompletedAssessmentItems assessments={elAssessments.slice(0, 2)} />
             </details>
           </ReportSection>
 
           <ReportSection
-            description="These assessments use descriptive evidence. They are not forced into a generic mastery percentage."
-            title="Assessments 3-6"
+            description="These checks describe what the child did. They do not use a made-up pass percentage."
+            title="Reading checks"
           >
             <BenchmarkScopeControl
               activeScope={activeBenchmarkScope}
@@ -1225,17 +1259,17 @@ export function FinishedReportPage({
               {elAssessments.slice(2).map(assessment => (
                 <article className="lg-report-assessment-card" key={assessment.assessmentId}>
                   <div>
-                    <span>Assessment {assessment.number}</span>
+                    <span>Check {assessment.number}</span>
                     <h3>{assessment.title}</h3>
                   </div>
-                  <strong>{assessment.resultLabel || "Not checked"}</strong>
-                  <p>{assessment.interpretation || "No descriptive evidence has been recorded."}</p>
+                  <strong>{teacherResultText(assessment.resultLabel) || "Not checked"}</strong>
+                  <p>{teacherResultText(assessment.interpretation) || "No results have been recorded."}</p>
                   {assessment.latestAt && <small>Latest: {new Date(assessment.latestAt).toLocaleDateString()}</small>}
                 </article>
               ))}
             </div>
             <details className="lg-report-technical-details">
-              <summary>View questions, responses and technical evidence</summary>
+              <summary>View questions, answers and notes</summary>
               <ElBenchmarkEvidenceSection report={elBenchmarkReport} />
             </details>
           </ReportSection>
@@ -1262,7 +1296,7 @@ export function FinishedReportPage({
       <footer className="lg-report-footer">
         {familyReportActive
           ? "Literacy Guide. This update shares current strengths and the next small steps for learning."
-          : "Literacy Guide. Evidence is shown in the report where it was collected. Whole Child combines current knowledge without counting the same evidence twice."}
+          : "Literacy Guide. Results appear in the section where they were saved. The whole-child view combines current knowledge without counting the same answer twice."}
       </footer>
     </StudentReportShell>
     <TeacherDialog
@@ -1274,14 +1308,14 @@ export function FinishedReportPage({
       <section className="modal-card empty-el-export-dialog">
         <h2 id="empty-el-export-title">
           {emptyElExportScope?.emptyReport
-            ? `Nothing to report for ${studentName || "this student"}`
-            : `No saved EL administrations for ${studentName || "this student"}`}
+            ? `Nothing to report for ${studentName || "this child"}`
+            : `No saved EL checks for ${studentName || "this child"}`}
         </h2>
-        <p>No saved EL evidence is available. Run or save an assessment first.</p>
+        <p>No saved EL results are available. Do or save a check first.</p>
         <p>
           {emptyElExportScope?.emptyReport
-            ? "If you export anyway, the workbook will contain one clear no-evidence banner, the chosen grade and window, evidence-source details, provenance, and definitions. It will not contain zero-filled assessment rows."
-            : "If you export anyway, the workbook will include the relevant Skills Check letter evidence, its source and sync details, and no zero-filled EL assessment rows."}
+            ? "If you download it anyway, the workbook will clearly say that no results were found. It will keep the chosen grade and time of year, without adding empty rows."
+            : "If you download it anyway, the workbook will include any matching letter-check results and will not add empty EL rows."}
         </p>
         <div className="button-row">
           <button
@@ -1308,8 +1342,8 @@ export function FinishedReportPage({
                   setActionFeedback({
                     kind: "success",
                     message: pendingDecision?.emptyReport
-                      ? "Empty report downloaded with a no-evidence banner."
-                      : "Report downloaded with reconciled Skills Check evidence."
+                      ? "The empty report was downloaded with a clear notice."
+                      : "The report was downloaded with matching letter-check results."
                   });
                 }
               } catch (error) {
@@ -1319,7 +1353,7 @@ export function FinishedReportPage({
             }}
             type="button"
           >
-            Export anyway
+            Download anyway
           </button>
         </div>
       </section>

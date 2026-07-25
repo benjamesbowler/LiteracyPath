@@ -37,20 +37,15 @@ const EXPECTED_PROVENANCE = [
   ["Report", "Student Skills Check"],
   ["School / organisation", "Harbour Primary"],
   ["Class", "Class 2B"],
-  ["Learner", "Aarav"],
-  ["Learner ID", "student-1"],
-  [
-    "Learner ID policy",
-    "Internal learner IDs are included only for authorised record matching; they must not be used as public identifiers."
-  ],
+  ["Child", "Aarav"],
   ["Generated at", GENERATED_AT],
   ["Time zone", TIME_ZONE],
   ["Filters", "Report view: skills-check; Period: Last 90 days"],
-  ["Evidence window", "2026-07-20T09:30:00.000Z"],
+  ["Results period", "2026-07-20T09:30:00.000Z"],
   ["App version(s)", "app-2026.07.23"],
-  ["Assessment version(s)", "assessment-v4, form-v3"],
+  ["Check version(s)", "assessment-v4, form-v3"],
   ["Content version(s)", "content-v8"],
-  ["Policy version(s)", "admin-v2, policy-v6, scoring-v5"],
+  ["Scoring version(s)", "admin-v2, policy-v6, scoring-v5"],
   ["Definitions", "Metric definition rows are included in this file."],
   ["Privacy classification", REPORT_PRIVACY_CLASSIFICATION]
 ];
@@ -102,7 +97,7 @@ test("large version sets use labeled deterministic compaction instead of silent 
 
   assert.match(
     contentVersions,
-    /^30 distinct exact versions; complete-set FNV-1a checksum [a-f0-9]{8}; full values remain in evidence-detail rows\.$/
+    /^30 versions included \(reference [a-f0-9]{8}\)\.$/
   );
   assert.doesNotMatch(contentVersions, /content-01/);
 });
@@ -138,17 +133,17 @@ test("student CSV provenance survives row export and RFC-style CSV escaping", ()
     },
     evidenceSource: VERSIONED_EVIDENCE
   });
-  const provenance = rows.filter(row => row["Row type"] === "Provenance");
+  const provenance = rows.filter(row => row["Row type"] === "Report detail");
 
-  assert.equal(provenance.length, EXPECTED_PROVENANCE.length);
+  assert.equal(provenance.length, EXPECTED_PROVENANCE.length - 4);
   assert.equal(provenance.find(row => row.Field === "Privacy classification").Value, REPORT_PRIVACY_CLASSIFICATION);
-  assert.equal(provenance.find(row => row.Field === "Content version(s)").Value, "content-v8");
+  assert.equal(provenance.some(row => /version/i.test(row.Field)), false);
 
   const preamble = exportProvenanceCsvPreamble(
     provenance.map(row => ({ field: row.Field, value: row.Value }))
   );
   assert.match(preamble, /^"Section","Field","Value"/);
-  assert.match(preamble, /"Report provenance","Filters","Report view: skills-check; Period: Last 90 days"/);
+  assert.match(preamble, /"About this report","Filters","Report view: Skills check; Period: Last 90 days"/);
   assert.match(preamble, new RegExp(REPORT_PRIVACY_CLASSIFICATION));
 });
 
@@ -165,7 +160,7 @@ test("plain-text report provenance keeps every canonical field visible", () => {
   });
   const textBlock = exportProvenanceTextBlock(rows);
 
-  assert.match(textBlock, /^Report Provenance\n\n/);
+  assert.match(textBlock, /^About this report\n\n/);
   for (const row of rows) {
     assert.ok(textBlock.includes(`${row.field}: ${row.value}`));
   }
@@ -199,7 +194,7 @@ test("plain-text report keeps complete question evidence with provenance", () =>
     totalAnswered: 520
   });
 
-  assert.match(report, /Report Provenance/);
+  assert.match(report, /About this report/);
   assert.match(report, /Privacy classification: CONFIDENTIAL/);
   assert.match(report, /1\. Skill: Initial Sounds\nQuestion: Question 1/);
   assert.match(report, /520\. Skill: Initial Sounds\nQuestion: Question 520/);
@@ -244,11 +239,11 @@ test("student and class EL Excel snapshots contain the canonical provenance bloc
     assert.equal(entries.get("Generated at"), GENERATED_AT);
     assert.equal(entries.get("Time zone"), TIME_ZONE);
     assert.equal(entries.get("App version(s)"), "app-2026.07.23");
-    assert.equal(entries.get("Assessment version(s)"), "assessment-v4, form-v3");
+    assert.equal(entries.get("Check version(s)"), "assessment-v4, form-v3");
     assert.equal(entries.get("Content version(s)"), "content-v8");
-    assert.equal(entries.get("Policy version(s)"), "admin-v2, policy-v6, scoring-v5");
+    assert.equal(entries.get("Scoring version(s)"), "admin-v2, policy-v6, scoring-v5");
     assert.equal(entries.get("Privacy classification"), REPORT_PRIVACY_CLASSIFICATION);
-    assert.match(entries.get("Definitions"), /Metric Definitions sheet/);
+    assert.match(entries.get("Definitions"), /How figures are worked out sheet/);
   }
 });
 
@@ -276,8 +271,8 @@ test("Guided Reading Excel snapshot labels non-versioned evidence honestly", asy
 
   assert.equal(entries.get("Generated at"), GENERATED_AT);
   assert.equal(entries.get("Time zone"), TIME_ZONE);
-  assert.equal(entries.get("Evidence window"), "2026-07-21T10:00:00.000Z to 2026-07-21T10:05:00.000Z");
-  assert.equal(entries.get("Content version(s)"), "No versioned content evidence included");
-  assert.equal(entries.get("Policy version(s)"), "No versioned scoring or administration policy included");
+  assert.equal(entries.get("Results period"), "2026-07-21T10:00:00.000Z to 2026-07-21T10:05:00.000Z");
+  assert.equal(entries.get("Content version(s)"), "No content version details included");
+  assert.equal(entries.get("Scoring version(s)"), "No scoring version details included");
   assert.equal(entries.get("Privacy classification"), REPORT_PRIVACY_CLASSIFICATION);
 });

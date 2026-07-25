@@ -428,7 +428,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   </span>
                 ))}
                 {renderPicker()}
-                <p className="hollow-room-hint" data-child-instruction="">Tap a glowing spot to place something you own. Tap a placed thing to put it away.</p>
+                <p className="hollow-room-hint" data-child-instruction="">Tap a glow to place something.</p>
                 <button
                   type="button"
                   className="hollow-world-button"

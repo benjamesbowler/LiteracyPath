@@ -1,4 +1,5 @@
 import { ErrorBoundary } from "../components/ErrorBoundary.jsx";
+import { TEACHER_COPY } from "../copy/teacherCopy.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import { loadFinishedReportPageModule } from "./appRuntimeServices.js";
 
@@ -126,8 +127,11 @@ export function NewVersionAvailableCard({ message = "A new version is available.
 export function PageErrorFallback() {
   return (
     <div className="card page-card page-stack error-boundary-fallback">
-      <h2>Something went wrong.</h2>
-      <p>Please refresh or go back.</p>
+      <h2>We couldn&apos;t load this page.</h2>
+      <p>Your data is safe. Check your internet, then try again.</p>
+      <button className="main-button" type="button" onClick={() => window.location.reload()}>
+        Try again
+      </button>
     </div>
   );
 }
@@ -155,16 +159,16 @@ export function AssessmentErrorBoundary({ children, resetKey, returnToStudentOve
                   <span></span>
                   <span></span>
                 </div>
-                <h2>Next question is getting ready...</h2>
+                <h2>Getting the next question ready…</h2>
                 {import.meta.env.DEV && <p className="muted-text">{error.message}</p>}
               </>
             ) : (
               <>
-                <h2>Assessment paused.</h2>
-                <p>Please return to the student overview and start this round again.</p>
+                <h2>{TEACHER_COPY.errors.checkPaused}</h2>
+                <p>{TEACHER_COPY.errors.checkPausedHelp}</p>
                 {import.meta.env.DEV && <p>{error.message}</p>}
                 <button className="main-button" onClick={returnToStudentOverview} type="button">
-                  Return to Student Overview
+                  Return to child overview
                 </button>
               </>
             )}

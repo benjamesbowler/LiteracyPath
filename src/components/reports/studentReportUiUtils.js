@@ -1,33 +1,33 @@
 export const STUDENT_REPORT_VIEWS = [
   {
     id: "whole-child",
-    label: "Whole Child",
-    shortLabel: "Whole Child",
-    description: "What this student knows across every learning area."
+    label: "Whole child",
+    shortLabel: "Whole child",
+    description: "What this child knows across every learning area."
   },
   {
     id: "el-assessments",
-    label: "EL Assessments",
-    shortLabel: "EL Assessments",
-    description: "Assessment 1-6 results, evidence and next steps."
+    label: "EL checks",
+    shortLabel: "EL checks",
+    description: "EL check results and next steps."
   },
   {
     id: "guided-reading",
-    label: "Guided Reading",
-    shortLabel: "Guided Reading",
+    label: "Guided reading",
+    shortLabel: "Guided reading",
     description: "Books, reading observations, words and teacher notes."
   },
   {
     id: "skills-check",
-    label: "Skills Check",
-    shortLabel: "Skills Check",
-    description: "Formal checkpoint results and progress by skill."
+    label: "Skills check",
+    shortLabel: "Skills check",
+    description: "Check results and progress by skill."
   },
   {
     id: "other-learning",
-    label: "Other Learning",
-    shortLabel: "Other Learning",
-    description: "Useful practice evidence from other learning areas."
+    label: "Other learning",
+    shortLabel: "Other learning",
+    description: "Useful practice results from other learning areas."
   }
 ];
 
@@ -64,7 +64,7 @@ export function reportStatusLabel(value = "") {
   if (["secure", "mastered", "passed", "got it", "on track"].includes(status)) return "Secure";
   if (["developing", "building", "almost", "almost there", "current", "attempted"].includes(status)) return "Developing";
   if (["needs support", "needs teaching", "needs reteaching", "needs re teaching", "support"].includes(status)) return "Needs teaching";
-  if (status === "mixed" || status === "mixed evidence") return "Mixed evidence";
+  if (status === "mixed" || status === "mixed evidence") return "Mixed results";
   return "Not checked";
 }
 
@@ -80,13 +80,13 @@ export function getGuidedReadingLandingMeta({ progress = null, loadStatus = "idl
 export function getSkillsCheckLandingMeta({ attemptCount = 0, skillMasterySummary = [] } = {}) {
   const hasMastery = Array.isArray(skillMasterySummary) &&
     skillMasterySummary.some(summary => Number(summary?.masteredCount || 0) > 0);
-  if (hasMastery) return "Checkpoint evidence available";
+  if (hasMastery) return "Saved check results available";
 
   const savedAttempts = Math.max(0, Number(attemptCount) || 0);
   if (savedAttempts > 0) {
-    return `${savedAttempts} checkpoint attempt${savedAttempts === 1 ? "" : "s"} saved`;
+    return `${savedAttempts} saved check${savedAttempts === 1 ? "" : "s"}`;
   }
-  return "No checkpoint attempts yet";
+  return "No saved checks yet";
 }
 
 function firstValidTimestamp(...values) {

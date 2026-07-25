@@ -25,7 +25,7 @@ export const LEARNING_STATUS_LABELS = Object.freeze({
   [LEARNING_STATUS_IDS.SECURE]: "Secure",
   [LEARNING_STATUS_IDS.DEVELOPING]: "Developing",
   [LEARNING_STATUS_IDS.NEEDS_SUPPORT]: "Needs support",
-  [LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: "Not enough evidence",
+  [LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: "Not enough results",
   [LEARNING_STATUS_IDS.NOT_CHECKED]: "Not checked"
 });
 
@@ -120,8 +120,8 @@ export function learningConfidence({
   ) {
     return {
       id: "stronger",
-      label: "Stronger evidence",
-      detail: `${normalizedAttempts} attempts across ${normalizedDiversity} skills`,
+      label: "Stronger results",
+      detail: `${normalizedAttempts} scored answers across ${normalizedDiversity} skills`,
       sufficient: true,
       policyVersion: LEARNING_POLICY_VERSION
     };
@@ -129,8 +129,8 @@ export function learningConfidence({
   if (normalizedDiversity >= LEARNING_EVIDENCE_POLICY.confidence.moderateMinimumSkillDiversity) {
     return {
       id: "moderate",
-      label: "Moderate evidence",
-      detail: `${normalizedAttempts} attempts across ${normalizedDiversity} skills`,
+      label: "Enough results",
+      detail: `${normalizedAttempts} scored answers across ${normalizedDiversity} skills`,
       sufficient: true,
       policyVersion: LEARNING_POLICY_VERSION
     };
@@ -138,7 +138,7 @@ export function learningConfidence({
   return {
     id: "limited-diversity",
     label: "Limited diversity",
-    detail: `${normalizedAttempts} attempts across ${normalizedDiversity} recorded skills`,
+    detail: `${normalizedAttempts} scored answers across ${normalizedDiversity} recorded skills`,
     sufficient: true,
     policyVersion: LEARNING_POLICY_VERSION
   };
@@ -197,12 +197,12 @@ export function evaluateLearningConclusion({
     confidence,
     ready: evidenceReady,
     reason: !hasScoredEvidence
-      ? "No scored evidence has been recorded."
+      ? "No scored results have been recorded."
       : !confidence.sufficient
         ? confidence.detail
         : !recent
-          ? `The latest evidence is older than ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
-          : "The evidence meets the published learning-policy requirements."
+          ? `The latest results are older than ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
+          : "The results are ready to use."
   };
 }
 
@@ -226,17 +226,17 @@ export function evaluateClassComparability({
 
   if (ready < LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners) {
     reasons.push(
-      `${ready} of ${LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners} required policy-ready learners`
+      `${ready} of ${LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners} children have enough results`
     );
   }
   if (readyProportion < LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyProportion) {
     reasons.push(
-      `${Math.round(readyProportion * 100)}% of learners are policy-ready; `
+      `${Math.round(readyProportion * 100)}% of children have enough results; `
       + `${Math.round(LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyProportion * 100)}% required`
     );
   }
   if (counts.length !== ready) {
-    reasons.push("one or more policy-ready learners has no response count");
+    reasons.push("one or more children has no scored-answer count");
   }
   if (
     responseImbalanceRatio !== null
@@ -260,7 +260,7 @@ export function evaluateClassComparability({
     reasons,
     reason: reasons.length
       ? reasons.join("; ")
-      : "The class meets the policy-ready learner coverage and response-balance requirements."
+      : "The class has enough balanced results to compare."
   };
 }
 

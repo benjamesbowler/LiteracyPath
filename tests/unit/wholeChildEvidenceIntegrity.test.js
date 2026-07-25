@@ -69,15 +69,15 @@ test("D-003: per-item timestamps remain distinct, canonical, and teacher-local",
   }).filter(row => row["Learning area"] === "Sound Seekers");
 
   assert.equal(rows.length, 2);
-  assert.deepEqual(rows.map(row => row["Last evidence (UTC)"]), [
+  assert.deepEqual(rows.map(row => row["Latest result (UTC)"]), [
     "2026-07-21T01:23:42.811Z",
     "2026-07-22T02:34:53.922Z"
   ]);
-  assert.equal(new Set(rows.map(row => row["Last evidence (UTC)"])).size, 2);
-  assert.ok(rows.every(row => row["Evidence time basis"] === "Per-sound last evidence"));
+  assert.equal(new Set(rows.map(row => row["Latest result (UTC)"])).size, 2);
+  assert.ok(rows.every(row => row["Results date basis"] === "Latest practice for each sound"));
   assert.ok(rows.every(row => row["Time zone"] === "Asia/Shanghai"));
-  assert.ok(rows.every(row => row["Teacher-local evidence time"].endsWith("(Asia/Shanghai)")));
-  assert.ok(rows.every(row => /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(row["Last evidence (UTC)"])));
+  assert.ok(rows.every(row => row["Teacher-local result time"].endsWith("(Asia/Shanghai)")));
+  assert.ok(rows.every(row => /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(row["Latest result (UTC)"])));
   assert.ok(rows.every(row => !Object.hasOwn(row, "Latest evidence")));
 });
 
@@ -133,11 +133,13 @@ test("D-004: Whole Child reconciles related sound evidence and exports an honest
   assert.ok(relatedRows.every(row => row["Reconciliation note"].includes("displayed status follows the published evidence precedence")));
   assert.ok(statusRows.every(row => Number.isFinite(Number(row.Attempts))));
   assert.ok(summaryRows.every(row => Number.isFinite(Number(row.Observations))));
-  assert.ok(summaryRows.every(row => Number.isFinite(Number(row.Denominator))));
-  assert.ok(statusRows.every(row => typeof row["Evidence window"] === "string" && row["Evidence window"]));
+  assert.ok(summaryRows.every(row => Number.isFinite(Number(row["Answers counted"]))));
+  assert.ok(statusRows.every(row => typeof row["Results period"] === "string" && row["Results period"]));
   assert.ok(statusRows.every(row => [
     "Secure",
+    "Growing",
     "Developing",
+    "Needs more practice",
     "Needs support",
     "Not enough evidence",
     "Mixed evidence",

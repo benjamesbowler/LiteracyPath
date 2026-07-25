@@ -51,7 +51,7 @@ test("a perfect sparse sample cannot create an accuracy conclusion", () => {
 
   assert.equal(conclusion.ready, false);
   assert.equal(conclusion.status.id, LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
-  assert.equal(conclusion.status.label, "Not enough evidence");
+  assert.equal(conclusion.status.label, "Not enough results");
   assert.equal(conclusion.policyVersion, LEARNING_POLICY_VERSION);
   assert.equal(conclusion.confidence.policyVersion, LEARNING_POLICY_VERSION);
 });
@@ -100,7 +100,7 @@ test("class comparability requires enough ready learners, coverage, and balanced
   assert.equal(comparable.comparable, true);
   assert.equal(comparable.policyVersion, LEARNING_POLICY_VERSION);
   assert.equal(weakCoverage.comparable, false);
-  assert.match(weakCoverage.reason, /50% of learners are policy-ready; 70% required/);
+  assert.match(weakCoverage.reason, /50% of children have enough results; 70% required/);
   assert.equal(imbalanced.comparable, false);
   assert.match(imbalanced.reason, /5:1 response imbalance; 4:1 maximum/);
 });

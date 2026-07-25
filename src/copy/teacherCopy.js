@@ -172,6 +172,30 @@ export const TEACHER_COPY = Object.freeze({
   errors: Object.freeze({
     pageLoad: "We couldn't load this page. Your class data is safe — check your internet and try again.",
     classesLoad: "We couldn't load your classes. Nothing is lost — check your internet and try again.",
-    childrenLoad: "We couldn't load the children. Nothing is lost — check your internet and try again."
+    childrenLoad: "We couldn't load the children. Nothing is lost — check your internet and try again.",
+    checkPaused: "This check paused.",
+    checkPausedHelp: "Nothing is lost. Return to the child overview and start this check again."
+  }),
+  privacy: Object.freeze({
+    title: name => `Export or delete ${name}'s data`,
+    intro: days => `Check the request against school records before continuing. Aim to respond within ${days} days, or sooner where required.`,
+    exportTitle: "Download a copy",
+    exportBody: "Downloads a copy of the child's saved data and records that the request was completed.",
+    exportAction: "Download child data",
+    deleteTitle: "Delete permanently",
+    deleteBody: "This removes the child and all saved results, reports, activity and progress. A minimal record of the request is kept.",
+    prepareDelete: "Check deletion request",
+    deleteAction: "Delete all child data",
+    trackingTitle: "Request history",
+    trackingLoading: "Loading request history…",
+    trackingUnavailable: "We couldn't load request history. Nothing is lost. Try again before continuing.",
+    trackingEmpty: "No earlier requests are recorded for this child."
+  }),
+  admin: Object.freeze({
+    resetTitle: "Reset check results",
+    resetBody: name => `This removes all saved check results, scores and progress for ${name}.`,
+    resetKeeps: "The child, class, sign-in pictures, Guided Reading and Story Quest progress stay in place.",
+    resetConfirm: "Type RESET to turn on the final button.",
+    resetAction: "Reset check results"
   })
 });

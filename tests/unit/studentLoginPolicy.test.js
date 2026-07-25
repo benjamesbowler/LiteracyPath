@@ -21,7 +21,7 @@ test("child login keeps the code-gated roster but requires teacher-set pictures"
   assert.match(loginFlow, /loadCompatibleStudentClass/);
   assert.match(classApi, /student_class_by_code/);
   assert.match(loginFlow, /step === "not-ready"/);
-  assert.match(loginFlow, /Your teacher can set your three login pictures/);
+  assert.match(loginFlow, /Your teacher can choose your three sign-in pictures/);
   assert.doesNotMatch(loginFlow, /student_set_password/);
   assert.doesNotMatch(loginFlow, /step === "setup"|setStep\("setup"\)/);
 

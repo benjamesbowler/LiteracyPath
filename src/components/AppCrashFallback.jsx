@@ -11,9 +11,9 @@ export function AppCrashFallback() {
         maxWidth: "420px", textAlign: "center", background: "#fff", borderRadius: "16px",
         padding: "32px 28px", boxShadow: "0 4px 24px rgba(15,23,42,.08)"
       }}>
-        <h1 style={{ fontSize: "1.4rem", margin: "0 0 8px", color: "#0C6B65" }}>Something went wrong</h1>
+        <h1 style={{ fontSize: "1.4rem", margin: "0 0 8px", color: "#0C6B65" }}>We couldn&apos;t open the app</h1>
         <p style={{ margin: "0 0 20px", color: "#51607A" }}>
-          The app hit an unexpected hiccup. Reloading usually fixes it.
+          Your data is safe. Check your internet, then try again.
         </p>
         <button
           type="button"
@@ -23,7 +23,7 @@ export function AppCrashFallback() {
             background: "#0C6B65", color: "#fff", fontWeight: 700, fontSize: "1rem", cursor: "pointer"
           }}
         >
-          Reload
+          Try again
         </button>
       </div>
     </div>

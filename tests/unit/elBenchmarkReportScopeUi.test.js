@@ -87,11 +87,11 @@ test("finished report renders a visible saved-route selector with the newest rou
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, finishedReportProps(assessmentHistory)));
 
-  assert.match(html, /Benchmark scope:\s*<strong>Grade 1 · EOY<\/strong>/);
-  assert.match(html, /aria-label="Benchmark grade and assessment window"/);
-  assert.match(html, /Grade 1 · EOY \(1 attempt\) - most recent/);
-  assert.match(html, /Grade 1 · MOY \(1 attempt\)/);
-  assert.match(html, />Export This Route<\/button>/);
+  assert.match(html, /Check period:\s*<strong>Grade 1 · End of year<\/strong>/);
+  assert.match(html, /aria-label="Grade and time of year"/);
+  assert.match(html, /Grade 1 · End of year \(1 attempt\) - most recent/);
+  assert.match(html, /Grade 1 · Middle of year \(1 attempt\)/);
+  assert.match(html, />Download this report<\/button>/);
 });
 
 test("Assessment 1 item details come from the latest completed attempt, not live partial state", async t => {
@@ -131,7 +131,7 @@ test("Assessment 1 item details come from the latest completed attempt, not live
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, props));
 
-  assert.match(html, /View item results from the latest completed administrations/);
+  assert.match(html, /View answers from the latest checks/);
   assert.match(html, /✓ (?:Lowercase )?A: letter name/);
   assert.doesNotMatch(html, /Z: letter name/);
 });
@@ -169,14 +169,14 @@ test("Whole Child includes EL 3-6 as descriptive evidence without inventing mast
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, props));
 
-  assert.match(html, /Descriptive EL assessment evidence/);
+  assert.match(html, /Descriptive EL check results/);
   assert.match(html, /Phonological and Phonemic Awareness/);
   assert.match(html, /without inventing a mastery cut score/);
-  assert.match(html, /not included in the Secure, Developing or Needs teaching totals/);
+  assert.match(html, /not included in the Secure, Developing, or Needs teaching totals/);
   assert.match(html, />Download knowledge data</);
 });
 
-test("finished report exposes expandable semantic per-item evidence for every benchmark domain", async t => {
+test("finished report exposes expandable semantic answer details for every benchmark domain", async t => {
   const vite = await createServer({
     appType: "custom",
     logLevel: "silent",
@@ -293,17 +293,17 @@ test("finished report exposes expandable semantic per-item evidence for every be
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, finishedReportProps(assessmentHistory)));
 
   assert.equal((html.match(/class="student-report-benchmark-evidence-table"/g) || []).length, 4);
-  assert.match(html, /<summary>View item evidence \(2\)<\/summary>/);
-  assert.match(html, /<caption>Phonological and Phonemic Awareness per-item evidence \(2 items\)<\/caption>/);
-  assert.match(html, /<caption>Encoding and Spelling per-item evidence \(1 item\)<\/caption>/);
-  assert.match(html, /<caption>Decoding and Automaticity per-item evidence \(1 item\)<\/caption>/);
-  assert.match(html, /<caption>Oral Reading Fluency per-item evidence \(1 item\)<\/caption>/);
+  assert.match(html, /<summary>View answer details \(2 questions\)<\/summary>/);
+  assert.match(html, /<caption>Phonological and Phonemic Awareness answer details \(2 questions\)<\/caption>/);
+  assert.match(html, /<caption>Encoding and Spelling answer details \(1 question\)<\/caption>/);
+  assert.match(html, /<caption>Decoding and Automaticity answer details \(1 question\)<\/caption>/);
+  assert.match(html, /<caption>Oral Reading Fluency answer details \(1 question\)<\/caption>/);
   assert.match(html, /<th scope="col">Exact response or transcription<\/th>/);
-  assert.match(html, /<th scope="col">Validation issues<\/th>/);
-  assert.match(html, /<th scope="col">Not-scorable reason<\/th>/);
-  assert.match(html, /<th scope="col">Not-scorable note<\/th>/);
+  assert.match(html, /<th scope="col">Check notes<\/th>/);
+  assert.match(html, /<th scope="col">Why it was not scored<\/th>/);
+  assert.match(html, /<th scope="col">Teacher note<\/th>/);
   assert.match(html, /<th data-label="Item" scope="row">/);
-  assert.match(html, /aria-label="Decoding and Automaticity item evidence table"/);
+  assert.match(html, /aria-label="Decoding and Automaticity answer details"/);
   assert.match(html, />mop<\/td>/);
   assert.match(html, />shp<\/td>/);
   assert.match(html, />ran, then rain<\/td>/);
@@ -311,29 +311,25 @@ test("finished report exposes expandable semantic per-item evidence for every be
   assert.match(html, /<strong>Automaticity:<\/strong> Not automatic/);
   assert.match(html, /<strong>Self-correction:<\/strong> Yes/);
   assert.match(html, /<strong>Self-corrections:<\/strong> 2/);
-  assert.match(html, /data-label="Error tags">Vowel Team Confusion<\/td>/);
-  assert.match(html, /data-label="Validation issues">Response Transcription Required<\/td>/);
-  assert.match(html, /data-label="Not-scorable reason">Student Unwell<\/td>/);
-  assert.match(html, /data-label="Not-scorable note">The student reported a headache\.<\/td>/);
+  assert.match(html, /data-label="What to review">Vowel Team Confusion<\/td>/);
+  assert.match(html, /data-label="Check notes">Response Transcription Required<\/td>/);
+  assert.match(html, /data-label="Why it was not scored">Child Unwell<\/td>/);
+  assert.match(html, /data-label="Teacher note">The child reported a headache\.<\/td>/);
   assert.match(html, /<h4>Prerequisite review<\/h4>/);
   assert.match(html, /<dt>Review state<\/dt><dd>Override<\/dd>/);
   assert.match(html, /<dt>Review source<\/dt><dd>Letter Sound Benchmark<\/dd>/);
-  assert.match(html, /<dt>Rule or code<\/dt><dd>External Encoding Evidence<\/dd>/);
-  assert.match(html, /<dt>Evidence attempt<\/dt><dd>letter-sound-3<\/dd>/);
+  assert.match(html, /<dt>Rule or code<\/dt><dd>External Encoding results<\/dd>/);
+  assert.doesNotMatch(html, /Evidence attempt|letter-sound-3/);
   assert.match(html, /<dt>Teacher confirmed<\/dt><dd>Yes<\/dd>/);
   assert.match(html, /<dt>Override applied<\/dt><dd>Yes<\/dd>/);
-  assert.match(html, /<dt>Override rationale<\/dt><dd>Recent classroom spelling evidence supports this route\.<\/dd>/);
+  assert.match(html, /<dt>Override rationale<\/dt><dd>Recent classroom spelling results support this route\.<\/dd>/);
   assert.match(html, /<h4>Recommended follow-up<\/h4>/);
-  assert.match(html, /Administer the Letter Identification assessment before planning the next route\./);
+  assert.match(html, /Administer the Letter Identification check before planning the next route\./);
   assert.match(html, /<h4>Recorded observations<\/h4>/);
   assert.match(html, /Teacher-confirmed route override retained for review\./);
-  assert.match(html, /<h4>Assessment notices<\/h4>/);
+  assert.match(html, /<h4>Check notes<\/h4>/);
   assert.match(html, /Route Confirmation Required/);
-  assert.match(html, /aria-label="Benchmark version provenance"/);
-  assert.match(html, /<strong>Form:<\/strong> benchmark-form-v1/);
-  assert.match(html, /<strong>Content:<\/strong> benchmark-content-v1/);
-  assert.match(html, /<strong>Scoring:<\/strong> benchmark-scoring-v1/);
-  assert.match(html, /<strong>Scoring rule:<\/strong> benchmark-rule-v1/);
+  assert.doesNotMatch(html, /version provenance|benchmark-form-v1|benchmark-content-v1|benchmark-scoring-v1|benchmark-rule-v1/);
   assert.match(html, /<dt>Oral-task accuracy<\/dt>/, "aggregate benchmark metrics must remain visible");
 });
 
@@ -369,9 +365,9 @@ test("finished report never coerces missing fluency evidence to zero", async t =
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, finishedReportProps(assessmentHistory)));
   assert.match(html, /<dt>Correct words\/min<\/dt><dd>Not scored<\/dd>/);
   assert.match(html, /<dt>Word accuracy<\/dt><dd>.*data-metric-figure="accuracy".*Not scored.*<\/dd>/);
-  assert.match(html, /aria-label="Accuracy definition"/);
+  assert.match(html, /aria-label="How accuracy is worked out"/);
   assert.match(html, /<dt>Prosody \(optional\)<\/dt><dd>Not scored<\/dd>/);
-  assert.match(html, /<strong>Performance metrics:<\/strong> Not scored for this administration/);
+  assert.match(html, /<strong>Performance figures:<\/strong> Not scored for this check/);
   assert.doesNotMatch(html, /<strong>Errors:<\/strong>/, "globally unscored fluency must not expose performance counts");
   assert.doesNotMatch(html, /<strong>Accuracy:<\/strong>/, "globally unscored fluency must not expose a performance rate");
 });
@@ -384,14 +380,14 @@ test("finished report item evidence source keeps native disclosure and table sem
   assert.match(source, /<details className="student-report-benchmark-details">/);
   assert.match(source, /<caption>/);
   assert.match(source, /<th scope="col">Exact response or transcription<\/th>/);
-  assert.match(source, /<th scope="col">Validation issues<\/th>/);
-  assert.match(source, /<th scope="col">Not-scorable reason<\/th>/);
-  assert.match(source, /<th scope="col">Not-scorable note<\/th>/);
+  assert.match(source, /<th scope="col">Check notes<\/th>/);
+  assert.match(source, /<th scope="col">Why it was not scored<\/th>/);
+  assert.match(source, /<th scope="col">Teacher note<\/th>/);
   assert.match(source, /<th data-label="Item" scope="row">/);
   assert.match(source, /<BenchmarkDetail detail=\{detail\} \/>/, "aggregate detail must remain alongside item evidence");
   assert.match(source, /<BenchmarkPrerequisiteReview detail=\{detail\} \/>/);
   assert.match(source, /<BenchmarkTeacherGuidance detail=\{detail\} \/>/);
-  assert.match(source, /<BenchmarkProvenance domain=\{domain\} \/>/);
+  assert.doesNotMatch(source, /<BenchmarkProvenance domain=\{domain\} \/>/);
   assert.match(styles, /\.student-report-benchmark-card summary:focus-visible/);
   assert.match(styles, /\.student-report-benchmark-exact-response[\s\S]*white-space: pre-wrap/);
   assert.match(styles, /content: attr\(data-label\)/, "mobile rows must retain visible column labels");

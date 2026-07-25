@@ -76,7 +76,7 @@ test("the entry gateway gives students and teachers their own branded destinatio
   assert.match(entrySource, /import teacherMarkUrl from "\.\.\/assets\/logomark\.svg"/);
   assert.match(entrySource, /className="entry-teacher-name">\{TEACHER_BRAND\.name\}<\/span>/);
   assert.match(entrySource, /className="entry-teacher-tools">\{TEACHER_BRAND\.areaName\}<\/span>/);
-  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Students<\/span>/);
+  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Children<\/span>/);
   assert.match(entrySource, /className="student-entry-card-cta pals-cta">Teachers<\/span>/);
   assert.match(entrySource, /aria-labelledby="student-entry-title"/);
   assert.match(entrySource, /aria-describedby="student-entry-description"/);

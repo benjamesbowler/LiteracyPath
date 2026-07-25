@@ -39,19 +39,19 @@ export function TeacherRecommendationExplanation({
       <summary>Why this next?</summary>
       <dl>
         <div>
-          <dt>Evidence</dt>
+          <dt>Results used</dt>
           <dd>{normalized.evidence}</dd>
         </div>
         <div>
-          <dt>Dependency</dt>
+          <dt>Why now</dt>
           <dd>{normalized.dependency}</dd>
         </div>
         <div>
-          <dt>Confidence</dt>
+          <dt>How certain</dt>
           <dd>{normalized.confidence}</dd>
         </div>
         <div>
-          <dt>Unlock</dt>
+          <dt>What next</dt>
           <dd>{normalized.unlock}</dd>
         </div>
       </dl>

@@ -213,25 +213,25 @@ export function ElFormalAssessmentsPanel({
     <section className="teacher-report-card el-formal-assessments-panel" aria-labelledby="el-formal-assessments-title">
       <header className="el-formal-assessments-heading">
         <div>
-          <p className="panel-label">Formal evidence</p>
-          <h3 id="el-formal-assessments-title">EL Formal Assessments</h3>
-          <p>Choose one benchmark route before creating a class PDF or Excel workbook.</p>
+          <p className="panel-label">Saved check results</p>
+          <h3 id="el-formal-assessments-title">EL checks</h3>
+          <p>Choose one grade and time-of-year route before creating a class PDF or spreadsheet.</p>
         </div>
         <span className="report-scope-count">
-          {activeScope ? `${activeScope.attemptCount} scoped attempt${activeScope.attemptCount === 1 ? "" : "s"}` : "No benchmark route"}
+          {activeScope ? `${activeScope.attemptCount} included attempt${activeScope.attemptCount === 1 ? "" : "s"}` : "No check route"}
         </span>
       </header>
 
       <div className="class-report-print-actions el-formal-export-controls screen-only">
         <label>
-          Evidence scope
+          Results to include
           <select
-            aria-label="EL evidence scope"
+            aria-label="Choose EL results to include"
             disabled={scopeOptions.length === 0}
             onChange={event => setSelectedScopeKey(event.target.value)}
             value={activeScope ? getScopeKey(activeScope) : ""}
           >
-            {scopeOptions.length === 0 && <option value="">No completed benchmark routes</option>}
+            {scopeOptions.length === 0 && <option value="">No completed check routes</option>}
             {scopeOptions.map((scope, index) => (
               <option key={getScopeKey(scope)} value={getScopeKey(scope)}>
                 {scope.label} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " — most recent" : ""}
@@ -256,7 +256,7 @@ export function ElFormalAssessmentsPanel({
         <strong>Saved-report retention</strong>
         <p>
           {supabase
-            ? "Signed-in report history is retained in cloud storage until you delete it, reset an included learner's assessment data, or remove the teacher account. This browser also keeps only the latest 12 reports for offline access."
+            ? "Signed-in report history stays in cloud storage until you delete it, reset an included child's check data, or remove the teacher account. This browser also keeps only the latest 12 reports for offline access."
             : "This browser keeps only the latest 12 reports for offline access. Older local reports are removed automatically as new reports are saved."}
         </p>
       </div>
@@ -271,7 +271,7 @@ export function ElFormalAssessmentsPanel({
 
       <div className="el-saved-reports" aria-busy={historyStatus === "loading"}>
         <div className="el-saved-reports-heading">
-          <h4>Saved EL Reports</h4>
+          <h4>Saved EL reports</h4>
           <span>{historyStatus === "loading" ? "Loading…" : `${savedReports.length} saved`}</span>
         </div>
         {historyStatus !== "loading" && savedReports.length === 0 && (
@@ -286,7 +286,7 @@ export function ElFormalAssessmentsPanel({
                 <strong>{getSavedReportLabel(report, students, classes)}</strong>
                 <span>{report.generatedAt ? new Date(report.generatedAt).toLocaleString() : "Date unavailable"}</span>
                 <small>
-                  {report.benchmarkScope?.label || "Benchmark scope not recorded"} · {report.summary?.totalAssessments ?? report.summary?.studentCount ?? 0} evidence records
+                  {report.benchmarkScope?.label || "Check route not recorded"} · {report.summary?.totalAssessments ?? report.summary?.studentCount ?? 0} result records
                 </small>
               </div>
               {deleting ? (

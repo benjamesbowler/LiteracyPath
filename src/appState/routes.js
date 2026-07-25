@@ -86,7 +86,7 @@ async function hydrateTeacherRouteContext([
   const reject = () => {
     clearLearner();
     setView(fallbackView);
-    setMessage("That link is unavailable. Choose a class and learner from Progress.");
+    setMessage("That link is unavailable. Choose a class and child from Progress.");
     return false;
   };
 

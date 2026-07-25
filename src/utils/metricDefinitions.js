@@ -1,60 +1,54 @@
-export const METRIC_DEFINITIONS_SHEET_NAME = "Metric Definitions";
+export const METRIC_DEFINITIONS_SHEET_NAME = "How figures are worked out";
 
 export const METRIC_DEFINITIONS = Object.freeze({
   accuracy: Object.freeze({
     id: "accuracy",
     label: "Accuracy",
-    definition: "Correct scored responses divided by administered scored responses, multiplied by 100.",
-    denominator: "Administered responses that have a scored correct or incorrect result.",
-    dateRange: "All saved evidence in the selected learner, class, assessment, or report scope unless a shorter range is named.",
-    minimumEvidence: "At least eight administered scored responses for an accuracy conclusion; smaller samples render Not enough evidence."
+    counts: "Correct scored answers out of all scored answers, shown as a percentage.",
+    timeWindow: "All saved answers in the selected child, class, check, or report unless a shorter period is shown.",
+    excludes: "Unscored answers and groups too small for a fair result."
   }),
   mastered: Object.freeze({
     id: "mastered",
     label: "Mastered",
-    definition: "Skills or items whose saved evidence meets the app's mastery rule; practice exposure alone cannot create mastery.",
-    denominator: "All skills or items in the curriculum scope shown beside the figure.",
-    dateRange: "All saved scored evidence in the selected scope.",
-    minimumEvidence: "The mastery rule for that skill or item must be met; a single practice exposure is not sufficient."
+    counts: "Skills whose saved results meet the mastery rule.",
+    timeWindow: "All saved scored answers in the selected view.",
+    excludes: "Practice seen once and skills that have not met the mastery rule."
   }),
   active: Object.freeze({
     id: "active",
     label: "Active",
-    definition: "A learner with saved answer activity or synced Sound Seekers activity in the stated period.",
-    denominator: "Active roster learners in the selected class.",
-    dateRange: "The teacher's local calendar day when the figure says today; otherwise the period named beside the figure.",
-    minimumEvidence: "At least one saved answer or synced Sound Seekers activity event in the period."
+    counts: "Children with a saved answer or saved Sound Seekers play.",
+    timeWindow: "Today when the figure says today; otherwise the period shown beside it.",
+    excludes: "Children without saved activity in that period."
   }),
   started: Object.freeze({
     id: "started",
     label: "Started",
-    definition: "A learner with at least one saved response in the literacy assessment or practice record.",
-    denominator: "Active roster learners in the selected class.",
-    dateRange: "All saved evidence for the selected class.",
-    minimumEvidence: "At least one saved response."
+    counts: "Children with at least one saved answer.",
+    timeWindow: "All saved activity for the selected class.",
+    excludes: "Children with no saved answers."
   }),
   "current-skill": Object.freeze({
     id: "current-skill",
     label: "Current skill",
-    definition: "The first attempted but not yet mastered skill; if none has been attempted, the first unmastered curriculum skill.",
-    denominator: "The ordered curriculum skill sequence available to the learner.",
-    dateRange: "All saved mastery and attempt evidence for the learner.",
-    minimumEvidence: "No evidence is required for the fallback; one saved attempt is required to identify an in-progress skill."
+    counts: "The first tried skill not yet mastered, or the first skill still to learn.",
+    timeWindow: "All saved attempts and mastered skills for the child.",
+    excludes: "Skills already mastered and skills later in the teaching order."
   }),
   trails: Object.freeze({
     id: "trails",
     label: "Trails",
-    definition: "Sound Seekers trail stops completed and durably saved for the learner.",
-    denominator: "40 authored Sound Seekers trail stops.",
-    dateRange: "All durably saved Sound Seekers progress for the learner.",
-    minimumEvidence: "At least one durably saved completed trail stop."
+    counts: "Sound Seekers trail stops completed and saved.",
+    timeWindow: "All saved Sound Seekers progress for the child.",
+    excludes: "Stops that were opened but not completed and saved."
   })
 });
 
 export function formatMetricUpdateTime(value) {
-  if (!value) return "No saved evidence time";
+  if (!value) return "No saved time";
   const date = value instanceof Date ? value : new Date(value);
-  if (!Number.isFinite(date.getTime())) return "No saved evidence time";
+  if (!Number.isFinite(date.getTime())) return "No saved time";
   const pad = number => String(number).padStart(2, "0");
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
@@ -62,11 +56,24 @@ export function formatMetricUpdateTime(value) {
 export function getMetricDefinition(metricId, overrides = {}) {
   const definition = METRIC_DEFINITIONS[metricId];
   if (!definition) return null;
+  const counts = overrides.counts
+    || overrides.definition
+    || overrides.denominator
+    || definition.counts;
+  const timeWindow = overrides.timeWindow
+    || overrides.dateRange
+    || definition.timeWindow;
+  const excludes = overrides.excludes
+    || overrides.minimumEvidence
+    || definition.excludes;
   return {
     ...definition,
     ...overrides,
     id: definition.id,
     label: overrides.label || definition.label,
+    counts,
+    timeWindow,
+    excludes,
     updateTime: formatMetricUpdateTime(overrides.updatedAt)
   };
 }
@@ -75,33 +82,30 @@ export function metricDefinitionText(metricId, overrides = {}) {
   const definition = getMetricDefinition(metricId, overrides);
   if (!definition) return "";
   return [
-    `${definition.label}: ${definition.definition}`,
-    `Denominator: ${definition.denominator}`,
-    `Date range: ${definition.dateRange}`,
-    `Minimum evidence: ${definition.minimumEvidence}`,
-    `Updated: ${definition.updateTime}`
+    `${definition.label}.`,
+    `Counts: ${definition.counts}`,
+    `Time: ${definition.timeWindow}`,
+    `Excludes: ${definition.excludes}`
   ].join(" ");
 }
 
 export function buildMetricDefinitionRows({ generatedAt = new Date() } = {}) {
   const exportedAt = formatMetricUpdateTime(generatedAt);
   return Object.values(METRIC_DEFINITIONS).map(definition => ({
-    "Metric key": definition.id,
-    "Metric": definition.label,
-    "Definition": definition.definition,
-    "Denominator": definition.denominator,
-    "Date range": definition.dateRange,
-    "Minimum evidence": definition.minimumEvidence,
-    "Update time": "The UI shows the latest saved evidence time, or states when no evidence time exists.",
-    "Definitions exported at": exportedAt
+    "Figure key": definition.id,
+    "Figure": definition.label,
+    "Counts": definition.counts,
+    "Time": definition.timeWindow,
+    "Excludes": definition.excludes,
+    "Guide exported at": exportedAt
   }));
 }
 
 export function buildMetricDefinitionCsvRows(options = {}) {
   return [
     [],
-    ["Metric Definitions"],
-    ["Metric key", "Metric", "Definition", "Denominator", "Date range", "Minimum evidence", "Update time", "Definitions exported at"],
+    [METRIC_DEFINITIONS_SHEET_NAME],
+    ["Figure key", "Figure", "Counts", "Time", "Excludes", "Guide exported at"],
     ...buildMetricDefinitionRows(options).map(row => Object.values(row))
   ];
 }
@@ -109,12 +113,10 @@ export function buildMetricDefinitionCsvRows(options = {}) {
 export function buildMetricDefinitionsText(options = {}) {
   return buildMetricDefinitionRows(options)
     .map(row => [
-      row["Metric"],
-      `Definition: ${row["Definition"]}`,
-      `Denominator: ${row["Denominator"]}`,
-      `Date range: ${row["Date range"]}`,
-      `Minimum evidence: ${row["Minimum evidence"]}`,
-      `Update time: ${row["Update time"]}`
+      row["Figure"],
+      `Counts: ${row.Counts}`,
+      `Time: ${row.Time}`,
+      `Excludes: ${row.Excludes}`
     ].join("\n"))
     .join("\n\n");
 }
@@ -129,9 +131,7 @@ export function addMetricDefinitionsWorksheet(workbook, options = {}) {
   sheet.columns = headers.map(header => ({
     header,
     key: header,
-    width: ["Definition", "Denominator", "Date range", "Minimum evidence", "Update time"].includes(header)
-      ? 48
-      : 24
+    width: ["Counts", "Time", "Excludes"].includes(header) ? 48 : 24
   }));
   rows.forEach(row => sheet.addRow(row));
   sheet.getRow(1).font = { bold: true };

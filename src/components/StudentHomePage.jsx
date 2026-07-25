@@ -610,12 +610,12 @@ export function StudentHomePage({
             </div>
           </div>
 
-          <section className="hs-sheet" aria-label="Student learning areas">
+          <section className="hs-sheet" aria-label="Learning areas">
             <div className="hs-sheet-head">
               <h1 data-child-title="">Hello, {studentName || "friend"}!</h1>
               <p className="hs-sub" data-child-instruction="">
                 {status.missionComplete
-                  ? "All three tasks done. Anything you like now!"
+                  ? "All three done. Choose anything!"
                   : "What shall we play today?"}
               </p>
             </div>

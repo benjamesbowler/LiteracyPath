@@ -6,9 +6,19 @@ import {
 import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
 import { MetricFigure } from "../MetricDefinition.jsx";
+import { countPhrase, progressPhrase } from "../../copy/teacherCopy.js";
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
+}
+
+function productText(value = "") {
+  return String(value || "")
+    .replace(/\bassessments?\b/gi, match => match.toLowerCase().endsWith("s") ? "checks" : "check")
+    .replace(/\bevidence\b/gi, "results")
+    .replace(/\blearners?\b/gi, match => match.toLowerCase().endsWith("s") ? "children" : "child")
+    .replace(/\bstudents?\b/gi, match => match.toLowerCase().endsWith("s") ? "children" : "child")
+    .replace(/\bincorrect\b/gi, "needs another look");
 }
 
 function cleanStatus(value = "") {
@@ -75,7 +85,7 @@ function formatEvidenceDate(value = "") {
 }
 
 function evidenceSourceLabel(row = {}) {
-  return row.sourceLabel || row.source || row.sourceArea || row.area || row.assessmentName || "Saved evidence";
+  return productText(row.sourceLabel || row.source || row.sourceArea || row.area || row.assessmentName || "Saved result");
 }
 
 function EvidenceDisclosure({ evidence = [], itemLabel = "item" }) {
@@ -83,7 +93,7 @@ function EvidenceDisclosure({ evidence = [], itemLabel = "item" }) {
   if (!rows.length) return null;
   return (
     <details className="lg-report-evidence-disclosure">
-      <summary>View evidence ({rows.length})</summary>
+      <summary>View saved results ({rows.length})</summary>
       <div className="lg-report-evidence-list">
         {rows.map((row, index) => (
           <article key={row.evidenceId || row.id || `${evidenceSourceLabel(row)}-${index}`}>
@@ -91,7 +101,7 @@ function EvidenceDisclosure({ evidence = [], itemLabel = "item" }) {
               <strong>{evidenceSourceLabel(row)}</strong>
               <span>{formatEvidenceDate(row.observedAt || row.occurredAt || row.date || row.completedAt)}</span>
             </div>
-            <p>{row.detail || row.interpretation || row.outcomeLabel || row.details?.sourceResult || String(row.outcome || "").replace(/_/g, " ") || `Evidence recorded for ${itemLabel}.`}</p>
+            <p>{productText(row.detail || row.interpretation || row.outcomeLabel || row.details?.sourceResult || String(row.outcome || "").replace(/_/g, " ") || `Result recorded for ${itemLabel}.`)}</p>
           </article>
         ))}
       </div>
@@ -117,7 +127,7 @@ function normalizeDomains(report = {}) {
   if (Array.isArray(report.items)) {
     const grouped = new Map();
     report.items.forEach(item => {
-      const key = item.domain || item.domainLabel || "Literacy evidence";
+      const key = item.domain || item.domainLabel || "Literacy results";
       const row = grouped.get(key) || { id: key, label: key, items: [] };
       row.items.push(item);
       grouped.set(key, row);
@@ -130,8 +140,8 @@ function normalizeDomains(report = {}) {
 const REPORT_AUDIENCE_OPTIONS = Object.freeze([
   Object.freeze({
     id: WHOLE_CHILD_REPORT_AUDIENCES.TEACHER,
-    label: "Teacher diagnostic",
-    description: "Detailed decisions and source trails"
+    label: "Teacher detail",
+    description: "Detailed decisions and saved sources"
   }),
   Object.freeze({
     id: WHOLE_CHILD_REPORT_AUDIENCES.LEADERSHIP,
@@ -151,7 +161,7 @@ function ReportAudiencePicker({ activeAudience, onChange }) {
       <div>
         <span>Report audience</span>
         <h2 id="lg-report-audience-title">Choose who this view is for</h2>
-        <p>Each view uses the same saved learner record. Only the purpose and language change.</p>
+        <p>Each view uses the same saved child record. Only the purpose and language change.</p>
       </div>
       <div aria-label="Choose report audience" role="group">
         {REPORT_AUDIENCE_OPTIONS.map(option => (
@@ -243,7 +253,7 @@ export function WholeChildReportView({
   className = "",
   onAudienceChange,
   report = {},
-  studentName = "Student"
+  studentName = "Child"
 }) {
   const [internalAudience, setInternalAudience] = useState(WHOLE_CHILD_REPORT_AUDIENCES.TEACHER);
   const activeAudience = controlledAudience || internalAudience;
@@ -285,8 +295,8 @@ export function WholeChildReportView({
 
   if (!totalEvidence) {
     return (
-      <ReportState title="No learning evidence yet">
-        <p>Complete an assessment, Skills Check or Guided Reading record to begin this report.</p>
+      <ReportState title="No learning results yet">
+        <p>Complete a check, Skills check, or Guided reading record to begin this report.</p>
       </ReportState>
     );
   }
@@ -318,7 +328,7 @@ export function WholeChildReportView({
 
       {nextSteps.length > 0 && (
         <ReportSection
-          description="The clearest teaching priorities from the latest direct evidence."
+          description="The clearest teaching priorities from the latest saved results."
           title="Next teaching priorities"
         >
           <ol className="lg-report-priority-list">
@@ -327,7 +337,7 @@ export function WholeChildReportView({
                 <span>{index + 1}</span>
                 <div>
                   <strong>{step.label || step.title || String(step)}</strong>
-                  {(step.detail || step.reason || step.teachingNote) && <p>{step.detail || step.reason || step.teachingNote}</p>}
+                  {(step.detail || step.reason || step.teachingNote) && <p>{productText(step.detail || step.reason || step.teachingNote)}</p>}
                 </div>
               </li>
             ))}
@@ -337,18 +347,18 @@ export function WholeChildReportView({
 
       {descriptiveAssessments.length > 0 && (
         <ReportSection
-          description="Formal evidence from EL Assessments 3-6 is shown here without inventing a mastery cut score. These results are not included in the Secure, Developing or Needs teaching totals above."
-          title="Descriptive EL assessment evidence"
+          description="Results from EL checks 3–6 are shown without inventing a mastery cut score. They are not included in the Secure, Developing, or Needs teaching totals above."
+          title="Descriptive EL check results"
         >
           <div className="lg-report-assessment-grid">
             {descriptiveAssessments.map(assessment => (
               <article className="lg-report-assessment-card" key={assessment.assessmentId}>
                 <div>
-                  <span>Formal descriptive assessment</span>
+                  <span>Descriptive check</span>
                   <h3>{assessment.title || assessment.label}</h3>
                 </div>
-                <strong>{assessment.resultLabel || "Evidence recorded"}</strong>
-                <p>{assessment.interpretation || "Descriptive evidence is available in the EL Assessments report."}</p>
+                <strong>{productText(assessment.resultLabel) || "Result recorded"}</strong>
+                <p>{productText(assessment.interpretation) || "A descriptive result is available in the EL checks report."}</p>
                 {assessment.latestAt && <small>Latest: {formatEvidenceDate(assessment.latestAt)}</small>}
               </article>
             ))}
@@ -357,13 +367,13 @@ export function WholeChildReportView({
       )}
 
       <ReportSection
-        description="Each item appears once. Open the evidence trail to see where the judgment came from."
+        description="Each item appears once. Open its saved results to see where the judgment came from."
         title="Knowledge by literacy area"
       >
         <div className="lg-report-domain-stack">
           {domains.map((domain, domainIndex) => {
             const items = asArray(domain.items || domain.rows);
-            const domainLabel = domain.domainLabel || domain.label || domain.title || domain.domain || domain.id || "Literacy evidence";
+            const domainLabel = domain.domainLabel || domain.label || domain.title || domain.domain || domain.id || "Literacy results";
             return (
               <section className="lg-report-domain" key={domain.id || domain.domain || domainLabel || domainIndex}>
                 <div className="lg-report-domain-heading">
@@ -373,7 +383,7 @@ export function WholeChildReportView({
                 <div className="lg-report-knowledge-list">
                   {!items.length && (
                     <p className="lg-report-domain-empty">
-                      No data yet. This area has not been checked in the available evidence.
+                      No data yet. This area has not been checked in the available results.
                     </p>
                   )}
                   {items.map((item, index) => (
@@ -381,7 +391,7 @@ export function WholeChildReportView({
                       <div className="lg-report-knowledge-summary">
                         <div>
                           <strong>{item.label || item.itemLabel || item.name || item.key}</strong>
-                          {(item.detail || item.interpretation || item.explanation) && <p>{item.detail || item.interpretation || item.explanation}</p>}
+                          {(item.detail || item.interpretation || item.explanation) && <p>{productText(item.detail || item.interpretation || item.explanation)}</p>}
                           {item.evidenceBasis && (
                             <small className="lg-report-evidence-basis">
                               {evidenceBasisLabel(item.evidenceBasis)}
@@ -389,7 +399,7 @@ export function WholeChildReportView({
                           )}
                           {item.reconciliationNote && (
                             <small className="lg-report-reconciliation-note">
-                              {item.reconciliationNote}
+                              {productText(item.reconciliationNote)}
                             </small>
                           )}
                         </div>
@@ -467,7 +477,7 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
         { label: "Decoding supports", value: decodingSupports }
       ]} />
 
-      <ReportSection description="Every saved book is included. Open a book for words, quiz evidence and notes." title="Books">
+      <ReportSection description="Every saved book is included. Open a book for words, quiz results, and notes." title="Books">
         <div className="lg-report-book-list">
           {books.map((book, index) => (
             <details key={book.bookId || book.id || `${book.title}-${index}`}>
@@ -501,7 +511,7 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
                       ) : "No marked words"}
                     </dd>
                   </div>
-                  <div><dt>Comprehension check</dt><dd>{book.quizTotal ? `${book.quizScore}/${book.quizTotal}` : "Not recorded"}</dd></div>
+                  <div><dt>Comprehension check</dt><dd>{book.quizTotal ? progressPhrase(book.quizScore, book.quizTotal) : "Not recorded"}</dd></div>
                 </dl>
                 {asArray(book.correctWords).length > 0 && (
                   <div><h4>Read correctly in this book</h4><p>{book.correctWords.join(", ")}</p></div>
@@ -590,8 +600,8 @@ export function SkillsCheckReportView({ report = {} }) {
 
   if (!skills.length) {
     return (
-      <ReportState title="No Skills Check results yet">
-        <p>Complete a Skills Check checkpoint to begin this report.</p>
+      <ReportState title="No Skills check results yet">
+        <p>Complete a Skills check to begin this report.</p>
       </ReportState>
     );
   }
@@ -622,7 +632,7 @@ export function SkillsCheckReportView({ report = {} }) {
       ]} />
 
       <div className="lg-report-skill-layout">
-        <ReportSection description="Choose one checkpoint to see its latest result and history." title="Skills">
+        <ReportSection description="Choose one skill to see its latest check result and history." title="Skills">
           <div className="lg-report-skill-list">
             {skills.map(skill => {
               const id = skill.skillId || skill.id;
@@ -641,17 +651,17 @@ export function SkillsCheckReportView({ report = {} }) {
           </div>
         </ReportSection>
 
-        <ReportSection description="Latest checkpoint result, followed by earlier attempts and item evidence." title={selected?.label || selected?.skillName || "Selected skill"}>
+        <ReportSection description="Latest check result, followed by earlier attempts and item results." title={selected?.label || selected?.skillName || "Selected skill"}>
           <div className="lg-report-selected-skill">
             <div className="lg-report-selected-skill-summary">
               <ReportStatus value={selected?.currentStatus || selected?.statusLabel || selected?.status} />
-              <strong>{latestTotal != null && Number(latestTotal) > 0 ? `${latestCorrect ?? 0}/${latestTotal}` : "No scored checkpoint"}</strong>
+              <strong>{latestTotal != null && Number(latestTotal) > 0 ? progressPhrase(latestCorrect ?? 0, latestTotal) : "No scored check"}</strong>
               {latestAccuracy != null && Number.isFinite(Number(latestAccuracy)) && (
                 <MetricFigure
-                  dateRange="The latest completed checkpoint administration for this skill."
-                  denominator={`${latestTotal || 0} administered scored question${Number(latestTotal) === 1 ? "" : "s"} in the latest checkpoint.`}
+                  dateRange="The latest completed check for this skill."
+                  denominator={`${countPhrase(latestTotal || 0, "scored question")} in the latest check.`}
                   metricId="accuracy"
-                  minimumEvidence="At least one administered scored checkpoint question."
+                  minimumEvidence="Questions not scored in the latest check."
                   updatedAt={selected?.latestAt || selected?.latestDate || history[0]?.completedAt || history[0]?.date}
                 >
                   {Math.round(Number(latestAccuracy))}% accuracy
@@ -665,7 +675,7 @@ export function SkillsCheckReportView({ report = {} }) {
                   {history.map((row, index) => (
                     <article key={row.attemptId || `${row.date}-${index}`}>
                       <span>{formatEvidenceDate(row.date || row.completedAt)}</span>
-                      <strong>{row.score || (Number(row.totalQuestions || 0) > 0 ? `${row.correctCount || 0}/${row.totalQuestions}` : "Not scored")}</strong>
+                      <strong>{row.score || (Number(row.totalQuestions || 0) > 0 ? progressPhrase(row.correctCount || 0, row.totalQuestions) : "Not scored")}</strong>
                       <span>{row.passed === true ? "Passed" : row.passed === false ? "Not passed" : "Not scored"}</span>
                     </article>
                   ))}
@@ -674,13 +684,13 @@ export function SkillsCheckReportView({ report = {} }) {
             )}
             {items.length > 0 && (
               <details>
-                <summary>Question and item evidence ({items.length})</summary>
+                <summary>Question results ({items.length})</summary>
                 <div className="lg-report-item-list">
                   {items.map((item, index) => (
                     <article key={item.itemId || `${item.itemType}-${item.itemKey}-${index}`}>
                       <strong>{item.label || item.itemLabel || item.itemKey || "Item"}</strong>
                       <ReportStatus value={item.displayStatus || item.statusLabel || item.status} />
-                      {(item.correct !== undefined || item.attempts !== undefined) && <span>{item.correct || 0}/{item.attempts || 0} correct</span>}
+                      {(item.correct !== undefined || item.attempts !== undefined) && <span>{progressPhrase(item.correct || 0, item.attempts || 0)} correct</span>}
                     </article>
                   ))}
                 </div>
@@ -710,8 +720,8 @@ export function OtherLearningReportView({ report = {} }) {
 
   if (!hasEvidence) {
     return (
-      <ReportState title="No practice evidence yet">
-        <p>Sound Seekers, Arcade and Story Quest activity will appear here after the student begins practising.</p>
+      <ReportState title="No practice results yet">
+        <p>Sound Seekers, Arcade, and Story Quest activity will appear here after the child begins practising.</p>
       </ReportState>
     );
   }
@@ -724,9 +734,9 @@ export function OtherLearningReportView({ report = {} }) {
 
   return (
     <div className="lg-report-view-stack">
-      <p className="lg-report-practice-note">Practice evidence supports teacher judgment but is not a formal assessment result.</p>
+      <p className="lg-report-practice-note">Practice results support teacher judgment but are not formal check results.</p>
 
-      <ReportSection description="Independent sound evidence collected during the trail." title="Sound Seekers">
+      <ReportSection description="Independent sound results collected during the trail." title="Sound Seekers">
         {soundGroups.some(([, rows]) => rows.length) ? (
           <div className="lg-report-practice-groups">
             {soundGroups.map(([label, rows]) => (
@@ -736,7 +746,7 @@ export function OtherLearningReportView({ report = {} }) {
               </section>
             ))}
           </div>
-        ) : <p className="lg-report-muted">No independent sound evidence has been recorded.</p>}
+        ) : <p className="lg-report-muted">No independent sound results have been recorded.</p>}
         {soundInteractionEvidence.some(row => !/^no /i.test(String(row.value || ""))) && (
           <dl className="lg-report-practice-list">
             {soundInteractionEvidence
@@ -752,7 +762,7 @@ export function OtherLearningReportView({ report = {} }) {
       </ReportSection>
 
       <div className="lg-report-two-column">
-        <ReportSection description="Games and broad skills practised. Scores and stars are not mastery evidence." title="Arcade">
+        <ReportSection description="Games and broad skills practised. Scores and stars do not prove mastery." title="Arcade">
           {gameRows.length ? (
             <div className="lg-report-practice-list">
               {gameRows.map((game, index) => (

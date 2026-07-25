@@ -255,7 +255,7 @@ export function GamePlayer({
         </div>
         <div className="lg-game-header-meter" aria-label={`${Math.min(progressStatus.current, progressStatus.total)} of ${progressStatus.total}`}>
           <div><i style={{ width: `${Math.min(100, (progressStatus.current / progressStatus.total) * 100)}%` }} /></div>
-          <span>{Math.min(progressStatus.current, progressStatus.total)}/{progressStatus.total}</span>
+          <span>{Math.min(progressStatus.current, progressStatus.total)} of {progressStatus.total}</span>
         </div>
         <div className="lg-game-player-actions">
           <span className="lg-game-score">{score} pts</span>

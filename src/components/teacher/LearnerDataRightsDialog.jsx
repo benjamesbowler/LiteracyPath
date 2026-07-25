@@ -11,6 +11,7 @@ import {
   loadLearnerDataRightsHistory,
   prepareLearnerDeletion
 } from "../../data/learnerDataRights.js";
+import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { TeacherModal } from "./ui/TeacherDialog.jsx";
 
 export function LearnerDataRightsDialog({
@@ -85,11 +86,9 @@ export function LearnerDataRightsDialog({
         ]
       }, ...previous.filter(request => request.id !== data.request.id)]);
       setHistoryState("ready");
-      setStatus(
-        `Export complete. Request ${data.request.id}; downloaded ${download.fileName}.`
-      );
-    } catch (caught) {
-      setError(caught?.message || "The learner data export failed.");
+      setStatus(`Download complete: ${download.fileName}.`);
+    } catch {
+      setError("We couldn't prepare the download. Nothing is lost. Try again.");
     } finally {
       setBusy("");
     }
@@ -121,11 +120,9 @@ export function LearnerDataRightsDialog({
         events: [{ eventType: "request_verified", eventAt: preparedAt }]
       }, ...previous.filter(request => request.id !== data.requestId)]);
       setHistoryState("ready");
-      setStatus(
-        `Verified deletion request ${data.requestId}. Complete it by ${new Date(data.dueAt).toLocaleDateString()}.`
-      );
-    } catch (caught) {
-      setError(caught?.message || "The deletion request could not be prepared.");
+      setStatus(`The request is ready. Complete it by ${new Date(data.dueAt).toLocaleDateString()}.`);
+    } catch {
+      setError("We couldn't check the request. Nothing is lost. Try again.");
     } finally {
       setBusy("");
     }
@@ -142,12 +139,10 @@ export function LearnerDataRightsDialog({
         preparedRequest,
         confirmation
       });
-      setStatus(
-        `Deletion complete. Audit reference ${result.requestId}; no managed learner records remain.`
-      );
+      setStatus("The child's data has been deleted.");
       await onDeleted?.(learner, result);
-    } catch (caught) {
-      setError(caught?.message || "The learner data deletion failed.");
+    } catch {
+      setError("We couldn't delete the data. Nothing has changed. Try again.");
     } finally {
       setBusy("");
     }
@@ -156,19 +151,15 @@ export function LearnerDataRightsDialog({
   return (
     <TeacherModal
       open
-      label={`Data rights for ${learner.name}`}
+      label={`Data choices for ${learner.name}`}
       onClose={busy ? undefined : onClose}
       className="teacher-data-rights-dialog"
     >
       <div className="page-stack" data-data-rights-learner={learner.id}>
         <header>
           <p className="panel-label">Privacy request</p>
-          <h2>Export or delete {learner.name}&rsquo;s data</h2>
-          <p>
-            Verify the requester against school records before continuing. The
-            operational response target is {DATA_RIGHTS_RESPONSE_TARGET_DAYS} days,
-            or sooner where law or contract requires.
-          </p>
+          <h2>{TEACHER_COPY.privacy.title(learner.name)}</h2>
+          <p>{TEACHER_COPY.privacy.intro(DATA_RIGHTS_RESPONSE_TARGET_DAYS)}</p>
         </header>
 
         <div className="teacher-form-grid">
@@ -201,28 +192,21 @@ export function LearnerDataRightsDialog({
         </div>
 
         <section className="teacher-data-rights-action">
-          <h3>Access export</h3>
-          <p>
-            Downloads a structured copy and records the verified request and completion.
-            Login tokens and device identifiers are excluded.
-          </p>
+          <h3>{TEACHER_COPY.privacy.exportTitle}</h3>
+          <p>{TEACHER_COPY.privacy.exportBody}</p>
           <button
             className="lp-button lp-button-secondary"
             type="button"
             disabled={!verificationComplete || Boolean(busy || preparedRequest)}
             onClick={handleExport}
           >
-            {busy === "export" ? "Preparing export..." : "Download learner data"}
+            {busy === "export" ? "Preparing download…" : TEACHER_COPY.privacy.exportAction}
           </button>
         </section>
 
         <section className="teacher-data-rights-action teacher-data-rights-delete">
-          <h3>Permanent deletion</h3>
-          <p>
-            This removes the learner, evidence, reports containing their record,
-            activity, progress, sessions, and embedded group references. Only a
-            privacy-minimal audit tombstone remains.
-          </p>
+          <h3>{TEACHER_COPY.privacy.deleteTitle}</h3>
+          <p>{TEACHER_COPY.privacy.deleteBody}</p>
           {!preparedRequest ? (
             <button
               className="lp-button lp-button-danger-outline"
@@ -230,13 +214,12 @@ export function LearnerDataRightsDialog({
               disabled={!verificationComplete || Boolean(busy)}
               onClick={handlePrepareDeletion}
             >
-              {busy === "prepare" ? "Verifying request..." : "Prepare verified deletion"}
+              {busy === "prepare" ? "Checking request…" : TEACHER_COPY.privacy.prepareDelete}
             </button>
           ) : (
             <div className="page-stack">
               <p>
-                Request <strong>{preparedRequest.requestId}</strong> is verified.
-                Type <strong>{LEARNER_DELETION_CONFIRMATION}</strong> to delete permanently.
+                The request is ready. Type <strong>{LEARNER_DELETION_CONFIRMATION}</strong> to delete permanently.
               </p>
               <label>
                 <span>Exact confirmation</span>
@@ -253,20 +236,20 @@ export function LearnerDataRightsDialog({
                 disabled={confirmation !== LEARNER_DELETION_CONFIRMATION || Boolean(busy)}
                 onClick={handleDelete}
               >
-                {busy === "delete" ? "Deleting and verifying..." : "Delete all learner data"}
+                {busy === "delete" ? "Deleting…" : TEACHER_COPY.privacy.deleteAction}
               </button>
             </div>
           )}
         </section>
 
         <section className="teacher-data-rights-history" aria-label="Data-rights request history">
-          <h3>Request tracking</h3>
+          <h3>{TEACHER_COPY.privacy.trackingTitle}</h3>
           {historyState === "loading" ? (
-            <p role="status">Loading verified request history...</p>
+            <p role="status">{TEACHER_COPY.privacy.trackingLoading}</p>
           ) : historyState === "unavailable" ? (
-            <p>Request history is unavailable. Do not continue until the managed service is connected.</p>
+            <p>{TEACHER_COPY.privacy.trackingUnavailable}</p>
           ) : history.length === 0 ? (
-            <p>No earlier verified requests are recorded for this learner.</p>
+            <p>{TEACHER_COPY.privacy.trackingEmpty}</p>
           ) : (
             <ul>
               {history.map(request => (
@@ -279,7 +262,6 @@ export function LearnerDataRightsDialog({
                     {" · "}
                     {new Date(request.createdAt).toLocaleString()}
                   </span>
-                  <small>Audit reference {request.id}</small>
                 </li>
               ))}
             </ul>

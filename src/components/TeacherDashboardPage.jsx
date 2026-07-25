@@ -1905,7 +1905,7 @@ export function TeacherDashboardPage({
               <p className={hasSchool ? "teacher-school-summary" : "teacher-school-summary teacher-school-missing"}>
                 {hasSchool
                   ? <>School: <strong>{schoolName || "..."}</strong></>
-                  : "No school set yet - students need a school to use child login."}
+                  : "No school set yet — children need a school to use sign-in."}
                 <button
                   className="text-button"
                   onClick={() => {
@@ -2248,7 +2248,7 @@ export function TeacherDashboardPage({
       {isClassesPage && effectiveRosterFilterIds && (
         <div className="teacher-roster-filter-chip">
           <span>
-            {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} students
+            {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} children
           </span>
           <button
             className="text-button"

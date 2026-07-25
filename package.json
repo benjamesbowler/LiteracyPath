@@ -45,6 +45,7 @@
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
     "check:media-overwrite-risk": "node tools/checkMediaOverwriteRisk.js",
     "check:repo-hygiene": "node tools/runAuditScript.mjs --check tools/checkRepoHygiene.js",
+    "check:app-copy": "node tools/checkAppCopy.js --rendered",
     "audit:repo-data-sources": "node tools/runAuditScript.mjs --write-report tools/auditRepoDataSources.js",
     "check:audit:repo-data-sources": "node tools/runAuditScript.mjs --check tools/auditRepoDataSources.js",
     "check:approved-runtime-sources": "node tools/checkRuntimeUsesOnlyApprovedSources.js",

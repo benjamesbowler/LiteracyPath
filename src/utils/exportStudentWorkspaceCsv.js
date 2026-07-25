@@ -8,9 +8,77 @@ function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
+const TEACHER_HIDDEN_REPORT_FIELDS = new Set([
+  "App version(s)",
+  "Check version(s)",
+  "Content version(s)",
+  "Scoring version(s)"
+]);
+
+const WORKSPACE_VIEW_LABELS = Object.freeze({
+  "whole-child": "Whole child",
+  "skills-check": "Skills check",
+  "other-learning": "Other learning"
+});
+
+function exportDisplayText(value = "") {
+  const source = String(value || "");
+  const known = WORKSPACE_VIEW_LABELS[source.trim()];
+  if (known) return known;
+  const preserveLeadingCase = (match, replacement) => (
+    /^[A-Z]/.test(match)
+      ? `${replacement.charAt(0).toUpperCase()}${replacement.slice(1)}`
+      : replacement
+  );
+  return source
+    .replace(/\bBOY\b/g, "Beginning of year")
+    .replace(/\bMOY\b/g, "Middle of year")
+    .replace(/\bEOY\b/g, "End of year")
+    .replace(/\bassessments?\b/gi, match => preserveLeadingCase(
+      match,
+      match.toLowerCase().endsWith("s") ? "checks" : "check"
+    ))
+    .replace(/\bevidence\b/gi, "results")
+    .replace(/\blearners?\b/gi, match => preserveLeadingCase(
+      match,
+      match.toLowerCase().endsWith("s") ? "children" : "child"
+    ))
+    .replace(/\bstudents?\b/gi, match => preserveLeadingCase(
+      match,
+      match.toLowerCase().endsWith("s") ? "children" : "child"
+    ))
+    .replace(/\bincorrect\b/gi, "needs another look");
+}
+
+function exportDisplayFilters(filters, viewId) {
+  const source = filters && typeof filters === "object" && !Array.isArray(filters)
+    ? filters
+    : { "Report view": viewId };
+  return Object.fromEntries(
+    Object.entries(source).map(([key, value]) => [
+      exportDisplayText(key),
+      Array.isArray(value)
+        ? value.map(exportDisplayText)
+        : exportDisplayText(value)
+    ])
+  );
+}
+
 function statusLabel(value) {
-  if (value && typeof value === "object") return value.label || value.id || "";
-  return value || "";
+  const raw = value && typeof value === "object" ? value.label || value.id || "" : value || "";
+  const key = String(raw).trim().toLowerCase().replace(/[\s-]+/g, "_");
+  const labels = {
+    correct: "Correct",
+    incorrect: "Needs another look",
+    secure: "Secure",
+    developing: "Growing",
+    needs_teaching: "Needs more practice",
+    needs_practice: "Needs more practice",
+    not_assessed: "Not checked",
+    not_recorded: "Not recorded",
+    not_started: "Not started yet"
+  };
+  return labels[key] || String(raw).replace(/[_-]+/g, " ").replace(/^\w/, letter => letter.toUpperCase());
 }
 
 function attemptQuestions(attempt = {}) {
@@ -49,20 +117,20 @@ function localTimestamp(value = "", timeZone = "UTC") {
 }
 
 function evidenceTimeFields(value = "", options = {}, {
-  basis = "Last evidence",
+  basis = "Latest result",
   snapshotAt = ""
 } = {}) {
   const timeZone = resolveExportTimeZone(options.timeZone);
   const evidenceUtc = isoTimestamp(value);
   const snapshotUtc = evidenceUtc ? "" : isoTimestamp(snapshotAt);
   return {
-    "Evidence time basis": evidenceUtc
+    "Results date basis": evidenceUtc
       ? basis
       : snapshotUtc
-        ? "Current snapshot; item evidence time unavailable"
-        : "No dated evidence",
-    "Last evidence (UTC)": evidenceUtc,
-    "Teacher-local evidence time": localTimestamp(evidenceUtc, timeZone),
+        ? "Current summary; answer date unavailable"
+        : "No dated results",
+    "Latest result (UTC)": evidenceUtc,
+    "Teacher-local result time": localTimestamp(evidenceUtc, timeZone),
     "Snapshot taken (UTC)": snapshotUtc,
     "Teacher-local snapshot time": localTimestamp(snapshotUtc, timeZone),
     "Time zone": timeZone
@@ -72,7 +140,7 @@ function evidenceTimeFields(value = "", options = {}, {
 function evidenceWindowLabel(basis = {}) {
   const start = isoTimestamp(basis.windowStart);
   const end = isoTimestamp(basis.windowEnd);
-  if (!start) return "No dated evidence";
+  if (!start) return "No dated results";
   return start === end ? start : `${start} to ${end}`;
 }
 
@@ -87,29 +155,29 @@ function wholeChildRows(workspace = {}, options = {}) {
         "Literacy area": item.domainLabel,
         "Knowledge or skill": item.label,
         "Status": statusLabel(item.status),
-        "Coverage": item.coverageLabel || (item.evidenceCount ? "Seen in available evidence" : "Not seen in available evidence"),
+        "Coverage": item.coverageLabel || (item.evidenceCount ? "Seen in saved results" : "Not seen in saved results"),
         "Interpretation": item.explanation,
         "Reconciliation note": item.reconciliationNote || "",
-        "Evidence sources": asArray(item.evidence).map(row => row.sourceLabel).filter(Boolean),
+        "Result sources": asArray(item.evidence).map(row => row.sourceLabel).filter(Boolean),
         "Attempts": basis.attemptCount ?? 0,
         "Observations": basis.observations ?? 0,
         "Correct": basis.correct ?? "",
-        "Denominator": basis.total ?? 0,
+        "Answers counted": basis.total ?? 0,
         "Accuracy": basis.accuracy == null ? "" : `${basis.accuracy}%`,
-        "Evidence window": evidenceWindowLabel(basis),
+        "Results period": evidenceWindowLabel(basis),
         ...evidenceTimeFields(item.latestAt, options)
       };
     }),
     ...asArray(report.descriptiveAssessments).map(assessment => ({
       "Section": "Summary",
-      "Row type": "Descriptive assessment summary",
-      "Literacy area": "EL Assessments",
+      "Row type": "Descriptive check summary",
+      "Literacy area": "EL checks",
       "Knowledge or skill": assessment.title || assessment.label,
-      "Status": "Descriptive evidence (not a mastery rating)",
-      "Interpretation": assessment.interpretation || assessment.resultLabel || "Evidence recorded",
-      "Evidence sources": "EL Assessments",
+      "Status": "Descriptive results (not a pass rating)",
+      "Interpretation": assessment.interpretation || assessment.resultLabel || "Results recorded",
+      "Result sources": "EL checks",
       "Attempts": assessment.attemptCount ?? "",
-      "Evidence window": evidenceWindowLabel({
+      "Results period": evidenceWindowLabel({
         windowStart: assessment.latestAt,
         windowEnd: assessment.latestAt
       }),
@@ -119,29 +187,27 @@ function wholeChildRows(workspace = {}, options = {}) {
   const appendixRows = asArray(report.evidence).map(evidence => {
     const observations = evidence.details?.observations ?? evidence.details?.independentSeen ?? evidence.details?.attempts ?? 1;
     return {
-      "Section": "Evidence appendix",
-      "Row type": "Evidence record",
+      "Section": "Result details",
+      "Row type": "Saved result",
       "Literacy area": evidence.concept?.domainLabel || evidence.concept?.domain || "",
       "Knowledge or skill": evidence.concept?.label || "",
       "Status": statusLabel(evidence.status || evidence.statusCandidate || evidence.outcome),
       "Interpretation": evidence.details?.detail || evidence.details?.prompt || evidence.outcomeLabel || "",
-      "Evidence sources": evidence.sourceLabel || evidence.sourceArea || "",
+      "Result sources": evidence.sourceLabel || evidence.sourceArea || "",
       "Attempts": evidence.details?.attempts ?? 1,
       "Observations": observations,
       "Correct": evidence.details?.correct ?? "",
-      "Denominator": observations,
+      "Answers counted": observations,
       "Accuracy": evidence.details?.accuracy == null ? "" : `${evidence.details.accuracy}%`,
-      "Evidence window": evidenceWindowLabel({
+      "Results period": evidenceWindowLabel({
         windowStart: evidence.observedAt,
         windowEnd: evidence.observedAt
       }),
       ...evidenceTimeFields(evidence.observedAt, options, {
         basis: evidence.provenance?.timestampBasis === "per_sound_last_evidence"
-          ? "Per-sound last evidence"
-          : "Observed evidence"
-      }),
-      "Evidence ID": evidence.evidenceId || "",
-      "Source record ID": evidence.sourceRecordId || ""
+          ? "Latest result for each sound"
+          : "Observed result"
+      })
     };
   });
   return [...summaryRows, ...appendixRows];
@@ -161,7 +227,7 @@ function skillsCheckRows(workspace = {}, options = {}) {
     ...evidenceTimeFields(skill.latestAt, options)
   }));
   const itemRows = asArray(report.items).map(item => ({
-    "Section": "Evidence appendix",
+    "Section": "Result details",
     "Row type": "Item summary",
     "Skill": item.concept?.label || "",
     "Status": statusLabel(item.status),
@@ -169,44 +235,34 @@ function skillsCheckRows(workspace = {}, options = {}) {
     "Correct": item.details?.correct ?? "",
     "Questions": item.details?.observations ?? "",
     "Accuracy": item.details?.accuracy == null ? "" : `${item.details.accuracy}%`,
-    ...evidenceTimeFields(item.observedAt, options),
-    "Evidence ID": item.evidenceId || "",
-    "Source record ID": item.sourceRecordId || ""
+    ...evidenceTimeFields(item.observedAt, options)
   }));
   const attemptRows = asArray(report.attempts).map(attempt => {
     const raw = attempt.raw && typeof attempt.raw === "object" ? attempt.raw : attempt;
     return {
-      "Section": "Evidence appendix",
-      "Row type": "Assessment attempt",
+      "Section": "Result details",
+      "Row type": "Check attempt",
       "Skill": raw.skillName || raw.skillId || "",
       "Status": statusLabel(attempt.status || attempt.scoreStatus),
       "Attempts": 1,
       "Correct": attempt.correctCount ?? "",
       "Questions": attempt.totalQuestions ?? "",
       "Accuracy": attempt.accuracy == null ? "" : `${attempt.accuracy}%`,
-      ...evidenceTimeFields(attempt.completedAt, options, { basis: "Assessment completed" }),
-      "Attempt ID": attempt.attemptId || raw.attemptId || "",
-      "Administration status": attempt.administrationStatus || raw.administrationStatus || "",
-      "Form version": attempt.formVersion || raw.formVersion || "",
-      "Content version": attempt.contentVersion || raw.contentVersion || "",
-      "Scoring version": attempt.scoringVersion || raw.scoringVersion || raw.scoringRuleVersion || ""
+      ...evidenceTimeFields(attempt.completedAt, options, { basis: "Check completed" })
     };
   });
   const questionRows = asArray(report.attempts).flatMap(attempt => {
     const raw = attempt.raw && typeof attempt.raw === "object" ? attempt.raw : attempt;
     return attemptQuestions(attempt).map((question, index) => ({
-      "Section": "Evidence appendix",
-      "Row type": "Question evidence",
+      "Section": "Result details",
+      "Row type": "Question result",
       "Skill": raw.skillName || raw.skillId || "",
       "Status": question.responseStatus || (question.isCorrect === true ? "correct" : question.isCorrect === false ? "incorrect" : ""),
       "Correct": question.isCorrect === true ? 1 : question.isCorrect === false ? 0 : "",
       ...evidenceTimeFields(question.timestamp || attempt.completedAt, options, {
-        basis: question.timestamp ? "Question observed" : "Assessment completed"
+        basis: question.timestamp ? "Question answered" : "Check completed"
       }),
-      "Attempt ID": attempt.attemptId || raw.attemptId || "",
-      "Question ID": question.questionId || question.id || `question-${index + 1}`,
-      "Item type": question.itemType || "",
-      "Item key": question.itemKey || question.targetWord || question.targetPattern || question.targetSound || question.targetLetter || "",
+      "Question": index + 1,
       "Prompt": question.prompt || question.question || "",
       "Selected answer": question.selectedAnswer || question.responseText || "",
       "Correct answer": question.correctAnswer || ""
@@ -221,23 +277,23 @@ function otherLearningRows(workspace = {}, options = {}) {
     ...asArray(report.soundSeekers?.sounds)
       .filter(sound => Number(sound.seen || 0) > 0)
       .map(sound => ({
-        "Section": "Evidence appendix",
-        "Row type": "Practice evidence",
+        "Section": "Practice details",
+        "Row type": "Practice result",
         "Learning area": "Sound Seekers",
         "Activity": sound.label,
-        "Evidence": sound.sourceResult || "Practised",
+        "Result": sound.sourceResult || "Practised",
         "Practice count": sound.seen || "",
         ...evidenceTimeFields(sound.lastActiveAt, options, {
-          basis: "Per-sound last evidence",
+          basis: "Latest practice for each sound",
           snapshotAt: workspace.generatedAt
         })
       })),
     ...asArray(report.arcade?.games).map(game => ({
-      "Section": "Evidence appendix",
-      "Row type": "Practice evidence",
+      "Section": "Practice details",
+      "Row type": "Practice result",
       "Learning area": "Arcade",
       "Activity": game.title || game.gameId,
-      "Evidence": game.skillPractised ? `Practised: ${game.skillPractised}` : "Game practice",
+      "Result": game.skillPractised ? `Practised: ${game.skillPractised}` : "Game practice",
       "Practice count": game.plays || "",
       ...evidenceTimeFields(game.lastPlayedAt, options, {
         basis: "Last played",
@@ -245,11 +301,11 @@ function otherLearningRows(workspace = {}, options = {}) {
       })
     })),
     ...asArray(report.storyQuests?.stories).map(story => ({
-      "Section": "Evidence appendix",
-      "Row type": "Practice evidence",
+      "Section": "Practice details",
+      "Row type": "Practice result",
       "Learning area": "Story Quests",
       "Activity": story.title || story.questId,
-      "Evidence": story.completed ? "Completed" : "In progress",
+      "Result": story.completed ? "Completed" : "In progress",
       "Words encountered": story.wordsEncountered || [],
       ...evidenceTimeFields(story.lastActivityAt || story.completedAt, options, {
         basis: story.lastActivityAt ? "Last activity" : "Completed",
@@ -260,6 +316,7 @@ function otherLearningRows(workspace = {}, options = {}) {
 }
 
 export function buildStudentWorkspaceCsvRows(viewId, workspace = {}, options = {}) {
+  const viewLabel = WORKSPACE_VIEW_LABELS[viewId] || "Child results";
   const reportRows = viewId === "whole-child"
     ? wholeChildRows(workspace, options)
     : viewId === "skills-check"
@@ -274,7 +331,7 @@ export function buildStudentWorkspaceCsvRows(viewId, workspace = {}, options = {
     ...row
   }));
   const provenanceRows = buildExportProvenanceRows({
-    reportTitle: options.reportTitle || `Student ${viewId} report`,
+    reportTitle: exportDisplayText(options.reportTitle || `${viewLabel} report`),
     schoolName: options.schoolName,
     className: options.className,
     learnerName: options.learnerName || workspace.student?.name,
@@ -282,14 +339,14 @@ export function buildStudentWorkspaceCsvRows(viewId, workspace = {}, options = {
     learnerCount: 1,
     generatedAt: options.generatedAt || workspace.generatedAt,
     timeZone: options.timeZone,
-    filters: options.filters || { "Report view": viewId },
+    filters: exportDisplayFilters(options.filters, viewId),
     evidenceSource: options.evidenceSource || workspace.skillsCheck?.attempts || [],
     versionSummary: options.versionSummary,
     appVersion: options.appVersion,
-    definitions: "Metric definition rows are included in this CSV file."
-  }).map(row => ({
-    "Section": "Report provenance",
-    "Row type": "Provenance",
+    definitions: "Figure explanation rows are included in this CSV file."
+  }).filter(row => !TEACHER_HIDDEN_REPORT_FIELDS.has(row.field)).map(row => ({
+    "Section": "About this report",
+    "Row type": "Report detail",
     "Field": row.field,
     "Value": row.value
   }));

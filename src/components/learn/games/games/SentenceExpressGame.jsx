@@ -640,7 +640,7 @@ export default function SentenceExpressGame({
 
       <header className="sx-hud">
         <span className="sx-title">SENTENCE EXPRESS</span>
-        <span className="sx-linechip">{WORLD_LABELS[world]} - LV {levelIndex + 1} - TRAIN {Math.min(trainIndex + 1, level.trains.length)}/{level.trains.length}</span>
+        <span className="sx-linechip">{WORLD_LABELS[world]} - level {levelIndex + 1} - train {Math.min(trainIndex + 1, level.trains.length)} of {level.trains.length}</span>
         <span className="sx-combochip" key={`combo-${combo}`}>COMBO x{combo}</span>
         <span className="sx-clock" role="status" aria-live="polite">
           <span className="sx-clockface" aria-hidden="true">
@@ -816,7 +816,7 @@ export default function SentenceExpressGame({
           <h2>{level.isGoldRun ? "GOLD MAIL RUN COMPLETE!" : `LEVEL ${levelIndex + 1} COMPLETE!`}</h2>
           <p className="sx-stars">{[0, 1, 2].map(i => <StarIcon key={i} filled={i < stars} />)}</p>
           <div className="sx-tallyrows">
-            <span>Express departures <b>{express}/{level.trains.length}</b></span>
+            <span>Express departures <b>{express} of {level.trains.length}</b></span>
             <span>Delays <b>{mistakes ? `+${mistakes} min` : "none"}</b></span>
           </div>
           <button type="button" className="sx-golden" onClick={nextLevel}>

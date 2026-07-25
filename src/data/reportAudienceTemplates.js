@@ -1,3 +1,5 @@
+import { FAMILY_COPY } from "../copy/familyCopy.js";
+
 const FAMILY_DOMAIN_LABELS = Object.freeze({
   alphabet_knowledge: "letter names and sounds",
   phonological_awareness: "hearing sounds in words",
@@ -111,9 +113,9 @@ function templateSource(report = {}) {
 function teacherTemplate({ report, studentName, className }) {
   return {
     id: WHOLE_CHILD_REPORT_AUDIENCES.TEACHER,
-    label: "Teacher diagnostic",
-    title: `${studentName}: teacher diagnostic`,
-    description: "Detailed teaching priorities, formal observations, status decisions, and source trails.",
+    label: "Teacher view",
+    title: `${studentName}: teacher view`,
+    description: "Detailed results, teaching priorities and saved observations.",
     studentName,
     className,
     source: templateSource(report)
@@ -198,13 +200,13 @@ function familyTemplate({ report, studentName }) {
     sections: [
       {
         id: "going_well",
-        title: "What is going well",
+        title: FAMILY_COPY.sections.strengths,
         description: "These are reading skills your child has shown in recent learning.",
         items: strengthItems
       },
       {
         id: "practising_next",
-        title: "What we are practising next",
+        title: FAMILY_COPY.sections.practice,
         description: "We will build these skills in small, supported steps.",
         items: nextItems
       },
@@ -252,7 +254,7 @@ export function lintFamilyReportPlainLanguage(template = {}) {
 
 export function buildWholeChildAudienceTemplates({
   report = {},
-  studentName = "Student",
+  studentName = "Child",
   className = ""
 } = {}) {
   const input = { report, studentName, className };

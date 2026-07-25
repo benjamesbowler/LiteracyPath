@@ -790,7 +790,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
 function GameMeter({ current, total }) {
   return (
     <div className="lg-game-meter" aria-label={`${current} of ${total}`}>
-      <span>{Math.min(current, total)}/{total}</span>
+      <span>{Math.min(current, total)} of {total}</span>
       <div><i style={{ width: `${Math.min(100, (current / total) * 100)}%` }} /></div>
     </div>
   );

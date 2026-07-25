@@ -10,7 +10,7 @@ export function MetricDefinition({ metricId, ...overrides }) {
     <span className="lp-metric-definition" data-metric-definition={metricId}>
       <button
         aria-describedby={tooltipId}
-        aria-label={`${definition.label} definition`}
+        aria-label={`How ${definition.label.toLowerCase()} is worked out`}
         className="lp-metric-definition-trigger"
         type="button"
       >
@@ -18,11 +18,9 @@ export function MetricDefinition({ metricId, ...overrides }) {
       </button>
       <span className="lp-metric-definition-tooltip" id={tooltipId} role="tooltip">
         <strong>{definition.label}</strong>
-        <span>{definition.definition}</span>
-        <span><b>Denominator:</b> {definition.denominator}</span>
-        <span><b>Date range:</b> {definition.dateRange}</span>
-        <span><b>Minimum evidence:</b> {definition.minimumEvidence}</span>
-        <span><b>Updated:</b> {definition.updateTime}</span>
+        <span><b>Counts:</b> {definition.counts}</span>
+        <span><b>Time:</b> {definition.timeWindow}</span>
+        <span><b>Excludes:</b> {definition.excludes}</span>
       </span>
     </span>
   );

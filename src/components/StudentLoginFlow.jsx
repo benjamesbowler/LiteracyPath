@@ -9,16 +9,17 @@ import {
 } from "../data/classApiCompatibility.js";
 import { classifyStudentCodeRecovery } from "../policy/studentLoginRecovery.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
+import { CHILD_COPY } from "../copy/childCopy.js";
 
 // Recorded child-voice prompts (public/audio/ui/voice). Missing clips stay
 // silent and the picture-first UI remains usable; browser TTS is never used.
 const VOICE_LINES = {
-  "class-code": "Ask your teacher for your class code.",
-  "who-are-you": "Who are you?",
-  "tap-your-pictures": "Tap your three secret pictures.",
+  "class-code": CHILD_COPY.signIn.missingCode,
+  "who-are-you": CHILD_COPY.signIn.whoAreYou,
+  "tap-your-pictures": CHILD_COPY.signIn.pictures,
   "did-not-match": "That did not match.",
-  "try-again": "Try again.",
-  "ask-teacher": "Ask your teacher for help."
+  "try-again": CHILD_COPY.actions.tryAgain,
+  "ask-teacher": CHILD_COPY.signIn.askTeacher
 };
 
 function speakLine(key, options = {}) {
@@ -116,7 +117,7 @@ function getProgressStep(step) {
 function StepProgress({ step }) {
   const currentIndex = STEP_ITEMS.findIndex(item => item.id === getProgressStep(step));
   return (
-    <ol className="student-flow-stepper" aria-label="Student sign in steps" data-child-progress="">
+    <ol className="student-flow-stepper" aria-label="Sign-in steps" data-child-progress="">
       {STEP_ITEMS.map((item, index) => {
         const isCurrent = index === currentIndex;
         const isComplete = currentIndex > index;
@@ -254,7 +255,7 @@ export function StudentLoginFlow({
     if (code.length < 4) {
       if (!silentOnFail) {
         setRecovery(null);
-        setStatus("Enter the class code your teacher gave you.");
+        setStatus(CHILD_COPY.signIn.missingCode);
       }
       return false;
     }
@@ -360,14 +361,14 @@ export function StudentLoginFlow({
     };
     if (!session.token || !session.studentId) {
       console.error("Student session missing token or id.", result);
-      setStatus(`Login worked but no session was returned (token=${session.token ? "yes" : "MISSING"}, student=${session.studentId ? "yes" : "MISSING"}).`);
+      setStatus(CHILD_COPY.signIn.askTeacher);
       return;
     }
     try {
       onSessionStart?.(session);
     } catch (error) {
       console.error("Could not start student session.", error);
-      setStatus(`Could not open the app: ${error?.message || error}`);
+      setStatus(CHILD_COPY.signIn.askTeacher);
     }
   }
 
@@ -389,13 +390,13 @@ export function StudentLoginFlow({
       const code = data?.error || error?.message || "wrong_password";
       if (code === "locked" || code === "rate_limited") {
         setLocked(true);
-        setStatus("Ask your teacher for help.");
+        setStatus(CHILD_COPY.signIn.askTeacher);
       } else if (code === "no_password") {
         setStep("not-ready");
         setStatus("");
         speakLine("ask-teacher", { rate: 0.84 });
       } else {
-        setStatus("Try again!");
+        setStatus(CHILD_COPY.signIn.tryAgain);
         speakLine("try-again", { rate: 0.86 });
       }
       return;
@@ -408,7 +409,7 @@ export function StudentLoginFlow({
       <section className={`student-flow-card${status ? " has-status" : ""}${locked ? " locked" : ""}`}>
         {step === "code" && (
           <>
-            <StepHeader title="Enter your class code" subtitle="Your teacher will tell you the code." />
+            <StepHeader title={CHILD_COPY.signIn.classCodeTitle} subtitle={CHILD_COPY.signIn.classCodeHelp} />
             <StepProgress step={step} />
             <div className="student-code-entry-layout" data-child-choices="">
               <div className="student-code-entry-form">
@@ -458,7 +459,7 @@ export function StudentLoginFlow({
             ) : students.length > 0 ? (
               <TileGrid rows={students} selectedId={selectedStudent?.id} onPick={pickStudent} />
             ) : (
-              <StudentFlowState title="No students are ready yet" detail="Ask your teacher to add your name." />
+              <StudentFlowState title="No names are ready yet" detail={CHILD_COPY.signIn.askTeacher} />
             )}
           </>
         )}
@@ -469,7 +470,7 @@ export function StudentLoginFlow({
             <StepProgress step={step} />
             {locked ? (
               <div className="student-lockout-card">
-                <h2>Ask your teacher for help</h2>
+                <h2>{CHILD_COPY.signIn.askTeacher}</h2>
                 <p>Your teacher can reset your pictures from the class dashboard.</p>
               </div>
             ) : (
@@ -484,7 +485,7 @@ export function StudentLoginFlow({
             <StepProgress step={step} />
             <div className="student-lockout-card">
               <h2>Your pictures are not ready yet</h2>
-              <p>Your teacher can set your three login pictures from the class dashboard.</p>
+              <p>Your teacher can choose your three sign-in pictures.</p>
             </div>
           </>
         )}

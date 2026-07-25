@@ -825,7 +825,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           <div>
             <p className="sbq-kicker">Adventure Map</p>
             <h1 data-child-title="">Your sound and word path</h1>
-            <p className="sbq-sub" data-child-instruction="">Hi {studentName}, follow “you are here” to learn two sounds and some quick words.</p>
+            <p className="sbq-sub" data-child-instruction="">Follow “you are here” to start.</p>
             <p className="sbq-map-progress" data-child-progress="">
               {completedCycles} of {playableCycles.length} stops complete
             </p>
@@ -903,7 +903,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                                 <span className="sbq-stop-next" data-child-emphasis-cue="">Go next</span>
                                 <ChildRecommendationExplanation
                                   className="sbq-stop-reason"
-                                  reason="This is the next map stop you have not completed yet."
+                                  reason="This is your next map stop."
                                   surface="adventure-map"
                                 />
                               </>

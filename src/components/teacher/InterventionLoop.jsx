@@ -103,18 +103,18 @@ function InterventionPlanner({
           />
         </label>
         <label>
-          <span>Evidence focus</span>
+          <span>Results focus</span>
           <input
             required
             maxLength={160}
-            placeholder="The skill or evidence pattern"
+            placeholder="The skill or results pattern"
             value={draft.focus}
             onChange={event => setDraft(current => ({ ...current, focus: event.target.value }))}
           />
         </label>
       </div>
       <fieldset>
-        <legend>Learners in this group</legend>
+        <legend>Children in this group</legend>
         <div className="teacher-intervention-learners">
           {rows.map(row => (
             <label key={row.id}>
@@ -157,7 +157,7 @@ function InterventionPlanner({
         <button className="lp-button lp-button-secondary" type="button" disabled={busy} onClick={onCancel}>
           Cancel
         </button>
-        <span>{className} · {draft.studentIds.length || "No"} selected learner{draft.studentIds.length === 1 ? "" : "s"}</span>
+        <span>{className} · {draft.studentIds.length || "No"} selected {draft.studentIds.length === 1 ? "child" : "children"}</span>
       </div>
     </form>
   );
@@ -198,7 +198,7 @@ export function InterventionLoop({
       setLoading(false);
       if (error) {
         console.error("Load interventions error:", error);
-        setStatus("Interventions could not be loaded. Existing learner evidence is unaffected.");
+        setStatus("Teaching plans could not be loaded. Existing child results are unchanged.");
         return;
       }
       setInterventions(data || []);
@@ -351,7 +351,7 @@ export function InterventionLoop({
         <div>
           <p className="panel-label">Plan · deliver · record · review</p>
           <h3>Interventions</h3>
-          <p>Turn evidence into owned, dated teaching actions and bring weak responses back to Today.</p>
+          <p>Turn results into dated teaching actions and bring weak answers back to Today.</p>
         </div>
         <button
           className="lp-button lp-button-primary"
@@ -412,7 +412,7 @@ export function InterventionLoop({
       ) : interventions.length === 0 ? (
         <div className="report-empty-state teacher-intervention-empty">
           <strong>No interventions planned for this class.</strong>
-          <p>Start from an evidence suggestion or plan a teaching action directly.</p>
+          <p>Start from a results suggestion or plan a teaching action directly.</p>
         </div>
       ) : (
         <div className="teacher-intervention-list">
@@ -434,7 +434,7 @@ export function InterventionLoop({
                 </header>
                 <dl>
                   <div><dt>Owner</dt><dd>{intervention.owner_label}</dd></div>
-                  <div><dt>Group</dt><dd>{(intervention.student_ids || []).length} learner{intervention.student_ids?.length === 1 ? "" : "s"}</dd></div>
+                  <div><dt>Group</dt><dd>{(intervention.student_ids || []).length} {intervention.student_ids?.length === 1 ? "child" : "children"}</dd></div>
                   <div><dt>Activity</dt><dd>{intervention.activity}</dd></div>
                   {intervention.outcome && <div><dt>Outcome</dt><dd>{intervention.outcome}</dd></div>}
                   {intervention.outcome_note && <div><dt>Observation</dt><dd>{intervention.outcome_note}</dd></div>}

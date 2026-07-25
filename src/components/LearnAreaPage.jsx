@@ -173,11 +173,11 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
               <span className="child-surface-title-text">Story Quests</span>
               <img src="/images/comic/story-quests-logo.webp" alt="" />
             </h1>
-            <p data-child-instruction="">Read a guided story, hear each page, and choose what happens next.</p>
+            <p data-child-instruction="">Read a story. Choose what happens next.</p>
             <div className="story-quest-library-stats" aria-label="Story Quest progress" data-child-progress="">
               <span><strong>{questSummary.completed}</strong> complete</span>
               <span><strong>{questSummary.inProgress}</strong> in progress</span>
-              <span><strong>{questSummary.foundWords}/{questSummary.targetWords}</strong> words found</span>
+              <span><strong>{questSummary.foundWords} of {questSummary.targetWords}</strong> words found</span>
             </div>
             {primaryQuest && (
               <button
@@ -206,7 +206,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                   type="button"
                 >
                   <strong>Level {level.key}</strong>
-                  <span>{completedCount}/{level.quests.length} complete</span>
+                  <span>{completedCount} of {level.quests.length} complete</span>
                 </button>
               );
             })}

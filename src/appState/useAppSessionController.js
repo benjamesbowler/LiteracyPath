@@ -5,6 +5,7 @@ import {
   loadCompatibleTeacherClasses,
   loadCompatibleTeacherStudents
 } from "../data/classApiCompatibility.js";
+import { TEACHER_COPY } from "../copy/teacherCopy.js";
 
 export function useAppSessionController(context) {
   const {
@@ -1610,7 +1611,7 @@ export function useAppSessionController(context) {
 
     if (error) {
       console.error("Load classes error:", error);
-      setMessage("Could not load classes from cloud.");
+      setMessage(TEACHER_COPY.errors.classesLoad);
       return [];
     }
 
@@ -1638,7 +1639,7 @@ export function useAppSessionController(context) {
     if (!clean) return;
 
     if (!teacherId) {
-      setMessage("Please log in first.");
+      setMessage("Please sign in first.");
       return;
     }
 
@@ -1650,7 +1651,7 @@ export function useAppSessionController(context) {
 
     if (error) {
       console.error("Create class error:", error);
-      setMessage("Could not create class.");
+      setMessage("We couldn't create that class. Nothing is lost — try again.");
       return;
     }
 
@@ -1663,7 +1664,7 @@ export function useAppSessionController(context) {
 
   async function createDemoClass() {
     if (!teacherId) {
-      setMessage("Please log in first.");
+      setMessage("Please sign in first.");
       return false;
     }
 
@@ -1671,7 +1672,7 @@ export function useAppSessionController(context) {
     const classId = data?.class_id;
     if (error || !classId) {
       console.error("Create demo class error:", error || data);
-      setMessage("Could not create the sample class.");
+      setMessage("We couldn't create the sample class. Nothing is lost — try again.");
       return false;
     }
 
@@ -1682,7 +1683,7 @@ export function useAppSessionController(context) {
     await loadClasses();
     await loadStudents(classId);
     await loadClassDashboard(classId);
-    setMessage("Sample class created. It has login pictures but no assessment evidence.");
+    setMessage("Sample class created. It has sign-in pictures but no saved check results.");
     return true;
   }
 
@@ -1704,7 +1705,7 @@ export function useAppSessionController(context) {
 
     if (error) {
       console.error("Load students error:", error);
-      setMessage("Could not load students from cloud.");
+      setMessage(TEACHER_COPY.errors.childrenLoad);
       setLoadingStudents(false);
       return [];
     }
@@ -1749,7 +1750,7 @@ export function useAppSessionController(context) {
 
   async function loadClassDashboard(classId = selectedClassId) {
     if (!teacherId) {
-      setMessage("Please log in first.");
+      setMessage("Please sign in first.");
       return;
     }
 
@@ -1769,7 +1770,7 @@ export function useAppSessionController(context) {
 
     if (studentsError) {
       console.error("Dashboard students error:", studentsError);
-      setMessage("Could not load class dashboard.");
+      setMessage(TEACHER_COPY.errors.pageLoad);
       return;
     }
 
@@ -2029,17 +2030,17 @@ export function useAppSessionController(context) {
 
     if (error || !data?.length) {
       console.error("Could not update student symbol password.", error);
-      setMessage("Could not change that login password. You may not have access to this student.");
+      setMessage("We couldn't change those sign-in pictures. Check your access and try again.");
       return;
     }
 
     await loadStudents(selectedClassId);
-    setMessage(`Login pictures updated for ${selectedStudentName}.`);
+    setMessage(`Sign-in pictures updated for ${selectedStudentName}.`);
   }
 
   async function resetStudentSymbolPassword(studentRowId, selectedStudentName = "student") {
     if (!teacherId || !studentRowId) return;
-    if (!window.confirm(`Reset ${selectedStudentName}'s login pictures? They will be unable to sign in until a teacher sets new pictures.`)) return;
+    if (!window.confirm(`Reset ${selectedStudentName}'s sign-in pictures? They cannot sign in until a teacher sets new pictures.`)) return;
 
     const { data, error } = await supabase
       .table("students")
@@ -2055,12 +2056,12 @@ export function useAppSessionController(context) {
 
     if (error || !data?.length) {
       console.error("Could not reset student symbol password.", error);
-      setMessage("Could not reset that login password. You may not have access to this student.");
+      setMessage("We couldn't reset those sign-in pictures. Check your access and try again.");
       return;
     }
 
     await loadStudents(selectedClassId);
-    setMessage(`Login pictures reset for ${selectedStudentName}. Set new pictures before their next sign-in.`);
+    setMessage(`Sign-in pictures reset for ${selectedStudentName}. Set new pictures before their next sign-in.`);
   }
 
   function resetCurrentStudentLocalProgress({ clearFormalAssessments = false } = {}) {

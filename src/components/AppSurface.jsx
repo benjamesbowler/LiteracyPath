@@ -203,7 +203,7 @@ export function AppSurface({ surface }) {
                 <p>Structured literacy progression for classrooms, reading groups, and guided practice sessions.</p>
               </div>
               <ul className="auth-hero-features" aria-label="Features">
-                <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Skill assessments</li>
+                <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Quick skill checks</li>
                 <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Guided reading with running records</li>
               </ul>
             </div>
@@ -320,7 +320,7 @@ export function AppSurface({ surface }) {
           <div className="card page-card page-stack auth-card">
             <div className="auth-heading">
               <h2>Set your school</h2>
-              <p className="muted-text">Students use school, class, and name to find their login.</p>
+              <p className="muted-text">Children use their school, class and name to sign in.</p>
             </div>
             <label className="auth-field">
               <strong>School</strong>
@@ -495,9 +495,8 @@ export function AppSurface({ surface }) {
       <div className={appShellClassName}>
       {!isSupabaseConfigured && !isStudentMode && (
         <div className="supabase-config-banner" role="alert">
-          <strong>Nothing is being saved.</strong> This build has no Supabase configuration —
-          logins and progress will silently do nothing. Set <code>VITE_SUPABASE_URL</code> and{" "}
-          <code>VITE_SUPABASE_ANON_KEY</code> in the deploy environment.
+          <strong>Nothing is being saved.</strong> Cloud storage is not connected.
+          Ask the person who manages this app to check the deployment settings.
         </div>
       )}
       {showConfetti && !prefersReducedMotion && !learnerAccessibility.reducedEffects && (
@@ -508,7 +507,7 @@ export function AppSurface({ surface }) {
         <aside className="teacher-student-preview-banner" aria-label={`Previewing as ${studentPreview.studentName}`}>
           <div>
             <strong>Previewing as {studentPreview.studentName}</strong>
-            <span>Read-only preview · learner progress is protected</span>
+            <span>Read-only preview · this child's progress is protected</span>
           </div>
           <p role="status" aria-live="polite">{studentPreviewStatus}</p>
           <button className="lp-button lp-button-secondary" type="button" onClick={returnFromStudentPreview}>
@@ -726,7 +725,7 @@ export function AppSurface({ surface }) {
 
       {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_ASSESS && (
         <PageBoundary resetKey="teacher-assess">
-          <Suspense fallback={<LazyPageFallback label="Loading assessment tools..." />}>
+          <Suspense fallback={<LazyPageFallback label="Loading check tools…" />}>
             <TeacherIntentPage
               intent="assess"
               className={getSelectedClassName(classList, selectedClassId)}
@@ -1078,11 +1077,11 @@ export function AppSurface({ surface }) {
       {adminConfirm && <Suspense fallback={null}><ConfirmActionDialog
         open={Boolean(adminConfirm)}
         busy={adminConfirmBusy}
-        title={adminConfirm?.kind === "class" ? "Delete class?" : "Delete student?"}
+        title={adminConfirm?.kind === "class" ? "Delete class?" : "Delete child?"}
         body={adminConfirm?.kind === "class"
-          ? `This permanently removes ${adminConfirm?.name || "this class"}, every student in it, and all of their assessment data. This cannot be undone.`
-          : `This permanently removes ${adminConfirm?.name || "this student"} and all of their assessment data. This cannot be undone.`}
-        confirmLabel={adminConfirm?.kind === "class" ? "Delete class" : "Delete student"}
+          ? `This permanently removes ${adminConfirm?.name || "this class"}, every child in it, and all of their saved results. This cannot be undone.`
+          : `This permanently removes ${adminConfirm?.name || "this child"} and all of their saved results. This cannot be undone.`}
+        confirmLabel={adminConfirm?.kind === "class" ? "Delete class" : "Delete child"}
         onCancel={() => setAdminConfirm(null)}
         onConfirm={async () => {
           if (!adminConfirm || adminConfirmBusy) return;
@@ -1163,11 +1162,11 @@ export function AppSurface({ surface }) {
       {sessionMode !== "student" && shouldShowFooterUtilityActions({ appView, isFocusedAssessment: isFocusedShell }) && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
-            Switch Student
+            Switch child
           </button>
 
           <button className="reset-button" onClick={resetStudent}>
-            Reset Student
+            Reset child
           </button>
         </div>
       )}

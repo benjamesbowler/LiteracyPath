@@ -41,6 +41,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 8, 9, 10]
   },
   {
+    id: "app-copy",
+    label: "Plain-language copy on teacher, child, family, and export surfaces",
+    command: ["npm", "run", "check:app-copy"],
+    areas: [1, 2, 3, 5, 6, 7, 10]
+  },
+  {
     id: "public-source-maps",
     label: "Public build contains no source maps or map references",
     command: ["npm", "run", "check:public-source-maps"],

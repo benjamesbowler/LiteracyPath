@@ -26,7 +26,7 @@ function defaultActivity(action, insight, targets) {
   if (action === "plan_small_group") {
     return `Model ${insight.focus}, rehearse together, then check one unseen transfer item.`;
   }
-  return "Respond to the recorded observation with explicit teaching, then review new evidence.";
+  return "Respond to the saved observation with explicit teaching, then review new results.";
 }
 
 function actionTitle(action) {
@@ -143,7 +143,7 @@ export function TeacherInsightActions({
       setActiveAction("");
     } catch (error) {
       console.error("Insight action error:", error);
-      setStatus("That action was not saved. Existing evidence and plans are unchanged.");
+      setStatus("That action was not saved. Existing results and plans are unchanged.");
     } finally {
       setBusy(false);
     }
@@ -154,7 +154,7 @@ export function TeacherInsightActions({
     const stopIndex = insightPracticeStopIndex(normalized, rows);
     if (!targets.length || !stopIndex) {
       setStatus(
-        "No exact decodable Sound Seekers target is available for this insight yet. Review the evidence before printing."
+        "No exact decodable Sound Seekers target is available for this insight yet. Review the results before printing."
       );
       return;
     }
@@ -228,7 +228,7 @@ export function TeacherInsightActions({
         <form className="symbol-password-modal-card teacher-insight-action-dialog" onSubmit={submitAction}>
           <header>
             <div>
-              <p className="panel-label">Evidence to action</p>
+              <p className="panel-label">Results to action</p>
               <h3>{actionTitle(activeAction)}</h3>
               <p>{normalized.label} · {normalized.focus}</p>
             </div>
@@ -238,7 +238,7 @@ export function TeacherInsightActions({
           </header>
 
           <fieldset>
-            <legend>Learners</legend>
+            <legend>Children</legend>
             <div className="teacher-insight-action-options">
               {rows.map(row => (
                 <label key={row.id}>
@@ -265,8 +265,7 @@ export function TeacherInsightActions({
                       onChange={() => toggleTarget(target.id)}
                     />
                     <span>
-                      {target.label} · {target.memberCount} current learner
-                      {target.memberCount === 1 ? "" : "s"}
+                      {target.label} · {target.memberCount} current {target.memberCount === 1 ? "child" : "children"}
                     </span>
                   </label>
                 ))}
@@ -276,7 +275,7 @@ export function TeacherInsightActions({
 
           {activeAction === "record_observation" && (
             <label>
-              <span>Observed evidence</span>
+              <span>What you observed</span>
               <textarea
                 data-autofocus
                 required
@@ -350,7 +349,7 @@ export function TeacherInsightActions({
             >
               Cancel
             </button>
-            <span>{className || "Selected class"} · {selectedStudentIds.length} learner{selectedStudentIds.length === 1 ? "" : "s"}</span>
+            <span>{className || "Selected class"} · {selectedStudentIds.length} {selectedStudentIds.length === 1 ? "child" : "children"}</span>
           </div>
         </form>
       </TeacherModal>
