@@ -166,3 +166,35 @@ test("item-key budget allows necessary concept reuse but rejects avoidable conce
     [{ value: "final_sound::a", count: 4, allowedCount: 3 }]
   );
 });
+
+test("item-key feasibility counts distinct targets rather than duplicate question variants", () => {
+  const selected = [
+    ...Array.from({ length: 5 }, (_, index) => ({
+      ...question(`ee-${index}`, "PICTURE_AUDIO_TO_PATTERN", `ee-target-${index}`),
+      itemKey: "ee"
+    })),
+    ...Array.from({ length: 3 }, (_, index) => ({
+      ...question(`ea-${index}`, "PICTURE_AUDIO_TO_PATTERN", `ea-target-${index}`),
+      itemKey: "ea"
+    })),
+    ...Array.from({ length: 3 }, (_, index) => ({
+      ...question(`ai-${index}`, "PICTURE_AUDIO_TO_PATTERN", `ai-target-${index}`),
+      itemKey: "ai"
+    })),
+    ...Array.from({ length: 3 }, (_, index) => ({
+      ...question(`oa-${index}`, "PICTURE_AUDIO_TO_PATTERN", `oa-target-${index}`),
+      itemKey: "oa"
+    })),
+    { ...question("ay-one", "PICTURE_AUDIO_TO_PATTERN", "clay"), itemKey: "ay" }
+  ];
+  const available = [
+    ...selected,
+    { ...question("ay-two", "PICTURE_AUDIO_TO_PATTERN", "clay"), itemKey: "ay" },
+    { ...question("ay-three", "PICTURE_AUDIO_TO_PATTERN", "clay"), itemKey: "ay" }
+  ];
+
+  assert.deepEqual(
+    getAssessmentItemKeyBudgetFailures(selected, available, { roundLength: 15 }),
+    []
+  );
+});

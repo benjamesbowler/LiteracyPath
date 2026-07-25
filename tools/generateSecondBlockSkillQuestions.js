@@ -312,7 +312,55 @@ function makeVowelTeams(rows) {
   const pool = rows
     .filter(row => hasReliableMedia(row) && teamPattern(row) && !row.text.includes("r-controlled"))
     .sort((a, b) => teamPattern(a).localeCompare(teamPattern(b)) || a.word.localeCompare(b.word));
-  return uniqueByPattern(pool, teamPattern, 24).map((row, index) => {
+  const chosen = uniqueByPattern(pool, teamPattern, 24);
+  const level1Prompts = [
+    "Listen to the word and choose its vowel team.",
+    "Which vowel team do you hear in the pictured word?",
+    "Look, listen, and pick the vowel team in the word."
+  ];
+  const level1 = chosen.filter(row => row.audioPath).flatMap((row, index) =>
+    level1Prompts.map((prompt, variant) => {
+      const pattern = teamPattern(row);
+      const options = [
+        pattern,
+        ...rotate(
+          VOWEL_TEAM_PATTERNS.filter(item => item !== pattern),
+          (index * 3) + (variant * 5)
+        ).slice(0, 3)
+      ];
+      // The canonical gap bank already supplies the introductory "clay" /ay/
+      // item in phase 1. Keep its picture/audio variants in phase 2 so a
+      // 15-item phase-1 round never needs to repeat that sole /ay/ target.
+      const phase = row.word === "clay" || variant > 0 ? 2 : 1;
+      return baseQuestion({
+        id: `second_vowel_teams_l1_${String(index + 1).padStart(2, "0")}_v${variant + 1}_${pattern}_${row.slug}`,
+        skillId: "vowel_teams",
+        skillName: "Vowel Teams",
+        level: 1,
+        templateType: "PICTURE_AUDIO_TO_PATTERN",
+        targetWord: row.word,
+        imagePath: row.imagePath,
+        audioPath: row.audioPath,
+        extra: {
+          phase,
+          assessmentPhase: phase,
+          phaseTarget: `level_1_phase_${phase}`,
+          prompt,
+          question: prompt,
+          targetPattern: pattern,
+          phonicsPattern: pattern,
+          itemType: "phonics_pattern",
+          itemKey: pattern,
+          choices: options,
+          answerOptions: optionObjects(options),
+          correctAnswer: pattern,
+          answer: pattern,
+          explanation: `${row.word} uses the ${pattern} vowel team.`
+        }
+      });
+    })
+  );
+  const level2 = chosen.map((row, index) => {
     const pattern = teamPattern(row);
     const options = [pattern, ...rotate(VOWEL_TEAM_PATTERNS.filter(item => item !== pattern), index * 2).slice(0, 3)];
     return baseQuestion({
@@ -338,6 +386,46 @@ function makeVowelTeams(rows) {
         correctAnswer: pattern,
         answer: pattern,
         explanation: `${pattern} completes ${row.word}.`
+      }
+    });
+  });
+  return [...level1, ...level2];
+}
+
+function rControlledPattern(row = {}) {
+  const annotated = /r[\s-]?controlled/.test(row.text || "");
+  if (!annotated) return "";
+  return R_CONTROLLED_PATTERNS.find(pattern => row.word.includes(pattern)) || "";
+}
+
+function makeRControlledVowels(rows) {
+  const pool = rows
+    .filter(row => hasReliableMedia(row, { requireAudio: true }) && rControlledPattern(row))
+    .sort((a, b) => rControlledPattern(a).localeCompare(rControlledPattern(b)) || a.word.localeCompare(b.word));
+  return uniqueByPattern(pool, rControlledPattern, 30).map((row, index) => {
+    const pattern = rControlledPattern(row);
+    const options = [pattern, ...rotate(R_CONTROLLED_PATTERNS.filter(item => item !== pattern), index * 2).slice(0, 3)];
+    return baseQuestion({
+      id: `second_r_controlled_l1_${String(index + 1).padStart(2, "0")}_${pattern}_${row.slug}`,
+      skillId: "r_controlled_vowels",
+      skillName: "R-Controlled Vowels",
+      level: 1,
+      templateType: "PICTURE_AUDIO_TO_PATTERN",
+      targetWord: row.word,
+      imagePath: row.imagePath,
+      audioPath: row.audioPath,
+      extra: {
+        prompt: "Listen to the word and choose its r-controlled spelling.",
+        question: "Listen to the word and choose its r-controlled spelling.",
+        targetPattern: pattern,
+        phonicsPattern: pattern,
+        itemType: "phonics_pattern",
+        itemKey: pattern,
+        choices: options,
+        answerOptions: optionObjects(options),
+        correctAnswer: pattern,
+        answer: pattern,
+        explanation: `${row.word} uses the ${pattern} r-controlled spelling.`
       }
     });
   });
@@ -422,10 +510,10 @@ function makeGrammar(rows, part, skillName) {
   const l1Pool = partRows(rows, part);
   const l2Pool = partRows(rows, part, { requireAudio: true });
   grammarPoolSupport[`${part}s`] = { l1Pool: l1Pool.length, l2Pool: l2Pool.length };
-  const l2Count = Math.min(30, l2Pool.length);
-  const l1Count = Math.max(0, Math.min(l1Pool.length, 100 - l2Count));
-  const l1Targets = l1Pool.slice(0, l1Count);
-  const l2Targets = l2Pool.slice(0, l2Count);
+  const l1Count = l1Pool.length >= 20 ? Math.max(46, Math.min(l1Pool.length, 70)) : l1Pool.length;
+  const l2Count = l2Pool.length ? 46 : 0;
+  const l1Targets = Array.from({ length: l1Count }, (_, index) => l1Pool[index % l1Pool.length]);
+  const l2Targets = Array.from({ length: l2Count }, (_, index) => l2Pool[index % l2Pool.length]);
   const nouns = partRows(rows, "noun");
   const verbs = partRows(rows, "verb");
   const adjectives = partRows(rows, "adjective");
@@ -456,6 +544,11 @@ function makeGrammar(rows, part, skillName) {
     ];
     const cards = rotate([posCard(row, part), ...distractorCards].slice(0, 4), index);
     if (cards.length !== 4 || cards.some(card => !card.image)) return;
+    const prompt = [
+      `Tap the picture that shows a ${part}.`,
+      `Which picture shows a ${part}?`,
+      `Choose the ${part} picture.`
+    ][Math.floor(index / l1Pool.length) % 3];
     questions.push(baseQuestion({
       id: `second_${part}s_l1_${String(index + 1).padStart(2, "0")}_${row.slug}`,
       skillId: `${part}s`,
@@ -467,8 +560,8 @@ function makeGrammar(rows, part, skillName) {
       source: GRAMMAR_SOURCE,
       extra: {
         questionType: "visual_card_choice",
-        prompt: `Tap the picture that shows a ${part}.`,
-        question: `Tap the picture that shows a ${part}.`,
+        prompt,
+        question: prompt,
         choices: cards.map(card => card.value),
         answerOptions: cards.map(card => ({ value: card.value, label: card.label, partOfSpeech: card.partOfSpeech })),
         imageCards: cards,
@@ -484,7 +577,24 @@ function makeGrammar(rows, part, skillName) {
     }));
   });
   l2Targets.forEach((row, index) => {
-    const options = rotate(l2Targets.filter(item => item.word !== row.word), index * 5).slice(0, 3).concat(row).sort((a, b) => a.word.localeCompare(b.word)).map(item => posOption(item, part, true));
+    const variant = Math.floor(index / l2Pool.length);
+    const options = rotate(l2Pool.filter(item => item.word !== row.word), index * 5)
+      .slice(0, 3)
+      .concat(row)
+      .sort((a, b) => a.word.localeCompare(b.word))
+      .map(item => posOption(item, part, true));
+    const prompt = [
+      `Choose the ${part} that best fits the sentence.`,
+      `Use the picture clue to choose the ${part}.`,
+      `Which ${part} completes the picture sentence?`,
+      `Finish the sentence with the best ${part}.`,
+      `Look at the scene and choose the matching ${part}.`,
+      `Choose the ${part} that makes sense with the picture.`,
+      `Read the sentence and select the picture-matched ${part}.`,
+      `Which ${part} belongs in the blank?`,
+      `Use the scene to find the best ${part} for the blank.`,
+      `Complete the picture clue with the correct ${part}.`
+    ][variant % 10];
     questions.push(baseQuestion({
       id: `second_${part}s_l2_${String(index + 1).padStart(2, "0")}_${row.slug}`,
       skillId: `${part}s`,
@@ -493,12 +603,13 @@ function makeGrammar(rows, part, skillName) {
       templateType: "GRAMMAR_SENTENCE_FIT",
       targetWord: row.word,
       imagePath: posImagePath(row.word, part) || row.imagePath,
+      audioPath: row.audioPath,
       source: GRAMMAR_SOURCE,
       extra: {
         questionType: "ixl_template",
-        prompt: `Choose the ${part} that best fits the sentence.`,
-        question: `Choose the ${part} that best fits the sentence.`,
-        sentence: sentenceFor(row.word, part),
+        prompt,
+        question: prompt,
+        sentence: sentenceFor(row.word, part, variant),
         choices: options.map(option => option.value),
         answerOptions: options,
         correctAnswer: row.word,
@@ -630,10 +741,50 @@ const ADJECTIVE_SENTENCES = {
   purple: "The flower is ___."
 };
 
-function sentenceFor(word, part) {
-  if (part === "noun") return NOUN_SENTENCES[word] || `The child points to the ___ in the picture.`;
-  if (part === "verb") return VERB_SENTENCES[word] || `The child will ___ in the picture.`;
-  return ADJECTIVE_SENTENCES[word] || `The pictured object looks ___.`;
+function sentenceFor(word, part, variant = 0) {
+  if (variant === 0) {
+    if (part === "noun") return NOUN_SENTENCES[word] || "The child points to the ___ in the picture.";
+    if (part === "verb") return VERB_SENTENCES[word] || "The child will ___ in the picture.";
+    return ADJECTIVE_SENTENCES[word] || "The pictured object looks ___.";
+  }
+  const templates = {
+    noun: [
+      "Look at the picture. The best noun for the blank is ___.",
+      "The picture gives a clue for this noun: ___.",
+      "Choose the noun that names what the picture shows: ___.",
+      "The scene shows a ___.",
+      "Use the picture clue to name the ___.",
+      "Finish the picture label with the noun ___.",
+      "The best name for what you can see is ___.",
+      "Complete the sentence about the picture: I can see a ___.",
+      "Which noun completes this picture clue? ___."
+    ],
+    verb: [
+      "Look at the picture. The person will ___ now.",
+      "The picture shows what happens when someone can ___.",
+      "Choose the action in the picture: the person will ___.",
+      "The scene shows someone who will ___.",
+      "Use the picture clue: the person is ready to ___.",
+      "Complete the action sentence about the picture: they can ___.",
+      "The best verb for the action you can see is ___.",
+      "Finish the picture sentence with the action word ___.",
+      "Which verb completes this picture clue? The person will ___."
+    ],
+    adjective: [
+      "Look at the picture. The object is ___.",
+      "The picture gives a clue for this describing word: ___.",
+      "Choose the adjective that describes the picture: ___.",
+      "The scene shows something that looks ___.",
+      "Which word completes this picture clue? It looks ___.",
+      "In the picture, the object appears ___.",
+      "The best word to describe what you see is ___.",
+      "Use the picture clue: the object feels or looks ___.",
+      "Finish the description of the picture: it is ___.",
+      "The picture helps complete this sentence: the object is ___."
+    ]
+  };
+  const options = templates[part] || templates.adjective;
+  return options[(variant - 1) % options.length];
 }
 
 const PREPOSITIONS = ["above", "below", "behind", "beside", "between", "near", "over", "through", "across", "against", "along", "among", "around", "outside"];
@@ -722,45 +873,74 @@ const PLURAL_PAIRS = [
   ["stone", "stones"], ["star", "stars"], ["tree", "trees"], ["sock", "socks"], ["drum", "drums"],
   ["flag", "flags"], ["kite", "kites"], ["ring", "rings"]
 ];
+
+function pluralSuffix(plural) {
+  if (plural.endsWith("ies")) return "ies";
+  if (plural.endsWith("ves")) return "ves";
+  if (plural.endsWith("es")) return "es";
+  return "s";
+}
+
 function makePlurals() {
   const spellingQuestions = PLURAL_PAIRS.flatMap(([singular, plural], index) => {
     const image = existingImagePath(plural) || existingImagePath(singular);
     const audio = approvedAudio(plural);
     if (!image) return [];
-    const suffix = plural.endsWith("ies") ? "ies" : plural.endsWith("ves") ? "ves" : plural.endsWith("es") ? "es" : "s";
-    const singularDistractors = rotate(PLURAL_PAIRS.map(pair => pair[0]).filter(word => word !== singular), index * 3).slice(0, 3);
-    const options = [plural, ...singularDistractors];
-    return [baseQuestion({
-      id: `second_plurals_l${index < 12 ? 1 : 2}_${String(index + 1).padStart(2, "0")}_${slug(plural)}`,
-      skillId: "plurals",
-      skillName: "Plurals",
-      level: index < 12 ? 1 : 2,
-      templateType: "PLURAL_IMAGE_SPELLING",
-      targetWord: plural,
-      imagePath: image,
-      audioPath: audio,
-      extra: {
-        prompt: "Choose the word that names more than one.",
-        question: "Choose the word that names more than one.",
-        choices: options,
-        answerOptions: optionObjects(options),
-        correctAnswer: plural,
-        answer: plural,
-        singularWord: singular,
-        pluralRule: suffix,
-        runtimeTemplateKey: `PLURAL_IMAGE_SPELLING_${suffix}_${slug(singular)}_${slug(plural)}`,
-        itemType: "plural_word",
-        itemKey: plural,
-        explanation: `${plural} means more than one ${singular}.`
-      }
-    })];
+    const suffix = pluralSuffix(plural);
+    const spellingCandidates = unique([
+      plural,
+      singular,
+      `${singular}s`,
+      `${singular}es`,
+      singular.endsWith("y") ? `${singular.slice(0, -1)}ies` : `${singular}ies`,
+      singular.endsWith("f") ? `${singular.slice(0, -1)}ves` : `${singular}ves`
+    ]);
+    const options = [plural, ...spellingCandidates.filter(item => item !== plural).slice(0, 3)];
+    if (options.length !== 4) return [];
+    return [1, 2].map(level => {
+      const prompt = level === 1
+        ? `Which spelling means more than one ${singular}?`
+        : `Choose the correctly spelled plural of "${singular}".`;
+      return baseQuestion({
+        id: `second_plurals_l${level}_${String(index + 1).padStart(2, "0")}_${slug(plural)}`,
+        skillId: "plurals",
+        skillName: "Plurals",
+        level,
+        templateType: "PLURAL_IMAGE_SPELLING",
+        targetWord: plural,
+        imagePath: image,
+        audioPath: audio,
+        extra: {
+          prompt,
+          question: prompt,
+          choices: options,
+          answerOptions: optionObjects(options),
+          correctAnswer: plural,
+          answer: plural,
+          singularWord: singular,
+          pluralRule: suffix,
+          runtimeTemplateKey: `PLURAL_IMAGE_SPELLING_L${level}_${suffix}_${slug(singular)}_${slug(plural)}`,
+          itemType: "plural_word",
+          itemKey: plural,
+          explanation: `${plural} means more than one ${singular}.`
+        }
+      });
+    });
   });
 
-  const rulePairs = PLURAL_PAIRS.slice(0, 8);
+  const ruleTargets = { s: 3, es: 2, ies: 2, ves: 1 };
+  const ruleCounts = new Map();
+  const rulePairs = PLURAL_PAIRS.filter(([, plural]) => {
+    const suffix = pluralSuffix(plural);
+    const count = ruleCounts.get(suffix) || 0;
+    if (count >= ruleTargets[suffix]) return false;
+    ruleCounts.set(suffix, count + 1);
+    return true;
+  });
   const ruleQuestions = rulePairs.flatMap(([singular, plural], index) => {
     const image = existingImagePath(singular) || existingImagePath(plural);
     if (!image) return [];
-    const suffix = plural.endsWith("ies") ? "ies" : plural.endsWith("ves") ? "ves" : plural.endsWith("es") ? "es" : "s";
+    const suffix = pluralSuffix(plural);
     const options = [suffix, ...["s", "es", "ies", "ves"].filter(item => item !== suffix)].slice(0, 4);
     return [baseQuestion({
       id: `second_plurals_l2_rule_${String(index + 1).padStart(2, "0")}_${slug(singular)}`,
@@ -806,8 +986,10 @@ const SYNONYM_PAIRS = [
 ];
 function makeAntonymsSynonyms() {
   const rows = [];
-  ANTONYM_PAIRS.forEach(([word, answer], index) => rows.push(makeRelationQuestion("antonym", word, answer, index, 2)));
-  SYNONYM_PAIRS.forEach(([word, answer], index) => rows.push(makeRelationQuestion("synonym", word, answer, index, 2)));
+  [1, 2].forEach(level => {
+    ANTONYM_PAIRS.forEach(([word, answer], index) => rows.push(makeRelationQuestion("antonym", word, answer, index, level)));
+    SYNONYM_PAIRS.forEach(([word, answer], index) => rows.push(makeRelationQuestion("synonym", word, answer, index, level)));
+  });
   return rows.filter(Boolean);
 }
 
@@ -822,7 +1004,9 @@ function makeRelationQuestion(kind, word, answer, index, level) {
     skillId: "antonyms_synonyms",
     skillName: "Antonyms and Synonyms",
     level,
-    templateType: kind === "antonym" ? "ANTONYM_CHOICE" : "SYNONYM_CHOICE",
+    templateType: level === 1
+      ? "LANGUAGE_PAIR_TEXT_CHOICE"
+      : kind === "antonym" ? "ANTONYM_CHOICE" : "SYNONYM_CHOICE",
     targetWord: word,
     imagePath: image,
     audioPath: audio,
@@ -845,6 +1029,7 @@ const rows = enrichRows(await readWorkbookRows());
 const questions = [
   ...makeLongVowels(rows),
   ...makeVowelTeams(rows),
+  ...makeRControlledVowels(rows),
   ...makeGrammar(rows, "noun", "Nouns"),
   ...makeGrammar(rows, "verb", "Verbs"),
   ...makeGrammar(rows, "adjective", "Adjectives"),

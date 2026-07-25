@@ -420,13 +420,24 @@ function makeRhymingQuestions(level, needed) {
   return questions;
 }
 
-function makePatternQuestions({ skillId, skillName, level, needed, templateType = "PICTURE_AUDIO_TO_PATTERN", skillKey, patternGetter, patterns, prompt }) {
+function makePatternQuestions({
+  skillId,
+  skillName,
+  level,
+  needed,
+  templateType = "PICTURE_AUDIO_TO_PATTERN",
+  skillKey,
+  patternGetter,
+  patterns,
+  distractorPatterns = [],
+  prompt
+}) {
   const pool = entriesFor(entry => {
     const pattern = patternGetter(entry);
     return entry.isConcrete && entry.isImageable && pattern && (!patterns || patterns.includes(pattern)) && entrySkillEligible(skillKey, 3, entry);
   });
   const questions = [];
-  const patternPool = unique(pool.map(patternGetter));
+  const patternPool = unique([...pool.map(patternGetter), ...distractorPatterns]);
   for (const entry of pool) {
     if (questions.length >= needed) break;
     const pattern = patternGetter(entry);
@@ -505,6 +516,7 @@ function makeVowelTeamQuestions(level, needed) {
     skillKey: "vowelTeams",
     patternGetter: entry => entry.phonics?.cvce ? "" : entry.phonics?.vowelTeam || "",
     patterns: level === 1 ? ["ai", "ay", "ee", "ea", "oa"] : ["ai", "ay", "ee", "ea", "oa", "oi", "oy", "ou", "ow", "ue", "ui", "oo", "oe"],
+    distractorPatterns: level === 1 ? ["ue", "igh", "ui", "oo"] : [],
     prompt: level === 1
       ? "Look at the picture. Which vowel team completes the word?"
       : "Look at the picture. Which vowel team best completes the word?"
@@ -666,18 +678,64 @@ function cycleRows(rows, needed) {
 function makeVocabularyGrammarQuestions(skillId, skillName, level, needed) {
   if (skillId === "prepositions_of_place") {
     const spatial = [
-      "above", "below", "behind", "beside", "between", "inside", "outside", "under", "over", "near",
-      "far", "around", "through", "across", "against", "beneath", "next to", "in front of", "on top of",
-      "along", "past", "toward", "away from", "around the corner", "by", "within", "beyond", "underneath",
-      "among", "opposite", "beside the gate", "under the bridge", "inside the basket", "behind the curtain",
-      "between the trees", "near the river", "across the path", "around the bend", "toward the door",
-      "away from the road", "beneath the shelf", "on the left", "on the right", "at the front",
-      "at the back", "in the middle", "outside the tent", "past the bench", "along the fence",
-      "through the tunnel"
+      ["above", "Which word means higher than something else?"],
+      ["below", "Which word means lower than something else?"],
+      ["behind", "Which word means at the back of something?"],
+      ["beside", "Which word means at the side of something?"],
+      ["between", "Which word means in the space separating two things?"],
+      ["inside", "Which word means within something?"],
+      ["outside", "Which word means not inside something?"],
+      ["under", "Which word means directly lower than something?"],
+      ["over", "Which word can mean across and above something?"],
+      ["near", "Which word means close to something?"],
+      ["far", "Which word means a long distance away?"],
+      ["around", "Which word means on every side of something?"],
+      ["through", "Which word means entering one side and leaving the other?"],
+      ["across", "Which word means from one side to the other?"],
+      ["against", "Which word means touching or pressing on something?"],
+      ["beneath", "Which word means in a lower position than something?"],
+      ["next to", "Which phrase means directly beside something?"],
+      ["in front of", "Which phrase means before the forward-facing side?"],
+      ["on top of", "Which phrase means resting on the highest surface?"],
+      ["along", "Which word means following the length of something?"],
+      ["past", "Which word means continuing beyond something?"],
+      ["toward", "Which word means moving in the direction of something?"],
+      ["away from", "Which phrase means moving farther from something?"],
+      ["around the corner", "Which phrase means just beyond a turning point?"],
+      ["by", "Which short word can mean close beside something?"],
+      ["within", "Which word means inside a boundary or limit?"],
+      ["beyond", "Which word means farther than a point or boundary?"],
+      ["underneath", "Which word means directly under something?"],
+      ["among", "Which word means surrounded by several things?"],
+      ["opposite", "Which word means facing across from something?"],
+      ["beside the gate", "Which phrase places something at the side of the gate?"],
+      ["under the bridge", "Which phrase places something lower than the bridge?"],
+      ["inside the basket", "Which phrase places something within the basket?"],
+      ["behind the curtain", "Which phrase places something at the back of the curtain?"],
+      ["between the trees", "Which phrase places something in the space separating the trees?"],
+      ["near the river", "Which phrase places something close to the river?"],
+      ["across the path", "Which phrase describes moving from one side of the path to the other?"],
+      ["around the bend", "Which phrase describes going beyond a curve?"],
+      ["toward the door", "Which phrase describes moving in the direction of the door?"],
+      ["away from the road", "Which phrase describes moving farther from the road?"],
+      ["beneath the shelf", "Which phrase places something lower than the shelf?"],
+      ["on the left", "Which phrase names the left-hand side?"],
+      ["on the right", "Which phrase names the right-hand side?"],
+      ["at the front", "Which phrase places something in the forward part?"],
+      ["at the back", "Which phrase places something in the rear part?"],
+      ["in the middle", "Which phrase places something at the centre?"],
+      ["outside the tent", "Which phrase places something beyond the tent's inside space?"],
+      ["past the bench", "Which phrase describes continuing beyond the bench?"],
+      ["along the fence", "Which phrase describes following the length of the fence?"],
+      ["through the tunnel", "Which phrase describes entering one end of the tunnel and leaving the other?"]
     ];
     const rows = level === 1 ? spatial : [...spatial].reverse();
-    return rows.slice(0, Math.max(needed, 20)).map((answer, index) => {
+    return rows.slice(0, Math.max(needed, 20)).map(([answer, clue], index) => {
       const entry = byWord(answer);
+      const distractors = rotate(
+        spatial.map(([candidate]) => candidate).filter(candidate => candidate !== answer),
+        index * 7
+      ).slice(0, 3);
       return baseQuestion({
         id: `gap_${slug(skillId)}_l${level}_${slug(answer)}_${index + 1}`,
         skillId,
@@ -685,11 +743,9 @@ function makeVocabularyGrammarQuestions(skillId, skillName, level, needed) {
         level,
         phaseTarget: `level_${level}`,
         templateType: "GRAMMAR_BASICS",
-        prompt: level === 2
-          ? "Which more precise word or phrase tells where something is?"
-          : "Which word or phrase tells where something is?",
+        prompt: level === 2 ? clue.replace(/^Which /, "Choose the precise ") : clue,
         correctAnswer: answer,
-        answerOptions: choiceList(answer, rotate(["cat", "draw", "happy", "book", "jump", "soft"], index)),
+        answerOptions: choiceList(answer, distractors),
         targetWord: answer,
         itemType: skillId,
         itemKey: answer,
@@ -934,7 +990,7 @@ const ANTONYM_SYNONYM = [
 ];
 
 const HOMOPHONES = [
-  ["see", "sea", "Which word means ocean water?", ["sea", "see", "sit", "say"]],
+  ["sea", "see", "Which word means ocean water?", ["sea", "see", "sit", "say"]],
   ["one", "won", "Which word names the number?", ["one", "won", "once", "own"]],
   ["two", "too", "Which word names the number?", ["two", "too", "to", "top"]],
   ["hear", "here", "Which word means to listen?", ["hear", "here", "her", "help"]],
@@ -998,8 +1054,10 @@ function makeMeaningQuestions(skillId, skillName, level, needed, rows) {
     phaseTarget: `level_${level}`,
     templateType: skillId === "homophones_homonyms" ? "HOMOPHONE_MEANING" : "COMPREHENSION",
     prompt: level === 2 ? `${prompt} Use the meaning that fits best.` : prompt,
-    correctAnswer: answer,
-    answerOptions: choiceList(answer, choices.filter(choice => choice !== answer)),
+    correctAnswer: skillId === "homophones_homonyms" ? target : answer,
+    answerOptions: skillId === "homophones_homonyms"
+      ? choiceList(target, choices.filter(choice => choice !== target))
+      : choiceList(answer, choices.filter(choice => choice !== answer)),
     targetWord: target,
     itemType: skillId,
     itemKey: target,

@@ -12,8 +12,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means higher than something else?",
+    "question": "Which word means higher than something else?",
     "targetWord": "above",
     "itemType": "prepositions_of_place",
     "itemKey": "above",
@@ -21,15 +21,15 @@ export const questions = [
     "answer": "above",
     "answerOptions": [
       "above",
-      "cat",
-      "draw",
-      "happy"
+      "below",
+      "behind",
+      "beside"
     ],
     "choices": [
       "above",
-      "cat",
-      "draw",
-      "happy"
+      "below",
+      "behind",
+      "beside"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -42,7 +42,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/above.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 201
+    "__runtimeSourceIndex": 146
   },
   {
     "id": "gap_prepositions_of_place_l1_below_2",
@@ -56,8 +56,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means lower than something else?",
+    "question": "Which word means lower than something else?",
     "targetWord": "below",
     "itemType": "prepositions_of_place",
     "itemKey": "below",
@@ -65,15 +65,15 @@ export const questions = [
     "answer": "below",
     "answerOptions": [
       "below",
-      "draw",
-      "happy",
-      "book"
+      "over",
+      "near",
+      "far"
     ],
     "choices": [
       "below",
-      "draw",
-      "happy",
-      "book"
+      "over",
+      "near",
+      "far"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -86,7 +86,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/below.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 202
+    "__runtimeSourceIndex": 147
   },
   {
     "id": "gap_prepositions_of_place_l1_behind_3",
@@ -100,8 +100,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means at the back of something?",
+    "question": "Which word means at the back of something?",
     "targetWord": "behind",
     "itemType": "prepositions_of_place",
     "itemKey": "behind",
@@ -109,15 +109,15 @@ export const questions = [
     "answer": "behind",
     "answerOptions": [
       "behind",
-      "happy",
-      "book",
-      "jump"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "choices": [
       "behind",
-      "happy",
-      "book",
-      "jump"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -130,7 +130,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/behind.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 203
+    "__runtimeSourceIndex": 148
   },
   {
     "id": "gap_prepositions_of_place_l1_beside_4",
@@ -144,8 +144,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means at the side of something?",
+    "question": "Which word means at the side of something?",
     "targetWord": "beside",
     "itemType": "prepositions_of_place",
     "itemKey": "beside",
@@ -153,15 +153,15 @@ export const questions = [
     "answer": "beside",
     "answerOptions": [
       "beside",
-      "book",
-      "jump",
-      "soft"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "choices": [
       "beside",
-      "book",
-      "jump",
-      "soft"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -174,7 +174,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/beside.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 204
+    "__runtimeSourceIndex": 149
   },
   {
     "id": "gap_prepositions_of_place_l1_between_5",
@@ -188,8 +188,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means in the space separating two things?",
+    "question": "Which word means in the space separating two things?",
     "targetWord": "between",
     "itemType": "prepositions_of_place",
     "itemKey": "between",
@@ -197,15 +197,15 @@ export const questions = [
     "answer": "between",
     "answerOptions": [
       "between",
-      "jump",
-      "soft",
-      "cat"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "choices": [
       "between",
-      "jump",
-      "soft",
-      "cat"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -218,7 +218,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/between.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 205
+    "__runtimeSourceIndex": 150
   },
   {
     "id": "gap_prepositions_of_place_l1_inside_6",
@@ -232,8 +232,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means within something?",
+    "question": "Which word means within something?",
     "targetWord": "inside",
     "itemType": "prepositions_of_place",
     "itemKey": "inside",
@@ -241,15 +241,15 @@ export const questions = [
     "answer": "inside",
     "answerOptions": [
       "inside",
-      "soft",
-      "cat",
-      "draw"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "inside",
-      "soft",
-      "cat",
-      "draw"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -260,7 +260,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 206
+    "__runtimeSourceIndex": 151
   },
   {
     "id": "gap_prepositions_of_place_l1_outside_7",
@@ -274,8 +274,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means not inside something?",
+    "question": "Which word means not inside something?",
     "targetWord": "outside",
     "itemType": "prepositions_of_place",
     "itemKey": "outside",
@@ -283,15 +283,15 @@ export const questions = [
     "answer": "outside",
     "answerOptions": [
       "outside",
-      "cat",
-      "draw",
-      "happy"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "outside",
-      "cat",
-      "draw",
-      "happy"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -304,7 +304,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/outside.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 207
+    "__runtimeSourceIndex": 152
   },
   {
     "id": "gap_prepositions_of_place_l1_under_8",
@@ -318,8 +318,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means directly lower than something?",
+    "question": "Which word means directly lower than something?",
     "targetWord": "under",
     "itemType": "prepositions_of_place",
     "itemKey": "under",
@@ -327,15 +327,15 @@ export const questions = [
     "answer": "under",
     "answerOptions": [
       "under",
-      "draw",
-      "happy",
-      "book"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "under",
-      "draw",
-      "happy",
-      "book"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -346,7 +346,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 208
+    "__runtimeSourceIndex": 153
   },
   {
     "id": "gap_prepositions_of_place_l1_over_9",
@@ -360,8 +360,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word can mean across and above something?",
+    "question": "Which word can mean across and above something?",
     "targetWord": "over",
     "itemType": "prepositions_of_place",
     "itemKey": "over",
@@ -369,15 +369,15 @@ export const questions = [
     "answer": "over",
     "answerOptions": [
       "over",
-      "happy",
-      "book",
-      "jump"
+      "under",
+      "near",
+      "far"
     ],
     "choices": [
       "over",
-      "happy",
-      "book",
-      "jump"
+      "under",
+      "near",
+      "far"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -390,7 +390,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/over.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 209
+    "__runtimeSourceIndex": 154
   },
   {
     "id": "gap_prepositions_of_place_l1_near_10",
@@ -404,8 +404,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means close to something?",
+    "question": "Which word means close to something?",
     "targetWord": "near",
     "itemType": "prepositions_of_place",
     "itemKey": "near",
@@ -413,15 +413,15 @@ export const questions = [
     "answer": "near",
     "answerOptions": [
       "near",
-      "book",
-      "jump",
-      "soft"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "choices": [
       "near",
-      "book",
-      "jump",
-      "soft"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -434,7 +434,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/near.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 210
+    "__runtimeSourceIndex": 155
   },
   {
     "id": "gap_prepositions_of_place_l1_far_11",
@@ -448,8 +448,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means a long distance away?",
+    "question": "Which word means a long distance away?",
     "targetWord": "far",
     "itemType": "prepositions_of_place",
     "itemKey": "far",
@@ -457,15 +457,15 @@ export const questions = [
     "answer": "far",
     "answerOptions": [
       "far",
-      "jump",
-      "soft",
-      "cat"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "choices": [
       "far",
-      "jump",
-      "soft",
-      "cat"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -478,7 +478,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/far.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 211
+    "__runtimeSourceIndex": 156
   },
   {
     "id": "gap_prepositions_of_place_l1_around_12",
@@ -492,8 +492,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means on every side of something?",
+    "question": "Which word means on every side of something?",
     "targetWord": "around",
     "itemType": "prepositions_of_place",
     "itemKey": "around",
@@ -501,15 +501,15 @@ export const questions = [
     "answer": "around",
     "answerOptions": [
       "around",
-      "soft",
-      "cat",
-      "draw"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "choices": [
       "around",
-      "soft",
-      "cat",
-      "draw"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -522,7 +522,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/around.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 212
+    "__runtimeSourceIndex": 157
   },
   {
     "id": "gap_prepositions_of_place_l1_through_13",
@@ -536,8 +536,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means entering one side and leaving the other?",
+    "question": "Which word means entering one side and leaving the other?",
     "targetWord": "through",
     "itemType": "prepositions_of_place",
     "itemKey": "through",
@@ -545,15 +545,15 @@ export const questions = [
     "answer": "through",
     "answerOptions": [
       "through",
-      "cat",
-      "draw",
-      "happy"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "through",
-      "cat",
-      "draw",
-      "happy"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -566,7 +566,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/through.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 213
+    "__runtimeSourceIndex": 158
   },
   {
     "id": "gap_prepositions_of_place_l1_across_14",
@@ -580,8 +580,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means from one side to the other?",
+    "question": "Which word means from one side to the other?",
     "targetWord": "across",
     "itemType": "prepositions_of_place",
     "itemKey": "across",
@@ -589,15 +589,15 @@ export const questions = [
     "answer": "across",
     "answerOptions": [
       "across",
-      "draw",
-      "happy",
-      "book"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "across",
-      "draw",
-      "happy",
-      "book"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -608,7 +608,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 214
+    "__runtimeSourceIndex": 159
   },
   {
     "id": "gap_prepositions_of_place_l1_against_15",
@@ -622,8 +622,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means touching or pressing on something?",
+    "question": "Which word means touching or pressing on something?",
     "targetWord": "against",
     "itemType": "prepositions_of_place",
     "itemKey": "against",
@@ -631,15 +631,15 @@ export const questions = [
     "answer": "against",
     "answerOptions": [
       "against",
-      "happy",
-      "book",
-      "jump"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "against",
-      "happy",
-      "book",
-      "jump"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -650,7 +650,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 215
+    "__runtimeSourceIndex": 160
   },
   {
     "id": "gap_prepositions_of_place_l1_beneath_16",
@@ -664,8 +664,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means in a lower position than something?",
+    "question": "Which word means in a lower position than something?",
     "targetWord": "beneath",
     "itemType": "prepositions_of_place",
     "itemKey": "beneath",
@@ -673,15 +673,15 @@ export const questions = [
     "answer": "beneath",
     "answerOptions": [
       "beneath",
-      "book",
-      "jump",
-      "soft"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "beneath",
-      "book",
-      "jump",
-      "soft"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -692,7 +692,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 216
+    "__runtimeSourceIndex": 161
   },
   {
     "id": "gap_prepositions_of_place_l1_next_to_17",
@@ -706,8 +706,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase means directly beside something?",
+    "question": "Which phrase means directly beside something?",
     "targetWord": "next to",
     "itemType": "prepositions_of_place",
     "itemKey": "next to",
@@ -715,15 +715,15 @@ export const questions = [
     "answer": "next to",
     "answerOptions": [
       "next to",
-      "jump",
-      "soft",
-      "cat"
+      "against",
+      "beneath",
+      "in front of"
     ],
     "choices": [
       "next to",
-      "jump",
-      "soft",
-      "cat"
+      "against",
+      "beneath",
+      "in front of"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -734,7 +734,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 217
+    "__runtimeSourceIndex": 162
   },
   {
     "id": "gap_prepositions_of_place_l1_in_front_of_18",
@@ -748,8 +748,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase means before the forward-facing side?",
+    "question": "Which phrase means before the forward-facing side?",
     "targetWord": "in front of",
     "itemType": "prepositions_of_place",
     "itemKey": "in front of",
@@ -757,15 +757,15 @@ export const questions = [
     "answer": "in front of",
     "answerOptions": [
       "in front of",
-      "soft",
-      "cat",
-      "draw"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "choices": [
       "in front of",
-      "soft",
-      "cat",
-      "draw"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -776,7 +776,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 218
+    "__runtimeSourceIndex": 163
   },
   {
     "id": "gap_prepositions_of_place_l1_on_top_of_19",
@@ -790,8 +790,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase means resting on the highest surface?",
+    "question": "Which phrase means resting on the highest surface?",
     "targetWord": "on top of",
     "itemType": "prepositions_of_place",
     "itemKey": "on top of",
@@ -799,15 +799,15 @@ export const questions = [
     "answer": "on top of",
     "answerOptions": [
       "on top of",
-      "cat",
-      "draw",
-      "happy"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "choices": [
       "on top of",
-      "cat",
-      "draw",
-      "happy"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -818,7 +818,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 219
+    "__runtimeSourceIndex": 164
   },
   {
     "id": "gap_prepositions_of_place_l1_along_20",
@@ -832,8 +832,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means following the length of something?",
+    "question": "Which word means following the length of something?",
     "targetWord": "along",
     "itemType": "prepositions_of_place",
     "itemKey": "along",
@@ -841,15 +841,15 @@ export const questions = [
     "answer": "along",
     "answerOptions": [
       "along",
-      "draw",
-      "happy",
-      "book"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "along",
-      "draw",
-      "happy",
-      "book"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -860,7 +860,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 220
+    "__runtimeSourceIndex": 165
   },
   {
     "id": "gap_prepositions_of_place_l1_past_21",
@@ -874,8 +874,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means continuing beyond something?",
+    "question": "Which word means continuing beyond something?",
     "targetWord": "past",
     "itemType": "prepositions_of_place",
     "itemKey": "past",
@@ -883,15 +883,15 @@ export const questions = [
     "answer": "past",
     "answerOptions": [
       "past",
-      "happy",
-      "book",
-      "jump"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "past",
-      "happy",
-      "book",
-      "jump"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -902,7 +902,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 221
+    "__runtimeSourceIndex": 166
   },
   {
     "id": "gap_prepositions_of_place_l1_toward_22",
@@ -916,8 +916,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means moving in the direction of something?",
+    "question": "Which word means moving in the direction of something?",
     "targetWord": "toward",
     "itemType": "prepositions_of_place",
     "itemKey": "toward",
@@ -925,15 +925,15 @@ export const questions = [
     "answer": "toward",
     "answerOptions": [
       "toward",
-      "book",
-      "jump",
-      "soft"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "toward",
-      "book",
-      "jump",
-      "soft"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -944,7 +944,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 222
+    "__runtimeSourceIndex": 167
   },
   {
     "id": "gap_prepositions_of_place_l1_away_from_23",
@@ -958,8 +958,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase means moving farther from something?",
+    "question": "Which phrase means moving farther from something?",
     "targetWord": "away from",
     "itemType": "prepositions_of_place",
     "itemKey": "away from",
@@ -967,15 +967,15 @@ export const questions = [
     "answer": "away from",
     "answerOptions": [
       "away from",
-      "jump",
-      "soft",
-      "cat"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "away from",
-      "jump",
-      "soft",
-      "cat"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -986,7 +986,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 223
+    "__runtimeSourceIndex": 168
   },
   {
     "id": "gap_prepositions_of_place_l1_around_the_corner_24",
@@ -1000,8 +1000,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase means just beyond a turning point?",
+    "question": "Which phrase means just beyond a turning point?",
     "targetWord": "around the corner",
     "itemType": "prepositions_of_place",
     "itemKey": "around the corner",
@@ -1009,15 +1009,15 @@ export const questions = [
     "answer": "around the corner",
     "answerOptions": [
       "around the corner",
-      "soft",
-      "cat",
-      "draw"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "around the corner",
-      "soft",
-      "cat",
-      "draw"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1028,7 +1028,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 224
+    "__runtimeSourceIndex": 169
   },
   {
     "id": "gap_prepositions_of_place_l1_by_25",
@@ -1042,8 +1042,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which short word can mean close beside something?",
+    "question": "Which short word can mean close beside something?",
     "targetWord": "by",
     "itemType": "prepositions_of_place",
     "itemKey": "by",
@@ -1051,15 +1051,15 @@ export const questions = [
     "answer": "by",
     "answerOptions": [
       "by",
-      "cat",
-      "draw",
-      "happy"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "by",
-      "cat",
-      "draw",
-      "happy"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1070,7 +1070,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 225
+    "__runtimeSourceIndex": 170
   },
   {
     "id": "gap_prepositions_of_place_l1_within_26",
@@ -1084,8 +1084,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means inside a boundary or limit?",
+    "question": "Which word means inside a boundary or limit?",
     "targetWord": "within",
     "itemType": "prepositions_of_place",
     "itemKey": "within",
@@ -1093,15 +1093,15 @@ export const questions = [
     "answer": "within",
     "answerOptions": [
       "within",
-      "draw",
-      "happy",
-      "book"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "choices": [
       "within",
-      "draw",
-      "happy",
-      "book"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1112,7 +1112,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 226
+    "__runtimeSourceIndex": 171
   },
   {
     "id": "gap_prepositions_of_place_l1_beyond_27",
@@ -1126,8 +1126,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means farther than a point or boundary?",
+    "question": "Which word means farther than a point or boundary?",
     "targetWord": "beyond",
     "itemType": "prepositions_of_place",
     "itemKey": "beyond",
@@ -1135,15 +1135,15 @@ export const questions = [
     "answer": "beyond",
     "answerOptions": [
       "beyond",
-      "happy",
-      "book",
-      "jump"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "beyond",
-      "happy",
-      "book",
-      "jump"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1154,7 +1154,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 227
+    "__runtimeSourceIndex": 172
   },
   {
     "id": "gap_prepositions_of_place_l1_underneath_28",
@@ -1168,8 +1168,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means directly under something?",
+    "question": "Which word means directly under something?",
     "targetWord": "underneath",
     "itemType": "prepositions_of_place",
     "itemKey": "underneath",
@@ -1177,15 +1177,15 @@ export const questions = [
     "answer": "underneath",
     "answerOptions": [
       "underneath",
-      "book",
-      "jump",
-      "soft"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "underneath",
-      "book",
-      "jump",
-      "soft"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1196,7 +1196,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 228
+    "__runtimeSourceIndex": 173
   },
   {
     "id": "gap_prepositions_of_place_l1_among_29",
@@ -1210,8 +1210,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means surrounded by several things?",
+    "question": "Which word means surrounded by several things?",
     "targetWord": "among",
     "itemType": "prepositions_of_place",
     "itemKey": "among",
@@ -1219,15 +1219,15 @@ export const questions = [
     "answer": "among",
     "answerOptions": [
       "among",
-      "jump",
-      "soft",
-      "cat"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "among",
-      "jump",
-      "soft",
-      "cat"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1238,7 +1238,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 229
+    "__runtimeSourceIndex": 174
   },
   {
     "id": "gap_prepositions_of_place_l1_opposite_30",
@@ -1252,8 +1252,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which word means facing across from something?",
+    "question": "Which word means facing across from something?",
     "targetWord": "opposite",
     "itemType": "prepositions_of_place",
     "itemKey": "opposite",
@@ -1261,15 +1261,15 @@ export const questions = [
     "answer": "opposite",
     "answerOptions": [
       "opposite",
-      "soft",
-      "cat",
-      "draw"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "opposite",
-      "soft",
-      "cat",
-      "draw"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1280,7 +1280,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 230
+    "__runtimeSourceIndex": 175
   },
   {
     "id": "gap_prepositions_of_place_l1_beside_the_gate_31",
@@ -1294,8 +1294,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something at the side of the gate?",
+    "question": "Which phrase places something at the side of the gate?",
     "targetWord": "beside the gate",
     "itemType": "prepositions_of_place",
     "itemKey": "beside the gate",
@@ -1303,15 +1303,15 @@ export const questions = [
     "answer": "beside the gate",
     "answerOptions": [
       "beside the gate",
-      "cat",
-      "draw",
-      "happy"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "beside the gate",
-      "cat",
-      "draw",
-      "happy"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1322,7 +1322,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 231
+    "__runtimeSourceIndex": 176
   },
   {
     "id": "gap_prepositions_of_place_l1_under_the_bridge_32",
@@ -1336,8 +1336,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something lower than the bridge?",
+    "question": "Which phrase places something lower than the bridge?",
     "targetWord": "under the bridge",
     "itemType": "prepositions_of_place",
     "itemKey": "under the bridge",
@@ -1345,15 +1345,15 @@ export const questions = [
     "answer": "under the bridge",
     "answerOptions": [
       "under the bridge",
-      "draw",
-      "happy",
-      "book"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "under the bridge",
-      "draw",
-      "happy",
-      "book"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1364,7 +1364,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 232
+    "__runtimeSourceIndex": 177
   },
   {
     "id": "gap_prepositions_of_place_l1_inside_the_basket_33",
@@ -1378,8 +1378,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something within the basket?",
+    "question": "Which phrase places something within the basket?",
     "targetWord": "inside the basket",
     "itemType": "prepositions_of_place",
     "itemKey": "inside the basket",
@@ -1387,15 +1387,15 @@ export const questions = [
     "answer": "inside the basket",
     "answerOptions": [
       "inside the basket",
-      "happy",
-      "book",
-      "jump"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "choices": [
       "inside the basket",
-      "happy",
-      "book",
-      "jump"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1406,7 +1406,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 233
+    "__runtimeSourceIndex": 178
   },
   {
     "id": "gap_prepositions_of_place_l1_behind_the_curtain_34",
@@ -1420,8 +1420,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something at the back of the curtain?",
+    "question": "Which phrase places something at the back of the curtain?",
     "targetWord": "behind the curtain",
     "itemType": "prepositions_of_place",
     "itemKey": "behind the curtain",
@@ -1429,15 +1429,15 @@ export const questions = [
     "answer": "behind the curtain",
     "answerOptions": [
       "behind the curtain",
-      "book",
-      "jump",
-      "soft"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "behind the curtain",
-      "book",
-      "jump",
-      "soft"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1448,7 +1448,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 234
+    "__runtimeSourceIndex": 179
   },
   {
     "id": "gap_prepositions_of_place_l1_between_the_trees_35",
@@ -1462,8 +1462,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something in the space separating the trees?",
+    "question": "Which phrase places something in the space separating the trees?",
     "targetWord": "between the trees",
     "itemType": "prepositions_of_place",
     "itemKey": "between the trees",
@@ -1471,15 +1471,15 @@ export const questions = [
     "answer": "between the trees",
     "answerOptions": [
       "between the trees",
-      "jump",
-      "soft",
-      "cat"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "between the trees",
-      "jump",
-      "soft",
-      "cat"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1490,7 +1490,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 235
+    "__runtimeSourceIndex": 180
   },
   {
     "id": "gap_prepositions_of_place_l1_near_the_river_36",
@@ -1504,8 +1504,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something close to the river?",
+    "question": "Which phrase places something close to the river?",
     "targetWord": "near the river",
     "itemType": "prepositions_of_place",
     "itemKey": "near the river",
@@ -1513,15 +1513,15 @@ export const questions = [
     "answer": "near the river",
     "answerOptions": [
       "near the river",
-      "soft",
-      "cat",
-      "draw"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "near the river",
-      "soft",
-      "cat",
-      "draw"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1532,7 +1532,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 236
+    "__runtimeSourceIndex": 181
   },
   {
     "id": "gap_prepositions_of_place_l1_across_the_path_37",
@@ -1546,8 +1546,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase describes moving from one side of the path to the other?",
+    "question": "Which phrase describes moving from one side of the path to the other?",
     "targetWord": "across the path",
     "itemType": "prepositions_of_place",
     "itemKey": "across the path",
@@ -1555,15 +1555,15 @@ export const questions = [
     "answer": "across the path",
     "answerOptions": [
       "across the path",
-      "cat",
-      "draw",
-      "happy"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "across the path",
-      "cat",
-      "draw",
-      "happy"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1574,7 +1574,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 237
+    "__runtimeSourceIndex": 182
   },
   {
     "id": "gap_prepositions_of_place_l1_around_the_bend_38",
@@ -1588,8 +1588,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase describes going beyond a curve?",
+    "question": "Which phrase describes going beyond a curve?",
     "targetWord": "around the bend",
     "itemType": "prepositions_of_place",
     "itemKey": "around the bend",
@@ -1597,15 +1597,15 @@ export const questions = [
     "answer": "around the bend",
     "answerOptions": [
       "around the bend",
-      "draw",
-      "happy",
-      "book"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "around the bend",
-      "draw",
-      "happy",
-      "book"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1616,7 +1616,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 238
+    "__runtimeSourceIndex": 183
   },
   {
     "id": "gap_prepositions_of_place_l1_toward_the_door_39",
@@ -1630,8 +1630,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase describes moving in the direction of the door?",
+    "question": "Which phrase describes moving in the direction of the door?",
     "targetWord": "toward the door",
     "itemType": "prepositions_of_place",
     "itemKey": "toward the door",
@@ -1639,15 +1639,15 @@ export const questions = [
     "answer": "toward the door",
     "answerOptions": [
       "toward the door",
-      "happy",
-      "book",
-      "jump"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "toward the door",
-      "happy",
-      "book",
-      "jump"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1658,7 +1658,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 239
+    "__runtimeSourceIndex": 184
   },
   {
     "id": "gap_prepositions_of_place_l1_away_from_the_road_40",
@@ -1672,8 +1672,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase describes moving farther from the road?",
+    "question": "Which phrase describes moving farther from the road?",
     "targetWord": "away from the road",
     "itemType": "prepositions_of_place",
     "itemKey": "away from the road",
@@ -1681,15 +1681,15 @@ export const questions = [
     "answer": "away from the road",
     "answerOptions": [
       "away from the road",
-      "book",
-      "jump",
-      "soft"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "choices": [
       "away from the road",
-      "book",
-      "jump",
-      "soft"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1700,7 +1700,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 240
+    "__runtimeSourceIndex": 185
   },
   {
     "id": "gap_prepositions_of_place_l1_beneath_the_shelf_41",
@@ -1714,8 +1714,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something lower than the shelf?",
+    "question": "Which phrase places something lower than the shelf?",
     "targetWord": "beneath the shelf",
     "itemType": "prepositions_of_place",
     "itemKey": "beneath the shelf",
@@ -1723,15 +1723,15 @@ export const questions = [
     "answer": "beneath the shelf",
     "answerOptions": [
       "beneath the shelf",
-      "jump",
-      "soft",
-      "cat"
+      "near the river",
+      "across the path",
+      "around the bend"
     ],
     "choices": [
       "beneath the shelf",
-      "jump",
-      "soft",
-      "cat"
+      "near the river",
+      "across the path",
+      "around the bend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1742,7 +1742,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 241
+    "__runtimeSourceIndex": 186
   },
   {
     "id": "gap_prepositions_of_place_l1_on_the_left_42",
@@ -1756,8 +1756,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase names the left-hand side?",
+    "question": "Which phrase names the left-hand side?",
     "targetWord": "on the left",
     "itemType": "prepositions_of_place",
     "itemKey": "on the left",
@@ -1765,15 +1765,15 @@ export const questions = [
     "answer": "on the left",
     "answerOptions": [
       "on the left",
-      "soft",
-      "cat",
-      "draw"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "on the left",
-      "soft",
-      "cat",
-      "draw"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1784,7 +1784,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 242
+    "__runtimeSourceIndex": 187
   },
   {
     "id": "gap_prepositions_of_place_l1_on_the_right_43",
@@ -1798,8 +1798,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase names the right-hand side?",
+    "question": "Which phrase names the right-hand side?",
     "targetWord": "on the right",
     "itemType": "prepositions_of_place",
     "itemKey": "on the right",
@@ -1807,15 +1807,15 @@ export const questions = [
     "answer": "on the right",
     "answerOptions": [
       "on the right",
-      "cat",
-      "draw",
-      "happy"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "on the right",
-      "cat",
-      "draw",
-      "happy"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1826,7 +1826,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 243
+    "__runtimeSourceIndex": 188
   },
   {
     "id": "gap_prepositions_of_place_l1_at_the_front_44",
@@ -1840,8 +1840,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something in the forward part?",
+    "question": "Which phrase places something in the forward part?",
     "targetWord": "at the front",
     "itemType": "prepositions_of_place",
     "itemKey": "at the front",
@@ -1849,15 +1849,15 @@ export const questions = [
     "answer": "at the front",
     "answerOptions": [
       "at the front",
-      "draw",
-      "happy",
-      "book"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "at the front",
-      "draw",
-      "happy",
-      "book"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1868,7 +1868,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 244
+    "__runtimeSourceIndex": 189
   },
   {
     "id": "gap_prepositions_of_place_l1_at_the_back_45",
@@ -1882,8 +1882,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something in the rear part?",
+    "question": "Which phrase places something in the rear part?",
     "targetWord": "at the back",
     "itemType": "prepositions_of_place",
     "itemKey": "at the back",
@@ -1891,15 +1891,15 @@ export const questions = [
     "answer": "at the back",
     "answerOptions": [
       "at the back",
-      "happy",
-      "book",
-      "jump"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "at the back",
-      "happy",
-      "book",
-      "jump"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1910,7 +1910,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 245
+    "__runtimeSourceIndex": 190
   },
   {
     "id": "gap_prepositions_of_place_l1_in_the_middle_46",
@@ -1924,8 +1924,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
+    "prompt": "Which phrase places something at the centre?",
+    "question": "Which phrase places something at the centre?",
     "targetWord": "in the middle",
     "itemType": "prepositions_of_place",
     "itemKey": "in the middle",
@@ -1933,15 +1933,15 @@ export const questions = [
     "answer": "in the middle",
     "answerOptions": [
       "in the middle",
-      "book",
-      "jump",
-      "soft"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "in the middle",
-      "book",
-      "jump",
-      "soft"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1952,7 +1952,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 246
+    "__runtimeSourceIndex": 191
   },
   {
     "id": "gap_prepositions_of_place_l2_through_the_tunnel_1",
@@ -1966,8 +1966,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase describes entering one end of the tunnel and leaving the other?",
+    "question": "Choose the precise phrase describes entering one end of the tunnel and leaving the other?",
     "targetWord": "through the tunnel",
     "itemType": "prepositions_of_place",
     "itemKey": "through the tunnel",
@@ -1975,15 +1975,15 @@ export const questions = [
     "answer": "through the tunnel",
     "answerOptions": [
       "through the tunnel",
-      "cat",
-      "draw",
-      "happy"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "through the tunnel",
-      "cat",
-      "draw",
-      "happy"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1994,7 +1994,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 247
+    "__runtimeSourceIndex": 192
   },
   {
     "id": "gap_prepositions_of_place_l2_along_the_fence_2",
@@ -2008,8 +2008,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase describes following the length of the fence?",
+    "question": "Choose the precise phrase describes following the length of the fence?",
     "targetWord": "along the fence",
     "itemType": "prepositions_of_place",
     "itemKey": "along the fence",
@@ -2017,15 +2017,15 @@ export const questions = [
     "answer": "along the fence",
     "answerOptions": [
       "along the fence",
-      "draw",
-      "happy",
-      "book"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "along the fence",
-      "draw",
-      "happy",
-      "book"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2036,7 +2036,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 248
+    "__runtimeSourceIndex": 193
   },
   {
     "id": "gap_prepositions_of_place_l2_past_the_bench_3",
@@ -2050,8 +2050,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase describes continuing beyond the bench?",
+    "question": "Choose the precise phrase describes continuing beyond the bench?",
     "targetWord": "past the bench",
     "itemType": "prepositions_of_place",
     "itemKey": "past the bench",
@@ -2059,15 +2059,15 @@ export const questions = [
     "answer": "past the bench",
     "answerOptions": [
       "past the bench",
-      "happy",
-      "book",
-      "jump"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "past the bench",
-      "happy",
-      "book",
-      "jump"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2078,7 +2078,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 249
+    "__runtimeSourceIndex": 194
   },
   {
     "id": "gap_prepositions_of_place_l2_outside_the_tent_4",
@@ -2092,8 +2092,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something beyond the tent's inside space?",
+    "question": "Choose the precise phrase places something beyond the tent's inside space?",
     "targetWord": "outside the tent",
     "itemType": "prepositions_of_place",
     "itemKey": "outside the tent",
@@ -2101,15 +2101,15 @@ export const questions = [
     "answer": "outside the tent",
     "answerOptions": [
       "outside the tent",
-      "book",
-      "jump",
-      "soft"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "outside the tent",
-      "book",
-      "jump",
-      "soft"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2120,7 +2120,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 250
+    "__runtimeSourceIndex": 195
   },
   {
     "id": "gap_prepositions_of_place_l2_in_the_middle_5",
@@ -2134,8 +2134,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something at the centre?",
+    "question": "Choose the precise phrase places something at the centre?",
     "targetWord": "in the middle",
     "itemType": "prepositions_of_place",
     "itemKey": "in the middle",
@@ -2143,15 +2143,15 @@ export const questions = [
     "answer": "in the middle",
     "answerOptions": [
       "in the middle",
-      "jump",
-      "soft",
-      "cat"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "choices": [
       "in the middle",
-      "jump",
-      "soft",
-      "cat"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2162,7 +2162,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 251
+    "__runtimeSourceIndex": 196
   },
   {
     "id": "gap_prepositions_of_place_l2_at_the_back_6",
@@ -2176,8 +2176,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something in the rear part?",
+    "question": "Choose the precise phrase places something in the rear part?",
     "targetWord": "at the back",
     "itemType": "prepositions_of_place",
     "itemKey": "at the back",
@@ -2185,15 +2185,15 @@ export const questions = [
     "answer": "at the back",
     "answerOptions": [
       "at the back",
-      "soft",
-      "cat",
-      "draw"
+      "near the river",
+      "across the path",
+      "around the bend"
     ],
     "choices": [
       "at the back",
-      "soft",
-      "cat",
-      "draw"
+      "near the river",
+      "across the path",
+      "around the bend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2204,7 +2204,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 252
+    "__runtimeSourceIndex": 197
   },
   {
     "id": "gap_prepositions_of_place_l2_at_the_front_7",
@@ -2218,8 +2218,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something in the forward part?",
+    "question": "Choose the precise phrase places something in the forward part?",
     "targetWord": "at the front",
     "itemType": "prepositions_of_place",
     "itemKey": "at the front",
@@ -2227,15 +2227,15 @@ export const questions = [
     "answer": "at the front",
     "answerOptions": [
       "at the front",
-      "cat",
-      "draw",
-      "happy"
+      "on the right",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "at the front",
-      "cat",
-      "draw",
-      "happy"
+      "on the right",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2246,7 +2246,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 253
+    "__runtimeSourceIndex": 198
   },
   {
     "id": "gap_prepositions_of_place_l2_on_the_right_8",
@@ -2260,8 +2260,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase names the right-hand side?",
+    "question": "Choose the precise phrase names the right-hand side?",
     "targetWord": "on the right",
     "itemType": "prepositions_of_place",
     "itemKey": "on the right",
@@ -2269,15 +2269,15 @@ export const questions = [
     "answer": "on the right",
     "answerOptions": [
       "on the right",
-      "draw",
-      "happy",
-      "book"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "on the right",
-      "draw",
-      "happy",
-      "book"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2288,7 +2288,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 254
+    "__runtimeSourceIndex": 199
   },
   {
     "id": "gap_prepositions_of_place_l2_on_the_left_9",
@@ -2302,8 +2302,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase names the left-hand side?",
+    "question": "Choose the precise phrase names the left-hand side?",
     "targetWord": "on the left",
     "itemType": "prepositions_of_place",
     "itemKey": "on the left",
@@ -2311,15 +2311,15 @@ export const questions = [
     "answer": "on the left",
     "answerOptions": [
       "on the left",
-      "happy",
-      "book",
-      "jump"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "on the left",
-      "happy",
-      "book",
-      "jump"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2330,7 +2330,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 255
+    "__runtimeSourceIndex": 200
   },
   {
     "id": "gap_prepositions_of_place_l2_beneath_the_shelf_10",
@@ -2344,8 +2344,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something lower than the shelf?",
+    "question": "Choose the precise phrase places something lower than the shelf?",
     "targetWord": "beneath the shelf",
     "itemType": "prepositions_of_place",
     "itemKey": "beneath the shelf",
@@ -2353,15 +2353,15 @@ export const questions = [
     "answer": "beneath the shelf",
     "answerOptions": [
       "beneath the shelf",
-      "book",
-      "jump",
-      "soft"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "beneath the shelf",
-      "book",
-      "jump",
-      "soft"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2372,7 +2372,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 256
+    "__runtimeSourceIndex": 201
   },
   {
     "id": "gap_prepositions_of_place_l2_away_from_the_road_11",
@@ -2386,8 +2386,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase describes moving farther from the road?",
+    "question": "Choose the precise phrase describes moving farther from the road?",
     "targetWord": "away from the road",
     "itemType": "prepositions_of_place",
     "itemKey": "away from the road",
@@ -2395,15 +2395,15 @@ export const questions = [
     "answer": "away from the road",
     "answerOptions": [
       "away from the road",
-      "jump",
-      "soft",
-      "cat"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "away from the road",
-      "jump",
-      "soft",
-      "cat"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2414,7 +2414,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 257
+    "__runtimeSourceIndex": 202
   },
   {
     "id": "gap_prepositions_of_place_l2_toward_the_door_12",
@@ -2428,8 +2428,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase describes moving in the direction of the door?",
+    "question": "Choose the precise phrase describes moving in the direction of the door?",
     "targetWord": "toward the door",
     "itemType": "prepositions_of_place",
     "itemKey": "toward the door",
@@ -2437,15 +2437,15 @@ export const questions = [
     "answer": "toward the door",
     "answerOptions": [
       "toward the door",
-      "soft",
-      "cat",
-      "draw"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "choices": [
       "toward the door",
-      "soft",
-      "cat",
-      "draw"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2456,7 +2456,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 258
+    "__runtimeSourceIndex": 203
   },
   {
     "id": "gap_prepositions_of_place_l2_around_the_bend_13",
@@ -2470,8 +2470,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase describes going beyond a curve?",
+    "question": "Choose the precise phrase describes going beyond a curve?",
     "targetWord": "around the bend",
     "itemType": "prepositions_of_place",
     "itemKey": "around the bend",
@@ -2479,15 +2479,15 @@ export const questions = [
     "answer": "around the bend",
     "answerOptions": [
       "around the bend",
-      "cat",
-      "draw",
-      "happy"
+      "near the river",
+      "across the path",
+      "toward the door"
     ],
     "choices": [
       "around the bend",
-      "cat",
-      "draw",
-      "happy"
+      "near the river",
+      "across the path",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2498,7 +2498,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 259
+    "__runtimeSourceIndex": 204
   },
   {
     "id": "gap_prepositions_of_place_l2_across_the_path_14",
@@ -2512,8 +2512,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase describes moving from one side of the path to the other?",
+    "question": "Choose the precise phrase describes moving from one side of the path to the other?",
     "targetWord": "across the path",
     "itemType": "prepositions_of_place",
     "itemKey": "across the path",
@@ -2521,15 +2521,15 @@ export const questions = [
     "answer": "across the path",
     "answerOptions": [
       "across the path",
-      "draw",
-      "happy",
-      "book"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "across the path",
-      "draw",
-      "happy",
-      "book"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2540,7 +2540,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 260
+    "__runtimeSourceIndex": 205
   },
   {
     "id": "gap_prepositions_of_place_l2_near_the_river_15",
@@ -2554,8 +2554,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something close to the river?",
+    "question": "Choose the precise phrase places something close to the river?",
     "targetWord": "near the river",
     "itemType": "prepositions_of_place",
     "itemKey": "near the river",
@@ -2563,15 +2563,15 @@ export const questions = [
     "answer": "near the river",
     "answerOptions": [
       "near the river",
-      "happy",
-      "book",
-      "jump"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "near the river",
-      "happy",
-      "book",
-      "jump"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2582,7 +2582,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 261
+    "__runtimeSourceIndex": 206
   },
   {
     "id": "gap_prepositions_of_place_l2_between_the_trees_16",
@@ -2596,8 +2596,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something in the space separating the trees?",
+    "question": "Choose the precise phrase places something in the space separating the trees?",
     "targetWord": "between the trees",
     "itemType": "prepositions_of_place",
     "itemKey": "between the trees",
@@ -2605,15 +2605,15 @@ export const questions = [
     "answer": "between the trees",
     "answerOptions": [
       "between the trees",
-      "book",
-      "jump",
-      "soft"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "between the trees",
-      "book",
-      "jump",
-      "soft"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2624,7 +2624,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 262
+    "__runtimeSourceIndex": 207
   },
   {
     "id": "gap_prepositions_of_place_l2_behind_the_curtain_17",
@@ -2638,8 +2638,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something at the back of the curtain?",
+    "question": "Choose the precise phrase places something at the back of the curtain?",
     "targetWord": "behind the curtain",
     "itemType": "prepositions_of_place",
     "itemKey": "behind the curtain",
@@ -2647,15 +2647,15 @@ export const questions = [
     "answer": "behind the curtain",
     "answerOptions": [
       "behind the curtain",
-      "jump",
-      "soft",
-      "cat"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "behind the curtain",
-      "jump",
-      "soft",
-      "cat"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2666,7 +2666,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 263
+    "__runtimeSourceIndex": 208
   },
   {
     "id": "gap_prepositions_of_place_l2_inside_the_basket_18",
@@ -2680,8 +2680,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something within the basket?",
+    "question": "Choose the precise phrase places something within the basket?",
     "targetWord": "inside the basket",
     "itemType": "prepositions_of_place",
     "itemKey": "inside the basket",
@@ -2689,15 +2689,15 @@ export const questions = [
     "answer": "inside the basket",
     "answerOptions": [
       "inside the basket",
-      "soft",
-      "cat",
-      "draw"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "inside the basket",
-      "soft",
-      "cat",
-      "draw"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2708,7 +2708,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 264
+    "__runtimeSourceIndex": 209
   },
   {
     "id": "gap_prepositions_of_place_l2_under_the_bridge_19",
@@ -2722,8 +2722,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something lower than the bridge?",
+    "question": "Choose the precise phrase places something lower than the bridge?",
     "targetWord": "under the bridge",
     "itemType": "prepositions_of_place",
     "itemKey": "under the bridge",
@@ -2731,15 +2731,15 @@ export const questions = [
     "answer": "under the bridge",
     "answerOptions": [
       "under the bridge",
-      "cat",
-      "draw",
-      "happy"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "choices": [
       "under the bridge",
-      "cat",
-      "draw",
-      "happy"
+      "among",
+      "opposite",
+      "beside the gate"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2750,7 +2750,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 265
+    "__runtimeSourceIndex": 210
   },
   {
     "id": "gap_prepositions_of_place_l2_beside_the_gate_20",
@@ -2764,8 +2764,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase places something at the side of the gate?",
+    "question": "Choose the precise phrase places something at the side of the gate?",
     "targetWord": "beside the gate",
     "itemType": "prepositions_of_place",
     "itemKey": "beside the gate",
@@ -2773,15 +2773,15 @@ export const questions = [
     "answer": "beside the gate",
     "answerOptions": [
       "beside the gate",
-      "draw",
-      "happy",
-      "book"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "beside the gate",
-      "draw",
-      "happy",
-      "book"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2792,7 +2792,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 266
+    "__runtimeSourceIndex": 211
   },
   {
     "id": "gap_prepositions_of_place_l2_opposite_21",
@@ -2806,8 +2806,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means facing across from something?",
+    "question": "Choose the precise word means facing across from something?",
     "targetWord": "opposite",
     "itemType": "prepositions_of_place",
     "itemKey": "opposite",
@@ -2815,15 +2815,15 @@ export const questions = [
     "answer": "opposite",
     "answerOptions": [
       "opposite",
-      "happy",
-      "book",
-      "jump"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "opposite",
-      "happy",
-      "book",
-      "jump"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2834,7 +2834,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 267
+    "__runtimeSourceIndex": 212
   },
   {
     "id": "gap_prepositions_of_place_l2_among_22",
@@ -2848,8 +2848,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means surrounded by several things?",
+    "question": "Choose the precise word means surrounded by several things?",
     "targetWord": "among",
     "itemType": "prepositions_of_place",
     "itemKey": "among",
@@ -2857,15 +2857,15 @@ export const questions = [
     "answer": "among",
     "answerOptions": [
       "among",
-      "book",
-      "jump",
-      "soft"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "among",
-      "book",
-      "jump",
-      "soft"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2876,7 +2876,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 268
+    "__runtimeSourceIndex": 213
   },
   {
     "id": "gap_prepositions_of_place_l2_underneath_23",
@@ -2890,8 +2890,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means directly under something?",
+    "question": "Choose the precise word means directly under something?",
     "targetWord": "underneath",
     "itemType": "prepositions_of_place",
     "itemKey": "underneath",
@@ -2899,15 +2899,15 @@ export const questions = [
     "answer": "underneath",
     "answerOptions": [
       "underneath",
-      "jump",
-      "soft",
-      "cat"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "underneath",
-      "jump",
-      "soft",
-      "cat"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2918,7 +2918,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 269
+    "__runtimeSourceIndex": 214
   },
   {
     "id": "gap_prepositions_of_place_l2_beyond_24",
@@ -2932,8 +2932,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means farther than a point or boundary?",
+    "question": "Choose the precise word means farther than a point or boundary?",
     "targetWord": "beyond",
     "itemType": "prepositions_of_place",
     "itemKey": "beyond",
@@ -2941,15 +2941,15 @@ export const questions = [
     "answer": "beyond",
     "answerOptions": [
       "beyond",
-      "soft",
-      "cat",
-      "draw"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "beyond",
-      "soft",
-      "cat",
-      "draw"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2960,7 +2960,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 270
+    "__runtimeSourceIndex": 215
   },
   {
     "id": "gap_prepositions_of_place_l2_within_25",
@@ -2974,8 +2974,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means inside a boundary or limit?",
+    "question": "Choose the precise word means inside a boundary or limit?",
     "targetWord": "within",
     "itemType": "prepositions_of_place",
     "itemKey": "within",
@@ -2983,15 +2983,15 @@ export const questions = [
     "answer": "within",
     "answerOptions": [
       "within",
-      "cat",
-      "draw",
-      "happy"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "choices": [
       "within",
-      "cat",
-      "draw",
-      "happy"
+      "toward",
+      "away from",
+      "around the corner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3002,7 +3002,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 271
+    "__runtimeSourceIndex": 216
   },
   {
     "id": "gap_prepositions_of_place_l2_by_26",
@@ -3016,8 +3016,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise short word can mean close beside something?",
+    "question": "Choose the precise short word can mean close beside something?",
     "targetWord": "by",
     "itemType": "prepositions_of_place",
     "itemKey": "by",
@@ -3025,15 +3025,15 @@ export const questions = [
     "answer": "by",
     "answerOptions": [
       "by",
-      "draw",
-      "happy",
-      "book"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "choices": [
       "by",
-      "draw",
-      "happy",
-      "book"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3044,7 +3044,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 272
+    "__runtimeSourceIndex": 217
   },
   {
     "id": "gap_prepositions_of_place_l2_around_the_corner_27",
@@ -3058,8 +3058,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase means just beyond a turning point?",
+    "question": "Choose the precise phrase means just beyond a turning point?",
     "targetWord": "around the corner",
     "itemType": "prepositions_of_place",
     "itemKey": "around the corner",
@@ -3067,15 +3067,15 @@ export const questions = [
     "answer": "around the corner",
     "answerOptions": [
       "around the corner",
-      "happy",
-      "book",
-      "jump"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "around the corner",
-      "happy",
-      "book",
-      "jump"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3086,7 +3086,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 273
+    "__runtimeSourceIndex": 218
   },
   {
     "id": "gap_prepositions_of_place_l2_away_from_28",
@@ -3100,8 +3100,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase means moving farther from something?",
+    "question": "Choose the precise phrase means moving farther from something?",
     "targetWord": "away from",
     "itemType": "prepositions_of_place",
     "itemKey": "away from",
@@ -3109,15 +3109,15 @@ export const questions = [
     "answer": "away from",
     "answerOptions": [
       "away from",
-      "book",
-      "jump",
-      "soft"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "away from",
-      "book",
-      "jump",
-      "soft"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3128,7 +3128,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 274
+    "__runtimeSourceIndex": 219
   },
   {
     "id": "gap_prepositions_of_place_l2_toward_29",
@@ -3142,8 +3142,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means moving in the direction of something?",
+    "question": "Choose the precise word means moving in the direction of something?",
     "targetWord": "toward",
     "itemType": "prepositions_of_place",
     "itemKey": "toward",
@@ -3151,15 +3151,15 @@ export const questions = [
     "answer": "toward",
     "answerOptions": [
       "toward",
-      "jump",
-      "soft",
-      "cat"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "toward",
-      "jump",
-      "soft",
-      "cat"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3170,7 +3170,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 275
+    "__runtimeSourceIndex": 220
   },
   {
     "id": "gap_prepositions_of_place_l2_past_30",
@@ -3184,8 +3184,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means continuing beyond something?",
+    "question": "Choose the precise word means continuing beyond something?",
     "targetWord": "past",
     "itemType": "prepositions_of_place",
     "itemKey": "past",
@@ -3193,15 +3193,15 @@ export const questions = [
     "answer": "past",
     "answerOptions": [
       "past",
-      "soft",
-      "cat",
-      "draw"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "past",
-      "soft",
-      "cat",
-      "draw"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3212,7 +3212,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 276
+    "__runtimeSourceIndex": 221
   },
   {
     "id": "gap_prepositions_of_place_l2_along_31",
@@ -3226,8 +3226,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means following the length of something?",
+    "question": "Choose the precise word means following the length of something?",
     "targetWord": "along",
     "itemType": "prepositions_of_place",
     "itemKey": "along",
@@ -3235,15 +3235,15 @@ export const questions = [
     "answer": "along",
     "answerOptions": [
       "along",
-      "cat",
-      "draw",
-      "happy"
+      "against",
+      "beneath",
+      "next to"
     ],
     "choices": [
       "along",
-      "cat",
-      "draw",
-      "happy"
+      "against",
+      "beneath",
+      "next to"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3254,7 +3254,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 277
+    "__runtimeSourceIndex": 222
   },
   {
     "id": "gap_prepositions_of_place_l2_on_top_of_32",
@@ -3268,8 +3268,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase means resting on the highest surface?",
+    "question": "Choose the precise phrase means resting on the highest surface?",
     "targetWord": "on top of",
     "itemType": "prepositions_of_place",
     "itemKey": "on top of",
@@ -3277,15 +3277,15 @@ export const questions = [
     "answer": "on top of",
     "answerOptions": [
       "on top of",
-      "draw",
-      "happy",
-      "book"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "choices": [
       "on top of",
-      "draw",
-      "happy",
-      "book"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3296,7 +3296,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 278
+    "__runtimeSourceIndex": 223
   },
   {
     "id": "gap_prepositions_of_place_l2_in_front_of_33",
@@ -3310,8 +3310,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase means before the forward-facing side?",
+    "question": "Choose the precise phrase means before the forward-facing side?",
     "targetWord": "in front of",
     "itemType": "prepositions_of_place",
     "itemKey": "in front of",
@@ -3319,15 +3319,15 @@ export const questions = [
     "answer": "in front of",
     "answerOptions": [
       "in front of",
-      "happy",
-      "book",
-      "jump"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "choices": [
       "in front of",
-      "happy",
-      "book",
-      "jump"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3338,7 +3338,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 279
+    "__runtimeSourceIndex": 224
   },
   {
     "id": "gap_prepositions_of_place_l2_next_to_34",
@@ -3352,8 +3352,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise phrase means directly beside something?",
+    "question": "Choose the precise phrase means directly beside something?",
     "targetWord": "next to",
     "itemType": "prepositions_of_place",
     "itemKey": "next to",
@@ -3361,15 +3361,15 @@ export const questions = [
     "answer": "next to",
     "answerOptions": [
       "next to",
-      "book",
-      "jump",
-      "soft"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "next to",
-      "book",
-      "jump",
-      "soft"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3380,7 +3380,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 280
+    "__runtimeSourceIndex": 225
   },
   {
     "id": "gap_prepositions_of_place_l2_beneath_35",
@@ -3394,8 +3394,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means in a lower position than something?",
+    "question": "Choose the precise word means in a lower position than something?",
     "targetWord": "beneath",
     "itemType": "prepositions_of_place",
     "itemKey": "beneath",
@@ -3403,15 +3403,15 @@ export const questions = [
     "answer": "beneath",
     "answerOptions": [
       "beneath",
-      "jump",
-      "soft",
-      "cat"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "beneath",
-      "jump",
-      "soft",
-      "cat"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3422,7 +3422,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 281
+    "__runtimeSourceIndex": 226
   },
   {
     "id": "gap_prepositions_of_place_l2_against_36",
@@ -3436,8 +3436,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means touching or pressing on something?",
+    "question": "Choose the precise word means touching or pressing on something?",
     "targetWord": "against",
     "itemType": "prepositions_of_place",
     "itemKey": "against",
@@ -3445,15 +3445,15 @@ export const questions = [
     "answer": "against",
     "answerOptions": [
       "against",
-      "soft",
-      "cat",
-      "draw"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "against",
-      "soft",
-      "cat",
-      "draw"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3464,7 +3464,7 @@ export const questions = [
     ],
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 282
+    "__runtimeSourceIndex": 227
   },
   {
     "id": "gap_prepositions_of_place_l2_across_37",
@@ -3478,8 +3478,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means from one side to the other?",
+    "question": "Choose the precise word means from one side to the other?",
     "targetWord": "across",
     "itemType": "prepositions_of_place",
     "itemKey": "across",
@@ -3487,15 +3487,15 @@ export const questions = [
     "answer": "across",
     "answerOptions": [
       "across",
-      "cat",
-      "draw",
-      "happy"
+      "under",
+      "over",
+      "near"
     ],
     "choices": [
       "across",
-      "cat",
-      "draw",
-      "happy"
+      "under",
+      "over",
+      "near"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3506,7 +3506,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 283
+    "__runtimeSourceIndex": 228
   },
   {
     "id": "gap_prepositions_of_place_l2_through_38",
@@ -3520,8 +3520,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means entering one side and leaving the other?",
+    "question": "Choose the precise word means entering one side and leaving the other?",
     "targetWord": "through",
     "itemType": "prepositions_of_place",
     "itemKey": "through",
@@ -3529,15 +3529,15 @@ export const questions = [
     "answer": "through",
     "answerOptions": [
       "through",
-      "draw",
-      "happy",
-      "book"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "choices": [
       "through",
-      "draw",
-      "happy",
-      "book"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3550,7 +3550,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/through.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 284
+    "__runtimeSourceIndex": 229
   },
   {
     "id": "gap_prepositions_of_place_l2_around_39",
@@ -3564,8 +3564,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means on every side of something?",
+    "question": "Choose the precise word means on every side of something?",
     "targetWord": "around",
     "itemType": "prepositions_of_place",
     "itemKey": "around",
@@ -3573,15 +3573,15 @@ export const questions = [
     "answer": "around",
     "answerOptions": [
       "around",
-      "happy",
-      "book",
-      "jump"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "choices": [
       "around",
-      "happy",
-      "book",
-      "jump"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3594,7 +3594,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/around.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 285
+    "__runtimeSourceIndex": 230
   },
   {
     "id": "gap_prepositions_of_place_l2_far_40",
@@ -3608,8 +3608,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means a long distance away?",
+    "question": "Choose the precise word means a long distance away?",
     "targetWord": "far",
     "itemType": "prepositions_of_place",
     "itemKey": "far",
@@ -3617,15 +3617,15 @@ export const questions = [
     "answer": "far",
     "answerOptions": [
       "far",
-      "book",
-      "jump",
-      "soft"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "choices": [
       "far",
-      "book",
-      "jump",
-      "soft"
+      "opposite",
+      "beside the gate",
+      "under the bridge"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3638,7 +3638,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/far.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 286
+    "__runtimeSourceIndex": 231
   },
   {
     "id": "gap_prepositions_of_place_l2_near_41",
@@ -3652,8 +3652,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means close to something?",
+    "question": "Choose the precise word means close to something?",
     "targetWord": "near",
     "itemType": "prepositions_of_place",
     "itemKey": "near",
@@ -3661,15 +3661,15 @@ export const questions = [
     "answer": "near",
     "answerOptions": [
       "near",
-      "jump",
-      "soft",
-      "cat"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "choices": [
       "near",
-      "jump",
-      "soft",
-      "cat"
+      "across the path",
+      "around the bend",
+      "toward the door"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3682,7 +3682,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/near.webp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 287
+    "__runtimeSourceIndex": 232
   },
   {
     "id": "gap_prepositions_of_place_l2_over_42",
@@ -3696,8 +3696,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word can mean across and above something?",
+    "question": "Choose the precise word can mean across and above something?",
     "targetWord": "over",
     "itemType": "prepositions_of_place",
     "itemKey": "over",
@@ -3705,15 +3705,15 @@ export const questions = [
     "answer": "over",
     "answerOptions": [
       "over",
-      "soft",
-      "cat",
-      "draw"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "choices": [
       "over",
-      "soft",
-      "cat",
-      "draw"
+      "at the front",
+      "at the back",
+      "in the middle"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3726,7 +3726,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/over.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 288
+    "__runtimeSourceIndex": 233
   },
   {
     "id": "gap_prepositions_of_place_l2_under_43",
@@ -3740,8 +3740,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means directly lower than something?",
+    "question": "Choose the precise word means directly lower than something?",
     "targetWord": "under",
     "itemType": "prepositions_of_place",
     "itemKey": "under",
@@ -3749,15 +3749,15 @@ export const questions = [
     "answer": "under",
     "answerOptions": [
       "under",
-      "cat",
-      "draw",
-      "happy"
+      "above",
+      "below",
+      "behind"
     ],
     "choices": [
       "under",
-      "cat",
-      "draw",
-      "happy"
+      "above",
+      "below",
+      "behind"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3768,7 +3768,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 289
+    "__runtimeSourceIndex": 234
   },
   {
     "id": "gap_prepositions_of_place_l2_outside_44",
@@ -3782,8 +3782,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means not inside something?",
+    "question": "Choose the precise word means not inside something?",
     "targetWord": "outside",
     "itemType": "prepositions_of_place",
     "itemKey": "outside",
@@ -3791,15 +3791,15 @@ export const questions = [
     "answer": "outside",
     "answerOptions": [
       "outside",
-      "draw",
-      "happy",
-      "book"
+      "over",
+      "near",
+      "far"
     ],
     "choices": [
       "outside",
-      "draw",
-      "happy",
-      "book"
+      "over",
+      "near",
+      "far"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3812,7 +3812,7 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/outside.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 290
+    "__runtimeSourceIndex": 235
   },
   {
     "id": "gap_prepositions_of_place_l2_inside_45",
@@ -3826,8 +3826,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means within something?",
+    "question": "Choose the precise word means within something?",
     "targetWord": "inside",
     "itemType": "prepositions_of_place",
     "itemKey": "inside",
@@ -3835,15 +3835,15 @@ export const questions = [
     "answer": "inside",
     "answerOptions": [
       "inside",
-      "happy",
-      "book",
-      "jump"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "choices": [
       "inside",
-      "happy",
-      "book",
-      "jump"
+      "beneath",
+      "next to",
+      "in front of"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3854,7 +3854,7 @@ export const questions = [
     ],
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 291
+    "__runtimeSourceIndex": 236
   },
   {
     "id": "gap_prepositions_of_place_l2_between_46",
@@ -3868,8 +3868,8 @@ export const questions = [
     "templateType": "GRAMMAR_BASICS",
     "formatType": "GRAMMAR_BASICS",
     "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
+    "prompt": "Choose the precise word means in the space separating two things?",
+    "question": "Choose the precise word means in the space separating two things?",
     "targetWord": "between",
     "itemType": "prepositions_of_place",
     "itemKey": "between",
@@ -3877,15 +3877,15 @@ export const questions = [
     "answer": "between",
     "answerOptions": [
       "between",
-      "book",
-      "jump",
-      "soft"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "choices": [
       "between",
-      "book",
-      "jump",
-      "soft"
+      "away from",
+      "around the corner",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -3898,6 +3898,6 @@ export const questions = [
     "imagePath": "/media/vocabulary/images/between.webp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 292
+    "__runtimeSourceIndex": 237
   }
 ];

@@ -31,7 +31,7 @@ test("Loop D and admin board expose every canonical decision and exact child ban
   }
 });
 
-test("known ready and blocked rows communicate owner, reason, waiver, and exposure", () => {
+test("ready rows communicate owner, waiver, and exact exposure", () => {
   const initial = curriculumReleaseBoard.rows.find(row => row.skillId === "initial_sounds");
   assert.equal(initial.gateStatus, "READY");
   assert.equal(initial.owner, "Phonics curriculum + media QA");
@@ -46,9 +46,12 @@ test("known ready and blocked rows communicate owner, reason, waiver, and exposu
   assert.deepEqual(finalSounds.waiver.reviewBy, ["2026-10-23"]);
 
   const hfw = curriculumReleaseBoard.rows.find(row => row.skillId === "hfw_1_25");
-  assert.equal(hfw.gateStatus, "BLOCKED");
-  assert.equal(hfw.studentExposure.count, 0);
-  assert.match(hfw.reasons.join(" "), /Question-count floor/);
+  assert.equal(hfw.gateStatus, "READY");
+  assert.deepEqual(
+    [hfw.studentExposure.count, hfw.studentExposure.level1, hfw.studentExposure.level2],
+    [147, 72, 75]
+  );
+  assert.deepEqual(hfw.reasons, []);
 });
 
 test("board construction fails closed when a blocked decision exposes content", () => {
@@ -61,11 +64,18 @@ test("board construction fails closed when a blocked decision exposes content", 
       fingerprint: "0".repeat(64)
     }
   ]));
-  const blocked = assessmentReleaseStatus.find(status => !status.releaseReady);
-  exposureBySkillId[blocked.skillId].count = 1;
+  const blockedSkillId = "hfw_1_25";
+  const statuses = assessmentReleaseStatus.map(status => status.skillId === blockedSkillId
+    ? {
+      ...status,
+      releaseReady: false,
+      reasons: ["Synthetic blocked decision for fail-closed coverage."]
+    }
+    : status);
+  exposureBySkillId[blockedSkillId].count = 1;
   assert.throws(
     () => buildCurriculumReleaseBoard({
-      statuses: assessmentReleaseStatus,
+      statuses,
       exposureBySkillId
     }),
     /blocked skill exposes/

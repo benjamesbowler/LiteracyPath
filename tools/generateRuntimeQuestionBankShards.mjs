@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import { SKILL_LEVEL_GAP_RUNTIME_SHARDS } from "../src/data/runtimeQuestionShardConfig.js";
+
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const generatedDir = path.join(repoRoot, "src", "data", "generated");
 const shardDir = path.join(generatedDir, "runtimeShards");
@@ -22,6 +24,7 @@ const BANKS = [
     file: "skillLevelGapQuestions.generated.js",
     exportName: "skillLevelGapQuestions",
     shardPrefix: "skill-gap",
+    requiredGroups: SKILL_LEVEL_GAP_RUNTIME_SHARDS.map(({ shard }) => shard),
     group(question) {
       return question.skillId;
     }
@@ -111,6 +114,10 @@ for (const bank of BANKS) {
     const rows = grouped.get(key) || [];
     rows.push({ question, sourceIndex });
     grouped.set(key, rows);
+  });
+  (bank.requiredGroups || []).forEach(group => {
+    const key = safeKey(group);
+    if (!grouped.has(key)) grouped.set(key, []);
   });
 
   const shards = [...grouped.entries()]

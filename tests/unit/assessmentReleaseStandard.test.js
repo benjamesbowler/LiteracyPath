@@ -18,7 +18,13 @@ import {
   assessmentReleaseExposureBySkillId,
   assessmentReleaseExposureVersion
 } from "../../src/content/assessments/assessmentReleaseExposure.generated.js";
+import {
+  getLevelOneContentQualityIssues
+} from "../../src/data/levelOneContentQuality.js";
 import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
+import { SKILL_LEVEL_GAP_RUNTIME_SHARDS } from "../../src/data/runtimeQuestionShardConfig.js";
+import { getQuestionRoutingFormat } from "../../src/data/skillTemplateRouting.js";
+import { isImageEssential } from "../../tools/phonicsRuntimeUtils.js";
 
 function passingSummary(skillId = "initial_sounds") {
   return {
@@ -125,6 +131,56 @@ test("generated publication status covers the canonical skill set and version", 
   }
 });
 
+test("canonical format routing and media rules accept the designed language tasks", () => {
+  assert.equal(
+    getQuestionRoutingFormat({
+      templateType: "PREPOSITION_IMAGE_SENTENCE_FIT",
+      formatType: "PREPOSITION_TEXT_CHOICE"
+    }),
+    "PREPOSITION_TEXT_CHOICE"
+  );
+  assert.equal(isImageEssential({
+    skillId: "homophones_homonyms",
+    level: 1,
+    formatType: "HOMOPHONE_MEANING",
+    prompt: "Which word means ocean water?"
+  }), false);
+  assert.equal(isImageEssential({
+    skillId: "plurals",
+    level: 1,
+    formatType: "PLURAL_SPELLING_CONTEXT",
+    prompt: "Which spelling means more than one cat?"
+  }), true);
+});
+
+test("Level 1 quality allowlists include reviewed familiar targets and retain the hard-word block", () => {
+  for (const question of [
+    { skillId: "r_controlled_vowels", targetWord: "turn" },
+    { skillId: "plurals", targetWord: "stars" },
+    { skillId: "antonyms_synonyms", targetWord: "near" }
+  ]) {
+    assert.deepEqual(getLevelOneContentQualityIssues({
+      ...question,
+      level: 1,
+      imagePath: "/reviewed-target.webp"
+    }), []);
+  }
+  assert.ok(
+    getLevelOneContentQualityIssues({
+      skillId: "antonyms_synonyms",
+      targetWord: "rough",
+      level: 1,
+      imagePath: "/rough.webp"
+    }).includes("hard or abstract Level 1 target: rough")
+  );
+});
+
+test("runtime shard generation retains every statically loadable skill-gap shard", () => {
+  assert.equal(SKILL_LEVEL_GAP_RUNTIME_SHARDS.length, 18);
+  assert.ok(SKILL_LEVEL_GAP_RUNTIME_SHARDS.some(item => item.shard === "rhyming"));
+  assert.ok(SKILL_LEVEL_GAP_RUNTIME_SHARDS.some(item => item.shard === "short-vowel-discrimination"));
+});
+
 test("Initial Sounds canonical selection caps phoneme, prompt-family, response-format, and listen-and-find concentration", () => {
   const makeQuestion = (id, level, formatType, itemKey, length = 3) => ({
     id,
@@ -181,5 +237,32 @@ test("Initial Sounds student loader returns exactly the audited publication IDs 
   for (const question of published) {
     assert.equal(expected.get(question.id), question.level, question.id);
     assert.equal(question.releaseStandardVersion, assessmentReleaseStatusVersion);
+  }
+});
+
+test("Short Vowels and Nouns publish every approved runtime format without source gaps", async () => {
+  const expectations = {
+    short_vowel_discrimination: {
+      count: 299,
+      formats: ["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH"]
+    },
+    nouns: {
+      count: 146,
+      formats: ["GRAMMAR_IMAGE_CHOICE", "GRAMMAR_SENTENCE_FIT"]
+    }
+  };
+
+  for (const [skillId, expectation] of Object.entries(expectations)) {
+    const status = assessmentReleaseStatusBySkillId[skillId];
+    const expected = assessmentReleaseExposureBySkillId[skillId];
+    const published = await loadAssessmentSkillBank(skillId);
+    assert.equal(status.releaseReady, true, skillId);
+    assert.equal(published.length, expectation.count, skillId);
+    assert.equal(published.length, expected.length, skillId);
+    assert.deepEqual(
+      [...new Set(published.map(question => question.formatType))].sort(),
+      expectation.formats,
+      skillId
+    );
   }
 });

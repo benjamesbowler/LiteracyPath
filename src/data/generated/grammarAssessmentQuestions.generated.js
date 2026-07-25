@@ -369,7 +369,9 @@ function levelOneDistractors(partOfSpeech, index) {
 }
 
 function sentenceOptions(partOfSpeech, answer, index) {
-  const words = targetSets[partOfSpeech].map(([word]) => word);
+  const words = targetSets[partOfSpeech]
+    .map(([word]) => word)
+    .filter(word => word === answer || approvedAudioFor(word));
   return rotate(words.filter(word => word !== answer), index * 7)
     .slice(0, 3)
     .concat(answer)

@@ -180,13 +180,24 @@ function getFeasibleCategoryCaps(
   availableQuestions = [],
   getCategory,
   baseCap,
-  roundLength
+  roundLength,
+  { countUniqueTargets = false } = {}
 ) {
-  const availableCounts = availableQuestions.reduce((counts, question) => {
+  const availableByCategory = availableQuestions.reduce((categories, question) => {
     const category = getCategory(question);
-    if (category) counts.set(category, (counts.get(category) || 0) + 1);
-    return counts;
+    if (!category) return categories;
+    const entries = categories.get(category) || new Set();
+    entries.add(
+      countUniqueTargets
+        ? repeatIdentity(question).targetWord || repeatIdentity(question).contentKey
+        : question
+    );
+    categories.set(category, entries);
+    return categories;
   }, new Map());
+  const availableCounts = new Map(
+    [...availableByCategory].map(([category, entries]) => [category, entries.size])
+  );
   const targetLength = Math.min(roundLength, availableQuestions.length);
   return new Map(
     [...availableCounts.keys()].map(category => {
@@ -300,7 +311,8 @@ export function selectAssessmentRoundCandidate(
     prioritizedQuestions,
     getItemKey,
     maxItemKeyCount,
-    roundLength
+    roundLength,
+    { countUniqueTargets: true }
   );
   const feasibleOptionSetCaps = getFeasibleCategoryCaps(
     prioritizedQuestions,
@@ -547,11 +559,17 @@ export function getAssessmentItemKeyBudgetFailures(
     if (itemKey) counts.set(itemKey, (counts.get(itemKey) || 0) + 1);
     return counts;
   }, new Map());
-  const availableCounts = availableQuestions.reduce((counts, question) => {
+  const availableTargets = availableQuestions.reduce((targetsByItemKey, question) => {
     const itemKey = getItemKey(question);
-    if (itemKey) counts.set(itemKey, (counts.get(itemKey) || 0) + 1);
-    return counts;
+    if (!itemKey) return targetsByItemKey;
+    const targets = targetsByItemKey.get(itemKey) || new Set();
+    targets.add(repeatIdentity(question).targetWord || repeatIdentity(question).contentKey);
+    targetsByItemKey.set(itemKey, targets);
+    return targetsByItemKey;
   }, new Map());
+  const availableCounts = new Map(
+    [...availableTargets].map(([itemKey, targets]) => [itemKey, targets.size])
+  );
 
   return [...selectedCounts.entries()].flatMap(([itemKey, count]) => {
     if (count <= maxItemKeyCount) return [];

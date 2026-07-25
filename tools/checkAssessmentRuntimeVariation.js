@@ -10,16 +10,16 @@ import {
 } from "../src/data/assessmentMediaPicker.js";
 import { normalizeAssessmentSkillId } from "../src/data/assessmentMediaRegistry.js";
 import { getAssessmentMediaByPath } from "../src/data/assessmentMediaRegistry.js";
+import { loadAssessmentSkillBank } from "../src/data/loadAssessmentSkillBank.js";
+import { getAssessmentReleaseMediaRequirement } from "../src/content/releaseStandard.js";
 import {
   getAssessmentQuestionTemplate,
   getAssessmentTemplateBudgetFailures,
   selectAssessmentRoundCandidate
 } from "../src/data/assessmentRoundSelector.js";
 import {
-  getQuestionAudioPaths,
   getQuestionImagePaths,
   repoRoot,
-  selectableRuntimeQuestionsForSkill,
   writeFile
 } from "./phonicsRuntimeUtils.js";
 
@@ -96,7 +96,14 @@ function getPrimaryImage(question = {}) {
 }
 
 function getPrimaryAudio(question = {}) {
-  return getQuestionAudioPaths(question)[0] || "";
+  return [
+    question.audioPath,
+    question.audioUrl,
+    question.audio,
+    question.promptAudio,
+    question.questionAudio,
+    question.targetAudio
+  ].find(value => typeof value === "string" && value.trim()) || "";
 }
 
 function getTemplateKey(question = {}) {
@@ -205,9 +212,9 @@ function approvedAudioAlternativeCount(audioPath = "") {
   }).length;
 }
 
-function auditSkill(skillId) {
+async function auditSkill(skillId) {
   const normalizedSkillId = normalizeAssessmentSkillId(skillId);
-  const pool = selectableRuntimeQuestionsForSkill(normalizedSkillId);
+  const pool = await loadAssessmentSkillBank(normalizedSkillId);
   const staticImages = [];
   const staticAudio = [];
   const dynamicImages = [];
@@ -272,7 +279,12 @@ function auditSkill(skillId) {
       const promptRepeatFailures = repeatedPrompts.filter(() => promptAlternatives >= ROUND_SIZE);
       const missingImageFailures = round.selected.filter(question => {
         const image = getPrimaryImage(question);
-        if (!image) return ["nouns", "verbs", "adjectives", "prepositions", "plurals", "antonyms_synonyms", "homophones_homonyms"].includes(normalizedSkillId);
+        const releaseSkillId = question.assessmentSkillId ||
+          (normalizedSkillId === "prepositions" ? "prepositions_of_place" : normalizedSkillId);
+        const requirement = getAssessmentReleaseMediaRequirement(releaseSkillId, question, {
+          template: getAssessmentQuestionTemplate(question)
+        });
+        if (!image) return requirement.requiresImage;
         const record = getAssessmentMediaByPath(image, "image");
         return Boolean(record && !record.available);
       });
@@ -403,7 +415,7 @@ function buildMarkdown(audit) {
   return `${lines.join("\n")}\n`;
 }
 
-const skills = PRIORITY_SKILLS.map(auditSkill);
+const skills = await Promise.all(PRIORITY_SKILLS.map(auditSkill));
 const failures = skills.flatMap(skill => skill.failures);
 const audit = {
   generatedAt: new Date().toISOString(),

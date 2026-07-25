@@ -340,10 +340,8 @@ function mediaNeedsForQuestion(skill, question, mediaIndex) {
 function runtimeReason(question = {}) {
   const skillId = getQuestionSkill(question);
   if (!skillId) return "missing skill id";
-  if (question.active === false) return "inactive";
-  if (["initial_sounds", "final_sounds", "rhyming", "cvc_short_vowels", "short_vowel_discrimination"].includes(skillId)) {
-    return questionFilterReason(question);
-  }
+  const filterReason = questionFilterReason(question);
+  if (filterReason) return filterReason;
   if (!question.correctAnswer && !question.answer && !question.correctAnswers) return "missing correct answer";
   const missingImage = getQuestionImagePaths(question).filter(assetPath => String(assetPath).startsWith("/") && !publicPathExists(assetPath));
   const missingAudio = getQuestionAudioPaths(question).filter(assetPath => String(assetPath).startsWith("/") && !publicPathExists(assetPath));

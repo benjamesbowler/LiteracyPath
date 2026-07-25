@@ -4,6 +4,7 @@ import {
   assessmentReleaseStatusBySkillId,
   assessmentReleaseStatusVersion
 } from "../content/assessments/assessmentReleaseStatus.generated.js";
+import { SKILL_LEVEL_GAP_RUNTIME_SHARDS } from "./runtimeQuestionShardConfig.js";
 import { resolveAssessmentSkillId } from "./assessmentSkillMapping.js";
 import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
@@ -94,7 +95,6 @@ const RUNTIME_SKILL_IDS = {
   theme_higher_comprehension: "theme"
 };
 
-const GRAMMAR_SENTENCE_FIT_SKILLS = new Set(["nouns", "verbs", "adjectives", "adverbs"]);
 const REPLACEMENT_PHONICS_SKILLS = new Set([
   "blends",
   "digraphs",
@@ -167,6 +167,12 @@ const EXPANSION_BANK_LOADERS = [
     source: "cvcShortVowelExpansionQuestions",
     families: ["early_phonics"],
     load: () => import("./cvcShortVowelExpansionQuestions.js").then(module => module.cvcShortVowelExpansionQuestions)
+  },
+  {
+    source: "shortVowelDiscriminationPhase2Questions",
+    families: ["early_phonics"],
+    load: () => import("./shortVowelDiscriminationPhase2Questions.js")
+      .then(module => module.shortVowelDiscriminationPhase2Questions)
   },
   {
     source: "contentExpansionPass3Questions",
@@ -521,26 +527,7 @@ const DYNAMIC_BANK_LOADERS = [
     shard,
     load: () => import(`./generated/runtimeShards/language.${shard}.generated.js`).then(module => module.questions)
   }))),
-  ...[
-    ["initial_sounds", "initial-sounds"],
-    ["rhyming", "rhyming"],
-    ["short_vowel_discrimination", "short-vowel-discrimination"],
-    ["vowel_teams", "vowel-teams"],
-    ["r_controlled_vowels", "r-controlled-vowels"],
-    ["prepositions_of_place", "prepositions-of-place"],
-    ["plurals", "plurals"],
-    ["prefixes_suffixes", "prefixes-suffixes"],
-    ["antonyms_synonyms", "antonyms-synonyms"],
-    ["homophones_homonyms", "homophones-homonyms"],
-    ["sentence_comprehension", "sentence-comprehension"],
-    ["key_details", "key-details"],
-    ["sequencing", "sequencing"],
-    ["main_idea", "main-idea"],
-    ["inference", "inference"],
-    ["cause_effect", "cause-effect"],
-    ["context_clues", "context-clues"],
-    ["theme_higher_comprehension", "theme-higher-comprehension"]
-  ].map(([skillId, shard]) => runtimeSkillShard({
+  ...SKILL_LEVEL_GAP_RUNTIME_SHARDS.map(({ skillId, shard }) => runtimeSkillShard({
     source: "skillLevelGapQuestions",
     skillId,
     shard,
@@ -615,13 +602,8 @@ export async function loadAssessmentSkillBankCandidates(skillId) {
       questionSkillId === runtimeSkillId
     ) && getRuntimeSourceIssues(question).length === 0;
   });
-  let eligibleQuestions = questions;
-  if (GRAMMAR_SENTENCE_FIT_SKILLS.has(normalizedSkillId)) {
-    const { isGrammarSentenceFitRuntimeQuestion } = await import("./grammarSentenceFitRuntime.js");
-    eligibleQuestions = questions.filter(isGrammarSentenceFitRuntimeQuestion);
-  }
-  skillBankCache.set(normalizedSkillId, eligibleQuestions);
-  return eligibleQuestions;
+  skillBankCache.set(normalizedSkillId, questions);
+  return questions;
 }
 
 export function getAssessmentSkillPublicationStatus(skillId = "") {

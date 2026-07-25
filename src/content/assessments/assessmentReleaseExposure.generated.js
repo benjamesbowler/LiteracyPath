@@ -308,11 +308,11 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
       "level": 2
     },
     {
-      "questionId": "gap_initial_l2_almond_replaced_ant",
+      "questionId": "gap_initial_l2_almond",
       "level": 2
     },
     {
-      "questionId": "gap_initial_l2_anteater_replaced_apple",
+      "questionId": "gap_initial_l2_anteater",
       "level": 2
     },
     {
@@ -324,11 +324,11 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
       "level": 2
     },
     {
-      "questionId": "gap_initial_l2_armchair_replaced_apple",
+      "questionId": "gap_initial_l2_armchair",
       "level": 2
     },
     {
-      "questionId": "gap_initial_l2_artichoke_replaced_apple",
+      "questionId": "gap_initial_l2_artichoke",
       "level": 2
     },
     {
@@ -4462,46 +4462,6 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
     {
       "questionId": "gen_rhyme_or_horn_corn_1_0",
       "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_ack_back_sack_1",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_ick_brick_kick_1",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_eep_sheep_sleep_1",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_ing_swing_wing_1",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_all_tall_wall_1",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_ack_sack_back_2",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_ick_kick_brick_2",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_eep_sleep_sheep_2",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_ing_wing_swing_2",
-      "level": 2
-    },
-    {
-      "questionId": "gap_rhyming_l2_all_wall_tall_2",
-      "level": 2
     }
   ],
   "cvc_short_vowels": [
@@ -6154,11 +6114,3564 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
       "level": 2
     }
   ],
-  "short_vowel_discrimination": [],
-  "hfw_1_25": [],
-  "hfw_26_50": [],
-  "hfw_51_75": [],
-  "hfw_76_100": [],
+  "short_vowel_discrimination": [
+    {
+      "questionId": "svd_l2p2_picture_short_a_clap",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_clap",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_flat",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_flat",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_lamp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_lamp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_fast",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_fast",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_span",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_span",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_stamp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_stamp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_shack",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_shack",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_black",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_black",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_flag",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_flag",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_a_crab",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_a_crab",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_shelf",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_shelf",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_blend",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_blend",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_melt",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_melt",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_sled",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_sled",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_step",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_step",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_desk",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_desk",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_tent",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_tent",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_net",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_net",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_pen",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_pen",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_e_bell",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_e_bell",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_clip",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_clip",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_limp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_limp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_crisp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_crisp",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_grip",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_grip",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_thin",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_thin",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_slip",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_slip",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_fist",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_fist",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_spin",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_spin",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_trim",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_trim",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_i_ship",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_i_ship",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_stop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_stop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_drop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_drop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_frog",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_frog",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_rock",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_rock",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_sock",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_sock",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_shop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_shop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_clock",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_clock",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_block",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_block",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_log",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_log",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_o_mop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_o_mop",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_club",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_club",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_drum",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_drum",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_slug",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_slug",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_plum",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_plum",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_brush",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_brush",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_duck",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_duck",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_mud",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_mud",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_mug",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_mug",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_cup",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_cup",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_picture_short_u_bug",
+      "level": 2
+    },
+    {
+      "questionId": "svd_l2p2_listen_short_u_bug",
+      "level": 2
+    },
+    {
+      "questionId": "p3_short_vowel_picture_1",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_2",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_3",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_4",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_5",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_6",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_7",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_8",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_9",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_10",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_11",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_12",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_13",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_14",
+      "level": 1
+    },
+    {
+      "questionId": "p3_short_vowel_picture_15",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_1",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_2",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_3",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_4",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_5",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_6",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_7",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_8",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_9",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_10",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_11",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_12",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_13",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_14",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_15",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_16",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_17",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_18",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_19",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_20",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_21",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_22",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_23",
+      "level": 1
+    },
+    {
+      "questionId": "recovery_short_vowel_picture_24",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_bad_0_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_bad_0_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_bag_1_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_bag_1_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_bat_2_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_bat_2_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_bib_3_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_bib_3_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_big_4_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_big_4_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_bin_5_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_bin_5_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_bug_6_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_bug_6_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_bun_7_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_bun_7_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_bus_8_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_bus_8_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_cab_9_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_cab_9_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_can_10_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_cap_11_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_cap_11_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_cob_13_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_cob_13_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_cub_15_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_cub_15_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_dab_17_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_dab_17_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_dad_18_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_e_den_19_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_den_19_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_dig_20_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_dig_20_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_dip_21_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_dip_21_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_dot_23_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_dot_23_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_dug_24_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_dug_24_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_fan_25_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_fan_25_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_fig_26_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_fin_27_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_fin_27_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_fun_28_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_e_gem_29_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_gem_29_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_gum_30_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_gum_30_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_ham_31_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_ham_31_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_hen_33_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_hen_33_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_hip_34_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_hip_34_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_hit_35_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_hit_35_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_hop_36_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_o_hop_36_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_o_hot_37_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_hot_37_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_hut_38_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_hut_38_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_jam_39_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_jam_39_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_jug_41_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_jug_41_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_kid_42_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_kid_42_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_kit_43_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_kit_43_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_lab_44_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_lab_44_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_lap_45_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_lap_45_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_leg_46_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_e_leg_46_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_lid_47_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_lid_47_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_lip_48_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_lip_48_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_o_log_49_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_log_49_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_mad_50_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_mad_50_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_man_51_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_man_51_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_mat_52_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_mat_52_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_o_mop_53_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_mop_53_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_mug_55_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_mug_55_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_nap_56_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_nap_56_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_pad_57_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_pad_57_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_peg_59_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_peg_59_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_pet_61_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_pet_61_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_pin_63_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_pin_63_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_pup_65_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_pup_65_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_rag_66_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_rag_66_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_ram_67_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_ram_67_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_rat_68_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_rat_68_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_e_red_69_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_red_69_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_rib_70_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_rib_70_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_o_rod_71_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_rod_71_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_rub_72_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_rub_72_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_rug_73_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_rug_73_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_run_74_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_run_74_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_sad_75_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_sad_75_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_sap_76_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_sap_76_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_sip_77_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_sip_77_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_sub_79_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_sub_79_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_tab_81_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_tab_81_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_tag_82_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_tag_82_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_tap_83_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_tap_83_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_ten_84_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_e_ten_84_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_o_top_85_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_o_top_85_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_tub_86_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_tub_86_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_u_tug_87_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_u_tug_87_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_van_88_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_van_88_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_wag_89_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_wag_89_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_web_90_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_e_web_90_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_e_wet_91_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_e_wet_91_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_win_93_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_win_93_picture",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_a_yak_94_listen",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_a_yak_94_picture",
+      "level": 1
+    },
+    {
+      "questionId": "gen_short_vowel_i_zip_95_listen",
+      "level": 2
+    },
+    {
+      "questionId": "gen_short_vowel_i_zip_95_picture",
+      "level": 2
+    }
+  ],
+  "hfw_1_25": [
+    {
+      "questionId": "HFWQ-0001",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0002",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0003",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0004",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0005",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0006",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0007",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0008",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0009",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0010",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0011",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0012",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0013",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0014",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0015",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0016",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0017",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0018",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0019",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0020",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0021",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0022",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0023",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0024",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0025",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0026",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0027",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0028",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0029",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0030",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0031",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0032",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0033",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0034",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0035",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0036",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0037",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0038",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0039",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0040",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0041",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0042",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0043",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0044",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0045",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0046",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0047",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0048",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0049",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0050",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0051",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0052",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0053",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0054",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0056",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0057",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0058",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0059",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0060",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0061",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0062",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0063",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0064",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0065",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0066",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0067",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0068",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0070",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0071",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0072",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0073",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0074",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0075",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0076",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0077",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0078",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0079",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0080",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0081",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0082",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0083",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0084",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0085",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0086",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0087",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0088",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0089",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0090",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0092",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0093",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0094",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0095",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0096",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0097",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0098",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0099",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0100",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0101",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0102",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0103",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0104",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0105",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0106",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0107",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0108",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0109",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0110",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0111",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0112",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0113",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0114",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0115",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0116",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0117",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0118",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0119",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0120",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0121",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0122",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0123",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0124",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0125",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0126",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0127",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0128",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0129",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0130",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0131",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0132",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0133",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0134",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0135",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0136",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0137",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0138",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0139",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0140",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0141",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0142",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0143",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0144",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0145",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0146",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0147",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0148",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0149",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0150",
+      "level": 2
+    }
+  ],
+  "hfw_26_50": [
+    {
+      "questionId": "HFWQ-0151",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0152",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0153",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0154",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0155",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0156",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0157",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0158",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0159",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0160",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0161",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0162",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0163",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0164",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0165",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0166",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0167",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0168",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0169",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0170",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0171",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0172",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0173",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0174",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0175",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0176",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0177",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0178",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0179",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0180",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0181",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0182",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0183",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0184",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0185",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0186",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0187",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0188",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0189",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0190",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0191",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0192",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0193",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0194",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0195",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0196",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0197",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0198",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0199",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0200",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0201",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0202",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0203",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0204",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0205",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0206",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0207",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0208",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0209",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0210",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0211",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0213",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0214",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0215",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0216",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0217",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0218",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0219",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0220",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0221",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0222",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0223",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0224",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0225",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0226",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0227",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0228",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0229",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0230",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0231",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0232",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0233",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0234",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0235",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0236",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0237",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0238",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0239",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0240",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0241",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0242",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0243",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0244",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0245",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0246",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0247",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0248",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0249",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0250",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0251",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0252",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0253",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0254",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0255",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0256",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0257",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0258",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0259",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0260",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0261",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0262",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0263",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0264",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0265",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0266",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0267",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0268",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0269",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0270",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0271",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0272",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0273",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0274",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0275",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0276",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0277",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0278",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0279",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0280",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0281",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0282",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0283",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0284",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0285",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0286",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0287",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0288",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0289",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0290",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0291",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0292",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0293",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0294",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0295",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0296",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0297",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0298",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0299",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0300",
+      "level": 2
+    }
+  ],
+  "hfw_51_75": [
+    {
+      "questionId": "HFWQ-0301",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0302",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0303",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0304",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0305",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0306",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0307",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0308",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0309",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0310",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0311",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0312",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0313",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0314",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0315",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0316",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0317",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0318",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0319",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0320",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0321",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0322",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0323",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0324",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0325",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0326",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0327",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0328",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0329",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0330",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0331",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0332",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0333",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0334",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0335",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0336",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0337",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0338",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0339",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0340",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0341",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0342",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0343",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0344",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0345",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0346",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0347",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0348",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0349",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0350",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0351",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0352",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0353",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0354",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0356",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0357",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0358",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0359",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0360",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0361",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0362",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0363",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0364",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0365",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0366",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0367",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0368",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0369",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0370",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0371",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0372",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0373",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0374",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0375",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0376",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0377",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0378",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0379",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0380",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0381",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0382",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0383",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0384",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0385",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0386",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0387",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0388",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0389",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0390",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0391",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0392",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0393",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0394",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0395",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0396",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0397",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0398",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0399",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0400",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0401",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0402",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0403",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0404",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0405",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0406",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0407",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0408",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0409",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0410",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0411",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0412",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0413",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0414",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0415",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0416",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0417",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0418",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0419",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0420",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0421",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0422",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0423",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0424",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0425",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0426",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0427",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0428",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0429",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0430",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0431",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0432",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0433",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0434",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0435",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0436",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0437",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0438",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0440",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0441",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0442",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0443",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0444",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0445",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0446",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0447",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0448",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0449",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0450",
+      "level": 2
+    }
+  ],
+  "hfw_76_100": [
+    {
+      "questionId": "HFWQ-0451",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0452",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0453",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0454",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0455",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0456",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0457",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0458",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0459",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0460",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0461",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0462",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0463",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0464",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0465",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0466",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0467",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0468",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0469",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0470",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0471",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0472",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0473",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0474",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0475",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0476",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0477",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0478",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0479",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0480",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0481",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0482",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0483",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0484",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0485",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0486",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0487",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0488",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0489",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0490",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0491",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0492",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0493",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0494",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0495",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0496",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0497",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0498",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0499",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0500",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0501",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0502",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0503",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0504",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0505",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0506",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0507",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0508",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0509",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0510",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0511",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0512",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0513",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0514",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0515",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0516",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0517",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0518",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0519",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0520",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0521",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0522",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0523",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0524",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0525",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0526",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0527",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0528",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0529",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0530",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0531",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0532",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0533",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0534",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0535",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0536",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0537",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0538",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0539",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0540",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0541",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0542",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0544",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0545",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0546",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0547",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0548",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0549",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0550",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0551",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0552",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0553",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0554",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0555",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0556",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0557",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0558",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0561",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0562",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0563",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0564",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0565",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0566",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0567",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0568",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0569",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0570",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0571",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0572",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0573",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0574",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0575",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0576",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0577",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0578",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0579",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0581",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0582",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0583",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0584",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0585",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0586",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0587",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0588",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0589",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0592",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0593",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0594",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0595",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0596",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0597",
+      "level": 1
+    },
+    {
+      "questionId": "HFWQ-0598",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0599",
+      "level": 2
+    },
+    {
+      "questionId": "HFWQ-0600",
+      "level": 2
+    }
+  ],
   "blends": [
     {
       "questionId": "first10_blends_topup_l1_01_bl_blend",
@@ -7385,14 +10898,6 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
       "level": 2
     },
     {
-      "questionId": "long_vowels_l2_15_e_e_concrete",
-      "level": 2
-    },
-    {
-      "questionId": "long_vowels_l2_16_e_e_complete",
-      "level": 2
-    },
-    {
       "questionId": "long_vowels_l2_17_igh_light",
       "level": 2
     },
@@ -7457,13 +10962,5732 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
       "level": 2
     }
   ],
-  "vowel_teams": [],
-  "r_controlled_vowels": [],
-  "nouns": [],
-  "verbs": [],
-  "adjectives": [],
-  "prepositions_of_place": [],
-  "plurals": [],
+  "vowel_teams": [
+    {
+      "questionId": "second_vowel_teams_l1_06_v1_ay_clay",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_06_v2_ay_clay",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_06_v3_ay_clay",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_01_v1_ea_beach",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_01_v2_ea_beach",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_01_v3_ea_beach",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_07_v1_ea_bead",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_07_v2_ea_bead",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_07_v3_ea_bead",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_02_v1_ee_beef",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_02_v2_ee_beef",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_02_v3_ee_beef",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_08_v1_ee_beet",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_08_v2_ee_beet",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_08_v3_ee_beet",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_03_v1_igh_bright",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_03_v2_igh_bright",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_03_v3_igh_bright",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_09_v1_oa_coat",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_09_v2_oa_coat",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_09_v3_oa_coat",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_04_v1_ue_blue",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_04_v2_ue_blue",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l1_04_v3_ue_blue",
+      "level": 1
+    },
+    {
+      "questionId": "second_vowel_teams_l2_01_ai_aid",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_16_ai_aim",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_02_ay_bay",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_17_ay_clay",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_03_ea_beach",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_18_ea_bead",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_04_ee_beef",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_19_ee_beet",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_05_eigh_weight",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_06_ew_chew",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_20_ew_crew",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_07_ie_brief",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_21_ie_chief",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_08_igh_bright",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_22_igh_fight",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_09_oa_coach",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_23_oa_coat",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_10_oe_doe",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_24_oe_foe",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_11_oo_bloom",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_12_ow_blow",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_13_ue_blue",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_14_ui_build",
+      "level": 2
+    },
+    {
+      "questionId": "second_vowel_teams_l2_15_y_cry",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_01_ui_grapefruit",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_02_ui_suit",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_03_ew_newt",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_04_oy_boy",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_05_igh_nightlight",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_06_igh_lighthouse",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_07_ie_field",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_08_ie_shield",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_09_eigh_eight",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_10_eigh_sleigh",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_11_oi_soil",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_12_oi_coin",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_13_ue_blueberry",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_14_ue_bluebird",
+      "level": 2
+    },
+    {
+      "questionId": "vowel_teams_l2_variety_15_ue_blue",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ea_beach",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ea_bead",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ea_beak",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ea_bean",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ee_beef",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ee_beehive",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ee_beet",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ee_beetle",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ai_chain",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ee_cheese",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ay_clay",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ee_eel",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ay_hay",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_oa_loaf",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_oa_oak",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ai_pail",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l1_ai_paint",
+      "level": 1
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ai_airplane",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_anteater",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ai_armchair",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oo_bamboo",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_beach",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_beachball",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_bead",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_beak",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_bean",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ee_beef",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ee_beehive",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ee_beet",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ee_beetle",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ou_birdhouse",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ue_blueberry",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ue_bluebird",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ay_bluejay",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oa_board",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oo_bookcase",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oo_bookend",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oo_boot",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oo_booth",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ow_bow",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ow_bowl",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_bread",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oo_broom",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oe_canoe",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ee_canteen",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ow_cauliflower",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ai_chain",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ee_cheese",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ee_cheetah",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oa_chessboard",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ay_clay",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_clean",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oa_clipboard",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ou_cloud",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oa_coal",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oa_cocoa",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oi_coin",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_oo_cookie",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ea_cornbread",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ou_couch",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ou_cougar",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ow_cowbell",
+      "level": 2
+    },
+    {
+      "questionId": "gap_vowel_teams_l2_ay_crayon",
+      "level": 2
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_01_tree",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_02_beach",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_03_rain",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_04_train",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_05_boat",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_06_green",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_07_sheep",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_08_leaf",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_09_coat",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_10_goat",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_11_seed",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_12_feet",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_13_road",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_14_soap",
+      "level": 1
+    },
+    {
+      "questionId": "qa_vowel_teams_l1_15_oak",
+      "level": 1
+    }
+  ],
+  "r_controlled_vowels": [
+    {
+      "questionId": "safe_r_ar_1",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_ar_2",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_er_1",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_er_2",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_ir_1",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_ir_2",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_or_1",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_or_2",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_ur_1",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_ur_2",
+      "level": 2
+    },
+    {
+      "questionId": "safe_r_ur_3",
+      "level": 2
+    },
+    {
+      "questionId": "second_r_controlled_l1_01_ar_arm",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_06_ar_bar",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_11_ar_bark",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_25_ar_car",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_29_ar_card",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_02_er_butter",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_12_er_fern",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_03_ir_bird",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_13_ir_dirt",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_27_ir_girl",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_04_or_corn",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_19_or_fork",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_24_or_horn",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_05_ur_burn",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_10_ur_curl",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_15_ur_purse",
+      "level": 1
+    },
+    {
+      "questionId": "second_r_controlled_l1_20_ur_turn",
+      "level": 1
+    },
+    {
+      "questionId": "exp2_r_controlled_1",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_2",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_3",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_4",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_5",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_6",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_7",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_8",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_9",
+      "level": 2
+    },
+    {
+      "questionId": "exp2_r_controlled_10",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_1",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_2",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_3",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_4",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_5",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_6",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_7",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_8",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_9",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_10",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_11",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_12",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_13",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_14",
+      "level": 2
+    },
+    {
+      "questionId": "exp3_r_controlled_15",
+      "level": 2
+    },
+    {
+      "questionId": "exp6_phonics_21",
+      "level": 2
+    },
+    {
+      "questionId": "exp6_phonics_22",
+      "level": 2
+    },
+    {
+      "questionId": "exp6_phonics_23",
+      "level": 2
+    },
+    {
+      "questionId": "exp6_phonics_24",
+      "level": 2
+    },
+    {
+      "questionId": "exp6_phonics_25",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_1",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_2",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_3",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_4",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_5",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_6",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_7",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_8",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_9",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_10",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_11",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_12",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_13",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_14",
+      "level": 2
+    },
+    {
+      "questionId": "exp7_r_controlled_15",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_001",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_002",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_004",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_005",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_006",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_008",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_009",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_010",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_011",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_020",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_021",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_022",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_024",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_029",
+      "level": 1
+    },
+    {
+      "questionId": "qb10_rc_031",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_032",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_033",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_034",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_035",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_041",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_042",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_043",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_044",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_045",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_046",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_047",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_048",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_049",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_050",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_051",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_052",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_053",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_054",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_055",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_056",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_057",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_058",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_059",
+      "level": 2
+    },
+    {
+      "questionId": "qb10_rc_060",
+      "level": 2
+    },
+    {
+      "questionId": "qa_r_controlled_l1_01_car",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_02_star",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_03_farm",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_04_arm",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_05_bark",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_06_barn",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_07_card",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_08_bird",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_09_girl",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_10_shirt",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_11_bluebird",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_12_corn",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_13_fork",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_14_horse",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_15_butter",
+      "level": 1
+    },
+    {
+      "questionId": "qa_r_controlled_l1_16_berry",
+      "level": 1
+    }
+  ],
+  "nouns": [
+    {
+      "questionId": "second_nouns_l1_69_air",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_70_ant",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_10_ape",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_01_artist",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_11_back",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_12_bag",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_13_bat",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_14_bear",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_15_bed",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_16_bell",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_17_book",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_18_boot",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_19_box",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_20_bug",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_21_cap",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_22_cat",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_67_child",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_23_class",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_02_coach",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_24_coat",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_25_cup",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_26_dad",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_27_dog",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_28_duck",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_29_egg",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_30_eye",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_31_face",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_32_foot",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_33_fox",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_03_friend",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_34_glove",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_35_glue",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_36_goat",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_37_hair",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_38_ham",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_39_hat",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_40_head",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_41_hen",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_42_jam",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_43_kid",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_44_knee",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_45_lamb",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_46_leg",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_47_man",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_04_market",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_48_mat",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_49_men",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_50_moon",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_05_mum",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_06_museum",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_51_pear",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_52_pen",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_53_pig",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_07_pilot",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_54_rat",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_55_rice",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_56_road",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_57_room",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_68_school",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_58_seal",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_59_shoe",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_60_sky",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_61_sock",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_08_station",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_62_stream",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_63_sun",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_09_ticket",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_64_toast",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_65_wood",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l1_66_word",
+      "level": 1
+    },
+    {
+      "questionId": "second_nouns_l2_43_ant",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_44_arm",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_01_back",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_02_bag",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_03_bat",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_45_beach",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_46_bean",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_04_bear",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_05_bed",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_06_bell",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_07_book",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_08_boot",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_09_box",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_10_bug",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_11_cap",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_12_cat",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_13_coat",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_14_cup",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_15_dad",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_16_dog",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_17_duck",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_18_egg",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_19_eye",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_20_fox",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_21_glove",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_22_goat",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_23_ham",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_24_hat",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_25_head",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_26_hen",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_27_jam",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_28_kid",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_29_knee",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_30_leg",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_31_man",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_32_mat",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_33_moon",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_34_pear",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_35_pen",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_36_pig",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_37_rat",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_38_road",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_39_seal",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_40_shoe",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_41_sock",
+      "level": 2
+    },
+    {
+      "questionId": "second_nouns_l2_42_sun",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_001",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_002",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_003",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_004",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_005",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_006",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_007",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_008",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_009",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_010",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_011",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_012",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_013",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_014",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_015",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_016",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_017",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_018",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_019",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_020",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_021",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_022",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_023",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_024",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_025",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_026",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_027",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_028",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_029",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_nouns_l2_030",
+      "level": 2
+    }
+  ],
+  "verbs": [
+    {
+      "questionId": "second_verbs_l1_01_ate",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_37_bake",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_02_baked",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_03_barked",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_04_blow",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_38_build",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_05_builds",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_50_carry",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_39_catch",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_06_compare",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_35_cook",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_40_count",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_07_cried",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_08_dance",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_09_drew",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_41_drive",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_42_eat",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_10_explain",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_43_fall",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_11_fell",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_12_flew",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_44_fly",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_34_galloped",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_45_help",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_46_hide",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_13_hung",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_14_jumped",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_51_listen",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_15_measure",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_16_melt",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_17_observe",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_18_played",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_19_pour",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_20_predict",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_21_raised",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_22_ran",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_23_reads",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_24_repair",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_25_rises",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_26_runs",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_27_sang",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_28_sat",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_29_shake",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_47_share",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_36_sing",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_30_smiled",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_31_swam",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_32_swayed",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_48_think",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_33_walked",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l1_49_write",
+      "level": 1
+    },
+    {
+      "questionId": "second_verbs_l2_01_ate",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_10_ate",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_19_ate",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_28_ate",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_37_ate",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_46_ate",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_02_bake",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_11_bake",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_20_bake",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_29_bake",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_38_bake",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_03_build",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_12_build",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_21_build",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_30_build",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_39_build",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_04_drive",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_13_drive",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_22_drive",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_31_drive",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_40_drive",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_05_fall",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_14_fall",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_23_fall",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_32_fall",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_41_fall",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_06_fly",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_15_fly",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_24_fly",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_33_fly",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_42_fly",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_07_hide",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_16_hide",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_25_hide",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_34_hide",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_43_hide",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_08_share",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_17_share",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_26_share",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_35_share",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_44_share",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_09_write",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_18_write",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_27_write",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_36_write",
+      "level": 2
+    },
+    {
+      "questionId": "second_verbs_l2_45_write",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_001",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_002",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_003",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_004",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_005",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_006",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_007",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_029",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_032",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_035",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_038",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_039",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_043",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_verbs_l2_044",
+      "level": 2
+    }
+  ],
+  "adjectives": [
+    {
+      "questionId": "second_adjectives_l1_27_beautiful",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_01_brave",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_37_brave",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_32_brown",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_02_bumpy",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_38_bumpy",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_03_calm",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_39_calm",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_04_crisp",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_40_crisp",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_05_cute",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_41_cute",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_06_deep",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_42_deep",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_07_dusty",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_43_dusty",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_08_fierce",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_44_fierce",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_09_fluffy",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_45_fluffy",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_10_gentle",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_46_gentle",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_11_huge",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_33_loud",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_28_new",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_12_noisy",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_29_old",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_13_playful",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_14_prickly",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_15_proud",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_35_purple",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_16_rough",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_17_sharp",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_18_shiny",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_19_silent",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_20_smelly",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_21_smooth",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_36_sour",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_22_sparkly",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_23_square",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_24_striped",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_25_strong",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_34_sweet",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_26_tiny",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_30_warm",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l1_31_young",
+      "level": 1
+    },
+    {
+      "questionId": "second_adjectives_l2_01_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_06_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_11_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_16_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_21_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_26_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_31_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_36_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_41_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_46_brave",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_02_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_07_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_12_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_17_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_22_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_27_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_32_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_37_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_42_cute",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_03_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_08_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_13_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_18_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_23_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_28_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_33_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_38_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_43_huge",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_05_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_10_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_15_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_20_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_25_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_30_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_35_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_40_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_45_loud",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_04_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_09_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_14_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_19_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_24_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_29_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_34_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_39_silent",
+      "level": 2
+    },
+    {
+      "questionId": "second_adjectives_l2_44_silent",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_001",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_002",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_003",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_004",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_005",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_006",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_025",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_029",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_031",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_032",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_033",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_034",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_035",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_036",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_037",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_039",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_040",
+      "level": 2
+    },
+    {
+      "questionId": "grammar_adjectives_l2_041",
+      "level": 2
+    }
+  ],
+  "prepositions_of_place": [
+    {
+      "questionId": "second_prepositions_l1_01_above",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_09_across",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_10_against",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_11_along",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_12_among",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_13_around",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_03_behind",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_02_below",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_04_beside",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_05_between",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_06_near",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_14_outside",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_07_over",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l1_08_through",
+      "level": 1
+    },
+    {
+      "questionId": "second_prepositions_l2_01_sentence_above",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_15_context_above",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_09_sentence_across",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_23_context_across",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_10_sentence_against",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_24_context_against",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_11_sentence_along",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_25_context_along",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_12_sentence_among",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_26_context_among",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_13_sentence_around",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_27_context_around",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_03_sentence_behind",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_17_context_behind",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_02_sentence_below",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_16_context_below",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_04_sentence_beside",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_18_context_beside",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_05_sentence_between",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_19_context_between",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_06_sentence_near",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_20_context_near",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_14_sentence_outside",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_28_context_outside",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_07_sentence_over",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_21_context_over",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_08_sentence_through",
+      "level": 2
+    },
+    {
+      "questionId": "second_prepositions_l2_22_context_through",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_prepositions_on_0",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_1",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_2",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_3",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_4",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_5",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_6",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_7",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_8",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_on_9",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_10",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_11",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_12",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_13",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_14",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_15",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_16",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_17",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_18",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in_19",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_20",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_21",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_22",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_23",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_24",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_25",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_26",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_27",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_28",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_under_29",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_30",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_31",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_32",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_33",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_34",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_35",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_36",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_37",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_38",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_over_39",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_40",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_41",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_42",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_43",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_44",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_45",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_46",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_47",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_48",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_beside_49",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_50",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_51",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_52",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_53",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_54",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_55",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_56",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_57",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_58",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_between_59",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_60",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_61",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_62",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_63",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_64",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_65",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_66",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_67",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_68",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_behind_69",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_70",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_71",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_72",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_73",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_74",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_75",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_76",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_77",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_78",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_in-front-of_79",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_80",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_81",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_82",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_83",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_84",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_85",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_86",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_87",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_88",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_near_89",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_90",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_91",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_92",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_93",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_94",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_95",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_96",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_97",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_98",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_above_99",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_100",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_101",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_102",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_103",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_104",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_105",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_106",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_107",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_108",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_below_109",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_110",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_111",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_112",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_113",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_114",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_115",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_116",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_117",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_118",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_next-to_119",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_120",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_121",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_122",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_123",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_124",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_125",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_126",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_127",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_128",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_around_129",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_130",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_131",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_132",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_133",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_134",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_135",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_136",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_137",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_138",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_through_139",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_140",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_141",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_142",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_143",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_144",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_145",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_146",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_147",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_148",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_across_149",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_150",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_151",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_152",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_153",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_154",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_155",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_156",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_157",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_158",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_inside_159",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_160",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_161",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_162",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_163",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_164",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_165",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_166",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_167",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_168",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_outside_169",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_170",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_171",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_172",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_173",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_174",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_175",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_176",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_177",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_178",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_against_179",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_180",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_181",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_182",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_183",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_184",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_185",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_186",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_187",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_188",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_into_189",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_190",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_191",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_192",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_193",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_194",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_195",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_196",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_197",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_198",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_prepositions_out-of_199",
+      "level": 1
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_through_the_tunnel_1",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_along_the_fence_2",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_past_the_bench_3",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_outside_the_tent_4",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_in_the_middle_5",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_at_the_back_6",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_at_the_front_7",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_on_the_right_8",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_on_the_left_9",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_beneath_the_shelf_10",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_away_from_the_road_11",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_toward_the_door_12",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_around_the_bend_13",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_across_the_path_14",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_near_the_river_15",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_between_the_trees_16",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_behind_the_curtain_17",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_inside_the_basket_18",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_under_the_bridge_19",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_beside_the_gate_20",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_opposite_21",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_among_22",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_underneath_23",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_beyond_24",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_within_25",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_by_26",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_around_the_corner_27",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_away_from_28",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_toward_29",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_past_30",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_along_31",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_on_top_of_32",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_in_front_of_33",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_next_to_34",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_beneath_35",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_against_36",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_across_37",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_through_38",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_around_39",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_far_40",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_near_41",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_over_42",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_under_43",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_outside_44",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_inside_45",
+      "level": 2
+    },
+    {
+      "questionId": "gap_prepositions_of_place_l2_between_46",
+      "level": 2
+    },
+    {
+      "questionId": "qa_prepositions_l1_01",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_02",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_03",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_04",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_05",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_06",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_07",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_08",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_09",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_10",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_11",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_12",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_review_02",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_review_03",
+      "level": 1
+    },
+    {
+      "questionId": "qa_prepositions_l1_review_04",
+      "level": 1
+    }
+  ],
+  "plurals": [
+    {
+      "questionId": "second_plurals_l1_07_bags",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_08_balls",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_09_bats",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_10_beds",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_38_benches",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_03_books",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_19_boxes",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_21_buses",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_05_cars",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_01_cats",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_43_clocks",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_04_cups",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_22_dishes",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_02_dogs",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_11_ducks",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_52_flags",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_20_foxes",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_12_frogs",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_17_grapes",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_06_hats",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_16_hens",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_34_leaves",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_13_maps",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_14_pens",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_15_pigs",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_42_planes",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_31_puppies",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l1_48_stars",
+      "level": 1
+    },
+    {
+      "questionId": "second_plurals_l2_32_babies",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_07_bags",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_08_balls",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_09_bats",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_10_beds",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_38_benches",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_03_books",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_19_boxes",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_21_buses",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_05_cars",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_01_cats",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_25_churches",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_24_classes",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_43_clocks",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_44_clouds",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_04_cups",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_22_dishes",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_02_dogs",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_39_dresses",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_51_drums",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_11_ducks",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_04_grape",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_05_box",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_52_flags",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_20_foxes",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_12_frogs",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_27_glasses",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_17_grapes",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_06_hats",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_16_hens",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_06_puppy",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_07_baby",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_28_kisses",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_53_kites",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_34_leaves",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_26_lunches",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_13_maps",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_29_mittens",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_37_peaches",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_41_pears",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_18_peas",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_14_pens",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_15_pigs",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_42_planes",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_45_plants",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_40_plums",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_31_puppies",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_54_rings",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_01_cat",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_02_dog",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_03_book",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_36_shelves",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_50_socks",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_46_spiders",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_30_stairs",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_48_stars",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_47_stones",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_49_trees",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_rule_08_leaf",
+      "level": 2
+    },
+    {
+      "questionId": "second_plurals_l2_23_wishes",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_baby_18",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_puppy_19",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_bunny_20",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_city_21",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_story_22",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_berry_23",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_lady_24",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_family_25",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_party_26",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_fly_27",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_butterfly_28",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_leaf_29",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_wolf_30",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_shelf_31",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_knife_32",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_loaf_33",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_calf_34",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_half_35",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_life_36",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_mouse_37",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_goose_38",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_tooth_39",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_foot_40",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_man_41",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_woman_42",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_child_43",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_person_44",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_sheep_45",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_fish_46",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_deer_47",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_moose_48",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_plurals_cookie_79",
+      "level": 2
+    },
+    {
+      "questionId": "gap_plurals_l1_buses_9",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_01",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_02",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_03",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_04",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_05",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_06",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_07",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_review_02",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_review_03",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_review_04",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_review_06",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_review_07",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_extra_01",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_extra_02",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_extra_03",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_extra_04",
+      "level": 1
+    },
+    {
+      "questionId": "qa_plurals_l1_extra_05",
+      "level": 1
+    }
+  ],
+  "antonyms_synonyms": [
+    {
+      "questionId": "second_antonyms_synonyms_l1_01_big_large",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_02_big_small",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_18_clean_dirty",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_07_day_night",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_04_fast_quick",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_04_fast_slow",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_10_full_empty",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_03_happy_glad",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_05_happy_sad",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_11_hard_soft",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_21_high_low",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_01_hot_cold",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_12_light_dark",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_13_long_short",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_15_loud_quiet",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_11_near_close",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_19_near_far",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_14_old_new",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_06_open_closed",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_23_same_different",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_02_small_tiny",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_16_strong_weak",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_08_up_down",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l1_03_wet_dry",
+      "level": 1
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_01_big_large",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_02_big_small",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_18_clean_dirty",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_07_day_night",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_04_fast_quick",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_04_fast_slow",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_08_finish_end",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_24_first_last",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_10_full_empty",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_03_happy_glad",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_05_happy_sad",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_11_hard_soft",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_17_help_aid",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_21_high_low",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_01_hot_cold",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_12_light_dark",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_13_long_short",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_18_look_see",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_15_loud_quiet",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_11_near_close",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_19_near_far",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_14_old_new",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_06_open_closed",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_10_over_above",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_15_right_correct",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_17_rough_smooth",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_23_same_different",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_12_shut_closed",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_02_small_tiny",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_05_smart_clever",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_20_speak_talk",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_07_start_begin",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_16_strong_weak",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_09_under_below",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_08_up_down",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_03_wet_dry",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_16_wrong_incorrect",
+      "level": 2
+    },
+    {
+      "questionId": "second_antonyms_synonyms_l2_22_young_old",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_antonym_hot_0",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_tall_1",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_long_2",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_fast_3",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_big_4",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_happy_5",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_up_6",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_open_9",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_wet_10",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_light_12",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_day_13",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_clean_16",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_full_17",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_near_18",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_loud_19",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_strong_40",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_slow_48",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_empty_49",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_same_55",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_high_72",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_antonym_strong_86",
+      "level": 1
+    },
+    {
+      "questionId": "workbook_synonym_big_90",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_small_91",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_quick_92",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_slow_93",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_happy_94",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_sad_95",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_mad_96",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_kind_97",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_smart_98",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_pretty_99",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_funny_100",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_quiet_101",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_loud_102",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_easy_103",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_hard_104",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_begin_105",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_finish_106",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_look_107",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_speak_108",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_shout_109",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_help_110",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_fix_111",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_buy_112",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_choose_113",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_close_114",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_raise_115",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_drop_116",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_jump_117",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_walk_118",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_run_119",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_make_120",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_build_121",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_clean_122",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_cry_123",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_laugh_124",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_eat_125",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_drink_126",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_sleep_127",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_rest_128",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_ask_129",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_answer_130",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_tell_131",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_give_132",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_get_133",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_find_134",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_hide_135",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_show_136",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_try_137",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_use_138",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_need_139",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_want_140",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_like_141",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_love_142",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_good_143",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_bad_144",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_bright_145",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_dark_146",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_cold_147",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_hot_148",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_wet_149",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_dry_150",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_soft_151",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_hard_152",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_neat_153",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_messy_154",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_safe_155",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_brave_156",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_afraid_157",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_tired_158",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_rich_159",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_poor_160",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_right_161",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_wrong_162",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_true_163",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_false_164",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_near_165",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_far_166",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_under_167",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_over_168",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_before_169",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_after_170",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_many_171",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_few_172",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_thin_173",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_thick_174",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_strong_175",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_weak_176",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_old_177",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_new_178",
+      "level": 2
+    },
+    {
+      "questionId": "workbook_synonym_full_179",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_true_1",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_strong_2",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_rough_3",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_calm_4",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_cry_5",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_laugh_6",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_push_7",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_day_8",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_front_9",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_under_10",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_tiny_11",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_empty_12",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_early_13",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_new_14",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_easy_15",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_pretty_16",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_smart_17",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_brave_18",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_same_19",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_safe_20",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_many_21",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_before_22",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_inside_23",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_high_24",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_slow_25",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_quick_26",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_kind_27",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_angry_28",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_sad_29",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_loud_30",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_quiet_31",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_large_32",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_little_33",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_end_34",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_begin_35",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_near_36",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_full_37",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_clean_38",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_hard_39",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_light_40",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_tall_41",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_wet_42",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_open_43",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_fast_44",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_happy_45",
+      "level": 2
+    },
+    {
+      "questionId": "gap_antonyms_synonyms_l2_big_46",
+      "level": 2
+    },
+    {
+      "questionId": "qa_antonyms_l1_01",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_02",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_03",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_04",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_05",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_06",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_07",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_08",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_09",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_10",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_11",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_12",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_13",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_14",
+      "level": 1
+    },
+    {
+      "questionId": "qa_antonyms_l1_extra_01",
+      "level": 1
+    }
+  ],
+  "homophones_homonyms": [
+    {
+      "questionId": "approved_homophone_000",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_001",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_002",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_003",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_004",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_005",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_006",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_007",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_008",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_009",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_010",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_011",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_012",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_013",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_014",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_015",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_016",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_017",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_018",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_019",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_020",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_021",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_022",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_023",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_024",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_025",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_026",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_027",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_028",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_029",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_030",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_031",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_032",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_033",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_034",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_035",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_036",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_037",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_038",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_039",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_040",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_041",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_042",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_043",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_044",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_045",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_046",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_047",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_048",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_049",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_050",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_051",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_052",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_053",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_054",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_055",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_056",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_057",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_058",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_059",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_060",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_061",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_062",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_063",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_064",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_065",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_066",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_067",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_068",
+      "level": 2
+    },
+    {
+      "questionId": "approved_homophone_069",
+      "level": 2
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_sea_1",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_one_2",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_two_3",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_hear_4",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_night_5",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_flower_6",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_blue_7",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_dear_8",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_deer_9",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_pair_10",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_pear_11",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_mail_12",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_tail_13",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_tale_14",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_right_15",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_write_16",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_ate_17",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_eight_18",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_week_19",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_weak_20",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_road_21",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_rode_22",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_meet_23",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_meat_24",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_hole_25",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_whole_26",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_sale_27",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_sail_28",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_wait_29",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_weight_30",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_no_31",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_know_32",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_by_33",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_buy_34",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_bear_35",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_bare_36",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_peace_37",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_piece_38",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_steak_39",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_stake_40",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_stair_41",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_stare_42",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_sun_43",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_son_44",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_plain_45",
+      "level": 1
+    },
+    {
+      "questionId": "gap_homophones_homonyms_l1_plane_46",
+      "level": 1
+    }
+  ],
   "prefixes_suffixes": [
     {
       "questionId": "gap_prefixes_suffixes_l1_unhappy_1",
@@ -7831,377 +17055,6 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
     },
     {
       "questionId": "gap_prefixes_suffixes_l2_helpful_46",
-      "level": 2
-    }
-  ],
-  "antonyms_synonyms": [],
-  "homophones_homonyms": [
-    {
-      "questionId": "gap_homophones_homonyms_l1_see_1",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_one_2",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_two_3",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_hear_4",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_night_5",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_flower_6",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_blue_7",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_dear_8",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_deer_9",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_pair_10",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_pear_11",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_mail_12",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_tail_13",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_tale_14",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_right_15",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_write_16",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_ate_17",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_eight_18",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_week_19",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_weak_20",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_road_21",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_rode_22",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_meet_23",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_meat_24",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_hole_25",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_whole_26",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_sale_27",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_sail_28",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_wait_29",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_weight_30",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_no_31",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_know_32",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_by_33",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_buy_34",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_bear_35",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_bare_36",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_peace_37",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_piece_38",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_steak_39",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_stake_40",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_stair_41",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_stare_42",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_sun_43",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_son_44",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_plain_45",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l1_plane_46",
-      "level": 1
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_maid_1",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_made_2",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_through_3",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_threw_4",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_brake_5",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_break_6",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_plane_7",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_plain_8",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_son_9",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_sun_10",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_stare_11",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_stair_12",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_stake_13",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_steak_14",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_piece_15",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_peace_16",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_bare_17",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_bear_18",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_buy_19",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_by_20",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_know_21",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_no_22",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_weight_23",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_wait_24",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_sail_25",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_sale_26",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_whole_27",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_hole_28",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_meat_29",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_meet_30",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_rode_31",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_road_32",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_weak_33",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_week_34",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_eight_35",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_ate_36",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_write_37",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_right_38",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_tale_39",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_tail_40",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_mail_41",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_pear_42",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_pair_43",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_deer_44",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_dear_45",
-      "level": 2
-    },
-    {
-      "questionId": "gap_homophones_homonyms_l2_blue_46",
       "level": 2
     }
   ],
@@ -8576,374 +17429,6 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
     }
   ],
   "key_details": [
-    {
-      "questionId": "gap_key_details_l1_story_01",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_02",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_03",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_04",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_05",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_06",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_07",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_08",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_09",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_10",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_11",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_12",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_13",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_14",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_15",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_16",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_17",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_18",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_19",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_20",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_21",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_22",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_23",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_24",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_25",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_26",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_27",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_28",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_29",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_30",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_31",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_32",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_33",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_34",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_35",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_36",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_37",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_38",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_39",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_40",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_41",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_42",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_43",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_44",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_45",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l1_story_46",
-      "level": 1
-    },
-    {
-      "questionId": "gap_key_details_l2_story_01",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_02",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_03",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_04",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_05",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_06",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_07",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_08",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_09",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_10",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_11",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_12",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_13",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_14",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_15",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_16",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_17",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_18",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_19",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_20",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_21",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_22",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_23",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_24",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_25",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_26",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_27",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_28",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_29",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_30",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_31",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_32",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_33",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_34",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_35",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_36",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_37",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_38",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_39",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_40",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_41",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_42",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_43",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_44",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_45",
-      "level": 2
-    },
-    {
-      "questionId": "gap_key_details_l2_story_46",
-      "level": 2
-    },
     {
       "questionId": "hq_key_details_l1_p1_001",
       "level": 1

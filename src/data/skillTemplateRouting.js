@@ -184,7 +184,12 @@ const ROUTING_RULES = {
 };
 
 export function getQuestionRoutingFormat(question = {}) {
-  const format = String(question.templateType || question.formatType || question.questionType || "UNKNOWN").toUpperCase();
+  // formatType is the canonical runtime contract. Some imported banks retain a
+  // source-specific templateType (for example PREPOSITION_IMAGE_SENTENCE_FIT)
+  // while exposing the supported runtime route in formatType
+  // (PREPOSITION_TEXT_CHOICE). Routing and release audits must agree with the
+  // renderer and use the canonical field first.
+  const format = String(question.formatType || question.templateType || question.questionType || "UNKNOWN").toUpperCase();
   const skillId = normalize(question.assessmentSkillId || question.skillId || question.skill || "");
   if (
     (format === "UNKNOWN" || format === "MULTIPLE_CHOICE") &&

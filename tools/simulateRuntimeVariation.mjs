@@ -1,6 +1,7 @@
 import path from "node:path";
 
 import { managedAssessmentSkillDepthConfig } from "../src/data/skillLevelDepthConfig.js";
+import { loadAssessmentSkillBank } from "../src/data/loadAssessmentSkillBank.js";
 import {
   createAssessmentSessionMediaUsage,
   getApprovedMediaForTarget,
@@ -25,14 +26,22 @@ import { getInitialSoundRoundPlan } from "../src/content/initialSounds/initialSo
 import {
   getQuestionImagePaths,
   repoRoot,
-  selectableRuntimeQuestionsForSkill,
   writeFile
 } from "./phonicsRuntimeUtils.js";
 
-const SESSION_COUNT = 500;
+const SESSION_COUNT = Math.max(
+  1,
+  Number.parseInt(process.env.LP_RUNTIME_SIMULATION_SESSIONS || "500", 10) || 500
+);
 const ROUND_LENGTH = 15;
 const OUT_JSON = path.join(repoRoot, "docs/validation/runtime_variation_simulation.json");
 const OUT_MD = path.join(repoRoot, "docs/validation/runtime_variation_simulation.md");
+const requestedSkillIds = new Set(
+  String(process.env.LP_RUNTIME_SIMULATION_SKILLS || "")
+    .split(",")
+    .map(value => value.trim())
+    .filter(Boolean)
+);
 
 function deterministicHash(value = "") {
   return Array.from(String(value)).reduce(
@@ -289,9 +298,13 @@ function auditInitialSoundsSession({ level, sessionIndex }) {
 const results = [];
 const allFailures = [];
 
-for (const config of managedAssessmentSkillDepthConfig) {
+const simulationConfigs = requestedSkillIds.size
+  ? managedAssessmentSkillDepthConfig.filter(config => requestedSkillIds.has(config.skillId))
+  : managedAssessmentSkillDepthConfig;
+
+for (const config of simulationConfigs) {
   const skillId = config.skillId;
-  const pool = selectableRuntimeQuestionsForSkill(skillId);
+  const pool = await loadAssessmentSkillBank(skillId);
   const skillFailures = [];
   const phaseRoundSignatures = new Map();
 

@@ -575,14 +575,9 @@ export function isImageEssential(question = {}) {
   const format = String(question.formatType || question.templateType || question.questionType || "").toLowerCase();
   const prompt = `${question.prompt || ""} ${question.question || ""}`.toLowerCase();
   const skillId = getCanonicalAssessmentSkillId(question);
-  const imageRequiredSkills = new Set([
-    "prepositions_of_place",
-    "plurals",
-    "antonyms_synonyms",
-    "homophones_homonyms"
-  ]);
+  const level = Number(question.level || question.difficulty || 1) || 1;
   return Boolean(
-    imageRequiredSkills.has(skillId) ||
+    (skillId === "plurals" && level === 1) ||
     question.imageUrl ||
     question.imagePath ||
     question.image ||

@@ -11,8 +11,8 @@ export const curriculumReleaseBoard = Object.freeze({
     "live student bank loader",
     "review-dated media exclusion register"
   ],
-  "readySkills": 17,
-  "blockedSkills": 13,
+  "readySkills": 30,
+  "blockedSkills": 0,
   "rows": [
     {
       "skillId": "initial_sounds",
@@ -22,8 +22,8 @@ export const curriculumReleaseBoard = Object.freeze({
       "releaseReady": true,
       "reasons": [],
       "owner": "Phonics curriculum + media QA",
-      "authoredQuestions": 150,
-      "approvedQuestions": 131,
+      "authoredQuestions": 151,
+      "approvedQuestions": 132,
       "releaseEligibleQuestions": 92,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
@@ -31,7 +31,7 @@ export const curriculumReleaseBoard = Object.freeze({
       "wiringDefects": 0,
       "studentExposure": {
         "count": 92,
-        "fingerprint": "740f87634c007e65b43a744566772dcf9f258b5a34a294e3bb46b275b3b2f82b",
+        "fingerprint": "3e64b7a127d3ff4da550a22fdbbdfda357e84ccbd700df67957bb3a2fce07099",
         "level1": 46,
         "level2": 46
       },
@@ -101,18 +101,18 @@ export const curriculumReleaseBoard = Object.freeze({
       "releaseReady": true,
       "reasons": [],
       "owner": "Phonics curriculum + media QA",
-      "authoredQuestions": 812,
-      "approvedQuestions": 666,
-      "releaseEligibleQuestions": 666,
+      "authoredQuestions": 802,
+      "approvedQuestions": 656,
+      "releaseEligibleQuestions": 656,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 666,
-        "fingerprint": "5a9fd648d81bc598ffde84e95847deafe6568149e517ca0309d4d69364fbf2ee",
+        "count": 656,
+        "fingerprint": "3d96c7c43a0dfe100d39a49b27abffced1a28b74d6f6765da958ae7c54964ca8",
         "level1": 476,
-        "level2": 190
+        "level2": 180
       },
       "waiver": {
         "entryCount": 0,
@@ -175,24 +175,22 @@ export const curriculumReleaseBoard = Object.freeze({
       "skillId": "short_vowel_discrimination",
       "skillName": "Short Vowel Discrimination",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Live student bank is missing 100 of 314 canonically approved questions."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Phonics curriculum + media QA",
-      "authoredQuestions": 542,
-      "approvedQuestions": 314,
-      "releaseEligibleQuestions": 314,
+      "authoredQuestions": 527,
+      "approvedQuestions": 299,
+      "releaseEligibleQuestions": 299,
       "unapprovedAudioQuestions": 14,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 299,
+        "fingerprint": "17a8aed32509145031c17b5b24da759a8cc6142255e5ad855d3b593fe635461d",
+        "level1": 103,
+        "level2": 196
       },
       "waiver": {
         "entryCount": 1,
@@ -212,32 +210,29 @@ export const curriculumReleaseBoard = Object.freeze({
         "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "fail"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "hfw_1_25",
       "skillName": "High-Frequency Words 1-25",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Literacy curriculum + media QA",
       "authoredQuestions": 150,
-      "approvedQuestions": 0,
-      "releaseEligibleQuestions": 0,
+      "approvedQuestions": 147,
+      "releaseEligibleQuestions": 147,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 147,
+        "fingerprint": "12fe53fe275487e9800da40ed1914e2a9f2433867ef0b22f847cf0b5cb2bd86f",
+        "level1": 72,
+        "level2": 75
       },
       "waiver": {
         "entryCount": 0,
@@ -247,36 +242,33 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "hfw_26_50",
       "skillName": "High-Frequency Words 26-50",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Literacy curriculum + media QA",
       "authoredQuestions": 150,
-      "approvedQuestions": 0,
-      "releaseEligibleQuestions": 0,
+      "approvedQuestions": 149,
+      "releaseEligibleQuestions": 149,
       "unapprovedAudioQuestions": 6,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 149,
+        "fingerprint": "8e4f8e4628d6185db6923b93a47d3592b3c7451f55761d8d45a3a003d24d3e5a",
+        "level1": 74,
+        "level2": 75
       },
       "waiver": {
         "entryCount": 0,
@@ -286,36 +278,33 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "hfw_51_75",
       "skillName": "High-Frequency Words 51-75",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Literacy curriculum + media QA",
       "authoredQuestions": 150,
-      "approvedQuestions": 0,
-      "releaseEligibleQuestions": 0,
+      "approvedQuestions": 148,
+      "releaseEligibleQuestions": 148,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 148,
+        "fingerprint": "2be19e1d1e859a12f2831dbb245ef79cde39e960da76fc3f30c720c94067cb3c",
+        "level1": 73,
+        "level2": 75
       },
       "waiver": {
         "entryCount": 0,
@@ -325,36 +314,33 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "hfw_76_100",
       "skillName": "High-Frequency Words 76-100",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Literacy curriculum + media QA",
       "authoredQuestions": 148,
-      "approvedQuestions": 0,
-      "releaseEligibleQuestions": 0,
+      "approvedQuestions": 144,
+      "releaseEligibleQuestions": 144,
       "unapprovedAudioQuestions": 30,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 144,
+        "fingerprint": "95d083463de9c43b9fc3acc5055b89aed56d07a644229d0bb11de352e47e2285",
+        "level1": 70,
+        "level2": 74
       },
       "waiver": {
         "entryCount": 0,
@@ -364,11 +350,11 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
@@ -458,17 +444,17 @@ export const curriculumReleaseBoard = Object.freeze({
       "reasons": [],
       "owner": "Phonics curriculum + media QA",
       "authoredQuestions": 226,
-      "approvedQuestions": 106,
-      "releaseEligibleQuestions": 106,
+      "approvedQuestions": 104,
+      "releaseEligibleQuestions": 104,
       "unapprovedAudioQuestions": 8,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 106,
-        "fingerprint": "61a6712dc1d583cc45d5df3c193d89b00d47bfa75b853f44125d770006d6c99f",
+        "count": 104,
+        "fingerprint": "7ceda9ae4f27f3360bdd5db7c69ad7fa14898ce8cf4ddbd201bcfdc1ed3a69f0",
         "level1": 50,
-        "level2": 56
+        "level2": 54
       },
       "waiver": {
         "entryCount": 1,
@@ -495,25 +481,22 @@ export const curriculumReleaseBoard = Object.freeze({
       "skillId": "vowel_teams",
       "skillName": "Vowel Teams",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Phonics curriculum + media QA",
-      "authoredQuestions": 116,
-      "approvedQuestions": 101,
-      "releaseEligibleQuestions": 101,
+      "authoredQuestions": 141,
+      "approvedQuestions": 141,
+      "releaseEligibleQuestions": 141,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 141,
+        "fingerprint": "22f7cb1182a080c638788016516791c5b80ea2cee5b70ca6dd211ed33cc3a6c7",
+        "level1": 56,
+        "level2": 85
       },
       "waiver": {
         "entryCount": 0,
@@ -523,36 +506,33 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "r_controlled_vowels",
       "skillName": "R-Controlled Vowels",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Phonics curriculum + media QA",
-      "authoredQuestions": 113,
-      "approvedQuestions": 97,
-      "releaseEligibleQuestions": 97,
+      "authoredQuestions": 128,
+      "approvedQuestions": 128,
+      "releaseEligibleQuestions": 128,
       "unapprovedAudioQuestions": 1,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 128,
+        "fingerprint": "b36797e95bcb142268af848b5e46ad95bca0e32cfe79d64e5fd347d83e44d3d7",
+        "level1": 47,
+        "level2": 81
       },
       "waiver": {
         "entryCount": 1,
@@ -568,35 +548,33 @@ export const curriculumReleaseBoard = Object.freeze({
         ]
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "nouns",
       "skillName": "Nouns",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Live student bank is missing 124 of 184 canonically approved questions."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Curriculum + media QA",
-      "authoredQuestions": 382,
-      "approvedQuestions": 184,
-      "releaseEligibleQuestions": 184,
+      "authoredQuestions": 398,
+      "approvedQuestions": 146,
+      "releaseEligibleQuestions": 146,
       "unapprovedAudioQuestions": 1,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 146,
+        "fingerprint": "0e54affb9633f14f7d37e71ef2c0bf8a76827cb801cb8e5f8aeecf46a3f20b2f",
+        "level1": 70,
+        "level2": 76
       },
       "waiver": {
         "entryCount": 0,
@@ -610,31 +588,29 @@ export const curriculumReleaseBoard = Object.freeze({
         "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "fail"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "verbs",
       "skillName": "Verbs",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Live student bank is missing 130 of 161 canonically approved questions."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Curriculum + media QA",
-      "authoredQuestions": 383,
-      "approvedQuestions": 161,
-      "releaseEligibleQuestions": 161,
+      "authoredQuestions": 420,
+      "approvedQuestions": 111,
+      "releaseEligibleQuestions": 111,
       "unapprovedAudioQuestions": 19,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 111,
+        "fingerprint": "6a590d5fd2502f0ea63e40f37164c5204e56a9040cefc792df3bf6b54f7dca38",
+        "level1": 51,
+        "level2": 60
       },
       "waiver": {
         "entryCount": 0,
@@ -648,31 +624,29 @@ export const curriculumReleaseBoard = Object.freeze({
         "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "fail"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "adjectives",
       "skillName": "Adjectives",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Curriculum + media QA",
-      "authoredQuestions": 333,
-      "approvedQuestions": 127,
-      "releaseEligibleQuestions": 127,
+      "authoredQuestions": 384,
+      "approvedQuestions": 110,
+      "releaseEligibleQuestions": 110,
       "unapprovedAudioQuestions": 5,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 110,
+        "fingerprint": "43210b12d289ce1c7646087b0b6ca743dec7d9ec4ea2301f47f3a2a422be6e12",
+        "level1": 46,
+        "level2": 64
       },
       "waiver": {
         "entryCount": 0,
@@ -682,36 +656,33 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
+        "questionCount": "pass",
         "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "prepositions_of_place",
       "skillName": "Prepositions of Place",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Curriculum + media QA",
-      "authoredQuestions": 303,
-      "approvedQuestions": 46,
-      "releaseEligibleQuestions": 46,
+      "authoredQuestions": 314,
+      "approvedQuestions": 303,
+      "releaseEligibleQuestions": 303,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 303,
+        "fingerprint": "826a80129a6ad68b2b1c56512301bd70b4b55389f2f785f9845dc03336458c39",
+        "level1": 229,
+        "level2": 74
       },
       "waiver": {
         "entryCount": 0,
@@ -721,36 +692,33 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
       "skillId": "plurals",
       "skillName": "Plurals",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Curriculum + media QA",
-      "authoredQuestions": 153,
-      "approvedQuestions": 96,
-      "releaseEligibleQuestions": 96,
+      "authoredQuestions": 184,
+      "approvedQuestions": 138,
+      "releaseEligibleQuestions": 138,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 138,
+        "fingerprint": "beb6299d2a8b4aea0c9f746e77b043863730e0e11079249518872c0f114c9f28",
+        "level1": 46,
+        "level2": 92
       },
       "waiver": {
         "entryCount": 0,
@@ -760,11 +728,11 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
@@ -807,25 +775,22 @@ export const curriculumReleaseBoard = Object.freeze({
       "skillId": "antonyms_synonyms",
       "skillName": "Antonyms and Synonyms",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "BLOCKED",
-      "releaseReady": false,
-      "reasons": [
-        "Question-count floor is not met at both levels.",
-        "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
-      ],
+      "gateStatus": "READY",
+      "releaseReady": true,
+      "reasons": [],
       "owner": "Curriculum + media QA",
-      "authoredQuestions": 201,
-      "approvedQuestions": 46,
-      "releaseEligibleQuestions": 46,
+      "authoredQuestions": 236,
+      "approvedQuestions": 234,
+      "releaseEligibleQuestions": 234,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 0,
-        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "level1": 0,
-        "level2": 0
+        "count": 234,
+        "fingerprint": "8ef6c279b72ef5b75014366cbea6b2ef1ec2af36e31e0dceb1207ecac616a1ee",
+        "level1": 60,
+        "level2": 174
       },
       "waiver": {
         "entryCount": 0,
@@ -835,11 +800,11 @@ export const curriculumReleaseBoard = Object.freeze({
         "reasons": []
       },
       "dimensions": {
-        "questionCount": "fail",
-        "balance": "fail",
+        "questionCount": "pass",
+        "balance": "pass",
         "media": "pass",
         "accessibility": "pass",
-        "runtimeSelectability": "blocked"
+        "runtimeSelectability": "pass"
       }
     },
     {
@@ -851,17 +816,17 @@ export const curriculumReleaseBoard = Object.freeze({
       "reasons": [],
       "owner": "Curriculum + media QA",
       "authoredQuestions": 162,
-      "approvedQuestions": 92,
-      "releaseEligibleQuestions": 92,
+      "approvedQuestions": 116,
+      "releaseEligibleQuestions": 116,
       "unapprovedAudioQuestions": 1,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 92,
-        "fingerprint": "9b702df6d2309e344034c8a7cea15b185ef34ab773a5543b6f643f632f5feae2",
+        "count": 116,
+        "fingerprint": "167aae34f270e6df985dacd046181374beab1a0103754fc2520981e926848571",
         "level1": 46,
-        "level2": 46
+        "level2": 70
       },
       "waiver": {
         "entryCount": 0,
@@ -923,17 +888,17 @@ export const curriculumReleaseBoard = Object.freeze({
       "reasons": [],
       "owner": "Curriculum + media QA",
       "authoredQuestions": 185,
-      "approvedQuestions": 185,
-      "releaseEligibleQuestions": 185,
+      "approvedQuestions": 93,
+      "releaseEligibleQuestions": 93,
       "unapprovedAudioQuestions": 0,
       "missingRequiredImages": 0,
       "missingRequiredAudio": 0,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 185,
-        "fingerprint": "957bf9d0a57d0d6b9502b5317bebd65406bbb0241cfce8e24d38e8828817c7a1",
-        "level1": 92,
-        "level2": 93
+        "count": 93,
+        "fingerprint": "14ea8cb5bbd9b55293a45fd2e566baa2939ed58d120884b2b9c5babac97acfcf",
+        "level1": 46,
+        "level2": 47
       },
       "waiver": {
         "entryCount": 0,

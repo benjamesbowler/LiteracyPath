@@ -6,6 +6,7 @@
 // The student report derives its Level 1 / Level 2 sounds-chart denominators
 // from these counts. Regenerate with: node tools/generateItemUniverse.js
 export const itemUniverseCounts = {
+  adjective: 10,
   antonym: 102,
   antonyms_synonyms: 47,
   blend: 27,
@@ -14,10 +15,11 @@ export const itemUniverseCounts = {
   context_clues: 93,
   digraph: 11,
   final_sound: 66,
-  grammar_adjective: 23,
-  grammar_noun: 46,
+  grammar_adjective: 141,
+  grammar_basic: 15,
+  grammar_noun: 155,
   grammar_plural: 4,
-  grammar_verb: 31,
+  grammar_verb: 189,
   homophone: 63,
   homophone_homonym: 68,
   homophones_homonyms: 52,
@@ -31,7 +33,7 @@ export const itemUniverseCounts = {
   morphology: 13,
   phonics_pattern: 79,
   plural: 169,
-  plural_rule: 1,
+  plural_rule: 4,
   plural_word: 52,
   prefix: 11,
   prefix_suffix: 13,
@@ -42,9 +44,11 @@ export const itemUniverseCounts = {
   sequencing: 103,
   short_vowel: 5,
   sight_word: 588,
-  skill_item: 1304,
+  skill_item: 1432,
   suffix: 12,
   synonym: 103,
   theme_higher_comprehension: 92,
+  verb: 6,
+  vocabulary_category: 14,
   vocabulary_word: 14
 };

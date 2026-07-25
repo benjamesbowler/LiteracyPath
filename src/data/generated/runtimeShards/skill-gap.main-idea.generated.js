@@ -48,7 +48,7 @@ export const questions = [
     "imageAlt": "firetruck",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 937
+    "__runtimeSourceIndex": 882
   },
   {
     "id": "gap_main_idea_l1_story_02",
@@ -98,7 +98,7 @@ export const questions = [
     "imageAlt": "basketball",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 938
+    "__runtimeSourceIndex": 883
   },
   {
     "id": "gap_main_idea_l1_story_03",
@@ -148,7 +148,7 @@ export const questions = [
     "imageAlt": "flowerpot",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 939
+    "__runtimeSourceIndex": 884
   },
   {
     "id": "gap_main_idea_l1_story_04",
@@ -198,7 +198,7 @@ export const questions = [
     "imageAlt": "chessboard",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 940
+    "__runtimeSourceIndex": 885
   },
   {
     "id": "gap_main_idea_l1_story_05",
@@ -248,7 +248,7 @@ export const questions = [
     "imageAlt": "cactus",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 941
+    "__runtimeSourceIndex": 886
   },
   {
     "id": "gap_main_idea_l1_story_06",
@@ -298,7 +298,7 @@ export const questions = [
     "imageAlt": "crayon",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 942
+    "__runtimeSourceIndex": 887
   },
   {
     "id": "gap_main_idea_l1_story_07",
@@ -348,7 +348,7 @@ export const questions = [
     "imageAlt": "cloud",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 943
+    "__runtimeSourceIndex": 888
   },
   {
     "id": "gap_main_idea_l1_story_08",
@@ -398,7 +398,7 @@ export const questions = [
     "imageAlt": "forest",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 944
+    "__runtimeSourceIndex": 889
   },
   {
     "id": "gap_main_idea_l1_story_09",
@@ -448,7 +448,7 @@ export const questions = [
     "imageAlt": "beach",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 945
+    "__runtimeSourceIndex": 890
   },
   {
     "id": "gap_main_idea_l1_story_10",
@@ -498,7 +498,7 @@ export const questions = [
     "imageAlt": "river",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 946
+    "__runtimeSourceIndex": 891
   },
   {
     "id": "gap_main_idea_l1_story_11",
@@ -548,7 +548,7 @@ export const questions = [
     "imageAlt": "camp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 947
+    "__runtimeSourceIndex": 892
   },
   {
     "id": "gap_main_idea_l1_story_12",
@@ -598,7 +598,7 @@ export const questions = [
     "imageAlt": "bridge",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 948
+    "__runtimeSourceIndex": 893
   },
   {
     "id": "gap_main_idea_l1_story_13",
@@ -648,7 +648,7 @@ export const questions = [
     "imageAlt": "snow",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 949
+    "__runtimeSourceIndex": 894
   },
   {
     "id": "gap_main_idea_l1_story_14",
@@ -698,7 +698,7 @@ export const questions = [
     "imageAlt": "cave",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 950
+    "__runtimeSourceIndex": 895
   },
   {
     "id": "gap_main_idea_l1_story_15",
@@ -748,7 +748,7 @@ export const questions = [
     "imageAlt": "bike",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 951
+    "__runtimeSourceIndex": 896
   },
   {
     "id": "gap_main_idea_l1_story_16",
@@ -798,7 +798,7 @@ export const questions = [
     "imageAlt": "paint",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 952
+    "__runtimeSourceIndex": 897
   },
   {
     "id": "gap_main_idea_l1_story_17",
@@ -848,7 +848,7 @@ export const questions = [
     "imageAlt": "bread",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 953
+    "__runtimeSourceIndex": 898
   },
   {
     "id": "gap_main_idea_l1_story_18",
@@ -898,7 +898,7 @@ export const questions = [
     "imageAlt": "path",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 954
+    "__runtimeSourceIndex": 899
   },
   {
     "id": "gap_main_idea_l1_story_19",
@@ -948,7 +948,7 @@ export const questions = [
     "imageAlt": "squirrel",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 955
+    "__runtimeSourceIndex": 900
   },
   {
     "id": "gap_main_idea_l1_story_20",
@@ -998,7 +998,7 @@ export const questions = [
     "imageAlt": "field",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 956
+    "__runtimeSourceIndex": 901
   },
   {
     "id": "gap_main_idea_l1_story_21",
@@ -1048,7 +1048,7 @@ export const questions = [
     "imageAlt": "clock",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 957
+    "__runtimeSourceIndex": 902
   },
   {
     "id": "gap_main_idea_l1_story_22",
@@ -1098,7 +1098,7 @@ export const questions = [
     "imageAlt": "bucket",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 958
+    "__runtimeSourceIndex": 903
   },
   {
     "id": "gap_main_idea_l1_story_23",
@@ -1148,7 +1148,7 @@ export const questions = [
     "imageAlt": "canoe",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 959
+    "__runtimeSourceIndex": 904
   },
   {
     "id": "gap_main_idea_l1_story_24",
@@ -1198,7 +1198,7 @@ export const questions = [
     "imageAlt": "firetruck",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 960
+    "__runtimeSourceIndex": 905
   },
   {
     "id": "gap_main_idea_l1_story_25",
@@ -1248,7 +1248,7 @@ export const questions = [
     "imageAlt": "basketball",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 961
+    "__runtimeSourceIndex": 906
   },
   {
     "id": "gap_main_idea_l1_story_26",
@@ -1298,7 +1298,7 @@ export const questions = [
     "imageAlt": "flowerpot",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 962
+    "__runtimeSourceIndex": 907
   },
   {
     "id": "gap_main_idea_l1_story_27",
@@ -1348,7 +1348,7 @@ export const questions = [
     "imageAlt": "chessboard",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 963
+    "__runtimeSourceIndex": 908
   },
   {
     "id": "gap_main_idea_l1_story_28",
@@ -1398,7 +1398,7 @@ export const questions = [
     "imageAlt": "cactus",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 964
+    "__runtimeSourceIndex": 909
   },
   {
     "id": "gap_main_idea_l1_story_29",
@@ -1448,7 +1448,7 @@ export const questions = [
     "imageAlt": "crayon",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 965
+    "__runtimeSourceIndex": 910
   },
   {
     "id": "gap_main_idea_l1_story_30",
@@ -1498,7 +1498,7 @@ export const questions = [
     "imageAlt": "cloud",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 966
+    "__runtimeSourceIndex": 911
   },
   {
     "id": "gap_main_idea_l1_story_31",
@@ -1548,7 +1548,7 @@ export const questions = [
     "imageAlt": "forest",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 967
+    "__runtimeSourceIndex": 912
   },
   {
     "id": "gap_main_idea_l1_story_32",
@@ -1598,7 +1598,7 @@ export const questions = [
     "imageAlt": "beach",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 968
+    "__runtimeSourceIndex": 913
   },
   {
     "id": "gap_main_idea_l1_story_33",
@@ -1648,7 +1648,7 @@ export const questions = [
     "imageAlt": "river",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 969
+    "__runtimeSourceIndex": 914
   },
   {
     "id": "gap_main_idea_l1_story_34",
@@ -1698,7 +1698,7 @@ export const questions = [
     "imageAlt": "camp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 970
+    "__runtimeSourceIndex": 915
   },
   {
     "id": "gap_main_idea_l1_story_35",
@@ -1748,7 +1748,7 @@ export const questions = [
     "imageAlt": "bridge",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 971
+    "__runtimeSourceIndex": 916
   },
   {
     "id": "gap_main_idea_l1_story_36",
@@ -1798,7 +1798,7 @@ export const questions = [
     "imageAlt": "snow",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 972
+    "__runtimeSourceIndex": 917
   },
   {
     "id": "gap_main_idea_l1_story_37",
@@ -1848,7 +1848,7 @@ export const questions = [
     "imageAlt": "cave",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 973
+    "__runtimeSourceIndex": 918
   },
   {
     "id": "gap_main_idea_l1_story_38",
@@ -1898,7 +1898,7 @@ export const questions = [
     "imageAlt": "bike",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 974
+    "__runtimeSourceIndex": 919
   },
   {
     "id": "gap_main_idea_l1_story_39",
@@ -1948,7 +1948,7 @@ export const questions = [
     "imageAlt": "paint",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 975
+    "__runtimeSourceIndex": 920
   },
   {
     "id": "gap_main_idea_l1_story_40",
@@ -1998,7 +1998,7 @@ export const questions = [
     "imageAlt": "bread",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 976
+    "__runtimeSourceIndex": 921
   },
   {
     "id": "gap_main_idea_l1_story_41",
@@ -2048,7 +2048,7 @@ export const questions = [
     "imageAlt": "path",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 977
+    "__runtimeSourceIndex": 922
   },
   {
     "id": "gap_main_idea_l1_story_42",
@@ -2098,7 +2098,7 @@ export const questions = [
     "imageAlt": "squirrel",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 978
+    "__runtimeSourceIndex": 923
   },
   {
     "id": "gap_main_idea_l1_story_43",
@@ -2148,7 +2148,7 @@ export const questions = [
     "imageAlt": "field",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 979
+    "__runtimeSourceIndex": 924
   },
   {
     "id": "gap_main_idea_l1_story_44",
@@ -2198,7 +2198,7 @@ export const questions = [
     "imageAlt": "clock",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 980
+    "__runtimeSourceIndex": 925
   },
   {
     "id": "gap_main_idea_l1_story_45",
@@ -2248,7 +2248,7 @@ export const questions = [
     "imageAlt": "bucket",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 981
+    "__runtimeSourceIndex": 926
   },
   {
     "id": "gap_main_idea_l1_story_46",
@@ -2298,7 +2298,7 @@ export const questions = [
     "imageAlt": "canoe",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 982
+    "__runtimeSourceIndex": 927
   },
   {
     "id": "gap_main_idea_l2_story_01",
@@ -2348,7 +2348,7 @@ export const questions = [
     "imageAlt": "forest",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 983
+    "__runtimeSourceIndex": 928
   },
   {
     "id": "gap_main_idea_l2_story_02",
@@ -2398,7 +2398,7 @@ export const questions = [
     "imageAlt": "beach",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 984
+    "__runtimeSourceIndex": 929
   },
   {
     "id": "gap_main_idea_l2_story_03",
@@ -2448,7 +2448,7 @@ export const questions = [
     "imageAlt": "river",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 985
+    "__runtimeSourceIndex": 930
   },
   {
     "id": "gap_main_idea_l2_story_04",
@@ -2498,7 +2498,7 @@ export const questions = [
     "imageAlt": "camp",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 986
+    "__runtimeSourceIndex": 931
   },
   {
     "id": "gap_main_idea_l2_story_05",
@@ -2548,7 +2548,7 @@ export const questions = [
     "imageAlt": "bridge",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 987
+    "__runtimeSourceIndex": 932
   },
   {
     "id": "gap_main_idea_l2_story_06",
@@ -2598,7 +2598,7 @@ export const questions = [
     "imageAlt": "snow",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 988
+    "__runtimeSourceIndex": 933
   },
   {
     "id": "gap_main_idea_l2_story_07",
@@ -2648,7 +2648,7 @@ export const questions = [
     "imageAlt": "cave",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 989
+    "__runtimeSourceIndex": 934
   },
   {
     "id": "gap_main_idea_l2_story_08",
@@ -2698,7 +2698,7 @@ export const questions = [
     "imageAlt": "bike",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 990
+    "__runtimeSourceIndex": 935
   },
   {
     "id": "gap_main_idea_l2_story_09",
@@ -2748,7 +2748,7 @@ export const questions = [
     "imageAlt": "paint",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 991
+    "__runtimeSourceIndex": 936
   },
   {
     "id": "gap_main_idea_l2_story_10",
@@ -2798,7 +2798,7 @@ export const questions = [
     "imageAlt": "bread",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 992
+    "__runtimeSourceIndex": 937
   },
   {
     "id": "gap_main_idea_l2_story_11",
@@ -2848,7 +2848,7 @@ export const questions = [
     "imageAlt": "path",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 993
+    "__runtimeSourceIndex": 938
   },
   {
     "id": "gap_main_idea_l2_story_12",
@@ -2898,7 +2898,7 @@ export const questions = [
     "imageAlt": "squirrel",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 994
+    "__runtimeSourceIndex": 939
   },
   {
     "id": "gap_main_idea_l2_story_13",
@@ -2948,7 +2948,7 @@ export const questions = [
     "imageAlt": "field",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 995
+    "__runtimeSourceIndex": 940
   },
   {
     "id": "gap_main_idea_l2_story_14",
@@ -2998,7 +2998,7 @@ export const questions = [
     "imageAlt": "clock",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 996
+    "__runtimeSourceIndex": 941
   },
   {
     "id": "gap_main_idea_l2_story_15",
@@ -3048,7 +3048,7 @@ export const questions = [
     "imageAlt": "bucket",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 997
+    "__runtimeSourceIndex": 942
   },
   {
     "id": "gap_main_idea_l2_story_16",
@@ -3098,7 +3098,7 @@ export const questions = [
     "imageAlt": "canoe",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 998
+    "__runtimeSourceIndex": 943
   },
   {
     "id": "gap_main_idea_l2_story_17",
@@ -3148,7 +3148,7 @@ export const questions = [
     "imageAlt": "firetruck",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 999
+    "__runtimeSourceIndex": 944
   },
   {
     "id": "gap_main_idea_l2_story_18",
@@ -3198,7 +3198,7 @@ export const questions = [
     "imageAlt": "basketball",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1000
+    "__runtimeSourceIndex": 945
   },
   {
     "id": "gap_main_idea_l2_story_19",
@@ -3248,7 +3248,7 @@ export const questions = [
     "imageAlt": "flowerpot",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1001
+    "__runtimeSourceIndex": 946
   },
   {
     "id": "gap_main_idea_l2_story_20",
@@ -3298,7 +3298,7 @@ export const questions = [
     "imageAlt": "chessboard",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1002
+    "__runtimeSourceIndex": 947
   },
   {
     "id": "gap_main_idea_l2_story_21",
@@ -3348,7 +3348,7 @@ export const questions = [
     "imageAlt": "cactus",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1003
+    "__runtimeSourceIndex": 948
   },
   {
     "id": "gap_main_idea_l2_story_22",
@@ -3398,7 +3398,7 @@ export const questions = [
     "imageAlt": "crayon",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1004
+    "__runtimeSourceIndex": 949
   },
   {
     "id": "gap_main_idea_l2_story_23",
@@ -3448,7 +3448,7 @@ export const questions = [
     "imageAlt": "cloud",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1005
+    "__runtimeSourceIndex": 950
   },
   {
     "id": "gap_main_idea_l2_story_24",
@@ -3498,7 +3498,7 @@ export const questions = [
     "imageAlt": "forest",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1006
+    "__runtimeSourceIndex": 951
   },
   {
     "id": "gap_main_idea_l2_story_25",
@@ -3548,7 +3548,7 @@ export const questions = [
     "imageAlt": "beach",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1007
+    "__runtimeSourceIndex": 952
   },
   {
     "id": "gap_main_idea_l2_story_26",
@@ -3598,7 +3598,7 @@ export const questions = [
     "imageAlt": "river",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1008
+    "__runtimeSourceIndex": 953
   },
   {
     "id": "gap_main_idea_l2_story_27",
@@ -3648,7 +3648,7 @@ export const questions = [
     "imageAlt": "camp",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1009
+    "__runtimeSourceIndex": 954
   },
   {
     "id": "gap_main_idea_l2_story_28",
@@ -3698,7 +3698,7 @@ export const questions = [
     "imageAlt": "bridge",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1010
+    "__runtimeSourceIndex": 955
   },
   {
     "id": "gap_main_idea_l2_story_29",
@@ -3748,7 +3748,7 @@ export const questions = [
     "imageAlt": "snow",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1011
+    "__runtimeSourceIndex": 956
   },
   {
     "id": "gap_main_idea_l2_story_30",
@@ -3798,7 +3798,7 @@ export const questions = [
     "imageAlt": "cave",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1012
+    "__runtimeSourceIndex": 957
   },
   {
     "id": "gap_main_idea_l2_story_31",
@@ -3848,7 +3848,7 @@ export const questions = [
     "imageAlt": "bike",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1013
+    "__runtimeSourceIndex": 958
   },
   {
     "id": "gap_main_idea_l2_story_32",
@@ -3898,7 +3898,7 @@ export const questions = [
     "imageAlt": "paint",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1014
+    "__runtimeSourceIndex": 959
   },
   {
     "id": "gap_main_idea_l2_story_33",
@@ -3948,7 +3948,7 @@ export const questions = [
     "imageAlt": "bread",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1015
+    "__runtimeSourceIndex": 960
   },
   {
     "id": "gap_main_idea_l2_story_34",
@@ -3998,7 +3998,7 @@ export const questions = [
     "imageAlt": "path",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1016
+    "__runtimeSourceIndex": 961
   },
   {
     "id": "gap_main_idea_l2_story_35",
@@ -4048,7 +4048,7 @@ export const questions = [
     "imageAlt": "squirrel",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1017
+    "__runtimeSourceIndex": 962
   },
   {
     "id": "gap_main_idea_l2_story_36",
@@ -4098,7 +4098,7 @@ export const questions = [
     "imageAlt": "field",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1018
+    "__runtimeSourceIndex": 963
   },
   {
     "id": "gap_main_idea_l2_story_37",
@@ -4148,7 +4148,7 @@ export const questions = [
     "imageAlt": "clock",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1019
+    "__runtimeSourceIndex": 964
   },
   {
     "id": "gap_main_idea_l2_story_38",
@@ -4198,7 +4198,7 @@ export const questions = [
     "imageAlt": "bucket",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1020
+    "__runtimeSourceIndex": 965
   },
   {
     "id": "gap_main_idea_l2_story_39",
@@ -4248,7 +4248,7 @@ export const questions = [
     "imageAlt": "canoe",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1021
+    "__runtimeSourceIndex": 966
   },
   {
     "id": "gap_main_idea_l2_story_40",
@@ -4298,7 +4298,7 @@ export const questions = [
     "imageAlt": "firetruck",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1022
+    "__runtimeSourceIndex": 967
   },
   {
     "id": "gap_main_idea_l2_story_41",
@@ -4348,7 +4348,7 @@ export const questions = [
     "imageAlt": "basketball",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1023
+    "__runtimeSourceIndex": 968
   },
   {
     "id": "gap_main_idea_l2_story_42",
@@ -4398,7 +4398,7 @@ export const questions = [
     "imageAlt": "flowerpot",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1024
+    "__runtimeSourceIndex": 969
   },
   {
     "id": "gap_main_idea_l2_story_43",
@@ -4448,7 +4448,7 @@ export const questions = [
     "imageAlt": "chessboard",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1025
+    "__runtimeSourceIndex": 970
   },
   {
     "id": "gap_main_idea_l2_story_44",
@@ -4498,7 +4498,7 @@ export const questions = [
     "imageAlt": "cactus",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1026
+    "__runtimeSourceIndex": 971
   },
   {
     "id": "gap_main_idea_l2_story_45",
@@ -4548,7 +4548,7 @@ export const questions = [
     "imageAlt": "crayon",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 1027
+    "__runtimeSourceIndex": 972
   },
   {
     "id": "gap_main_idea_l2_story_46",
@@ -4598,6 +4598,6 @@ export const questions = [
     "imageAlt": "cloud",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 1028
+    "__runtimeSourceIndex": 973
   }
 ];

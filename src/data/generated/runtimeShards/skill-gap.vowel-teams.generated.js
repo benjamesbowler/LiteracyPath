@@ -51,7 +51,7 @@ export const questions = [
     "explanation": "airplane uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 80
+    "__runtimeSourceIndex": 54
   },
   {
     "id": "gap_vowel_teams_l1_ea_anteater",
@@ -76,13 +76,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -104,7 +104,7 @@ export const questions = [
     "explanation": "anteater uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 81
+    "__runtimeSourceIndex": 55
   },
   {
     "id": "gap_vowel_teams_l1_ai_armchair",
@@ -127,15 +127,15 @@ export const questions = [
     "answer": "ai",
     "answerOptions": [
       "ai",
-      "ea",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ai",
-      "ea",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -157,7 +157,7 @@ export const questions = [
     "explanation": "armchair uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 82
+    "__runtimeSourceIndex": 56
   },
   {
     "id": "gap_vowel_teams_l1_ea_beach",
@@ -180,14 +180,14 @@ export const questions = [
     "answer": "ea",
     "answerOptions": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -210,7 +210,7 @@ export const questions = [
     "explanation": "beach uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 83
+    "__runtimeSourceIndex": 57
   },
   {
     "id": "gap_vowel_teams_l1_ea_beachball",
@@ -263,7 +263,7 @@ export const questions = [
     "explanation": "beachball uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 84
+    "__runtimeSourceIndex": 58
   },
   {
     "id": "gap_vowel_teams_l1_ea_bead",
@@ -288,13 +288,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -316,7 +316,7 @@ export const questions = [
     "explanation": "bead uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 85
+    "__runtimeSourceIndex": 59
   },
   {
     "id": "gap_vowel_teams_l1_ea_beak",
@@ -339,15 +339,15 @@ export const questions = [
     "answer": "ea",
     "answerOptions": [
       "ea",
-      "ai",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ea",
-      "ai",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -369,7 +369,7 @@ export const questions = [
     "explanation": "beak uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 86
+    "__runtimeSourceIndex": 60
   },
   {
     "id": "gap_vowel_teams_l1_ea_bean",
@@ -392,14 +392,14 @@ export const questions = [
     "answer": "ea",
     "answerOptions": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -422,7 +422,7 @@ export const questions = [
     "explanation": "bean uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 87
+    "__runtimeSourceIndex": 61
   },
   {
     "id": "gap_vowel_teams_l1_ee_beef",
@@ -475,7 +475,7 @@ export const questions = [
     "explanation": "beef uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 88
+    "__runtimeSourceIndex": 62
   },
   {
     "id": "gap_vowel_teams_l1_ee_beehive",
@@ -500,13 +500,13 @@ export const questions = [
       "ee",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ee",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -528,7 +528,7 @@ export const questions = [
     "explanation": "beehive uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 89
+    "__runtimeSourceIndex": 63
   },
   {
     "id": "gap_vowel_teams_l1_ee_beet",
@@ -551,15 +551,15 @@ export const questions = [
     "answer": "ee",
     "answerOptions": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -581,7 +581,7 @@ export const questions = [
     "explanation": "beet uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 90
+    "__runtimeSourceIndex": 64
   },
   {
     "id": "gap_vowel_teams_l1_ee_beetle",
@@ -604,14 +604,14 @@ export const questions = [
     "answer": "ee",
     "answerOptions": [
       "ee",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "ee",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -634,7 +634,7 @@ export const questions = [
     "explanation": "beetle uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 91
+    "__runtimeSourceIndex": 65
   },
   {
     "id": "gap_vowel_teams_l1_ay_bluejay",
@@ -687,7 +687,7 @@ export const questions = [
     "explanation": "bluejay uses the ay pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 92
+    "__runtimeSourceIndex": 66
   },
   {
     "id": "gap_vowel_teams_l1_oa_board",
@@ -712,13 +712,13 @@ export const questions = [
       "oa",
       "ee",
       "ay",
-      "ai"
+      "ue"
     ],
     "choices": [
       "oa",
       "ee",
       "ay",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -740,7 +740,7 @@ export const questions = [
     "explanation": "board uses the oa pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 93
+    "__runtimeSourceIndex": 67
   },
   {
     "id": "gap_vowel_teams_l1_ea_bread",
@@ -763,15 +763,15 @@ export const questions = [
     "answer": "ea",
     "answerOptions": [
       "ea",
-      "ai",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ea",
-      "ai",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -793,7 +793,7 @@ export const questions = [
     "explanation": "bread uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 94
+    "__runtimeSourceIndex": 68
   },
   {
     "id": "gap_vowel_teams_l1_ee_canteen",
@@ -816,14 +816,14 @@ export const questions = [
     "answer": "ee",
     "answerOptions": [
       "ee",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "ee",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -846,7 +846,7 @@ export const questions = [
     "explanation": "canteen uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 95
+    "__runtimeSourceIndex": 69
   },
   {
     "id": "gap_vowel_teams_l1_ai_chain",
@@ -899,7 +899,7 @@ export const questions = [
     "explanation": "chain uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 96
+    "__runtimeSourceIndex": 70
   },
   {
     "id": "gap_vowel_teams_l1_ee_cheese",
@@ -924,13 +924,13 @@ export const questions = [
       "ee",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ee",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -952,7 +952,7 @@ export const questions = [
     "explanation": "cheese uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 97
+    "__runtimeSourceIndex": 71
   },
   {
     "id": "gap_vowel_teams_l1_ee_cheetah",
@@ -975,15 +975,15 @@ export const questions = [
     "answer": "ee",
     "answerOptions": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1005,7 +1005,7 @@ export const questions = [
     "explanation": "cheetah uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 98
+    "__runtimeSourceIndex": 72
   },
   {
     "id": "gap_vowel_teams_l1_oa_chessboard",
@@ -1028,14 +1028,14 @@ export const questions = [
     "answer": "oa",
     "answerOptions": [
       "oa",
-      "ee",
-      "ay",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "oa",
-      "ee",
-      "ay",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -1058,7 +1058,7 @@ export const questions = [
     "explanation": "chessboard uses the oa pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 99
+    "__runtimeSourceIndex": 73
   },
   {
     "id": "gap_vowel_teams_l1_ay_clay",
@@ -1111,7 +1111,7 @@ export const questions = [
     "explanation": "clay uses the ay pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 100
+    "__runtimeSourceIndex": 74
   },
   {
     "id": "gap_vowel_teams_l1_ea_clean",
@@ -1136,13 +1136,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1164,7 +1164,7 @@ export const questions = [
     "explanation": "clean uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 101
+    "__runtimeSourceIndex": 75
   },
   {
     "id": "gap_vowel_teams_l1_oa_clipboard",
@@ -1187,15 +1187,15 @@ export const questions = [
     "answer": "oa",
     "answerOptions": [
       "oa",
-      "ai",
-      "ea",
-      "ee"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "oa",
-      "ai",
-      "ea",
-      "ee"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1217,7 +1217,7 @@ export const questions = [
     "explanation": "clipboard uses the oa pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 102
+    "__runtimeSourceIndex": 76
   },
   {
     "id": "gap_vowel_teams_l1_oa_coal",
@@ -1240,14 +1240,14 @@ export const questions = [
     "answer": "oa",
     "answerOptions": [
       "oa",
-      "ee",
-      "ay",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "oa",
-      "ee",
-      "ay",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -1270,7 +1270,7 @@ export const questions = [
     "explanation": "coal uses the oa pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 103
+    "__runtimeSourceIndex": 77
   },
   {
     "id": "gap_vowel_teams_l1_oa_cocoa",
@@ -1323,7 +1323,7 @@ export const questions = [
     "explanation": "cocoa uses the oa pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 104
+    "__runtimeSourceIndex": 78
   },
   {
     "id": "gap_vowel_teams_l1_ea_cornbread",
@@ -1348,13 +1348,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1376,7 +1376,7 @@ export const questions = [
     "explanation": "cornbread uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 105
+    "__runtimeSourceIndex": 79
   },
   {
     "id": "gap_vowel_teams_l1_ay_crayon",
@@ -1399,15 +1399,15 @@ export const questions = [
     "answer": "ay",
     "answerOptions": [
       "ay",
-      "ai",
-      "ea",
-      "ee"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ay",
-      "ai",
-      "ea",
-      "ee"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1429,7 +1429,7 @@ export const questions = [
     "explanation": "crayon uses the ay pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 106
+    "__runtimeSourceIndex": 80
   },
   {
     "id": "gap_vowel_teams_l1_ai_curtain",
@@ -1452,14 +1452,14 @@ export const questions = [
     "answer": "ai",
     "answerOptions": [
       "ai",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ea"
     ],
     "choices": [
       "ai",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ea"
     ],
     "active": true,
@@ -1482,7 +1482,7 @@ export const questions = [
     "explanation": "curtain uses the ai pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 107
+    "__runtimeSourceIndex": 81
   },
   {
     "id": "gap_vowel_teams_l1_ai_drain",
@@ -1535,7 +1535,7 @@ export const questions = [
     "explanation": "drain uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 108
+    "__runtimeSourceIndex": 82
   },
   {
     "id": "gap_vowel_teams_l1_ea_earring",
@@ -1560,13 +1560,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1588,7 +1588,7 @@ export const questions = [
     "explanation": "earring uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 109
+    "__runtimeSourceIndex": 83
   },
   {
     "id": "gap_vowel_teams_l1_ee_eel",
@@ -1611,15 +1611,15 @@ export const questions = [
     "answer": "ee",
     "answerOptions": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1641,7 +1641,7 @@ export const questions = [
     "explanation": "eel uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 110
+    "__runtimeSourceIndex": 84
   },
   {
     "id": "gap_vowel_teams_l1_ea_fernleaf",
@@ -1664,14 +1664,14 @@ export const questions = [
     "answer": "ea",
     "answerOptions": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -1694,7 +1694,7 @@ export const questions = [
     "explanation": "fernleaf uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 111
+    "__runtimeSourceIndex": 85
   },
   {
     "id": "gap_vowel_teams_l1_oa_foam",
@@ -1747,7 +1747,7 @@ export const questions = [
     "explanation": "foam uses the oa pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 112
+    "__runtimeSourceIndex": 86
   },
   {
     "id": "gap_vowel_teams_l1_ea_greenbean",
@@ -1772,13 +1772,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1800,7 +1800,7 @@ export const questions = [
     "explanation": "greenbean uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 113
+    "__runtimeSourceIndex": 87
   },
   {
     "id": "gap_vowel_teams_l1_ai_hairpin",
@@ -1823,15 +1823,15 @@ export const questions = [
     "answer": "ai",
     "answerOptions": [
       "ai",
-      "ea",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ai",
-      "ea",
-      "ee",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -1853,7 +1853,7 @@ export const questions = [
     "explanation": "hairpin uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 114
+    "__runtimeSourceIndex": 88
   },
   {
     "id": "gap_vowel_teams_l1_ay_hay",
@@ -1876,14 +1876,14 @@ export const questions = [
     "answer": "ay",
     "answerOptions": [
       "ay",
-      "ee",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "ay",
-      "ee",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -1906,7 +1906,7 @@ export const questions = [
     "explanation": "hay uses the ay pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 115
+    "__runtimeSourceIndex": 89
   },
   {
     "id": "gap_vowel_teams_l1_ea_head",
@@ -1959,7 +1959,7 @@ export const questions = [
     "explanation": "head uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 116
+    "__runtimeSourceIndex": 90
   },
   {
     "id": "gap_vowel_teams_l1_ea_jeans",
@@ -1984,13 +1984,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2012,7 +2012,7 @@ export const questions = [
     "explanation": "jeans uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 117
+    "__runtimeSourceIndex": 91
   },
   {
     "id": "gap_vowel_teams_l1_ee_knee",
@@ -2035,15 +2035,15 @@ export const questions = [
     "answer": "ee",
     "answerOptions": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2065,7 +2065,7 @@ export const questions = [
     "explanation": "knee uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 118
+    "__runtimeSourceIndex": 92
   },
   {
     "id": "gap_vowel_teams_l1_ea_leash",
@@ -2088,14 +2088,14 @@ export const questions = [
     "answer": "ea",
     "answerOptions": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "ea",
-      "ay",
-      "oa",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -2118,7 +2118,7 @@ export const questions = [
     "explanation": "leash uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 119
+    "__runtimeSourceIndex": 93
   },
   {
     "id": "gap_vowel_teams_l1_oa_loaf",
@@ -2171,7 +2171,7 @@ export const questions = [
     "explanation": "loaf uses the oa pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 120
+    "__runtimeSourceIndex": 94
   },
   {
     "id": "gap_vowel_teams_l1_ea_meadow",
@@ -2196,13 +2196,13 @@ export const questions = [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "choices": [
       "ea",
       "ay",
       "oa",
-      "ai"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2224,7 +2224,7 @@ export const questions = [
     "explanation": "meadow uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 121
+    "__runtimeSourceIndex": 95
   },
   {
     "id": "gap_vowel_teams_l1_ee_meerkat",
@@ -2247,15 +2247,15 @@ export const questions = [
     "answer": "ee",
     "answerOptions": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "choices": [
       "ee",
-      "ai",
-      "ea",
-      "ay"
+      "ue",
+      "igh",
+      "ui"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2277,7 +2277,7 @@ export const questions = [
     "explanation": "meerkat uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 122
+    "__runtimeSourceIndex": 96
   },
   {
     "id": "gap_vowel_teams_l1_oa_oak",
@@ -2300,14 +2300,14 @@ export const questions = [
     "answer": "oa",
     "answerOptions": [
       "oa",
-      "ee",
-      "ay",
+      "ui",
+      "oo",
       "ai"
     ],
     "choices": [
       "oa",
-      "ee",
-      "ay",
+      "ui",
+      "oo",
       "ai"
     ],
     "active": true,
@@ -2330,7 +2330,7 @@ export const questions = [
     "explanation": "oak uses the oa pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 123
+    "__runtimeSourceIndex": 97
   },
   {
     "id": "gap_vowel_teams_l1_ai_pail",
@@ -2383,7 +2383,7 @@ export const questions = [
     "explanation": "pail uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 124
+    "__runtimeSourceIndex": 98
   },
   {
     "id": "gap_vowel_teams_l1_ai_paint",
@@ -2408,13 +2408,13 @@ export const questions = [
       "ai",
       "ay",
       "oa",
-      "ea"
+      "ue"
     ],
     "choices": [
       "ai",
       "ay",
       "oa",
-      "ea"
+      "ue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -2436,7 +2436,7 @@ export const questions = [
     "explanation": "paint uses the ai pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 125
+    "__runtimeSourceIndex": 99
   },
   {
     "id": "gap_vowel_teams_l2_ai_airplane",
@@ -2489,7 +2489,7 @@ export const questions = [
     "explanation": "airplane uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 126
+    "__runtimeSourceIndex": 100
   },
   {
     "id": "gap_vowel_teams_l2_ea_anteater",
@@ -2542,7 +2542,7 @@ export const questions = [
     "explanation": "anteater uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 127
+    "__runtimeSourceIndex": 101
   },
   {
     "id": "gap_vowel_teams_l2_ai_armchair",
@@ -2595,7 +2595,7 @@ export const questions = [
     "explanation": "armchair uses the ai pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 128
+    "__runtimeSourceIndex": 102
   },
   {
     "id": "gap_vowel_teams_l2_oo_bamboo",
@@ -2648,7 +2648,7 @@ export const questions = [
     "explanation": "bamboo uses the oo pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 129
+    "__runtimeSourceIndex": 103
   },
   {
     "id": "gap_vowel_teams_l2_ea_beach",
@@ -2701,7 +2701,7 @@ export const questions = [
     "explanation": "beach uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 130
+    "__runtimeSourceIndex": 104
   },
   {
     "id": "gap_vowel_teams_l2_ea_beachball",
@@ -2754,7 +2754,7 @@ export const questions = [
     "explanation": "beachball uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 131
+    "__runtimeSourceIndex": 105
   },
   {
     "id": "gap_vowel_teams_l2_ea_bead",
@@ -2807,7 +2807,7 @@ export const questions = [
     "explanation": "bead uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 132
+    "__runtimeSourceIndex": 106
   },
   {
     "id": "gap_vowel_teams_l2_ea_beak",
@@ -2860,7 +2860,7 @@ export const questions = [
     "explanation": "beak uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 133
+    "__runtimeSourceIndex": 107
   },
   {
     "id": "gap_vowel_teams_l2_ea_bean",
@@ -2913,7 +2913,7 @@ export const questions = [
     "explanation": "bean uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 134
+    "__runtimeSourceIndex": 108
   },
   {
     "id": "gap_vowel_teams_l2_ee_beef",
@@ -2966,7 +2966,7 @@ export const questions = [
     "explanation": "beef uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 135
+    "__runtimeSourceIndex": 109
   },
   {
     "id": "gap_vowel_teams_l2_ee_beehive",
@@ -3019,7 +3019,7 @@ export const questions = [
     "explanation": "beehive uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 136
+    "__runtimeSourceIndex": 110
   },
   {
     "id": "gap_vowel_teams_l2_ee_beet",
@@ -3072,7 +3072,7 @@ export const questions = [
     "explanation": "beet uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 137
+    "__runtimeSourceIndex": 111
   },
   {
     "id": "gap_vowel_teams_l2_ee_beetle",
@@ -3125,7 +3125,7 @@ export const questions = [
     "explanation": "beetle uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 138
+    "__runtimeSourceIndex": 112
   },
   {
     "id": "gap_vowel_teams_l2_ou_birdhouse",
@@ -3178,7 +3178,7 @@ export const questions = [
     "explanation": "birdhouse uses the ou pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 139
+    "__runtimeSourceIndex": 113
   },
   {
     "id": "gap_vowel_teams_l2_ue_blueberry",
@@ -3231,7 +3231,7 @@ export const questions = [
     "explanation": "blueberry uses the ue pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 140
+    "__runtimeSourceIndex": 114
   },
   {
     "id": "gap_vowel_teams_l2_ue_bluebird",
@@ -3284,7 +3284,7 @@ export const questions = [
     "explanation": "bluebird uses the ue pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 141
+    "__runtimeSourceIndex": 115
   },
   {
     "id": "gap_vowel_teams_l2_ay_bluejay",
@@ -3337,7 +3337,7 @@ export const questions = [
     "explanation": "bluejay uses the ay pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 142
+    "__runtimeSourceIndex": 116
   },
   {
     "id": "gap_vowel_teams_l2_oa_board",
@@ -3390,7 +3390,7 @@ export const questions = [
     "explanation": "board uses the oa pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 143
+    "__runtimeSourceIndex": 117
   },
   {
     "id": "gap_vowel_teams_l2_oo_bookcase",
@@ -3443,7 +3443,7 @@ export const questions = [
     "explanation": "bookcase uses the oo pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 144
+    "__runtimeSourceIndex": 118
   },
   {
     "id": "gap_vowel_teams_l2_oo_bookend",
@@ -3496,7 +3496,7 @@ export const questions = [
     "explanation": "bookend uses the oo pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 145
+    "__runtimeSourceIndex": 119
   },
   {
     "id": "gap_vowel_teams_l2_oo_boot",
@@ -3549,7 +3549,7 @@ export const questions = [
     "explanation": "boot uses the oo pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 146
+    "__runtimeSourceIndex": 120
   },
   {
     "id": "gap_vowel_teams_l2_oo_booth",
@@ -3602,7 +3602,7 @@ export const questions = [
     "explanation": "booth uses the oo pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 147
+    "__runtimeSourceIndex": 121
   },
   {
     "id": "gap_vowel_teams_l2_ow_bow",
@@ -3655,7 +3655,7 @@ export const questions = [
     "explanation": "bow uses the ow pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 148
+    "__runtimeSourceIndex": 122
   },
   {
     "id": "gap_vowel_teams_l2_ow_bowl",
@@ -3708,7 +3708,7 @@ export const questions = [
     "explanation": "bowl uses the ow pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 149
+    "__runtimeSourceIndex": 123
   },
   {
     "id": "gap_vowel_teams_l2_ea_bread",
@@ -3761,7 +3761,7 @@ export const questions = [
     "explanation": "bread uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 150
+    "__runtimeSourceIndex": 124
   },
   {
     "id": "gap_vowel_teams_l2_oo_broom",
@@ -3814,7 +3814,7 @@ export const questions = [
     "explanation": "broom uses the oo pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 151
+    "__runtimeSourceIndex": 125
   },
   {
     "id": "gap_vowel_teams_l2_oe_canoe",
@@ -3867,7 +3867,7 @@ export const questions = [
     "explanation": "canoe uses the oe pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 152
+    "__runtimeSourceIndex": 126
   },
   {
     "id": "gap_vowel_teams_l2_ee_canteen",
@@ -3920,7 +3920,7 @@ export const questions = [
     "explanation": "canteen uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 153
+    "__runtimeSourceIndex": 127
   },
   {
     "id": "gap_vowel_teams_l2_ow_cauliflower",
@@ -3973,7 +3973,7 @@ export const questions = [
     "explanation": "cauliflower uses the ow pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 154
+    "__runtimeSourceIndex": 128
   },
   {
     "id": "gap_vowel_teams_l2_ai_chain",
@@ -4026,7 +4026,7 @@ export const questions = [
     "explanation": "chain uses the ai pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 155
+    "__runtimeSourceIndex": 129
   },
   {
     "id": "gap_vowel_teams_l2_ee_cheese",
@@ -4079,7 +4079,7 @@ export const questions = [
     "explanation": "cheese uses the ee pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 156
+    "__runtimeSourceIndex": 130
   },
   {
     "id": "gap_vowel_teams_l2_ee_cheetah",
@@ -4132,7 +4132,7 @@ export const questions = [
     "explanation": "cheetah uses the ee pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 157
+    "__runtimeSourceIndex": 131
   },
   {
     "id": "gap_vowel_teams_l2_oa_chessboard",
@@ -4185,7 +4185,7 @@ export const questions = [
     "explanation": "chessboard uses the oa pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 158
+    "__runtimeSourceIndex": 132
   },
   {
     "id": "gap_vowel_teams_l2_ay_clay",
@@ -4238,7 +4238,7 @@ export const questions = [
     "explanation": "clay uses the ay pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 159
+    "__runtimeSourceIndex": 133
   },
   {
     "id": "gap_vowel_teams_l2_ea_clean",
@@ -4291,7 +4291,7 @@ export const questions = [
     "explanation": "clean uses the ea pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 160
+    "__runtimeSourceIndex": 134
   },
   {
     "id": "gap_vowel_teams_l2_oa_clipboard",
@@ -4344,7 +4344,7 @@ export const questions = [
     "explanation": "clipboard uses the oa pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 161
+    "__runtimeSourceIndex": 135
   },
   {
     "id": "gap_vowel_teams_l2_ou_cloud",
@@ -4397,7 +4397,7 @@ export const questions = [
     "explanation": "cloud uses the ou pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 162
+    "__runtimeSourceIndex": 136
   },
   {
     "id": "gap_vowel_teams_l2_oa_coal",
@@ -4450,7 +4450,7 @@ export const questions = [
     "explanation": "coal uses the oa pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 163
+    "__runtimeSourceIndex": 137
   },
   {
     "id": "gap_vowel_teams_l2_oa_cocoa",
@@ -4503,7 +4503,7 @@ export const questions = [
     "explanation": "cocoa uses the oa pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 164
+    "__runtimeSourceIndex": 138
   },
   {
     "id": "gap_vowel_teams_l2_oi_coin",
@@ -4556,7 +4556,7 @@ export const questions = [
     "explanation": "coin uses the oi pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 165
+    "__runtimeSourceIndex": 139
   },
   {
     "id": "gap_vowel_teams_l2_oo_cookie",
@@ -4609,7 +4609,7 @@ export const questions = [
     "explanation": "cookie uses the oo pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 166
+    "__runtimeSourceIndex": 140
   },
   {
     "id": "gap_vowel_teams_l2_ea_cornbread",
@@ -4662,7 +4662,7 @@ export const questions = [
     "explanation": "cornbread uses the ea pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 167
+    "__runtimeSourceIndex": 141
   },
   {
     "id": "gap_vowel_teams_l2_ou_couch",
@@ -4715,7 +4715,7 @@ export const questions = [
     "explanation": "couch uses the ou pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 168
+    "__runtimeSourceIndex": 142
   },
   {
     "id": "gap_vowel_teams_l2_ou_cougar",
@@ -4768,7 +4768,7 @@ export const questions = [
     "explanation": "cougar uses the ou pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 169
+    "__runtimeSourceIndex": 143
   },
   {
     "id": "gap_vowel_teams_l2_ow_cowbell",
@@ -4821,7 +4821,7 @@ export const questions = [
     "explanation": "cowbell uses the ow pattern.",
     "phase": 1,
     "assessmentPhase": 1,
-    "__runtimeSourceIndex": 170
+    "__runtimeSourceIndex": 144
   },
   {
     "id": "gap_vowel_teams_l2_ay_crayon",
@@ -4874,6 +4874,6 @@ export const questions = [
     "explanation": "crayon uses the ay pattern.",
     "phase": 2,
     "assessmentPhase": 2,
-    "__runtimeSourceIndex": 171
+    "__runtimeSourceIndex": 145
   }
 ];
