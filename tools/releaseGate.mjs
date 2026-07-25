@@ -685,6 +685,21 @@ const CURRICULUM_DIMENSIONS = Object.freeze({
     "runtime-variation-simulation"
   ]
 });
+const CURRICULUM_COMPOSED_GATE_ID = "curriculum-composed";
+const CURRICULUM_DEPENDENCY_GATE_IDS = Object.freeze([
+  ...new Set(Object.values(CURRICULUM_DIMENSIONS).flat())
+]);
+
+export function expandReleaseGateSelection(only) {
+  if (!only) return null;
+  const expanded = new Set(
+    [...only].filter(id => id !== CURRICULUM_COMPOSED_GATE_ID)
+  );
+  if (only.has(CURRICULUM_COMPOSED_GATE_ID)) {
+    for (const id of CURRICULUM_DEPENDENCY_GATE_IDS) expanded.add(id);
+  }
+  return expanded;
+}
 
 function isoFilePart(date = new Date()) {
   return date.toISOString().replaceAll(":", "-").replaceAll(".", "-");
@@ -987,17 +1002,24 @@ export async function runReleaseGate(argv = process.argv.slice(2)) {
   }
 
   const unknownOnly = options.only
-    ? [...options.only].filter(id => !RELEASE_GATES.some(gate => gate.id === id))
+    ? [...options.only].filter(id => (
+      id !== CURRICULUM_COMPOSED_GATE_ID
+      && !RELEASE_GATES.some(gate => gate.id === id)
+    ))
     : [];
   if (unknownOnly.length) {
     console.error(`Unknown release gate(s): ${unknownOnly.join(", ")}`);
     return 2;
   }
 
-  const selectedGates = options.only
-    ? RELEASE_GATES.filter(gate => options.only.has(gate.id))
+  const expandedOnly = expandReleaseGateSelection(options.only);
+  const selectedGates = expandedOnly
+    ? RELEASE_GATES.filter(gate => expandedOnly.has(gate.id))
     : RELEASE_GATES;
   const fullRun = !options.only;
+  const composedCurriculumRequested = Boolean(
+    options.only?.has(CURRICULUM_COMPOSED_GATE_ID)
+  );
   if (fullRun) {
     const preflight = validateAuditEnvironment();
     if (!preflight.ok) {
@@ -1038,7 +1060,7 @@ export async function runReleaseGate(argv = process.argv.slice(2)) {
     results.push(await runCommand(gate, path.join(artifactDir, `${gate.id}.log`)));
   }
 
-  if (fullRun) {
+  if (fullRun || composedCurriculumRequested) {
     results.push(composeCurriculumResult(results));
   }
 

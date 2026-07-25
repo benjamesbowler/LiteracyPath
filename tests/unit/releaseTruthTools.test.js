@@ -4,6 +4,7 @@ import test from "node:test";
 
 import {
   composeCurriculumResult,
+  expandReleaseGateSelection,
   extractGateCounts,
   isGateImplemented,
   RELEASE_GATES,
@@ -281,6 +282,34 @@ test("composed curriculum gate requires all five dimensions for every skill", ()
   assert.equal(
     composeCurriculumResult(failed, strictAudit).skills[0].dimensions.variation,
     "fail"
+  );
+});
+
+test("the standalone composed curriculum selection expands to every required dependency", () => {
+  const packageJson = JSON.parse(readFileSync(
+    new URL("../../package.json", import.meta.url),
+    "utf8"
+  ));
+  assert.equal(
+    packageJson.scripts["check:curriculum-composed"],
+    "node tools/releaseGate.mjs --only curriculum-composed"
+  );
+  const selected = expandReleaseGateSelection(new Set(["curriculum-composed"]));
+  assert.deepEqual([...selected].sort(), [
+    "assessment-question-integrity",
+    "assessment-runtime-variation",
+    "assessment-skill-contracts",
+    "curriculum-release-standard",
+    "media-quality",
+    "media-runtime-resolution",
+    "runtime-variation-simulation",
+    "skill-progression",
+    "strict-curriculum"
+  ]);
+  assert.equal(selected.has("curriculum-composed"), false);
+  assert.deepEqual(
+    [...expandReleaseGateSelection(new Set(["curriculum-composed", "lint"]))].sort(),
+    [...selected, "lint"].sort()
   );
 });
 

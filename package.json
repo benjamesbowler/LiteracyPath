@@ -217,6 +217,7 @@
     "check:runtime-variation-simulation": "node tools/runAuditScript.mjs --check tools/simulateRuntimeVariation.mjs",
     "generate:assessment-release-status": "node tools/generateAssessmentReleaseStatus.mjs",
     "check:curriculum-release-standard": "node tools/checkCurriculumReleaseStandard.mjs",
+    "check:curriculum-composed": "node tools/releaseGate.mjs --only curriculum-composed",
     "check:curriculum-board": "node tools/checkCurriculumBoard.mjs && node --test tests/unit/curriculumReleaseBoard.test.js && playwright test tests/release/teacher-dashboard-contracts.spec.js --project=desktop --grep @admin-content-qa --workers=1",
     "generate:media-board": "node tools/generateMediaBoard.mjs",
     "check:media-runtime-resolution": "npm run build && node tools/runAuditScript.mjs --check tools/auditAllSkillsStrictProductionReadiness.js && node tools/runAuditScript.mjs --check tools/checkMediaRuntimeResolution.mjs",
