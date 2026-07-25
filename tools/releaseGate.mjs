@@ -519,6 +519,13 @@ export const RELEASE_GATES = Object.freeze([
     planned: true
   },
   {
+    id: "learner-data-rights",
+    label: "Tracked verified learner export, deletion, zero-residual proof, and audit tombstone",
+    command: ["npm", "run", "check:learner-data-rights"],
+    areas: [8, 10],
+    planned: true
+  },
+  {
     id: "split-boundaries",
     label: "Effective assessment-bank dynamic imports and build-time lexicon isolation",
     command: ["npm", "run", "check:split-boundaries"],

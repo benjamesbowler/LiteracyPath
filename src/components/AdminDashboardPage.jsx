@@ -50,6 +50,9 @@ import {
 } from "../data/hfwQuestionImageReview.js";
 import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
+import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
+import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
+import { clearLocalProgressForStudent } from "../utils/progressSync.js";
 import { resetRetiredMediaQaReviewStorage } from "../data/questionFlagStore.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
@@ -1759,6 +1762,7 @@ export function AdminDashboardPage({
     return "dashboard";
   });
   const [activeSection, setActiveSection] = useState("overview");
+  const [dataRightsStudent, setDataRightsStudent] = useState(null);
   const [templateFilter, setTemplateFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [patternFilter, setPatternFilter] = useState("");
@@ -2018,6 +2022,20 @@ export function AdminDashboardPage({
       console.error("Saved EL assessment report delete failed.", error);
       setExportNotice("Could not delete the saved EL report from cloud history. It was kept locally to prevent it reappearing later.");
     }
+  }
+
+  async function handleAdminDataRightsDeletion(learner) {
+    clearLocalProgressForStudent(learner.id);
+    await clearLocalElAssessmentDataForStudent({
+      teacherId: learner.teacher_id,
+      studentId: learner.id,
+      studentName: learner.name
+    });
+    setDataRightsStudent(null);
+    setExportNotice(
+      `${learner.name}'s data was deleted. The privacy-safe request reference remains in the audit log.`
+    );
+    await refreshDashboard?.();
   }
 
   const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
@@ -2964,8 +2982,8 @@ export function AdminDashboardPage({
                     </td>
                   )}
                   <td data-label="Delete">
-                    <button className="reset-button" onClick={() => deleteStudent(row.id, row.name)} type="button">
-                      Delete Student
+                    <button className="reset-button" onClick={() => setDataRightsStudent(row)} type="button">
+                      Export or delete data
                     </button>
                   </td>
                 </tr>
@@ -2978,6 +2996,14 @@ export function AdminDashboardPage({
 
       {activeSection === "mapStops" && <MapStopEditor />}
       {activeSection === "hollowSpots" && <HollowSpotEditor />}
+      <LearnerDataRightsDialog
+        key={dataRightsStudent?.id || "closed-data-rights"}
+        client={supabase}
+        learner={dataRightsStudent}
+        open={Boolean(dataRightsStudent)}
+        onClose={() => setDataRightsStudent(null)}
+        onDeleted={handleAdminDataRightsDeletion}
+      />
       <RemoteErrorMonitorPanel client={supabase} />
       <CrashLogPanel />
     </main>

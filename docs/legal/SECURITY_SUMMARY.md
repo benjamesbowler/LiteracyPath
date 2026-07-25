@@ -95,7 +95,7 @@ Customer Data.
 | Recovery | Procedure and tests exist; a real isolated restore artifact is outstanding |
 | Provider controls | Supabase/Vercel plan, regions, backups, logs, support access, assurance, and transfer evidence are unconfirmed |
 | Dependency review | A vulnerable archive chain was removed; the external registry-backed audit could not run under the current security policy |
-| Data rights/retention | Full rights workflow and configurable retention/deletion jobs are A8.8/A8.9 work and are not complete |
+| Data rights/retention | The A8.8 tracked export/deletion workflow and its seeded browser gate are implemented; hydrated audit-database execution remains open. A8.9 configurable retention/deletion jobs are not complete. |
 | Device storage | Local browser data depends on school/device access, account separation, patching, encryption, and disposal controls |
 | Source maps/operations | Production symbolication, service-level/error-budget targets, and alert exercise remain open |
 | Accessibility | Automated and route/device checks exist; independent manual assistive-technology review remains open |

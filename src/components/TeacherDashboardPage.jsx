@@ -27,6 +27,7 @@ import {
 } from "../data/classAccessSecurity.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
+import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
 import {
@@ -50,6 +51,8 @@ import {
   normalizeLearnerAccessibilitySettings
 } from "../accessibility/learnerAccessibility.js";
 import { supabase } from "../supabaseClient.js";
+import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
+import { clearLocalProgressForStudent } from "../utils/progressSync.js";
 import logoUrl from "../assets/logo.svg";
 
 function formatLastActive(value) {
@@ -1006,6 +1009,7 @@ export function TeacherDashboardPage({
   const [savingChoiceModeIds, setSavingChoiceModeIds] = useState([]);
   const [savingAccessibilityIds, setSavingAccessibilityIds] = useState([]);
   const [accessibilityStudent, setAccessibilityStudent] = useState(null);
+  const [dataRightsStudent, setDataRightsStudent] = useState(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const newClassInputRef = useRef(null);
@@ -1021,6 +1025,24 @@ export function TeacherDashboardPage({
   function openQuestionGuide() {
     setQuestionGuideSearch("");
     setShowQuestionGuide(true);
+  }
+  async function handleDataRightsDeletion(learner) {
+    clearLocalProgressForStudent(learner.id);
+    await clearLocalElAssessmentDataForStudent({
+      teacherId: learner.teacher_id || teacherId,
+      studentId: learner.id,
+      studentName: learner.name
+    });
+    setStudentList?.(previous => previous.filter(row => row.id !== learner.id));
+    if (selectedStudentId === learner.id) onClearStudent?.();
+    setDataRightsStudent(null);
+    setRosterOperationStatus(
+      `${learner.name}'s data was deleted. The privacy-safe request reference remains in the audit log.`
+    );
+    if (selectedClassId) {
+      await loadStudentsRef.current?.(selectedClassId);
+      await loadClassDashboardRef.current?.(selectedClassId);
+    }
   }
   const selectedClass = classList.find(row => row.id === selectedClassId) || null;
   const dashboardById = useMemo(
@@ -2139,6 +2161,13 @@ export function TeacherDashboardPage({
               >
                 Question type guide
               </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => setDataRightsStudent(selectedStudentRow)}
+              >
+                Export or delete learner data
+              </button>
             </div>
           </aside>
         </TeacherDrawer>
@@ -2608,6 +2637,13 @@ export function TeacherDashboardPage({
                             ? "Saving accessibility..."
                             : "Accessibility settings"}
                         </button>
+                        <button
+                          className="text-button teacher-data-rights-open"
+                          type="button"
+                          onClick={() => setDataRightsStudent(row)}
+                        >
+                          Data rights
+                        </button>
                         {classList.length > 1 && (
                           <button
                             className="text-button"
@@ -2696,6 +2732,15 @@ export function TeacherDashboardPage({
           onClose={() => setAccessibilityStudent(null)}
         />
       )}
+
+      <LearnerDataRightsDialog
+        key={dataRightsStudent?.id || "closed-data-rights"}
+        client={supabase}
+        learner={dataRightsStudent}
+        open={Boolean(dataRightsStudent)}
+        onClose={() => setDataRightsStudent(null)}
+        onDeleted={handleDataRightsDeletion}
+      />
 
       {showClassCodeDialog && selectedClass && (
         <TeacherModal
