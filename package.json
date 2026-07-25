@@ -180,7 +180,9 @@
     "check:teacher-contextual-help": "npm run test:release-teacher -- --grep @teacher-contextual-help",
     "check:teacher-class-code": "npm run test:release-teacher -- --grep @teacher-class-code",
     "check:class-access-security": "node tools/verifyClassAccessSecurity.mjs && node --test tests/unit/classAccessSecurity.test.js tests/unit/studentLoginPolicy.test.js tests/unit/studentLoginRecovery.test.js && playwright test tests/release/class-access-security.spec.js --project=desktop --workers=1",
-    "check:error-monitoring": "node tools/verifyErrorMonitoring.mjs && node --test tests/unit/errorMonitoring.test.js && playwright test tests/release/error-monitoring.spec.js --project=desktop --workers=1",
+    "check:error-monitoring": "node tools/verifyErrorMonitoring.mjs && node --test tests/unit/errorMonitoring.test.js tests/unit/fleetErrorBudget.test.js && playwright test tests/release/error-monitoring.spec.js --project=desktop --workers=1",
+    "check:private-source-maps": "node tools/checkPrivateSourceMaps.mjs",
+    "check:public-source-maps": "node tools/checkPublicSourceMaps.mjs",
     "check:recovery-runbook": "node tools/verifyRecoveryRunbook.mjs && node --test tests/unit/recoveryDrill.test.js",
     "check:recovery-drill": "node tools/verifyRecoveryRunbook.mjs && node tools/recoveryDrill.mjs --execute",
     "check:learner-data-rights": "node tools/verifyLearnerDataRightsBackend.mjs && node --test tests/unit/learnerDataRights.test.js && playwright test tests/release/learner-data-rights.spec.js --project=desktop --workers=1",
@@ -287,6 +289,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
     "@eslint/js": "^10.0.1",
+    "@jridgewell/trace-mapping": "^0.3.31",
     "@playwright/test": "^1.60.0",
     "@types/canvas-confetti": "^1.9.0",
     "@types/howler": "^2.2.13",

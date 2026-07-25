@@ -55,6 +55,10 @@ import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
 import { clearLocalProgressForStudent } from "../utils/progressSync.js";
 import { resetRetiredMediaQaReviewStorage } from "../data/questionFlagStore.js";
+import {
+  FLEET_ERROR_BUDGET_POLICY,
+  evaluateFleetErrorBudget
+} from "../policy/fleetErrorBudget.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -3084,6 +3088,10 @@ function RemoteErrorMonitorPanel({ client }) {
     (total, row) => total + Math.max(0, Number(row.alerts_24h) || 0),
     0
   );
+  const budgetRows = summary.map(row => ({
+    ...row,
+    budget: evaluateFleetErrorBudget(row)
+  }));
 
   return (
     <section
@@ -3121,8 +3129,16 @@ function RemoteErrorMonitorPanel({ client }) {
           ) : (
             <p role="status">No fleet alerts in the last 24 hours.</p>
           )}
+          <p className="muted-text">
+            Operational error budget: zero fatal or repeat-fingerprint alerts per release
+            in a rolling {FLEET_ERROR_BUDGET_POLICY.windowHours}-hour window. This is a
+            diagnostic incident budget, not a claim about measured user availability.
+          </p>
           {summary.length === 0 ? (
-            <p>No remote errors recorded in the last 24 hours.</p>
+            <p>
+              No remote errors recorded in the last 24 hours. Health remains unverified
+              until a seeded release event confirms the monitor path.
+            </p>
           ) : (
             <div className="table-wrap">
               <table>
@@ -3132,17 +3148,25 @@ function RemoteErrorMonitorPanel({ client }) {
                     <th scope="col">Release</th>
                     <th scope="col">Events</th>
                     <th scope="col">Fingerprints</th>
+                    <th scope="col">Fatal</th>
                     <th scope="col">Alerts</th>
+                    <th scope="col">Budget</th>
                     <th scope="col">Latest</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {summary.map(row => (
+                  {budgetRows.map(row => (
                     <tr key={row.release_id}>
                       <th scope="row">{row.release_id}</th>
                       <td>{row.events_24h}</td>
                       <td>{row.affected_fingerprints}</td>
+                      <td>{row.fatal_events_24h}</td>
                       <td>{row.alerts_24h}</td>
+                      <td>
+                        <strong data-budget-status={row.budget.status}>
+                          {row.budget.label}
+                        </strong>
+                      </td>
                       <td>{row.latest_at ? new Date(row.latest_at).toLocaleString() : "—"}</td>
                     </tr>
                   ))}
@@ -3165,6 +3189,9 @@ function RemoteErrorMonitorPanel({ client }) {
                     <small>
                       Fingerprint {event.fingerprint} · {new Date(event.occurred_at).toLocaleString()}
                     </small>
+                    {Array.isArray(event.stack_frames) && event.stack_frames.length > 0 && (
+                      <code>{event.stack_frames[0]}</code>
+                    )}
                   </li>
                 ))}
               </ol>

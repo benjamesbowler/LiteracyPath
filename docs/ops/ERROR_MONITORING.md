@@ -63,8 +63,14 @@ Builds take their release ID, in priority order, from:
 
 An event requires review when it is fatal or when the same fingerprint reaches
 five occurrences inside one minute. The administrator Fleet error monitor
-shows alert counts, release totals, affected fingerprints, latest event time,
-and recent redacted events.
+shows alert counts, release totals, affected fingerprints, fatal totals, budget
+status, latest event time, retained generated frames, and recent redacted
+events.
+
+The exact 24-hour zero-fatal/zero-alert policy and private symbolication
+workflow are defined in `docs/ops/ERROR_BUDGET.md`. This is an operational
+incident budget, not a user-availability percentage. A release with no retained
+telemetry remains unverified rather than being presented as healthy.
 
 When an alert appears:
 
@@ -82,3 +88,7 @@ When an alert appears:
 `npm run check:error-monitoring` proves the collection contract, client
 redaction, release tag, sampling, retention, alert policy, local fallback, and
 an authenticated deliberate-error journey into the administrator monitor.
+
+`npm run check:private-source-maps` separately proves private hidden-map
+generation and resolves a real generated production frame back to its original
+monitoring source. Normal production output never contains source maps.

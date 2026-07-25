@@ -5,6 +5,10 @@ import { questOfflinePlugin } from './tools/viteQuestOfflinePlugin.mjs'
 
 const releaseQuestPreview = process.env.QUEST_RELEASE_PREVIEW === 'true'
 const offlineBuildVariant = process.env.QUEST_OFFLINE_BUILD_VARIANT || ''
+const privateSourceMaps = process.env.LP_PRIVATE_SOURCE_MAPS === 'true'
+const privateSourceMapOutputDirectory = (
+  process.env.LP_PRIVATE_SOURCE_MAP_OUTPUT_DIR || 'dist'
+)
 const appReleaseId = (
   process.env.VITE_APP_RELEASE_ID
   || process.env.VERCEL_GIT_COMMIT_SHA
@@ -104,6 +108,11 @@ export default defineConfig({
     }
   },
   build: {
+    // Source maps are generated only by the private verification/vault path.
+    // `hidden` prevents production assets from advertising a public map URL.
+    sourcemap: privateSourceMaps ? 'hidden' : false,
+    outDir: privateSourceMaps ? privateSourceMapOutputDirectory : 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       ...(releaseQuestPreview ? {
         input: {

@@ -45,6 +45,8 @@ test("A8.6 deliberate redacted error reaches the release-tagged admin monitor", 
   await expect(monitor).toContainText("Error");
   await expect(monitor).toContainText("release-gate");
   await expect(monitor).toContainText(/release (local-unversioned|[A-Za-z0-9._:-]+)/);
+  await expect(monitor).toContainText("Within budget");
+  await expect(monitor).toContainText("assets/index.js:1:1");
   await expect(monitor).not.toContainText("Aarav");
   await expect(monitor).not.toContainText("spoon");
   await expect(monitor).not.toContainText("teacher@example.com");

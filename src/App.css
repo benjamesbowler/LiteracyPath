@@ -21253,6 +21253,14 @@ summary:focus-visible {
   font-weight: 800;
 }
 
+[data-budget-status="within-budget"] {
+  color: var(--success-dark, #17603a);
+}
+
+[data-budget-status="breached"] {
+  color: var(--danger-dark, #9f1c1c);
+}
+
 .remote-error-event-list {
   display: grid;
   gap: 8px;
@@ -21271,8 +21279,13 @@ summary:focus-visible {
 }
 
 .remote-error-event-list span,
-.remote-error-event-list small {
+.remote-error-event-list small,
+.remote-error-event-list code {
   color: var(--lp-color-text-muted, #64748b);
+}
+
+.remote-error-event-list code {
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 700px) {

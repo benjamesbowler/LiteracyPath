@@ -41,6 +41,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 8, 9, 10]
   },
   {
+    id: "public-source-maps",
+    label: "Public build contains no source maps or map references",
+    command: ["npm", "run", "check:public-source-maps"],
+    areas: [8, 9, 10]
+  },
+  {
     id: "smoke",
     label: "Reachable-product smoke tests",
     command: ["npm", "run", "test:smoke"],
@@ -521,6 +527,12 @@ export const RELEASE_GATES = Object.freeze([
     command: ["npm", "run", "check:class-access-security"],
     areas: [2, 5, 6, 8, 10],
     planned: true
+  },
+  {
+    id: "private-source-maps",
+    label: "Private hidden source maps and production-frame symbolication",
+    command: ["npm", "run", "check:private-source-maps"],
+    areas: [9, 10]
   },
   {
     id: "error-monitoring",

@@ -123,6 +123,8 @@ jobs:
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
         run: npm run seed:audit-school
+      - name: Prepare restricted private source-map vault
+        run: echo "LP_PRIVATE_SOURCE_MAP_KEEP_ROOT=$RUNNER_TEMP/private-source-maps" >> "$GITHUB_ENV"
       - name: Run canonical whole-product release gate
         id: whole-product
         continue-on-error: true
@@ -138,6 +140,14 @@ jobs:
             test-results/
             playwright-report/
           if-no-files-found: warn
+          retention-days: 30
+      - name: Upload private source maps
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-source-maps-${{ github.sha }}
+          path: ${{ runner.temp }}/private-source-maps/
+          if-no-files-found: error
           retention-days: 30
       - name: Stop local Supabase
         if: always()
