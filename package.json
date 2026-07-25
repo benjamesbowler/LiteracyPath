@@ -177,6 +177,7 @@
     "check:teacher-contextual-help": "npm run test:release-teacher -- --grep @teacher-contextual-help",
     "check:teacher-class-code": "npm run test:release-teacher -- --grep @teacher-class-code",
     "check:class-access-security": "node tools/verifyClassAccessSecurity.mjs && node --test tests/unit/classAccessSecurity.test.js tests/unit/studentLoginPolicy.test.js tests/unit/studentLoginRecovery.test.js && playwright test tests/release/class-access-security.spec.js --project=desktop --workers=1",
+    "check:error-monitoring": "node tools/verifyErrorMonitoring.mjs && node --test tests/unit/errorMonitoring.test.js && playwright test tests/release/error-monitoring.spec.js --project=desktop --workers=1",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",
     "check:teacher-login-cards": "npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",
     "check:teacher-student-preview": "npm run test:release-teacher -- --grep @teacher-student-preview",

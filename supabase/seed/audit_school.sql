@@ -471,6 +471,40 @@ values
     '__AUDIT_ANCHOR__'::timestamptz + interval '2 minutes'
   );
 
+insert into public.app_error_events (
+  client_event_id,
+  release_id,
+  fingerprint,
+  severity,
+  surface,
+  error_type,
+  source,
+  stack_frames,
+  sample_rate,
+  alert_required,
+  occurred_at,
+  expires_at
+)
+values (
+  '71000000-0000-4000-8000-000000000001',
+  'audit-seed-2026.07.25',
+  'a8e6f001',
+  'error',
+  'assessment',
+  'AuditMonitorError',
+  'release-gate',
+  array['assets/index.js:1:1'],
+  1,
+  false,
+  now(),
+  now() + interval '30 days'
+)
+on conflict (client_event_id) do update set
+  release_id = excluded.release_id,
+  fingerprint = excluded.fingerprint,
+  occurred_at = excluded.occurred_at,
+  expires_at = excluded.expires_at;
+
 -- Intervention E2E runs are mutable by design. Clear only the fixed audit
 -- classes so every evidence run starts from the same empty lifecycle.
 delete from public.teacher_interventions

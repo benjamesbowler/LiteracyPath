@@ -27,37 +27,12 @@ import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
 import { registerOfflineShell } from './utils/offlineShell.js'
+import { logClientError } from './utils/errorLog.js'
 
-const CLIENT_ERROR_LOG_KEY = 'lp-client-error-log'
-
-function readClientErrors() {
-  try {
-    return JSON.parse(window.localStorage?.getItem(CLIENT_ERROR_LOG_KEY) || '[]')
-  } catch {
-    return []
-  }
-}
-
-function recordClientError(error, source = 'error') {
-  if (typeof window === 'undefined') return
-  const entry = {
-    source,
-    message: String(error?.message || error?.reason?.message || error || ''),
-    stack: String(error?.stack || error?.reason?.stack || ''),
-    view: window.location?.pathname || '',
-    timestamp: new Date().toISOString()
-  }
-  try {
-    window.localStorage?.setItem(CLIENT_ERROR_LOG_KEY, JSON.stringify([entry, ...readClientErrors()].slice(0, 50)))
-  } catch {
-    // Ignore storage failures; logging must not block app startup.
-  }
-}
-
-window.addEventListener('error', event => recordClientError(event.error || event.message, 'error'))
-window.addEventListener('unhandledrejection', event => recordClientError(event.reason, 'unhandledrejection'))
+window.addEventListener('error', event => logClientError(event.error || event.message, 'window-error'))
+window.addEventListener('unhandledrejection', event => logClientError(event.reason, 'unhandled-rejection'))
 window.addEventListener('vite:preloadError', event => {
-  recordClientError(event.payload || event, 'vite:preloadError')
+  logClientError(event.payload || event, 'vite-preload-error')
   event.preventDefault?.()
   if (!reloadOnceForNewVersion()) {
     window.dispatchEvent(new CustomEvent(DYNAMIC_IMPORT_ERROR_EVENT, {
@@ -68,7 +43,7 @@ window.addEventListener('vite:preloadError', event => {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ErrorBoundary logErrors logLabel="App root crashed" fallback={<AppCrashFallback />}>
+    <ErrorBoundary logLabel="App root crashed" fallback={<AppCrashFallback />}>
       <App />
     </ErrorBoundary>
   </StrictMode>,

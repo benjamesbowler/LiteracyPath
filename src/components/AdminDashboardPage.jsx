@@ -2978,15 +2978,140 @@ export function AdminDashboardPage({
 
       {activeSection === "mapStops" && <MapStopEditor />}
       {activeSection === "hollowSpots" && <HollowSpotEditor />}
+      <RemoteErrorMonitorPanel client={supabase} />
       <CrashLogPanel />
     </main>
   );
 }
 
-// The flight recorder, surfaced: render errors caught by any ErrorBoundary on
-// THIS device (localStorage ring buffer — see ErrorBoundary.jsx). No external
-// crash service exists yet, so this panel is how a grown-up finds out what a
-// child's "Oops" screen was hiding.
+function RemoteErrorMonitorPanel({ client }) {
+  const [summary, setSummary] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [status, setStatus] = useState(client ? "loading" : "unavailable");
+
+  async function loadMonitor() {
+    if (!client?.rpc) {
+      setStatus("unavailable");
+      return;
+    }
+    setStatus("loading");
+    const [summaryResult, eventResult] = await Promise.all([
+      client.rpc("admin_error_monitor_summary"),
+      client.rpc("admin_recent_error_events", { p_limit: 25 })
+    ]);
+    if (summaryResult.error || eventResult.error) {
+      setStatus("error");
+      return;
+    }
+    setSummary(Array.isArray(summaryResult.data) ? summaryResult.data : []);
+    setEvents(Array.isArray(eventResult.data) ? eventResult.data : []);
+    setStatus("ready");
+  }
+
+  useEffect(() => {
+    void loadMonitor();
+    // The client identity is stable for the mounted admin session.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [client]);
+
+  const alertCount = summary.reduce(
+    (total, row) => total + Math.max(0, Number(row.alerts_24h) || 0),
+    0
+  );
+
+  return (
+    <section
+      className="card page-stack remote-error-monitor-panel"
+      aria-label="Fleet error monitor"
+      data-monitor-state={status}
+    >
+      <div className="admin-monitor-heading">
+        <div>
+          <p className="panel-label">Operations</p>
+          <h2>Fleet error monitor</h2>
+          <p className="muted-text">
+            Redacted diagnostics only. No child names, answers, class codes, account IDs,
+            URLs, or arbitrary message text are collected. Events expire after 30 days.
+          </p>
+        </div>
+        <button className="report-button" type="button" onClick={loadMonitor}>
+          Refresh monitor
+        </button>
+      </div>
+
+      {status === "loading" && <p role="status">Loading remote error health...</p>}
+      {status === "unavailable" && (
+        <p role="alert">Remote monitoring is unavailable because the backend is not configured.</p>
+      )}
+      {status === "error" && (
+        <p role="alert">Remote monitoring could not be loaded. The on-device fallback remains active.</p>
+      )}
+      {status === "ready" && (
+        <>
+          {alertCount > 0 ? (
+            <p className="admin-monitor-alert" role="alert">
+              {alertCount} fleet alert{alertCount === 1 ? "" : "s"} require review.
+            </p>
+          ) : (
+            <p role="status">No fleet alerts in the last 24 hours.</p>
+          )}
+          {summary.length === 0 ? (
+            <p>No remote errors recorded in the last 24 hours.</p>
+          ) : (
+            <div className="table-wrap">
+              <table>
+                <caption>Errors by release in the last 24 hours</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Release</th>
+                    <th scope="col">Events</th>
+                    <th scope="col">Fingerprints</th>
+                    <th scope="col">Alerts</th>
+                    <th scope="col">Latest</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {summary.map(row => (
+                    <tr key={row.release_id}>
+                      <th scope="row">{row.release_id}</th>
+                      <td>{row.events_24h}</td>
+                      <td>{row.affected_fingerprints}</td>
+                      <td>{row.alerts_24h}</td>
+                      <td>{row.latest_at ? new Date(row.latest_at).toLocaleString() : "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          <details>
+            <summary>Recent redacted events ({events.length})</summary>
+            {events.length === 0 ? (
+              <p>No retained events.</p>
+            ) : (
+              <ol className="remote-error-event-list">
+                {events.map((event, index) => (
+                  <li key={`${event.fingerprint}-${event.occurred_at}-${index}`}>
+                    <strong>{event.error_type}</strong>
+                    <span>
+                      {event.surface} · {event.source} · release {event.release_id}
+                    </span>
+                    <small>
+                      Fingerprint {event.fingerprint} · {new Date(event.occurred_at).toLocaleString()}
+                    </small>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </details>
+        </>
+      )}
+    </section>
+  );
+}
+
+// The on-device flight recorder stays as a fallback when remote delivery is
+// unavailable. It stores the same redacted fields as the remote monitor.
 function CrashLogPanel() {
   const [rows, setRows] = useState(() => readErrorLog());
   if (!rows.length) return null;
@@ -2998,13 +3123,15 @@ function CrashLogPanel() {
         </summary>
         <p className="muted-text">
           Caught by the in-app safety net. Children saw a friendly &ldquo;try again&rdquo; screen;
-          the details land here for you.
+          these redacted details remain on this device as a delivery fallback.
         </p>
         <ul className="crash-log-list">
           {rows.map((row, index) => (
             <li key={`${row.at}-${index}`}>
               <strong>{row.label}</strong> · {new Date(row.at).toLocaleString()}
-              <div className="crash-log-message">{row.message}</div>
+              <div className="crash-log-message">
+                {row.message} · release {row.releaseId || "legacy-local"}
+              </div>
             </li>
           ))}
         </ul>

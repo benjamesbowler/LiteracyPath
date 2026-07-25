@@ -20942,6 +20942,61 @@ summary:focus-visible {
   overflow-wrap: anywhere;
 }
 
+.remote-error-monitor-panel {
+  gap: 14px;
+}
+
+.admin-monitor-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.admin-monitor-heading h2,
+.admin-monitor-heading p {
+  margin: 0;
+}
+
+.admin-monitor-alert {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid #f0a36b;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #9a3412;
+  font-weight: 800;
+}
+
+.remote-error-event-list {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.remote-error-event-list li {
+  display: grid;
+  gap: 3px;
+  padding: 10px 12px;
+  border: 1px solid var(--lp-color-border, #e2e8f0);
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle, #f8fafc);
+}
+
+.remote-error-event-list span,
+.remote-error-event-list small {
+  color: var(--lp-color-text-muted, #64748b);
+}
+
+@media (max-width: 700px) {
+  .admin-monitor-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
 /* The unmissable "this deploy saves nothing" banner (REVIEW.md, Engineer #4).
    Only renders when Supabase env vars are missing, and never in student mode —
    teachers get the alarm, children just see the app. */

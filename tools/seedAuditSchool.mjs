@@ -76,6 +76,8 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "'moonwood-tales-c-25'",
     "'supportUseEvents'",
     "public.class_access_events",
+    "public.app_error_events",
+    "audit-seed-2026.07.25",
     "'rate_limited'",
     "'whole_word_audio'",
     "'segmented_phonemes'",

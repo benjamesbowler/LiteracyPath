@@ -20,7 +20,9 @@ export class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, info) {
-    logBoundaryError(this.props.logLabel, error);
+    logBoundaryError(this.props.logLabel, error, {
+      componentStack: info?.componentStack || ""
+    });
     if (import.meta.env.DEV || this.props.logErrors) {
       console.error(this.props.logLabel || "Error boundary caught render error.", { error, info });
     }

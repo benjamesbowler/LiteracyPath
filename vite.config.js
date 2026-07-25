@@ -5,6 +5,13 @@ import { questOfflinePlugin } from './tools/viteQuestOfflinePlugin.mjs'
 
 const releaseQuestPreview = process.env.QUEST_RELEASE_PREVIEW === 'true'
 const offlineBuildVariant = process.env.QUEST_OFFLINE_BUILD_VARIANT || ''
+const appReleaseId = (
+  process.env.VITE_APP_RELEASE_ID
+  || process.env.VERCEL_GIT_COMMIT_SHA
+  || process.env.GITHUB_SHA
+  || process.env.SOURCE_VERSION
+  || 'local-unversioned'
+).slice(0, 120)
 
 function bundleAnalysisPlugin() {
   return {
@@ -66,6 +73,7 @@ export default defineConfig({
   })],
   define: {
     global: 'globalThis',
+    __APP_RELEASE_ID__: JSON.stringify(appReleaseId),
     'typeof CANVAS_RENDERER': 'true',
     'typeof WEBGL_RENDERER': 'false',
     'typeof WEBGL_DEBUG': 'false',
