@@ -97,7 +97,7 @@ test("A3.4 teacher settings persist and every learner effect is active", async (
   await expect(effectSample).toHaveCSS("animation-name", "none");
   await expect(effectSample).toHaveCSS("background-image", "none");
   await expect(page.locator(".qw-run-clock")).toHaveCount(0);
-  await expect(page.getByText("No countdown — answer when you are ready.")).toBeVisible();
+  await expect(page.getByText("No timer — choose a fork.")).toBeVisible();
   await expect(page.getByText("Narration is on — each page reads aloud.")).toBeVisible();
 
   await expect.poll(

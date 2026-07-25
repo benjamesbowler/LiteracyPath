@@ -4,7 +4,7 @@ import { finalSoundCoverageQuestions } from "../../data/finalSoundCoverageQuesti
 import { rhymingCoverageQuestions } from "../../data/rhymingCoverageQuestions.js";
 import { initialSoundCoverageQuestions } from "../../data/initialSoundCoverageQuestions.js";
 import { ixlStyleSeedQuestions } from "../../data/ixlStyleSeedQuestions.js";
-import { kimiVocabulary500Lexicon } from "../../data/kimiVocabulary500Lexicon.js";
+import { kimiVocabularyRuntime } from "../../data/generated/kimiVocabularyRuntime.generated.js";
 import {
   inferFinalSound,
   inferInitialSound,
@@ -191,7 +191,7 @@ function buildMasterWordLexicon() {
     });
   });
 
-  kimiVocabulary500Lexicon.forEach(item => {
+  kimiVocabularyRuntime.forEach(item => {
     const key = normalizeLexiconWord(item.word);
     const current = entries.get(key) || createEmptyEntry(item.displayWord || item.word);
     entries.set(key, mergeKimiVocabularyEntry(current, item));

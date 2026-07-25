@@ -863,7 +863,101 @@ questions.sort((a, b) =>
 const duplicateIds = questions.map(q => q.id).filter((id, index, list) => list.indexOf(id) !== index);
 if (duplicateIds.length) throw new Error(`Duplicate generated ids: ${duplicateIds.join(", ")}`);
 
-const content = `// Auto-generated second-block assessment top-up questions.\n// Built from approved K3 vocabulary metadata/media on 2026-06-04.\n\nexport const secondBlockSkillTopUpQuestions = ${JSON.stringify(questions, null, 2)};\n`;
+function compactQuestion(question) {
+  const compact = structuredClone(question);
+  [
+    "grade",
+    "skill",
+    "difficulty",
+    "assessmentPhase",
+    "phaseTarget",
+    "formatType",
+    "imageUrl",
+    "targetImage",
+    "targetImagePath",
+    "active",
+    "qaStatus",
+    "question",
+    "choices",
+    "answer",
+    "audioUrl",
+    "phonicsPattern"
+  ].forEach(key => delete compact[key]);
+  compact.answerOptions = compact.answerOptions.map(option => {
+    const next = { ...option };
+    delete next.label;
+    if (next.audioPath) {
+      delete next.audio;
+      delete next.audioUrl;
+    }
+    return next;
+  });
+  if (compact.imageCards) {
+    compact.imageCards = compact.imageCards.map(card => {
+      const next = { ...card };
+      delete next.label;
+      delete next.value;
+      delete next.image;
+      delete next.imageUrl;
+      return next;
+    });
+  }
+  return compact;
+}
+
+const compactQuestions = questions.map(compactQuestion);
+const content = `// Auto-generated second-block assessment top-up questions.
+// Built from approved K3 vocabulary metadata/media on 2026-06-04.
+
+const COMPACT_QUESTIONS = ${JSON.stringify(compactQuestions)};
+
+function expandOption(option) {
+  return {
+    ...option,
+    label: option.value,
+    ...(option.audioPath ? { audio: option.audioPath, audioUrl: option.audioPath } : {})
+  };
+}
+
+function expandImageCard(card) {
+  return {
+    ...card,
+    label: card.word,
+    value: card.word,
+    image: card.imagePath,
+    imageUrl: card.imagePath
+  };
+}
+
+function expandQuestion(question) {
+  const answerOptions = question.answerOptions.map(expandOption);
+  return {
+    ...question,
+    grade: "K-3",
+    skill: question.skillName,
+    difficulty: question.level,
+    assessmentPhase: question.phase,
+    phaseTarget: \`level_\${question.level}_phase_\${question.phase}\`,
+    formatType: question.templateType,
+    imageUrl: question.imagePath,
+    targetImage: question.imagePath,
+    targetImagePath: question.imagePath,
+    active: true,
+    qaStatus: "approved",
+    question: question.prompt,
+    choices: answerOptions.map(option => option.value),
+    answerOptions,
+    ...(question.imageCards
+      ? { imageCards: question.imageCards.map(expandImageCard) }
+      : {}),
+    answer: question.correctAnswer,
+    ...(question.audioPath ? { audioUrl: question.audioPath } : {}),
+    ...(question.targetPattern ? { phonicsPattern: question.targetPattern } : {})
+  };
+}
+
+export const secondBlockSkillTopUpQuestions = COMPACT_QUESTIONS.map(expandQuestion);
+`;
 writeFile(outputPath, content);
 
 const counts = questions.reduce((acc, question) => {

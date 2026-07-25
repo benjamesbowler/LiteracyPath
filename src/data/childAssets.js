@@ -5,7 +5,7 @@ import { k3VocabularyMedia } from "./generated/k3VocabularyMediaManifest.generat
 import { getPreferredAudioPath } from "./audioPreferenceManifest.js";
 
 function normalizeAssetKey(value) {
-  return String(value || "").toLowerCase().trim();
+  return String(value || "").toLowerCase().trim().replace(/[.!?]+$/, "");
 }
 
 function wordAsset({
@@ -560,10 +560,9 @@ export const childPhraseAudio = {
   "listen carefully": "/audio/child-mode/phrases/listen-carefully.mp3",
   "tap rumble": "/audio/child-mode/phrases/tap-rumble.mp3",
   "tap rumble to hear it again": "/audio/child-mode/phrases/tap-rumble.mp3",
-  "tap rumble to hear it again.": "/audio/child-mode/phrases/tap-rumble.mp3",
   "try again": "/audio/child-mode/phrases/try-again.mp3",
   "which word matches": "/audio/child-mode/phrases/which-word-matches.mp3",
-  "which word matches the picture?": "/audio/child-mode/phrases/which-word-matches.mp3",
+  "which word matches the picture": "/audio/child-mode/phrases/which-word-matches.mp3",
   "you found it": "/audio/child-mode/phrases/you-found-it.mp3"
 };
 
@@ -582,38 +581,29 @@ export function getChildWordAsset(word, options = {}) {
       source: k3VocabularyMedia[key].source
     }
     : null;
+  const candidates = [localAsset, kimiAsset, kimi3Asset, kimi4Asset, vocabularyAsset];
+  const primary = candidates.find(Boolean);
+  if (!primary) return blockAssessmentImageIfNeeded(key, null, options);
 
-  if (!localAsset && !kimiAsset && !kimi3Asset && !vocabularyAsset) {
-    const resolvedAsset = kimi4Asset
-      ? { ...kimi4Asset, audio: getPreferredAudioPath(key, kimi4Asset.audio) }
-      : null;
-    return blockAssessmentImageIfNeeded(key, resolvedAsset, options);
-  }
-  if (!localAsset && !kimiAsset && kimi3Asset && !kimi4Asset && !vocabularyAsset) {
-    return blockAssessmentImageIfNeeded(key, { ...kimi3Asset, audio: getPreferredAudioPath(key, kimi3Asset.audio) }, options);
-  }
-  if (!localAsset && kimiAsset && !kimi3Asset && !kimi4Asset && !vocabularyAsset) {
-    return blockAssessmentImageIfNeeded(key, { ...kimiAsset, audio: getPreferredAudioPath(key, kimiAsset.audio) }, options);
-  }
-  if (!localAsset && (kimiAsset || kimi3Asset || kimi4Asset || vocabularyAsset)) {
-    return blockAssessmentImageIfNeeded(key, {
-      ...(kimiAsset || kimi3Asset || kimi4Asset || vocabularyAsset),
-      image: kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image,
-      audio: getPreferredAudioPath(key, kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio || vocabularyAsset?.audio),
-      fallbackImage: kimiAsset?.fallbackImage || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage || vocabularyAsset?.fallbackImage,
-      source: kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source || vocabularyAsset?.source
-    }, options);
-  }
-  if (localAsset && !kimiAsset && !kimi3Asset && !kimi4Asset && !vocabularyAsset) {
-    return blockAssessmentImageIfNeeded(key, { ...localAsset, audio: getPreferredAudioPath(key, localAsset.audio) }, options);
-  }
-
+  const first = field => candidates.find(asset => asset?.[field])?.[field] || "";
+  const resolvedAsset = candidates.filter(Boolean).length === 1
+    ? primary
+    : {
+      ...primary,
+      image: first("image"),
+      fallbackImage: localAsset?.fallbackImage ||
+        kimiAsset?.fallbackImage ||
+        kimi3Asset?.image ||
+        kimi4Asset?.image ||
+        vocabularyAsset?.image ||
+        kimi3Asset?.fallbackImage ||
+        kimi4Asset?.fallbackImage ||
+        vocabularyAsset?.fallbackImage,
+      source: first("source")
+    };
   return blockAssessmentImageIfNeeded(key, {
-    ...localAsset,
-    image: localAsset.image || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image,
-    audio: getPreferredAudioPath(key, localAsset.audio || kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio || vocabularyAsset?.audio),
-    fallbackImage: localAsset.fallbackImage || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image || kimiAsset?.fallbackImage || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage || vocabularyAsset?.fallbackImage,
-    source: localAsset.source || kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source || vocabularyAsset?.source
+    ...resolvedAsset,
+    audio: getPreferredAudioPath(key, first("audio"))
   }, options);
 }
 

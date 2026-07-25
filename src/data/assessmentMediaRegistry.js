@@ -5,7 +5,7 @@ import {
 } from "./audioPreferenceManifest.js";
 import { childWordAssets, getChildWordAsset } from "./childAssets.js";
 import { importedVocabularyMediaManifest } from "./importedVocabularyMediaManifest.js";
-import { kimiVocabulary500Lexicon } from "./kimiVocabulary500Lexicon.js";
+import { kimiVocabularyRuntime } from "./generated/kimiVocabularyRuntime.generated.js";
 import { endingSoundLevelQuestions } from "./finalSoundCoverageQuestions.js";
 import { k3VocabularyMedia } from "./generated/k3VocabularyMediaManifest.generated.js";
 import { kimiAssets2WordAssets } from "./kimiAssets2Manifest.js";
@@ -380,7 +380,7 @@ function kimiSkillTags(entry = {}) {
 }
 
 function recordsFromKimiVocabularyLexicon() {
-  return kimiVocabulary500Lexicon.flatMap(entry => {
+  return kimiVocabularyRuntime.flatMap(entry => {
     if (entry?.status !== "approved") return [];
     const targetWord = entry.normalizedWord || entry.word;
     const skillTags = kimiSkillTags(entry);

@@ -256,7 +256,7 @@ export function TrailRun({
   return (
     <div className="qw-enc qw-run">
       <p className="qw-say">
-        {extendedResponse ? "Take your time — choose the fork that says it." : "Quick — take the fork that says it!"}
+        {extendedResponse ? "No timer — choose a fork." : "Quick — choose a fork!"}
       </p>
       <Listen onClick={() => playLetterBeatCue(beat, isSoundEnabled)} disabled={!hasLetterBeatCue(beat)} />
       {!extendedResponse && !done && !teaching && (
@@ -264,13 +264,11 @@ export function TrailRun({
           <span key={`${lap}-${beat.target}-${index}`} className="qw-run-sand" style={{ animationDuration: `${seconds}s` }} />
         </span>
       )}
-      {extendedResponse && !done && !teaching && (
-        <p className="qw-hint" role="status">No countdown — answer when you are ready.</p>
-      )}
       <div className="qw-run-forks">
         {showing.map(g => {
           const on = picked?.g === g;
           const reveal = teaching && g === beat.answer;
+          const label = displayGrapheme(g);
           return (
             <button
               key={g}
@@ -278,13 +276,9 @@ export function TrailRun({
               className={`qw-runsign${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal ? " is-reveal" : ""}`}
               disabled={Boolean(picked) || teaching}
               onClick={() => dash(g)}
-              aria-label={`Take the trail fork marked ${displayGrapheme(g)}`}
+              aria-label={`Take the trail fork marked ${label}`}
             >
-              <svg viewBox="0 0 96 110" aria-hidden="true">
-                <path d="M46,104 L46,44" stroke="var(--q-deep)" strokeWidth="8" strokeLinecap="round" fill="none" />
-                <path d="M14,14 L70,14 L86,31 L70,48 L14,48 Z" fill="var(--q-accent)" stroke="var(--q-deep)" strokeWidth="3" strokeLinejoin="round" />
-                <text x="44" y="41" textAnchor="middle" fontSize="30" fontWeight="800" fill={CREATURE_INK}>{displayGrapheme(g)}</text>
-              </svg>
+              <span className="qw-runsign-board" aria-hidden="true">{label}</span>
             </button>
           );
         })}

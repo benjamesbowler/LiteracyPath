@@ -1969,10 +1969,34 @@
   min-height: 110px; /* a five-year-old's finger is not a mouse */
   cursor: pointer;
 }
-.qw-runsign svg { width: 96px; height: 110px; }
-.qw-runsign.is-right svg { filter: drop-shadow(0 0 14px #7fd08a); }
-.qw-runsign.is-wrong svg { animation: q-shake 320ms; }
-.qw-runsign.is-reveal svg { filter: drop-shadow(0 0 14px #ffd166); }
+.qw-runsign-board {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 40px;
+  margin: 8px auto 56px;
+  border: 3px solid var(--q-deep);
+  border-radius: 5px;
+  background: var(--q-accent);
+  color: var(--q-deep);
+  font-size: 30px;
+  font-weight: 800;
+}
+.qw-runsign-board::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 8px;
+  height: 58px;
+  border-radius: 0 0 5px 5px;
+  background: var(--q-deep);
+  content: "";
+  transform: translateX(-50%);
+}
+.qw-runsign.is-right .qw-runsign-board { filter: drop-shadow(0 0 14px #7fd08a); }
+.qw-runsign.is-wrong .qw-runsign-board { animation: q-shake 320ms; }
+.qw-runsign.is-reveal .qw-runsign-board { filter: drop-shadow(0 0 14px #ffd166); }
 .qw-run-clock {
   display: block;
   width: min(280px, 60%);

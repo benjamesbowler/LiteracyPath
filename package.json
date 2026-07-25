@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node tools/generateAudioManifest.js && node tools/generateBookIndex.js && node tools/generateGuidedReadingQuizIndex.js && node tools/generateItemUniverse.js && node tools/generateHfwEligibilityKeys.js && node tools/generateAssessmentReleaseStatus.mjs && node tools/generateSageSoft.mjs",
+    "prebuild": "node tools/generateAudioManifest.js && node tools/generateKimiVocabularyRuntime.mjs && node tools/generateBookIndex.js && node tools/generateGuidedReadingQuizIndex.js && node tools/generateItemUniverse.js && node tools/generateHfwEligibilityKeys.js && node tools/generateAssessmentReleaseStatus.mjs && node tools/generateSageSoft.mjs",
     "build": "vite build",
     "gen:image": "node tools/generateImage.mjs",
     "gr:images": "node tools/guidedReadingImageFactory.mjs",

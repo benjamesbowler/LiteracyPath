@@ -106,13 +106,13 @@ const MOVE_SPEED = 4.6;
 const ENCOUNTER_REACH = 1.7;
 const AUTOSAVE_MS = 1200;
 
-const RESIDENT_CREATURE_CAST = Object.freeze([
-  Object.freeze({ body: "pebble", pattern: "pattern-spots", eyes: "eyes-big", mouth: "mouth-grin", crest: "crest-frond", tail: "tail-fern", feet: "feet-round" }),
-  Object.freeze({ body: "stalk", pattern: "pattern-stripes", eyes: "eyes-wide", mouth: "mouth-smile", crest: "crest-ears", tail: "tail-curl", feet: "feet-tall" }),
-  Object.freeze({ body: "moth", pattern: "pattern-stars", eyes: "eyes-sleepy", mouth: "mouth-round", crest: "crest-antenna", tail: "tail-fan", feet: "feet-paws" }),
-  Object.freeze({ body: "boulder", pattern: "pattern-scales", eyes: "eyes-tiny", mouth: "mouth-tusks", crest: "crest-horns", tail: "tail-spade", feet: "feet-hoofs" }),
-  Object.freeze({ body: "spike", pattern: "pattern-none", eyes: "eyes-one", mouth: "mouth-beak", crest: "crest-fin", tail: "tail-spike", feet: "feet-claws" })
-]);
+const RESIDENT_CREATURE_CAST = [
+  { body: "pebble", pattern: "pattern-spots", eyes: "eyes-big", mouth: "mouth-grin", crest: "crest-frond", tail: "tail-fern", feet: "feet-round" },
+  { body: "stalk", pattern: "pattern-stripes", eyes: "eyes-wide", mouth: "mouth-smile", crest: "crest-ears", tail: "tail-curl", feet: "feet-tall" },
+  { body: "moth", pattern: "pattern-stars", eyes: "eyes-sleepy", mouth: "mouth-round", crest: "crest-antenna", tail: "tail-fan", feet: "feet-paws" },
+  { body: "boulder", pattern: "pattern-scales", eyes: "eyes-tiny", mouth: "mouth-tusks", crest: "crest-horns", tail: "tail-spade", feet: "feet-hoofs" },
+  { body: "spike", pattern: "pattern-none", eyes: "eyes-one", mouth: "mouth-beak", crest: "crest-fin", tail: "tail-spike", feet: "feet-claws" }
+];
 
 function residentCreatureSpec(index, world = "meadow") {
   const worldOffset = world === "dino" ? 2 : world === "moonwood" ? 4 : 0;
@@ -135,7 +135,6 @@ const WORLD_THEMES = {
   meadow: {
     name: "Sunlit Meadow",
     sky: 0xa9d4df,
-    sun: 0xfff1c2,
     hemi: 0xd7e8df,
     ground: 0x537a49,
     path: 0xc9aa72,
@@ -154,7 +153,6 @@ const WORLD_THEMES = {
   dino: {
     name: "Fossil Ridge",
     sky: 0xf0c987,
-    sun: 0xffd08a,
     hemi: 0xffdfaa,
     ground: 0x9b794b,
     path: 0xd6b77f,
@@ -173,7 +171,6 @@ const WORLD_THEMES = {
   moonwood: {
     name: "Moonwood",
     sky: 0x3c456a,
-    sun: 0xb9d9ff,
     hemi: 0xc9d8ff,
     ground: 0x344f4b,
     path: 0x7a7187,
@@ -191,36 +188,36 @@ const WORLD_THEMES = {
   }
 };
 
-const SEEDWAKE_VISUAL_MOODS = Object.freeze({
-  s1: Object.freeze({
+const SEEDWAKE_VISUAL_MOODS = {
+  s1: {
     ground: 0x4d7650, path: 0xcaa878, pathEdge: 0x71543d, stone: 0x6f8079,
     structure: 0xa96845, water: 0x70aeb0, flower: 0xe4aa66, glow: 0xffc95e, fog: 0xaac9bd
-  }),
-  s2: Object.freeze({
+  },
+  s2: {
     ground: 0x426d58, path: 0xbab486, pathEdge: 0x626b4c, stone: 0x72857d,
     structure: 0x8a6e50, water: 0x479ca0, flower: 0xc89bd7, glow: 0xaee5a0, fog: 0x9fc9c2
-  }),
-  s3: Object.freeze({
+  },
+  s3: {
     ground: 0x687548, path: 0xc99a68, pathEdge: 0x72543b, stone: 0x776d65,
     structure: 0xb66445, water: 0x6da2a2, flower: 0xe7bd58, glow: 0xf2b85a, fog: 0xbfc7a8
-  }),
-  s4: Object.freeze({
+  },
+  s4: {
     ground: 0x466b5d, path: 0xa99a78, pathEdge: 0x586554, stone: 0x687c7a,
     structure: 0xa85d4d, water: 0x397f91, flower: 0xd39aaf, glow: 0xb9e5d5, fog: 0x9abbb7
-  }),
-  s5: Object.freeze({
+  },
+  s5: {
     ground: 0x505d49, path: 0x9f896d, pathEdge: 0x5d5044, stone: 0x746f7d,
     structure: 0x765773, water: 0x5d8092, flower: 0xe8b65f, glow: 0xd2b2f2, fog: 0xa9a9b3
-  })
-});
+  }
+};
 
-const SEEDWAKE_LIGHT_MOODS = Object.freeze({
-  s1: Object.freeze({ id: "lantern-dawn", warmth: 0.24, glow: 0.5 }),
-  s2: Object.freeze({ id: "fern-morning", warmth: 0.06, glow: 0.56 }),
-  s3: Object.freeze({ id: "rook-noon", warmth: 0.48, glow: 0.52 }),
-  s4: Object.freeze({ id: "river-mist", warmth: 0.02, glow: 0.62 }),
-  s5: Object.freeze({ id: "gate-gloaming", warmth: 0.66, glow: 0.8 })
-});
+const SEEDWAKE_LIGHT_MOODS = {
+  s1: { id: "lantern-dawn", warmth: 0.24, glow: 0.5 },
+  s2: { id: "fern-morning", warmth: 0.06, glow: 0.56 },
+  s3: { id: "rook-noon", warmth: 0.48, glow: 0.52 },
+  s4: { id: "river-mist", warmth: 0.02, glow: 0.62 },
+  s5: { id: "gate-gloaming", warmth: 0.66, glow: 0.8 }
+};
 
 function surfaceMaps(seed, {
   repeatX = 4,
@@ -500,8 +497,7 @@ function mat(color, options = {}) {
 }
 
 function glowMat(color, opacity = 0.42) {
-  return new THREE.MeshStandardMaterial({
-    color,
+  return mat(color, {
     emissive: color,
     emissiveIntensity: 0.92,
     transparent: true,
@@ -1293,7 +1289,8 @@ function addFieldLabel(group, label, y = 1.22, width = 0.98) {
   if (!ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "rgba(255, 249, 219, 0.96)";
-  roundRect(ctx, 20, 18, 472, 156, 26);
+  ctx.beginPath();
+  ctx.roundRect(20, 18, 472, 156, 26);
   ctx.fill();
   ctx.strokeStyle = "rgba(42, 38, 26, 0.34)";
   ctx.lineWidth = 7;
@@ -1339,16 +1336,6 @@ function addFieldLabel(group, label, y = 1.22, width = 0.98) {
   tag.position.z = 0.08;
   group.add(tag);
   group.userData.billboards = [...(group.userData.billboards || []), tag];
-}
-
-function roundRect(ctx, x, y, w, h, r) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
 }
 
 function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
@@ -2148,14 +2135,14 @@ function addCharacterMotif(model, world, materials, parts) {
   parts.tail = tail;
 }
 
-const CREATURE_BODY_PROFILES = Object.freeze({
+const CREATURE_BODY_PROFILES = {
   tuft: { body: [1.05, 1.05, 0.82], head: [1.04, 0.92, 0.92], headY: 1.42, armX: 0.38, legX: 0.18 },
   spike: { body: [0.9, 1.12, 0.78], head: [0.96, 1.02, 0.88], headY: 1.48, armX: 0.35, legX: 0.16 },
   pebble: { body: [1.28, 0.76, 0.94], head: [1.2, 0.82, 0.98], headY: 1.31, armX: 0.45, legX: 0.22 },
   stalk: { body: [0.72, 1.32, 0.72], head: [0.86, 1.06, 0.84], headY: 1.57, armX: 0.3, legX: 0.14 },
   moth: { body: [0.98, 1.02, 0.74], head: [1.12, 0.9, 0.86], headY: 1.43, armX: 0.37, legX: 0.18 },
   boulder: { body: [1.2, 1, 0.92], head: [1.12, 0.94, 0.94], headY: 1.43, armX: 0.43, legX: 0.22 }
-});
+};
 
 function addCreaturePattern(root, pattern, materials, bodyY) {
   if (!pattern || pattern === "pattern-none") return;

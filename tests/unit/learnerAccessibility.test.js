@@ -139,6 +139,5 @@ test("extended response removes Trail Run's clock and timeout language", () => {
   );
   assert.match(source, /if \(extendedResponse \|\| done \|\| teaching \|\| picked\) return undefined/);
   assert.match(source, /!extendedResponse && !done && !teaching/);
-  assert.match(source, /No countdown — answer when you are ready/);
-  assert.match(source, /Take your time — choose the fork that says it/);
+  assert.match(source, /No timer — choose a fork/);
 });
