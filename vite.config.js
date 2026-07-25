@@ -155,6 +155,20 @@ export default defineConfig({
           ) {
             return 'initial-sound-word-bank'
           }
+          // These two independent generated catalogues used to be hidden
+          // inside a 370 kB shared assessmentMediaRegistry chunk. Keep their
+          // real data boundaries separate so neither crosses the 250 kB
+          // new-chunk ceiling and consumers still fetch them only with the
+          // assessment media registry.
+          if (id.includes('/src/data/generated/kimiVocabularyRuntime.generated')) {
+            return 'kimi-vocabulary-runtime'
+          }
+          if (
+            id.includes('/src/data/generated/assessmentImageVariants.generated') ||
+            id.includes('/src/data/generated/legacyInitialSoundImageRegistry.generated')
+          ) {
+            return 'assessment-image-variants'
+          }
           // hfwAssessmentQuestions + hfwLevel2Questions are always co-imported
           // (both loaders trigger on any HFW band), so they stay one chunk.
           // hfwApprovedQuestionBank is deliberately NOT grouped here: runtime

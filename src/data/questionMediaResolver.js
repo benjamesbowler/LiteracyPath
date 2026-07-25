@@ -9,7 +9,7 @@ import {
   isMediaPairingApproved,
   isMediaPairingQuarantined
 } from "./mediaQaReviewStatus.js";
-import { getLexiconEntry } from "../content/lexicon/masterWordLexicon.js";
+import { getLexiconMediaEntry } from "../content/lexicon/lexiconMediaIndex.generated.js";
 import {
   getAssessmentHfwAudioWiring,
   getAssessmentMediaWiring,
@@ -61,7 +61,7 @@ function resolveWordAsset(word) {
   const normalized = normalizeWord(word);
   if (!normalized) return null;
   const childAsset = getChildWordAsset(normalized);
-  const lexiconEntry = getLexiconEntry(normalized);
+  const lexiconEntry = getLexiconMediaEntry(normalized);
   const importedMedia = getImportedVocabularyMedia(normalized);
   const image = firstPath(
     childAsset?.image,
