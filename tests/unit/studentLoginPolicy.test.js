@@ -11,13 +11,15 @@ async function source(relativePath) {
 }
 
 test("child login keeps the code-gated roster but requires teacher-set pictures", async () => {
-  const [loginFlow, dashboard, migration] = await Promise.all([
+  const [loginFlow, classApi, dashboard, migration] = await Promise.all([
     source("src/components/StudentLoginFlow.jsx"),
+    source("src/data/classApiCompatibility.js"),
     source("src/components/TeacherDashboardPage.jsx"),
     source("supabase/migrations/20260723090000_teacher_only_student_password_setup.sql")
   ]);
 
-  assert.match(loginFlow, /student_class_by_code/);
+  assert.match(loginFlow, /loadCompatibleStudentClass/);
+  assert.match(classApi, /student_class_by_code/);
   assert.match(loginFlow, /step === "not-ready"/);
   assert.match(loginFlow, /Your teacher can set your three login pictures/);
   assert.doesNotMatch(loginFlow, /student_set_password/);

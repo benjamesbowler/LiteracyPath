@@ -3,6 +3,10 @@ import { supabase } from "../supabaseClient.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 import { SYMBOL_PASSWORD_LENGTH } from "../data/symbolPasswordIcons.js";
+import {
+  loadCompatibleStudentClass,
+  loginCompatibleStudent
+} from "../data/classApiCompatibility.js";
 import { classifyStudentCodeRecovery } from "../policy/studentLoginRecovery.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 
@@ -256,9 +260,10 @@ export function StudentLoginFlow({
     }
     setLoading(true);
     setRecovery(null);
-    const { data, error } = await client.call("student_class_by_code", {
-      p_code: code,
-      p_device_id: deviceIdRef.current
+    const { data, error } = await loadCompatibleStudentClass({
+      client,
+      code,
+      deviceId: deviceIdRef.current
     });
     setLoading(false);
     if (error || !data?.ok) {
@@ -371,11 +376,12 @@ export function StudentLoginFlow({
     setLoading(true);
     setStatus("");
     setRecovery(null);
-    const { data, error } = await client.call("student_login", {
-      p_student_id: selectedStudent.id,
-      p_sequence: nextSequence,
-      p_device_id: deviceIdRef.current,
-      p_code: normalizedCodeInput
+    const { data, error } = await loginCompatibleStudent({
+      client,
+      studentId: selectedStudent.id,
+      sequence: nextSequence,
+      deviceId: deviceIdRef.current,
+      code: normalizedCodeInput
     });
     setLoading(false);
     setSequence("");

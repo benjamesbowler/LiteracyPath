@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
 import { useEffect, useEffectEvent, useLayoutEffect } from "react";
+import { loadCompatibleTeacherClasses } from "../data/classApiCompatibility.js";
 
 export function useAppSessionController(context) {
   const {
@@ -1598,11 +1599,10 @@ export function useAppSessionController(context) {
       return [];
     }
 
-    const { data, error } = await supabase
-      .table("classes")
-      .select("id,name,school_id,access_code,access_code_created_at,access_code_expires_at,leaderboard_scope")
-      .eq("teacher_id", teacherId)
-      .order("name", { ascending: true });
+    const { data, error, compatibility } = await loadCompatibleTeacherClasses({
+      client: supabase,
+      teacherId
+    });
 
     if (error) {
       console.error("Load classes error:", error);
@@ -1610,6 +1610,9 @@ export function useAppSessionController(context) {
       return [];
     }
 
+    if (compatibility === "legacy") {
+      console.info("Classes loaded through the rolling-release schema boundary.");
+    }
     setClassList(data || []);
     return data || [];
   }
