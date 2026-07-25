@@ -146,6 +146,35 @@ test("release credential preflight accepts structurally valid injected credentia
   assert.match(result.message, /preflight passed/);
 });
 
+test("CSP release gate is enforced by deployment headers and hostile browser probes", () => {
+  const packageJson = JSON.parse(readFileSync(
+    new URL("../../package.json", import.meta.url),
+    "utf8"
+  ));
+  const vercelConfig = JSON.parse(readFileSync(
+    new URL("../../vercel.json", import.meta.url),
+    "utf8"
+  ));
+  const cspCheck = readFileSync(
+    new URL("../../tools/checkCsp.mjs", import.meta.url),
+    "utf8"
+  );
+  const globalHeaders = Object.fromEntries(
+    vercelConfig.headers
+      .find(rule => rule.source === "/(.*)")
+      .headers
+      .map(header => [header.key, header.value])
+  );
+
+  assert.equal(packageJson.scripts["check:csp"], "npm run build && node tools/checkCsp.mjs");
+  assert.match(globalHeaders["Content-Security-Policy"], /script-src 'self'/);
+  assert.doesNotMatch(globalHeaders["Content-Security-Policy"], /unsafe-eval/);
+  assert.doesNotMatch(globalHeaders["Content-Security-Policy"], /script-src[^;]*unsafe-inline/);
+  for (const directive of ["script-src-elem", "frame-src", "object-src", "connect-src"]) {
+    assert.match(cspCheck, new RegExp(JSON.stringify(directive)));
+  }
+});
+
 test("gate counts parse TAP, browser, warnings, and strict-audit metrics", () => {
   const generic = {
     outputFormat: null

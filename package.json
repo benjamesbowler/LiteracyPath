@@ -210,6 +210,7 @@
     "seed:audit-school": "node tools/seedAuditSchool.mjs --apply",
     "check:release": "node tools/releaseGate.mjs",
     "check:release-environment": "node tools/releaseGate.mjs --preflight",
+    "check:csp": "npm run build && node tools/checkCsp.mjs",
     "release:scorecard": "node tools/releaseScorecard.mjs",
     "check:question-bank-fix-guide": "node tools/checkQuestionBankFixGuideCompliance.js",
     "import:skill-word-bank": "node tools/importSkillWordBankWorkbook.js",
