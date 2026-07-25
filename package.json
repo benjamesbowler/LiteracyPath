@@ -211,6 +211,7 @@
     "check:release": "node tools/releaseGate.mjs",
     "check:release-environment": "node tools/releaseGate.mjs --preflight",
     "check:csp": "npm run build && node tools/checkCsp.mjs",
+    "check:sync-chaos": "node --test tests/unit/progressQueue.test.js tests/unit/progressMerge.test.js && playwright test tests/release/sync-chaos.spec.js --project=desktop",
     "release:scorecard": "node tools/releaseScorecard.mjs",
     "check:question-bank-fix-guide": "node tools/checkQuestionBankFixGuideCompliance.js",
     "import:skill-word-bank": "node tools/importSkillWordBankWorkbook.js",

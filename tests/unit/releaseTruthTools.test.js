@@ -175,6 +175,26 @@ test("CSP release gate is enforced by deployment headers and hostile browser pro
   }
 });
 
+test("sync-chaos release gate combines real queue/merge units with a two-device browser journey", () => {
+  const packageJson = JSON.parse(readFileSync(
+    new URL("../../package.json", import.meta.url),
+    "utf8"
+  ));
+  const syncJourney = readFileSync(
+    new URL("../release/sync-chaos.spec.js", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(packageJson.scripts["check:sync-chaos"], /progressQueue\.test\.js/);
+  assert.match(packageJson.scripts["check:sync-chaos"], /progressMerge\.test\.js/);
+  assert.match(packageJson.scripts["check:sync-chaos"], /sync-chaos\.spec\.js/);
+  assert.match(syncJourney, /setOffline\(true\)/);
+  assert.match(syncJourney, /expired-token/);
+  assert.match(syncJourney, /deviceA/);
+  assert.match(syncJourney, /deviceB/);
+  assert.match(syncJourney, /cloud\.conflicts/);
+});
+
 test("gate counts parse TAP, browser, warnings, and strict-audit metrics", () => {
   const generic = {
     outputFormat: null
