@@ -644,15 +644,18 @@
 .sbq-trace-letter {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  color: rgba(15, 23, 42, 0.14);
-  font-family: var(--lp-font-reading);
-  font-size: clamp(7rem, 24vw, 12rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   user-select: none;
+}
+
+.sbq-trace-letter path {
+  fill: none;
+  stroke: rgba(15, 23, 42, 0.16);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 12;
 }
 
 .sbq-trace-stage canvas {
@@ -662,6 +665,16 @@
   height: auto;
   touch-action: none;
   cursor: crosshair;
+}
+
+.sbq-trace-message {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .sbq-trace-actions {

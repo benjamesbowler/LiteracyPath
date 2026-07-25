@@ -2,6 +2,7 @@ export const CHILD_COPY = Object.freeze({
   actions: Object.freeze({
     play: "Play",
     readToMe: "Read to me",
+    readAgain: "Read again",
     hearAgain: "Hear it again",
     tryAgain: "Try again",
     myHollow: "My Hollow"
@@ -19,5 +20,13 @@ export const CHILD_COPY = Object.freeze({
   progress: Object.freeze({
     moreToGo: count => `${count} more to go`,
     complete: "You did it!"
+  }),
+  tracing: Object.freeze({
+    prompt: "Trace the grey letter.",
+    check: "Check my letter",
+    good: "That looks like the letter!",
+    tryAgain: "Follow the grey letter.",
+    clear: "Start again",
+    watch: "Watch again"
   })
 });
