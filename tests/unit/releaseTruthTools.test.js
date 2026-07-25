@@ -6,7 +6,8 @@ import {
   composeCurriculumResult,
   extractGateCounts,
   isGateImplemented,
-  RELEASE_GATES
+  RELEASE_GATES,
+  validateAuditEnvironment
 } from "../../tools/releaseGate.mjs";
 import {
   calculateScorecard,
@@ -111,6 +112,38 @@ test("missing npm scripts are explicitly not implemented", () => {
   const gate = RELEASE_GATES.find(item => item.id === "a11y-routes");
   assert.equal(isGateImplemented(gate, {}), false);
   assert.equal(isGateImplemented(RELEASE_GATES.find(item => item.id === "unit-tests"), { test: "node --test" }), true);
+});
+
+test("release credential preflight fails once without exposing secret values", () => {
+  const result = validateAuditEnvironment({
+    LP_AUDIT_SUPABASE_URL: "not-a-url",
+    LP_AUDIT_SUPABASE_ANON_KEY: "anon-secret-that-must-not-appear",
+    LP_AUDIT_DATABASE_URL: "",
+    LP_AUDIT_TEACHER_PASSWORD: "short"
+  });
+
+  assert.equal(result.ok, false);
+  assert.deepEqual(result.missing, ["LP_AUDIT_DATABASE_URL"]);
+  assert.deepEqual(result.invalid, [
+    "LP_AUDIT_SUPABASE_URL must be an http(s) URL",
+    "LP_AUDIT_TEACHER_PASSWORD must contain at least 12 characters"
+  ]);
+  assert.doesNotMatch(result.message, /anon-secret|not-a-url|\bshort\b/);
+  assert.match(result.message, /process environment or CI secret store/);
+});
+
+test("release credential preflight accepts structurally valid injected credentials", () => {
+  const result = validateAuditEnvironment({
+    LP_AUDIT_SUPABASE_URL: "http://127.0.0.1:54321",
+    LP_AUDIT_SUPABASE_ANON_KEY: "injected-anon-key",
+    LP_AUDIT_DATABASE_URL: "postgresql://postgres:password@127.0.0.1:54322/postgres",
+    LP_AUDIT_TEACHER_PASSWORD: "long-audit-password"
+  });
+
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.missing, []);
+  assert.deepEqual(result.invalid, []);
+  assert.match(result.message, /preflight passed/);
 });
 
 test("gate counts parse TAP, browser, warnings, and strict-audit metrics", () => {

@@ -14,6 +14,12 @@ const strictAuditJsonPath = path.join(
   "auditAllSkillsStrictProductionReadiness", "repo", "docs", "validation",
   "all_skills_strict_production_audit.json"
 );
+const REQUIRED_AUDIT_ENVIRONMENT = Object.freeze([
+  "LP_AUDIT_SUPABASE_URL",
+  "LP_AUDIT_SUPABASE_ANON_KEY",
+  "LP_AUDIT_DATABASE_URL",
+  "LP_AUDIT_TEACHER_PASSWORD"
+]);
 
 export const RELEASE_GATES = Object.freeze([
   {
@@ -768,7 +774,48 @@ function parseArguments(argv) {
     : null;
   return {
     list: args.includes("--list"),
+    preflight: args.includes("--preflight"),
     only
+  };
+}
+
+function validUrl(value, protocols) {
+  try {
+    return protocols.includes(new URL(value).protocol);
+  } catch {
+    return false;
+  }
+}
+
+export function validateAuditEnvironment(environment = process.env) {
+  const missing = REQUIRED_AUDIT_ENVIRONMENT.filter(name => !String(environment[name] || "").trim());
+  const invalid = [];
+
+  if (!missing.includes("LP_AUDIT_SUPABASE_URL")
+    && !validUrl(environment.LP_AUDIT_SUPABASE_URL, ["http:", "https:"])) {
+    invalid.push("LP_AUDIT_SUPABASE_URL must be an http(s) URL");
+  }
+  if (!missing.includes("LP_AUDIT_DATABASE_URL")
+    && !validUrl(environment.LP_AUDIT_DATABASE_URL, ["postgres:", "postgresql:"])) {
+    invalid.push("LP_AUDIT_DATABASE_URL must be a PostgreSQL URL");
+  }
+  if (!missing.includes("LP_AUDIT_TEACHER_PASSWORD")
+    && String(environment.LP_AUDIT_TEACHER_PASSWORD).length < 12) {
+    invalid.push("LP_AUDIT_TEACHER_PASSWORD must contain at least 12 characters");
+  }
+
+  const details = [
+    missing.length ? `missing ${missing.join(", ")}` : "",
+    invalid.length ? `invalid ${invalid.join("; ")}` : ""
+  ].filter(Boolean);
+
+  return {
+    ok: missing.length === 0 && invalid.length === 0,
+    missing,
+    invalid,
+    message: details.length
+      ? `Release environment preflight failed: ${details.join("; ")}. Inject credentials through the process environment or CI secret store; values were not read from or written to plaintext files.`
+      : "Release environment preflight passed: all audit credentials are injected and structurally valid."
   };
 }
 
@@ -804,6 +851,12 @@ export async function runReleaseGate(argv = process.argv.slice(2)) {
     return 0;
   }
 
+  if (options.preflight) {
+    const preflight = validateAuditEnvironment();
+    console[preflight.ok ? "log" : "error"](preflight.message);
+    return preflight.ok ? 0 : 2;
+  }
+
   const unknownOnly = options.only
     ? [...options.only].filter(id => !RELEASE_GATES.some(gate => gate.id === id))
     : [];
@@ -816,6 +869,14 @@ export async function runReleaseGate(argv = process.argv.slice(2)) {
     ? RELEASE_GATES.filter(gate => options.only.has(gate.id))
     : RELEASE_GATES;
   const fullRun = !options.only;
+  if (fullRun) {
+    const preflight = validateAuditEnvironment();
+    if (!preflight.ok) {
+      console.error(preflight.message);
+      return 2;
+    }
+    console.log(preflight.message);
+  }
   const runStartedAt = new Date();
   const artifactDir = path.join(repoRoot, "docs", "release", "artifacts", isoFilePart(runStartedAt));
   fs.mkdirSync(artifactDir, { recursive: true });
