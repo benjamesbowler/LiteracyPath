@@ -494,7 +494,7 @@ export const curriculumReleaseBoard = Object.freeze({
       "wiringDefects": 0,
       "studentExposure": {
         "count": 141,
-        "fingerprint": "22f7cb1182a080c638788016516791c5b80ea2cee5b70ca6dd211ed33cc3a6c7",
+        "fingerprint": "37526c9d6223a4aea4a8eac2e6c230c2087e7d886591067aac87006199e50dca",
         "level1": 56,
         "level2": 85
       },

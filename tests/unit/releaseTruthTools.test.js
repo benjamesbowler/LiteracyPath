@@ -49,6 +49,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "overlay-contrast-focus",
     "device-matrix",
     "assessment-runtime-variation",
+    "assessment-skill-contracts",
     "strict-curriculum",
     "skill-progression",
     "teacher-dashboard-data",
@@ -70,7 +71,8 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "e2e-teacher",
     "csp",
     "runtime-variation-simulation",
-    "media-runtime-resolution"
+    "media-runtime-resolution",
+    "media-quality"
   ]) {
     assert.equal(ids.has(required), true, `missing ${required}`);
   }
@@ -243,9 +245,11 @@ test("composed curriculum gate requires all five dimensions for every skill", ()
     "strict-curriculum",
     "curriculum-release-standard",
     "assessment-runtime-variation",
+    "assessment-skill-contracts",
     "skill-progression",
     "runtime-variation-simulation",
-    "media-runtime-resolution"
+    "media-runtime-resolution",
+    "media-quality"
   ].map(pass);
   const strictAudit = {
     strictStandard: { minimumTotal: 60 },

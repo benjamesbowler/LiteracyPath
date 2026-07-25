@@ -11176,7 +11176,7 @@ export const assessmentReleaseExposureBySkillId = Object.freeze({
       "level": 2
     },
     {
-      "questionId": "vowel_teams_l2_variety_06_igh_lighthouse",
+      "questionId": "vowel_teams_l2_variety_06_igh_light",
       "level": 2
     },
     {

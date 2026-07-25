@@ -31,7 +31,7 @@ Canonical release standard: `2026.07.24-a1.4`
 | Blends | READY | Phonics curriculum + media QA | 253 | 97 | 97 today (L1 47; L2 50) | sha256:318b21a4799d | All canonical release dimensions pass. | None |
 | Digraphs | READY | Phonics curriculum + media QA | 252 | 120 | 120 today (L1 60; L2 60) | sha256:faebe50b8669 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
 | Long Vowels and Silent E | READY | Phonics curriculum + media QA | 226 | 104 | 104 today (L1 50; L2 54) | sha256:7ceda9ae4f27 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
-| Vowel Teams | READY | Phonics curriculum + media QA | 141 | 141 | 141 today (L1 56; L2 85) | sha256:22f7cb1182a0 | All canonical release dimensions pass. | None |
+| Vowel Teams | READY | Phonics curriculum + media QA | 141 | 141 | 141 today (L1 56; L2 85) | sha256:37526c9d6223 | All canonical release dimensions pass. | None |
 | R-Controlled Vowels | READY | Phonics curriculum + media QA | 128 | 128 | 128 today (L1 47; L2 81) | sha256:b36797e95bcb | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
 | Nouns | READY | Curriculum + media QA | 398 | 146 | 146 today (L1 70; L2 76) | sha256:0e54affb9633 | All canonical release dimensions pass. | None |
 | Verbs | READY | Curriculum + media QA | 420 | 111 | 111 today (L1 51; L2 60) | sha256:6a590d5fd250 | All canonical release dimensions pass. | None |

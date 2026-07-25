@@ -197,6 +197,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 4, 10]
   },
   {
+    id: "assessment-skill-contracts",
+    label: "Exact 30-skill publication, phase, and retry contracts",
+    command: ["npm", "run", "check:assessment-skill-contracts"],
+    areas: [1, 4, 10]
+  },
+  {
     id: "strict-curriculum",
     label: "Strict production curriculum audit",
     command: [
@@ -625,6 +631,13 @@ export const RELEASE_GATES = Object.freeze([
     planned: true
   },
   {
+    id: "media-quality",
+    label: "Active assessment image semantics and pixel-quality scan",
+    command: ["npm", "run", "check:media-quality"],
+    areas: [1, 3, 4, 10],
+    planned: true
+  },
+  {
     id: "device-matrix",
     label: "Student device matrix",
     command: ["npm", "run", "check:device-matrix"],
@@ -641,17 +654,28 @@ export const RELEASE_GATES = Object.freeze([
 
 const CURRICULUM_DIMENSIONS = Object.freeze({
   correctness: ["assessment-question-integrity"],
-  depth: ["strict-curriculum", "curriculum-release-standard"],
+  depth: [
+    "strict-curriculum",
+    "curriculum-release-standard",
+    "assessment-skill-contracts"
+  ],
   variation: [
     "assessment-runtime-variation",
+    "assessment-skill-contracts",
     "skill-progression",
     "runtime-variation-simulation"
   ],
-  media: ["strict-curriculum", "curriculum-release-standard", "media-runtime-resolution"],
+  media: [
+    "strict-curriculum",
+    "curriculum-release-standard",
+    "media-runtime-resolution",
+    "media-quality"
+  ],
   runtimeSelectability: [
     "strict-curriculum",
     "curriculum-release-standard",
     "assessment-question-integrity",
+    "assessment-skill-contracts",
     "runtime-variation-simulation"
   ]
 });

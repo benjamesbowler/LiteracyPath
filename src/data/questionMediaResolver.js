@@ -350,6 +350,28 @@ function normalizeOptionImageGroup(options = [], field = "answerOptions") {
   };
 }
 
+function alignAnswerOptionImagesToImageCards(answerOptions = [], imageCards = []) {
+  if (!answerOptions.length || !imageCards.length) return answerOptions;
+  const cardsByWord = new Map(
+    imageCards
+      .map(card => [optionWord(card), card])
+      .filter(([word, card]) => word && optionImagePath(card))
+  );
+  if (!cardsByWord.size) return answerOptions;
+
+  return answerOptions.map(option => {
+    const card = cardsByWord.get(optionWord(option));
+    if (!card || !option || typeof option !== "object") return option;
+    const image = optionImagePath(card);
+    return {
+      ...option,
+      image,
+      imageUrl: image,
+      imagePath: image
+    };
+  });
+}
+
 function shouldBuildImageCards(question = {}, skillId = "") {
   if (question.imageCards?.length) return false;
   if (!["rhyming", "initial_sounds"].includes(skillId)) return false;
@@ -508,6 +530,12 @@ export function enrichQuestionWithExistingMedia(question = {}) {
   }
   if (optionImageMediaGaps.length) {
     enriched.optionImageMediaGaps = optionImageMediaGaps;
+  }
+  if (Array.isArray(enriched.answerOptions) && Array.isArray(enriched.imageCards)) {
+    enriched.answerOptions = alignAnswerOptionImagesToImageCards(
+      enriched.answerOptions,
+      enriched.imageCards
+    );
   }
 
   if (shouldBuildImageCards(enriched, skillId)) {
