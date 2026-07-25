@@ -71,6 +71,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 2, 4, 10]
   },
   {
+    id: "calibration-readiness",
+    label: "Seeded calibration monitoring and independent specialist protocol",
+    command: ["npm", "run", "check:calibration-readiness"],
+    areas: [4, 10]
+  },
+  {
     id: "student-home-hierarchy",
     label: "One policy-led student-home recommendation, two secondary choices, and disclosed exploration",
     command: ["npm", "run", "check:student-home-hierarchy"],

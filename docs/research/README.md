@@ -1,9 +1,11 @@
 # LiteracyPath expert-review and pilot pack
 
-This directory is the execution-ready external research pack for A1.10 and the
-child-usability observation attached to Area 2. It prepares the work; it does
-not claim that a literacy expert, teacher, child, parent, school, ethics body, or
-legal adviser has reviewed or approved LiteracyPath.
+This directory is the execution-ready external research pack for A1.10, the
+child-usability observation attached to Area 2, and the A4.10
+item-difficulty/threshold calibration programme. It prepares the work; it does
+not claim that a literacy expert, measurement specialist, teacher, child,
+parent, school, ethics body, or legal adviser has reviewed or approved
+LiteracyPath.
 
 The machine-readable status is in `PACK_MANIFEST.json`. Its honest state is:
 
@@ -22,6 +24,8 @@ The machine-readable status is in `PACK_MANIFEST.json`. Its honest state is:
 | `CONSENT_AND_ASSENT_TEMPLATES.md` | School permission, parent/guardian consent, child assent, teacher consent, withdrawal and incident wording | Templates require local legal/ethics adaptation before use |
 | `DATA_DICTIONARY.md` | Canonical de-identified input schema, permitted values, derivations, missingness and privacy rules | Matches the runnable scripts |
 | `REVISION_WORKFLOW.md` | Finding intake, severity, educational-risk escalation, change control, re-review and release decisions | Every human finding has an owner and auditable disposition |
+| `CALIBRATION_PROTOCOL.md` | Independent item-difficulty, threshold, reteach-adjudication, subgroup, and differential-item review | Separates seeded monitoring rehearsal from observed evidence and requires signed external decisions |
+| `CALIBRATION_PACK_MANIFEST.json` | Machine-readable A4.10 preparation and no-fake-results contract | Keeps human execution `not_started` and seeded preview evidence explicitly non-validating |
 | `scripts/pilotData.mjs` | Shared validation, de-identification, CSV creation and descriptive summary logic | Rejects direct identifiers and invalid study states |
 | `scripts/exportPilotDataset.mjs` | Converts one canonical JSON capture into analysis-ready CSV/JSON files with hashes | Fails closed on invalid, non-consented or identifying data |
 | `scripts/summarizePilotDataset.mjs` | Produces descriptive metric summaries with small-cell suppression | Does not invent significance, causality or missing outcomes |
@@ -34,7 +38,8 @@ study log, with the identity key stored outside the exported research dataset.
 | Role | Minimum responsibility |
 |---|---|
 | Study owner | Local approvals, data controller decisions, incident response and final go/no-go |
-| Independent literacy reviewer | Curriculum and assessment review; no authorship of the material being rated |
+| Independent literacy reviewer | Curriculum, item, threshold, and assessment review; no authorship of the material being rated |
+| Measurement specialist | Frozen analysis design, uncertainty, threshold stability, subgroup suppression, and differential-item method |
 | School lead | School permission, safeguarding route and scheduling |
 | Facilitator | Child assent, standard administration, deviations and safety |
 | Teacher participant | Workflow/usability sessions and teaching-context feedback |

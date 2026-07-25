@@ -59,6 +59,7 @@ import {
   FLEET_ERROR_BUDGET_POLICY,
   evaluateFleetErrorBudget
 } from "../policy/fleetErrorBudget.js";
+import { CalibrationMonitoringPanel } from "./admin/CalibrationMonitoringPanel.jsx";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -2081,6 +2082,7 @@ export function AdminDashboardPage({
     { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
     { id: "guidedMediaQa", label: "Guided Media QA", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
     { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
+    { id: "calibration", label: "Calibration", count: null },
     { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
     { id: "schools", label: "Schools", count: schools.length },
     { id: "teachers", label: "Teachers", count: teachers.length },
@@ -2798,6 +2800,8 @@ export function AdminDashboardPage({
         </div>
       </section>
       )}
+
+      {activeSection === "calibration" && <CalibrationMonitoringPanel />}
 
       {activeSection === "schools" && (
       <section className="card page-stack admin-section admin-section-panel">
