@@ -214,7 +214,7 @@
     "check:database-bootstrap-schema": "node tools/checkDatabaseBootstrapSchema.mjs",
     "check:audit-school-seed": "node tools/seedAuditSchool.mjs --check",
     "check:audit-school-live": "node tools/verifyAuditSchoolLive.mjs",
-    "check:db-policies": "node tools/verifyLeaderboardPrivacyLive.mjs",
+    "check:db-policies": "node tools/verifyDatabasePolicyContract.mjs && node --test tests/unit/databasePolicyContract.test.js && node tools/verifyDatabasePoliciesLive.mjs",
     "seed:audit-school": "node tools/seedAuditSchool.mjs --apply",
     "check:release": "node tools/releaseGate.mjs",
     "check:release-environment": "node tools/releaseGate.mjs --preflight",

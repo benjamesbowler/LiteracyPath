@@ -9,6 +9,8 @@ const EXPECTED = Object.freeze({
   classId: "30000000-0000-4000-8000-000000000001",
   studentId: "40000000-0000-4000-8000-000000000001",
   studentPassword: "111",
+  classCode: "QA7M2K",
+  deviceId: "audit-leaderboard-device-v1",
   classRows: 12,
   schoolRows: 25,
   realNames: [
@@ -78,7 +80,9 @@ export async function verifyLeaderboardPrivacyLive({ apiUrl, anonKey, password }
   const login = requireResult(
     await studentClient.rpc("student_login", {
       p_student_id: EXPECTED.studentId,
-      p_sequence: EXPECTED.studentPassword
+      p_sequence: EXPECTED.studentPassword,
+      p_device_id: EXPECTED.deviceId,
+      p_code: EXPECTED.classCode
     }),
     "audit learner login"
   );

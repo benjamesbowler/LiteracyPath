@@ -3659,32 +3659,6 @@ export default function App() {
     setAuthMessage("");
     freshAuthActionRef.current = true;
 
-    const { data: schoolRows, error: schoolError } = await supabase.rpc("find_or_create_school", { p_name: schoolName });
-    const schoolId = schoolRows?.[0]?.id || null;
-    if (schoolError || !schoolId) {
-      setAuthLoading(false);
-      freshAuthActionRef.current = false;
-      setAuthMessage("Could not save that school yet. Try again.");
-      return;
-    }
-
-    const { data: existingUsername, error: usernameLookupError } = await supabase
-      .from("pending_teacher_accounts")
-      .select("id, username")
-      .eq("username", username)
-      .maybeSingle();
-
-    if (usernameLookupError) {
-      console.warn("Could not check pending teacher username before signup.", usernameLookupError);
-    }
-
-    if (existingUsername?.id) {
-      setAuthLoading(false);
-      freshAuthActionRef.current = false;
-      setAuthMessage("That username is already taken. Choose another username.");
-      return;
-    }
-
     const { data, error } = await supabase.auth.signUp({
       email,
       password: authPassword,
@@ -3693,7 +3667,7 @@ export default function App() {
           account_status: "pending",
           username,
           display_name: displayName,
-          school_id: schoolId
+          school_name: schoolName
         }
       }
     });
@@ -3703,7 +3677,9 @@ export default function App() {
     if (error) {
       freshAuthActionRef.current = false;
       setAuthMessage(
-        isDuplicateAuthSignupError(error)
+        /username_unavailable/i.test(error?.message || "")
+          ? "That username is already taken. Choose another username."
+          : isDuplicateAuthSignupError(error)
           ? "This email already has an account request or account. Please wait for approval or contact an administrator."
           : error.message
       );
@@ -3720,8 +3696,7 @@ export default function App() {
     if (newUserId) {
       const pendingRecord = buildPendingAccountRecord(newUserId, email, {
         username,
-        display_name: displayName || username,
-        school_id: schoolId
+        display_name: displayName || username
       });
       const { data: pendingAccount, error: notificationError } = await supabase
         .from("pending_teacher_accounts")
