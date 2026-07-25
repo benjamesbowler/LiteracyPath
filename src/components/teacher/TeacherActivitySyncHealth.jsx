@@ -5,6 +5,7 @@ import {
   buildClassActivitySyncHealth,
   loadClassActivitySyncHealth
 } from "../../utils/activitySyncHealth.js";
+import { TEACHER_COPY, countPhrase, progressPhrase } from "../../copy/teacherCopy.js";
 
 export function TeacherActivitySyncHealth({
   supabase,
@@ -56,68 +57,63 @@ export function TeacherActivitySyncHealth({
   return (
     <section
       className={`teacher-sync-health is-${health.status}`}
-      aria-label="Learning event sync health"
+      aria-label={TEACHER_COPY.sync.ariaLabel}
       data-sync-health-status={health.status}
       data-sync-health-policy={health.policyId}
       data-sync-health-version={health.policyVersion}
     >
       <header>
         <div>
-          <p className="panel-label">Evidence delivery</p>
-          <h3>Learning event sync health</h3>
+          <p className="panel-label">{TEACHER_COPY.sync.label}</p>
+          <h3>{TEACHER_COPY.sync.title}</h3>
           <p>
-            {className || "Selected class"} · cumulative delivery from devices seen in the last
-            {" "}{ACTIVITY_SYNC_HEALTH_POLICY.activeSnapshotDays} days
+            {className || "Selected class"} · {TEACHER_COPY.sync.range(ACTIVITY_SYNC_HEALTH_POLICY.activeSnapshotDays)}
           </p>
         </div>
         <strong role={health.status === "alert" ? "alert" : "status"}>
           {state === "loading"
-            ? "Checking sync"
+            ? TEACHER_COPY.sync.checking
             : state === "error"
-              ? "Sync health unavailable"
+              ? TEACHER_COPY.sync.unavailable
               : health.statusLabel}
         </strong>
       </header>
 
       {state === "error" ? (
-        <p>
-          Health telemetry could not be loaded. Learner evidence is unchanged; retry when the
-          connection returns.
-        </p>
+        <p>{TEACHER_COPY.sync.error}</p>
       ) : (
         <>
           <dl>
             <div>
-              <dt>Delivered</dt>
-              <dd>{health.delivered} of {health.attempted}</dd>
+              <dt>{TEACHER_COPY.sync.delivered}</dt>
+              <dd>{progressPhrase(health.delivered, health.attempted)}</dd>
             </div>
             <div>
-              <dt>Waiting to retry</dt>
+              <dt>{TEACHER_COPY.sync.pending}</dt>
               <dd>{health.pending}</dd>
             </div>
             <div>
-              <dt>Recovered after retry</dt>
+              <dt>{TEACHER_COPY.sync.recovered}</dt>
               <dd>{health.recovered}</dd>
             </div>
             <div>
-              <dt>Potentially lost</dt>
-              <dd>{health.lost} · {health.lossRatePercent}%</dd>
+              <dt>{TEACHER_COPY.sync.possibleLoss}</dt>
+              <dd>{health.lost}</dd>
             </div>
           </dl>
           <p className="teacher-sync-health-explanation">
             {health.status === "alert"
-              ? `Potential loss exceeds the ${ACTIVITY_SYNC_HEALTH_POLICY.lossRateAlertThreshold * 100}% alert threshold. Check shared-device storage and connectivity.`
+              ? TEACHER_COPY.sync.alert
               : health.status === "delayed"
-                ? `Queued events are still durable, but the oldest has waited ${Math.floor(health.pendingAgeHours)} hours.`
+                ? TEACHER_COPY.sync.delayed(Math.floor(health.pendingAgeHours))
                 : health.status === "healthy"
-                  ? "Queued failures retry automatically; pending events are not counted as lost."
-                  : "No recent device telemetry is available yet. This is not evidence of zero activity."}
+                  ? TEACHER_COPY.sync.healthy
+                  : TEACHER_COPY.sync.noRecentData}
           </p>
           {health.storageFailures > 0 && (
             <p className="teacher-sync-health-storage" role="alert">
-              {health.storageFailures} local storage failure
-              {health.storageFailures === 1 ? "" : "s"} recorded. These events are treated as
-              potentially lost until delivery is confirmed.
+              {countPhrase(health.storageFailures, "result may", "results may")} not be saved yet.
+              Check the shared device and its internet connection.
             </p>
           )}
         </>

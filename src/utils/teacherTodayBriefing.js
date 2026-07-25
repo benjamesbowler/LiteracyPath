@@ -42,13 +42,13 @@ export function buildTeacherTodayBriefing(
       accuracy: Number(row.accuracy),
       answered: Number(row.answered),
       focus: row.currentSkill || "Current focus",
-      evidence: `${plural(Number(row.answered), "response")} · ${Number(row.accuracy)}% accuracy`,
-      policyBasis: `Review policy met: below ${policy.attentionAccuracyBelow}% after at least ${policy.minimumResponsesForAttention} responses.`,
+      evidence: `${plural(Number(row.answered), "answer")} · ${Number(row.accuracy)}% accuracy`,
+      policyBasis: `Shown after ${policy.minimumResponsesForAttention} answers below ${policy.attentionAccuracyBelow}%.`,
       explanation: {
-        evidence: `${plural(Number(row.answered), "scored response")} at ${Number(row.accuracy)}% accuracy on the current evidence.`,
-        dependency: `${row.currentSkill || "The current focus"} is the recorded focus to review before advancing dependent practice.`,
-        confidence: `Threshold met: at least ${policy.minimumResponsesForAttention} responses and accuracy below ${policy.attentionAccuracyBelow}%.`,
-        unlock: "Reviewing the learner evidence can confirm a focused support plan and define the next check."
+        evidence: `${plural(Number(row.answered), "scored answer")} at ${Number(row.accuracy)}% accuracy.`,
+        dependency: `Review ${row.currentSkill || "the current focus"} before moving to the next skill.`,
+        confidence: `Based on at least ${policy.minimumResponsesForAttention} answers below ${policy.attentionAccuracyBelow}%.`,
+        unlock: "A quick review helps you choose focused practice and the next check."
       }
     }));
 
@@ -65,13 +65,13 @@ export function buildTeacherTodayBriefing(
         return {
           id: row.id,
           name: row.name,
-          title: "First checkpoint due",
-          evidence: "No scored responses yet.",
+          title: "First check due",
+          evidence: "No scored answers yet.",
           explanation: {
-            evidence: "No scored responses have been recorded for this learner.",
-            dependency: "A first checkpoint is required before an attainment conclusion or targeted next skill can be chosen.",
-            confidence: "High confidence in the evidence gap; no attainment level is inferred.",
-            unlock: "The first scored checkpoint establishes a baseline for later teaching and progress decisions."
+            evidence: "No scored answers have been saved for this child.",
+            dependency: "A first check helps you choose the right starting skill.",
+            confidence: "No learning level is guessed before the first result.",
+            unlock: "The first saved check gives you a starting point for later progress."
           }
         };
       }
@@ -82,12 +82,12 @@ export function buildTeacherTodayBriefing(
           id: row.id,
           name: row.name,
           title: "Progress review due",
-          evidence: `No recorded activity for ${plural(quietDays, "day")}.`,
+          evidence: `No saved activity for ${plural(quietDays, "day")}.`,
           explanation: {
-            evidence: `The latest recorded activity is ${plural(quietDays, "day")} old.`,
-            dependency: `A current review is required after the ${policy.inactivityDueDays}-day inactivity window.`,
-            confidence: "High confidence in the activity date; no learning regression is inferred.",
-            unlock: "A review restores current context and identifies whether practice, assessment, or no change is appropriate."
+            evidence: `The latest saved activity is ${plural(quietDays, "day")} old.`,
+            dependency: `Review after ${policy.inactivityDueDays} days without activity.`,
+            confidence: "This uses the activity date only and does not guess that learning has gone backwards.",
+            unlock: "A review shows whether practice, a check, or no change is right."
           }
         };
       }
@@ -111,10 +111,10 @@ export function buildTeacherTodayBriefing(
         id: row.id,
         name: row.name,
         summary: [
-          plural(recentAnswers, "new response"),
-          plural(recentMastered, "newly secured skill")
+          plural(recentAnswers, "new answer"),
+          plural(recentMastered, "new mastered skill")
         ].join(" · "),
-        comparison: `Prior ${policy.changeWindowDays} days: ${plural(previousAnswers, "response")} and ${plural(previousMastered, "secured skill")}.`
+        comparison: `Previous ${policy.changeWindowDays} days: ${plural(previousAnswers, "answer")} and ${plural(previousMastered, "mastered skill")}.`
       };
     });
 

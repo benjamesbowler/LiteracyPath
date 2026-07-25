@@ -5,7 +5,7 @@ import {
   TEACHER_TODAY_POLICY
 } from "../../src/utils/teacherTodayBriefing.js";
 
-test("Today attention requires enough evidence and states the policy basis", () => {
+test("Today attention requires enough results and states the rule in plain language", () => {
   const briefing = buildTeacherTodayBriefing([
     { id: "sparse", name: "Sparse", answered: 1, accuracy: 0 },
     { id: "ready", name: "Ready", answered: 20, accuracy: 35, currentSkill: "CVC" },
@@ -13,8 +13,8 @@ test("Today attention requires enough evidence and states the policy basis", () 
   ]);
 
   assert.deepEqual(briefing.attention.map(row => row.id), ["ready"]);
-  assert.match(briefing.attention[0].evidence, /20 responses · 35% accuracy/);
-  assert.match(briefing.attention[0].policyBasis, /at least 8 responses/);
+  assert.match(briefing.attention[0].evidence, /20 answers · 35% accuracy/);
+  assert.match(briefing.attention[0].policyBasis, /after 8 answers/);
   assert.deepEqual(
     Object.keys(briefing.attention[0].explanation),
     ["evidence", "dependency", "confidence", "unlock"]
@@ -22,7 +22,7 @@ test("Today attention requires enough evidence and states the policy basis", () 
   assert.equal(briefing.insufficientEvidenceCount, 1);
 });
 
-test("Today due separates unstarted learners from inactive learners", () => {
+test("Today due separates unstarted children from inactive children", () => {
   const now = new Date("2026-07-23T12:00:00.000Z");
   const briefing = buildTeacherTodayBriefing([
     { id: "new", name: "New", answered: 0 },
@@ -31,7 +31,7 @@ test("Today due separates unstarted learners from inactive learners", () => {
   ], { now });
 
   assert.deepEqual(briefing.due.map(row => row.id), ["new", "quiet"]);
-  assert.equal(briefing.due[0].title, "First checkpoint due");
+  assert.equal(briefing.due[0].title, "First check due");
   assert.match(briefing.due[1].evidence, /10 days/);
   briefing.due.forEach(row => {
     assert.deepEqual(
@@ -41,7 +41,7 @@ test("Today due separates unstarted learners from inactive learners", () => {
   });
 });
 
-test("Today changes show current-window evidence beside the prior window", () => {
+test("Today changes show current-window results beside the previous window", () => {
   const briefing = buildTeacherTodayBriefing([
     {
       id: "moving",
@@ -55,9 +55,9 @@ test("Today changes show current-window evidence beside the prior window", () =>
   ]);
 
   assert.deepEqual(briefing.changed.map(row => row.id), ["moving"]);
-  assert.equal(briefing.changed[0].summary, "9 new responses · 2 newly secured skills");
+  assert.equal(briefing.changed[0].summary, "9 new answers · 2 new mastered skills");
   assert.equal(
     briefing.changed[0].comparison,
-    `Prior ${TEACHER_TODAY_POLICY.changeWindowDays} days: 4 responses and 1 secured skill.`
+    `Previous ${TEACHER_TODAY_POLICY.changeWindowDays} days: 4 answers and 1 mastered skill.`
   );
 });

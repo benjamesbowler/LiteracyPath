@@ -25,9 +25,9 @@ test("child login keeps the code-gated roster but requires teacher-set pictures"
   assert.doesNotMatch(loginFlow, /student_set_password/);
   assert.doesNotMatch(loginFlow, /step === "setup"|setStep\("setup"\)/);
 
-  assert.match(dashboard, /Class display name/);
-  assert.match(dashboard, /English name or classroom nickname/);
-  assert.match(dashboard, /Do not enter a surname or other personal details/);
+  assert.match(dashboard, /TEACHER_COPY\.roster\.displayName/);
+  assert.match(dashboard, /TEACHER_COPY\.roster\.displayNamePlaceholder/);
+  assert.match(dashboard, /TEACHER_COPY\.roster\.privacy/);
   assert.match(dashboard, /loginReady \? "Change" : "Set pictures"/);
 
   assert.match(
