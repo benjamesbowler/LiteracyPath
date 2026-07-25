@@ -92,3 +92,33 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** `npm run check:bundle-size` at exact commit `914cd9581e4c97d601fe8a86f958087637171ca7` reports 10 violations. `mediaQaReviewStatus` is 1,209,921 raw bytes against 599,601; the main `index` is 1,206,441/250,910 raw/gzip against 1,148,786/240,874; `childAssets`, `secondBlockSkillTopUpQuestions.generated`, and `QuestHub` also exceed one or both frozen ratchets. The intentionally over-complete A4.7 evidence run therefore passed 7/8 and was rejected as release evidence; the relevant 7/7 A4.7 run remains exact and green.
 **Fix:** inspect the bundle graph and remove the static reachability that pulls media-QA data and route/data modules into oversized shared or entry chunks; split by live route/skill, eliminate duplicate/static import paths, and meet the existing dated ratchets. Do not raise, waive, or rebaseline the limits to obtain green.
 **Gate:** `npm run check:bundle-size` passes every current raw and gzip ratchet, the main entry resumes its dated downward schedule toward 500 kB raw/150 kB gzip, the build reports zero ineffective dynamic imports where this work changes split points, and the full `npm run check:release` manifest is green.
+
+## D-018 · P1 · Area 3/10 — A new child explanation made the map stop-reason unreadable
+**Evidence:** the full release accessibility sweep found white text on a white tooltip for `.sbq-stop-reason` at both desktop and mobile breakpoints. The base map theme uses a dark tooltip, while the student comic theme changes that surface to white without changing the inherited reason colour.
+**Fix:** give the stop-reason an explicit theme-safe ink colour and retain the explanation on the reachable Adventure Map rather than hiding it.
+**Gate:** the permanent Adventure Map cases in `check:a11y-routes` pass desktop and mobile contrast analysis, with the explanation still visible in the DOM.
+
+## D-019 · P0 · Area 1/4/10 — Reviewed release audio was rejected by the runtime registry
+**Evidence:** `check:assessment-runtime-variation` reported 35 priority-skill failures because final-sound, short-vowel, and high-frequency-word recordings explicitly approved in the release wiring were absent from `assessmentMediaRegistry`. The picker therefore described reviewed release audio as blocked even though the runtime manifests selected it.
+**Fix:** build registry records from the reviewed assessment and HFW release-wiring manifests as well as the generic preference map. Preserve QA/deprecated exclusions and do not globally approve the separate unreviewed K3 vocabulary inventory.
+**Gate:** picker unit tests prove representative final-sound, short-vowel, and HFW release recordings are approved; `check:assessment-runtime-variation -- --check` reports zero failures for all priority skills; `check:assessment-media-evidence` remains green.
+
+## D-020 · P0 · Area 8/10 — The dependency audit has regressed to nine high advisories
+**Evidence:** the canonical full release run at exact commit `0b2262f8ce7ee7e07e8b536ba930c6a11a3877a7` failed `dependency-audit` with nine high-severity findings in the ExcelJS → archiver/glob/minimatch chain. The prior A8.5 zero-advisory evidence no longer describes the installed tree.
+**Fix:** update or replace the affected export dependency path using maintained, attributable packages; keep workbook semantics, CSP-safe lazy loading, large-export memory ceilings, and the current bundle ratchets. Do not waive high/critical advisories or substitute an untrusted ExcelJS fork.
+**Gate:** the canonical online dependency audit reports zero high/critical advisories and all export compatibility, CSP, 500-item memory, build, and bundle gates pass against the same committed tree.
+
+## D-021 · P1 · Area 2/3/10 — Protected student visuals no longer represented the reviewed explanation work
+**Evidence:** after A4.4 added child-readable “Why this one?” explanations, 18 protected comparisons failed across emphasis, key-route, and device-matrix suites. Review found the Phonics and Arcade shifts intentional, but also exposed a real Guided Reading defect: its explanation touched the clipped card edge at desktop and phone widths.
+**Fix:** give the Guided Reading explanation contained padding and sizing, review every affected desktop/phone/device image individually, then refresh only the resulting accepted baselines.
+**Gate:** `check:student-emphasis-budget`, `check:key-route-visuals`, and `check:device-matrix` all pass from a clean run; their DOM, overflow, tap-target, keyboard, and fullscreen assertions remain unchanged.
+
+## D-022 · P0 · Area 8/9/10 — Three release-required gates are declared but not implemented
+**Evidence:** the full release manifest reports `e2e-teacher`, `csp`, and `sync-chaos` as not implemented. The plan requires all three inside the single release truth, so an otherwise green manifest could not prove authenticated teacher journeys, enforced browser policy, or durable multi-device/offline reconciliation.
+**Fix:** implement the named scripts as real reachable-product suites, add them to `package.json` and the canonical release runner, and make CI execute them with the audit school and test database.
+**Gate:** `check:e2e-teacher`, `check:csp`, and `check:sync-chaos` each pass independently and as implemented entries in `check:release`.
+
+## D-023 · P0 · Area 10 — A workstation restart strands authenticated release verification
+**Evidence:** after the power cut, no `LP_AUDIT_*` variables or teacher password were available in the shell or project environment. Roughly thirty teacher, live-database, export, accessibility, and device gates consequently failed before reaching the product, despite the same journeys having prior evidence.
+**Fix:** provide a documented, non-plaintext credential-hydration/preflight path for local release work and CI. The release runner must fail once, before the gate fan-out, with an exact remediation message when required audit credentials are unavailable; secrets must never enter tracked files or logs.
+**Gate:** a credential-preflight test rejects missing/partial configuration without starting dependent gates, and a hydrated run executes every authenticated gate against the audit school.

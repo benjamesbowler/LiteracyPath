@@ -1374,6 +1374,9 @@
 
 .student-guided-reading-page .guided-shelf-card-reason {
   display: block;
+  width: 100%;
+  padding: 0 10px 9px;
+  box-sizing: border-box;
   color: #4c3b2f;
   font-size: 0.75rem;
   font-weight: 800;
@@ -1630,6 +1633,7 @@
   color: var(--comic-ink);
 }
 .student-mode-app .skills-block-quest .sbq-stop-skill { color: var(--comic-blue); }
+.student-mode-app .skills-block-quest .sbq-stop-reason { color: var(--comic-ink); }
 
 /* Book quiz: pre-readers can hear each word choice read aloud */
 .book-quiz-choice-row { display: flex; align-items: stretch; gap: 6px; }

@@ -81,6 +81,28 @@ test("approved Kimi vocabulary and Final Sounds override images are indexed", ()
   assert.equal(packedImage?.normalizedWord, "bee");
 });
 
+test("explicit assessment release audio wiring is indexed as runtime approved", () => {
+  const finalSoundAudio = getAssessmentMediaByPath(
+    "/guided-reading/audio/words/bang.mp3",
+    "audio"
+  );
+  const shortVowelAudio = getAssessmentMediaByPath(
+    "/media/vocabulary/audio/melt.mp3",
+    "audio"
+  );
+  const hfwAudio = getAssessmentMediaByPath(
+    "/media/vocabulary/audio/oil.mp3",
+    "audio"
+  );
+
+  assert.equal(finalSoundAudio?.available, true);
+  assert.equal(finalSoundAudio?.normalizedWord, "bang");
+  assert.equal(shortVowelAudio?.available, true);
+  assert.equal(shortVowelAudio?.normalizedWord, "melt");
+  assert.equal(hfwAudio?.available, true);
+  assert.equal(hfwAudio?.normalizedWord, "oil");
+});
+
 test("question banks exclude targets whose assessment images are blocked", () => {
   assert.equal(
     grammarAssessmentQuestions.some(question => question.targetWord === "white"),

@@ -28,6 +28,10 @@ import {
   HFW_WORDS_76_100
 } from "./highFrequencyWordBands.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
+import {
+  assessmentHfwAudioWiring,
+  assessmentMediaWiring
+} from "../content/assessments/assessmentMediaReleaseManifest.js";
 
 const HFW_BANDS = {
   hfw_1_25: HFW_WORDS_1_25,
@@ -167,11 +171,22 @@ function parseVariantNumber(path = "") {
   return Number(match?.[1] || match?.[2] || 0) || 0;
 }
 
-function makeAvailability({ path, mediaType, word, sourceManifest }) {
+function makeAvailability({
+  path,
+  mediaType,
+  word,
+  sourceManifest,
+  releaseApproved = false
+}) {
   const qaAllowed = isMediaQaRuntimeAllowed(path, mediaType);
   const approvedAudio = mediaType === "audio" ? getApprovedAudioPath(word, path) : path;
   const deprecated = mediaType === "audio" ? isDeprecatedAudioPath(path) : false;
-  const available = Boolean(path && qaAllowed && !deprecated && (mediaType !== "audio" || approvedAudio === path));
+  const available = Boolean(
+    path &&
+    qaAllowed &&
+    !deprecated &&
+    (mediaType !== "audio" || releaseApproved || approvedAudio === path)
+  );
   return {
     qaStatus: available ? "approved" : qaAllowed ? "review_needed" : "blocked",
     blocked: !qaAllowed,
@@ -196,10 +211,17 @@ function createRecord({
   visualVariantGroup = "",
   variantNumber = 0,
   sourceManifest = "unknown",
+  releaseApproved = false,
   notes = ""
 }) {
   const normalizedWord = normalizeAssessmentMediaWord(targetWord);
-  const availability = makeAvailability({ path, mediaType, word: normalizedWord, sourceManifest });
+  const availability = makeAvailability({
+    path,
+    mediaType,
+    word: normalizedWord,
+    sourceManifest,
+    releaseApproved
+  });
   return {
     id: `${mediaType}:${path}`,
     mediaType,
@@ -302,6 +324,35 @@ function recordsFromK3VocabularyMedia() {
       }) : null
     ].filter(Boolean);
   });
+}
+
+function recordsFromAssessmentReleaseWiring() {
+  const questionWiringRecords = assessmentMediaWiring.map(entry => createRecord({
+    mediaType: entry.mediaType,
+    path: entry.filePath,
+    targetWord: entry.target,
+    audioType: entry.mediaType === "audio"
+      ? inferAudioType(entry.filePath, entry.target)
+      : "",
+    imageRole: entry.mediaType === "image" ? "target_object" : "",
+    visualVariantGroup: `assessment-release:${normalizeToken(entry.target)}`,
+    sourceManifest: "assessmentMediaReleaseManifest",
+    releaseApproved: true,
+    notes: `${entry.reviewStatus}. ${entry.pronunciationVariant}.`
+  }));
+  const hfwAudioRecords = Object.entries(assessmentHfwAudioWiring).map(
+    ([targetWord, filePath]) => createRecord({
+      mediaType: "audio",
+      path: filePath,
+      targetWord,
+      audioType: "whole_word",
+      visualVariantGroup: `assessment-hfw-release:${normalizeToken(targetWord)}`,
+      sourceManifest: "assessmentHfwAudioWiring",
+      releaseApproved: true,
+      notes: "Explicit HFW assessment release wiring."
+    })
+  );
+  return [...questionWiringRecords, ...hfwAudioRecords];
 }
 
 function recordsFromKimiAssetPacks() {
@@ -633,6 +684,7 @@ export function getAssessmentMediaRegistry() {
       ...recordsFromChildAssets(),
       ...recordsFromKimiAssetPacks(),
       ...recordsFromK3VocabularyMedia(),
+      ...recordsFromAssessmentReleaseWiring(),
       ...recordsFromImportedVocabulary(),
       ...recordsFromKimiVocabularyLexicon(),
       ...recordsFromFinalSoundOverrides(),

@@ -40,7 +40,10 @@ for (const [name, source] of [["App.jsx", app], ["AdminDashboardPage.jsx", admin
 if (!app.includes("<TeacherDashboardPage") || !app.includes("<AdminDashboardPage")) {
   failures.push("App.jsx must retain explicit teacher and admin component routes.");
 }
-if (!teacher.includes('data-teacher-product="class-dashboard"')) {
+if (
+  !teacher.includes('data-teacher-product="class-dashboard"') &&
+  !/TeacherPageShell[\s\S]*?product="class-dashboard"/.test(teacher)
+) {
   failures.push("TeacherDashboardPage is missing the canonical teacher product marker.");
 }
 if (!routeTest.includes('[data-teacher-product="class-dashboard"]')) {
