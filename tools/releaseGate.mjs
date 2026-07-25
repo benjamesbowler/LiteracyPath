@@ -526,6 +526,13 @@ export const RELEASE_GATES = Object.freeze([
     planned: true
   },
   {
+    id: "legal-pack",
+    label: "Complete counsel-ready legal, privacy, consent, region, security, and accessibility pack",
+    command: ["npm", "run", "check:legal-pack"],
+    areas: [8, 10],
+    planned: true
+  },
+  {
     id: "e2e-teacher",
     label: "Authenticated teacher end-to-end",
     command: ["npm", "run", "check:e2e-teacher"],

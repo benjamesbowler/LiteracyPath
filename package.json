@@ -181,6 +181,7 @@
     "check:recovery-runbook": "node tools/verifyRecoveryRunbook.mjs && node --test tests/unit/recoveryDrill.test.js",
     "check:recovery-drill": "node tools/verifyRecoveryRunbook.mjs && node tools/recoveryDrill.mjs --execute",
     "check:split-boundaries": "node tools/checkSplitBoundaries.mjs",
+    "check:legal-pack": "node tools/checkLegalPack.mjs && node --test tests/unit/legalPack.test.js",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",
     "check:teacher-login-cards": "npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",
     "check:teacher-student-preview": "npm run test:release-teacher -- --grep @teacher-student-preview",
