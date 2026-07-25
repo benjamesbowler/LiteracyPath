@@ -49,6 +49,7 @@ import {
   updateHfwQuestionImageReviewOverride
 } from "../data/hfwQuestionImageReview.js";
 import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
+import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { resetRetiredMediaQaReviewStorage } from "../data/questionFlagStore.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
@@ -2131,6 +2132,13 @@ export function AdminDashboardPage({
               <strong>Open</strong>
             </button>
           </div>
+          {selectedClassId && (
+            <TeacherActivitySyncHealth
+              supabase={supabase}
+              classId={selectedClassId}
+              className={selectedClassRow.name || "Selected class"}
+            />
+          )}
         </section>
       )}
 

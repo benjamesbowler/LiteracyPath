@@ -18527,6 +18527,143 @@ select:focus {
   line-height: 1.4;
 }
 
+.teacher-sync-health {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  overflow: hidden;
+  padding: 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-sync-health::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--lp-color-success);
+  content: "";
+}
+
+.teacher-sync-health.is-alert::before {
+  background: var(--lp-color-danger);
+}
+
+.teacher-sync-health.is-delayed::before {
+  background: var(--lp-color-warning);
+}
+
+.teacher-sync-health.is-no-data::before {
+  background: var(--lp-color-border-strong);
+}
+
+.teacher-sync-health > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.teacher-sync-health h3,
+.teacher-sync-health p {
+  margin: 0;
+}
+
+.teacher-sync-health > header > strong {
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+}
+
+.teacher-sync-health.is-alert > header > strong {
+  color: var(--lp-color-danger);
+}
+
+.teacher-sync-health dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.teacher-sync-health dl > div {
+  padding: 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-sync-health dt {
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.teacher-sync-health dd {
+  margin: 4px 0 0;
+  color: var(--lp-color-text-strong);
+  font-size: 17px;
+  font-weight: 850;
+}
+
+.teacher-sync-health-explanation,
+.teacher-sync-health-storage {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.teacher-sync-health-storage {
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+  font-weight: 750;
+}
+
+.engagement-sync-preview {
+  display: grid;
+  gap: 18px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.engagement-sync-preview > h1 {
+  margin: 0;
+}
+
+.engagement-sync-preview [data-child-sync-state] {
+  padding: 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--teacher-ui-card-radius);
+  background: var(--lp-color-surface);
+}
+
+.engagement-sync-preview [data-child-sync-state] h2 {
+  margin: 0 0 12px;
+}
+
+.engagement-sync-preview [data-child-sync-state] dl {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.engagement-sync-preview [data-child-sync-state] dl > div {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.engagement-sync-preview [data-child-sync-state] dd {
+  margin: 4px 0 0;
+  font-size: 18px;
+  font-weight: 850;
+}
+
 @media (max-width: 760px) {
   .teacher-action-card {
     align-items: stretch;
@@ -18535,6 +18672,18 @@ select:focus {
 
   .teacher-recommendation-explanation dl {
     grid-template-columns: 1fr;
+  }
+
+  .teacher-sync-health > header {
+    flex-direction: column;
+  }
+
+  .teacher-sync-health dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .engagement-sync-preview [data-child-sync-state] dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

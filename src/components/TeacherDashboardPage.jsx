@@ -21,6 +21,7 @@ import {
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
+import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
 import {
@@ -1745,6 +1746,14 @@ export function TeacherDashboardPage({
           rows={studentRows}
           recommendation={interventionRecommendation}
           onRecommendationConsumed={() => setInterventionRecommendation(null)}
+        />
+      )}
+
+      {selectedClass && (
+        <TeacherActivitySyncHealth
+          supabase={supabase}
+          classId={selectedClass.id}
+          className={selectedClass.name}
         />
       )}
 

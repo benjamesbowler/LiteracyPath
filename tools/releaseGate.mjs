@@ -167,6 +167,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [2, 4, 5, 6, 7, 10]
   },
   {
+    id: "engagement-sync",
+    label: "Durable engagement queue, bounded retry, class sync health, and offline recovery",
+    command: ["npm", "run", "check:engagement-sync"],
+    areas: [4, 5, 6, 8, 9, 10]
+  },
+  {
     id: "key-route-visuals",
     label: "Desktop and phone visual baselines plus delayed child-route placeholders",
     command: ["npm", "run", "check:key-route-visuals"],

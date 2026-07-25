@@ -41,6 +41,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "learning-policy",
     "class-summary-accuracy",
     "recommendation-explanations",
+    "engagement-sync",
     "key-route-visuals",
     "a11y-routes",
     "learner-accessibility-settings",
