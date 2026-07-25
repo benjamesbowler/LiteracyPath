@@ -195,6 +195,28 @@ test("sync-chaos release gate combines real queue/merge units with a two-device 
   assert.match(syncJourney, /cloud\.conflicts/);
 });
 
+test("teacher E2E gate joins the authenticated golden path, full assessment, state matrix, and ownership denial", () => {
+  const packageJson = JSON.parse(readFileSync(
+    new URL("../../package.json", import.meta.url),
+    "utf8"
+  ));
+  const teacherJourney = readFileSync(
+    new URL("../release/teacher-e2e.spec.js", import.meta.url),
+    "utf8"
+  );
+  const script = packageJson.scripts["check:e2e-teacher"];
+
+  assert.match(script, /teacherSurfaceStateMatrix\.test\.js/);
+  assert.match(script, /teacher-e2e\.spec\.js/);
+  assert.match(script, /el-assessment-route-and-final-review\.spec\.js/);
+  assert.match(script, /--workers=1/);
+  assert.match(teacherJourney, /audit-teacher-a/);
+  assert.match(teacherJourney, /audit-teacher-b/);
+  assert.match(teacherJourney, /Assessment attempt/);
+  assert.match(teacherJourney, /Question evidence/);
+  assert.match(teacherJourney, /cannot discover or deep-link/);
+});
+
 test("gate counts parse TAP, browser, warnings, and strict-audit metrics", () => {
   const generic = {
     outputFormat: null

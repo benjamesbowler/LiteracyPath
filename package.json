@@ -212,6 +212,7 @@
     "check:release-environment": "node tools/releaseGate.mjs --preflight",
     "check:csp": "npm run build && node tools/checkCsp.mjs",
     "check:sync-chaos": "node --test tests/unit/progressQueue.test.js tests/unit/progressMerge.test.js && playwright test tests/release/sync-chaos.spec.js --project=desktop",
+    "check:e2e-teacher": "node --test tests/unit/teacherSurfaceStateMatrix.test.js && playwright test tests/release/teacher-e2e.spec.js tests/release/el-assessment-route-and-final-review.spec.js --project=desktop --workers=1",
     "release:scorecard": "node tools/releaseScorecard.mjs",
     "check:question-bank-fix-guide": "node tools/checkQuestionBankFixGuideCompliance.js",
     "import:skill-word-bank": "node tools/importSkillWordBankWorkbook.js",
