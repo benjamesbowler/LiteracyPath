@@ -2621,8 +2621,9 @@ export function AdminDashboardPage({
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Content Coverage</h3>
         <p className="muted-text">
-          Authored is the deduplicated source bank, approved passes the canonical level, format, and media rules,
-          and runtime-selectable is the exact student pool after the release gate.
+          One canonical rubric decides each skill. Authored is the deduplicated source bank,
+          approved passes the strict content review, and student exposure today comes from the
+          exact release-gated bank the child loader can return.
         </p>
 
         <div className="admin-content-filters">
@@ -2674,30 +2675,51 @@ export function AdminDashboardPage({
             <thead>
               <tr>
                 <th>Skill</th>
+                <th>Status</th>
+                <th>Owner</th>
                 <th>Authored</th>
                 <th>Approved</th>
-                <th>Runtime-selectable</th>
-                <th>30+</th>
-                <th>Templates</th>
-                <th>Patterns</th>
+                <th>Student exposure today</th>
+                <th>Exact exposure set</th>
+                <th>Gate reason</th>
+                <th>Release exclusions / waivers</th>
                 <th>Media gaps</th>
                 <th>Audio approval blocks</th>
-                <th>Release</th>
               </tr>
             </thead>
             <tbody>
               {filteredCoverage.map(row => (
                 <tr key={row.skill}>
                   <td data-label="Skill"><strong>{row.skill}</strong></td>
+                  <td data-label="Status">{row.releaseReady ? "READY" : "BLOCKED"}</td>
+                  <td data-label="Owner">{row.releaseOwner}</td>
                   <td data-label="Authored">{row.authored ?? row.total}</td>
                   <td data-label="Approved">{row.approved ?? row.active}</td>
-                  <td data-label="Runtime-selectable">{row.runtimeSelectable ?? row.active}</td>
-                  <td data-label="30+">{(row.runtimeSelectable ?? row.active) >= 30 ? "OK" : "Below 30"}</td>
-                  <td data-label="Templates">{Object.entries(row.templates).map(([key, count]) => `${key}: ${count}`).join(", ")}</td>
-                  <td data-label="Patterns">{Object.entries(row.patterns).slice(0, 8).map(([key, count]) => `${key}: ${count}`).join(", ") || "Not tagged"}</td>
+                  <td data-label="Student exposure today">
+                    {row.runtimeSelectable || 0} questions
+                    {row.runtimeSelectable
+                      ? ` (L1 ${row.exposureLevel1}; L2 ${row.exposureLevel2})`
+                      : " — blocked from children"}
+                  </td>
+                  <td data-label="Exact exposure set">
+                    {row.exposureFingerprint
+                      ? `sha256:${row.exposureFingerprint.slice(0, 12)}`
+                      : "Fingerprint missing"}
+                  </td>
+                  <td data-label="Gate reason">
+                    {row.releaseReasons.length
+                      ? row.releaseReasons.join(" ")
+                      : "All canonical release dimensions pass."}
+                  </td>
+                  <td data-label="Release exclusions / waivers">
+                    {row.releaseWaiver?.excludedQuestionCount
+                      ? `${row.releaseWaiver.excludedQuestionCount} excluded; review ${
+                          row.releaseWaiver.reviewBy.join(", ") || "date missing"
+                        }`
+                      : "None"}
+                  </td>
                   <td data-label="Media gaps">{row.missingImage} image / {row.missingAudio} audio</td>
                   <td data-label="Audio approval blocks">{row.unapprovedAudio || 0}</td>
-                  <td data-label="Release">{row.releaseReady ? "Ready" : "Blocked"}</td>
                 </tr>
               ))}
             </tbody>

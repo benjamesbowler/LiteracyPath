@@ -1768,7 +1768,7 @@ test("@admin-content-qa shows authored, approved, and runtime-selectable counts 
 
   const coveragePanel = page.getByRole("heading", { name: "Content Coverage", exact: true }).locator("..");
   await expect(coveragePanel.getByText(
-    "Authored is the deduplicated source bank, approved passes the canonical level, format, and media rules, and runtime-selectable is the exact student pool after the release gate.",
+    "One canonical rubric decides each skill. Authored is the deduplicated source bank, approved passes the strict content review, and student exposure today comes from the exact release-gated bank the child loader can return.",
     { exact: true }
   )).toBeVisible();
   await expect(coveragePanel.locator("tbody tr")).toHaveCount(30);
@@ -1778,7 +1778,34 @@ test("@admin-content-qa shows authored, approved, and runtime-selectable counts 
   });
   await expect(initialSoundsRow.getByRole("cell", { name: "150", exact: true })).toBeVisible();
   await expect(initialSoundsRow.getByRole("cell", { name: "131", exact: true })).toBeVisible();
-  await expect(initialSoundsRow.getByRole("cell", { name: "92", exact: true })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", { name: "READY", exact: true })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", {
+    name: "Phonics curriculum + media QA",
+    exact: true
+  })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", {
+    name: "92 questions (L1 46; L2 46)",
+    exact: true
+  })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", {
+    name: "sha256:740f87634c00",
+    exact: true
+  })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", {
+    name: "All canonical release dimensions pass.",
+    exact: true
+  })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", { name: "None", exact: true })).toBeVisible();
+
+  const blockedHfwRow = page.getByRole("row").filter({
+    has: page.getByRole("cell", { name: "High-Frequency Words 1-25", exact: true })
+  });
+  await expect(blockedHfwRow.getByRole("cell", { name: "BLOCKED", exact: true })).toBeVisible();
+  await expect(blockedHfwRow.getByRole("cell", {
+    name: "0 questions — blocked from children",
+    exact: true
+  })).toBeVisible();
+  await expect(blockedHfwRow.getByRole("cell", { name: /Question-count floor is not met/ })).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
 

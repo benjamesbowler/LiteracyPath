@@ -1508,10 +1508,18 @@ export function buildQuestionBankCoverage(questions = [], releaseStatuses = []) 
       authored: Number(status.authoredQuestions || 0),
       approved: Number(status.approvedQuestions || 0),
       total: Number(status.authoredQuestions || 0),
-      runtimeSelectable: Number(status.runtimeSelectableQuestions || 0),
+      runtimeSelectable: Number(
+        status.studentExposure?.count ?? status.runtimeSelectableQuestions ?? 0
+      ),
       unapprovedAudio: Number(status.unapprovedAudioQuestions || 0),
       releaseReady: status.releaseReady === true,
-      releaseReasons: status.reasons || []
+      releaseReasons: status.reasons || [],
+      releaseOwner: status.owner || "Owner missing",
+      releaseWaiver: status.waiver || null,
+      exposureFingerprint: status.studentExposure?.fingerprint || "",
+      exposureLevel1: Number(status.studentExposure?.level1 || 0),
+      exposureLevel2: Number(status.studentExposure?.level2 || 0),
+      releaseDimensions: status.dimensions || {}
     });
   });
 

@@ -10,6 +10,10 @@ import {
   assessmentReleaseStatus,
   assessmentReleaseStatusVersion
 } from "../src/content/assessments/assessmentReleaseStatus.generated.js";
+import {
+  assessmentReleaseExposureBySkillId,
+  assessmentReleaseExposureVersion
+} from "../src/content/assessments/assessmentReleaseExposure.generated.js";
 import { managedAssessmentSkillDepthConfig } from "../src/data/skillLevelDepthConfig.js";
 import {
   getAssessmentSkillPublicationStatus,
@@ -17,7 +21,8 @@ import {
   loadAssessmentSkillBankCandidates
 } from "../src/data/loadAssessmentSkillBank.js";
 import {
-  buildAssessmentReleaseStatus,
+  buildRuntimeAlignedAssessmentReleaseStatus,
+  renderAssessmentReleaseExposure,
   renderAssessmentReleaseStatus
 } from "./assessmentReleaseStatus.mjs";
 import { auditStrictProductionReadiness } from "./auditAllSkillsStrictProductionReadiness.js";
@@ -29,6 +34,13 @@ const generatedPath = path.join(
   "content",
   "assessments",
   "assessmentReleaseStatus.generated.js"
+);
+const generatedExposurePath = path.join(
+  repoRoot,
+  "src",
+  "content",
+  "assessments",
+  "assessmentReleaseExposure.generated.js"
 );
 const failures = [];
 
@@ -46,6 +58,9 @@ if (assessmentReleaseStandard.version !== ASSESSMENT_RELEASE_STANDARD_VERSION) {
 if (assessmentReleaseStatusVersion !== ASSESSMENT_RELEASE_STANDARD_VERSION) {
   fail("Generated publication status uses a stale release-standard version.");
 }
+if (assessmentReleaseExposureVersion !== ASSESSMENT_RELEASE_STANDARD_VERSION) {
+  fail("Generated publication exposure uses a stale release-standard version.");
+}
 if (!sameValues(
   ASSESSMENT_RELEASE_MANAGED_SKILL_IDS,
   managedAssessmentSkillDepthConfig.map(skill => skill.skillId)
@@ -53,10 +68,14 @@ if (!sameValues(
   fail("Release-standard skills and strict-audit managed skills differ.");
 }
 
-const expectedStatuses = buildAssessmentReleaseStatus();
+const expectedStatuses = await buildRuntimeAlignedAssessmentReleaseStatus();
 const expectedGeneratedSource = renderAssessmentReleaseStatus(expectedStatuses);
 if (fs.readFileSync(generatedPath, "utf8") !== expectedGeneratedSource) {
   fail("Generated assessment publication status is stale; run npm run generate:assessment-release-status.");
+}
+const expectedExposureSource = renderAssessmentReleaseExposure(expectedStatuses);
+if (fs.readFileSync(generatedExposurePath, "utf8") !== expectedExposureSource) {
+  fail("Generated assessment publication exposure is stale; run npm run generate:assessment-release-status.");
 }
 
 const strictReport = auditStrictProductionReadiness();
@@ -87,8 +106,8 @@ for (const strictSkill of strictReport.perSkill) {
     fail(`${strictSkill.skillId}: missing generated publication decision.`);
     continue;
   }
-  if (generated.releaseReady !== strictSkill.releaseStandardDecision.releaseReady) {
-    fail(`${strictSkill.skillId}: generated and strict-audit release decisions disagree.`);
+  if (generated.releaseReady && !strictSkill.releaseStandardDecision.releaseReady) {
+    fail(`${strictSkill.skillId}: generated publication bypassed a failing strict decision.`);
   }
   if (publication.releaseReady !== generated.releaseReady) {
     fail(`${strictSkill.skillId}: loader publication decision disagrees with generated status.`);
@@ -96,7 +115,7 @@ for (const strictSkill of strictReport.perSkill) {
 
   const candidates = await loadAssessmentSkillBankCandidates(strictSkill.skillId);
   const published = await loadAssessmentSkillBank(strictSkill.skillId);
-  const expectedPublished = generated.releaseReady ? (generated.publishedQuestions || []) : [];
+  const expectedPublished = assessmentReleaseExposureBySkillId[strictSkill.skillId] || [];
   const expectedById = new Map(expectedPublished.map(item => [
     String(item.questionId || ""),
     Number(item.level || 1)
@@ -119,14 +138,8 @@ for (const strictSkill of strictReport.perSkill) {
     if (expectedById.size > candidates.length) {
       fail(`${strictSkill.skillId}: audited publication set exceeds its candidate pool.`);
     }
-  } else if (generated.releaseReady && published.length !== candidates.length) {
-    fail(`${strictSkill.skillId}: all-candidate publication returned ${published.length}/${candidates.length} questions.`);
-  }
-  if (generated.publicationMode === "audited-id-set" && strictSkill.skillId !== "initial_sounds") {
-    fail(`${strictSkill.skillId}: audited-id publication is not yet authorized for this plan item.`);
-  }
-  if (strictSkill.skillId === "initial_sounds" && generated.publicationMode !== "audited-id-set") {
-    fail("initial_sounds: canonical balance must publish only the audited ID set.");
+  } else if (generated.releaseReady) {
+    fail(`${strictSkill.skillId}: a ready skill does not use its audited ID set.`);
   }
   if (strictSkill.skillId === "initial_sounds" && generated.releaseReady) {
     for (const level of [1, 2]) {
@@ -168,7 +181,7 @@ const sourceGuards = [
     required: [
       /assessmentReleaseStatusBySkillId/u,
       /if \(!publicationStatus\.releaseReady\) return \[\]/u,
-      /publishedQuestions/u
+      /assessmentReleaseExposureBySkillId/u
     ],
     forbidden: []
   }

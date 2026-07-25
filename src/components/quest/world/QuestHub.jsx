@@ -361,7 +361,6 @@ function pathRibbon(points, width, y, color, seed, anisotropy = 4, detail = "ric
       ...maps,
       bumpScale: y >= 0.1 ? 0.055 : 0.08,
       roughness: 0.9,
-      metalness: 0,
       envMapIntensity: 0.34,
       polygonOffset: true,
       polygonOffsetFactor: -1,
@@ -512,7 +511,6 @@ function clayMat(color, options = {}) {
   return new THREE.MeshPhysicalMaterial({
     color,
     roughness: 0.38,
-    metalness: 0,
     clearcoat: 0.3,
     clearcoatRoughness: 0.5,
     sheen: 0.24,
@@ -1327,8 +1325,7 @@ function addFieldLabel(group, label, y = 1.22, width = 0.98) {
     emissiveIntensity: 0.42,
     transparent: true,
     depthWrite: false,
-    roughness: 0.3,
-    metalness: 0
+    roughness: 0.3
   });
   const tag = new THREE.Mesh(new THREE.PlaneGeometry(width, width * 0.375), material);
   tag.name = "field-label";
@@ -1444,7 +1441,6 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
         transparent: true,
         opacity: 0.68,
         roughness: 0.28,
-        metalness: 0,
         transmission: 0.08,
         thickness: 0.18
       })
@@ -1544,7 +1540,6 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
         depthWrite: false,
         side: THREE.DoubleSide,
         roughness: 0.3,
-        metalness: 0,
         transmission: 0.08,
         thickness: 0.25
       })
@@ -1648,8 +1643,6 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
       new THREE.CapsuleGeometry(0.54, 0.82, 6, 12),
       new THREE.MeshStandardMaterial({
         color: 0x000000,
-        roughness: 1,
-        metalness: 0,
         transparent: true,
         opacity: 0,
         depthWrite: false,
@@ -2011,9 +2004,7 @@ function makeContactShadowMaterial(opacity = 0.28) {
     map: contactShadowTexture,
     transparent: true,
     opacity,
-    depthWrite: false,
-    roughness: 1,
-    metalness: 0
+    depthWrite: false
   });
 }
 

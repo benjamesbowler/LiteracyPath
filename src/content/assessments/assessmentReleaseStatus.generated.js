@@ -11,7 +11,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 150,
@@ -20,470 +21,6 @@ export const assessmentReleaseStatus = Object.freeze([
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
-    "publishedQuestionIds": [
-      "extra_initial_1",
-      "extra_initial_2",
-      "extra_initial_3",
-      "extra_initial_4",
-      "extra_initial_6",
-      "extra_initial_7",
-      "extra_initial_8",
-      "extra_initial_9",
-      "extra_initial_10",
-      "extra_initial_11",
-      "extra_initial_12",
-      "extra_initial_13",
-      "extra_initial_15",
-      "coverage_initial_a_001",
-      "coverage_initial_a_002",
-      "coverage_initial_c_002",
-      "coverage_initial_d_001",
-      "coverage_initial_e_001",
-      "coverage_initial_e_002",
-      "coverage_initial_g_002",
-      "coverage_initial_h_001",
-      "coverage_initial_i_001",
-      "coverage_initial_i_002",
-      "coverage_initial_j_001",
-      "coverage_initial_j_002",
-      "coverage_initial_k_001",
-      "coverage_initial_k_002",
-      "coverage_initial_l_001",
-      "coverage_initial_m_001",
-      "coverage_initial_n_002",
-      "coverage_initial_o_001",
-      "coverage_initial_p_002",
-      "coverage_initial_q_001",
-      "coverage_initial_q_002",
-      "coverage_initial_r_002",
-      "coverage_initial_s_002",
-      "coverage_initial_t_001",
-      "coverage_initial_u_001",
-      "coverage_initial_u_002",
-      "coverage_initial_v_001",
-      "coverage_initial_v_002",
-      "coverage_initial_w_001",
-      "coverage_initial_w_002",
-      "coverage_initial_y_002",
-      "coverage_initial_z_001",
-      "coverage_initial_z_002",
-      "ixl_first_sound_1",
-      "ixl_first_sound_2",
-      "ixl_first_sound_3",
-      "ixl_first_sound_4",
-      "ixl_first_sound_5",
-      "ixl_first_sound_6",
-      "ixl_first_sound_7",
-      "ixl_first_sound_8",
-      "ixl_first_sound_9",
-      "ixl_first_sound_10",
-      "ixl_first_sound_11",
-      "ixl_first_sound_12",
-      "ixl_first_sound_13",
-      "ixl_first_sound_14",
-      "ixl_first_sound_15",
-      "ixl_first_sound_16",
-      "ixl_first_sound_17",
-      "ixl_first_sound_18",
-      "ixl_first_sound_19",
-      "ixl_first_sound_21",
-      "ixl_first_sound_22",
-      "ixl_first_sound_23",
-      "ixl_first_sound_24",
-      "ixl_first_sound_26",
-      "ixl_first_sound_27",
-      "ixl_first_sound_28",
-      "ixl_first_sound_29",
-      "ixl_first_sound_30",
-      "gap_initial_l2_airplane",
-      "gap_initial_l2_alligator",
-      "gap_initial_l2_almond_replaced_ant",
-      "gap_initial_l2_anteater_replaced_apple",
-      "gap_initial_l2_arch",
-      "gap_initial_l2_arm",
-      "gap_initial_l2_armchair_replaced_apple",
-      "gap_initial_l2_artichoke_replaced_apple",
-      "gap_initial_l2_ash",
-      "gap_initial_l2_back",
-      "gap_initial_l2_badge",
-      "gap_initial_l2_badger",
-      "gap_initial_l2_bamboo",
-      "gap_initial_l2_bark",
-      "gap_initial_l2_beef",
-      "gap_initial_l2_berry",
-      "gap_initial_l2_block",
-      "gap_initial_l2_boot"
-    ],
-    "publishedQuestions": [
-      {
-        "questionId": "extra_initial_1",
-        "level": 2
-      },
-      {
-        "questionId": "extra_initial_2",
-        "level": 1
-      },
-      {
-        "questionId": "extra_initial_3",
-        "level": 2
-      },
-      {
-        "questionId": "extra_initial_4",
-        "level": 1
-      },
-      {
-        "questionId": "extra_initial_6",
-        "level": 1
-      },
-      {
-        "questionId": "extra_initial_7",
-        "level": 2
-      },
-      {
-        "questionId": "extra_initial_8",
-        "level": 2
-      },
-      {
-        "questionId": "extra_initial_9",
-        "level": 1
-      },
-      {
-        "questionId": "extra_initial_10",
-        "level": 1
-      },
-      {
-        "questionId": "extra_initial_11",
-        "level": 1
-      },
-      {
-        "questionId": "extra_initial_12",
-        "level": 2
-      },
-      {
-        "questionId": "extra_initial_13",
-        "level": 1
-      },
-      {
-        "questionId": "extra_initial_15",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_a_001",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_a_002",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_c_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_d_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_e_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_e_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_g_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_h_001",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_i_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_i_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_j_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_j_002",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_k_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_k_002",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_l_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_m_001",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_n_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_o_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_p_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_q_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_q_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_r_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_s_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_t_001",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_u_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_u_002",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_v_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_v_002",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_w_001",
-        "level": 1
-      },
-      {
-        "questionId": "coverage_initial_w_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_y_002",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_z_001",
-        "level": 2
-      },
-      {
-        "questionId": "coverage_initial_z_002",
-        "level": 2
-      },
-      {
-        "questionId": "ixl_first_sound_1",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_2",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_3",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_4",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_5",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_6",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_7",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_8",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_9",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_10",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_11",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_12",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_13",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_14",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_15",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_16",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_17",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_18",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_19",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_21",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_22",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_23",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_24",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_26",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_27",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_28",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_29",
-        "level": 1
-      },
-      {
-        "questionId": "ixl_first_sound_30",
-        "level": 1
-      },
-      {
-        "questionId": "gap_initial_l2_airplane",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_alligator",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_almond_replaced_ant",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_anteater_replaced_apple",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_arch",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_arm",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_armchair_replaced_apple",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_artichoke_replaced_apple",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_ash",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_back",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_badge",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_badger",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_bamboo",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_bark",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_beef",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_berry",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_block",
-        "level": 2
-      },
-      {
-        "questionId": "gap_initial_l2_boot",
-        "level": 2
-      }
-    ],
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -516,7 +53,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 530,
@@ -524,9 +62,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 366,
     "releaseEligibleQuestions": 366,
     "unapprovedAudioQuestions": 11,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 189,
@@ -559,7 +95,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 812,
@@ -567,9 +104,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 666,
     "releaseEligibleQuestions": 666,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 476,
@@ -602,7 +137,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 467,
@@ -610,9 +146,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 412,
     "releaseEligibleQuestions": 412,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 266,
@@ -640,22 +174,23 @@ export const assessmentReleaseStatus = Object.freeze([
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "standardVersion": "2026.07.24-a1.4",
-    "releaseReady": true,
+    "releaseReady": false,
     "dimensions": {
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "fail"
     },
-    "reasons": [],
+    "reasons": [
+      "Live student bank is missing 100 of 314 canonically approved questions."
+    ],
     "authoredQuestions": 542,
     "approvedQuestions": 314,
-    "runtimeSelectableQuestions": 314,
+    "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 314,
     "unapprovedAudioQuestions": 14,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 118,
@@ -688,7 +223,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -699,9 +235,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 0,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
@@ -734,7 +268,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -745,9 +280,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 0,
     "unapprovedAudioQuestions": 6,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
@@ -780,7 +313,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -791,9 +325,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 0,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
@@ -826,7 +358,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -837,9 +370,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 0,
     "unapprovedAudioQuestions": 30,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
@@ -872,7 +403,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 253,
@@ -880,9 +412,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 97,
     "releaseEligibleQuestions": 97,
     "unapprovedAudioQuestions": 1,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 47,
@@ -915,7 +445,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 252,
@@ -923,9 +454,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 120,
     "releaseEligibleQuestions": 120,
     "unapprovedAudioQuestions": 2,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 60,
@@ -958,7 +487,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 226,
@@ -966,9 +496,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 106,
     "releaseEligibleQuestions": 106,
     "unapprovedAudioQuestions": 8,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 50,
@@ -1001,7 +529,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -1012,9 +541,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 101,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 16,
@@ -1047,7 +574,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -1058,9 +586,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 97,
     "unapprovedAudioQuestions": 1,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 16,
@@ -1088,22 +614,23 @@ export const assessmentReleaseStatus = Object.freeze([
     "skillId": "nouns",
     "skillName": "Nouns",
     "standardVersion": "2026.07.24-a1.4",
-    "releaseReady": true,
+    "releaseReady": false,
     "dimensions": {
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "fail"
     },
-    "reasons": [],
+    "reasons": [
+      "Live student bank is missing 124 of 184 canonically approved questions."
+    ],
     "authoredQuestions": 382,
     "approvedQuestions": 184,
-    "runtimeSelectableQuestions": 184,
+    "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 184,
     "unapprovedAudioQuestions": 1,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 70,
@@ -1131,22 +658,23 @@ export const assessmentReleaseStatus = Object.freeze([
     "skillId": "verbs",
     "skillName": "Verbs",
     "standardVersion": "2026.07.24-a1.4",
-    "releaseReady": true,
+    "releaseReady": false,
     "dimensions": {
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "fail"
     },
-    "reasons": [],
+    "reasons": [
+      "Live student bank is missing 130 of 161 canonically approved questions."
+    ],
     "authoredQuestions": 383,
     "approvedQuestions": 161,
-    "runtimeSelectableQuestions": 161,
+    "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 161,
     "unapprovedAudioQuestions": 19,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 51,
@@ -1179,7 +707,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels."
@@ -1189,9 +718,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 127,
     "unapprovedAudioQuestions": 5,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 36,
@@ -1224,7 +751,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -1235,9 +763,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 46,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
@@ -1270,7 +796,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -1281,9 +808,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 96,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 10,
@@ -1316,7 +841,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 317,
@@ -1324,9 +850,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1359,7 +883,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "fail",
       "balance": "fail",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "blocked"
     },
     "reasons": [
       "Question-count floor is not met at both levels.",
@@ -1370,9 +895,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 46,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 0,
@@ -1405,7 +928,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 162,
@@ -1413,9 +937,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 1,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1448,7 +970,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 92,
@@ -1456,9 +979,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1491,7 +1012,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 185,
@@ -1499,9 +1021,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 185,
     "releaseEligibleQuestions": 185,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 92,
@@ -1534,7 +1054,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 92,
@@ -1542,9 +1063,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1577,7 +1096,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 92,
@@ -1585,9 +1105,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1620,7 +1138,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 92,
@@ -1628,9 +1147,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1663,7 +1180,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 92,
@@ -1671,9 +1189,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1706,7 +1222,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 92,
@@ -1714,9 +1231,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,
@@ -1749,7 +1264,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "questionCount": "pass",
       "balance": "pass",
       "media": "pass",
-      "accessibility": "pass"
+      "accessibility": "pass",
+      "runtimeSelectability": "pass"
     },
     "reasons": [],
     "authoredQuestions": 92,
@@ -1757,9 +1273,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
-    "publicationMode": "all-runtime-candidates",
-    "publishedQuestionIds": [],
-    "publishedQuestions": [],
+    "publicationMode": "audited-id-set",
     "levels": {
       "1": {
         "eligibleQuestionCount": 46,

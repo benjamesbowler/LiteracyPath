@@ -14,7 +14,7 @@ import { saveStudentAccessibilitySettings, saveStudentReducedChoiceMode } from "
 import { applyLearnerAccessibilityToDocument, learnerAccessibilityFromProfile } from "./accessibility/learnerAccessibility.js";
 import { loadStudentProfile } from "./utils/studentProfile.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
-import { assessmentReleaseStatus } from "./content/assessments/assessmentReleaseStatus.generated.js";
+import { curriculumReleaseBoard } from "./content/assessments/curriculumReleaseBoard.generated.js";
 import { isHighFrequencyWordSkill } from "./data/highFrequencyWordBands";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepeatOptionSetSignature } from "./questionRepeatGuards";
@@ -2227,7 +2227,7 @@ export default function App() {
   [itemMastery, studentId, answerHistory]);
 
   const questionBankCoverage = useMemo(() =>
-    buildQuestionBankCoverage(allQuestions, assessmentReleaseStatus),
+    buildQuestionBankCoverage(allQuestions, curriculumReleaseBoard.rows),
   [allQuestions]);
 
   const showSkillsQuestPrototype = typeof window !== "undefined"

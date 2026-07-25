@@ -643,15 +643,23 @@ export async function loadAssessmentSkillBank(skillId) {
   const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
   if (!publicationStatus.releaseReady) return [];
   const candidates = await loadAssessmentSkillBankCandidates(skillId);
-  if (publicationStatus.publicationMode !== "audited-id-set") return candidates;
+  if (publicationStatus.publicationMode !== "audited-id-set") return [];
+  const {
+    assessmentReleaseExposureBySkillId,
+    assessmentReleaseExposureVersion
+  } = await import("../content/assessments/assessmentReleaseExposure.generated.js");
+  if (assessmentReleaseExposureVersion !== publicationStatus.standardVersion) return [];
   const publishedLevels = new Map(
-    (publicationStatus.publishedQuestions || []).map(item => [
+    (assessmentReleaseExposureBySkillId[publicationStatus.skillId] || []).map(item => [
       String(item.questionId || ""),
       Number(item.level || 1)
     ])
   );
-  if (!publishedLevels.size) return [];
-  return candidates
+  if (
+    !publishedLevels.size
+    || publishedLevels.size !== Number(publicationStatus.runtimeSelectableQuestions || 0)
+  ) return [];
+  const published = candidates
     .filter(question => publishedLevels.has(String(question.id || question.questionId || "")))
     .map(question => {
       const releaseLevel = publishedLevels.get(String(question.id || question.questionId || ""));
@@ -662,6 +670,7 @@ export async function loadAssessmentSkillBank(skillId) {
         releaseStandardVersion: publicationStatus.standardVersion
       };
     });
+  return published.length === publishedLevels.size ? published : [];
 }
 
 export function preloadAssessmentSkillBank(skillId) {

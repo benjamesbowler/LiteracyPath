@@ -92,11 +92,23 @@ const MEDIA_PROFILES = Object.freeze({
   r_controlled_vowels: "prompt-dependent"
 });
 
+export function getAssessmentReleaseOwner(skillId = "") {
+  const normalizedSkillId = String(skillId || "");
+  if (normalizedSkillId.startsWith("hfw_")) {
+    return "Literacy curriculum + media QA";
+  }
+  if (EARLY_MEDIA_SKILLS.has(normalizedSkillId)) {
+    return "Phonics curriculum + media QA";
+  }
+  return "Curriculum + media QA";
+}
+
 export const assessmentReleaseStandardsBySkillId = Object.freeze(Object.fromEntries(
   ASSESSMENT_RELEASE_MANAGED_SKILL_IDS.map(skillId => [
     skillId,
     Object.freeze({
       skillId,
+      owner: getAssessmentReleaseOwner(skillId),
       version: ASSESSMENT_RELEASE_STANDARD_VERSION,
       questionCount: DEFAULT_STANDARD.questionCount,
       balance: skillId === "initial_sounds"

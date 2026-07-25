@@ -6,6 +6,7 @@ import {
   getAssessmentMediaSourceMetadata
 } from "../src/content/assessments/assessmentMediaReleaseManifest.js";
 import { managedAssessmentSkillDepthConfig } from "../src/data/skillLevelDepthConfig.js";
+import { getAssessmentReleaseOwner } from "../src/content/releaseStandard.js";
 import {
   getQuestionAudioPaths,
   getQuestionImagePaths,
@@ -35,24 +36,6 @@ function safeCell(value = "") {
   return String(value || "—").replaceAll("|", "\\|").replace(/\s+/g, " ").trim();
 }
 
-function ownerForSkill(skillId, mediaCount) {
-  if (!mediaCount) return "Curriculum lead";
-  if (skillId.startsWith("hfw_")) return "Literacy curriculum + media QA";
-  if ([
-    "initial_sounds",
-    "final_sounds",
-    "rhyming",
-    "cvc_short_vowels",
-    "short_vowel_discrimination",
-    "blends",
-    "digraphs",
-    "long_vowels_silent_e",
-    "vowel_teams",
-    "r_controlled_vowels"
-  ].includes(skillId)) return "Phonics curriculum + media QA";
-  return "Curriculum + media QA";
-}
-
 export function readStrictMediaSummary(filePath = strictAuditArtifactPath) {
   if (!fs.existsSync(filePath)) {
     throw new Error(`Strict audit artifact is missing: ${path.relative(repoRoot, filePath)}`);
@@ -79,7 +62,7 @@ export function buildMediaBoardModel({ strictSummary = readStrictMediaSummary() 
     return {
       skillId: config.skillId,
       skillName: config.skillName,
-      owner: ownerForSkill(config.skillId, allPaths.length),
+      owner: getAssessmentReleaseOwner(config.skillId),
       runtimeQuestionCount: skillQuestions.length,
       audioCount: audioPaths.length,
       imageCount: imagePaths.length,

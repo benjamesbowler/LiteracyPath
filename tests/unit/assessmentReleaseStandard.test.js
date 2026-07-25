@@ -14,6 +14,10 @@ import {
   assessmentReleaseStatusBySkillId,
   assessmentReleaseStatusVersion
 } from "../../src/content/assessments/assessmentReleaseStatus.generated.js";
+import {
+  assessmentReleaseExposureBySkillId,
+  assessmentReleaseExposureVersion
+} from "../../src/content/assessments/assessmentReleaseExposure.generated.js";
 import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
 
 function passingSummary(skillId = "initial_sounds") {
@@ -42,7 +46,7 @@ function passingSummary(skillId = "initial_sounds") {
   };
 }
 
-test("the canonical standard owns all four assessment publication dimensions", () => {
+test("the canonical standard owns the four authored-content publication dimensions", () => {
   assert.equal(assessmentReleaseStandard.managedSkillIds.length, 30);
   assert.deepEqual(
     Object.keys(assessmentReleaseStandard.skills).sort(),
@@ -101,6 +105,7 @@ test("accessibility rejects unlabeled choices but accepts constructed sound orde
 
 test("generated publication status covers the canonical skill set and version", () => {
   assert.equal(assessmentReleaseStatusVersion, assessmentReleaseStandard.version);
+  assert.equal(assessmentReleaseExposureVersion, assessmentReleaseStandard.version);
   assert.deepEqual(
     assessmentReleaseStatus.map(status => status.skillId).sort(),
     [...ASSESSMENT_RELEASE_MANAGED_SKILL_IDS].sort()
@@ -110,6 +115,7 @@ test("generated publication status covers the canonical skill set and version", 
     assert.ok(Number.isInteger(status.approvedQuestions));
     assert.ok(Number.isInteger(status.runtimeSelectableQuestions));
     assert.ok(Number.isInteger(status.unapprovedAudioQuestions));
+    assert.ok(["pass", "fail", "blocked"].includes(status.dimensions.runtimeSelectability));
     assert.ok(status.authoredQuestions >= status.approvedQuestions);
     assert.ok(status.approvedQuestions >= status.runtimeSelectableQuestions);
     assert.equal(
@@ -162,7 +168,7 @@ test("Initial Sounds canonical selection caps phoneme, prompt-family, response-f
 
 test("Initial Sounds student loader returns exactly the audited publication IDs and levels", async () => {
   const status = assessmentReleaseStatusBySkillId.initial_sounds;
-  const expected = new Map(status.publishedQuestions.map(item => [
+  const expected = new Map(assessmentReleaseExposureBySkillId.initial_sounds.map(item => [
     item.questionId,
     item.level
   ]));
