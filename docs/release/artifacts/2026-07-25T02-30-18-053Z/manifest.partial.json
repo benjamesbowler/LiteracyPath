@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-25T02:31:06.205Z",
+  "startedAt": "2026-07-25T02:30:18.053Z",
+  "finishedAt": "2026-07-25T02:31:06.205Z",
+  "commitSha": "b91d159f54853e3ca6bcdf2f224a320bea0813ea",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21363,
+      "startedAt": "2026-07-25T02:30:18.117Z",
+      "finishedAt": "2026-07-25T02:30:39.480Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T02-30-18-053Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6549,
+      "startedAt": "2026-07-25T02:30:39.481Z",
+      "finishedAt": "2026-07-25T02:30:46.030Z",
+      "counts": {
+        "tests": 1214,
+        "passed": 1214,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T02-30-18-053Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 16699,
+      "startedAt": "2026-07-25T02:30:46.030Z",
+      "finishedAt": "2026-07-25T02:31:02.729Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T02-30-18-053Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-login-recovery",
+      "label": "Illustrated and spoken student-login recovery with preserved class code",
+      "areas": [
+        2,
+        3,
+        4,
+        8,
+        10
+      ],
+      "command": "npm run check:student-login-recovery",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3131,
+      "startedAt": "2026-07-25T02:31:02.729Z",
+      "finishedAt": "2026-07-25T02:31:05.860Z",
+      "counts": {
+        "tests": 4,
+        "passed": 3,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T02-30-18-053Z/student-login-recovery.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "database-bootstrap-schema",
+      "label": "Reconstructable core database schema",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:database-bootstrap-schema",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 188,
+      "startedAt": "2026-07-25T02:31:05.860Z",
+      "finishedAt": "2026-07-25T02:31:06.048Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T02-30-18-053Z/database-bootstrap-schema.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "audit-school-seed",
+      "label": "Deterministic non-production audit school",
+      "areas": [
+        6,
+        10
+      ],
+      "command": "npm run check:audit-school-seed",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 157,
+      "startedAt": "2026-07-25T02:31:06.048Z",
+      "finishedAt": "2026-07-25T02:31:06.205Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T02-30-18-053Z/audit-school-seed.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}
