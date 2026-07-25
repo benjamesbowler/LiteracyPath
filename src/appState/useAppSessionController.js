@@ -1,6 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
 import { useEffect, useEffectEvent, useLayoutEffect } from "react";
-import { loadCompatibleTeacherClasses } from "../data/classApiCompatibility.js";
+import {
+  loadCompatibleDashboardStudents,
+  loadCompatibleTeacherClasses,
+  loadCompatibleTeacherStudents
+} from "../data/classApiCompatibility.js";
 
 export function useAppSessionController(context) {
   const {
@@ -1692,12 +1696,11 @@ export function useAppSessionController(context) {
 
     setLoadingStudents(true);
 
-    const { data, error } = await supabase
-      .table("students")
-      .select("id, name, class_id, created_at, updated_at, symbol_password, archived_at")
-      .eq("teacher_id", teacherId)
-      .eq("class_id", classId)
-      .order("name", { ascending: true });
+    const { data, error } = await loadCompatibleTeacherStudents({
+      client: supabase,
+      teacherId,
+      classId
+    });
 
     if (error) {
       console.error("Load students error:", error);
@@ -1755,13 +1758,14 @@ export function useAppSessionController(context) {
       return;
     }
 
-    const { data: students, error: studentsError } = await supabase
-      .table("students")
-      .select("id, name, created_at")
-      .eq("teacher_id", teacherId)
-      .eq("class_id", classId)
-      .is("archived_at", null)
-      .order("name", { ascending: true });
+    const {
+      data: students,
+      error: studentsError
+    } = await loadCompatibleDashboardStudents({
+      client: supabase,
+      teacherId,
+      classId
+    });
 
     if (studentsError) {
       console.error("Dashboard students error:", studentsError);

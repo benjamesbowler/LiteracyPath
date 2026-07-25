@@ -3,9 +3,12 @@ import test from "node:test";
 
 import {
   isLegacyClassSchemaError,
+  isLegacyStudentSchemaError,
   isMissingRpcOverload,
+  loadCompatibleDashboardStudents,
   loadCompatibleStudentClass,
   loadCompatibleTeacherClasses,
+  loadCompatibleTeacherStudents,
   loginCompatibleStudent
 } from "../../src/data/classApiCompatibility.js";
 
@@ -76,6 +79,107 @@ test("teacher classes do not mask permission or unrelated database failures", as
   assert.equal(result.error, denied);
   assert.equal(result.compatibility, "current");
   assert.equal(calls.length, 1);
+});
+
+function studentQueryResponse(response, calls, fields) {
+  const call = { fields, filters: [] };
+  calls.push(call);
+  const query = {
+    eq(field, value) {
+      call.filters.push(["eq", field, value]);
+      return query;
+    },
+    is(field, value) {
+      call.filters.push(["is", field, value]);
+      return query;
+    },
+    order() {
+      return Promise.resolve(response);
+    }
+  };
+  return query;
+}
+
+test("teacher roster retries the pre-archive student fields", async () => {
+  const calls = [];
+  const missingUpdatedAt = {
+    code: "42703",
+    message: "column students.updated_at does not exist"
+  };
+  const responses = [
+    { data: null, error: missingUpdatedAt },
+    {
+      data: [{
+        id: "student-1",
+        name: "Robin",
+        class_id: "class-1",
+        symbol_password: "123"
+      }],
+      error: null
+    }
+  ];
+  const client = {
+    table(name) {
+      assert.equal(name, "students");
+      return {
+        select(fields) {
+          return studentQueryResponse(responses.shift(), calls, fields);
+        }
+      };
+    }
+  };
+
+  const result = await loadCompatibleTeacherStudents({
+    client,
+    teacherId: "teacher-1",
+    classId: "class-1"
+  });
+
+  assert.equal(result.error, null);
+  assert.equal(result.compatibility, "legacy");
+  assert.equal(result.data[0].name, "Robin");
+  assert.match(calls[0].fields, /updated_at/);
+  assert.equal(
+    calls[1].fields,
+    "id,name,class_id,created_at,symbol_password"
+  );
+  assert.equal(isLegacyStudentSchemaError(missingUpdatedAt), true);
+});
+
+test("dashboard roster removes only the unavailable archive filter", async () => {
+  const calls = [];
+  const responses = [
+    {
+      data: null,
+      error: {
+        code: "42703",
+        message: "column students.archived_at does not exist"
+      }
+    },
+    { data: [{ id: "student-1", name: "Robin" }], error: null }
+  ];
+  const client = {
+    table() {
+      return {
+        select(fields) {
+          return studentQueryResponse(responses.shift(), calls, fields);
+        }
+      };
+    }
+  };
+
+  const result = await loadCompatibleDashboardStudents({
+    client,
+    teacherId: "teacher-1",
+    classId: "class-1"
+  });
+
+  assert.equal(result.compatibility, "legacy");
+  assert.deepEqual(calls[0].filters.at(-1), ["is", "archived_at", null]);
+  assert.equal(
+    calls[1].filters.some(([, field]) => field === "archived_at"),
+    false
+  );
 });
 
 test("student roster lookup retries the previous signature only when absent", async () => {

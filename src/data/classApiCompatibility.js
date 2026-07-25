@@ -15,6 +15,24 @@ const LEGACY_CLASS_FIELDS = [
   "access_code"
 ].join(",");
 
+const CURRENT_STUDENT_FIELDS = [
+  "id",
+  "name",
+  "class_id",
+  "created_at",
+  "updated_at",
+  "symbol_password",
+  "archived_at"
+].join(",");
+
+const LEGACY_STUDENT_FIELDS = [
+  "id",
+  "name",
+  "class_id",
+  "created_at",
+  "symbol_password"
+].join(",");
+
 function errorText(error) {
   return `${error?.message || ""} ${error?.details || ""} ${error?.hint || ""}`;
 }
@@ -23,6 +41,11 @@ export function isLegacyClassSchemaError(error) {
   if (error?.code !== "42703") return false;
   return /classes\.(access_code_created_at|access_code_expires_at|leaderboard_scope)/i
     .test(errorText(error));
+}
+
+export function isLegacyStudentSchemaError(error) {
+  if (error?.code !== "42703") return false;
+  return /students\.(updated_at|archived_at)/i.test(errorText(error));
 }
 
 export function isMissingRpcOverload(error, rpcName) {
@@ -50,6 +73,77 @@ export async function loadCompatibleTeacherClasses({ client, teacherId }) {
     return { ...current, compatibility: "current" };
   }
   const legacy = await teacherClassQuery(client, teacherId, LEGACY_CLASS_FIELDS);
+  return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
+}
+
+function teacherStudentQuery(client, {
+  teacherId,
+  classId,
+  fields,
+  activeOnly
+}) {
+  let query = client
+    .table("students")
+    .select(fields)
+    .eq("teacher_id", teacherId)
+    .eq("class_id", classId);
+  if (activeOnly) query = query.is("archived_at", null);
+  return query.order("name", { ascending: true });
+}
+
+/**
+ * Load the teacher roster across the pre-archive and current student schemas.
+ * A database without archived_at cannot contain archived rows, so its complete
+ * roster is also its active roster.
+ */
+export async function loadCompatibleTeacherStudents({
+  client,
+  teacherId,
+  classId
+}) {
+  const current = await teacherStudentQuery(client, {
+    teacherId,
+    classId,
+    fields: CURRENT_STUDENT_FIELDS,
+    activeOnly: false
+  });
+  if (!isLegacyStudentSchemaError(current.error)) {
+    return { ...current, compatibility: "current" };
+  }
+  const legacy = await teacherStudentQuery(client, {
+    teacherId,
+    classId,
+    fields: LEGACY_STUDENT_FIELDS,
+    activeOnly: false
+  });
+  return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
+}
+
+/**
+ * The teacher summary uses an archived_at filter as well as a narrower field
+ * set. Retry without that unavailable filter only for the known old schema.
+ */
+export async function loadCompatibleDashboardStudents({
+  client,
+  teacherId,
+  classId
+}) {
+  const fields = "id,name,created_at";
+  const current = await teacherStudentQuery(client, {
+    teacherId,
+    classId,
+    fields,
+    activeOnly: true
+  });
+  if (!isLegacyStudentSchemaError(current.error)) {
+    return { ...current, compatibility: "current" };
+  }
+  const legacy = await teacherStudentQuery(client, {
+    teacherId,
+    classId,
+    fields,
+    activeOnly: false
+  });
   return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
 }
 
