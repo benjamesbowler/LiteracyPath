@@ -12,6 +12,8 @@ export const EVIDENCE_TABLES = new Set([
   "item_mastery",
   "mastery",
   "student_progress",
+  "teacher_instructional_group_reviews",
+  "teacher_instructional_groups",
   "teacher_interventions"
 ]);
 

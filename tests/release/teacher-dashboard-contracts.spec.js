@@ -179,7 +179,7 @@ test("@teacher-evidence-basis exposes every basis and withholds the seeded spars
   await outlierBasis.locator("xpath=..").locator("summary").click();
   await expect(outlierBasis).toBeVisible();
 
-  const insufficient = overview.getByRole("list", { name: "Learners with insufficient evidence" });
+  const insufficient = overview.getByRole("list", { name: "Learners with not enough evidence" });
   await expect(insufficient.getByText("Amara", { exact: true })).toBeVisible();
   await insufficient.getByRole("button", { name: "Review Amara evidence", exact: true }).click();
 
@@ -386,12 +386,12 @@ test("@teacher-instructional-groups creates, saves, compares, reviews, and assig
   )).toEqual([]);
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", {
+    name: "Turn evidence into a clear next step",
+    exact: true
+  })).toBeVisible({
     timeout: 20_000
   });
-  await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Progress", exact: true })
-    .click();
   const restoredWorkspace = page.getByRole("region", { name: "Saved instructional groups" });
   await expect(restoredWorkspace).toHaveAttribute("data-saved-group-count", "2", {
     timeout: 20_000
@@ -915,7 +915,7 @@ test("@el-export-consistency reconciles seeded Skills Check letters into both re
   expect(wholeChildCsv).toContain("Lowercase M: letter sound");
   expect(wholeChildCsv).toContain("Skills Check");
   expect(wholeChildCsv).toMatch(/"Uppercase M: letter name","Secure"/);
-  expect(wholeChildCsv).toMatch(/"Lowercase M: letter sound","Needs teaching"/);
+  expect(wholeChildCsv).toMatch(/"Lowercase M: letter sound","Needs support"/);
   expect(wholeChildCsv).not.toMatch(/"M: letter (?:name|sound)"/);
 
   await page.getByRole("link", { name: /EL Assessments/ }).click();
@@ -1776,8 +1776,8 @@ test("@admin-content-qa shows authored, approved, and runtime-selectable counts 
   const initialSoundsRow = page.getByRole("row").filter({
     has: page.getByRole("cell", { name: "Initial Sounds", exact: true })
   });
-  await expect(initialSoundsRow.getByRole("cell", { name: "150", exact: true })).toBeVisible();
-  await expect(initialSoundsRow.getByRole("cell", { name: "131", exact: true })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", { name: "151", exact: true })).toBeVisible();
+  await expect(initialSoundsRow.getByRole("cell", { name: "132", exact: true })).toBeVisible();
   await expect(initialSoundsRow.getByRole("cell", { name: "READY", exact: true })).toBeVisible();
   await expect(initialSoundsRow.getByRole("cell", {
     name: "Phonics curriculum + media QA",
@@ -1788,7 +1788,7 @@ test("@admin-content-qa shows authored, approved, and runtime-selectable counts 
     exact: true
   })).toBeVisible();
   await expect(initialSoundsRow.getByRole("cell", {
-    name: "sha256:740f87634c00",
+    name: "sha256:3e64b7a127d3",
     exact: true
   })).toBeVisible();
   await expect(initialSoundsRow.getByRole("cell", {
@@ -1797,15 +1797,24 @@ test("@admin-content-qa shows authored, approved, and runtime-selectable counts 
   })).toBeVisible();
   await expect(initialSoundsRow.getByRole("cell", { name: "None", exact: true })).toBeVisible();
 
-  const blockedHfwRow = page.getByRole("row").filter({
+  const hfwRow = page.getByRole("row").filter({
     has: page.getByRole("cell", { name: "High-Frequency Words 1-25", exact: true })
   });
-  await expect(blockedHfwRow.getByRole("cell", { name: "BLOCKED", exact: true })).toBeVisible();
-  await expect(blockedHfwRow.getByRole("cell", {
-    name: "0 questions — blocked from children",
+  await expect(hfwRow.getByRole("cell", { name: "READY", exact: true })).toBeVisible();
+  await expect(hfwRow.getByRole("cell", { name: "150", exact: true })).toBeVisible();
+  await expect(hfwRow.getByRole("cell", { name: "147", exact: true })).toBeVisible();
+  await expect(hfwRow.getByRole("cell", {
+    name: "147 questions (L1 72; L2 75)",
     exact: true
   })).toBeVisible();
-  await expect(blockedHfwRow.getByRole("cell", { name: /Question-count floor is not met/ })).toBeVisible();
+  await expect(hfwRow.getByRole("cell", {
+    name: "sha256:12fe53fe2754",
+    exact: true
+  })).toBeVisible();
+  await expect(hfwRow.getByRole("cell", {
+    name: "All canonical release dimensions pass.",
+    exact: true
+  })).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
 

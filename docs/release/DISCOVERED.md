@@ -232,3 +232,33 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** the release runner had a correct `curriculum-composed` calculation, but appended it only during the all-gates credentialed release. `--only curriculum-composed` was rejected as unknown, so focused curriculum manifests could pass every dependency without recording the synthetic five-dimension result. That left A4.8 dependent on unrelated audit credentials and made the plan's “one command, five dimensions” contract impossible to execute locally.
 **Fix:** make `curriculum-composed` a supported synthetic selection; deterministically expand it to every correctness, depth, variation, media, and runtime-selectability dependency; append the same per-skill composition used by the full release; preserve full-release credential preflight; and expose a stable package command.
 **Gate:** `npm run check:curriculum-composed` must produce one partial manifest containing all nine dependency gates plus `curriculum-composed`, report every global dimension pass, report 30/30 per-skill releases, and fail if any dependency or per-skill dimension fails. The full release must continue to compute the identical synthetic result after all gates.
+
+## D-046 · P0 · Area 6/9/10 — A signed-in teacher with no selected class hit the global error boundary
+**Evidence:** the deployed teacher Today route rendered only “Something went wrong. Please refresh or go back.” The authenticated local reproduction captured `TypeError: Cannot read properties of null (reading 'data')` in `TeacherDashboardPage`: when both the class-access summary class ID and selected class ID were absent, `undefined === undefined` passed the ownership comparison and the component dereferenced the null summary.
+**Fix:** require a real summary object and a real selected-class ID before reading class-scoped access data; retain the honest no-class state for a newly approved teacher.
+**Gate:** the authenticated teacher dashboard-data journey must load the Today surface without a page error when no class is selected, and the complete 28-part teacher dashboard contract must pass.
+
+## D-047 · P0 · Area 8/9/10 — Instructional-group tables were rejected by the application data boundary
+**Evidence:** the reachable instructional-group flow failed with `Unregistered Supabase table: teacher_instructional_groups`. The migrations, UI and RPCs existed, but the two durable group tables were absent from the evidence registry and facade allow-list, so saves and reviews could not cross the private backend boundary.
+**Fix:** register `teacher_instructional_groups` and `teacher_instructional_group_reviews` under the evidence domain in both the registry and facade; retain runtime validation and the raw-client ban.
+**Gate:** the domain-boundary gate must report 18 registered tables and 36 RPCs, and the authenticated instructional-group create/review/reload journey must pass.
+
+## D-048 · P0 · Area 8/9/10 — The final security lockdown made ordinary class creation fail
+**Evidence:** teacher onboarding, demo setup and roster administration all failed with `permission denied for function gen_class_access_code`. The insert trigger ran with the teacher's privileges but called an intentionally private helper whose API-role execution had been revoked by the final security boundary.
+**Fix:** make the trigger function a fixed-search-path private `SECURITY DEFINER` function, keep both the trigger and generator non-executable by browser roles, and reassert the complete reviewed security boundary after the trigger repair.
+**Gate:** a fresh database must apply all 37 migrations; onboarding, demo-class and roster class creation must pass; the live catalogue must expose exactly eight anonymous and 36 authenticated security-definer RPCs while class-code expiry and rotation remain enforced.
+
+## D-049 · P0 · Area 9/10 — Teacher deep links were overwritten during profile restoration
+**Evidence:** hard-reloading valid Classes or Progress routes briefly restored the requested context and then reset to Today. The post-auth fallback effect observed a stale `profileLoaded = true` value in the same render that a restored identity was accepted, so it replaced the route before the new profile refresh completed.
+**Fix:** mark the profile unresolved immediately whenever an authenticated identity is accepted or refreshed; persist and restore all five teacher intention routes even when no learner is selected.
+**Gate:** unit routing contracts must preserve every teacher intention without learner context; authenticated class-progress and persistent-context browser journeys must survive hard reloads on their exact routes.
+
+## D-050 · P0 · Area 7/10 — Repeated audit seeding accumulated legacy assessment evidence
+**Evidence:** repeated teacher test runs produced 42+ synthetic EL Encoding attempts for the same learner. The legacy assessment/report tables use text identifiers and do not cascade from deletion of the UUID-based seeded learner rows, so the nominally deterministic seed left prior archive records behind and corrupted report/export assertions.
+**Fix:** explicitly delete all audit-teacher assessment attempts and EL report rows before rebuilding the canonical fixture, then assert the production-shaped 520-attempt and formal-evidence counts inside the seed transaction.
+**Gate:** applying the audit seed repeatedly must produce identical counts; empty-report and cross-report export journeys must pass after reseeding without manual database cleanup.
+
+## D-051 · P1 · Area 8/10 — The live database policy verifier ignored its approved database target
+**Evidence:** the clean database seed succeeded, but `check:db-policies` invoked `psql` without a connection argument and relied on `PGDATABASE` containing a URL. The installed client treated the invocation as a default local socket and failed at `/tmp/.s.PGSQL.5432`, so the release gate could not interrogate the database it had already approved.
+**Fix:** pass the approved database URL as the first explicit `psql` argument and leave the caller environment unchanged; use the same invocation contract as the deterministic seed tool.
+**Gate:** a unit contract must prove the approved URL is positional and cannot be overridden by ambient `PGDATABASE`; the clean live gate must pass catalogue, Auth, RLS, RPC, code, token, admin and deletion probes.

@@ -58,6 +58,8 @@ export function inspectAuditSeed(sql = fs.readFileSync(seedPath, "utf8")) {
     "audit-teacher-demo@literacypath.invalid",
     "audit-admin@literacypath.invalid",
     "public.app_admins",
+    "delete from public.assessment_attempts",
+    "delete from public.el_assessment_reports",
     "[AUDIT ONLY] LiteracyPath Seed School",
     "generate_series(1, 520)",
     "'questionRecords'",
@@ -167,14 +169,22 @@ export function renderAuditSeed({
     .replaceAll("__AUDIT_ANCHOR__", parsedAnchor.toISOString());
 }
 
+export function auditSeedPsqlInvocation(databaseUrl, environment = process.env) {
+  return {
+    command: "psql",
+    args: [databaseUrl, "-v", "ON_ERROR_STOP=1"],
+    environment: {
+      ...environment
+    }
+  };
+}
+
 async function applyWithPsql({ databaseUrl, sql }) {
+  const invocation = auditSeedPsqlInvocation(databaseUrl);
   return new Promise((resolve, reject) => {
-    const child = spawn("psql", ["-v", "ON_ERROR_STOP=1"], {
+    const child = spawn(invocation.command, invocation.args, {
       cwd: repoRoot,
-      env: {
-        ...process.env,
-        PGDATABASE: databaseUrl
-      },
+      env: invocation.environment,
       stdio: ["pipe", "pipe", "pipe"]
     });
     child.stdout.on("data", chunk => process.stdout.write(chunk));

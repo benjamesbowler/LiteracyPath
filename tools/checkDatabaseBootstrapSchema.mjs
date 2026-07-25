@@ -70,6 +70,27 @@ export function auditDatabaseBootstrap(files = migrationFiles()) {
       failures.push(`first migration is missing ownership control: ${expected}`);
     }
   }
+  for (const policy of [
+    "Teachers manage owned classes",
+    "Teachers manage owned students",
+    "Teachers manage owned answers",
+    "Teachers manage owned mastery",
+    "Teachers manage owned item mastery"
+  ]) {
+    if (!bootstrapSql.includes(`drop policy if exists "${policy}"`)) {
+      failures.push(`first migration does not safely replace existing policy: ${policy}`);
+    }
+  }
+  for (const trigger of [
+    "classes_set_updated_at",
+    "students_set_updated_at",
+    "mastery_set_updated_at",
+    "item_mastery_set_updated_at"
+  ]) {
+    if (!bootstrapSql.includes(`drop trigger if exists ${trigger}`)) {
+      failures.push(`first migration does not safely replace existing trigger: ${trigger}`);
+    }
+  }
 
   return {
     files,
@@ -90,4 +111,3 @@ if (report.failures.length) {
 } else {
   console.log("Database bootstrap schema check passed.");
 }
-

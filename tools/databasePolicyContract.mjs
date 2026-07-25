@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260725130000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260725150000_security_definer_boundary.sql";
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "get_game_leaderboard(text, integer)",

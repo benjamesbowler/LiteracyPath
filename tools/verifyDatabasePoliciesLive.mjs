@@ -200,13 +200,35 @@ async function signIn(apiUrl, anonKey, email, password) {
   return actor;
 }
 
+export function databasePolicyPsqlInvocation(
+  databaseUrl,
+  query,
+  environment = process.env
+) {
+  return {
+    command: "psql",
+    args: [
+      databaseUrl,
+      "-X",
+      "--no-psqlrc",
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-At",
+      "-c",
+      query
+    ],
+    environment: { ...environment }
+  };
+}
+
 async function runPsqlJson(databaseUrl, query) {
+  const invocation = databasePolicyPsqlInvocation(databaseUrl, query);
   return new Promise((resolve, reject) => {
     const child = spawn(
-      "psql",
-      ["-X", "--no-psqlrc", "-v", "ON_ERROR_STOP=1", "-At", "-c", query],
+      invocation.command,
+      invocation.args,
       {
-        env: { ...process.env, PGDATABASE: databaseUrl },
+        env: invocation.environment,
         stdio: ["ignore", "pipe", "pipe"]
       }
     );

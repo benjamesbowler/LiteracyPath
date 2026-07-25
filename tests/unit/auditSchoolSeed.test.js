@@ -2,11 +2,15 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  auditSeedPsqlInvocation,
   inspectAuditSeed,
   isApprovedAuditDatabaseUrl,
   renderAuditSeed
 } from "../../tools/seedAuditSchool.mjs";
 import { verifyAuditSchoolLive } from "../../tools/verifyAuditSchoolLive.mjs";
+import {
+  databasePolicyPsqlInvocation
+} from "../../tools/verifyDatabasePoliciesLive.mjs";
 
 test("canonical audit seed satisfies every deterministic fixture count", () => {
   const result = inspectAuditSeed();
@@ -66,6 +70,45 @@ test("audit database guard allows local PostgreSQL and rejects unsafe targets", 
       hostname: "example.com",
       label: "literacypath-e2e-test"
     }
+  );
+});
+
+test("audit seed passes the approved database URL directly to psql", () => {
+  const databaseUrl = "postgresql://postgres:test@127.0.0.1:54322/postgres";
+  const invocation = auditSeedPsqlInvocation(databaseUrl, {
+    PATH: "/test/bin",
+    PGDATABASE: "must-not-override-the-approved-target"
+  });
+  assert.equal(invocation.command, "psql");
+  assert.deepEqual(invocation.args, [databaseUrl, "-v", "ON_ERROR_STOP=1"]);
+  assert.equal(invocation.environment.PATH, "/test/bin");
+  assert.equal(
+    invocation.environment.PGDATABASE,
+    "must-not-override-the-approved-target"
+  );
+});
+
+test("live policy audit passes the approved database URL directly to psql", () => {
+  const databaseUrl = "postgresql://postgres:test@127.0.0.1:54322/postgres";
+  const invocation = databasePolicyPsqlInvocation(databaseUrl, "select 1", {
+    PATH: "/test/bin",
+    PGDATABASE: "must-not-override-the-approved-target"
+  });
+  assert.equal(invocation.command, "psql");
+  assert.deepEqual(invocation.args, [
+    databaseUrl,
+    "-X",
+    "--no-psqlrc",
+    "-v",
+    "ON_ERROR_STOP=1",
+    "-At",
+    "-c",
+    "select 1"
+  ]);
+  assert.equal(invocation.environment.PATH, "/test/bin");
+  assert.equal(
+    invocation.environment.PGDATABASE,
+    "must-not-override-the-approved-target"
   );
 });
 

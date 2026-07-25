@@ -63,8 +63,9 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
     .getByRole("button", { name: "Open", exact: true })
     .click();
   await expect(page.getByText("Universal benchmark", { exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Enter Full Screen Assessment", exact: true }))
-    .toBeVisible();
+  await expect(page.getByRole("button", {
+    name: /^(?:Enter|Resume) Full Screen Assessment$/
+  })).toBeVisible();
 
   const reportRoster = await openClass(page, "Audit Class A");
   await reportRoster.getByRole("row").filter({ hasText: "Aarav" })

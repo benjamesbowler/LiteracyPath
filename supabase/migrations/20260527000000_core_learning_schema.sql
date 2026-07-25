@@ -109,11 +109,13 @@ alter table public.item_mastery enable row level security;
 revoke all on public.classes, public.students, public.answers, public.mastery, public.item_mastery from anon;
 grant select, insert, update, delete on public.classes, public.students, public.answers, public.mastery, public.item_mastery to authenticated;
 
+drop policy if exists "Teachers manage owned classes" on public.classes;
 create policy "Teachers manage owned classes"
   on public.classes for all to authenticated
   using (teacher_id = auth.uid())
   with check (teacher_id = auth.uid());
 
+drop policy if exists "Teachers manage owned students" on public.students;
 create policy "Teachers manage owned students"
   on public.students for all to authenticated
   using (teacher_id = auth.uid())
@@ -127,16 +129,19 @@ create policy "Teachers manage owned students"
     )
   );
 
+drop policy if exists "Teachers manage owned answers" on public.answers;
 create policy "Teachers manage owned answers"
   on public.answers for all to authenticated
   using (teacher_id = auth.uid())
   with check (teacher_id = auth.uid());
 
+drop policy if exists "Teachers manage owned mastery" on public.mastery;
 create policy "Teachers manage owned mastery"
   on public.mastery for all to authenticated
   using (teacher_id = auth.uid())
   with check (teacher_id = auth.uid());
 
+drop policy if exists "Teachers manage owned item mastery" on public.item_mastery;
 create policy "Teachers manage owned item mastery"
   on public.item_mastery for all to authenticated
   using (teacher_id = auth.uid())
@@ -153,16 +158,19 @@ begin
 end;
 $$;
 
+drop trigger if exists classes_set_updated_at on public.classes;
 create trigger classes_set_updated_at
   before update on public.classes
   for each row execute function public.set_core_learning_updated_at();
+drop trigger if exists students_set_updated_at on public.students;
 create trigger students_set_updated_at
   before update on public.students
   for each row execute function public.set_core_learning_updated_at();
+drop trigger if exists mastery_set_updated_at on public.mastery;
 create trigger mastery_set_updated_at
   before update on public.mastery
   for each row execute function public.set_core_learning_updated_at();
+drop trigger if exists item_mastery_set_updated_at on public.item_mastery;
 create trigger item_mastery_set_updated_at
   before update on public.item_mastery
   for each row execute function public.set_core_learning_updated_at();
-

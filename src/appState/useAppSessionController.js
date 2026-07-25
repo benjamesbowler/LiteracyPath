@@ -322,6 +322,9 @@ export function useAppSessionController(context) {
       lastAuthUserIdRef.current = nextUserId;
       setTeacherUser(nextUser);
       if (!isBackgroundSameUserRefresh) {
+        // A new/restored auth identity must hydrate its own route and profile
+        // before the generic post-auth Today fallback is allowed to navigate.
+        setProfileLoaded(false);
         setTeacherAccountRecord(null);
         setTeacherAccountStatus("checking");
       } else if (import.meta.env.DEV) {
@@ -372,6 +375,11 @@ export function useAppSessionController(context) {
       return;
     }
 
+    // Block the post-auth Today fallback until this user's saved route has
+    // actually been restored. On a hard reload the previous approved state
+    // could otherwise make SELECT look ready for one render, replacing the
+    // incoming Classes/Progress hash before restoration had parsed it.
+    setProfileLoaded(false);
     refreshTeacherAccountAccess(teacherId);
   }, [teacherId]);
 

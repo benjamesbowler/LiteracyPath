@@ -1242,7 +1242,9 @@ export function TeacherDashboardPage({
   )
     ? classCodeExpiryOverrides[selectedClass.id]
     : selectedClass?.access_code_expires_at || null;
-  const visibleClassAccessSummary = classAccessSummary?.classId === selectedClass?.id
+  const visibleClassAccessSummary = classAccessSummary
+    && selectedClass?.id
+    && classAccessSummary.classId === selectedClass.id
     ? classAccessSummary.data
     : null;
   const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]

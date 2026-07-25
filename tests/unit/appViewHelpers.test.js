@@ -108,6 +108,19 @@ test("an unknown stored view falls back rather than crashing", () => {
   assert.equal(getPersistedAppView({ studentId: "", appView: APP_VIEWS.PHONICS_QUEST }), APP_VIEWS.SELECT);
 });
 
+test("teacher intentions persist and restore without requiring a selected learner", () => {
+  for (const view of [
+    APP_VIEWS.TEACHER_DASHBOARD,
+    APP_VIEWS.TEACHER_CLASSES,
+    APP_VIEWS.TEACHER_ASSESS,
+    APP_VIEWS.TEACHER_PROGRESS,
+    APP_VIEWS.TEACHER_RESOURCES
+  ]) {
+    assert.equal(getPersistedAppView({ studentId: "", appView: view }), view);
+    assert.equal(getRestoredAppView({ restoredStudentId: "", storedAppView: view }), view);
+  }
+});
+
 test("restored module-shaped teacher routes redirect to the five-intention IA", () => {
   const redirects = new Map([
     [APP_VIEWS.STUDENT_HOME, APP_VIEWS.TEACHER_CLASSES],

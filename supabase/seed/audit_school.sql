@@ -362,6 +362,27 @@ values (
 on conflict (user_id) do update set
   email = excluded.email;
 
+-- Assessment archives use text identifiers and intentionally predate the
+-- relational class/student foreign keys, so deleting an audit class or learner
+-- cannot cascade into them. Clear every archive owned by the four audit
+-- teachers before rebuilding the fixtures; otherwise repeated browser runs
+-- accumulate synthetic administrations and stop the seed being deterministic.
+delete from public.assessment_attempts
+where teacher_id in (
+  '10000000-0000-4000-8000-000000000001',
+  '10000000-0000-4000-8000-000000000002',
+  '10000000-0000-4000-8000-000000000003',
+  '10000000-0000-4000-8000-000000000004'
+);
+
+delete from public.el_assessment_reports
+where teacher_id in (
+  '10000000-0000-4000-8000-000000000001',
+  '10000000-0000-4000-8000-000000000002',
+  '10000000-0000-4000-8000-000000000003',
+  '10000000-0000-4000-8000-000000000004'
+);
+
 -- Reapplying the seed always restores the onboarding account to a genuinely
 -- fresh state. Cascading foreign keys remove only this audit user's fixtures.
 delete from public.classes

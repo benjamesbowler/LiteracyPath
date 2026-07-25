@@ -78,6 +78,14 @@ const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.FINISHED
 ]);
 
+const TEACHER_INTENTION_VIEWS = new Set([
+  APP_VIEWS.TEACHER_DASHBOARD,
+  APP_VIEWS.TEACHER_CLASSES,
+  APP_VIEWS.TEACHER_ASSESS,
+  APP_VIEWS.TEACHER_PROGRESS,
+  APP_VIEWS.TEACHER_RESOURCES
+]);
+
 export function isFocusedAssessmentView(appView) {
   return FOCUSED_ASSESSMENT_VIEWS.has(appView);
 }
@@ -91,7 +99,11 @@ export function shouldShowFooterUtilityActions({ appView, isFocusedAssessment = 
 }
 
 export function getRestoredAppView({ restoredStudentId, storedAppView } = {}) {
-  if (!restoredStudentId) return APP_VIEWS.SELECT;
+  if (!restoredStudentId) {
+    return TEACHER_INTENTION_VIEWS.has(storedAppView)
+      ? storedAppView
+      : APP_VIEWS.SELECT;
+  }
   if (storedAppView === "tools") return APP_VIEWS.OVERVIEW;
   const legacyTeacherModuleRedirects = {
     [APP_VIEWS.STUDENT_HOME]: APP_VIEWS.TEACHER_CLASSES,
@@ -113,7 +125,11 @@ export function getRestoredAppView({ restoredStudentId, storedAppView } = {}) {
 }
 
 export function getPersistedAppView({ studentId, appView } = {}) {
-  if (!studentId) return APP_VIEWS.SELECT;
+  if (!studentId) {
+    return TEACHER_INTENTION_VIEWS.has(appView)
+      ? appView
+      : APP_VIEWS.SELECT;
+  }
   return Object.values(APP_VIEWS).includes(appView) ? appView : APP_VIEWS.OVERVIEW;
 }
 
