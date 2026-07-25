@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const appSource = readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8");
+const appSurfaceSource = readFileSync(new URL("../../src/components/AppSurface.jsx", import.meta.url), "utf8");
 
 function functionSource(name, nextName) {
   const start = appSource.indexOf(`async function ${name}`);
@@ -36,8 +37,8 @@ test("save and exit routes terminal sessions back through terminal persistence",
   const source = functionSource("saveElBenchmarkPartialAndExit", "finishElBenchmarkAssessment");
   assert.match(source, /terminalStatus === "completed"\) return finishElBenchmarkAssessment/);
   assert.match(source, /terminalStatus === "discontinued"\) return discontinueElBenchmarkAssessment/);
-  assert.match(appSource, /el-benchmark-hub-message\$\{message\.includes\("Cloud sync is pending"\)/);
-  assert.match(appSource, /role="status"/);
+  assert.match(appSurfaceSource, /el-benchmark-hub-message\$\{message\.includes\("Cloud sync is pending"\)/);
+  assert.match(appSurfaceSource, /role="status"/);
   assert.match(appSource, /window\.addEventListener\("online", flushPendingAssessmentAttempts\)/);
   assert.match(appSource, /flushAssessmentAttemptSyncQueue\(\{ teacherId, supabase \}\)/);
 });

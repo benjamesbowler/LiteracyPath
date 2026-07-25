@@ -8,7 +8,7 @@ const learnAreaSource = readFileSync("src/components/LearnAreaPage.jsx", "utf8")
 const studentHomeSource = readFileSync("src/components/StudentHomePage.jsx", "utf8");
 const studentRailSource = readFileSync("src/components/StudentRail.jsx", "utf8");
 const studentRailPolicySource = readFileSync("src/policy/studentRailPolicy.js", "utf8");
-const appSource = readFileSync("src/App.jsx", "utf8");
+const appSource = readFileSync("src/components/AppSurface.jsx", "utf8");
 const sageFormStyles = readFileSync("src/styles/sage-form.css", "utf8");
 
 function channel(hex) {

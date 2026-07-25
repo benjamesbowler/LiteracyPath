@@ -128,6 +128,10 @@ test("the production assessment renderer routes evidence failures into the unsco
     new URL("../../src/App.jsx", import.meta.url),
     "utf8"
   );
+  const surfaceSource = readFileSync(
+    new URL("../../src/components/AppSurface.jsx", import.meta.url),
+    "utf8"
+  );
   const pagesSource = readFileSync(
     new URL("../../src/components/AppPages.jsx", import.meta.url),
     "utf8"
@@ -137,7 +141,7 @@ test("the production assessment renderer routes evidence failures into the unsco
   assert.match(appSource, /function handleAssessmentEvidenceImageError\(/);
   assert.match(appSource, /failedAssessmentMediaRef\.current\.failedQuestionIds\.add/);
   assert.match(appSource, /setCurrentQuestion\(null\)[\s\S]*?pickQuestion\(failedMode, failedStageIndex\)/);
-  assert.match(appSource, /onEvidenceImageError=\{handleAssessmentEvidenceImageError\}/);
+  assert.match(surfaceSource, /onEvidenceImageError=\{handleAssessmentEvidenceImageError\}/);
   assert.match(appSource, /excludeSessionMediaFailures\([\s\S]*?allQuestionsRef\.current\.filter/);
 
   assert.equal(imageTags.length, 3, "new assessment images must use the central evidence component or an explicit non-item classification");

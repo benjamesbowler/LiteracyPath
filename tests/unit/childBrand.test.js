@@ -102,7 +102,7 @@ test("the entry gateway gives students and teachers their own branded destinatio
 test("the Sage home keeps all seven destinations in its policy-led hierarchy", async () => {
   const homeSource = readFileSync(path.join(repoRoot, "src/components/StudentHomePage.jsx"), "utf8");
   const homeStyles = readFileSync(path.join(repoRoot, "src/styles/home-sage.css"), "utf8");
-  const appSource = readFileSync(path.join(repoRoot, "src/App.jsx"), "utf8");
+  const appSource = readFileSync(path.join(repoRoot, "src/components/AppSurface.jsx"), "utf8");
   const imageGeneratorSource = readFileSync(path.join(repoRoot, "tools/generateImage.mjs"), "utf8");
   const imageJobs = JSON.parse(readFileSync(path.join(repoRoot, "tools/image-jobs/home-sage-cards.json"), "utf8"));
   const activitiesSource = homeSource.match(/const activities = \[[\s\S]*?\n {2}\];/)?.[0] || "";

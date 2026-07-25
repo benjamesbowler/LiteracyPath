@@ -34,11 +34,11 @@ import { parse as parseTeacherRouteHash } from "../../src/appState/routes.js";
 test("EVERY view the Student Home links to is on the student allowlist", () => {
   // Read the real component rather than trusting a hand-kept list here — a
   // second hand-kept list would rot exactly like the first one did.
-  const source = fs.readFileSync("src/App.jsx", "utf8");
+  const source = fs.readFileSync("src/components/AppSurface.jsx", "utf8");
 
   // Each onOpenX handler on <StudentHomePage> sets an appView. Pull them out.
   const homeProps = source.match(/<StudentHomePage[\s\S]*?\n\s{10}\/>/);
-  assert.ok(homeProps, "could not find the StudentHomePage element in App.jsx");
+  assert.ok(homeProps, "could not find the StudentHomePage element in AppSurface.jsx");
 
   const views = [...homeProps[0].matchAll(/setAppView\(APP_VIEWS\.([A-Z_]+)\)/g)].map(m => m[1]);
   assert.ok(views.length >= 5, `only found ${views.length} navigation targets on the Student Home — the regex has drifted`);

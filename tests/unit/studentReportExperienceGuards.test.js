@@ -4,15 +4,17 @@ import test from "node:test";
 import { buildStudentWorkspaceCsvRows } from "../../src/utils/exportStudentWorkspaceCsv.js";
 
 const appSource = readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8");
+const appSurfaceSource = readFileSync(new URL("../../src/components/AppSurface.jsx", import.meta.url), "utf8");
+const appRuntimeServicesSource = readFileSync(new URL("../../src/appState/appRuntimeServices.js", import.meta.url), "utf8");
 const appCss = readFileSync(new URL("../../src/App.css", import.meta.url), "utf8");
 const finishedReportSource = readFileSync(new URL("../../src/components/FinishedReportPage.jsx", import.meta.url), "utf8");
 const reportCss = readFileSync(new URL("../../src/styles/student-reports.css", import.meta.url), "utf8");
 
 test("explicit report entries preserve the owned class and learner route", () => {
   assert.doesNotMatch(appSource, /studentReportHash/);
-  assert.match(appSource, /function teacherReportHash\(classId, learnerId, reportView\)/);
+  assert.match(appRuntimeServicesSource, /function teacherReportHash\(classId, learnerId, reportView\)/);
   assert.match(
-    appSource,
+    appSurfaceSource,
     /teacherReportHash\(selectedClassId, studentId, nextReportView\)/
   );
   assert.match(

@@ -387,6 +387,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [4, 8, 9, 10]
   },
   {
+    id: "app-decomposition",
+    label: "App controller decomposition ratchet and explicit runtime/rendering boundaries",
+    command: ["npm", "run", "check:app-decomposition"],
+    areas: [4, 9, 10]
+  },
+  {
     id: "teacher-contextual-help",
     label: "Searchable question-type help reachable from learner evidence",
     command: ["npm", "run", "check:teacher-contextual-help"],
