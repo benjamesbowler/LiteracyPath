@@ -31,7 +31,7 @@
 .story-quest-library-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-top: 4px;
 }
 
@@ -42,13 +42,14 @@
   align-items: center;
   justify-content: center;
   min-height: 28px;
-  padding: 4px 9px;
+  padding: 4px 7px;
   border: 1px solid rgba(26, 92, 85, 0.22);
   border-radius: 999px;
   background: var(--lp-color-success-soft);
   color: var(--lp-color-success-text) !important;
   font-size: 0.8rem;
   font-weight: 850 !important;
+  white-space: nowrap;
 }
 
 .story-quest-library-stats strong {

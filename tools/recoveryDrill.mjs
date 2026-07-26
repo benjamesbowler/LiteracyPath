@@ -90,11 +90,11 @@ function snapshotSql() {
     select '${table}' as table_name,
       count(*)::bigint as row_count,
       encode(
-        digest(
+        extensions.digest(
           coalesce(
             string_agg(
-              encode(digest(to_jsonb(row_value)::text, 'sha256'), 'hex'),
-              '' order by encode(digest(to_jsonb(row_value)::text, 'sha256'), 'hex')
+              encode(extensions.digest(to_jsonb(row_value)::text, 'sha256'), 'hex'),
+              '' order by encode(extensions.digest(to_jsonb(row_value)::text, 'sha256'), 'hex')
             ),
             ''
           ),
@@ -154,6 +154,20 @@ async function readSnapshot(databaseUrl) {
   return parseSnapshot(result.stdout);
 }
 
+async function targetHasRecoverySchema(databaseUrl) {
+  const result = await command("psql", [
+    databaseUrl,
+    "--no-psqlrc",
+    "--tuples-only",
+    "--no-align",
+    "--set",
+    "ON_ERROR_STOP=1",
+    "--command",
+    "select case when to_regclass('public.classes') is null then 'no' else 'yes' end;"
+  ]);
+  return result.stdout.trim() === "yes";
+}
+
 function opaqueIdentity(identity) {
   return createHash("sha256").update(identityText(identity)).digest("hex").slice(0, 16);
 }
@@ -182,11 +196,36 @@ export async function runRecoveryDrill({
       "--format=custom",
       "--no-owner",
       "--no-privileges",
+      "--schema=public",
+      "--schema=auth",
       "--file",
       dumpPath,
       sourceUrl
     ]);
     await command("pg_restore", ["--list", dumpPath]);
+    // A clean restore emits object-specific DROP statements. PostgreSQL cannot
+    // apply some of those (notably DROP POLICY) to a brand-new empty database,
+    // even with --if-exists. Establish the source schema once, without data, so
+    // the same strict clean-and-restore path works for both first and later drills.
+    if (!(await targetHasRecoverySchema(targetUrl))) {
+      await command("psql", [
+        targetUrl,
+        "--no-psqlrc",
+        "--set",
+        "ON_ERROR_STOP=1",
+        "--command",
+        "drop schema if exists public cascade; drop schema if exists auth cascade;"
+      ]);
+      await command("pg_restore", [
+        "--schema-only",
+        "--no-owner",
+        "--no-privileges",
+        "--exit-on-error",
+        "--dbname",
+        targetUrl,
+        dumpPath
+      ]);
+    }
     await command("pg_restore", [
       "--clean",
       "--if-exists",
@@ -196,6 +235,14 @@ export async function runRecoveryDrill({
       "--dbname",
       targetUrl,
       dumpPath
+    ]);
+    await command("psql", [
+      targetUrl,
+      "--no-psqlrc",
+      "--set",
+      "ON_ERROR_STOP=1",
+      "--command",
+      "create schema if not exists extensions; create extension if not exists pgcrypto with schema extensions;"
     ]);
     const restoredSnapshot = await readSnapshot(targetUrl);
     const comparison = compareRecoverySnapshots(sourceSnapshot, restoredSnapshot);

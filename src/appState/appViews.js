@@ -24,6 +24,7 @@ export const APP_VIEWS = {
   TEACHER_ASSESS: "teacherAssess",
   TEACHER_PROGRESS: "teacherProgress",
   TEACHER_RESOURCES: "teacherResources",
+  TEACHER_SETTINGS: "teacherSettings",
   WORKSHEETS: "worksheets",
   PRESENT: "present",
   ADMIN_DASHBOARD: "admin"

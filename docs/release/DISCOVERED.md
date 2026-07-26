@@ -277,3 +277,108 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** teacher routes, child routes, reports, errors, accessible names and exports drifted between student/learner, assessment/checkpoint/check, evidence/results, login/sign-in, abbreviated check windows, raw status values, IDs and version strings. Child actions also included fractions and instructions longer than the agreed early-reader limit. Closed detail panels and downloads were outside the earlier source-only checks, so a green scan could miss copy a person could still read.
 **Fix:** apply `APP_COPY_STANDARD_2026-07-25.md` across the seeded teacher and child product surfaces; use child/children, check, results and sign-in consistently; map check windows and raw statuses before rendering; simplify errors, empty states, actions, report language and family wording; preserve both class averages under plain labels; and strip internal ID/version columns and rows from teacher-facing Excel/CSV files while retaining the underlying internal report model.
 **Gate:** `check:app-copy` now runs a source pre-filter, scans the complete rendered text (including closed details and accessible names) for eight teacher and nine child surfaces, enforces the eight-word child limit and no child fractions, and scans real export output. The gate is permanent in the release runner. All 17 rendered routes and the export contracts pass.
+
+## D-055 · P0 · Area 5/8/9/10 — Teachers could not safely correct, archive, restore, or remove a child
+**Evidence:** the roster exposed an Archive action but did not complete a durable state change, had no restore surface, and offered no ordinary way to correct a misspelled display name. Permanent deletion was buried inside the privacy-request workflow, so routine child administration and statutory data deletion were conflated.
+**Fix:** add owned, validation-bound teacher RPCs for child renaming and archive-state changes; keep permanent deletion inside the separately verified privacy workflow; add focused Edit details, Archive, Restore, and Privacy settings actions; expose active and archived roster views; and refresh the selected child and class state after every mutation.
+**Gate:** unit contracts cover validation, stale/cross-class ownership and response handling; the live database policy verifier probes anonymous denial and tenant isolation; and the authenticated child-lifecycle journey proves rename, privacy export readiness/history, archive, archived-list visibility, restore, and the original name restoration.
+
+## D-056 · P1 · Area 6/8/9 — A failed privacy-history request disabled unrelated child data actions
+**Evidence:** the child data-rights dialog treated request-history loading as a prerequisite for export and deletion. A transient history failure therefore disabled otherwise valid, independently authorised actions and left the teacher with no focused retry.
+**Fix:** separate history state from action eligibility, retain verified requester/authority controls, let history fail and retry independently, and keep export/deletion responses honest about their own operation.
+**Gate:** dialog unit contracts and the authenticated lifecycle journey prove verified export becomes available, history renders when reachable, and a history error cannot masquerade as an export or deletion failure.
+
+## D-057 · P1 · Area 2/5/6/7/9 — Teacher navigation mixed daily work, administration, settings, and reports
+**Evidence:** teachers had to scroll through oversized mixed-purpose surfaces; child actions, privacy controls, school details, site-code controls, settings and dense reporting competed in the same workflow. The selected-class path was unclear and the report chooser added a further decision screen after a child had already been chosen.
+**Fix:** replace the mixed intention structure with six plain sections—Dashboard, Children, Checks, Reports, Resources and Settings. Give Settings its own School information, Site settings, Privacy settings and Account pages; keep child lifecycle actions inside Children; and open the chosen child's useful report directly from Reports.
+**Gate:** authenticated desktop browser contracts prove all six sections, an honest no-class state, separate settings pages, active/archived child rosters, and direct child-report opening without the legacy five-card chooser.
+
+## D-058 · P1 · Area 3/6 — Child administration used a scattered, low-focus drawer and modal stack
+**Evidence:** actions appeared as a loose vertical list beside a dense roster, and translucent overlapping surfaces allowed the underlying page to compete with edit, privacy and archive tasks. At common laptop widths the workflow felt visually unbounded and required unnecessary scrolling.
+**Fix:** use a compact roster row with one clear primary action, an opaque focused child-detail surface, short grouped actions, bounded dialogs, predictable footer buttons and responsive page-level sections rather than nested scrolling panels.
+**Gate:** authenticated lifecycle and accessibility journeys exercise the focused child surface, dialogs, keyboard operation and 44-pixel targets at desktop and mobile sizes with no page error or serious/critical Axe violation.
+
+## D-059 · P0 · Area 8/10 — An orphaned local database host made migration evidence contradict itself
+**Evidence:** Docker's fresh PostgreSQL instance and an abandoned Lima host agent both claimed the local Supabase database port on different address families. Supabase CLI checks reached the stale Lima database while container inspection reached the clean Docker database, producing a false duplicate-version diagnosis and making release reconstruction non-reproducible.
+**Fix:** identify and stop the orphaned host agent, require one resolved database listener before reconstruction, then rebuild and seed the complete Docker-backed local stack without changing or bypassing any migration.
+**Gate:** a clean local reconstruction applies all 38 migrations in order, reports the exact migration-version range, starts Auth/REST/PostgreSQL healthily, applies the deterministic audit seed, and passes the live catalogue/Auth/RLS/RPC/delete/code/token verifier against that same target.
+
+## D-060 · P0 · Area 6/9/10 — Opening Settings without a selected class crashed the teacher app
+**Evidence:** the access-summary guard compared two absent class IDs. Because `undefined === undefined`, the component treated a missing summary as owned class data and dereferenced `accessSummary.data`, entering the global error boundary for a valid newly signed-in teacher state.
+**Fix:** require a real summary object before comparing its class ID or reading its data, and render each Settings page independently of class selection where its content does not require a class.
+**Gate:** the authenticated six-section journey opens Settings with no selected class and reaches all four settings pages without a page error.
+
+## D-061 · P1 · Area 6/7/9/10 — Simple reports still detoured through the legacy chooser and lost their exact view on refresh
+**Evidence:** the redesigned child summary existed, but Open report still routed to the previous five-card report-choice screen. A hard reload of a canonical report URL restored the picker rather than the selected child's exact Skills, Essential Literacy or High-frequency words view.
+**Fix:** pass the selected child identity through the Reports row, open the canonical whole-child report directly, retain the class/child/report identity in the teacher URL, and restore the finished report surface itself after ownership validation.
+**Gate:** the authenticated report journey verifies the plain exposure sentence, four-state colour legend, direct Skills view, exact canonical URL and hard-refresh restoration for the same class, child and report.
+
+## D-062 · P0 · Area 5/6/7/9/10 — Release journeys still encoded the retired teacher information architecture
+**Evidence:** the six-section teacher workflow was implemented, but several browser checks still searched for the old Today/Classes/Assess/Progress labels, drawer-only report entry, and superseded page headings. Those checks could fail without identifying a product regression or, worse, pass without exercising the new route.
+**Fix:** move every teacher route, smoke, accessibility, device, reporting, and end-to-end contract onto Dashboard, Children, Checks, Reports, Resources, and Settings; assert the compact child workflow and direct report routes.
+**Gate:** the canonical release suite exercises the authenticated six-section journey, deep links, refresh, Back, responsive roster, keyboard navigation, and teacher recovery states against the current interface.
+
+## D-063 · P0 · Area 8/10 — Stateful release gates were not repeatable after another live gate changed audit data
+**Evidence:** security, lifecycle, and data-rights journeys intentionally write records. A later gate could therefore observe more history rows or missing disposable learners than a clean standalone run, making results depend on execution order.
+**Fix:** reapply the deterministic audit-school seed before stateful live checks and assert semantic bounded outcomes rather than incidental row totals.
+**Gate:** `seed:audit-school` reconstructs the same teachers, classes, learners, evidence, reports, and security events; repeated focused and canonical runs produce the same outcomes.
+
+## D-064 · P1 · Area 2/3/6/10 — Plain-language expansion caused avoidable child-screen crowding
+**Evidence:** longer, clearer copy made the Story Quest status strip wrap and allowed the Adventure Map's current-stop hint to collide with the top edge on smaller layouts.
+**Fix:** compact the Story Quest statistics without reducing readable type, keep them on one line, and position the current-stop hint to the right when an above placement would clip.
+**Gate:** key-route, emphasis-budget, and full student-device screenshot matrices pass at phone, tablet, Chromebook, and projector sizes with reviewed baselines.
+
+## D-065 · P0 · Area 8/9/10 — Preview and release helpers lagged behind the private data boundary
+**Evidence:** after application reads moved behind the registered `table`/`call` facade, preview clients and static verifiers still used or expected raw SDK shapes. This produced false failures and allowed malformed preview identifiers to reach a real local endpoint.
+**Fix:** use the same facade contract in previews and guards, register all lifecycle/data-rights calls, strengthen alias-independent raw-access detection, and use valid non-production UUID fixtures.
+**Gate:** domain-boundary self-tests, preview accessibility routes, backend verifiers, and the full unit suite pass with zero direct application `.from()` or `.rpc()` access.
+
+## D-066 · P0 · Area 8/10 — The documented recovery drill did not complete a real isolated restore
+**Evidence:** the first live run exposed incompatible client invocation, target-database cleanup, catalogue comparison, and schema fingerprint assumptions that static checks could not reveal.
+**Fix:** run the installed PostgreSQL tools through a bounded wrapper, restore only into an explicitly named isolated database, compare protected table counts and order-independent fingerprints, and write a secret-free evidence artifact.
+**Gate:** `check:recovery-drill` performs a real backup and restore into `literacypath_recovery_drill`, verifies class, learner, evidence, and report data, and records the successful drill under `docs/release/artifacts/recovery/`.
+
+## D-067 · P0 · Area 8/10 — Real learner deletion failed on an invalid JSONB section-count expression
+**Evidence:** the authenticated data-rights journey reached permanent deletion but PostgreSQL rejected the zero-residual proof because `jsonb_object_length` was used where the deployed engine did not provide that function signature.
+**Fix:** replace the brittle expression with a supported section-count calculation in a forward migration while preserving the atomic delete, audit tombstone, and zero-residual contract.
+**Gate:** `check:learner-data-rights` exports a 520-attempt learner, creates and deletes a dedicated evidence-bearing learner, proves every protected record is absent, rejects re-export, and retains only the privacy-minimal completion record.
+
+## D-068 · P0 · Area 8/9/10 — A release browser could silently run against a different backend from the live audit
+**Evidence:** an orphaned Vite process and mismatched frontend/audit environment variables allowed browser checks to use one Supabase target while SQL and policy verifiers used another.
+**Fix:** fail release preflight unless browser and audit Supabase URL/key values are present, valid, and exactly equal; use the current publishable key type; start the owned test server for every browser gate.
+**Gate:** release-truth unit tests reject absent or mismatched targets, and the canonical run uses one local Supabase API and database for seed, browser, policy, recovery, and data-rights evidence.
+
+## D-069 · P1 · Area 8/10 — The class-security check confused a privacy bound with a fixed event count
+**Evidence:** the live UI correctly showed four recent generic security events after preceding denial probes, while the browser test required exactly three. The RPC contract is a bounded newest-first history, not a three-row history.
+**Fix:** require the expected blocked and rejected event meanings, the explicit no-identifiers disclosure, and a history between 3 and the UI request limit of 20.
+**Gate:** the focused live class-security gate re-seeds the database, triggers an 11-request device lockout, verifies the teacher alert/history, and saves and clears code expiry.
+
+## D-070 · P1 · Area 3/8/10 — Accessibility previews queried the real sync-health table with synthetic context
+**Evidence:** teacher preview routes first sent the malformed placeholder `class-a`; after that was corrected to a valid reserved UUID, the unauthenticated preview still made a real table request and correctly received a permission denial. Both paths created noisy false operational errors.
+**Fix:** retain a valid reserved preview UUID and inject explicit empty preview telemetry into the dashboard. Do not grant anonymous table access, suppress production failures, or let a visual fixture depend on backend state.
+**Gate:** teacher accessibility, learner-settings, all-route accessibility, and external route-readiness checks complete without malformed-UUID or denied sync-health console errors.
+
+## D-071 · P1 · Area 3/6/9/10 — Teacher navigation used child-page view transitions and logged timeout errors
+**Evidence:** the contextual-help browser journey completed correctly but repeated teacher route changes left `document.startViewTransition` phases waiting until the browser's DOM-update timeout, producing five console errors and false monitor noise.
+**Fix:** scope the progressive view-transition enhancement to student sessions, which is the audience it was designed for. Teacher navigation uses the immediate React route update and retains all state, focus, URL, and Back behavior.
+**Gate:** the contextual-help journey and complete authenticated teacher suite pass without `Page view transition failed` console output.
+
+## D-072 · P0 · Area 6/8/10 — The learner-data-rights verifier contradicted the canonical copy gate
+**Evidence:** the application and rendered copy gate correctly changed “Login tokens” to “Sign-in tokens”, but the backend verifier still required the retired wording and failed before running the real export/delete journeys.
+**Fix:** make the verifier require the same canonical sign-in wording as the application copy standard.
+**Gate:** `check:app-copy` and `check:learner-data-rights` both pass in the same canonical release.
+
+## D-073 · P1 · Area 2/3/10 — Guided Reading verification could inspect an outgoing page during the page transition
+**Evidence:** the reader progress changed to page 2 while the previous animated page remained in the DOM for its exit transition. The line-measure gate used an unscoped text locator, so it could measure the hidden outgoing page as empty even though the requested page rendered correctly.
+**Fix:** identify every rendered reader page with its exact page number and bind the measure contract to that visible numbered page before checking text, line length or screenshots.
+**Gate:** the Level A, B and C Guided Reading measure journey turns through every page, waits for the exact visible page, proves text is rendered, and enforces the level-specific line and image/text template.
+
+## D-074 · P1 · Area 2/3/10 — Assessment answer text lost contrast during question transitions
+**Evidence:** replacing a question after failed media could leave the new answer card part-way through an opacity animation when assistive checks or a fast child interaction reached it. The configured text colour passed at full opacity but not while blended with the card background.
+**Fix:** keep assessment question content fully opaque throughout entry and exit; retain the short scale transition without temporarily weakening answer-label contrast.
+**Gate:** the failed-media replacement journey waits for the safe refilled question, proves both replacement images are usable, and runs serious/critical Axe checks while the replacement transition may still be active.
+
+## D-075 · P1 · Area 2/3/10 — Story Quest device baselines still described the superseded story revision
+**Evidence:** the complete device matrix passed every overflow, control-size, focus and runtime assertion, but six reviewed screenshots still expected the older Story Quest title, story-word total and longer first-scene copy. The current compact story revision was therefore reported as a visual regression even though it reduced crowding and remained stable across repeated renders.
+**Fix:** compare the old and current renders at phone, tablet, Chromebook and projector sizes, confirm that only the intentional story content and resulting image fit changed, then regenerate only the six affected Story Quest baselines.
+**Gate:** all 12 device-matrix journeys pass with the reviewed current Story Quest route and fullscreen baselines while retaining zero horizontal overflow, visible focus and 44-pixel minimum controls.

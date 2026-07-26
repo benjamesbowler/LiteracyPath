@@ -35,9 +35,15 @@ test.beforeEach(async ({ page }) => {
 test("A3.4 teacher settings persist and every learner effect is active", async ({ page }) => {
   await page.goto("/preview/teacher-a11y.html?surface=classes");
 
-  await page.getByText("Roster administration", { exact: true }).click();
+  const rosterAdmin = page.locator(".teacher-roster-admin");
+  if (!await rosterAdmin.evaluate(element => element.open)) {
+    await rosterAdmin.locator(":scope > summary").click();
+  }
   const learnerRow = page.locator("tr").filter({ hasText: "Aarav" }).first();
-  await learnerRow.getByRole("button", { name: "Accessibility settings" }).click();
+  await learnerRow.getByRole("button", { name: "More options for Aarav", exact: true }).click();
+  await page.getByRole("dialog", { name: "Options for Aarav" })
+    .getByRole("button", { name: "Accessibility settings", exact: true })
+    .click();
   const dialog = page.getByRole("dialog", { name: "Accessibility settings for Aarav" });
   await expect(dialog).toBeVisible();
 
@@ -75,9 +81,15 @@ test("A3.4 teacher settings persist and every learner effect is active", async (
   });
 
   await page.reload();
-  await page.getByText("Roster administration", { exact: true }).click();
-  await page.locator("tr").filter({ hasText: "Aarav" }).first()
-    .getByRole("button", { name: "Accessibility settings" }).click();
+  const reloadedRosterAdmin = page.locator(".teacher-roster-admin");
+  if (!await reloadedRosterAdmin.evaluate(element => element.open)) {
+    await reloadedRosterAdmin.locator(":scope > summary").click();
+  }
+  const reloadedRow = page.locator("tr").filter({ hasText: "Aarav" }).first();
+  await reloadedRow.getByRole("button", { name: "More options for Aarav", exact: true }).click();
+  await page.getByRole("dialog", { name: "Options for Aarav" })
+    .getByRole("button", { name: "Accessibility settings", exact: true })
+    .click();
   const reloadedDialog = page.getByRole("dialog", { name: "Accessibility settings for Aarav" });
   for (const label of settingLabels) {
     await expect(

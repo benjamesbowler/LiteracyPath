@@ -297,7 +297,7 @@ async function assertLargeExportMemory() {
   await reloaded.xlsx.load(buffer);
   samples.push(process.memoryUsage());
 
-  const rowCount = reloaded.getWorksheet("Student Completion")?.actualRowCount || 0;
+  const rowCount = reloaded.getWorksheet("Child completion")?.actualRowCount || 0;
   assert.equal(rowCount, 501, "the 500-item export lost rows after XLSX serialization");
   const heapGrowthBytes = Math.max(...samples.map(sample => sample.heapUsed)) - before.heapUsed;
   const rssGrowthBytes = Math.max(...samples.map(sample => sample.rss)) - before.rss;

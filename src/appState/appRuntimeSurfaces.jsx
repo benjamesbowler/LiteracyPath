@@ -44,6 +44,11 @@ export const TeacherIntentPage = lazyWithRetry(() =>
     default: module.TeacherIntentPage
   }))
 );
+export const TeacherSettingsPage = lazyWithRetry(() =>
+  import("../components/teacher/TeacherSettingsPage.jsx").then(module => ({
+    default: module.TeacherSettingsPage
+  }))
+);
 export const ConfirmActionDialog = lazyWithRetry(() =>
   import("../components/teacher/TeacherAdminDialogs.jsx").then(module => ({
     default: module.ConfirmActionDialog

@@ -6,12 +6,24 @@ import {
   buildLearnerDataDownload,
   deleteLearnerData,
   exportLearnerData,
+  isLearnerDataRightsVerificationComplete,
   loadLearnerDataRightsHistory,
   prepareLearnerDeletion
 } from "../../src/data/learnerDataRights.js";
 
 const studentId = "40000000-0000-4000-8000-000000000099";
 const subjectRef = "a".repeat(64);
+
+test("verified privacy actions do not depend on request-history availability", () => {
+  assert.equal(isLearnerDataRightsVerificationComplete({
+    requesterRole: "school",
+    verificationMethod: "authorised_school_official"
+  }), true);
+  assert.equal(isLearnerDataRightsVerificationComplete({
+    requesterRole: "school",
+    verificationMethod: ""
+  }), false);
+});
 
 test("verified export uses the owned learner RPC and requires request evidence", async () => {
   const calls = [];

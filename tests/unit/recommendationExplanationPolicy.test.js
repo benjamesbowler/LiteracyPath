@@ -24,11 +24,11 @@ test("child recommendation explanations stay brief and versioned", () => {
 
 test("every registered recommendation surface is audience-specific", () => {
   assert.equal(RECOMMENDATION_EXPLANATION_SURFACES.child.length, 5);
-  assert.equal(RECOMMENDATION_EXPLANATION_SURFACES.teacher.length, 5);
+  assert.equal(RECOMMENDATION_EXPLANATION_SURFACES.teacher.length, 4);
   assert.equal(requireRecommendationSurface("student-home", "child"), "student-home");
-  assert.equal(requireRecommendationSurface("teacher-progress", "teacher"), "teacher-progress");
+  assert.equal(requireRecommendationSurface("teacher-today", "teacher"), "teacher-today");
   assert.throws(
-    () => requireRecommendationSurface("teacher-progress", "child"),
+    () => requireRecommendationSurface("teacher-today", "child"),
     /not registered for child/
   );
 });

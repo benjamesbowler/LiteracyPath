@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
-const familyJargon = /\b(?:accuracy|administration|assessment|attempt|benchmark|confidence|currency|decoding|denominator|developing|evidence|fluency|grapheme|mastery|microphase|mixed evidence|needs teaching|phoneme|scoring|secure|status|version)\b/i;
+const denseAnalyticsJargon = /\b(?:confidence interval|denominator|outlier|percentile|instructional group|weighted average)\b/i;
 
 async function logIn(page) {
   if (!teacherPassword) {
@@ -17,9 +17,9 @@ async function logIn(page) {
   });
 }
 
-async function openAaravWholeChildReport(page) {
+async function openAaravReport(page) {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Classes", exact: true })
+    .getByRole("button", { name: "Children", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   const rosterAdmin = page.locator(".teacher-roster-admin");
@@ -27,68 +27,38 @@ async function openAaravWholeChildReport(page) {
     await rosterAdmin.locator(":scope > summary").click();
   }
   const aaravRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open learner", exact: true }).click();
-  await page.getByRole("region", { name: "Learner detail: Aarav" })
+  await aaravRow.getByRole("button", { name: "Open child", exact: true }).click();
+  await page.getByRole("region", { name: "Child details: Aarav" })
     .getByRole("button", { name: "Review Aarav’s progress", exact: true })
     .click();
-  await page.getByRole("navigation", { name: "Progress tools" })
-    .getByRole("button", { name: "Reports", exact: true })
-    .click();
-  await expect(page.getByRole("button", { name: "Open Whole Child", exact: true })).toBeEnabled({
+  const aaravReport = page.getByRole("article").filter({
+    has: page.getByRole("heading", { name: "Aarav", exact: true })
+  });
+  await aaravReport.getByRole("button", { name: "Open report", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Overview", exact: true })).toBeVisible({
     timeout: 20_000
   });
-  await page.getByRole("button", { name: "Open Whole Child", exact: true }).click();
 }
 
-test("@report-audience-templates renders teacher, leadership, and family views from Aarav's record", async ({
+test("@report-audience-templates keeps Aarav's reachable report brief and audience-safe", async ({
   page
 }) => {
   await logIn(page);
-  await openAaravWholeChildReport(page);
+  await openAaravReport(page);
 
-  const audiencePicker = page.getByRole("group", { name: "Choose report audience" });
-  const teacher = audiencePicker.getByRole("button", { name: /Teacher diagnostic/ });
-  const leadership = audiencePicker.getByRole("button", { name: /Class and leadership/ });
-  const family = audiencePicker.getByRole("button", { name: /Family update/ });
-
-  await expect(teacher).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByRole("heading", { name: "Next teaching priorities", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Knowledge by literacy area", exact: true })).toBeVisible();
-
-  await leadership.click();
-  const leadershipTemplate = page.locator('[data-report-audience="class_leadership"]');
-  await expect(leadership).toHaveAttribute("aria-pressed", "true");
-  await expect(leadershipTemplate.getByRole("heading", {
-    name: "Class and leadership summary",
-    exact: true
-  })).toBeVisible();
-  await expect(leadershipTemplate.getByRole("heading", {
-    name: "Literacy-area summary",
-    exact: true
-  })).toBeVisible();
-  await expect(leadershipTemplate.getByRole("heading", {
-    name: "Interpretation safeguards",
-    exact: true
-  })).toBeVisible();
-  await expect(leadershipTemplate).toContainText("No public child rank is shown.");
-
-  await family.click();
-  const familyTemplate = page.locator('[data-report-audience="family_friendly"]');
-  await expect(family).toHaveAttribute("aria-pressed", "true");
-  await expect(familyTemplate.getByRole("heading", {
-    name: "Aarav’s reading update",
-    exact: true
-  })).toBeVisible();
-  for (const heading of [
-    "What is going well",
-    "What we are practising next",
-    "How we can help together"
-  ]) {
-    await expect(familyTemplate.getByRole("heading", { name: heading, exact: true })).toBeVisible();
+  const reportNav = page.getByRole("navigation", { name: "Child reports" });
+  await expect(reportNav.getByRole("link")).toHaveCount(4);
+  for (const view of ["Overview", "Skills", "HFW / sight words", "EL formal report"]) {
+    await expect(reportNav.getByRole("link", {
+      name: new RegExp(`^${view.replace("/", "\\/")}`)
+    })).toBeVisible();
   }
-  await expect(page.getByRole("heading", { name: "Family reading update", exact: true })).toBeVisible();
-  await expect(page.getByRole("region", { name: "Report provenance" })).toHaveCount(0);
-  const familyText = await page.locator(".lg-report-main").innerText();
-  expect(familyText).not.toMatch(familyJargon);
-  expect(familyText).not.toMatch(/[£$€¥]/u);
+
+  await reportNav.getByRole("link", { name: /^Skills/ }).click();
+  const firstTile = page.locator(".simple-report-tile").first();
+  await expect(firstTile).toContainText(/Aarav has been exposed to/i);
+  await expect(firstTile).toContainText(/correct answer/i);
+  const reportText = await page.locator(".lg-report-main").innerText();
+  expect(reportText).not.toMatch(denseAnalyticsJargon);
+  expect(reportText).not.toMatch(/[£$€¥]/u);
 });

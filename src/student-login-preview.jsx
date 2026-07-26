@@ -7,7 +7,7 @@ import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 const scenario = new URLSearchParams(window.location.search).get("scenario") || "code-not-found";
 
 const client = {
-  async rpc(name) {
+  async call(name) {
     if (name !== "student_class_by_code") {
       return { data: null, error: { message: "Unexpected preview RPC." } };
     }

@@ -10,7 +10,7 @@ const read = relativePath =>
 const dashboard = read("src/components/TeacherDashboardPage.jsx");
 const intents = read("src/components/teacher/TeacherIntentPage.jsx");
 const appPages = read("src/components/AppPages.jsx");
-const app = read("src/App.jsx");
+const runtimeSurfaces = read("src/appState/appRuntimeSurfaces.jsx");
 const styles = read("src/App.css");
 const tokens = read("src/components/teacher/ui/teacherTokens.css");
 const primitives = read("src/components/teacher/ui/TeacherPrimitives.jsx");
@@ -85,7 +85,7 @@ for (const [label, source, banned] of [
 }
 
 assert.ok(
-  app.includes('import("./components/teacher/TeacherAdminDialogs.jsx")'),
+  runtimeSurfaces.includes('import("../components/teacher/TeacherAdminDialogs.jsx")'),
   "Low-frequency teacher admin dialogs must stay in a lazy route chunk."
 );
 assert.ok(

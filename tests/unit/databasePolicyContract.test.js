@@ -33,7 +33,7 @@ test("security boundary migration is last and grants only the explicit RPC surfa
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
   assert.equal(report.anonymousRpcCount, 8);
-  assert.equal(report.authenticatedRpcCount, 36);
+  assert.equal(report.authenticatedRpcCount, 37);
   assert.equal(report.legacyRpcCount, 8);
 });
 
@@ -41,7 +41,7 @@ test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
   assert.equal(report.anonymousRpcCount, 8);
-  assert.equal(report.authenticatedRpcCount, 36);
+  assert.equal(report.authenticatedRpcCount, 37);
   assert.equal(report.privateHelperCount, 2);
 });
 

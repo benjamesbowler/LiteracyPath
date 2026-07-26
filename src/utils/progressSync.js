@@ -378,7 +378,8 @@ export function clearProgressSyncSession() {
 }
 
 async function sendStudentActivity(session, entry) {
-  const { data, error } = await supabase.call("student_log_activity_v2", {
+  const client = session.client || supabase;
+  const { data, error } = await client.call("student_log_activity_v2", {
     p_token: session.token,
     p_client_event_id: entry.id,
     p_area: entry.area,
@@ -395,7 +396,8 @@ async function sendStudentActivity(session, entry) {
 
 async function reportStudentActivitySyncHealth(session, snapshot) {
   try {
-    const { data, error } = await supabase.call("student_report_activity_sync_health", {
+    const client = session.client || supabase;
+    const { data, error } = await client.call("student_report_activity_sync_health", {
       p_token: session.token,
       p_device_id: snapshot.deviceId,
       p_attempted: snapshot.attempted,

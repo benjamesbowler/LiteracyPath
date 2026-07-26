@@ -1,40 +1,39 @@
 export const STUDENT_REPORT_VIEWS = [
   {
     id: "whole-child",
-    label: "Whole child",
-    shortLabel: "Whole child",
-    description: "What this child knows across every learning area."
-  },
-  {
-    id: "el-assessments",
-    label: "EL checks",
-    shortLabel: "EL checks",
-    description: "EL check results and next steps."
-  },
-  {
-    id: "guided-reading",
-    label: "Guided reading",
-    shortLabel: "Guided reading",
-    description: "Books, reading observations, words and teacher notes."
+    label: "Overview",
+    shortLabel: "Overview",
+    description: "Mastered, developing, and yet to learn."
   },
   {
     id: "skills-check",
-    label: "Skills check",
-    shortLabel: "Skills check",
-    description: "Check results and progress by skill."
+    label: "Skills",
+    shortLabel: "Skills",
+    description: "Saved answers and accuracy by literacy skill."
   },
   {
-    id: "other-learning",
-    label: "Other learning",
-    shortLabel: "Other learning",
-    description: "Useful practice results from other learning areas."
+    id: "hfw",
+    label: "High-frequency words",
+    shortLabel: "HFW / sight words",
+    description: "All 100 words, including those not seen yet."
+  },
+  {
+    id: "el-assessments",
+    label: "EL formal report",
+    shortLabel: "EL formal report",
+    description: "The standalone formal check record for school files."
   }
 ];
 
 const VIEW_IDS = new Set(STUDENT_REPORT_VIEWS.map(view => view.id));
+const LEGACY_VIEW_MAP = Object.freeze({
+  "guided-reading": "whole-child",
+  "other-learning": "whole-child"
+});
 
 export function normalizeStudentReportView(value = "") {
-  return VIEW_IDS.has(value) ? value : "whole-child";
+  const normalized = LEGACY_VIEW_MAP[value] || value;
+  return VIEW_IDS.has(normalized) ? normalized : "whole-child";
 }
 
 export function readStudentReportHash() {

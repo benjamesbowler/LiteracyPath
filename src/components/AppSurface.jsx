@@ -44,6 +44,7 @@ import {
   Sidebar,
   TeacherDashboardPage,
   TeacherIntentPage,
+  TeacherSettingsPage,
   WorksheetGeneratorPage
 } from "../appState/appRuntimeSurfaces.jsx";
 import { pushRouteHash, teacherReportHash } from "../appState/appRuntimeServices.js";
@@ -101,7 +102,7 @@ export function AppSurface({ surface }) {
     studentId, studentList, studentName, studentPreview, studentPreviewStatus, studentReportView,
     studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
     teacherId, teacherSchoolName, teacherUser, toggleAssessmentFullscreen,
-    totalAnswered, updateElBenchmarkSession, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot
+    totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot
   } = surface;
   if (showSkillsQuestPrototype) {
     return (
@@ -476,7 +477,6 @@ export function AppSurface({ surface }) {
             goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
             goToLearn={() => setAppView(APP_VIEWS.LEARN)}
             goToPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
-            goToReports={() => setAppView(APP_VIEWS.REPORTS)}
             goToWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
             goToPresent={() => setAppView(APP_VIEWS.PRESENT)}
             goToTeacherDashboard={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
@@ -484,6 +484,7 @@ export function AppSurface({ surface }) {
             goToTeacherAssess={() => goToTeacherIntent(APP_VIEWS.TEACHER_ASSESS)}
             goToTeacherProgress={() => goToTeacherIntent(APP_VIEWS.TEACHER_PROGRESS)}
             goToTeacherResources={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
+            goToTeacherSettings={() => goToTeacherIntent(APP_VIEWS.TEACHER_SETTINGS)}
             teacherEmail={teacherUser.email}
             logOutTeacher={logOutTeacher}
             isAdmin={isAdmin}
@@ -707,6 +708,7 @@ export function AppSurface({ surface }) {
               classDashboard={classDashboard}
               loadClassDashboard={loadClassDashboard}
               skillTree={skillTree}
+              updateStudentName={updateStudentName}
               updateStudentSymbolPassword={updateStudentSymbolPassword}
               resetStudentSymbolPassword={resetStudentSymbolPassword}
               startStudentLogin={() => {
@@ -769,7 +771,16 @@ export function AppSurface({ surface }) {
                 setTeacherStudentContext({ studentId: null, studentName: "" });
                 setNameSaved(false);
               }}
-              onOpenReports={() => setAppView(APP_VIEWS.REPORTS)}
+              onOpenReports={learnerId => {
+                const nextReportView = "whole-child";
+                setStudentReportView(nextReportView);
+                pushRouteHash(teacherReportHash(
+                  selectedClassId,
+                  learnerId,
+                  nextReportView
+                ));
+                setAppView(APP_VIEWS.FINISHED);
+              }}
             />
           </Suspense>
         </PageBoundary>
@@ -786,6 +797,40 @@ export function AppSurface({ surface }) {
               onOpenStoryQuests={() => openStudentPreview(APP_VIEWS.LEARN)}
               onOpenWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
               onOpenPresent={() => setAppView(APP_VIEWS.PRESENT)}
+            />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_SETTINGS && (
+        <PageBoundary resetKey="teacher-settings">
+          <Suspense fallback={<LazyPageFallback label="Loading settings…" />}>
+            <TeacherSettingsPage
+              client={supabase}
+              classList={classList}
+              selectedClassId={selectedClassId}
+              onSelectClass={async nextClassId => {
+                setSelectedClassId(nextClassId);
+                setTeacherGroupId("all");
+                setTeacherStudentContext({ studentId: null, studentName: "" });
+                setNameSaved(false);
+                if (nextClassId) {
+                  await loadStudents(nextClassId);
+                  await loadClassDashboard(nextClassId);
+                } else {
+                  setStudentList([]);
+                  setArchivedStudentList([]);
+                  setClassDashboard([]);
+                }
+              }}
+              studentList={studentList}
+              archivedStudentList={archivedStudentList}
+              schoolName={teacherSchoolName}
+              onSaveSchool={saveTeacherSchool}
+              onRegenerateClassCode={regenerateClassCode}
+              onReloadStudents={loadStudents}
+              teacherEmail={teacherUser.email}
+              onSignOut={logOutTeacher}
             />
           </Suspense>
         </PageBoundary>

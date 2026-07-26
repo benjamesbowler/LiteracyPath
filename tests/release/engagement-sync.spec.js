@@ -49,17 +49,17 @@ test("A4.7 teachers see per-class pending, recovered, loss, and threshold alert"
 }) => {
   await page.goto("/preview/engagement-sync.html");
 
-  const panel = page.getByRole("region", { name: "Learning event sync health" });
+  const panel = page.getByRole("region", { name: "Saving and syncing" });
   await expect(panel).toHaveAttribute("data-sync-health-status", "alert");
   await expect(panel).toHaveAttribute("data-sync-health-version", "2026.07.24-a4.7");
   await expect(panel.getByRole("alert").first()).toHaveText("Sync loss alert");
-  await expect(panel.getByText("97 of 100", { exact: true })).toBeVisible();
+  await expect(panel.getByRole("definition").filter({ hasText: "97 of 100" })).toBeVisible();
   await expect(panel.getByText("9", { exact: true })).toBeVisible();
-  await expect(panel.getByText("3 · 3%", { exact: true })).toBeVisible();
-  await expect(panel).toContainText("exceeds the 1% alert threshold");
+  await expect(panel.getByText("3", { exact: true })).toBeVisible();
+  await expect(panel).toContainText("Some results may not have reached the dashboard.");
 
   const axe = await new AxeBuilder({ page })
-    .include('[aria-label="Learning event sync health"]')
+    .include('[aria-label="Saving and syncing"]')
     .analyze();
   expect(
     axe.violations.filter(violation => ["serious", "critical"].includes(violation.impact))

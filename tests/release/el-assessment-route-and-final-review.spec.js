@@ -18,7 +18,7 @@ async function logIn(page) {
 
 async function openAmaraAssessmentHub(page) {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Classes", exact: true })
+    .getByRole("button", { name: "Children", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   const rosterAdmin = page.locator(".teacher-roster-admin");
@@ -26,17 +26,16 @@ async function openAmaraAssessmentHub(page) {
     await rosterAdmin.locator(":scope > summary").click();
   }
   const amaraRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Amara" });
-  await amaraRow.getByRole("button", { name: "Open learner", exact: true }).click();
-  await page.getByRole("region", { name: "Learner detail: Amara" })
-    .getByRole("button", { name: "Assess Amara", exact: true })
+  await amaraRow.getByRole("button", { name: "Open child", exact: true }).click();
+  await page.getByRole("region", { name: "Child details: Amara" })
+    .getByRole("button", { name: "Check Amara", exact: true })
     .click();
-  await page.getByRole("region", { name: "Assessment hub tools" })
-    .getByRole("article")
-    .filter({ hasText: "Progress monitoring" })
-    .getByRole("button", { name: "Open", exact: true })
+  await page.getByRole("article")
+    .filter({ hasText: "EL formal check" })
+    .getByRole("button", { name: "Open EL check", exact: true })
     .click();
   await expect(page.getByRole("heading", {
-    name: "Choose a comparable assessment for Amara",
+    name: "Choose a check for Amara",
     exact: true
   })).toBeVisible();
 }
@@ -74,12 +73,12 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   await openAmaraAssessmentHub(page);
   await startEncoding(page);
 
-  await expect(page).toHaveURL(/#teacher\/assess\/el-benchmark\?.*assessment=el_encoding.*item=1/);
+  await expect(page).toHaveURL(/#teacher\/checks\/el-benchmark\?.*assessment=el_encoding.*item=1/);
   for (let itemNumber = 1; itemNumber <= 3; itemNumber += 1) {
     await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
   }
   await expect(page.getByRole("heading", { name: "Item 4 of 8", exact: true })).toBeVisible();
-  await expect(page).toHaveURL(/#teacher\/assess\/el-benchmark\?.*item=4/);
+  await expect(page).toHaveURL(/#teacher\/checks\/el-benchmark\?.*item=4/);
 
   await page.reload();
   await expect(page.getByRole("heading", { name: "Word Encoding and Spelling", exact: true })).toBeVisible({
@@ -87,7 +86,7 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   });
   await expect(page.getByRole("heading", { name: "Item 4 of 8", exact: true })).toBeVisible();
   await expect(page.getByRole("progressbar", { name: "3 of 8 items resolved" })).toBeVisible();
-  await expect(page).toHaveURL(/#teacher\/assess\/el-benchmark\?.*item=4/);
+  await expect(page).toHaveURL(/#teacher\/checks\/el-benchmark\?.*item=4/);
 
   for (let itemNumber = 4; itemNumber <= 7; itemNumber += 1) {
     await page.getByRole("button", { name: "Correct spelling", exact: true }).click();
@@ -96,7 +95,7 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   await acceptPlacement(page);
 
   await page.locator(".el-benchmark-topbar")
-    .getByRole("button", { name: "Finish assessment", exact: true })
+    .getByRole("button", { name: "Finish check", exact: true })
     .click();
   let finishReview = page.getByRole("dialog", { name: "Check the tally before finishing" });
   await expect(finishReview).toContainText("8 scored · 0 skipped");
@@ -106,16 +105,16 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
 
   await acceptPlacement(page);
   await page.locator(".el-benchmark-topbar")
-    .getByRole("button", { name: "Finish assessment", exact: true })
+    .getByRole("button", { name: "Finish check", exact: true })
     .click();
   finishReview = page.getByRole("dialog", { name: "Check the tally before finishing" });
   await expect(finishReview).toContainText("8 scored · 0 skipped");
   await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
 
   await expect(page.getByRole("heading", {
-    name: "Choose a comparable assessment for Amara",
+    name: "Choose a check for Amara",
     exact: true
   })).toBeVisible({ timeout: 20_000 });
-  await expect(page).toHaveURL(/#teacher\/assess\?/);
+  await expect(page).toHaveURL(/#teacher\/(?:checks|assess)\?/);
   await expect(page).not.toHaveURL(/el-benchmark/);
 });

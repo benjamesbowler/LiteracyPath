@@ -10,8 +10,8 @@ const arcade = readFileSync(
   new URL("../../src/components/learn/games/GameArcadeHub.jsx", import.meta.url),
   "utf8"
 );
-const dashboard = readFileSync(
-  new URL("../../src/components/TeacherDashboardPage.jsx", import.meta.url),
+const settings = readFileSync(
+  new URL("../../src/components/teacher/TeacherSettingsPage.jsx", import.meta.url),
   "utf8"
 );
 
@@ -39,7 +39,8 @@ test("school scope requires an authenticated teacher's explicit class control", 
   assert.match(migration, /teacher_set_class_leaderboard_scope/);
   assert.match(migration, /c\.teacher_id = v_user_id/);
   assert.match(migration, /grant execute[\s\S]*to authenticated/);
-  assert.match(dashboard, /teacher_set_class_leaderboard_scope/);
-  assert.match(dashboard, /TEACHER_COPY\.board\.toggle/);
-  assert.match(dashboard, /TEACHER_COPY\.board\.privacy/);
+  assert.match(settings, /teacher_set_class_leaderboard_scope/);
+  assert.match(settings, /Leaderboard visibility/);
+  assert.match(settings, /This class only/);
+  assert.match(settings, /Whole school/);
 });

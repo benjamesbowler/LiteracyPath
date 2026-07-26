@@ -27,11 +27,12 @@ test("A3.3 inventory covers every primary child and authenticated teacher route"
   assert.deepEqual(
     A11Y_PRIMARY_ROUTES.filter(row => row.audience === "teacher").map(row => row.id),
     [
-      "teacher-today",
-      "teacher-classes",
-      "teacher-assess",
-      "teacher-progress",
+      "teacher-dashboard",
+      "teacher-children",
+      "teacher-checks",
+      "teacher-reports",
       "teacher-resources",
+      "teacher-settings",
       "teacher-report",
       "teacher-assessment",
       "teacher-guided-reading"

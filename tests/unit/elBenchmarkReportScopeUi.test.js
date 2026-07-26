@@ -136,7 +136,7 @@ test("Assessment 1 item details come from the latest completed attempt, not live
   assert.doesNotMatch(html, /Z: letter name/);
 });
 
-test("Whole Child includes EL 3-6 as descriptive evidence without inventing mastery", async t => {
+test("Overview keeps descriptive EL checks separate from learning-status totals", async t => {
   const vite = await createServer({
     appType: "custom",
     logLevel: "silent",
@@ -171,8 +171,8 @@ test("Whole Child includes EL 3-6 as descriptive evidence without inventing mast
 
   assert.match(html, /Descriptive EL check results/);
   assert.match(html, /Phonological and Phonemic Awareness/);
-  assert.match(html, /without inventing a mastery cut score/);
-  assert.match(html, /not included in the Secure, Developing, or Needs teaching totals/);
+  assert.match(html, /These checks are reported separately/);
+  assert.match(html, /do not change the Mastered, Developing, or Yet to learn totals/);
   assert.match(html, />Download knowledge data</);
 });
 

@@ -22,6 +22,14 @@ export const DATA_RIGHTS_VERIFICATION_METHODS = Object.freeze([
   })
 ]);
 
+export function isLearnerDataRightsVerificationComplete({
+  requesterRole,
+  verificationMethod
+}) {
+  return DATA_RIGHTS_REQUESTER_ROLES.some(option => option.value === requesterRole)
+    && DATA_RIGHTS_VERIFICATION_METHODS.some(option => option.value === verificationMethod);
+}
+
 function assertClient(client) {
   if (!client?.call) {
     throw new Error("The managed data-rights service is unavailable.");

@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { buildStudentReportingWorkspaceModel } from "../data/studentReportingWorkspaceModel.js";
-import { WHOLE_CHILD_REPORT_AUDIENCES } from "../data/reportAudienceTemplates.js";
+import {
+  buildSimpleHfwRows
+} from "../data/simpleStudentReports.js";
 import {
   buildIndividualElFormalAssessmentReport,
   isReportableElBenchmarkCandidatePlacement,
@@ -26,7 +28,7 @@ import { importWithRetry } from "../utils/lazyWithRetry.js";
 import { readTeacherReportRouteView } from "../appState/routes.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
 import { MetricFigure } from "./MetricDefinition.jsx";
-import { countPhrase, progressPhrase } from "../copy/teacherCopy.js";
+import { countPhrase, progressPhrase, TEACHER_COPY } from "../copy/teacherCopy.js";
 import { FAMILY_COPY } from "../copy/familyCopy.js";
 import { TeacherDialog } from "./teacher/ui/TeacherDialog.jsx";
 import { StudentReportShell } from "./reports/StudentReportShell.jsx";
@@ -34,9 +36,7 @@ import {
   GuidedReadingReportView,
   OtherLearningReportView,
   ReportMetricStrip,
-  ReportSection,
-  SkillsCheckReportView,
-  WholeChildReportView
+  ReportSection
 } from "./reports/StudentReportViews.jsx";
 import {
   buildGuidedReadingViewModel,
@@ -44,6 +44,11 @@ import {
   normalizeStudentReportView,
   STUDENT_REPORT_VIEWS
 } from "./reports/studentReportUiUtils.js";
+import {
+  SimpleHfwReportView,
+  SimpleOverviewReportView,
+  SimpleSkillsReportView
+} from "./reports/SimpleStudentReportViews.jsx";
 
 const EMPTY_REPORT_ROWS = [];
 
@@ -839,15 +844,6 @@ export function FinishedReportPage({
   const [benchmarkExporting, setBenchmarkExporting] = useState(false);
   const [emptyElExportScope, setEmptyElExportScope] = useState(null);
   const [actionFeedback, setActionFeedback] = useState(null);
-  const [wholeChildAudienceSelection, setWholeChildAudienceSelection] = useState({
-    contextKey: reportContextKey,
-    audience: WHOLE_CHILD_REPORT_AUDIENCES.TEACHER
-  });
-  const wholeChildAudience = wholeChildAudienceSelection.contextKey === reportContextKey
-    ? wholeChildAudienceSelection.audience
-    : WHOLE_CHILD_REPORT_AUDIENCES.TEACHER;
-  const familyReportActive = activeReportView === "whole-child"
-    && wholeChildAudience === WHOLE_CHILD_REPORT_AUDIENCES.FAMILY;
   const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
   const hasCurrentGuidedReadingLoad = guidedReadingLoad.records === guidedReadingRecords
     && guidedReadingLoad.retry === guidedReadingRetry;
@@ -1087,6 +1083,22 @@ export function FinishedReportPage({
         if (!downloaded) return;
       } else if (activeReportView === "guided-reading") {
         await exportReadingReport?.();
+      } else if (activeReportView === "hfw") {
+        const rows = buildSimpleHfwRows(reportingWorkspace, studentName).map(row => ({
+          child: studentName,
+          word: row.key,
+          exposures: row.attempts,
+          correctAnswers: row.correct ?? "",
+          accuracyPercent: row.accuracy ?? "",
+          accuracyBand: row.band,
+          learningStatus: row.statusLabel
+        }));
+        const date = new Date().toISOString().slice(0, 10);
+        const downloaded = downloadReportRows(
+          rows,
+          `${safeReportFilename(studentName)}-high-frequency-words-${date}.csv`
+        );
+        if (!downloaded) throw new Error("No high-frequency-word rows are available for export.");
       } else {
         const rows = buildStudentWorkspaceCsvRows(activeReportView, reportingWorkspace, {
           className,
@@ -1155,6 +1167,8 @@ export function FinishedReportPage({
               reportingWorkspace.skillsCheck?.skills?.length ||
               reportingWorkspace.skillsCheck?.attempts?.length
             ) }
+          : activeReportView === "hfw"
+            ? { label: "Download HFW data", enabled: true }
           : activeReportView === "other-learning"
             ? { label: "Download practice data", enabled: Boolean(reportingWorkspace.otherLearning?.evidence?.length) }
             : { label: "", enabled: false };
@@ -1176,16 +1190,12 @@ export function FinishedReportPage({
       exportDisabled={benchmarkExporting || actionFeedback?.kind === "pending"}
       exportLabel={exportConfig.label}
       generatedLabel={`Generated ${generatedDate}`}
-      headingDescription={familyReportActive
-        ? "A strengths-based update with clear ways to help at home."
-        : ""}
-      headingLabel={familyReportActive ? "Family reading update" : ""}
       onBack={returnToTeacherDashboard}
       onExport={exportConfig.enabled ? exportActiveReport : null}
       onPrint={printActiveReport}
       onStartAssessment={assessmentAction?.handler}
       onViewChange={changeReportView}
-      provenanceRows={familyReportActive ? [] : visibleReportDetails(reportProvenanceRows)}
+      provenanceRows={visibleReportDetails(reportProvenanceRows)}
       readHistoryView={readReportRouteView}
       startAssessmentLabel={assessmentAction?.label}
       feedback={actionFeedback}
@@ -1193,14 +1203,8 @@ export function FinishedReportPage({
       studentName={studentName}
     >
       {activeReportView === "whole-child" && (
-        <WholeChildReportView
-          activeAudience={wholeChildAudience}
-          className={className}
-          onAudienceChange={audience => setWholeChildAudienceSelection({
-            contextKey: reportContextKey,
-            audience
-          })}
-          report={reportingWorkspace.wholeChild}
+        <SimpleOverviewReportView
+          workspace={reportingWorkspace}
           studentName={studentName}
         />
       )}
@@ -1286,7 +1290,17 @@ export function FinishedReportPage({
       )}
 
       {activeReportView === "skills-check" && (
-        <SkillsCheckReportView report={reportingWorkspace.skillsCheck} />
+        <SimpleSkillsReportView
+          workspace={reportingWorkspace}
+          studentName={studentName}
+        />
+      )}
+
+      {activeReportView === "hfw" && (
+        <SimpleHfwReportView
+          workspace={reportingWorkspace}
+          studentName={studentName}
+        />
       )}
 
       {activeReportView === "other-learning" && (
@@ -1294,9 +1308,7 @@ export function FinishedReportPage({
       )}
 
       <footer className="lg-report-footer">
-        {familyReportActive
-          ? "Literacy Guide. This update shares current strengths and the next small steps for learning."
-          : "Literacy Guide. Results appear in the section where they were saved. The whole-child view combines current knowledge without counting the same answer twice."}
+        Literacy Guide. {TEACHER_COPY.reports.accuracyFooter}
       </footer>
     </StudentReportShell>
     <TeacherDialog

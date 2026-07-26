@@ -15,6 +15,8 @@ const strictAuditJsonPath = path.join(
   "all_skills_strict_production_audit.json"
 );
 const REQUIRED_AUDIT_ENVIRONMENT = Object.freeze([
+  "VITE_SUPABASE_URL",
+  "VITE_SUPABASE_ANON_KEY",
   "LP_AUDIT_SUPABASE_URL",
   "LP_AUDIT_SUPABASE_ANON_KEY",
   "LP_AUDIT_DATABASE_URL",
@@ -945,6 +947,10 @@ export function validateAuditEnvironment(environment = process.env) {
     && !validUrl(environment.LP_AUDIT_SUPABASE_URL, ["http:", "https:"])) {
     invalid.push("LP_AUDIT_SUPABASE_URL must be an http(s) URL");
   }
+  if (!missing.includes("VITE_SUPABASE_URL")
+    && !validUrl(environment.VITE_SUPABASE_URL, ["http:", "https:"])) {
+    invalid.push("VITE_SUPABASE_URL must be an http(s) URL");
+  }
   if (!missing.includes("LP_AUDIT_DATABASE_URL")
     && !validUrl(environment.LP_AUDIT_DATABASE_URL, ["postgres:", "postgresql:"])) {
     invalid.push("LP_AUDIT_DATABASE_URL must be a PostgreSQL URL");
@@ -952,6 +958,16 @@ export function validateAuditEnvironment(environment = process.env) {
   if (!missing.includes("LP_AUDIT_TEACHER_PASSWORD")
     && String(environment.LP_AUDIT_TEACHER_PASSWORD).length < 12) {
     invalid.push("LP_AUDIT_TEACHER_PASSWORD must contain at least 12 characters");
+  }
+  if (!missing.includes("VITE_SUPABASE_URL")
+    && !missing.includes("LP_AUDIT_SUPABASE_URL")
+    && environment.VITE_SUPABASE_URL !== environment.LP_AUDIT_SUPABASE_URL) {
+    invalid.push("VITE_SUPABASE_URL must match LP_AUDIT_SUPABASE_URL");
+  }
+  if (!missing.includes("VITE_SUPABASE_ANON_KEY")
+    && !missing.includes("LP_AUDIT_SUPABASE_ANON_KEY")
+    && environment.VITE_SUPABASE_ANON_KEY !== environment.LP_AUDIT_SUPABASE_ANON_KEY) {
+    invalid.push("VITE_SUPABASE_ANON_KEY must match LP_AUDIT_SUPABASE_ANON_KEY");
   }
 
   const details = [

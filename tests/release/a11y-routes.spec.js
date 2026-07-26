@@ -46,11 +46,16 @@ for (const viewport of A11Y_VIEWPORTS) {
     }) => {
       test.setTimeout(45_000);
       const pageErrors = [];
+      const consoleErrors = [];
       page.on("pageerror", error => pageErrors.push(error.message));
+      page.on("console", message => {
+        if (message.type() === "error") consoleErrors.push(message.text());
+      });
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await waitForRoute(page, route);
       await expectNoBlockingViolations(page, `${route.id} at ${viewport.id}`);
       expect(pageErrors).toEqual([]);
+      expect(consoleErrors).toEqual([]);
     });
   }
 
@@ -60,7 +65,11 @@ for (const viewport of A11Y_VIEWPORTS) {
     }) => {
       test.setTimeout(45_000);
       const pageErrors = [];
+      const consoleErrors = [];
       page.on("pageerror", error => pageErrors.push(error.message));
+      page.on("console", message => {
+        if (message.type() === "error") consoleErrors.push(message.text());
+      });
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto(state.url, { waitUntil: "domcontentloaded" });
       if (state.openSummary) {
@@ -73,6 +82,7 @@ for (const viewport of A11Y_VIEWPORTS) {
       await expect(page.getByRole(role, { name: state.dialogName })).toBeVisible();
       await expectNoBlockingViolations(page, `${state.id} at ${viewport.id}`);
       expect(pageErrors).toEqual([]);
+      expect(consoleErrors).toEqual([]);
     });
   }
 }

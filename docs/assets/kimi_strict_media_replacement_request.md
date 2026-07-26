@@ -1,6 +1,6 @@
 # Kimi Strict Media Replacement Request
 
-Date: 2026-07-25
+Date: 2026-07-26
 
 This file is pasteable into Kimi. These are image replacement candidates for media that failed or may fail the strict literacy flashcard standard. Confirmed bad media has already been replaced or blocked; the rows below are remaining manual-review candidates from the color/quality heuristic.
 

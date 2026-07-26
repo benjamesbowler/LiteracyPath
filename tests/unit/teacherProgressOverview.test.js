@@ -264,7 +264,7 @@ test("evidence bases expose attempts, diversity, recency, confidence, and suppor
   assert.match(item.evidence.confidenceLabel, /^Limited diversity/);
 });
 
-test("a sparse child renders Not enough results instead of a bare percentage", () => {
+test("a sparse child picker never presents a bare accuracy conclusion", () => {
   const sparse = {
     id: "amara",
     name: "Amara",
@@ -296,15 +296,13 @@ test("a sparse child renders Not enough results instead of a bare percentage", (
     })
   );
 
-  assert.match(html, /Too few results for an accuracy figure/);
+  assert.match(html, /1 saved answer/);
+  assert.match(html, /0 mastered skills/);
   assert.doesNotMatch(html, /100% accuracy/);
-  assert.match(html, /aria-label="Amara result conclusion results used"/);
-  for (const label of ["Attempts", "Diversity", "Recency", "Confidence", "Support use"]) {
-    assert.match(html, new RegExp(`<dt>${label}</dt>`));
-  }
+  assert.match(html, />Open report<\/button>/);
 });
 
-test("class-first progress renders all four insights and a learner item path", () => {
+test("reports route renders a compact class-and-child picker instead of class analytics", () => {
   const html = renderToStaticMarkup(
     React.createElement(TeacherProgressOverview, {
       className: "Audit Class A",
@@ -320,20 +318,12 @@ test("class-first progress renders all four insights and a learner item path", (
     })
   );
 
-  assert.match(html, /aria-label="Class progress overview"/);
-  assert.match(html, /aria-label="Class accuracy comparison"/);
-  assert.match(html, /Averaging children equally/);
-  assert.match(html, /65%/);
-  assert.match(html, /3 children have enough results/);
-  assert.match(html, /Averaging every answer equally/);
-  assert.match(html, /63.5%/);
-  assert.match(html, /52 scored answers/);
-  for (const label of ["Distribution", "Coverage", "Groups", "Outliers"]) {
-    assert.match(html, new RegExp(`>${label}<`));
+  assert.match(html, /aria-label="Choose report child"/);
+  assert.match(html, />Find a child</);
+  assert.match(html, /Audit Class A · 4 children/);
+  for (const child of ["Aarav", "Aisha", "Bao", "Camila"]) {
+    assert.match(html, new RegExp(`<h2>${child}</h2>`));
   }
-  assert.match(html, /<h3>Aisha&#x27;s results<\/h3>/);
-  assert.match(html, /aria-label="Child progress results: Aisha"/);
-  assert.match(html, /<h4>Sound results<\/h4>/);
-  assert.match(html, /aria-expanded="false"/);
-  assert.match(html, /Needs re-teaching · 12 recorded encounters/);
+  assert.equal((html.match(/>Open report<\/button>/g) || []).length, 4);
+  assert.doesNotMatch(html, /Class accuracy comparison|Distribution|Outliers|Averaging every answer/);
 });

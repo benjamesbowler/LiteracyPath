@@ -18,11 +18,12 @@ export const A11Y_PRIMARY_ROUTES = Object.freeze([
   Object.freeze({ id: "story-quests", audience: "student", url: "/preview/child-surfaces.html?surface=story-quests" }),
   Object.freeze({ id: "reading-library", audience: "student", url: "/preview/child-surfaces.html?surface=reading-library" }),
   Object.freeze({ id: "my-hollow", audience: "student", url: "/preview/child-surfaces.html?surface=my-hollow" }),
-  Object.freeze({ id: "teacher-today", audience: "teacher", url: "/preview/teacher-a11y.html?surface=today" }),
-  Object.freeze({ id: "teacher-classes", audience: "teacher", url: "/preview/teacher-a11y.html?surface=classes" }),
-  Object.freeze({ id: "teacher-assess", audience: "teacher", url: "/preview/teacher-a11y.html?surface=assess" }),
-  Object.freeze({ id: "teacher-progress", audience: "teacher", url: "/preview/teacher-a11y.html?surface=progress" }),
+  Object.freeze({ id: "teacher-dashboard", audience: "teacher", url: "/preview/teacher-a11y.html?surface=today" }),
+  Object.freeze({ id: "teacher-children", audience: "teacher", url: "/preview/teacher-a11y.html?surface=classes" }),
+  Object.freeze({ id: "teacher-checks", audience: "teacher", url: "/preview/teacher-a11y.html?surface=assess" }),
+  Object.freeze({ id: "teacher-reports", audience: "teacher", url: "/preview/teacher-a11y.html?surface=progress" }),
   Object.freeze({ id: "teacher-resources", audience: "teacher", url: "/preview/teacher-a11y.html?surface=resources" }),
+  Object.freeze({ id: "teacher-settings", audience: "teacher", url: "/preview/teacher-a11y.html?surface=settings" }),
   Object.freeze({ id: "teacher-report", audience: "teacher", url: "/preview/teacher-a11y.html?surface=report" }),
   Object.freeze({ id: "teacher-assessment", audience: "teacher", url: "/preview/teacher-a11y.html?surface=assessment" }),
   Object.freeze({ id: "teacher-guided-reading", audience: "teacher", url: "/preview/teacher-a11y.html?surface=guided-reading" })
@@ -32,25 +33,25 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   Object.freeze({
     id: "teacher-question-guide",
     url: "/preview/teacher-a11y.html?surface=classes",
-    openControl: "Question type guide",
-    dialogName: "Question type guide"
+    openControl: "What each check measures",
+    dialogName: "What each check measures"
   }),
   Object.freeze({
     id: "teacher-learner-drawer",
     url: "/preview/teacher-a11y.html?surface=classes&learner=1",
-    dialogName: "Learner detail: Aarav"
+    dialogName: "Child details: Aarav"
   }),
   Object.freeze({
-    id: "teacher-class-code",
+    id: "teacher-child-options",
     url: "/preview/teacher-a11y.html?surface=classes",
-    openControl: "New code",
-    dialogName: "Make a new class code"
+    openControl: "More options for Aarav",
+    dialogName: "Options for Aarav"
   }),
   Object.freeze({
     id: "teacher-assessment-discontinue",
     url: "/preview/teacher-a11y.html?surface=assessment",
     openSummary: "More options",
-    openControl: "Stop assessment early",
+    openControl: "Stop check early",
     dialogName: "Discontinue and save",
     regionRole: true
   }),

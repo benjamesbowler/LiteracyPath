@@ -107,11 +107,11 @@ async function captureShell(browser, origin, surface) {
   await page.goto(origin, { waitUntil: "domcontentloaded" });
   await page.getByRole("heading", { name: "Choose your space" }).waitFor();
   if (surface === "student") {
-    await page.getByRole("button", { name: "Students: Little Literacy Guides" }).click();
+    await page.getByRole("button", { name: "Children: Little Literacy Guides" }).click();
     await page.getByRole("heading", { name: "Enter your class code" }).waitFor();
   } else {
     await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
-    await page.getByRole("heading", { name: "Teacher login" }).waitFor();
+    await page.getByRole("heading", { name: "Teacher sign-in" }).waitFor();
   }
   await page.waitForTimeout(250);
   await context.close();

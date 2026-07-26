@@ -126,6 +126,11 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_class_id: EXPECTED.teacherA.classId,
     p_scope: "class"
   },
+  "teacher_set_student_archived(uuid, uuid, boolean)": {
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_class_id: EXPECTED.teacherA.classId,
+    p_archived: true
+  },
   "teacher_set_school(text)": { p_school_name: EXPECTED.schoolName }
 });
 

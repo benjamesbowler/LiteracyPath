@@ -120,6 +120,8 @@ test("missing npm scripts are explicitly not implemented", () => {
 
 test("release credential preflight fails once without exposing secret values", () => {
   const result = validateAuditEnvironment({
+    VITE_SUPABASE_URL: "https://different.invalid",
+    VITE_SUPABASE_ANON_KEY: "different-key",
     LP_AUDIT_SUPABASE_URL: "not-a-url",
     LP_AUDIT_SUPABASE_ANON_KEY: "anon-secret-that-must-not-appear",
     LP_AUDIT_DATABASE_URL: "",
@@ -130,7 +132,9 @@ test("release credential preflight fails once without exposing secret values", (
   assert.deepEqual(result.missing, ["LP_AUDIT_DATABASE_URL"]);
   assert.deepEqual(result.invalid, [
     "LP_AUDIT_SUPABASE_URL must be an http(s) URL",
-    "LP_AUDIT_TEACHER_PASSWORD must contain at least 12 characters"
+    "LP_AUDIT_TEACHER_PASSWORD must contain at least 12 characters",
+    "VITE_SUPABASE_URL must match LP_AUDIT_SUPABASE_URL",
+    "VITE_SUPABASE_ANON_KEY must match LP_AUDIT_SUPABASE_ANON_KEY"
   ]);
   assert.doesNotMatch(result.message, /anon-secret|not-a-url|\bshort\b/);
   assert.match(result.message, /process environment or CI secret store/);
@@ -138,6 +142,8 @@ test("release credential preflight fails once without exposing secret values", (
 
 test("release credential preflight accepts structurally valid injected credentials", () => {
   const result = validateAuditEnvironment({
+    VITE_SUPABASE_URL: "http://127.0.0.1:54321",
+    VITE_SUPABASE_ANON_KEY: "injected-anon-key",
     LP_AUDIT_SUPABASE_URL: "http://127.0.0.1:54321",
     LP_AUDIT_SUPABASE_ANON_KEY: "injected-anon-key",
     LP_AUDIT_DATABASE_URL: "postgresql://postgres:password@127.0.0.1:54322/postgres",
@@ -216,8 +222,8 @@ test("teacher E2E gate joins the authenticated golden path, full assessment, sta
   assert.match(script, /--workers=1/);
   assert.match(teacherJourney, /audit-teacher-a/);
   assert.match(teacherJourney, /audit-teacher-b/);
-  assert.match(teacherJourney, /Assessment attempt/);
-  assert.match(teacherJourney, /Question evidence/);
+  assert.match(teacherJourney, /Check attempt/);
+  assert.match(teacherJourney, /Question result/);
   assert.match(teacherJourney, /cannot discover or deep-link/);
 });
 

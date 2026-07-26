@@ -8,7 +8,7 @@ const read = relativePath => fs.readFileSync(path.join(repoRoot, relativePath), 
 
 const requiredAdoptions = [
   {
-    file: "src/App.jsx",
+    file: "src/components/AppSurface.jsx",
     required: ["LazyActionFeedback", "el-benchmark-hub-message"],
     forbidden: [
       /className=\{`message el-benchmark-hub-message/

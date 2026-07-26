@@ -45,6 +45,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)",
   "teacher_set_class_code_expiry(uuid, timestamp with time zone)",
   "teacher_set_class_leaderboard_scope(uuid, text)",
+  "teacher_set_student_archived(uuid, uuid, boolean)",
   "teacher_set_school(text)"
 ]);
 

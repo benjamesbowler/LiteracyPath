@@ -74,6 +74,7 @@ test("teacher-only views are NOT on the student allowlist", () => {
     APP_VIEWS.TEACHER_ASSESS,
     APP_VIEWS.TEACHER_PROGRESS,
     APP_VIEWS.TEACHER_RESOURCES,
+    APP_VIEWS.TEACHER_SETTINGS,
     APP_VIEWS.ADMIN_DASHBOARD,
     APP_VIEWS.REPORTS,
     APP_VIEWS.WORKSHEETS,
@@ -114,14 +115,15 @@ test("teacher intentions persist and restore without requiring a selected learne
     APP_VIEWS.TEACHER_CLASSES,
     APP_VIEWS.TEACHER_ASSESS,
     APP_VIEWS.TEACHER_PROGRESS,
-    APP_VIEWS.TEACHER_RESOURCES
+    APP_VIEWS.TEACHER_RESOURCES,
+    APP_VIEWS.TEACHER_SETTINGS
   ]) {
     assert.equal(getPersistedAppView({ studentId: "", appView: view }), view);
     assert.equal(getRestoredAppView({ restoredStudentId: "", storedAppView: view }), view);
   }
 });
 
-test("restored module-shaped teacher routes redirect to the five-intention IA", () => {
+test("restored module-shaped teacher routes redirect to the focused teacher IA", () => {
   const redirects = new Map([
     [APP_VIEWS.STUDENT_HOME, APP_VIEWS.TEACHER_CLASSES],
     [APP_VIEWS.OVERVIEW, APP_VIEWS.TEACHER_ASSESS],
@@ -142,7 +144,7 @@ test("restored module-shaped teacher routes redirect to the five-intention IA", 
   }
 });
 
-test("all five teacher intentions expose an honest class, group, and learner hash", () => {
+test("all teacher sections expose an honest class, group, and learner hash", () => {
   assert.equal(
     teacherIntentHash({
       appView: APP_VIEWS.TEACHER_DASHBOARD,
@@ -150,7 +152,7 @@ test("all five teacher intentions expose an honest class, group, and learner has
       groupId: "attention",
       learnerId: "learner-a"
     }),
-    "#teacher/today?class=class-a"
+    "#teacher/dashboard?class=class-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -159,7 +161,7 @@ test("all five teacher intentions expose an honest class, group, and learner has
       groupId: "attention",
       learnerId: "learner-a"
     }),
-    "#teacher/classes?class=class-a&group=attention&learner=learner-a"
+    "#teacher/children?class=class-a&group=attention&learner=learner-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -167,7 +169,7 @@ test("all five teacher intentions expose an honest class, group, and learner has
       classId: "class-a",
       learnerId: "learner-a"
     }),
-    "#teacher/assess?class=class-a&group=all&learner=learner-a"
+    "#teacher/checks?class=class-a&group=all&learner=learner-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -176,7 +178,7 @@ test("all five teacher intentions expose an honest class, group, and learner has
       groupId: "all",
       learnerId: "learner-a"
     }),
-    "#teacher/progress?class=class-a&group=all&learner=learner-a"
+    "#teacher/reports?class=class-a&group=all&learner=learner-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -186,13 +188,20 @@ test("all five teacher intentions expose an honest class, group, and learner has
     }),
     "#teacher/resources?class=class-a&group=all&learner=learner-a"
   );
+  assert.equal(
+    teacherIntentHash({
+      appView: APP_VIEWS.TEACHER_SETTINGS,
+      classId: "class-a"
+    }),
+    "#teacher/settings?class=class-a"
+  );
   assert.equal(teacherIntentHash({ appView: APP_VIEWS.REPORTS }), "");
 });
 
 test("teacher intention and report URLs parse into restorable owned context", () => {
   assert.deepEqual(
     parseTeacherRouteHash(
-      "#teacher/progress?class=class-a&group=attention&learner=learner-a"
+      "#teacher/reports?class=class-a&group=attention&learner=learner-a"
     ),
     {
       appView: APP_VIEWS.TEACHER_PROGRESS,
@@ -210,7 +219,7 @@ test("teacher intention and report URLs parse into restorable owned context", ()
   });
   assert.equal(
     reportHash,
-    "#teacher/progress/report?class=class-a&learner=learner-a&report=skills-check"
+    "#teacher/reports/report?class=class-a&learner=learner-a&report=skills-check"
   );
   assert.deepEqual(parseTeacherRouteHash(reportHash), {
     appView: APP_VIEWS.FINISHED,
@@ -254,7 +263,7 @@ test("an EL benchmark URL names the live session and restores its exact item", (
   });
   assert.equal(
     hash,
-    "#teacher/assess/el-benchmark?class=class-a&learner=learner-a&assessment=el_encoding&session=session-123&item=4"
+    "#teacher/checks/el-benchmark?class=class-a&learner=learner-a&assessment=el_encoding&session=session-123&item=4"
   );
   assert.deepEqual(parseElBenchmarkAssessmentHash(hash), {
     classId: "class-a",

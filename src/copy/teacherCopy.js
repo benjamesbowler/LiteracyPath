@@ -25,10 +25,10 @@ export const TEACHER_COPY = Object.freeze({
     descriptionWithoutClass: "Choose a class to see today's next actions."
   }),
   classes: Object.freeze({
-    label: "Classes",
-    title: "Your class",
+    label: "Children",
+    title: "Children",
     descriptionWithClass: className => (
-      `Add children, set up sign-in, and see how ${className} is doing.`
+      `Add, update, move, or archive children in ${className}.`
     ),
     descriptionWithoutClass: "Choose or create a class to begin.",
     contextLabel: "Current school and class",
@@ -113,6 +113,23 @@ export const TEACHER_COPY = Object.freeze({
     healthy: "Results waiting to sync will retry automatically.",
     delayed: hours => `Some saved results have waited ${hours} hours to reach the dashboard.`,
     alert: "Some results may not have reached the dashboard. Check the shared device and its internet connection."
+  }),
+  reports: Object.freeze({
+    accuracyFooter: "Accuracy colours show answer accuracy. Mastery also considers how often and how independently the child answered.",
+    masteredDescription: "Secure across enough recent, independent answers.",
+    developingDescription: "Seen, but not yet mastered.",
+    yetToLearnDescription: "No saved results yet.",
+    descriptiveElHelp: "These checks are reported separately. They do not change the Mastered, Developing, or Yet to learn totals.",
+    skillsIntro: (seen, total) => (
+      `${seen} of ${total} listed skills have saved results. Colours show answer accuracy. The status line also considers how often and how independently the child answered.`
+    ),
+    hfwIntro: seen => `${seen} of 100 high-frequency words have saved results.`,
+    noSavedResults: "No saved results yet",
+    unseenHelp: "Items not checked yet are grouped below.",
+    skillsWithResults: "Skills with saved results",
+    skillsNotSeen: "Skills not seen yet",
+    hfwWithResults: "High-frequency words with saved results",
+    hfwNotSeen: "High-frequency words not seen yet"
   }),
   metrics: Object.freeze({
     summaryAriaLabel: "Class summary",

@@ -9,17 +9,17 @@ import { TeacherProgressOverview } from "./TeacherProgressOverview.jsx";
 const INTENT_COPY = Object.freeze({
   assess: {
     eyebrow: "Checks",
-    title: "Choose the check you need",
-    description: "Start with your teaching question. We will open the right check."
+    title: "Choose one check",
+    description: "Each option has one purpose. Choose a child first, then begin."
   },
   progress: {
-    eyebrow: "Progress",
-    title: "Turn results into a clear next step",
-    description: "Review current results, reports, and downloads without changing the selected class."
+    eyebrow: "Reports",
+    title: "Choose a child’s report",
+    description: "Open one simple report at a time. The EL formal report remains separate."
   },
   resources: {
-    eyebrow: "Plan/Resources",
-    title: "Prepare teaching and practice",
+    eyebrow: "Resources",
+    title: "Choose a teaching resource",
     description: "Open classroom resources, with child-specific tools when a child is selected."
   }
 });
@@ -37,34 +37,38 @@ function buildIntentActions({
   if (intent === "assess") {
     return [
       {
-        id: "universal-benchmark",
-        category: "Starting-point check",
-        label: "Find the child's starting point",
-        description: "Use the shared literacy sequence to establish a consistent starting point across the class.",
+        id: "skills-check",
+        category: "Literacy skills",
+        label: "Skills check",
+        description: "Check one child against the literacy sequence and save the exact answers.",
+        actionLabel: "Open Skills check",
         requiresStudent: true,
         onOpen: () => onOpenAssessment?.(false)
       },
       {
-        id: "diagnostic-follow-up",
-        category: "Focused follow-up",
-        label: "Investigate a specific gap",
-        description: "Choose one skill when existing results point to a gap that needs a closer look.",
-        requiresStudent: true,
-        onOpen: () => onOpenAssessment?.(true)
-      },
-      {
-        id: "progress-monitoring",
-        category: "Progress monitoring",
-        label: "Check change over time",
-        description: "Use a consistent grade and time of year to collect comparable follow-up results.",
+        id: "el-formal",
+        category: "School record",
+        label: "EL formal check",
+        description: "Run or review the standalone EL check required for school records.",
+        actionLabel: "Open EL check",
         requiresStudent: true,
         onOpen: () => onOpenView?.(APP_VIEWS.EL_ASSESSMENTS)
       },
       {
+        id: "focused-follow-up",
+        category: "Specific teaching question",
+        label: "Focused follow-up",
+        description: "Check one known gap without running a broad check.",
+        actionLabel: "Choose a skill",
+        requiresStudent: true,
+        onOpen: () => onOpenAssessment?.(true)
+      },
+      {
         id: "practice",
         category: "Practice",
-        label: "Plan practice, not a test",
-        description: "Move to teaching resources and assigned rehearsal. Practice can guide support, but it is not a formal check result.",
+        label: "Teaching and practice",
+        description: "Open resources when you want to teach or rehearse, not record a check.",
+        actionLabel: "Open resources",
         requiresStudent: false,
         onOpen: () => onOpenView?.(APP_VIEWS.TEACHER_RESOURCES)
       }
@@ -76,7 +80,8 @@ function buildIntentActions({
         id: "learner-reports",
         category: "Child results",
         label: "Reports and downloads",
-        description: "Review the child's result areas, EL reports, and complete downloads.",
+        description: "Open Overview, Skills, HFW/sight words, or the standalone EL formal report.",
+        actionLabel: "Open report",
         requiresStudent: true,
         onOpen: onOpenReports
       }
@@ -219,7 +224,7 @@ export function TeacherIntentPage({
                         : action.onOpen}
                       type="button"
                     >
-                      {needsLearner ? "Choose child" : "Open"}
+                      {needsLearner ? "Choose child" : action.actionLabel || "Open"}
                     </button>
                   </article>
                 );

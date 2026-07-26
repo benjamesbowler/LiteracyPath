@@ -21,7 +21,6 @@ export const RECOMMENDATION_EXPLANATION_SURFACES = Object.freeze({
   teacher: Object.freeze([
     "teacher-dashboard-next-steps",
     "teacher-today",
-    "teacher-progress",
     "guided-reading",
     "targeted-review"
   ])

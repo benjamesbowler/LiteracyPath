@@ -8,6 +8,7 @@ import {
   deleteLearnerData,
   downloadLearnerDataPackage,
   exportLearnerData,
+  isLearnerDataRightsVerificationComplete,
   loadLearnerDataRightsHistory,
   prepareLearnerDeletion
 } from "../../data/learnerDataRights.js";
@@ -30,6 +31,7 @@ export function LearnerDataRightsDialog({
   const [error, setError] = useState("");
   const [history, setHistory] = useState([]);
   const [historyState, setHistoryState] = useState("loading");
+  const [historyReload, setHistoryReload] = useState(0);
 
   useEffect(() => {
     if (!open || !learner?.id) return;
@@ -47,16 +49,14 @@ export function LearnerDataRightsDialog({
     return () => {
       cancelled = true;
     };
-  }, [client, learner?.id, open]);
+  }, [client, historyReload, learner?.id, open]);
 
   if (!open || !learner) return null;
 
-  const managedServiceReady = historyState === "ready";
-  const verificationComplete = Boolean(
-    requesterRole
-    && verificationMethod
-    && managedServiceReady
-  );
+  const verificationComplete = isLearnerDataRightsVerificationComplete({
+    requesterRole,
+    verificationMethod
+  });
 
   async function handleExport() {
     setBusy("export");
@@ -194,6 +194,7 @@ export function LearnerDataRightsDialog({
         <section className="teacher-data-rights-action">
           <h3>{TEACHER_COPY.privacy.exportTitle}</h3>
           <p>{TEACHER_COPY.privacy.exportBody}</p>
+          <p className="muted-text">Sign-in tokens and device identifiers are excluded.</p>
           <button
             className="lp-button lp-button-secondary"
             type="button"
@@ -207,6 +208,7 @@ export function LearnerDataRightsDialog({
         <section className="teacher-data-rights-action teacher-data-rights-delete">
           <h3>{TEACHER_COPY.privacy.deleteTitle}</h3>
           <p>{TEACHER_COPY.privacy.deleteBody}</p>
+          <p className="muted-text">Only a minimal audit record of the request remains.</p>
           {!preparedRequest ? (
             <button
               className="lp-button lp-button-danger-outline"
@@ -218,6 +220,9 @@ export function LearnerDataRightsDialog({
             </button>
           ) : (
             <div className="page-stack">
+              <p>
+                Request <strong>{preparedRequest.requestId}</strong> is verified.
+              </p>
               <p>
                 The request is ready. Type <strong>{LEARNER_DELETION_CONFIRMATION}</strong> to delete permanently.
               </p>
@@ -247,7 +252,20 @@ export function LearnerDataRightsDialog({
           {historyState === "loading" ? (
             <p role="status">{TEACHER_COPY.privacy.trackingLoading}</p>
           ) : historyState === "unavailable" ? (
-            <p>{TEACHER_COPY.privacy.trackingUnavailable}</p>
+            <div>
+              <p>{TEACHER_COPY.privacy.trackingUnavailable}</p>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                disabled={Boolean(busy)}
+                onClick={() => {
+                  setHistoryState("loading");
+                  setHistoryReload(value => value + 1);
+                }}
+              >
+                Try loading request history again
+              </button>
+            </div>
           ) : history.length === 0 ? (
             <p>{TEACHER_COPY.privacy.trackingEmpty}</p>
           ) : (

@@ -1,25 +1,29 @@
 import { APP_VIEWS } from "./appViews.js";
 
 const TEACHER_PATH_VIEWS = Object.freeze({
+  dashboard: APP_VIEWS.TEACHER_DASHBOARD,
+  children: APP_VIEWS.TEACHER_CLASSES,
+  checks: APP_VIEWS.TEACHER_ASSESS,
+  reports: APP_VIEWS.TEACHER_PROGRESS,
+  resources: APP_VIEWS.TEACHER_RESOURCES,
+  settings: APP_VIEWS.TEACHER_SETTINGS,
   today: APP_VIEWS.TEACHER_DASHBOARD,
   classes: APP_VIEWS.TEACHER_CLASSES,
   assess: APP_VIEWS.TEACHER_ASSESS,
-  progress: APP_VIEWS.TEACHER_PROGRESS,
-  resources: APP_VIEWS.TEACHER_RESOURCES
+  progress: APP_VIEWS.TEACHER_PROGRESS
 });
 const TEACHER_REPORT_VIEWS = new Set([
   "whole-child",
   "el-assessments",
-  "guided-reading",
   "skills-check",
-  "other-learning"
+  "hfw"
 ]);
 
 function parseTeacherRouteHash(hash = "") {
   const normalized = String(hash || "").replace(/^#/, "");
   const [path, query = ""] = normalized.split("?");
   const params = new URLSearchParams(query);
-  if (path === "teacher/progress/report") {
+  if (path === "teacher/reports/report" || path === "teacher/progress/report") {
     const classId = params.get("class") || "";
     const learnerId = params.get("learner") || "";
     if (!classId || !learnerId) return null;
@@ -34,14 +38,21 @@ function parseTeacherRouteHash(hash = "") {
         : "whole-child"
     };
   }
-  const intent = path.startsWith("teacher/") ? path.slice("teacher/".length) : "";
+  const intentPath = path.startsWith("teacher/") ? path.slice("teacher/".length) : "";
+  const intent = intentPath.startsWith("settings/")
+    ? "settings"
+    : intentPath;
   const appView = TEACHER_PATH_VIEWS[intent];
   if (!appView) return null;
   return {
     appView,
     classId: params.get("class") || "",
-    groupId: intent === "today" ? "all" : params.get("group") || "all",
-    learnerId: intent === "today" ? "" : params.get("learner") || "",
+    groupId: ["today", "dashboard", "settings"].includes(intent)
+      ? "all"
+      : params.get("group") || "all",
+    learnerId: ["today", "dashboard", "settings"].includes(intent)
+      ? ""
+      : params.get("learner") || "",
     reportView: ""
   };
 }

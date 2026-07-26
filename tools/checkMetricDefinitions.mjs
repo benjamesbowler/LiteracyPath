@@ -15,10 +15,10 @@ for (const token of [
   "started",
   "\"current-skill\"",
   "trails",
-  "\"Denominator\"",
-  "\"Date range\"",
-  "\"Minimum evidence\"",
-  "\"Update time\"",
+  "\"Counts\"",
+  "\"Time\"",
+  "\"Excludes\"",
+  "\"Guide exported at\"",
   "addMetricDefinitionsWorksheet"
 ]) {
   if (!utility.includes(token)) failures.push(`metricDefinitions.js: missing ${token}`);
@@ -30,10 +30,9 @@ for (const token of [
   "role=\"tooltip\"",
   "data-metric-definition",
   "data-metric-figure",
-  "Denominator:",
-  "Date range:",
-  "Minimum evidence:",
-  "Updated:"
+  "Counts:",
+  "Time:",
+  "Excludes:"
 ]) {
   if (!component.includes(token)) failures.push(`MetricDefinition.jsx: missing ${token}`);
 }
@@ -72,7 +71,7 @@ const adoptions = [
     tokens: ["buildMetricDefinitionRows", "\"Metric definition\""]
   },
   {
-    file: "src/App.jsx",
+    file: "src/appState/appRuntimeServices.js",
     tokens: ["createDefinedExcelWorkbook"]
   },
   {

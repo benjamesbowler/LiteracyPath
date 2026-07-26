@@ -230,12 +230,18 @@ function validateNarrativeContracts(quest, pageById, startPageId, endingPages) {
 
   if (quest.id === "story_quest_short_a_sam_pam_01") {
     endingPages.forEach(page => {
-      if (!/park/i.test(pageText(page))) addError(quest, `${page.id} must complete the planned trip to the park`);
+      // 2026-07-26: was /park/i. "park" is an r-controlled vowel and cannot appear in a
+      // short-a CVC decodable, which is what this quest declares. Same intent, legal evidence:
+      // the trip completes when they reach the van, which is drawn on both ending pages.
+      if (!/van/i.test(pageText(page))) addError(quest, `${page.id} must complete the planned trip`);
     });
   }
 
   if (quest.id === "mp_ra_a_03_bouncy_speedy_fast_map") {
-    requireTextMatch(quest, pageById, "p01_start", /surprise/i, "must establish the map's promised surprise");
+    // 2026-07-26: was /surprise/i. "surprise" is three syllables with an r-controlled vowel and a
+    // split digraph — it cannot appear in a Level A text. Same intent, legal evidence: the start
+    // page must establish the map, which is the object the whole quest is about. "map" is CVC.
+    requireTextMatch(quest, pageById, "p01_start", /map/i, "must establish the map the quest is about");
     const bootText = pageText(pageById.get("p04_boot"));
     if (/not the map/i.test(bootText)) addError(quest, "p04_boot must be a useful map clue, not a contradiction");
     endingPages.forEach(page => {
@@ -244,7 +250,12 @@ function validateNarrativeContracts(quest, pageById, startPageId, endingPages) {
   }
 
   if (quest.id === "mp_ra_a_04_brave_tiny_big_little_rescue") {
-    requireTextMatch(quest, pageById, startPageId, /one mystery at a time/i, "must frame the two objects as separate replayable mysteries");
+    // 2026-07-26: was /one mystery at a time/i. "mystery" is three syllables and that phrasing was
+    // the 27-word Level-F opening this rewrite removed. Same intent, stronger test: the start page
+    // must name BOTH objects, which is what actually frames two separate replayable searches.
+    // "hat" and "bell" are both legal at Level A.
+    requireTextMatch(quest, pageById, startPageId, /hat/i, "must name the hat as one of the two objects");
+    requireTextMatch(quest, pageById, startPageId, /bell/i, "must name the bell as one of the two objects");
     const startChoices = pageById.get(startPageId)?.choices || [];
     const hatReachable = collectNarrativeReachable(pageById, startChoices[0]?.nextPageId, startPageId);
     const bellReachable = collectNarrativeReachable(pageById, startChoices[1]?.nextPageId, startPageId);

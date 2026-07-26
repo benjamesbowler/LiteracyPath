@@ -35,7 +35,7 @@ assert.match(client, /remoteStackFrameLimit/);
 assert.match(client, /boundarySampleRate: 1/);
 assert.match(client, /globalSampleRate: 0\.25/);
 assert.match(client, /retentionDays: 30/);
-assert.match(client, /client\.rpc\("report_app_error"/);
+assert.match(client, /client\.call\("report_app_error"/);
 assert.doesNotMatch(client, /error\?\.message[\s\S]{0,120}p_/);
 assert.match(boundary, /componentStack: info\?\.componentStack/);
 assert.match(main, /logClientError/);

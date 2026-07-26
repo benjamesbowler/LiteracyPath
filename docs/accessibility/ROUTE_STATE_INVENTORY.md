@@ -35,18 +35,19 @@ and page errors by `check:a11y-routes`.
 
 | Inventory ID | Human surface |
 |---|---|
-| `teacher-today` | Today priorities |
-| `teacher-classes` | Classes and roster |
-| `teacher-assess` | Assessment selection |
-| `teacher-progress` | Class and learner progress |
+| `teacher-dashboard` | Today dashboard and priorities |
+| `teacher-children` | Children and class roster |
+| `teacher-checks` | Check selection |
+| `teacher-reports` | Child reports |
 | `teacher-resources` | Planning and resources |
+| `teacher-settings` | School, site, privacy and account settings |
 | `teacher-report` | Learner report |
 | `teacher-assessment` | Live formal assessment |
 | `teacher-guided-reading` | Teacher Guided Reading workflow |
 
 The production-authenticated `check:a11y-teacher` journey additionally covers
-the five teacher intentions, semantic roster, class sound-map alternative,
-question guide, class-code dialog, keyboard activation, focus trap, Escape
+the six teacher sections, semantic roster, class sound-map alternative,
+question guide, child options dialog, keyboard activation, focus trap, Escape
 close, and focus restoration using the deterministic audit school.
 
 ## Key modal and overlay states
@@ -55,7 +56,7 @@ close, and focus restoration using the deterministic audit school.
 |---|---|
 | `teacher-question-guide` | Question-type guide dialog |
 | `teacher-learner-drawer` | Learner detail dialog |
-| `teacher-class-code` | Class-code regeneration dialog |
+| `teacher-child-options` | Focused child options dialog |
 | `teacher-assessment-discontinue` | Stop-assessment confirmation |
 | `sound-seekers-creator` | Creature creator |
 | `arcade-game` | Full-screen game |

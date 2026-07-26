@@ -41,6 +41,7 @@ const PRIMARY_SHELL_VIEWS = new Set([
   APP_VIEWS.TEACHER_ASSESS,
   APP_VIEWS.TEACHER_PROGRESS,
   APP_VIEWS.TEACHER_RESOURCES,
+  APP_VIEWS.TEACHER_SETTINGS,
   APP_VIEWS.STUDENT_HOME,
   APP_VIEWS.LEARN,
   APP_VIEWS.SKILLS_BLOCK_QUEST,
@@ -71,6 +72,7 @@ const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.TEACHER_ASSESS,
   APP_VIEWS.TEACHER_PROGRESS,
   APP_VIEWS.TEACHER_RESOURCES,
+  APP_VIEWS.TEACHER_SETTINGS,
   APP_VIEWS.STUDENT_HOME,
   APP_VIEWS.LEARN,
   APP_VIEWS.SKILLS_BLOCK_QUEST,
@@ -83,7 +85,8 @@ const TEACHER_INTENTION_VIEWS = new Set([
   APP_VIEWS.TEACHER_CLASSES,
   APP_VIEWS.TEACHER_ASSESS,
   APP_VIEWS.TEACHER_PROGRESS,
-  APP_VIEWS.TEACHER_RESOURCES
+  APP_VIEWS.TEACHER_RESOURCES,
+  APP_VIEWS.TEACHER_SETTINGS
 ]);
 
 export function isFocusedAssessmentView(appView) {
@@ -134,13 +137,14 @@ export function getPersistedAppView({ studentId, appView } = {}) {
 }
 
 const TEACHER_INTENT_PATHS = Object.freeze({
-  [APP_VIEWS.SELECT]: "today",
-  [APP_VIEWS.TEACHER_DASHBOARD]: "today",
-  [APP_VIEWS.TEACHER_CLASSES]: "classes",
-  [APP_VIEWS.TEACHER_ASSESS]: "assess",
-  [APP_VIEWS.TEACHER_PROGRESS]: "progress",
+  [APP_VIEWS.SELECT]: "dashboard",
+  [APP_VIEWS.TEACHER_DASHBOARD]: "dashboard",
+  [APP_VIEWS.TEACHER_CLASSES]: "children",
+  [APP_VIEWS.TEACHER_ASSESS]: "checks",
+  [APP_VIEWS.TEACHER_PROGRESS]: "reports",
   [APP_VIEWS.TEACHER_RESOURCES]: "resources",
-  [APP_VIEWS.FINISHED]: "progress/report"
+  [APP_VIEWS.TEACHER_SETTINGS]: "settings",
+  [APP_VIEWS.FINISHED]: "reports/report"
 });
 
 export function teacherIntentHash({
@@ -161,7 +165,7 @@ export function teacherIntentHash({
     context.set("report", reportView);
     return `#teacher/${intent}?${context.toString()}`;
   }
-  if (intent !== "today") {
+  if (!["dashboard", "settings"].includes(intent)) {
     context.set("group", groupId || "all");
     if (learnerId) context.set("learner", learnerId);
   }
@@ -181,13 +185,13 @@ export function elBenchmarkAssessmentHash({
   context.set("session", session.sessionId);
   const itemIndex = Math.max(0, Number(session.currentItemIndex ?? session.itemIndex ?? 0) || 0);
   context.set("item", String(itemIndex + 1));
-  return `#teacher/assess/el-benchmark?${context.toString()}`;
+  return `#teacher/checks/el-benchmark?${context.toString()}`;
 }
 
 export function parseElBenchmarkAssessmentHash(hash = "") {
   const normalized = String(hash || "").replace(/^#/, "");
   const [path, query = ""] = normalized.split("?");
-  if (path !== "teacher/assess/el-benchmark") return null;
+  if (path !== "teacher/checks/el-benchmark" && path !== "teacher/assess/el-benchmark") return null;
   const params = new URLSearchParams(query);
   const learnerId = params.get("learner") || "";
   const assessmentId = params.get("assessment") || "";

@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
-import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
 import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/worksheets/practicePack.js";
 import { classHeatSummary } from "../utils/questReport.js";
@@ -20,11 +19,6 @@ import {
   setRosterStudentArchived,
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
-import {
-  loadClassAccessLog,
-  loadClassAccessSummary,
-  saveClassCodeExpiry
-} from "../data/classAccessSecurity.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
@@ -74,16 +68,6 @@ function formatLastActive(value) {
   if (diffDays === 1) return "Yesterday";
   if (diffDays < 7) return `${diffDays} days ago`;
   return date.toLocaleDateString();
-}
-
-function formatClassAccessTime(value) {
-  if (!value) return "No recent activity";
-  const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) return "Time unavailable";
-  return date.toLocaleString([], {
-    dateStyle: "medium",
-    timeStyle: "short"
-  });
 }
 
 function accuracyConclusion(row) {
@@ -599,20 +583,22 @@ function TodayBriefing({
                       surface="teacher-today"
                     />
                   </div>
-                  <button
-                    className="text-button"
-                    type="button"
-                    onClick={() => onLoadStudent?.(row.id, row.name)}
-                  >
-                    Review {row.name}
-                  </button>
-                  <button
-                    className="text-button"
-                    type="button"
-                    onClick={() => onPlanIntervention?.(row)}
-                  >
-                    Plan support for {row.name}
-                  </button>
+                  <div className="teacher-today-row-actions">
+                    <button
+                      className="text-button"
+                      type="button"
+                      onClick={() => onLoadStudent?.(row.id, row.name)}
+                    >
+                      Review
+                    </button>
+                    <button
+                      className="text-button"
+                      type="button"
+                      onClick={() => onPlanIntervention?.(row)}
+                    >
+                      Plan support
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -942,7 +928,6 @@ export function TeacherDashboardPage({
   onOpenProgress,
   createClass,
   createDemoClass,
-  regenerateClassCode,
   newClassName,
   setNewClassName,
   createStudent,
@@ -950,17 +935,18 @@ export function TeacherDashboardPage({
   classDashboard = [],
   loadClassDashboard,
   skillTree = [],
+  updateStudentName,
   updateStudentSymbolPassword,
   resetStudentSymbolPassword,
   startStudentLogin,
   schoolName = "",
   hasSchool = false,
-  saveSchool,
   message,
   surfaceState = "",
   surfaceStateDetail = "",
   onSurfaceStatePrimary,
-  onSurfaceStateSecondary
+  onSurfaceStateSecondary,
+  activitySyncHealthSeedRows = null
 }) {
   const [newStudentName, setNewStudentName] = useState("");
   const [showRosterImport, setShowRosterImport] = useState(false);
@@ -980,31 +966,20 @@ export function TeacherDashboardPage({
   const [operationTargetClassId, setOperationTargetClassId] = useState("");
   const [operationBusy, setOperationBusy] = useState(false);
   const [rosterOperationStatus, setRosterOperationStatus] = useState("");
-  const [classCodeStatus, setClassCodeStatus] = useState("");
-  const [showClassCodeDialog, setShowClassCodeDialog] = useState(false);
-  const [regeneratingClassCode, setRegeneratingClassCode] = useState(false);
-  const [classCodeExpiryOverrides, setClassCodeExpiryOverrides] = useState({});
-  const [classAccessSummary, setClassAccessSummary] = useState(null);
-  const [classAccessLog, setClassAccessLog] = useState([]);
-  const [classAccessLoading, setClassAccessLoading] = useState(false);
-  const [classAccessError, setClassAccessError] = useState("");
-  const [showClassAccessLog, setShowClassAccessLog] = useState(false);
-  const [savingClassCodeExpiry, setSavingClassCodeExpiry] = useState(false);
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
-  const [editingSchool, setEditingSchool] = useState(false);
-  const [schoolDraft, setSchoolDraft] = useState("");
-  const [savingSchool, setSavingSchool] = useState(false);
-  const [savingLeaderboardScope, setSavingLeaderboardScope] = useState(false);
-  const [leaderboardStatus, setLeaderboardStatus] = useState("");
-  const [leaderboardScopeOverrides, setLeaderboardScopeOverrides] = useState({});
   const [visiblePasswords, setVisiblePasswords] = useState({});
+  const [actionsStudent, setActionsStudent] = useState(null);
+  const [editingStudentProfile, setEditingStudentProfile] = useState(null);
+  const [studentNameDraft, setStudentNameDraft] = useState("");
+  const [studentProfileError, setStudentProfileError] = useState("");
+  const [savingStudentProfile, setSavingStudentProfile] = useState(false);
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
   const [heatOpenId, setHeatOpenId] = useState(null);
   const [interventionRecommendation, setInterventionRecommendation] = useState(null);
   const [showQuestionGuide, setShowQuestionGuide] = useState(false);
   const [questionGuideSearch, setQuestionGuideSearch] = useState("");
-  const [rosterAdminOpen, setRosterAdminOpen] = useState(false);
+  const [rosterAdminOpen, setRosterAdminOpen] = useState(() => pageIntent === "classes");
   const [savingChoiceModeIds, setSavingChoiceModeIds] = useState([]);
   const [savingAccessibilityIds, setSavingAccessibilityIds] = useState([]);
   const [accessibilityStudent, setAccessibilityStudent] = useState(null);
@@ -1020,6 +995,34 @@ export function TeacherDashboardPage({
   function focusNewStudentInput() {
     newStudentInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
     newStudentInputRef.current?.focus?.();
+  }
+  function openStudentProfile(student) {
+    setActionsStudent(null);
+    setEditingStudentProfile(student);
+    setStudentNameDraft(student?.name || "");
+    setStudentProfileError("");
+  }
+  async function saveStudentProfile(event) {
+    event.preventDefault();
+    const cleanName = String(studentNameDraft || "").trim().replace(/\s+/g, " ");
+    if (!cleanName) {
+      setStudentProfileError("Enter a display name.");
+      return;
+    }
+    if (cleanName.length > 80) {
+      setStudentProfileError("Display names must be 80 characters or fewer.");
+      return;
+    }
+    setSavingStudentProfile(true);
+    setStudentProfileError("");
+    const saved = await updateStudentName?.(editingStudentProfile.id, cleanName);
+    setSavingStudentProfile(false);
+    if (!saved) {
+      setStudentProfileError("We couldn't save this change. Check the message above and try again.");
+      return;
+    }
+    setEditingStudentProfile(null);
+    setStudentNameDraft("");
   }
   function openQuestionGuide() {
     setQuestionGuideSearch("");
@@ -1235,24 +1238,15 @@ export function TeacherDashboardPage({
   );
   const classMetricUpdatedAt = latestMetricUpdate(studentRows.map(row => row.lastActive));
   const className = selectedClass?.name || "No class selected";
-  const classCodeExpiresAt = Object.prototype.hasOwnProperty.call(
-    classCodeExpiryOverrides,
-    selectedClass?.id
-  )
-    ? classCodeExpiryOverrides[selectedClass.id]
-    : selectedClass?.access_code_expires_at || null;
-  const visibleClassAccessSummary = classAccessSummary
-    && selectedClass?.id
-    && classAccessSummary.classId === selectedClass.id
-    ? classAccessSummary.data
-    : null;
-  const leaderboardScope = leaderboardScopeOverrides[selectedClass?.id]
-    || (selectedClass?.leaderboard_scope === "school" ? "school" : "class");
   const isClassesPage = pageIntent === "classes";
   const hasSetupClass = Boolean(selectedClass);
   const hasSetupLearners = studentRows.length > 0;
   const setupLoginsReady = hasSetupLearners && studentRows.every(row => Boolean(row.symbol_password));
   const firstCheckComplete = studentRows.some(row => row.answered > 0);
+  const setupComplete = hasSetupClass
+    && hasSetupLearners
+    && setupLoginsReady
+    && firstCheckComplete;
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
@@ -1264,28 +1258,6 @@ export function TeacherDashboardPage({
     loadStudentsRef.current?.(selectedClassId);
     loadClassDashboardRef.current?.(selectedClassId);
   }, [selectedClassId]);
-
-  useEffect(() => {
-    let cancelled = false;
-    if (!selectedClass?.id) return undefined;
-
-    (async () => {
-      const result = await loadClassAccessSummary({
-        client: supabase,
-        classId: selectedClass.id
-      });
-      if (cancelled) return;
-      if (result.error) {
-        setClassAccessError("Security activity is temporarily unavailable.");
-        return;
-      }
-      setClassAccessSummary({ classId: selectedClass.id, data: result.data });
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [selectedClass?.id]);
 
   function saveVisibleRosterColumns(nextColumns) {
     setVisibleRosterColumns(nextColumns);
@@ -1306,101 +1278,8 @@ export function TeacherDashboardPage({
     saveVisibleRosterColumns(nextColumns);
   }
 
-  async function handleCopyClassCode() {
-    const code = selectedClass?.access_code;
-    if (!code) return;
-    try {
-      if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
-      await navigator.clipboard.writeText(code);
-      setClassCodeStatus(`Class code ${code} copied.`);
-    } catch {
-      setClassCodeStatus(`Copy is unavailable. Select the visible class code ${code} to copy it manually.`);
-    }
-  }
-
-  async function handleRegenerateClassCode() {
-    if (!selectedClass?.id || !regenerateClassCode) return;
-    setRegeneratingClassCode(true);
-    setClassCodeStatus("Creating a new class code...");
-    const result = await regenerateClassCode(selectedClass.id);
-    setRegeneratingClassCode(false);
-    if (!result?.ok) {
-      setClassCodeStatus("The class code could not be changed. The current code still works.");
-      return;
-    }
-    setShowClassCodeDialog(false);
-    setClassCodeStatus(
-      `New class code ${result.accessCode} is ready. The old code no longer works.`
-    );
-    const summaryResult = await loadClassAccessSummary({
-      client: supabase,
-      classId: selectedClass.id
-    });
-    if (!summaryResult.error) {
-      setClassAccessSummary({ classId: selectedClass.id, data: summaryResult.data });
-    }
-  }
-
-  async function handleClassCodeExpiryChange(event) {
-    if (!selectedClass?.id || savingClassCodeExpiry) return;
-    const days = Number(event.target.value);
-    const expiresAt = days > 0
-      ? new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString()
-      : null;
-    setSavingClassCodeExpiry(true);
-    setClassCodeStatus("Saving code expiry...");
-    const result = await saveClassCodeExpiry({
-      client: supabase,
-      classId: selectedClass.id,
-      expiresAt
-    });
-    setSavingClassCodeExpiry(false);
-    if (result.error) {
-      setClassCodeStatus("The code expiry could not be changed.");
-      return;
-    }
-    setClassCodeExpiryOverrides(previous => ({
-      ...previous,
-      [selectedClass.id]: result.data.access_code_expires_at || null
-    }));
-    setClassCodeStatus(
-      result.data.access_code_expires_at
-        ? `This code will expire ${formatClassAccessTime(result.data.access_code_expires_at)}.`
-        : "This code will not expire automatically."
-    );
-  }
-
-  async function handleToggleClassAccessLog() {
-    if (!selectedClass?.id) return;
-    if (showClassAccessLog) {
-      setShowClassAccessLog(false);
-      return;
-    }
-    setShowClassAccessLog(true);
-    setClassAccessLoading(true);
-    setClassAccessError("");
-    const result = await loadClassAccessLog({
-      client: supabase,
-      classId: selectedClass.id,
-      limit: 20
-    });
-    setClassAccessLoading(false);
-    if (result.error) {
-      setClassAccessError("Security activity is temporarily unavailable.");
-      setClassAccessLog([]);
-      return;
-    }
-    setClassAccessLog(result.data);
-  }
-
   function handleClassChange(event) {
     const nextClassId = event.target.value || null;
-    setClassCodeStatus("");
-    setShowClassCodeDialog(false);
-    setRegeneratingClassCode(false);
-    setClassAccessLog([]);
-    setClassAccessError("");
-    setShowClassAccessLog(false);
     setSelectedClassId?.(nextClassId);
     setStudentList?.([]);
   }
@@ -1542,43 +1421,6 @@ export function TeacherDashboardPage({
     }
   }
 
-  async function handleSaveSchool() {
-    const clean = schoolDraft.trim();
-    if (!clean || savingSchool) return;
-    setSavingSchool(true);
-    try {
-      await saveSchool?.(clean);
-      setEditingSchool(false);
-    } finally {
-      setSavingSchool(false);
-    }
-  }
-
-  async function handleLeaderboardScope(scope) {
-    if (!selectedClass?.id) return;
-    setSavingLeaderboardScope(true);
-    setLeaderboardStatus("");
-    try {
-      const { data, error } = await supabase.call("teacher_set_class_leaderboard_scope", {
-        p_class_id: selectedClass.id,
-        p_scope: scope
-      });
-      if (error || data?.[0]?.leaderboard_scope !== scope) {
-        console.error("Save leaderboard scope error:", error);
-        setLeaderboardStatus("Could not change this privacy setting.");
-        return;
-      }
-      setLeaderboardScopeOverrides(previous => ({ ...previous, [selectedClass.id]: scope }));
-      setLeaderboardStatus(
-        scope === "school"
-          ? "Nickname-only scores now include this school."
-          : "Nickname-only scores now stay in this class."
-      );
-    } finally {
-      setSavingLeaderboardScope(false);
-    }
-  }
-
   function openLoginCardPreview(rows) {
     setLoginCardRows(rows.filter(row => row.symbol_password));
   }
@@ -1699,144 +1541,6 @@ export function TeacherDashboardPage({
               : className}
           </small>
         </div>
-        {isClassesPage && selectedClass?.access_code && (
-          <div className="teacher-dashboard-context teacher-class-code" aria-label="Class sign-in code">
-            <span>{TEACHER_COPY.classCode.label}</span>
-            <strong className="teacher-class-code-value">{selectedClass.access_code}</strong>
-            <small>{TEACHER_COPY.classCode.help}</small>
-            <label className="teacher-class-code-expiry">
-              <span>{TEACHER_COPY.classCode.expiryLabel}</span>
-              <select
-                aria-label={TEACHER_COPY.classCode.expiryAriaLabel}
-                disabled={savingClassCodeExpiry}
-                value={classCodeExpiresAt ? "active" : "none"}
-                onChange={handleClassCodeExpiryChange}
-              >
-                <option value="none">{TEACHER_COPY.classCode.never}</option>
-                {classCodeExpiresAt && (
-                  <option value="active">
-                    {TEACHER_COPY.classCode.expiresAt(formatClassAccessTime(classCodeExpiresAt))}
-                  </option>
-                )}
-                <option value="7">{TEACHER_COPY.classCode.afterDays(7)}</option>
-                <option value="30">{TEACHER_COPY.classCode.afterDays(30)}</option>
-                <option value="90">{TEACHER_COPY.classCode.afterDays(90)}</option>
-              </select>
-            </label>
-            <div
-              className={`teacher-class-access-summary${visibleClassAccessSummary?.anomaly ? " anomaly" : ""}`}
-              role={visibleClassAccessSummary?.anomaly ? "alert" : undefined}
-              aria-live="polite"
-            >
-              {visibleClassAccessSummary?.anomaly ? (
-                <>
-                  <strong>{TEACHER_COPY.classCode.unusualTitle}</strong>
-                  <span>
-                    {visibleClassAccessSummary.blocked} blocked and {visibleClassAccessSummary.denied} rejected
-                    {" "}attempt{visibleClassAccessSummary.blocked + visibleClassAccessSummary.denied === 1 ? "" : "s"} in 24 hours.
-                    Consider making a new code.
-                  </span>
-                </>
-              ) : (
-                <span>
-                  {visibleClassAccessSummary
-                    ? TEACHER_COPY.classCode.safeSummary(visibleClassAccessSummary.allowed)
-                    : TEACHER_COPY.classCode.checking}
-                </span>
-              )}
-            </div>
-            <div className="teacher-login-actions">
-              <button
-                className="text-button"
-                type="button"
-                onClick={handleCopyClassCode}
-              >
-                Copy code
-              </button>
-              {regenerateClassCode && (
-                <button
-                  className="text-button"
-                  type="button"
-                  onClick={() => setShowClassCodeDialog(true)}
-                >
-                  New code
-                </button>
-              )}
-              <button
-                className="text-button"
-                type="button"
-                aria-expanded={showClassAccessLog}
-                onClick={handleToggleClassAccessLog}
-              >
-                {showClassAccessLog
-                  ? TEACHER_COPY.classCode.historyHide
-                  : TEACHER_COPY.classCode.historyShow}
-              </button>
-            </div>
-            <ActionFeedback className="teacher-class-code-status" message={classCodeStatus} />
-            {showClassAccessLog && (
-              <section
-                className="teacher-class-access-log"
-                aria-label={TEACHER_COPY.classCode.historyAriaLabel}
-              >
-                <h3>{TEACHER_COPY.classCode.historyTitle}</h3>
-                <p>No child names, passwords, class codes, device IDs, or network addresses are stored here.</p>
-                {classAccessLoading ? (
-                  <p role="status">{TEACHER_COPY.classCode.historyLoading}</p>
-                ) : classAccessError ? (
-                  <p role="alert">{classAccessError}</p>
-                ) : classAccessLog.length === 0 ? (
-                  <p>{TEACHER_COPY.classCode.historyEmpty}</p>
-                ) : (
-                  <ol>
-                    {classAccessLog.map((event, index) => (
-                      <li
-                        className={`outcome-${event.outcome}`}
-                        key={`${event.occurredAt}-${event.eventType}-${index}`}
-                      >
-                        <strong>{event.label}</strong>
-                        <span>{event.deviceLabel} · {formatClassAccessTime(event.occurredAt)}</span>
-                      </li>
-                    ))}
-                  </ol>
-                )}
-              </section>
-            )}
-          </div>
-        )}
-        {isClassesPage && selectedClass && (
-          <div className="teacher-dashboard-context teacher-leaderboard-privacy" aria-label="High-score privacy">
-            <span>{TEACHER_COPY.board.label}</span>
-            <strong>
-              {leaderboardScope === "school"
-                ? TEACHER_COPY.board.schoolLabel
-                : TEACHER_COPY.board.classLabel}
-            </strong>
-            <small>{TEACHER_COPY.board.privacy}</small>
-            <label>
-              <input
-                type="checkbox"
-                checked={leaderboardScope === "school"}
-                disabled={savingLeaderboardScope}
-                onChange={async event => {
-                  const nextScope = event.target.checked ? "school" : "class";
-                  if (
-                    nextScope === "school"
-                    && !window.confirm(
-                      TEACHER_COPY.board.confirm
-                    )
-                  ) {
-                    return;
-                  }
-                  await handleLeaderboardScope(nextScope);
-                }}
-              />
-              <span>{TEACHER_COPY.board.toggle}</span>
-            </label>
-            <small>{TEACHER_COPY.board.toggleHelp}</small>
-            <ActionFeedback message={leaderboardStatus} />
-          </div>
-        )}
       </TeacherPageHeader>
 
       <ActionFeedback className="teacher-dashboard-message" message={message} />
@@ -1852,15 +1556,17 @@ export function TeacherDashboardPage({
         />
       ) : (
       <>
-      <TeacherSetupChecklist
-        hasClass={hasSetupClass}
-        hasLearners={hasSetupLearners}
-        loginsReady={setupLoginsReady}
-        firstCheckComplete={firstCheckComplete}
-        onContinue={handleSetupContinue}
-        onCreateDemo={createDemoClass ? handleCreateDemo : null}
-        creatingDemo={creatingDemo}
-      />
+      {!isClassesPage && !setupComplete && (
+        <TeacherSetupChecklist
+          hasClass={hasSetupClass}
+          hasLearners={hasSetupLearners}
+          loginsReady={setupLoginsReady}
+          firstCheckComplete={firstCheckComplete}
+          onContinue={handleSetupContinue}
+          onCreateDemo={createDemoClass ? handleCreateDemo : null}
+          creatingDemo={creatingDemo}
+        />
+      )}
 
       <section
         className={`teacher-dashboard-controls${isClassesPage ? "" : " teacher-today-class-control"}`}
@@ -1895,59 +1601,10 @@ export function TeacherDashboardPage({
             />
           </label>
           <button className="lp-button lp-button-primary" onClick={handleCreateClass} type="button">
-            Create Class
+            Create class
           </button>
         </div>}
 
-        {isClassesPage && saveSchool && (
-          <div className="teacher-dashboard-school teacher-dashboard-control-group">
-            {!editingSchool ? (
-              <p className={hasSchool ? "teacher-school-summary" : "teacher-school-summary teacher-school-missing"}>
-                {hasSchool
-                  ? <>School: <strong>{schoolName || "..."}</strong></>
-                  : "No school set yet — children need a school to use sign-in."}
-                <button
-                  className="text-button"
-                  onClick={() => {
-                    setSchoolDraft(schoolName || "");
-                    setEditingSchool(true);
-                  }}
-                  type="button"
-                >
-                  {hasSchool ? "Change" : "Set school"}
-                </button>
-              </p>
-            ) : (
-              <div className="teacher-dashboard-create teacher-school-edit">
-                <label className="teacher-dashboard-control">
-                  <span>School</span>
-                  <SchoolNameInput
-                    autoComplete="organization"
-                    value={schoolDraft}
-                    placeholder="Choose or type your school"
-                    onChange={setSchoolDraft}
-                    onKeyDown={event => {
-                      if (event.key === "Enter" && schoolDraft.trim()) {
-                        handleSaveSchool();
-                      }
-                    }}
-                  />
-                </label>
-                <button
-                  className="lp-button lp-button-primary"
-                  disabled={!schoolDraft.trim() || savingSchool}
-                  onClick={handleSaveSchool}
-                  type="button"
-                >
-                  {savingSchool ? "Saving..." : "Save School"}
-                </button>
-                <button className="lp-button lp-button-secondary" disabled={savingSchool} onClick={() => setEditingSchool(false)} type="button">
-                  Cancel
-                </button>
-              </div>
-            )}
-          </div>
-        )}
       </section>
 
       {!isClassesPage && selectedClass && (
@@ -1966,27 +1623,34 @@ export function TeacherDashboardPage({
       )}
 
       {!isClassesPage && selectedClass && (
-        <InterventionLoop
-          key={`${teacherId || "teacher"}:${selectedClass.id}`}
-          supabase={supabase}
-          teacherId={teacherId}
-          classId={selectedClass.id}
-          className={selectedClass.name}
-          rows={studentRows}
-          recommendation={interventionRecommendation}
-          onRecommendationConsumed={() => setInterventionRecommendation(null)}
-        />
+        <details className="teacher-dashboard-secondary">
+          <summary>Intervention follow-up</summary>
+          <InterventionLoop
+            key={`${teacherId || "teacher"}:${selectedClass.id}`}
+            supabase={supabase}
+            teacherId={teacherId}
+            classId={selectedClass.id}
+            className={selectedClass.name}
+            rows={studentRows}
+            recommendation={interventionRecommendation}
+            onRecommendationConsumed={() => setInterventionRecommendation(null)}
+          />
+        </details>
       )}
 
-      {selectedClass && (
-        <TeacherActivitySyncHealth
-          supabase={supabase}
-          classId={selectedClass.id}
-          className={selectedClass.name}
-        />
+      {isClassesPage && selectedClass && (
+        <details className="teacher-dashboard-secondary">
+          <summary>{TEACHER_COPY.sync.label}</summary>
+          <TeacherActivitySyncHealth
+            supabase={supabase}
+            classId={selectedClass.id}
+            className={selectedClass.name}
+            seedRows={activitySyncHealthSeedRows}
+          />
+        </details>
       )}
 
-      {selectedClass && (
+      {isClassesPage && selectedClass && (
         <section
           className="teacher-roster-metrics"
           aria-label={TEACHER_COPY.metrics.summaryAriaLabel}
@@ -2296,23 +1960,25 @@ export function TeacherDashboardPage({
 
         {selectedClass && (
           <div className="teacher-roster-actionbar">
-            <label className="teacher-dashboard-control">
-              <span>{TEACHER_COPY.roster.displayName}</span>
-              <input
-                ref={newStudentInputRef}
-                autoComplete="off"
-                value={newStudentName}
-                placeholder={TEACHER_COPY.roster.displayNamePlaceholder}
-                onChange={event => setNewStudentName(event.target.value)}
-                onKeyDown={event => {
-                  if (event.key === "Enter") handleCreateStudent();
-                }}
-              />
-            </label>
-            <div className="teacher-roster-actions">
-              <button className="lp-button lp-button-secondary" disabled={!newStudentName.trim()} onClick={handleCreateStudent} type="button">
+            <div className="teacher-roster-add">
+              <label className="teacher-dashboard-control">
+                <span>{TEACHER_COPY.roster.displayName}</span>
+                <input
+                  ref={newStudentInputRef}
+                  autoComplete="off"
+                  value={newStudentName}
+                  placeholder={TEACHER_COPY.roster.displayNamePlaceholder}
+                  onChange={event => setNewStudentName(event.target.value)}
+                  onKeyDown={event => {
+                    if (event.key === "Enter") handleCreateStudent();
+                  }}
+                />
+              </label>
+              <button className="lp-button lp-button-primary" disabled={!newStudentName.trim()} onClick={handleCreateStudent} type="button">
                 {TEACHER_COPY.roster.add}
               </button>
+            </div>
+            <div className="teacher-roster-actions">
               <button
                 className="lp-button lp-button-secondary"
                 onClick={() => {
@@ -2324,25 +1990,30 @@ export function TeacherDashboardPage({
               >
                 {showRosterImport ? "Close import" : "Import class list"}
               </button>
-              <button
-                className="lp-button lp-button-secondary"
-                disabled={!selectedRosterIds.length}
-                onClick={() => openLoginCardPreview(studentRows.filter(row => selectedRosterIds.includes(row.id)))}
-                type="button"
-              >
-                Preview selected cards ({selectedRosterIds.length})
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                disabled={!studentRows.some(row => row.symbol_password)}
-                onClick={() => openLoginCardPreview(studentRows)}
-                type="button"
-              >
-                Preview all cards
-              </button>
-              <button className="lp-button lp-button-primary" onClick={startStudentLogin} type="button">
-                {TEACHER_COPY.roster.childPreview}
-              </button>
+              <details className="teacher-roster-more-tools">
+                <summary>More tools</summary>
+                <div>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    disabled={!selectedRosterIds.length}
+                    onClick={() => openLoginCardPreview(studentRows.filter(row => selectedRosterIds.includes(row.id)))}
+                    type="button"
+                  >
+                    Preview selected cards ({selectedRosterIds.length})
+                  </button>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    disabled={!studentRows.some(row => row.symbol_password)}
+                    onClick={() => openLoginCardPreview(studentRows)}
+                    type="button"
+                  >
+                    Preview all cards
+                  </button>
+                  <button className="lp-button lp-button-secondary" onClick={startStudentLogin} type="button">
+                    {TEACHER_COPY.roster.childPreview}
+                  </button>
+                </div>
+              </details>
             </div>
           </div>
         )}
@@ -2655,54 +2326,13 @@ export function TeacherDashboardPage({
                           Open child
                         </button>
                         <button
-                          className="text-button teacher-choice-mode-toggle"
+                          className="lp-button lp-button-secondary"
                           type="button"
-                          aria-pressed={row.reducedChoiceMode}
-                          disabled={savingChoiceModeIds.includes(row.id)}
-                          title="Reduced choices keep Home, Sound Seekers, Phonics, and Books in the child navigation."
-                          onClick={() => handleReducedChoiceMode(row)}
+                          aria-haspopup="dialog"
+                          aria-label={`More options for ${row.name}`}
+                          onClick={() => setActionsStudent(row)}
                         >
-                          {savingChoiceModeIds.includes(row.id)
-                            ? "Saving choices..."
-                            : row.reducedChoiceMode
-                              ? "Use all choices"
-                              : "Reduce choices"}
-                        </button>
-                        <button
-                          className="text-button teacher-accessibility-settings-open"
-                          type="button"
-                          disabled={savingAccessibilityIds.includes(row.id)}
-                          onClick={() => setAccessibilityStudent(row)}
-                        >
-                          {savingAccessibilityIds.includes(row.id)
-                            ? "Saving accessibility..."
-                            : "Accessibility settings"}
-                        </button>
-                        <button
-                          className="text-button teacher-data-rights-open"
-                          type="button"
-                          onClick={() => setDataRightsStudent(row)}
-                        >
-                          Data rights
-                        </button>
-                        {classList.length > 1 && (
-                          <button
-                            className="text-button"
-                            type="button"
-                            onClick={() => {
-                              setRosterOperation({ kind: "transfer", student: row });
-                              setOperationTargetClassId("");
-                            }}
-                          >
-                            Transfer
-                          </button>
-                        )}
-                        <button
-                          className="text-button"
-                          type="button"
-                          onClick={() => setRosterOperation({ kind: "archive", student: row })}
-                        >
-                          Archive
+                          More
                         </button>
                       </div>
                     </td>
@@ -2774,6 +2404,120 @@ export function TeacherDashboardPage({
         />
       )}
 
+      {actionsStudent && (
+        <TeacherModal
+          className="teacher-child-actions-modal"
+          label={`Options for ${actionsStudent.name}`}
+          onClose={() => setActionsStudent(null)}
+        >
+          <div className="symbol-password-modal-card page-stack">
+            <header>
+              <p className="panel-label">Child information</p>
+              <h3>{actionsStudent.name}</h3>
+              <p>Choose one task. Each task opens in its own focused window.</p>
+            </header>
+            <div className="teacher-child-action-list">
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => openStudentProfile(actionsStudent)}
+              >
+                Edit child information
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => {
+                  setEditingStudent(actionsStudent);
+                  setEditingSequence("");
+                  setActionsStudent(null);
+                }}
+              >
+                {actionsStudent.symbol_password ? "Change sign-in pictures" : "Set sign-in pictures"}
+              </button>
+              {actionsStudent.symbol_password && (
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={async () => {
+                    const student = actionsStudent;
+                    setActionsStudent(null);
+                    await resetStudentSymbolPassword?.(student.id, student.name);
+                  }}
+                >
+                  Reset sign-in pictures
+                </button>
+              )}
+              <button
+                className="lp-button lp-button-secondary teacher-choice-mode-toggle"
+                type="button"
+                aria-pressed={actionsStudent.reducedChoiceMode}
+                disabled={savingChoiceModeIds.includes(actionsStudent.id)}
+                onClick={async () => {
+                  const student = actionsStudent;
+                  await handleReducedChoiceMode(student);
+                  setActionsStudent(null);
+                }}
+              >
+                {actionsStudent.reducedChoiceMode ? "Use all child choices" : "Reduce child choices"}
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => {
+                  setAccessibilityStudent(actionsStudent);
+                  setActionsStudent(null);
+                }}
+              >
+                Accessibility settings
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => {
+                  setDataRightsStudent(actionsStudent);
+                  setActionsStudent(null);
+                }}
+              >
+                Privacy and data rights
+              </button>
+              {classList.length > 1 && (
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    setRosterOperation({ kind: "transfer", student: actionsStudent });
+                    setOperationTargetClassId("");
+                    setActionsStudent(null);
+                  }}
+                >
+                  Move to another class
+                </button>
+              )}
+              <button
+                className="lp-button lp-button-danger-outline"
+                type="button"
+                onClick={() => {
+                  setRosterOperation({ kind: "archive", student: actionsStudent });
+                  setActionsStudent(null);
+                }}
+              >
+                Archive child
+              </button>
+            </div>
+            <footer className="teacher-dialog-footer">
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => setActionsStudent(null)}
+              >
+                Close
+              </button>
+            </footer>
+          </div>
+        </TeacherModal>
+      )}
+
       <LearnerDataRightsDialog
         key={dataRightsStudent?.id || "closed-data-rights"}
         client={supabase}
@@ -2783,41 +2527,52 @@ export function TeacherDashboardPage({
         onDeleted={handleDataRightsDeletion}
       />
 
-      {showClassCodeDialog && selectedClass && (
+      {editingStudentProfile && (
         <TeacherModal
-          className="teacher-class-code-modal"
-          label="Make a new class code"
-          onClose={() => {
-            if (!regeneratingClassCode) setShowClassCodeDialog(false);
-          }}
+          className="teacher-child-profile-modal"
+          label={`Edit ${editingStudentProfile.name}`}
+          onClose={savingStudentProfile ? undefined : () => setEditingStudentProfile(null)}
         >
-          <div className="symbol-password-modal-card">
-            <p className="panel-label">Class access</p>
-            <h3>Make a new code for {selectedClass.name}?</h3>
-            <p>
-              The current code <strong>{selectedClass.access_code}</strong> will stop working immediately.
-              Children on shared devices must enter the new code the next time they sign in.
-            </p>
-            <p>Existing child accounts, sign-in pictures, progress, and saved results will not change.</p>
-            <div className="teacher-roster-operation-actions">
+          <form className="page-stack" onSubmit={saveStudentProfile}>
+            <header>
+              <p className="panel-label">Child information</p>
+              <h3>Edit display name</h3>
+              <p>Use the classroom name the child and staff already recognise. Do not add a surname unless your school requires it.</p>
+            </header>
+            <label>
+              <span>Display name</span>
+              <input
+                autoFocus
+                maxLength={80}
+                value={studentNameDraft}
+                disabled={savingStudentProfile}
+                onChange={event => {
+                  setStudentNameDraft(event.target.value);
+                  setStudentProfileError("");
+                }}
+              />
+            </label>
+            {studentProfileError && (
+              <p className="teacher-inline-error" role="alert">{studentProfileError}</p>
+            )}
+            <footer className="teacher-dialog-footer">
               <button
-                className="lp-button lp-button-danger-outline"
-                type="button"
-                disabled={regeneratingClassCode}
-                onClick={handleRegenerateClassCode}
+                className="lp-button lp-button-primary"
+                type="submit"
+                disabled={savingStudentProfile}
               >
-                {regeneratingClassCode ? "Making new code..." : "Make new code"}
+                {savingStudentProfile ? "Saving…" : "Save child information"}
               </button>
               <button
                 className="lp-button lp-button-secondary"
                 type="button"
-                disabled={regeneratingClassCode}
-                onClick={() => setShowClassCodeDialog(false)}
+                disabled={savingStudentProfile}
+                onClick={() => setEditingStudentProfile(null)}
               >
-                Keep current code
+                Cancel
               </button>
-            </div>
-          </div>
+            </footer>
+          </form>
         </TeacherModal>
       )}
 

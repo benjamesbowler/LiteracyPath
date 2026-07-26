@@ -79,26 +79,22 @@ const ICONS = {
 
 const TEACHER_INTENT_NAV_ITEMS = [
   {
-    id: "today",
-    label: "Today",
+    id: "dashboard",
+    label: "Dashboard",
     icon: "dashboard",
     views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD],
-    modules: [
-      { id: "dashboard", label: "Dashboard", views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD] }
-    ]
+    modules: []
   },
   {
-    id: "classes",
-    label: "Classes",
+    id: "children",
+    label: "Children",
     icon: "student",
     views: [APP_VIEWS.TEACHER_CLASSES, APP_VIEWS.STUDENT_HOME],
-    modules: [
-      { id: "studentHome", label: "Child preview", views: [APP_VIEWS.STUDENT_HOME], requiresStudent: true }
-    ]
+    modules: []
   },
   {
-    id: "assess",
-    label: "Check",
+    id: "checks",
+    label: "Checks",
     icon: "assessment",
     views: [
       APP_VIEWS.TEACHER_ASSESS,
@@ -111,42 +107,18 @@ const TEACHER_INTENT_NAV_ITEMS = [
       APP_VIEWS.EL_ASSESSMENTS,
       APP_VIEWS.EL_BENCHMARK
     ],
-    modules: [
-      {
-        id: "assessment-hub",
-        label: "Checks",
-        views: [
-          APP_VIEWS.TEACHER_ASSESS,
-          APP_VIEWS.OVERVIEW,
-          APP_VIEWS.SKILLS,
-          APP_VIEWS.ASSESSMENT,
-          APP_VIEWS.CHECKPOINT,
-          APP_VIEWS.LETTERS,
-          APP_VIEWS.ADVANCED_PHONICS,
-          APP_VIEWS.EL_ASSESSMENTS,
-          APP_VIEWS.EL_BENCHMARK
-        ]
-      }
-    ]
+    modules: []
   },
   {
-    id: "progress",
-    label: "Progress",
+    id: "reports",
+    label: "Reports",
     icon: "reports",
     views: [APP_VIEWS.TEACHER_PROGRESS, APP_VIEWS.REPORTS, APP_VIEWS.FINISHED],
-    modules: [
-      {
-        id: "reports",
-        label: "Reports",
-        views: [APP_VIEWS.REPORTS, APP_VIEWS.FINISHED],
-        requiresStudent: true,
-        description: "Progress reports and downloads for the selected child"
-      }
-    ]
+    modules: []
   },
   {
     id: "resources",
-    label: "Plan/Resources",
+    label: "Resources",
     icon: "worksheets",
     views: [
       APP_VIEWS.TEACHER_RESOURCES,
@@ -155,32 +127,14 @@ const TEACHER_INTENT_NAV_ITEMS = [
       APP_VIEWS.PRESENT,
       APP_VIEWS.WORKSHEETS
     ],
-    modules: [
-      {
-        id: "reading",
-        label: "Guided Reading",
-        views: [APP_VIEWS.GUIDED_READING],
-        requiresStudent: true
-      },
-      {
-        id: "learn",
-        label: "Story Quests",
-        views: [APP_VIEWS.LEARN],
-        requiresStudent: true
-      },
-      {
-        id: "present",
-        label: "Present",
-        views: [APP_VIEWS.PRESENT],
-        description: "Whole-class projector slides for a cycle"
-      },
-      {
-        id: "worksheets",
-        label: "Worksheets",
-        views: [APP_VIEWS.WORKSHEETS],
-        description: "Printable practice built from the cycle curriculum"
-      }
-    ]
+    modules: []
+  },
+  {
+    id: "settings",
+    label: "Settings",
+    icon: "admin",
+    views: [APP_VIEWS.TEACHER_SETTINGS],
+    modules: []
   },
 ];
 
@@ -193,7 +147,6 @@ export function Sidebar({
   goToStudentHome,
   goToGuidedReading,
   goToLearn,
-  goToReports,
   goToWorksheets,
   goToPresent,
   goToTeacherDashboard,
@@ -201,6 +154,7 @@ export function Sidebar({
   goToTeacherAssess,
   goToTeacherProgress,
   goToTeacherResources,
+  goToTeacherSettings,
   logOutTeacher,
   isAdmin,
   openAdminDashboard,
@@ -224,17 +178,16 @@ export function Sidebar({
   function handleNavClick(item) {
     if (item.requiresStudent && !nameSaved) return null;
     switch (item.id) {
-      case "today":       return goToTeacherDashboard?.();
-      case "classes":     return goToTeacherClasses?.();
-      case "assess":      return goToTeacherAssess?.();
-      case "progress":    return goToTeacherProgress?.();
-      case "resources":   return goToTeacherResources?.();
       case "dashboard":   return goToTeacherDashboard?.();
+      case "children":    return goToTeacherClasses?.();
+      case "checks":      return goToTeacherAssess?.();
+      case "reports":     return goToTeacherProgress?.();
+      case "resources":   return goToTeacherResources?.();
+      case "settings":    return goToTeacherSettings?.();
       case "studentHome": return goToStudentHome?.();
       case "assessment-hub": return goToTeacherAssess?.();
       case "reading":     return goToGuidedReading?.();
       case "learn":       return goToLearn?.();
-      case "reports":     return goToReports?.();
       case "worksheets":  return goToWorksheets?.();
       case "present":     return goToPresent?.();
       default:            return null;

@@ -8,6 +8,8 @@ function read(path) {
 const failures = [];
 const matrix = read("docs/teacher/PARITY_MATRIX.md");
 const app = read("src/App.jsx");
+const appSurface = read("src/components/AppSurface.jsx");
+const runtimeSurfaces = read("src/appState/appRuntimeSurfaces.jsx");
 const admin = read("src/components/AdminDashboardPage.jsx");
 const teacher = read("src/components/TeacherDashboardPage.jsx");
 const routeTest = read("tests/release/teacher-dashboard-contracts.spec.js");
@@ -37,8 +39,13 @@ for (const [name, source] of [["App.jsx", app], ["AdminDashboardPage.jsx", admin
   }
 }
 
-if (!app.includes("<TeacherDashboardPage") || !app.includes("<AdminDashboardPage")) {
-  failures.push("App.jsx must retain explicit teacher and admin component routes.");
+if (
+  !appSurface.includes("<TeacherDashboardPage")
+  || !appSurface.includes("<AdminDashboardPage")
+  || !runtimeSurfaces.includes("TeacherDashboardPage")
+  || !runtimeSurfaces.includes("AdminDashboardPage")
+) {
+  failures.push("The decomposed app surface must retain explicit lazy teacher and admin routes.");
 }
 if (
   !teacher.includes('data-teacher-product="class-dashboard"') &&

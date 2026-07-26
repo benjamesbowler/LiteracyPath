@@ -6,6 +6,10 @@ import {
   loadCompatibleTeacherStudents
 } from "../data/classApiCompatibility.js";
 import { TEACHER_COPY } from "../copy/teacherCopy.js";
+import {
+  normalizeRosterStudentName,
+  updateRosterStudentName
+} from "../data/teacherRosterOperations.js";
 
 export function useAppSessionController(context) {
   const {
@@ -518,9 +522,7 @@ export function useAppSessionController(context) {
         // Profile restoration is state hydration, not visible navigation.
         // Apply it synchronously so a view-transition callback cannot lose a
         // race to the post-auth "open Today" fallback.
-        rawSetAppView(teacherRoute?.appView === APP_VIEWS.FINISHED
-          ? APP_VIEWS.TEACHER_PROGRESS
-          : restoredAppView);
+        rawSetAppView(restoredAppView);
         setCurrentSkillIndex(restoredSkillIndex);
         // Restore the round's repeat-guard memory alongside its answers: the
         // in-round dedupe and coverage scoring index these arrays against
@@ -1506,7 +1508,7 @@ export function useAppSessionController(context) {
     const schoolName = (typeof overrideName === "string" ? overrideName : authSchoolName).trim();
     if (!teacherId || !schoolName) {
       setAuthMessage("Enter your school.");
-      return;
+      return false;
     }
 
     setAuthLoading(true);
@@ -1526,7 +1528,7 @@ export function useAppSessionController(context) {
           : "Could not save that school yet."
       );
       setMessage("Could not save that school yet.");
-      return;
+      return false;
     }
 
     setTeacherAccountRecord(previous => ({ ...(previous || teacherAccountRecord || {}), school_id: saved.school_id }));
@@ -1534,6 +1536,7 @@ export function useAppSessionController(context) {
     setAuthMessage("");
     setMessage(`School saved: ${saved.school_name || schoolName}`);
     await loadClasses();
+    return true;
   }
 
   async function requestPasswordReset() {
@@ -2038,6 +2041,36 @@ export function useAppSessionController(context) {
     setMessage(`Sign-in pictures updated for ${selectedStudentName}.`);
   }
 
+  async function updateStudentName(studentRowId, nextName) {
+    if (!teacherId || !selectedClassId || !studentRowId) return false;
+    const normalizedName = normalizeRosterStudentName(nextName);
+    const { data, error } = await updateRosterStudentName({
+      supabase,
+      studentId: studentRowId,
+      classId: selectedClassId,
+      name: normalizedName
+    });
+    if (error || !data?.length) {
+      console.error("Could not update student display name.", error);
+      const reason = /duplicate|unique/i.test(error?.message || "")
+        ? `A child named "${normalizedName}" already exists in this class.`
+        : error?.message || "We couldn't save that child's information. Nothing has changed.";
+      setMessage(reason);
+      return false;
+    }
+
+    if (studentId === studentRowId) {
+      setTeacherStudentContext({
+        studentId,
+        studentName: normalizedName
+      });
+    }
+    await loadStudents(selectedClassId);
+    await loadClassDashboard(selectedClassId);
+    setMessage(`${normalizedName}'s information saved.`);
+    return true;
+  }
+
   async function resetStudentSymbolPassword(studentRowId, selectedStudentName = "student") {
     if (!teacherId || !studentRowId) return;
     if (!window.confirm(`Reset ${selectedStudentName}'s sign-in pictures? They cannot sign in until a teacher sets new pictures.`)) return;
@@ -2490,6 +2523,6 @@ export function useAppSessionController(context) {
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
-    setStudentReducedChoiceMode, signUpTeacher, updateStudentSymbolPassword, updateTeacherAccountStatus,
+    setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
   };
 }

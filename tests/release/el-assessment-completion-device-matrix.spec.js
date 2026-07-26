@@ -25,7 +25,7 @@ async function logIn(page) {
 
 async function openAmaraAssessmentHub(page) {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Classes", exact: true })
+    .getByRole("button", { name: "Children", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   const rosterAdmin = page.locator(".teacher-roster-admin");
@@ -33,17 +33,16 @@ async function openAmaraAssessmentHub(page) {
     await rosterAdmin.locator(":scope > summary").click();
   }
   const amaraRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Amara" });
-  await amaraRow.getByRole("button", { name: "Open learner", exact: true }).click();
-  await page.getByRole("region", { name: "Learner detail: Amara" })
-    .getByRole("button", { name: "Assess Amara", exact: true })
+  await amaraRow.getByRole("button", { name: "Open child", exact: true }).click();
+  await page.getByRole("region", { name: "Child details: Amara" })
+    .getByRole("button", { name: "Check Amara", exact: true })
     .click();
-  await page.getByRole("region", { name: "Assessment hub tools" })
-    .getByRole("article")
-    .filter({ hasText: "Progress monitoring" })
-    .getByRole("button", { name: "Open", exact: true })
+  await page.getByRole("article")
+    .filter({ hasText: "EL formal check" })
+    .getByRole("button", { name: "Open EL check", exact: true })
     .click();
   await expect(page.getByRole("heading", {
-    name: "Choose a comparable assessment for Amara",
+    name: "Choose a check for Amara",
     exact: true
   })).toBeVisible();
 }
@@ -87,7 +86,7 @@ test("@el-assessment-completion-device-matrix completes an 8-item route with rea
     await startEncoding(page);
 
     const stickyBar = page.locator(".el-benchmark-topbar");
-    const finish = stickyBar.getByRole("button", { name: "Finish assessment", exact: true });
+    const finish = stickyBar.getByRole("button", { name: "Finish check", exact: true });
     await expect(finish).toBeVisible();
     await expect(finish).toBeDisabled();
     await expectFullyInViewport(stickyBar);
@@ -122,7 +121,7 @@ test("@el-assessment-completion-device-matrix completes an 8-item route with rea
     });
 
     await acceptPlacement.click();
-    const readyFinish = stickyBar.getByRole("button", { name: "Finish assessment", exact: true });
+    const readyFinish = stickyBar.getByRole("button", { name: "Finish check", exact: true });
     await expect(readyFinish).toBeEnabled();
     await expectFullyInViewport(readyFinish);
     await readyFinish.click();
@@ -130,7 +129,7 @@ test("@el-assessment-completion-device-matrix completes an 8-item route with rea
     await expect(finishReview).toContainText("8 scored · 0 skipped");
     await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
     await expect(page.getByRole("heading", {
-      name: "Choose a comparable assessment for Amara",
+      name: "Choose a check for Amara",
       exact: true
     })).toBeVisible({ timeout: 20_000 });
     await expect(page.getByRole("article").filter({

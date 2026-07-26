@@ -2906,9 +2906,9 @@ export function AssessmentPage({
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             data-assessment-question-id={currentQuestion.id}
-            initial={{ scale: 0.96, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.96, opacity: 0 }}
+            initial={{ scale: 0.96 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.96 }}
           >
             <div className="question-line assessment-prompt">
               {(promptAudioPath || rawPromptAudioPath) && (

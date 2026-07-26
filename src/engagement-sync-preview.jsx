@@ -16,7 +16,6 @@ import {
   flushQueuedEngagementEvents,
   logStudentActivity
 } from "./utils/progressSync.js";
-import { supabase } from "./supabaseClient.js";
 
 const STUDENT_ID = "engagement-chaos-student";
 const NOW = new Date("2026-07-24T12:00:00.000Z");
@@ -54,19 +53,21 @@ export function EngagementSyncPreview() {
         Object.keys(window.localStorage)
           .filter(key => key.startsWith("lp-engagement-"))
           .forEach(key => window.localStorage.removeItem(key));
-        const originalRpc = supabase.rpc;
         let eventRpcCalls = 0;
-        supabase.rpc = async name => {
-          if (name === "student_log_activity_v2") {
-            eventRpcCalls += 1;
-            await new Promise(resolve => window.setTimeout(resolve, 50));
+        const previewClient = {
+          async call(name) {
+            if (name === "student_log_activity_v2") {
+              eventRpcCalls += 1;
+              await new Promise(resolve => window.setTimeout(resolve, 50));
+            }
+            return { data: { ok: true }, error: null };
           }
-          return { data: { ok: true }, error: null };
         };
         configureProgressSync({
           mode: "student",
           studentId,
-          token: "preview-student-token"
+          token: "preview-student-token",
+          client: previewClient
         });
         logStudentActivity("mission", "parallel-1", "task_done");
         try {
@@ -80,7 +81,6 @@ export function EngagementSyncPreview() {
           };
         } finally {
           clearProgressSyncSession();
-          supabase.rpc = originalRpc;
         }
       },
       async enqueueAndFlush() {

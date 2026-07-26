@@ -8,12 +8,12 @@ test.describe("student and teacher entry gateway", () => {
 
     await page.goto("/");
 
-    const studentCard = page.getByRole("button", { name: "Students: Little Literacy Guides" });
+    const studentCard = page.getByRole("button", { name: "Children: Little Literacy Guides" });
     const teacherCard = page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" });
     await expect(page.getByRole("heading", { name: "Choose your space" })).toBeVisible();
     await expect(studentCard).toBeVisible();
     await expect(teacherCard).toBeVisible();
-    await expect(studentCard.getByText("Students", { exact: true })).toBeVisible();
+    await expect(studentCard.getByText("Children", { exact: true })).toBeVisible();
     await expect(teacherCard.getByText("Teachers", { exact: true })).toBeVisible();
 
     const brandImages = page.locator(".entry-brand-logo");
@@ -46,7 +46,7 @@ test.describe("student and teacher entry gateway", () => {
     await page.reload();
     const reloadedTeacherCard = page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" });
     await reloadedTeacherCard.click();
-    await expect(page.getByRole("heading", { name: "Teacher login" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Teacher sign-in" })).toBeVisible();
     await page.getByRole("button", { name: "Back to selection" }).click();
     await expect(page.getByRole("heading", { name: "Choose your space" })).toBeVisible();
 

@@ -28,14 +28,14 @@ assert.match(
   /when p_oldest_pending_at is null then null[\s\S]*least\(p_oldest_pending_at, now\(\)\)/i
 );
 assert.doesNotMatch(migration, /p_observed_at/);
-assert.match(client, /rpc\("student_log_activity_v2"/);
-assert.match(client, /rpc\("student_report_activity_sync_health"/);
+assert.match(client, /call\("student_log_activity_v2"/);
+assert.match(client, /call\("student_report_activity_sync_health"/);
 assert.match(
   client,
   /export function logStudentActivity[\s\S]*enqueueEngagementEvent[\s\S]*scheduleEngagementFlush/
 );
 assert.match(client, /engagementInFlightFlushes/);
-assert.doesNotMatch(client, /rpc\("student_log_activity"/);
+assert.doesNotMatch(client, /call\("student_log_activity"/);
 
 console.log(
   "Engagement sync backend: idempotent event RPC, cumulative health RPC, "

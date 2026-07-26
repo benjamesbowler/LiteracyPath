@@ -21,7 +21,8 @@ export const CLASS_RPCS = new Set([
   "teacher_create_demo_class",
   "teacher_regenerate_class_code",
   "teacher_set_class_code_expiry",
-  "teacher_set_class_leaderboard_scope"
+  "teacher_set_class_leaderboard_scope",
+  "teacher_set_student_archived"
 ]);
 
 export function validateClassRow(row, label) {

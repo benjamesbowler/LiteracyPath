@@ -58,7 +58,10 @@ for (const levelCase of LEVEL_CASES) {
     const measure = getGuidedReadingMeasure(levelCase.level);
     const reader = page.getByLabel(`${levelCase.title} full-screen reader`);
     const layout = reader.locator(".guided-page-layout");
-    const pageText = reader.locator(".guided-page-text");
+    const pageTextFor = pageNumber => reader.locator(
+      `.guided-page-layout[data-page-number="${pageNumber}"] .guided-page-text`
+    );
+    let pageText = pageTextFor(1);
     const imageCard = reader.locator(".guided-page-image-card");
     const readingCard = reader.locator(".guided-page-reading");
     const viewControls = reader.getByRole("group", { name: "Reader view controls" });
@@ -73,6 +76,8 @@ for (const levelCase of LEVEL_CASES) {
     expect(pageCount).toBeGreaterThan(0);
     for (let pageIndex = 0; pageIndex < pageCount; pageIndex += 1) {
       await expect(progress).toContainText(`Page ${pageIndex + 1} of ${pageCount}`);
+      pageText = pageTextFor(pageIndex + 1);
+      await expect(pageText).toBeVisible();
       await expect(pageText).toHaveClass(/is-ready/);
       const lineCounts = await renderedCharacterCountsByLine(pageText);
       expect(lineCounts.length, `Level ${levelCase.level} page ${pageIndex + 1} renders text`).toBeGreaterThan(0);
@@ -109,6 +114,7 @@ for (const levelCase of LEVEL_CASES) {
 
     await page.reload();
     await page.evaluate(() => document.fonts.ready);
+    pageText = pageTextFor(1);
     await expect(progress).toContainText(`Page 1 of ${pageCount}`);
     await expect(pageText).toHaveClass(/is-ready/);
     await expect(lineFocus).toHaveAttribute("aria-pressed", "false");

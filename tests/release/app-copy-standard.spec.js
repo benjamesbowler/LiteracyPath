@@ -17,7 +17,7 @@ async function renderedCopy(page) {
   });
 }
 
-for (const surface of ["today", "classes", "assess", "progress", "resources", "report", "assessment", "guided-reading"]) {
+for (const surface of ["today", "classes", "assess", "progress", "resources", "settings", "report", "assessment", "guided-reading"]) {
   test(`teacher ${surface} uses plain product language`, async ({ page }) => {
     await page.goto(`/preview/teacher-a11y.html?surface=${surface}`);
     await expect(page.locator("body")).not.toBeEmpty();

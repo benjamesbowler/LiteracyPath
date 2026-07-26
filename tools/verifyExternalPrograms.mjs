@@ -25,7 +25,7 @@ const packageJson = JSON.parse(source("package.json"));
 const releaseGate = source("tools/releaseGate.mjs");
 
 assert.equal(validateA11yInventory(), true);
-assert.equal(A11Y_PRIMARY_ROUTES.length, 17);
+assert.equal(A11Y_PRIMARY_ROUTES.length, 18);
 assert.equal(A11Y_KEY_MODAL_STATES.length, 7);
 assert.deepEqual(
   A11Y_VIEWPORTS.map(row => `${row.id}:${row.width}x${row.height}`),

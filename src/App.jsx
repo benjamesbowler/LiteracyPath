@@ -97,6 +97,7 @@ export default function App() {
     if (
       typeof document !== "undefined"
       && typeof document.startViewTransition === "function"
+      && sessionMode === "student"
       && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
       && !learnerAccessibility.reducedEffects
     ) {
@@ -122,7 +123,7 @@ export default function App() {
       return;
     }
     rawSetAppView(next);
-  }, [learnerAccessibility.reducedEffects]);
+  }, [learnerAccessibility.reducedEffects, sessionMode]);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [nameSaved, setNameSaved] = useState(false);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -665,7 +666,7 @@ export default function App() {
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
-    setStudentReducedChoiceMode, signUpTeacher, updateStudentSymbolPassword, updateTeacherAccountStatus,
+    setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
   } = useAppSessionController({
     accountAccessCheckInFlightRef, accountAccessCheckSeqRef, accountAccessCheckUserIdRef, adminStatusError,
     adminStudents, answerHistory, answerHistoryRef, answerInFlightRef,
@@ -2308,7 +2309,7 @@ export default function App() {
       studentId, studentList, studentName, studentPreview, studentPreviewStatus, studentReportView,
       studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
       teacherId, teacherSchoolName, teacherUser, toggleAssessmentFullscreen,
-      totalAnswered, updateElBenchmarkSession, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot
+      totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot
         }}
       />
     </Suspense>

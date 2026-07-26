@@ -8,6 +8,7 @@ import { EL_BENCHMARK_IDS } from "./data/elBenchmarkAssessments.js";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
 import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
+import { TeacherSettingsPage } from "./components/teacher/TeacherSettingsPage.jsx";
 import { FinishedReportPage } from "./components/FinishedReportPage.jsx";
 import { ELBenchmarkAssessmentPage } from "./components/assessment/ELBenchmarkAssessmentPage.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
@@ -23,7 +24,10 @@ import { computeHydratedValue } from "./utils/progressMerge.js";
 const params = new URLSearchParams(window.location.search);
 const surface = params.get("surface") || "today";
 const showLearnerDrawer = params.get("learner") === "1";
-const classId = "class-a";
+const previewClient = {
+  call: async () => ({ data: [], error: null })
+};
+const classId = "00000000-0000-4000-8000-0000000000a1";
 const studentId = "student-aarav";
 const classList = [{
   id: classId,
@@ -133,6 +137,7 @@ function viewForSurface(value) {
     assess: APP_VIEWS.TEACHER_ASSESS,
     progress: APP_VIEWS.TEACHER_PROGRESS,
     resources: APP_VIEWS.TEACHER_RESOURCES,
+    settings: APP_VIEWS.TEACHER_SETTINGS,
     report: APP_VIEWS.FINISHED,
     assessment: APP_VIEWS.EL_BENCHMARK,
     "guided-reading": APP_VIEWS.GUIDED_READING,
@@ -152,7 +157,7 @@ function Dashboard({ pageIntent }) {
     let writtenRow = null;
     const result = await saveStudentAccessibilitySettings({
       supabase: {
-        from() {
+        table() {
           return {
             async upsert(row) {
               writtenRow = row;
@@ -224,6 +229,7 @@ function Dashboard({ pageIntent }) {
       schoolName="LiteracyPath Audit School"
       hasSchool={true}
       saveSchool={asyncNoop}
+      activitySyncHealthSeedRows={[]}
     />
   );
 }
@@ -332,6 +338,26 @@ function Report() {
   );
 }
 
+function Settings() {
+  const [selectedClassId, setSelectedClassId] = useState(classId);
+  return (
+    <TeacherSettingsPage
+      client={previewClient}
+      classList={classList}
+      selectedClassId={selectedClassId}
+      onSelectClass={setSelectedClassId}
+      studentList={students}
+      archivedStudentList={[]}
+      schoolName="LiteracyPath Audit School"
+      onSaveSchool={async () => true}
+      onRegenerateClassCode={async () => ({ ok: true, accessCode: "READ43" })}
+      onReloadStudents={asyncNoop}
+      teacherEmail="audit-teacher-a@literacypath.invalid"
+      onSignOut={noop}
+    />
+  );
+}
+
 function Assessment() {
   const [session, setSession] = useState({
     assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
@@ -381,6 +407,8 @@ function Surface() {
       return <Intent intent="progress" />;
     case "resources":
       return <Intent intent="resources" />;
+    case "settings":
+      return <Settings />;
     case "report":
       return <Report />;
     case "assessment":
@@ -424,6 +452,7 @@ export function TeacherA11yPreview() {
           goToTeacherAssess={noop}
           goToTeacherProgress={noop}
           goToTeacherResources={noop}
+          goToTeacherSettings={noop}
           logOutTeacher={noop}
         />
       )}

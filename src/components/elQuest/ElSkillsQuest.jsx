@@ -889,6 +889,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                           aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                           data-child-primary={isRecommended ? "" : undefined}
                           data-child-emphasis={isRecommended ? "primary" : "choice"}
+                          data-tip-position={y < 18 ? "right" : "above"}
                         >
                           <span className="sbq-stop-marker" aria-hidden="true">
                             {cycleProgress?.stars ? "★" : cycle.cycleNumber}

@@ -7,7 +7,8 @@ function source(path) {
 
 const migration = source("supabase/migrations/20260725090000_class_access_security.sql");
 const loginFlow = source("src/components/StudentLoginFlow.jsx");
-const dashboard = source("src/components/TeacherDashboardPage.jsx");
+const compatibility = source("src/data/classApiCompatibility.js");
+const settings = source("src/components/teacher/TeacherSettingsPage.jsx");
 const seed = source("supabase/seed/audit_school.sql");
 
 assert.match(migration, /array\['device', 'network', 'code'\]/i);
@@ -29,16 +30,18 @@ assert.match(
   migration,
   /revoke execute on function public\.student_login\(uuid, text\)[\s\S]*from public, anon, authenticated/i
 );
-assert.match(loginFlow, /p_device_id: deviceIdRef\.current/g);
-assert.match(loginFlow, /p_code: normalizedCodeInput/);
+assert.match(loginFlow, /deviceId: deviceIdRef\.current/g);
+assert.match(loginFlow, /code: normalizedCodeInput/);
+assert.match(compatibility, /p_device_id: deviceId/g);
+assert.match(compatibility, /p_code: code/g);
 assert.match(loginFlow, /lp-class-access-device-v1/);
 assert.doesNotMatch(
   migration,
   /create table[\s\S]{0,240}\b(raw_ip|ip_address|class_code|password|student_name)\b/i
 );
-assert.match(dashboard, /Unusual access activity/);
-assert.match(dashboard, /No child names, passwords, class codes, device IDs, or network addresses are stored here/);
-assert.match(dashboard, /Class code expiry/);
+assert.match(settings, /Unusual sign-in activity/);
+assert.match(settings, /No child names, passwords, class codes, device IDs, or network addresses are stored here/);
+assert.match(settings, /Code expiry/);
 assert.match(seed, /insert into public\.class_access_events/i);
 assert.match(seed, /'rate_limited'/i);
 assert.match(

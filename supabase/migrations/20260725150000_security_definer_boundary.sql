@@ -69,6 +69,8 @@ grant execute on function public.set_app_config(text, jsonb)
   to authenticated;
 grant execute on function public.teacher_set_class_leaderboard_scope(uuid, text)
   to authenticated;
+grant execute on function public.teacher_set_student_archived(uuid, uuid, boolean)
+  to authenticated;
 grant execute on function public.teacher_save_instructional_group(
   uuid, text, jsonb, uuid[], jsonb
 ) to authenticated;
