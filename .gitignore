@@ -55,8 +55,11 @@ LP Assets/
 /_DELETE_ME_*/
 .vercel
 
-# Guided-reading image factory: resumable local database and generated review candidates
-.artifacts/guided-reading-image-factory/
+# Local scratch and dev artefacts. Nothing under .artifacts/ is tracked; it holds the
+# guided-reading image factory (~174MB), story-quest backups and proof sheets, and
+# whatever else a tool drops. Ignoring the whole directory so `git add -A` cannot
+# sweep it into a commit. (2026-07-26)
+.artifacts/
 
 # WIP voice-recording sources/cuts (final mp3s live in public/audio)
 docs/audio-recording/incoming/
