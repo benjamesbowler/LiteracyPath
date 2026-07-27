@@ -37,6 +37,431 @@
 
 begin;
 
+-- ---------------------------------------------------------------------------
+-- Two functions changed their RETURN TYPE between migrations, and
+-- `create or replace function` cannot do that — it fails with
+-- "cannot change return type of existing function". Dropping them first is what
+-- makes this file safe to run a SECOND time; found by applying it twice to a
+-- real PostgreSQL, not by reading it.
+--
+-- Both are admin-only reporting helpers. Dropping them destroys no data; the
+-- migrations below recreate them immediately.
+-- ---------------------------------------------------------------------------
+drop function if exists public.admin_recent_error_events(integer) cascade;
+drop function if exists public.admin_error_monitor_summary() cascade;
+
+-- ===========================================================================
+-- SCHEMA RECONCILIATION — runs first, adds only what is missing.
+--
+-- Why this block exists
+-- ---------------------
+-- Most migrations here start with `create table if not exists`. On a database
+-- where the table ALREADY EXISTS but is missing a column added later, that
+-- statement does nothing at all — it does not add the column. The next
+-- statement that references the column then fails, e.g.
+--
+--   ERROR: 42703: column "archived_at" does not exist
+--   LINE: ... on public.students (class_id, name) where archived_at is null;
+--
+-- observed on the hosted project 2026-07-27. An empty database never shows this,
+-- because there the create-table succeeds with every column present.
+--
+-- So: before anything else, bring every existing table up to the full column
+-- set. Tables that do not exist yet are skipped — the migrations below create
+-- them complete. Columns that already exist are left exactly as they are, with
+-- their data.
+--
+-- Generated from the schema produced by applying all migrations to a real
+-- PostgreSQL (PGlite), so it cannot drift from what the migrations expect.
+-- ===========================================================================
+
+do $reconcile$
+begin
+
+  if to_regclass('public.activity_sync_health') is not null then
+    alter table public.activity_sync_health add column if not exists student_id uuid;
+    alter table public.activity_sync_health add column if not exists class_id uuid;
+    alter table public.activity_sync_health add column if not exists teacher_id uuid;
+    alter table public.activity_sync_health add column if not exists device_id text;
+    alter table public.activity_sync_health add column if not exists attempted bigint default 0;
+    alter table public.activity_sync_health add column if not exists delivered bigint default 0;
+    alter table public.activity_sync_health add column if not exists recovered bigint default 0;
+    alter table public.activity_sync_health add column if not exists storage_failures bigint default 0;
+    alter table public.activity_sync_health add column if not exists pending bigint default 0;
+    alter table public.activity_sync_health add column if not exists lost bigint default 0;
+    alter table public.activity_sync_health add column if not exists oldest_pending_at timestamp with time zone;
+    alter table public.activity_sync_health add column if not exists observed_at timestamp with time zone default now();
+    alter table public.activity_sync_health add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.answers') is not null then
+    alter table public.answers add column if not exists id uuid default gen_random_uuid();
+    alter table public.answers add column if not exists student_id uuid;
+    alter table public.answers add column if not exists teacher_id uuid;
+    alter table public.answers add column if not exists skill text default ''::text;
+    alter table public.answers add column if not exists stage text default ''::text;
+    alter table public.answers add column if not exists diagnostic_target text;
+    alter table public.answers add column if not exists question text default ''::text;
+    alter table public.answers add column if not exists passage text default ''::text;
+    alter table public.answers add column if not exists chosen_answer text default ''::text;
+    alter table public.answers add column if not exists correct_answer text default ''::text;
+    alter table public.answers add column if not exists is_correct boolean default false;
+    alter table public.answers add column if not exists answered_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.app_admins') is not null then
+    alter table public.app_admins add column if not exists id uuid default gen_random_uuid();
+    alter table public.app_admins add column if not exists user_id uuid;
+    alter table public.app_admins add column if not exists email text;
+    alter table public.app_admins add column if not exists created_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.app_config') is not null then
+    alter table public.app_config add column if not exists key text;
+    alter table public.app_config add column if not exists value jsonb;
+    alter table public.app_config add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.app_error_events') is not null then
+    alter table public.app_error_events add column if not exists id uuid default gen_random_uuid();
+    alter table public.app_error_events add column if not exists client_event_id uuid;
+    alter table public.app_error_events add column if not exists release_id text;
+    alter table public.app_error_events add column if not exists fingerprint text;
+    alter table public.app_error_events add column if not exists severity text;
+    alter table public.app_error_events add column if not exists surface text;
+    alter table public.app_error_events add column if not exists error_type text;
+    alter table public.app_error_events add column if not exists source text;
+    alter table public.app_error_events add column if not exists stack_frames text[] default '{}'::text[];
+    alter table public.app_error_events add column if not exists sample_rate numeric(5,4);
+    alter table public.app_error_events add column if not exists alert_required boolean default false;
+    alter table public.app_error_events add column if not exists occurred_at timestamp with time zone default now();
+    alter table public.app_error_events add column if not exists expires_at timestamp with time zone default (now() + '30 days'::interval);
+  end if;
+
+  if to_regclass('public.assessment_attempts') is not null then
+    alter table public.assessment_attempts add column if not exists attempt_id text;
+    alter table public.assessment_attempts add column if not exists student_id text;
+    alter table public.assessment_attempts add column if not exists class_id text;
+    alter table public.assessment_attempts add column if not exists teacher_id uuid default auth.uid();
+    alter table public.assessment_attempts add column if not exists assessment_type text default 'skill_checkpoint'::text;
+    alter table public.assessment_attempts add column if not exists skill_id text default ''::text;
+    alter table public.assessment_attempts add column if not exists skill_name text default 'Assessment'::text;
+    alter table public.assessment_attempts add column if not exists skill_level integer default 1;
+    alter table public.assessment_attempts add column if not exists skill_phase integer default 1;
+    alter table public.assessment_attempts add column if not exists started_at timestamp with time zone;
+    alter table public.assessment_attempts add column if not exists completed_at timestamp with time zone default now();
+    alter table public.assessment_attempts add column if not exists total_questions integer default 0;
+    alter table public.assessment_attempts add column if not exists correct_count integer default 0;
+    alter table public.assessment_attempts add column if not exists accuracy numeric(5,2) default 0;
+    alter table public.assessment_attempts add column if not exists status text default 'needs_retry'::text;
+    alter table public.assessment_attempts add column if not exists administration_status text default 'completed'::text;
+    alter table public.assessment_attempts add column if not exists schema_version integer default 1;
+    alter table public.assessment_attempts add column if not exists payload jsonb default '{}'::jsonb;
+    alter table public.assessment_attempts add column if not exists created_at timestamp with time zone default now();
+    alter table public.assessment_attempts add column if not exists updated_at timestamp with time zone default now();
+    alter table public.assessment_attempts add column if not exists evidence_schema_version integer default 1;
+    alter table public.assessment_attempts add column if not exists assessment_version text default 'legacy_unspecified'::text;
+    alter table public.assessment_attempts add column if not exists content_version text default 'legacy_unspecified'::text;
+    alter table public.assessment_attempts add column if not exists policy_version text default 'legacy_unspecified'::text;
+    alter table public.assessment_attempts add column if not exists raw_evidence jsonb default '{}'::jsonb;
+  end if;
+
+  if to_regclass('public.class_access_events') is not null then
+    alter table public.class_access_events add column if not exists id uuid default gen_random_uuid();
+    alter table public.class_access_events add column if not exists class_id uuid;
+    alter table public.class_access_events add column if not exists teacher_id uuid;
+    alter table public.class_access_events add column if not exists event_type text;
+    alter table public.class_access_events add column if not exists outcome text;
+    alter table public.class_access_events add column if not exists device_fingerprint text;
+    alter table public.class_access_events add column if not exists network_fingerprint text;
+    alter table public.class_access_events add column if not exists occurred_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.class_access_rate_limits') is not null then
+    alter table public.class_access_rate_limits add column if not exists bucket_key text;
+    alter table public.class_access_rate_limits add column if not exists dimension text;
+    alter table public.class_access_rate_limits add column if not exists attempt_count integer default 0;
+    alter table public.class_access_rate_limits add column if not exists window_started_at timestamp with time zone default now();
+    alter table public.class_access_rate_limits add column if not exists locked_until timestamp with time zone;
+    alter table public.class_access_rate_limits add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.classes') is not null then
+    alter table public.classes add column if not exists id uuid default gen_random_uuid();
+    alter table public.classes add column if not exists teacher_id uuid;
+    alter table public.classes add column if not exists name text;
+    alter table public.classes add column if not exists created_at timestamp with time zone default now();
+    alter table public.classes add column if not exists updated_at timestamp with time zone default now();
+    alter table public.classes add column if not exists school_id uuid;
+    alter table public.classes add column if not exists access_code text;
+    alter table public.classes add column if not exists leaderboard_scope text default 'class'::text;
+    alter table public.classes add column if not exists access_code_created_at timestamp with time zone default now();
+    alter table public.classes add column if not exists access_code_expires_at timestamp with time zone;
+  end if;
+
+  if to_regclass('public.data_rights_audit_events') is not null then
+    alter table public.data_rights_audit_events add column if not exists id bigint;
+    alter table public.data_rights_audit_events add column if not exists request_id uuid;
+    alter table public.data_rights_audit_events add column if not exists teacher_id uuid;
+    alter table public.data_rights_audit_events add column if not exists actor_id uuid;
+    alter table public.data_rights_audit_events add column if not exists event_type text;
+    alter table public.data_rights_audit_events add column if not exists event_at timestamp with time zone default now();
+    alter table public.data_rights_audit_events add column if not exists details jsonb default '{}'::jsonb;
+  end if;
+
+  if to_regclass('public.data_rights_requests') is not null then
+    alter table public.data_rights_requests add column if not exists id uuid default gen_random_uuid();
+    alter table public.data_rights_requests add column if not exists subject_ref text;
+    alter table public.data_rights_requests add column if not exists teacher_id uuid;
+    alter table public.data_rights_requests add column if not exists class_id uuid;
+    alter table public.data_rights_requests add column if not exists school_id uuid;
+    alter table public.data_rights_requests add column if not exists request_type text;
+    alter table public.data_rights_requests add column if not exists requester_role text;
+    alter table public.data_rights_requests add column if not exists verification_method text;
+    alter table public.data_rights_requests add column if not exists verification_status text default 'verified'::text;
+    alter table public.data_rights_requests add column if not exists status text default 'received'::text;
+    alter table public.data_rights_requests add column if not exists due_at timestamp with time zone;
+    alter table public.data_rights_requests add column if not exists completed_at timestamp with time zone;
+    alter table public.data_rights_requests add column if not exists outcome_counts jsonb default '{}'::jsonb;
+    alter table public.data_rights_requests add column if not exists created_at timestamp with time zone default now();
+    alter table public.data_rights_requests add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.deletion_propagation_records') is not null then
+    alter table public.deletion_propagation_records add column if not exists request_id uuid;
+    alter table public.deletion_propagation_records add column if not exists subject_ref text;
+    alter table public.deletion_propagation_records add column if not exists school_id uuid;
+    alter table public.deletion_propagation_records add column if not exists active_systems_deleted_at timestamp with time zone;
+    alter table public.deletion_propagation_records add column if not exists provider_expires_at timestamp with time zone;
+    alter table public.deletion_propagation_records add column if not exists backup_expires_at timestamp with time zone;
+    alter table public.deletion_propagation_records add column if not exists status text default 'awaiting_expiry'::text;
+    alter table public.deletion_propagation_records add column if not exists evidence_reference text;
+    alter table public.deletion_propagation_records add column if not exists verified_at timestamp with time zone;
+    alter table public.deletion_propagation_records add column if not exists verified_by uuid;
+    alter table public.deletion_propagation_records add column if not exists created_at timestamp with time zone default now();
+    alter table public.deletion_propagation_records add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.el_assessment_reports') is not null then
+    alter table public.el_assessment_reports add column if not exists report_id text;
+    alter table public.el_assessment_reports add column if not exists report_type text;
+    alter table public.el_assessment_reports add column if not exists class_id text;
+    alter table public.el_assessment_reports add column if not exists student_id text;
+    alter table public.el_assessment_reports add column if not exists teacher_id uuid default auth.uid();
+    alter table public.el_assessment_reports add column if not exists generated_at timestamp with time zone default now();
+    alter table public.el_assessment_reports add column if not exists file_name text default ''::text;
+    alter table public.el_assessment_reports add column if not exists summary jsonb default '{}'::jsonb;
+    alter table public.el_assessment_reports add column if not exists payload jsonb default '{}'::jsonb;
+    alter table public.el_assessment_reports add column if not exists schema_version integer default 1;
+    alter table public.el_assessment_reports add column if not exists created_at timestamp with time zone default now();
+    alter table public.el_assessment_reports add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.item_mastery') is not null then
+    alter table public.item_mastery add column if not exists id uuid default gen_random_uuid();
+    alter table public.item_mastery add column if not exists student_id uuid;
+    alter table public.item_mastery add column if not exists teacher_id uuid;
+    alter table public.item_mastery add column if not exists item_key text;
+    alter table public.item_mastery add column if not exists item_type text;
+    alter table public.item_mastery add column if not exists attempts integer default 0;
+    alter table public.item_mastery add column if not exists correct integer default 0;
+    alter table public.item_mastery add column if not exists last_seen timestamp with time zone;
+    alter table public.item_mastery add column if not exists last_result boolean default false;
+    alter table public.item_mastery add column if not exists sessions_seen integer default 0;
+    alter table public.item_mastery add column if not exists mastered boolean default false;
+    alter table public.item_mastery add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.learn_activity') is not null then
+    alter table public.learn_activity add column if not exists id uuid default gen_random_uuid();
+    alter table public.learn_activity add column if not exists student_id uuid;
+    alter table public.learn_activity add column if not exists class_id uuid;
+    alter table public.learn_activity add column if not exists teacher_id uuid;
+    alter table public.learn_activity add column if not exists area text;
+    alter table public.learn_activity add column if not exists item_id text;
+    alter table public.learn_activity add column if not exists event text;
+    alter table public.learn_activity add column if not exists payload jsonb;
+    alter table public.learn_activity add column if not exists created_at timestamp with time zone default now();
+    alter table public.learn_activity add column if not exists client_event_id text;
+    alter table public.learn_activity add column if not exists occurred_at timestamp with time zone;
+    alter table public.learn_activity add column if not exists delivery_attempts integer default 1;
+  end if;
+
+  if to_regclass('public.mastery') is not null then
+    alter table public.mastery add column if not exists id uuid default gen_random_uuid();
+    alter table public.mastery add column if not exists student_id uuid;
+    alter table public.mastery add column if not exists teacher_id uuid;
+    alter table public.mastery add column if not exists skill_id text;
+    alter table public.mastery add column if not exists skill_label text default ''::text;
+    alter table public.mastery add column if not exists mastered boolean default false;
+    alter table public.mastery add column if not exists attempts integer default 0;
+    alter table public.mastery add column if not exists last_score integer default 0;
+    alter table public.mastery add column if not exists last_total integer default 0;
+    alter table public.mastery add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.pending_teacher_accounts') is not null then
+    alter table public.pending_teacher_accounts add column if not exists id uuid default gen_random_uuid();
+    alter table public.pending_teacher_accounts add column if not exists user_id uuid;
+    alter table public.pending_teacher_accounts add column if not exists email text;
+    alter table public.pending_teacher_accounts add column if not exists username text;
+    alter table public.pending_teacher_accounts add column if not exists display_name text;
+    alter table public.pending_teacher_accounts add column if not exists name text;
+    alter table public.pending_teacher_accounts add column if not exists role text default 'pending'::text;
+    alter table public.pending_teacher_accounts add column if not exists status text default 'pending'::text;
+    alter table public.pending_teacher_accounts add column if not exists approval_status text default 'pending'::text;
+    alter table public.pending_teacher_accounts add column if not exists requested_at timestamp with time zone default now();
+    alter table public.pending_teacher_accounts add column if not exists approved_at timestamp with time zone;
+    alter table public.pending_teacher_accounts add column if not exists approved_by uuid;
+    alter table public.pending_teacher_accounts add column if not exists rejected_at timestamp with time zone;
+    alter table public.pending_teacher_accounts add column if not exists rejected_by uuid;
+    alter table public.pending_teacher_accounts add column if not exists rejection_reason text;
+    alter table public.pending_teacher_accounts add column if not exists reviewed_at timestamp with time zone;
+    alter table public.pending_teacher_accounts add column if not exists reviewed_by uuid;
+    alter table public.pending_teacher_accounts add column if not exists created_at timestamp with time zone default now();
+    alter table public.pending_teacher_accounts add column if not exists updated_at timestamp with time zone default now();
+    alter table public.pending_teacher_accounts add column if not exists school_id uuid;
+  end if;
+
+  if to_regclass('public.retention_job_runs') is not null then
+    alter table public.retention_job_runs add column if not exists id uuid default gen_random_uuid();
+    alter table public.retention_job_runs add column if not exists school_id uuid;
+    alter table public.retention_job_runs add column if not exists actor_id uuid;
+    alter table public.retention_job_runs add column if not exists policy_snapshot jsonb;
+    alter table public.retention_job_runs add column if not exists preview_snapshot jsonb;
+    alter table public.retention_job_runs add column if not exists archived_learners integer default 0;
+    alter table public.retention_job_runs add column if not exists deleted_learners integer default 0;
+    alter table public.retention_job_runs add column if not exists propagation_records_due integer default 0;
+    alter table public.retention_job_runs add column if not exists completed_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.school_retention_policies') is not null then
+    alter table public.school_retention_policies add column if not exists school_id uuid;
+    alter table public.school_retention_policies add column if not exists inactive_after_days integer default 365;
+    alter table public.school_retention_policies add column if not exists archived_delete_after_days integer default 90;
+    alter table public.school_retention_policies add column if not exists end_of_year_action text default 'archive'::text;
+    alter table public.school_retention_policies add column if not exists academic_year_end_month integer default 7;
+    alter table public.school_retention_policies add column if not exists provider_expiry_days integer default 30;
+    alter table public.school_retention_policies add column if not exists backup_expiry_days integer default 35;
+    alter table public.school_retention_policies add column if not exists last_end_of_year_applied integer;
+    alter table public.school_retention_policies add column if not exists policy_version integer default 1;
+    alter table public.school_retention_policies add column if not exists updated_by uuid;
+    alter table public.school_retention_policies add column if not exists created_at timestamp with time zone default now();
+    alter table public.school_retention_policies add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.schools') is not null then
+    alter table public.schools add column if not exists id uuid default gen_random_uuid();
+    alter table public.schools add column if not exists name text;
+    alter table public.schools add column if not exists name_normalized text default lower(btrim(name));
+    alter table public.schools add column if not exists created_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.student_progress') is not null then
+    alter table public.student_progress add column if not exists id uuid default gen_random_uuid();
+    alter table public.student_progress add column if not exists student_id uuid;
+    alter table public.student_progress add column if not exists area text;
+    alter table public.student_progress add column if not exists key text;
+    alter table public.student_progress add column if not exists payload jsonb;
+    alter table public.student_progress add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.student_sessions') is not null then
+    alter table public.student_sessions add column if not exists id uuid default gen_random_uuid();
+    alter table public.student_sessions add column if not exists student_id uuid;
+    alter table public.student_sessions add column if not exists token text;
+    alter table public.student_sessions add column if not exists created_at timestamp with time zone default now();
+    alter table public.student_sessions add column if not exists expires_at timestamp with time zone default (now() + '12:00:00'::interval);
+    alter table public.student_sessions add column if not exists revoked boolean default false;
+  end if;
+
+  if to_regclass('public.students') is not null then
+    alter table public.students add column if not exists id uuid default gen_random_uuid();
+    alter table public.students add column if not exists class_id uuid;
+    alter table public.students add column if not exists teacher_id uuid;
+    alter table public.students add column if not exists name text;
+    alter table public.students add column if not exists archived_at timestamp with time zone;
+    alter table public.students add column if not exists created_at timestamp with time zone default now();
+    alter table public.students add column if not exists updated_at timestamp with time zone default now();
+    alter table public.students add column if not exists symbol_password text;
+    alter table public.students add column if not exists password_set_at timestamp with time zone;
+    alter table public.students add column if not exists password_updated_by uuid;
+    alter table public.students add column if not exists failed_login_count integer default 0;
+    alter table public.students add column if not exists last_failed_login_at timestamp with time zone;
+  end if;
+
+  if to_regclass('public.teacher_insight_observations') is not null then
+    alter table public.teacher_insight_observations add column if not exists id uuid default gen_random_uuid();
+    alter table public.teacher_insight_observations add column if not exists teacher_id uuid;
+    alter table public.teacher_insight_observations add column if not exists class_id uuid;
+    alter table public.teacher_insight_observations add column if not exists intervention_id uuid;
+    alter table public.teacher_insight_observations add column if not exists insight_snapshot jsonb;
+    alter table public.teacher_insight_observations add column if not exists student_ids uuid[];
+    alter table public.teacher_insight_observations add column if not exists note text;
+    alter table public.teacher_insight_observations add column if not exists observed_at timestamp with time zone default now();
+    alter table public.teacher_insight_observations add column if not exists created_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.teacher_instructional_group_reviews') is not null then
+    alter table public.teacher_instructional_group_reviews add column if not exists id uuid default gen_random_uuid();
+    alter table public.teacher_instructional_group_reviews add column if not exists group_id uuid;
+    alter table public.teacher_instructional_group_reviews add column if not exists teacher_id uuid;
+    alter table public.teacher_instructional_group_reviews add column if not exists class_id uuid;
+    alter table public.teacher_instructional_group_reviews add column if not exists student_ids uuid[];
+    alter table public.teacher_instructional_group_reviews add column if not exists evidence_snapshot jsonb;
+    alter table public.teacher_instructional_group_reviews add column if not exists reviewed_at timestamp with time zone default now();
+    alter table public.teacher_instructional_group_reviews add column if not exists created_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.teacher_instructional_groups') is not null then
+    alter table public.teacher_instructional_groups add column if not exists id uuid default gen_random_uuid();
+    alter table public.teacher_instructional_groups add column if not exists teacher_id uuid;
+    alter table public.teacher_instructional_groups add column if not exists class_id uuid;
+    alter table public.teacher_instructional_groups add column if not exists name text;
+    alter table public.teacher_instructional_groups add column if not exists criteria jsonb;
+    alter table public.teacher_instructional_groups add column if not exists status text default 'active'::text;
+    alter table public.teacher_instructional_groups add column if not exists created_at timestamp with time zone default now();
+    alter table public.teacher_instructional_groups add column if not exists updated_at timestamp with time zone default now();
+  end if;
+
+  if to_regclass('public.teacher_interventions') is not null then
+    alter table public.teacher_interventions add column if not exists id uuid default gen_random_uuid();
+    alter table public.teacher_interventions add column if not exists teacher_id uuid;
+    alter table public.teacher_interventions add column if not exists class_id uuid;
+    alter table public.teacher_interventions add column if not exists parent_intervention_id uuid;
+    alter table public.teacher_interventions add column if not exists owner_label text;
+    alter table public.teacher_interventions add column if not exists group_label text;
+    alter table public.teacher_interventions add column if not exists student_ids uuid[] default '{}'::uuid[];
+    alter table public.teacher_interventions add column if not exists focus text;
+    alter table public.teacher_interventions add column if not exists activity text;
+    alter table public.teacher_interventions add column if not exists planned_for date;
+    alter table public.teacher_interventions add column if not exists status text default 'planned'::text;
+    alter table public.teacher_interventions add column if not exists delivered_at timestamp with time zone;
+    alter table public.teacher_interventions add column if not exists outcome text;
+    alter table public.teacher_interventions add column if not exists outcome_note text;
+    alter table public.teacher_interventions add column if not exists recorded_at timestamp with time zone;
+    alter table public.teacher_interventions add column if not exists reviewed_at timestamp with time zone;
+    alter table public.teacher_interventions add column if not exists next_review_on date;
+    alter table public.teacher_interventions add column if not exists follow_up_required boolean default false;
+    alter table public.teacher_interventions add column if not exists created_at timestamp with time zone default now();
+    alter table public.teacher_interventions add column if not exists updated_at timestamp with time zone default now();
+    alter table public.teacher_interventions add column if not exists instructional_group_id uuid;
+  end if;
+
+  if to_regclass('public.worksheet_bank') is not null then
+    alter table public.worksheet_bank add column if not exists id uuid default gen_random_uuid();
+    alter table public.worksheet_bank add column if not exists teacher_id uuid default auth.uid();
+    alter table public.worksheet_bank add column if not exists cycle_id text;
+    alter table public.worksheet_bank add column if not exists type text;
+    alter table public.worksheet_bank add column if not exists pages integer default 1;
+    alter table public.worksheet_bank add column if not exists title text default ''::text;
+    alter table public.worksheet_bank add column if not exists created_at timestamp with time zone default now();
+  end if;
+
+end
+$reconcile$;
+
+
 -- ==== 20260527000000_core_learning_schema.sql ===========================
 
 -- Reconstructable core learning schema.
