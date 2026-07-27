@@ -1,32 +1,4847 @@
 -- ===========================================================================
--- LiteracyPath — apply the pending database updates
--- Assembled 2026-07-27 from supabase/migrations/. Safe to run more than once.
+-- LiteracyPath — apply ALL database updates, in order
+-- Assembled 2026-07-27 from supabase/migrations/ (42 files). Safe to re-run.
 -- ===========================================================================
 --
 -- WHY YOU ARE RUNNING THIS
 -- Deleting a child from the class list failed with "Could not find the function
--- public.teacher_prepare_learner_deletion(...) in the schema cache". That
--- message means the database has never been given the update that CREATED that
--- function. The app code was always correct; the database was behind.
+-- public.teacher_prepare_learner_deletion(...) in the schema cache". That means
+-- the database never received the update that CREATED that function. The app
+-- code was always correct; the database was behind.
+--
+-- WHY THE WHOLE SET, NOT JUST THE RECENT ONES
+-- Two earlier attempts used a hand-picked subset and failed with
+-- "column s.updated_at does not exist" and "column la.occurred_at does not
+-- exist" — each time because the subset omitted the migration that ADDS that
+-- column. This file is every migration in the order the project defines, so a
+-- column can never be read before it is created.
 --
 -- HOW TO RUN IT
---   1. Open your Supabase project, then SQL Editor, then New query.
+--   1. Supabase -> SQL Editor -> New query.
 --   2. Paste this whole file in.
---   3. Press Run. It takes a few seconds.
---   4. Scroll to the bottom of this file and run the CHECK query separately.
+--   3. Run. It takes a few seconds.
+--   4. Then uncomment and run the two CHECK queries at the very bottom.
 --
--- IS IT SAFE TO RUN TWICE?
--- Yes. Every statement is written to be repeatable: tables are created only if
+-- IS IT SAFE ON A DATABASE THAT ALREADY HAS SOME OF THIS?
+-- Yes, and that is the normal case. Tables and columns are created only if
 -- absent, policies and triggers are dropped before being recreated, and
--- functions are replaced rather than added. Running it on a database that is
--- already up to date changes nothing.
+-- functions are replaced rather than added. Every INSERT except one lives
+-- inside a function body and only runs when that function is called; the one
+-- top-level INSERT carries ON CONFLICT. Verified by scanning all 42 files.
 --
--- WHAT IT DOES NOT DO
--- It does not delete or modify any child's data. It only adds and updates the
--- functions, tables and rules the app calls.
+-- It does not delete or modify any child's data.
+--
+-- Everything runs in ONE transaction: if any statement fails, nothing at all is
+-- applied and you can paste a corrected version with no cleanup.
 -- ===========================================================================
 
 begin;
+
+-- ==== 20260527000000_core_learning_schema.sql ===========================
+
+-- Reconstructable core learning schema.
+--
+-- Every later managed migration assumes these tables already exist. Keeping
+-- their creation in the first migration makes a fresh local/CI database
+-- reproducible instead of depending on undocumented dashboard-created tables.
+
+create extension if not exists pgcrypto;
+
+create table if not exists public.classes (
+  id uuid primary key default gen_random_uuid(),
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  name text not null check (btrim(name) <> ''),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique (id, teacher_id)
+);
+
+create table if not exists public.students (
+  id uuid primary key default gen_random_uuid(),
+  class_id uuid not null,
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  name text not null check (btrim(name) <> ''),
+  archived_at timestamptz,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique (id, teacher_id),
+  constraint students_class_teacher_fk
+    foreign key (class_id, teacher_id)
+    references public.classes(id, teacher_id)
+    on delete cascade
+);
+
+create table if not exists public.answers (
+  id uuid primary key default gen_random_uuid(),
+  student_id uuid not null,
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  skill text not null default '',
+  stage text not null default '',
+  diagnostic_target text,
+  question text not null default '',
+  passage text not null default '',
+  chosen_answer text not null default '',
+  correct_answer text not null default '',
+  is_correct boolean not null default false,
+  answered_at timestamptz not null default now(),
+  constraint answers_student_teacher_fk
+    foreign key (student_id, teacher_id)
+    references public.students(id, teacher_id)
+    on delete cascade
+);
+
+create table if not exists public.mastery (
+  id uuid primary key default gen_random_uuid(),
+  student_id uuid not null,
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  skill_id text not null,
+  skill_label text not null default '',
+  mastered boolean not null default false,
+  attempts integer not null default 0 check (attempts >= 0),
+  last_score integer not null default 0 check (last_score >= 0),
+  last_total integer not null default 0 check (last_total >= 0),
+  updated_at timestamptz not null default now(),
+  constraint mastery_student_teacher_fk
+    foreign key (student_id, teacher_id)
+    references public.students(id, teacher_id)
+    on delete cascade
+);
+
+create table if not exists public.item_mastery (
+  id uuid primary key default gen_random_uuid(),
+  student_id uuid not null,
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  item_key text not null,
+  item_type text not null,
+  attempts integer not null default 0 check (attempts >= 0),
+  correct integer not null default 0 check (correct >= 0 and correct <= attempts),
+  last_seen timestamptz,
+  last_result boolean not null default false,
+  sessions_seen integer not null default 0 check (sessions_seen >= 0),
+  mastered boolean not null default false,
+  updated_at timestamptz not null default now(),
+  constraint item_mastery_student_teacher_fk
+    foreign key (student_id, teacher_id)
+    references public.students(id, teacher_id)
+    on delete cascade,
+  unique (teacher_id, student_id, item_key, item_type)
+);
+
+create index if not exists classes_teacher_name_idx
+  on public.classes (teacher_id, lower(name));
+create index if not exists students_teacher_class_name_idx
+  on public.students (teacher_id, class_id, lower(name));
+create index if not exists students_active_class_idx
+  on public.students (class_id, name)
+  where archived_at is null;
+create index if not exists answers_teacher_student_answered_idx
+  on public.answers (teacher_id, student_id, answered_at);
+create index if not exists mastery_teacher_student_updated_idx
+  on public.mastery (teacher_id, student_id, updated_at);
+create index if not exists item_mastery_teacher_student_updated_idx
+  on public.item_mastery (teacher_id, student_id, updated_at);
+
+alter table public.classes enable row level security;
+alter table public.students enable row level security;
+alter table public.answers enable row level security;
+alter table public.mastery enable row level security;
+alter table public.item_mastery enable row level security;
+
+revoke all on public.classes, public.students, public.answers, public.mastery, public.item_mastery from anon;
+grant select, insert, update, delete on public.classes, public.students, public.answers, public.mastery, public.item_mastery to authenticated;
+
+drop policy if exists "Teachers manage owned classes" on public.classes;
+create policy "Teachers manage owned classes"
+  on public.classes for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (teacher_id = auth.uid());
+
+drop policy if exists "Teachers manage owned students" on public.students;
+create policy "Teachers manage owned students"
+  on public.students for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (
+    teacher_id = auth.uid()
+    and exists (
+      select 1
+      from public.classes c
+      where c.id = students.class_id
+        and c.teacher_id = auth.uid()
+    )
+  );
+
+drop policy if exists "Teachers manage owned answers" on public.answers;
+create policy "Teachers manage owned answers"
+  on public.answers for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (teacher_id = auth.uid());
+
+drop policy if exists "Teachers manage owned mastery" on public.mastery;
+create policy "Teachers manage owned mastery"
+  on public.mastery for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (teacher_id = auth.uid());
+
+drop policy if exists "Teachers manage owned item mastery" on public.item_mastery;
+create policy "Teachers manage owned item mastery"
+  on public.item_mastery for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (teacher_id = auth.uid());
+
+create or replace function public.set_core_learning_updated_at()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+drop trigger if exists classes_set_updated_at on public.classes;
+create trigger classes_set_updated_at
+  before update on public.classes
+  for each row execute function public.set_core_learning_updated_at();
+drop trigger if exists students_set_updated_at on public.students;
+create trigger students_set_updated_at
+  before update on public.students
+  for each row execute function public.set_core_learning_updated_at();
+drop trigger if exists mastery_set_updated_at on public.mastery;
+create trigger mastery_set_updated_at
+  before update on public.mastery
+  for each row execute function public.set_core_learning_updated_at();
+drop trigger if exists item_mastery_set_updated_at on public.item_mastery;
+create trigger item_mastery_set_updated_at
+  before update on public.item_mastery
+  for each row execute function public.set_core_learning_updated_at();
+
+-- ==== 20260528000000_create_app_admins.sql ==============================
+
+create extension if not exists pgcrypto;
+
+create table if not exists public.app_admins (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  email text,
+  created_at timestamptz not null default now()
+);
+
+create unique index if not exists app_admins_user_id_key
+  on public.app_admins (user_id);
+
+alter table public.app_admins enable row level security;
+
+create or replace function public.is_app_admin(check_user_id uuid default auth.uid())
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+    from public.app_admins
+    where user_id = check_user_id
+  );
+$$;
+
+grant execute on function public.is_app_admin(uuid) to authenticated;
+grant select on public.app_admins to authenticated;
+revoke all on public.app_admins from anon;
+
+drop policy if exists "Users can read their own admin row" on public.app_admins;
+create policy "Users can read their own admin row"
+  on public.app_admins
+  for select
+  to authenticated
+  using (user_id = auth.uid());
+
+drop policy if exists "App admins can read all admin rows" on public.app_admins;
+create policy "App admins can read all admin rows"
+  on public.app_admins
+  for select
+  to authenticated
+  using (public.is_app_admin(auth.uid()));
+
+-- ==== 20260529000000_signup_approval_profiles.sql =======================
+
+create extension if not exists pgcrypto;
+
+create table if not exists public.pending_teacher_accounts (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  email text not null,
+  username text,
+  display_name text,
+  name text,
+  role text not null default 'pending',
+  status text not null default 'pending',
+  approval_status text not null default 'pending',
+  requested_at timestamptz not null default now(),
+  approved_at timestamptz,
+  approved_by uuid references auth.users(id) on delete set null,
+  rejected_at timestamptz,
+  rejected_by uuid references auth.users(id) on delete set null,
+  rejection_reason text,
+  reviewed_at timestamptz,
+  reviewed_by uuid references auth.users(id) on delete set null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.pending_teacher_accounts
+  add column if not exists username text,
+  add column if not exists display_name text,
+  add column if not exists role text not null default 'pending',
+  add column if not exists approval_status text not null default 'pending',
+  add column if not exists requested_at timestamptz not null default now(),
+  add column if not exists approved_at timestamptz,
+  add column if not exists approved_by uuid references auth.users(id) on delete set null,
+  add column if not exists rejected_at timestamptz,
+  add column if not exists rejected_by uuid references auth.users(id) on delete set null,
+  add column if not exists rejection_reason text,
+  add column if not exists updated_at timestamptz not null default now();
+
+update public.pending_teacher_accounts
+set
+  approval_status = coalesce(nullif(approval_status, ''), nullif(status, ''), 'pending'),
+  role = case
+    when coalesce(nullif(role, ''), '') <> '' then role
+    when coalesce(status, approval_status) = 'approved' then 'teacher'
+    else 'pending'
+  end,
+  requested_at = coalesce(requested_at, created_at, now()),
+  display_name = coalesce(display_name, name, username)
+where true;
+
+create unique index if not exists pending_teacher_accounts_user_id_key
+  on public.pending_teacher_accounts (user_id);
+
+create unique index if not exists pending_teacher_accounts_username_key
+  on public.pending_teacher_accounts (lower(username))
+  where username is not null and username <> '';
+
+alter table public.pending_teacher_accounts enable row level security;
+
+grant select, insert, update on public.pending_teacher_accounts to authenticated;
+revoke all on public.pending_teacher_accounts from anon;
+
+drop policy if exists "Users can read their own signup approval" on public.pending_teacher_accounts;
+create policy "Users can read their own signup approval"
+  on public.pending_teacher_accounts
+  for select
+  to authenticated
+  using (user_id = auth.uid());
+
+drop policy if exists "Users can create their own pending signup request" on public.pending_teacher_accounts;
+create policy "Users can create their own pending signup request"
+  on public.pending_teacher_accounts
+  for insert
+  to authenticated
+  with check (
+    user_id = auth.uid()
+    and coalesce(approval_status, status) = 'pending'
+    and role = 'pending'
+  );
+
+drop policy if exists "Users can update their own pending signup profile" on public.pending_teacher_accounts;
+create policy "Users can update their own pending signup profile"
+  on public.pending_teacher_accounts
+  for update
+  to authenticated
+  using (user_id = auth.uid() and coalesce(approval_status, status) = 'pending')
+  with check (
+    user_id = auth.uid()
+    and coalesce(approval_status, status) = 'pending'
+    and role = 'pending'
+  );
+
+drop policy if exists "App admins can read all signup approvals" on public.pending_teacher_accounts;
+create policy "App admins can read all signup approvals"
+  on public.pending_teacher_accounts
+  for select
+  to authenticated
+  using (public.is_app_admin(auth.uid()));
+
+drop policy if exists "App admins can update signup approvals" on public.pending_teacher_accounts;
+create policy "App admins can update signup approvals"
+  on public.pending_teacher_accounts
+  for update
+  to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+create or replace function public.create_pending_teacher_account_for_new_user()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  requested_username text;
+  requested_display_name text;
+begin
+  requested_username := lower(nullif(regexp_replace(coalesce(new.raw_user_meta_data ->> 'username', ''), '[^a-zA-Z0-9_-]', '', 'g'), ''));
+  requested_display_name := nullif(new.raw_user_meta_data ->> 'display_name', '');
+
+  if requested_username is not null and exists (
+    select 1
+    from public.pending_teacher_accounts
+    where lower(username) = requested_username
+  ) then
+    requested_username := null;
+  end if;
+
+  insert into public.pending_teacher_accounts (
+    user_id,
+    email,
+    username,
+    display_name,
+    name,
+    role,
+    status,
+    approval_status,
+    requested_at,
+    created_at
+  )
+  values (
+    new.id,
+    new.email,
+    requested_username,
+    requested_display_name,
+    coalesce(requested_display_name, requested_username, split_part(new.email, '@', 1)),
+    'pending',
+    'pending',
+    'pending',
+    now(),
+    now()
+  )
+  on conflict (user_id) do nothing;
+
+  return new;
+end;
+$$;
+
+drop trigger if exists create_pending_teacher_account_after_signup on auth.users;
+create trigger create_pending_teacher_account_after_signup
+  after insert on auth.users
+  for each row execute function public.create_pending_teacher_account_for_new_user();
+
+-- ==== 20260610000000_student_login_symbol_passwords.sql =================
+
+-- Student self-login with symbol passwords + cloud progress sync.
+-- Safe to re-run (idempotent). Matches conventions from 20260528/20260529 migrations.
+-- NOTE: symbol passwords are a child gate (729 combos), teacher-visible by design.
+-- Real protection = RLS + the security-definer RPCs below (anon has NO direct table access).
+
+create extension if not exists pgcrypto;
+
+-- ─── 1. Schools ──────────────────────────────────────────────────────────────
+
+create table if not exists public.schools (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  name_normalized text generated always as (lower(btrim(name))) stored,
+  created_at timestamptz not null default now()
+);
+
+create unique index if not exists schools_name_normalized_key
+  on public.schools (name_normalized);
+
+alter table public.schools enable row level security;
+revoke all on public.schools from anon;
+grant select, insert on public.schools to authenticated;
+
+drop policy if exists "Authenticated users can read schools" on public.schools;
+create policy "Authenticated users can read schools"
+  on public.schools for select to authenticated using (true);
+
+drop policy if exists "Authenticated users can create schools" on public.schools;
+create policy "Authenticated users can create schools"
+  on public.schools for insert to authenticated with check (true);
+
+drop policy if exists "App admins can update schools" on public.schools;
+create policy "App admins can update schools"
+  on public.schools for update to authenticated
+  using (public.is_app_admin(auth.uid()));
+
+create or replace function public.find_or_create_school(p_name text)
+returns table (id uuid, name text)
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_clean text := btrim(coalesce(p_name, ''));
+  v_id uuid;
+  v_name text;
+begin
+  if v_clean = '' then
+    raise exception 'school_required';
+  end if;
+
+  insert into public.schools (name)
+  values (v_clean)
+  on conflict (name_normalized) do update set name = public.schools.name
+  returning public.schools.id, public.schools.name into v_id, v_name;
+
+  return query select v_id, v_name;
+end;
+$$;
+
+-- ─── 2. Column additions ─────────────────────────────────────────────────────
+
+alter table public.pending_teacher_accounts
+  add column if not exists school_id uuid references public.schools(id);
+
+alter table public.classes
+  add column if not exists school_id uuid references public.schools(id);
+
+alter table public.students
+  add column if not exists symbol_password text
+    check (symbol_password is null or symbol_password ~ '^[1-9]{3}$'),
+  add column if not exists password_set_at timestamptz,
+  add column if not exists password_updated_by uuid references auth.users(id),
+  add column if not exists failed_login_count int not null default 0,
+  add column if not exists last_failed_login_at timestamptz;
+
+-- Admins may update any student row (teachers already covered by existing policies).
+drop policy if exists "App admins can update any student" on public.students;
+create policy "App admins can update any student"
+  on public.students for update to authenticated
+  using (public.is_app_admin(auth.uid()));
+
+drop policy if exists "App admins can read all students" on public.students;
+create policy "App admins can read all students"
+  on public.students for select to authenticated
+  using (public.is_app_admin(auth.uid()));
+
+-- ─── 3. Student sessions (server-side only; clients never touch this table) ──
+
+create table if not exists public.student_sessions (
+  id uuid primary key default gen_random_uuid(),
+  student_id uuid not null references public.students(id) on delete cascade,
+  token text not null unique,
+  created_at timestamptz not null default now(),
+  expires_at timestamptz not null default now() + interval '12 hours',
+  revoked boolean not null default false
+);
+
+create index if not exists student_sessions_student_id_idx
+  on public.student_sessions (student_id);
+
+alter table public.student_sessions enable row level security;
+revoke all on public.student_sessions from anon, authenticated;
+-- no policies on purpose: only security-definer functions touch it
+
+-- ─── 4. Cloud progress + activity stream ─────────────────────────────────────
+
+create table if not exists public.student_progress (
+  id uuid primary key default gen_random_uuid(),
+  student_id uuid not null references public.students(id) on delete cascade,
+  area text not null,
+  key text not null,
+  payload jsonb not null,
+  updated_at timestamptz not null default now(),
+  unique (student_id, area, key)
+);
+
+create index if not exists student_progress_student_idx
+  on public.student_progress (student_id);
+
+create table if not exists public.learn_activity (
+  id uuid primary key default gen_random_uuid(),
+  student_id uuid not null references public.students(id) on delete cascade,
+  class_id uuid,
+  teacher_id uuid,
+  area text not null,
+  item_id text,
+  event text not null,
+  payload jsonb,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists learn_activity_student_idx
+  on public.learn_activity (student_id, created_at desc);
+
+alter table public.student_progress enable row level security;
+alter table public.learn_activity enable row level security;
+revoke all on public.student_progress from anon;
+revoke all on public.learn_activity from anon;
+grant select, insert, update on public.student_progress to authenticated;
+grant select, insert on public.learn_activity to authenticated;
+
+drop policy if exists "Teachers manage their students progress" on public.student_progress;
+create policy "Teachers manage their students progress"
+  on public.student_progress for all to authenticated
+  using (exists (
+    select 1 from public.students s
+    where s.id = student_progress.student_id
+      and (s.teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
+  ))
+  with check (exists (
+    select 1 from public.students s
+    where s.id = student_progress.student_id
+      and (s.teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
+  ));
+
+drop policy if exists "Teachers read their students activity" on public.learn_activity;
+create policy "Teachers read their students activity"
+  on public.learn_activity for select to authenticated
+  using (exists (
+    select 1 from public.students s
+    where s.id = learn_activity.student_id
+      and (s.teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
+  ));
+
+drop policy if exists "Teachers insert their students activity" on public.learn_activity;
+create policy "Teachers insert their students activity"
+  on public.learn_activity for insert to authenticated
+  with check (exists (
+    select 1 from public.students s
+    where s.id = learn_activity.student_id
+      and (s.teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
+  ));
+
+-- ─── 5. Helper: resolve a valid session token to a student ──────────────────
+
+create or replace function public.student_from_token(p_token text)
+returns public.students
+language sql stable security definer set search_path = public
+as $$
+  select s.* from public.student_sessions ss
+  join public.students s on s.id = ss.student_id
+  where ss.token = p_token
+    and ss.revoked = false
+    and ss.expires_at > now()
+  limit 1;
+$$;
+
+revoke all on function public.student_from_token(text) from public, anon, authenticated;
+
+-- ─── 6. Anonymous student-flow RPCs ──────────────────────────────────────────
+
+create or replace function public.student_list_schools()
+returns table (id uuid, name text)
+language sql stable security definer set search_path = public
+as $$
+  select distinct sc.id, sc.name
+  from public.schools sc
+  join public.classes c on c.school_id = sc.id
+  order by sc.name;
+$$;
+
+create or replace function public.student_list_classes(p_school_id uuid)
+returns table (id uuid, name text)
+language sql stable security definer set search_path = public
+as $$
+  select c.id, c.name
+  from public.classes c
+  where c.school_id = p_school_id
+  order by c.name;
+$$;
+
+create or replace function public.student_list_students(p_class_id uuid)
+returns table (id uuid, name text, has_password boolean)
+language sql stable security definer set search_path = public
+as $$
+  select s.id, s.name, (s.symbol_password is not null) as has_password
+  from public.students s
+  where s.class_id = p_class_id
+  order by s.name;
+$$;
+
+create or replace function public.student_set_password(p_student_id uuid, p_sequence text)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+  v_token text;
+begin
+  if p_sequence !~ '^[1-9]{3}$' then
+    return json_build_object('ok', false, 'error', 'invalid_sequence');
+  end if;
+
+  select * into v_student from public.students where id = p_student_id;
+  if v_student.id is null then
+    return json_build_object('ok', false, 'error', 'not_found');
+  end if;
+  if v_student.symbol_password is not null then
+    return json_build_object('ok', false, 'error', 'already_set');
+  end if;
+
+  update public.students
+  set symbol_password = p_sequence,
+      password_set_at = now(),
+      failed_login_count = 0
+  where id = p_student_id;
+
+  v_token := encode(gen_random_bytes(32), 'hex');
+  insert into public.student_sessions (student_id, token) values (p_student_id, v_token);
+
+  return json_build_object(
+    'ok', true, 'token', v_token,
+    'student_id', v_student.id, 'student_name', v_student.name,
+    'class_id', v_student.class_id, 'teacher_id', v_student.teacher_id,
+    'school_id', (select c.school_id from public.classes c where c.id = v_student.class_id)
+  );
+end;
+$$;
+
+create or replace function public.student_login(p_student_id uuid, p_sequence text)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+  v_token text;
+begin
+  select * into v_student from public.students where id = p_student_id;
+  if v_student.id is null then
+    return json_build_object('ok', false, 'error', 'not_found');
+  end if;
+  if v_student.symbol_password is null then
+    return json_build_object('ok', false, 'error', 'no_password');
+  end if;
+
+  -- lockout: 5+ consecutive failures within the last 60 seconds
+  if v_student.failed_login_count >= 5
+     and v_student.last_failed_login_at > now() - interval '60 seconds' then
+    return json_build_object('ok', false, 'error', 'locked',
+      'retry_seconds', ceil(extract(epoch from (v_student.last_failed_login_at + interval '60 seconds') - now())));
+  end if;
+
+  if p_sequence !~ '^[1-9]{3}$' or v_student.symbol_password <> p_sequence then
+    update public.students
+    set failed_login_count = case
+          when last_failed_login_at is null or last_failed_login_at < now() - interval '60 seconds' then 1
+          else failed_login_count + 1
+        end,
+        last_failed_login_at = now()
+    where id = p_student_id;
+    return json_build_object('ok', false, 'error', 'wrong_password');
+  end if;
+
+  update public.students
+  set failed_login_count = 0, last_failed_login_at = null
+  where id = p_student_id;
+
+  v_token := encode(gen_random_bytes(32), 'hex');
+  insert into public.student_sessions (student_id, token) values (p_student_id, v_token);
+
+  return json_build_object(
+    'ok', true, 'token', v_token,
+    'student_id', v_student.id, 'student_name', v_student.name,
+    'class_id', v_student.class_id, 'teacher_id', v_student.teacher_id,
+    'school_id', (select c.school_id from public.classes c where c.id = v_student.class_id)
+  );
+end;
+$$;
+
+create or replace function public.student_get_progress(p_token text)
+returns table (area text, key text, payload jsonb, updated_at timestamptz)
+language plpgsql stable security definer set search_path = public
+as $$
+declare
+  v_student public.students;
+begin
+  v_student := public.student_from_token(p_token);
+  if v_student.id is null then
+    raise exception 'invalid_session';
+  end if;
+  return query
+    select sp.area, sp.key, sp.payload, sp.updated_at
+    from public.student_progress sp
+    where sp.student_id = v_student.id;
+end;
+$$;
+
+create or replace function public.student_save_progress(
+  p_token text, p_area text, p_key text, p_payload jsonb
+)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+begin
+  v_student := public.student_from_token(p_token);
+  if v_student.id is null then
+    return json_build_object('ok', false, 'error', 'invalid_session');
+  end if;
+  if p_area is null or p_key is null or p_payload is null then
+    return json_build_object('ok', false, 'error', 'invalid_payload');
+  end if;
+
+  insert into public.student_progress (student_id, area, key, payload, updated_at)
+  values (v_student.id, p_area, p_key, p_payload, now())
+  on conflict (student_id, area, key)
+  do update set payload = excluded.payload, updated_at = now();
+
+  return json_build_object('ok', true);
+end;
+$$;
+
+create or replace function public.student_log_activity(
+  p_token text, p_area text, p_item_id text, p_event text, p_payload jsonb default null
+)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+begin
+  v_student := public.student_from_token(p_token);
+  if v_student.id is null then
+    return json_build_object('ok', false, 'error', 'invalid_session');
+  end if;
+
+  insert into public.learn_activity (student_id, class_id, teacher_id, area, item_id, event, payload)
+  values (v_student.id, v_student.class_id, v_student.teacher_id, p_area, p_item_id, p_event, p_payload);
+
+  return json_build_object('ok', true);
+end;
+$$;
+
+-- ─── 7. Grants: anon may call the student RPCs and nothing else ─────────────
+
+grant execute on function public.student_list_schools() to anon, authenticated;
+grant execute on function public.find_or_create_school(text) to anon, authenticated;
+grant execute on function public.student_list_classes(uuid) to anon, authenticated;
+grant execute on function public.student_list_students(uuid) to anon, authenticated;
+grant execute on function public.student_set_password(uuid, text) to anon, authenticated;
+grant execute on function public.student_login(uuid, text) to anon, authenticated;
+grant execute on function public.student_get_progress(text) to anon, authenticated;
+grant execute on function public.student_save_progress(text, text, text, jsonb) to anon, authenticated;
+grant execute on function public.student_log_activity(text, text, text, text, jsonb) to anon, authenticated;
+
+-- ==== 20260610000001_teacher_set_school_rpc.sql =========================
+
+-- Let any signed-in teacher (or admin) set their school reliably.
+--
+-- Why: the self-update RLS policy on pending_teacher_accounts only allows
+-- updates while approval status is 'pending'. Approved teachers and admins
+-- (who may have no row at all) silently updated zero rows, so "Set your
+-- school" never persisted. This security-definer RPC owns that write path.
+
+create or replace function public.teacher_set_school(p_school_name text)
+returns table (school_id uuid, school_name text)
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_email text;
+  v_id uuid;
+  v_name text;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated';
+  end if;
+
+  select s.id, s.name into v_id, v_name
+  from public.find_or_create_school(p_school_name) as s;
+
+  update public.pending_teacher_accounts
+  set school_id = v_id,
+      updated_at = now()
+  where user_id = v_user;
+
+  if not found then
+    -- Admins and legacy accounts may have no signup row; create one so the
+    -- school sticks. Marked approved because the caller is already inside
+    -- the app (new signups always get a row from the signup trigger).
+    select u.email into v_email from auth.users u where u.id = v_user;
+    insert into public.pending_teacher_accounts
+      (user_id, email, role, status, approval_status, school_id, approved_at)
+    values
+      (v_user, coalesce(v_email, ''), 'teacher', 'approved', 'approved', v_id, now())
+    on conflict (user_id) do update
+      set school_id = excluded.school_id, updated_at = now();
+  end if;
+
+  -- Keep all of this teacher's classes on their current school so students
+  -- can find them through child login.
+  update public.classes
+  set school_id = v_id
+  where teacher_id = v_user;
+
+  return query select v_id, v_name;
+end;
+$$;
+
+revoke all on function public.teacher_set_school(text) from public, anon;
+grant execute on function public.teacher_set_school(text) to authenticated;
+
+-- ==== 20260610090000_teacher_set_school.sql =============================
+
+-- Let any signed-in teacher (or admin) set their school reliably.
+--
+-- Why: the self-update RLS policy on pending_teacher_accounts only allows
+-- updates while approval status is 'pending'. Approved teachers and admins
+-- (who may have no row at all) silently updated zero rows, so "Set your
+-- school" never persisted. This security-definer RPC owns that write path.
+
+create or replace function public.teacher_set_school(p_school_name text)
+returns table (school_id uuid, school_name text)
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_email text;
+  v_id uuid;
+  v_name text;
+begin
+  if v_user is null then
+    raise exception 'not_authenticated';
+  end if;
+
+  select s.id, s.name into v_id, v_name
+  from public.find_or_create_school(p_school_name) as s;
+
+  update public.pending_teacher_accounts
+  set school_id = v_id,
+      updated_at = now()
+  where user_id = v_user;
+
+  if not found then
+    -- Admins and legacy accounts may have no signup row; create one so the
+    -- school sticks. Marked approved because the caller is already inside
+    -- the app (new signups always get a row from the signup trigger).
+    select u.email into v_email from auth.users u where u.id = v_user;
+    insert into public.pending_teacher_accounts
+      (user_id, email, role, status, approval_status, school_id, approved_at)
+    values
+      (v_user, coalesce(v_email, ''), 'teacher', 'approved', 'approved', v_id, now())
+    on conflict (user_id) do update
+      set school_id = excluded.school_id, updated_at = now();
+  end if;
+
+  -- Keep all of this teacher's classes on their current school so students
+  -- can find them through child login.
+  update public.classes
+  set school_id = v_id
+  where teacher_id = v_user;
+
+  return query select v_id, v_name;
+end;
+$$;
+
+revoke all on function public.teacher_set_school(text) from public, anon;
+grant execute on function public.teacher_set_school(text) to authenticated;
+
+-- ==== 20260611090000_list_school_names.sql ==============================
+
+-- Allow the signup page (not yet logged in) to offer existing school names
+-- in a dropdown, so teachers join "Basis" instead of creating "basis",
+-- "Basis." and other duplicates. Names only - no ids or other data exposed.
+
+create or replace function public.list_school_names()
+returns table (name text)
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select s.name
+  from public.schools s
+  order by lower(s.name);
+$$;
+
+revoke all on function public.list_school_names() from public;
+grant execute on function public.list_school_names() to anon, authenticated;
+
+notify pgrst, 'reload schema';
+
+-- ==== 20260611120000_game_leaderboard.sql ===============================
+
+-- High score board for the games arcade: student first name, school, and
+-- total points across all games. Reads the synced learn-games progress.
+-- Exposes only name + school + scores, nothing else.
+
+create or replace function public.get_game_leaderboard(p_limit int default 10)
+returns table (student_name text, school_name text, total_points int, total_stars int)
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select
+    s.name as student_name,
+    coalesce(sc.name, '') as school_name,
+    coalesce((
+      select sum(greatest(coalesce((g.value->>'highScore')::int, 0), 0))
+      from jsonb_each(coalesce(sp.payload->'games', '{}'::jsonb)) as g
+    ), 0)::int as total_points,
+    coalesce((
+      select sum(least(greatest(coalesce((g.value->>'stars')::int, 0), 0), 3))
+      from jsonb_each(coalesce(sp.payload->'games', '{}'::jsonb)) as g
+    ), 0)::int as total_stars
+  from public.student_progress sp
+  join public.students s on s.id = sp.student_id
+  left join public.classes c on c.id = s.class_id
+  left join public.schools sc on sc.id = c.school_id
+  where sp.area = 'learn_games'
+    and sp.key = '__all__'
+  order by total_points desc, total_stars desc
+  limit greatest(1, least(coalesce(p_limit, 10), 50));
+$$;
+
+revoke all on function public.get_game_leaderboard(int) from public;
+grant execute on function public.get_game_leaderboard(int) to anon, authenticated;
+
+notify pgrst, 'reload schema';
+
+-- ==== 20260613090000_leaderboard_school_scope.sql =======================
+
+-- Privacy fix: the leaderboard was GLOBAL, showing children's names and
+-- schools to students at OTHER schools. This scopes it to one school.
+-- Run this whole file in the Supabase SQL Editor.
+
+-- Remove the old global-only version so only the scoped one exists.
+drop function if exists public.get_game_leaderboard(int);
+
+create or replace function public.get_game_leaderboard(
+  p_limit int default 10,
+  p_school_id uuid default null
+)
+returns table (student_name text, school_name text, total_points int, total_stars int)
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select
+    s.name as student_name,
+    coalesce(sc.name, '') as school_name,
+    coalesce((
+      select sum(greatest(coalesce((g.value->>'highScore')::int, 0), 0))
+      from jsonb_each(coalesce(sp.payload->'games', '{}'::jsonb)) as g
+    ), 0)::int as total_points,
+    coalesce((
+      select sum(least(greatest(coalesce((g.value->>'stars')::int, 0), 0), 3))
+      from jsonb_each(coalesce(sp.payload->'games', '{}'::jsonb)) as g
+    ), 0)::int as total_stars
+  from public.student_progress sp
+  join public.students s on s.id = sp.student_id
+  left join public.classes c on c.id = s.class_id
+  left join public.schools sc on sc.id = c.school_id
+  where sp.area = 'learn_games'
+    and sp.key = '__all__'
+    and (p_school_id is null or c.school_id = p_school_id)
+  order by total_points desc, total_stars desc
+  limit greatest(1, least(coalesce(p_limit, 10), 50));
+$$;
+
+revoke all on function public.get_game_leaderboard(int, uuid) from public;
+grant execute on function public.get_game_leaderboard(int, uuid) to anon, authenticated;
+
+notify pgrst, 'reload schema';
+
+-- Status report
+select 'leaderboard is now school-scoped' as status;
+
+-- ==== 20260613100000_leaderboard_require_school.sql =====================
+
+-- P0 PRIVACY FIX: the school-scoped leaderboard still leaked GLOBALLY when
+-- p_school_id was null (the old predicate `p_school_id is null OR ...` returned
+-- every child's name to anyone, including unauthenticated callers).
+-- This version returns NO rows unless a real school id is supplied, so a
+-- missing/teacher-preview school can never expose children at other schools.
+-- Run this whole file in the Supabase SQL Editor.
+
+create or replace function public.get_game_leaderboard(
+  p_limit int default 10,
+  p_school_id uuid default null
+)
+returns table (student_name text, school_name text, total_points int, total_stars int)
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select
+    s.name as student_name,
+    coalesce(sc.name, '') as school_name,
+    coalesce((
+      select sum(greatest(coalesce((g.value->>'highScore')::int, 0), 0))
+      from jsonb_each(coalesce(sp.payload->'games', '{}'::jsonb)) as g
+    ), 0)::int as total_points,
+    coalesce((
+      select sum(least(greatest(coalesce((g.value->>'stars')::int, 0), 0), 3))
+      from jsonb_each(coalesce(sp.payload->'games', '{}'::jsonb)) as g
+    ), 0)::int as total_stars
+  from public.student_progress sp
+  join public.students s on s.id = sp.student_id
+  join public.classes c on c.id = s.class_id
+  left join public.schools sc on sc.id = c.school_id
+  where sp.area = 'learn_games'
+    and sp.key = '__all__'
+    and p_school_id is not null
+    and c.school_id = p_school_id
+  order by total_points desc, total_stars desc
+  limit greatest(1, least(coalesce(p_limit, 10), 50));
+$$;
+
+revoke all on function public.get_game_leaderboard(int, uuid) from public;
+grant execute on function public.get_game_leaderboard(int, uuid) to anon, authenticated;
+
+notify pgrst, 'reload schema';
+
+select 'leaderboard now returns nothing without a school id' as status;
+
+-- ==== 20260613150000_app_config.sql =====================================
+
+-- Lightweight app-wide config store (key -> jsonb). First use: map stop
+-- positions placed by an admin in the in-app Map Stops editor. Public read so
+-- student devices pick up the positions; writes are admin-only.
+-- Run this whole file in the Supabase SQL Editor.
+
+create table if not exists public.app_config (
+  key text primary key,
+  value jsonb not null,
+  updated_at timestamptz not null default now()
+);
+
+alter table public.app_config enable row level security;
+
+-- Anyone (including anon student sessions) may READ config.
+revoke all on public.app_config from anon, authenticated;
+grant select on public.app_config to anon, authenticated;
+
+drop policy if exists "Anyone can read app config" on public.app_config;
+create policy "Anyone can read app config"
+  on public.app_config for select to anon, authenticated using (true);
+
+-- Writes go ONLY through this admin-gated security-definer function.
+create or replace function public.set_app_config(p_key text, p_value jsonb)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if not public.is_app_admin(auth.uid()) then
+    raise exception 'not_authorized';
+  end if;
+  insert into public.app_config (key, value, updated_at)
+  values (p_key, p_value, now())
+  on conflict (key) do update set value = excluded.value, updated_at = now();
+end;
+$$;
+
+revoke all on function public.set_app_config(text, jsonb) from public, anon;
+grant execute on function public.set_app_config(text, jsonb) to authenticated;
+
+notify pgrst, 'reload schema';
+
+select 'app_config ready' as status;
+
+-- ==== 20260614090000_progress_forward_merge.sql =========================
+
+-- Forward-only merge of student progress on the SERVER.
+--
+-- Why: kids in schools use multiple class iPads. With plain last-write-wins, a
+-- stale or offline iPad could overwrite progress earned on another device,
+-- wiping stars / completions / found words. This makes every write a forward
+-- merge: progress can only move forward, the same rule the client already uses
+-- in src/utils/progressMerge.js. Mirrors that logic so the two never disagree.
+
+-- Rank for the phonics / cvc mastery status vocabulary. -1 = not a status word.
+create or replace function public.lp_status_rank(s text)
+returns int language sql immutable as $$
+  select case s
+    when 'completed' then 3
+    when 'inprogress' then 2
+    when 'locked' then 1
+    when 'default' then 0
+    else -1
+  end;
+$$;
+
+-- Recursive forward merge of two jsonb values:
+--   objects  -> merge key-by-key (union of keys)
+--   arrays   -> union (keep every element seen on any device)
+--   numbers  -> greatest (best score / most stars)
+--   booleans -> OR (an earned true is never un-earned)
+--   strings  -> status-rank wins if both are status words, else incoming wins
+--   anything else / type mismatch -> incoming wins
+create or replace function public.lp_jsonb_forward_merge(a jsonb, b jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  result jsonb;
+  k text;
+  elem jsonb;
+  ta text := jsonb_typeof(a);
+  tb text := jsonb_typeof(b);
+  rank_a int;
+  rank_b int;
+begin
+  if a is null or ta = 'null' then return b; end if;
+  if b is null or tb = 'null' then return a; end if;
+
+  if ta = 'object' and tb = 'object' then
+    result := a;
+    for k in select jsonb_object_keys(b) loop
+      result := jsonb_set(result, array[k], public.lp_jsonb_forward_merge(a -> k, b -> k), true);
+    end loop;
+    return result;
+  end if;
+
+  if ta = 'array' and tb = 'array' then
+    result := a;
+    for elem in select * from jsonb_array_elements(b) loop
+      if not (result @> jsonb_build_array(elem)) then
+        result := result || jsonb_build_array(elem);
+      end if;
+    end loop;
+    return result;
+  end if;
+
+  if ta = 'number' and tb = 'number' then
+    return to_jsonb(greatest((a::text)::numeric, (b::text)::numeric));
+  end if;
+
+  if ta = 'boolean' and tb = 'boolean' then
+    return to_jsonb((a::text)::boolean or (b::text)::boolean);
+  end if;
+
+  if ta = 'string' and tb = 'string' then
+    rank_a := public.lp_status_rank(a #>> '{}');
+    rank_b := public.lp_status_rank(b #>> '{}');
+    if rank_a >= 0 and rank_b >= 0 then
+      if rank_a > rank_b then return a; else return b; end if;
+    end if;
+    return b;
+  end if;
+
+  return b;
+end;
+$$;
+
+-- Per-area gate. daily_mission (streaks) and profile (chosen companion) are
+-- "latest state", not cumulative progress, so they stay last-write-wins - a
+-- streak that legitimately reset must NOT be inflated back up by a merge.
+create or replace function public.lp_forward_merge_progress(p_area text, p_existing jsonb, p_incoming jsonb)
+returns jsonb language sql immutable as $$
+  select case
+    when p_area in ('daily_mission', 'profile') then p_incoming
+    else public.lp_jsonb_forward_merge(p_existing, p_incoming)
+  end;
+$$;
+
+-- On any conflict-update of a progress row, merge the incoming payload forward
+-- with what is already stored. Covers BOTH the student_save_progress RPC and the
+-- teacher-mode upsert, since both run INSERT ... ON CONFLICT DO UPDATE.
+create or replace function public.lp_student_progress_merge()
+returns trigger language plpgsql as $$
+begin
+  new.payload := public.lp_forward_merge_progress(new.area, old.payload, new.payload);
+  return new;
+end;
+$$;
+
+drop trigger if exists student_progress_forward_merge on public.student_progress;
+create trigger student_progress_forward_merge
+  before update on public.student_progress
+  for each row execute function public.lp_student_progress_merge();
+
+-- The trigger fires for teacher (authenticated) upserts too, so make sure those
+-- roles can execute the helper functions it calls.
+grant execute on function public.lp_status_rank(text) to anon, authenticated;
+grant execute on function public.lp_jsonb_forward_merge(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_forward_merge_progress(text, jsonb, jsonb) to anon, authenticated;
+
+-- ==== 20260614100000_worksheet_bank.sql =================================
+
+-- Teacher worksheet "bank": saved worksheet recipes (cycle + type + page count).
+-- We store the recipe, not the PDF - worksheets regenerate deterministically.
+-- Scoped to the teacher and synced across their devices.
+
+create table if not exists public.worksheet_bank (
+  id uuid primary key default gen_random_uuid(),
+  teacher_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  cycle_id text not null,
+  type text not null,
+  pages int not null default 1,
+  title text not null default '',
+  created_at timestamptz not null default now()
+);
+
+create index if not exists worksheet_bank_teacher_idx
+  on public.worksheet_bank (teacher_id, created_at desc);
+
+alter table public.worksheet_bank enable row level security;
+revoke all on public.worksheet_bank from anon;
+grant select, insert, delete on public.worksheet_bank to authenticated;
+
+-- A teacher only ever sees and manages their own saved worksheets.
+drop policy if exists "Teachers manage their own worksheets" on public.worksheet_bank;
+create policy "Teachers manage their own worksheets"
+  on public.worksheet_bank for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (teacher_id = auth.uid());
+
+-- ==== 20260715090000_phonics_quest_merge.sql ============================
+
+-- Sound Seekers (phonics_quest) server merge.
+--
+-- Why: 20260614090000_progress_forward_merge.sql routes EVERY area through the
+-- naive recursive forward-merge. For phonics_quest that is destructive — the
+-- client (src/utils/progressMerge.js, `area === "phonics_quest"` branch) says
+-- exactly why and refuses to do it:
+--
+--   mastery.window  is an ORDERED list of the last results. Array-union
+--                   collapses [1,1,0,1] to [1,0] and destroys the accuracy
+--                   calculation the whole mastery gate runs on.
+--   mastery.state   last-write/forward merge silently UNDOES a demotion.
+--   trail.routeCursor  journey position, not an achievement — greatest() pins
+--                   a second review circuit at stop 40 forever.
+--   ledger.purchases   union by whole-object identity duplicates a purchase
+--                   whose timestamp differs between devices; the client unions
+--                   by id.
+--   checkpoint      resume state — merging two checkpoints teleports a child
+--                   mid-stop. Each write keeps the WRITER's own checkpoint.
+--
+-- This migration mirrors the client rules field for field. The fixtures in
+-- tests/unit/progressMerge.test.js ("phonics_quest:" cases) are the shared
+-- contract: if a rule changes there, change it here in the same commit.
+--
+-- Perspective note: on the server, `existing` is the stored row and `incoming`
+-- is the device write. The client's "local" corresponds to `existing` and its
+-- "cloud" to `incoming`; ties therefore prefer `incoming`, matching the
+-- client's "ties prefer cloud".
+
+create or replace function public.lp_quest_num(j jsonb, k text)
+returns numeric language sql immutable as $$
+  select coalesce(nullif(j ->> k, '')::numeric, 0);
+$$;
+
+-- Union two arrays of {id: ...} records (or bare scalars) by id, first
+-- occurrence wins, order: existing then incoming. Mirrors the client unionById.
+create or replace function public.lp_quest_union_by_id(a jsonb, b jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  result jsonb := '[]'::jsonb;
+  seen jsonb := '{}'::jsonb;
+  elem jsonb;
+  id text;
+begin
+  for elem in
+    select * from jsonb_array_elements(coalesce(case when jsonb_typeof(a) = 'array' then a end, '[]'::jsonb))
+    union all
+    select * from jsonb_array_elements(coalesce(case when jsonb_typeof(b) = 'array' then b end, '[]'::jsonb))
+  loop
+    id := case when jsonb_typeof(elem) = 'object' then elem ->> 'id' else elem #>> '{}' end;
+    if id is null or seen ? id then continue; end if;
+    seen := seen || jsonb_build_object(id, true);
+    result := result || jsonb_build_array(elem);
+  end loop;
+  return result;
+end;
+$$;
+
+-- One mastery record. `seen` is the clock: the side that has watched the child
+-- answer more times owns the ordered/volatile fields (window, misses, state,
+-- box, lastAt). Counters take the max; evidence sets union.
+create or replace function public.lp_quest_merge_mastery_record(a jsonb, b jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  newer jsonb;
+begin
+  if a is null or jsonb_typeof(a) <> 'object' then return b; end if;
+  if b is null or jsonb_typeof(b) <> 'object' then return a; end if;
+  -- Strictly-greater keeps a; tie goes to b (the incoming write), mirroring the
+  -- client where the tie goes to the cloud side.
+  newer := case when public.lp_quest_num(a, 'seen') > public.lp_quest_num(b, 'seen') then a else b end;
+  return (b || a || newer) || jsonb_build_object(
+    'seen',     to_jsonb(greatest(public.lp_quest_num(a, 'seen'),    public.lp_quest_num(b, 'seen'))),
+    'correct',  to_jsonb(greatest(public.lp_quest_num(a, 'correct'), public.lp_quest_num(b, 'correct'))),
+    'streak',   to_jsonb(greatest(public.lp_quest_num(a, 'streak'),  public.lp_quest_num(b, 'streak'))),
+    'shells',   public.lp_quest_union_by_id(a -> 'shells',   b -> 'shells'),
+    'sessions', public.lp_quest_union_by_id(a -> 'sessions', b -> 'sessions'),
+    'window',   coalesce(case when jsonb_typeof(newer -> 'window') = 'array' then newer -> 'window' end, '[]'::jsonb),
+    'misses',   to_jsonb(public.lp_quest_num(newer, 'misses')),
+    'state',    coalesce(newer -> 'state', '"not-started"'::jsonb),
+    'box',      to_jsonb(greatest(public.lp_quest_num(newer, 'box'), 1)),
+    'lastAt',   coalesce(newer -> 'lastAt', '""'::jsonb),
+    'lastStop', to_jsonb(greatest(public.lp_quest_num(a, 'lastStop'), public.lp_quest_num(b, 'lastStop')))
+  );
+end;
+$$;
+
+create or replace function public.lp_quest_merge_mastery(a jsonb, b jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  result jsonb;
+  k text;
+begin
+  if a is null or jsonb_typeof(a) <> 'object' then return coalesce(b, '{}'::jsonb); end if;
+  if b is null or jsonb_typeof(b) <> 'object' then return a; end if;
+  result := a;
+  for k in select jsonb_object_keys(b) loop
+    result := jsonb_set(result, array[k], public.lp_quest_merge_mastery_record(a -> k, b -> k), true);
+  end loop;
+  return result;
+end;
+$$;
+
+create or replace function public.lp_merge_phonics_quest(existing jsonb, incoming jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  result jsonb;
+  trail jsonb;
+  cursor_val numeric;
+begin
+  if existing is null or jsonb_typeof(existing) <> 'object' then return incoming; end if;
+  if incoming is null or jsonb_typeof(incoming) <> 'object' then return existing; end if;
+
+  -- Unknown/extra keys: incoming wins (client: {...base, ...cloud}).
+  result := existing || incoming;
+
+  -- trail: achievements merge forward, but routeCursor is journey state — the
+  -- writer's own position is stored, never greatest().
+  trail := public.lp_jsonb_forward_merge(existing -> 'trail', incoming -> 'trail');
+  cursor_val := case
+    when public.lp_quest_num(incoming -> 'trail', 'routeCursor') > 0 then public.lp_quest_num(incoming -> 'trail', 'routeCursor')
+    when public.lp_quest_num(existing -> 'trail', 'routeCursor') > 0 then public.lp_quest_num(existing -> 'trail', 'routeCursor')
+    else 1
+  end;
+  if trail is null or jsonb_typeof(trail) <> 'object' then trail := '{}'::jsonb; end if;
+  trail := trail || jsonb_build_object('routeCursor', to_jsonb(cursor_val));
+
+  result := result || jsonb_build_object(
+    'creature', coalesce(
+      case when jsonb_typeof(incoming -> 'creature') = 'object' then incoming -> 'creature' end,
+      existing -> 'creature', 'null'::jsonb),
+    'hatched', to_jsonb(
+      coalesce((existing ->> 'hatched')::boolean, false) or coalesce((incoming ->> 'hatched')::boolean, false)),
+    'trail', trail,
+    'mastery', public.lp_quest_merge_mastery(existing -> 'mastery', incoming -> 'mastery'),
+    'stones', public.lp_jsonb_forward_merge(
+      coalesce(case when jsonb_typeof(existing -> 'stones') = 'array' then existing -> 'stones' end, '[]'::jsonb),
+      coalesce(case when jsonb_typeof(incoming -> 'stones') = 'array' then incoming -> 'stones' end, '[]'::jsonb)),
+    'trickies', public.lp_jsonb_forward_merge(
+      coalesce(case when jsonb_typeof(existing -> 'trickies') = 'array' then existing -> 'trickies' end, '[]'::jsonb),
+      coalesce(case when jsonb_typeof(incoming -> 'trickies') = 'array' then incoming -> 'trickies' end, '[]'::jsonb)),
+    'ledger', jsonb_build_object(
+      'purchases', public.lp_quest_union_by_id(existing #> '{ledger,purchases}', incoming #> '{ledger,purchases}')),
+    'settings', coalesce(
+      case when jsonb_typeof(incoming -> 'settings') = 'object' then incoming -> 'settings' end,
+      existing -> 'settings', 'null'::jsonb),
+    'telemetry', jsonb_build_object(
+      'sessions', public.lp_quest_union_by_id(existing #> '{telemetry,sessions}', incoming #> '{telemetry,sessions}'),
+      'current', coalesce(incoming #> '{telemetry,current}', 'null'::jsonb)),
+    -- The WRITER's checkpoint, never a merge of two devices' checkpoints.
+    'checkpoint', coalesce(incoming -> 'checkpoint', 'null'::jsonb)
+  );
+  return result;
+end;
+$$;
+
+-- Route phonics_quest away from the naive merge. daily_mission / profile keep
+-- their existing last-write behaviour; everything else is unchanged.
+create or replace function public.lp_forward_merge_progress(p_area text, p_existing jsonb, p_incoming jsonb)
+returns jsonb language sql immutable as $$
+  select case
+    when p_area in ('daily_mission', 'profile') then p_incoming
+    when p_area = 'phonics_quest' then public.lp_merge_phonics_quest(p_existing, p_incoming)
+    else public.lp_jsonb_forward_merge(p_existing, p_incoming)
+  end;
+$$;
+
+grant execute on function public.lp_quest_num(jsonb, text) to anon, authenticated;
+grant execute on function public.lp_quest_union_by_id(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_quest_merge_mastery_record(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_quest_merge_mastery(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_merge_phonics_quest(jsonb, jsonb) to anon, authenticated;
+
+-- ── Verification (run in the Supabase SQL editor after applying) ─────────────
+-- Each select must return TRUE. These mirror tests/unit/progressMerge.test.js.
+--
+-- select public.lp_merge_phonics_quest(
+--   '{"mastery":{"s":{"seen":6,"window":[1,1,0,1],"state":"learning","box":2}}}',
+--   '{"mastery":{"s":{"seen":4,"window":[1,0],"state":"learning","box":2}}}'
+-- ) #> '{mastery,s,window}' = '[1,1,0,1]'::jsonb as window_preserved;
+--
+-- select public.lp_merge_phonics_quest(
+--   '{"mastery":{"sh":{"seen":12,"state":"learning","box":1,"window":[0,0,1,1]}}}',
+--   '{"mastery":{"sh":{"seen":10,"state":"mastered","box":4,"window":[1,1,1,1]}}}'
+-- ) #>> '{mastery,sh,state}' = 'learning' as demotion_sticks;
+--
+-- select public.lp_merge_phonics_quest(
+--   '{"trail":{"routeCursor":3,"stopsDone":["s1"]}}',
+--   '{"trail":{"routeCursor":40,"stopsDone":["s1","s2"]}}'
+-- ) #> '{trail,routeCursor}' = '40'::jsonb as cursor_is_writers_not_greatest;
+--
+-- select jsonb_array_length(public.lp_merge_phonics_quest(
+--   '{"ledger":{"purchases":[{"id":"leaf-cap","at":"t1"}]}}',
+--   '{"ledger":{"purchases":[{"id":"leaf-cap","at":"t2"},{"id":"moth-wings","at":"t3"}]}}'
+-- ) #> '{ledger,purchases}') = 2 as purchases_union_by_id;
+--
+-- select public.lp_merge_phonics_quest(
+--   '{"checkpoint":{"stopId":"s3"}}',
+--   '{"checkpoint":{"stopId":"s9"}}'
+-- ) #>> '{checkpoint,stopId}' = 's9' as checkpoint_is_writers_own;
+
+-- ==== 20260720000000_class_access_codes.sql =============================
+
+-- Close anonymous roster enumeration + first-login account hijack.
+--
+-- Before this migration, anon could walk student_list_schools -> _classes ->
+-- _students and dump every child's real name, then call student_set_password on
+-- any un-onboarded child to claim their account. Both RPCs were granted to anon.
+--
+-- Fix: a per-class access_code (a secret NOT shipped in the app bundle, handed
+-- out by the teacher). The child login flow now needs the code to see any class
+-- roster, and first-time password setup needs the code too. Enumeration and
+-- hijack both require the out-of-band code, which anon does not have.
+--
+-- Idempotent + safe to re-run. Run in the Supabase SQL editor.
+
+-- ─── 1. access_code column, generator, backfill, auto-assign ────────────────
+
+-- Unambiguous alphabet (no 0/O/1/I/L) so a 5-year-old's teacher can read it out.
+create or replace function public.gen_class_access_code()
+returns text
+language plpgsql
+security definer set search_path = public, extensions
+as $$
+declare
+  v_alphabet text := 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  v_code text;
+  v_i int;
+  v_exists boolean;
+begin
+  loop
+    v_code := '';
+    for v_i in 1..6 loop
+      v_code := v_code || substr(v_alphabet, 1 + floor(random() * length(v_alphabet))::int, 1);
+    end loop;
+    select exists(select 1 from public.classes where access_code = v_code) into v_exists;
+    exit when not v_exists;
+  end loop;
+  return v_code;
+end;
+$$;
+
+alter table public.classes add column if not exists access_code text;
+create unique index if not exists classes_access_code_key on public.classes (access_code);
+
+-- Backfill every existing class, then require the column going forward.
+update public.classes set access_code = public.gen_class_access_code() where access_code is null;
+alter table public.classes alter column access_code set not null;
+
+-- New classes get a code automatically, so the teacher app's plain INSERT keeps
+-- working with no client change to the insert itself.
+create or replace function public.set_class_access_code()
+returns trigger language plpgsql as $$
+begin
+  if new.access_code is null then
+    new.access_code := public.gen_class_access_code();
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists trg_class_access_code on public.classes;
+create trigger trg_class_access_code before insert on public.classes
+  for each row execute function public.set_class_access_code();
+
+-- ─── 2. Code-gated roster lookup (replaces the anon enumeration walk) ────────
+
+create or replace function public.student_class_by_code(p_code text)
+returns json
+language plpgsql stable security definer set search_path = public
+as $$
+declare
+  v_class public.classes;
+  v_students json;
+  v_school json;
+begin
+  if p_code is null or btrim(p_code) = '' then
+    return json_build_object('ok', false, 'error', 'invalid_code');
+  end if;
+
+  select * into v_class from public.classes
+  where access_code = upper(btrim(p_code));
+  if v_class.id is null then
+    return json_build_object('ok', false, 'error', 'not_found');
+  end if;
+
+  select json_agg(
+           json_build_object('id', s.id, 'name', s.name,
+             'has_password', (s.symbol_password is not null))
+           order by s.name)
+    into v_students
+  from public.students s where s.class_id = v_class.id;
+
+  select json_build_object('id', sc.id, 'name', sc.name) into v_school
+  from public.schools sc where sc.id = v_class.school_id;
+
+  return json_build_object(
+    'ok', true,
+    'class', json_build_object('id', v_class.id, 'name', v_class.name),
+    'school', v_school,
+    'students', coalesce(v_students, '[]'::json)
+  );
+end;
+$$;
+
+-- ─── 3. First-time password setup now requires the class code ───────────────
+-- (overload: keeps the old 2-arg signature defined, but we revoke anon from it
+--  below so only this code-checked 3-arg version is reachable anonymously).
+
+create or replace function public.student_set_password(p_student_id uuid, p_sequence text, p_code text)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+  v_class public.classes;
+  v_token text;
+begin
+  if p_sequence !~ '^[1-9]{3}$' then
+    return json_build_object('ok', false, 'error', 'invalid_sequence');
+  end if;
+
+  select * into v_student from public.students where id = p_student_id;
+  if v_student.id is null then
+    return json_build_object('ok', false, 'error', 'not_found');
+  end if;
+
+  select * into v_class from public.classes where id = v_student.class_id;
+  if v_class.id is null or v_class.access_code is distinct from upper(btrim(p_code)) then
+    return json_build_object('ok', false, 'error', 'invalid_code');
+  end if;
+
+  if v_student.symbol_password is not null then
+    return json_build_object('ok', false, 'error', 'already_set');
+  end if;
+
+  update public.students
+  set symbol_password = p_sequence,
+      password_set_at = now(),
+      failed_login_count = 0
+  where id = p_student_id;
+
+  v_token := encode(gen_random_bytes(32), 'hex');
+  insert into public.student_sessions (student_id, token) values (p_student_id, v_token);
+
+  return json_build_object(
+    'ok', true, 'token', v_token,
+    'student_id', v_student.id, 'student_name', v_student.name,
+    'class_id', v_student.class_id, 'teacher_id', v_student.teacher_id,
+    'school_id', v_class.school_id
+  );
+end;
+$$;
+
+-- ─── 4. Teacher-only: regenerate a class code (e.g. after it leaks) ──────────
+
+create or replace function public.teacher_regenerate_class_code(p_class_id uuid)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_owner uuid;
+  v_code text;
+begin
+  select teacher_id into v_owner from public.classes where id = p_class_id;
+  if v_owner is null then
+    return json_build_object('ok', false, 'error', 'not_found');
+  end if;
+  if v_owner is distinct from auth.uid() and not public.is_app_admin(auth.uid()) then
+    return json_build_object('ok', false, 'error', 'forbidden');
+  end if;
+
+  v_code := public.gen_class_access_code();
+  update public.classes set access_code = v_code where id = p_class_id;
+  return json_build_object('ok', true, 'access_code', v_code);
+end;
+$$;
+
+-- ─── 5. Grants: revoke the enumeration + un-gated setup from anon ────────────
+
+revoke execute on function public.student_list_schools() from anon;
+revoke execute on function public.student_list_classes(uuid) from anon;
+revoke execute on function public.student_list_students(uuid) from anon;
+revoke execute on function public.student_set_password(uuid, text) from anon;
+
+grant execute on function public.student_class_by_code(text) to anon, authenticated;
+grant execute on function public.student_set_password(uuid, text, text) to anon, authenticated;
+grant execute on function public.teacher_regenerate_class_code(uuid) to authenticated;
+
+-- student_login(uuid, text) is intentionally left as-is: a student_id is now only
+-- obtainable through the code-gated lookup above, and login already has a
+-- failed-attempt lockout, so brute force stays bounded.
+
+-- ==== 20260720153000_sound_seekers_audit_integrity.sql ==================
+
+-- Sound Seekers audit-integrity follow-up.
+--
+-- 1. Mastery demotion now increments evidenceEpoch and clears the proof set.
+--    A stale pre-demotion cloud row must therefore never win merely because
+--    its lifetime `seen` counter is higher.
+-- 2. Knowledge accuracy has an independentSeen denominator. Preserve it in
+--    the same server-side merge that owns the ordered accuracy window.
+-- 3. Hollow append-only records are bounded on the server too. Bounding only
+--    the browser payload is ineffective when a forward-only cloud union keeps
+--    resurrecting every historical row the browser intentionally compacted.
+
+create or replace function public.lp_quest_independent_count(j jsonb)
+returns numeric language sql immutable as $$
+  select case
+    when j is null or jsonb_typeof(j) <> 'object' then 0
+    when j ? 'independentSeen' then
+      case
+        when public.lp_quest_num(j, 'independentSeen') = 0
+          and public.lp_quest_num(j, 'correct') > 0
+        then greatest(public.lp_quest_num(j, 'seen'), public.lp_quest_num(j, 'correct'))
+        else greatest(public.lp_quest_num(j, 'independentSeen'), 0)
+      end
+    else greatest(public.lp_quest_num(j, 'seen'), 0)
+  end;
+$$;
+
+create or replace function public.lp_quest_merge_mastery_record(a jsonb, b jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  newer jsonb;
+  authoritative jsonb;
+  a_epoch numeric := greatest(public.lp_quest_num(a, 'evidenceEpoch'), 0);
+  b_epoch numeric := greatest(public.lp_quest_num(b, 'evidenceEpoch'), 0);
+begin
+  if a is null or jsonb_typeof(a) <> 'object' then return b; end if;
+  if b is null or jsonb_typeof(b) <> 'object' then return a; end if;
+
+  -- A higher evidence epoch is an explicit invalidation boundary. Lifetime
+  -- exposure remains monotone, but every field that could re-prove mastery
+  -- comes intact from the post-demotion side.
+  if a_epoch <> b_epoch then
+    authoritative := case when a_epoch > b_epoch then a else b end;
+    return (b || a || authoritative) || jsonb_build_object(
+      'seen',            to_jsonb(greatest(public.lp_quest_num(a, 'seen'), public.lp_quest_num(b, 'seen'))),
+      'evidenceEpoch',   to_jsonb(greatest(a_epoch, b_epoch)),
+      'independentSeen', to_jsonb(public.lp_quest_independent_count(authoritative)),
+      'correct',         to_jsonb(greatest(public.lp_quest_num(authoritative, 'correct'), 0)),
+      'streak',          to_jsonb(greatest(public.lp_quest_num(authoritative, 'streak'), 0)),
+      'shells',          coalesce(case when jsonb_typeof(authoritative -> 'shells') = 'array' then authoritative -> 'shells' end, '[]'::jsonb),
+      'sessions',        coalesce(case when jsonb_typeof(authoritative -> 'sessions') = 'array' then authoritative -> 'sessions' end, '[]'::jsonb),
+      'window',          coalesce(case when jsonb_typeof(authoritative -> 'window') = 'array' then authoritative -> 'window' end, '[]'::jsonb),
+      'misses',          to_jsonb(greatest(public.lp_quest_num(authoritative, 'misses'), 0)),
+      'state',           coalesce(authoritative -> 'state', '"not-started"'::jsonb),
+      'box',             to_jsonb(greatest(public.lp_quest_num(authoritative, 'box'), 1)),
+      'lastAt',          coalesce(authoritative -> 'lastAt', '""'::jsonb),
+      'lastStop',        to_jsonb(greatest(public.lp_quest_num(authoritative, 'lastStop'), 0))
+    );
+  end if;
+
+  -- Within one epoch, `seen` remains the ordered-history clock. Ties go to the
+  -- incoming side, matching the client hydrate contract.
+  newer := case when public.lp_quest_num(a, 'seen') > public.lp_quest_num(b, 'seen') then a else b end;
+  return (b || a || newer) || jsonb_build_object(
+    'seen',            to_jsonb(greatest(public.lp_quest_num(a, 'seen'), public.lp_quest_num(b, 'seen'))),
+    'independentSeen', to_jsonb(greatest(public.lp_quest_independent_count(a), public.lp_quest_independent_count(b))),
+    'correct',         to_jsonb(greatest(public.lp_quest_num(a, 'correct'), public.lp_quest_num(b, 'correct'))),
+    'streak',          to_jsonb(greatest(public.lp_quest_num(newer, 'streak'), 0)),
+    'shells',          public.lp_quest_union_by_id(a -> 'shells', b -> 'shells'),
+    'sessions',        public.lp_quest_union_by_id(a -> 'sessions', b -> 'sessions'),
+    'window',          coalesce(case when jsonb_typeof(newer -> 'window') = 'array' then newer -> 'window' end, '[]'::jsonb),
+    'misses',          to_jsonb(greatest(public.lp_quest_num(newer, 'misses'), 0)),
+    'state',           coalesce(newer -> 'state', '"not-started"'::jsonb),
+    'box',             to_jsonb(greatest(public.lp_quest_num(newer, 'box'), 1)),
+    'evidenceEpoch',   to_jsonb(a_epoch),
+    'lastAt',          coalesce(newer -> 'lastAt', '""'::jsonb),
+    'lastStop',        to_jsonb(greatest(public.lp_quest_num(a, 'lastStop'), public.lp_quest_num(b, 'lastStop')))
+  );
+end;
+$$;
+
+-- Keep the server write path aligned with computeHydratedValue. In particular,
+-- a normalized fresh-device payload contains routeCursor=1 even though the
+-- child has not played locally; that synthetic default must not erase the
+-- stored review-circuit position or its matching mid-stop checkpoint.
+create or replace function public.lp_merge_phonics_quest(existing jsonb, incoming jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  result jsonb;
+  trail jsonb;
+  cursor_val numeric;
+  incoming_has_progress boolean := false;
+  incoming_checkpoint jsonb;
+  existing_checkpoint jsonb;
+  chosen_checkpoint jsonb := 'null'::jsonb;
+  existing_creature_at text := coalesce(existing ->> 'creatureAt', '');
+  incoming_creature_at text := coalesce(incoming ->> 'creatureAt', '');
+  existing_settings_at text := coalesce(existing ->> 'settingsAt', '');
+  incoming_settings_at text := coalesce(incoming ->> 'settingsAt', '');
+  chosen_creature jsonb;
+  chosen_settings jsonb;
+begin
+  if existing is null or jsonb_typeof(existing) <> 'object' then return incoming; end if;
+  if incoming is null or jsonb_typeof(incoming) <> 'object' then return existing; end if;
+
+  result := existing || incoming;
+  incoming_has_progress := case
+    when jsonb_typeof(incoming #> '{trail,stopsDone}') = 'array'
+      then jsonb_array_length(incoming #> '{trail,stopsDone}') > 0
+    else false
+  end;
+
+  trail := public.lp_jsonb_forward_merge(existing -> 'trail', incoming -> 'trail');
+  cursor_val := case
+    when incoming_has_progress and public.lp_quest_num(incoming -> 'trail', 'routeCursor') > 0
+      then public.lp_quest_num(incoming -> 'trail', 'routeCursor')
+    when public.lp_quest_num(existing -> 'trail', 'routeCursor') > 0
+      then public.lp_quest_num(existing -> 'trail', 'routeCursor')
+    when public.lp_quest_num(incoming -> 'trail', 'routeCursor') > 0
+      then public.lp_quest_num(incoming -> 'trail', 'routeCursor')
+    else 1
+  end;
+  if trail is null or jsonb_typeof(trail) <> 'object' then trail := '{}'::jsonb; end if;
+  trail := trail || jsonb_build_object('routeCursor', to_jsonb(cursor_val));
+
+  incoming_checkpoint := case
+    when jsonb_typeof(incoming -> 'checkpoint') = 'object' then incoming -> 'checkpoint'
+    else null
+  end;
+  existing_checkpoint := case
+    when jsonb_typeof(existing -> 'checkpoint') = 'object' then existing -> 'checkpoint'
+    else null
+  end;
+  if incoming_checkpoint is not null then
+    chosen_checkpoint := incoming_checkpoint;
+  elsif existing_checkpoint is not null
+    and existing_checkpoint ->> 'stopId' = 's' || trunc(cursor_val)::bigint::text then
+    chosen_checkpoint := existing_checkpoint;
+  end if;
+
+  -- Creature and settings are mutable choices, so their explicit clocks own
+  -- last-write-wins. Ties/legacy rows retain the stored cloud value, matching
+  -- the client's cloud-wins fallback when stamps are absent.
+  chosen_creature := case
+    when incoming_creature_at <> ''
+      and (existing_creature_at = '' or incoming_creature_at > existing_creature_at)
+      and jsonb_typeof(incoming -> 'creature') = 'object'
+      then incoming -> 'creature'
+    else coalesce(
+      case when jsonb_typeof(existing -> 'creature') = 'object' then existing -> 'creature' end,
+      case when jsonb_typeof(incoming -> 'creature') = 'object' then incoming -> 'creature' end,
+      'null'::jsonb)
+  end;
+  chosen_settings := case
+    when incoming_settings_at <> ''
+      and (existing_settings_at = '' or incoming_settings_at > existing_settings_at)
+      and jsonb_typeof(incoming -> 'settings') = 'object'
+      then incoming -> 'settings'
+    else coalesce(
+      case when jsonb_typeof(existing -> 'settings') = 'object' then existing -> 'settings' end,
+      case when jsonb_typeof(incoming -> 'settings') = 'object' then incoming -> 'settings' end,
+      'null'::jsonb)
+  end;
+
+  -- Telemetry is local-only child behavioural data. Removing an old cloud copy
+  -- on the next write completes the client-side upload exclusion instead of
+  -- preserving historical telemetry forever.
+  result := (result - 'telemetry') || jsonb_build_object(
+    'creature', chosen_creature,
+    'creatureAt', greatest(existing_creature_at, incoming_creature_at),
+    'hatched', to_jsonb(
+      coalesce((existing ->> 'hatched')::boolean, false)
+      or coalesce((incoming ->> 'hatched')::boolean, false)),
+    'trail', trail,
+    'mastery', public.lp_quest_merge_mastery(existing -> 'mastery', incoming -> 'mastery'),
+    'stones', public.lp_jsonb_forward_merge(
+      coalesce(case when jsonb_typeof(existing -> 'stones') = 'array' then existing -> 'stones' end, '[]'::jsonb),
+      coalesce(case when jsonb_typeof(incoming -> 'stones') = 'array' then incoming -> 'stones' end, '[]'::jsonb)),
+    'trickies', public.lp_jsonb_forward_merge(
+      coalesce(case when jsonb_typeof(existing -> 'trickies') = 'array' then existing -> 'trickies' end, '[]'::jsonb),
+      coalesce(case when jsonb_typeof(incoming -> 'trickies') = 'array' then incoming -> 'trickies' end, '[]'::jsonb)),
+    'ledger', jsonb_build_object(
+      'purchases', public.lp_quest_union_by_id(existing #> '{ledger,purchases}', incoming #> '{ledger,purchases}')),
+    'settings', chosen_settings,
+    'settingsAt', greatest(existing_settings_at, incoming_settings_at),
+    'checkpoint', chosen_checkpoint
+  );
+  return result;
+end;
+$$;
+
+-- Deterministic union of record arrays by id, ordered oldest-first, then
+-- bounded. The earliest record wins an impossible duplicate-id conflict,
+-- matching the irreversible nature of ownership/spend history.
+create or replace function public.lp_hollow_merge_records(a jsonb, b jsonb, max_records integer)
+returns jsonb language sql immutable as $$
+  with combined as (
+    select value as elem
+      from jsonb_array_elements(coalesce(case when jsonb_typeof(a) = 'array' then a end, '[]'::jsonb))
+    union all
+    select value as elem
+      from jsonb_array_elements(coalesce(case when jsonb_typeof(b) = 'array' then b end, '[]'::jsonb))
+  ), valid as (
+    select elem,
+           elem ->> 'id' as id,
+           coalesce(elem ->> 'at', '') as at
+      from combined
+     where jsonb_typeof(elem) = 'object' and coalesce(elem ->> 'id', '') <> ''
+  ), deduped as (
+    select distinct on (id) elem, id, at
+      from valid
+     order by id, at, elem::text
+  ), bounded as (
+    select elem, id, at
+      from deduped
+     order by at, id
+     limit greatest(max_records, 0)
+  )
+  select coalesce(jsonb_agg(elem order by at, id), '[]'::jsonb) from bounded;
+$$;
+
+create or replace function public.lp_hollow_merge_feeds(a jsonb, b jsonb)
+returns jsonb language sql immutable as $$
+  with combined as (
+    select value as elem
+      from jsonb_array_elements(coalesce(case when jsonb_typeof(a) = 'array' then a end, '[]'::jsonb))
+    union all
+    select value as elem
+      from jsonb_array_elements(coalesce(case when jsonb_typeof(b) = 'array' then b end, '[]'::jsonb))
+  ), valid as (
+    select elem,
+           elem ->> 'id' as id,
+           elem ->> 'species' as species,
+           coalesce(elem ->> 'at', '') as at
+      from combined
+     where jsonb_typeof(elem) = 'object'
+       and coalesce(elem ->> 'id', '') <> ''
+       and coalesce(elem ->> 'species', '') <> ''
+  ), deduped as (
+    select distinct on (id) elem, id, species, at
+      from valid
+     order by id, at, elem::text
+  ), ranked as (
+    select elem, id, species, at,
+           row_number() over (partition by species order by at, id) as species_rank
+      from deduped
+  )
+  select coalesce(jsonb_agg(elem order by at, id), '[]'::jsonb)
+    from ranked
+   where species_rank <= 8;
+$$;
+
+create or replace function public.lp_merge_hollow(existing jsonb, incoming jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  existing_layout jsonb := coalesce(case when jsonb_typeof(existing -> 'layout') = 'object' then existing -> 'layout' end, '{}'::jsonb);
+  incoming_layout jsonb := coalesce(case when jsonb_typeof(incoming -> 'layout') = 'object' then incoming -> 'layout' end, '{}'::jsonb);
+  chosen_layout jsonb;
+begin
+  if existing is null or jsonb_typeof(existing) <> 'object' then existing := '{}'::jsonb; end if;
+  if incoming is null or jsonb_typeof(incoming) <> 'object' then incoming := '{}'::jsonb; end if;
+  chosen_layout := case
+    when coalesce(existing_layout ->> 'at', '') > coalesce(incoming_layout ->> 'at', '') then existing_layout
+    else incoming_layout
+  end;
+  return jsonb_build_object(
+    'purchases', public.lp_hollow_merge_records(existing -> 'purchases', incoming -> 'purchases', 128),
+    'feeds', public.lp_hollow_merge_feeds(existing -> 'feeds', incoming -> 'feeds'),
+    -- Daily chests are derived earnings and cannot be truncated without taking
+    -- coins away. They are still deduplicated deterministically by id.
+    'chests', public.lp_hollow_merge_records(existing -> 'chests', incoming -> 'chests', 2147483647),
+    'layout', chosen_layout
+  );
+end;
+$$;
+
+-- Tracked form of the day-aware daily-mission hotfix. Re-declaring the global
+-- dispatcher below must not restore blind incoming-wins and let an offline
+-- yesterday row un-finish today's three mission tasks.
+create or replace function public.lp_merge_daily_mission(existing jsonb, incoming jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  existing_day text;
+  incoming_day text;
+  existing_done jsonb;
+  incoming_done jsonb;
+  merged_done jsonb;
+  task_key text;
+  later_meta jsonb;
+begin
+  if existing is null or jsonb_typeof(existing) <> 'object' then return incoming; end if;
+  if incoming is null or jsonb_typeof(incoming) <> 'object' then return existing; end if;
+
+  existing_day := coalesce(existing ->> 'day', '');
+  incoming_day := coalesce(incoming ->> 'day', '');
+  if existing_day <> '' and existing_day = incoming_day then
+    existing_done := coalesce(
+      case when jsonb_typeof(existing -> 'done') = 'object' then existing -> 'done' end,
+      '{}'::jsonb);
+    incoming_done := coalesce(
+      case when jsonb_typeof(incoming -> 'done') = 'object' then incoming -> 'done' end,
+      '{}'::jsonb);
+    merged_done := existing_done || incoming_done;
+    -- App-written done flags are monotone true values. OR duplicate keys too,
+    -- so even a malformed/stale false cannot un-finish a task.
+    for task_key in select jsonb_object_keys(existing_done || incoming_done) loop
+      merged_done := jsonb_set(merged_done, array[task_key], to_jsonb(
+        coalesce(case when jsonb_typeof(existing_done -> task_key) = 'boolean' then (existing_done ->> task_key)::boolean end, false)
+        or coalesce(case when jsonb_typeof(incoming_done -> task_key) = 'boolean' then (incoming_done ->> task_key)::boolean end, false)
+      ), true);
+    end loop;
+    later_meta := case
+      when coalesce(incoming ->> 'lastCompletedDay', '') > coalesce(existing ->> 'lastCompletedDay', '')
+        then incoming
+      else existing
+    end;
+    return incoming || existing || jsonb_build_object(
+      'done', merged_done,
+      'streak', greatest(public.lp_quest_num(existing, 'streak'), public.lp_quest_num(incoming, 'streak')),
+      'lastCompletedDay', greatest(coalesce(existing ->> 'lastCompletedDay', ''), coalesce(incoming ->> 'lastCompletedDay', '')),
+      'shieldWeek', coalesce(later_meta -> 'shieldWeek', '""'::jsonb),
+      'celebratedDay', greatest(coalesce(existing ->> 'celebratedDay', ''), coalesce(incoming ->> 'celebratedDay', ''))
+    );
+  end if;
+
+  if existing_day > incoming_day then return existing; end if;
+  return incoming;
+end;
+$$;
+
+create or replace function public.lp_forward_merge_progress(p_area text, p_existing jsonb, p_incoming jsonb)
+returns jsonb language sql immutable as $$
+  select case
+    when p_area = 'daily_mission' then public.lp_merge_daily_mission(p_existing, p_incoming)
+    when p_area = 'profile' then p_incoming
+    when p_area = 'phonics_quest' then public.lp_merge_phonics_quest(p_existing, p_incoming)
+    when p_area = 'hollow' then public.lp_merge_hollow(p_existing, p_incoming)
+    else public.lp_jsonb_forward_merge(p_existing, p_incoming)
+  end;
+$$;
+
+grant execute on function public.lp_quest_independent_count(jsonb) to anon, authenticated;
+grant execute on function public.lp_quest_merge_mastery_record(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_merge_phonics_quest(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_hollow_merge_records(jsonb, jsonb, integer) to anon, authenticated;
+grant execute on function public.lp_hollow_merge_feeds(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_merge_hollow(jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_merge_daily_mission(jsonb, jsonb) to anon, authenticated;
+
+-- Verification examples for the SQL editor (each must return true):
+-- select public.lp_quest_merge_mastery_record(
+--   '{"seen":14,"independentSeen":0,"correct":0,"state":"learning","evidenceEpoch":1,"shells":[],"sessions":[]}',
+--   '{"seen":15,"independentSeen":12,"correct":12,"state":"mastered","evidenceEpoch":0,"shells":["stones","bridge"],"sessions":["d1","d2"]}'
+-- ) #>> '{state}' = 'learning';
+--
+-- select jsonb_array_length(public.lp_hollow_merge_feeds(
+--   (select jsonb_agg(jsonb_build_object('id', 'a-' || n, 'species', 'owl', 'at', n::text)) from generate_series(1, 12) n),
+--   (select jsonb_agg(jsonb_build_object('id', 'b-' || n, 'species', 'owl', 'at', (n + 12)::text)) from generate_series(1, 12) n)
+-- )) = 8;
+--
+-- select public.lp_merge_phonics_quest(
+--   '{"trail":{"routeCursor":30,"stopsDone":["s1","s40"]},"checkpoint":{"stopId":"s30","beatIndex":1}}',
+--   '{"trail":{"routeCursor":1,"stopsDone":[]},"checkpoint":null}'
+-- ) #>> '{checkpoint,stopId}' = 's30';
+--
+-- select public.lp_merge_phonics_quest(
+--   '{"trail":{"routeCursor":30,"stopsDone":["s1","s40"]}}',
+--   '{"trail":{"routeCursor":1,"stopsDone":[]}}'
+-- ) #>> '{trail,routeCursor}' = '30';
+--
+-- select public.lp_merge_daily_mission(
+--   '{"day":"2026-07-20","done":{"quest":true},"streak":4}',
+--   '{"day":"2026-07-19","done":{},"streak":3}'
+-- ) #>> '{day}' = '2026-07-20';
+
+-- ==== 20260721100000_sound_seekers_reset_epoch.sql ======================
+
+-- Sound Seekers child reset generations.
+--
+-- Most quest data is deliberately forward-only, but "Start adventure again"
+-- is a legitimate destructive operation. Without an explicit generation, the
+-- stored row unions the old trail/mastery/checkpoint straight back into the
+-- fresh save. Each reset issues a unique `resetId` and carries its observed
+-- `resetHistory`; ancestry therefore remains correct even when a stale offline
+-- device's clock is behind. `resetEpoch` / `resetAt` are deterministic fallback
+-- ordering for malformed legacy conflicts, not reset authority.
+--
+-- Teacher-owned `assignment` is intentionally not one of the resettable
+-- fields. Child uploads omit it, and a teacher's partial {assignment} upsert
+-- may not contain resetEpoch; existing || incoming therefore continues to
+-- deliver/clear assignments without changing the child's journey generation.
+
+-- Reset metadata is a pair of observed sets:
+--   resetHistory    ids known to be settled/superseded
+--   resetPendingIds reset operations not yet acknowledged by the server
+-- The set helper is deliberately sorted and de-duplicated so every merge
+-- orientation produces byte-for-byte equivalent metadata.
+create or replace function public.lp_quest_reset_id_set(
+  a jsonb,
+  b jsonb,
+  include_ids jsonb,
+  exclude_ids jsonb
+)
+returns jsonb language sql immutable as $$
+  with raw_ids(id) as (
+    select value #>> '{}'
+      from jsonb_array_elements(coalesce(case when jsonb_typeof(a) = 'array' then a end, '[]'::jsonb))
+     where jsonb_typeof(value) = 'string'
+    union all
+    select value #>> '{}'
+      from jsonb_array_elements(coalesce(case when jsonb_typeof(b) = 'array' then b end, '[]'::jsonb))
+     where jsonb_typeof(value) = 'string'
+    union all
+    select value #>> '{}'
+      from jsonb_array_elements(coalesce(case when jsonb_typeof(include_ids) = 'array' then include_ids end, '[]'::jsonb))
+     where jsonb_typeof(value) = 'string'
+  ), normalized_ids as (
+    select distinct coalesce(nullif(left(btrim(id), 160), ''), 'legacy') as id
+      from raw_ids
+  ), normalized_exclusions as (
+    select distinct coalesce(nullif(left(btrim(value #>> '{}'), 160), ''), 'legacy') as id
+      from jsonb_array_elements(coalesce(
+        case when jsonb_typeof(exclude_ids) = 'array' then exclude_ids end,
+        '[]'::jsonb))
+     where jsonb_typeof(value) = 'string'
+  )
+  select coalesce(jsonb_agg(to_jsonb(n.id) order by n.id collate "C"), '[]'::jsonb)
+    from normalized_ids n
+   where not exists (
+     select 1 from normalized_exclusions x where x.id = n.id
+   );
+$$;
+
+-- Compatibility wrapper retained for audit tooling and any already-prepared
+-- statements which reference the scalar helper from the first migration pass.
+create or replace function public.lp_quest_reset_history(
+  a jsonb,
+  b jsonb,
+  include_id text,
+  exclude_id text
+)
+returns jsonb language sql immutable as $$
+  select public.lp_quest_reset_id_set(
+    a,
+    b,
+    case when coalesce(btrim(include_id), '') = ''
+      then '[]'::jsonb else jsonb_build_array(include_id) end,
+    case when coalesce(btrim(exclude_id), '') = ''
+      then '[]'::jsonb else jsonb_build_array(exclude_id) end
+  );
+$$;
+
+-- Bridge saves written before resetPendingIds existed. A true scalar
+-- resetPending means the active reset id is one pending operation. Any id the
+-- same payload already carries in history is settled and must not be pending.
+create or replace function public.lp_quest_pending_reset_ids(
+  payload jsonb,
+  active_id text,
+  reset_history jsonb
+)
+returns jsonb language sql immutable as $$
+  select public.lp_quest_reset_id_set(
+    coalesce(
+      case when jsonb_typeof(payload -> 'resetPendingIds') = 'array'
+        then payload -> 'resetPendingIds' end,
+      '[]'::jsonb),
+    '[]'::jsonb,
+    case when coalesce(payload ->> 'resetPending', 'false') = 'true'
+      then jsonb_build_array(active_id) else '[]'::jsonb end,
+    reset_history
+  );
+$$;
+
+create or replace function public.lp_merge_phonics_quest(existing jsonb, incoming jsonb)
+returns jsonb language plpgsql immutable as $$
+declare
+  result jsonb;
+  existing_present boolean := existing is not null and jsonb_typeof(existing) = 'object';
+  trail jsonb;
+  cursor_val numeric;
+  incoming_has_progress boolean := false;
+  incoming_checkpoint jsonb;
+  existing_checkpoint jsonb;
+  chosen_checkpoint jsonb := 'null'::jsonb;
+  existing_creature_at text := coalesce(existing ->> 'creatureAt', '');
+  incoming_creature_at text := coalesce(incoming ->> 'creatureAt', '');
+  existing_settings_at text := coalesce(existing ->> 'settingsAt', '');
+  incoming_settings_at text := coalesce(incoming ->> 'settingsAt', '');
+  existing_reset_epoch numeric;
+  incoming_reset_epoch numeric;
+  existing_reset_at text := coalesce(existing ->> 'resetAt', '');
+  incoming_reset_at text := coalesce(incoming ->> 'resetAt', '');
+  existing_reset_id text := coalesce(nullif(left(btrim(case
+    when jsonb_typeof(existing -> 'resetId') = 'string' then existing ->> 'resetId'
+    else '' end), 160), ''), 'legacy');
+  incoming_reset_id text := coalesce(nullif(left(btrim(case
+    when jsonb_typeof(incoming -> 'resetId') = 'string' then incoming ->> 'resetId'
+    else '' end), 160), ''), 'legacy');
+  existing_reset_history jsonb := coalesce(
+    case when jsonb_typeof(existing -> 'resetHistory') = 'array' then existing -> 'resetHistory' end,
+    '[]'::jsonb);
+  incoming_reset_history jsonb := coalesce(
+    case when jsonb_typeof(incoming -> 'resetHistory') = 'array' then incoming -> 'resetHistory' end,
+    '[]'::jsonb);
+  existing_pending_reset_ids jsonb := '[]'::jsonb;
+  incoming_pending_reset_ids jsonb := '[]'::jsonb;
+  combined_reset_history jsonb := '[]'::jsonb;
+  acknowledged_reset_ids jsonb := '[]'::jsonb;
+  settled_reset_ids jsonb := '[]'::jsonb;
+  pending_reset_ids jsonb := '[]'::jsonb;
+  existing_descends boolean;
+  incoming_descends boolean;
+  winner_reset_id text;
+  loser_reset_id text;
+  winner_is_existing boolean;
+  winner_reset_epoch numeric;
+  winner_reset_at text;
+  merged_reset_history jsonb;
+  authoritative jsonb;
+  chosen_creature jsonb;
+  chosen_settings jsonb;
+begin
+  if incoming is null or jsonb_typeof(incoming) <> 'object' then return existing; end if;
+  if not existing_present then existing := '{}'::jsonb; end if;
+
+  existing_reset_epoch := least(
+    9007199254740991::numeric,
+    greatest(0, trunc(public.lp_quest_num(existing, 'resetEpoch'))));
+  incoming_reset_epoch := least(
+    9007199254740991::numeric,
+    greatest(0, trunc(public.lp_quest_num(incoming, 'resetEpoch'))));
+
+  existing_reset_history := public.lp_quest_reset_id_set(
+    existing_reset_history,
+    '[]'::jsonb,
+    '[]'::jsonb,
+    jsonb_build_array(existing_reset_id)
+  );
+  incoming_reset_history := public.lp_quest_reset_id_set(
+    incoming_reset_history,
+    '[]'::jsonb,
+    '[]'::jsonb,
+    jsonb_build_array(incoming_reset_id)
+  );
+  existing_pending_reset_ids := public.lp_quest_pending_reset_ids(
+    existing, existing_reset_id, existing_reset_history);
+  incoming_pending_reset_ids := public.lp_quest_pending_reset_ids(
+    incoming, incoming_reset_id, incoming_reset_history);
+  combined_reset_history := public.lp_quest_reset_id_set(
+    existing_reset_history,
+    incoming_reset_history,
+    '[]'::jsonb,
+    '[]'::jsonb
+  );
+  acknowledged_reset_ids := public.lp_quest_reset_id_set(
+    case when jsonb_array_length(existing_pending_reset_ids) = 0
+      then jsonb_build_array(existing_reset_id) else '[]'::jsonb end,
+    case when jsonb_array_length(incoming_pending_reset_ids) = 0
+      then jsonb_build_array(incoming_reset_id) else '[]'::jsonb end,
+    '[]'::jsonb,
+    '[]'::jsonb
+  );
+  settled_reset_ids := public.lp_quest_reset_id_set(
+    combined_reset_history,
+    acknowledged_reset_ids,
+    '[]'::jsonb,
+    '[]'::jsonb
+  );
+  pending_reset_ids := public.lp_quest_reset_id_set(
+    existing_pending_reset_ids,
+    incoming_pending_reset_ids,
+    '[]'::jsonb,
+    settled_reset_ids
+  );
+
+  -- Unknown/authority-owned keys keep the established incoming-wins contract.
+  result := existing || incoming;
+
+  -- Settings are not journey progress. Their explicit clock continues to win
+  -- even when the journey generations differ, so a reset never turns off a
+  -- child's accessibility settings.
+  chosen_settings := case
+    when incoming_settings_at <> ''
+      and (existing_settings_at = '' or incoming_settings_at > existing_settings_at)
+      and jsonb_typeof(incoming -> 'settings') = 'object'
+      then incoming -> 'settings'
+    else coalesce(
+      case when jsonb_typeof(existing -> 'settings') = 'object' then existing -> 'settings' end,
+      case when jsonb_typeof(incoming -> 'settings') = 'object' then incoming -> 'settings' end,
+      'null'::jsonb)
+  end;
+
+  -- Pending reset operations form an observed set. Set union followed by
+  -- removal of history/acknowledged-current ids is associative, so the A/B/C
+  -- case (A pending, B acknowledges A, unrelated C pending) leaves C pending
+  -- regardless of queue grouping. Lexical max chooses one canonical snapshot;
+  -- the whole set remains visible until this authoritative server merge.
+  if jsonb_array_length(pending_reset_ids) > 0 then
+    select value into winner_reset_id
+      from jsonb_array_elements_text(pending_reset_ids)
+     order by value collate "C" desc
+     limit 1;
+
+    if winner_reset_id = existing_reset_id
+      and winner_reset_id = incoming_reset_id then
+      -- Both sides own the same reset generation. The reset is already
+      -- represented on both snapshots, so preserve post-reset learning with
+      -- the normal same-generation forward merge while acknowledging the
+      -- winner and folding any other pending operations into ancestry.
+      combined_reset_history := public.lp_quest_reset_id_set(
+        combined_reset_history,
+        acknowledged_reset_ids,
+        pending_reset_ids,
+        jsonb_build_array(winner_reset_id)
+      );
+      pending_reset_ids := '[]'::jsonb;
+    else
+    if winner_reset_id = incoming_reset_id then
+      winner_reset_epoch := incoming_reset_epoch;
+      winner_reset_at := incoming_reset_at;
+      -- An input whose active reset wins owns an unambiguous journey snapshot.
+      -- A pending id merely carried in the observed set has metadata but no
+      -- snapshot, so accepting another generation's journey would resurrect
+      -- exactly the progress the reset meant to clear.
+      authoritative := incoming;
+    elsif winner_reset_id = existing_reset_id then
+      winner_reset_epoch := existing_reset_epoch;
+      winner_reset_at := existing_reset_at;
+      authoritative := existing;
+    else
+      winner_reset_epoch := greatest(existing_reset_epoch, incoming_reset_epoch);
+      winner_reset_at := greatest(existing_reset_at, incoming_reset_at);
+      authoritative := null;
+    end if;
+
+    if authoritative is null then
+      authoritative := jsonb_build_object(
+        'creature', 'null'::jsonb,
+        'creatureAt', winner_reset_at,
+        'hatched', false,
+        'trail', jsonb_build_object(
+          'stopsDone', '[]'::jsonb,
+          'stars', '{}'::jsonb,
+          'drops', '{}'::jsonb,
+          'routeCursor', 1),
+        'mastery', '{}'::jsonb,
+        'stones', '[]'::jsonb,
+        'trickies', '[]'::jsonb,
+        'ledger', jsonb_build_object('purchases', '[]'::jsonb),
+        'lastEarnedGearStop', 'null'::jsonb,
+        'checkpoint', 'null'::jsonb
+      );
+    end if;
+
+    -- This function is the acknowledgement boundary. Fold every losing
+    -- pending operation into history, retain the canonical winner as resetId,
+    -- and explicitly clear both pending representations. A later stale replay
+    -- is then settled by history before it can affect journey data.
+    merged_reset_history := public.lp_quest_reset_id_set(
+      combined_reset_history,
+      acknowledged_reset_ids,
+      pending_reset_ids,
+      jsonb_build_array(winner_reset_id)
+    );
+
+    result := (result - 'telemetry') || jsonb_build_object(
+      'resetEpoch', to_jsonb(winner_reset_epoch),
+      'resetAt', to_jsonb(winner_reset_at),
+      'resetId', to_jsonb(winner_reset_id),
+      'resetHistory', merged_reset_history,
+      'resetPendingIds', '[]'::jsonb,
+      'resetPending', false,
+      'creature', coalesce(
+        case when jsonb_typeof(authoritative -> 'creature') = 'object' then authoritative -> 'creature' end,
+        'null'::jsonb),
+      'creatureAt', to_jsonb(coalesce(authoritative ->> 'creatureAt', '')),
+      'hatched', to_jsonb(coalesce((authoritative ->> 'hatched')::boolean, false)),
+      'trail', coalesce(
+        case when jsonb_typeof(authoritative -> 'trail') = 'object' then authoritative -> 'trail' end,
+        jsonb_build_object('stopsDone', '[]'::jsonb, 'stars', '{}'::jsonb, 'drops', '{}'::jsonb, 'routeCursor', 1)),
+      'mastery', coalesce(
+        case when jsonb_typeof(authoritative -> 'mastery') = 'object' then authoritative -> 'mastery' end,
+        '{}'::jsonb),
+      'stones', coalesce(
+        case when jsonb_typeof(authoritative -> 'stones') = 'array' then authoritative -> 'stones' end,
+        '[]'::jsonb),
+      'trickies', coalesce(
+        case when jsonb_typeof(authoritative -> 'trickies') = 'array' then authoritative -> 'trickies' end,
+        '[]'::jsonb),
+      'ledger', coalesce(
+        case when jsonb_typeof(authoritative -> 'ledger') = 'object' then authoritative -> 'ledger' end,
+        jsonb_build_object('purchases', '[]'::jsonb)),
+      'settings', chosen_settings,
+      'settingsAt', greatest(existing_settings_at, incoming_settings_at),
+      'lastEarnedGearStop', coalesce(authoritative -> 'lastEarnedGearStop', 'null'::jsonb),
+      'checkpoint', coalesce(authoritative -> 'checkpoint', 'null'::jsonb)
+    );
+    return result;
+    end if;
+  end if;
+
+  -- With no unacknowledged operation, descendants beat ancestors. Unrelated
+  -- acknowledged ids use the legacy issuance tuple only as a deterministic
+  -- fallback. The losing current id joins history, making stale replays safe.
+  if existing_reset_id <> incoming_reset_id then
+    existing_descends := existing_reset_history ? incoming_reset_id;
+    incoming_descends := incoming_reset_history ? existing_reset_id;
+
+    if not existing_present then
+      authoritative := incoming;
+      winner_is_existing := false;
+    elsif existing_descends and not incoming_descends then
+      authoritative := existing;
+      winner_is_existing := true;
+    elsif incoming_descends and not existing_descends then
+      authoritative := incoming;
+      winner_is_existing := false;
+    elsif existing_reset_epoch > incoming_reset_epoch
+      or (existing_reset_epoch = incoming_reset_epoch and existing_reset_at > incoming_reset_at)
+      or (existing_reset_epoch = incoming_reset_epoch and existing_reset_at = incoming_reset_at
+        and existing_reset_id collate "C" > incoming_reset_id collate "C") then
+      authoritative := existing;
+      winner_is_existing := true;
+    else
+      authoritative := incoming;
+      winner_is_existing := false;
+    end if;
+
+    if winner_is_existing then
+      winner_reset_id := existing_reset_id;
+      loser_reset_id := incoming_reset_id;
+      winner_reset_epoch := existing_reset_epoch;
+      winner_reset_at := existing_reset_at;
+    else
+      winner_reset_id := incoming_reset_id;
+      loser_reset_id := existing_reset_id;
+      winner_reset_epoch := incoming_reset_epoch;
+      winner_reset_at := incoming_reset_at;
+    end if;
+    merged_reset_history := public.lp_quest_reset_id_set(
+      combined_reset_history,
+      acknowledged_reset_ids,
+      jsonb_build_array(loser_reset_id),
+      jsonb_build_array(winner_reset_id)
+    );
+
+    result := (result - 'telemetry') || jsonb_build_object(
+      'resetEpoch', to_jsonb(winner_reset_epoch),
+      'resetAt', to_jsonb(winner_reset_at),
+      'resetId', to_jsonb(winner_reset_id),
+      'resetHistory', merged_reset_history,
+      'resetPendingIds', '[]'::jsonb,
+      'resetPending', false,
+      'creature', coalesce(
+        case when jsonb_typeof(authoritative -> 'creature') = 'object' then authoritative -> 'creature' end,
+        'null'::jsonb),
+      'creatureAt', to_jsonb(coalesce(authoritative ->> 'creatureAt', '')),
+      'hatched', to_jsonb(coalesce((authoritative ->> 'hatched')::boolean, false)),
+      'trail', coalesce(
+        case when jsonb_typeof(authoritative -> 'trail') = 'object' then authoritative -> 'trail' end,
+        jsonb_build_object('stopsDone', '[]'::jsonb, 'stars', '{}'::jsonb, 'drops', '{}'::jsonb, 'routeCursor', 1)),
+      'mastery', coalesce(
+        case when jsonb_typeof(authoritative -> 'mastery') = 'object' then authoritative -> 'mastery' end,
+        '{}'::jsonb),
+      'stones', coalesce(
+        case when jsonb_typeof(authoritative -> 'stones') = 'array' then authoritative -> 'stones' end,
+        '[]'::jsonb),
+      'trickies', coalesce(
+        case when jsonb_typeof(authoritative -> 'trickies') = 'array' then authoritative -> 'trickies' end,
+        '[]'::jsonb),
+      'ledger', coalesce(
+        case when jsonb_typeof(authoritative -> 'ledger') = 'object' then authoritative -> 'ledger' end,
+        jsonb_build_object('purchases', '[]'::jsonb)),
+      'settings', chosen_settings,
+      'settingsAt', greatest(existing_settings_at, incoming_settings_at),
+      'lastEarnedGearStop', coalesce(authoritative -> 'lastEarnedGearStop', 'null'::jsonb),
+      'checkpoint', coalesce(authoritative -> 'checkpoint', 'null'::jsonb)
+    );
+    return result;
+  end if;
+
+  incoming_has_progress := case
+    when jsonb_typeof(incoming #> '{trail,stopsDone}') = 'array'
+      then jsonb_array_length(incoming #> '{trail,stopsDone}') > 0
+    else false
+  end;
+
+  trail := public.lp_jsonb_forward_merge(existing -> 'trail', incoming -> 'trail');
+  cursor_val := case
+    when incoming_has_progress and public.lp_quest_num(incoming -> 'trail', 'routeCursor') > 0
+      then public.lp_quest_num(incoming -> 'trail', 'routeCursor')
+    when public.lp_quest_num(existing -> 'trail', 'routeCursor') > 0
+      then public.lp_quest_num(existing -> 'trail', 'routeCursor')
+    when public.lp_quest_num(incoming -> 'trail', 'routeCursor') > 0
+      then public.lp_quest_num(incoming -> 'trail', 'routeCursor')
+    else 1
+  end;
+  if trail is null or jsonb_typeof(trail) <> 'object' then trail := '{}'::jsonb; end if;
+  trail := trail || jsonb_build_object('routeCursor', to_jsonb(cursor_val));
+
+  incoming_checkpoint := case
+    when jsonb_typeof(incoming -> 'checkpoint') = 'object' then incoming -> 'checkpoint'
+    else null
+  end;
+  existing_checkpoint := case
+    when jsonb_typeof(existing -> 'checkpoint') = 'object' then existing -> 'checkpoint'
+    else null
+  end;
+  if incoming_checkpoint is not null then
+    chosen_checkpoint := incoming_checkpoint;
+  elsif existing_checkpoint is not null
+    and existing_checkpoint ->> 'stopId' = 's' || trunc(cursor_val)::bigint::text then
+    chosen_checkpoint := existing_checkpoint;
+  end if;
+
+  chosen_creature := case
+    when incoming_creature_at <> ''
+      and (existing_creature_at = '' or incoming_creature_at > existing_creature_at)
+      and jsonb_typeof(incoming -> 'creature') = 'object'
+      then incoming -> 'creature'
+    else coalesce(
+      case when jsonb_typeof(existing -> 'creature') = 'object' then existing -> 'creature' end,
+      case when jsonb_typeof(incoming -> 'creature') = 'object' then incoming -> 'creature' end,
+      'null'::jsonb)
+  end;
+
+  -- Equal generations keep the existing forward-only achievement merge.
+  merged_reset_history := public.lp_quest_reset_id_set(
+    combined_reset_history,
+    acknowledged_reset_ids,
+    '[]'::jsonb,
+    jsonb_build_array(existing_reset_id)
+  );
+  result := (result - 'telemetry') || jsonb_build_object(
+    'resetEpoch', to_jsonb(greatest(existing_reset_epoch, incoming_reset_epoch)),
+    'resetAt', greatest(existing_reset_at, incoming_reset_at),
+    'resetId', to_jsonb(existing_reset_id),
+    'resetHistory', merged_reset_history,
+    'resetPendingIds', '[]'::jsonb,
+    'resetPending', false,
+    'creature', chosen_creature,
+    'creatureAt', greatest(existing_creature_at, incoming_creature_at),
+    'hatched', to_jsonb(
+      coalesce((existing ->> 'hatched')::boolean, false)
+      or coalesce((incoming ->> 'hatched')::boolean, false)),
+    'trail', trail,
+    'mastery', public.lp_quest_merge_mastery(existing -> 'mastery', incoming -> 'mastery'),
+    'stones', public.lp_jsonb_forward_merge(
+      coalesce(case when jsonb_typeof(existing -> 'stones') = 'array' then existing -> 'stones' end, '[]'::jsonb),
+      coalesce(case when jsonb_typeof(incoming -> 'stones') = 'array' then incoming -> 'stones' end, '[]'::jsonb)),
+    'trickies', public.lp_jsonb_forward_merge(
+      coalesce(case when jsonb_typeof(existing -> 'trickies') = 'array' then existing -> 'trickies' end, '[]'::jsonb),
+      coalesce(case when jsonb_typeof(incoming -> 'trickies') = 'array' then incoming -> 'trickies' end, '[]'::jsonb)),
+    'ledger', jsonb_build_object(
+      'purchases', public.lp_quest_union_by_id(existing #> '{ledger,purchases}', incoming #> '{ledger,purchases}')),
+    'settings', chosen_settings,
+    'settingsAt', greatest(existing_settings_at, incoming_settings_at),
+    'checkpoint', chosen_checkpoint
+  );
+  return result;
+end;
+$$;
+
+grant execute on function public.lp_quest_reset_id_set(jsonb, jsonb, jsonb, jsonb) to anon, authenticated;
+grant execute on function public.lp_quest_reset_history(jsonb, jsonb, text, text) to anon, authenticated;
+grant execute on function public.lp_quest_pending_reset_ids(jsonb, text, jsonb) to anon, authenticated;
+grant execute on function public.lp_merge_phonics_quest(jsonb, jsonb) to anon, authenticated;
+
+-- ==== 20260721120000_el_assessment_persistence.sql ======================
+
+-- Durable EL assessment attempts and generated reports.
+-- The payload columns retain the complete, versioned assessment evidence while
+-- relational columns support secure teacher/student filters and summaries.
+
+create table if not exists public.assessment_attempts (
+  attempt_id text primary key,
+  student_id text not null,
+  class_id text,
+  teacher_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  assessment_type text not null default 'skill_checkpoint',
+  skill_id text not null default '',
+  skill_name text not null default 'Assessment',
+  skill_level integer not null default 1,
+  skill_phase integer not null default 1,
+  started_at timestamptz,
+  completed_at timestamptz not null default now(),
+  total_questions integer not null default 0,
+  correct_count integer not null default 0,
+  accuracy numeric(5, 2) not null default 0,
+  status text not null default 'needs_retry',
+  administration_status text not null default 'completed',
+  schema_version integer not null default 1,
+  payload jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+-- Keep this migration safe for installations where the app's optional cloud
+-- table was created manually before it became part of the managed schema.
+alter table public.assessment_attempts
+  add column if not exists attempt_id text,
+  add column if not exists student_id text,
+  add column if not exists class_id text,
+  add column if not exists teacher_id uuid default auth.uid() references auth.users(id) on delete cascade,
+  add column if not exists assessment_type text not null default 'skill_checkpoint',
+  add column if not exists skill_id text not null default '',
+  add column if not exists skill_name text not null default 'Assessment',
+  add column if not exists skill_level integer not null default 1,
+  add column if not exists skill_phase integer not null default 1,
+  add column if not exists started_at timestamptz,
+  add column if not exists completed_at timestamptz not null default now(),
+  add column if not exists total_questions integer not null default 0,
+  add column if not exists correct_count integer not null default 0,
+  add column if not exists accuracy numeric(5, 2) not null default 0,
+  add column if not exists status text not null default 'needs_retry',
+  add column if not exists administration_status text not null default 'completed',
+  add column if not exists schema_version integer not null default 1,
+  add column if not exists payload jsonb not null default '{}'::jsonb,
+  add column if not exists created_at timestamptz not null default now(),
+  add column if not exists updated_at timestamptz not null default now();
+
+create unique index if not exists assessment_attempts_attempt_id_key
+  on public.assessment_attempts (attempt_id);
+create index if not exists assessment_attempts_teacher_completed_idx
+  on public.assessment_attempts (teacher_id, completed_at desc);
+create index if not exists assessment_attempts_teacher_student_completed_idx
+  on public.assessment_attempts (teacher_id, student_id, completed_at desc);
+create index if not exists assessment_attempts_teacher_class_completed_idx
+  on public.assessment_attempts (teacher_id, class_id, completed_at desc);
+
+create table if not exists public.el_assessment_reports (
+  report_id text primary key,
+  report_type text not null,
+  class_id text,
+  student_id text,
+  teacher_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  generated_at timestamptz not null default now(),
+  file_name text not null default '',
+  summary jsonb not null default '{}'::jsonb,
+  payload jsonb not null default '{}'::jsonb,
+  schema_version integer not null default 1,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.el_assessment_reports
+  add column if not exists report_id text,
+  add column if not exists report_type text,
+  add column if not exists class_id text,
+  add column if not exists student_id text,
+  add column if not exists teacher_id uuid default auth.uid() references auth.users(id) on delete cascade,
+  add column if not exists generated_at timestamptz not null default now(),
+  add column if not exists file_name text not null default '',
+  add column if not exists summary jsonb not null default '{}'::jsonb,
+  add column if not exists payload jsonb not null default '{}'::jsonb,
+  add column if not exists schema_version integer not null default 1,
+  add column if not exists created_at timestamptz not null default now(),
+  add column if not exists updated_at timestamptz not null default now();
+
+create unique index if not exists el_assessment_reports_report_id_key
+  on public.el_assessment_reports (report_id);
+create index if not exists el_assessment_reports_teacher_generated_idx
+  on public.el_assessment_reports (teacher_id, generated_at desc);
+create index if not exists el_assessment_reports_teacher_student_generated_idx
+  on public.el_assessment_reports (teacher_id, student_id, generated_at desc);
+create index if not exists el_assessment_reports_teacher_class_generated_idx
+  on public.el_assessment_reports (teacher_id, class_id, generated_at desc);
+
+create or replace function public.set_el_assessment_updated_at()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+drop trigger if exists assessment_attempts_set_updated_at on public.assessment_attempts;
+create trigger assessment_attempts_set_updated_at
+  before update on public.assessment_attempts
+  for each row execute function public.set_el_assessment_updated_at();
+
+drop trigger if exists el_assessment_reports_set_updated_at on public.el_assessment_reports;
+create trigger el_assessment_reports_set_updated_at
+  before update on public.el_assessment_reports
+  for each row execute function public.set_el_assessment_updated_at();
+
+alter table public.assessment_attempts enable row level security;
+alter table public.el_assessment_reports enable row level security;
+
+revoke all on public.assessment_attempts from anon;
+revoke all on public.el_assessment_reports from anon;
+grant select, insert, update, delete on public.assessment_attempts to authenticated;
+grant select, insert, update, delete on public.el_assessment_reports to authenticated;
+
+drop policy if exists "Teachers manage owned assessment attempts" on public.assessment_attempts;
+create policy "Teachers manage owned assessment attempts"
+  on public.assessment_attempts for all to authenticated
+  using (
+    public.is_app_admin(auth.uid())
+    or (
+      assessment_attempts.teacher_id::text = auth.uid()::text
+      and exists (
+        select 1
+        from public.students s
+        where s.id::text = assessment_attempts.student_id::text
+          and s.teacher_id = auth.uid()
+      )
+      and (
+        assessment_attempts.class_id is null
+        or assessment_attempts.class_id = ''
+        or exists (
+          select 1
+          from public.classes c
+          where c.id::text = assessment_attempts.class_id::text
+            and c.teacher_id = auth.uid()
+        )
+      )
+    )
+  )
+  with check (
+    public.is_app_admin(auth.uid())
+    or (
+      assessment_attempts.teacher_id::text = auth.uid()::text
+      and exists (
+        select 1
+        from public.students s
+        where s.id::text = assessment_attempts.student_id::text
+          and s.teacher_id = auth.uid()
+      )
+      and (
+        assessment_attempts.class_id is null
+        or assessment_attempts.class_id = ''
+        or exists (
+          select 1
+          from public.classes c
+          where c.id::text = assessment_attempts.class_id::text
+            and c.teacher_id = auth.uid()
+        )
+      )
+    )
+  );
+
+drop policy if exists "Teachers manage owned EL assessment reports" on public.el_assessment_reports;
+create policy "Teachers manage owned EL assessment reports"
+  on public.el_assessment_reports for all to authenticated
+  using (
+    public.is_app_admin(auth.uid())
+    or (
+      el_assessment_reports.teacher_id::text = auth.uid()::text
+      and (
+        el_assessment_reports.student_id is null
+        or el_assessment_reports.student_id = ''
+        or exists (
+          select 1
+          from public.students s
+          where s.id::text = el_assessment_reports.student_id::text
+            and s.teacher_id = auth.uid()
+        )
+      )
+      and (
+        el_assessment_reports.class_id is null
+        or el_assessment_reports.class_id = ''
+        or exists (
+          select 1
+          from public.classes c
+          where c.id::text = el_assessment_reports.class_id::text
+            and c.teacher_id = auth.uid()
+        )
+      )
+    )
+  )
+  with check (
+    public.is_app_admin(auth.uid())
+    or (
+      el_assessment_reports.teacher_id::text = auth.uid()::text
+      and (
+        el_assessment_reports.student_id is null
+        or el_assessment_reports.student_id = ''
+        or exists (
+          select 1
+          from public.students s
+          where s.id::text = el_assessment_reports.student_id::text
+            and s.teacher_id = auth.uid()
+        )
+      )
+      and (
+        el_assessment_reports.class_id is null
+        or el_assessment_reports.class_id = ''
+        or exists (
+          select 1
+          from public.classes c
+          where c.id::text = el_assessment_reports.class_id::text
+            and c.teacher_id = auth.uid()
+        )
+      )
+    )
+  );
+
+comment on table public.assessment_attempts is
+  'Versioned assessment attempts with complete item-level evidence in payload.';
+comment on table public.el_assessment_reports is
+  'Versioned EL class and student report snapshots with complete report payloads.';
+
+-- ==== 20260723090000_teacher_only_student_password_setup.sql ============
+
+-- Make symbol-password creation and reset teacher-only.
+--
+-- The child login still shows the code-gated class roster, but a pupil whose
+-- pictures are not configured must ask a teacher for help. Teachers manage the
+-- symbol_password column through the authenticated dashboard under RLS.
+--
+-- PostgreSQL functions are executable by PUBLIC by default, so revoke both the
+-- old two-argument helper and the later class-code-gated overload explicitly.
+
+revoke execute on function public.student_set_password(uuid, text)
+  from public, anon, authenticated;
+
+revoke execute on function public.student_set_password(uuid, text, text)
+  from public, anon, authenticated;
+
+-- ==== 20260723100000_core_learning_schema_reconciliation.sql ============
+
+-- Reconcile installations where the core tables predate managed migrations.
+-- The early bootstrap migration creates fresh databases; this migration adds
+-- the safe ownership constraints and admin policies to existing databases.
+
+create or replace function public.set_core_learning_updated_at()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+alter table public.classes
+  add column if not exists updated_at timestamptz not null default now();
+
+alter table public.students
+  add column if not exists archived_at timestamptz,
+  add column if not exists updated_at timestamptz not null default now();
+
+create unique index if not exists classes_id_teacher_key
+  on public.classes (id, teacher_id);
+create unique index if not exists students_id_teacher_key
+  on public.students (id, teacher_id);
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'students_class_teacher_fk'
+      and conrelid = 'public.students'::regclass
+  ) then
+    alter table public.students
+      add constraint students_class_teacher_fk
+      foreign key (class_id, teacher_id)
+      references public.classes(id, teacher_id)
+      on delete cascade
+      not valid;
+  end if;
+
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'answers_student_teacher_fk'
+      and conrelid = 'public.answers'::regclass
+  ) then
+    alter table public.answers
+      add constraint answers_student_teacher_fk
+      foreign key (student_id, teacher_id)
+      references public.students(id, teacher_id)
+      on delete cascade
+      not valid;
+  end if;
+
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'mastery_student_teacher_fk'
+      and conrelid = 'public.mastery'::regclass
+  ) then
+    alter table public.mastery
+      add constraint mastery_student_teacher_fk
+      foreign key (student_id, teacher_id)
+      references public.students(id, teacher_id)
+      on delete cascade
+      not valid;
+  end if;
+
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'item_mastery_student_teacher_fk'
+      and conrelid = 'public.item_mastery'::regclass
+  ) then
+    alter table public.item_mastery
+      add constraint item_mastery_student_teacher_fk
+      foreign key (student_id, teacher_id)
+      references public.students(id, teacher_id)
+      on delete cascade
+      not valid;
+  end if;
+end;
+$$;
+
+drop policy if exists "App admins manage all classes" on public.classes;
+create policy "App admins manage all classes"
+  on public.classes for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+drop policy if exists "App admins manage all students" on public.students;
+create policy "App admins manage all students"
+  on public.students for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+drop policy if exists "App admins manage all answers" on public.answers;
+create policy "App admins manage all answers"
+  on public.answers for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+drop policy if exists "App admins manage all mastery" on public.mastery;
+create policy "App admins manage all mastery"
+  on public.mastery for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+drop policy if exists "App admins manage all item mastery" on public.item_mastery;
+create policy "App admins manage all item mastery"
+  on public.item_mastery for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+drop trigger if exists classes_set_updated_at on public.classes;
+create trigger classes_set_updated_at
+  before update on public.classes
+  for each row execute function public.set_core_learning_updated_at();
+
+drop trigger if exists students_set_updated_at on public.students;
+create trigger students_set_updated_at
+  before update on public.students
+  for each row execute function public.set_core_learning_updated_at();
+
+drop trigger if exists mastery_set_updated_at on public.mastery;
+create trigger mastery_set_updated_at
+  before update on public.mastery
+  for each row execute function public.set_core_learning_updated_at();
+
+drop trigger if exists item_mastery_set_updated_at on public.item_mastery;
+create trigger item_mastery_set_updated_at
+  before update on public.item_mastery
+  for each row execute function public.set_core_learning_updated_at();
+
+-- ==== 20260723110000_leaderboard_student_token_privacy.sql ==============
+
+-- Child-safety boundary for arcade leaderboards.
+--
+-- The previous RPC trusted a caller-supplied school id and returned real
+-- student names. This migration makes the server own every privacy decision:
+-- a live student session identifies the learner, the learner's class owns the
+-- scope, and only pseudonyms leave the database.
+
+alter table public.classes
+  add column if not exists leaderboard_scope text;
+
+update public.classes
+set leaderboard_scope = 'class'
+where leaderboard_scope is null;
+
+alter table public.classes
+  alter column leaderboard_scope set default 'class',
+  alter column leaderboard_scope set not null;
+
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_constraint
+    where conname = 'classes_leaderboard_scope_check'
+      and conrelid = 'public.classes'::regclass
+  ) then
+    alter table public.classes
+      add constraint classes_leaderboard_scope_check
+      check (leaderboard_scope in ('class', 'school'));
+  end if;
+end
+$$;
+
+create or replace function public.teacher_set_class_leaderboard_scope(
+  p_class_id uuid,
+  p_scope text
+)
+returns table (class_id uuid, leaderboard_scope text)
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_scope text := lower(btrim(coalesce(p_scope, '')));
+begin
+  if v_user_id is null then
+    raise exception 'not_authenticated';
+  end if;
+  if v_scope not in ('class', 'school') then
+    raise exception 'invalid_leaderboard_scope';
+  end if;
+
+  update public.classes c
+  set leaderboard_scope = v_scope,
+      updated_at = now()
+  where c.id = p_class_id
+    and (
+      c.teacher_id = v_user_id
+      or public.is_app_admin(v_user_id)
+    );
+
+  if not found then
+    raise exception 'class_not_found_or_not_owned';
+  end if;
+
+  return query
+  select p_class_id, v_scope;
+end;
+$$;
+
+revoke all on function public.teacher_set_class_leaderboard_scope(uuid, text)
+  from public, anon;
+grant execute on function public.teacher_set_class_leaderboard_scope(uuid, text)
+  to authenticated;
+
+-- Remove every legacy overload so no caller can select a scope by supplying
+-- a school id and no overload can return a child's real name.
+drop function if exists public.get_game_leaderboard(int);
+drop function if exists public.get_game_leaderboard(int, uuid);
+
+create or replace function public.get_game_leaderboard(
+  p_student_token text,
+  p_limit int default 10
+)
+returns jsonb
+language plpgsql
+stable
+security definer
+set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+  v_school_id uuid;
+  v_scope text;
+  v_rows jsonb;
+begin
+  if btrim(coalesce(p_student_token, '')) = '' then
+    raise exception 'invalid_session';
+  end if;
+
+  v_student := public.student_from_token(p_student_token);
+  if v_student.id is null or v_student.class_id is null then
+    raise exception 'invalid_session';
+  end if;
+
+  select c.school_id, c.leaderboard_scope
+  into v_school_id, v_scope
+  from public.classes c
+  where c.id = v_student.class_id;
+
+  if v_scope = 'school' and v_school_id is null then
+    v_scope := 'class';
+  end if;
+  v_scope := coalesce(v_scope, 'class');
+
+  select coalesce(
+    jsonb_agg(
+      jsonb_build_object(
+        'student_name', ranked.student_name,
+        'total_points', ranked.total_points,
+        'total_stars', ranked.total_stars
+      )
+      order by ranked.total_points desc, ranked.total_stars desc, ranked.student_name
+    ),
+    '[]'::jsonb
+  )
+  into v_rows
+  from (
+    select
+      'Reader ' || upper(substr(
+        encode(
+          extensions.digest(
+            s.id::text || ':' ||
+              case when v_scope = 'school' then v_school_id::text else c.id::text end ||
+              ':leaderboard-v1',
+            'sha256'
+          ),
+          'hex'
+        ),
+        1,
+        6
+      )) as student_name,
+      coalesce((
+        select sum(
+          case
+            when coalesce(g.value ->> 'highScore', '') ~ '^-?[0-9]+$'
+              then least(
+                greatest((g.value ->> 'highScore')::numeric, 0),
+                2147483647
+              )
+            else 0
+          end
+        )
+        from jsonb_each(coalesce(sp.payload -> 'games', '{}'::jsonb)) as g
+      ), 0)::int as total_points,
+      coalesce((
+        select sum(
+          case
+            when coalesce(g.value ->> 'stars', '') ~ '^-?[0-9]+$'
+              then least(greatest((g.value ->> 'stars')::numeric, 0), 3)
+            else 0
+          end
+        )
+        from jsonb_each(coalesce(sp.payload -> 'games', '{}'::jsonb)) as g
+      ), 0)::int as total_stars
+    from public.student_progress sp
+    join public.students s on s.id = sp.student_id
+    join public.classes c on c.id = s.class_id
+    where sp.area = 'learn_games'
+      and sp.key = '__all__'
+      and s.archived_at is null
+      and (
+        (v_scope = 'class' and c.id = v_student.class_id)
+        or
+        (v_scope = 'school' and c.school_id = v_school_id)
+      )
+    order by total_points desc, total_stars desc, student_name
+    limit greatest(1, least(coalesce(p_limit, 10), 50))
+  ) as ranked;
+
+  return jsonb_build_object(
+    'scope', v_scope,
+    'rows', v_rows
+  );
+end;
+$$;
+
+revoke all on function public.get_game_leaderboard(text, int) from public;
+grant execute on function public.get_game_leaderboard(text, int)
+  to anon, authenticated;
+
+notify pgrst, 'reload schema';
+
+-- ==== 20260723170000_teacher_demo_class.sql =============================
+
+-- Atomic, teacher-owned sample data for first-run onboarding.
+--
+-- Demo learners carry login pictures so teachers can safely explore child
+-- sign-in, but they carry no answers, mastery, attempts, or progress. The
+-- "(sample)" label keeps the data unmistakable in every downstream view.
+
+create or replace function public.teacher_create_demo_class()
+returns jsonb
+language plpgsql
+security invoker
+set search_path = public
+as $$
+declare
+  v_teacher_id uuid := auth.uid();
+  v_school_id uuid;
+  v_class public.classes;
+begin
+  if v_teacher_id is null then
+    raise exception 'Authentication required';
+  end if;
+
+  select school_id
+  into v_school_id
+  from public.pending_teacher_accounts
+  where user_id = v_teacher_id
+    and role = 'teacher'
+    and status = 'approved'
+    and approval_status = 'approved'
+  limit 1;
+
+  if not found then
+    raise exception 'Approved teacher account required';
+  end if;
+
+  if exists (
+    select 1
+    from public.classes
+    where teacher_id = v_teacher_id
+  ) then
+    raise exception 'Sample class is only available before the first class is created';
+  end if;
+
+  insert into public.classes (teacher_id, school_id, name)
+  values (v_teacher_id, v_school_id, 'Demo Class (sample)')
+  returning * into v_class;
+
+  insert into public.students (
+    class_id,
+    teacher_id,
+    name,
+    symbol_password,
+    password_set_at,
+    password_updated_by
+  )
+  values
+    (v_class.id, v_teacher_id, 'Demo Ava', '123', now(), v_teacher_id),
+    (v_class.id, v_teacher_id, 'Demo Ben', '456', now(), v_teacher_id),
+    (v_class.id, v_teacher_id, 'Demo Chen', '789', now(), v_teacher_id);
+
+  return jsonb_build_object(
+    'class_id', v_class.id,
+    'class_name', v_class.name,
+    'learner_count', 3,
+    'contains_assessment_evidence', false
+  );
+end;
+$$;
+
+revoke all on function public.teacher_create_demo_class() from public;
+grant execute on function public.teacher_create_demo_class() to authenticated;
+
+-- ==== 20260723183000_teacher_interventions.sql ==========================
+
+-- Track the complete teacher intervention lifecycle as durable, owned data.
+--
+-- A suggestion is not an intervention until it has an owner, date, group,
+-- focus, and activity. Later states require the evidence recorded at each
+-- transition, so a client cannot create a misleading "reviewed" shell.
+
+create table if not exists public.teacher_interventions (
+  id uuid primary key default gen_random_uuid(),
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  class_id uuid not null,
+  parent_intervention_id uuid references public.teacher_interventions(id) on delete set null,
+  owner_label text not null check (char_length(btrim(owner_label)) between 1 and 80),
+  group_label text not null check (char_length(btrim(group_label)) between 1 and 120),
+  student_ids uuid[] not null default '{}'
+    check (cardinality(student_ids) <= 40),
+  focus text not null check (char_length(btrim(focus)) between 1 and 160),
+  activity text not null check (char_length(btrim(activity)) between 1 and 240),
+  planned_for date not null,
+  status text not null default 'planned'
+    check (status in ('planned', 'delivered', 'recorded', 'reviewed')),
+  delivered_at timestamptz,
+  outcome text check (outcome in ('effective', 'partial', 'ineffective')),
+  outcome_note text check (outcome_note is null or char_length(outcome_note) <= 500),
+  recorded_at timestamptz,
+  reviewed_at timestamptz,
+  next_review_on date,
+  follow_up_required boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint teacher_interventions_class_teacher_fk
+    foreign key (class_id, teacher_id)
+    references public.classes(id, teacher_id)
+    on delete cascade,
+  constraint teacher_interventions_state_evidence_check check (
+    (status = 'planned'
+      and delivered_at is null
+      and recorded_at is null
+      and reviewed_at is null
+      and outcome is null)
+    or
+    (status = 'delivered'
+      and delivered_at is not null
+      and recorded_at is null
+      and reviewed_at is null
+      and outcome is null)
+    or
+    (status = 'recorded'
+      and delivered_at is not null
+      and recorded_at is not null
+      and reviewed_at is null
+      and outcome is not null)
+    or
+    (status = 'reviewed'
+      and delivered_at is not null
+      and recorded_at is not null
+      and reviewed_at is not null
+      and outcome is not null
+      and next_review_on is not null)
+  ),
+  constraint teacher_interventions_follow_up_check check (
+    not follow_up_required
+    or (status = 'reviewed' and outcome in ('partial', 'ineffective'))
+  )
+);
+
+create index if not exists teacher_interventions_class_status_date_idx
+  on public.teacher_interventions (teacher_id, class_id, status, planned_for);
+create index if not exists teacher_interventions_follow_up_idx
+  on public.teacher_interventions (teacher_id, class_id, next_review_on)
+  where follow_up_required;
+
+alter table public.teacher_interventions enable row level security;
+
+revoke all on public.teacher_interventions from anon;
+grant select, insert, update, delete on public.teacher_interventions to authenticated;
+
+drop policy if exists "Teachers manage owned interventions" on public.teacher_interventions;
+create policy "Teachers manage owned interventions"
+  on public.teacher_interventions for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (
+    teacher_id = auth.uid()
+    and exists (
+      select 1
+      from public.classes c
+      where c.id = teacher_interventions.class_id
+        and c.teacher_id = auth.uid()
+    )
+  );
+
+drop policy if exists "App admins manage all interventions" on public.teacher_interventions;
+create policy "App admins manage all interventions"
+  on public.teacher_interventions for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+create or replace function public.validate_teacher_intervention()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  if cardinality(new.student_ids) > 40 then
+    raise exception 'An intervention group cannot contain more than 40 learners';
+  end if;
+
+  if exists (
+    select 1
+    from unnest(new.student_ids) student_id
+    left join public.students s
+      on s.id = student_id
+      and s.class_id = new.class_id
+      and s.teacher_id = new.teacher_id
+    where s.id is null
+  ) then
+    raise exception 'Every intervention learner must belong to its class and teacher';
+  end if;
+
+  if tg_op = 'UPDATE' and (
+    (old.status = 'planned' and new.status not in ('planned', 'delivered'))
+    or (old.status = 'delivered' and new.status not in ('delivered', 'recorded'))
+    or (old.status = 'recorded' and new.status not in ('recorded', 'reviewed'))
+    or (old.status = 'reviewed' and new.status <> 'reviewed')
+  ) then
+    raise exception 'Invalid intervention lifecycle transition from % to %', old.status, new.status;
+  end if;
+
+  return new;
+end;
+$$;
+
+drop trigger if exists teacher_interventions_validate on public.teacher_interventions;
+create trigger teacher_interventions_validate
+  before insert or update on public.teacher_interventions
+  for each row execute function public.validate_teacher_intervention();
+
+drop trigger if exists teacher_interventions_set_updated_at on public.teacher_interventions;
+create trigger teacher_interventions_set_updated_at
+  before update on public.teacher_interventions
+  for each row execute function public.set_core_learning_updated_at();
+
+create or replace function public.teacher_create_intervention_follow_up(
+  p_parent_intervention_id uuid,
+  p_owner_label text,
+  p_group_label text,
+  p_student_ids uuid[],
+  p_focus text,
+  p_activity text,
+  p_planned_for date
+)
+returns public.teacher_interventions
+language plpgsql
+security invoker
+set search_path = public
+as $$
+declare
+  v_parent public.teacher_interventions;
+  v_follow_up public.teacher_interventions;
+begin
+  select *
+  into v_parent
+  from public.teacher_interventions
+  where id = p_parent_intervention_id
+    and teacher_id = auth.uid()
+    and status = 'reviewed'
+    and follow_up_required
+  for update;
+
+  if not found then
+    raise exception 'A reviewed owned intervention requiring follow-up was not found';
+  end if;
+
+  insert into public.teacher_interventions (
+    teacher_id,
+    class_id,
+    parent_intervention_id,
+    owner_label,
+    group_label,
+    student_ids,
+    focus,
+    activity,
+    planned_for,
+    status
+  )
+  values (
+    v_parent.teacher_id,
+    v_parent.class_id,
+    v_parent.id,
+    p_owner_label,
+    p_group_label,
+    coalesce(p_student_ids, '{}'),
+    p_focus,
+    p_activity,
+    p_planned_for,
+    'planned'
+  )
+  returning * into v_follow_up;
+
+  update public.teacher_interventions
+  set follow_up_required = false
+  where id = v_parent.id;
+
+  return v_follow_up;
+end;
+$$;
+
+revoke all on function public.teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date) from public;
+grant execute on function public.teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date) to authenticated;
+
+-- ==== 20260723231500_teacher_instructional_groups.sql ===================
+
+-- Durable instructional groups derived from explicit evidence criteria.
+--
+-- A group is saved with the criterion that produced it. Membership is never
+-- overwritten in place: each review appends a dated snapshot so teachers can
+-- explain who stayed, joined, or left without ranking learners.
+
+create table if not exists public.teacher_instructional_groups (
+  id uuid primary key default gen_random_uuid(),
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  class_id uuid not null,
+  name text not null check (char_length(btrim(name)) between 1 and 120),
+  criteria jsonb not null,
+  status text not null default 'active'
+    check (status in ('active', 'archived')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  constraint teacher_instructional_groups_class_teacher_fk
+    foreign key (class_id, teacher_id)
+    references public.classes(id, teacher_id)
+    on delete cascade,
+  constraint teacher_instructional_groups_owner_key
+    unique (id, teacher_id, class_id)
+);
+
+alter table public.teacher_instructional_groups
+  drop constraint if exists teacher_instructional_groups_criteria_check;
+alter table public.teacher_instructional_groups
+  add constraint teacher_instructional_groups_criteria_check check (
+    jsonb_typeof(criteria) = 'object'
+    and criteria ?& array['sourceId', 'kind', 'label', 'basis', 'policy']
+    and jsonb_typeof(criteria -> 'sourceId') = 'string'
+    and jsonb_typeof(criteria -> 'kind') = 'string'
+    and jsonb_typeof(criteria -> 'label') = 'string'
+    and jsonb_typeof(criteria -> 'basis') = 'string'
+    and jsonb_typeof(criteria -> 'policy') = 'string'
+    and char_length(btrim(criteria ->> 'sourceId')) between 1 and 180
+    and char_length(btrim(criteria ->> 'kind')) between 1 and 80
+    and char_length(btrim(criteria ->> 'label')) between 1 and 180
+    and char_length(btrim(criteria ->> 'basis')) between 1 and 240
+    and char_length(btrim(criteria ->> 'policy')) between 1 and 500
+  );
+
+create unique index if not exists teacher_instructional_groups_active_name_idx
+  on public.teacher_instructional_groups (teacher_id, class_id, lower(btrim(name)))
+  where status = 'active';
+create index if not exists teacher_instructional_groups_class_updated_idx
+  on public.teacher_instructional_groups (teacher_id, class_id, updated_at desc);
+
+create table if not exists public.teacher_instructional_group_reviews (
+  id uuid primary key default gen_random_uuid(),
+  group_id uuid not null,
+  teacher_id uuid not null,
+  class_id uuid not null,
+  student_ids uuid[] not null check (
+    cardinality(student_ids) between 1 and 40
+  ),
+  evidence_snapshot jsonb not null check (
+    jsonb_typeof(evidence_snapshot) = 'object'
+  ),
+  reviewed_at timestamptz not null default now(),
+  created_at timestamptz not null default now(),
+  constraint teacher_instructional_group_reviews_group_fk
+    foreign key (group_id, teacher_id, class_id)
+    references public.teacher_instructional_groups(id, teacher_id, class_id)
+    on delete cascade
+);
+
+create index if not exists teacher_instructional_group_reviews_latest_idx
+  on public.teacher_instructional_group_reviews
+    (teacher_id, class_id, group_id, reviewed_at desc, id desc);
+
+alter table public.teacher_instructional_groups enable row level security;
+alter table public.teacher_instructional_group_reviews enable row level security;
+
+revoke all on public.teacher_instructional_groups from anon;
+revoke all on public.teacher_instructional_group_reviews from anon;
+revoke all on public.teacher_instructional_groups from authenticated;
+revoke all on public.teacher_instructional_group_reviews from authenticated;
+grant select, update on public.teacher_instructional_groups to authenticated;
+grant select on public.teacher_instructional_group_reviews to authenticated;
+
+drop policy if exists "Teachers manage owned instructional groups"
+  on public.teacher_instructional_groups;
+create policy "Teachers manage owned instructional groups"
+  on public.teacher_instructional_groups for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (
+    teacher_id = auth.uid()
+    and exists (
+      select 1
+      from public.classes c
+      where c.id = teacher_instructional_groups.class_id
+        and c.teacher_id = auth.uid()
+    )
+  );
+
+drop policy if exists "App admins manage all instructional groups"
+  on public.teacher_instructional_groups;
+create policy "App admins manage all instructional groups"
+  on public.teacher_instructional_groups for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+drop policy if exists "Teachers manage owned instructional group reviews"
+  on public.teacher_instructional_group_reviews;
+create policy "Teachers manage owned instructional group reviews"
+  on public.teacher_instructional_group_reviews for all to authenticated
+  using (teacher_id = auth.uid())
+  with check (teacher_id = auth.uid());
+
+drop policy if exists "App admins manage all instructional group reviews"
+  on public.teacher_instructional_group_reviews;
+create policy "App admins manage all instructional group reviews"
+  on public.teacher_instructional_group_reviews for all to authenticated
+  using (public.is_app_admin(auth.uid()))
+  with check (public.is_app_admin(auth.uid()));
+
+create or replace function public.validate_teacher_instructional_group()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  if tg_op = 'UPDATE' and (
+    new.teacher_id is distinct from old.teacher_id
+    or new.class_id is distinct from old.class_id
+    or new.criteria is distinct from old.criteria
+    or new.created_at is distinct from old.created_at
+    or (old.status = 'archived' and new.status <> 'archived')
+  ) then
+    raise exception 'Instructional group ownership, criterion, creation time, and archive state are immutable';
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists teacher_instructional_groups_validate
+  on public.teacher_instructional_groups;
+create trigger teacher_instructional_groups_validate
+  before update on public.teacher_instructional_groups
+  for each row execute function public.validate_teacher_instructional_group();
+
+create or replace function public.validate_teacher_instructional_group_review()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  if tg_op = 'UPDATE' then
+    raise exception 'Instructional group review snapshots are append-only';
+  end if;
+
+  if cardinality(new.student_ids) <> cardinality(array(select distinct unnest(new.student_ids))) then
+    raise exception 'Instructional group membership cannot contain duplicate learners';
+  end if;
+
+  if exists (
+    select 1
+    from unnest(new.student_ids) student_id
+    left join public.students s
+      on s.id = student_id
+      and s.class_id = new.class_id
+      and s.teacher_id = new.teacher_id
+      and s.archived_at is null
+    where s.id is null
+  ) then
+    raise exception 'Every instructional group learner must be active in its class and teacher';
+  end if;
+
+  if jsonb_typeof(new.evidence_snapshot) <> 'object'
+    or not (
+      new.evidence_snapshot ?& array[
+        'schemaVersion',
+        'capturedAt',
+        'memberCount',
+        'policyReadyMembers',
+        'attempts',
+        'skillDiversity',
+        'latestEvidenceAt',
+        'averageAccuracy',
+        'supportRecorded',
+        'supportUsed'
+      ]
+    )
+    or jsonb_typeof(new.evidence_snapshot -> 'schemaVersion') <> 'number'
+    or jsonb_typeof(new.evidence_snapshot -> 'capturedAt') <> 'string'
+    or jsonb_typeof(new.evidence_snapshot -> 'memberCount') <> 'number'
+    or jsonb_typeof(new.evidence_snapshot -> 'policyReadyMembers') <> 'number'
+    or jsonb_typeof(new.evidence_snapshot -> 'attempts') <> 'number'
+    or jsonb_typeof(new.evidence_snapshot -> 'skillDiversity') <> 'number'
+    or jsonb_typeof(new.evidence_snapshot -> 'latestEvidenceAt') <> 'string'
+    or coalesce(jsonb_typeof(new.evidence_snapshot -> 'averageAccuracy'), '') not in ('number', 'null')
+    or jsonb_typeof(new.evidence_snapshot -> 'supportRecorded') <> 'number'
+    or jsonb_typeof(new.evidence_snapshot -> 'supportUsed') <> 'number'
+  then
+    raise exception 'Instructional group evidence snapshot has an invalid schema';
+  end if;
+
+  if (new.evidence_snapshot ->> 'schemaVersion')::numeric <> 1
+    or (new.evidence_snapshot ->> 'memberCount')::numeric
+      <> cardinality(new.student_ids)
+    or trunc((new.evidence_snapshot ->> 'memberCount')::numeric)
+      <> (new.evidence_snapshot ->> 'memberCount')::numeric
+    or (new.evidence_snapshot ->> 'policyReadyMembers')::numeric < 0
+    or trunc((new.evidence_snapshot ->> 'policyReadyMembers')::numeric)
+      <> (new.evidence_snapshot ->> 'policyReadyMembers')::numeric
+    or (new.evidence_snapshot ->> 'policyReadyMembers')::numeric
+      > (new.evidence_snapshot ->> 'memberCount')::numeric
+    or (new.evidence_snapshot ->> 'attempts')::numeric < 0
+    or trunc((new.evidence_snapshot ->> 'attempts')::numeric)
+      <> (new.evidence_snapshot ->> 'attempts')::numeric
+    or (new.evidence_snapshot ->> 'skillDiversity')::numeric < 0
+    or trunc((new.evidence_snapshot ->> 'skillDiversity')::numeric)
+      <> (new.evidence_snapshot ->> 'skillDiversity')::numeric
+    or (
+      jsonb_typeof(new.evidence_snapshot -> 'averageAccuracy') = 'number'
+      and (
+        (new.evidence_snapshot ->> 'averageAccuracy')::numeric < 0
+        or (new.evidence_snapshot ->> 'averageAccuracy')::numeric > 100
+      )
+    )
+    or (new.evidence_snapshot ->> 'supportRecorded')::numeric < 0
+    or trunc((new.evidence_snapshot ->> 'supportRecorded')::numeric)
+      <> (new.evidence_snapshot ->> 'supportRecorded')::numeric
+    or (new.evidence_snapshot ->> 'supportUsed')::numeric < 0
+    or trunc((new.evidence_snapshot ->> 'supportUsed')::numeric)
+      <> (new.evidence_snapshot ->> 'supportUsed')::numeric
+    or (new.evidence_snapshot ->> 'supportUsed')::numeric
+      > (new.evidence_snapshot ->> 'supportRecorded')::numeric
+  then
+    raise exception 'Instructional group evidence snapshot values are inconsistent';
+  end if;
+
+  new.reviewed_at := now();
+  new.created_at := now();
+  return new;
+end;
+$$;
+
+drop trigger if exists teacher_instructional_group_reviews_validate
+  on public.teacher_instructional_group_reviews;
+create trigger teacher_instructional_group_reviews_validate
+  before insert or update on public.teacher_instructional_group_reviews
+  for each row execute function public.validate_teacher_instructional_group_review();
+
+drop trigger if exists teacher_instructional_groups_set_updated_at
+  on public.teacher_instructional_groups;
+create trigger teacher_instructional_groups_set_updated_at
+  before update on public.teacher_instructional_groups
+  for each row execute function public.set_core_learning_updated_at();
+
+create or replace function public.teacher_save_instructional_group(
+  p_class_id uuid,
+  p_name text,
+  p_criteria jsonb,
+  p_student_ids uuid[],
+  p_evidence_snapshot jsonb
+)
+returns public.teacher_instructional_groups
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_teacher_id uuid := auth.uid();
+  v_group public.teacher_instructional_groups;
+begin
+  if v_teacher_id is null or not exists (
+    select 1
+    from public.classes c
+    where c.id = p_class_id
+      and c.teacher_id = v_teacher_id
+  ) then
+    raise exception 'An owned class was not found';
+  end if;
+
+  insert into public.teacher_instructional_groups (
+    teacher_id,
+    class_id,
+    name,
+    criteria
+  )
+  values (
+    v_teacher_id,
+    p_class_id,
+    btrim(p_name),
+    p_criteria
+  )
+  returning * into v_group;
+
+  insert into public.teacher_instructional_group_reviews (
+    group_id,
+    teacher_id,
+    class_id,
+    student_ids,
+    evidence_snapshot
+  )
+  values (
+    v_group.id,
+    v_group.teacher_id,
+    v_group.class_id,
+    p_student_ids,
+    p_evidence_snapshot
+  );
+
+  return v_group;
+end;
+$$;
+
+create or replace function public.teacher_review_instructional_group(
+  p_group_id uuid,
+  p_student_ids uuid[],
+  p_evidence_snapshot jsonb
+)
+returns public.teacher_instructional_group_reviews
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_group public.teacher_instructional_groups;
+  v_review public.teacher_instructional_group_reviews;
+begin
+  select *
+  into v_group
+  from public.teacher_instructional_groups
+  where id = p_group_id
+    and teacher_id = auth.uid()
+    and status = 'active'
+  for update;
+
+  if not found then
+    raise exception 'An active owned instructional group was not found';
+  end if;
+
+  insert into public.teacher_instructional_group_reviews (
+    group_id,
+    teacher_id,
+    class_id,
+    student_ids,
+    evidence_snapshot
+  )
+  values (
+    v_group.id,
+    v_group.teacher_id,
+    v_group.class_id,
+    p_student_ids,
+    p_evidence_snapshot
+  )
+  returning * into v_review;
+
+  update public.teacher_instructional_groups
+  set updated_at = now()
+  where id = v_group.id;
+
+  return v_review;
+end;
+$$;
+
+alter table public.teacher_interventions
+  add column if not exists instructional_group_id uuid;
+
+alter table public.teacher_interventions
+  drop constraint if exists teacher_interventions_instructional_group_fk;
+alter table public.teacher_interventions
+  add constraint teacher_interventions_instructional_group_fk
+  foreign key (instructional_group_id, teacher_id, class_id)
+  references public.teacher_instructional_groups(id, teacher_id, class_id);
+
+create index if not exists teacher_interventions_instructional_group_idx
+  on public.teacher_interventions (instructional_group_id, created_at desc)
+  where instructional_group_id is not null;
+
+create or replace function public.teacher_assign_instructional_group_follow_up(
+  p_group_id uuid,
+  p_owner_label text,
+  p_activity text,
+  p_planned_for date
+)
+returns public.teacher_interventions
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_group public.teacher_instructional_groups;
+  v_student_ids uuid[];
+  v_intervention public.teacher_interventions;
+begin
+  select *
+  into v_group
+  from public.teacher_instructional_groups
+  where id = p_group_id
+    and teacher_id = auth.uid()
+    and status = 'active';
+
+  if not found then
+    raise exception 'An active owned instructional group was not found';
+  end if;
+
+  select student_ids
+  into v_student_ids
+  from public.teacher_instructional_group_reviews
+  where group_id = v_group.id
+    and teacher_id = v_group.teacher_id
+    and class_id = v_group.class_id
+  order by reviewed_at desc, id desc
+  limit 1;
+
+  if coalesce(cardinality(v_student_ids), 0) = 0 then
+    raise exception 'The instructional group has no reviewed learners';
+  end if;
+
+  insert into public.teacher_interventions (
+    teacher_id,
+    class_id,
+    instructional_group_id,
+    owner_label,
+    group_label,
+    student_ids,
+    focus,
+    activity,
+    planned_for,
+    status
+  )
+  values (
+    v_group.teacher_id,
+    v_group.class_id,
+    v_group.id,
+    btrim(p_owner_label),
+    v_group.name,
+    v_student_ids,
+    v_group.criteria ->> 'label',
+    btrim(p_activity),
+    p_planned_for,
+    'planned'
+  )
+  returning * into v_intervention;
+
+  return v_intervention;
+end;
+$$;
+
+revoke all on function public.teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)
+  from public;
+revoke all on function public.teacher_review_instructional_group(uuid, uuid[], jsonb)
+  from public;
+revoke all on function public.teacher_assign_instructional_group_follow_up(uuid, text, text, date)
+  from public;
+grant execute on function public.teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)
+  to authenticated;
+grant execute on function public.teacher_review_instructional_group(uuid, uuid[], jsonb)
+  to authenticated;
+grant execute on function public.teacher_assign_instructional_group_follow_up(uuid, text, text, date)
+  to authenticated;
+
+-- ==== 20260724000000_teacher_insight_actions.sql ========================
+
+-- Close report insights into real teacher-owned actions.
+--
+-- Practice assignment and small-group planning create normal interventions,
+-- so delivery, outcome, review, and follow-up use the A5.10 lifecycle.
+-- Direct observations are immutable evidence and atomically create a dated
+-- teaching response instead of becoming an untracked note.
+
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.teacher_interventions'::regclass
+      and conname = 'teacher_interventions_owner_key'
+  ) then
+    alter table public.teacher_interventions
+      add constraint teacher_interventions_owner_key
+      unique (id, teacher_id, class_id);
+  end if;
+end;
+$$;
+
+create table if not exists public.teacher_insight_observations (
+  id uuid primary key default gen_random_uuid(),
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  class_id uuid not null,
+  intervention_id uuid not null,
+  insight_snapshot jsonb not null,
+  student_ids uuid[] not null check (cardinality(student_ids) between 1 and 40),
+  note text not null check (char_length(btrim(note)) between 1 and 500),
+  observed_at timestamptz not null default now(),
+  created_at timestamptz not null default now(),
+  constraint teacher_insight_observations_class_teacher_fk
+    foreign key (class_id, teacher_id)
+    references public.classes(id, teacher_id)
+    on delete cascade,
+  constraint teacher_insight_observations_intervention_fk
+    foreign key (intervention_id, teacher_id, class_id)
+    references public.teacher_interventions(id, teacher_id, class_id)
+    on delete cascade
+);
+
+create index if not exists teacher_insight_observations_class_time_idx
+  on public.teacher_insight_observations
+    (teacher_id, class_id, observed_at desc, id desc);
+create index if not exists teacher_insight_observations_intervention_idx
+  on public.teacher_insight_observations (intervention_id);
+
+alter table public.teacher_insight_observations enable row level security;
+revoke all on public.teacher_insight_observations from anon;
+revoke all on public.teacher_insight_observations from authenticated;
+grant select on public.teacher_insight_observations to authenticated;
+
+drop policy if exists "Teachers read owned insight observations"
+  on public.teacher_insight_observations;
+create policy "Teachers read owned insight observations"
+  on public.teacher_insight_observations for select to authenticated
+  using (teacher_id = auth.uid());
+
+drop policy if exists "App admins read all insight observations"
+  on public.teacher_insight_observations;
+create policy "App admins read all insight observations"
+  on public.teacher_insight_observations for select to authenticated
+  using (public.is_app_admin(auth.uid()));
+
+create or replace function public.validate_teacher_insight_observation()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  if tg_op = 'UPDATE' then
+    raise exception 'Teacher insight observations are immutable';
+  end if;
+
+  if cardinality(new.student_ids)
+    <> cardinality(array(select distinct unnest(new.student_ids)))
+  then
+    raise exception 'Teacher insight observations cannot contain duplicate learners';
+  end if;
+
+  if exists (
+    select 1
+    from unnest(new.student_ids) student_id
+    left join public.students s
+      on s.id = student_id
+      and s.class_id = new.class_id
+      and s.teacher_id = new.teacher_id
+      and s.archived_at is null
+    where s.id is null
+  ) then
+    raise exception 'Every observed learner must be active in its class and teacher';
+  end if;
+
+  if jsonb_typeof(new.insight_snapshot) <> 'object'
+    or not (
+      new.insight_snapshot ?& array[
+        'schemaVersion',
+        'key',
+        'kind',
+        'label',
+        'focus'
+      ]
+    )
+    or jsonb_typeof(new.insight_snapshot -> 'schemaVersion') <> 'number'
+    or jsonb_typeof(new.insight_snapshot -> 'key') <> 'string'
+    or jsonb_typeof(new.insight_snapshot -> 'kind') <> 'string'
+    or jsonb_typeof(new.insight_snapshot -> 'label') <> 'string'
+    or jsonb_typeof(new.insight_snapshot -> 'focus') <> 'string'
+    or exists (
+      select 1
+      from jsonb_object_keys(new.insight_snapshot) as keys(snapshot_key)
+      where snapshot_key <> all (array[
+        'schemaVersion',
+        'key',
+        'kind',
+        'label',
+        'focus',
+        'reason',
+        'criterion',
+        'evidence'
+      ])
+    )
+    or (
+      new.insight_snapshot ? 'reason'
+      and jsonb_typeof(new.insight_snapshot -> 'reason') <> 'string'
+    )
+    or (
+      new.insight_snapshot ? 'criterion'
+      and jsonb_typeof(new.insight_snapshot -> 'criterion') <> 'object'
+    )
+    or (
+      new.insight_snapshot ? 'evidence'
+      and jsonb_typeof(new.insight_snapshot -> 'evidence') <> 'object'
+    )
+  then
+    raise exception 'Teacher insight snapshot has an invalid schema';
+  end if;
+
+  if (new.insight_snapshot ->> 'schemaVersion')::numeric <> 1
+    or char_length(btrim(new.insight_snapshot ->> 'key')) not between 1 and 180
+    or char_length(btrim(new.insight_snapshot ->> 'kind')) not between 1 and 80
+    or char_length(btrim(new.insight_snapshot ->> 'label')) not between 1 and 180
+    or char_length(btrim(new.insight_snapshot ->> 'focus')) not between 1 and 240
+    or (
+      new.insight_snapshot ? 'reason'
+      and char_length(btrim(new.insight_snapshot ->> 'reason')) not between 1 and 500
+    )
+    or octet_length(new.insight_snapshot::text) > 8000
+  then
+    raise exception 'Teacher insight snapshot has an invalid schema';
+  end if;
+
+  new.observed_at := now();
+  new.created_at := now();
+  return new;
+end;
+$$;
+
+drop trigger if exists teacher_insight_observations_validate
+  on public.teacher_insight_observations;
+create trigger teacher_insight_observations_validate
+  before insert or update on public.teacher_insight_observations
+  for each row execute function public.validate_teacher_insight_observation();
+
+create or replace function public.teacher_create_insight_intervention(
+  p_action_type text,
+  p_class_id uuid,
+  p_insight jsonb,
+  p_student_ids uuid[],
+  p_targets text[],
+  p_owner_label text,
+  p_activity text,
+  p_planned_for date
+)
+returns public.teacher_interventions
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_teacher_id uuid := auth.uid();
+  v_intervention public.teacher_interventions;
+  v_assignment jsonb;
+begin
+  if p_action_type not in ('assign_practice', 'plan_small_group') then
+    raise exception 'Unknown teacher insight action';
+  end if;
+
+  if v_teacher_id is null or not exists (
+    select 1
+    from public.classes c
+    where c.id = p_class_id
+      and c.teacher_id = v_teacher_id
+  ) then
+    raise exception 'An owned class was not found';
+  end if;
+
+  if coalesce(cardinality(p_student_ids), 0) not between 1 and 40
+    or cardinality(p_student_ids)
+      <> cardinality(array(select distinct unnest(p_student_ids)))
+    or exists (
+      select 1
+      from unnest(p_student_ids) student_id
+      left join public.students s
+        on s.id = student_id
+        and s.class_id = p_class_id
+        and s.teacher_id = v_teacher_id
+        and s.archived_at is null
+      where s.id is null
+    )
+  then
+    raise exception 'Every action learner must be active in its class and teacher';
+  end if;
+
+  if jsonb_typeof(p_insight) <> 'object'
+    or not (p_insight ?& array['schemaVersion', 'key', 'kind', 'label', 'focus'])
+    or jsonb_typeof(p_insight -> 'schemaVersion') <> 'number'
+    or jsonb_typeof(p_insight -> 'key') <> 'string'
+    or jsonb_typeof(p_insight -> 'kind') <> 'string'
+    or jsonb_typeof(p_insight -> 'label') <> 'string'
+    or jsonb_typeof(p_insight -> 'focus') <> 'string'
+    or exists (
+      select 1
+      from jsonb_object_keys(p_insight) as keys(snapshot_key)
+      where snapshot_key <> all (array[
+        'schemaVersion',
+        'key',
+        'kind',
+        'label',
+        'focus',
+        'reason',
+        'criterion',
+        'evidence'
+      ])
+    )
+    or (
+      p_insight ? 'reason'
+      and jsonb_typeof(p_insight -> 'reason') <> 'string'
+    )
+    or (
+      p_insight ? 'criterion'
+      and jsonb_typeof(p_insight -> 'criterion') <> 'object'
+    )
+    or (
+      p_insight ? 'evidence'
+      and jsonb_typeof(p_insight -> 'evidence') <> 'object'
+    )
+  then
+    raise exception 'Teacher insight snapshot has an invalid schema';
+  end if;
+
+  if (p_insight ->> 'schemaVersion')::numeric <> 1
+    or char_length(btrim(p_insight ->> 'key')) not between 1 and 180
+    or char_length(btrim(p_insight ->> 'kind')) not between 1 and 80
+    or char_length(btrim(p_insight ->> 'label')) not between 1 and 180
+    or char_length(btrim(p_insight ->> 'focus')) not between 1 and 240
+    or (
+      p_insight ? 'reason'
+      and char_length(btrim(p_insight ->> 'reason')) not between 1 and 500
+    )
+    or octet_length(p_insight::text) > 8000
+  then
+    raise exception 'Teacher insight snapshot has an invalid schema';
+  end if;
+
+  if p_action_type = 'assign_practice' then
+    if coalesce(cardinality(p_targets), 0) not between 1 and 6
+      or cardinality(p_targets)
+        <> cardinality(array(select distinct unnest(p_targets)))
+      or exists (
+        select 1
+        from unnest(p_targets) target
+        where target is null
+          or char_length(btrim(target)) not between 1 and 40
+      )
+    then
+      raise exception 'Practice assignment requires one to six unique exact targets';
+    end if;
+
+    v_assignment := jsonb_build_object(
+      'assignment',
+      jsonb_build_object(
+        'targets', to_jsonb(p_targets),
+        'note', left(btrim(p_activity), 120),
+        'assignedAt', now(),
+        'by', 'teacher',
+        'insight', p_insight
+      )
+    );
+
+    insert into public.student_progress (
+      student_id,
+      area,
+      key,
+      payload,
+      updated_at
+    )
+    select
+      student_id,
+      'phonics_quest',
+      '__all__',
+      v_assignment,
+      now()
+    from unnest(p_student_ids) student_id
+    on conflict (student_id, area, key)
+    do update set
+      payload = excluded.payload,
+      updated_at = excluded.updated_at;
+  end if;
+
+  insert into public.teacher_interventions (
+    teacher_id,
+    class_id,
+    owner_label,
+    group_label,
+    student_ids,
+    focus,
+    activity,
+    planned_for,
+    status
+  )
+  values (
+    v_teacher_id,
+    p_class_id,
+    btrim(p_owner_label),
+    left(
+      btrim(p_insight ->> 'label')
+        || case
+          when p_action_type = 'assign_practice' then ' practice'
+          else ' group'
+        end,
+      120
+    ),
+    p_student_ids,
+    left(btrim(p_insight ->> 'focus'), 160),
+    btrim(p_activity),
+    p_planned_for,
+    'planned'
+  )
+  returning * into v_intervention;
+
+  return v_intervention;
+end;
+$$;
+
+create or replace function public.teacher_record_insight_observation(
+  p_class_id uuid,
+  p_insight jsonb,
+  p_student_ids uuid[],
+  p_note text,
+  p_owner_label text,
+  p_follow_up_activity text,
+  p_follow_up_on date
+)
+returns public.teacher_insight_observations
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_teacher_id uuid := auth.uid();
+  v_intervention public.teacher_interventions;
+  v_observation public.teacher_insight_observations;
+begin
+  if v_teacher_id is null or not exists (
+    select 1
+    from public.classes c
+    where c.id = p_class_id
+      and c.teacher_id = v_teacher_id
+  ) then
+    raise exception 'An owned class was not found';
+  end if;
+
+  if coalesce(cardinality(p_student_ids), 0) not between 1 and 40
+    or cardinality(p_student_ids)
+      <> cardinality(array(select distinct unnest(p_student_ids)))
+    or exists (
+      select 1
+      from unnest(p_student_ids) student_id
+      left join public.students s
+        on s.id = student_id
+        and s.class_id = p_class_id
+        and s.teacher_id = v_teacher_id
+        and s.archived_at is null
+      where s.id is null
+    )
+  then
+    raise exception 'Every observed learner must be active in its class and teacher';
+  end if;
+
+  if jsonb_typeof(p_insight) <> 'object'
+    or not (p_insight ?& array['schemaVersion', 'key', 'kind', 'label', 'focus'])
+  then
+    raise exception 'Teacher insight snapshot has an invalid schema';
+  end if;
+
+  insert into public.teacher_interventions (
+    teacher_id,
+    class_id,
+    owner_label,
+    group_label,
+    student_ids,
+    focus,
+    activity,
+    planned_for,
+    status
+  )
+  values (
+    v_teacher_id,
+    p_class_id,
+    btrim(p_owner_label),
+    left(btrim(p_insight ->> 'label') || ' observation follow-up', 120),
+    p_student_ids,
+    left(btrim(p_insight ->> 'focus'), 160),
+    btrim(p_follow_up_activity),
+    p_follow_up_on,
+    'planned'
+  )
+  returning * into v_intervention;
+
+  insert into public.teacher_insight_observations (
+    teacher_id,
+    class_id,
+    intervention_id,
+    insight_snapshot,
+    student_ids,
+    note
+  )
+  values (
+    v_teacher_id,
+    p_class_id,
+    v_intervention.id,
+    p_insight,
+    p_student_ids,
+    btrim(p_note)
+  )
+  returning * into v_observation;
+
+  return v_observation;
+end;
+$$;
+
+revoke all on function public.teacher_create_insight_intervention(
+  text, uuid, jsonb, uuid[], text[], text, text, date
+) from public;
+revoke all on function public.teacher_record_insight_observation(
+  uuid, jsonb, uuid[], text, text, text, date
+) from public;
+grant execute on function public.teacher_create_insight_intervention(
+  text, uuid, jsonb, uuid[], text[], text, text, date
+) to authenticated;
+grant execute on function public.teacher_record_insight_observation(
+  uuid, jsonb, uuid[], text, text, text, date
+) to authenticated;
+
+-- ==== 20260724003000_immutable_assessment_evidence.sql ==================
+
+-- Preserve the exact result and the versions that governed it.
+--
+-- The relational version columns make provenance queryable. raw_evidence is
+-- an immutable replay envelope containing the complete stored result, so a
+-- later content, form, or policy deployment cannot rewrite history.
+
+alter table public.assessment_attempts
+  add column if not exists evidence_schema_version integer not null default 1,
+  add column if not exists assessment_version text not null default 'legacy_unspecified',
+  add column if not exists content_version text not null default 'legacy_unspecified',
+  add column if not exists policy_version text not null default 'legacy_unspecified',
+  add column if not exists raw_evidence jsonb not null default '{}'::jsonb;
+
+update public.assessment_attempts
+set
+  evidence_schema_version = 1,
+  assessment_version = coalesce(
+    nullif(btrim(payload ->> 'assessmentVersion'), ''),
+    nullif(btrim(payload ->> 'formVersion'), ''),
+    nullif(btrim(assessment_type), '') || '-schema-' || schema_version::text,
+    'legacy_unspecified'
+  ),
+  content_version = coalesce(
+    nullif(btrim(payload ->> 'contentVersion'), ''),
+    'content-' || md5(coalesce(payload -> 'questionRecords', '[]'::jsonb)::text)
+  ),
+  policy_version = coalesce(
+    nullif(btrim(payload ->> 'policyVersion'), ''),
+    nullif(btrim(payload ->> 'scoringRuleVersion'), ''),
+    nullif(btrim(payload ->> 'scoringVersion'), ''),
+    'legacy-unspecified-' || coalesce(nullif(btrim(assessment_type), ''), 'assessment')
+      || '-schema-' || schema_version::text
+  )
+where raw_evidence = '{}'::jsonb;
+
+update public.assessment_attempts
+set raw_evidence = jsonb_build_object(
+  'schemaVersion', evidence_schema_version,
+  'attemptId', attempt_id,
+  'capturedAt', completed_at,
+  'assessmentVersion', assessment_version,
+  'contentVersion', content_version,
+  'policyVersion', policy_version,
+  'result', payload
+)
+where raw_evidence = '{}'::jsonb;
+
+alter table public.assessment_attempts
+  drop constraint if exists assessment_attempts_evidence_schema_check;
+alter table public.assessment_attempts
+  add constraint assessment_attempts_evidence_schema_check check (
+    evidence_schema_version = 1
+    and char_length(btrim(assessment_version)) between 1 and 160
+    and char_length(btrim(content_version)) between 1 and 160
+    and char_length(btrim(policy_version)) between 1 and 160
+    and jsonb_typeof(raw_evidence) = 'object'
+  );
+
+create index if not exists assessment_attempts_versions_idx
+  on public.assessment_attempts (
+    teacher_id,
+    assessment_type,
+    assessment_version,
+    content_version,
+    policy_version
+  );
+
+create or replace function public.validate_immutable_assessment_evidence()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+begin
+  if new.raw_evidence = '{}'::jsonb then
+    new.evidence_schema_version := 1;
+    if new.assessment_version = 'legacy_unspecified' then
+      new.assessment_version := coalesce(
+        nullif(btrim(new.payload ->> 'assessmentVersion'), ''),
+        nullif(btrim(new.payload ->> 'formVersion'), ''),
+        nullif(btrim(new.assessment_type), '') || '-schema-' || new.schema_version::text,
+        'legacy_unspecified'
+      );
+    end if;
+    if new.content_version = 'legacy_unspecified' then
+      new.content_version := coalesce(
+        nullif(btrim(new.payload ->> 'contentVersion'), ''),
+        'content-' || md5(coalesce(new.payload -> 'questionRecords', '[]'::jsonb)::text)
+      );
+    end if;
+    if new.policy_version = 'legacy_unspecified' then
+      new.policy_version := coalesce(
+        nullif(btrim(new.payload ->> 'policyVersion'), ''),
+        nullif(btrim(new.payload ->> 'scoringRuleVersion'), ''),
+        nullif(btrim(new.payload ->> 'scoringVersion'), ''),
+        'legacy-unspecified-' || coalesce(
+          nullif(btrim(new.assessment_type), ''),
+          'assessment'
+        ) || '-schema-' || new.schema_version::text
+      );
+    end if;
+    new.raw_evidence := jsonb_build_object(
+      'schemaVersion', new.evidence_schema_version,
+      'attemptId', new.attempt_id,
+      'capturedAt', new.completed_at,
+      'assessmentVersion', new.assessment_version,
+      'contentVersion', new.content_version,
+      'policyVersion', new.policy_version,
+      'result', new.payload
+    );
+  end if;
+
+  if new.evidence_schema_version <> 1
+    or char_length(btrim(new.assessment_version)) not between 1 and 160
+    or char_length(btrim(new.content_version)) not between 1 and 160
+    or char_length(btrim(new.policy_version)) not between 1 and 160
+    or jsonb_typeof(new.raw_evidence) <> 'object'
+    or not (
+      new.raw_evidence ?& array[
+        'schemaVersion',
+        'attemptId',
+        'capturedAt',
+        'assessmentVersion',
+        'contentVersion',
+        'policyVersion',
+        'result'
+      ]
+    )
+    or jsonb_typeof(new.raw_evidence -> 'schemaVersion') <> 'number'
+    or jsonb_typeof(new.raw_evidence -> 'attemptId') <> 'string'
+    or jsonb_typeof(new.raw_evidence -> 'capturedAt') <> 'string'
+    or jsonb_typeof(new.raw_evidence -> 'assessmentVersion') <> 'string'
+    or jsonb_typeof(new.raw_evidence -> 'contentVersion') <> 'string'
+    or jsonb_typeof(new.raw_evidence -> 'policyVersion') <> 'string'
+    or new.raw_evidence ->> 'attemptId' <> new.attempt_id
+    or new.raw_evidence ->> 'assessmentVersion' <> new.assessment_version
+    or new.raw_evidence ->> 'contentVersion' <> new.content_version
+    or new.raw_evidence ->> 'policyVersion' <> new.policy_version
+    or jsonb_typeof(new.raw_evidence -> 'result') <> 'object'
+    or new.raw_evidence -> 'result' <> new.payload
+    or octet_length(new.raw_evidence::text) > 5000000
+  then
+    raise exception 'Assessment evidence archive does not match its stored result and versions';
+  end if;
+
+  if (new.raw_evidence ->> 'schemaVersion')::numeric
+    <> new.evidence_schema_version
+    or (new.raw_evidence ->> 'capturedAt')::timestamptz <> new.completed_at
+  then
+    raise exception 'Assessment evidence archive does not match its stored result and versions';
+  end if;
+
+  if tg_op = 'UPDATE'
+    and old.administration_status in (
+      'completed',
+      'discontinued',
+      'not_administered',
+      'not_scorable'
+    )
+    and (
+      to_jsonb(new) - array['created_at', 'updated_at']
+      <> to_jsonb(old) - array['created_at', 'updated_at']
+    )
+  then
+    raise exception 'Completed assessment evidence is immutable';
+  end if;
+
+  return new;
+end;
+$$;
+
+drop trigger if exists assessment_attempts_evidence_immutable
+  on public.assessment_attempts;
+create trigger assessment_attempts_evidence_immutable
+  before insert or update on public.assessment_attempts
+  for each row execute function public.validate_immutable_assessment_evidence();
+
+comment on column public.assessment_attempts.assessment_version is
+  'Version of the assessment/form definition used for this result.';
+comment on column public.assessment_attempts.content_version is
+  'Version or content fingerprint of the administered items.';
+comment on column public.assessment_attempts.policy_version is
+  'Version of the scoring, routing, or mastery policy used for this result.';
+comment on column public.assessment_attempts.raw_evidence is
+  'Immutable replay envelope containing the complete result and its provenance.';
+
+-- ==== 20260724133000_teacher_reduced_choice_mode.sql ====================
+
+-- Teacher-owned reduced-choice navigation.
+--
+-- Student profiles are otherwise latest-state records. A partial teacher
+-- upsert must not erase a child's companion or collectibles, and an offline
+-- child profile save must not undo a teacher's accessibility setting.
+-- This trigger branch makes those two ownership rules atomic at the database.
+
+create or replace function public.lp_student_progress_merge()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+declare
+  v_profile jsonb;
+  v_teacher_controls_profile boolean;
+begin
+  if new.area = 'profile' then
+    v_profile := coalesce(old.payload, '{}'::jsonb) || coalesce(new.payload, '{}'::jsonb);
+    select exists (
+      select 1
+      from public.students s
+      where s.id = new.student_id
+        and (s.teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
+    ) into v_teacher_controls_profile;
+
+    if not v_teacher_controls_profile then
+      v_profile := (
+        v_profile
+        - 'reducedChoiceMode'
+        - 'reducedChoiceModeAt'
+        - 'reducedChoiceModeBy'
+      ) || jsonb_strip_nulls(jsonb_build_object(
+        'reducedChoiceMode', old.payload -> 'reducedChoiceMode',
+        'reducedChoiceModeAt', old.payload -> 'reducedChoiceModeAt',
+        'reducedChoiceModeBy', old.payload -> 'reducedChoiceModeBy'
+      ));
+    end if;
+
+    new.payload := v_profile;
+    return new;
+  end if;
+
+  new.payload := public.lp_forward_merge_progress(new.area, old.payload, new.payload);
+  return new;
+end;
+$$;
+
+comment on function public.lp_student_progress_merge() is
+  'Merges student progress atomically; reduced-choice profile fields are teacher/admin owned.';
+
+-- ==== 20260724173000_teacher_learner_accessibility_settings.sql =========
+
+-- Teacher-owned per-learner accessibility settings.
+--
+-- These settings are hydrated to the learner profile, but child/offline
+-- profile writes must not be able to change or remove them. Partial teacher
+-- profile writes must continue to preserve the rest of the learner profile.
+
+create or replace function public.lp_student_progress_merge()
+returns trigger
+language plpgsql
+set search_path = public
+as $$
+declare
+  v_profile jsonb;
+  v_teacher_controls_profile boolean;
+begin
+  if new.area = 'profile' then
+    v_profile := coalesce(old.payload, '{}'::jsonb) || coalesce(new.payload, '{}'::jsonb);
+    select exists (
+      select 1
+      from public.students s
+      where s.id = new.student_id
+        and (s.teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
+    ) into v_teacher_controls_profile;
+
+    if not v_teacher_controls_profile then
+      v_profile := (
+        v_profile
+        - 'reducedChoiceMode'
+        - 'reducedChoiceModeAt'
+        - 'reducedChoiceModeBy'
+        - 'accessibilitySettings'
+        - 'accessibilitySettingsAt'
+        - 'accessibilitySettingsBy'
+      ) || jsonb_strip_nulls(jsonb_build_object(
+        'reducedChoiceMode', old.payload -> 'reducedChoiceMode',
+        'reducedChoiceModeAt', old.payload -> 'reducedChoiceModeAt',
+        'reducedChoiceModeBy', old.payload -> 'reducedChoiceModeBy',
+        'accessibilitySettings', old.payload -> 'accessibilitySettings',
+        'accessibilitySettingsAt', old.payload -> 'accessibilitySettingsAt',
+        'accessibilitySettingsBy', old.payload -> 'accessibilitySettingsBy'
+      ));
+    end if;
+
+    new.payload := v_profile;
+    return new;
+  end if;
+
+  new.payload := public.lp_forward_merge_progress(new.area, old.payload, new.payload);
+  return new;
+end;
+$$;
+
+comment on function public.lp_student_progress_merge() is
+  'Merges student progress atomically; learner navigation and accessibility profile fields are teacher/admin owned.';
+
+-- ==== 20260724234500_engagement_sync_health.sql =========================
+
+alter table public.learn_activity
+  add column if not exists client_event_id text,
+  add column if not exists occurred_at timestamptz,
+  add column if not exists delivery_attempts integer not null default 1;
+
+create unique index if not exists learn_activity_student_client_event_idx
+  on public.learn_activity (student_id, client_event_id)
+  where client_event_id is not null;
+
+create table if not exists public.activity_sync_health (
+  student_id uuid not null references public.students(id) on delete cascade,
+  class_id uuid not null references public.classes(id) on delete cascade,
+  teacher_id uuid not null references auth.users(id) on delete cascade,
+  device_id text not null,
+  attempted bigint not null default 0 check (attempted >= 0),
+  delivered bigint not null default 0 check (delivered >= 0),
+  recovered bigint not null default 0 check (recovered >= 0),
+  storage_failures bigint not null default 0 check (storage_failures >= 0),
+  pending bigint not null default 0 check (pending >= 0),
+  lost bigint not null default 0 check (lost >= 0),
+  oldest_pending_at timestamptz,
+  observed_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  primary key (student_id, device_id),
+  check (delivered <= attempted),
+  check (recovered <= delivered),
+  check (lost <= attempted),
+  check (delivered + pending + lost <= attempted)
+);
+
+create index if not exists activity_sync_health_class_idx
+  on public.activity_sync_health (class_id, observed_at desc);
+
+alter table public.activity_sync_health enable row level security;
+revoke all on public.activity_sync_health from anon;
+grant select on public.activity_sync_health to authenticated;
+
+drop policy if exists "Teachers read their class activity sync health"
+  on public.activity_sync_health;
+create policy "Teachers read their class activity sync health"
+  on public.activity_sync_health for select to authenticated
+  using (
+    teacher_id = auth.uid()
+    or public.is_app_admin(auth.uid())
+  );
+
+create or replace function public.student_log_activity_v2(
+  p_token text,
+  p_client_event_id text,
+  p_area text,
+  p_item_id text,
+  p_event text,
+  p_payload jsonb default null,
+  p_occurred_at timestamptz default null,
+  p_delivery_attempts integer default 1
+)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+begin
+  v_student := public.student_from_token(p_token);
+  if v_student.id is null then
+    return json_build_object('ok', false, 'error', 'invalid_session');
+  end if;
+  if
+    nullif(btrim(p_client_event_id), '') is null
+    or length(p_client_event_id) > 120
+    or nullif(btrim(p_area), '') is null
+    or length(p_area) > 80
+    or nullif(btrim(p_event), '') is null
+    or length(p_event) > 80
+    or length(coalesce(p_item_id, '')) > 160
+    or octet_length(coalesce(p_payload, '{}'::jsonb)::text) > 16384
+    or p_delivery_attempts < 1
+    or p_delivery_attempts > 10000
+  then
+    return json_build_object('ok', false, 'error', 'invalid_payload');
+  end if;
+
+  insert into public.learn_activity (
+    student_id,
+    class_id,
+    teacher_id,
+    client_event_id,
+    area,
+    item_id,
+    event,
+    payload,
+    occurred_at,
+    delivery_attempts
+  )
+  values (
+    v_student.id,
+    v_student.class_id,
+    v_student.teacher_id,
+    p_client_event_id,
+    p_area,
+    p_item_id,
+    p_event,
+    p_payload,
+    least(coalesce(p_occurred_at, now()), now()),
+    p_delivery_attempts
+  )
+  on conflict (student_id, client_event_id)
+    where client_event_id is not null
+  do nothing;
+
+  return json_build_object('ok', true);
+end;
+$$;
+
+create or replace function public.student_report_activity_sync_health(
+  p_token text,
+  p_device_id text,
+  p_attempted bigint,
+  p_delivered bigint,
+  p_recovered bigint,
+  p_storage_failures bigint,
+  p_pending bigint,
+  p_lost bigint,
+  p_oldest_pending_at timestamptz default null
+)
+returns json
+language plpgsql security definer set search_path = public, extensions
+as $$
+declare
+  v_student public.students;
+begin
+  v_student := public.student_from_token(p_token);
+  if v_student.id is null then
+    return json_build_object('ok', false, 'error', 'invalid_session');
+  end if;
+  if
+    v_student.class_id is null
+    or nullif(btrim(p_device_id), '') is null
+    or length(p_device_id) > 120
+    or p_attempted < 0
+    or p_delivered < 0
+    or p_recovered < 0
+    or p_storage_failures < 0
+    or p_pending < 0
+    or p_lost < 0
+    or p_delivered > p_attempted
+    or p_recovered > p_delivered
+    or p_lost > p_attempted
+    or p_delivered + p_pending + p_lost > p_attempted
+  then
+    return json_build_object('ok', false, 'error', 'invalid_payload');
+  end if;
+
+  insert into public.activity_sync_health (
+    student_id,
+    class_id,
+    teacher_id,
+    device_id,
+    attempted,
+    delivered,
+    recovered,
+    storage_failures,
+    pending,
+    lost,
+    oldest_pending_at,
+    observed_at,
+    updated_at
+  )
+  values (
+    v_student.id,
+    v_student.class_id,
+    v_student.teacher_id,
+    p_device_id,
+    p_attempted,
+    p_delivered,
+    p_recovered,
+    p_storage_failures,
+    p_pending,
+    p_lost,
+    case
+      when p_oldest_pending_at is null then null
+      else least(p_oldest_pending_at, now())
+    end,
+    now(),
+    now()
+  )
+  on conflict (student_id, device_id)
+  do update set
+    class_id = excluded.class_id,
+    teacher_id = excluded.teacher_id,
+    attempted = greatest(activity_sync_health.attempted, excluded.attempted),
+    delivered = greatest(activity_sync_health.delivered, excluded.delivered),
+    recovered = greatest(activity_sync_health.recovered, excluded.recovered),
+    storage_failures = greatest(activity_sync_health.storage_failures, excluded.storage_failures),
+    pending = excluded.pending,
+    lost = excluded.lost,
+    oldest_pending_at = excluded.oldest_pending_at,
+    observed_at = excluded.observed_at,
+    updated_at = now();
+
+  return json_build_object('ok', true);
+end;
+$$;
+
+grant execute on function public.student_log_activity_v2(
+  text, text, text, text, text, jsonb, timestamptz, integer
+) to anon, authenticated;
+
+grant execute on function public.student_report_activity_sync_health(
+  text, text, bigint, bigint, bigint, bigint, bigint, bigint, timestamptz
+) to anon, authenticated;
 
 -- ==== 20260725085000_students_lifecycle_columns.sql =====================
 
@@ -3701,15 +8516,13 @@ notify pgrst, 'reload schema';
 commit;
 
 -- ===========================================================================
--- CHECK — run this on its own AFTER the block above has finished.
--- Every row must say 'present'. Any row saying 'MISSING' means that part did
--- not apply, and the matching screen in the app will still fail.
+-- CHECK 1 — run on its own AFTER the block above succeeds.
+-- Every row must say 'present'.
 -- ===========================================================================
 -- select
 --   name,
 --   case when exists (
---     select 1 from pg_proc p
---     join pg_namespace n on n.oid = p.pronamespace
+--     select 1 from pg_proc p join pg_namespace n on n.oid = p.pronamespace
 --     where n.nspname = 'public' and p.proname = name
 --   ) then 'present' else 'MISSING' end as status
 -- from unnest(array[
@@ -3725,8 +8538,8 @@ commit;
 -- order by status desc, name;
 
 -- ===========================================================================
--- CHECK 2 — prove the redaction really erases a child's id from a shared
--- report, which is what lets a deletion complete. Expect: t
+-- CHECK 2 — prove deleting one child cannot erase another child's evidence.
+-- Expect: t
 -- ===========================================================================
 -- select public.jsonb_strip_student_entries(
 --   '{"class":"3B","learners":[
