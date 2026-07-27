@@ -129,10 +129,19 @@ Student button failed silently; the info tooltips were never hidden at all; and 
 end-to-end archive test asserted copy that had not existed since a rename, so it could
 not have been passing. Treat a passing gate as necessary, never sufficient.
 
+**2026-07-27 added a third proof, and a worse one.** Deleting a child failed in
+production for every teacher, because the migration creating
+`teacher_prepare_learner_deletion` had never been applied to the hosted database —
+while `check:learner-data-rights` stayed green throughout, because it reads the
+migration *file*. `npm run check:live-database` now asks the running database
+instead. A source-text check and a deployment check are different claims, and only
+one of them is about the product.
+
 Newest first. These are records — they describe a moment, and the moments accumulate.
 
 | Date | Record | What happened |
 | --- | --- | --- |
+| 2026-07-27 | [TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27](TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27.md) | Learner deletion restored (the migration had never been applied); 20 teacher-side defects closed across data integrity, metric truth, UX and the Supabase boundary; 8 items left open needing a decision |
 | 2026-07-27 | [TEACHER_FUNNELS_2026-07-27](TEACHER_FUNNELS_2026-07-27.md) | Assessments and Reports rebuilt as two matching funnels; Present images fixed; student delete added |
 | 2026-07-26 | [TEACHER_AREA_OVERHAUL_2026-07-26](TEACHER_AREA_OVERHAUL_2026-07-26.md) | Teacher area split and rebuilt; presentation fixed; mastery reporting unified |
 | 2026-07-26 | [STORY_QUEST_REWRITE_2026-07-26](STORY_QUEST_REWRITE_2026-07-26.md) | All 13 Story Quests re-authored to sit at their declared reading bands |
