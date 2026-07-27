@@ -1,3 +1,4 @@
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import { QUEST_STOPS } from "../data/questSequence.js";
 import { countMastered, independentAttemptCount, weakestTargets } from "./questMastery.js";
 import { totalStars, unlockedChapterRewards } from "./questProgress.js";
@@ -69,6 +70,15 @@ export function questHeatTiles(state = {}) {
     const struggled = (Number(record?.misses) || 0) > 0;
     const hasKnowledgeEvidence = independentSeen > 0 || struggled;
     const mastered = ["mastered", "retired"].includes(record?.state);
+    // A sound must not be called "needs re-teaching" on the strength of one or
+    // two attempts. The old rule fired on `correct < 2`, so a child who had
+    // answered once, correctly, saw a red tile whose own tooltip read 100%.
+    // Red is the actionable signal here, so it now waits for the same minimum
+    // evidence every other conclusion surface uses — unless the child has
+    // actually missed the sound twice, which is evidence in its own right.
+    const misses = Number(record?.misses) || 0;
+    const enoughEvidenceToReteach =
+      independentSeen >= LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts;
     const bucket = !seen
       ? "unseen"
       : mastered
@@ -77,8 +87,8 @@ export function questHeatTiles(state = {}) {
           ? "almost"
           : (
             record?.state === "at-risk"
-            || (independentSeen > 0 && correct < 2)
-            || (Number(record?.misses) || 0) >= 2
+            || (enoughEvidenceToReteach && correct < 2)
+            || misses >= 2
           )
           ? "reteach"
           : "almost";

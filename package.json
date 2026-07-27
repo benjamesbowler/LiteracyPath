@@ -267,7 +267,8 @@
     "check:content-rubric": "node tools/checkContentRubric.mjs",
     "export:practice-sheet": "node tools/practiceSheet/buildPracticeSheet.mjs",
     "export:rubric-judge": "node tools/exportRubricJudgeBatch.mjs",
-    "generate:sage-soft": "node tools/generateSageSoft.mjs"
+    "generate:sage-soft": "node tools/generateSageSoft.mjs",
+    "check:live-database": "node tools/verifyLiveDatabaseFunctions.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

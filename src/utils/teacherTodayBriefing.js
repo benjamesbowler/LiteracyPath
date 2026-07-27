@@ -1,8 +1,14 @@
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 
+// Derived, never re-typed. These two numbers used to be literals here, a second
+// copy of the policy that happened to agree with src/policy/learningPolicy.js
+// and had nothing keeping it in agreement — and the threshold guard did not
+// scan this file, so a drift would have been silent.
 export const TEACHER_TODAY_POLICY = Object.freeze({
-  minimumResponsesForAttention: 8,
-  attentionAccuracyBelow: 70,
+  minimumResponsesForAttention: LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
+  attentionAccuracyBelow: LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum,
   inactivityDueDays: 7,
   changeWindowDays: 7
 });

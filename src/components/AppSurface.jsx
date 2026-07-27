@@ -82,7 +82,8 @@ export function AppSurface({ surface }) {
     finishElBenchmarkAssessment, guidedInitialBookId, guidedReadingRecords, handleAssessmentEvidenceImageError,
     isAdmin, isStudentSurfaceView, isTeacherAccountApproved, itemMastery,
     keepPracticingSkill, learnFullscreen, learnerAccessibility, letterAssessment, letterIndex,
-    letterItems, loadAdminDashboard, loadClassDashboard, loadStudentProgress, loadStudents, loadingStudents,
+    letterItems, loadAdminDashboard, loadClassDashboard, loadStudentProgress, loadStudents, loadingClasses,
+    loadingStudents,
     logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
     message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
     openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
@@ -810,6 +811,7 @@ export function AppSurface({ surface }) {
               }}
               setStudentList={setStudentList}
               studentList={studentList}
+              loadingStudents={loadingStudents}
               loadStudents={loadStudents}
               loadClassDashboard={loadClassDashboard}
               classDashboard={classDashboard}
@@ -915,6 +917,7 @@ export function AppSurface({ surface }) {
               className={getSelectedClassName(classList, selectedClassId)}
               classList={classList}
               selectedClassId={selectedClassId}
+              loadingClasses={loadingClasses}
               onSelectClass={selectTeacherClass}
               studentName={nameSaved ? studentName : ""}
               onOpenWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
@@ -959,8 +962,10 @@ export function AppSurface({ surface }) {
               selectedClassId={selectedClassId}
               className={getSelectedClassName(classList, selectedClassId)}
               onSelectClass={selectTeacherClass}
+              onOpenClasses={openStudentsPage}
               studentRows={classDashboard}
               studentList={studentList}
+              loadingClasses={loadingClasses}
               loadingStudents={loadingStudents}
               selectedStudentId={nameSaved ? studentId : ""}
               selectedStudentName={nameSaved ? studentName : ""}
@@ -1056,8 +1061,10 @@ export function AppSurface({ surface }) {
               selectedClassId={selectedClassId}
               className={getSelectedClassName(classList, selectedClassId)}
               onSelectClass={selectTeacherClass}
+              onOpenChecks={() => goToTeacherIntent(APP_VIEWS.ASSESSMENTS)}
               studentRows={classDashboard}
               studentList={studentList}
+              loadingClasses={loadingClasses}
               loadingStudents={loadingStudents}
               selectedStudentId={nameSaved ? studentId : ""}
               selectedStudentName={nameSaved ? studentName : ""}

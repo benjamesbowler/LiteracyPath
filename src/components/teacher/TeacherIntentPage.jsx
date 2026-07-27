@@ -41,6 +41,7 @@ export function TeacherIntentPage({
   className = "",
   classList = [],
   selectedClassId = "",
+  loadingClasses = false,
   onSelectClass,
   progressRows = [],
   selectedLearnerId = "",
@@ -62,7 +63,13 @@ export function TeacherIntentPage({
   // someone to "create your class first" while a class is plainly selected reads as data
   // loss. Observed live on the deployed preview: the Resources route showed the no-classes
   // empty state with a valid class id in the URL.
-  const classesPending = classList.length === 0 && Boolean(selectedClassId);
+  //
+  // That guess only covered half the problem: a fresh sign-in clears the selected class
+  // while the class request is still running, so an established teacher was still told to
+  // create their first class. loadingClasses is the real signal; the id check stays as a
+  // fallback for the frame before the request starts.
+  const classesPending = loadingClasses
+    || (classList.length === 0 && Boolean(selectedClassId));
   const hasClasses = classList.length > 0;
   const hasStudents = progressRows.length > 0;
   const actions = buildIntentActions({ onOpenWorksheets, onOpenPresent });

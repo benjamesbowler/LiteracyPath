@@ -235,7 +235,11 @@ test("each realistic cause of a failed archive gets its own actionable sentence"
     code: "PGRST202",
     message: "Could not find the function public.teacher_set_student_archived"
   }, options);
-  assert.match(missingRpc, /missing the update that added archiving and restoring/);
+  assert.match(missingRpc, /missing a pending update/);
+  // The operation is named, so the same branch reads correctly for a delete.
+  assert.match(missingRpc, /so the archive could not run/);
+  // Raw PostgREST text never reaches the teacher.
+  assert.doesNotMatch(missingRpc, /public\.|schema cache|function/i);
 
   const missingColumn = describeRosterOperationError({
     code: "42703",
@@ -259,15 +263,48 @@ test("each realistic cause of a failed archive gets its own actionable sentence"
   assert.equal(new Set(messages).size, messages.length);
 });
 
-test("an unrecognised failure still shows the teacher what the database said", () => {
+test("an unrecognised failure stays diagnosable without quoting the database at the teacher", () => {
   const message = describeRosterOperationError(
     { code: "XX000", message: "deadlock detected" },
     { operation: "delete", studentName: "Aaron" }
   );
-  assert.equal(
-    message,
-    "We could not delete Aaron. Nothing was changed. The database said: deadlock detected"
+  // Diagnosable: the code survives as a reference the teacher can quote.
+  assert.match(message, /reference XX000/);
+  // Readable: none of the database's own wording appears.
+  assert.doesNotMatch(message, /deadlock/);
+  assert.match(message, /^We could not delete Aaron\. Nothing was changed\./);
+
+  // With no code at all there is nothing to quote, and the sentence still works.
+  const codeless = describeRosterOperationError(
+    { message: "deadlock detected" },
+    { operation: "delete", studentName: "Aaron" }
   );
+  assert.doesNotMatch(codeless, /reference|deadlock/);
+  assert.match(codeless, /tell whoever manages the site\.$/);
+});
+
+test("a missing-function failure keeps its code when it travels through the data-rights layer", async () => {
+  // The regression this locks: unwrapRpc used to throw a bare Error, dropping
+  // error.code, so PGRST202 never reached describeRosterOperationError and the
+  // teacher was shown raw schema-cache text instead of the plain sentence.
+  const client = {
+    call: async () => ({
+      data: null,
+      error: {
+        code: "PGRST202",
+        message: "Could not find the function public.teacher_prepare_learner_deletion(p_requester_role, p_student_id, p_verification_method) in the schema cache"
+      }
+    })
+  };
+  const error = await deleteRosterStudent({ supabase: client, studentId: "s-1" })
+    .then(() => null, caught => caught);
+  assert.equal(error?.code, "PGRST202");
+  const message = describeRosterOperationError(error, {
+    operation: "delete",
+    studentName: "Aaron"
+  });
+  assert.match(message, /missing a pending update/);
+  assert.doesNotMatch(message, /schema cache/);
 });
 
 test("roster deletion reuses the verified data-rights deletion rather than a second delete path", async () => {

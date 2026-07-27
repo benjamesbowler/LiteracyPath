@@ -92,7 +92,7 @@ export function describeRosterOperationError(error, {
     return `${failed} We could not reach the server, so nothing was changed. Check the internet connection and try again.`;
   }
   if (error.code === "PGRST202") {
-    return `${failed} This site's database is missing the update that added archiving and restoring. Nothing was changed. Ask whoever manages the database to apply the pending updates, then try again.`;
+    return `${failed} This site's database is missing a pending update, so the ${verb} could not run. Nothing was changed. Ask whoever manages the database to apply the pending updates, then try again.`;
   }
   if (error.code === "LP_ARCHIVE_UNSUPPORTED" || isLegacyStudentSchemaError(error)) {
     return `${failed} This site's database has not been updated to store archived students yet. Nothing was changed. Ask whoever manages the database to apply the pending updates, then try again.`;
@@ -103,10 +103,19 @@ export function describeRosterOperationError(error, {
   if (error.code === "LP_ROSTER_NO_ROWS" || error.code === "P0002" || error.code === "PGRST116") {
     return `${failed} ${name} was not found in this class, so nothing was changed. Someone may have already changed the roster on another device. Reload the page to see who is in the class now.`;
   }
-  const detail = String(error.message || "").trim();
-  return detail
-    ? `${failed} Nothing was changed. The database said: ${detail}`
-    : `${failed} Nothing was changed. Try again.`;
+  // Deliberately no raw database prose. A teacher cannot act on "Could not find
+  // the function public.teacher_prepare_learner_deletion(p_requester_role,
+  // p_student_id, p_verification_method) in the schema cache" — that sentence
+  // shipped to a real teacher and made a routine missing-migration look like a
+  // broken app.
+  //
+  // The failure must still be diagnosable, so the short error CODE is kept as a
+  // reference the teacher can read aloud or paste into a message. The full text
+  // goes to the console for whoever can use it.
+  const reference = String(error.code || "").trim();
+  return reference
+    ? `${failed} Nothing was changed. Try again, and if it keeps happening tell whoever manages the site and quote reference ${reference}.`
+    : `${failed} Nothing was changed. Try again, and if it keeps happening tell whoever manages the site.`;
 }
 
 

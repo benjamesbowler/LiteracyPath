@@ -44,8 +44,10 @@ export function TeacherReportsHubPage({
   selectedClassId = "",
   className = "",
   onSelectClass,
+  onOpenChecks,
   studentRows = [],
   studentList = [],
+  loadingClasses = false,
   loadingStudents = false,
   selectedStudentId = "",
   selectedStudentName = "",
@@ -79,6 +81,11 @@ export function TeacherReportsHubPage({
     [studentRows, studentList]
   );
   const hasClass = Boolean(selectedClassId);
+  // Same rule as the checks funnel: an empty class list only means "no classes"
+  // once the class request has finished. During a fresh sign-in it means the
+  // classes have not arrived yet.
+  const classesLoading = loadingClasses
+    || (classList.length === 0 && Boolean(selectedClassId));
   const wholeClass = who === WHOLE_CLASS;
   const whoChosen = wholeClass || Boolean(selectedStudentId);
   const styleChosen = wholeClass || Boolean(reportView);
@@ -149,10 +156,14 @@ export function TeacherReportsHubPage({
         </div>
       </section>
 
-      {classList.length === 0 && selectedClassId ? (
+      {classesLoading ? (
         <TeacherSurfaceState surface="progress" state="loading" />
       ) : classList.length === 0 ? (
-        <TeacherSurfaceState surface="progress" state="empty" />
+        <TeacherSurfaceState
+          surface="progress"
+          state="empty"
+          onPrimaryAction={onOpenChecks}
+        />
       ) : (
         <div className="teacher-funnel">
           <TeacherFunnelStep

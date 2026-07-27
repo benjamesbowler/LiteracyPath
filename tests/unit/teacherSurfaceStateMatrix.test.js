@@ -69,8 +69,15 @@ for (const surface of TEACHER_SURFACE_IDS) {
   for (const state of TEACHER_SURFACE_STATE_IDS) {
     test(`${surface}/${state} fixture has specific accessible recovery content`, () => {
       const content = getTeacherSurfaceState(surface, state);
+      // Handlers are supplied because a recovery action is only rendered when it
+      // can actually do something. See the dead-button test below.
       const html = renderToStaticMarkup(
-        React.createElement(TeacherSurfaceState, { surface, state })
+        React.createElement(TeacherSurfaceState, {
+          surface,
+          state,
+          onPrimaryAction: () => {},
+          onSecondaryAction: () => {}
+        })
       );
 
       assert.match(html, new RegExp(`data-teacher-surface="${surface}"`));
@@ -115,6 +122,41 @@ for (const surface of TEACHER_SURFACE_IDS) {
   }
 }
 
+test("a recovery action is never rendered without a handler behind it", () => {
+  for (const surface of TEACHER_SURFACE_IDS) {
+    for (const state of TEACHER_SURFACE_STATE_IDS) {
+      const content = getTeacherSurfaceState(surface, state);
+      const noHandlers = renderToStaticMarkup(
+        React.createElement(TeacherSurfaceState, { surface, state })
+      );
+      assert.doesNotMatch(
+        noHandlers,
+        /<button/,
+        `${content.id} must not offer a button that does nothing`
+      );
+
+      if (!content.primaryLabel) continue;
+
+      const primaryOnly = renderToStaticMarkup(
+        React.createElement(TeacherSurfaceState, {
+          surface,
+          state,
+          onPrimaryAction: () => {}
+        })
+      );
+      assert.equal(
+        (primaryOnly.match(/<button/g) || []).length,
+        1,
+        `${content.id} renders only the action it was given a handler for`
+      );
+      assert.ok(primaryOnly.includes(escapeRenderedText(content.primaryLabel)));
+      if (content.secondaryLabel) {
+        assert.ok(!primaryOnly.includes(escapeRenderedText(content.secondaryLabel)));
+      }
+    }
+  }
+});
+
 test("storybook-style fixture sheet renders every matrix cell once", () => {
   const html = renderToStaticMarkup(
     React.createElement(TeacherSurfaceStateFixtureSheet)
@@ -123,6 +165,16 @@ test("storybook-style fixture sheet renders every matrix cell once", () => {
   assert.equal((html.match(/data-teacher-surface=/g) || []).length, 40);
   assert.equal((html.match(/data-teacher-state=/g) || []).length, 40);
   assert.match(html, /Five surfaces × eight recoverable states/);
+
+  // The design sheet still shows every recovery action, because it supplies its
+  // own handlers rather than relying on labels alone.
+  for (const fixture of TEACHER_SURFACE_STATE_FIXTURES) {
+    if (!fixture.primaryLabel) continue;
+    assert.ok(
+      html.includes(escapeRenderedText(fixture.primaryLabel)),
+      `${fixture.id} action is visible on the fixture sheet`
+    );
+  }
 });
 
 test("unknown surface-state combinations fail closed", () => {

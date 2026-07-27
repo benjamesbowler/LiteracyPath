@@ -297,7 +297,10 @@ test("a sparse child picker never presents a bare accuracy conclusion", () => {
   );
 
   assert.match(html, /1 saved answer/);
-  assert.match(html, /0 mastered skills/);
+  // 2026-07-27: the picker no longer prints its own "N mastered skill" count.
+  // It was a fourth private mastery taxonomy with no denominator, so it could
+  // not be reconciled with the report the button opens.
+  assert.doesNotMatch(html, /mastered skill/);
   assert.doesNotMatch(html, /100% accuracy/);
   assert.match(html, />Open report<\/button>/);
 });

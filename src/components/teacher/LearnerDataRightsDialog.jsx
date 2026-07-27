@@ -12,6 +12,7 @@ import {
   loadLearnerDataRightsHistory,
   prepareLearnerDeletion
 } from "../../data/learnerDataRights.js";
+import { describeRosterOperationError } from "../../data/teacherRosterOperations.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { TeacherModal } from "./ui/TeacherDialog.jsx";
 
@@ -121,8 +122,11 @@ export function LearnerDataRightsDialog({
       }, ...previous.filter(request => request.id !== data.requestId)]);
       setHistoryState("ready");
       setStatus(`The request is ready. Complete it by ${new Date(data.dueAt).toLocaleDateString()}.`);
-    } catch {
-      setError("We couldn't check the request. Nothing is lost. Try again.");
+    } catch (error) {
+      console.error(`Learner deletion request failed for ${learner.id}:`, error);
+      setError(error?.code === "PGRST202"
+        ? "We couldn't check the request. This site's database is missing a pending update. Nothing is lost. Ask whoever manages the database to apply the pending updates, then try again."
+        : "We couldn't check the request. Nothing is lost. Try again.");
     } finally {
       setBusy("");
     }
@@ -132,17 +136,34 @@ export function LearnerDataRightsDialog({
     setBusy("delete");
     setError("");
     setStatus("");
+    let result;
     try {
-      const result = await deleteLearnerData({
+      result = await deleteLearnerData({
         client,
         studentId: learner.id,
         preparedRequest,
         confirmation
       });
-      setStatus("The student's data has been deleted.");
+    } catch (error) {
+      console.error(`Learner deletion failed for ${learner.id}:`, error);
+      setError(describeRosterOperationError(error, {
+        operation: "delete",
+        studentName: learner.name
+      }));
+      setBusy("");
+      return;
+    }
+
+    // The deletion has happened and cannot be undone. Everything below is
+    // refreshing the screen, so a failure here must never be reported as
+    // "Nothing has changed" — that sentence used to overwrite a completed,
+    // irreversible delete whenever the roster reload threw.
+    setStatus("The student's data has been deleted.");
+    try {
       await onDeleted?.(learner, result);
-    } catch {
-      setError("We couldn't delete the data. Nothing has changed. Try again.");
+    } catch (error) {
+      console.error("Roster refresh after deletion failed:", error);
+      setError("The data was deleted. We could not refresh this screen afterwards — reload the page to see the class as it is now.");
     } finally {
       setBusy("");
     }

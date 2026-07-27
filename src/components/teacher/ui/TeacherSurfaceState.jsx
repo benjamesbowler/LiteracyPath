@@ -13,6 +13,12 @@ export function TeacherSurfaceState({
 }) {
   const content = getTeacherSurfaceState(surface, state);
   const titleId = `teacher-surface-state-${surface}-${state}-title`;
+  // A recovery button is only offered when something actually happens on tap.
+  // The copy catalog defines a label for every non-loading state, so rendering
+  // on the label alone put buttons on screen at call sites that never passed a
+  // handler - a teacher pressed "Make your class" and nothing at all happened.
+  const showPrimary = Boolean(content.primaryLabel && onPrimaryAction);
+  const showSecondary = Boolean(content.secondaryLabel && onSecondaryAction);
 
   return (
     <section
@@ -39,9 +45,9 @@ export function TeacherSurfaceState({
         )}
         {detail && <p className="teacher-surface-state-detail">{detail}</p>}
       </div>
-      {(content.primaryLabel || content.secondaryLabel) && (
+      {(showPrimary || showSecondary) && (
         <div className="teacher-surface-state-actions">
-          {content.primaryLabel && (
+          {showPrimary && (
             <button
               className="lp-button lp-button-primary"
               type="button"
@@ -50,7 +56,7 @@ export function TeacherSurfaceState({
               {content.primaryLabel}
             </button>
           )}
-          {content.secondaryLabel && (
+          {showSecondary && (
             <button
               className="lp-button lp-button-secondary"
               type="button"
@@ -65,6 +71,11 @@ export function TeacherSurfaceState({
   );
 }
 
+// The fixture sheet is the design-review surface for all 40 cells, so it must
+// keep showing every recovery action. It supplies its own handlers rather than
+// asking the component to render buttons that do nothing.
+function previewAction() {}
+
 export function TeacherSurfaceStateFixtureSheet() {
   return (
     <main className="teacher-state-fixture-sheet">
@@ -78,6 +89,8 @@ export function TeacherSurfaceStateFixtureSheet() {
           key={fixture.id}
           surface={fixture.surfaceId}
           state={fixture.stateId}
+          onPrimaryAction={previewAction}
+          onSecondaryAction={previewAction}
         />
       ))}
     </main>

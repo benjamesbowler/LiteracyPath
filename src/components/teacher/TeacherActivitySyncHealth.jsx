@@ -79,7 +79,13 @@ export function TeacherActivitySyncHealth({
         </strong>
       </header>
 
-      {state === "error" ? (
+      {/* Nothing has been counted yet while the check is running, and "Saved 0 of 0"
+          under a "Checking" header reads as a confirmed zero - the one thing the
+          state matrix says this panel must never do. The counts wait for real
+          numbers. */}
+      {state === "loading" ? (
+        <p>Checking whether results are reaching your dashboard.</p>
+      ) : state === "error" ? (
         <p>{TEACHER_COPY.sync.error}</p>
       ) : (
         <>

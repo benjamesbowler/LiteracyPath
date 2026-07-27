@@ -23,7 +23,7 @@ import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.j
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
-import { MetricFigure } from "./MetricDefinition.jsx";
+import { MetricDefinition, MetricFigure } from "./MetricDefinition.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import {
   TeacherDataTable,
@@ -35,7 +35,6 @@ import {
   TeacherDrawer,
   TeacherModal
 } from "./teacher/ui/TeacherDialog.jsx";
-import { metricDefinitionText } from "../utils/metricDefinitions.js";
 import {
   LearnerAccessibilityDialog,
   QuestionTypeGuideDialog,
@@ -84,6 +83,29 @@ function loadVisibleRosterColumns(teacherId) {
   } catch {
     return DEFAULT_ROSTER_COLUMNS;
   }
+}
+
+// A class average can be held back for four different reasons, and the teacher
+// used to be told the first one whichever one actually applied — a class of 30
+// where one child has answered forty times as often as everyone else was told to
+// wait for 2 students. Each branch reads the same numbers the fairness rule used,
+// so the sentence and the suppression always agree. The exact rule stays in the ⓘ.
+function classAverageHeldBackNote(comparability = {}) {
+  const rule = LEARNING_EVIDENCE_POLICY.comparison;
+  const ready = Number(comparability.policyReadyLearners) || 0;
+  const total = Number(comparability.totalLearners) || 0;
+  const imbalance = comparability.responseImbalanceRatio;
+
+  if (ready < rule.minimumPolicyReadyLearners) {
+    return TEACHER_COPY.metrics.fairAverage(rule.minimumPolicyReadyLearners);
+  }
+  if ((Number(comparability.readyProportion) || 0) < rule.minimumPolicyReadyProportion) {
+    return `Only ${countPhrase(ready, "student", "students")} of ${total} have done enough checks so far. A class average appears once most of the class has enough saved answers.`;
+  }
+  if (imbalance !== null && imbalance !== undefined && imbalance > rule.maximumResponseImbalanceRatio) {
+    return "One student has answered far more often than the others, so a class average would mostly describe that student. It appears once the class has answered more evenly.";
+  }
+  return "We are still missing the number of answers for at least one student, so a class average would not be fair yet. It appears once every student's answers have saved.";
 }
 
 function formatLoginCardPassword(sequence) {
@@ -232,6 +254,18 @@ function LoginCardPrintRoute({
 // Roam serves exactly those sounds next session (questReviewMode reads the
 // assignment out of the phonics_quest payload). This pair of features is the
 // mode's whole commercial argument made visible: evidence in, action out.
+//
+// A tile's colour used to be the only thing that carried its status, with the
+// explanation in a `title` a tablet can never show. The status now rides in the
+// tile's accessible name, and the explanation lives in the ⓘ beside the
+// heading, which opens on tap.
+const SOUND_STATUS_WORDS = Object.freeze({
+  "got-it": "got it",
+  almost: "almost there",
+  reteach: "needs re-teaching",
+  unseen: "not met yet"
+});
+
 function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
   const [selected, setSelected] = useState([]);
   const [busy, setBusy] = useState(false);
@@ -291,6 +325,13 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
     <div className="quest-heat-panel">
       <div className="quest-heat-head">
         <strong>{studentName}&rsquo;s sounds</strong>
+        <MetricDefinition
+          metricId="accuracy"
+          label="Sound status"
+          counts="Each tile is one sound, with its status: got it, almost there, needs re-teaching, or not met yet. Status comes from correct answers out of scored answers for that sound."
+          timeWindow="All saved Sound Seekers play for this student."
+          excludes="Sounds this student has not met yet — those show as not met, not as a low score."
+        />
         <span className="quest-heat-legend" aria-hidden="true">
           <em className="is-got-it">Got it {counts.gotIt ?? 0}</em>
           <em className="is-almost">Almost there {counts.almostThere ?? 0}</em>
@@ -304,15 +345,9 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
             key={tile.id}
             type="button"
             className={`quest-heat-tile is-${tile.bucket}${selected.includes(tile.id) ? " is-selected" : ""}`}
-            title={tile.bucket === "unseen"
-              ? `${tile.label} · ${tile.stopName} · not met yet`
-              : metricDefinitionText("accuracy", {
-                  label: `${tile.label} · ${tile.stopName} accuracy`,
-                  denominator: `${tile.seen} scored Sound Seekers response${tile.seen === 1 ? "" : "s"} for this sound.`,
-                  dateRange: "All saved Sound Seekers play for this student.",
-                  minimumEvidence: "At least one scored answer for this sound.",
-                  updatedAt: tile.lastActiveAt || report?.lastActiveAt
-                })}
+            aria-label={tile.bucket === "unseen"
+              ? `${tile.label} — not met yet`
+              : `${tile.label} — ${SOUND_STATUS_WORDS[tile.bucket] || "not met yet"}, ${countPhrase(tile.seen, "answer")}`}
             aria-pressed={selected.includes(tile.id)}
             onClick={() => toggle(tile.id)}
           >
@@ -918,8 +953,15 @@ export function TeacherStudentsPage({
         studentRows.map(row => row.symbol_password).filter(Boolean)
       );
       const result = await assignMissingSymbolPasswords?.(assignments);
-      if (result && result.saved === 0) return;
-      const assignedById = new Map(assignments.map(item => [item.student.id, item.sequence]));
+      if (!result || result.saved === 0) return;
+      // Only children whose sequence was actually written get a card. Building
+      // the preview from the locally generated map printed pictures that had
+      // failed to save, and a laminated card that does not work is worse than
+      // no card at all.
+      const savedIds = new Set(result.savedIds || []);
+      const assignedById = new Map(assignments
+        .filter(item => savedIds.has(item.student.id))
+        .map(item => [item.student.id, item.sequence]));
       openLoginCardPreview(studentRows.map(row => (
         row.symbol_password
           ? row
@@ -1234,7 +1276,7 @@ export function TeacherStudentsPage({
           >
             {classAccuracySummary.comparability.comparable
               ? TEACHER_COPY.metrics.comparable
-              : TEACHER_COPY.metrics.fairAverage(2)}
+              : classAverageHeldBackNote(classAccuracySummary.comparability)}
           </p>
         </section>
       )}
@@ -1850,6 +1892,7 @@ export function TeacherStudentsPage({
                             className="text-button"
                             type="button"
                             aria-expanded={heatOpenId === row.id}
+                            aria-label={`${heatOpenId === row.id ? "Hide" : "Show"} ${row.name}'s sound map`}
                             onClick={() => setHeatOpenId(current => (current === row.id ? null : row.id))}
                           >
                             {heatOpenId === row.id ? "Hide sound map" : row.soundSeekers.assignment ? "Sound map · practice assigned" : "Sound map"}
@@ -1864,17 +1907,32 @@ export function TeacherStudentsPage({
                         </span>
                         <SymbolSequence sequence={row.symbol_password || ""} hidden={!visiblePasswords[row.id]} size={20} />
                         <div className="teacher-login-actions">
-                          <button className="text-button" onClick={() => setVisiblePasswords(previous => ({ ...previous, [row.id]: !previous[row.id] }))} type="button">
+                          <button
+                            className="text-button"
+                            aria-label={`${visiblePasswords[row.id] ? "Hide" : "Show"} ${row.name}'s sign-in pictures`}
+                            onClick={() => setVisiblePasswords(previous => ({ ...previous, [row.id]: !previous[row.id] }))}
+                            type="button"
+                          >
                             {visiblePasswords[row.id] ? "Hide" : "Show"}
                           </button>
-                          <button className="text-button" onClick={() => {
-                            setEditingStudent(row);
-                            setEditingSequence("");
-                          }} type="button">
+                          <button
+                            className="text-button"
+                            aria-label={`${loginReady ? "Change" : "Set"} sign-in pictures for ${row.name}`}
+                            onClick={() => {
+                              setEditingStudent(row);
+                              setEditingSequence("");
+                            }}
+                            type="button"
+                          >
                             {loginReady ? "Change" : "Set pictures"}
                           </button>
                           {loginReady && (
-                            <button className="text-button" onClick={() => resetStudentSymbolPassword?.(row.id, row.name)} type="button">
+                            <button
+                              className="text-button"
+                              aria-label={`Reset sign-in pictures for ${row.name}`}
+                              onClick={() => resetStudentSymbolPassword?.(row.id, row.name)}
+                              type="button"
+                            >
                               Reset
                             </button>
                           )}
@@ -1894,7 +1952,12 @@ export function TeacherStudentsPage({
                         >
                           Check
                         </button>
-                        <button className="lp-button lp-button-secondary teacher-open-student" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
+                        <button
+                          className="lp-button lp-button-secondary teacher-open-student"
+                          aria-label={`Open ${row.name}`}
+                          onClick={() => onLoadStudent?.(row.id, row.name)}
+                          type="button"
+                        >
                           Open student
                         </button>
                         <button
@@ -2313,15 +2376,15 @@ export function TeacherStudentsPage({
 
       {editingStudent && (
         <TeacherModal
-          label={`Change password for ${editingStudent.name}`}
+          label={`Change sign-in pictures for ${editingStudent.name}`}
           onClose={() => {
             setEditingStudent(null);
             setEditingSequence("");
           }}
         >
           <div className="symbol-password-modal-card">
-            <h3>Change {editingStudent.name}'s pictures</h3>
-            <p className="muted-text">This student gate is teacher-visible by design; real data protection remains in the signed-in teacher account.</p>
+            <h3>Change sign-in pictures for {editingStudent.name}</h3>
+            <p className="muted-text">Picture sign-in only gets the right child to their own work, so you can see and change these pictures at any time. Your teacher account is what keeps class information private.</p>
             <SymbolPasswordPad
               value={editingSequence}
               onChange={setEditingSequence}

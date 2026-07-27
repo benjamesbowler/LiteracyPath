@@ -173,7 +173,11 @@ export function InterventionLoop({
   onRecommendationConsumed
 }) {
   const [interventions, setInterventions] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // Starts true: nothing has been read yet, and "you have planned nothing" is a
+  // conclusion this panel is not entitled to until the request comes back.
+  const [loading, setLoading] = useState(true);
+  const [loadFailed, setLoadFailed] = useState(false);
+  const [reloadToken, setReloadToken] = useState(0);
   const [busyId, setBusyId] = useState("");
   const [plannerSeed, setPlannerSeed] = useState(null);
   const [outcomeDrafts, setOutcomeDrafts] = useState({});
@@ -187,7 +191,13 @@ export function InterventionLoop({
   useEffect(() => {
     let active = true;
     async function load() {
-      if (!supabase || !teacherId || !classId) return;
+      if (!supabase || !teacherId || !classId) {
+        setLoading(false);
+        setLoadFailed(false);
+        return;
+      }
+      setLoading(true);
+      setLoadFailed(false);
       const { data, error } = await supabase
         .table("teacher_interventions")
         .select(SELECT_FIELDS)
@@ -197,8 +207,11 @@ export function InterventionLoop({
       if (!active) return;
       setLoading(false);
       if (error) {
+        // A failed read is not an empty plan list. It gets its own panel below
+        // instead of a note above the "nothing planned" card.
         console.error("Load interventions error:", error);
-        setStatus("Teaching plans could not be loaded. Existing student results are unchanged.");
+        setLoadFailed(true);
+        setInterventions([]);
         return;
       }
       setInterventions(data || []);
@@ -207,7 +220,7 @@ export function InterventionLoop({
     return () => {
       active = false;
     };
-  }, [classId, supabase, teacherId]);
+  }, [classId, reloadToken, supabase, teacherId]);
 
   const activePlannerSeed = recommendation || plannerSeed;
 
@@ -408,7 +421,24 @@ export function InterventionLoop({
       )}
 
       {loading ? (
-        <p className="muted-text">Loading interventions…</p>
+        <p className="muted-text" role="status" aria-live="polite" aria-busy="true">
+          Loading your teaching plans…
+        </p>
+      ) : loadFailed ? (
+        <div className="report-empty-state teacher-intervention-empty" role="alert">
+          <strong>We couldn&apos;t load your teaching plans.</strong>
+          <p>
+            Nothing is lost. Any plan you have saved is still there, and students&apos;
+            results are unchanged. Check your internet connection and try again.
+          </p>
+          <button
+            className="lp-button lp-button-primary"
+            type="button"
+            onClick={() => setReloadToken(value => value + 1)}
+          >
+            Try again
+          </button>
+        </div>
       ) : interventions.length === 0 ? (
         <div className="report-empty-state teacher-intervention-empty">
           <strong>No interventions planned for this class.</strong>

@@ -14,13 +14,6 @@ function learnerAnswerCount(row = {}) {
   ) || 0);
 }
 
-function learnerMasteredCount(row = {}) {
-  if (Number.isFinite(Number(row.masteredCount))) return Number(row.masteredCount);
-  if (Array.isArray(row.masteredSkills)) return row.masteredSkills.length;
-  if (Array.isArray(row.mastered)) return row.mastered.length;
-  return 0;
-}
-
 function learnerLastActive(row = {}) {
   const value = row.lastActive || row.last_active || row.updatedAt || row.updated_at;
   if (!value) return "No activity yet";
@@ -133,7 +126,6 @@ export function TeacherProgressOverview({
           <section className="teacher-report-picker-list" aria-label="Students">
             {visibleRows.map(row => {
               const answers = learnerAnswerCount(row);
-              const mastered = learnerMasteredCount(row);
               const selected = row.id === selectedLearnerId;
               return (
                 <article className={selected ? "selected" : ""} key={row.id}>
@@ -142,9 +134,17 @@ export function TeacherProgressOverview({
                   </div>
                   <div>
                     <h2>{row.name}</h2>
+                    {/*
+                      The "N mastered skill" half of this line was a fourth,
+                      private mastery taxonomy (masteredCount → masteredSkills →
+                      mastered) rendered with no denominator, so "3 mastered
+                      skills" could not be reconciled with any other surface.
+                      A picker does not own a mastery count; the report it opens
+                      does. Removed 2026-07-27.
+                    */}
                     <p>
                       {answers
-                        ? `${countPhrase(answers, "saved answer")} · ${countPhrase(mastered, "mastered skill")}`
+                        ? countPhrase(answers, "saved answer")
                         : "No saved answers yet"}
                     </p>
                     <small>{learnerLastActive(row)}</small>

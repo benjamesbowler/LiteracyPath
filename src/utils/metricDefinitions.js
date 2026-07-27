@@ -1,4 +1,33 @@
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
+
 export const METRIC_DEFINITIONS_SHEET_NAME = "How figures are worked out";
+
+// Every number in the prose below is read from the policy that computes the
+// figure. Typing "70%" or "3 tries" by hand is how a glossary ends up describing
+// a rule the code stopped using; tools/checkMetricDefinitions.mjs now fails any
+// definition whose numbers are not policy numbers.
+const DEVELOPING_MINIMUM = LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum;
+const ITEM_MINIMUM_ATTEMPTS =
+  LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts;
+const CONCLUSION_WINDOW_DAYS = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays;
+
+// Figures a teacher can actually see on a screen. Each id here has a literal
+// metricId="…" or definitionId="…" render site in src/, asserted by
+// tools/checkMetricDefinitions.mjs.
+//
+// The exported "How figures are worked out" glossary is built from this list.
+// Four definitions used to ship in every workbook and CSV with no on-screen home
+// at all, so a teacher could read an explanation of a figure that appears
+// nowhere they can check it.
+export const RENDERED_METRIC_IDS = Object.freeze([
+  "accuracy",
+  "mastered",
+  "round",
+  "active",
+  "started",
+  "current-skill",
+  "trails"
+]);
 
 export const METRIC_DEFINITIONS = Object.freeze({
   accuracy: Object.freeze({
@@ -8,31 +37,47 @@ export const METRIC_DEFINITIONS = Object.freeze({
     timeWindow: "All saved answers in the selected student, class, check, or report unless a shorter period is shown.",
     excludes: "Unscored answers and groups too small for a fair result."
   }),
+  // This definition used to describe the Sound Seekers game's rule (4 correct,
+  // two days, two question types) while labelling a number produced by the
+  // curriculum checkpoints, which is a different subsystem with a different
+  // rule. It now describes what the figure beside it actually counts.
   mastered: Object.freeze({
     id: "mastered",
-    label: "Secure",
-    counts: "The student was right at least 4 times, on two different days, in two different kinds of question. Being right 3 times in one sitting is a great start, but it is not secure yet.",
-    timeWindow: "Their recent answers, within the last 90 days.",
-    excludes: "Practice games played on their own, answers given with help on screen, and anything older than 90 days."
+    label: "Skills secured",
+    counts: "Curriculum skills where the student has passed the skill's check at least once. Each check has its own pass mark — most need 7 to 12 correct out of that check's questions. A skill is counted once however many times it is passed.",
+    timeWindow: "All saved checks, however long ago they were taken.",
+    excludes: "Practice games played on their own, and checks the student started but did not finish."
   }),
+  // 2026-07-27: the next three describe the status groups in
+  // SimpleOverviewReportView (src/components/reports/SimpleStudentReportViews.jsx),
+  // whose on-screen titles come from TEACHER_COPY.reports — "Needs teaching",
+  // "Practising", "Not enough yet". Nothing binds them to a <MetricFigure>, so
+  // they are deliberately absent from RENDERED_METRIC_IDS and therefore from the
+  // exported glossary. Bind them to those group headings and add their ids to
+  // RENDERED_METRIC_IDS to put them back in exports.
+  //
+  // Note for whoever does that: the policy module and reportingEvidenceModel.js
+  // label the same underlying status "Needs support" / "Not enough results".
+  // Two live vocabularies for one ladder is its own defect; these strings follow
+  // the surface they describe, not learningPolicy.js.
   practising: Object.freeze({
     id: "practising",
     label: "Practising",
     counts: "The student is getting this right, but not yet often enough, or not yet on enough different days, for us to call it secure.",
-    timeWindow: "Their recent answers, within the last 90 days.",
+    timeWindow: `Their recent answers, within the last ${CONCLUSION_WINDOW_DAYS} days.`,
     excludes: "Answers given with help on screen."
   }),
   "needs-teaching": Object.freeze({
     id: "needs-teaching",
     label: "Needs teaching",
-    counts: "The student got this right less than 70% of the time, across at least 3 tries. This one needs teaching.",
-    timeWindow: "Their recent answers, within the last 90 days.",
-    excludes: "Items with fewer than 3 tries — those show as Not enough yet, which is not a worry."
+    counts: `The student got this right less than ${DEVELOPING_MINIMUM}% of the time, across at least ${ITEM_MINIMUM_ATTEMPTS} tries. This one needs teaching.`,
+    timeWindow: `Their recent answers, within the last ${CONCLUSION_WINDOW_DAYS} days.`,
+    excludes: `Items with fewer than ${ITEM_MINIMUM_ATTEMPTS} tries — those show as Not enough yet, which is not a worry.`
   }),
   "not-enough-yet": Object.freeze({
     id: "not-enough-yet",
     label: "Not enough yet",
-    counts: "Fewer than 3 answers so far, or the only answers we have are old, or the student had help. This is not a low score — we just cannot say either way yet.",
+    counts: `Fewer than ${ITEM_MINIMUM_ATTEMPTS} answers so far, or the only answers we have are old, or the student had help. This is not a low score — we just cannot say either way yet.`,
     timeWindow: "All saved answers for this item.",
     excludes: "Nothing. It means there is not enough to judge, not that the student did badly."
   }),
@@ -43,6 +88,9 @@ export const METRIC_DEFINITIONS = Object.freeze({
     timeWindow: "The current round.",
     excludes: "Everything before this round. This is not progress towards mastery."
   }),
+  // Also unbound: FinishedReportPage renders the provisional placement line as
+  // plain text, not through a MetricFigure carrying this id. Excluded from
+  // RENDERED_METRIC_IDS for the same reason as the three above.
   "el-placement": Object.freeze({
     id: "el-placement",
     label: "Provisional placement",
@@ -126,7 +174,7 @@ export function metricDefinitionText(metricId, overrides = {}) {
 
 export function buildMetricDefinitionRows({ generatedAt = new Date() } = {}) {
   const exportedAt = formatMetricUpdateTime(generatedAt);
-  return Object.values(METRIC_DEFINITIONS).map(definition => ({
+  return RENDERED_METRIC_IDS.map(metricId => METRIC_DEFINITIONS[metricId]).map(definition => ({
     "Figure key": definition.id,
     "Figure": definition.label,
     "Counts": definition.counts,

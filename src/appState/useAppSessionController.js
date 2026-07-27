@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
-import { useEffect, useEffectEvent, useLayoutEffect } from "react";
+import { useEffect, useEffectEvent, useLayoutEffect, useState } from "react";
 import {
   loadCompatibleDashboardStudents,
   loadCompatibleTeacherClasses,
@@ -10,6 +10,7 @@ import {
   normalizeRosterStudentName,
   updateRosterStudentName
 } from "../data/teacherRosterOperations.js";
+import { selectAllRows } from "../data/pagedSelect.js";
 
 export function useAppSessionController(context) {
   const {
@@ -62,6 +63,12 @@ export function useAppSessionController(context) {
 
   const profileStorageKey =
     getTeacherProfileStorageKey(teacherId);
+
+  // An empty class list means "no classes" only once a request has finished.
+  // Until then it means "we do not know yet", and the teacher surfaces must say
+  // so rather than telling an established teacher to make their first class.
+  // Starts true because every approved teacher's session loads classes.
+  const [loadingClasses, setLoadingClasses] = useState(true);
 
   function applyStudentSession(session) {
     if (!session?.token || !session?.studentId) return;
@@ -1608,8 +1615,11 @@ export function useAppSessionController(context) {
   async function loadClasses() {
     if (!teacherId) {
       setClassList([]);
+      setLoadingClasses(false);
       return [];
     }
+
+    setLoadingClasses(true);
 
     const { data, error, compatibility } = await loadCompatibleTeacherClasses({
       client: supabase,
@@ -1619,6 +1629,7 @@ export function useAppSessionController(context) {
     if (error) {
       console.error("Load classes error:", error);
       setMessage(TEACHER_COPY.errors.classesLoad);
+      setLoadingClasses(false);
       return [];
     }
 
@@ -1626,6 +1637,7 @@ export function useAppSessionController(context) {
       console.info("Classes loaded through the rolling-release schema boundary.");
     }
     setClassList(data || []);
+    setLoadingClasses(false);
     return data || [];
   }
 
@@ -1789,35 +1801,45 @@ export function useAppSessionController(context) {
       return;
     }
 
-    const { data: answers, error: answersError } = await supabase
+    // Paged, not plain. Both of these feed every figure on the dashboard, and
+    // both were ordered oldest-first with no range, so PostgREST's 1000-row cap
+    // silently handed back the oldest page and the newest work vanished from
+    // the teacher's screen without any error.
+    const {
+      data: answers,
+      error: answersError,
+      truncated: answersTruncated
+    } = await selectAllRows(() => supabase
       .table("answers")
       .select("student_id, skill, is_correct, answered_at")
       .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
-      .order("answered_at", { ascending: true });
+      .order("answered_at", { ascending: true }));
 
     if (answersError) {
       console.error("Dashboard answers error:", answersError);
     }
+    if (answersTruncated) {
+      console.error("Dashboard answers exceeded the paging ceiling; figures are partial.");
+    }
 
-
-    const { data: masteryRows, error: masteryError } = await supabase
+    const { data: masteryRows, error: masteryError } = await selectAllRows(() => supabase
       .table("mastery")
       .select("*")
       .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
-      .order("updated_at", { ascending: true });
+      .order("updated_at", { ascending: true }));
 
     if (masteryError) {
       console.error("Dashboard mastery error:", masteryError);
     }
 
-    const { data: soundSeekerRows, error: soundSeekerError } = await supabase
+    const { data: soundSeekerRows, error: soundSeekerError } = await selectAllRows(() => supabase
       .table("student_progress")
       .select("student_id, payload, updated_at")
       .eq("area", "phonics_quest")
       .eq("key", "__all__")
-      .in("student_id", studentIds);
+      .in("student_id", studentIds));
 
     if (soundSeekerError) {
       console.error("Dashboard Sound Seekers progress error:", soundSeekerError);
@@ -1829,12 +1851,12 @@ export function useAppSessionController(context) {
         syncedAt: row.updated_at || ""
       }])
     );
-    const { data: profileRows, error: profileError } = await supabase
+    const { data: profileRows, error: profileError } = await selectAllRows(() => supabase
       .table("student_progress")
       .select("student_id, payload")
       .eq("area", "profile")
       .eq("key", "__all__")
-      .in("student_id", studentIds);
+      .in("student_id", studentIds));
 
     if (profileError) {
       console.error("Dashboard student profile settings error:", profileError);
@@ -1884,15 +1906,23 @@ export function useAppSessionController(context) {
         const previousAnswers = studentAnswers.filter(row =>
           inWindow(row.answered_at, previousWindowStart, changeWindowStart)
         ).length;
-        const recentMastered = mastered.filter(row =>
+        // public.mastery has no unique constraint on (student, skill) and the
+        // round controller inserts a row per completed round, so the same skill
+        // can appear many times. Every count below is therefore over DISTINCT
+        // skill ids: counting rows let "7 of 30 secured" climb past 30, and the
+        // teacher's number disagreed with the child's own record, which keys by
+        // skill and takes the last row.
+        const distinctMasteredSkills = rows => new Set(
+          rows.map(row => row.skill_id).filter(Boolean)
+        );
+        const recentMastered = distinctMasteredSkills(mastered.filter(row =>
           inWindow(row.updated_at, changeWindowStart, changeWindowEnd)
-        ).length;
-        const previousMastered = mastered.filter(row =>
+        )).size;
+        const previousMastered = distinctMasteredSkills(mastered.filter(row =>
           inWindow(row.updated_at, previousWindowStart, changeWindowStart)
-        ).length;
+        )).size;
 
-        const masteredIds =
-          new Set(mastered.map(m => m.skill_id));
+        const masteredIds = distinctMasteredSkills(mastered);
 
         const attemptsBySkillId = new Map(
           studentMastery.map(m => [m.skill_id, Number(m.attempts) || 0])
@@ -1925,7 +1955,7 @@ export function useAppSessionController(context) {
           correct,
           accuracy,
           evidenceSkills,
-          masteredCount: mastered.length,
+          masteredCount: masteredIds.size,
           currentSkill: firstUnmastered?.label || "Completed",
           lastActive,
           recentAnswers,
@@ -2048,8 +2078,9 @@ export function useAppSessionController(context) {
   // Bulk sign-in setup. One write per student but a single roster reload and a
   // single message at the end, so a class of 25 is one action, not 25.
   async function assignMissingSymbolPasswords(assignments = []) {
-    if (!teacherId || !assignments.length) return { saved: 0, failed: 0 };
+    if (!teacherId || !assignments.length) return { saved: 0, failed: 0, savedIds: [] };
     const setAt = new Date().toISOString();
+    const savedIds = [];
     let saved = 0;
     let failed = 0;
 
@@ -2076,14 +2107,19 @@ export function useAppSessionController(context) {
         failed += 1;
       } else {
         saved += 1;
+        savedIds.push(studentRowId);
       }
     }
 
     await loadStudents(selectedClassId);
     setMessage(failed
-      ? `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}. ${failed} could not be saved — try again.`
+      ? `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}. ${failed} could not be saved — those children are not on the cards. Try again for them.`
       : `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}.`);
-    return { saved, failed };
+    // savedIds is what makes the printed cards trustworthy: the caller must
+    // build the preview from rows that were actually written, never from the
+    // sequences it generated locally. A partial failure used to print pictures
+    // for children whose write had failed, and the class could not sign in.
+    return { saved, failed, savedIds };
   }
 
   async function updateStudentName(studentRowId, nextName) {
@@ -2097,9 +2133,10 @@ export function useAppSessionController(context) {
     });
     if (error || !data?.length) {
       console.error("Could not update student display name.", error);
+      // Never surface error.message here — it is raw database text.
       const reason = /duplicate|unique/i.test(error?.message || "")
         ? `A child named "${normalizedName}" already exists in this class.`
-        : error?.message || "We couldn't save that child's information. Nothing has changed.";
+        : "We couldn't save that child's information. Nothing has changed.";
       setMessage(reason);
       return false;
     }
@@ -2575,6 +2612,7 @@ export function useAppSessionController(context) {
     completePasswordReset, createClass, createDemoClass, createStudentForSelectedClass,
     demoTeacherEnabled, executeAdminDeleteClass, executeAdminDeleteStudent, exitToTeacherEntry,
     isTeacherAccountApproved, loadAdminDashboard, loadClassDashboard, loadClasses,
+    loadingClasses,
     loadStudentProgress, loadStudents, logInDemoTeacher, logInTeacher,
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,

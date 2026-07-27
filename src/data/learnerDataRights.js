@@ -51,9 +51,28 @@ function assertRequestInputs({ requesterRole, verificationMethod }) {
   }
 }
 
+/**
+ * Carry the database's own failure code up to the caller.
+ *
+ * This used to throw a bare `new Error(message)`, which discarded `code`. The
+ * consequence was not cosmetic: `describeRosterOperationError` branches on
+ * `PGRST202` to say "the database is missing a pending update", so with the
+ * code stripped every missing-function failure fell through to the last-resort
+ * branch and a teacher was shown raw PostgREST schema-cache text. Preserving
+ * the code is what makes the plain-English branch reachable at all.
+ */
+function rpcError(source, fallbackMessage) {
+  const error = new Error(source?.message || fallbackMessage);
+  if (source?.code) error.code = source.code;
+  if (source?.details) error.details = source.details;
+  if (source?.hint) error.hint = source.hint;
+  error.cause = source;
+  return error;
+}
+
 function unwrapRpc(result, operation) {
   if (result?.error) {
-    throw new Error(result.error.message || `${operation} failed.`);
+    throw rpcError(result.error, `${operation} failed.`);
   }
   if (!result?.data || typeof result.data !== "object") {
     throw new Error(`${operation} returned an invalid response.`);

@@ -11,6 +11,7 @@ import {
   teacherSettingsHash
 } from "../../appState/teacherSettingsRoutes.js";
 import { LearnerDataRightsDialog } from "./LearnerDataRightsDialog.jsx";
+import { ConfirmActionDialog } from "./TeacherAdminDialogs.jsx";
 import {
   TeacherPageHeader,
   TeacherPageShell
@@ -27,6 +28,16 @@ function formatAccessTime(value) {
   if (!value) return "No recent activity";
   const date = new Date(value);
   if (!Number.isFinite(date.getTime())) return "Time unavailable";
+  return date.toLocaleString([], {
+    dateStyle: "medium",
+    timeStyle: "short"
+  });
+}
+
+function formatExpiryDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "";
   return date.toLocaleString([], {
     dateStyle: "medium",
     timeStyle: "short"
@@ -62,6 +73,7 @@ export function TeacherSettingsPage({
   const [accessLogOpen, setAccessLogOpen] = useState(false);
   const [accessBusy, setAccessBusy] = useState(false);
   const [accessError, setAccessError] = useState(null);
+  const [newCodeConfirmOpen, setNewCodeConfirmOpen] = useState(false);
 
   const allStudents = useMemo(
     () => [...studentList, ...archivedStudentList],
@@ -74,6 +86,7 @@ export function TeacherSettingsPage({
   const selectedExpiry = expiryOverrides[selectedClassId]
     ?? selectedClass?.access_code_expires_at
     ?? null;
+  const selectedExpiryLabel = formatExpiryDate(selectedExpiry);
   const visibleAccessSummary = accessSummary && accessSummary.classId === selectedClass?.id
     ? accessSummary.data
     : null;
@@ -143,15 +156,18 @@ export function TeacherSettingsPage({
       : "School information was not changed.");
   }
 
+  function askToRegenerateCode() {
+    if (!selectedClass?.id || siteBusy) return;
+    setNewCodeConfirmOpen(true);
+  }
+
   async function regenerateCode() {
     if (!selectedClass?.id || siteBusy) return;
-    if (!window.confirm(`Make a new sign-in code for ${selectedClass.name}? The current code will stop working immediately.`)) {
-      return;
-    }
     setSiteBusy("code");
     setStatus("Making a new class code…");
     const result = await onRegenerateClassCode?.(selectedClass.id);
     setSiteBusy("");
+    setNewCodeConfirmOpen(false);
     setStatus(result?.ok
       ? `New class code ${result.accessCode} is ready.`
       : "The class code was not changed.");
@@ -197,8 +213,13 @@ export function TeacherSettingsPage({
 
   async function changeExpiry(days) {
     if (!selectedClass?.id || siteBusy) return;
-    const expiresAt = Number(days) > 0
-      ? new Date(Date.now() + Number(days) * 86400000).toISOString()
+    // Only a real number of days may reach the save. Anything else (for example the
+    // option that describes the expiry already in place) must never be read as
+    // "remove the expiry".
+    const dayCount = Number(days);
+    if (!Number.isFinite(dayCount) || dayCount < 0) return;
+    const expiresAt = dayCount > 0
+      ? new Date(Date.now() + dayCount * 86400000).toISOString()
       : null;
     setSiteBusy("expiry");
     setStatus("Saving class-code expiry…");
@@ -263,7 +284,7 @@ export function TeacherSettingsPage({
           ))}
         </nav>
 
-        <section className="teacher-settings-panel" aria-live="polite">
+        <section className="teacher-settings-panel">
           {section === "school" && (
             <form className="page-stack" onSubmit={saveSchool}>
               <header>
@@ -329,7 +350,7 @@ export function TeacherSettingsPage({
                             className="lp-button lp-button-secondary"
                             type="button"
                             disabled={Boolean(siteBusy)}
-                            onClick={regenerateCode}
+                            onClick={askToRegenerateCode}
                           >
                             {siteBusy === "code" ? "Making code…" : "New code"}
                           </button>
@@ -338,17 +359,30 @@ export function TeacherSettingsPage({
                       <label>
                         <span>Code expiry</span>
                         <select
-                          value={selectedExpiry ? "custom" : "0"}
+                          value={selectedExpiry ? "current" : "0"}
                           disabled={Boolean(siteBusy)}
                           onChange={event => changeExpiry(event.target.value)}
                         >
-                          {selectedExpiry && <option value="custom">Expiry is set</option>}
+                          {selectedExpiry && (
+                            <option disabled value="current">
+                              {selectedExpiryLabel
+                                ? `Stops working on ${selectedExpiryLabel}`
+                                : "An expiry is already set"}
+                            </option>
+                          )}
                           <option value="0">No automatic expiry</option>
                           <option value="1">In 1 day</option>
                           <option value="7">In 7 days</option>
                           <option value="30">In 30 days</option>
                         </select>
                       </label>
+                      {selectedExpiry && (
+                        <p className="muted-text">
+                          {selectedExpiryLabel
+                            ? `This code stops working on ${selectedExpiryLabel}. Pick another option to change it.`
+                            : "This code has an expiry set. Pick another option to change it."}
+                        </p>
+                      )}
                     </div>
                     <div className="page-stack">
                       <fieldset>
@@ -501,6 +535,16 @@ export function TeacherSettingsPage({
           {status && <p className="teacher-inline-status" role="status">{status}</p>}
         </section>
       </div>
+
+      <ConfirmActionDialog
+        open={newCodeConfirmOpen}
+        busy={siteBusy === "code"}
+        title="Make a new class code?"
+        body={`The old code for ${selectedClass?.name || "this class"} stops working straight away, so every child in the class needs the new code before they can sign in again.`}
+        confirmLabel="Make a new code"
+        onCancel={() => setNewCodeConfirmOpen(false)}
+        onConfirm={regenerateCode}
+      />
 
       <LearnerDataRightsDialog
         key={privacyStudent?.id || "closed-settings-privacy"}

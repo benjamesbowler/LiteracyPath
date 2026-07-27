@@ -1,10 +1,16 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { LEARNING_EVIDENCE_POLICY } from "../../src/policy/learningPolicy.js";
 import {
   GROWTH_METRICS,
-  buildTeacherGrowthSeries
+  buildTeacherGrowthSeries,
+  resolveGrowthSkillId
 } from "../../src/utils/teacherGrowthSeries.js";
 
+const MIN_OBSERVATIONS = LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts;
+
+// Support dependence is withheld below the policy's exact-item floor, so a
+// fixture that means to plot it has to record at least that many observations.
 function attempt({
   id,
   date,
@@ -13,7 +19,9 @@ function attempt({
   version,
   supportUsed,
   wcpm = null,
-  total = 10
+  total = 10,
+  observations = MIN_OBSERVATIONS,
+  supportedCount = supportUsed ? observations : 0
 }) {
   return {
     attempt_id: id,
@@ -29,12 +37,12 @@ function attempt({
     payload: {
       curriculumVersion: version,
       ...(wcpm === null ? {} : { metrics: { wcpm } }),
-      questionRecords: [{
-        questionId: `${id}-item`,
+      questionRecords: Array.from({ length: observations }, (_, index) => ({
+        questionId: `${id}-item-${index + 1}`,
         responseStatus: "correct",
-        supportUsed,
+        supportUsed: index < supportedCount,
         ...(wcpm === null ? {} : { wcpm })
-      }]
+      }))
     }
   };
 }
@@ -161,6 +169,88 @@ test("curriculum versions are unique, dated, and positioned on the shared axis",
   assert.ok(model.markers.every(marker => marker.dateLabel && marker.x >= 0 && marker.x <= 100));
   assert.ok(model.markers[0].x < model.markers[1].x);
   assert.ok(model.markers[1].x < model.markers[2].x);
+});
+
+test("one skill recorded two ways counts once on the acquisition curve", () => {
+  const byId = {
+    attempt_id: "id-form",
+    completed_at: "2026-03-01T09:00:00.000Z",
+    skill_id: "initial_sounds",
+    total_questions: 10,
+    correct_count: 9,
+    accuracy: 90,
+    status: "passed",
+    administration_status: "completed",
+    payload: {}
+  };
+  const byName = {
+    attempt_id: "name-form",
+    completed_at: "2026-04-01T09:00:00.000Z",
+    skill_name: "Initial Sounds",
+    total_questions: 10,
+    correct_count: 9,
+    accuracy: 90,
+    status: "passed",
+    administration_status: "completed",
+    payload: {}
+  };
+
+  assert.equal(resolveGrowthSkillId("Initial Sounds"), resolveGrowthSkillId("initial_sounds"));
+  assert.equal(resolveGrowthSkillId("EL Benchmark Oral Reading Fluency"), "oral_reading_fluency");
+
+  const model = buildTeacherGrowthSeries({ attempts: [byId, byName], interventions: [] });
+  const acquisition = model.series.find(series => series.id === "skill-acquisition");
+  assert.deepEqual(acquisition.points.map(point => point.value), [1]);
+});
+
+test("support dependence withholds thin observations and weights months by evidence", () => {
+  const thin = attempt({
+    id: "thin",
+    date: "2026-03-01T09:00:00.000Z",
+    skill: "initial_sounds",
+    accuracy: 90,
+    version: "LP-CURRICULUM-2026.1",
+    supportUsed: true,
+    observations: MIN_OBSERVATIONS - 1
+  });
+  const thinModel = buildTeacherGrowthSeries({ attempts: [thin], interventions: [] });
+  assert.deepEqual(
+    thinModel.series.find(series => series.id === "support-dependence").points,
+    []
+  );
+
+  // One check recording 3 observations, all supported, and one recording 37,
+  // none supported, inside the same month. An unweighted mean plotted 50%; the
+  // weighted mean is the share a teacher would count by hand.
+  const model = buildTeacherGrowthSeries({
+    attempts: [
+      attempt({
+        id: "small",
+        date: "2026-03-01T09:00:00.000Z",
+        skill: "initial_sounds",
+        accuracy: 90,
+        version: "LP-CURRICULUM-2026.1",
+        supportUsed: true,
+        observations: 3,
+        supportedCount: 3
+      }),
+      attempt({
+        id: "large",
+        date: "2026-03-20T09:00:00.000Z",
+        skill: "final_sounds",
+        accuracy: 90,
+        version: "LP-CURRICULUM-2026.1",
+        supportUsed: false,
+        observations: 37,
+        supportedCount: 0
+      })
+    ],
+    interventions: []
+  });
+  const support = model.series.find(series => series.id === "support-dependence");
+  assert.equal(support.points.length, 1);
+  assert.equal(support.points[0].evidenceCount, 40);
+  assert.equal(support.points[0].value, 7.5);
 });
 
 test("missing source evidence stays empty instead of becoming a flat zero trend", () => {

@@ -47,8 +47,10 @@ export function TeacherAssessmentsPage({
   selectedClassId = "",
   className = "",
   onSelectClass,
+  onOpenClasses,
   studentRows = [],
   studentList = [],
+  loadingClasses = false,
   loadingStudents = false,
   selectedStudentId = "",
   selectedStudentName = "",
@@ -102,6 +104,12 @@ export function TeacherAssessmentsPage({
   const entry = getAssessmentCatalogEntry(checkId);
   const hasClass = Boolean(selectedClassId);
   const hasStudent = Boolean(selectedStudentId);
+  // "No classes" is a conclusion, not a starting assumption. On a fresh sign-in
+  // the class fetch is still running and no class is selected yet, so the old
+  // "empty list plus a selected class" guess left an established teacher reading
+  // "Make your class first". The real loading flag settles it.
+  const classesLoading = loadingClasses
+    || (classList.length === 0 && Boolean(selectedClassId));
 
   const elStartPoint = useElBenchmarkStartPoint({
     assessmentHistory,
@@ -243,10 +251,15 @@ export function TeacherAssessmentsPage({
         </div>
       </section>
 
-      {classList.length === 0 && selectedClassId ? (
+      {classesLoading ? (
         <TeacherSurfaceState surface="assess" state="loading" />
       ) : classList.length === 0 ? (
-        <TeacherSurfaceState surface="assess" state="empty" detail="Make a class and add your students, then come back to start an assessment." />
+        <TeacherSurfaceState
+          surface="assess"
+          state="empty"
+          detail="Make a class and add your students, then come back to start an assessment."
+          onPrimaryAction={onOpenClasses}
+        />
       ) : (
         <div className="teacher-funnel">
           <TeacherFunnelStep

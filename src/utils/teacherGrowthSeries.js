@@ -1,3 +1,4 @@
+import { normalizeReportingKey } from "../data/reportingEvidenceModel.js";
 import {
   LEARNING_EVIDENCE_POLICY,
   LEARNING_STATUS_IDS,
@@ -6,6 +7,8 @@ import {
 
 const POLICY_MIN_RESPONSES =
   LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses;
+const POLICY_MIN_ITEM_OBSERVATIONS =
+  LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts;
 
 export const GROWTH_METRICS = Object.freeze([
   {
@@ -34,7 +37,7 @@ export const GROWTH_METRICS = Object.freeze([
     label: "Support dependence",
     shortLabel: "Support use",
     unit: "%",
-    description: "Share of responses explicitly recorded as supported; lower values mean less recorded support."
+    description: `Share of responses explicitly recorded as supported; lower values mean less recorded support. A check contributes only once it has at least ${LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts} recorded observations, and monthly points weight each check by how many it recorded.`
   },
   {
     id: "intervention-response",
@@ -65,15 +68,62 @@ function attemptTime(attempt) {
   );
 }
 
+// One skill can arrive as an id ("initial_sounds"), as a display name
+// ("Initial Sounds"), or as a bare assessment type. The acquisition curve keys a
+// Set on this value, so two recordings of the same skill used to add TWO steps
+// to the same teacher's cumulative line. Everything now resolves to one id.
+//
+// Shaped after STATUS_ALIASES in src/data/reportingEvidenceModel.js: a frozen
+// alias table over a normalised key, no fuzzy matching.
+const SKILL_ID_ALIASES = Object.freeze({
+  initial_sound: "initial_sounds",
+  initial_sounds: "initial_sounds",
+  starting_sound: "initial_sounds",
+  starting_sounds: "initial_sounds",
+  final_sound: "final_sounds",
+  final_sounds: "final_sounds",
+  ending_sound: "final_sounds",
+  ending_sounds: "final_sounds",
+  cvc: "cvc_short_vowels",
+  cvc_words: "cvc_short_vowels",
+  cvc_short_vowel: "cvc_short_vowels",
+  cvc_short_vowels: "cvc_short_vowels",
+  short_vowel: "cvc_short_vowels",
+  short_vowels: "cvc_short_vowels",
+  rhyme: "rhyming",
+  rhymes: "rhyming",
+  rhyming: "rhyming",
+  rhyming_families: "rhyming",
+  digraph: "digraphs",
+  digraphs: "digraphs",
+  blend: "blends",
+  blends: "blends",
+  fluency: "oral_reading_fluency",
+  oral_reading_fluency: "oral_reading_fluency",
+  el_oral_reading_fluency: "oral_reading_fluency",
+  el_benchmark_oral_reading_fluency: "oral_reading_fluency"
+});
+
+export function resolveGrowthSkillId(value) {
+  const key = normalizeReportingKey(value);
+  if (!key) return "";
+  return SKILL_ID_ALIASES[key] || key;
+}
+
 function attemptSkill(attempt) {
-  return String(
-    attempt?.skill_id
-    || attempt?.skillId
-    || attempt?.skill_name
-    || attempt?.skillName
-    || attempt?.assessment_type
-    || ""
-  ).trim();
+  const candidates = [
+    attempt?.skill_id,
+    attempt?.skillId,
+    attempt?.skill_name,
+    attempt?.skillName,
+    attempt?.assessment_type,
+    attempt?.assessmentType
+  ];
+  for (const candidate of candidates) {
+    const resolved = resolveGrowthSkillId(candidate);
+    if (resolved) return resolved;
+  }
+  return "";
 }
 
 function attemptAccuracy(attempt) {
@@ -105,23 +155,26 @@ function monthKey(value) {
   return String(value || "").slice(0, 7);
 }
 
+// Monthly points are averaged by how much evidence stands behind them. An
+// unweighted mean let a month carrying one observation move the line as far as a
+// month carrying forty, which is the opposite of what a teacher reads off it.
 function bucketMonthly(points) {
   const buckets = new Map();
   for (const point of points) {
     const key = monthKey(point.date);
     if (!key) continue;
-    const bucket = buckets.get(key) || { key, values: [], date: point.date };
-    bucket.values.push(point.value);
+    const weight = Math.max(1, finiteNumber(point.evidenceCount) || 1);
+    const bucket = buckets.get(key) || { key, weighted: 0, weight: 0, date: point.date };
+    bucket.weighted += point.value * weight;
+    bucket.weight += weight;
     if (point.date > bucket.date) bucket.date = point.date;
     buckets.set(key, bucket);
   }
   return [...buckets.values()]
     .map(bucket => ({
       date: bucket.date,
-      value: Math.round(
-        (bucket.values.reduce((sum, value) => sum + value, 0) / bucket.values.length) * 10
-      ) / 10,
-      evidenceCount: bucket.values.length
+      value: Math.round((bucket.weighted / bucket.weight) * 10) / 10,
+      evidenceCount: bucket.weight
     }))
     .sort((left, right) => left.date.localeCompare(right.date));
 }
@@ -207,7 +260,10 @@ function supportPoint(attempt) {
     Object.hasOwn(record || {}, "supportUsed")
     || Object.hasOwn(record || {}, "supported")
   ));
-  if (!captured.length) return null;
+  // A single recorded observation can only ever plot 0% or 100%. That is noise
+  // drawn as a trend, so it is withheld until the same evidence floor the rest of
+  // the policy uses for one exact item is met.
+  if (captured.length < POLICY_MIN_ITEM_OBSERVATIONS) return null;
   const supported = captured.filter(record => record.supportUsed === true || record.supported === true).length;
   return {
     date: attemptTime(attempt),

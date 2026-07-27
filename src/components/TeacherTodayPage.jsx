@@ -5,6 +5,7 @@ import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
+import { MetricDefinition } from "./MetricDefinition.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import {
   TeacherChart,
@@ -64,7 +65,6 @@ function TodayZoneList({ rows, children }) {
                 <strong>{row.name}</strong>
                 <span>{row.focus}</span>
                 <small>{row.evidence}</small>
-                <small>{row.policyBasis}</small>
                 <TeacherRecommendationExplanation
                   explanation={row.explanation}
                   surface="teacher-today"
@@ -215,11 +215,20 @@ function TodayZoneList({ rows, children }) {
       <header className="teacher-today-briefing-head">
         <div>
           <p className="panel-label">Today&apos;s results</p>
-          <h3>What needs your attention today</h3>
+          <h3>
+            What needs your attention today
+            <MetricDefinition
+              metricId="accuracy"
+              label="Needs attention today"
+              counts={`Students who have answered at least ${policy.minimumResponsesForAttention} times and are getting fewer than ${policy.attentionAccuracyBelow}% of those answers right.`}
+              timeWindow="All saved answers for this class."
+              excludes="Students with fewer saved answers than that, and anything the app did not score."
+            />
+          </h3>
         </div>
         <p>
-          Suggestions use saved answers, never guesses. A student appears after
-          {` ${policy.minimumResponsesForAttention} answers when accuracy is below ${policy.attentionAccuracyBelow}%.`}
+          Suggestions use saved answers, never guesses. A student appears here once
+          they have answered enough times for the result to be fair.
         </p>
       </header>
 
@@ -304,10 +313,36 @@ function ClassHeatPanel({ rows }) {
     ? `${summary.groups.length} sound${summary.groups.length === 1 ? "" : "s"} could use a small group`
     : "no sound needs a group right now";
 
+  // The tiles are a picture: colour was the only thing carrying each sound's
+  // status, and the counts behind it sat in a `title` a tablet never shows. The
+  // picture's description now names every sound under its status word, and the ⓘ
+  // beside the heading explains the statuses on tap.
+  const soundStatusSentence = [
+    ["is-reteach", "Needs re-teaching"],
+    ["is-almost", "Almost there"],
+    ["is-got-it", "Got it"],
+    ["is-unseen", "Not met yet"]
+  ]
+    .map(([className, statusLabel]) => {
+      const sounds = summary.tiles
+        .filter(tile => severityClass(tile) === className)
+        .map(tile => tile.label);
+      return sounds.length ? `${statusLabel}: ${sounds.join(", ")}.` : "";
+    })
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <div className="quest-heat-panel class-heat-panel">
       <div className="quest-heat-head">
         <strong>Class sound map</strong>
+        <MetricDefinition
+          metricId="accuracy"
+          label="Sound status"
+          counts="Each tile is one sound, with its status across the class: got it, almost there, needs re-teaching, or not met yet. Status comes from correct answers out of scored answers for that sound."
+          timeWindow="All saved Sound Seekers play for this class."
+          excludes="Sounds the class has not met yet — those show as not met, not as a low score."
+        />
         <span className="muted-text">
           {countPhrase(summary.studentsWithEvidence, "student", "students")} with results · {groupSummary}
         </span>
@@ -319,7 +354,7 @@ function ClassHeatPanel({ rows }) {
         <>
           <TeacherChart
             className="quest-heat-grid"
-            label={`Class sound map. ${summary.groups.length
+            label={`Class sound map. ${soundStatusSentence} ${summary.groups.length
               ? summary.groups.map(group => `${group.label}: ${countPhrase(group.count, "student", "students")} need re-teaching`).join(". ")
               : "No sound currently needs a re-teaching group."}`}
           >
@@ -362,6 +397,7 @@ export function TeacherTodayPage({
   setSelectedClassId,
   setStudentList,
   studentList = [],
+  loadingStudents = false,
   loadStudents,
   loadClassDashboard,
   classDashboard = [],
@@ -407,6 +443,10 @@ export function TeacherTodayPage({
     loadClassDashboardRef.current?.(selectedClassId);
   }, [selectedClassId]);
 
+  // Changing class empties the student list on the spot and the refetch lands a
+  // moment later. Everything the briefing says in that gap - "no student needs a
+  // review", every zone count - would be a confident zero for a class we have
+  // not read yet, so the briefing waits behind the loading state instead.
   function handleClassChange(event) {
     const nextClassId = event.target.value || null;
     setSelectedClassId?.(nextClassId);
@@ -526,7 +566,11 @@ export function TeacherTodayPage({
         </div>
       </section>
 
-      {selectedClass && (
+      {selectedClass && loadingStudents && (
+        <TeacherSurfaceState surface="today" state="loading" />
+      )}
+
+      {selectedClass && !loadingStudents && (
         <TodayBriefing
           rows={studentRows}
           onLoadStudent={onLoadStudent}

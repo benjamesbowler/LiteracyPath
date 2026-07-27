@@ -110,10 +110,16 @@ const CLASS_REPORT_SKILL_ALIASES = [
   { label: "CVC / Short Vowels", canonical: "CVC and Short Vowels", match: value => /cvc|short vowel/.test(value) && !/discrimination/.test(value) },
   { label: "Short Vowel Discrimination", match: value => /short vowel.*discrimination|discrimination.*short vowel/.test(value) },
   { label: "Blends", match: value => /blend/.test(value) },
-  { label: "Digraphs", match: value => /digraph|ch|sh|th/.test(value) },
+  // Word-bounded. Unanchored /ch|sh|th/ matched the substring "th" inside
+  // "Theme and Higher Comprehension", so that skill was relabelled "Digraphs"
+  // in the class report — two different rows then shared one canonical name,
+  // which is also used as a React key, so one of them disappeared.
+  { label: "Digraphs", match: value => /digraph|\b(ch|sh|th)\b/.test(value) },
   { label: "Long Vowels / Silent E", canonical: "Long Vowels and Silent E", match: value => /long vowel|silent e/.test(value) },
   { label: "HFW 1-25", canonical: "High-Frequency Words 1-25", match: value => /(hfw|high.frequency|sight).*1.*25|1-25/.test(value) },
   { label: "HFW 26-50", canonical: "High-Frequency Words 26-50", match: value => /(hfw|high.frequency|sight).*26.*50|26-50/.test(value) },
+  { label: "HFW 51-75", canonical: "High-Frequency Words 51-75", match: value => /(hfw|high.frequency|sight).*51.*75|51-75/.test(value) },
+  { label: "HFW 76-100", canonical: "High-Frequency Words 76-100", match: value => /(hfw|high.frequency|sight).*76.*100|76-100/.test(value) },
   { label: "HFW 51-100", canonical: "High-Frequency Words 51-100", match: value => /(hfw|high.frequency|sight).*51.*100|51-100/.test(value) },
   { label: "Grammar & Language", canonical: "Grammar and Language", match: value => /grammar|language|noun|verb|adjective|preposition/.test(value) }
 ];
@@ -223,10 +229,18 @@ export function formatReportDate(value) {
   });
 }
 
+// `observedAt` is the completedAt of the newest attempt behind `accuracy`.
+//
+// This used to pass `requireRecency: false`, so the same child could read Secure
+// here and "Not enough results" on the Students page — same policy, same
+// evidence, opposite verdict, purely because of how the call was made. The
+// reports view is not an all-time view, so it now answers the recency question
+// with the evidence's own date like every other conclusion surface.
 export function getAccuracyStatus(
   accuracy = 0,
   hasData = true,
-  attempts = hasData ? LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses : 0
+  attempts = hasData ? LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses : 0,
+  { observedAt = "", now = new Date() } = {}
 ) {
   if (!hasData) {
     return {
@@ -239,7 +253,8 @@ export function getAccuracyStatus(
   const conclusion = evaluateLearningConclusion({
     accuracy,
     attempts,
-    requireRecency: false
+    observedAt,
+    now
   });
   if (!conclusion.ready) {
     return {
@@ -637,7 +652,9 @@ export function buildStudentReportModel({
   const sameSkillDelta = sameSkillAttempts.length >= 2
     ? clampPercent(sameSkillAttempts.at(-1).accuracy) - clampPercent(sameSkillAttempts.at(-2).accuracy)
     : null;
-  const status = getAccuracyStatus(effectiveAccuracy, answered > 0, answered);
+  const status = getAccuracyStatus(effectiveAccuracy, answered > 0, answered, {
+    observedAt: latestAttempt?.completedAt || ""
+  });
   const skillMapRows = skillTree.map((stage, index) => {
     const skillRecords = records.filter(record => record.skillId === stage.id || record.skillName === stage.label);
     const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
@@ -770,14 +787,17 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       totalQuestions: total,
       correctCount: correct,
       accuracy,
-      status: getAccuracyStatus(accuracy, studentRecords.length > 0, total),
+      status: getAccuracyStatus(accuracy, studentRecords.length > 0, total, {
+        observedAt: latest?.completedAt || ""
+      }),
       latestDate: latest?.completedAt || "",
       currentLevel: latest?.skillName || "No data yet",
       supportSkills: Array.from(new Set(studentRecords
         .filter(record => getAccuracyStatus(
           record.accuracy,
           record.totalQuestions > 0,
-          record.totalQuestions
+          record.totalQuestions,
+          { observedAt: record.completedAt || "" }
         ).id === "needs_support")
         .map(record => record.skillName))).slice(0, 4),
       policyVersion: LEARNING_POLICY_VERSION
@@ -826,7 +846,9 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
         accuracy,
         statusId,
         statusLabel: getClassReportStatusLabel(statusId),
-        status: getAccuracyStatus(accuracy, skillRecords.length > 0, total),
+        status: getAccuracyStatus(accuracy, skillRecords.length > 0, total, {
+          observedAt: skillRecords.at(-1)?.completedAt || ""
+        }),
         policyVersion: LEARNING_POLICY_VERSION
       };
     });
