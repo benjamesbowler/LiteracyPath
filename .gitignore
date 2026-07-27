@@ -97,3 +97,11 @@ supabase/.temp/
 
 # cleanup staging bin - empty manually
 _to_delete/
+
+# Obsidian vault. The vault is rooted at the repo so its config travels with the
+# branch (added 2026-07-27). Shared: app.json (exclusion filters), core-plugins.json.
+# Not shared: workspace layout and per-person UI state.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/hotkeys.json

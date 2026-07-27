@@ -20,8 +20,8 @@ If you read five things, read these.
 | [OPERATING_MANUAL](OPERATING_MANUAL.md) | How the product is built and run. The closest thing to a constitution. Long — the [quick reference](OPERATING_MANUAL_quickref.md) is the one-page version. |
 | [PRODUCT_VISION](architecture/PRODUCT_VISION.md) | What the app is for, in half a page. |
 | [instructional_standards](instructional/instructional_standards.md) | The teaching rules everything else has to satisfy. |
-| [FULL_APP_CRITIQUE_2026-07-23](FULL_APP_CRITIQUE_2026-07-23.md) | The most complete honest assessment of what is wrong. Still largely accurate. |
-| [TEN_OUT_OF_TEN_PLAN_2026-07-23](TEN_OUT_OF_TEN_PLAN_2026-07-23.md) | The plan for fixing it. |
+| [FULL_APP_CRITIQUE_2026-07-23](FULL_APP_CRITIQUE_2026-07-23.md) | The most complete honest assessment of what was wrong. Its **measured** findings are now largely closed — see *Where things stand*. Read it for the reasoning, not the current numbers. |
+| [TEN_OUT_OF_TEN_PLAN_2026-07-23](TEN_OUT_OF_TEN_PLAN_2026-07-23.md) | The plan that answers it, and the rule that governs "done". Live status is in [release/TRACEABILITY](release/TRACEABILITY.md). |
 
 ---
 
@@ -101,6 +101,33 @@ file to overrule one.
 ---
 
 ## Where things stand
+
+**Release status, measured 2026-07-27** — from [release/TRACEABILITY](release/TRACEABILITY.md),
+not from memory:
+
+| | Count |
+| --- | ---: |
+| Planned items (A1.1 – A10.10) | 100 — **91 DONE**, 6 EXTERNAL-READY, 3 IN-PROGRESS |
+| Discovered items (D-###) | 75 — **75 DONE** |
+| **Total** | **175 rows, 166 closed, 9 open** |
+
+Open: `A6.1` (audit-school seed in CI), `A10.1` (whole-product CI release job), `A10.4`
+(bundle budgets) are IN-PROGRESS. `A1.10`, `A4.10`, `A8.2`, `A8.10`, `A10.8`, `A10.10`
+are EXTERNAL-READY — built and waiting on outside review, which is **not** the same as
+closed.
+
+The critique's measured findings really are fixed: `check:assessment-runtime-variation`
+cited **876 failures** and now reports **0**; `check:skill-progression` cited **55
+warnings** and is now down to ~1. Verified by running both, 2026-07-27.
+
+**But green gates are not a working product, and this repo has now proved it twice.**
+The Ten-Out-Of-Ten plan's own first rule says a task is DONE only when its gate passes
+against the *reachable* product — "a check that greps source strings proves nothing".
+On 2026-07-26 and 2026-07-27, with every gate green, four defects were found by opening
+the app: Present rendered **zero** images and **zero** audio on every slide; the Archive
+Student button failed silently; the info tooltips were never hidden at all; and the only
+end-to-end archive test asserted copy that had not existed since a rename, so it could
+not have been passing. Treat a passing gate as necessary, never sufficient.
 
 Newest first. These are records — they describe a moment, and the moments accumulate.
 
