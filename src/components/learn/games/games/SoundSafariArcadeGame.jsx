@@ -670,7 +670,7 @@ function drawHud(ctx, state, config, theme, w, h) {
   const rightW = Math.min(360, w * 0.42);
   psxPanel(ctx, w - rightW - 16, 14, rightW, 72, "rgba(4,8,20,.78)", "rgba(255,255,255,.32)", 18);
   text(ctx, `${state.score} pts`, w - rightW + 18, 40, 23, "#fff", "left", 900);
-  text(ctx, `Level ${state.stage + 1}/10`, w - 30, 38, 18, theme.accent2, "right", 900);
+  text(ctx, `Level ${state.stage + 1} of 10`, w - 30, 38, 18, theme.accent2, "right", 900);
   text(ctx, `Combo x${Math.max(1, state.combo)}`, w - 30, 65, 15, "#ffeaa0", "right", 800);
 
   const progressX = 24;

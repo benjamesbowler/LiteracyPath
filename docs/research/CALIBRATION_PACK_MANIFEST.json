@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "itemId": "A4.10",
+  "protocolVersion": "2026.07.25-a4.10",
+  "monitoringVersion": "2026.07.25-a4.10",
+  "seedDatasetVersion": "LP-CALIBRATION-SEED-2026.07.25",
+  "packStatus": "EXTERNAL-READY",
+  "humanExecutionStatus": "not_started",
+  "humanResultsIncluded": false,
+  "humanReviewCertified": false,
+  "seededPreviewIsChildEvidence": false,
+  "files": [
+    "CALIBRATION_PROTOCOL.md",
+    "../../src/data/calibrationMonitoringModel.js",
+    "../../src/components/admin/CalibrationMonitoringPanel.jsx"
+  ],
+  "monitoringDomains": [
+    "item_difficulty",
+    "threshold_validation",
+    "false_positive_reteach_adjudication",
+    "subgroup_performance",
+    "differential_item_behavior"
+  ],
+  "requiredSafeguards": [
+    "version_freeze",
+    "independent_specialist_review",
+    "small_cell_suppression",
+    "no_causal_subgroup_claims",
+    "no_automatic_bias_finding",
+    "no_seeded_validation_claim",
+    "signed_external_decision"
+  ]
+}

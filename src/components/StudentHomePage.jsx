@@ -4,9 +4,15 @@ import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
 import {
   buildDailyMission,
   getMissionStatus,
-  markMissionCelebrated
+  markMissionCelebrated,
+  markMissionStepCelebrated
 } from "../utils/dailyMission.js";
-import { COMPANIONS, getCompanion, setCompanion } from "../utils/studentProfile.js";
+import {
+  COMPANIONS,
+  getCompanion,
+  loadStudentProfile,
+  setCompanion
+} from "../utils/studentProfile.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
@@ -14,6 +20,15 @@ import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
+import {
+  buildStudentHomeCardState,
+  buildStudentHomeContinuation,
+  selectStudentHomeRecommendation
+} from "../policy/learningPolicy.js";
+import { STUDENT_RAIL_DESTINATIONS } from "../policy/studentRailPolicy.js";
+import StudentRailNav from "./StudentRailNav.jsx";
+import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
+import { localProgressStorageKey } from "../utils/progressKeys.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
 // Branded placeholder for card/tile artwork: a sage-sky rounded tile with a
@@ -34,6 +49,29 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
+function readProgressArea(area, scopeKey) {
+  if (typeof window === "undefined") return {};
+  try {
+    return JSON.parse(
+      window.localStorage.getItem(localProgressStorageKey(area, scopeKey)) || "{}"
+    );
+  } catch {
+    return {};
+  }
+}
+
+function readStudentHomeProgress(scopeKey) {
+  return {
+    soundSeekers: readProgressArea("phonics_quest", scopeKey),
+    phonics: readProgressArea("phonics_letters", scopeKey),
+    adventureMap: readProgressArea("el_quest", scopeKey),
+    arcade: readProgressArea("learn_games", scopeKey),
+    storyQuests: readProgressArea("story_quests", scopeKey),
+    readingLibrary: readProgressArea("guided_reading", scopeKey),
+    hollow: readProgressArea("hollow", scopeKey)
+  };
+}
+
 function SignOutIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -47,12 +85,9 @@ function SignOutIcon() {
 const ARCADE_REQUIRES_DAILY_TASKS = false;
 
 const MISSION_TILES = [
-  // "Skills Quest", not "Quest": this tile routes to the EL Skills Quest, and
-  // the bare word "Quest" sat one header away from the Sound Seekers button —
-  // two different modes, one name, and the flagship lost the coin toss.
-  { kind: "quest", label: "Skills Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
-  { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-library.webp" },
-  { kind: "game", label: "Game", art: "/images/learn-games/art/pop-the-word.webp" }
+  { kind: "quest", label: "Adventure Map", art: "/images/learn-games/art/word-hopscotch.webp" },
+  { kind: "book", label: "Reading Library", art: "/images/learn-games/home/home-reading-library.webp" },
+  { kind: "game", label: "Arcade", art: "/images/learn-games/art/pop-the-word.webp" }
 ];
 
 // ── the "sage" home skin ─────────────────────────────────────────────────────
@@ -90,7 +125,27 @@ function SageIcon({ name }) {
 // Until a file is generated, the card falls back to the comic-era art rather
 // than showing an empty tile, so the skin never depends on the image batch
 // having run. The comic skin's own files are never overwritten.
-function SageCard({ hero = false, art, fallbackArt, title, fillChip, lineChips = [], foot, footNote, locked = false, lockedLabel, onClick }) {
+function SageCard({
+  hero = false,
+  art,
+  fallbackArt,
+  title,
+  fillChip,
+  lineChips = [],
+  foot,
+  footNote,
+  locked = false,
+  lockedLabel,
+  onClick,
+  priority,
+  recommendationSource,
+  recommendationReason,
+  cardState,
+  continuation
+}) {
+  const [loadedArt, setLoadedArt] = useState("");
+  const artReady = loadedArt === art;
+
   function artError(event) {
     const img = event.currentTarget;
     if (fallbackArt && img.dataset.fellBack !== "true") {
@@ -106,21 +161,65 @@ function SageCard({ hero = false, art, fallbackArt, title, fillChip, lineChips =
       className={["hs-card", hero ? "is-hero" : "", locked ? "is-locked" : ""].filter(Boolean).join(" ")}
       onClick={onClick}
       aria-disabled={locked || undefined}
+      data-home-priority={priority}
+      data-recommendation-source={recommendationSource || undefined}
+      data-learning-state={cardState?.label || "New"}
+      data-progress-marker={cardState?.progressText || undefined}
+      data-child-primary={hero ? "" : undefined}
+      data-child-emphasis={hero ? "primary" : "choice"}
+      data-continuation-activity={hero ? continuation?.activityId : undefined}
+      data-continuation-goal={hero ? continuation?.goal : undefined}
+      data-continuation-remaining={hero ? continuation?.remaining ?? undefined : undefined}
+      data-mission-primary-kind={hero ? continuation?.missionKind || undefined : undefined}
+      aria-label={hero ? continuation?.label : undefined}
     >
-      <span className="hs-thumb" aria-hidden="true">
-        <img src={art} alt="" loading="eager" decoding="async" onError={artError} />
+      <span className="hs-thumb" aria-hidden="true" data-media-state={artReady ? "ready" : "loading"}>
+        <img
+          src={art}
+          alt=""
+          loading="eager"
+          decoding="async"
+          onError={artError}
+          onLoad={() => setLoadedArt(art)}
+        />
       </span>
-      <h2>{title}</h2>
+      {hero && <span className="hs-card-kicker">Recommended next</span>}
+      <h3>{title}</h3>
+      {hero && continuation?.label && (
+        <span className="hs-card-action" data-child-emphasis-cue="">
+          <SageIcon name="play" />
+          {continuation.label}
+        </span>
+      )}
+      {recommendationReason && (
+        <ChildRecommendationExplanation
+          className="hs-card-reason"
+          reason={recommendationReason}
+          surface="student-home"
+        />
+      )}
+      <span className="hs-card-state-row">
+        <strong className={`hs-card-state is-${cardState?.tone || "new"}`}>
+          {cardState?.label || "New"}
+        </strong>
+        {cardState?.progressText && (
+          <small className="hs-card-progress">{cardState.progressText}</small>
+        )}
+      </span>
       <span className="hs-chips">
         {fillChip && <span className="hs-chip is-fill">{fillChip}</span>}
         {lineChips.map(chip => <span key={chip} className="hs-chip is-line">{chip}</span>)}
       </span>
-      <hr />
-      <span className="hs-foot">
-        <span className="hs-mini"><SageIcon name={locked ? "arcade" : "play"} /></span>
-        {locked && lockedLabel ? lockedLabel : foot}
-        {footNote && !locked && <em>&nbsp;· {footNote}</em>}
-      </span>
+      {!hero && (
+        <>
+          <hr />
+          <span className="hs-foot">
+            <span className="hs-mini"><SageIcon name={locked ? "arcade" : "play"} /></span>
+            {locked && lockedLabel ? lockedLabel : foot}
+            {footNote && !locked && <em>&nbsp;· {footNote}</em>}
+          </span>
+        </>
+      )}
     </button>
   );
 }
@@ -143,7 +242,7 @@ export function StudentHomePage({
   // the mission state fresh after each activity.
   const [status] = useState(() => getMissionStatus(progressScopeKey));
   const mission = useMemo(() => buildDailyMission(progressScopeKey), [progressScopeKey]);
-  const [showCelebration, setShowCelebration] = useState(false);
+  const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
   // Cloud progress hydrates asynchronously AFTER this page mounts. Until it
@@ -180,14 +279,17 @@ export function StudentHomePage({
   }, [progressScopeKey]);
 
   useEffect(() => {
-    if (!status.needsCelebration) return undefined;
+    const stepKind = status.uncelebratedStep;
+    const type = stepKind ? "step" : status.needsCelebration ? "mission" : "";
+    if (!type) return undefined;
     const timer = window.setTimeout(() => {
-      setShowCelebration(true);
+      setCelebration({ type, kind: stepKind || "" });
       playCelebrationFanfare();
-      markMissionCelebrated(progressScopeKey);
-    }, 350);
+      if (stepKind) markMissionStepCelebrated(progressScopeKey, stepKind);
+      else markMissionCelebrated(progressScopeKey);
+    }, 300);
     return () => window.clearTimeout(timer);
-  }, [progressScopeKey, status.needsCelebration]);
+  }, [progressScopeKey, status.needsCelebration, status.uncelebratedStep]);
 
   function openArcade(gameId = "") {
     try {
@@ -202,6 +304,18 @@ export function StudentHomePage({
     book: () => onOpenGuidedReading?.(mission.book?.bookId || ""),
     game: () => openArcade(mission.game?.gameId || "")
   };
+  const nextMission = MISSION_TILES.find(tile => !status.done[tile.kind]);
+  const celebratedMissionTile = MISSION_TILES.find(tile => tile.kind === celebration?.kind);
+
+  function closeCelebration() {
+    if (celebration?.type === "step" && status.missionComplete && status.needsCelebration) {
+      setCelebration({ type: "mission", kind: "" });
+      playCelebrationFanfare();
+      markMissionCelebrated(progressScopeKey);
+      return;
+    }
+    setCelebration(null);
+  }
 
   // Presentation-only overlays for the home screen.
   const overlays = (
@@ -250,19 +364,40 @@ export function StudentHomePage({
         </div>
       )}
 
-      {showCelebration && (
-        <div className="student-mission-celebrate" role="dialog" aria-label="Mission complete">
+      {celebration && (
+        <div
+          className="student-mission-celebrate"
+          role="dialog"
+          aria-modal="true"
+          aria-label={celebration.type === "step"
+            ? `${celebratedMissionTile?.label || "Adventure"} step complete`
+            : "Mission complete"}
+        >
           <ConfettiCelebration show />
           <div className="student-mission-celebrate-card">
             <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={hideOnError} />
-            <h2>Mission complete!</h2>
-            <p>
-              {status.streak > 1
-                ? `That's ${status.streak} school days in a row. See you tomorrow!`
-                : "Your streak starts today. See you tomorrow!"}
-            </p>
-            <button className="main-button" type="button" onClick={() => setShowCelebration(false)}>
-              Keep exploring
+            <h2>
+              {celebration.type === "step"
+                ? `${celebratedMissionTile?.label || "Adventure"} complete!`
+                : "Mission complete!"}
+            </h2>
+            {celebration.type === "step" ? (
+              <p>
+                {nextMission
+                  ? `Nice work. Next up: ${nextMission.label}.`
+                  : "That was the final step in today’s adventure."}
+              </p>
+            ) : (
+              <p>
+                {status.streak > 1
+                  ? `That's ${status.streak} school days in a row. See you tomorrow!`
+                  : "Your streak starts today. See you tomorrow!"}
+              </p>
+            )}
+            <button className="main-button" type="button" onClick={closeCelebration}>
+              {celebration.type === "step"
+                ? status.missionComplete ? "See mission complete" : "See what’s next"
+                : "Keep exploring"}
             </button>
           </div>
         </div>
@@ -270,21 +405,159 @@ export function StudentHomePage({
     </>
   );
 
-    const missionLeft = MISSION_TILES.filter(tile => !status.done[tile.kind]).length;
-    const nextMission = MISSION_TILES.find(tile => !status.done[tile.kind]);
-    const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
-    const sageNav = [
-      { id: "sounds", label: "Sound Seekers", icon: "sound", go: onOpenSoundSeekers },
-      { id: "phonics", label: "Phonics", icon: "phonics", go: onOpenPhonicsLearn },
-      { id: "map", label: "Adventure Map", icon: "map", go: onOpenSkillsBlockQuest },
-      { id: "books", label: "Books", icon: "book", go: onOpenGuidedReading ? () => onOpenGuidedReading("") : null },
-      { id: "stories", label: "Story Quests", icon: "story", go: onOpenStoryQuests },
-      { id: "arcade", label: "Arcade", icon: "arcade", go: arcadeLocked ? null : () => openArcade() },
-      { id: "hollow", label: "My Hollow", icon: "hollow", go: onOpenRewards }
-    ].filter(item => item.go);
+  const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
+  const railActions = {
+    sounds: onOpenSoundSeekers,
+    phonics: onOpenPhonicsLearn,
+    map: onOpenSkillsBlockQuest,
+    books: onOpenGuidedReading ? () => onOpenGuidedReading("") : null,
+    stories: onOpenStoryQuests,
+    arcade: arcadeLocked ? null : () => openArcade(),
+    hollow: onOpenRewards
+  };
+  const sageNav = STUDENT_RAIL_DESTINATIONS
+    .map(item => ({ ...item, go: railActions[item.id] }))
+    .filter(item => item.go);
+  const homeProgress = useMemo(() => {
+    void hydrationTick;
+    return readStudentHomeProgress(progressScopeKey);
+  }, [progressScopeKey, hydrationTick]);
+  const reducedChoiceMode = useMemo(() => {
+    void hydrationTick;
+    return Boolean(loadStudentProfile(progressScopeKey).reducedChoiceMode);
+  }, [progressScopeKey, hydrationTick]);
+  const activities = [
+    {
+      id: "sound-seekers",
+      available: Boolean(onOpenSoundSeekers),
+      onClick: onOpenSoundSeekers,
+      art: "/images/home-sage/sound-seekers.webp",
+      fallbackArt: "/images/quest/meadow/sky.webp",
+      title: "Sound Seekers",
+      fillChip: "Adventure",
+      lineChips: ["The Sound Trail"],
+      foot: "Walk the trail",
+      footNote: "your creature is waiting"
+    },
+    {
+      id: "phonics-learning",
+      available: Boolean(onOpenPhonicsLearn),
+      onClick: onOpenPhonicsLearn,
+      art: "/images/home-sage/phonics.webp",
+      fallbackArt: "/images/learn-games/home/home-phonics.webp",
+      title: "Phonics Learning",
+      fillChip: "Practice",
+      lineChips: ["Letters and sounds"],
+      foot: "Build some words"
+    },
+    {
+      id: "adventure-map",
+      missionKind: "quest",
+      available: Boolean(onOpenSkillsBlockQuest),
+      onClick: onOpenSkillsBlockQuest,
+      art: "/images/home-sage/adventure-map.webp",
+      fallbackArt: "/images/learn-games/home/home-skills-quest.webp",
+      title: "Adventure Map",
+      fillChip: "Adventure",
+      lineChips: ["Win stars"],
+      foot: "Follow the path"
+    },
+    {
+      id: "arcade",
+      missionKind: "game",
+      available: Boolean(onOpenArcade || onOpenPhonicsLearn),
+      onClick: () => { if (!arcadeLocked) openArcade(); },
+      art: "/images/home-sage/arcade.webp",
+      fallbackArt: "/images/learn-games/home/home-arcade.webp",
+      title: "Arcade",
+      fillChip: "Games",
+      lineChips: ["11 games"],
+      foot: "Jump into a game",
+      locked: arcadeLocked,
+      lockedLabel: "Finish your 3 tasks to unlock"
+    },
+    {
+      id: "story-quests",
+      available: Boolean(onOpenStoryQuests),
+      onClick: onOpenStoryQuests,
+      art: "/images/home-sage/story-quests.webp",
+      fallbackArt: "/images/learn-games/home/home-story-quests.webp",
+      title: "Story Quests",
+      fillChip: "Stories",
+      lineChips: ["You choose"],
+      foot: "Read and choose"
+    },
+    {
+      id: "reading-library",
+      missionKind: "book",
+      available: Boolean(onOpenGuidedReading),
+      onClick: () => onOpenGuidedReading?.(""),
+      art: "/images/home-sage/reading-library.webp",
+      fallbackArt: "/images/learn-games/home/home-reading-library.webp",
+      title: "Reading Library",
+      fillChip: "Read",
+      lineChips: ["Real books"],
+      foot: "Pick a book"
+    },
+    {
+      id: "my-hollow",
+      available: Boolean(onOpenRewards),
+      onClick: onOpenRewards,
+      art: "/images/home-sage/my-hollow.webp",
+      fallbackArt: "/images/hollow/hollow-interior.webp",
+      title: "My Hollow",
+      fillChip: "Rewards",
+      lineChips: ["Make it yours"],
+      foot: "Visit your Hollow"
+    }
+  ];
+  const statefulActivities = activities.map(activity => ({
+    ...activity,
+    cardState: buildStudentHomeCardState(activity.id, homeProgress)
+  }));
+  const recommendation = selectStudentHomeRecommendation({
+    activities: statefulActivities,
+    missionStatus: status
+  });
+  const continuation = buildStudentHomeContinuation({
+    activity: recommendation.primary,
+    missionStatus: status,
+    soundSeekersProgress: homeProgress.soundSeekers
+  });
 
+  function renderActivity(activity, priority) {
+    if (!activity) return null;
+    const primaryMissionAction = priority === "primary" && activity.missionKind
+      ? missionTargets[activity.missionKind]
+      : null;
     return (
-      <main className="lp-home-sage">
+      <SageCard
+        key={activity.id}
+        {...activity}
+        onClick={primaryMissionAction || activity.onClick}
+        hero={priority === "primary"}
+        priority={priority}
+        recommendationSource={priority === "primary" ? recommendation.source : undefined}
+        recommendationReason={priority === "primary" ? recommendation.childReason : undefined}
+        continuation={priority === "primary"
+          ? {
+            ...continuation,
+            activityId: recommendation.primary.id,
+            missionKind: recommendation.primary.missionKind
+          }
+          : undefined}
+      />
+    );
+  }
+
+  return (
+      <main
+        className="lp-home-sage"
+        data-recommendation-policy={recommendation.policyId}
+        data-recommendation-version={recommendation.policyVersion}
+        data-recommendation-source={recommendation.source}
+        data-child-surface="student-home"
+      >
         <aside className="hs-side">
           <span className="hs-avatar" aria-hidden="true">
             {companion
@@ -296,30 +569,13 @@ export function StudentHomePage({
             <CoinIcon size={16} /> {hollow.coins}
           </button>
 
-          <nav className="hs-nav" aria-label="Places to play">
-            <button type="button" className="is-active"><SageIcon name="home" />Home</button>
-            {sageNav.map(item => (
-              <button key={item.id} type="button" onClick={item.go}><SageIcon name={item.icon} />{item.label}</button>
-            ))}
-          </nav>
+          <StudentRailNav
+            active="home"
+            nav={sageNav}
+            reducedChoiceMode={reducedChoiceMode}
+          />
 
           <span className="hs-side-spacer" />
-
-          <div className="hs-daily">
-            <h3>Today&rsquo;s adventure</h3>
-            <p>Quest, story, then game — go!</p>
-            <div className="hs-daily-dots" aria-label={`${status.doneCount} of 3 complete`}>
-              {MISSION_TILES.map(tile => (
-                <span key={tile.kind} className={status.done[tile.kind] ? "is-done" : ""} />
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => (nextMission ? missionTargets[nextMission.kind]?.() : onOpenRewards?.())}
-            >
-              {status.missionComplete ? "All done — go spend!" : missionLeft === 1 ? "One to go — play it" : `${missionLeft} to go — play one`}
-            </button>
-          </div>
         </aside>
 
         <div className="hs-main">
@@ -341,11 +597,6 @@ export function StudentHomePage({
               >
                 <SageIcon name="person" />Grown-ups
               </button>
-              {(onOpenSoundSeekers || onOpenSkillsBlockQuest) && (
-                <button className="hs-btn-primary" type="button" onClick={onOpenSoundSeekers || onOpenSkillsBlockQuest}>
-                  <SageIcon name="play" />Keep playing
-                </button>
-              )}
               {accountOpen && (
                 <div className="hs-menu" role="menu">
                   <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}>
@@ -359,87 +610,95 @@ export function StudentHomePage({
             </div>
           </div>
 
-          <section className="hs-sheet" aria-label="Student learning areas">
+          <section className="hs-sheet" aria-label="Learning areas">
             <div className="hs-sheet-head">
-              <h1>Hello, {studentName || "friend"}!</h1>
-              <p className="hs-sub">
+              <h1 data-child-title="">Hello, {studentName || "friend"}!</h1>
+              <p className="hs-sub" data-child-instruction="">
                 {status.missionComplete
-                  ? "All three tasks done. Anything you like now!"
+                  ? "All three done. Choose anything!"
                   : "What shall we play today?"}
               </p>
             </div>
 
-            <div className="hs-grid">
-              {onOpenSoundSeekers && (
-                <SageCard
-                  hero
-                  art="/images/home-sage/sound-seekers.webp"
-                  fallbackArt="/images/quest/meadow/sky.webp"
-                  title="Sound Seekers"
-                  fillChip="Adventure"
-                  lineChips={["The Sound Trail"]}
-                  foot="Walk the trail"
-                  footNote="your creature is waiting"
-                  onClick={onOpenSoundSeekers}
-                />
-              )}
-              <SageCard
-                art="/images/home-sage/phonics.webp"
-                fallbackArt="/images/learn-games/home/home-phonics.webp"
-                title="Phonics Learning"
-                fillChip="Practice"
-                lineChips={["Letters and sounds"]}
-                foot="Build some words"
-                onClick={onOpenPhonicsLearn}
+            <section
+              className="hs-mission-main"
+              aria-labelledby="hs-mission-heading"
+              data-mission-next-kind={nextMission?.kind || "complete"}
+              data-child-progress=""
+            >
+              <div className="hs-mission-main-head">
+                <div>
+                  <span>Today</span>
+                  <h2 id="hs-mission-heading">Your daily adventure</h2>
+                </div>
+                <strong>{status.doneCount} of 3 complete</strong>
+              </div>
+              <progress
+                className="hs-mission-progress"
+                max="3"
+                value={status.doneCount}
+                aria-label={`${status.doneCount} of 3 daily adventure steps complete`}
               />
-              <SageCard
-                art="/images/home-sage/adventure-map.webp"
-                fallbackArt="/images/learn-games/home/home-skills-quest.webp"
-                title="Adventure Map"
-                fillChip="Adventure"
-                lineChips={["Win stars"]}
-                foot="Follow the path"
-                onClick={onOpenSkillsBlockQuest}
-              />
-              <SageCard
-                art="/images/home-sage/arcade.webp"
-                fallbackArt="/images/learn-games/home/home-arcade.webp"
-                title="Arcade"
-                fillChip="Games"
-                lineChips={["11 games"]}
-                foot="Jump into a game"
-                locked={arcadeLocked}
-                lockedLabel="Finish your 3 tasks to unlock"
-                onClick={() => { if (!arcadeLocked) openArcade(); }}
-              />
-              <SageCard
-                art="/images/home-sage/story-quests.webp"
-                fallbackArt="/images/learn-games/home/home-story-quests.webp"
-                title="Story Quests"
-                fillChip="Stories"
-                lineChips={["You choose"]}
-                foot="Read and choose"
-                onClick={onOpenStoryQuests}
-              />
-              <SageCard
-                art="/images/home-sage/reading-library.webp"
-                fallbackArt="/images/learn-games/home/home-reading-library.webp"
-                title="Reading Library"
-                fillChip="Read"
-                lineChips={["Real books"]}
-                foot="Pick a book"
-                onClick={() => onOpenGuidedReading?.("")}
-              />
-              <SageCard
-                art="/images/home-sage/my-hollow.webp"
-                fallbackArt="/images/hollow/hollow-interior.webp"
-                title="My Hollow"
-                fillChip="Rewards"
-                lineChips={["Make it yours"]}
-                foot="Visit your Hollow"
-                onClick={onOpenRewards}
-              />
-            </div>
+              <ol className="hs-mission-steps">
+                {MISSION_TILES.map((tile, index) => {
+                  const isDone = Boolean(status.done[tile.kind]);
+                  const isNext = nextMission?.kind === tile.kind;
+                  return (
+                    <li
+                      key={tile.kind}
+                      className={isDone ? "is-done" : isNext ? "is-next" : ""}
+                      data-mission-step={tile.kind}
+                      data-mission-state={isDone ? "done" : isNext ? "next" : "later"}
+                      aria-current={isNext ? "step" : undefined}
+                    >
+                      <span className="hs-mission-step-number" aria-hidden="true">
+                        {isDone ? "✓" : index + 1}
+                      </span>
+                      <span>
+                        <strong>{tile.label}</strong>
+                        <small>{isDone ? "Done" : isNext ? "Up next" : "Later"}</small>
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+
+            {recommendation.primary ? (
+              <>
+                <div className="hs-recommendation-grid" aria-label="Recommended learning choices" data-child-choices="">
+                  <section className="hs-primary-choice" aria-label="Recommended next activity">
+                    {renderActivity(recommendation.primary, "primary")}
+                  </section>
+                  <section className="hs-secondary-choices" aria-labelledby="hs-secondary-heading">
+                    <div className="hs-choice-heading">
+                      <span>Choose another</span>
+                      <h2 id="hs-secondary-heading">Two more good choices</h2>
+                    </div>
+                    <div className="hs-secondary-grid">
+                      {recommendation.secondary.map(activity => renderActivity(activity, "secondary"))}
+                    </div>
+                  </section>
+                </div>
+
+                {recommendation.explore.length > 0 && (
+                  <details className="hs-more-explore">
+                    <summary>
+                      <span>
+                        <strong>More to explore</strong>
+                        <small>{recommendation.explore.length} more places</small>
+                      </span>
+                      <SageIcon name="play" />
+                    </summary>
+                    <div className="hs-explore-grid">
+                      {recommendation.explore.map(activity => renderActivity(activity, "explore"))}
+                    </div>
+                  </details>
+                )}
+              </>
+            ) : (
+              <p className="hs-no-activity" role="status">{recommendation.childReason}</p>
+            )}
           </section>
         </div>
 

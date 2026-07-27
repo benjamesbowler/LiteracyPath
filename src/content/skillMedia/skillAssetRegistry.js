@@ -45,6 +45,7 @@ import { generatedQuestions } from "../../data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../../data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../../data/templateComprehensionAdvanced.js";
 import { getAnswerOptionLabel } from "../../utils/answerOptions.js";
+import { isQuestionBlockedByMediaQa } from "../../data/mediaQaManifest.js";
 import {
   isFinalSoundsLevel1Question,
   isValidFinalSoundWordForEarlyLevel
@@ -220,7 +221,9 @@ export const runtimeQuestionSources = [
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
-].filter(keepRuntimeQuestion);
+]
+  .filter(keepRuntimeQuestion)
+  .filter(question => !isQuestionBlockedByMediaQa(question));
 
 export function normalizeSkillId(value = "") {
   const normalized = String(value || "")

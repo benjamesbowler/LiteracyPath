@@ -5,7 +5,7 @@
 // only browser-touching code is the localStorage fallback collectors, and
 // those are guarded so importing this module under node stays safe.
 //
-// Terminology contract: the child currency is COINS and the brand is
+// Terminology contract: the student currency is COINS and the brand is
 // "Literacy Guide"; older wordings must not appear in any exported label
 // (tests/unit/exportShapes.test.js enforces this).
 
@@ -13,7 +13,7 @@ import { computeTreasuryFromAreas } from "./treasureTrail.js";
 import { earnedCoins } from "./hollowEconomy.js";
 import { localProgressStorageKey } from "./progressKeys.js";
 
-export const REPORT_INFO_SHEET_NAME = "Report Info";
+export const REPORT_INFO_SHEET_NAME = "Report summary";
 export const STORY_QUEST_SHEET_NAME = "Story Quests";
 export const ENGAGEMENT_SHEET_NAME = "Engagement";
 
@@ -88,7 +88,7 @@ export function buildReportContextRows({
   const classList = (classNames || []).filter(Boolean);
   if (classList.length) rows.push({ field: "Classes Covered", value: classList.join(", ") });
   if (Number.isFinite(Number(studentCount)) && studentCount !== null) {
-    rows.push({ field: "Students Covered", value: Number(studentCount) });
+    rows.push({ field: "Students covered", value: Number(studentCount) });
   }
   (extraRows || []).forEach(row => {
     if (row && row.field) rows.push({ field: row.field, value: row.value ?? "" });
@@ -347,7 +347,7 @@ export function buildEngagementRows({ students = [], classes = [], engagementByS
   const lookup = byStudentLookup(engagementByStudent);
   return uniqueStudents(students)
     .map(student => buildEngagementRow({
-      studentName: student.name || "Unknown Student",
+      studentName: student.name || "Unknown student",
       studentId: student.id || "",
       className: resolveClassName(student, classes),
       areas: collectStudentEngagementAreas(student, lookup(student.id))
@@ -358,7 +358,7 @@ export function buildEngagementRows({ students = [], classes = [], engagementByS
 export function collectStoryQuestRowsForStudents({ students = [], storyQuestProgressByStudent = null, quests = [] } = {}) {
   const lookup = byStudentLookup(storyQuestProgressByStudent);
   return uniqueStudents(students).flatMap(student => buildStoryQuestRows({
-    studentName: student.name || "Unknown Student",
+    studentName: student.name || "Unknown student",
     studentId: student.id || "",
     progress: collectStoryQuestProgressForStudent(student, lookup(student.id)),
     quests

@@ -8,6 +8,9 @@ import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { LetterWriter } from "../shared/LetterWriter.jsx";
+import { LETTER_GUIDES, LETTER_STROKES } from "../../data/letterStrokes.js";
+import { CHILD_COPY } from "../../copy/childCopy.js";
+import { scoreLetterTrace } from "../../utils/traceLetterScoring.js";
 import { worldForCycle, worldStyle, sceneForKey } from "../../utils/palWorlds.js";
 import {
   WORLD_LANDMARKS_WIDE,
@@ -17,6 +20,7 @@ import {
 } from "../../data/mapStops.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
+import { ChildRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 import {
   stationsForCycle,
   buildStationRounds,
@@ -147,11 +151,28 @@ function PictureChoice({ word }) {
 // so a single quick stroke no longer counts.
 function TraceRound({ round, onResult }) {
   const canvasRef = useRef(null);
+  const targetRef = useRef(null);
   const drawing = useRef(false);
-  const [ink, setInk] = useState(0);
-  const boundsRef = useRef({ minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity });
-  const [extent, setExtent] = useState({ w: 0, h: 0 });
+  const currentStrokeRef = useRef([]);
+  const drawnStrokesRef = useRef([]);
+  const lastPointRef = useRef(null);
+  const [pointCount, setPointCount] = useState(0);
+  const [traceMessage, setTraceMessage] = useState(CHILD_COPY.tracing.prompt);
   const [demoKey, setDemoKey] = useState(0);
+  const chars = useMemo(
+    () => String(round.letter).split("").filter(char => LETTER_STROKES[char]),
+    [round.letter]
+  );
+  const traceLayout = useMemo(() => {
+    const contentWidth = Math.max(1, chars.length) * LETTER_GUIDES.width;
+    const scale = Math.min((460 - 72) / contentWidth, (300 - 34) / 140);
+    return {
+      contentWidth,
+      offsetX: (460 - (contentWidth * scale)) / 2,
+      offsetY: (300 - (140 * scale)) / 2,
+      scale
+    };
+  }, [chars.length]);
 
   function pointFrom(event) {
     const canvas = canvasRef.current;
@@ -162,28 +183,89 @@ function TraceRound({ round, onResult }) {
     ];
   }
 
-  function paint(event) {
-    if (!drawing.current) return;
+  function drawPoint(point) {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    const [x, y] = pointFrom(event);
-    ctx.fillStyle = "#2F9E62";
+    ctx.strokeStyle = "#2F9E62";
+    ctx.lineWidth = 20;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     ctx.beginPath();
-    ctx.arc(x, y, 10, 0, Math.PI * 2);
-    ctx.fill();
-    setInk(value => value + 1);
-    const b = boundsRef.current;
-    b.minX = Math.min(b.minX, x); b.maxX = Math.max(b.maxX, x);
-    b.minY = Math.min(b.minY, y); b.maxY = Math.max(b.maxY, y);
-    setExtent({ w: (b.maxX - b.minX) / canvas.width, h: (b.maxY - b.minY) / canvas.height });
+    if (lastPointRef.current) {
+      ctx.moveTo(lastPointRef.current[0], lastPointRef.current[1]);
+    } else {
+      ctx.moveTo(point[0], point[1]);
+    }
+    ctx.lineTo(point[0], point[1]);
+    ctx.stroke();
+    lastPointRef.current = point;
+    currentStrokeRef.current.push(point);
+    setPointCount(value => value + 1);
+  }
+
+  function beginStroke(event) {
+    drawing.current = true;
+    lastPointRef.current = null;
+    currentStrokeRef.current = [];
+    event.currentTarget.setPointerCapture(event.pointerId);
+    drawPoint(pointFrom(event));
+  }
+
+  function paint(event) {
+    if (!drawing.current) return;
+    drawPoint(pointFrom(event));
+  }
+
+  function endStroke() {
+    if (!drawing.current) return;
+    drawing.current = false;
+    lastPointRef.current = null;
+    if (currentStrokeRef.current.length) {
+      drawnStrokesRef.current.push(currentStrokeRef.current);
+    }
+    currentStrokeRef.current = [];
   }
 
   function clearInk() {
     const canvas = canvasRef.current;
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-    setInk(0);
-    boundsRef.current = { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
-    setExtent({ w: 0, h: 0 });
+    drawing.current = false;
+    currentStrokeRef.current = [];
+    drawnStrokesRef.current = [];
+    lastPointRef.current = null;
+    setPointCount(0);
+    setTraceMessage(CHILD_COPY.tracing.prompt);
+  }
+
+  function expectedStrokes() {
+    const paths = Array.from(targetRef.current?.querySelectorAll("[data-trace-target]") || []);
+    return paths.map(path => {
+      const length = path.getTotalLength();
+      const charIndex = Number(path.dataset.charIndex || 0);
+      const points = [];
+      for (let distance = 0; distance <= length; distance += 5) {
+        const point = path.getPointAtLength(Math.min(distance, length));
+        points.push([
+          traceLayout.offsetX + ((point.x + (charIndex * LETTER_GUIDES.width)) * traceLayout.scale),
+          traceLayout.offsetY + (point.y * traceLayout.scale)
+        ]);
+      }
+      return points;
+    });
+  }
+
+  function checkTrace() {
+    const result = scoreLetterTrace({
+      drawnStrokes: drawnStrokesRef.current,
+      expectedStrokes: expectedStrokes()
+    });
+    if (result.pass) {
+      setTraceMessage(CHILD_COPY.tracing.good);
+      onResult(true);
+      return;
+    }
+    setTraceMessage(CHILD_COPY.tracing.tryAgain);
+    onResult(false);
   }
 
   return (
@@ -191,33 +273,54 @@ function TraceRound({ round, onResult }) {
       <div className="sbq-trace-demo">
         <LetterWriter text={round.letter} height={130} playKey={demoKey} />
         <button className="sbq-ghost-button" type="button" onClick={() => setDemoKey(key => key + 1)}>
-          ✏️ Watch again
+          ✏️ {CHILD_COPY.tracing.watch}
         </button>
       </div>
       <div className="sbq-trace-stage">
-        <span className="sbq-trace-letter" aria-hidden="true">{round.letter}</span>
+        <svg
+          ref={targetRef}
+          aria-hidden="true"
+          className="sbq-trace-letter"
+          viewBox="0 0 460 300"
+        >
+          <g transform={`translate(${traceLayout.offsetX} ${traceLayout.offsetY}) scale(${traceLayout.scale})`}>
+            {chars.map((char, charIndex) => (
+              <g key={`${char}-${charIndex}`} transform={`translate(${charIndex * LETTER_GUIDES.width} 0)`}>
+                {LETTER_STROKES[char].map((path, pathIndex) => (
+                  <path
+                    key={`${char}-${pathIndex}`}
+                    d={path}
+                    data-char-index={charIndex}
+                    data-trace-target=""
+                  />
+                ))}
+              </g>
+            ))}
+          </g>
+        </svg>
         <canvas
           ref={canvasRef}
           width={460}
           height={300}
           aria-label={`Trace the letter ${round.letter}`}
-          onPointerDown={event => { drawing.current = true; event.currentTarget.setPointerCapture(event.pointerId); paint(event); }}
+          onPointerDown={beginStroke}
           onPointerMove={paint}
-          onPointerUp={() => { drawing.current = false; }}
-          onPointerCancel={() => { drawing.current = false; }}
+          onPointerUp={endStroke}
+          onPointerCancel={endStroke}
         />
       </div>
+      <p className="sbq-trace-message" role="status">{traceMessage}</p>
       <div className="sbq-trace-actions">
         <button className="sbq-ghost-button" type="button" onClick={clearInk}>
-          Start again
+          {CHILD_COPY.tracing.clear}
         </button>
         <button
           className="sbq-primary-button"
           type="button"
-          disabled={!(ink >= 70 && extent.h >= 0.5 && extent.w >= 0.2)}
-          onClick={() => onResult(true)}
+          disabled={pointCount < 20}
+          onClick={checkTrace}
         >
-          Done!
+          {CHILD_COPY.tracing.check}
         </button>
       </div>
     </div>
@@ -709,18 +812,28 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   }, [celebration, activeCycle]);
 
   if (!activeCycle) {
+    const completedCycles = playableCycles.filter(cycle => (
+      (progress.cycles?.[cycle.id]?.stars || 0) > 0
+    )).length;
     return (
-      <main className="skills-block-quest" data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}>
+      <main
+        className="skills-block-quest"
+        data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}
+        data-child-surface="adventure-map"
+      >
         <header className="sbq-top">
           <div>
             <p className="sbq-kicker">Adventure Map</p>
-            <h1>Your sound and word path</h1>
-            <p className="sbq-sub">Hi {studentName}, pick your stop. Each one teaches two new sounds and some quick words.</p>
+            <h1 data-child-title="">Your sound and word path</h1>
+            <p className="sbq-sub" data-child-instruction="">Follow “you are here” to start.</p>
+            <p className="sbq-map-progress" data-child-progress="">
+              {completedCycles} of {playableCycles.length} stops complete
+            </p>
           </div>
         </header>
         {(() => {
           return (
-            <div className="sbq-adventure" data-pal-world={region.id}>
+            <div className="sbq-adventure" data-pal-world={region.id} data-child-choices="">
               <div className="sbq-world-tabs" role="tablist" aria-label="Choose a land">
                 {WORLD_REGIONS.map(world => (
                   <button
@@ -774,6 +887,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                           style={{ left: `${x}%`, top: `${y}%` }}
                           onClick={() => { if (panRef.current.moved) return; openCycle(cycle); }}
                           aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
+                          data-child-primary={isRecommended ? "" : undefined}
+                          data-child-emphasis={isRecommended ? "primary" : "choice"}
+                          data-tip-position={y < 18 ? "right" : "above"}
                         >
                           <span className="sbq-stop-marker" aria-hidden="true">
                             {cycleProgress?.stars ? "★" : cycle.cycleNumber}
@@ -783,6 +899,16 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                             <span className="sbq-stop-skill">
                               {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
                             </span>
+                            {isRecommended && (
+                              <>
+                                <span className="sbq-stop-next" data-child-emphasis-cue="">Go next</span>
+                                <ChildRecommendationExplanation
+                                  className="sbq-stop-reason"
+                                  reason="This is your next map stop."
+                                  surface="adventure-map"
+                                />
+                              </>
+                            )}
                             {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
                           </span>
                         </button>

@@ -76,7 +76,7 @@ test("the entry gateway gives students and teachers their own branded destinatio
   assert.match(entrySource, /import teacherMarkUrl from "\.\.\/assets\/logomark\.svg"/);
   assert.match(entrySource, /className="entry-teacher-name">\{TEACHER_BRAND\.name\}<\/span>/);
   assert.match(entrySource, /className="entry-teacher-tools">\{TEACHER_BRAND\.areaName\}<\/span>/);
-  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Students<\/span>/);
+  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Children<\/span>/);
   assert.match(entrySource, /className="student-entry-card-cta pals-cta">Teachers<\/span>/);
   assert.match(entrySource, /aria-labelledby="student-entry-title"/);
   assert.match(entrySource, /aria-describedby="student-entry-description"/);
@@ -99,20 +99,20 @@ test("the entry gateway gives students and teachers their own branded destinatio
   );
 });
 
-test("the Sage home grid fills its final desktop slot with My Hollow", async () => {
+test("the Sage home keeps all seven destinations in its policy-led hierarchy", async () => {
   const homeSource = readFileSync(path.join(repoRoot, "src/components/StudentHomePage.jsx"), "utf8");
   const homeStyles = readFileSync(path.join(repoRoot, "src/styles/home-sage.css"), "utf8");
-  const appSource = readFileSync(path.join(repoRoot, "src/App.jsx"), "utf8");
+  const appSource = readFileSync(path.join(repoRoot, "src/components/AppSurface.jsx"), "utf8");
   const imageGeneratorSource = readFileSync(path.join(repoRoot, "tools/generateImage.mjs"), "utf8");
   const imageJobs = JSON.parse(readFileSync(path.join(repoRoot, "tools/image-jobs/home-sage-cards.json"), "utf8"));
-  const gridSource = homeSource.match(/<div className="hs-grid">([\s\S]*?)<\/div>/)?.[1] || "";
+  const activitiesSource = homeSource.match(/const activities = \[[\s\S]*?\n {2}\];/)?.[0] || "";
   const hollowImagePath = path.join(repoRoot, "public/images/home-sage/my-hollow.webp");
   const hollowImageJob = imageJobs.find(job => job.out === "public/images/home-sage/my-hollow.webp");
 
-  assert.equal((gridSource.match(/<SageCard/g) || []).length, 7);
+  assert.equal((activitiesSource.match(/\n {6}id: "/g) || []).length, 7);
   assert.match(
-    gridSource,
-    /art="\/images\/home-sage\/my-hollow\.webp"[\s\S]*?title="My Hollow"[\s\S]*?onClick=\{onOpenRewards\}/
+    activitiesSource,
+    /id: "my-hollow"[\s\S]*?onClick: onOpenRewards[\s\S]*?art: "\/images\/home-sage\/my-hollow\.webp"[\s\S]*?title: "My Hollow"/
   );
   assert.match(
     appSource,
@@ -120,9 +120,9 @@ test("the Sage home grid fills its final desktop slot with My Hollow", async () 
     "the home callback must continue to open the real My Hollow page"
   );
   assert.match(
-    gridSource,
-    /<SageCard\s+hero[\s\S]*?title="Sound Seekers"/,
-    "Sound Seekers must keep its two-slot hero role"
+    homeSource,
+    /hero=\{priority === "primary"\}[\s\S]*?priority=\{priority\}[\s\S]*?recommendationSource=/,
+    "the policy-selected activity must own the single hero role"
   );
   assert.equal(
     existsSync(hollowImagePath),
@@ -143,18 +143,18 @@ test("the Sage home grid fills its final desktop slot with My Hollow", async () 
   );
   assert.match(
     homeStyles,
-    /\.lp-home-sage \.hs-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4, minmax\(0, 1fr\)\);/,
-    "the desktop grid must keep four tracks so its eight card units form two complete rows"
+    /\.lp-home-sage \.hs-recommendation-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1\.15fr\) minmax\(0, 1fr\);/,
+    "the desktop hierarchy must reserve more space for the policy-selected activity"
   );
   assert.match(
     homeStyles,
-    /\.lp-home-sage \.hs-card\.is-hero\s*\{[\s\S]*?grid-column:\s*span 2;/,
-    "the hero must span two desktop tracks so the final row remains full"
+    /\.lp-home-sage \.hs-card\.is-hero\s*\{[\s\S]*?border:\s*2px solid var\(--hs-sage\);/,
+    "the single recommended activity must retain the strongest card treatment"
   );
-  assert.match(homeStyles, /@container hs-sheet \(max-width: 920px\)[\s\S]*?repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(homeStyles, /@container hs-sheet \(max-width: 920px\)[\s\S]*?\.hs-recommendation-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1fr\)/);
   assert.match(
     homeStyles,
-    /@container hs-sheet \(max-width: 520px\)[\s\S]*?grid-template-columns:\s*minmax\(0, 1fr\)[\s\S]*?\.hs-card\.is-hero\s*\{\s*grid-column:\s*span 1;/,
-    "a one-column phone grid must also stop the hero from creating an implicit second track"
+    /@container hs-sheet \(max-width: 520px\)[\s\S]*?\.hs-secondary-grid,[\s\S]*?\.hs-explore-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1fr\)/,
+    "secondary and exploration choices must collapse to one readable phone column"
   );
 });

@@ -1,3 +1,5 @@
+import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
+
 const TRACKS = {
   "rocket-run": {
     title: "Rocket Run",
@@ -328,7 +330,9 @@ export function startGameAmbience(chapterId, options = {}) {
     return null;
   }
   const mixScale = getGameAudioMix(options.mode).ambience;
-  const targetVolume = Math.max(0, Math.min(0.14, Number(options.volume ?? track.volume) * mixScale));
+  const targetVolume = applyLearnerAudioIntensity(
+    Math.max(0, Math.min(0.14, Number(options.volume ?? track.volume) * mixScale))
+  );
   if (activeAmbience?.chapterId === chapterId && activeAmbience.audio) {
     activeAmbience.targetVolume = targetVolume;
     if (audioSuspended) activeAmbience.resumeAfterSuspend = true;
@@ -375,7 +379,9 @@ export async function startGameMusic(trackId, options = {}) {
   const resolvedTrackId = resolveTrackId(trackId, options);
   const track = TRACKS[resolvedTrackId];
   const mixScale = getGameAudioMix(options.mode).music;
-  const targetVolume = Math.max(0, Math.min(1, (Number(options.volume ?? track.volume) || track.volume) * mixScale));
+  const targetVolume = applyLearnerAudioIntensity(
+    Math.max(0, Math.min(1, (Number(options.volume ?? track.volume) || track.volume) * mixScale))
+  );
 
   if (active?.trackId === resolvedTrackId && active.audio) {
     active.targetVolume = targetVolume;

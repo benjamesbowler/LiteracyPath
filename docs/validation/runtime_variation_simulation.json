@@ -1,0 +1,394 @@
+{
+  "generatedAt": "2026-07-25T10:20:41.705Z",
+  "sessionsPerSkill": 500,
+  "skillCount": 30,
+  "failureCount": 0,
+  "results": [
+    {
+      "skillId": "initial_sounds",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1": 500,
+        "L2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "final_sounds",
+      "sessions": 500,
+      "poolSize": 366,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 464,
+        "L2P1": 500,
+        "L2P2": 491
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "rhyming",
+      "sessions": 500,
+      "poolSize": 656,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 486,
+        "L2P1": 500,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "cvc_short_vowels",
+      "sessions": 500,
+      "poolSize": 412,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P1": 500,
+        "L2P2": 499
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "short_vowel_discrimination",
+      "sessions": 500,
+      "poolSize": 299,
+      "phaseUniqueRounds": {
+        "L1P1": 498,
+        "L1P2": 485,
+        "L2P1": 482,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "hfw_1_25",
+      "sessions": 500,
+      "poolSize": 147,
+      "phaseUniqueRounds": {
+        "L1P1": 350,
+        "L1P2": 452,
+        "L2P1": 366,
+        "L2P2": 437
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "hfw_26_50",
+      "sessions": 500,
+      "poolSize": 149,
+      "phaseUniqueRounds": {
+        "L1P1": 381,
+        "L1P2": 432,
+        "L2P1": 362,
+        "L2P2": 404
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "hfw_51_75",
+      "sessions": 500,
+      "poolSize": 148,
+      "phaseUniqueRounds": {
+        "L1P1": 355,
+        "L1P2": 459,
+        "L2P1": 364,
+        "L2P2": 444
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "hfw_76_100",
+      "sessions": 500,
+      "poolSize": 144,
+      "phaseUniqueRounds": {
+        "L1P1": 359,
+        "L1P2": 461,
+        "L2P1": 358,
+        "L2P2": 448
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "blends",
+      "sessions": 500,
+      "poolSize": 97,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P1": 499,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "digraphs",
+      "sessions": 500,
+      "poolSize": 120,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 499,
+        "L2P1": 499,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "long_vowels_silent_e",
+      "sessions": 500,
+      "poolSize": 104,
+      "phaseUniqueRounds": {
+        "L1P1": 499,
+        "L1P2": 468,
+        "L2P1": 500,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "vowel_teams",
+      "sessions": 500,
+      "poolSize": 141,
+      "phaseUniqueRounds": {
+        "L1P1": 492,
+        "L1P2": 500,
+        "L2P1": 500,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "r_controlled_vowels",
+      "sessions": 500,
+      "poolSize": 128,
+      "phaseUniqueRounds": {
+        "L1P1": 496,
+        "L1P2": 482,
+        "L2P1": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "nouns",
+      "sessions": 500,
+      "poolSize": 146,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P1": 499,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "verbs",
+      "sessions": 500,
+      "poolSize": 111,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P1": 500,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "adjectives",
+      "sessions": 500,
+      "poolSize": 110,
+      "phaseUniqueRounds": {
+        "L1P1": 491,
+        "L1P2": 500,
+        "L2P1": 496,
+        "L2P2": 491
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "prepositions_of_place",
+      "sessions": 500,
+      "poolSize": 303,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P1": 500,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "plurals",
+      "sessions": 500,
+      "poolSize": 138,
+      "phaseUniqueRounds": {
+        "L1P1": 485,
+        "L1P2": 500,
+        "L2P1": 499,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "sessions": 500,
+      "poolSize": 234,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 255,
+        "L2P1": 500,
+        "L2P2": 500
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "homophones_homonyms",
+      "sessions": 500,
+      "poolSize": 116,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P2": 177
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "prefixes_suffixes",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 500,
+        "L1P2": 500,
+        "L2P1": 500,
+        "L2P2": 499
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 250,
+        "L1P2": 259,
+        "L2P1": 262,
+        "L2P2": 254
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "key_details",
+      "sessions": 500,
+      "poolSize": 93,
+      "phaseUniqueRounds": {
+        "L1P1": 78,
+        "L1P2": 80,
+        "L2P1": 74,
+        "L2P2": 80
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "sequencing",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 294,
+        "L1P2": 281,
+        "L2P1": 285,
+        "L2P2": 275
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "main_idea",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 289,
+        "L1P2": 289,
+        "L2P1": 274,
+        "L2P2": 291
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "inference",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 269,
+        "L1P2": 279,
+        "L2P1": 276,
+        "L2P2": 279
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "cause_effect",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 42,
+        "L1P2": 43,
+        "L2P1": 36,
+        "L2P2": 40
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "context_clues",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 271,
+        "L1P2": 266,
+        "L2P1": 257,
+        "L2P2": 276
+      },
+      "failureCount": 0,
+      "failures": []
+    },
+    {
+      "skillId": "theme_higher_comprehension",
+      "sessions": 500,
+      "poolSize": 92,
+      "phaseUniqueRounds": {
+        "L1P1": 250,
+        "L1P2": 283,
+        "L2P1": 274,
+        "L2P2": 279
+      },
+      "failureCount": 0,
+      "failures": []
+    }
+  ]
+}

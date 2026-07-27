@@ -451,7 +451,7 @@ test("completed and discontinued attempts cannot be downgraded by a newer partia
   globalThis.localStorage = makeStorage();
   let upserted = null;
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "assessment_attempts");
       return {
         upsert(payload) {
@@ -486,6 +486,39 @@ test("completed and discontinued attempts cannot be downgraded by a newer partia
   }
 });
 
+test("a repeated terminal save reuses the first immutable result and provenance", async () => {
+  globalThis.localStorage = makeStorage();
+  const first = baseAttempt({
+    attemptId: "terminal-idempotent",
+    status: "completed",
+    administrationStatus: "completed",
+    updatedAt: "2026-07-22T12:00:00.000Z",
+    assessmentVersion: "form-v1",
+    contentVersion: "content-v1",
+    policyVersion: "policy-v1",
+    questionRecords: [{
+      questionId: "original-item",
+      prompt: "Original prompt",
+      responseStatus: "correct"
+    }]
+  });
+  saveAssessmentAttemptLocal(first, { teacherId: "teacher-1" });
+  const replayedSave = saveAssessmentAttemptLocal({
+    ...first,
+    updatedAt: "2026-07-22T12:05:00.000Z",
+    contentVersion: "content-v2",
+    questionRecords: [{
+      questionId: "rewritten-item",
+      prompt: "Rewritten prompt",
+      responseStatus: "incorrect"
+    }]
+  }, { teacherId: "teacher-1" });
+  const saved = replayedSave.find(record => record.attemptId === "terminal-idempotent");
+  assert.equal(saved.updatedAt, "2026-07-22T12:00:00.000Z");
+  assert.equal(saved.contentVersion, "content-v1");
+  assert.equal(saved.questionRecords[0].prompt, "Original prompt");
+});
+
 test("a partial write cannot downgrade terminal evidence already saved by another device", async () => {
   globalThis.localStorage = makeStorage();
   let upserted = null;
@@ -496,7 +529,7 @@ test("a partial write cannot downgrade terminal evidence already saved by anothe
     updatedAt: "2026-07-22T12:00:00.000Z"
   });
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "assessment_attempts");
       return {
         select() {
@@ -548,7 +581,7 @@ test("an insert race cannot let a partial attempt overwrite a concurrent complet
   });
   let remoteRow = null;
   const supabase = {
-    from() {
+    table() {
       return {
         select() {
           return {
@@ -602,7 +635,7 @@ test("a local-only assessment save queues once and flushes idempotently when the
   let upsertCalls = 0;
   const cloudRows = new Map();
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "assessment_attempts");
       return {
         upsert(payload) {
@@ -644,7 +677,7 @@ test("a local-only assessment save queues once and flushes idempotently when the
 test("assessment hydration flushes queued evidence before reading the cloud report history", async () => {
   globalThis.localStorage = makeStorage();
   const offlineSupabase = {
-    from() {
+    table() {
       return { upsert: async () => ({ error: new Error("offline") }) };
     }
   };
@@ -657,7 +690,7 @@ test("assessment hydration flushes queued evidence before reading the cloud repo
 
   const cloudRows = new Map();
   const onlineSupabase = {
-    from() {
+    table() {
       const query = {
         eq() { return query; },
         order() { return query; },
@@ -688,7 +721,7 @@ test("a failed queue retry stays durable and a later partial save cannot replace
   globalThis.localStorage = makeStorage();
   let allowCloud = false;
   const supabase = {
-    from() {
+    table() {
       return {
         upsert() {
           return Promise.resolve({ error: allowCloud ? null : new Error("still offline") });
@@ -728,7 +761,7 @@ test("a failed queue retry stays durable and a later partial save cannot replace
 test("an explicit student reset clears queued uploads so deleted evidence cannot return", async () => {
   globalThis.localStorage = makeStorage();
   const supabase = {
-    from() {
+    table() {
       return { upsert: async () => ({ error: new Error("offline") }) };
     }
   };
@@ -881,7 +914,7 @@ test("cloud hydration merges, de-duplicates, and preserves unrelated local histo
     }
   };
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "assessment_attempts");
       return query;
     }
@@ -909,7 +942,7 @@ test("cloud saves include the searchable columns and full versioned payload", as
   let upserted = null;
   let upsertOptions = null;
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "assessment_attempts");
       return {
         upsert(payload, options) {
@@ -931,6 +964,12 @@ test("cloud saves include the searchable columns and full versioned payload", as
   assert.equal(upserted.assessment_type, "el_encoding");
   assert.equal(upserted.administration_status, "partial");
   assert.equal(upserted.schema_version, 2);
+  assert.equal(upserted.evidence_schema_version, 1);
+  assert.ok(upserted.assessment_version);
+  assert.ok(upserted.content_version);
+  assert.ok(upserted.policy_version);
+  assert.equal(upserted.raw_evidence.attemptId, upserted.attempt_id);
+  assert.deepEqual(upserted.raw_evidence.result, upserted.payload);
   assert.equal(upserted.payload.metrics.wcpm, 39);
   assert.equal(upserted.payload.questionRecords[0].responseStatus, "correct");
   assert.ok(upserted.updated_at);
@@ -954,7 +993,7 @@ test("cloud hydration paginates beyond 5,000 attempts without a hidden ceiling",
   }));
   const requestedRanges = [];
   const supabase = {
-    from(table) {
+    table(table) {
       assert.equal(table, "assessment_attempts");
       const filters = [];
       const builder = {
@@ -1010,7 +1049,7 @@ test("attempt hydration stops when a range adapter repeats a non-advancing full 
   }));
   const requestedRanges = [];
   const supabase = {
-    from() {
+    table() {
       const builder = {
         select() { return this; },
         eq() { return this; },
@@ -1037,7 +1076,7 @@ test("attempt saves explicitly report when neither local nor cloud persistence s
   const rejected = await saveAssessmentAttempt(baseAttempt({ attemptId: "save-both-fail" }), {
     teacherId: "teacher-1",
     supabase: {
-      from() {
+      table() {
         return { upsert: async () => ({ error: new Error("RLS rejected") }) };
       }
     }
@@ -1049,7 +1088,7 @@ test("attempt saves explicitly report when neither local nor cloud persistence s
   const cloudOnly = await saveAssessmentAttempt(baseAttempt({ attemptId: "save-cloud-only" }), {
     teacherId: "teacher-1",
     supabase: {
-      from() {
+      table() {
         return { upsert: async () => ({ error: null }) };
       }
     }

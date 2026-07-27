@@ -62,6 +62,10 @@ import {
 } from "../../utils/offlineShell.js";
 import { chapterShortcutReviewPlan, freeRoamReviewPlan } from "../../utils/questReviewMode.js";
 import {
+  closeFullscreenSurfaceName,
+  questFullscreenSurfaceName
+} from "../../utils/fullscreenOverlayNames.js";
+import {
   anticipatedJourneyState,
   finishJourneyLayer,
   markJourneyLayerReady,
@@ -76,6 +80,11 @@ import {
   recordQuestTelemetryAnswer,
   recordQuestTelemetryStop
 } from "../../utils/questTelemetry.js";
+import {
+  learnerAccessibilityFromProfile,
+  normalizeLearnerAccessibilitySettings
+} from "../../accessibility/learnerAccessibility.js";
+import { loadStudentProfile } from "../../utils/studentProfile.js";
 import "../../styles/quest.css";
 
 const VIEW = {
@@ -148,10 +157,17 @@ export default function QuestRoot({
   onExit,
   initialView = null,
   initialStop = null,
+  accessibilitySettings: accessibilitySettingsProp = null,
   disableAdaptiveQuality = false,
   previewForce2d = false,
   previewForceLegacy3d = false
 }) {
+  const learnerAccessibility = useMemo(
+    () => accessibilitySettingsProp
+      ? normalizeLearnerAccessibilitySettings(accessibilitySettingsProp)
+      : learnerAccessibilityFromProfile(loadStudentProfile(progressScopeKey)),
+    [accessibilitySettingsProp, progressScopeKey]
+  );
   const [state, setState] = useState(() => loadQuestProgress(progressScopeKey));
   const previewState = initialView === VIEW.CEREMONY ? state : null;
   const previewCeremony = initialView === VIEW.CEREMONY && getStop(initialStop)
@@ -183,7 +199,9 @@ export default function QuestRoot({
   const [journeyMode, setJourneyMode] = useState({ kind: "journey", targets: null });
   const [ceremony, setCeremony] = useState(previewCeremony);
   const [ceremonyOverlayVisible, setCeremonyOverlayVisible] = useState(() => (
-    Boolean(previewCeremony && previewState?.settings?.reducedMotion)
+    Boolean(previewCeremony && (
+      previewState?.settings?.reducedMotion || learnerAccessibility.reducedEffects
+    ))
   ));
   const [force2d, setForce2d] = useState(false);
   const [runtimeQualityId, setRuntimeQualityId] = useState(null);
@@ -199,7 +217,11 @@ export default function QuestRoot({
   const journeyTransitionTimerRef = useRef(0);
   const portalRef = useRef(null);
   const previousViewRef = useRef(view);
-  const quality = useMemo(() => detectQuestQuality(state.settings), [state.settings]);
+  const effectiveQuestSettings = useMemo(() => ({
+    ...state.settings,
+    reducedMotion: Boolean(state.settings?.reducedMotion || learnerAccessibility.reducedEffects)
+  }), [learnerAccessibility.reducedEffects, state.settings]);
+  const quality = useMemo(() => detectQuestQuality(effectiveQuestSettings), [effectiveQuestSettings]);
   const runtimeQuality = runtimeQualityId && QUEST_QUALITY_TIERS[runtimeQualityId]
     ? QUEST_QUALITY_TIERS[runtimeQualityId]
     : quality;
@@ -214,6 +236,11 @@ export default function QuestRoot({
   const use2d = activeQuality.id === "2d";
   const usePixel = activeQuality.id === "pixel";
   const useSimpleWorld = use2d || usePixel;
+  const activeQuestSurfaceName = questFullscreenSurfaceName({
+    view,
+    hatched: state.hatched,
+    activeStopName: getStop(activeStop)?.name
+  });
   const musicChapter = [VIEW.WORLD, VIEW.CEREMONY].includes(view) ? chapterForStop(activeStop) : null;
   const baseMusicTrack = musicChapter?.audio?.score || "meadow";
   const musicTrack = musicChapter?.id === "seedwake-meadow"
@@ -686,14 +713,18 @@ export default function QuestRoot({
         .filter(layer => layer.stopId === finishedStopId)
         .map(layer => ({ ...layer, status: "active", ready: true, anticipatedFrom: null })));
       setCeremony({ ...reward, state: ended });
-      setCeremonyOverlayVisible(Boolean(ended.settings?.reducedMotion || use2d));
+      setCeremonyOverlayVisible(Boolean(
+        ended.settings?.reducedMotion || learnerAccessibility.reducedEffects || use2d
+      ));
       setView(VIEW.CEREMONY);
     } else if (nextStop?.id) {
       setTrailNotice(reward);
       // The per-stop reward MOMENT: a 2.6s creature-and-stars beat, not just
       // an auto-dismissing toast in a corner. Reduced motion keeps the calm
       // toast only.
-      if (!next.settings?.reducedMotion) setTrailCheer(reward);
+      if (!next.settings?.reducedMotion && !learnerAccessibility.reducedEffects) {
+        setTrailCheer(reward);
+      }
       if (useSimpleWorld) {
         setActiveStop(nextStop.id);
         setWorldLayers([{ stopId: nextStop.id, status: "active", ready: true, anticipatedFrom: null }]);
@@ -716,7 +747,14 @@ export default function QuestRoot({
       correct: Number(tally.correct) || 0,
       chapterReward: chapterReward?.id || null
     });
-  }, [commit, journeyMode.kind, progressScopeKey, use2d, useSimpleWorld]);
+  }, [
+    commit,
+    journeyMode.kind,
+    learnerAccessibility.reducedEffects,
+    progressScopeKey,
+    use2d,
+    useSimpleWorld
+  ]);
 
   const quitWorld = useCallback(() => {
     // Leaving the land keeps its position and completed requests.
@@ -884,20 +922,33 @@ export default function QuestRoot({
       className="q-root"
       data-fullbleed=""
       data-view={view}
+      data-surface-name={activeQuestSurfaceName}
+      data-child-surface="sound-seekers"
       data-high-contrast={state.settings?.highContrast ? "true" : undefined}
+      role="dialog"
+      aria-modal="true"
+      aria-label={activeQuestSurfaceName}
     >
       {/* ONE exit per screen. The Den (and the hatch screen) own "Close" —
           leaving the whole mode is a Den decision. Everywhere else the only
           way out is "Back to the Den", so a child is never shown two doors
           marked leave and asked to know the difference. */}
       {[VIEW.DEN, VIEW.CREATOR].includes(view) && (
-        <button type="button" className="q-exit" onClick={closeQuest} aria-label="Close Sound Seekers">Close</button>
+        <button
+          type="button"
+          className="q-exit"
+          onClick={closeQuest}
+          aria-label={closeFullscreenSurfaceName(activeQuestSurfaceName)}
+        >
+          Close
+        </button>
       )}
 
       {view === VIEW.CREATOR && (
         <CreatureCreator
           creature={state.creature}
           owned={owned}
+          sparkBalance={availableSparks(state)}
           hatched={state.hatched}
           isSoundEnabled={isSoundEnabled}
           onChange={creature => commit({ ...state, creature, creatureAt: new Date().toISOString() })}
@@ -915,7 +966,7 @@ export default function QuestRoot({
       {view === VIEW.DEN && (
         <DenScreen
           state={state}
-          reducedMotion={Boolean(state.settings?.reducedMotion)}
+          reducedMotion={Boolean(state.settings?.reducedMotion || learnerAccessibility.reducedEffects)}
           highContrast={Boolean(state.settings?.highContrast)}
           quietSoundscape={Boolean(state.settings?.quietSoundscape)}
           soundEnabled={state.settings?.soundEnabled !== false}
@@ -969,6 +1020,7 @@ export default function QuestRoot({
               state: layerState,
               resume: layerResume,
               isSoundEnabled,
+              extendedResponse: learnerAccessibility.extendedResponse,
               isInteractive: interactive,
               journeyStatus: layer.status,
               mode: journeyMode.kind,

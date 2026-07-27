@@ -403,6 +403,16 @@
   transform: none;
 }
 
+.student-mode-app.lp-skin-sage :is(.story-quest-title-logo, .guided-library-logo, .guided-title-logo) .child-surface-title-text {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
 /* ═════════════════════════════════════════════════════════════════════════
  * PART 3 — THE HARDCODED COLOURS NO VARIABLE CAN REACH
  *
@@ -452,8 +462,8 @@
 /* Reading Library's orange goal panel and Story Quests' level buttons were the
    two other saturated blocks. Both become sage-family fills. */
 .student-mode-app.lp-skin-sage .guided-goal-panel:not(:is(.hollow-page, .student-surface-arcade) *) {
-  background: #2E4B3E;
-  color: #FFFFFF;
+  background: #EAF3EF;
+  color: #20382F;
 }
 
 .student-mode-app.lp-skin-sage .guided-shelf-card-tag:not(:is(.hollow-page, .student-surface-arcade) *) {
@@ -514,6 +524,36 @@
 .student-mode-app.lp-skin-sage .learn-story-level-button.active.active :is(strong, span, small),
 .student-mode-app.lp-skin-sage .learn-story-level-button[aria-pressed="true"] :is(strong, span, small) {
   color: #FFFFFF;
+}
+
+/* A11y route gate: keep active Phonics support text on the same high-contrast
+   foreground as its selected island, and prevent later comic selectors from
+   repainting Story Quest controls/cards with low-contrast legacy colours. */
+.student-mode-app.lp-skin-sage .phonics-learn-page .phonics-island-card.active .phonics-island-label small {
+  color: #FFFFFF;
+}
+
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button.active,
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] {
+  background: #2E4B3E;
+  color: #FFFFFF;
+}
+
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button.active :is(strong, span, small),
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] :is(strong, span, small) {
+  color: #FFFFFF;
+}
+
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-quest-card {
+  background: #2E4B3E;
+}
+
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-quest-card:nth-child(2n) {
+  background: #3E776B;
+}
+
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-quest-card:nth-child(3n) {
+  background: #586A42;
 }
 
 /* The map stop markers were hard-bordered comic pins. */

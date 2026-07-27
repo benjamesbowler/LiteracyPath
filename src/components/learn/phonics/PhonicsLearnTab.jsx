@@ -61,7 +61,10 @@ function IslandLockIcon() {
   );
 }
 
-export function PhonicsLearnTab({ initialIsland = "", progressScopeKey = "default" }) {
+export function PhonicsLearnTab({
+  initialIsland = "",
+  progressScopeKey = "default"
+}) {
   const [activeLetter, setActiveLetter] = useState(null);
   const [activeFamily, setActiveFamily] = useState(null);
   const [activeIsland, setActiveIsland] = useState(() => initialIsland || getInitialIsland());
@@ -169,16 +172,16 @@ export function PhonicsLearnTab({ initialIsland = "", progressScopeKey = "defaul
       <section className="phonics-practice-overview" aria-label="Phonics practice progress">
         <div>
           <span className="phonics-practice-kicker">Phonics</span>
-          <h2>Letters, Sounds, Words</h2>
-          <p>{nextStepText}</p>
+          <h1 data-child-title="">Letters, Sounds, Words</h1>
+          <p data-child-instruction="">{nextStepText}</p>
         </div>
-        <div className="phonics-practice-stats" aria-label="Quest totals">
-          <span><strong>{completedLettersCount}/26</strong> letters</span>
-          <span><strong>{completedWordFamiliesCount}/{cvcWordFamilies.length}</strong> word nests</span>
+        <div className="phonics-practice-stats" aria-label="Quest totals" data-child-progress="">
+          <span><strong>{completedLettersCount} of 26</strong> letters</span>
+          <span><strong>{completedWordFamiliesCount} of {cvcWordFamilies.length}</strong> word nests</span>
         </div>
       </section>
 
-      <div className="phonics-island-switcher" aria-label="Choose Learn area">
+      <div className="phonics-island-switcher" aria-label="Choose Learn area" data-child-choices="">
         <button
           className={`phonics-island-card ${activeIsland === "letters" ? "active" : ""}`}
           onClick={() => handleIslandClick("letters")}
@@ -188,7 +191,7 @@ export function PhonicsLearnTab({ initialIsland = "", progressScopeKey = "defaul
           <IslandIcon type="letters" />
           <span className="phonics-island-label">
             <span>Letters</span>
-            <small>{completedLettersCount}/26 complete</small>
+            <small>{completedLettersCount} of 26 complete</small>
           </span>
         </button>
         <button

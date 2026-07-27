@@ -1,4 +1,28 @@
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
+import {
+  benchmarkDomainForRecord,
+  benchmarkRecordMatchesScope,
+  benchmarkScopeLabel,
+  EL_BENCHMARK_ASSESSMENT_IDS,
+  EL_BENCHMARK_DOMAIN_DEFINITIONS,
+  isElBenchmarkAssessmentRecord,
+  resolveElBenchmarkReportScope
+} from "./elBenchmarkReportScope.js";
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_POLICY_VERSION,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion
+} from "../policy/learningPolicy.js";
+
+export {
+  EL_BENCHMARK_ASSESSMENT_IDS,
+  EL_BENCHMARK_DOMAIN_DEFINITIONS,
+  filterAssessmentHistoryForElBenchmarkScope,
+  getElBenchmarkAssessmentId,
+  isElBenchmarkAssessmentRecord,
+  resolveElBenchmarkReportScope
+} from "./elBenchmarkReportScope.js";
 
 export const EL_FORMAL_LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
 
@@ -57,214 +81,13 @@ export const EL_FORMAL_CLASS_EVIDENCE_SCHEMA = Object.freeze([
 ]);
 
 const STATUS_LABELS = {
-  mastered: "Mastered",
+  mastered: "Secure",
   developing: "Developing",
-  needs_support: "Needs Support",
+  needs_support: "Needs support",
+  not_enough_evidence: "Not enough evidence",
   unscored_evidence: "Unscored evidence",
-  not_assessed: "Not assessed"
+  not_assessed: "Not checked"
 };
-
-export const EL_BENCHMARK_ASSESSMENT_IDS = Object.freeze({
-  PHONOLOGICAL_AWARENESS: "el_phonological_awareness",
-  ENCODING: "el_encoding",
-  DECODING: "el_decoding",
-  ORAL_READING_FLUENCY: "el_oral_reading_fluency"
-});
-
-export const EL_BENCHMARK_DOMAIN_DEFINITIONS = Object.freeze([
-  Object.freeze({
-    assessmentId: EL_BENCHMARK_ASSESSMENT_IDS.PHONOLOGICAL_AWARENESS,
-    domainKey: "phonologicalAwareness",
-    domainLabel: "Phonological and Phonemic Awareness"
-  }),
-  Object.freeze({
-    assessmentId: EL_BENCHMARK_ASSESSMENT_IDS.ENCODING,
-    domainKey: "encoding",
-    domainLabel: "Encoding and Spelling"
-  }),
-  Object.freeze({
-    assessmentId: EL_BENCHMARK_ASSESSMENT_IDS.DECODING,
-    domainKey: "decoding",
-    domainLabel: "Decoding and Automaticity"
-  }),
-  Object.freeze({
-    assessmentId: EL_BENCHMARK_ASSESSMENT_IDS.ORAL_READING_FLUENCY,
-    domainKey: "oralReadingFluency",
-    domainLabel: "Oral Reading Fluency"
-  })
-]);
-
-const BENCHMARK_DOMAIN_BY_ID = new Map(
-  EL_BENCHMARK_DOMAIN_DEFINITIONS.map(definition => [definition.assessmentId, definition])
-);
-
-function normalizeBenchmarkGrade(value = "") {
-  const source = typeof value === "object" && value !== null
-    ? value.grade ?? value.gradePath ?? value.value ?? ""
-    : value;
-  const grade = String(source ?? "").trim().toUpperCase().replace(/^GRADE\s*/, "");
-  if (["K", "KG", "KINDERGARTEN", "0"].includes(grade)) return "K";
-  if (["1", "2"].includes(grade)) return grade;
-  return grade;
-}
-
-function normalizeBenchmarkWindow(value = "") {
-  return String(value || "").trim().toUpperCase();
-}
-
-function benchmarkRouteForRecord(record = {}) {
-  const metadata = record.metadata || {};
-  return {
-    grade: normalizeBenchmarkGrade(
-      record.grade || record.gradePath?.grade || record.gradePath || metadata.grade || ""
-    ),
-    benchmarkWindow: normalizeBenchmarkWindow(
-      record.benchmarkWindow || record.window || metadata.benchmarkWindow || metadata.window || ""
-    )
-  };
-}
-
-function benchmarkRouteKey({ grade = "", benchmarkWindow = "" } = {}) {
-  return `${normalizeBenchmarkGrade(grade)}::${normalizeBenchmarkWindow(benchmarkWindow)}`;
-}
-
-function benchmarkAttemptTimestamp(record = {}) {
-  const value = record.completedAt || record.updatedAt || record.startedAt || "";
-  const timestamp = new Date(value || 0).getTime();
-  return Number.isFinite(timestamp) ? timestamp : 0;
-}
-
-function benchmarkScopeLabel({ grade = "", benchmarkWindow = "" } = {}) {
-  const gradeLabel = grade
-    ? grade === "K" ? "Kindergarten" : `Grade ${grade}`
-    : "Grade not recorded";
-  const windowLabel = benchmarkWindow || "Window not recorded";
-  return `${gradeLabel} · ${windowLabel}`;
-}
-
-function benchmarkRecordMatchesScope(record = {}, scope = {}) {
-  if (!isElBenchmarkAssessmentRecord(record)) return false;
-  const route = benchmarkRouteForRecord(record);
-  if (scope.resolved === true && scope.isRouteScoped === false) {
-    return route.grade === (scope.grade || "") &&
-      route.benchmarkWindow === (scope.benchmarkWindow || "");
-  }
-  return (!scope.grade || route.grade === scope.grade) &&
-    (!scope.benchmarkWindow || route.benchmarkWindow === scope.benchmarkWindow);
-}
-
-export function filterAssessmentHistoryForElBenchmarkScope(records = [], scope = {}) {
-  return (Array.isArray(records) ? records : []).filter(record => (
-    !isElBenchmarkAssessmentRecord(record) || benchmarkRecordMatchesScope(record, scope)
-  ));
-}
-
-/**
- * Resolve one report-wide EL benchmark route. When callers omit a scope, the
- * latest saved benchmark attempt supplies it so profiles and class averages can
- * never silently combine different grade/window forms.
- */
-export function resolveElBenchmarkReportScope({
-  records = [],
-  benchmarkScope = null,
-  benchmarkGrade = "",
-  benchmarkWindow = ""
-} = {}) {
-  const benchmarkRecords = (Array.isArray(records) ? records : [])
-    .filter(isElBenchmarkAssessmentRecord);
-  const availableByRoute = new Map();
-  benchmarkRecords.forEach(record => {
-    const route = benchmarkRouteForRecord(record);
-    const key = benchmarkRouteKey(route);
-    const existing = availableByRoute.get(key) || {
-      ...route,
-      attemptCount: 0,
-      latestDate: "",
-      latestTimestamp: 0
-    };
-    existing.attemptCount += 1;
-    const timestamp = benchmarkAttemptTimestamp(record);
-    if (timestamp >= existing.latestTimestamp) {
-      existing.latestTimestamp = timestamp;
-      existing.latestDate = record.completedAt || record.updatedAt || record.startedAt || "";
-    }
-    availableByRoute.set(key, existing);
-  });
-  const availableRoutes = Array.from(availableByRoute.values())
-    .sort((a, b) => b.latestTimestamp - a.latestTimestamp)
-    .map(route => ({
-      grade: route.grade,
-      benchmarkWindow: route.benchmarkWindow,
-      attemptCount: route.attemptCount,
-      latestDate: route.latestDate,
-      label: benchmarkScopeLabel(route)
-    }));
-
-  if (benchmarkScope?.resolved === true) {
-    const grade = normalizeBenchmarkGrade(benchmarkScope.grade);
-    const resolvedWindow = normalizeBenchmarkWindow(
-      benchmarkScope.benchmarkWindow || benchmarkScope.window
-    );
-    const resolved = {
-      ...cloneValue(benchmarkScope, {}),
-      grade,
-      benchmarkWindow: resolvedWindow,
-      label: benchmarkScopeLabel({ grade, benchmarkWindow: resolvedWindow }),
-      isRouteScoped: Boolean(grade && resolvedWindow),
-      resolved: true,
-      availableRoutes
-    };
-    resolved.matchingAttemptCount = benchmarkRecords.filter(record => (
-      benchmarkRecordMatchesScope(record, resolved)
-    )).length;
-    return resolved;
-  }
-
-  const requestedGrade = normalizeBenchmarkGrade(
-    benchmarkScope?.grade ?? benchmarkGrade
-  );
-  const requestedWindow = normalizeBenchmarkWindow(
-    benchmarkScope?.benchmarkWindow ?? benchmarkScope?.window ?? benchmarkWindow
-  );
-  const matchingRequested = benchmarkRecords
-    .filter(record => {
-      const route = benchmarkRouteForRecord(record);
-      return (!requestedGrade || route.grade === requestedGrade) &&
-        (!requestedWindow || route.benchmarkWindow === requestedWindow);
-    })
-    .sort((a, b) => benchmarkAttemptTimestamp(b) - benchmarkAttemptTimestamp(a));
-  const latest = matchingRequested[0] || (!requestedGrade && !requestedWindow
-    ? benchmarkRecords.slice().sort((a, b) => benchmarkAttemptTimestamp(b) - benchmarkAttemptTimestamp(a))[0]
-    : null);
-  const latestRoute = latest ? benchmarkRouteForRecord(latest) : {};
-  const grade = requestedGrade || latestRoute.grade || "";
-  const resolvedWindow = requestedWindow || latestRoute.benchmarkWindow || "";
-  const hasRequest = Boolean(requestedGrade || requestedWindow);
-  const source = requestedGrade && requestedWindow
-    ? "explicit"
-    : hasRequest && latest
-      ? "requested_plus_latest_match"
-      : hasRequest
-        ? "explicit_partial_unmatched"
-        : latest
-          ? "latest_benchmark_attempt"
-          : "none";
-  const resolved = {
-    grade,
-    benchmarkWindow: resolvedWindow,
-    label: benchmarkScopeLabel({ grade, benchmarkWindow: resolvedWindow }),
-    source,
-    requestedGrade,
-    requestedBenchmarkWindow: requestedWindow,
-    isRouteScoped: Boolean(grade && resolvedWindow),
-    resolved: true,
-    availableRoutes
-  };
-  resolved.matchingAttemptCount = benchmarkRecords.filter(record => (
-    benchmarkRecordMatchesScope(record, resolved)
-  )).length;
-  return resolved;
-}
 
 const UNSCORED_RESPONSE_STATUSES = new Set([
   "not_administered",
@@ -364,29 +187,12 @@ function isCorrectBenchmarkQuestion(question = {}) {
   return question.isCorrect === true || status === "correct" || status === "self_corrected";
 }
 
-export function getElBenchmarkAssessmentId(record = {}) {
-  const candidates = [record.assessmentType, record.assessmentId, record.skillId];
-  for (const candidate of candidates) {
-    const normalized = normalizeCompact(candidate);
-    if (normalized) return BENCHMARK_DOMAIN_BY_ID.has(normalized) ? normalized : "";
-  }
-  return "";
-}
-
-export function isElBenchmarkAssessmentRecord(record = {}) {
-  return Boolean(getElBenchmarkAssessmentId(record));
-}
-
 export function isReportableElBenchmarkCandidatePlacement(placement = null) {
   if (!placement || typeof placement !== "object") return false;
   const status = normalizeCompact(placement.status || "");
   if (["not_available", "unavailable", "not_applicable", "descriptive"].includes(status)) return false;
   const microphase = placement.candidateMicrophase ?? placement.microphase;
   return microphase !== undefined && microphase !== null && String(microphase).trim() !== "";
-}
-
-function benchmarkDomainForRecord(record = {}) {
-  return BENCHMARK_DOMAIN_BY_ID.get(getElBenchmarkAssessmentId(record)) || null;
 }
 
 function administrationStatusForRecord(record = {}) {
@@ -933,8 +739,15 @@ function getClassId(student = {}) {
 function getStatus(correct = 0, attempts = 0) {
   if (!attempts) return "not_assessed";
   const accuracy = Math.round((correct / attempts) * 100);
-  if (accuracy >= 80) return "mastered";
-  if (accuracy >= 60) return "developing";
+  const conclusion = evaluateLearningConclusion({
+    accuracy,
+    attempts,
+    minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
+    requireRecency: false
+  });
+  if (!conclusion.ready) return "not_enough_evidence";
+  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) return "mastered";
+  if (conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING) return "developing";
   return "needs_support";
 }
 
@@ -942,6 +755,7 @@ function makeCell() {
   return {
     status: "not_assessed",
     statusLabel: STATUS_LABELS.not_assessed,
+    policyVersion: LEARNING_POLICY_VERSION,
     evidenceCount: 0,
     unscoredCount: 0,
     attempts: 0,

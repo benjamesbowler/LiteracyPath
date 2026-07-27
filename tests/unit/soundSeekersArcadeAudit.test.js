@@ -77,8 +77,13 @@ test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and redu
   assert.match(racer, /playerZ \+= speed \* dt \* \(reduceMotion \? 0\.55 : 1\)/);
   assert.match(racer, /const opticalFlowScale = reduceMotion \? 0\.45 : 1/);
   assert.match(racer, /if \(!activates\) return;[\s\S]*event\.preventDefault\(\)/);
-  assert.match(racer, /\/audio\/child-mode\/clean-human\/phrases\/listen-and-find\.mp3/);
   assert.match(racer, /\/audio\/ui\/voice\/great-job\.mp3/);
+  assert.match(racer, /buildSoundRacerTutorial\(track, \{ hasRecordedAudio: hasRecordedSpeech \}\)/);
+  assert.match(racer, /data-sr="tutorial-phonics" aria-label="Sound example"/);
+  assert.match(racer, /data-sr="tutorial-motor" aria-label="How to steer"/);
+  assert.match(racer, /data-sr="intro-hear"/);
+  assert.match(racer, /speakPhoneme\(tutorial\.target\)[\s\S]*speakWord\(tutorial\.exampleWord\)/);
+  assert.doesNotMatch(racer, />S<\/span>[\s\S]*>sun<\/span>/);
 });
 
 test("Sound Safari reduces actual critter travel and follows live OS motion changes", async () => {

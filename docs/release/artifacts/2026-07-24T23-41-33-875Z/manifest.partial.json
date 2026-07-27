@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T23:42:39.773Z",
+  "startedAt": "2026-07-24T23:41:33.875Z",
+  "finishedAt": "2026-07-24T23:42:39.773Z",
+  "commitSha": "d5ee7230de040e3b5313e4f49288770dbe9d055a",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21286,
+      "startedAt": "2026-07-24T23:41:33.940Z",
+      "finishedAt": "2026-07-24T23:41:55.226Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6663,
+      "startedAt": "2026-07-24T23:41:55.226Z",
+      "finishedAt": "2026-07-24T23:42:01.889Z",
+      "counts": {
+        "tests": 1191,
+        "passed": 1191,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 17061,
+      "startedAt": "2026-07-24T23:42:01.889Z",
+      "finishedAt": "2026-07-24T23:42:18.950Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "smoke",
+      "label": "Reachable-product smoke tests",
+      "areas": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "command": "npm run test:smoke",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 11948,
+      "startedAt": "2026-07-24T23:42:18.950Z",
+      "finishedAt": "2026-07-24T23:42:30.898Z",
+      "counts": {
+        "passed": 12
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/smoke.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-home-hierarchy",
+      "label": "One policy-led student-home recommendation, two secondary choices, and disclosed exploration",
+      "areas": [
+        2,
+        4,
+        10
+      ],
+      "command": "npm run check:student-home-hierarchy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 1854,
+      "startedAt": "2026-07-24T23:42:30.898Z",
+      "finishedAt": "2026-07-24T23:42:32.752Z",
+      "counts": {
+        "tests": 12,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/student-home-hierarchy.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "learning-policy",
+      "label": "Versioned learning thresholds with minimum evidence, recency, confidence, and sparse-learner UI",
+      "areas": [
+        1,
+        4,
+        7,
+        8,
+        10
+      ],
+      "command": "npm run check:learning-policy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2428,
+      "startedAt": "2026-07-24T23:42:32.752Z",
+      "finishedAt": "2026-07-24T23:42:35.180Z",
+      "counts": {
+        "tests": 15,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/learning-policy.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "class-summary-accuracy",
+      "label": "Learner-weighted and response-weighted class accuracy with comparability suppression",
+      "areas": [
+        4,
+        5,
+        6,
+        7,
+        10
+      ],
+      "command": "npm run check:class-summary-accuracy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2189,
+      "startedAt": "2026-07-24T23:42:35.180Z",
+      "finishedAt": "2026-07-24T23:42:37.369Z",
+      "counts": {
+        "tests": 15,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/class-summary-accuracy.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "recommendation-explanations",
+      "label": "Brief child and evidence/dependency/confidence/unlock teacher recommendation explanations",
+      "areas": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        10
+      ],
+      "command": "npm run check:recommendation-explanations",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2404,
+      "startedAt": "2026-07-24T23:42:37.369Z",
+      "finishedAt": "2026-07-24T23:42:39.773Z",
+      "counts": {
+        "tests": 3,
+        "passed": 2,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T23-41-33-875Z/recommendation-explanations.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

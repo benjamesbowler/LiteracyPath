@@ -29,10 +29,28 @@ function requireIncludes(source, needle, message) {
   "src/appState/appViewHelpers.js",
   "src/appState/studentSessionHelpers.js",
   "src/appState/assessmentSessionHelpers.js",
-  "src/App.jsx"
+  "src/App.jsx",
+  "src/components/AppSurface.jsx",
+  "src/appState/appRuntimeSurfaces.jsx",
+  "src/appState/assessmentRoundController.js"
 ].forEach(requireFile);
 
 const appSource = read("src/App.jsx");
+
+// 2026-07-26: routing moved out of App.jsx. App.jsx is now the session/auth shell;
+// the view switch lives in AppSurface.jsx, the lazy page registry in
+// appRuntimeSurfaces.jsx, and attempt persistence in assessmentRoundController.js.
+// This gate was checking App.jsx alone and had been red for every needle below —
+// a permanently-failing gate proves nothing. It now checks the route surface as a
+// whole, which is what the contract was always trying to protect.
+const routeSurfaceSource = [
+  "src/App.jsx",
+  "src/components/AppSurface.jsx",
+  "src/appState/appRuntimeSurfaces.jsx",
+  "src/appState/appViewHelpers.js",
+  "src/appState/useAppSessionController.js",
+  "src/appState/assessmentRoundController.js"
+].map(read).join("\n");
 const appViewsSource = read("src/appState/appViews.js");
 const auditSource = read("docs/implementation/app_state_architecture_audit.md");
 
@@ -59,8 +77,6 @@ for (const view of REQUIRED_APP_VIEWS) {
   "LearnAreaPage",
   "GuidedReadingPage",
   "AdminDashboardPage",
-  "dashboardMode=\"teacher\"",
-  "dashboardMode=\"admin\"",
   "AssessmentPage",
   "CheckpointDecisionPage",
   "FinishedReportPage",
@@ -72,8 +88,12 @@ for (const view of REQUIRED_APP_VIEWS) {
   "APP_VIEWS.ADMIN_DASHBOARD",
   "APP_VIEWS.ASSESSMENT"
 ].forEach(needle => {
-  requireIncludes(appSource, needle, `App.jsx required route/path is missing ${needle}.`);
+  requireIncludes(routeSurfaceSource, needle, `the app route surface is missing ${needle}.`);
 });
+
+if (appSource.includes("dashboardMode")) {
+  fail("App.jsx must not reintroduce the retired teacher/admin dashboard mode switch.");
+}
 
 if (/useReducer/.test(appSource)) {
   fail("This pass must not introduce useReducer into App.jsx.");

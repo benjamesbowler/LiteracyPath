@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { loadStoryQuestProgress, saveStoryQuestProgress } from "../utils/storyQuestProgress.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
@@ -75,6 +75,12 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
       return progress.opened && !progress.completed;
     })
     .slice(0, 3), [questProgress]);
+  const selectedLevelQuests = questGroups.find(level => level.key === selectedLevelKey)?.quests || [];
+  const primaryQuest = continueQuests[0]
+    || selectedLevelQuests.find(quest => !questProgress[quest.id]?.completed)
+    || selectedLevelQuests[0]
+    || storyQuests[0];
+  const primaryQuestStarted = Boolean(primaryQuest && questProgress[primaryQuest.id]?.opened);
   const activeQuestProgress = activeQuest ? questProgress[activeQuest.id] || {} : {};
   const activeQuestInitialPageId =
     activeQuest && !activeQuestProgress.completed && activeQuestProgress.lastPageId
@@ -90,7 +96,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     saveStoryQuestProgress(progressScopeKey, questProgress);
   }, [progressScopeKey, questProgress]);
 
-  function updateQuestProgress(questId, patch) {
+  const updateQuestProgress = useCallback((questId, patch) => {
     setQuestProgress(previous => ({
       ...previous,
       [questId]: {
@@ -100,7 +106,26 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
         updatedAt: new Date().toISOString()
       }
     }));
-  }
+  }, []);
+
+  const handleQuestComplete = useCallback((progressPatch = {}) => {
+    if (!activeQuestId) return;
+    updateQuestProgress(activeQuestId, {
+      ...progressPatch,
+      completed: true,
+      completedAt: progressPatch.completedAt || new Date().toISOString()
+    });
+  }, [activeQuestId, updateQuestProgress]);
+
+  const handleQuestExit = useCallback(() => setActiveQuestId(""), []);
+
+  const handleQuestProgress = useCallback((pageId, progressPatch = {}) => {
+    if (!activeQuestId) return;
+    updateQuestProgress(activeQuestId, {
+      ...progressPatch,
+      lastPageId: pageId
+    });
+  }, [activeQuestId, updateQuestProgress]);
 
   function startQuest(questId) {
     if (typeof window !== "undefined") {
@@ -125,16 +150,9 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
       <main className="learn-area-page story-quest-learn-page story-quest-active-page" aria-label="Story Quests">
         <StoryQuestPlayer
           initialPageId={activeQuestInitialPageId}
-          onComplete={(progressPatch = {}) => updateQuestProgress(activeQuest.id, {
-            ...progressPatch,
-            completed: true,
-            completedAt: progressPatch.completedAt || new Date().toISOString()
-          })}
-          onExit={() => setActiveQuestId("")}
-          onProgress={(pageId, progressPatch = {}) => updateQuestProgress(activeQuest.id, {
-            ...progressPatch,
-            lastPageId: pageId
-          })}
+          onComplete={handleQuestComplete}
+          onExit={handleQuestExit}
+          onProgress={handleQuestProgress}
           quest={activeQuest}
         />
       </main>
@@ -142,18 +160,37 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
   }
 
   return (
-    <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quests">
+    <main
+      className="learn-area-page story-quest-learn-page page-stack"
+      aria-label="Story Quests"
+      data-child-surface="story-quests"
+    >
       <section className="learn-story-quest-library card">
         <div className="story-quest-header-row">
           <div className="learn-story-quest-copy">
             <span className="story-quest-kicker">Read · Discover · Adventure</span>
-            <h2 className="story-quest-title-logo"><img src="/images/comic/story-quests-logo.webp" alt="Story Quests" /></h2>
-            <p>Read bright guided stories, hear each page, and choose what happens next.</p>
-            <div className="story-quest-library-stats" aria-label="Story Quest progress">
+            <h1 className="story-quest-title-logo" data-child-title="">
+              <span className="child-surface-title-text">Story Quests</span>
+              <img src="/images/comic/story-quests-logo.webp" alt="" />
+            </h1>
+            <p data-child-instruction="">Read a story. Choose what happens next.</p>
+            <div className="story-quest-library-stats" aria-label="Story Quest progress" data-child-progress="">
               <span><strong>{questSummary.completed}</strong> complete</span>
               <span><strong>{questSummary.inProgress}</strong> in progress</span>
-              <span><strong>{questSummary.foundWords}/{questSummary.targetWords}</strong> words found</span>
+              <span><strong>{questSummary.foundWords} of {questSummary.targetWords}</strong> words found</span>
             </div>
+            {primaryQuest && (
+              <button
+                className="story-quest-primary-action"
+                type="button"
+                onClick={() => startQuest(primaryQuest.id)}
+                data-child-primary=""
+                data-child-emphasis="primary"
+                data-child-emphasis-cue=""
+              >
+                {primaryQuestStarted ? "Continue" : "Start"} {primaryQuest.title}
+              </button>
+            )}
           </div>
 
           <div className="learn-story-level-selector" aria-label="Story Quest level menu">
@@ -169,7 +206,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                   type="button"
                 >
                   <strong>Level {level.key}</strong>
-                  <span>{completedCount}/{level.quests.length} complete</span>
+                  <span>{completedCount} of {level.quests.length} complete</span>
                 </button>
               );
             })}
@@ -192,7 +229,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
           </div>
         )}
 
-        <div className="story-quest-body">
+        <div className="story-quest-body" data-child-choices="">
         <div className="learn-story-level-list">
           {questGroups.map(level => (
             <section className="learn-story-level-section" id={`story-quest-level-${level.key}`} key={level.key}>

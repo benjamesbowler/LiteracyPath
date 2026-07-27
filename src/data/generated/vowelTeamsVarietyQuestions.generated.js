@@ -26,7 +26,7 @@ const LEVEL_TWO_ITEMS = [
   ["newt", "ew", "/media/initial-sounds/images/n/newt.webp", "/media/initial-sounds/audio/n/newt.mp3", "a small newt on a rock"],
   ["boy", "oy", "/images/generated/boy_afraid.png", "/guided-reading/audio/words/boy.mp3", "a young boy"],
   ["nightlight", "igh", "/media/initial-sounds/images/n/nightlight.webp", "/media/initial-sounds/audio/n/nightlight.mp3", "a small nightlight glowing in a room"],
-  ["lighthouse", "igh", "/media/initial-sounds/images/l/lighthouse.webp", "/media/initial-sounds/audio/l/lighthouse.mp3", "a lighthouse by the sea"],
+  ["light", "igh", "/images/assessment/long-vowels/light.webp", "/audio/assessment/long-vowels/light.mp3", "a lamp giving off light"],
   ["field", "ie", "/media/vocabulary/images/field.webp", "/media/vocabulary/audio/field.mp3", "a grassy field"],
   ["shield", "ie", "/media/vocabulary/images/shield.webp", "/media/vocabulary/audio/shield.mp3", "a shield"],
   ["eight", "eigh", "/images/assessment/long-vowels/eight.webp", "/audio/assessment/long-vowels/eight.mp3", "eight small objects grouped together"],

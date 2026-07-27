@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T12:28:43.121Z",
+  "startedAt": "2026-07-24T12:27:55.196Z",
+  "finishedAt": "2026-07-24T12:28:43.121Z",
+  "commitSha": "1e68b41b22e5c2eb895cdd07fd434caf01ffc7cc",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21574,
+      "startedAt": "2026-07-24T12:27:55.262Z",
+      "finishedAt": "2026-07-24T12:28:16.836Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T12-27-55-196Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6643,
+      "startedAt": "2026-07-24T12:28:16.836Z",
+      "finishedAt": "2026-07-24T12:28:23.480Z",
+      "counts": {
+        "tests": 1131,
+        "passed": 1131,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T12-27-55-196Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 17398,
+      "startedAt": "2026-07-24T12:28:23.480Z",
+      "finishedAt": "2026-07-24T12:28:40.878Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T12-27-55-196Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "student-home-hierarchy",
+      "label": "One policy-led student-home recommendation, two secondary choices, and disclosed exploration",
+      "areas": [
+        2,
+        4,
+        10
+      ],
+      "command": "npm run check:student-home-hierarchy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 2243,
+      "startedAt": "2026-07-24T12:28:40.878Z",
+      "finishedAt": "2026-07-24T12:28:43.121Z",
+      "counts": {
+        "tests": 6,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T12-27-55-196Z/student-home-hierarchy.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

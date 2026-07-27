@@ -12,6 +12,7 @@ import {
 } from "./phonicsRuntimeUtils.js";
 import { guidedReadingSeriesBooks } from "../src/data/guidedReadingSeriesBooks.js";
 import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
+import { getAssessmentMediaWiring } from "../src/content/assessments/assessmentMediaReleaseManifest.js";
 import {
   getListenAndFindAssetDiagnostics,
   isListenAndFindWordQuestion
@@ -74,9 +75,15 @@ function optionArrayImageMixIssues(question = {}) {
 
 function audioIssues(question = {}) {
   const word = targetWord(question);
-  return getQuestionAudioPaths(question).flatMap(audioPath => {
+  const releaseApprovedPaths = new Set(
+    getAssessmentMediaWiring(question.id)
+      .filter(entry => entry.mediaType === "audio")
+      .map(entry => entry.filePath)
+  );
+  return [...new Set(getQuestionAudioPaths(question))].flatMap(audioPath => {
     if (!String(audioPath).startsWith("/")) return [];
     if (!publicPathExists(audioPath)) return [`missing audio file: ${audioPath}`];
+    if (releaseApprovedPaths.has(audioPath)) return [];
     if (!getApprovedAudioPath(word || question.audioKey || question.audioText, audioPath)) {
       return [`audio is not approved for active runtime: ${audioPath}`];
     }
@@ -280,19 +287,34 @@ const replacementDoc = [
 
 writeFile(guidedReadingReplacementPath, `${replacementDoc.join("\n")}\n`);
 
-if (questionFailures.length || cvcRuntimeFailures.length || shortVowelRuntimeFailures.length || hfwSpellingFailures.length) {
+if (
+  questionFailures.length
+  || cvcRuntimeFailures.length
+  || shortVowelRuntimeFailures.length
+  || hfwSpellingFailures.length
+  || guidedRows.length
+) {
   console.error(`Assessment question integrity failures: ${questionFailures.length}`);
   questionFailures.slice(0, 30).forEach(row => {
     console.error(`- ${row.question.id || "(missing)"}: ${row.issues.join("; ")}`);
   });
   if (cvcRuntimeFailures.length) {
     console.error(`CVC selectable runtime failures: ${cvcRuntimeFailures.length}`);
+    cvcRuntimeFailures.slice(0, 30).forEach(row => {
+      console.error(`- ${row.question.id || "(missing)"}: ${row.issues.join("; ")}`);
+    });
   }
   if (shortVowelRuntimeFailures.length) {
     console.error(`Short Vowel Discrimination selectable runtime failures: ${shortVowelRuntimeFailures.length}`);
+    shortVowelRuntimeFailures.slice(0, 30).forEach(row => {
+      console.error(`- ${row.question.id || "(missing)"}: ${row.issues.join("; ")}`);
+    });
   }
   if (hfwSpellingFailures.length) {
     console.error(`HFW spelling panel readiness failures: ${hfwSpellingFailures.length}`);
+  }
+  if (guidedRows.length) {
+    console.error(`Guided Reading pages needing replacement: ${guidedRows.length}`);
   }
   process.exit(1);
 }

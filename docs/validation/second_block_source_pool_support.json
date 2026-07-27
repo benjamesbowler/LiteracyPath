@@ -1,13 +1,13 @@
 {
   "nouns": {
-    "l1Pool": 176,
-    "l2Pool": 115,
-    "maxSupported": 291
+    "l1Pool": 175,
+    "l2Pool": 114,
+    "maxSupported": 289
   },
   "verbs": {
     "l1Pool": 51,
-    "l2Pool": 8,
-    "maxSupported": 59
+    "l2Pool": 9,
+    "maxSupported": 60
   },
   "adjectives": {
     "l1Pool": 36,

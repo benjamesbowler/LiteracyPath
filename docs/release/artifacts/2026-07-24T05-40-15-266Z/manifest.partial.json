@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T05:41:03.224Z",
+  "startedAt": "2026-07-24T05:40:15.266Z",
+  "finishedAt": "2026-07-24T05:41:03.224Z",
+  "commitSha": "dd5f323b249c1c997c97510866a9e1f1af81a19a",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 20787,
+      "startedAt": "2026-07-24T05:40:15.330Z",
+      "finishedAt": "2026-07-24T05:40:36.117Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T05-40-15-266Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5689,
+      "startedAt": "2026-07-24T05:40:36.117Z",
+      "finishedAt": "2026-07-24T05:40:41.806Z",
+      "counts": {
+        "tests": 1093,
+        "passed": 1093,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T05-40-15-266Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 15538,
+      "startedAt": "2026-07-24T05:40:41.806Z",
+      "finishedAt": "2026-07-24T05:40:57.344Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T05-40-15-266Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "report-audience-templates",
+      "label": "Teacher diagnostic, class/leadership, and plain-language family report templates",
+      "areas": [
+        6,
+        7,
+        10
+      ],
+      "command": "npm run check:report-audience-templates",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5498,
+      "startedAt": "2026-07-24T05:40:57.344Z",
+      "finishedAt": "2026-07-24T05:41:02.842Z",
+      "counts": {
+        "tests": 2,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T05-40-15-266Z/report-audience-templates.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "bundle-size",
+      "label": "Enforced bundle budgets",
+      "areas": [
+        9,
+        10
+      ],
+      "command": "npm run check:bundle-size",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 382,
+      "startedAt": "2026-07-24T05:41:02.842Z",
+      "finishedAt": "2026-07-24T05:41:03.224Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T05-40-15-266Z/bundle-size.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

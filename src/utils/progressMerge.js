@@ -188,11 +188,32 @@ export function mergePayload(current, incoming) {
 // device-only / authority-owned. Keep the policy pure and shared so queue
 // coalescing cannot reintroduce keys that questStore removed before upload.
 export function sanitizeCloudProgressPayload(area, payload) {
-  if (area !== "phonics_quest" || !payload || typeof payload !== "object") return payload;
-  const { assignment, telemetry, ...safePayload } = payload;
-  void assignment;
-  void telemetry;
-  return safePayload;
+  if (!payload || typeof payload !== "object") return payload;
+  if (area === "phonics_quest") {
+    const { assignment, telemetry, ...safePayload } = payload;
+    void assignment;
+    void telemetry;
+    return safePayload;
+  }
+  if (area === "profile") {
+    const {
+      reducedChoiceMode,
+      reducedChoiceModeAt,
+      reducedChoiceModeBy,
+      accessibilitySettings,
+      accessibilitySettingsAt,
+      accessibilitySettingsBy,
+      ...safePayload
+    } = payload;
+    void reducedChoiceMode;
+    void reducedChoiceModeAt;
+    void reducedChoiceModeBy;
+    void accessibilitySettings;
+    void accessibilitySettingsAt;
+    void accessibilitySettingsBy;
+    return safePayload;
+  }
+  return payload;
 }
 
 function questResetMeta(raw) {

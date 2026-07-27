@@ -14,6 +14,35 @@ Everything else in this repo's instructions (the graphify notes below, the gated
 
 Benjamin's standing instruction is that all work in this repository should be completed to the highest practical degree of effort and accuracy. Treat that as a requirement for disciplined inspection, implementation, and verification; it does not permit unrequested scope expansion or unverified claims.
 
+## Where the knowledge lives — start at the index
+
+**`docs/INDEX.md` is the documentation entry point. Open it before you go looking for
+anything.** `docs/` holds ~460 markdown files and 1.66 million words, nearly all of it
+written by agents in the last two months. Grepping it blind will find you three
+contradictory answers and no way to tell which is current.
+
+The index sorts every file into one of two kinds, and the distinction is the whole point:
+
+- A **standard** says how things must be. It stays true and is **edited in place**.
+- A **record** says what happened on a date. It is **never edited again**.
+
+**When a record and a standard disagree, the standard wins.** A dated audit is evidence
+that something was true once, not an instruction about how the product works now.
+
+Two rules for you specifically:
+
+1. **Before you act on anything you found in `docs/`, check the index for whether it has
+   been superseded.** The index carries explicit supersession chains — Sound Seekers, for
+   example, has four generations of critique before the one that still holds. Acting on a
+   retired audit is worse than not reading it, because you will be confidently wrong.
+2. **When you finish work that changes how the product behaves, update the index in the
+   same change.** New standard → edit the standard, do not add a dated file that
+   contradicts it. New record → add one row to *Where things stand*, and if it retires
+   something, add the chain to *Superseded*. Skipping this is how 460 files happened.
+
+The repo is also an Obsidian vault (`.obsidian/` at the repo root), so the index and its
+links render as a navigable graph for the owner. Keep the links working.
+
 ## The Loop — the default posture toward all work
 
 Inspect the real state (read the actual file/output, reproduce the real symptom — never operate on remembered state) → find the **root cause** (you can name the *mechanism* that produces exactly this symptom; if your explanation contains "somehow," you're still at symptom level) → make the **smallest correct** intervention (one hypothesis at a time; smallest-correct beats smallest-looking) → run **all** the relevant checks → **read the results honestly** (a red check is *yours* until you prove it was red before your change; a green that never touched your code is a blank, not a pass) → if not clean, loop back to **inspect** (not to another guess) → exit only on green, and **say exactly what green means** ("tests 137/137, lint clean; the prod build can't run here — run `npm run build && git push`, gated so nothing ships if it fails").

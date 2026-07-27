@@ -42,6 +42,18 @@
   font-size: 0.95rem;
 }
 
+.sbq-map-progress {
+  width: fit-content;
+  margin: 8px 0 0;
+  padding: 4px 9px;
+  border-radius: 7px;
+  background: var(--lp-color-surface-muted);
+  color: var(--lp-color-text-strong);
+  font-size: 0.82rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
 .sbq-primary-button,
 .sbq-ghost-button {
   min-height: 44px;
@@ -632,15 +644,18 @@
 .sbq-trace-letter {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  color: rgba(15, 23, 42, 0.14);
-  font-family: var(--lp-font-reading);
-  font-size: clamp(7rem, 24vw, 12rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   user-select: none;
+}
+
+.sbq-trace-letter path {
+  fill: none;
+  stroke: rgba(15, 23, 42, 0.16);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 12;
 }
 
 .sbq-trace-stage canvas {
@@ -650,6 +665,16 @@
   height: auto;
   touch-action: none;
   cursor: crosshair;
+}
+
+.sbq-trace-message {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .sbq-trace-actions {
@@ -903,8 +928,8 @@
 .sbq-stop-marker {
   display: grid;
   place-items: center;
-  width: calc(40px * var(--map-zoom, 1));
-  height: calc(40px * var(--map-zoom, 1));
+  width: max(44px, calc(40px * var(--map-zoom, 1)));
+  height: max(44px, calc(40px * var(--map-zoom, 1)));
   border-radius: 50%;
   font: 800 calc(1rem * var(--map-zoom, 1)) / 1 var(--lp-font-reading);
   color: #fff5e1;
@@ -949,7 +974,8 @@
 /* Current stop: a STATIC glow ring (no animation - the avatar shows movement). */
 .sbq-mapboard .sbq-stop.next .sbq-stop-marker {
   box-shadow:
-    0 0 0 4px color-mix(in srgb, var(--pal-accent) 45%, transparent),
+    0 0 0 5px #fff4bb,
+    0 0 0 10px color-mix(in srgb, var(--pal-accent) 56%, transparent),
     0 4px 12px rgba(15, 23, 42, 0.45);
 }
 
@@ -987,6 +1013,16 @@
   z-index: 4;
 }
 
+.sbq-mapboard .sbq-stop[data-tip-position="right"] .sbq-stop-tip {
+  top: calc(50% + 8px);
+  bottom: auto;
+  left: calc(100% + 8px);
+  transform: translate(0, -50%);
+  min-width: 96px;
+  max-width: 104px;
+  padding: 5px 7px;
+}
+
 .sbq-mapboard .sbq-stop:hover .sbq-stop-tip,
 .sbq-mapboard .sbq-stop:focus-visible .sbq-stop-tip,
 .sbq-mapboard .sbq-stop.next .sbq-stop-tip {
@@ -1004,6 +1040,29 @@
   text-transform: uppercase;
   color: #ffe1a8;
   white-space: normal;
+}
+
+.sbq-stop-next {
+  margin-top: 3px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fff4bb;
+  color: #3f2c16;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sbq-stop-reason {
+  display: block;
+  max-width: 180px;
+  margin-top: 4px;
+  color: #fff8e8;
+  font-size: 0.68rem;
+  font-weight: 750;
+  line-height: 1.25;
+  text-transform: none;
 }
 
 /* The traveler. JS sets left/top to a point ON the route each frame; the bob

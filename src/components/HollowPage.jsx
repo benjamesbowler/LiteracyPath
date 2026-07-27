@@ -10,6 +10,7 @@ import { hollowSpotsFor, getCachedHollowOverride, loadHollowSpotsOverride } from
 import { loadStudentProfile, saveStudentProfile, getCompanion } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
 import { CoinIcon, BerryIcon } from "./shared/CurrencyIcons.jsx";
+import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
 
 // My Hollow - Rewards V2. A GAME ROOM, not a webpage: one slim top bar
 // (title + tabs + wallet) and a stage that fills the rest of the screen.
@@ -59,8 +60,25 @@ function ItemArt({ id, stage, size = 52 }) {
 function CoinPrice({ verdict, price }) {
   if (verdict.reason === "owned") return <span className="hollow-price owned">Owned ✓</span>;
   if (verdict.reason === "complete") return <span className="hollow-price owned">All hatched ✓</span>;
-  if (verdict.ok) return <span className="hollow-price can"><CoinIcon size={15} /> {price}</span>;
-  return <span className="hollow-price cant"><CoinIcon size={13} /> {price} · {verdict.short} to go</span>;
+  const balance = Math.max(0, Number(price) - (Number(verdict.short) || 0));
+  const affordance = lockedItemAffordance({ cost: price, balance });
+  if (verdict.ok) {
+    return (
+      <span className="hollow-price can" aria-label={affordance.priceText}>
+        <CoinIcon size={15} /> {affordance.priceText}
+      </span>
+    );
+  }
+  return (
+    <span
+      className="hollow-price cant"
+      data-locked-item="hollow-market"
+      data-shortfall={affordance.shortfall}
+    >
+      <CoinIcon size={15} />
+      <span>{affordance.text}</span>
+    </span>
+  );
 }
 
 // Where the trophy/decoration spots sit on each room's painted shelves and
@@ -283,6 +301,9 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
     }] : [])
   ];
   const room = rooms[Math.min(roomIndex, rooms.length - 1)];
+  const recommendedSpotId = room?.kind === "open"
+    ? room.spots.find(spot => !hollow.slots[spot.spotId])?.spotId || ""
+    : "";
 
   const earnWays = [
     { icon: "⭐", label: "Quest star", pays: `${COIN_RATES.questStar}` },
@@ -308,12 +329,19 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
       <button
         key={spot.spotId}
         type="button"
-        className="hollow-spot empty"
+        className={`hollow-spot empty${spot.spotId === recommendedSpotId ? " recommended" : ""}`}
         style={style}
-        aria-label="Empty spot - add something"
+        aria-label={spot.spotId === recommendedSpotId
+          ? "Empty spot - add something. Recommended next."
+          : "Empty spot - add something"}
         onClick={() => setPickingSpot({ id: spot.spotId, x: spot.x, y: spot.y })}
+        data-child-primary={spot.spotId === recommendedSpotId ? "" : undefined}
+        data-child-emphasis={spot.spotId === recommendedSpotId ? "primary" : "choice"}
       >
-        ＋
+        <span aria-hidden="true">＋</span>
+        {spot.spotId === recommendedSpotId && (
+          <span className="hollow-spot-next" data-child-emphasis-cue="">Place next</span>
+        )}
       </button>
     );
   }
@@ -340,21 +368,29 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   function renderWare(item) {
+    const verdict = canBuy(hollow, item.id);
     return (
-      <button key={item.id} type="button" className="hollow-ware" disabled={!canBuy(hollow, item.id).ok} onClick={() => buy(item.id)}>
+      <button
+        key={item.id}
+        type="button"
+        className="hollow-ware"
+        data-locked-item-card={verdict.reason === "coins" ? "hollow-market" : undefined}
+        disabled={!verdict.ok}
+        onClick={() => buy(item.id)}
+      >
         <ItemArt id={item.id} size={62} />
         <strong>{item.name}</strong>
-        <CoinPrice verdict={canBuy(hollow, item.id)} price={item.price} />
+        <CoinPrice verdict={verdict} price={item.price} />
       </button>
     );
   }
 
   return (
-    <main className="hollow-page" data-pal-world={activeTheme.id}>
+    <main className="hollow-page" data-pal-world={activeTheme.id} data-child-surface="my-hollow">
       <header className="hollow-topbar">
         {/* Global student back circle sits top-left; keep the corner clear. */}
-        <h1 className="hollow-title">{studentName ? `${studentName}'s Hollow` : "My Hollow"}</h1>
-        <nav className="hollow-tabs" aria-label="Hollow areas">
+        <h1 className="hollow-title" data-child-title="">{studentName ? `${studentName}'s Hollow` : "My Hollow"}</h1>
+        <nav className="hollow-tabs" aria-label="Hollow areas" data-child-choices="">
           {[
             { id: "hollow", label: "My Hollow" },
             { id: "pal", label: "My Pal" },
@@ -372,7 +408,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
             </button>
           ))}
         </nav>
-        <span className="hollow-wallet" aria-label={`${hollow.coins} coins and ${hollow.berries} berries`}>
+        <span className="hollow-wallet" aria-label={`${hollow.coins} coins and ${hollow.berries} berries`} data-child-progress="">
           <strong className="hollow-wallet-coins"><CoinIcon size={20} /> {hollow.coins}</strong>
           <em className="hollow-wallet-berries"><BerryIcon size={17} /> {hollow.berries}</em>
         </span>
@@ -392,8 +428,15 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   </span>
                 ))}
                 {renderPicker()}
-                <p className="hollow-room-hint">Tap a glowing spot to place something you own. Tap a placed thing to put it away.</p>
-                <button type="button" className="hollow-world-button" onClick={() => setPickingWorld(v => !v)}>
+                <p className="hollow-room-hint" data-child-instruction="">Tap a glow to place something.</p>
+                <button
+                  type="button"
+                  className="hollow-world-button"
+                  onClick={() => setPickingWorld(v => !v)}
+                  data-child-primary={!recommendedSpotId ? "" : undefined}
+                  data-child-emphasis={!recommendedSpotId ? "primary" : "choice"}
+                  data-child-emphasis-cue={!recommendedSpotId ? "" : undefined}
+                >
                   🌍 World
                 </button>
                 {pickingWorld && (

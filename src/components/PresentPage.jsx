@@ -112,7 +112,7 @@ export function PresentPage() {
 
         <p className="ws-blurb">
           {isAssessment
-            ? "This is an assessment week: the deck lists the week's benchmark routines."
+            ? "This is a check week. The slides show this week's short check routines."
             : isFluency
               ? "This is a fluency cycle (25–27): the deck covers sight words, pattern power, word chains and the poem — no new letters."
               : "The deck covers each focus letter's sound + writing, blending, the cycle's sight words, sound games (change / take away / join words), the poem and this cycle's guided-reading books."}
@@ -120,7 +120,7 @@ export function PresentPage() {
 
         <div className="ws-actions">
           <button type="button" className="ws-primary" onClick={handlePresent}>
-            Present (opens full screen)
+            Present full screen
           </button>
         </div>
         {note && (

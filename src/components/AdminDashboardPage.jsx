@@ -20,12 +20,9 @@ import {
   readGuidedReadingLevelOverrides,
   setGuidedReadingLevelOverride
 } from "../utils/guidedReading/bookLevelOverrides";
-import {
-  exportAssessmentAttemptsCsv,
-  summarizeAssessmentHistory
-} from "../data/assessmentHistoryStore";
-import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js";
+import { exportAssessmentAttemptsCsv } from "../data/assessmentHistoryStore";
 import { buildClassReportModel } from "../data/reportingSystem.js";
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
   deleteSavedElAssessmentReport,
   getSavedElAssessmentReports,
@@ -34,10 +31,13 @@ import {
 import { resolveElBenchmarkReportScope } from "../data/elFormalAssessmentReportBuilder.js";
 import {
   downloadElAssessmentReport,
-  exportClassElAssessmentExcel,
-  exportStudentElAssessmentExcel
+  exportClassElAssessmentExcel
 } from "../utils/exportElAssessmentExcel.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
+import {
+  buildExportProvenanceRows,
+  exportProvenanceCsvPreamble
+} from "../utils/exportProvenance.js";
 import assessmentAudioCoverage from "../content/assessments/assessmentAudioCoverageSummary.generated.json";
 import guidedReadingImageTextQa from "../content/guidedReading/imageTextArtifactSummary.generated.json";
 import guidedReadingWordAudioCoverage from "../content/guidedReading/wordAudioCoverageSummary.generated.json";
@@ -49,7 +49,17 @@ import {
   updateHfwQuestionImageReviewOverride
 } from "../data/hfwQuestionImageReview.js";
 import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
+import { SchoolRetentionPolicyPanel } from "./admin/SchoolRetentionPolicyPanel.jsx";
+import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
+import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
+import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
+import { clearLocalProgressForStudent } from "../utils/progressSync.js";
 import { resetRetiredMediaQaReviewStorage } from "../data/questionFlagStore.js";
+import {
+  FLEET_ERROR_BUDGET_POLICY,
+  evaluateFleetErrorBudget
+} from "../policy/fleetErrorBudget.js";
+import { CalibrationMonitoringPanel } from "./admin/CalibrationMonitoringPanel.jsx";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -72,50 +82,6 @@ function downloadTextFile(filename, content, type = "text/plain") {
 
 function csvEscape(value) {
   return `"${String(value ?? "").replace(/"/g, '""')}"`;
-}
-
-function MiniLineChart({ points = [], label = "Progress" }) {
-  const numericPoints = points
-    .map((point, index) => ({ x: index, y: Number(point.value || point.accuracy || 0), label: point.label || "" }))
-    .filter(point => Number.isFinite(point.y));
-  if (numericPoints.length === 0) {
-    return <div className="teacher-chart-empty">No graph data yet.</div>;
-  }
-  if (numericPoints.length === 1) {
-    return (
-      <div className="teacher-single-point-chart" aria-label={label}>
-        <strong>{numericPoints[0].y}%</strong>
-        <span>{numericPoints[0].label || "Latest"}</span>
-      </div>
-    );
-  }
-  const max = Math.max(100, ...numericPoints.map(point => point.y));
-  const min = Math.min(0, ...numericPoints.map(point => point.y));
-  const width = 320;
-  const height = 120;
-  const path = numericPoints.map((point, index) => {
-    const x = (index / Math.max(1, numericPoints.length - 1)) * width;
-    const y = height - ((point.y - min) / Math.max(1, max - min)) * height;
-    return `${index === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
-  }).join(" ");
-
-  return (
-    <svg className="teacher-line-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label}>
-      <path d={path} />
-      {numericPoints.map((point, index) => {
-        const x = (index / Math.max(1, numericPoints.length - 1)) * width;
-        const y = height - ((point.y - min) / Math.max(1, max - min)) * height;
-        return <circle key={`${point.label}-${index}`} cx={x} cy={y} r="4" />;
-      })}
-    </svg>
-  );
-}
-
-function getSkillStatusClass(accuracy, attempts = 0) {
-  if (!attempts) return "not-assessed";
-  if (accuracy >= 85) return "mastered";
-  if (accuracy >= 65) return "developing";
-  return "support";
 }
 
 function formatClassReportDate(value) {
@@ -318,11 +284,42 @@ function FocusGroups({ groups = [] }) {
   );
 }
 
-export function FormalClassReportDocument({ model }) {
+function ReportProvenanceBlock({ rows = [] }) {
+  if (!rows.length) return null;
+  return (
+    <section className="formal-class-report-provenance" aria-label="Report provenance">
+      <h3>Report provenance</h3>
+      <dl>
+        {rows.map(row => (
+          <div key={row.field}>
+            <dt>{row.field}</dt>
+            <dd>{row.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+export function FormalClassReportDocument({
+  model,
+  provenanceOptions = {},
+  provenanceRows = []
+}) {
+  const resolvedProvenanceRows = provenanceRows.length ? provenanceRows : buildExportProvenanceRows({
+    reportTitle: "Class Progress Report",
+    className: model.className,
+    learnerCount: model.snapshot.totalStudents,
+    generatedAt: model.generatedAt,
+    filters: { Class: model.className },
+    evidenceSource: model.provenanceEvidence || [],
+    definitions: `Average accuracy = correct responses ÷ scored responses; Secure = at least ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%; Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%; Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%; Not enough evidence = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses.`,
+    ...provenanceOptions
+  });
   const generated = formatClassReportDate(model.generatedAt);
   const metricRows = [
     ["Avg Accuracy", `${model.snapshot.averageAccuracy}%`, "teal"],
-    ["On Track", `${model.snapshot.onTrack}/${model.snapshot.totalStudents}`, "green"],
+    ["Secure", `${model.snapshot.onTrack}/${model.snapshot.totalStudents}`, "green"],
     ["Developing", `${model.snapshot.developing}/${model.snapshot.totalStudents}`, "amber"],
     ["Needs Support", `${model.snapshot.needsSupport}/${model.snapshot.totalStudents}`, "red"],
     ["Avg Reading Level", model.snapshot.avgReadingLevel, "green"],
@@ -413,6 +410,12 @@ export function FormalClassReportDocument({ model }) {
         <footer className="formal-class-report-final-footer">
           Generated by Literacy Guide · {model.className} · {model.teacherName || "Teacher"} · {generated} · For teacher use only
         </footer>
+      </ClassReportPage>
+
+      <ClassReportPage model={model} pageNumber={6}>
+        <ClassReportSectionBand title="Report Provenance" subtitle="Exact report scope, evidence window, version lineage, definitions, and privacy handling." accent="#1e3a5f">
+          <ReportProvenanceBlock rows={resolvedProvenanceRows} />
+        </ClassReportSectionBand>
       </ClassReportPage>
     </article>
   );
@@ -513,20 +516,6 @@ function isPendingTeacherAccount(account = {}) {
   return getTeacherAccountApprovalStatus(account) === "pending";
 }
 
-function normalizePatternLabel(value = "") {
-  return String(value || "")
-    .trim()
-    .toLowerCase()
-    .replace(/_/g, " ")
-    .replace(/\s+/g, " ");
-}
-
-function isAdvancedPhonicsAttempt(record = {}) {
-  return record.skillId === "advanced_phonics_patterns" ||
-    record.assessmentType === "advanced_phonics_patterns" ||
-    String(record.skillName || "").toLowerCase().includes("advanced phonics");
-}
-
 function getClassId(row = {}) {
   return row.id || row.classId || row.class_id || "";
 }
@@ -616,6 +605,10 @@ function buildReleaseReadinessModel({
     Number(row.missingAudio || 0) > 0 ||
     Number(row.badMedia || 0) > 0
   );
+  const unapprovedAudioQuestions = questionBankCoverage.reduce(
+    (total, row) => total + Number(row.unapprovedAudio || 0),
+    0
+  );
   const assessmentAudioIssues =
     Number(assessmentAudioCoverage.summary?.replacementNeededCount || 0) +
     Number(assessmentAudioCoverage.summary?.missingCount || 0) +
@@ -693,7 +686,7 @@ function buildReleaseReadinessModel({
       {
         label: "Content coverage",
         value: `${skillsBelowFloor.length} below floor`,
-        detail: `${mediaGapSkills.length} skills have media gaps or bad media flags.`,
+        detail: `${mediaGapSkills.length} skills have media gaps or bad media flags; ${unapprovedAudioQuestions} authored questions have unapproved audio.`,
         status: skillsBelowFloor.length ? "action" : mediaGapSkills.length ? "review" : "ready",
         sectionId: "coverage"
       },
@@ -1013,7 +1006,7 @@ function guidedImageQaToKimiMarkdown(records) {
           `- Required replacement path: ${record.image}`,
           `- Exact app text: ${record.text}`,
           `- Admin notes: ${record.reviewerNotes || "Whole-book continuity remake requested."}`,
-          `- Prompt: Create one warm child-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". This page must be part of a completely continuous full-book image set with the same characters, same setting logic, same season/time/lighting continuity, same recurring props, and same art style as all other pages in the book. No embedded text, captions, labels, watermarks, or speech bubbles.`,
+          `- Prompt: Create one warm student-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". This page must be part of a completely continuous full-book image set with the same characters, same setting logic, same season/time/lighting continuity, same recurring props, and same art style as all other pages in the book. No embedded text, captions, labels, watermarks, or speech bubbles.`,
           ""
         ].join("\n"))
       ];
@@ -1035,7 +1028,7 @@ function guidedImageQaToKimiMarkdown(records) {
       `- Required replacement path: ${record.image}`,
       `- Exact app text: ${record.text}`,
       `- Admin notes: ${record.reviewerNotes || "Image does not match the page text."}`,
-      `- Prompt: Create one warm child-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". Show the main character(s), setting, and action from this text only. Do not include embedded text, captions, labels, or speech bubbles. Preserve book continuity and natural colors.`,
+      `- Prompt: Create one warm student-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". Show the main character(s), setting, and action from this text only. Do not include embedded text, captions, labels, or speech bubbles. Preserve book continuity and natural colors.`,
       ""
     ].join("\n"))
   ].join("\n");
@@ -1758,17 +1751,14 @@ export function AdminDashboardPage({
   questionBankCoverage = [],
   mediaQuestions = [],
   assessmentHistory = [],
-  dashboardMode = "admin",
   teacherId = "",
   supabase = null,
   message,
-  onLoadStudent,
-  onSwitchStudent,
-  onViewStudentReport
+  onLoadStudent
 }) {
-  const isTeacherMode = dashboardMode === "teacher";
   const [skillFilter, setSkillFilter] = useState("all");
   const [expandedTeacherId, setExpandedTeacherId] = useState("");
+  const [retentionSchoolId, setRetentionSchoolId] = useState("");
   const [teacherSchoolDraft, setTeacherSchoolDraft] = useState("");
   const [adminQaPage, setAdminQaPage] = useState(() => {
     if (typeof window === "undefined") return "dashboard";
@@ -1778,7 +1768,8 @@ export function AdminDashboardPage({
     if (window.location.pathname.includes("/admin/question-flags")) return "questionFlags";
     return "dashboard";
   });
-  const [activeSection, setActiveSection] = useState(isTeacherMode ? "teacherOverview" : "overview");
+  const [activeSection, setActiveSection] = useState("overview");
+  const [dataRightsStudent, setDataRightsStudent] = useState(null);
   const [templateFilter, setTemplateFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [patternFilter, setPatternFilter] = useState("");
@@ -1786,9 +1777,7 @@ export function AdminDashboardPage({
   const [statusFilterLocal, setStatusFilterLocal] = useState("all");
   const [exportNotice, setExportNotice] = useState("");
   const [selectedElClassId, setSelectedElClassId] = useState("");
-  const [selectedElStudentId, setSelectedElStudentId] = useState("");
   const [selectedElBenchmarkScopeKey, setSelectedElBenchmarkScopeKey] = useState("");
-  const [reportView, setReportView] = useState("class");
   const [savedElReports, setSavedElReports] = useState([]);
   const [showReviewedSignupAccounts, setShowReviewedSignupAccounts] = useState(false);
   const teacherStorageId = teacherId || "local";
@@ -1805,10 +1794,8 @@ export function AdminDashboardPage({
     classReportTeacher.full_name ||
     classReportTeacher.displayName ||
     classReportTeacher.email ||
-    (isTeacherMode ? "Teacher" : "Teacher");
+    "Teacher";
   const elClassStudents = students.filter(student => !selectedClassId || student.classId === selectedClassId || student.class_id === selectedClassId);
-  const selectedStudent = elClassStudents.find(student => student.id === selectedElStudentId) || elClassStudents[0] || students[0] || null;
-  const activeReportView = isTeacherMode ? reportView : "class";
 
   async function refreshSavedElReports() {
     setSavedElReports(getSavedElAssessmentReports({ teacherId: teacherStorageId }));
@@ -1835,14 +1822,6 @@ export function AdminDashboardPage({
     }
   }, [classes, selectedElClassId]);
 
-  useEffect(() => {
-    if (!selectedElStudentId && selectedStudent?.id) {
-      setSelectedElStudentId(selectedStudent.id);
-    }
-    if (selectedElStudentId && elClassStudents.length > 0 && !elClassStudents.some(student => student.id === selectedElStudentId)) {
-      setSelectedElStudentId(elClassStudents[0].id);
-    }
-  }, [elClassStudents, selectedElStudentId, selectedStudent]);
   const templateOptions = useMemo(() => Array.from(new Set(
     questionBankCoverage.flatMap(row => Object.keys(row.templates || {}))
   )).sort(), [questionBankCoverage]);
@@ -1909,129 +1888,9 @@ export function AdminDashboardPage({
       recommendations
     };
   }, []);
-  const guidedReadingLog = useMemo(() => {
-    if (typeof window === "undefined") return [];
-    const rows = [];
-
-    students.forEach(student => {
-      const key = getGuidedReadingStorageKey({ teacherId, studentId: student.id });
-      if (!key) return;
-
-      try {
-        const records = JSON.parse(window.localStorage.getItem(key) || "{}");
-        Object.entries(records || {}).forEach(([bookId, record = {}]) => {
-          const readCount = Number(record.readCount || (record.completedPages > 0 ? 1 : 0) || 0);
-          if (readCount === 0 && !record.completedAt) return;
-
-          rows.push({
-            studentId: student.id,
-            studentName: student.name,
-            className: student.className || "Class not linked",
-            bookId,
-            bookTitle: record.title || bookId,
-            level: record.level || "?",
-            readCount,
-            lastReadAt: record.lastReadAt || record.completedAt || record.updatedAt || "",
-            accuracy: record.accuracy != null ? Math.round(record.accuracy) : null
-          });
-        });
-      } catch {
-        /* Ignore corrupt or unavailable local guided-reading records. */
-      }
-    });
-
-    return rows.sort((a, b) =>
-      String(b.lastReadAt).localeCompare(String(a.lastReadAt)) ||
-      a.studentName.localeCompare(b.studentName)
-    );
-  }, [students, teacherId]);
-  const assessmentSummary = useMemo(() =>
-    summarizeAssessmentHistory(assessmentHistory, { students, classes }),
-  [assessmentHistory, students, classes]);
   const recentAttempts = [...assessmentHistory]
     .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))
     .slice(0, 40);
-  const classChartPoints = [...assessmentHistory]
-    .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt))
-    .map(record => ({
-      label: record.completedAt ? new Date(record.completedAt).toLocaleDateString() : "",
-      value: record.accuracy
-    }));
-  const skillColumns = [
-    "Initial Sounds",
-    "Final Sounds",
-    "Rhyming",
-    "CVC and Short Vowels",
-    "Short Vowel Discrimination",
-    "High-Frequency Words 1-25",
-    "Blends",
-    "Digraphs",
-    "Long Vowels and Silent E"
-  ];
-  const skillStatusByStudent = new Map();
-  assessmentSummary.students.forEach(student => {
-    const rows = assessmentHistory.filter(record => record.studentId === student.studentId);
-    const bySkill = new Map();
-    rows.forEach(record => {
-      const key = record.skillName;
-      const existing = bySkill.get(key) || { correct: 0, total: 0, attempts: 0 };
-      existing.correct += Number(record.correctCount || 0);
-      existing.total += Number(record.totalQuestions || 0);
-      existing.attempts += 1;
-      bySkill.set(key, existing);
-    });
-    skillStatusByStudent.set(student.studentId, bySkill);
-  });
-  const hfwSkillName = "High-Frequency Words 1-25";
-  const hfwStudentRows = (assessmentSummary.students.length
-    ? assessmentSummary.students
-    : students.map(student => ({ studentId: student.id, studentName: student.name, className: student.className || "Class not linked" }))
-  ).map(student => {
-    const row = skillStatusByStudent.get(student.studentId)?.get(hfwSkillName);
-    const accuracy = row?.total ? Math.round((row.correct / row.total) * 100) : 0;
-    return {
-      ...student,
-      attempts: row?.attempts || 0,
-      accuracy,
-      statusClass: getSkillStatusClass(accuracy, row?.attempts || 0)
-    };
-  });
-  const hfwAssessedCount = hfwStudentRows.filter(row => row.attempts > 0).length;
-  const advancedPhonicsAttempts = assessmentHistory
-    .filter(isAdvancedPhonicsAttempt)
-    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
-  const advancedPatternMap = new Map();
-  advancedPhonicsAttempts.forEach(record => {
-    (record.questionRecords || record.answers || []).forEach(question => {
-      const pattern = normalizePatternLabel(question.targetPattern || question.pattern || question.itemKey || question.correctAnswer);
-      if (!pattern) return;
-      const row = advancedPatternMap.get(pattern) || {
-        pattern,
-        attempts: 0,
-        correct: 0,
-        examples: new Set(),
-        latestDate: record.completedAt || ""
-      };
-      row.attempts += 1;
-      if (question.isCorrect) row.correct += 1;
-      const example = question.targetWord || question.correctAnswer;
-      if (example && normalizePatternLabel(example) !== pattern) row.examples.add(example);
-      if (!row.latestDate || new Date(record.completedAt) > new Date(row.latestDate)) {
-        row.latestDate = record.completedAt;
-      }
-      advancedPatternMap.set(pattern, row);
-    });
-  });
-  const advancedPatternRows = Array.from(advancedPatternMap.values()).map(row => {
-    const accuracy = row.attempts ? Math.round((row.correct / row.attempts) * 100) : 0;
-    return {
-      ...row,
-      accuracy,
-      incorrect: row.attempts - row.correct,
-      statusClass: getSkillStatusClass(accuracy, row.attempts),
-      examples: Array.from(row.examples).slice(0, 6)
-    };
-  }).sort((a, b) => a.pattern.localeCompare(b.pattern));
   const classReportingModel = useMemo(() =>
     buildClassReportModel({
       students,
@@ -2041,6 +1900,25 @@ export function AdminDashboardPage({
       teacherName: classReportTeacherName
     }),
   [students, classes, assessmentHistory, selectedClassId, classReportTeacherName]);
+  const selectedSchoolId = selectedClassRow.school_id || selectedClassRow.schoolId || "";
+  const selectedSchoolRow = schools.find(row => (
+    row.id === selectedSchoolId || row.school_id === selectedSchoolId
+  )) || {};
+  const classReportProvenanceRows = useMemo(() => buildExportProvenanceRows({
+    reportTitle: "Class Progress Report",
+    schoolName: selectedSchoolRow.name || selectedSchoolRow.school_name || selectedClassRow.schoolName || "",
+    className: classReportingModel.className,
+    learnerCount: classReportingModel.snapshot.totalStudents,
+    generatedAt: classReportingModel.generatedAt,
+    filters: { Class: classReportingModel.className },
+    evidenceSource: classReportingModel.provenanceEvidence,
+    definitions: `Average accuracy = correct responses ÷ scored responses; Secure = at least ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%; Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%; Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%; Not enough evidence = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses.`
+  }), [
+    classReportingModel,
+    selectedClassRow.schoolName,
+    selectedSchoolRow.name,
+    selectedSchoolRow.school_name
+  ]);
   const selectedClassAttempts = assessmentHistory.filter(record =>
     !selectedClassId ||
     record.classId === selectedClassId ||
@@ -2079,18 +1957,6 @@ export function AdminDashboardPage({
       status: "ready"
     }
   ];
-  const elFormalEvidenceFields = [
-    { key: "uppercaseName", label: "Uppercase letter name" },
-    { key: "lowercaseName", label: "Lowercase letter name" },
-    { key: "uppercaseSound", label: "Uppercase letter sound" },
-    { key: "lowercaseSound", label: "Lowercase letter sound" },
-    { key: "phonologicalAwareness", label: "Sound-awareness strands" },
-    { key: "encoding", label: "Encoding: exact + plausible" },
-    { key: "decoding", label: "Decoding: accurate + automatic" },
-    { key: "oralReadingFluency", label: "Fluency: WCPM + accuracy + prosody" },
-    { key: "advancedPhonics", label: "Advanced Phonics (supplemental)" }
-  ];
-
   function openAdminQaPage(page) {
     setAdminQaPage(page);
     if (typeof window !== "undefined") {
@@ -2108,7 +1974,7 @@ export function AdminDashboardPage({
       const data = await exportGuidedReadingCompletionExcel({
         students,
         classes,
-        teacherId: isTeacherMode ? teacherId : ""
+        teacherId: ""
       });
       setExportNotice(
         data.totals.totalGuidedReadingSessions
@@ -2118,33 +1984,6 @@ export function AdminDashboardPage({
     } catch (error) {
       console.error("Guided Reading completion Excel export failed.", error);
       setExportNotice("Could not export Guided Reading completion Excel.");
-    }
-  }
-
-  async function handleStudentElAssessmentExport() {
-    setExportNotice("");
-    if (!selectedStudent?.id) {
-      setExportNotice("Choose a student before exporting an individual EL report.");
-      return;
-    }
-    try {
-      const report = await exportStudentElAssessmentExcel({
-        assessmentHistory,
-        students,
-        classes,
-        studentId: selectedStudent.id,
-        classId: selectedClassId || selectedStudent.classId || selectedStudent.class_id || "",
-        teacherId: teacherStorageId,
-        benchmarkScope: activeElBenchmarkScope,
-        supabase
-      });
-      await refreshSavedElReports();
-      setExportNotice(report.persistence?.durable === false
-        ? `Student EL assessment Excel exported for ${report.studentName}, but its saved-report history could not be stored. Keep the downloaded file and try again when storage is available.`
-        : `Student EL assessment Excel exported for ${report.studentName}, ${report.benchmarkScope?.label || "selected benchmark route"}.`);
-    } catch (error) {
-      console.error("Student EL assessment Excel export failed.", error);
-      setExportNotice("Could not export the student EL assessment Excel.");
     }
   }
 
@@ -2192,6 +2031,32 @@ export function AdminDashboardPage({
     }
   }
 
+  async function handleAdminDataRightsDeletion(learner) {
+    clearLocalProgressForStudent(learner.id);
+    await clearLocalElAssessmentDataForStudent({
+      teacherId: learner.teacher_id,
+      studentId: learner.id,
+      studentName: learner.name
+    });
+    setDataRightsStudent(null);
+    setExportNotice(
+      `${learner.name}'s data was deleted. The privacy-safe request reference remains in the audit log.`
+    );
+    await refreshDashboard?.();
+  }
+
+  async function handleRetentionLearnersDeleted(studentIds = []) {
+    for (const deletedStudentId of studentIds) {
+      const learner = students.find(row => row.id === deletedStudentId);
+      clearLocalProgressForStudent(deletedStudentId);
+      await clearLocalElAssessmentDataForStudent({
+        teacherId: learner?.teacher_id || "",
+        studentId: deletedStudentId,
+        studentName: learner?.name || ""
+      });
+    }
+  }
+
   const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
   const reviewedSignupAccounts = pendingAccounts.filter(account => !isPendingTeacherAccount(account));
   const visibleSignupCount = pendingSignupAccounts.length;
@@ -2208,50 +2073,36 @@ export function AdminDashboardPage({
     savedElReports
   });
 
-  const adminSections = isTeacherMode
-    ? [
-      { id: "teacherOverview", label: "Overview", count: null },
-      { id: "classes", label: "Classes", count: classes.length },
-      { id: "students", label: "Students", count: students.length },
-      { id: "reports", label: "Reports", count: savedElReports.length },
-      { id: "exports", label: "Exports", count: savedElReports.length },
-      { id: "guidedReading", label: "Guided Reading", count: guidedReadingInsight.active },
-      { id: "assessmentProgress", label: "Assessment", count: assessmentHistory.length },
-      { id: "hfw", label: "HFW", count: hfwAssessedCount }
-    ]
-    : [
-      { id: "overview", label: "Overview", count: null },
-      { id: "release", label: "Release Check", count: releaseReadinessModel.actionCount + releaseReadinessModel.reviewCount },
-      { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
-      { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
-      { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : visibleSignupCount },
-      { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
-      { id: "guidedMediaQa", label: "Guided Media QA", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
-      { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
-      { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
-      { id: "schools", label: "Schools", count: schools.length },
-      { id: "teachers", label: "Teachers", count: teachers.length },
-      { id: "classes", label: "Classes", count: classes.length },
-      { id: "students", label: "Students", count: students.length },
-      { id: "mapStops", label: "Map Stops", count: null },
-      { id: "hollowSpots", label: "Hollow Spots", count: null }
-    ];
+  const adminSections = [
+    { id: "overview", label: "Overview", count: null },
+    { id: "release", label: "Release Check", count: releaseReadinessModel.actionCount + releaseReadinessModel.reviewCount },
+    { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
+    { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
+    { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : visibleSignupCount },
+    { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
+    { id: "guidedMediaQa", label: "Guided Media QA", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
+    { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
+    { id: "calibration", label: "Calibration", count: null },
+    { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
+    { id: "schools", label: "Schools", count: schools.length },
+    { id: "teachers", label: "Teachers", count: teachers.length },
+    { id: "classes", label: "Classes", count: classes.length },
+    { id: "students", label: "Students", count: students.length },
+    { id: "mapStops", label: "Map Stops", count: null },
+    { id: "hollowSpots", label: "Hollow Spots", count: null }
+  ];
 
   if (adminQaPage === "questionFlags") {
     return <QuestionFlagReviewPage onBack={() => openAdminQaPage("dashboard")} />;
   }
 
   return (
-    <main className={isTeacherMode ? "admin-dashboard teacher-dashboard page-stack" : "admin-dashboard page-stack"}>
+    <main className="admin-dashboard page-stack">
       <section className="card page-stack">
         <div className="admin-header">
           <div className="admin-page-heading">
-            <h2>{isTeacherMode ? "Teacher Dashboard" : "Admin Dashboard"}</h2>
-            <p className="muted-text">
-              {isTeacherMode
-                ? "Class reports, student progress, assessment history, and export tools."
-                : "Review content coverage and manage app data."}
-            </p>
+            <h2>Admin Dashboard</h2>
+            <p className="muted-text">Review content coverage and manage app data.</p>
           </div>
 
           <div className="button-row admin-controls">
@@ -2274,7 +2125,7 @@ export function AdminDashboardPage({
           </select>
         </label>
 
-        <nav className="admin-section-tabs" aria-label={isTeacherMode ? "Teacher Dashboard sections" : "Admin Dashboard sections"} role="tablist">
+        <nav className="admin-section-tabs" aria-label="Admin Dashboard sections" role="tablist">
           {adminSections.map(section => (
             <button
               className={activeSection === section.id ? "active" : ""}
@@ -2288,15 +2139,13 @@ export function AdminDashboardPage({
               {typeof section.count === "number" && <small>{section.count}</small>}
             </button>
           ))}
-          {!isTeacherMode && (
-            <button onClick={() => openAdminQaPage("questionFlags")} type="button">
-              <span>Question Flags</span>
-            </button>
-          )}
+          <button onClick={() => openAdminQaPage("questionFlags")} type="button">
+            <span>Question Flags</span>
+          </button>
         </nav>
       </section>
 
-      {!isTeacherMode && activeSection === "overview" && (
+      {activeSection === "overview" && (
         <section className="report-panel page-stack admin-section admin-section-panel">
           <div className="admin-section-heading">
             <div>
@@ -2321,10 +2170,17 @@ export function AdminDashboardPage({
               <strong>Open</strong>
             </button>
           </div>
+          {selectedClassId && (
+            <TeacherActivitySyncHealth
+              supabase={supabase}
+              classId={selectedClassId}
+              className={selectedClassRow.name || "Selected class"}
+            />
+          )}
         </section>
       )}
 
-      {!isTeacherMode && activeSection === "release" && (
+      {activeSection === "release" && (
         <ReleaseReadinessPanel
           model={releaseReadinessModel}
           onOpenQuestionFlags={() => openAdminQaPage("questionFlags")}
@@ -2332,73 +2188,7 @@ export function AdminDashboardPage({
         />
       )}
 
-      {isTeacherMode && activeSection === "teacherOverview" && (
-        <section className="report-panel page-stack admin-section admin-section-panel teacher-dashboard-redesign">
-          <div className="admin-section-heading">
-            <div>
-              <h3>Overview</h3>
-              <p className="muted-text">A quick view of class activity and the most common teacher tasks.</p>
-            </div>
-            {onSwitchStudent && (
-              <button className="lp-button lp-button-secondary" onClick={onSwitchStudent} type="button">
-                Switch Student
-              </button>
-            )}
-          </div>
-          <div className="teacher-report-metrics">
-            <article>
-              <span>Classes</span>
-              <strong>{classes.length}</strong>
-            </article>
-            <article>
-              <span>Students</span>
-              <strong>{students.length}</strong>
-            </article>
-            <article>
-              <span>Recent assessments</span>
-              <strong>{recentAttempts.length}</strong>
-            </article>
-            <article>
-              <span>Need support</span>
-              <strong>{assessmentSummary.studentsNeedingSupport.length}</strong>
-            </article>
-          </div>
-          <div className="admin-overview-grid teacher-overview-actions">
-            <button className="admin-overview-card" onClick={() => setActiveSection("reports")} type="button">
-              <span>View Reports</span>
-              <strong>{savedElReports.length}</strong>
-            </button>
-            <button className="admin-overview-card" onClick={() => setActiveSection("exports")} type="button">
-              <span>Export Center</span>
-              <strong>{savedElReports.length}</strong>
-            </button>
-            <button className="admin-overview-card" onClick={() => setActiveSection("classes")} type="button">
-              <span>Manage Classes</span>
-              <strong>{classes.length}</strong>
-            </button>
-            <button className="admin-overview-card" onClick={() => setActiveSection("guidedReading")} type="button">
-              <span>Guided Reading Data</span>
-              <strong>{guidedReadingLog.length}</strong>
-            </button>
-          </div>
-          <div className="teacher-report-grid">
-            <article className="teacher-report-card">
-              <h4>Students Needing Attention</h4>
-              {assessmentSummary.studentsNeedingSupport.length ? assessmentSummary.studentsNeedingSupport.slice(0, 5).map(student => (
-                <p key={student.studentId}><strong>{student.studentName}</strong> · {student.accuracy}% · {student.supportSkills.slice(0, 2).join(", ") || "review recent work"}</p>
-              )) : <p>No support flags yet.</p>}
-            </article>
-            <article className="teacher-report-card">
-              <h4>Recent Activity</h4>
-              {recentAttempts.length ? recentAttempts.slice(0, 5).map(record => (
-                <p key={record.attemptId}><strong>{record.studentName}</strong> · {record.skillName} · {record.accuracy}%</p>
-              )) : <p>No assessment attempts saved yet.</p>}
-            </article>
-          </div>
-        </section>
-      )}
-
-      {(isTeacherMode ? activeSection === "reports" : activeSection === "teacherReport") && (
+      {activeSection === "teacherReport" && (
         <section className="report-panel page-stack admin-section admin-section-panel">
           <div className="admin-section-heading">
             <div>
@@ -2425,54 +2215,21 @@ export function AdminDashboardPage({
             <div className="teacher-action-list report-readiness-actions">
               <button
                 className="lp-button lp-button-secondary"
-                onClick={() => setActiveSection(isTeacherMode ? "assessmentProgress" : "archive")}
+                onClick={() => setActiveSection("archive")}
                 type="button"
               >
                 Open Evidence
               </button>
-              {onViewStudentReport && (
-                <button
-                  className="lp-button lp-button-secondary"
-                  disabled={!selectedStudent?.id}
-                  onClick={() => selectedStudent?.id && onViewStudentReport(selectedStudent.id, selectedStudent.name || "")}
-                  type="button"
-                >
-                  Open Individual Report
-                </button>
-              )}
             </div>
           </div>
 
           <div className="class-report-print-actions screen-only class-report-view-controls">
-            {isTeacherMode && (
-              <div className="teacher-tabs" role="tablist">
-                <button
-                  className={activeReportView === "class" ? "active" : ""}
-                  onClick={() => setReportView("class")}
-                  role="tab"
-                  aria-selected={activeReportView === "class"}
-                  type="button"
-                >
-                  Class Report
-                </button>
-                <button
-                  className={activeReportView === "individual" ? "active" : ""}
-                  onClick={() => setReportView("individual")}
-                  role="tab"
-                  aria-selected={activeReportView === "individual"}
-                  type="button"
-                >
-                  Individual Report
-                </button>
-              </div>
-            )}
             <label>
               Class
               <select
                 disabled={classes.length === 0}
                 onChange={event => {
                   setSelectedElClassId(event.target.value);
-                  setSelectedElStudentId("");
                   setSelectedElBenchmarkScopeKey("");
                 }}
                 value={selectedClassId}
@@ -2489,60 +2246,20 @@ export function AdminDashboardPage({
               onChange={setSelectedElBenchmarkScopeKey}
               options={elBenchmarkScopeOptions}
             />
-            {activeReportView === "individual" && (
-              <label>
-                Student
-                <select
-                  disabled={elClassStudents.length === 0}
-                  onChange={event => setSelectedElStudentId(event.target.value)}
-                  value={selectedElStudentId || elClassStudents[0]?.id || ""}
-                >
-                  {elClassStudents.length === 0 ? (
-                    <option value="">No students</option>
-                  ) : elClassStudents.map(student => (
-                    <option key={student.id} value={student.id}>{student.name}</option>
-                  ))}
-                </select>
-              </label>
-            )}
-            {activeReportView === "class" && (
-              <>
-                <button className="lp-button lp-button-primary primary-export" onClick={() => window.print()} type="button">
-                  Export Class PDF
-                </button>
-                <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
-                  Export Class Excel
-                </button>
-              </>
-            )}
-            {activeReportView === "individual" && onViewStudentReport && (
-              <button
-                className="lp-button lp-button-primary"
-                disabled={!selectedElStudentId && elClassStudents.length === 0}
-                onClick={() => {
-                  const id = selectedElStudentId || elClassStudents[0]?.id;
-                  const name = elClassStudents.find(student => student.id === id)?.name || "";
-                  if (id) onViewStudentReport(id, name);
-                }}
-                type="button"
-              >
-                Open Student Report -&gt;
-              </button>
-            )}
+            <button className="lp-button lp-button-primary primary-export" onClick={() => window.print()} type="button">
+              Export Class PDF
+            </button>
+            <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
+              Export Class Excel
+            </button>
           </div>
 
-          {activeReportView === "class" && (
-            <div className="class-report-workspace">
-              <FormalClassReportDocument model={classReportingModel} />
-            </div>
-          )}
-
-          {activeReportView === "individual" && (
-            <div className="student-report-muted-card">
-              <p>Select a class and student above, then click <strong>Open Student Report -&gt;</strong></p>
-              <p>The full individual report will open in the main view.</p>
-            </div>
-          )}
+          <div className="class-report-workspace">
+            <FormalClassReportDocument
+              model={classReportingModel}
+              provenanceRows={classReportProvenanceRows}
+            />
+          </div>
 
           {savedElReports.length > 0 && (
             <div className="teacher-report-card">
@@ -2571,469 +2288,6 @@ export function AdminDashboardPage({
         </section>
       )}
 
-      {isTeacherMode && activeSection === "exports" && (
-        <section className="report-panel page-stack admin-section admin-section-panel el-assessment-dashboard-section">
-          <div className="admin-section-heading">
-            <div>
-              <h3>Exports</h3>
-              <p className="muted-text">Download formal assessment, class, student, and guided-reading records from one teacher-facing workspace.</p>
-            </div>
-            <span className="admin-count-pill">{savedElReports.length} saved</span>
-          </div>
-          {exportNotice && <p className="message">{exportNotice}</p>}
-
-          <section className="teacher-report-card">
-            <div className="admin-section-heading">
-              <div>
-                <h4>EL Formal and Benchmark Assessments</h4>
-                <p className="muted-text">Exports include letter-name and sound evidence plus provisional sound-awareness, encoding, decoding, and oral-reading-fluency profiles. Advanced Phonics remains a separate supplemental diagnostic.</p>
-              </div>
-            </div>
-
-            <div className="formal-report-controls">
-              <label>
-                Class
-                <select
-                  disabled={classes.length === 0}
-                  onChange={event => {
-                    setSelectedElClassId(event.target.value);
-                    setSelectedElStudentId("");
-                    setSelectedElBenchmarkScopeKey("");
-                  }}
-                  value={selectedClassId}
-                >
-                  {classes.length === 0 ? (
-                    <option value="">No classes yet</option>
-                  ) : classes.map(row => (
-                    <option key={row.id} value={row.id}>{row.name}</option>
-                  ))}
-                </select>
-              </label>
-              <ElBenchmarkScopeSelect
-                activeScope={activeElBenchmarkScope}
-                onChange={setSelectedElBenchmarkScopeKey}
-                options={elBenchmarkScopeOptions}
-              />
-              <label>
-                Student
-                <select
-                  disabled={elClassStudents.length === 0}
-                  onChange={event => setSelectedElStudentId(event.target.value)}
-                  value={selectedElStudentId || elClassStudents[0]?.id || ""}
-                >
-                  {elClassStudents.length === 0 ? (
-                    <option value="">No students</option>
-                  ) : elClassStudents.map(student => (
-                    <option key={student.id} value={student.id}>{student.name}</option>
-                  ))}
-                </select>
-              </label>
-            </div>
-
-            <div className="teacher-pattern-summary-list formal-evidence-field-list" aria-label="EL formal assessment evidence fields">
-              {elFormalEvidenceFields.map(field => (
-                <span className="teacher-skill-chip" data-field={field.key} key={field.key}>
-                  {field.label}
-                </span>
-              ))}
-            </div>
-
-            <div className="el-assessment-export-row">
-              <article className="el-report-control-column">
-                <h5>Class Package</h5>
-                <p className="muted-text">Class-level workbook with benchmark domain matrices, descriptive evidence summaries, skill results, and supplemental pattern detail.</p>
-                <button
-                  className="lp-button lp-button-primary"
-                  disabled={classes.length === 0}
-                  onClick={handleClassElAssessmentExport}
-                  type="button"
-                >
-                  Export Class Excel
-                </button>
-                <button
-                  className="lp-button lp-button-secondary"
-                  disabled={classes.length === 0}
-                  onClick={() => {
-                    setReportView("class");
-                    setActiveSection("reports");
-                  }}
-                  type="button"
-                >
-                  Open Class Report
-                </button>
-              </article>
-
-              <article className="el-report-control-column">
-                <h5>Student Package</h5>
-                <p className="muted-text">Individual workbook and finished-report handoff with item-level benchmark evidence and provisional placement notes.</p>
-                <button
-                  className="lp-button lp-button-primary"
-                  disabled={!selectedStudent?.id}
-                  onClick={handleStudentElAssessmentExport}
-                  type="button"
-                >
-                  Export Student Excel
-                </button>
-                {onViewStudentReport && (
-                  <button
-                    className="lp-button lp-button-secondary"
-                    disabled={!selectedStudent?.id}
-                    onClick={() => selectedStudent?.id && onViewStudentReport(selectedStudent.id, selectedStudent.name || "")}
-                    type="button"
-                  >
-                    Open Student Report
-                  </button>
-                )}
-              </article>
-            </div>
-          </section>
-
-          <section className="teacher-report-grid compact">
-            <article className="teacher-report-card">
-              <h4>Guided Reading Completion</h4>
-              <p>{guidedReadingLog.length ? `${guidedReadingLog.length} reading session(s) available for export.` : "No guided reading records have been saved yet."}</p>
-              <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
-                Export Guided Reading Excel
-              </button>
-            </article>
-
-            <article className="teacher-report-card">
-              <h4>Assessment Archive</h4>
-              <p>{assessmentHistory.length ? `${assessmentHistory.length} saved assessment attempt(s) available.` : "No assessment attempts have been saved yet."}</p>
-              <div className="teacher-action-list">
-                <button
-                  className="lp-button lp-button-secondary"
-                  disabled={assessmentHistory.length === 0}
-                  onClick={() => downloadTextFile("assessment-history.csv", exportAssessmentAttemptsCsv(assessmentHistory), "text/csv")}
-                  type="button"
-                >
-                  Export CSV
-                </button>
-                <button
-                  className="lp-button lp-button-secondary"
-                  disabled={assessmentHistory.length === 0}
-                  onClick={() => downloadTextFile("assessment-history.json", JSON.stringify(assessmentHistory, null, 2), "application/json")}
-                  type="button"
-                >
-                  Export JSON
-                </button>
-              </div>
-            </article>
-          </section>
-
-          <section className="teacher-report-card">
-            <h4>Saved EL Reports</h4>
-            {savedElReports.length === 0 ? (
-              <p>No saved EL report downloads in this browser yet.</p>
-            ) : (
-              savedElReports.slice(0, 12).map(report => (
-                <article className="el-saved-report-row" key={report.reportId}>
-                  <div>
-                    <strong>{report.reportType === "individual" ? "Student" : "Class"} EL report</strong>
-                    <span>
-                      {report.studentName || report.className || "Unknown"} · {report.generatedAt ? new Date(report.generatedAt).toLocaleDateString() : ""}
-                    </span>
-                    <small>{report.benchmarkScope?.label || "Benchmark route not recorded"} · {report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
-                  </div>
-                  <div className="button-row">
-                    <button className="report-button" onClick={() => handleDownloadSavedElReport(report)} type="button">
-                      Download
-                    </button>
-                    <button className="report-button danger" onClick={() => handleDeleteSavedElReport(report.reportId)} type="button">
-                      Delete
-                    </button>
-                  </div>
-                </article>
-              ))
-            )}
-          </section>
-        </section>
-      )}
-
-      {activeSection === "assessmentProgress" && (
-        <section className="report-panel page-stack admin-section admin-section-panel teacher-dashboard-redesign">
-          <div className="admin-section-heading">
-            <div>
-              <h3>Assessment Progress</h3>
-              <p className="muted-text">Skill mastery, recent attempts, and whole-class next steps.</p>
-            </div>
-            <span className="admin-count-pill">{assessmentSummary.attempts} attempts</span>
-          </div>
-          <div className="teacher-report-metrics">
-            <article>
-              <span>Students</span>
-              <strong>{students.length}</strong>
-            </article>
-            <article>
-              <span>Assessments saved</span>
-              <strong>{assessmentSummary.attempts}</strong>
-            </article>
-            <article>
-              <span>Class average</span>
-              <strong>{assessmentSummary.averageAccuracy}%</strong>
-            </article>
-            <article>
-              <span>Need support</span>
-              <strong>{assessmentSummary.studentsNeedingSupport.length}</strong>
-            </article>
-          </div>
-
-          <div className="teacher-report-card">
-            <h4>Recent Assessment Attempts</h4>
-            {recentAttempts.length === 0 ? (
-              <p>No assessment attempts have been saved in this browser yet.</p>
-            ) : (
-              <div className="admin-table-wrap teacher-scroll-panel">
-                <table className="dashboard-table admin-table admin-responsive-table">
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Student</th>
-                      <th>Skill</th>
-                      <th>Score</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {recentAttempts.slice(0, 20).map(record => (
-                      <tr key={record.attemptId}>
-                        <td data-label="Date">{record.completedAt ? new Date(record.completedAt).toLocaleString() : ""}</td>
-                        <td data-label="Student">{record.studentName}</td>
-                        <td data-label="Skill">{record.skillName}</td>
-                        <td data-label="Score">{record.correctCount}/{record.totalQuestions} ({record.accuracy}%)</td>
-                        <td data-label="Status">{record.status}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-
-          <div className="teacher-report-card">
-            <h4>Advanced Phonics Pattern Mastery</h4>
-            {advancedPatternRows.length === 0 ? (
-              <p>No Advanced Phonics Patterns data yet. Complete the formal pattern assessment to populate this section.</p>
-            ) : (
-              <div className="admin-table-wrap teacher-scroll-panel">
-                <table className="dashboard-table admin-table admin-responsive-table">
-                  <thead>
-                    <tr>
-                      <th>Pattern</th>
-                      <th>Attempts</th>
-                      <th>Correct</th>
-                      <th>Accuracy</th>
-                      <th>Status</th>
-                      <th>Examples</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {advancedPatternRows.map(row => (
-                      <tr key={row.pattern}>
-                        <td data-label="Pattern">{row.pattern}</td>
-                        <td data-label="Attempts">{row.attempts}</td>
-                        <td data-label="Correct">{row.correct}/{row.attempts}</td>
-                        <td data-label="Accuracy">{row.accuracy}%</td>
-                        <td data-label="Status">{statusLabel(row.statusClass)}</td>
-                        <td data-label="Examples">{row.examples.join(", ") || "No examples saved"}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-
-          <div className="teacher-report-grid">
-            <article className="teacher-report-card">
-              <h4>Class Accuracy Over Time</h4>
-              <MiniLineChart points={classChartPoints} label="Class accuracy over time" />
-            </article>
-            <article className="teacher-report-card">
-              <h4>Skills Needing Attention</h4>
-              {assessmentSummary.weakestSkills.length ? assessmentSummary.weakestSkills.map(skill => (
-                <p key={skill.skillId || skill.skillName}><strong>{skill.skillName}</strong> · {skill.accuracy}% · {skill.status}</p>
-              )) : <p>No saved assessment evidence yet.</p>}
-            </article>
-            <article className="teacher-report-card">
-              <h4>Students Needing Support</h4>
-              {assessmentSummary.studentsNeedingSupport.length ? assessmentSummary.studentsNeedingSupport.map(student => (
-                <p key={student.studentId}><strong>{student.studentName}</strong> · {student.accuracy}% · {student.supportSkills.slice(0, 3).join(", ") || "review recent work"}</p>
-              )) : <p>No support flags yet.</p>}
-            </article>
-            <article className="teacher-report-card">
-              <h4>Ready for Challenge</h4>
-              {assessmentSummary.studentsReadyToLevelUp.length ? assessmentSummary.studentsReadyToLevelUp.map(student => (
-                <p key={student.studentId}><strong>{student.studentName}</strong> · latest passed {student.latest?.skillName}</p>
-              )) : <p>No level-up flags yet.</p>}
-            </article>
-          </div>
-
-          <div className="teacher-report-card">
-            <h4>Student List</h4>
-            <div className="teacher-student-report-list teacher-scroll-panel">
-              {assessmentSummary.students.length ? assessmentSummary.students.map(student => (
-                <article key={student.studentId}>
-                  <div>
-                    <strong>{student.studentName}</strong>
-                    <span>{student.className || "Class not linked"} · {student.attempts} assessments</span>
-                  </div>
-                  <div>
-                    <span>{student.accuracy}% recent accuracy</span>
-                    <small>{student.latest ? `Latest: ${student.latest.skillName}` : "No recent activity"}</small>
-                  </div>
-                  <div className="teacher-student-flags">
-                    {!student.latest && <b>No recent assessment</b>}
-                    {student.accuracy < 70 && <b>Low accuracy</b>}
-                    {student.supportSkills.length > 0 && <b>Needs support</b>}
-                    {student.latest?.passed && <b>Ready to level up</b>}
-                  </div>
-                </article>
-              )) : <p>No saved assessment history yet. Complete an assessment to populate the dashboard.</p>}
-            </div>
-          </div>
-
-          <div className="teacher-report-card teacher-heatmap-card">
-            <h4>Skill Coverage Heatmap</h4>
-            <div className="teacher-heatmap teacher-scroll-panel">
-              <div className="teacher-heatmap-row header">
-                <span>Student</span>
-                {skillColumns.map(skill => <span key={skill}>{skill.replace("High-Frequency Words", "HFW")}</span>)}
-              </div>
-              {(assessmentSummary.students.length ? assessmentSummary.students : students.map(student => ({ studentId: student.id, studentName: student.name }))).map(student => {
-                const bySkill = skillStatusByStudent.get(student.studentId) || new Map();
-                return (
-                  <div className="teacher-heatmap-row" key={student.studentId}>
-                    <strong>{student.studentName}</strong>
-                    {skillColumns.map(skill => {
-                      const row = bySkill.get(skill);
-                      const accuracy = row?.total ? Math.round((row.correct / row.total) * 100) : 0;
-                      return (
-                        <span className={`heatmap-cell ${getSkillStatusClass(accuracy, row?.attempts || 0)}`} key={skill}>
-                          {row?.attempts ? `${accuracy}%` : "-"}
-                        </span>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="teacher-report-card">
-            <h4>Whole Class Next Steps</h4>
-            <p>{assessmentSummary.weakestSkills[0] ? `${assessmentSummary.studentsNeedingSupport.length} students need support. Start with ${assessmentSummary.weakestSkills[0].skillName}.` : "No class trend yet. Save a few assessment attempts first."}</p>
-            <p>{assessmentSummary.strongestSkills[0] ? `${assessmentSummary.strongestSkills[0].skillName} is currently the strongest skill area.` : "Strongest skills will appear after assessment history is saved."}</p>
-          </div>
-        </section>
-      )}
-
-      {isTeacherMode && activeSection === "guidedReading" && (
-        <section className="report-panel page-stack admin-section admin-section-panel guided-insight-panel">
-          <div className="admin-section-heading">
-            <div>
-              <h3>Guided Reading</h3>
-              <p className="muted-text">
-                Books read per student across all classes.
-                {guidedReadingLog.length > 0
-                  ? ` ${guidedReadingLog.length} reading session(s) recorded.`
-                  : " No reading records yet."}
-              </p>
-            </div>
-            <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
-              Export Excel
-            </button>
-          </div>
-          {exportNotice && <p className="message">{exportNotice}</p>}
-          {guidedReadingLog.length === 0 ? (
-            <p className="muted-text">
-              No guided reading records yet. Open Guided Reading with a student to start saving book progress.
-            </p>
-          ) : (
-            <div className="admin-table-wrap teacher-scroll-panel">
-              <table className="dashboard-table admin-table admin-responsive-table">
-                <thead>
-                  <tr>
-                    <th>Student</th>
-                    <th>Class</th>
-                    <th>Book</th>
-                    <th>Level</th>
-                    <th>Times read</th>
-                    <th>Accuracy</th>
-                    <th>Last read</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {guidedReadingLog.map((row, index) => (
-                    <tr key={`${row.studentId}-${row.bookId}-${index}`}>
-                      <td data-label="Student">{row.studentName}</td>
-                      <td data-label="Class">{row.className}</td>
-                      <td data-label="Book">{row.bookTitle}</td>
-                      <td data-label="Level">{row.level !== "?" ? `Level ${row.level}` : "-"}</td>
-                      <td data-label="Times read">{row.readCount}</td>
-                      <td data-label="Accuracy">{row.accuracy != null ? `${row.accuracy}%` : "-"}</td>
-                      <td data-label="Last read">{row.lastReadAt ? new Date(row.lastReadAt).toLocaleDateString() : "-"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </section>
-      )}
-
-      {isTeacherMode && activeSection === "hfw" && (
-        <section className="report-panel page-stack admin-section admin-section-panel">
-          <div className="admin-section-heading">
-            <div>
-              <h3>High-Frequency Words</h3>
-              <p className="muted-text">Compact progress view for HFW assessment evidence.</p>
-            </div>
-            <span className="admin-count-pill">{hfwAssessedCount} assessed</span>
-          </div>
-          <div className="teacher-report-metrics">
-            <article>
-              <span>Students with HFW data</span>
-              <strong>{hfwAssessedCount}</strong>
-            </article>
-            <article>
-              <span>Average HFW accuracy</span>
-              <strong>{hfwAssessedCount ? Math.round(hfwStudentRows.reduce((sum, row) => sum + (row.attempts ? row.accuracy : 0), 0) / hfwAssessedCount) : 0}%</strong>
-            </article>
-          </div>
-          {hfwAssessedCount === 0 && (
-            <div className="report-empty-state">
-              <strong>No high-frequency word data yet.</strong>
-              <p>Complete an HFW round to populate attempts, accuracy, and status here.</p>
-            </div>
-          )}
-          <div className="admin-table-wrap teacher-scroll-panel">
-            <table className="dashboard-table admin-table admin-responsive-table">
-              <thead>
-                <tr>
-                  <th>Student</th>
-                  <th>Class</th>
-                  <th>Attempts</th>
-                  <th>Accuracy</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {hfwStudentRows.slice(0, 30).map(row => (
-                  <tr key={row.studentId}>
-                    <td data-label="Student">{row.studentName}</td>
-                    <td data-label="Class">{row.className || "Class not linked"}</td>
-                    <td data-label="Attempts">{row.attempts}</td>
-                    <td data-label="Accuracy">{row.attempts ? `${row.accuracy}%` : "No HFW data"}</td>
-                    <td data-label="Status">{statusLabel(row.statusClass)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
-
       {activeSection === "archive" && (
         <section className="report-panel page-stack admin-section admin-section-panel">
           <div className="admin-section-heading">
@@ -3052,7 +2306,23 @@ export function AdminDashboardPage({
               <button
                 className="lp-button lp-button-secondary"
                 disabled={assessmentHistory.length === 0}
-                onClick={() => downloadTextFile("assessment-history.csv", exportAssessmentAttemptsCsv(assessmentHistory), "text/csv")}
+                onClick={() => {
+                  const generatedAt = new Date();
+                  const provenanceRows = buildExportProvenanceRows({
+                    reportTitle: "Assessment History Export",
+                    learnerCount: new Set(assessmentHistory.map(row => row.studentId || row.student_id).filter(Boolean)).size,
+                    generatedAt,
+                    filters: "All assessment-history rows available to this authorised administrator",
+                    evidenceSource: assessmentHistory,
+                    definitions: "Each data row is one persisted assessment attempt; score fields use the versions identified in this provenance block."
+                  });
+                  const csv = [
+                    exportProvenanceCsvPreamble(provenanceRows),
+                    "",
+                    exportAssessmentAttemptsCsv(assessmentHistory)
+                  ].join("\n");
+                  downloadTextFile("assessment-history.csv", csv, "text/csv");
+                }}
                 type="button"
               >
                 Export CSV
@@ -3103,7 +2373,7 @@ export function AdminDashboardPage({
         </section>
       )}
 
-      {!isTeacherMode && activeSection === "signups" && (
+      {activeSection === "signups" && (
       <section className="card page-stack admin-section admin-section-panel">
         <div className="admin-section-heading">
           <div>
@@ -3216,7 +2486,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {!isTeacherMode && activeSection === "guidedInsight" && (
+      {activeSection === "guidedInsight" && (
       <section className="report-panel page-stack admin-section admin-section-panel guided-insight-panel">
         <div className="admin-header">
           <div>
@@ -3264,7 +2534,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {!isTeacherMode && activeSection === "guidedMediaQa" && (
+      {activeSection === "guidedMediaQa" && (
       <section className="report-panel page-stack admin-section admin-section-panel guided-media-qa-panel">
         <div className="admin-section-heading">
           <div>
@@ -3349,10 +2619,14 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {!isTeacherMode && activeSection === "coverage" && (
+      {activeSection === "coverage" && (
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Content Coverage</h3>
-        <p className="muted-text">Filter active assessment content and watch for skills below the 30-question floor.</p>
+        <p className="muted-text">
+          One canonical rubric decides each skill. Authored is the deduplicated source bank,
+          approved passes the strict content review, and student exposure today comes from the
+          exact release-gated bank the student loader can return.
+        </p>
 
         <div className="admin-content-filters">
           <select value={skillFilter} onChange={event => setSkillFilter(event.target.value)}>
@@ -3403,28 +2677,51 @@ export function AdminDashboardPage({
             <thead>
               <tr>
                 <th>Skill</th>
-                <th>Questions</th>
-                <th>Runtime</th>
-                <th>30+</th>
-                <th>Templates</th>
-                <th>Patterns</th>
-                <th>Media gaps</th>
-                <th>Bad media</th>
                 <th>Status</th>
+                <th>Owner</th>
+                <th>Authored</th>
+                <th>Approved</th>
+                <th>Student exposure today</th>
+                <th>Exact exposure set</th>
+                <th>Gate reason</th>
+                <th>Release exclusions / waivers</th>
+                <th>Media gaps</th>
+                <th>Audio approval blocks</th>
               </tr>
             </thead>
             <tbody>
               {filteredCoverage.map(row => (
                 <tr key={row.skill}>
                   <td data-label="Skill"><strong>{row.skill}</strong></td>
-                  <td data-label="Questions">{row.total}</td>
-                  <td data-label="Runtime">{row.runtimeSelectable ?? row.active}</td>
-                  <td data-label="30+">{(row.runtimeSelectable ?? row.active) >= 30 ? "OK" : "Below 30"}</td>
-                  <td data-label="Templates">{Object.entries(row.templates).map(([key, count]) => `${key}: ${count}`).join(", ")}</td>
-                  <td data-label="Patterns">{Object.entries(row.patterns).slice(0, 8).map(([key, count]) => `${key}: ${count}`).join(", ") || "Not tagged"}</td>
+                  <td data-label="Status">{row.releaseReady ? "READY" : "BLOCKED"}</td>
+                  <td data-label="Owner">{row.releaseOwner}</td>
+                  <td data-label="Authored">{row.authored ?? row.total}</td>
+                  <td data-label="Approved">{row.approved ?? row.active}</td>
+                  <td data-label="Student exposure today">
+                    {row.runtimeSelectable || 0} questions
+                    {row.runtimeSelectable
+                      ? ` (L1 ${row.exposureLevel1}; L2 ${row.exposureLevel2})`
+                      : " — blocked from students"}
+                  </td>
+                  <td data-label="Exact exposure set">
+                    {row.exposureFingerprint
+                      ? `sha256:${row.exposureFingerprint.slice(0, 12)}`
+                      : "Fingerprint missing"}
+                  </td>
+                  <td data-label="Gate reason">
+                    {row.releaseReasons.length
+                      ? row.releaseReasons.join(" ")
+                      : "All canonical release dimensions pass."}
+                  </td>
+                  <td data-label="Release exclusions / waivers">
+                    {row.releaseWaiver?.excludedQuestionCount
+                      ? `${row.releaseWaiver.excludedQuestionCount} excluded; review ${
+                          row.releaseWaiver.reviewBy.join(", ") || "date missing"
+                        }`
+                      : "None"}
+                  </td>
                   <td data-label="Media gaps">{row.missingImage} image / {row.missingAudio} audio</td>
-                  <td data-label="Bad media">{row.badMedia || 0}</td>
-                  <td data-label="Status">{row.active} active / {row.inactive} inactive</td>
+                  <td data-label="Audio approval blocks">{row.unapprovedAudio || 0}</td>
                 </tr>
               ))}
             </tbody>
@@ -3433,7 +2730,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {!isTeacherMode && activeSection === "assessmentAudio" && (
+      {activeSection === "assessmentAudio" && (
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Assessment Audio Coverage</h3>
         <p className="muted-text">
@@ -3504,7 +2801,9 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {!isTeacherMode && activeSection === "schools" && (
+      {activeSection === "calibration" && <CalibrationMonitoringPanel />}
+
+      {activeSection === "schools" && (
       <section className="card page-stack admin-section admin-section-panel">
         <h3>Schools</h3>
         <p className="muted-text">Every school registered in the system, with its teachers and classes.</p>
@@ -3520,6 +2819,7 @@ export function AdminDashboardPage({
                   <th>Classes</th>
                   <th>Students</th>
                   <th>Created</th>
+                  <th>Retention</th>
                 </tr>
               </thead>
               <tbody>
@@ -3527,18 +2827,43 @@ export function AdminDashboardPage({
                   const schoolTeachers = pendingAccounts.filter(account => account.school_id === school.id);
                   const schoolClasses = classes.filter(row => row.school_id === school.id);
                   const schoolStudents = schoolClasses.reduce((sum, row) => sum + (row.studentCount || 0), 0);
+                  const retentionOpen = retentionSchoolId === school.id;
                   return (
-                    <tr key={school.id}>
-                      <td data-label="School"><strong>{school.name}</strong></td>
-                      <td data-label="Teachers">
-                        {schoolTeachers.length === 0
-                          ? "0"
-                          : schoolTeachers.map(account => account.display_name || account.username || account.email).join(", ")}
-                      </td>
-                      <td data-label="Classes">{schoolClasses.length}</td>
-                      <td data-label="Students">{schoolStudents}</td>
-                      <td data-label="Created">{school.created_at ? new Date(school.created_at).toLocaleDateString() : "-"}</td>
-                    </tr>
+                    <Fragment key={school.id}>
+                      <tr>
+                        <td data-label="School"><strong>{school.name}</strong></td>
+                        <td data-label="Teachers">
+                          {schoolTeachers.length === 0
+                            ? "0"
+                            : schoolTeachers.map(account => account.display_name || account.username || account.email).join(", ")}
+                        </td>
+                        <td data-label="Classes">{schoolClasses.length}</td>
+                        <td data-label="Students">{schoolStudents}</td>
+                        <td data-label="Created">{school.created_at ? new Date(school.created_at).toLocaleDateString() : "-"}</td>
+                        <td data-label="Retention">
+                          <button
+                            className="text-button"
+                            type="button"
+                            disabled={!supabase}
+                            onClick={() => setRetentionSchoolId(retentionOpen ? "" : school.id)}
+                          >
+                            {retentionOpen ? "Close policy" : "Open policy"}
+                          </button>
+                        </td>
+                      </tr>
+                      {retentionOpen && supabase && (
+                        <tr className="admin-retention-detail-row">
+                          <td colSpan={6}>
+                            <SchoolRetentionPolicyPanel
+                              client={supabase}
+                              school={school}
+                              onChanged={refreshDashboard}
+                              onLearnersDeleted={handleRetentionLearnersDeleted}
+                            />
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
                   );
                 })}
               </tbody>
@@ -3548,7 +2873,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {!isTeacherMode && activeSection === "teachers" && (
+      {activeSection === "teachers" && (
       <section className="card page-stack admin-section admin-section-panel">
         <h3>Teachers</h3>
         <p className="muted-text">Tap a teacher to see their classes and move them to another school.</p>
@@ -3727,8 +3052,8 @@ export function AdminDashboardPage({
                     </td>
                   )}
                   <td data-label="Delete">
-                    <button className="reset-button" onClick={() => deleteStudent(row.id, row.name)} type="button">
-                      Delete Student
+                    <button className="reset-button" onClick={() => setDataRightsStudent(row)} type="button">
+                      Export or delete data
                     </button>
                   </td>
                 </tr>
@@ -3739,17 +3064,173 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {!isTeacherMode && activeSection === "mapStops" && <MapStopEditor />}
-      {!isTeacherMode && activeSection === "hollowSpots" && <HollowSpotEditor />}
+      {activeSection === "mapStops" && <MapStopEditor />}
+      {activeSection === "hollowSpots" && <HollowSpotEditor />}
+      <LearnerDataRightsDialog
+        key={dataRightsStudent?.id || "closed-data-rights"}
+        client={supabase}
+        learner={dataRightsStudent}
+        open={Boolean(dataRightsStudent)}
+        onClose={() => setDataRightsStudent(null)}
+        onDeleted={handleAdminDataRightsDeletion}
+      />
+      <RemoteErrorMonitorPanel client={supabase} />
       <CrashLogPanel />
     </main>
   );
 }
 
-// The flight recorder, surfaced: render errors caught by any ErrorBoundary on
-// THIS device (localStorage ring buffer — see ErrorBoundary.jsx). No external
-// crash service exists yet, so this panel is how a grown-up finds out what a
-// child's "Oops" screen was hiding.
+function RemoteErrorMonitorPanel({ client }) {
+  const [summary, setSummary] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [status, setStatus] = useState(client ? "loading" : "unavailable");
+
+  async function loadMonitor() {
+    if (!client?.call) {
+      setStatus("unavailable");
+      return;
+    }
+    setStatus("loading");
+    const [summaryResult, eventResult] = await Promise.all([
+      client.call("admin_error_monitor_summary"),
+      client.call("admin_recent_error_events", { p_limit: 25 })
+    ]);
+    if (summaryResult.error || eventResult.error) {
+      setStatus("error");
+      return;
+    }
+    setSummary(Array.isArray(summaryResult.data) ? summaryResult.data : []);
+    setEvents(Array.isArray(eventResult.data) ? eventResult.data : []);
+    setStatus("ready");
+  }
+
+  useEffect(() => {
+    void loadMonitor();
+    // The client identity is stable for the mounted admin session.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [client]);
+
+  const alertCount = summary.reduce(
+    (total, row) => total + Math.max(0, Number(row.alerts_24h) || 0),
+    0
+  );
+  const budgetRows = summary.map(row => ({
+    ...row,
+    budget: evaluateFleetErrorBudget(row)
+  }));
+
+  return (
+    <section
+      className="card page-stack remote-error-monitor-panel"
+      aria-label="Fleet error monitor"
+      data-monitor-state={status}
+    >
+      <div className="admin-monitor-heading">
+        <div>
+          <p className="panel-label">Operations</p>
+          <h2>Fleet error monitor</h2>
+          <p className="muted-text">
+            Redacted diagnostics only. No student names, answers, class codes, account IDs,
+            URLs, or arbitrary message text are collected. Events expire after 30 days.
+          </p>
+        </div>
+        <button className="report-button" type="button" onClick={loadMonitor}>
+          Refresh monitor
+        </button>
+      </div>
+
+      {status === "loading" && <p role="status">Loading remote error health...</p>}
+      {status === "unavailable" && (
+        <p role="alert">Remote monitoring is unavailable because the backend is not configured.</p>
+      )}
+      {status === "error" && (
+        <p role="alert">Remote monitoring could not be loaded. The on-device fallback remains active.</p>
+      )}
+      {status === "ready" && (
+        <>
+          {alertCount > 0 ? (
+            <p className="admin-monitor-alert" role="alert">
+              {alertCount} fleet alert{alertCount === 1 ? "" : "s"} require review.
+            </p>
+          ) : (
+            <p role="status">No fleet alerts in the last 24 hours.</p>
+          )}
+          <p className="muted-text">
+            Operational error budget: zero fatal or repeat-fingerprint alerts per release
+            in a rolling {FLEET_ERROR_BUDGET_POLICY.windowHours}-hour window. This is a
+            diagnostic incident budget, not a claim about measured user availability.
+          </p>
+          {summary.length === 0 ? (
+            <p>
+              No remote errors recorded in the last 24 hours. Health remains unverified
+              until a seeded release event confirms the monitor path.
+            </p>
+          ) : (
+            <div className="table-wrap">
+              <table>
+                <caption>Errors by release in the last 24 hours</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Release</th>
+                    <th scope="col">Events</th>
+                    <th scope="col">Fingerprints</th>
+                    <th scope="col">Fatal</th>
+                    <th scope="col">Alerts</th>
+                    <th scope="col">Budget</th>
+                    <th scope="col">Latest</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {budgetRows.map(row => (
+                    <tr key={row.release_id}>
+                      <th scope="row">{row.release_id}</th>
+                      <td>{row.events_24h}</td>
+                      <td>{row.affected_fingerprints}</td>
+                      <td>{row.fatal_events_24h}</td>
+                      <td>{row.alerts_24h}</td>
+                      <td>
+                        <strong data-budget-status={row.budget.status}>
+                          {row.budget.label}
+                        </strong>
+                      </td>
+                      <td>{row.latest_at ? new Date(row.latest_at).toLocaleString() : "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+          <details>
+            <summary>Recent redacted events ({events.length})</summary>
+            {events.length === 0 ? (
+              <p>No retained events.</p>
+            ) : (
+              <ol className="remote-error-event-list">
+                {events.map((event, index) => (
+                  <li key={`${event.fingerprint}-${event.occurred_at}-${index}`}>
+                    <strong>{event.error_type}</strong>
+                    <span>
+                      {event.surface} · {event.source} · release {event.release_id}
+                    </span>
+                    <small>
+                      Fingerprint {event.fingerprint} · {new Date(event.occurred_at).toLocaleString()}
+                    </small>
+                    {Array.isArray(event.stack_frames) && event.stack_frames.length > 0 && (
+                      <code>{event.stack_frames[0]}</code>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            )}
+          </details>
+        </>
+      )}
+    </section>
+  );
+}
+
+// The on-device flight recorder stays as a fallback when remote delivery is
+// unavailable. It stores the same redacted fields as the remote monitor.
 function CrashLogPanel() {
   const [rows, setRows] = useState(() => readErrorLog());
   if (!rows.length) return null;
@@ -3760,14 +3241,16 @@ function CrashLogPanel() {
           Recent app errors on this device ({rows.length})
         </summary>
         <p className="muted-text">
-          Caught by the in-app safety net. Children saw a friendly &ldquo;try again&rdquo; screen;
-          the details land here for you.
+          Caught by the in-app safety net. Students saw a friendly &ldquo;try again&rdquo; screen;
+          these redacted details remain on this device as a delivery fallback.
         </p>
         <ul className="crash-log-list">
           {rows.map((row, index) => (
             <li key={`${row.at}-${index}`}>
               <strong>{row.label}</strong> · {new Date(row.at).toLocaleString()}
-              <div className="crash-log-message">{row.message}</div>
+              <div className="crash-log-message">
+                {row.message} · release {row.releaseId || "legacy-local"}
+              </div>
             </li>
           ))}
         </ul>

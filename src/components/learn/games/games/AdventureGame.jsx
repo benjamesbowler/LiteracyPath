@@ -4,9 +4,7 @@ import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } 
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 import {
-  buildRescueRounds,
-  buildSortRounds,
-  buildGardenRounds,
+  buildAdventureRoundSet,
   adventureStars
 } from "../../../../utils/adventureRounds.js";
 
@@ -68,7 +66,8 @@ function markOnboarded(key) {
 function AdventureOnboarding({ title, copy, onStart }) {
   useEffect(() => {
     const onKey = event => {
-      if (event.key === "Escape") return; // GamePlayer owns Esc (quit dialog).
+      if (!["Enter", " "].includes(event.key)) return;
+      if (event.target instanceof HTMLButtonElement) return;
       onStart();
     };
     window.addEventListener("keydown", onKey);
@@ -113,7 +112,7 @@ function AdventureOnboarding({ title, copy, onStart }) {
         </div>
         <div>
           <button type="button" className="lg-game-primary" onClick={onStart}>Tap to play</button>
-          <div style={{ marginTop: 8, fontSize: "0.74rem", fontWeight: 700, color: "#64748B" }}>or press any key</div>
+          <div style={{ marginTop: 8, fontSize: "0.74rem", fontWeight: 700, color: "#64748B" }}>or press Enter</div>
         </div>
       </div>
     </div>
@@ -268,9 +267,11 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const onboard = ONBOARD[mode] || ONBOARD.garden;
   const [introOpen, setIntroOpen] = useState(() => !readOnboarded(onboard.key));
 
-  const rescue = useMemo(() => (mode === "rescue" ? buildRescueRounds(difficulty) : []), [mode, difficulty, version]);
-  const sort = useMemo(() => (mode === "sort" ? buildSortRounds(difficulty) : null), [mode, difficulty, version]);
-  const garden = useMemo(() => (mode === "garden" ? buildGardenRounds(difficulty) : []), [mode, difficulty, version]);
+  const roundSet = useMemo(
+    () => buildAdventureRoundSet(mode, difficulty, version),
+    [mode, difficulty, version]
+  );
+  const { rescue, sort, garden } = roundSet;
   const total = mode === "rescue" ? rescue.length : mode === "sort" ? sort.items.length : garden.length;
 
   const [index, setIndex] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, Math.max(total - 1, 0))));

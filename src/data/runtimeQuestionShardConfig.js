@@ -1,0 +1,20 @@
+export const SKILL_LEVEL_GAP_RUNTIME_SHARDS = Object.freeze([
+  ["initial_sounds", "initial-sounds"],
+  ["rhyming", "rhyming"],
+  ["short_vowel_discrimination", "short-vowel-discrimination"],
+  ["vowel_teams", "vowel-teams"],
+  ["r_controlled_vowels", "r-controlled-vowels"],
+  ["prepositions_of_place", "prepositions-of-place"],
+  ["plurals", "plurals"],
+  ["prefixes_suffixes", "prefixes-suffixes"],
+  ["antonyms_synonyms", "antonyms-synonyms"],
+  ["homophones_homonyms", "homophones-homonyms"],
+  ["sentence_comprehension", "sentence-comprehension"],
+  ["key_details", "key-details"],
+  ["sequencing", "sequencing"],
+  ["main_idea", "main-idea"],
+  ["inference", "inference"],
+  ["cause_effect", "cause-effect"],
+  ["context_clues", "context-clues"],
+  ["theme_higher_comprehension", "theme-higher-comprehension"]
+].map(([skillId, shard]) => Object.freeze({ skillId, shard })));

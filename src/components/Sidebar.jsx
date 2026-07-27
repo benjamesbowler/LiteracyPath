@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId, useRef } from "react";
 import logomarkUrl from "../assets/logo.svg";
 import { APP_VIEWS } from "../appState/appViews.js";
+import { isFocusedAssessmentView } from "../appState/appViewHelpers.js";
 
 const STORAGE_KEY = "lg_sidebar_collapsed";
 
@@ -77,73 +78,62 @@ const ICONS = {
   )
 };
 
-const NAV_ITEMS = [
+const TEACHER_INTENT_NAV_ITEMS = [
   {
     id: "dashboard",
     label: "Dashboard",
     icon: "dashboard",
-    views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD],
+    views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD]
   },
   {
-    id: "studentHome",
-    label: "Student Page",
+    id: "children",
+    label: "Students",
     icon: "student",
-    views: [APP_VIEWS.STUDENT_HOME],
-    requiresStudent: true,
+    views: [
+      APP_VIEWS.TEACHER_CLASSES,
+      APP_VIEWS.STUDENT_HOME
+    ]
   },
+  // Assessments are their own section again. They were parked under Students,
+  // which meant a running assessment lit up the Students item and the only way
+  // to start one was to find the student first. The funnel asks for the student
+  // itself, so the section can say what it is.
   {
-    id: "assessment",
-    label: "Checkpoints",
+    id: "assessments",
+    label: "Assessments",
     icon: "assessment",
-    views: [APP_VIEWS.OVERVIEW, APP_VIEWS.SKILLS, APP_VIEWS.ASSESSMENT,
-            APP_VIEWS.CHECKPOINT, APP_VIEWS.FINISHED, APP_VIEWS.LETTERS,
-            APP_VIEWS.ADVANCED_PHONICS],
-    requiresStudent: true,
-  },
-  {
-    id: "el",
-    label: "EL Checks",
-    icon: "el",
-    views: [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.EL_BENCHMARK],
-    requiresStudent: true,
-  },
-  {
-    id: "reading",
-    label: "Guided Reading",
-    icon: "reading",
-    views: [APP_VIEWS.GUIDED_READING],
-    requiresStudent: true,
-  },
-  {
-    id: "learn",
-    label: "Story Quests",
-    icon: "learn",
-    views: [APP_VIEWS.LEARN],
-    requiresStudent: true,
-  },
-  {
-    id: "present",
-    label: "Present",
-    icon: "present",
-    views: [APP_VIEWS.PRESENT],
-    description: "Whole-class projector slides for a cycle",
-    // Whole-class projector slideshow for a cycle - no student needed.
-  },
-  {
-    id: "worksheets",
-    label: "Worksheets",
-    icon: "worksheets",
-    views: [APP_VIEWS.WORKSHEETS],
-    description: "Printable practice built from the cycle curriculum",
-    // No student needed - worksheets are built from the cycle curriculum.
+    views: [
+      APP_VIEWS.ASSESSMENTS,
+      APP_VIEWS.ASSESSMENT,
+      APP_VIEWS.CHECKPOINT,
+      APP_VIEWS.LETTERS,
+      APP_VIEWS.ADVANCED_PHONICS,
+      APP_VIEWS.EL_BENCHMARK
+    ]
   },
   {
     id: "reports",
     label: "Reports",
     icon: "reports",
-    views: [APP_VIEWS.REPORTS],
-    requiresStudent: true,
-    description: "Progress reports and Excel exports for the selected student",
+    views: [APP_VIEWS.REPORTS, APP_VIEWS.FINISHED]
+  },
+  {
+    id: "resources",
+    label: "Resources",
+    icon: "worksheets",
+    views: [
+      APP_VIEWS.TEACHER_RESOURCES,
+      APP_VIEWS.GUIDED_READING,
+      APP_VIEWS.LEARN,
+      APP_VIEWS.PRESENT,
+      APP_VIEWS.WORKSHEETS
+    ]
+  },
+  {
+    id: "settings",
+    label: "Settings",
+    icon: "admin",
+    views: [APP_VIEWS.TEACHER_SETTINGS]
   },
 ];
 
@@ -153,15 +143,12 @@ export function Sidebar({
   studentName,
   className,
   teacherEmail,
-  goToOverview,
-  goToStudentHome,
-  goToElAssessments,
-  goToGuidedReading,
-  goToLearn,
-  goToReports,
-  goToWorksheets,
-  goToPresent,
   goToTeacherDashboard,
+  goToTeacherClasses,
+  goToTeacherAssessments,
+  goToTeacherReports,
+  goToTeacherResources,
+  goToTeacherSettings,
   logOutTeacher,
   isAdmin,
   openAdminDashboard,
@@ -173,6 +160,25 @@ export function Sidebar({
       return false;
     }
   });
+  // A check that is open on screen is unfinished work. Navigation used to fire
+  // straight away, so one stray click ended the check with nothing said. The
+  // teacher is asked once, and can always carry on leaving.
+  const [pendingItem, setPendingItem] = useState(null);
+  const leaveCheckTitleId = useId();
+  const leaveCheckBodyId = useId();
+  const stayButtonRef = useRef(null);
+  const checkInProgress = isFocusedAssessmentView(appView);
+
+  // Derived, not stored: once the check is over the question is moot, so the
+  // prompt disappears on its own rather than needing to be cleaned up.
+  const leaveCheckItem = checkInProgress ? pendingItem : null;
+  // A question worth asking is worth being able to read: the rail opens itself
+  // while the prompt is up, without changing the teacher's saved preference.
+  const railCollapsed = collapsed && !leaveCheckItem;
+
+  useEffect(() => {
+    if (leaveCheckItem) stayButtonRef.current?.focus();
+  }, [leaveCheckItem]);
 
   useEffect(() => {
     try {
@@ -184,16 +190,22 @@ export function Sidebar({
 
   function handleNavClick(item) {
     if (item.requiresStudent && !nameSaved) return null;
+    if (checkInProgress) {
+      setPendingItem(item);
+      return null;
+    }
+    return navigateToItem(item);
+  }
+
+  function navigateToItem(item) {
     switch (item.id) {
       case "dashboard":   return goToTeacherDashboard?.();
-      case "studentHome": return goToStudentHome?.();
-      case "assessment":  return goToOverview?.();
-      case "el":          return goToElAssessments?.();
-      case "reading":     return goToGuidedReading?.();
-      case "learn":       return goToLearn?.();
-      case "reports":     return goToReports?.();
-      case "worksheets":  return goToWorksheets?.();
-      case "present":     return goToPresent?.();
+      case "children":    return goToTeacherClasses?.();
+      case "assessments": return goToTeacherAssessments?.();
+      case "reports":     return goToTeacherReports?.();
+      case "resources":   return goToTeacherResources?.();
+      case "settings":    return goToTeacherSettings?.();
+      case "admin":       return openAdminDashboard?.();
       default:            return null;
     }
   }
@@ -204,13 +216,13 @@ export function Sidebar({
 
   function getItemTitle(item) {
     if (item.requiresStudent && !nameSaved) return "Select a student first";
-    if (collapsed) return item.description ? `${item.label} - ${item.description}` : item.label;
+    if (railCollapsed) return item.description ? `${item.label} - ${item.description}` : item.label;
     return item.description || undefined;
   }
 
   return (
     <aside
-      className={`lg-sidebar${collapsed ? " collapsed" : ""}`}
+      className={`lg-sidebar${railCollapsed ? " collapsed" : ""}`}
       aria-label="Main navigation"
     >
       {/* ── Logo + toggle ── */}
@@ -219,52 +231,89 @@ export function Sidebar({
           <div className="lg-sb-icon" aria-hidden="true">
             <img src={logomarkUrl} alt="" width="16" height="16" />
           </div>
-          <span className="lg-sb-name" aria-hidden={collapsed}>
+          <span className="lg-sb-name" aria-hidden={railCollapsed}>
             Literacy Guide
           </span>
         </div>
         <button
           className="lg-sb-toggle"
           onClick={() => setCollapsed(c => !c)}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-          aria-expanded={!collapsed}
+          aria-label={railCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-expanded={!railCollapsed}
         >
           <span className="lg-sb-toggle-icon">{ICONS.chevron}</span>
         </button>
       </div>
 
       {/* ── Class / context label ── */}
-      <div className="lg-sb-class" aria-hidden={collapsed}>
+      <div className="lg-sb-class" aria-hidden={railCollapsed}>
         {className || (studentName ? `Student: ${studentName}` : "No class selected")}
       </div>
 
       {/* ── Nav items ── */}
       <nav className="lg-sb-nav" aria-label="App sections">
-        {NAV_ITEMS.map(item => (
-          <button
-            key={item.id}
-            className={`lg-sb-item${isActive(item) ? " active" : ""}`}
-            disabled={item.requiresStudent && !nameSaved}
-            onClick={() => handleNavClick(item)}
-            aria-current={isActive(item) ? "page" : undefined}
-            aria-label={item.requiresStudent && !nameSaved ? `${item.label}. Select a student first.` : item.label}
-            title={getItemTitle(item)}
+        {leaveCheckItem && (
+          <div
+            className="lg-sb-leave-check"
+            role="alertdialog"
+            aria-labelledby={leaveCheckTitleId}
+            aria-describedby={leaveCheckBodyId}
+            onKeyDown={event => {
+              if (event.key === "Escape") setPendingItem(null);
+            }}
           >
-            <span className="lg-sb-item-icon">{ICONS[item.icon]}</span>
-            <span className="lg-sb-item-label">{item.label}</span>
-            {/* Tooltip shown only when collapsed via CSS */}
-            <span className="lg-sb-tooltip" aria-hidden="true">
-              {item.label}
-            </span>
-          </button>
-        ))}
+            <strong id={leaveCheckTitleId}>Leave this check?</strong>
+            <p id={leaveCheckBodyId}>
+              This check is still open. Going to {leaveCheckItem.label} now ends it,
+              and anything not already saved is lost.
+            </p>
+            <button
+              className="lp-button lp-button-secondary"
+              onClick={() => setPendingItem(null)}
+              ref={stayButtonRef}
+              type="button"
+            >
+              Stay on the check
+            </button>
+            <button
+              className="lp-button lp-button-primary"
+              onClick={() => {
+                const item = leaveCheckItem;
+                setPendingItem(null);
+                navigateToItem(item);
+              }}
+              type="button"
+            >
+              Leave and go to {leaveCheckItem.label}
+            </button>
+          </div>
+        )}
+        <div data-testid="teacher-primary-nav" role="group" aria-label="Teacher primary">
+          {TEACHER_INTENT_NAV_ITEMS.map(item => (
+            <div key={item.id} className="lg-sb-intent">
+              <button
+                className={`lg-sb-item${isActive(item) ? " active" : ""}`}
+                onClick={() => handleNavClick(item)}
+                aria-current={isActive(item) ? "page" : undefined}
+                aria-label={item.label}
+                title={getItemTitle(item)}
+              >
+                <span className="lg-sb-item-icon">{ICONS[item.icon]}</span>
+                <span className="lg-sb-item-label">{item.label}</span>
+                <span className="lg-sb-tooltip" aria-hidden="true">
+                  {item.label}
+                </span>
+              </button>
+            </div>
+          ))}
+        </div>
 
         {isAdmin && (
           <button
             className={`lg-sb-item${appView === APP_VIEWS.ADMIN_DASHBOARD ? " active" : ""}`}
-            onClick={openAdminDashboard}
+            onClick={() => handleNavClick({ id: "admin", label: "Admin" })}
             aria-current={appView === APP_VIEWS.ADMIN_DASHBOARD ? "page" : undefined}
-            title={collapsed ? "Admin" : undefined}
+            title={railCollapsed ? "Admin" : undefined}
           >
             <span className="lg-sb-item-icon">{ICONS.admin}</span>
             <span className="lg-sb-item-label">Admin</span>
@@ -280,7 +329,7 @@ export function Sidebar({
             className="lg-sb-item"
             onClick={logOutTeacher}
             aria-label={`Sign out ${teacherEmail}`}
-            title={collapsed ? `Sign out (${teacherEmail})` : undefined}
+            title={railCollapsed ? `Sign out (${teacherEmail})` : undefined}
           >
             <span className="lg-sb-item-icon">{ICONS.logout}</span>
             <span className="lg-sb-item-label lg-sb-email">

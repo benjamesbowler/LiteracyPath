@@ -1,6 +1,6 @@
 # Guided Reading Visibility Audit
 
-Generated: 2026-07-22T10:00:04.231Z
+Generated: 2026-07-24T09:55:09.553Z
 
 ## Current Policy
 
@@ -147,7 +147,7 @@ Visible nonfiction books: 76
 | meadow-pals-06-sleepy-cant-wake-up | Sleepy Can't Wake Up | Fiction | A | approved | 9 | yes | none |
 | meadow-pals-07-noisy-tries-to-be-quiet | Noisy Tries to Be Quiet | Fiction | A | approved | 10 | yes | none |
 | meadow-pals-08-tiny-is-very-small | Tiny is Very Small | Fiction | A | approved | 9 | yes | none |
-| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | Fiction | A | approved | 8 | yes | none |
+| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | Fiction | A | approved | 9 | yes | none |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | Fiction | A | approved | 9 | yes | none |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | Fiction | A | approved | 10 | yes | none |
 | meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | Fiction | A | approved | 7 | yes | none |

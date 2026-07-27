@@ -1,38 +1,49 @@
 export const STUDENT_REPORT_VIEWS = [
   {
     id: "whole-child",
-    label: "Whole Child",
-    shortLabel: "Whole Child",
-    description: "What this student knows across every learning area."
-  },
-  {
-    id: "el-assessments",
-    label: "EL Assessments",
-    shortLabel: "EL Assessments",
-    description: "Assessment 1-6 results, evidence and next steps."
-  },
-  {
-    id: "guided-reading",
-    label: "Guided Reading",
-    shortLabel: "Guided Reading",
-    description: "Books, reading observations, words and teacher notes."
+    label: "Overview",
+    shortLabel: "Overview",
+    description: "Mastered, developing, and yet to learn."
   },
   {
     id: "skills-check",
-    label: "Skills Check",
-    shortLabel: "Skills Check",
-    description: "Formal checkpoint results and progress by skill."
+    label: "Skills",
+    shortLabel: "Skills",
+    description: "Saved answers and accuracy by literacy skill."
+  },
+  {
+    id: "guided-reading",
+    label: "Guided reading",
+    shortLabel: "Guided reading",
+    description: "Books read, words read correctly, support words and teacher notes."
+  },
+  {
+    id: "hfw",
+    label: "High-frequency words",
+    shortLabel: "HFW / sight words",
+    description: "All 100 words, including those not seen yet."
   },
   {
     id: "other-learning",
-    label: "Other Learning",
-    shortLabel: "Other Learning",
-    description: "Useful practice evidence from other learning areas."
+    label: "Other learning",
+    shortLabel: "Other learning",
+    description: "Practice results from Sound Seekers, the Arcade and Story Quests."
+  },
+  {
+    id: "el-assessments",
+    label: "EL formal report",
+    shortLabel: "EL formal report",
+    description: "The standalone formal check record for school files."
   }
 ];
 
 const VIEW_IDS = new Set(STUDENT_REPORT_VIEWS.map(view => view.id));
 
+// 2026-07-26: "guided-reading" and "other-learning" were silently rewritten to
+// "whole-child" here while both views were still built and still rendered in
+// FinishedReportPage. The two buttons that opened them therefore opened the
+// wrong report. They are real destinations again, so there is nothing left to
+// rewrite; anything unrecognised still falls back to the overview.
 export function normalizeStudentReportView(value = "") {
   return VIEW_IDS.has(value) ? value : "whole-child";
 }
@@ -64,30 +75,13 @@ export function reportStatusLabel(value = "") {
   if (["secure", "mastered", "passed", "got it", "on track"].includes(status)) return "Secure";
   if (["developing", "building", "almost", "almost there", "current", "attempted"].includes(status)) return "Developing";
   if (["needs support", "needs teaching", "needs reteaching", "needs re teaching", "support"].includes(status)) return "Needs teaching";
-  if (status === "mixed" || status === "mixed evidence") return "Mixed evidence";
+  if (status === "mixed" || status === "mixed evidence") return "Mixed results";
   return "Not checked";
 }
 
-export function getGuidedReadingLandingMeta({ progress = null, loadStatus = "idle" } = {}) {
-  if (progress) {
-    const totalBooksRead = Math.max(0, Number(progress.totalBooksRead) || 0);
-    return `${totalBooksRead} completed book${totalBooksRead === 1 ? "" : "s"}`;
-  }
-  if (loadStatus === "error") return "Reading summary unavailable";
-  return "Reading records loading";
-}
-
-export function getSkillsCheckLandingMeta({ attemptCount = 0, skillMasterySummary = [] } = {}) {
-  const hasMastery = Array.isArray(skillMasterySummary) &&
-    skillMasterySummary.some(summary => Number(summary?.masteredCount || 0) > 0);
-  if (hasMastery) return "Checkpoint evidence available";
-
-  const savedAttempts = Math.max(0, Number(attemptCount) || 0);
-  if (savedAttempts > 0) {
-    return `${savedAttempts} checkpoint attempt${savedAttempts === 1 ? "" : "s"} saved`;
-  }
-  return "No checkpoint attempts yet";
-}
+// Removed 2026-07-26: getGuidedReadingLandingMeta / getSkillsCheckLandingMeta fed the
+// per-student report landing screen, which no longer exists. A student report now
+// opens straight from the Student panel (TeacherStudentsPage -> FinishedReportPage).
 
 function firstValidTimestamp(...values) {
   for (const value of values) {

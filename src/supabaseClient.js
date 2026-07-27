@@ -1,7 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
+import { createValidatedSupabaseClient } from "./data/boundaries/facade.js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = import.meta.env?.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env?.VITE_SUPABASE_ANON_KEY;
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
@@ -72,7 +73,8 @@ function createMissingSupabaseClient() {
       updateUser: () => { shoutUnconfiguredWrite("auth.updateUser"); return response(); },
       signOut: () => response()
     },
-    from: table => queryBuilder(table)
+    from: table => queryBuilder(table),
+    rpc: name => queryBuilder(`rpc:${name}`)
   };
 }
 
@@ -84,6 +86,8 @@ if (!isSupabaseConfigured) {
   );
 }
 
-export const supabase = isSupabaseConfigured
+const rawSupabase = isSupabaseConfigured
   ? createClient(supabaseUrl, supabaseAnonKey)
   : createMissingSupabaseClient();
+
+export const supabase = createValidatedSupabaseClient(rawSupabase);

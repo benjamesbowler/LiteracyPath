@@ -1,6 +1,14 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildRescueRounds, buildSortRounds, buildGardenRounds, adventureStars, pickRescueFoils, GARDEN_FLOWERS } from "../../src/utils/adventureRounds.js";
+import {
+  adventureStars,
+  buildAdventureRoundSet,
+  buildGardenRounds,
+  buildRescueRounds,
+  buildSortRounds,
+  GARDEN_FLOWERS,
+  pickRescueFoils
+} from "../../src/utils/adventureRounds.js";
 
 const tiers = ["easy", "medium", "hard"];
 
@@ -104,4 +112,16 @@ test("adventure stars follow the 3/2/1/0 rule", () => {
   assert.equal(adventureStars(6, 6, 2), 2);
   assert.equal(adventureStars(3, 6, 1), 1);
   assert.equal(adventureStars(0, 6, 4), 0);
+});
+
+test("restarting an adventure creates a versioned round set for the active mode", () => {
+  const first = buildAdventureRoundSet("garden", "easy", 0);
+  const restarted = buildAdventureRoundSet("garden", "easy", 1);
+
+  assert.equal(first.version, 0);
+  assert.equal(restarted.version, 1);
+  assert.equal(first.garden.length, 5);
+  assert.equal(restarted.garden.length, 5);
+  assert.deepEqual(first.rescue, []);
+  assert.equal(first.sort, null);
 });

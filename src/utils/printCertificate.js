@@ -1,9 +1,18 @@
+import { openHtmlDocument } from "./openHtmlDocument.js";
+
+function esc(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 // Opens a print-ready certificate in a new window. Elegant, school-printable.
 export function printCertificate({ studentName = "Reader", achievement = "", detail = "" }) {
-  const win = window.open("", "lp-certificate", "width=900,height=700");
-  if (!win) return;
   const date = new Date().toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
-  win.document.write(`<!doctype html>
+  const html = `<!doctype html>
 <html><head><title>Certificate</title>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -26,15 +35,20 @@ export function printCertificate({ studentName = "Reader", achievement = "", det
   .date { margin-top: 18px; color: #98A2B3; font-size: 13px; }
   .rule { width: 220px; height: 2px; background: #D68A11; margin: 6px auto; }
 </style></head>
-<body onload="window.print()">
+<body>
   <div class="cert">
     <p class="kicker">Literacy Guide · Certificate of Achievement</p>
-    <h1>${studentName}</h1>
+    <h1>${esc(studentName)}</h1>
     <div class="rule"></div>
-    <p class="ach">${achievement}</p>
-    ${detail ? `<p class="detail">${detail}</p>` : ""}
-    <p class="date">${date}</p>
+    <p class="ach">${esc(achievement)}</p>
+    ${detail ? `<p class="detail">${esc(detail)}</p>` : ""}
+    <p class="date">${esc(date)}</p>
   </div>
-</body></html>`);
-  win.document.close();
+</body></html>`;
+  return openHtmlDocument({
+    html,
+    name: "lp-certificate",
+    features: "width=900,height=700",
+    autoPrint: true
+  }).ok;
 }

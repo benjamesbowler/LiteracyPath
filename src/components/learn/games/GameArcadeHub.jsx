@@ -10,6 +10,7 @@ import {
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
+import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
 import "../../../styles/learn-games.css";
 import "../../../styles/arcade-dark.css";
 
@@ -31,34 +32,36 @@ const TABS = [
   { id: "practice", label: "Phonics Practice", games: PRACTICE_GAMES }
 ];
 
-function readSchoolId() {
+function readStudentToken() {
   try {
-    return JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.schoolId || null;
+    return JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.token || "";
   } catch {
-    return null; // no session / not parseable
+    return "";
   }
 }
 
 function Leaderboard({ refreshSignal }) {
-  // Privacy: the board is scoped to the child's own school. Without a school
-  // id we never query — showing nothing is correct, never a global list.
-  const [rows, setRows] = useState(() => (readSchoolId() ? null : [])); // null = still loading
+  // The token is only a credential. The database derives class/school scope
+  // from the live session and returns irreversible pseudonyms, never names.
+  const token = readStudentToken();
+  const [rows, setRows] = useState(() => (token ? null : [])); // null = still loading
+  const [scope, setScope] = useState("class");
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    const schoolId = readSchoolId();
-    if (!schoolId) return undefined; // rows stays [] from the lazy init - never query
+    if (!token) return undefined;
     supabase
-      .rpc("get_game_leaderboard", { p_limit: 5, p_school_id: schoolId })
+      .call("get_game_leaderboard", { p_limit: 5, p_student_token: token })
       .then(({ data, error }) => {
         if (cancelled) return;
-        if (error || !Array.isArray(data)) {
+        if (error || !Array.isArray(data?.rows)) {
           setFailed(true);
           return;
         }
         setFailed(false);
-        setRows(data.filter(row => (row.total_points || 0) > 0));
+        setScope(data.scope === "school" ? "school" : "class");
+        setRows(data.rows.filter(row => (row.total_points || 0) > 0));
       })
       .catch(() => {
         if (!cancelled) setFailed(true);
@@ -66,12 +69,14 @@ function Leaderboard({ refreshSignal }) {
     return () => {
       cancelled = true;
     };
-  }, [refreshSignal]);
+  }, [refreshSignal, token]);
+
+  const privacyText = `Nickname-only scores stay in your ${scope}.`;
 
   if (failed) {
     return (
       <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
         <p className="lg-leaderboard-empty">High scores are taking a break — try again in a little while.</p>
       </div>
     );
@@ -80,7 +85,7 @@ function Leaderboard({ refreshSignal }) {
   if (!rows) {
     return (
       <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
         <p className="lg-leaderboard-empty">Loading high scores…</p>
       </div>
     );
@@ -89,7 +94,7 @@ function Leaderboard({ refreshSignal }) {
   if (rows.length === 0) {
     return (
       <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
         <p className="lg-leaderboard-empty">No high scores yet — play a game to get on the board!</p>
       </div>
     );
@@ -99,7 +104,7 @@ function Leaderboard({ refreshSignal }) {
     <div className="lg-leaderboard" aria-label="High scores">
       <div className="lg-leaderboard-head">
         <h2>Top Readers</h2>
-        <span>Points from every game count.</span>
+        <span>Points from every game count. {privacyText}</span>
       </div>
       <ol className="lg-leaderboard-list">
         {rows.map((row, index) => (
@@ -107,7 +112,7 @@ function Leaderboard({ refreshSignal }) {
             <span className="lg-leaderboard-rank" aria-hidden="true">{index + 1}</span>
             <span className="lg-leaderboard-who">
               <strong>{row.student_name}</strong>
-              {row.school_name && <em>{row.school_name}</em>}
+              <em>{scope === "school" ? "Your school" : "Your class"}</em>
             </span>
             <span className="lg-leaderboard-points">{row.total_points} pts</span>
           </li>
@@ -154,12 +159,30 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   }
 
   const world = worldForDifficulty(progress.difficulty);
+  const visibleGames = (TABS.find(entry => entry.id === tab) || TABS[0]).games;
+  const recommendedGame = visibleGames.find(game => (
+    (getLearnGameProgress(progress, game.id).stars || 0) === 0
+  )) || visibleGames[0];
 
   return (
     <section className="lg-arcade lg-arcade-comic" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
       {/* Slim top band with the 8-bit title + difficulty + sound */}
       <div className="lg-arcade-topband">
-        <h1 id="lg-arcade-title" className="lg-arcade-8bit">Arcade Area</h1>
+        <div>
+          <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">Arcade Area</h1>
+          <p className="lg-arcade-instruction" data-child-instruction="">Pick one game. Your next unplayed game is marked first.</p>
+          {recommendedGame && (
+            <p className="lg-arcade-recommendation-reason">
+              <strong>Why this one?</strong>{" "}
+              <ChildRecommendationExplanation
+                surface="arcade"
+                reason={(getLearnGameProgress(progress, recommendedGame.id).stars || 0) > 0
+                  ? "You have played every game here, so this one is ready to replay."
+                  : "This is the next game here that you have not played yet."}
+              />
+            </p>
+          )}
+        </div>
         <div className="lg-arcade-topband-controls">
           <div className="lg-segmented-control" aria-label="Difficulty">
             {DIFFICULTIES.map(difficulty => (
@@ -203,16 +226,20 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         id="lg-arcade-tabpanel"
         role="tabpanel"
         aria-labelledby={`lg-arcade-tab-${tab}`}
+        data-child-choices=""
       >
-        {(TABS.find(entry => entry.id === tab) || TABS[0]).games.map(game => {
+        {visibleGames.map(game => {
           const gameProgress = getLearnGameProgress(progress, game.id);
+          const isRecommended = game.id === recommendedGame?.id;
           return (
             <button
               key={game.id}
               type="button"
-              className="lg-game-tile"
+              className={`lg-game-tile${isRecommended ? " is-recommended" : ""}`}
               style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
               onClick={() => setActiveGame(game)}
+              data-child-primary={isRecommended ? "" : undefined}
+              data-child-emphasis={isRecommended ? "primary" : "choice"}
             >
               <span className="lg-game-tile-art" aria-hidden="true">
                 <img
@@ -226,6 +253,9 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
                 />
               </span>
               <span className="lg-game-tile-name">{game.title}</span>
+              {isRecommended && (
+                <span className="lg-game-tile-next" data-child-emphasis-cue="">Play next</span>
+              )}
               <span className="lg-game-tile-foot">
                 <ProgressStars stars={gameProgress.stars || 0} />
                 {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
@@ -236,9 +266,9 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       </div>
 
       {/* Slim bottom banner: points + high-score board */}
-      <div className="lg-arcade-bottomband">
+      <div className="lg-arcade-bottomband" data-child-progress="">
         <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
-        <span className="lg-arcade-played">{totals.completed}/{ARCADE_GAMES.length} games played</span>
+        <span className="lg-arcade-played">{totals.completed} of {ARCADE_GAMES.length} games played</span>
         <button
           type="button"
           className="lg-arcade-highscores"
@@ -249,7 +279,9 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         </button>
       </div>
 
-      {showLeaderboard && <Leaderboard refreshSignal={leaderboardRefresh} />}
+      {showLeaderboard && (
+        <Leaderboard refreshSignal={leaderboardRefresh} />
+      )}
 
       {activeGame && (
         <GamePlayer

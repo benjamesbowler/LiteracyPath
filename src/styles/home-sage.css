@@ -22,14 +22,14 @@
 }
 
 .lp-home-sage {
-  --hs-sage: #5CA091;
-  --hs-pill: rgba(255, 255, 255, 0.28);
+  --hs-sage: #3E776B;
+  --hs-pill: rgba(0, 0, 0, 0.16);
   --hs-cream: #FBF4EA;
   --hs-ink: #182620;
   --hs-ink-soft: #4A5A52;
   --hs-line: #E9E1D4;
   --hs-forest: #2E4B3E;
-  --hs-tan: #C98F54;
+  --hs-tan: #9F5B23;
   --hs-promo: #D9924E;
   --hs-gold: #F2B33D;
   --hs-sky: #BFE3D8;
@@ -113,67 +113,73 @@
   gap: 4px;
 }
 
-.lp-home-sage .hs-nav button {
+.lp-home-sage .hs-nav-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 3px;
+}
+
+.lp-home-sage .hs-nav-destination {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
   background: none;
   border: 0;
   color: #fff;
   font: 700 15px "Nunito", sans-serif;
   text-align: left;
-  padding: 12px 14px;
+  padding: 10px;
   min-height: 48px;
   border-radius: 14px;
   cursor: pointer;
 }
 
-.lp-home-sage .hs-nav button:hover { background: rgba(255, 255, 255, 0.14); }
-.lp-home-sage .hs-nav button.is-active { background: var(--hs-pill); }
-.lp-home-sage .hs-nav svg { width: 20px; height: 20px; flex: 0 0 20px; }
-
-.lp-home-sage .hs-side-spacer { flex: 1; }
-
-.lp-home-sage .hs-daily {
-  width: 100%;
-  background: var(--hs-promo);
-  border: 2px solid rgba(255, 255, 255, 0.85);
-  border-radius: 16px;
-  padding: 12px 13px 13px;
-  color: #fff;
+.lp-home-sage .hs-nav-destination:hover,
+.lp-home-sage .hs-nav-hear:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
 
-.lp-home-sage .hs-daily h3 { margin: 0; font-size: 14px; font-weight: 800; }
-.lp-home-sage .hs-daily p { margin: 2px 0 0; font-size: 11.5px; opacity: 0.92; }
+.lp-home-sage .hs-nav-destination.is-active { background: var(--hs-pill); }
 
-.lp-home-sage .hs-daily-dots {
-  display: flex;
-  gap: 6px;
-  margin: 9px 0 10px;
+.lp-home-sage .hs-nav-destination svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
 }
 
-.lp-home-sage .hs-daily-dots span {
-  width: 26px;
-  height: 8px;
-  border-radius: 99px;
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.lp-home-sage .hs-daily-dots span.is-done { background: #fff; }
-
-.lp-home-sage .hs-daily button {
-  width: 100%;
-  min-height: 40px;
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  color: #fff;
-  font: 800 13px "Nunito", sans-serif;
+.lp-home-sage .hs-nav-hear {
+  display: grid;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: rgba(255, 255, 255, 0.86);
   cursor: pointer;
 }
 
-.lp-home-sage .hs-daily button:hover { background: rgba(255, 255, 255, 0.15); }
+.lp-home-sage .hs-nav-hear svg {
+  width: 19px;
+  height: 19px;
+}
+
+.lp-home-sage .hs-nav-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.lp-home-sage .hs-side-spacer { flex: 1; }
 
 /* ── main column ─────────────────────────────────────────────────────────── */
 .lp-home-sage .hs-main {
@@ -221,7 +227,7 @@
 }
 
 .lp-home-sage .hs-logo-copy > span {
-  color: #C4512B;
+  color: #B44322;
 }
 
 .lp-home-sage .hs-top-actions {
@@ -264,6 +270,10 @@
 .lp-home-sage .hs-btn-primary:hover { background: var(--hs-forest-hi); }
 .lp-home-sage .hs-btn-ghost svg,
 .lp-home-sage .hs-btn-primary svg { width: 16px; height: 16px; }
+.lp-home-sage .hs-btn-primary .hs-btn-label {
+  line-height: 1.2;
+  white-space: nowrap;
+}
 
 .lp-home-sage .hs-menu {
   position: absolute;
@@ -329,19 +339,261 @@
   font-weight: 600;
 }
 
-/* ── cards ───────────────────────────────────────────────────────────────── */
-.lp-home-sage .hs-grid {
+/* ── daily mission in the main hierarchy ────────────────────────────────── */
+.lp-home-sage .hs-mission-main {
+  margin-top: 20px;
+  padding: 14px 16px 15px;
+  border: 1.5px solid #E8D4BB;
+  border-radius: 18px;
+  background: #FCF6EC;
+}
+
+.lp-home-sage .hs-mission-main-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.lp-home-sage .hs-mission-main-head > div {
+  display: grid;
+  gap: 1px;
+}
+
+.lp-home-sage .hs-mission-main-head > div > span {
+  color: var(--hs-tan);
+  font-size: 10.5px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.lp-home-sage .hs-mission-main-head h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.lp-home-sage .hs-mission-main-head > strong {
+  color: var(--hs-forest);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.lp-home-sage .hs-mission-progress {
+  width: 100%;
+  height: 7px;
+  margin: 10px 0 11px;
+  display: block;
+  border: 0;
+  border-radius: 99px;
+  overflow: hidden;
+  background: #EADDCB;
+  accent-color: var(--hs-sage);
+}
+
+.lp-home-sage .hs-mission-progress::-webkit-progress-bar {
+  background: #EADDCB;
+}
+
+.lp-home-sage .hs-mission-progress::-webkit-progress-value {
+  border-radius: 99px;
+  background: var(--hs-sage);
+}
+
+.lp-home-sage .hs-mission-progress::-moz-progress-bar {
+  border-radius: 99px;
+  background: var(--hs-sage);
+}
+
+.lp-home-sage .hs-mission-steps {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+
+.lp-home-sage .hs-mission-steps li {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  color: var(--hs-ink-soft);
+}
+
+.lp-home-sage .hs-mission-steps li.is-next {
+  border-color: var(--hs-tan);
+  background: #fff;
+  color: var(--hs-ink);
+}
+
+.lp-home-sage .hs-mission-steps li.is-done {
+  color: var(--hs-forest);
+}
+
+.lp-home-sage .hs-mission-step-number {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #EADDCB;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.lp-home-sage .hs-mission-steps li.is-next .hs-mission-step-number {
+  background: var(--hs-tan);
+  color: #fff;
+}
+
+.lp-home-sage .hs-mission-steps li.is-done .hs-mission-step-number {
+  background: var(--hs-sage);
+  color: #fff;
+}
+
+.lp-home-sage .hs-mission-steps li > span:last-child {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.lp-home-sage .hs-mission-steps strong,
+.lp-home-sage .hs-mission-steps small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lp-home-sage .hs-mission-steps strong {
+  font-size: 13px;
+}
+
+.lp-home-sage .hs-mission-steps small {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ── policy-led home hierarchy ───────────────────────────────────────────── */
+.lp-home-sage .hs-recommendation-grid {
   margin-top: 24px;
   display: grid;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.lp-home-sage .hs-primary-choice {
+  display: flex;
+  min-width: 0;
+}
+
+.lp-home-sage .hs-primary-choice > .hs-card {
+  width: 100%;
+}
+
+.lp-home-sage .hs-secondary-choices {
+  min-width: 0;
+  padding: 14px;
+  border: 1.5px solid var(--hs-line);
+  border-radius: 18px;
+  background: var(--hs-cream);
+}
+
+.lp-home-sage .hs-choice-heading {
+  display: grid;
+  gap: 2px;
+  margin: 0 2px 11px;
+}
+
+.lp-home-sage .hs-choice-heading > span {
+  color: var(--hs-tan);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lp-home-sage .hs-choice-heading h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.lp-home-sage .hs-secondary-grid,
+.lp-home-sage .hs-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.lp-home-sage .hs-more-explore {
+  margin-top: 18px;
+  border: 1.5px solid var(--hs-line);
+  border-radius: 16px;
+  background: #fff;
+  overflow: clip;
+}
+
+.lp-home-sage .hs-more-explore summary {
+  min-height: 58px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--hs-forest);
+}
+
+.lp-home-sage .hs-more-explore summary::-webkit-details-marker {
+  display: none;
+}
+
+.lp-home-sage .hs-more-explore summary > span {
+  display: grid;
+  gap: 1px;
+}
+
+.lp-home-sage .hs-more-explore summary strong {
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.lp-home-sage .hs-more-explore summary small {
+  color: var(--hs-ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lp-home-sage .hs-more-explore summary > svg {
+  width: 19px;
+  height: 19px;
+  transition: rotate 0.15s ease;
+}
+
+.lp-home-sage .hs-more-explore[open] summary > svg {
+  rotate: 90deg;
+}
+
+.lp-home-sage .hs-explore-grid {
+  padding: 0 14px 14px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* The hero uses two grid units, so the seven destinations occupy exactly
-   eight units: two complete rows on desktop, then complete two- or one-column
-   rows as the sheet narrows. This keeps My Hollow from leaving a stray gap. */
-@container hs-sheet (max-width: 920px) {
-  .lp-home-sage .hs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.lp-home-sage .hs-no-activity {
+  margin: 24px 0 0;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--hs-cream);
+  font-weight: 800;
 }
 
 .lp-home-sage .hs-card {
@@ -362,7 +614,7 @@
   transition: transform 0.12s, box-shadow 0.12s;
 }
 
-.lp-home-sage .hs-card h2 { text-align: left; }
+.lp-home-sage .hs-card h3 { text-align: left; }
 
 .lp-home-sage .hs-card:hover {
   transform: translateY(-3px);
@@ -370,15 +622,9 @@
 }
 
 .lp-home-sage .hs-card.is-hero {
-  grid-column: span 2;
   background: linear-gradient(135deg, #F3FAF4, #fff);
-}
-
-/* Keep this after the base hero span so the narrow rule wins the cascade and
-   cannot manufacture an implicit second track on phones. */
-@container hs-sheet (max-width: 520px) {
-  .lp-home-sage .hs-grid { grid-template-columns: minmax(0, 1fr); }
-  .lp-home-sage .hs-card.is-hero { grid-column: span 1; }
+  border: 2px solid var(--hs-sage);
+  box-shadow: 0 8px 24px rgba(46, 75, 62, 0.1);
 }
 
 .lp-home-sage .hs-thumb {
@@ -389,7 +635,7 @@
   background: var(--hs-sky);
 }
 
-.lp-home-sage .hs-card.is-hero .hs-thumb { height: 148px; }
+.lp-home-sage .hs-card.is-hero .hs-thumb { height: 210px; }
 
 .lp-home-sage .hs-thumb img {
   position: absolute;
@@ -397,19 +643,132 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.lp-home-sage .hs-thumb[data-media-state="loading"] img {
+  opacity: 0;
+}
+
+.lp-home-sage .hs-thumb[data-media-state="loading"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.72) 0 9%, transparent 10%),
+    linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.48) 42%, transparent 64%),
+    linear-gradient(155deg, #d9eee6, #f5ead6);
+  background-size: auto, 220% 100%, auto;
+  animation: hs-media-placeholder 1.4s ease-in-out infinite;
+}
+
+@keyframes hs-media-placeholder {
+  0%,
+  100% { background-position: center, 120% 0, center; }
+  50% { background-position: center, -120% 0, center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-home-sage .hs-thumb[data-media-state="loading"]::after {
+    animation: none;
+  }
 }
 
 /* The hero uses the meadow sky painting; its bottom edge darkens into the
    horizon and crops murky. Hold the bright top of the sky instead. */
 .lp-home-sage .hs-card.is-hero .hs-thumb img { object-position: center top; }
 
-.lp-home-sage .hs-card h2 {
+.lp-home-sage .hs-card h3 {
   margin: 11px 0 0;
   font-size: 18px;
   font-weight: 800;
 }
 
-.lp-home-sage .hs-card.is-hero h2 { font-size: 20.5px; }
+.lp-home-sage .hs-card.is-hero h3 {
+  margin-top: 4px;
+  font-size: 24px;
+}
+
+.lp-home-sage .hs-card-kicker {
+  margin-top: 12px;
+  color: var(--hs-tan);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lp-home-sage .hs-card-reason {
+  margin-top: 3px;
+  color: var(--hs-ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.lp-home-sage .hs-card-action {
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--hs-forest);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.lp-home-sage .hs-card-action svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.lp-home-sage .hs-card-state-row {
+  min-height: 25px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lp-home-sage .hs-card-state {
+  min-height: 23px;
+  padding: 4px 9px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.lp-home-sage .hs-card-state.is-new {
+  border: 1px solid #E0C9AA;
+  background: #FFF9EF;
+  color: #79552E;
+}
+
+.lp-home-sage .hs-card-state.is-continue {
+  background: var(--hs-sky);
+  color: var(--hs-forest);
+}
+
+.lp-home-sage .hs-card-state.is-teacher {
+  background: var(--hs-forest);
+  color: #fff;
+}
+
+.lp-home-sage .hs-card-progress {
+  color: var(--hs-ink-soft);
+  font-size: 11px;
+  font-weight: 800;
+}
 
 .lp-home-sage .hs-chips {
   display: flex;
@@ -468,6 +827,27 @@
 
 .lp-home-sage .hs-card.is-locked { opacity: 0.72; }
 
+@container hs-sheet (max-width: 920px) {
+  .lp-home-sage .hs-recommendation-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lp-home-sage .hs-card.is-hero .hs-thumb {
+    height: 190px;
+  }
+
+  .lp-home-sage .hs-explore-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container hs-sheet (max-width: 520px) {
+  .lp-home-sage .hs-secondary-grid,
+  .lp-home-sage .hs-explore-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .lp-home-sage .hs-bar {
   flex: 1;
   height: 9px;
@@ -491,26 +871,89 @@
     box-sizing: border-box;
     width: 100%;
     flex: 0 0 auto;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr) auto;
     align-items: center;
-    gap: 12px;
+    column-gap: 12px;
+    row-gap: 10px;
     padding: 12px 14px;
   }
 
   .lp-home-sage .hs-avatar { width: 52px; height: 52px; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.45); }
   .lp-home-sage .hs-avatar img { width: 44px; height: 44px; }
   .lp-home-sage .hs-name { margin: 0; }
-  .lp-home-sage .hs-coins { margin: 0 0 0 auto; }
-  .lp-home-sage .hs-nav,
-  .lp-home-sage .hs-side-spacer,
-  .lp-home-sage .hs-daily { display: none; }
+  .lp-home-sage .hs-coins { margin: 0; }
+  .lp-home-sage .hs-nav {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 2px;
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+  .lp-home-sage .hs-nav::-webkit-scrollbar { display: none; }
+  .lp-home-sage .hs-nav-item {
+    flex: 0 0 auto;
+    width: 166px;
+    scroll-snap-align: start;
+  }
+  .lp-home-sage .hs-nav-destination {
+    white-space: nowrap;
+  }
+  .lp-home-sage .hs-side-spacer { display: none; }
   .lp-home-sage .hs-sheet { margin: 6px 12px 14px; padding: 22px 18px 26px; }
   .lp-home-sage .hs-sheet-head h1 { font-size: 30px; }
   .lp-home-sage .hs-topbar { padding: 10px 14px 4px; }
 }
 
+@media (max-width: 1100px) {
+  .lp-home-sage .hs-topbar {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .lp-home-sage .hs-logo {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .lp-home-sage .hs-top-actions {
+    grid-column: 2;
+  }
+}
+
 @media (max-width: 620px) {
   .lp-home-sage .hs-logo-copy { display: none; }
+  .lp-home-sage .hs-top-actions {
+    min-width: 0;
+    gap: 6px;
+  }
+  .lp-home-sage .hs-btn-ghost {
+    padding-inline: 10px;
+  }
+  .lp-home-sage .hs-btn-primary {
+    min-width: 0;
+    padding-inline: 10px;
+    font-size: 12px;
+  }
+  .lp-home-sage .hs-btn-primary .hs-btn-label {
+    white-space: normal;
+  }
+  .lp-home-sage .hs-mission-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+  .lp-home-sage .hs-mission-steps li {
+    padding-block: 6px;
+  }
+  .lp-home-sage .hs-recommendation-grid {
+    margin-top: 16px;
+  }
+  .lp-home-sage .hs-card.is-hero .hs-thumb {
+    height: 128px;
+  }
 }
 
 /* ── keyboard + motion accessibility ─────────────────────────────────────── */
@@ -519,8 +962,8 @@
 .lp-home-sage .hs-coins:focus-visible,
 .lp-home-sage .hs-btn-ghost:focus-visible,
 .lp-home-sage .hs-btn-primary:focus-visible,
-.lp-home-sage .hs-daily button:focus-visible,
 .lp-home-sage .hs-menu button:focus-visible,
+.lp-home-sage .hs-more-explore summary:focus-visible,
 .lp-home-sage .icon-btn:focus-visible {
   outline: 3px solid #F2B33D;
   outline-offset: 2px;
@@ -529,6 +972,7 @@
 @media (prefers-reduced-motion: reduce) {
   .lp-home-sage .hs-card { transition: none; }
   .lp-home-sage .hs-card:hover { transform: none; }
+  .lp-home-sage .hs-more-explore summary > svg { transition: none; }
 }
 
 /* ── scroll-driven entrances (FRONTIER/26 study) ─────────────────────────────

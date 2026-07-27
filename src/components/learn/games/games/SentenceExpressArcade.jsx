@@ -50,7 +50,8 @@ const onboardPanelStyle = {
 function SentenceExpressOnboarding({ onStart }) {
   useEffect(() => {
     const onKey = event => {
-      if (event.key === "Escape") return; // GamePlayer owns Esc (quit dialog).
+      if (!["Enter", " "].includes(event.key)) return;
+      if (event.target instanceof HTMLButtonElement) return;
       onStart();
     };
     window.addEventListener("keydown", onKey);
@@ -78,7 +79,13 @@ function SentenceExpressOnboarding({ onStart }) {
           <span>Swap the rusty car and load the missing crate when they roll in.</span>
           <span>Pick the capital engine and the right end-mark caboose ( . ! ? ).</span>
         </div>
-        <div style={{
+        <button
+          type="button"
+          onClick={event => {
+            event.stopPropagation();
+            onStart();
+          }}
+          style={{
           marginTop: 18,
           display: "inline-block",
           background: "linear-gradient(#ffd76a,#dfa32c)",
@@ -87,11 +94,12 @@ function SentenceExpressOnboarding({ onStart }) {
           padding: "8px 22px",
           fontWeight: 900,
           fontSize: "1rem"
-        }}>
+          }}
+        >
           Tap to play
-        </div>
+        </button>
         <div style={{ marginTop: 8, fontSize: ".74rem", fontWeight: 700, color: "rgba(16,21,29,.6)" }}>
-          or press any key
+          or press Enter
         </div>
       </div>
     </div>

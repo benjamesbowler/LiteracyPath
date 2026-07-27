@@ -105,6 +105,17 @@ const vowelTeamItems = [
   ["oak", "oa", "/media/vocabulary/images/oak.webp"]
 ];
 
+const vowelTeamOptionPool = ["ai", "ee", "ea", "oa", "ay", "ue", "igh", "ui", "oo"];
+
+function vowelTeamOptions(pattern, index) {
+  const distractors = vowelTeamOptionPool.filter(value => value !== pattern);
+  const offset = index % distractors.length;
+  return [
+    pattern,
+    ...[...distractors.slice(offset), ...distractors.slice(0, offset)].slice(0, 3)
+  ];
+}
+
 const rControlledItems = [
   ["car", "ar", "/images/child-mode/initial-sounds/car.png"],
   ["star", "ar", "/images/child-mode/blends/star.png"],
@@ -179,7 +190,7 @@ export const assessmentQaReplacementQuestions = [
       skillName: "Vowel Teams",
       word,
       pattern,
-      options: ["ai", "ee", "ea", "oa"],
+      options: vowelTeamOptions(pattern, index),
       imagePath,
       prompt: `Look at the picture. Which vowel team completes ${word}?`,
       phase: index < 8 ? 1 : 2
@@ -248,7 +259,7 @@ export const assessmentQaReplacementQuestions = [
       itemType: "plural_word"
     })
   ),
-  ...pluralCards.slice(0, 3).map((card, index) =>
+  ...pluralCards.slice(0, 5).map((card, index) =>
     makeVisualChoiceQuestion({
       id: `qa_plurals_l1_extra_${String(index + 1).padStart(2, "0")}`,
       skillId: "plurals",

@@ -37,6 +37,20 @@
   --kid-press: 0 5px 0;
 }
 
+/* A3.9 exposes the hierarchy as a measurable token as well as a visual one.
+   Route-specific rules below still own the actual scale, colour, and motion. */
+[data-child-surface] :is(button, a) {
+  --child-emphasis-level: 1;
+}
+
+[data-child-surface] :is(button, a):is([aria-current="page"], [aria-pressed="true"]) {
+  --child-emphasis-level: 2;
+}
+
+[data-child-surface] [data-child-primary][data-child-emphasis="primary"] {
+  --child-emphasis-level: 3;
+}
+
 /* ── 2. Use the whole screen ─────────────────────────────────────────────── */
 /* The generic shell caps no-sidebar views at 1120px — student mode gets the
    full width of the projector instead. */

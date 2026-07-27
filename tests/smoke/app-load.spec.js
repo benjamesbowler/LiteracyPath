@@ -32,11 +32,11 @@ test.describe("app startup smoke", () => {
     await expect(page).toHaveTitle("Literacy Guide");
     await expect(page.locator("#root")).not.toHaveText("");
     await expect(page.getByRole("heading", { name: "Choose your space" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Students: Little Literacy Guides" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Children: Little Literacy Guides" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" })).toBeVisible();
 
     await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
-    await expect(page.getByRole("heading", { name: "Teacher login" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Teacher sign-in" })).toBeVisible();
     await expect(page.getByRole("img", { name: "Literacy Guide" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Log in" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Create account" })).toBeVisible();

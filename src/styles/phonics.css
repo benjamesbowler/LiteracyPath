@@ -138,6 +138,37 @@
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
 }
 
+.phonics-letter-card.recommended:not(:disabled) {
+  outline: 3px solid #F2B84B;
+  outline-offset: 2px;
+  background: #FFF8E8;
+  box-shadow: 0 0 0 5px rgba(242, 184, 75, 0.2), 0 10px 22px rgba(37, 51, 64, 0.16);
+}
+
+.phonics-letter-next {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #8A4F08;
+  color: #FFFFFF;
+  font: 900 0.65rem/1 var(--phonics-font-body);
+  white-space: nowrap;
+}
+
+.phonics-recommendation-reason {
+  margin: 0;
+  color: #425466;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.phonics-recommendation-reason strong {
+  color: #663c00;
+}
+
 .phonics-letter-card.locked {
   border-color: #d7dce0;
   background: #eef1f3;
@@ -849,12 +880,12 @@
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 8px 20px rgba(16, 24, 40, 0.07);
 }
 
-.phonics-practice-overview h2,
+.phonics-practice-overview h1,
 .phonics-practice-overview p {
   margin: 0;
 }
 
-.phonics-practice-overview h2 {
+.phonics-practice-overview h1 {
   color: var(--phonics-ink);
   font: 900 clamp(1.35rem, 2.7vw, 1.9rem) var(--phonics-font-display);
   letter-spacing: 0;
@@ -948,7 +979,11 @@
 }
 
 .phonics-island-card.locked .phonics-island-label small {
-  color: #98a1a6;
+  color: #626b70;
+}
+
+.phonics-island-card.locked .phonics-island-label > span {
+  color: #626b70;
 }
 
 .phonics-island-card.active {
@@ -1410,7 +1445,7 @@
   padding: 10px 16px;
 }
 
-.phonics-practice-overview h2 {
+.phonics-practice-overview h1 {
   font-size: clamp(1.15rem, 2vw, 1.45rem);
 }
 

@@ -915,7 +915,7 @@ test("two open tabs preserve each other's forward quest progress", async ({ page
 test("start again survives a stale cloud hydrate, close, reopen, and full reload", async ({ page }) => {
   const scope = "reset-reentry-regression";
   const storageKey = `lp-quest:${scope}`;
-  const url = `/quest-preview.html?scope=${scope}&sound=0`;
+  const url = `/preview/quest-preview.html?scope=${scope}&sound=0`;
 
   // Establish the preview origin, then seed a save with every class of state
   // that the child-facing reset promises to clear.
@@ -1025,12 +1025,12 @@ test("start again survives a stale cloud hydrate, close, reopen, and full reload
     checkpoint: null
   });
 
-  await page.getByRole("button", { name: "Close Sound Seekers" }).click();
+  await page.getByRole("button", { name: "Close Make your creature" }).click();
   await expect(page.getByText("Closed. Your progress was saved.")).toBeVisible();
   await page.getByRole("button", { name: "Open Sound Seekers" }).click();
   await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Close Sound Seekers" }).click();
+  await page.getByRole("button", { name: "Close Make your creature" }).click();
   await expect(page.getByText("Closed. Your progress was saved.")).toBeVisible();
   await page.reload();
   await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();

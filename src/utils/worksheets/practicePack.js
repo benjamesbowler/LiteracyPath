@@ -25,6 +25,7 @@ import { heartWordsThrough, QUEST_STOPS } from "../../data/questSequence.js";
 // "a_e" prints as "a–e" — the shared label rule from questLabels.js (DOM-free,
 // so worksheets stay printable from node too).
 import { graphemeLabel } from "../questLabels.js";
+import { openHtmlDocument } from "../openHtmlDocument.js";
 export const packTargetLabel = graphemeLabel;
 
 function esc(value) {
@@ -169,10 +170,12 @@ export function buildPracticePackDocument({ name, targets = [], stopIndex, date 
 // browser blocked the pop-up.
 export function printPracticePack(options) {
   const result = buildPracticePackDocument(options);
-  const win = window.open("", "lp-practice-pack", "width=900,height=1100");
-  if (!win) return false;
-  win.document.write(result.html.replace("<body>", '<body onload="setTimeout(function(){window.print()},300)">'));
-  win.document.close();
-  win.document.title = result.title;
+  const opened = openHtmlDocument({
+    html: result.html,
+    name: "lp-practice-pack",
+    features: "width=900,height=1100",
+    autoPrint: true
+  });
+  if (!opened.ok) return false;
   return result;
 }

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { getApprovedAudioPath } from "../audioPreferenceManifest.js";
 import { getChildWordAsset } from "../childAssets.js";
+import { isMediaQaRuntimeAllowed } from "../mediaQaManifest.js";
 
 const SOURCE = "grammar_replacement_2026_06";
 const FORMAT_SENTENCE_FIT = "GRAMMAR_SENTENCE_FIT";
@@ -368,7 +369,9 @@ function levelOneDistractors(partOfSpeech, index) {
 }
 
 function sentenceOptions(partOfSpeech, answer, index) {
-  const words = targetSets[partOfSpeech].map(([word]) => word);
+  const words = targetSets[partOfSpeech]
+    .map(([word]) => word)
+    .filter(word => word === answer || approvedAudioFor(word));
   return rotate(words.filter(word => word !== answer), index * 7)
     .slice(0, 3)
     .concat(answer)
@@ -479,7 +482,10 @@ function buildSkillQuestions(config, targets) {
   return [
     ...targets.map((target, index) => makeLevelOneQuestion(config, target, index)),
     ...targets.map((target, index) => makeLevelTwoQuestion(config, target, index))
-  ];
+  ].filter(question =>
+    question.imagePath &&
+    isMediaQaRuntimeAllowed(question.imagePath, "image")
+  );
 }
 
 export const grammarAssessmentQuestions = [

@@ -4,11 +4,16 @@ import {
   rhymingExpectedItemKeys,
   rhymingLevelTwoExpectedItemKeys
 } from "./coverageExpectations.js";
+import {
+  HFW_CLOZE_FORMATS,
+  HFW_SENTENCE_SPELL_FORMATS
+} from "./hfwAssessmentFormatConfig.js";
+import { assessmentReleaseStandard } from "../content/releaseStandard.js";
 
 export const SKILL_LEVEL_DEPTH_TARGETS = {
-  phaseSize: 15,
+  phaseSize: assessmentReleaseStandard.defaults.questionCount.phaseSize,
   phaseBufferSize: 23,
-  minimumPerLevel: 46,
+  minimumPerLevel: assessmentReleaseStandard.defaults.questionCount.minimumPerLevel,
   simulationRounds: 100
 };
 
@@ -99,8 +104,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 1-25",
     aliases: ["high-frequency words 1-25"],
     levels: {
-      1: { designed: true, rule: "Sentence cloze tasks for the first 25 high-frequency words.", allowedFormats: ["HFW_SENTENCE_CLOZE_CONTEXT", "HFW_SENTENCE_CLOZE_CONTEXT_ALT"] },
-      2: { designed: true, rule: "Listen-and-spell sentence tasks using the same 1-25 band.", allowedFormats: ["HFW_SENTENCE_SPELL_LISTEN", "HFW_SENTENCE_SPELL_LISTEN_ALT"] }
+      1: { designed: true, rule: "Sentence cloze tasks for the first 25 high-frequency words.", allowedFormats: HFW_CLOZE_FORMATS },
+      2: { designed: true, rule: "Listen-and-spell sentence tasks using the same 1-25 band.", allowedFormats: HFW_SENTENCE_SPELL_FORMATS }
     }
   },
   {
@@ -108,8 +113,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 26-50",
     aliases: ["high-frequency words 26-50"],
     levels: {
-      1: { designed: true, rule: "Sentence cloze tasks for high-frequency words 26-50.", allowedFormats: ["HFW_SENTENCE_CLOZE_CONTEXT", "HFW_SENTENCE_CLOZE_CONTEXT_ALT"] },
-      2: { designed: true, rule: "Listen-and-spell sentence tasks using the 26-50 band.", allowedFormats: ["HFW_SENTENCE_SPELL_LISTEN", "HFW_SENTENCE_SPELL_LISTEN_ALT"] }
+      1: { designed: true, rule: "Sentence cloze tasks for high-frequency words 26-50.", allowedFormats: HFW_CLOZE_FORMATS },
+      2: { designed: true, rule: "Listen-and-spell sentence tasks using the 26-50 band.", allowedFormats: HFW_SENTENCE_SPELL_FORMATS }
     }
   },
   {
@@ -117,8 +122,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 51-75",
     aliases: ["high-frequency words 51-75"],
     levels: {
-      1: { designed: true, rule: "Sentence cloze tasks for high-frequency words 51-75.", allowedFormats: ["HFW_SENTENCE_CLOZE_CONTEXT", "HFW_SENTENCE_CLOZE_CONTEXT_ALT"] },
-      2: { designed: true, rule: "Listen-and-spell sentence tasks using the 51-75 band.", allowedFormats: ["HFW_SENTENCE_SPELL_LISTEN", "HFW_SENTENCE_SPELL_LISTEN_ALT"] }
+      1: { designed: true, rule: "Sentence cloze tasks for high-frequency words 51-75.", allowedFormats: HFW_CLOZE_FORMATS },
+      2: { designed: true, rule: "Listen-and-spell sentence tasks using the 51-75 band.", allowedFormats: HFW_SENTENCE_SPELL_FORMATS }
     }
   },
   {
@@ -126,8 +131,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 76-100",
     aliases: ["high-frequency words 76-100"],
     levels: {
-      1: { designed: true, rule: "Sentence cloze tasks for high-frequency words 76-100.", allowedFormats: ["HFW_SENTENCE_CLOZE_CONTEXT", "HFW_SENTENCE_CLOZE_CONTEXT_ALT"] },
-      2: { designed: true, rule: "Listen-and-spell sentence tasks using the 76-100 band.", allowedFormats: ["HFW_SENTENCE_SPELL_LISTEN", "HFW_SENTENCE_SPELL_LISTEN_ALT"] }
+      1: { designed: true, rule: "Sentence cloze tasks for high-frequency words 76-100.", allowedFormats: HFW_CLOZE_FORMATS },
+      2: { designed: true, rule: "Listen-and-spell sentence tasks using the 76-100 band.", allowedFormats: HFW_SENTENCE_SPELL_FORMATS }
     }
   },
   {
@@ -162,7 +167,11 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Vowel Teams",
     aliases: ["vowel teams"],
     levels: {
-      1: { designed: true, rule: "Image-backed vowel-team completion using common ai, ay, ee, ea, oa patterns.", allowedFormats: ["LONG_VOWEL_TEAM_COMPLETE"] },
+      1: {
+        designed: true,
+        rule: "Image/audio-backed vowel-team recognition and completion using stable, familiar spellings.",
+        allowedFormats: ["LONG_VOWEL_TEAM_COMPLETE", "PICTURE_AUDIO_TO_PATTERN"]
+      },
       2: { designed: true, rule: "Image-backed vowel-team completion using oi, oy, ow, ou and ambiguous pairs; no silent-e items.", allowedFormats: ["LONG_VOWEL_TEAM_COMPLETE"] }
     }
   },
@@ -171,7 +180,11 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "R-Controlled Vowels",
     aliases: ["r-controlled vowels", "r controlled vowels"],
     levels: {
-      1: { designed: true, rule: "ar, or, er/ir/ur basics.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] },
+      1: {
+        designed: true,
+        rule: "Image/audio-backed recognition of ar, or, er, ir, and ur in familiar words.",
+        allowedFormats: ["DECODING", "MULTIPLE_CHOICE", "PICTURE_AUDIO_TO_PATTERN"]
+      },
       2: { designed: true, rule: "Mixed r-controlled word discrimination.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] }
     }
   },
@@ -202,12 +215,76 @@ export const managedAssessmentSkillDepthConfig = [
       2: { designed: true, rule: "Choose the adjective that best completes an image-backed sentence from four audio-supported adjective word tiles.", allowedFormats: ["GRAMMAR_SENTENCE_FIT"] }
     }
   },
+  {
+    skillId: "prepositions_of_place",
+    skillName: "Prepositions of Place",
+    aliases: ["prepositions of place", "prepositions"],
+    levels: {
+      1: {
+        designed: true,
+        rule: "Identify a spatial relationship from a picture or concrete text clue.",
+        allowedFormats: ["PREPOSITION_IMAGE_CHOICE", "PREPOSITION_TEXT_CHOICE", "GRAMMAR_IMAGE_CHOICE"]
+      },
+      2: {
+        designed: true,
+        rule: "Complete a sentence or context using a precise spatial relationship.",
+        allowedFormats: ["PREPOSITION_SENTENCE_FIT", "PREPOSITION_CONTEXT_CHOICE", "GRAMMAR_BASICS"]
+      }
+    }
+  },
+  {
+    skillId: "plurals",
+    skillName: "Plurals",
+    aliases: ["plurals"],
+    levels: {
+      1: {
+        designed: true,
+        rule: "Choose an image-backed regular plural and connect one object to more than one.",
+        allowedFormats: ["PLURAL_IMAGE_SPELLING", "PLURAL_SPELLING_CONTEXT", "GRAMMAR_IMAGE_CHOICE"]
+      },
+      2: {
+        designed: true,
+        rule: "Apply plural spellings and endings in word and sentence context.",
+        allowedFormats: ["PLURAL_IMAGE_SPELLING", "PLURAL_RULE_CHOICE", "PLURAL_TEXT_CHOICE"]
+      }
+    }
+  },
+  {
+    skillId: "antonyms_synonyms",
+    skillName: "Antonyms and Synonyms",
+    aliases: ["antonyms and synonyms", "antonyms", "synonyms"],
+    levels: {
+      1: {
+        designed: true,
+        rule: "Match a familiar word to a concrete same-or-opposite meaning clue.",
+        allowedFormats: ["LANGUAGE_PAIR_TEXT_CHOICE", "GRAMMAR_IMAGE_CHOICE"]
+      },
+      2: {
+        designed: true,
+        rule: "Select a synonym or antonym using a precise word or sentence context.",
+        allowedFormats: ["ANTONYM_CHOICE", "SYNONYM_CHOICE", "LANGUAGE_PAIR_TEXT_CHOICE", "COMPREHENSION"]
+      }
+    }
+  },
+  {
+    skillId: "homophones_homonyms",
+    skillName: "Homophones and Homonyms",
+    aliases: ["homophones and homonyms", "homophones", "homonyms"],
+    levels: {
+      1: {
+        designed: true,
+        rule: "Match a familiar same-sounding word pair to its distinct meaning.",
+        allowedFormats: ["HOMOPHONE_MEANING"]
+      },
+      2: {
+        designed: true,
+        rule: "Choose the correct same-sounding word from sentence context.",
+        allowedFormats: ["HOMOPHONE_CONTEXT_CLOZE"]
+      }
+    }
+  },
   ...[
-    ["prepositions_of_place", "Prepositions of Place"],
-    ["plurals", "Plurals"],
     ["prefixes_suffixes", "Prefixes and Suffixes"],
-    ["antonyms_synonyms", "Antonyms and Synonyms"],
-    ["homophones_homonyms", "Homophones and Homonyms"],
     ["sentence_comprehension", "Sentence Comprehension"],
     ["key_details", "Key Details"],
     ["sequencing", "Sequencing"],

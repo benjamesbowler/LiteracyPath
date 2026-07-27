@@ -1,0 +1,112 @@
+import AxeBuilder from "@axe-core/playwright";
+import { expect, test } from "@playwright/test";
+
+const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
+
+async function logIn(page) {
+  if (!teacherPassword) {
+    throw new Error("LP_AUDIT_TEACHER_PASSWORD is required for the teacher accessibility gate.");
+  }
+  await page.goto("/");
+  await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
+  await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
+  await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
+  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+    timeout: 20_000
+  });
+}
+
+async function expectNoSeriousOrCritical(page, state) {
+  const result = await new AxeBuilder({ page }).include(".lg-app-shell").analyze();
+  const blocking = result.violations.filter(
+    violation => violation.impact === "serious" || violation.impact === "critical"
+  );
+  expect(
+    blocking.map(violation => ({
+      id: violation.id,
+      impact: violation.impact,
+      help: violation.help,
+      targets: violation.nodes.map(node => node.target.join(" "))
+    })),
+    `${state} has serious or critical accessibility violations`
+  ).toEqual([]);
+}
+
+async function activateWithKeyboard(locator) {
+  await locator.focus();
+  await expect(locator).toBeFocused();
+  await locator.press("Enter");
+}
+
+test("@a11y-teacher authenticated section journey is keyboard and screen-reader ready", async ({ page }) => {
+  test.setTimeout(120_000);
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  await logIn(page);
+
+  const shell = page.locator(".lg-app-shell");
+  const primaryNav = page.getByTestId("teacher-primary-nav");
+  await expect(page.getByRole("main")).toHaveCount(1);
+  await expect(primaryNav).toHaveAccessibleName("Teacher primary");
+  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
+  await expectNoSeriousOrCritical(page, "Today");
+
+  // 2026-07-27: the section is called Students, not Children.
+  const studentsButton = primaryNav.getByRole("button", { name: "Students", exact: true });
+  await activateWithKeyboard(studentsButton);
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
+  await expect(page.getByRole("main")).toHaveCount(1);
+  const rosterAdmin = page.locator(".teacher-roster-admin");
+  if (!await rosterAdmin.evaluate(element => element.open)) {
+    await activateWithKeyboard(rosterAdmin.locator(":scope > summary"));
+  }
+  const roster = page.getByRole("table").filter({ has: page.getByRole("columnheader", { name: "Display name" }) });
+  const columnPicker = page.locator(".teacher-roster-column-picker");
+  await columnPicker.getByText(/Choose columns/).click();
+  await columnPicker.getByLabel("Sound Seekers", { exact: true }).check();
+  await columnPicker.getByLabel("Sign-in", { exact: true }).check();
+  await expect(roster.getByRole("columnheader")).toHaveCount(8);
+  await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(8);
+
+  const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
+  const moreOptions = aaravRow.getByRole("button", {
+    name: "More options for Aarav",
+    exact: true
+  });
+  await activateWithKeyboard(moreOptions);
+  const childOptions = page.getByRole("dialog", { name: "Options for Aarav" });
+  await expect(childOptions).toBeVisible();
+  await expectNoSeriousOrCritical(page, "Child options dialog");
+  await page.keyboard.press("Escape");
+  await expect(childOptions).toHaveCount(0);
+  await expect(moreOptions).toBeFocused();
+
+  const intentionChecks = [
+    // 2026-07-27: Checks is a destination again, and both it and Reports open
+    // on step 1 of a funnel rather than on a picker.
+    ["Checks", "Start a check"],
+    ["Reports", "Open a report"],
+    ["Resources", "Choose a teaching resource"],
+    ["Settings", "Settings"]
+  ];
+  for (const [name, heading] of intentionChecks) {
+    const button = primaryNav.getByRole("button", { name, exact: true });
+    await activateWithKeyboard(button);
+    await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
+    await expect(page.getByRole("main")).toHaveCount(1);
+    await expectNoSeriousOrCritical(page, name);
+  }
+
+  await primaryNav.getByRole("button", { name: "Settings", exact: true }).click();
+  const siteSettings = page.getByRole("button", { name: "Site settings", exact: true });
+  await activateWithKeyboard(siteSettings);
+  await expect(page.getByRole("heading", {
+    name: "Class sign-in and visibility",
+    exact: true
+  })).toBeVisible();
+  await expectNoSeriousOrCritical(page, "Site settings");
+
+  await expect(shell).toHaveAttribute("data-teacher-class-id", "30000000-0000-4000-8000-000000000001");
+  expect(pageErrors).toEqual([]);
+});

@@ -1,10 +1,8 @@
 <!doctype html>
 <!--
   LiteracyPath Privacy Policy.
-  NOTE FOR BENJAMIN: this is a complete, accurate draft based on how the app
-  actually works today. Have a lawyer review it before you rely on it for a
-  paid/public school rollout. To update the text later, edit this file and
-  docs/legal/PRIVACY_POLICY.md, then push.
+  EXTERNAL-READY DRAFT: qualified legal review is still required.
+  Keep this page in sync with docs/legal/PRIVACY_POLICY.md.
 -->
 <html lang="en">
 <head>
@@ -19,7 +17,7 @@
       margin: 0; background: var(--bg); color: var(--ink);
       font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
     }
-    main { max-width: 760px; margin: 0 auto; padding: 48px 22px 80px; }
+    main { max-width: 800px; margin: 0 auto; padding: 48px 22px 80px; }
     .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(15,23,42,.06); }
     h1 { font-size: 1.9rem; margin: 0 0 6px; color: var(--teal); }
     h2 { font-size: 1.2rem; margin: 32px 0 8px; }
@@ -30,128 +28,195 @@
     li { margin: 4px 0; }
     .note { background: #e3f4f2; border: 1px solid #c0e6e3; border-radius: 12px; padding: 14px 16px; margin: 18px 0; color: #084e4a; font-size: .95rem; }
     footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 26px; }
+    @media (max-width: 560px) {
+      main { padding: 20px 12px 48px; }
+      .card { padding: 26px 20px; border-radius: 12px; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <div class="card">
+    <article class="card">
       <h1>LiteracyPath Privacy Policy</h1>
-      <p class="meta">Last updated: 13 June 2026</p>
-
-      <p>
-        LiteracyPath is an early-literacy and phonics learning tool used by teachers
-        with their pupils (roughly ages 4–7). We care deeply about the privacy of
-        children and the schools and families who trust us. This policy explains what
-        information we collect, how we use it, and the choices available to you.
-      </p>
+      <p class="meta">Last reviewed against the product: 25 July 2026</p>
 
       <div class="note">
-        LiteracyPath is designed to be used through a school or teacher. Schools and
-        teachers act on behalf of parents to authorise the limited collection of pupil
-        information described below, consistent with the “school consent” approach
-        under the U.S. Children’s Online Privacy Protection Act (COPPA) and similar
-        rules. We do not knowingly collect information directly from children outside
-        of a teacher-managed classroom context.
+        This is an external-review-ready draft. Qualified legal review is still
+        required before a paid, public, or school-scale launch. The final legal
+        identity, provider regions, transfer terms, and approved contractual
+        retention periods are not yet confirmed.
       </div>
+
+      <p>
+        LiteracyPath is a teacher-managed early-literacy and phonics service for
+        learners roughly aged 4–7. A school or authorised adult creates and manages
+        learner access. We do not knowingly offer independent child sign-up or
+        collect information from children outside this school-managed context.
+      </p>
 
       <h2>Who we are</h2>
       <p>
-        LiteracyPath is operated by Benjamin Bowler. If you have any questions about
-        this policy or your data, contact us at
+        LiteracyPath is currently operated by Benjamin Bowler. For privacy questions
+        or requests, email
         <a href="mailto:benjamesbowler@gmail.com">benjamesbowler@gmail.com</a>.
+        A final operator address and dedicated contacts will be added before
+        school-scale launch.
       </p>
 
       <h2>Information we collect</h2>
       <ul>
-        <li><strong>Teacher account information:</strong> the email address and display
-          name a teacher provides when they create an account, and the school name they
-          enter.</li>
-        <li><strong>Pupil information (entered by the teacher):</strong> a pupil’s first
-          name (or chosen display name), their class, and a simple three-picture
-          “symbol password” used so young children can log in without typing.</li>
-        <li><strong>Learning activity:</strong> a pupil’s progress, scores, stars,
-          books read, and assessment results, so teachers can track learning and the
-          app can pick the right next activity.</li>
+        <li><strong>Teacher and administrator account:</strong> email, display name,
+          school, approval and role information, classes, settings, and account
+          activity.</li>
+        <li><strong>Learner roster and access:</strong> first or chosen display name,
+          class membership, and picture-code credential material for typing-free
+          sign-in.</li>
+        <li><strong>Learning and school records:</strong> activities, answers, scores,
+          progress, mastery, engagement, books, assessments, evidence versions,
+          teacher interventions, reports, and game/reward state.</li>
+        <li><strong>Accessibility and support settings:</strong> teacher-managed
+          choices such as reduced motion or reduced-choice presentation. These may
+          reveal a support need and are handled with additional care.</li>
+        <li><strong>Operational security and reliability:</strong> privacy-minimal
+          event types, one-way fingerprints, times, release identity, redacted error
+          fingerprints, severity, and sync health. Error records exclude arbitrary
+          messages, names, answers, full URLs, tokens, and school, class, or learner
+          IDs.</li>
+        <li><strong>Browser storage:</strong> local progress, settings, reports, retry
+          queues, session recovery, and cached content may remain on the
+          school-managed device for offline saves and reliability.</li>
       </ul>
       <p>
-        We do <strong>not</strong> collect a pupil’s email address, home address,
-        phone number, precise location, photographs, or any sensitive personal
-        information. We do not ask children for personal details.
+        We do not ask for a learner email, home address, phone number, precise
+        location, uploaded photograph, or free-form medical or safeguarding notes.
+        Schools should not enter unnecessary sensitive information.
       </p>
-
-      <h2>What we do <em>not</em> do</h2>
-      <ul>
-        <li>We do not show advertising of any kind.</li>
-        <li>We do not sell, rent, or trade personal information.</li>
-        <li>We do not use third-party advertising or behavioural-tracking services.</li>
-        <li>We do not build marketing profiles of children.</li>
-      </ul>
 
       <h2>How we use information</h2>
       <p>
-        Information is used only to operate the learning service: to sign pupils in,
-        save and show their progress to their teacher, choose appropriate activities,
-        and let teachers print certificates and reports. Teacher contact details are
-        used to manage the account and for essential service messages.
+        We use information to provide adult and learner access, administer classes,
+        deliver and adapt learning, store progress and evidence, create reports,
+        protect the service, recover saves, respond to requests, and carry out
+        approved return or deletion operations.
+      </p>
+      <p>
+        We do not show advertising, sell or rent personal data, build marketing
+        profiles of children, or use identifiable learner data to train an AI model.
+        The deployed learner application does not send learner prompts, answers, or
+        profiles to an AI provider.
       </p>
 
-      <h2>How information is stored and shared</h2>
+      <h2>Schools, parents, and learners</h2>
       <p>
-        Data is stored using trusted infrastructure providers who process it only to
-        host the service on our behalf:
+        The school or authorised customer must choose a valid legal basis and provide
+        required notices. Where a valid US school-authorisation approach is used,
+        authority is limited to the educational context and cannot authorise an
+        unrelated commercial purpose. LiteracyPath keeps its own operator duties.
       </p>
+      <p>
+        Parents and guardians can ask the school to review, correct, export, restrict,
+        or delete their child’s information, stop further collection where applicable,
+        and explain an alternative learning route. We may verify and route a request
+        through the school to protect the learner and education record.
+      </p>
+
+      <h2 id="providers-regions">Storage, providers, and regions</h2>
       <ul>
-        <li><strong>Supabase</strong> — secure database and login services.</li>
-        <li><strong>Vercel</strong> — website hosting.</li>
+        <li><strong>Supabase</strong> provides teacher authentication, database
+          storage and functions, first-party operational error records, backups, and
+          platform support.</li>
+        <li><strong>Vercel</strong> hosts and delivers the web application and may
+          process ordinary request metadata such as IP address, user agent, URL, and
+          time in platform logs.</li>
+        <li><strong>Google Fonts</strong> may receive ordinary network metadata when
+          a connected user opens certain printable/exported HTML documents that
+          request a font. Removing or self-hosting those fonts is an open launch
+          decision.</li>
       </ul>
       <p>
-        We share personal information only with these service providers, or where
-        required by law. A pupil’s information is visible to their own teacher and
-        school. Because the symbol password is a simple picture code intended for very
-        young children, it is visible to the managing teacher by design and should not
-        be treated as a strong secret.
+        Supabase and Vercel are the current hosted-service providers. Their final
+        contracting entities, project and support regions, onward-provider
+        locations, log and backup periods, and international transfer terms are
+        deployment-specific and remain unconfirmed. This page does not claim a
+        region that has not been checked in the provider dashboards and contracts.
+      </p>
+      <p>
+        Local authoring tools may use AI or public-media services to create
+        non-personal product media. They are not part of the hosted learner runtime
+        and are not authorised to receive school or learner personal data.
       </p>
 
-      <h2>Data retention and deletion</h2>
+      <h2>Sharing and disclosure</h2>
       <p>
-        We keep pupil and teacher information for as long as the account is active and
-        the school wishes to retain it. A school, teacher, or parent may ask us to
-        review, correct, or delete a child’s information at any time by emailing
-        <a href="mailto:benjamesbowler@gmail.com">benjamesbowler@gmail.com</a>. We will
-        respond promptly and delete the information unless we are legally required to
-        keep it.
+        Authorised school staff can see records for their own school or class under
+        scoped access controls. Child-facing leaderboards use server-derived scope
+        and pseudonyms rather than learner, class, or school identifiers. We disclose
+        personal data to approved providers only for the service, to the Customer
+        under its authority, or where law requires it.
       </p>
 
-      <h2>Parents’ choices</h2>
+      <h2>Retention and deletion</h2>
       <p>
-        Parents can, through their child’s teacher or by contacting us directly,
-        review the personal information we hold about their child, ask us to stop
-        collecting or using it, and request its deletion. Because access is arranged
-        through the school, we may verify requests with the relevant teacher or school.
+        Indefinite retention is not authorised. Data should be kept only as long as
+        reasonably necessary for its specific educational, security, support, legal,
+        or contract purpose and securely deleted when no longer needed.
+      </p>
+      <p>
+        The product supports a per-school inactivity period, deletion after
+        archive, and an annual archive-or-delete instruction. An administrator
+        must save the school instruction, preview the affected learner counts, and
+        type an exact confirmation before the retention job changes records.
+        Active learner records are deleted through the verified data-rights
+        workflow.
+      </p>
+      <p>
+        Provider and backup target dates are tracked separately. A date passing
+        does not prove that a provider copy is gone: an administrator must check
+        provider or backup evidence and record its reference before marking
+        propagation verified. The values shown in product defaults are operational
+        safeguards, not approved legal periods. Before school-scale launch, the
+        contract and this notice must state the school-approved periods and
+        provider-verified log, replica, cache, support-copy, and backup expiry.
+        Restored backups must replay deletion controls before use.
       </p>
 
-      <h2>Security</h2>
+      <h2>Security and incidents</h2>
       <p>
-        We use access controls and reputable hosting providers to protect information.
-        No online service can be perfectly secure, but we take reasonable steps to
-        safeguard the limited data we hold and to keep it confined to each school.
+        Controls include tenant ownership, scoped database functions, teacher
+        authentication and approval, expiring learner access, throttling,
+        pseudonymous leaderboards, browser security headers, privacy-minimal logs,
+        release tests, immutable assessment evidence, and recovery procedures. No
+        online service is risk-free, and independent security review and live
+        exercises remain open.
       </p>
 
-      <h2>Changes to this policy</h2>
+      <h2>International processing</h2>
       <p>
-        If we make material changes to this policy, we will update the date above and,
-        where appropriate, notify teachers. Continued use of LiteracyPath after an
-        update means you accept the revised policy.
+        Hosting and support locations are not yet confirmed for the final deployment.
+        Before a restricted UK or EU transfer, the parties must map locations and
+        remote access and put an approved transfer mechanism and assessment in place
+        where required. This draft does not approve a transfer.
       </p>
 
-      <h2>Contact</h2>
+      <h2>Changes</h2>
       <p>
-        Questions, access requests, or deletion requests:
+        We will update the date and notify affected Customers as required before a
+        material change to purposes, data, providers, regions, transfers, retention,
+        child access, advertising, analytics, or AI processing. A new purpose
+        requires its own authority and cannot rely on silent continued use.
+      </p>
+
+      <h2>Contact and complaints</h2>
+      <p>
+        Current draft contact:
         <a href="mailto:benjamesbowler@gmail.com">benjamesbowler@gmail.com</a>.
+        The final policy must add the verified operator address, privacy,
+        accessibility and security routes, applicable complaint/regulator
+        information, and school contact path before public school-scale launch.
       </p>
 
       <footer>© 2026 LiteracyPath</footer>
-    </div>
+    </article>
   </main>
 </body>
 </html>

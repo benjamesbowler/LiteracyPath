@@ -10,6 +10,7 @@ import {
 } from "../../src/data/elBenchmarkAssessments.js";
 
 let AssessmentPage;
+let getAssessmentFinishTally;
 let getDecodingEvaluationPatch;
 let getFluencyTimerInterruptionPatch;
 let getFluencyTimerResetPatch;
@@ -24,6 +25,10 @@ const assessmentPageStyles = readFileSync(
   new URL("../../src/components/assessment/el-benchmark-assessment.css", import.meta.url),
   "utf8"
 );
+const appStyles = readFileSync(
+  new URL("../../src/App.css", import.meta.url),
+  "utf8"
+);
 
 test.before(async () => {
   vite = await createServer({
@@ -33,6 +38,7 @@ test.before(async () => {
   });
   const module = await vite.ssrLoadModule("/src/components/assessment/ELBenchmarkAssessmentPage.jsx");
   AssessmentPage = module.ELBenchmarkAssessmentPage;
+  getAssessmentFinishTally = AssessmentPage.getAssessmentFinishTally;
   getDecodingEvaluationPatch = AssessmentPage.getDecodingEvaluationPatch;
   getFluencyTimerInterruptionPatch = AssessmentPage.getFluencyTimerInterruptionPatch;
   getFluencyTimerResetPatch = AssessmentPage.getFluencyTimerResetPatch;
@@ -175,6 +181,146 @@ test("the simplified shell has one safe exit, one collapsed review drawer, and n
   assert.doesNotMatch(html, /Return to assessments|Save partial &amp; exit/);
 });
 
+test("D-006 keeps progress, Save & exit, and Finish in the sticky action bar without clipping the EL page", () => {
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, {
+    grade: "K",
+    startMicrophase: undefined,
+    window: "BOY"
+  }));
+  const header = html.match(/<header class="el-benchmark-topbar">([\s\S]*?)<\/header>/)?.[1] || "";
+  const footer = html.match(/<footer class="el-benchmark-footer el-benchmark-footer-secondary">([\s\S]*?)<\/footer>/)?.[1] || "";
+
+  assert.match(header, /Progress/);
+  assert.match(header, /Save &amp; exit/);
+  assert.match(header, /Finish check/);
+  assert.doesNotMatch(footer, /Finish check/);
+  assert.match(assessmentPageStyles, /\.el-benchmark-topbar\s*\{[\s\S]*?position: sticky;/);
+  assert.match(
+    assessmentPageStyles,
+    /@media \(max-width: 820px\)[\s\S]*?\.el-benchmark-topbar\s*\{[\s\S]*?position: sticky;/
+  );
+  assert.match(
+    assessmentPageStyles,
+    /@media \(max-width: 820px\)[\s\S]*?\.el-benchmark-tablet-counters\s*\{[\s\S]*?position: static;/
+  );
+  assert.match(
+    appStyles,
+    /\.assessment-app\.el-benchmark-app\s*\{[\s\S]*?justify-content: flex-start;[\s\S]*?overflow: visible;/
+  );
+});
+
+test("D-005 gives every benchmark item a large task heading and exact teacher directive", () => {
+  const routes = [
+    ["K", "BOY"],
+    ["K", "MOY"],
+    ["K", "EOY"],
+    ["1", "BOY"],
+    ["1", "MOY"],
+    ["1", "EOY"],
+    ["2", "BOY"],
+    ["2", "MOY"],
+    ["2", "EOY"]
+  ];
+  const paItemsByTask = new Map();
+  routes.forEach(([grade, window]) => {
+    const plan = getElBenchmarkPlan({
+      assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+      formId: "form-a-v2",
+      grade,
+      window
+    });
+    plan.items.forEach((item, index) => {
+      const taskKey = `${item.strand}:${item.task}`;
+      if (!paItemsByTask.has(taskKey)) paItemsByTask.set(taskKey, { grade, index, item, window });
+    });
+  });
+  assert.ok(paItemsByTask.size >= 9, "Expected directive coverage across the PA strand/task catalog");
+
+  const representativeSessions = [
+    ...Array.from(paItemsByTask.values()).map(({ grade, index, window }) => makeSession(
+      EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+      { currentItemIndex: index, grade, startMicrophase: undefined, window }
+    )),
+    makeSession(EL_BENCHMARK_IDS.ENCODING, {
+      grade: "K",
+      startMicrophase: undefined,
+      window: "BOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.DECODING, {
+      grade: "1",
+      startMicrophase: "early_partial",
+      window: "BOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+      grade: "2",
+      startMicrophase: "middle_full",
+      window: "BOY"
+    })
+  ];
+
+  representativeSessions.forEach(session => {
+    const html = renderAssessment(session);
+    const instruction = html.match(/<section class="el-benchmark-item-instruction" aria-label="Teacher instruction">([\s\S]*?)<\/section>/)?.[1] || "";
+    assert.match(instruction, /<strong>[^<]{3,}<\/strong>/);
+    assert.match(instruction, /<p>[^<]{20,}<\/p>/);
+  });
+
+  const rhymeHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
+    grade: "K",
+    startMicrophase: undefined,
+    window: "BOY"
+  }));
+  assert.match(rhymeHtml, /<strong>Rhyme — yes or no\?<\/strong>/);
+  assert.match(rhymeHtml, /Say aloud: “Do moon and spoon rhyme\?” Say both words naturally — never show this screen to the child\./);
+
+  const encodingHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, {
+    grade: "K",
+    startMicrophase: undefined,
+    window: "BOY"
+  }));
+  const encodingPlan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    formId: "form-a-v2",
+    grade: "K",
+    window: "BOY"
+  });
+  assert.match(encodingHtml, /<strong>Dictated spelling<\/strong>/);
+  assert.ok(encodingHtml.includes(
+    `Dictate aloud — word, sentence, word. The child writes only “${encodingPlan.items[0].targetWord}” on paper.`
+  ));
+  assert.match(assessmentPageStyles, /\.el-benchmark-item-instruction strong\s*\{[\s\S]*?font-size: clamp\(18px,/);
+  assert.match(assessmentPageStyles, /\.el-benchmark-item-instruction p\s*\{[\s\S]*?font-size: clamp\(17px,/);
+});
+
+test("D-007 renders plain assessment-window and starting-band copy without raw route jargon", () => {
+  const sessions = [
+    makeSession(EL_BENCHMARK_IDS.ENCODING, {
+      grade: "K",
+      startMicrophase: undefined,
+      window: "BOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.DECODING, {
+      grade: "1",
+      startMicrophase: "late_partial",
+      window: "MOY"
+    }),
+    makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+      grade: "2",
+      startMicrophase: "middle_consolidated",
+      window: "EOY"
+    })
+  ];
+
+  sessions.forEach(session => {
+    const html = renderAssessment(session);
+    assert.match(html, new RegExp(`${session.window === "BOY" ? "Beginning" : session.window === "MOY" ? "Middle" : "End"} of year · starting band:`));
+    assert.doesNotMatch(html, />[^<]*(?:BOY:|MOY:|EOY:)[^<]*</);
+    assert.doesNotMatch(html, /Kindergarten BOY|Grade [12] (?:BOY|MOY|EOY)/);
+  });
+  assert.doesNotMatch(assessmentPageSource, /\{plan\.route\?\.microphaseLabel/);
+  assert.doesNotMatch(assessmentPageSource, /\{administrationRange\.label/);
+});
+
 test("a device-save failure stays prominent without reintroducing competing exit controls", () => {
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
     grade: "K",
@@ -241,15 +387,15 @@ test("rhyme recognition is a teacher-only two-word cue with large Yes, No, and O
 
   assert.match(html, /class="el-benchmark-rhyme-pair" aria-label="Teacher words: moon and spoon"/);
   assert.match(html, /<span>moon<\/span><small>and<\/small><span>spoon<\/span>/);
-  assert.match(html, /Teacher screen — say both words aloud\. Do not show the print to the student\./);
+  assert.match(html, /Teacher screen — say both words aloud\. Do not show the print to the child\./);
   assert.match(html, /class="el-benchmark-quick-grid choices-3"/);
   assert.match(html, /class="el-benchmark-quick-button tone-positive"[^>]*>[\s\S]*?<span>Yes<\/span>/);
   assert.match(html, /class="el-benchmark-quick-button tone-negative"[^>]*>[\s\S]*?<span>No<\/span>/);
   assert.match(html, /class="el-benchmark-quick-button tone-neutral"[^>]*>[\s\S]*?<span>Other<\/span>/);
-  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no response, or add what they said<\/summary>/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no answer, or add what they said<\/summary>/);
   assert.match(html, /<button class="el-benchmark-button secondary" type="button">No response<\/button>/);
   assert.doesNotMatch(html, /aria-label="Teacher prompt"/);
-  assert.equal(countText(html, item.teacherSay), 0, "the full rhyme prompt must not be duplicated above the pair");
+  assert.equal(countText(html, item.teacherSay), 1, "the exact oral question must appear once in the teacher instruction");
 });
 
 test("open PA tasks keep normal scoring to three choices and place No response under Other", () => {
@@ -260,11 +406,11 @@ test("open PA tasks keep normal scoring to three choices and place No response u
     window: "MOY"
   }));
 
-  assert.match(html, /Was the oral response correct\?/);
+  assert.match(html, /Was the spoken answer correct\?/);
   assert.match(html, /<span>Correct<\/span>/);
   assert.match(html, /<span>Not yet<\/span>/);
   assert.match(html, /<span>Other<\/span>/);
-  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no response, or add what they said<\/summary>/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no answer, or add what they said<\/summary>/);
   assert.match(html, />No response<\/button>/);
   assert.doesNotMatch(html, /Incorrect or no response/);
 });
@@ -284,7 +430,7 @@ test("Encoding always shows the paper-and-pencil setup and only three quick outc
     window: "BOY"
   }));
 
-  assert.match(html, /Give the student a pencil and lined paper\. Keep this screen facing you\./);
+  assert.match(html, /Give the child a pencil and lined paper\. Keep this screen facing you\./);
   assert.match(html, /<span>Say exactly<\/span>/);
   assert.ok(html.includes(item.teacherSay));
   assert.match(html, /How close was the spelling\?/);
@@ -292,7 +438,7 @@ test("Encoding always shows the paper-and-pencil setup and only three quick outc
   assert.match(html, /<span>Sounds right<\/span>/);
   assert.match(html, /<span>Not yet<\/span>/);
   assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other or add spelling detail<\/summary>/);
-  assert.match(html, /Student&#x27;s spelling \(optional\)/);
+  assert.match(html, /Child&#x27;s spelling \(optional\)/);
   assert.match(html, />No response<\/button>/);
 });
 
@@ -310,7 +456,7 @@ test("Decoding puts the word on screen with three immediate teacher judgments", 
   }));
 
   assert.match(html, new RegExp(`class="el-benchmark-word-display" aria-label="Word to read: ${item.targetWord}">${item.targetWord}<`));
-  assert.match(html, /How did the student read the word\?/);
+  assert.match(html, /How did the child read the word\?/);
   assert.match(html, /<span>Straight away<\/span>/);
   assert.match(html, /<span>Worked it out<\/span>/);
   assert.match(html, /<span>Not correct<\/span>/);
@@ -374,6 +520,33 @@ test("quick outcomes auto-advance only after the resulting item is complete", ()
   assert.match(assessmentPageSource, /kind !== ASSESSMENT_KINDS\.FLUENCY/);
   assert.match(assessmentPageSource, /currentBand\?\.indexes\.includes\(currentIndex \+ 1\)/);
   assert.doesNotMatch(assessmentPageSource, />\s*Next item\s*</);
+});
+
+test("finish requires a deliberate tally review and counts every terminal outcome", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    formId: "form-a-v2",
+    grade: "K",
+    window: "BOY"
+  });
+  const responses = completedEncodingResponses(plan);
+  responses[plan.items[6].id] = {
+    itemId: plan.items[6].id,
+    status: "not_administered"
+  };
+  responses[plan.items[7].id] = {
+    itemId: plan.items[7].id,
+    status: "not_scorable"
+  };
+
+  assert.deepEqual(
+    getAssessmentFinishTally(plan.items, responses, "encoding"),
+    { scored: 6, skipped: 1, notScorable: 1 }
+  );
+  assert.match(assessmentPageSource, /!showFinishConfirmation/);
+  assert.match(assessmentPageSource, /Check the tally before finishing/);
+  assert.match(assessmentPageSource, /Change final answer/);
+  assert.match(assessmentPageSource, /Confirm and finish/);
 });
 
 test("typed Encoding and Decoding contradictions remain unresolved instead of auto-advancing", () => {
@@ -597,7 +770,7 @@ test("every Couldn't assess outcome still requires auditable reason evidence", (
         }
       }
     }));
-    assert.match(invalidHtml, /aria-label="Not-scorable evidence"/);
+    assert.match(invalidHtml, /aria-label="Reason this item cannot be scored"/);
     assert.match(buttonOpeningTag(invalidHtml, "Save not-scorable reason"), /disabled/);
 
     const validHtml = renderAssessment(makeSession(assessmentId, {
@@ -615,7 +788,7 @@ test("every Couldn't assess outcome still requires auditable reason evidence", (
       }
     }));
     assert.match(validHtml, /<strong>Not scorable:<\/strong> Interrupted or too noisy \| Brief interruption/);
-    assert.doesNotMatch(validHtml, /aria-label="Not-scorable evidence"/);
+    assert.doesNotMatch(validHtml, /aria-label="Reason this item cannot be scored"/);
   });
 });
 
@@ -636,7 +809,7 @@ test("a completed Decoding word set offers one-tap Finish or Continue with overr
   assert.doesNotMatch(buttonOpeningTag(stoppingHtml, "Finish here"), /disabled/);
   assert.doesNotMatch(buttonOpeningTag(stoppingHtml, "Keep going instead"), /disabled/);
   assert.match(stoppingHtml, /<details class="el-benchmark-decision-detail"><summary>Why is finishing suggested\?<\/summary>/);
-  assert.match(stoppingHtml, /aria-label="Item 9, unadministered, locked until the current decoding band is reviewed"[^>]*disabled/);
+  assert.match(stoppingHtml, /aria-label="Item 9, not done yet, locked until the current decoding band is reviewed"[^>]*disabled/);
   assert.equal(countText(stoppingHtml, "Next item"), 0);
   assert.match(assessmentPageSource, /Why will another word set help\?/);
   assert.match(assessmentPageSource, /Save reason and continue/);
@@ -646,7 +819,7 @@ test("a completed Decoding word set offers one-tap Finish or Continue with overr
     currentItemIndex: 7,
     responses: completedFirstDecodingBand(plan, 6)
   }));
-  assert.match(continuingHtml, /The student is ready for the next word set/);
+  assert.match(continuingHtml, /The child is ready for the next word set/);
   assert.doesNotMatch(buttonOpeningTag(continuingHtml, "Continue reading"), /disabled/);
   assert.doesNotMatch(continuingHtml, /Finish here<\/button>/);
 });
@@ -691,12 +864,12 @@ test("Encoding accepts the suggested starting point in one tap and asks for rati
   });
   const suggestedHtml = renderAssessment(defaultSession);
   assert.match(suggestedHtml, /Suggested starting point/);
-  assert.match(suggestedHtml, /Based on the student’s grade and this assessment window/);
+  assert.match(suggestedHtml, /Based on the child’s grade and this time of year/);
   assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Use this starting point"), /disabled/);
   assert.match(suggestedHtml, /Choose a different starting point/);
   assert.doesNotMatch(suggestedHtml, /Why are you choosing a different starting point\?/);
   assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Choose starting point"), /disabled/);
-  assert.match(suggestedHtml, /One final step: choose the student’s next starting point/);
+  assert.match(suggestedHtml, /One final step: choose the child’s next starting point/);
 
   const acceptedHtml = renderAssessment({
     ...defaultSession,
@@ -705,7 +878,7 @@ test("Encoding accepts the suggested starting point in one tap and asks for rati
   });
   assert.match(acceptedHtml, /Starting point saved/);
   assert.match(acceptedHtml, /Middle Pre/);
-  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish check"), /disabled/);
 
   const deviationPlan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ENCODING,
@@ -734,7 +907,7 @@ test("Encoding accepts the suggested starting point in one tap and asks for rati
     })
   });
   assert.match(reasonedHtml, /Reason: Recent classroom reading shows this is a better fit\./);
-  assert.doesNotMatch(buttonOpeningTag(reasonedHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(reasonedHtml, "Finish check"), /disabled/);
 });
 
 test("zero-scorable Decoding evidence can use the safe default without fabricating a scorer candidate", () => {
@@ -762,7 +935,7 @@ test("zero-scorable Decoding evidence can use the safe default without fabricati
   const suggestedHtml = renderAssessment(baseSession);
 
   assert.match(suggestedHtml, /Suggested starting point/);
-  assert.match(suggestedHtml, /Evidence status: Partial · 0 scored items/);
+  assert.match(suggestedHtml, /Result status: Partial · 0 scored items/);
   assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Use this starting point"), /disabled/);
   assert.doesNotMatch(suggestedHtml, /Why are you choosing a different starting point\?/);
 
@@ -772,7 +945,7 @@ test("zero-scorable Decoding evidence can use the safe default without fabricati
     placementSource: "teacher_confirmation"
   });
   assert.match(acceptedHtml, /Starting point saved/);
-  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish check"), /disabled/);
 });
 
 test("Decoding permits the exact adjacent ceiling suggestion but rejects unrelated out-of-range placement", () => {
@@ -809,7 +982,7 @@ test("Decoding permits the exact adjacent ceiling suggestion but rejects unrelat
     placementSource: "teacher_confirmation"
   });
   assert.match(acceptedHtml, /Starting point saved/);
-  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish check"), /disabled/);
 
   const invalidHtml = renderAssessment({
     ...baseSession,
@@ -819,7 +992,7 @@ test("Decoding permits the exact adjacent ceiling suggestion but rejects unrelat
     }),
     placementSource: "teacher_confirmation"
   });
-  assert.match(invalidHtml, /saved starting point is outside this assessment route/i);
+  assert.match(invalidHtml, /saved starting point is outside this check/i);
   assert.doesNotMatch(buttonOpeningTag(invalidHtml, "Choose starting point"), /disabled/);
 });
 
@@ -886,8 +1059,8 @@ test("ORF optional detail stays collapsed and does not compete with the timed pa
     window: "MOY"
   }));
 
-  assert.match(html, /Start the timer, then let the student read directly from this screen/);
-  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Optional notes, printable copy, or couldn’t assess<\/summary>/);
+  assert.match(html, /Start the timer, then let the child read directly from this screen/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Optional notes, printable copy, or couldn’t score<\/summary>/);
   assert.match(html, /<details class="el-benchmark-clean-passage"><summary>Printable clean passage<\/summary>/);
   assert.doesNotMatch(html, /<details class="el-benchmark-optional-detail" open/);
   assert.doesNotMatch(html, /<details class="el-benchmark-clean-passage" open/);
@@ -917,7 +1090,7 @@ test("a valid minute exposes atomic Yes-continue and Not-yet-stop choices", () =
   assert.match(html, /<span>Yes — continue<\/span>/);
   assert.match(html, /<span>Not yet — finish here<\/span>/);
   assert.match(html, /Record the teacher accuracy judgment before reviewing the passage route/);
-  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(html, "Finish check"), /disabled/);
 
   const atomicStart = assessmentPageSource.indexOf("const recordFluencyAccuracyAndRoute");
   const atomicEnd = assessmentPageSource.indexOf("const continueFluency", atomicStart);
@@ -950,7 +1123,7 @@ test("ORF completes after a reliable minute without requiring optional expressio
   assert.match(html, /<output aria-label="Errors: 0">0<\/output>/);
   assert.match(html, /Reading expression \(optional\)/);
   assert.match(html, /All planned passages are complete/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish check"), /disabled/);
 });
 
 test("ORF completion requires a verified timer state, not just an elapsed number", () => {
@@ -973,7 +1146,7 @@ test("ORF completion requires a verified timer state, not just an elapsed number
   }));
 
   assert.match(html, /Record exactly 60 seconds/);
-  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(html, "Finish check"), /disabled/);
 });
 
 test("ORF zero-word evidence is explicit, keeps accuracy N/A, and requires zero counts", () => {
@@ -997,7 +1170,7 @@ test("ORF zero-word evidence is explicit, keeps accuracy N/A, and requires zero 
   assert.match(validHtml, /0 WCPM · Accuracy N\/A/);
   assert.doesNotMatch(validHtml, /2\. Was this read accurate enough\?/);
   assert.doesNotMatch(buttonOpeningTag(validHtml, "Finish here"), /disabled/);
-  assert.match(buttonOpeningTag(validHtml, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(validHtml, "Finish check"), /disabled/);
 
   const invalidCountsHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
     currentItemIndex: 0,
@@ -1009,7 +1182,7 @@ test("ORF zero-word evidence is explicit, keeps accuracy N/A, and requires zero 
     }
   }));
   assert.match(invalidCountsHtml, /For No words reached \(0\), errors and self-corrections must both be 0/);
-  assert.match(buttonOpeningTag(invalidCountsHtml, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(invalidCountsHtml, "Finish check"), /disabled/);
 
   const invalidAccuracyHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
     currentItemIndex: 0,
@@ -1021,7 +1194,7 @@ test("ORF zero-word evidence is explicit, keeps accuracy N/A, and requires zero 
     }
   }));
   assert.match(invalidAccuracyHtml, /Accuracy must remain N\/A when no words were reached/);
-  assert.match(buttonOpeningTag(invalidAccuracyHtml, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(invalidAccuracyHtml, "Finish check"), /disabled/);
 });
 
 test("ORF rejects short or legacy overlong timing instead of estimating a minute", () => {
@@ -1042,7 +1215,7 @@ test("ORF rejects short or legacy overlong timing instead of estimating a minute
   }));
   assert.match(shortHtml, /Record exactly 60 seconds/);
   assert.match(shortHtml, /00:01/);
-  assert.match(buttonOpeningTag(shortHtml, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(shortHtml, "Finish check"), /disabled/);
 
   const overlongHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
     currentItemIndex: 0,
@@ -1053,7 +1226,7 @@ test("ORF rejects short or legacy overlong timing instead of estimating a minute
   }));
   assert.match(overlongHtml, /Recorded time needs correction/);
   assert.match(overlongHtml, /Record exactly 60 seconds/);
-  assert.match(buttonOpeningTag(overlongHtml, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(overlongHtml, "Finish check"), /disabled/);
 });
 
 test("a valid full-passage early finish retains routing but never estimates WCPM", () => {
@@ -1087,7 +1260,7 @@ test("a valid full-passage early finish retains routing but never estimates WCPM
   assert.match(html, /Finished early at 59 seconds/);
   assert.match(html, /Finished in 59 seconds\. The accuracy result is saved, but a per-minute score is not estimated/);
   assert.match(html, /The accuracy result is saved; a per-minute score is not estimated/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish check"), /disabled/);
 });
 
 test("active timing keeps counters available but locks exits, printing, and accuracy choices", () => {
@@ -1117,11 +1290,11 @@ test("active timing keeps counters available but locks exits, printing, and accu
   }));
 
   assert.match(html, /Stop — something interrupted us/);
-  assert.match(html, /Student finished the whole passage/);
+  assert.match(html, /Child finished the whole passage/);
   assert.doesNotMatch(html, /Resume timer/);
   assert.match(buttonOpeningTag(html, "Save &amp; exit"), /disabled/);
   assert.match(buttonOpeningTag(html, "Print passage"), /disabled/);
-  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(html, "Finish check"), /disabled/);
   assert.doesNotMatch(html, /Yes — continue|Not yet — finish here/);
 });
 
@@ -1154,7 +1327,7 @@ test("an interrupted timer cannot resume and must be reset before scoring", () =
   assert.match(html, /Interrupted timing cannot produce WCPM/);
   assert.match(buttonOpeningTag(html, "Reset"), /type="button"/);
   assert.doesNotMatch(html, /Resume timer|>Start 1-minute read</);
-  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(html, "Finish check"), /disabled/);
 });
 
 test("resetting the fluency timer clears every abandoned score and provenance field", () => {
@@ -1226,7 +1399,7 @@ test("ORF refuses impossible count combinations", () => {
     }
   }));
   assert.match(outOfRangeHtml, /Errors and self-corrections must be whole numbers from zero through words attempted/);
-  assert.match(buttonOpeningTag(outOfRangeHtml, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(outOfRangeHtml, "Finish check"), /disabled/);
 
   const combinedHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
     currentItemIndex: 0,
@@ -1238,7 +1411,7 @@ test("ORF refuses impossible count combinations", () => {
     }
   }));
   assert.match(combinedHtml, /Errors plus self-corrections cannot exceed the number of words attempted/);
-  assert.match(buttonOpeningTag(combinedHtml, "Finish assessment"), /disabled/);
+  assert.match(buttonOpeningTag(combinedHtml, "Finish check"), /disabled/);
 });
 
 test("ORF renders the routed current passage, never the legacy first passage", () => {
@@ -1369,10 +1542,10 @@ test("a saved Not-yet ORF choice atomically stops and marks later passages unadm
 
   assert.match(html, /Finished here/);
   assert.match(html, /Later passages will not count as incorrect/);
-  assert.match(html, new RegExp(`<dt>Unadministered<\\/dt><dd>${plan.items.length - 1}<\\/dd>`));
-  assert.match(html, /aria-label="Item 2, not administered, locked after the confirmed fluency stop/);
+  assert.match(html, new RegExp(`<dt>Not done<\\/dt><dd>${plan.items.length - 1}<\\/dd>`));
+  assert.match(html, /aria-label="Item 2, not done, locked after the confirmed fluency stop/);
   assert.doesNotMatch(html, /Item 2, incorrect|Confirm teacher-judgment stop/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish check"), /disabled/);
 });
 
 test("changing an earlier ORF passage to Not yet preserves later evidence and provides a review path", () => {
@@ -1421,10 +1594,10 @@ test("changing an earlier ORF passage to Not yet preserves later evidence and pr
   }));
 
   assert.match(stoppedHtml, /Finished here/);
-  assert.match(stoppedHtml, /Later reading stays saved as extra evidence, but it will not change this stopping point or count toward placement/);
+  assert.match(stoppedHtml, /Later reading stays saved as an extra result, but it will not change this stopping point or count toward the suggested start/);
   assert.doesNotMatch(buttonOpeningTag(stoppedHtml, "Undo and review later reading"), /disabled/);
   assert.match(stoppedHtml, /aria-label="Item 2, recorded, locked after the confirmed fluency stop"/);
-  assert.doesNotMatch(stoppedHtml, /Item 2, not administered|Item 2, incorrect/);
+  assert.doesNotMatch(stoppedHtml, /Item 2, not done|Item 2, incorrect/);
 
   const reviewDecision = {
     action: "review_later_evidence",
@@ -1446,7 +1619,7 @@ test("changing an earlier ORF passage to Not yet preserves later evidence and pr
   assert.ok(itemTwoTag, "later recorded evidence remains available in the review drawer");
   assert.doesNotMatch(`${itemTwoTag[1]} ${itemTwoTag[2]}`, /disabled/);
   assert.match(reviewHtml, /Later reading is already saved/);
-  assert.doesNotMatch(reviewHtml, /Item 2, not administered|Item 2, incorrect/);
+  assert.doesNotMatch(reviewHtml, /Item 2, not done|Item 2, incorrect/);
 
   const atomicStart = assessmentPageSource.indexOf("const recordFluencyAccuracyAndRoute");
   const atomicEnd = assessmentPageSource.indexOf("const continueFluency", atomicStart);
@@ -1516,10 +1689,10 @@ test("a confirmed Decoding finish marks later items unadministered, never wrong"
     stopEvidence
   }));
   assert.match(html, /Finished here/);
-  assert.match(html, new RegExp(`<dt>Unadministered<\\/dt><dd>${plan.items.length - 8}<\\/dd>`));
-  assert.match(html, /aria-label="Item 9, not administered/);
+  assert.match(html, new RegExp(`<dt>Not done<\\/dt><dd>${plan.items.length - 8}<\\/dd>`));
+  assert.match(html, /aria-label="Item 9, not done/);
   assert.doesNotMatch(html, /Item 9, incorrect/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish check"), /disabled/);
 });
 
 test("the discontinue form still requires a note only when Other is selected", () => {

@@ -5,11 +5,16 @@
  * cloud rows, or render UI. Callers hydrate the existing source stores first,
  * then pass their records to the report builders.
  */
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_POLICY_VERSION
+} from "../policy/learningPolicy.js";
 
 export const REPORTING_STATUS_IDS = Object.freeze({
   SECURE: "secure",
   DEVELOPING: "developing",
   NEEDS_TEACHING: "needs_teaching",
+  NOT_ENOUGH_EVIDENCE: "not_enough_evidence",
   MIXED_EVIDENCE: "mixed_evidence",
   NOT_CHECKED: "not_checked"
 });
@@ -17,7 +22,8 @@ export const REPORTING_STATUS_IDS = Object.freeze({
 export const REPORTING_STATUS_LABELS = Object.freeze({
   [REPORTING_STATUS_IDS.SECURE]: "Secure",
   [REPORTING_STATUS_IDS.DEVELOPING]: "Developing",
-  [REPORTING_STATUS_IDS.NEEDS_TEACHING]: "Needs teaching",
+  [REPORTING_STATUS_IDS.NEEDS_TEACHING]: "Needs support",
+  [REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: "Not enough evidence",
   [REPORTING_STATUS_IDS.MIXED_EVIDENCE]: "Mixed evidence",
   [REPORTING_STATUS_IDS.NOT_CHECKED]: "Not checked"
 });
@@ -76,6 +82,10 @@ const STATUS_ALIASES = Object.freeze({
   incorrect: REPORTING_STATUS_IDS.NEEDS_TEACHING,
   no_response: REPORTING_STATUS_IDS.NEEDS_TEACHING,
   skipped: REPORTING_STATUS_IDS.NEEDS_TEACHING,
+  not_enough_evidence: REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+  "not enough evidence": REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+  insufficient_evidence: REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+  "insufficient evidence": REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
   mixed_evidence: REPORTING_STATUS_IDS.MIXED_EVIDENCE,
   "mixed evidence": REPORTING_STATUS_IDS.MIXED_EVIDENCE,
   not_checked: REPORTING_STATUS_IDS.NOT_CHECKED,
@@ -127,7 +137,11 @@ export function normalizeReportingStatus(value, { practiceOnly = false } = {}) {
 
 export function reportingStatus(statusId) {
   const id = normalizeReportingStatus(statusId) || REPORTING_STATUS_IDS.NOT_CHECKED;
-  return { id, label: REPORTING_STATUS_LABELS[id] };
+  return {
+    id,
+    label: REPORTING_STATUS_LABELS[id],
+    policyVersion: LEARNING_POLICY_VERSION
+  };
 }
 
 export function createReportingConcept({
@@ -316,7 +330,10 @@ function resolveDecisiveStatus(decisive = []) {
   return REPORTING_STATUS_IDS.NOT_CHECKED;
 }
 
-function keepCurrentConflictWindow(evidence = [], conflictWindowDays = 90) {
+function keepCurrentConflictWindow(
+  evidence = [],
+  conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays
+) {
   const days = Number(conflictWindowDays);
   if (!Number.isFinite(days) || days < 0) return evidence;
   const newestTimestamp = evidence.reduce((newest, row) => (
@@ -336,18 +353,97 @@ function statusExplanation(statusId, decisive = []) {
   const sourceNames = [...new Set(decisive.map(row => row.sourceLabel).filter(Boolean))];
   const sources = sourceNames.length ? sourceNames.join(" and ") : "available evidence";
   if (statusId === REPORTING_STATUS_IDS.MIXED_EVIDENCE) {
-    return `Recent strong evidence from ${sources} does not yet agree.`;
+    return `The strongest included evidence from ${sources} does not yet agree.`;
   }
   if (statusId === REPORTING_STATUS_IDS.SECURE) {
-    return `Current direct evidence from ${sources} indicates secure performance.`;
+    return `The strongest direct evidence from ${sources} indicates secure performance.`;
   }
   if (statusId === REPORTING_STATUS_IDS.DEVELOPING) {
-    return `Evidence from ${sources} shows developing performance or practice-only success.`;
+    return decisive.length && decisive.every(row => row.practiceOnly)
+      ? `Practice evidence from ${sources} shows progress; a direct check is still needed.`
+      : `The strongest evidence from ${sources} shows emerging but not yet secure performance.`;
   }
   if (statusId === REPORTING_STATUS_IDS.NEEDS_TEACHING) {
-    return `Current direct evidence from ${sources} indicates that teaching support is needed.`;
+    return `The strongest direct evidence from ${sources} indicates that teaching support is needed.`;
   }
   return "No scorable knowledge evidence has been recorded.";
+}
+
+function finiteMetric(value) {
+  if (value === "" || value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function evidenceObservationCount(row = {}) {
+  const details = row.details || {};
+  return finiteMetric(details.observations)
+    ?? finiteMetric(details.independentSeen)
+    ?? finiteMetric(details.attempts)
+    ?? (row.scorable && row.knowledgeEligible && row.statusCandidate ? 1 : 0);
+}
+
+function evidenceCorrectCount(row = {}, observations = 0) {
+  const details = row.details || {};
+  const exact = finiteMetric(details.correct);
+  if (exact !== null) return exact;
+  const accuracy = finiteMetric(details.accuracy);
+  if (accuracy !== null && observations > 0) return observations * (accuracy / 100);
+  if (row.statusCandidate === REPORTING_STATUS_IDS.SECURE) return observations;
+  if (row.statusCandidate === REPORTING_STATUS_IDS.NEEDS_TEACHING) return 0;
+  return null;
+}
+
+function wholeChildEvidenceBasis(conceptEvidence = [], decisive = []) {
+  const scored = conceptEvidence.filter(row => (
+    row.scorable && row.knowledgeEligible && row.statusCandidate
+  ));
+  const observations = scored.reduce((total, row) => total + evidenceObservationCount(row), 0);
+  const correctValues = scored.map(row => {
+    const rowObservations = evidenceObservationCount(row);
+    return evidenceCorrectCount(row, rowObservations);
+  });
+  const hasCompleteCorrectCount = scored.length > 0 && correctValues.every(value => value !== null);
+  const correct = hasCompleteCorrectCount
+    ? correctValues.reduce((total, value) => total + value, 0)
+    : null;
+  const dates = scored
+    .map(row => row.observedAt)
+    .filter(value => finiteTimestamp(value))
+    .map(value => new Date(value).toISOString())
+    .sort();
+  const attemptIds = [...new Set(scored.map(row => row.sourceRecordId).filter(Boolean))];
+  return {
+    observations,
+    correct: correct === null ? null : Number(correct.toFixed(2)),
+    total: observations,
+    accuracy: correct === null || !observations
+      ? null
+      : Number(((correct / observations) * 100).toFixed(1)),
+    attemptCount: attemptIds.length,
+    attemptIds,
+    sourceCount: new Set(scored.map(row => row.sourceArea).filter(Boolean)).size,
+    windowStart: dates[0] || "",
+    windowEnd: dates.at(-1) || "",
+    decisiveObservations: decisive.reduce((total, row) => total + evidenceObservationCount(row), 0)
+  };
+}
+
+function triangulationKey(concept = {}) {
+  if (
+    (concept.domain === "alphabet_knowledge" && concept.construct === "letter_sound")
+    || (concept.domain === "phonics" && concept.construct === "grapheme_sound")
+  ) {
+    return `grapheme_sound::${concept.key}`;
+  }
+  return [concept.domain, concept.construct, concept.key, concept.variant].filter(Boolean).join("::");
+}
+
+function datedSourceSummary(item = {}) {
+  const source = item.sourceChips?.map(row => row.label).filter(Boolean).join(", ") || "available evidence";
+  const timestamp = finiteTimestamp(item.latestAt);
+  const date = timestamp ? new Date(timestamp).toISOString() : "undated";
+  return `${item.label}: ${item.status.label} (${source}; ${date})`;
 }
 
 /**
@@ -363,7 +459,7 @@ function statusExplanation(statusId, decisive = []) {
 export function resolveWholeChildConcepts({
   evidence = [],
   expectedConcepts = [],
-  conflictWindowDays = 90
+  conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays
 } = {}) {
   const dedupedEvidence = dedupeReportingEvidence(evidence);
   const concepts = new Map();
@@ -381,7 +477,7 @@ export function resolveWholeChildConcepts({
     concepts.set(concept.conceptId, current);
   });
 
-  return Array.from(concepts.values()).map(({ concept, evidence: conceptEvidence }) => {
+  const resolved = Array.from(concepts.values()).map(({ concept, evidence: conceptEvidence }) => {
     const eligible = conceptEvidence.filter(row => (
       row.knowledgeEligible &&
       row.scorable &&
@@ -427,6 +523,7 @@ export function resolveWholeChildConcepts({
       variant: concept.variant,
       label: concept.label,
       status: reportingStatus(statusId),
+      policyVersion: LEARNING_POLICY_VERSION,
       latestAt,
       evidenceCount: conceptEvidence.length,
       decisiveEvidenceCount: decisive.length,
@@ -435,11 +532,34 @@ export function resolveWholeChildConcepts({
       practiceOnlyDecision: Boolean(decisive.length && decisive.every(row => row.practiceOnly)),
       confidence: strongest >= 3 ? "Direct evidence" : strongest === 2 ? "Legacy evidence" : strongest === 1 ? "Practice evidence" : "No scored evidence",
       explanation: statusExplanation(statusId, decisive),
+      coverageLabel: conceptEvidence.length ? "Seen in available evidence" : "Not seen in available evidence",
+      evidenceBasis: wholeChildEvidenceBasis(conceptEvidence, decisive),
       sourceChips,
       decisiveEvidenceIds: decisive.map(row => row.evidenceId),
       evidence: conceptEvidence
     };
-  }).sort((a, b) => (
+  });
+
+  const triangulationGroups = new Map();
+  resolved.forEach(item => {
+    const key = triangulationKey(item);
+    const group = triangulationGroups.get(key) || [];
+    group.push(item);
+    triangulationGroups.set(key, group);
+  });
+  triangulationGroups.forEach(group => {
+    const sources = new Set(group.flatMap(item => item.sourceChips.map(source => source.label).filter(Boolean)));
+    const statuses = new Set(group.map(item => item.status.id));
+    const shouldExplain = group.length > 1 || sources.size > 1 || statuses.size > 1;
+    if (!shouldExplain) return;
+    const summary = group.map(datedSourceSummary).join("; ");
+    group.forEach(item => {
+      item.reconciliationNote = `Triangulated related evidence without averaging source strength: ${summary}. The displayed status follows the published evidence precedence.`;
+      item.triangulationKey = triangulationKey(item);
+    });
+  });
+
+  return resolved.sort((a, b) => (
     a.domainLabel.localeCompare(b.domainLabel) ||
     a.label.localeCompare(b.label) ||
     a.conceptId.localeCompare(b.conceptId)

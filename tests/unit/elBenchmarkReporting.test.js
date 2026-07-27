@@ -4,7 +4,9 @@ import test from "node:test";
 import {
   buildClassElFormalAssessmentReport,
   buildIndividualElFormalAssessmentReport,
-  EL_BENCHMARK_ASSESSMENT_IDS
+  EL_BENCHMARK_ASSESSMENT_IDS,
+  getElBenchmarkAssessmentId,
+  resolveElBenchmarkReportScope
 } from "../../src/data/elFormalAssessmentReportBuilder.js";
 import {
   compactAssessmentAttemptForStorage,
@@ -295,6 +297,47 @@ const assessmentHistory = [
   }
 ];
 
+test("generic EL benchmark category records resolve and export by their specific skill ID", () => {
+  const genericCategoryAttempt = {
+    ...common,
+    attemptId: "generic-category-encoding",
+    assessmentType: "el_benchmark",
+    skillId: EL_BENCHMARK_ASSESSMENT_IDS.ENCODING,
+    skillName: "EL Encoding",
+    benchmarkWindow: "BOY",
+    completedAt: "2026-07-21T01:10:00.000Z",
+    administrationStatus: "completed",
+    totalQuestions: 1,
+    correctCount: 1,
+    accuracy: 100,
+    questionRecords: [{
+      questionId: "generic-category-word",
+      itemKey: "ship",
+      targetWord: "ship",
+      responseStatus: "correct",
+      responseText: "ship",
+      isCorrect: true
+    }]
+  };
+
+  assert.equal(
+    getElBenchmarkAssessmentId(genericCategoryAttempt),
+    EL_BENCHMARK_ASSESSMENT_IDS.ENCODING
+  );
+  const scope = resolveElBenchmarkReportScope({ records: [genericCategoryAttempt] });
+  assert.equal(scope.availableRoutes.length, 1);
+  assert.equal(scope.availableRoutes[0].label, "Grade 1 · BOY");
+
+  const report = buildClassElAssessmentExportReport({
+    assessmentHistory: [genericCategoryAttempt],
+    students: [student],
+    classes: [{ id: student.classId, name: "Class One" }],
+    classId: student.classId
+  });
+  assert.equal(report.summary.totalAssessments, 1);
+  assert.equal(report.benchmarkScope.label, "Grade 1 · BOY");
+});
+
 function worksheetRows(sheet) {
   const headers = sheet.getRow(1).values.slice(1).map(String);
   const rows = [];
@@ -424,7 +467,7 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
 
   const individual = buildIndividualElFormalAssessmentReport({ student, assessmentHistory: history });
   const letterA = individual.individualLetterMatrix.find(row => row.letter === "a");
-  assert.equal(letterA.uppercaseName.statusLabel, "Mastered");
+  assert.equal(letterA.uppercaseName.statusLabel, "Not enough evidence");
   assert.equal(letterA.uppercaseSound.statusLabel, "Unscored evidence");
   assert.equal(letterA.uppercaseSound.attempts, 0);
   assert.equal(letterA.uppercaseSound.incorrect, 0);

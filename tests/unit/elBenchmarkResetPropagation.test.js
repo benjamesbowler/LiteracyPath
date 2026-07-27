@@ -187,11 +187,13 @@ test("a synced reset removes only the target learner from every local EL assessm
 });
 
 test("reset propagation is wired through tombstone hydration, live App state, and every teacher/admin deletion path", async () => {
-  const [progressSource, appSource, reportStoreSource] = await Promise.all([
+  const [progressSource, appControllerSource, sessionControllerSource, reportStoreSource] = await Promise.all([
     readFile(new URL("../../src/utils/progressSync.js", import.meta.url), "utf8"),
     readFile(new URL("../../src/App.jsx", import.meta.url), "utf8"),
+    readFile(new URL("../../src/appState/useAppSessionController.js", import.meta.url), "utf8"),
     readFile(new URL("../../src/data/elAssessmentReportStore.js", import.meta.url), "utf8")
   ]);
+  const appSource = `${appControllerSource}\n${sessionControllerSource}`;
 
   assert.match(progressSource, /async function applyResetTombstone\(session, rows\)/);
   assert.match(
@@ -204,7 +206,8 @@ test("reset propagation is wired through tombstone hydration, live App state, an
   assert.match(appSource, /window\.addEventListener\("lp-progress-hydrated", handleRemoteProgressHydration\)/);
   assert.match(appSource, /setAssessmentHistory\(previous => previous\.filter/);
   assert.match(appSource, /setElBenchmarkSession\(previous => \([\s\S]*?previous\?\.studentId === resetStudentId \? null : previous/);
-  assert.match(appSource, /appView === APP_VIEWS\.EL_BENCHMARK[\s\S]*?setAppView\(APP_VIEWS\.EL_ASSESSMENTS\)/);
+  // 2026-07-27: the EL hub became the Checks funnel, so a discarded draft lands there.
+  assert.match(appSource, /appView === APP_VIEWS\.EL_BENCHMARK[\s\S]*?setAppView\(APP_VIEWS\.ASSESSMENTS\)/);
   assert.match(appSource, /assessmentResetAtByStudentRef[\s\S]*?resetAtOrBefore: resetAt/, "an older in-flight history response can resurrect reset evidence");
 
   const adminStudentBlock = appSource.match(/async function executeAdminDeleteStudent[\s\S]*?async function adminSetTeacherSchool/)?.[0] || "";
@@ -226,7 +229,7 @@ test("destructive class-report cleanup fails closed when cloud history cannot be
 
   const cloudReadError = new Error("cloud report history unavailable");
   const failingSupabase = {
-    from() {
+    table() {
       const builder = {
         select() { return builder; },
         eq() { return builder; },

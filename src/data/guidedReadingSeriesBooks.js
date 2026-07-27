@@ -784,10 +784,8 @@ const meadowPalsBookData = [
       {
         "pageNumber": 9,
         "text": "Shy is playing!",
-        "qaStatus": "needs_kimi",
-        "qaNotes": "Live tablet QA 2026-06-03: right-side Shy character is visibly cropped and missing ear detail. Current image is preserved but not production-approved.",
-        "active": false,
-        "regenerationReason": "Rabbit character on right side is cropped / missing ear detail."
+        "qaStatus": "approved",
+        "qaNotes": "Replacement approved 2026-07-24: Shy remains the small grey mouse established on pages 7–8; Shy, Cuddly, and the supporting farm friends are fully visible with complete ears and limbs."
       }
     ]
   },

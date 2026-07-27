@@ -31,7 +31,7 @@
 .story-quest-library-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-top: 4px;
 }
 
@@ -42,13 +42,14 @@
   align-items: center;
   justify-content: center;
   min-height: 28px;
-  padding: 4px 9px;
+  padding: 4px 7px;
   border: 1px solid rgba(26, 92, 85, 0.22);
   border-radius: 999px;
   background: var(--lp-color-success-soft);
   color: var(--lp-color-success-text) !important;
   font-size: 0.8rem;
   font-weight: 850 !important;
+  white-space: nowrap;
 }
 
 .story-quest-library-stats strong {
@@ -64,12 +65,30 @@
   text-transform: uppercase;
 }
 
+.learn-story-quest-copy h1,
 .learn-story-quest-copy h2,
 .learn-story-quest-card h3,
 .story-quest-header h2 {
   margin: 0;
   color: var(--lp-color-text);
   letter-spacing: 0;
+}
+
+.story-quest-primary-action {
+  box-sizing: border-box;
+  width: min(100%, 440px);
+  max-width: 100%;
+  min-height: 52px;
+  margin-top: 12px;
+  padding: 12px 20px;
+  border: 3px solid #18382D;
+  border-radius: 12px;
+  background: #2E4B3E;
+  color: #fff;
+  box-shadow: 0 5px 0 #18382D, 0 12px 24px rgba(24, 56, 45, 0.2);
+  cursor: pointer;
+  font: 900 1rem/1.25 var(--lp-font-ui);
+  overflow-wrap: anywhere;
 }
 
 .learn-story-quest-copy p,

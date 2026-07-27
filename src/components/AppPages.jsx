@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars, react-hooks/set-state-in-effect, react-hooks/purity -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+/* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
 import {
@@ -19,7 +19,6 @@ import {
 import {
   isGraphemeChoiceQuestion
 } from "../utils/assessmentChoiceIntent";
-import { summarizeAssessmentHistory } from "../data/assessmentHistoryStore.js";
 import { buildClassReportModel } from "../data/reportingSystem.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
@@ -27,29 +26,35 @@ import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
 import { addQuestionFlag } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
+import { MetricFigure } from "./MetricDefinition.jsx";
+import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
+import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import {
-  getGuidedReadingLandingMeta,
-  getSkillsCheckLandingMeta
-} from "./reports/studentReportUiUtils.js";
-import { importWithRetry, lazyWithRetry } from "../utils/lazyWithRetry.js";
-import {
-  EL_BENCHMARK_CATALOG,
-  EL_BENCHMARK_IDS,
-  EL_DECODING_MICROPHASES,
-  listElBenchmarkRoutes
-} from "../data/elBenchmarkAssessments.js";
-import {
-  findLatestElBenchmarkAttempt,
-  getElBenchmarkPrerequisiteStatus,
-  isCompletedElBenchmarkRouteEvidence
-} from "../data/elBenchmarkSession.js";
-import "../styles/el-assessment-hub.css";
+  getAssessmentDecorativeMediaProps,
+  getAssessmentEvidenceAccessibleName,
+  getAssessmentMainImageLabel
+} from "../policy/assessmentMediaEvidence.js";
+import { lazyWithRetry } from "../utils/lazyWithRetry.js";
+import { countPhrase, progressPhrase } from "../copy/teacherCopy.js";
 
 export { AuthPage } from "./AuthPage.jsx";
+
+const EL_BENCHMARK_ASSESSMENT_IDS = new Set([
+  "el_phonological_awareness",
+  "el_encoding",
+  "el_decoding",
+  "el_oral_reading_fluency"
+]);
 
 const FormalClassReportDocument = lazyWithRetry(() =>
   import("./AdminDashboardPage.jsx").then(module => ({
     default: module.FormalClassReportDocument
+  }))
+);
+
+const ElFormalAssessmentsPanel = lazyWithRetry(() =>
+  import("./reports/ElFormalAssessmentsPanel.jsx").then(module => ({
+    default: module.ElFormalAssessmentsPanel
   }))
 );
 
@@ -70,17 +75,17 @@ function getApprovedAudioPath(_text = "", audioPath = "") {
 }
 
 const SHORT_VOWEL_AUDIO_PATHS = {
-  a: "/audio/child-mode/clean-human/graphemes/short_vowels/short_a.mp3",
-  e: "/audio/child-mode/clean-human/graphemes/short_vowels/short_e.mp3",
-  i: "/audio/child-mode/clean-human/graphemes/short_vowels/short_i.mp3",
-  o: "/audio/child-mode/clean-human/graphemes/short_vowels/short_o.mp3",
-  u: "/audio/child-mode/clean-human/graphemes/short_vowels/short_u.mp3"
+  a: "/audio/student-mode/clean-human/graphemes/short_vowels/short_a.mp3",
+  e: "/audio/student-mode/clean-human/graphemes/short_vowels/short_e.mp3",
+  i: "/audio/student-mode/clean-human/graphemes/short_vowels/short_i.mp3",
+  o: "/audio/student-mode/clean-human/graphemes/short_vowels/short_o.mp3",
+  u: "/audio/student-mode/clean-human/graphemes/short_vowels/short_u.mp3"
 };
 
 const CONSONANT_AUDIO_PATHS = Object.fromEntries(
   "bcdfghjklmnpqrstvwxyz".split("").map(letter => [
     letter,
-    `/audio/child-mode/clean-human/graphemes/consonants/${letter}.mp3`
+    `/audio/student-mode/clean-human/graphemes/consonants/${letter}.mp3`
   ])
 );
 
@@ -98,7 +103,7 @@ function getPhonemeAudioPath(value = "", fallbackPath = "") {
   const normalized = String(value || "").trim().toLowerCase();
   if (CONSONANT_AUDIO_PATHS[normalized]) return CONSONANT_AUDIO_PATHS[normalized];
   if (/^(ch|ck|ff|ft|ll|mp|nd|ng|ph|sh|sk|ss|st|th|wh)$/.test(normalized)) {
-    return `/audio/child-mode/clean-human/graphemes/digraphs_blends/${normalized}.mp3`;
+    return `/audio/student-mode/clean-human/graphemes/digraphs_blends/${normalized}.mp3`;
   }
 
   return fallbackPath || "";
@@ -275,7 +280,41 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
   );
 }
 
-function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
+function AssessmentEvidenceImage({
+  alt = "",
+  className = "",
+  currentQuestion,
+  label = "",
+  onEvidenceImageError,
+  role = "evidence",
+  src
+}) {
+  const accessibleName = getAssessmentEvidenceAccessibleName({ alt, label, role });
+
+  return (
+    <img
+      src={src}
+      alt={accessibleName}
+      className={className || undefined}
+      data-assessment-media-kind="evidence"
+      data-assessment-media-role={role}
+      loading="lazy"
+      decoding="async"
+      onError={() => onEvidenceImageError?.({
+        questionId: currentQuestion?.id || "",
+        src,
+        role
+      })}
+    />
+  );
+}
+
+function PairSelectionQuestion({
+  currentQuestion,
+  answerQuestion,
+  speakText,
+  onEvidenceImageError
+}) {
   const [selectedWords, setSelectedWords] = useState([]);
   const showCardAudio = shouldShowUniformCardAudio(currentQuestion.imageCards || []);
   const isFinalSoundsPair = currentQuestion?.skillId === "final_sounds" || currentQuestion?.questionType === "final_sound_pair";
@@ -323,7 +362,14 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
                 aria-label={`Select picture for ${label}`}
                 type="button"
               >
-                <img src={image} alt={card.alt || `Picture for ${label}`} loading="lazy" decoding="async" />
+                <AssessmentEvidenceImage
+                  src={image}
+                  alt={card.alt}
+                  label={label}
+                  role="choice"
+                  currentQuestion={currentQuestion}
+                  onEvidenceImageError={onEvidenceImageError}
+                />
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
 
@@ -353,7 +399,12 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
   );
 }
 
-function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }) {
+function VisualCardChoiceQuestion({
+  currentQuestion,
+  answerQuestion,
+  speakText,
+  onEvidenceImageError
+}) {
   const [selectedValues, setSelectedValues] = useState([]);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const showCardAudio = !isRhymingPictureItem && shouldShowUniformCardAudio(currentQuestion.imageCards || []);
@@ -403,7 +454,14 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
                 type="button"
               >
                 {image && (
-                  <img src={image} alt={card.alt || `Picture for ${label}`} loading="lazy" decoding="async" />
+                  <AssessmentEvidenceImage
+                    src={image}
+                    alt={card.alt}
+                    label={label}
+                    role="choice"
+                    currentQuestion={currentQuestion}
+                    onEvidenceImageError={onEvidenceImageError}
+                  />
                 )}
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
@@ -536,7 +594,12 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
   );
 }
 
-function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
+function IxlStyleTemplateQuestion({
+  currentQuestion,
+  answerQuestion,
+  speakText,
+  onEvidenceImageError
+}) {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isHfwLetterBuild = isHfwLetterBuildQuestion(currentQuestion);
   const isGrammarSentenceFit = isGrammarSentenceFitQuestion(currentQuestion);
@@ -712,7 +775,14 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
                 type="button"
               >
                 {!isGraphemeChoiceItem && image && (
-                  <img src={image} alt={rawOption.alt || rawOption.imageAlt || `Picture for ${label}`} loading="lazy" decoding="async" />
+                  <AssessmentEvidenceImage
+                    src={image}
+                    alt={rawOption.alt || rawOption.imageAlt}
+                    label={label}
+                    role="choice"
+                    currentQuestion={currentQuestion}
+                    onEvidenceImageError={onEvidenceImageError}
+                  />
                 )}
                 <strong>{label}</strong>
               </button>
@@ -776,7 +846,10 @@ function QuestionFlagControls({ currentQuestion, currentStage, visiblePrompt }) 
 
 function ListeningVisual() {
   return (
-    <div className="assessment-listening-visual" aria-hidden="true">
+    <div
+      className="assessment-listening-visual"
+      {...getAssessmentDecorativeMediaProps()}
+    >
       <span>🔊</span>
     </div>
   );
@@ -853,7 +926,19 @@ function formatAnswerForFeedback(value = "") {
   return String(value || "").split("|").filter(Boolean).join(", ");
 }
 
-function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, isShortVowelWordChoice, isListenChooseVowel, isGrammarSentenceFit, speakText, shouldShowImage }) {
+function AssessmentStimulus({
+  currentQuestion,
+  isListenAndFindWord,
+  isPairSelection,
+  isVisualCardChoice,
+  isIxlStyleTemplate,
+  isShortVowelWordChoice,
+  isListenChooseVowel,
+  isGrammarSentenceFit,
+  speakText,
+  shouldShowImage,
+  onEvidenceImageError
+}) {
   if (!currentQuestion) return null;
 
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
@@ -938,13 +1023,15 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
       {hasPromptImages && (
         <div className="prompt-image-row" aria-label="Question picture">
           {currentQuestion.promptImageCards.map(card => (
-            <img
+            <AssessmentEvidenceImage
               key={card.id || card.word}
               src={card.image}
-              alt={card.alt || `Picture for ${card.word}`}
+              alt={card.alt}
+              label={card.label || card.word || card.value}
+              role="prompt"
+              currentQuestion={currentQuestion}
+              onEvidenceImageError={onEvidenceImageError}
               className="prompt-image-card"
-              loading="lazy"
-              decoding="async"
             />
           ))}
         </div>
@@ -952,13 +1039,15 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
 
       {hasMainImage && !hasPromptImages && (
         <div className="image-box assessment-main-image-wrap">
-          <img
+          <AssessmentEvidenceImage
             src={stimulusImage}
-              alt={isRhymingPictureItem ? `Picture for ${currentQuestion.targetWord}` : isFinalSoundsEndingItem ? "Picture for the listening word" : "question visual"}
-              className="question-image assessment-main-image"
-              loading="lazy"
-              decoding="async"
-            />
+            alt={currentQuestion.imageAlt || currentQuestion.alt}
+            label={getAssessmentMainImageLabel(currentQuestion)}
+            role="stimulus"
+            currentQuestion={currentQuestion}
+            onEvidenceImageError={onEvidenceImageError}
+            className="question-image assessment-main-image"
+          />
           {isRhymingPictureItem && currentQuestion.targetWord && (
             <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
           )}
@@ -1018,1093 +1107,17 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
   );
 }
 
-export function AdminDashboardPage({
-  teachers,
-  classes,
-  students,
-  loading,
-  refreshDashboard,
-  deleteClass,
-  deleteStudent,
-  message
-}) {
-  return (
-    <main className="admin-dashboard page-stack">
-      <section className="card page-stack">
-        <div className="admin-header">
-          <div>
-            <h2>Admin Dashboard</h2>
-            <p className="muted-text">Review content coverage and manage app data.</p>
-          </div>
-
-          <div className="button-row admin-controls">
-            <button className="report-button" onClick={refreshDashboard} disabled={loading} type="button">
-              {loading ? "Loading..." : "Refresh"}
-            </button>
-          </div>
-        </div>
-
-        {message && <p className="message">{message}</p>}
-      </section>
-
-      <section className="card page-stack admin-section">
-        <h3>Teachers</h3>
-        {teachers.length === 0 ? (
-          <p>No teacher data loaded.</p>
-        ) : (
-          <div className="admin-table-wrap">
-            <table className="dashboard-table admin-table">
-              <thead>
-                <tr>
-                  <th>Email</th>
-                  <th>User ID</th>
-                  <th>Classes</th>
-                  <th>Students</th>
-                  <th>Answers</th>
-                </tr>
-              </thead>
-              <tbody>
-                {teachers.map(teacher => (
-                  <tr key={teacher.id}>
-                    <td>{teacher.email}</td>
-                    <td>{teacher.id}</td>
-                    <td>{teacher.classes}</td>
-                    <td>{teacher.students}</td>
-                    <td>{teacher.answers}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-
-      <section className="report-panel page-stack admin-section">
-        <h3>Classes</h3>
-        <div className="admin-table-wrap">
-          <table className="dashboard-table admin-table">
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th>Teacher</th>
-                <th>Students</th>
-                <th>Created</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {classes.map(row => (
-                <tr key={row.id}>
-                  <td>{row.name}</td>
-                  <td>{row.teacher_id}</td>
-                  <td>{row.studentCount}</td>
-                  <td>{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
-                  <td>
-                    <button className="reset-button" onClick={() => deleteClass(row.id, row.name)} type="button">
-                      Delete Class
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="report-panel page-stack admin-section">
-        <h3>Students</h3>
-        <div className="admin-table-wrap">
-          <table className="dashboard-table admin-table">
-            <thead>
-              <tr>
-                <th>Student</th>
-                <th>Class</th>
-                <th>Teacher</th>
-                <th>Created</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {students.map(row => (
-                <tr key={row.id}>
-                  <td>{row.name}</td>
-                  <td>{row.className}</td>
-                  <td>{row.teacher_id}</td>
-                  <td>{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
-                  <td>
-                    <button className="reset-button" onClick={() => deleteStudent(row.id, row.name)} type="button">
-                      Delete Student
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-  );
-}
-
-export function StudentOverviewPage({
-  studentName,
-  currentSkillIndex,
-  currentStage,
-  accuracy,
-  totalAnswered,
-  roundCorrect,
-  passScore,
-  roundLength,
-  skillTree,
-  setCurrentSkillIndex,
-  setRoundAnswers,
-  setCurrentQuestion,
-  setFeedback,
-  setMessage,
-  startAssessment,
-  startAdvancedPhonicsAssessment,
-  startTargetedReview,
-  weaknessSnapshot,
-  itemMasterySnapshot,
-  coverageSnapshot,
-  switchStudent,
-  openResetStudentProgress,
-  isAdmin = false
-}) {
-  const strongestAreas =
-    weaknessSnapshot.strongest.slice(0, 3);
-
-  const needsPractice =
-    weaknessSnapshot.needsPractice.slice(0, 4);
-
-  const suggestedFocus =
-    weaknessSnapshot.suggestedNextFocus;
-
-  const itemSnapshot = itemMasterySnapshot || {
-    mastered: [],
-    attempting: [],
-    evidence: [],
-    unseenCount: 0,
-    trackedCount: 0
-  };
-
-  const formatItemLabel = item =>
-    item.itemKey + " (" + item.itemType.replace(/_/g, " ") + ", " + item.correct + "/" + item.attempts + ")";
-
-  const formatEvidenceLabel = item => {
-    const formats = item.formatTypes?.length ? item.formatTypes.join(", ") : "none yet";
-    const positions = item.phonicsPositions?.length ? item.phonicsPositions.join(", ") : "none";
-    const blockers = item.masteryBlockers?.length ? item.masteryBlockers.join("; ") : "No blockers";
-
-    return item.itemKey + " (" + item.itemType.replace(/_/g, " ") + "): formats " + formats + "; PTD " + (item.hadPTDExposure ? "yes" : "no") + "; cross-pattern " + (item.crossPatternExposure ? "yes" : "no") + "; positions " + positions + "; " + blockers;
-  };
-
-  const currentCoverage = coverageSnapshot?.[currentStage.id] || {
-    mastered: 0,
-    total: 0,
-    unit: "items"
-  };
-  const checkpointPercent = Math.min(100, Math.round((roundCorrect / Math.max(roundLength, 1)) * 100));
-  const coveragePercent = currentCoverage.total
-    ? Math.round((currentCoverage.mastered / currentCoverage.total) * 100)
-    : 0;
-  const checkpointPassed = roundCorrect >= passScore;
-  const hasProgress = totalAnswered > 0 || roundCorrect > 0 || currentCoverage.mastered > 0;
-
-  return (
-    <div className="card page-card teacher-overview-dashboard">
-      <section className="teacher-overview-hero" aria-label="Student overview summary">
-        <div className="teacher-student-title">
-          <p className="panel-label">Student Overview</p>
-          <h2>{studentName || "Unnamed student"}</h2>
-          <p>{currentSkillIndex + 1}. {currentStage.label}</p>
-        </div>
-
-        <div className="teacher-metric-strip" aria-label="Student progress summary">
-          <div>
-            <span>Accuracy</span>
-            <strong>{accuracy}%</strong>
-          </div>
-          <div>
-            <span>Checkpoint</span>
-            <strong>{roundCorrect}/{roundLength}</strong>
-          </div>
-          <div>
-            <span>Coverage</span>
-            <strong>{currentCoverage.mastered}/{currentCoverage.total || 0}</strong>
-          </div>
-          <div>
-            <span>Answered</span>
-            <strong>{totalAnswered}</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="teacher-start-grid" aria-label="Start assessment">
-        <label className="teacher-skill-selector">
-          <span>Start or adjust skill level</span>
-          <select
-            value={currentSkillIndex}
-            onChange={e => {
-              setCurrentSkillIndex(Number(e.target.value));
-              setRoundAnswers([]);
-              setCurrentQuestion(null);
-              setFeedback(null);
-              setMessage("Start skill changed.");
-            }}
-          >
-            {skillTree.map((stage, index) => (
-              <option key={stage.id} value={index}>
-                {index + 1}. {stage.label}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <div className="teacher-primary-action">
-          <div>
-            <strong>{hasProgress ? "Continue assessment path" : "Begin checkpoint path"}</strong>
-            <p>{passScore}/{roundLength} correct is enough evidence to move forward.</p>
-          </div>
-          <button className="lp-button lp-button-primary" onClick={startAssessment}>
-            {hasProgress ? "Resume Full Screen Assessment" : "Enter Full Screen Assessment"}
-          </button>
-        </div>
-
-        <div className="teacher-quick-actions" aria-label="Quick actions">
-          <button className="lp-button lp-button-secondary" onClick={switchStudent}>
-            Switch Student
-          </button>
-          <button
-            className="lp-button lp-button-danger-outline"
-            onClick={openResetStudentProgress}
-            type="button"
-          >
-            Reset Assessment Data
-          </button>
-        </div>
-      </section>
-
-      <section className="teacher-progress-grid" aria-label="Progress details">
-        <div className="coverage-card compact">
-          <div className="coverage-card-header">
-            <strong>Checkpoint progress</strong>
-            <span>{checkpointPassed ? "Passed" : `${roundCorrect}/${roundLength}`}</span>
-          </div>
-          <div className="coverage-bar" aria-label="Checkpoint progress">
-            <span style={{ width: `${checkpointPercent}%` }}></span>
-          </div>
-        </div>
-
-        <div className="coverage-card compact">
-          <div className="coverage-card-header">
-            <strong>Coverage progress</strong>
-            <span>{currentCoverage.mastered}/{currentCoverage.total || 0} {currentCoverage.unit}</span>
-          </div>
-          <div className="coverage-bar secondary" aria-label="Item coverage progress">
-            <span style={{ width: `${coveragePercent}%` }}></span>
-          </div>
-        </div>
-      </section>
-
-      <section className="teacher-tab-panel" aria-label="Next recommendation">
-        <div className="teacher-panel-header">
-          <div>
-            <h3>Next recommendation</h3>
-            <p>{suggestedFocus ? `${suggestedFocus.target} in ${suggestedFocus.stage}` : "Complete more questions to build a recommendation."}</p>
-          </div>
-          <button
-            className="lp-button lp-button-secondary"
-            disabled={!suggestedFocus}
-            onClick={startTargetedReview}
-          >
-            Start Targeted Review
-          </button>
-        </div>
-
-        <div className="weakness-grid compact">
-          <div>
-            <strong>Needs practice</strong>
-            {needsPractice.length > 0 ? (
-              <ul>
-                {needsPractice.map(item => (
-                  <li key={`${item.stage}-${item.target}`}>
-                    {item.target} in {item.stage} ({item.incorrect} missed)
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No clear weak spots yet.</p>
-            )}
-          </div>
-
-          <div>
-            <strong>Strongest area</strong>
-            {strongestAreas.length > 0 ? (
-              <ul>
-                {strongestAreas.slice(0, 2).map(item => (
-                  <li key={`${item.stage}-${item.target}`}>
-                    {item.target} ({item.correct}/{item.total})
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>Not enough data yet.</p>
-            )}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-function getSkillCategory(stage) {
-  const label = stage.label.toLowerCase();
-  if (/initial|final|rhym|cvc|short vowel/.test(label)) return "Reading Foundations";
-  if (/blend|digraph|long vowel|vowel team|controlled|homophone/.test(label)) return "Phonics Patterns";
-  if (/high-frequency|sight/.test(label)) return "Sight Words";
-  if (/noun|verb|adjective|preposition|plural|prefix|suffix/.test(label)) return "Grammar";
-  if (/antonym|synonym|context/.test(label)) return "Vocabulary";
-  return "Reading Strategies";
-}
-
-const skillCategoryOrder = [
-  "Reading Foundations",
-  "Phonics Patterns",
-  "Sight Words",
-  "Vocabulary",
-  "Grammar",
-  "Reading Strategies"
-];
-
-export function SkillsProgressPage({
-  studentName,
-  skillTree,
-  currentSkillIndex,
-  setCurrentSkillIndex,
-  setRoundAnswers,
-  setCurrentQuestion,
-  setFeedback,
-  setMessage,
-  mastery,
-  coverageSnapshot,
-  startAssessment
-}) {
-  const grouped = skillCategoryOrder.map(category => ({
-    category,
-    skills: skillTree
-      .map((stage, index) => ({ stage, index }))
-      .filter(item => getSkillCategory(item.stage) === category)
-  }));
-
-  const startSkill = index => {
-    setCurrentSkillIndex(index);
-    setRoundAnswers([]);
-    setCurrentQuestion(null);
-    setFeedback(null);
-    setMessage("Start skill changed.");
-    startAssessment(index);
-  };
-
-  return (
-    <div className="teacher-product-page">
-      <section className="teacher-page-header">
-        <div>
-          <p className="panel-label">Skills / Progress</p>
-          <h2>{studentName || "Student"} Skill Map</h2>
-          <p>Browse adaptive checkpoints by category and jump into the next useful practice round.</p>
-        </div>
-      </section>
-
-      <div className="skill-catalogue">
-        {grouped.map(group => (
-          <section className="skill-category-section" key={group.category}>
-            <div className="skill-category-header">
-              <h3>{group.category}</h3>
-              <span>{group.skills.length} skills</span>
-            </div>
-
-            <div className="skill-compact-list">
-              {group.skills.map(({ stage, index }) => {
-                const data = mastery[stage.id];
-                const coverage = coverageSnapshot?.[stage.id] || { mastered: 0, total: 0, unit: "items" };
-                const checkpointPercent = data?.lastTotal
-                  ? Math.round((data.lastScore / data.lastTotal) * 100)
-                  : 0;
-                const coveragePercent = coverage.total
-                  ? Math.round((coverage.mastered / coverage.total) * 100)
-                  : 0;
-                const unlocked = index <= currentSkillIndex || Boolean(data?.mastered);
-                const status = data?.mastered
-                  ? "Passed"
-                  : index === currentSkillIndex
-                    ? "Current"
-                    : unlocked
-                      ? "Open"
-                      : "Locked";
-                const actionLabel = !unlocked
-                  ? "Locked"
-                  : index === currentSkillIndex
-                    ? "Start"
-                    : data?.mastered
-                      ? "Practice"
-                      : "Open";
-                const lockHelp = "Complete earlier skills to unlock.";
-
-                return (
-                  <article className={`skill-catalogue-row ${status.toLowerCase()}`} key={stage.id}>
-                    <div className="skill-card-heading">
-                      <div className="skill-index-badge">{index + 1}</div>
-                      <div className="skill-row-main">
-                        <strong>{stage.label}</strong>
-                        <span>{index === currentSkillIndex ? "Current focus" : data?.mastered ? "Checkpoint passed" : unlocked ? "Ready for practice" : "Not available yet"}</span>
-                      </div>
-                      <span className={`skill-status-badge ${status.toLowerCase()}`}>{status}</span>
-                    </div>
-
-                    <div className="skill-progress-grid">
-                      <div className="skill-row-meter">
-                        <span><strong>Checkpoint</strong> {data ? `${data.lastScore}/${data.lastTotal}` : "Not started"}</span>
-                        <span className="mini-progress-bar" aria-label={`Checkpoint progress ${checkpointPercent}%`}>
-                          <span style={{ width: `${checkpointPercent}%` }}></span>
-                        </span>
-                      </div>
-                      <div className="skill-row-meter">
-                        <span><strong>Coverage</strong> {coverage.mastered}/{coverage.total} {coverage.unit}</span>
-                        <span className="mini-progress-bar secondary" aria-label={`Coverage progress ${coveragePercent}%`}>
-                          <span style={{ width: `${coveragePercent}%` }}></span>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="skill-action-area">
-                      <button
-                        className={index === currentSkillIndex ? "lp-button lp-button-primary" : "lp-button lp-button-secondary"}
-                        disabled={!unlocked}
-                        onClick={() => startSkill(index)}
-                        title={!unlocked ? lockHelp : undefined}
-                        type="button"
-                      >
-                        {actionLabel}
-                      </button>
-                      {!unlocked && (
-                        <span className="skill-lock-help">{lockHelp}</span>
-                      )}
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </section>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-const EL_WINDOW_LABELS = Object.freeze({ BOY: "Beginning of year", MOY: "Middle of year", EOY: "End of year" });
-
-function formatBenchmarkMinutes(value, assessmentId = "", grade = "") {
-  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
-    if (grade === "1") return "5–10 min";
-    if (grade === "2") return "1–5 min";
-    if (grade === "K") return "Optional in Kindergarten";
-  }
-  if (Number.isFinite(Number(value))) return `About ${Number(value)} min`;
-  const minimum = Number(value?.minimum);
-  const maximum = Number(value?.maximum);
-  if (Number.isFinite(minimum) && Number.isFinite(maximum)) {
-    return minimum === maximum ? `About ${minimum} min` : `${minimum}-${maximum} min`;
-  }
-  return "Teacher paced";
-}
-
-function getElPathGuidance(grade, windowName) {
-  if (grade === "K") {
-    if (windowName === "BOY") {
-      return "Start with Letter Name and Sound, then Sound Awareness. Add spelling or word reading later if needed.";
-    }
-    return "Start with Letter Name and Sound and Sound Awareness. Add spelling and word reading when letter sounds are secure.";
-  }
-  return "A useful order is Spelling, Word Reading, Reading Fluency, then Sound Awareness. Use Letter Name and Sound when earlier evidence suggests it.";
-}
-
-function getBenchmarkRecommendation(assessmentId, grade, windowName) {
-  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) {
-    return { label: "Recommended", tone: "recommended", detail: "One-to-one oral check at every benchmark window." };
-  }
-  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY && grade === "K") {
-    return { label: "Optional in K", tone: "optional", detail: "Not on the routine Kindergarten path; use only when decoding evidence supports it." };
-  }
-  if ([EL_BENCHMARK_IDS.ENCODING, EL_BENCHMARK_IDS.DECODING].includes(assessmentId) && grade === "K") {
-    if (windowName === "BOY") {
-      return { label: "Not routine", tone: "as-needed", detail: "Begin with letter and oral sound evidence." };
-    }
-    return { label: "Prerequisite", tone: "optional", detail: "Use only after the student accurately demonstrates the taught letter sounds." };
-  }
-  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
-    return { label: "After Decoding", tone: "recommended", detail: "Begin at the last decoding band read accurately and automatically." };
-  }
-  if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
-    return { label: "After Encoding", tone: "recommended", detail: "Start at the encoding-indicated band and retain automaticity evidence." };
-  }
-  return { label: "Recommended", tone: "recommended", detail: "Use the selected grade and benchmark window route." };
-}
-
-function formatAttemptStatus(attempt) {
-  if (!attempt) return "Not assessed";
-  const status = attempt.administrationStatus || attempt.status || "recorded";
-  return status.replace(/_/g, " ").replace(/^\w/, letter => letter.toUpperCase());
-}
-
-function humanizeBenchmarkKey(value = "") {
-  return String(value || "").replace(/_/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
-}
-
-const EL_PREREQUISITE_REASON_OPTIONS = Object.freeze([
-  {
-    id: "recent_classroom_evidence",
-    label: "Recent classroom work",
-    detail: "Current work shows the student is ready.",
-    reason: "Recent classroom evidence shows the student is ready for this assessment."
-  },
-  {
-    id: "equivalent_assessment_evidence",
-    label: "Equivalent check completed",
-    detail: "I have comparable assessment evidence.",
-    reason: "The teacher reviewed equivalent assessment evidence showing the student is ready for this assessment."
-  },
-  {
-    id: "student_support_decision",
-    label: "Student support decision",
-    detail: "This start matches an agreed support or accommodation.",
-    reason: "This starting decision follows the student's agreed support or accommodation."
-  },
-  {
-    id: "other",
-    label: "Other reason",
-    detail: "Add a short explanation.",
-    reason: ""
-  }
-]);
-
-function getPrerequisiteReasonText(reasonId = "", otherReason = "") {
-  if (reasonId === "other") return String(otherReason || "").trim();
-  return EL_PREREQUISITE_REASON_OPTIONS.find(option => option.id === reasonId)?.reason || "";
-}
-
-function getBenchmarkCardDescription(assessmentId, fallback = "") {
-  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) {
-    return "Listen to short sound tasks and tap the student's response.";
-  }
-  if (assessmentId === EL_BENCHMARK_IDS.ENCODING) {
-    return "The student writes each word on paper; you tap the closest result.";
-  }
-  if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
-    return "The student reads words from the screen; you tap how they read each one.";
-  }
-  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
-    return "The student reads on screen while the built-in timer guides the check.";
-  }
-  return fallback;
-}
-
-function getBenchmarkCardNote(assessmentId) {
-  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) return "Teacher-led · spoken responses";
-  if (assessmentId === EL_BENCHMARK_IDS.ENCODING) return "Paper and pencil";
-  if (assessmentId === EL_BENCHMARK_IDS.DECODING) return "Student reads on screen";
-  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) return "Built-in one-minute timer";
-  return "Teacher paced";
-}
-
-function getBenchmarkStartLabel(assessmentId) {
-  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) return "sound awareness";
-  if (assessmentId === EL_BENCHMARK_IDS.ENCODING) return "spelling";
-  if (assessmentId === EL_BENCHMARK_IDS.DECODING) return "word reading";
-  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) return "reading fluency";
-  return "assessment";
-}
-
-export function ELAssessmentsPage({
-  studentId,
-  studentName,
-  startLetterAssessment,
-  startAdvancedPhonicsAssessment,
-  startElBenchmarkAssessment,
-  resumeElBenchmarkAssessment,
-  discardElBenchmarkDraft,
-  elBenchmarkDraft = null,
-  assessmentHistory = []
-}) {
-  const [grade, setGrade] = useState(elBenchmarkDraft?.grade || "K");
-  const [windowName, setWindowName] = useState(elBenchmarkDraft?.window || "BOY");
-  const [pendingStart, setPendingStart] = useState(null);
-  const [prerequisiteReason, setPrerequisiteReason] = useState("");
-  const [prerequisiteOtherReason, setPrerequisiteOtherReason] = useState("");
-  const prerequisiteReviewRef = useRef(null);
-  const routes = useMemo(() => listElBenchmarkRoutes(), []);
-  const selectedRoute = useMemo(() => routes.find(route => (
-    route.grade === grade && route.window === windowName
-  )), [grade, routes, windowName]);
-  const latestByAssessment = useMemo(() => Object.fromEntries(
-    EL_BENCHMARK_CATALOG.map(entry => [entry.id, findLatestElBenchmarkAttempt({
-      assessmentHistory,
-      studentId,
-      assessmentId: entry.id,
-      grade,
-      window: windowName
-    })])
-  ), [assessmentHistory, grade, studentId, windowName]);
-  const completedHistory = useMemo(() => (
-    assessmentHistory.filter(isCompletedElBenchmarkRouteEvidence)
-  ), [assessmentHistory]);
-  const latestCompletedByAssessment = useMemo(() => Object.fromEntries(
-    EL_BENCHMARK_CATALOG.map(entry => [entry.id, findLatestElBenchmarkAttempt({
-      assessmentHistory: completedHistory,
-      studentId,
-      assessmentId: entry.id,
-      grade,
-      window: windowName
-    })])
-  ), [completedHistory, grade, studentId, windowName]);
-  const draftCatalogEntry = elBenchmarkDraft
-    ? EL_BENCHMARK_CATALOG.find(entry => entry.id === elBenchmarkDraft.assessmentId)
-    : null;
-  const decodingBandOptions = useMemo(() => {
-    const startIndex = EL_DECODING_MICROPHASES.findIndex(row => row.id === selectedRoute?.rangeStart);
-    const endIndex = EL_DECODING_MICROPHASES.findIndex(row => row.id === selectedRoute?.rangeEnd);
-    if (startIndex < 0 || endIndex < startIndex) return [];
-    return EL_DECODING_MICROPHASES.slice(startIndex, endIndex + 1);
-  }, [selectedRoute]);
-  const latestEncoding = latestCompletedByAssessment[EL_BENCHMARK_IDS.ENCODING];
-  const confirmedEncodingIndication = latestEncoding?.confirmedPlacement?.candidateMicrophase ||
-    latestEncoding?.confirmedPlacement?.microphase || "";
-  const provisionalEncodingIndication = latestEncoding?.candidatePlacement?.candidateMicrophase ||
-    latestEncoding?.candidatePlacement?.microphase || "";
-  const encodingIndication = confirmedEncodingIndication || provisionalEncodingIndication;
-  const encodingIndicationSource = confirmedEncodingIndication
-    ? "confirmed_encoding_placement"
-    : provisionalEncodingIndication
-      ? "provisional_encoding_indication"
-      : "grade_window_anchor";
-  const latestDecoding = latestCompletedByAssessment[EL_BENCHMARK_IDS.DECODING];
-  const savedFluencyHandoff = latestDecoding?.metrics?.fluencyStartMicrophase ||
-    latestDecoding?.fluencyStartMicrophase ||
-    latestDecoding?.confirmedPlacement?.fluencyStartMicrophase ||
-    null;
-  const fluencyIndication = String(
-    typeof savedFluencyHandoff === "string"
-      ? savedFluencyHandoff
-      : savedFluencyHandoff?.microphase || savedFluencyHandoff?.id || ""
-  );
-  const allowedStartIds = new Set(decodingBandOptions.map(row => row.id));
-  const initialDecodingIndication = allowedStartIds.has(encodingIndication) ? encodingIndication : "";
-  const initialFluencyIndication = allowedStartIds.has(fluencyIndication) ? fluencyIndication : "";
-  const [decodingStart, setDecodingStart] = useState(
-    initialDecodingIndication || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre"
-  );
-  const [decodingStartSource, setDecodingStartSource] = useState(
-    initialDecodingIndication ? encodingIndicationSource : "grade_window_anchor"
-  );
-  const [fluencyStart, setFluencyStart] = useState(
-    initialFluencyIndication || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre"
-  );
-  const [fluencyStartSource, setFluencyStartSource] = useState(
-    initialFluencyIndication ? "decoding_fluency_handoff" : "grade_window_anchor"
-  );
-
-  useEffect(() => {
-    const allowed = new Set(decodingBandOptions.map(row => row.id));
-    const indicated = allowed.has(encodingIndication) ? encodingIndication : "";
-    setDecodingStart(indicated || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre");
-    setDecodingStartSource(indicated ? encodingIndicationSource : "grade_window_anchor");
-  }, [decodingBandOptions, encodingIndication, encodingIndicationSource, selectedRoute?.expectedMicrophase]);
-
-  useEffect(() => {
-    const allowed = new Set(decodingBandOptions.map(row => row.id));
-    const indicated = allowed.has(fluencyIndication) ? fluencyIndication : "";
-    setFluencyStart(indicated || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre");
-    setFluencyStartSource(indicated ? "decoding_fluency_handoff" : "grade_window_anchor");
-  }, [decodingBandOptions, fluencyIndication, selectedRoute?.expectedMicrophase]);
-
-  useEffect(() => {
-    setPendingStart(null);
-    setPrerequisiteReason("");
-    setPrerequisiteOtherReason("");
-  }, [grade, windowName]);
-
-  useEffect(() => {
-    if (!pendingStart || !prerequisiteReviewRef.current) return;
-    prerequisiteReviewRef.current.focus({ preventScroll: true });
-    prerequisiteReviewRef.current.scrollIntoView({ block: "center" });
-  }, [pendingStart]);
-
-  const prerequisiteFor = assessmentId => {
-    const baseStatus = getElBenchmarkPrerequisiteStatus({
-      assessmentHistory,
-      studentId,
-      assessmentId,
-      grade,
-      window: windowName
-    });
-    if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
-      const allowed = decodingBandOptions.some(row => row.id === confirmedEncodingIndication);
-      if (confirmedEncodingIndication && !allowed) {
-        return {
-          ...baseStatus,
-          state: "override",
-          code: "confirmed_encoding_outside_selected_route",
-          message: "The confirmed Encoding band is outside this grade/window route. Record why a different in-range start is appropriate."
-        };
-      }
-      if (
-        confirmedEncodingIndication &&
-        decodingStartSource === "teacher_selected" &&
-        decodingStart !== confirmedEncodingIndication
-      ) {
-        return {
-          ...baseStatus,
-          state: "override",
-          code: "teacher_changed_confirmed_encoding_start",
-          message: `Encoding indicated ${humanizeBenchmarkKey(confirmedEncodingIndication)}. Record why ${humanizeBenchmarkKey(decodingStart)} is the better Decoding start.`
-        };
-      }
-    }
-    if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
-      const allowed = decodingBandOptions.some(row => row.id === fluencyIndication);
-      if (fluencyIndication && !allowed) {
-        return {
-          ...baseStatus,
-          state: "override",
-          code: "decoding_fluency_handoff_outside_selected_route",
-          message: "The completed Decoding handoff is outside this grade/window route. Record why a different in-range Fluency start is appropriate."
-        };
-      }
-      if (
-        fluencyIndication &&
-        fluencyStartSource === "teacher_selected" &&
-        fluencyStart !== fluencyIndication
-      ) {
-        return {
-          ...baseStatus,
-          state: "override",
-          code: "teacher_changed_decoding_fluency_handoff",
-          message: `Decoding indicated ${humanizeBenchmarkKey(fluencyIndication)}. Record why ${humanizeBenchmarkKey(fluencyStart)} is the better Fluency start.`
-        };
-      }
-    }
-    return baseStatus;
-  };
-
-  const launchAssessment = (entry, prerequisite, reason = "") => {
-    const teacherReviewed = prerequisite.state !== "ready" && Boolean(reason.trim());
-    const useEncodingProvenance = entry.id === EL_BENCHMARK_IDS.DECODING &&
-      decodingStartSource === "confirmed_encoding_placement" &&
-      decodingStart === confirmedEncodingIndication;
-    const useFluencyProvenance = entry.id === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY &&
-      fluencyStartSource === "decoding_fluency_handoff" &&
-      fluencyStart === fluencyIndication;
-    const selectedStart = entry.id === EL_BENCHMARK_IDS.DECODING
-      ? (useEncodingProvenance ? "" : decodingStart)
-      : entry.id === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY
-        ? (useFluencyProvenance ? "" : fluencyStart)
-        : "";
-    startElBenchmarkAssessment?.(entry.id, {
-      grade,
-      window: windowName,
-      startMicrophase: selectedStart,
-      prerequisiteReview: {
-        state: prerequisite.state,
-        code: prerequisite.code,
-        evidenceAttemptId: prerequisite.evidenceAttemptId || "",
-        teacherConfirmed: teacherReviewed,
-        overrideReason: reason.trim(),
-        reviewedAt: teacherReviewed ? new Date().toISOString() : ""
-      }
-    });
-    setPendingStart(null);
-    setPrerequisiteReason("");
-    setPrerequisiteOtherReason("");
-  };
-
-  const requestAssessmentStart = entry => {
-    const prerequisite = prerequisiteFor(entry.id);
-    if (prerequisite.state === "ready") {
-      launchAssessment(entry, prerequisite);
-      return;
-    }
-    setPendingStart({ entry, prerequisite });
-    setPrerequisiteReason("");
-    setPrerequisiteOtherReason("");
-  };
-
-  const prerequisiteReasonText = getPrerequisiteReasonText(
-    prerequisiteReason,
-    prerequisiteOtherReason
-  );
-
-  return (
-    <div className="teacher-product-page el-assessment-hub">
-      <section className="teacher-page-header el-assessment-hub-hero">
-        <div>
-          <p className="panel-label">EL-aligned benchmark suite</p>
-          <h2>Choose an assessment for {studentName || "this student"}</h2>
-          <p>Set the grade and time of year once, then start the check you need.</p>
-        </div>
-        <span className="el-assessment-provisional-label">Six early literacy checks</span>
-      </section>
-
-      <section className="el-assessment-route-panel" aria-labelledby="el-assessment-route-title">
-        <div className="el-assessment-route-copy">
-          <p className="panel-label">Student level</p>
-          <h3 id="el-assessment-route-title">Grade and time of year</h3>
-          <p>{getElPathGuidance(grade, windowName)}</p>
-        </div>
-        <div className="el-assessment-route-controls">
-          <label>
-            Grade
-            <select onChange={event => setGrade(event.target.value)} value={grade}>
-              <option value="K">Kindergarten</option>
-              <option value="1">Grade 1</option>
-              <option value="2">Grade 2</option>
-            </select>
-          </label>
-          <label>
-            Time of year
-            <select onChange={event => setWindowName(event.target.value)} value={windowName}>
-              {Object.entries(EL_WINDOW_LABELS).map(([value, label]) => (
-                <option key={value} value={value}>{label}</option>
-              ))}
-            </select>
-          </label>
-        </div>
-
-        <details className="el-assessment-advanced-starts">
-          <summary>
-            <span>Advanced starting points</span>
-            <small>Optional · change only when earlier evidence supports a different start</small>
-          </summary>
-          <div className="el-assessment-advanced-start-grid">
-            <label>
-              Decoding start
-              <select onChange={event => {
-                setDecodingStart(event.target.value);
-                setDecodingStartSource("teacher_selected");
-              }} value={decodingStart}>
-                {decodingBandOptions.map(band => (
-                  <option key={band.id} value={band.id}>
-                    {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle}` : ""}
-                  </option>
-                ))}
-              </select>
-              <small>
-                {confirmedEncodingIndication && decodingBandOptions.some(row => row.id === confirmedEncodingIndication)
-                  ? "Set from the latest teacher-confirmed Encoding result."
-                  : provisionalEncodingIndication && decodingBandOptions.some(row => row.id === provisionalEncodingIndication)
-                    ? "Set from a provisional Encoding result; review before starting Decoding."
-                    : "The usual grade and window starting point is selected."}
-              </small>
-            </label>
-            <label>
-              Fluency start
-              <select onChange={event => {
-                setFluencyStart(event.target.value);
-                setFluencyStartSource("teacher_selected");
-              }} value={fluencyStart}>
-                {decodingBandOptions.map(band => (
-                  <option key={band.id} value={band.id}>
-                    {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle} anchor` : ""}
-                  </option>
-                ))}
-              </select>
-              <small>
-                {fluencyIndication && decodingBandOptions.some(row => row.id === fluencyIndication)
-                  ? "Set from the latest completed Decoding result."
-                  : "The usual grade and window starting point is selected."}
-              </small>
-            </label>
-          </div>
-          <p className="el-assessment-advanced-note">
-            Results are descriptive. No unpublished cut score is assumed.
-          </p>
-        </details>
-      </section>
-
-      {pendingStart && (
-        <section
-          aria-labelledby="el-prerequisite-review-title"
-          className="el-assessment-prerequisite-review"
-          ref={prerequisiteReviewRef}
-          tabIndex="-1"
-        >
-          <div>
-            <p className="panel-label">Sequence check</p>
-            <h3 id="el-prerequisite-review-title">One quick check before starting</h3>
-            <p>{pendingStart.prerequisite.message}</p>
-          </div>
-          <fieldset className="el-assessment-reason-fieldset">
-            <legend>Why are you starting here?</legend>
-            <div className="el-assessment-reason-options">
-              {EL_PREREQUISITE_REASON_OPTIONS.map(option => (
-                <button
-                  aria-pressed={prerequisiteReason === option.id}
-                  key={option.id}
-                  onClick={() => {
-                    setPrerequisiteReason(option.id);
-                    if (option.id !== "other") setPrerequisiteOtherReason("");
-                  }}
-                  type="button"
-                >
-                  <strong>{option.label}</strong>
-                  <small>{option.detail}</small>
-                </button>
-              ))}
-            </div>
-          </fieldset>
-          {prerequisiteReason === "other" && (
-            <label className="el-assessment-other-reason">
-              Short explanation
-              <textarea
-                autoFocus
-                onChange={event => setPrerequisiteOtherReason(event.target.value)}
-                placeholder="Briefly note the evidence or reason."
-                rows={2}
-                value={prerequisiteOtherReason}
-              />
-            </label>
-          )}
-          <div className="teacher-action-list">
-            <button
-              className="lp-button lp-button-primary"
-              disabled={!prerequisiteReasonText}
-              onClick={() => launchAssessment(
-                pendingStart.entry,
-                pendingStart.prerequisite,
-                prerequisiteReasonText
-              )}
-              type="button"
-            >
-              Start {pendingStart.entry.shortTitle || pendingStart.entry.title}
-            </button>
-            <button
-              className="lp-button lp-button-secondary"
-              onClick={() => {
-                setPendingStart(null);
-                setPrerequisiteReason("");
-                setPrerequisiteOtherReason("");
-              }}
-              type="button"
-            >
-              Cancel
-            </button>
-          </div>
-        </section>
-      )}
-
-      {elBenchmarkDraft && draftCatalogEntry && (
-        <section className="el-assessment-draft-banner" aria-label="Saved benchmark draft">
-          <div>
-            <span>Saved draft</span>
-            <strong>{draftCatalogEntry.title}</strong>
-            <small>{elBenchmarkDraft.grade === "K" ? "Kindergarten" : `Grade ${elBenchmarkDraft.grade}`} · {EL_WINDOW_LABELS[elBenchmarkDraft.window] || elBenchmarkDraft.window} · {formatAttemptStatus(elBenchmarkDraft)}</small>
-          </div>
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-primary" onClick={resumeElBenchmarkAssessment} type="button">Resume draft</button>
-            <button className="lp-button lp-button-secondary" onClick={discardElBenchmarkDraft} type="button">Discard draft</button>
-          </div>
-        </section>
-      )}
-
-      <div className="el-assessment-list-heading">
-        <div>
-          <p className="panel-label">Assessments</p>
-          <h3>Choose one check</h3>
-        </div>
-        <p>Each assessment saves its own results. You can come back for another when you are ready.</p>
-      </div>
-
-      <section className="el-assessment-domain-grid">
-        <article className="teacher-action-panel el-assessment-domain-card" data-domain="letters">
-          <div className="el-assessment-card-topline">
-            <span className="el-assessment-card-index">01</span>
-            <span className="el-assessment-recommendation recommended">Core evidence</span>
-          </div>
-          <h3>Letter Name and Sound</h3>
-          <p>Name and sound recognition for uppercase and lowercase letters.</p>
-          <small>Assessment 1 · existing assessment retained unchanged · Kindergarten routine · Grade 1/2 as needed</small>
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={startLetterAssessment}>
-              Start Letter Assessment
-            </button>
-          </div>
-        </article>
-
-        <article className="teacher-action-panel el-assessment-domain-card supplemental" data-domain="advanced-phonics">
-          <div className="el-assessment-card-topline">
-            <span className="el-assessment-card-index">02</span>
-            <span className="el-assessment-recommendation supplemental">Established supplemental diagnostic</span>
-          </div>
-          <h3>Advanced Phonics Patterns</h3>
-          <p>Assess the existing advanced phoneme and grapheme-pattern checks without changing its established runner or scoring.</p>
-          <small>Assessment 2 · existing assessment retained unchanged</small>
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
-              Start Advanced Phonics
-            </button>
-          </div>
-        </article>
-
-        {EL_BENCHMARK_CATALOG.map((entry, index) => {
-          const recommendation = getBenchmarkRecommendation(entry.id, grade, windowName);
-          const latest = latestByAssessment[entry.id];
-          const prerequisite = prerequisiteFor(entry.id);
-          return (
-            <article className="teacher-action-panel el-assessment-domain-card" data-domain={entry.id} key={entry.id}>
-              <div className="el-assessment-card-topline">
-                <span className="el-assessment-card-index">{String(index + 3).padStart(2, "0")}</span>
-                <span className={`el-assessment-recommendation ${recommendation.tone}`}>{recommendation.label}</span>
-              </div>
-              <h3>{entry.title}</h3>
-              <p>{getBenchmarkCardDescription(entry.id, entry.description)}</p>
-              <small>{getBenchmarkCardNote(entry.id)} · {formatBenchmarkMinutes(entry.estimatedMinutes, entry.id, grade)}</small>
-              <div className="el-assessment-card-evidence">
-                <span>{formatAttemptStatus(latest)}</span>
-                {latest?.completedAt && <time dateTime={latest.completedAt}>{new Date(latest.completedAt).toLocaleDateString()}</time>}
-              </div>
-              {prerequisite.state !== "ready" && (
-                <p className="el-assessment-prerequisite-note">Quick evidence check needed before starting.</p>
-              )}
-              <div className="teacher-action-list">
-                <button
-                  className="lp-button lp-button-secondary"
-                  disabled={Boolean(elBenchmarkDraft)}
-                  onClick={() => requestAssessmentStart(entry)}
-                  title={elBenchmarkDraft ? "Resume or discard the saved draft before starting another benchmark" : undefined}
-                  type="button"
-                >
-                  {prerequisite.state === "ready" ? "Start" : "Check & start"} {getBenchmarkStartLabel(entry.id)}
-                </button>
-              </div>
-            </article>
-          );
-        })}
-
-      </section>
-
-      <p className="el-assessment-validity-note">
-        These are original, versioned LiteracyPath instruments aligned to the supplied EL Skills Block overview. They are not official EL Education forms, nationally normed scores, or diagnostic tests for a disability.
-      </p>
-    </div>
-  );
-}
-
 const LazyGuidedReadingPage = lazyWithRetry(() =>
   import("./guided-reading/GuidedReadingPage.jsx").then(module => ({
     default: module.GuidedReadingPage
   }))
 );
 
-function GuidedReadingLoadingFallback() {
+function GuidedReadingLoadingFallback({ mode = "teacher" }) {
+  if (mode === "student") {
+    return <RouteLoadingFallback label="Loading Reading Library..." />;
+  }
+
   return (
     <div className="teacher-product-page guided-reading-page">
       <section className="teacher-page-header">
@@ -2120,84 +1133,32 @@ function GuidedReadingLoadingFallback() {
 
 export function GuidedReadingPage(props) {
   return (
-    <Suspense fallback={<GuidedReadingLoadingFallback />}>
+    <Suspense fallback={<GuidedReadingLoadingFallback mode={props.mode} />}>
       <LazyGuidedReadingPage {...props} />
     </Suspense>
   );
 }
+// THE CLASS REPORT.
+//
+// 2026-07-27: this is no longer a route of its own. It is what the Reports
+// funnel shows when the answer to "whole class, or one student?" is the whole
+// class, so the class picker and the "back to reports" button it used to carry
+// have gone with the duplication - the funnel above it already asked.
 export function TeacherReportsPage({
-  studentName,
-  startAssessment,
-  viewFinishedReport,
-  guidedReadingRecords = {},
-  assessmentHistory = [],
-  skillMasterySummary = [],
+  allAssessmentHistory = [],
   classList = [],
   selectedClassId = "",
-  setSelectedClassId,
   students = [],
-  teacherName = ""
+  teacherName = "",
+  teacherId = "local",
+  supabase = null
 }) {
-  const [detailsReady, setDetailsReady] = useState(false);
   const [dateRange, setDateRange] = useState("last90");
-  const [reportTab, setReportTab] = useState("student");
-  const [guidedReadingReportHelpers, setGuidedReadingReportHelpers] = useState(null);
-  const [guidedReadingReportLoadStatus, setGuidedReadingReportLoadStatus] = useState("idle");
-  const reportsLoadStartRef = useRef(0);
 
-  useEffect(() => {
-    reportsLoadStartRef.current = typeof performance !== "undefined" ? performance.now() : Date.now();
-    setDetailsReady(false);
-
-    const revealDetails = () => setDetailsReady(true);
-    let timeoutId = null;
-    let idleId = null;
-
-    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
-      idleId = window.requestIdleCallback(revealDetails, { timeout: 250 });
-    } else {
-      timeoutId = window.setTimeout(revealDetails, 0);
-    }
-
-    return () => {
-      if (idleId && typeof window !== "undefined" && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId) window.clearTimeout(timeoutId);
-    };
-  }, [studentName, assessmentHistory, guidedReadingRecords]);
-
-  useEffect(() => {
-    if (!detailsReady || guidedReadingReportHelpers) return undefined;
-
-    let cancelled = false;
-    setGuidedReadingReportLoadStatus("loading");
-    importWithRetry(() => import("../data/guidedReadingBooks"))
-      .then(module => {
-        if (cancelled) return;
-        if (typeof module.summarizeGuidedReadingProgress !== "function") {
-          throw new Error("Guided Reading summary helper is unavailable.");
-        }
-        setGuidedReadingReportHelpers({
-          summarizeGuidedReadingProgress: module.summarizeGuidedReadingProgress
-        });
-        setGuidedReadingReportLoadStatus("ready");
-      })
-      .catch(error => {
-        if (cancelled) return;
-        console.error("Guided Reading report summary could not be loaded:", error);
-        setGuidedReadingReportLoadStatus("error");
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [detailsReady, guidedReadingReportHelpers]);
-
-  const guidedReadingDetailsReady = detailsReady && Boolean(guidedReadingReportHelpers);
-
-  const filteredAssessmentHistory = useMemo(() => {
-    if (dateRange === "all") return assessmentHistory;
+  // The class tab is about a whole class, so it filters the teacher's complete
+  // record by date.
+  const classAssessmentHistory = useMemo(() => {
+    if (dateRange === "all") return allAssessmentHistory;
     const now = new Date();
     let cutoff = null;
 
@@ -2210,347 +1171,78 @@ export function TeacherReportsPage({
       cutoff.setDate(cutoff.getDate() - days);
     }
 
-    return assessmentHistory.filter(record => {
+    return allAssessmentHistory.filter(record => {
       const completedAt = new Date(record.completedAt || record.date || 0);
       return Number.isFinite(completedAt.getTime()) && completedAt >= cutoff;
     });
-  }, [assessmentHistory, dateRange]);
+  }, [allAssessmentHistory, dateRange]);
 
-  const assessmentSummary = useMemo(() => {
-    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
-    const summary = summarizeAssessmentHistory(filteredAssessmentHistory);
-    if (import.meta.env.DEV) {
-      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
-      console.debug("[Reports] assessment summary", {
-        durationMs: duration,
-        attempts: filteredAssessmentHistory.length,
-        dateRange
-      });
-    }
-    return summary;
-  }, [filteredAssessmentHistory, dateRange]);
-
-  // Student report availability must use the student's full record. The date
-  // control belongs to the Class tab only and must never make older student
-  // evidence look absent on the landing page.
-  const fullStudentAssessmentSummary = useMemo(
-    () => summarizeAssessmentHistory(assessmentHistory),
-    [assessmentHistory]
-  );
-
-  const elAssessmentAttemptCount = useMemo(() => {
-    const benchmarkIds = new Set(Object.values(EL_BENCHMARK_IDS));
-    return assessmentHistory.filter(record => {
-      const assessmentId = String(record.assessmentType || record.skillId || "");
-      return assessmentId === "el_letter_assessment" ||
-        assessmentId === "advanced_phonics_patterns" ||
-        benchmarkIds.has(assessmentId);
-    }).length;
-  }, [assessmentHistory]);
-
-  const skillCheckpointAttemptCount = useMemo(() => assessmentHistory.filter(record => {
-    const assessmentType = String(record?.assessmentType || record?.assessment_type || "")
-      .trim()
-      .toLowerCase();
-    return assessmentType === "skill_checkpoint";
-  }).length, [assessmentHistory]);
-
-  const readingProgress = useMemo(() => {
-    if (!guidedReadingDetailsReady) return null;
-    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
-    const progress = guidedReadingReportHelpers.summarizeGuidedReadingProgress(guidedReadingRecords);
-    if (import.meta.env.DEV) {
-      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
-      console.debug("[Reports] guided reading progress", {
-        durationMs: duration,
-        recordCount: Object.keys(guidedReadingRecords || {}).length,
-        completedBooks: progress.completedBooks.length
-      });
-    }
-    return progress;
-  }, [guidedReadingDetailsReady, guidedReadingRecords, guidedReadingReportHelpers]);
-
-  const hasAssessmentData =
-    fullStudentAssessmentSummary.attempts > 0 ||
-    skillMasterySummary.some(summary => summary.masteredCount > 0);
-  const hasReadingData = Object.keys(guidedReadingRecords || {}).length > 0 || (Boolean(readingProgress) && (
-    readingProgress.totalBooksRead > 0 ||
-    readingProgress.inProgressBooks.length > 0 ||
-    readingProgress.totalRereads > 0
-  ));
   const effectiveSelectedClassId = selectedClassId || classList[0]?.id || "";
   const classReportingModel = useMemo(() =>
     buildClassReportModel({
       students,
       classes: classList,
-      assessmentHistory: filteredAssessmentHistory,
+      assessmentHistory: classAssessmentHistory,
       classId: effectiveSelectedClassId,
       teacherName
     }),
-  [students, classList, filteredAssessmentHistory, effectiveSelectedClassId, teacherName]);
+  [students, classList, classAssessmentHistory, effectiveSelectedClassId, teacherName]);
+  const classReportProvenanceOptions = useMemo(() => ({
+    filters: {
+      Class: classReportingModel.className,
+      "Check period": {
+        last30: "Last 30 days",
+        last90: "Last 90 days",
+        schoolYear: "This school year",
+        all: "All time"
+      }[dateRange] || dateRange
+    }
+  }), [classReportingModel, dateRange]);
   const getClassOptionLabel = cls => cls.name || cls.className || cls.class_name || "Class";
-
-  useEffect(() => {
-    if (!detailsReady || !import.meta.env.DEV) return;
-    const now = typeof performance !== "undefined" ? performance.now() : Date.now();
-    console.debug("[Reports] details ready", {
-      totalElapsedMs: Math.round(now - reportsLoadStartRef.current),
-      assessmentAttempts: assessmentHistory.length,
-      guidedReadingRecords: Object.keys(guidedReadingRecords || {}).length
-    });
-  }, [detailsReady, assessmentHistory.length, guidedReadingRecords]);
 
   return (
     <div className="teacher-product-page">
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Reports</p>
-          <h2>Reports</h2>
-          <p>Review student and class progress from one focused report area.</p>
+          <h2>Class report</h2>
+          <p>The whole class in one place. Choose one student at step 2 above for a single child&apos;s report.</p>
         </div>
-        {reportTab === "class" && (
-          <label className="report-filter-control">
-            <span>Class assessment period</span>
-            <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
-              <option value="last30">Last 30 days</option>
-              <option value="last90">Last 90 days</option>
-              <option value="schoolYear">This school year</option>
-              <option value="all">All time</option>
-            </select>
-          </label>
-        )}
+        <label className="report-filter-control">
+          <span>Class check period</span>
+          <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
+            <option value="last30">Last 30 days</option>
+            <option value="last90">Last 90 days</option>
+            <option value="schoolYear">This school year</option>
+            <option value="all">All time</option>
+          </select>
+        </label>
       </section>
 
-      <div className="teacher-tabs reports-tab-switcher" aria-label="Report scope">
-        <button
-          type="button"
-          className={reportTab === "student" ? "active" : ""}
-          aria-pressed={reportTab === "student"}
-          onClick={() => setReportTab("student")}
-        >
-          Student Report
-        </button>
-        <button
-          type="button"
-          className={reportTab === "class" ? "active" : ""}
-          aria-pressed={reportTab === "class"}
-          onClick={() => setReportTab("class")}
-        >
-          Class Report
-        </button>
-      </div>
-
-      {reportTab === "student" && (
-      <section className="report-choice-workspace" aria-label="Student reports">
-        <header className="report-choice-student">
-          <div>
-            <span>Selected student</span>
-            <h3>{studentName || "Choose a student"}</h3>
-          </div>
-          <p>Start with the whole-child summary, or open the area where the evidence was collected.</p>
-        </header>
-
-        <div className="report-choice-grid">
-          {[
-            {
-              id: "whole-child",
-              title: "Whole Child",
-              description: "See what the student knows across every learning area, with evidence and next steps.",
-              meta: hasAssessmentData || hasReadingData ? "Evidence available" : "Ready for first evidence"
-            },
-            {
-              id: "el-assessments",
-              title: "EL Assessments",
-              description: "Review Assessments 1-6 together without unrelated reading or game data.",
-              meta: elAssessmentAttemptCount ? `${elAssessmentAttemptCount} saved assessment${elAssessmentAttemptCount === 1 ? "" : "s"}` : "No saved attempts yet"
-            },
-            {
-              id: "guided-reading",
-              title: "Guided Reading",
-              description: "Review books, words read correctly, support words and every teacher note.",
-              meta: getGuidedReadingLandingMeta({
-                progress: readingProgress,
-                loadStatus: guidedReadingReportLoadStatus
-              })
-            },
-            {
-              id: "skills-check",
-              title: "Skills Check",
-              description: "See formal checkpoint results, skill progress and question-level evidence.",
-              meta: getSkillsCheckLandingMeta({
-                attemptCount: skillCheckpointAttemptCount,
-                skillMasterySummary
-              })
-            },
-            {
-              id: "other-learning",
-              title: "Other Learning",
-              description: "See simple practice evidence from Sound Seekers, Arcade and Story Quests.",
-              meta: "Practice evidence only"
-            }
-          ].map(option => (
-            <article className={`report-choice-card ${option.id === "whole-child" ? "featured" : ""}`} key={option.id}>
-              <div>
-                <h3>{option.title}</h3>
-                <p>{option.description}</p>
-              </div>
-              <span>{option.meta}</span>
-              <button className="lp-button lp-button-primary" onClick={() => viewFinishedReport(option.id)} type="button">
-                Open {option.title}
-              </button>
-            </article>
-          ))}
-        </div>
-
-        {!hasAssessmentData && startAssessment && (
-          <div className="report-choice-first-step">
-            <div>
-              <strong>No formal assessment evidence yet</strong>
-              <p>Start the first assessment to begin the student record.</p>
-            </div>
-            <button className="lp-button lp-button-secondary" onClick={startAssessment} type="button">
-              Start first assessment
-            </button>
-          </div>
-        )}
-      </section>
-      )}
-
-      {reportTab === "class" && (
-        <section className="class-report-workspace" aria-label="Class Report">
-          <div className="class-report-print-actions class-report-view-controls screen-only">
-            <label>
-              Class
-              <select
-                value={effectiveSelectedClassId}
-                onChange={event => setSelectedClassId?.(event.target.value || null)}
-                disabled={classList.length === 0}
-              >
-                {classList.length === 0 ? (
-                  <option value="">No classes yet</option>
-                ) : classList.map(cls => (
-                  <option key={cls.id} value={cls.id}>{getClassOptionLabel(cls)}</option>
-                ))}
-              </select>
-            </label>
-            <button className="lp-button lp-button-primary" onClick={() => window.print()} type="button">
-              Export Class PDF
-            </button>
-          </div>
-          <Suspense fallback={<div className="teacher-action-panel">Loading class report...</div>}>
-            <FormalClassReportDocument model={classReportingModel} />
-          </Suspense>
-        </section>
-      )}
-    </div>
-  );
-}
-
-// Generic styled confirmation for destructive admin actions - replaces bare
-// window.confirm so the teacher always sees exactly what will be deleted.
-export function ConfirmActionDialog({
-  open,
-  title,
-  body,
-  confirmLabel = "Delete",
-  busy = false,
-  onConfirm,
-  onCancel
-}) {
-  if (!open) return null;
-  return (
-    <div className="modal-backdrop" role="presentation">
-      <section className="modal-card reset-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-action-title">
-        <h2 id="confirm-action-title">{title}</h2>
-        <p>{body}</p>
-        <div className="button-row">
-          <button className="report-button" disabled={busy} onClick={onCancel} type="button">
-            Cancel
-          </button>
-          <button className="reset-button" disabled={busy} onClick={onConfirm} type="button">
-            {busy ? "Working..." : confirmLabel}
+      <section className="class-report-workspace" aria-label="Class report">
+        <div className="class-report-print-actions class-report-view-controls screen-only">
+          <p className="panel-label">{classList.length === 0 ? "No classes yet" : getClassOptionLabel(classList.find(cls => cls.id === effectiveSelectedClassId) || {})}</p>
+          <button className="lp-button lp-button-primary" onClick={() => window.print()} type="button">
+            Export Class PDF
           </button>
         </div>
-      </section>
-    </div>
-  );
-}
-
-export function ResetStudentProgressDialog({
-  open,
-  studentName,
-  resetting,
-  onReset,
-  onCancel
-}) {
-  const [resetPhrase, setResetPhrase] = useState("");
-
-  useEffect(() => {
-    if (!open) {
-      setResetPhrase("");
-    }
-  }, [open]);
-
-  if (!open) return null;
-
-  const canConfirmReset = resetPhrase.trim() === "RESET";
-  const studentLabel = studentName || "the student";
-
-  function cancelReset() {
-    setResetPhrase("");
-    onCancel();
-  }
-
-  function confirmReset() {
-    if (!canConfirmReset || resetting) return;
-    onReset();
-  }
-
-  return (
-    <div className="modal-backdrop" role="presentation">
-      <section className="modal-card reset-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="reset-progress-title">
-        <h2 id="reset-progress-title">Reset Assessment Data</h2>
-        <p>
-          This resets assessment progress, scores, skill mastery, checkpoints, attempts, coverage,
-          level and phase progress, incorrect pattern tracking, and assessment history for {studentLabel}.
-        </p>
-        <p>
-          The student profile, class assignment, account login, Guided Reading history, and Story Quest progress
-          are kept in place.
-        </p>
-
-        <div className="full-reset-confirmation" aria-live="polite">
-          <strong>Confirm assessment reset</strong>
-          <p>Type RESET to enable the final reset button.</p>
-          <label>
-            <span>Type RESET</span>
-            <input
-              autoComplete="off"
-              disabled={resetting}
-              onChange={event => setResetPhrase(event.target.value)}
-              value={resetPhrase}
-            />
-          </label>
-        </div>
-
-        <div className="button-row">
-          <button
-            className="report-button"
-            disabled={resetting}
-            onClick={cancelReset}
-            type="button"
-          >
-            Cancel
-          </button>
-          <button
-            className="reset-button"
-            disabled={resetting || !canConfirmReset}
-            onClick={confirmReset}
-            type="button"
-          >
-            Reset Assessment Data
-          </button>
-        </div>
+        <Suspense fallback={<div className="teacher-report-card">Loading EL formal report history…</div>}>
+          <ElFormalAssessmentsPanel
+            assessmentHistory={allAssessmentHistory}
+            classes={classList}
+            onPrint={() => window.print()}
+            selectedClassId={effectiveSelectedClassId}
+            students={students}
+            supabase={supabase}
+            teacherId={teacherId}
+          />
+        </Suspense>
+        <Suspense fallback={<div className="teacher-action-panel">Loading class report...</div>}>
+          <FormalClassReportDocument
+            model={classReportingModel}
+            provenanceOptions={classReportProvenanceOptions}
+          />
+        </Suspense>
       </section>
     </div>
   );
@@ -2563,7 +1255,9 @@ export function CheckpointDecisionPage({
   moveToNextSkill,
   retrySkill,
   reviewMistakes,
-  returnToOverview
+  returnToOverview,
+  suggestedFocus = null,
+  totalAnswered = 0
 }) {
   if (!checkpoint) return null;
 
@@ -2593,7 +1287,7 @@ export function CheckpointDecisionPage({
   return (
     <main className="assessment-shell checkpoint-decision-shell">
       <section className="card checkpoint-decision-card">
-        <p className="panel-label">Checkpoint complete</p>
+        <p className="panel-label">Check complete</p>
         <h2>You completed {completedText}.</h2>
         <div className="level-mastery-callout checkpoint-path-callout">
           <strong>{pathStatus.label}</strong>
@@ -2629,7 +1323,7 @@ export function CheckpointDecisionPage({
             <strong>{checkpoint.accuracy}%</strong>
           </div>
           <div>
-            <span>Checkpoint</span>
+            <span>Check</span>
             <strong>{checkpoint.passed ? "Passed" : "Needs retry"}</strong>
           </div>
           <div>
@@ -2791,11 +1485,23 @@ export function CheckpointDecisionPage({
               <button className="report-button" onClick={reviewMistakes} type="button">
                 Review mistakes
               </button>
+
+              {suggestedFocus && (
+                <TeacherRecommendationExplanation
+                  surface="targeted-review"
+                  explanation={{
+                    evidence: `${countPhrase(suggestedFocus.incorrect || 0, "saved miss", "saved misses")} identify ${suggestedFocus.target} as the strongest current practice signal.`,
+                    dependency: `${suggestedFocus.target} sits within ${suggestedFocus.stage} and should be checked before advancing related skills.`,
+                    confidence: `${countPhrase(totalAnswered, "scored answer")} are available; the suggestion ranks saved misses and remains teacher-reviewable.`,
+                    unlock: "A focused review can confirm the gap, update the result, and show whether to re-teach or move on."
+                  }}
+                />
+              )}
             </>
           )}
 
           <button className="report-button" onClick={returnToOverview} type="button">
-            Return to Student Overview
+            Return to student overview
           </button>
         </div>
       </section>
@@ -2815,7 +1521,11 @@ export function DashboardSummary({
     <div className="dashboard">
       <div className="dash-card">
         <span>Current Skill</span>
-        <strong>{currentSkillIndex + 1}/{skillTree.length}</strong>
+        <strong>
+          <MetricFigure metricId="current-skill">
+            {currentSkillIndex + 1}/{skillTree.length}
+          </MetricFigure>
+        </strong>
       </div>
 
       <div className="dash-card wide-card">
@@ -2825,12 +1535,29 @@ export function DashboardSummary({
 
       <div className="dash-card">
         <span>Round</span>
-        <strong>{roundCorrect}/{roundLength}</strong>
+        <strong>
+          <MetricFigure metricId="round">
+            {roundCorrect}/{roundLength}
+          </MetricFigure>
+        </strong>
       </div>
 
+      {/* This tile counts answers given in this browser session only. It is a
+          different number from the accuracy in a saved report, so it is named
+          differently and says so in its own definition. */}
       <div className="dash-card">
-        <span>Accuracy</span>
-        <strong>{accuracy}%</strong>
+        <span>Session accuracy</span>
+        <strong>
+          <MetricFigure
+            metricId="accuracy"
+            label="Session accuracy"
+            counts="Correct answers out of the answers given since this page was opened."
+            timeWindow="This sitting on this device only. It starts again at zero when the page is reloaded."
+            excludes="Everything saved before this sitting, and anything answered on another device. It will not match the accuracy in a saved report."
+          >
+            {accuracy}%
+          </MetricFigure>
+        </strong>
       </div>
     </div>
   );
@@ -2863,7 +1590,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
           <div className="assessment-topbar letter-topbar">
             <div className="assessment-meta">
               <span>{studentName || "Unnamed student"}</span>
-              <strong>Advanced Phonics Pattern Assessment</strong>
+              <strong>Phonics Pattern Diagnostic</strong>
             </div>
 
             <div className="assessment-progress">
@@ -2880,7 +1607,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
             </div>
 
             <button className="reset-button assessment-end-button" onClick={endAssessment}>
-              End Assessment
+              End check
             </button>
           </div>
 
@@ -2923,7 +1650,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
         </>
       ) : (
         <section className="card letter-complete-card page-stack">
-          <h2>Assessment Complete</h2>
+          <h2>Check complete</h2>
 
           <p>
             Pattern sounds correct:
@@ -2942,7 +1669,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
               className="reset-button"
               onClick={resetPatternAssessment}
             >
-              Restart Pattern Assessment
+              Restart pattern check
             </button>
 
             {returnToTeacherDashboard && (
@@ -3007,7 +1734,7 @@ export function LetterAssessmentPage({
             </div>
 
             <button className="reset-button assessment-end-button" onClick={endAssessment}>
-              End Assessment
+              End check
             </button>
           </div>
 
@@ -3042,18 +1769,18 @@ export function LetterAssessmentPage({
         </>
       ) : (
         <section className="card letter-complete-card page-stack">
-          <h2>Assessment Complete</h2>
+          <h2>Check complete</h2>
 
           <p>
             Letter names known:
             {" "}
-            {letterAssessment.filter(x => x.knowsName).length}/52
+            {progressPhrase(letterAssessment.filter(x => x.knowsName).length, 52)}
           </p>
 
           <p>
             Letter sounds known:
             {" "}
-            {letterAssessment.filter(x => x.knowsSound).length}/52
+            {progressPhrase(letterAssessment.filter(x => x.knowsSound).length, 52)}
           </p>
 
           <div className="button-row">
@@ -3061,7 +1788,7 @@ export function LetterAssessmentPage({
               className="reset-button"
               onClick={resetLetterAssessment}
             >
-              Restart Letter Assessment
+              Restart letter check
             </button>
 
             {returnToTeacherDashboard && (
@@ -3100,7 +1827,10 @@ export function AssessmentPage({
   assessmentMode,
   isAssessmentTransitioning = false,
   assessmentFullscreen = false,
-  toggleAssessmentFullscreen = null
+  toggleAssessmentFullscreen = null,
+  onEvidenceImageError = null,
+  skillTree = [],
+  onChangeSkillLevel = null
 }) {
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
@@ -3110,7 +1840,7 @@ export function AssessmentPage({
     null;
   const safeCurrentStage = currentStage || {
     id: safeSkillId || "unknown_skill",
-    label: currentQuestion?.skillName || currentQuestion?.skill || "Assessment"
+    label: currentQuestion?.skillName || currentQuestion?.skill || "Check"
   };
   const assessmentExit = returnToStudentOverview || endAssessment;
 
@@ -3165,7 +1895,15 @@ export function AssessmentPage({
           ></div>
         </div>
 
-        <div className="assessment-progress-dots" aria-label={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}>
+        <div
+          className="assessment-progress-dots"
+          role="progressbar"
+          aria-label="Check progress"
+          aria-valuemin="1"
+          aria-valuemax={roundLength}
+          aria-valuenow={Math.min(roundAnswers.length + 1, roundLength)}
+          aria-valuetext={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}
+        >
           {Array.from({ length: roundLength }, (_, index) => (
             <span
               className={
@@ -3182,6 +1920,26 @@ export function AssessmentPage({
       </div>
 
       <div className="assessment-topbar-actions">
+        {/* The level picker used to live on a separate screen the teacher had to
+            back out to. It belongs where the check is: choosing a level here
+            restarts the round at that level. */}
+        {onChangeSkillLevel && skillTree.length > 0 && assessmentMode !== "targetedReview" && (
+          <label className="assessment-skill-level">
+            <span>Level</span>
+            <select
+              value={currentSkillIndex}
+              onChange={event => onChangeSkillLevel(Number(event.target.value))}
+              aria-label="Change the skill level for this check"
+            >
+              {skillTree.map((stage, index) => (
+                <option key={stage.id} value={index}>
+                  {index + 1}. {stage.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+
         {toggleAssessmentFullscreen && (
           <button
             className={[
@@ -3194,18 +1952,30 @@ export function AssessmentPage({
             aria-label={assessmentFullscreen ? "Exit full screen" : "Enter full screen"}
             title={assessmentFullscreen ? "Exit full screen" : "Full screen"}
           >
-            <span aria-hidden="true">{assessmentFullscreen ? "X" : "[]"}</span>
+            {/* 2026-07-27: these were the literal strings "[]" and "X". The button
+                rendered a visible "[] Full screen" to teachers mid-assessment. The Learn
+                area (src/App.jsx) already had the correct corner-bracket and close icons
+                as inline SVG; this is the same pair rather than a new drawing. */}
+            {assessmentFullscreen ? (
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path d="M8 8l8 8M16 8l-8 8" />
+              </svg>
+            ) : (
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5" />
+              </svg>
+            )}
             <span>{assessmentFullscreen ? "Exit" : "Full screen"}</span>
           </button>
         )}
 
         <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
-          End Assessment
+          End assessment
         </button>
       </div>
     </div>
   );
-  const renderAssessmentLoadingCard = ({ title = "Getting the assessment ready...", actionLabel = "" } = {}) => (
+  const renderAssessmentLoadingCard = ({ title = "Getting the check ready...", actionLabel = "" } = {}) => (
     <div className="card assessment-card assessment-loading-card">
       <div className="assessment-loading-mark" aria-hidden="true">
         <span></span>
@@ -3220,7 +1990,7 @@ export function AssessmentPage({
             {actionLabel}
           </button>
           <button className="report-button" onClick={assessmentExit} type="button">
-            Return to Student Overview
+            Return to student overview
           </button>
         </div>
       )}
@@ -3256,7 +2026,13 @@ export function AssessmentPage({
                     const card = feedback.support.cardsByWord?.[word];
                     return card ? (
                       <figure key={word}>
-                        <img src={card.image} alt={card.alt || `Picture for ${word}`} loading="lazy" decoding="async" />
+                        <img
+                          src={card.image}
+                          alt={card.alt || `Picture for ${word}`}
+                          data-assessment-media-kind="feedback"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </figure>
                     ) : null;
                   })}
@@ -3270,7 +2046,13 @@ export function AssessmentPage({
                     const card = feedback.support.cardsByWord?.[word];
                     return card ? (
                       <figure key={word}>
-                        <img src={card.image} alt={card.alt || `Picture for ${word}`} loading="lazy" decoding="async" />
+                        <img
+                          src={card.image}
+                          alt={card.alt || `Picture for ${word}`}
+                          data-assessment-media-kind="feedback"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </figure>
                     ) : null;
                   })}
@@ -3351,10 +2133,10 @@ export function AssessmentPage({
     return (
       <main className={assessmentShellClassName}>
         <div className="card assessment-card">
-          <h2>This assessment needs a quick fix.</h2>
+          <h2>This check needs a quick fix.</h2>
           <p>Please return and try again.</p>
           <button className="main-button" onClick={assessmentExit} type="button">
-            Return to Student Overview
+            Return to student overview
           </button>
         </div>
       </main>
@@ -3452,9 +2234,10 @@ export function AssessmentPage({
               isComprehensionPassageItem ? "comprehension-assessment-layout" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
-            initial={{ scale: 0.96, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.96, opacity: 0 }}
+            data-assessment-question-id={currentQuestion.id}
+            initial={{ scale: 0.96 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.96 }}
           >
             <div className="question-line assessment-prompt">
               {(promptAudioPath || rawPromptAudioPath) && (
@@ -3481,6 +2264,7 @@ export function AssessmentPage({
               isGrammarSentenceFit={isGrammarSentenceFitItem}
               speakText={speakText}
               shouldShowImage={shouldShowImage}
+              onEvidenceImageError={onEvidenceImageError}
             />
 
             {isPairSelection ? (
@@ -3488,18 +2272,21 @@ export function AssessmentPage({
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
+                onEvidenceImageError={onEvidenceImageError}
               />
             ) : isVisualCardChoice ? (
               <VisualCardChoiceQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
+                onEvidenceImageError={onEvidenceImageError}
               />
             ) : isIxlStyleTemplate ? (
               <IxlStyleTemplateQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
+                onEvidenceImageError={onEvidenceImageError}
               />
             ) : currentQuestion.questionType === "fix_sentence" ? (
               <FixSentenceQuestion
@@ -3547,12 +2334,14 @@ export function AssessmentPage({
                       type="button"
                     >
                       {isListenAndFindWord && !isShortVowelWordChoiceItem && !isGraphemeChoiceItem && choiceImage.image && (
-                        <img
+                        <AssessmentEvidenceImage
                           src={choiceImage.image}
-                          alt={choiceImage.alt || `Picture for ${choice.label}`}
+                          alt={choiceImage.alt}
+                          label={choice.label}
+                          role="choice"
+                          currentQuestion={currentQuestion}
+                          onEvidenceImageError={onEvidenceImageError}
                           className="visual-word-choice-image"
-                          loading="lazy"
-                          decoding="async"
                         />
                       )}
                       <span>{choice.label}</span>
@@ -3577,235 +2366,5 @@ export function AssessmentPage({
         <h2 className="message">{message}</h2>
       )}
     </main>
-  );
-}
-
-export function FinishedReportPage({
-  startAssessment,
-  keepPracticingSkill,
-  startTargetedReview,
-  goToOverview,
-  studentName,
-  totalAnswered,
-  accuracy,
-  currentStage,
-  currentSkillIndex,
-  setCurrentSkillIndex,
-  setRoundAnswers,
-  setCurrentQuestion,
-  setFeedback,
-  setMessage,
-  skillTree,
-  currentStageQuestions,
-  mastery,
-  coverageSnapshot,
-  skillMasterySummary = [],
-  allowPassageAudio,
-  setAllowPassageAudio,
-  exportData,
-  exportCSVData,
-  letterAssessment = [],
-  patternAssessment = [],
-  exportLetterAssessment,
-  exportPatternAssessment,
-  returnToTeacherDashboard
-}) {
-  const latestCheckpointIndex = Math.max(
-    -1,
-    currentSkillIndex - 1,
-    ...skillTree
-      .map((stage, index) => mastery[stage.id]?.mastered ? index : -1)
-      .filter(index => index !== -1)
-  );
-  const latestCheckpointStage = skillTree[latestCheckpointIndex];
-  const latestCheckpointCoverage = latestCheckpointStage
-    ? coverageSnapshot?.[latestCheckpointStage.id]
-    : null;
-  const latestCheckpointIncomplete =
-    latestCheckpointCoverage &&
-    latestCheckpointCoverage.mastered < latestCheckpointCoverage.total;
-
-  return (
-    <div className="report-panel page-stack finished-report-panel">
-      <h2>Finished Report</h2>
-
-      <div className="button-row finished-report-actions">
-        <button className="main-button" onClick={startAssessment}>
-          Continue Learning
-        </button>
-
-        <button className="report-button" onClick={goToOverview}>
-          Return to Dashboard
-        </button>
-
-        {returnToTeacherDashboard && (
-          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
-            Return to Teacher Dashboard
-          </button>
-        )}
-
-        <button className="report-button" onClick={goToOverview}>
-          Return to Menu
-        </button>
-
-        <button className="report-button" onClick={startTargetedReview} type="button">
-          Review Mistakes
-        </button>
-
-        <button className="report-button" onClick={startTargetedReview} type="button">
-          Retry Incorrect Only
-        </button>
-      </div>
-
-      <p><strong>Student:</strong> {studentName || "Unnamed student"}</p>
-      <p><strong>Total answered:</strong> {totalAnswered}</p>
-      <p><strong>Accuracy:</strong> {accuracy}%</p>
-      <p><strong>Current focus:</strong> {currentStage.label}</p>
-
-      <label>
-        <strong>Set start skill: </strong>
-        <select
-          value={currentSkillIndex}
-          onChange={e => {
-            setCurrentSkillIndex(Number(e.target.value));
-            setRoundAnswers([]);
-            setCurrentQuestion(null);
-            setFeedback(null);
-            setMessage("Start skill changed.");
-          }}
-        >
-          {skillTree.map((stage, index) => (
-            <option key={stage.id} value={index}>
-              {index + 1}. {stage.label}
-            </option>
-          ))}
-        </select>
-      </label>
-      <p><strong>Available questions in this skill:</strong> {currentStageQuestions.length}</p>
-      <p><strong>Checkpoint rule:</strong> 9/10 correct to unlock the next skill.</p>
-
-      {latestCheckpointStage && mastery[latestCheckpointStage.id]?.mastered && (
-        <section className="checkpoint-complete-panel">
-          <div>
-            <h3>Checkpoint Passed</h3>
-            <p>
-              {latestCheckpointIncomplete
-                ? "Checkpoint passed. Student may move forward, but this skill is not fully covered yet."
-                : "Checkpoint passed and item coverage is complete for the tracked items in this skill."}
-            </p>
-            {latestCheckpointCoverage && (
-              <div className="coverage-card compact">
-                <div className="coverage-card-header">
-                  <strong>{latestCheckpointStage.label} Coverage</strong>
-                  <span>{latestCheckpointCoverage.mastered}/{latestCheckpointCoverage.total} {latestCheckpointCoverage.unit} mastered</span>
-                </div>
-                <div className="coverage-bar secondary" aria-label={`${latestCheckpointStage.label} coverage progress`}>
-                  <span style={{ width: `${latestCheckpointCoverage.total ? Math.round((latestCheckpointCoverage.mastered / latestCheckpointCoverage.total) * 100) : 0}%` }}></span>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="button-row">
-            <button className="main-button" onClick={() => startAssessment(currentSkillIndex)} type="button">
-              Move to Next Skill
-            </button>
-            <button
-              className="report-button"
-              onClick={() => keepPracticingSkill(latestCheckpointIndex)}
-              type="button"
-            >
-              Keep Practicing This Skill
-            </button>
-          </div>
-        </section>
-      )}
-
-      <h3>Skill Checkpoints and Coverage</h3>
-
-      {skillTree.map((stage, index) => {
-        const data = mastery[stage.id];
-        const coverage = coverageSnapshot?.[stage.id] || {
-          mastered: 0,
-          total: 0,
-          unit: "items"
-        };
-        const checkpointPercent = data?.lastTotal
-          ? Math.round((data.lastScore / data.lastTotal) * 100)
-          : 0;
-        const coveragePercent = coverage.total
-          ? Math.round((coverage.mastered / coverage.total) * 100)
-          : 0;
-
-        return (
-          <div className="skill-row" key={stage.id}>
-            <span>{index + 1}. {stage.label}</span>
-            <span>{data?.mastered ? "Checkpoint Passed" : index === currentSkillIndex ? "Current Checkpoint" : "Locked"}</span>
-            <span className="skill-row-progress">
-              <span>Checkpoint: {data ? `${data.lastScore}/${data.lastTotal}` : "-"}</span>
-              <span className="mini-progress-bar"><span style={{ width: `${checkpointPercent}%` }}></span></span>
-            </span>
-            <span className="skill-row-progress">
-              <span>Coverage: {coverage.mastered}/{coverage.total} {coverage.unit} mastered</span>
-              <span className="mini-progress-bar secondary"><span style={{ width: `${coveragePercent}%` }}></span></span>
-            </span>
-          </div>
-        );
-      })}
-
-      <section className="mastery-detail-panel">
-        <h3>Mastered Words and Items</h3>
-        <div className="mastery-detail-list">
-          {skillMasterySummary
-            .filter(summary => summary.masteredCount > 0)
-            .map(summary => (
-              <article key={summary.skillId}>
-                <strong>{summary.skillName}</strong>
-                <span>{summary.displayText}</span>
-              </article>
-            ))}
-          {skillMasterySummary.every(summary => summary.masteredCount === 0) && (
-            <p>Item-level word lists will build from new correct answers.</p>
-          )}
-        </div>
-      </section>
-
-      <label className="teacher-toggle">
-        <input
-          type="checkbox"
-          checked={allowPassageAudio}
-          onChange={() => setAllowPassageAudio(!allowPassageAudio)}
-        />
-        Allow passage audio
-      </label>
-
-      <div className="button-row export-actions">
-        <button className="report-button" onClick={exportData}>
-          Export Text Report
-        </button>
-
-        <button className="report-button" onClick={exportCSVData}>
-          Export Excel CSV
-        </button>
-
-        {letterAssessment.length > 0 && (
-          <button className="report-button" onClick={exportLetterAssessment} type="button">
-            Export Letter Excel
-          </button>
-        )}
-
-        {patternAssessment.length > 0 && (
-          <button className="report-button" onClick={exportPatternAssessment} type="button">
-            Export Pattern Excel
-          </button>
-        )}
-
-        {returnToTeacherDashboard && (
-          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
-            Return to Teacher Dashboard
-          </button>
-        )}
-      </div>
-    </div>
   );
 }

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "snapshots": {
+    "guidedReading": {
+      "sha256": "0b5b991a85b2a19e2b95e54d742501fa0e08a758b23e815a5be4313b8e542fc8",
+      "sheetNames": [
+        "Report summary",
+        "Summary",
+        "Child completion",
+        "Books Completed",
+        "Child summary",
+        "About this report",
+        "How figures are worked out"
+      ],
+      "rows": 38,
+      "cells": 180
+    },
+    "studentEl": {
+      "sha256": "6a2f86746b7bc76fc58a002899660e37517646df0564860214a85017387e243f",
+      "sheetNames": [
+        "Student Summary",
+        "Letter Names & Sounds",
+        "Advanced Phonics Patterns",
+        "Benchmark Profile",
+        "PA Strand Detail",
+        "Encoding Detail",
+        "Decoding Detail",
+        "Fluency Detail",
+        "About this report",
+        "How figures are worked out"
+      ],
+      "rows": 108,
+      "cells": 1475
+    },
+    "classEl": {
+      "sha256": "768b32d833fb25dde7bd395f3b9a8e690c0043b525a5c647f9ce5b014d7a0d8f",
+      "sheetNames": [
+        "Class Summary",
+        "Letter Sound Class Matrix",
+        "Advanced Phonics Class Matrix",
+        "Advanced Phonics Patterns",
+        "Pattern Detail",
+        "Benchmark Class Matrix",
+        "Benchmark Domain Summary",
+        "Benchmark Evidence Detail",
+        "About this report",
+        "How figures are worked out"
+      ],
+      "rows": 115,
+      "cells": 1331
+    }
+  }
+}

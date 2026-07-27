@@ -1870,7 +1870,7 @@ function createStarGalleryEngine(mount, options) {
       renderer.domElement.dataset.frameX = state.frameGroup.position.x.toFixed(2);
       renderer.domElement.dataset.frameZ = state.frameGroup.position.z.toFixed(2);
     }
-    nodes.room.textContent = `${theme.name} ${state.stage + 1}/10`;
+    nodes.room.textContent = `${theme.name} ${state.stage + 1} of 10`;
     nodes.prompt.textContent = currentPrompt();
     nodes.display.textContent = currentDisplay();
     nodes.score.textContent = `${state.score} pts`;

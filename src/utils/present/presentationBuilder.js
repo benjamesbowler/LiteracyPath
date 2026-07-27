@@ -12,6 +12,7 @@ import { getChildWordAsset } from "../../data/childAssets.js";
 import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
 import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
+import { openHtmlDocument } from "../openHtmlDocument.js";
 
 function isFluencyCycle(cycle) {
   return (cycle?.cycleNumber || 0) >= 25;
@@ -23,15 +24,54 @@ const BOOK_COVERS = new Map(
   guidedReadingBooks.map(book => [book.id, book.coverImage || book.cover || ""])
 );
 
+// EVERY asset URL the deck emits must be absolute. The deck opens as a `blob:`
+// document, and a blob: document's base URL is the blob URL itself - it has no
+// path and no origin to resolve against. So a root-relative "/images/x.webp" or
+// a bare "x.webp" cannot resolve, and every <img>/Audio() 404s (the teacher sees
+// broken-image icons and silent buttons). Same root cause as the CSP script bug:
+// pin the URL to window.location.origin. In Node (tests, SSR) there is no window,
+// so paths stay root-relative exactly as before.
+function siteOrigin() {
+  if (typeof window === "undefined") return "";
+  return window.location?.origin || "";
+}
+
+// Idempotent: an already-absolute URL (https:, data:, blob:, //cdn) is returned
+// untouched, so it is safe to apply this at every layer.
+function assetUrl(path) {
+  const raw = String(path || "").trim();
+  if (!raw) return "";
+  if (/^[a-z][a-z0-9+.-]*:/i.test(raw) || raw.startsWith("//")) return raw;
+  const origin = siteOrigin();
+  if (!origin) return raw;
+  return raw.startsWith("/") ? `${origin}${raw}` : `${origin}/${raw.replace(/^\.\//, "")}`;
+}
+
+// Absolute-URL wrappers around the shared audio-path helpers. Every data-play /
+// data-audio attribute in this file goes through one of these two.
+function graphemeAudio(spelling) {
+  return assetUrl(graphemeAudioPath(spelling));
+}
+function wordAudio(word) {
+  return assetUrl(wordAudioPath(word));
+}
+
+// Broken-image fallbacks are declared as data-hide-on-error, NOT as an inline
+// onerror="" handler: the deck is a blob: document, so it inherits the opener's
+// `script-src 'self'` CSP, and that blocks inline event handlers as well as
+// inline <script>. public/present/deck.js turns the attribute into a real
+// listener. Value is "self" (hide the image) or a selector passed to closest()
+// (hide the whole card).
+
 // The Pals mascot for a deck's world. Threaded as a parameter through every
 // slide builder (never module state) so concurrent builds cannot
 // cross-contaminate each other's art.
 function palImg(world, pose, cls = "") {
-  return `<img class="p-pal ${cls}" src="/images/pals/poses/${world.id}-${pose}.webp" alt="" onerror="this.style.display='none'"/>`;
+  return `<img class="p-pal ${cls}" src="${esc(assetUrl(`/images/pals/poses/${world.id}-${pose}.webp`))}" alt="" data-hide-on-error="self"/>`;
 }
 function wordImage(word) {
   const asset = getChildWordAsset(word) || {};
-  return asset.image || "";
+  return assetUrl(asset.image || "");
 }
 
 // World for a deck: numbered cycles use the quest-map land bands; assessment
@@ -281,7 +321,7 @@ function blendWordsFor(cycle) {
 // ── Slide builders (each returns one .slide section) ─────────────────────────
 function slide(world, inner, opts = {}) {
   const attrs = { ...(opts.attrs || {}) };
-  if (opts.audio) attrs["data-audio"] = opts.audio;
+  if (opts.audio) attrs["data-audio"] = assetUrl(opts.audio);
   if (opts.stroke) attrs["data-stroke"] = opts.stroke;
   const data = Object.entries(attrs).map(([key, value]) => `${key}="${esc(value)}"`).join(" ");
   const char = opts.char ? palImg(world, opts.char, "p-pal-corner") : "";
@@ -295,7 +335,7 @@ const ICON_PLAY = `<svg class="p-ico" viewBox="0 0 24 24" aria-hidden="true"><pa
 
 function audioButton(src, label = "Play sound") {
   if (!src) return "";
-  return `<button class="p-audio" data-play="${esc(src)}" type="button">${ICON_SPEAKER} ${esc(label)}</button>`;
+  return `<button class="p-audio" data-play="${esc(assetUrl(src))}" type="button">${ICON_SPEAKER} ${esc(label)}</button>`;
 }
 
 // Human phase labels for the title slide - never raw slugs, never all-caps.
@@ -350,7 +390,7 @@ function titleSlide(cycle, world, dayLabel = "") {
 
 function letterSoundSlide(card, cycle, world) {
   const big = displayGrapheme(card);
-  const phoneme = graphemeAudioPath(card.spelling);
+  const phoneme = graphemeAudio(card.spelling);
   // The curriculum ships a real articulation tip per letter - teach with it,
   // styled as a "teacher tip" ribbon (the teacher reads it, kids do not decode it).
   const detail = (cycle?.sections?.letterLearning?.cards || [])
@@ -358,8 +398,8 @@ function letterSoundSlide(card, cycle, world) {
   const tip = detail.articulation || "";
   // Only show example words that actually have a picture - no empty boxes.
   const words = exampleWords(card.spelling, 6).filter(w => wordImage(w)).slice(0, 3);
-  const pics = words.map(word => `<button class="p-word" data-play="${esc(wordAudioPath(word))}" type="button">
-      <img src="${esc(wordImage(word))}" alt="${esc(word)}" onerror="this.closest('.p-word').style.display='none'"/>
+  const pics = words.map(word => `<button class="p-word" data-play="${esc(wordAudio(word))}" type="button">
+      <img src="${esc(wordImage(word))}" alt="${esc(word)}" data-hide-on-error=".p-word"/>
       <span>${esc(word)}</span></button>`).join("");
   return slide(world, `
     <p class="p-kicker">Our sound</p>
@@ -414,7 +454,7 @@ function letterPairSlides(cards, cycle, world) {
 function soundReviewSlide(cards, world) {
   if (!cards.length) return "";
   const chips = cards.map(card =>
-    `<button class="p-chip big" data-play="${esc(graphemeAudioPath(card.spelling))}" type="button">${esc(displayGrapheme(card))}</button>`).join("");
+    `<button class="p-chip big" data-play="${esc(graphemeAudio(card.spelling))}" type="button">${esc(displayGrapheme(card))}</button>`).join("");
   return slide(world, `
     <p class="p-kicker">Sound check</p>
     <h2 class="p-says">What sound does each one make? Tap to check.</h2>
@@ -425,9 +465,9 @@ function sightWordSlide(word, world) {
   return slide(world, `
     <p class="p-kicker">Tricky word</p>
     <div class="p-sight">${esc(word)}</div>
-    ${audioButton(wordAudioPath(word), "Read it")}
+    ${audioButton(wordAudio(word), "Read it")}
     <p class="p-sentence">Find it, say it, spell it: <b>${esc(word.split("").join(" "))}</b></p>`,
-  { cls: "p-sight-slide", audio: wordAudioPath(word), char: "read" });
+  { cls: "p-sight-slide", audio: wordAudio(word), char: "read" });
 }
 
 // "Blend with me": sound out a word built ONLY from taught letters, then read
@@ -435,25 +475,25 @@ function sightWordSlide(word, world) {
 function blendSlides(cycle, world) {
   return blendWordsFor(cycle).map(word => {
     const letters = word.split("").map(ch =>
-      `<button class="p-chip big" data-play="${esc(graphemeAudioPath(ch))}" type="button">${esc(ch)}</button>`).join("");
+      `<button class="p-chip big" data-play="${esc(graphemeAudio(ch))}" type="button">${esc(ch)}</button>`).join("");
     return slide(world, `
       <p class="p-kicker">Blend with me</p>
-      <div class="p-compound" data-blend-word="${esc(word)}">${letters}<span class="p-arrow">&#8594;</span><button class="p-chip big made" data-play="${esc(wordAudioPath(word))}" type="button">${esc(word)}</button></div>
+      <div class="p-compound" data-blend-word="${esc(word)}">${letters}<span class="p-arrow">&#8594;</span><button class="p-chip big made" data-play="${esc(wordAudio(word))}" type="button">${esc(word)}</button></div>
       <p class="p-says">Say each sound, then read the whole word.</p>`,
-    { cls: "p-blend", audio: wordAudioPath(word), char: "point" });
+    { cls: "p-blend", audio: wordAudio(word), char: "point" });
   });
 }
 
 // "Our books this cycle": the guided-reading fiction + nonfiction picks with
-// real covers from the book library (onerror hides a missing image).
+// real covers from the book library (a missing cover hides itself).
 function booksSlide(cycle, world) {
   const rec = cycle.guidedReadingRecommendations || {};
   const books = [rec.fiction, rec.nonfiction].filter(Boolean);
   if (!books.length) return "";
   const cards = books.map(book => {
-    const cover = BOOK_COVERS.get(book.bookId) || "";
+    const cover = assetUrl(BOOK_COVERS.get(book.bookId) || "");
     return `<figure class="p-book">
-      ${cover ? `<img class="p-book-cover" src="${esc(cover)}" alt="" onerror="this.style.display='none'"/>` : ""}
+      ${cover ? `<img class="p-book-cover" src="${esc(cover)}" alt="" data-hide-on-error="self"/>` : ""}
       <figcaption><span class="p-book-title">${esc(book.title)}</span><span class="p-book-level">Level ${esc(book.level)} · ${esc(book.type === "fiction" ? "Story" : "Real world")}</span></figcaption>
     </figure>`;
   }).join("");
@@ -500,7 +540,7 @@ function compoundDeleteCands(cycleNumber, part, offset) {
     const left = part === "first" ? b : a;
     return deleteCandidate({
       kicker: part === "first" ? "Take the first word away" : "Take the last word away",
-      whole, wholeAudio: wordAudioPath(whole), removed, left, leftAudio: wordAudioPath(left)
+      whole, wholeAudio: wordAudio(whole), removed, left, leftAudio: wordAudio(left)
     });
   });
 }
@@ -509,31 +549,31 @@ function syllableDeleteCands(cycleNumber, bank, part, offset) {
   return pickPer(bank, cycleNumber, PA_CANDIDATES, offset).map(item => deleteCandidate({
     kicker: part === "first" ? "Take the first part away" : "Take the last part away",
     whole: item.word,
-    wholeAudio: wordAudioPath(item.word),
+    wholeAudio: wordAudio(item.word),
     removed: part === "first" ? (item.first || "") : (item.last || item.rest || ""),
     left: part === "first" ? (item.rest || item.last || "") : (item.first || ""),
-    leftAudio: wordAudioPath(part === "first" ? (item.rest || item.last || "") : (item.first || ""))
+    leftAudio: wordAudio(part === "first" ? (item.rest || item.last || "") : (item.first || ""))
   }));
 }
 
 function onsetDeleteCands(cycleNumber, offset) {
   return pickPer(ONSET_BANK, cycleNumber, PA_CANDIDATES, offset).map(item => deleteCandidate({
     kicker: "Take the first sound away",
-    whole: item.word, wholeAudio: wordAudioPath(item.word),
-    removed: `/${item.word[0]}/`, left: item.left, leftAudio: wordAudioPath(item.left)
+    whole: item.word, wholeAudio: wordAudio(item.word),
+    removed: `/${item.word[0]}/`, left: item.left, leftAudio: wordAudio(item.left)
   }));
 }
 
 function rimeDeleteCands(cycleNumber, offset) {
   return pickPer(RIME_DELETE_BANK, cycleNumber, PA_CANDIDATES, offset).map(item => deleteCandidate({
     kicker: "Keep only the first sound",
-    whole: item.word, wholeAudio: wordAudioPath(item.word),
+    whole: item.word, wholeAudio: wordAudio(item.word),
     removed: `-${item.word.slice(1)}`, left: item.left, leftAudio: ""
   }));
 }
 
 function chipRow(words) {
-  return words.map(w => `<button class="p-chip" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
+  return words.map(w => `<button class="p-chip" data-play="${esc(wordAudio(w))}" type="button">${esc(w)}</button>`).join("");
 }
 
 function changeFirstCands(cycleNumber, offset) {
@@ -541,7 +581,7 @@ function changeFirstCands(cycleNumber, offset) {
     key: item.base,
     inner: `
       <p class="p-kicker">Change the first sound</p>
-      <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
+      <div class="p-big-word" data-play="${esc(wordAudio(item.base))}">${esc(item.base)}</div>
       <p class="p-says">Change the first sound of <b>${esc(item.base)}</b> to make new words:</p>
       <div class="p-chips">${chipRow(item.made)}</div>`,
     opts: { cls: "p-phoneme", char: "wave" }
@@ -553,7 +593,7 @@ function changeRimeCands(cycleNumber, offset) {
     key: item.base,
     inner: `
       <p class="p-kicker">Keep the first sound, change the ending</p>
-      <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
+      <div class="p-big-word" data-play="${esc(wordAudio(item.base))}">${esc(item.base)}</div>
       <p class="p-says">Keep <b>/${esc(item.onset)}/</b> and change the ending of <b>${esc(item.base)}</b>:</p>
       <div class="p-chips">${chipRow(item.made)}</div>`,
     opts: { cls: "p-phoneme", char: "wave" }
@@ -576,7 +616,7 @@ function rhymeProduceCands(cycleNumber, offset) {
     key: item.base,
     inner: `
       <p class="p-kicker">Make a rhyme</p>
-      <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
+      <div class="p-big-word" data-play="${esc(wordAudio(item.base))}">${esc(item.base)}</div>
       <p class="p-says">What rhymes with <b>${esc(item.base)}</b>? Say your own, then check ours:</p>
       <div class="p-chips">${chipRow(item.rhymes)}</div>`,
     opts: { cls: "p-phoneme", char: "wave" }
@@ -679,17 +719,17 @@ function poemSlide(cycle, world) {
   const audio = AUDIO_FILE_PATHS.has(narration) ? narration : "";
   const pics = (poem.findWords || []).map(word => {
     const asset = getChildWordAsset(word) || {};
-    return asset.image ? `<img src="${esc(asset.image)}" alt="${esc(word)}" onerror="this.style.display='none'"/>` : "";
+    return asset.image ? `<img src="${esc(assetUrl(asset.image))}" alt="${esc(word)}" data-hide-on-error="self"/>` : "";
   }).filter(Boolean).slice(0, 3).join("");
   // Bespoke per-poem illustration (generated from the art briefs). Shows when
   // the file exists; until then it hides and the text + word pictures remain.
-  const poemImg = `/images/pals/poems/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.webp`;
+  const poemImg = assetUrl(`/images/pals/poems/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.webp`);
   return slide(world, `
     <p class="p-kicker">Our poem</p>
     <h2 class="p-poem-title">${esc(poem.title)}</h2>
     ${audioButton(audio, "Listen to the poem")}
     <div class="p-poem-wrap">
-      <img class="p-poem-hero" src="${esc(poemImg)}" alt="" onerror="this.style.display='none'"/>
+      <img class="p-poem-hero" src="${esc(poemImg)}" alt="" data-hide-on-error="self"/>
       <div class="p-poem">${esc(poem.lines.join("\n"))}</div>
     </div>
     <div class="p-poem-pics">${pics}</div>`, { cls: "p-poem-slide", audio, char: "read" });
@@ -707,7 +747,7 @@ function patternSlide(cycle, world) {
 
 function chainSlide(cycle, world) {
   const chain = CYCLE_CHAINS[cycle.cycleNumber] || CYCLE_CHAINS[27];
-  const chips = chain.map((w, i) => `${i ? '<span class="p-arrow">&#8594;</span>' : ""}<button class="p-chip big" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
+  const chips = chain.map((w, i) => `${i ? '<span class="p-arrow">&#8594;</span>' : ""}<button class="p-chip big" data-play="${esc(wordAudio(w))}" type="button">${esc(w)}</button>`).join("");
   return slide(world, `
     <p class="p-kicker">Word chain</p>
     <h2 class="p-says">Change one letter each time</h2>
@@ -717,10 +757,10 @@ function chainSlide(cycle, world) {
 // Celebration slide with a recap of WHAT was learned - tappable audio chips.
 function endSlide(cycle, world) {
   const letterChips = focusCards(cycle).map(card =>
-    `<button class="p-chip" data-play="${esc(graphemeAudioPath(card.spelling))}" type="button">${esc(displayGrapheme(card))}</button>`).join("");
+    `<button class="p-chip" data-play="${esc(graphemeAudio(card.spelling))}" type="button">${esc(displayGrapheme(card))}</button>`).join("");
   const wordChips = (cycle.highFrequencyWords || []).map(w => {
     const word = String(w).toLowerCase();
-    return `<button class="p-chip made" data-play="${esc(wordAudioPath(word))}" type="button">${esc(word)}</button>`;
+    return `<button class="p-chip made" data-play="${esc(wordAudio(word))}" type="button">${esc(word)}</button>`;
   }).join("");
   const recap = (letterChips || wordChips)
     ? `<p class="p-says">We learned:</p><div class="p-chips p-recap">${letterChips}${wordChips}</div>`
@@ -858,6 +898,9 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
 
   const baseTitle = cycle.cycleNumber ? `Cycle ${cycle.cycleNumber} - ${cycleHeading(cycle)}` : cycle.title;
   const title = dayKey ? `${baseTitle} - ${DAY_LABELS[dayKey]}` : baseTitle;
+  // The deck opens as a blob: document, which has an opaque base URL — a relative
+  // src would not resolve. Absolute same-origin URL keeps it inside `script-src 'self'`.
+  const deckScriptUrl = `${typeof window === "undefined" ? "" : window.location.origin}/present/deck.js`;
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(title)}</title>
 <link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 <style>${DECK_CSS}</style></head>
@@ -865,28 +908,20 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
 <div id="deck" style="--w-accent:${world.accent};--w-soft:${world.accentSoft};--w-deep:${world.deep}">${slides.join("")}</div>
 <div id="start"><button id="startBtn" type="button">${ICON_PLAY} Start presentation</button><p>Best on a projector. Arrow keys move, F is full screen, Esc leaves.</p></div>
 <div id="nav"><button id="prev" type="button" aria-label="Previous">&#8249;</button><span id="counter"></span><button id="next" type="button" aria-label="Next">&#8250;</button></div>
-<script>${DECK_JS}</script>
+<script src="${deckScriptUrl}"></script>
 </body></html>`;
   return { title, slideCount: slides.length, html };
 }
 
 export function openCyclePresentation(cycleId, { day = "" } = {}) {
   const { html, title } = buildCyclePresentation(cycleId, { day });
-  if (typeof window === "undefined") return { ok: false, url: "", title };
-  const win = window.open("", "lp-present", "width=1280,height=800");
-  if (win) {
-    win.document.write(html);
-    win.document.close();
-    win.document.title = title;
-    return { ok: true, url: "", title };
-  }
-  // Pop-up blocked: hand back a Blob URL the page offers as a direct link -
-  // a click on a real anchor is a user gesture, so browsers allow it.
-  try {
-    return { ok: false, url: URL.createObjectURL(new Blob([html], { type: "text/html" })), title };
-  } catch {
-    return { ok: false, url: "", title };
-  }
+  const result = openHtmlDocument({
+    html,
+    name: "lp-present",
+    features: "width=1280,height=800",
+    keepUrlWhenBlocked: true
+  });
+  return { ok: result.ok, url: result.url, title };
 }
 
 // The system-font fallbacks keep the deck legible on an OFFLINE classroom
@@ -902,9 +937,21 @@ const DECK_CSS = `
     background:
       radial-gradient(80vw 60vh at 50% -10%, color-mix(in srgb, var(--w-accent) 22%, #fff), transparent 70%),
       linear-gradient(180deg, #FFFDF7 0%, var(--w-soft) 100%); }
-  #deck { height: 100vh; }
+  /* LAYOUT CONTRACT: body is a flex column of exactly two rows - the slide
+     stage (#deck, which grows) and the footer nav (#nav, which does not). The
+     nav used to be 'position: fixed; bottom: 2vh', so tall slides (a big letter
+     + a row of word cards) ran straight underneath the counter and arrows. As
+     sibling rows they cannot overlap at ANY card count or viewport height; if a
+     slide still outgrows the stage it scrolls inside #deck instead of spilling. */
+  body { display: flex; flex-direction: column; }
+  #deck { position: relative; flex: 1 1 auto; min-height: 0; }
   .slide { position: absolute; inset: 0; display: none; flex-direction: column;
-    align-items: center; justify-content: center; gap: 2.2vh; text-align: center; padding: 6vh 6vw; }
+    align-items: center;
+    justify-content: center;
+    /* 'safe' keeps the top of an over-tall slide reachable instead of centring
+       it out of the scrollable area. Ignored by browsers that lack it. */
+    justify-content: safe center;
+    gap: 2vh; text-align: center; padding: 4vh 5vw; overflow: auto; overscroll-behavior: contain; }
   .slide.active { display: flex; animation: pop .5s cubic-bezier(.2,1.3,.4,1) both; }
   @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
   .p-ico { width: 1.05em; height: 1.05em; fill: currentColor; vertical-align: -0.14em; }
@@ -913,25 +960,28 @@ const DECK_CSS = `
   .p-title { font-family: ${FONT_STACK}; font-weight: 600; font-size: 9vh; margin: 0; color: var(--w-deep); }
   .p-phase { font-size: 3vh; color: #6b5a48; }
   .p-hint { color: #9a8a76; font-size: 2.4vh; }
-  .p-letter { font-family: ${LETTER_FONT_STACK}; font-size: 34vh; line-height: .95; font-weight: 700; color: var(--w-accent);
+  .p-letter { font-family: ${LETTER_FONT_STACK}; font-size: min(30vh, 30vw); line-height: .95; font-weight: 700; color: var(--w-accent);
     text-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 28%, #fff); animation: wobble 2.4s ease-in-out infinite; }
   @keyframes wobble { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
   .p-says { font-size: 4.4vh; margin: 0; }
   .p-says b, .p-sentence b { color: var(--w-accent); }
-  .p-words { display: flex; gap: 3vw; margin-top: 1vh; }
+  .p-words { display: flex; gap: 2.4vw; margin-top: 0; flex-wrap: wrap;
+    justify-content: center; align-items: flex-start; max-width: 90vw; min-height: 0; }
   .p-word, .p-chip, .p-big-word, .p-audio { cursor: pointer; }
   .p-word { background: none; border: 0; color: inherit; display: flex; flex-direction: column; align-items: center; gap: 1vh; font: inherit; }
-  .p-word img { width: 20vh; height: 20vh; object-fit: contain; background: #fff; border: 4px solid #fff;
-    border-radius: 24px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
+  /* Six cards at 13vw + gaps still fit one row; a short window shrinks them
+     by height instead of pushing the row into the footer. */
+  .p-word img { width: min(18vh, 13vw); height: min(18vh, 13vw); object-fit: contain; background: #fff;
+    border: 4px solid #fff; border-radius: 24px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
   .p-word:hover img { transform: translateY(-1vh) rotate(-2deg); }
   .p-word span { font-size: 3.6vh; font-weight: 600; }
   .p-audio { margin-top: 1vh; background: var(--w-accent); color: #fff; border: 0; border-radius: 999px;
     padding: 1.6vh 3.4vw; font: inherit; font-weight: 600; font-size: 3vh; box-shadow: 0 8px 0 var(--w-deep); }
   .p-audio:active { transform: translateY(4px); box-shadow: 0 4px 0 var(--w-deep); }
-  .p-sight { font-family: ${FONT_STACK}; font-size: 24vh; font-weight: 600; color: var(--w-accent); line-height: 1;
+  .p-sight { font-family: ${FONT_STACK}; font-size: min(22vh, 26vw); font-weight: 600; color: var(--w-accent); line-height: 1;
     text-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 28%, #fff); }
   .p-sentence { font-size: 3.6vh; }
-  .p-big-word { font-family: ${FONT_STACK}; font-size: 17vh; font-weight: 600; color: var(--w-accent); background: none; border: 0; }
+  .p-big-word { font-family: ${FONT_STACK}; font-size: min(16vh, 20vw); font-weight: 600; color: var(--w-accent); background: none; border: 0; }
   .p-big-word.made { color: #E0991C; }
   .p-take, .p-compound { display: flex; align-items: center; gap: 2.5vw; flex-wrap: wrap; justify-content: center; }
   .p-arrow { font-size: 9vh; color: #E0991C; }
@@ -942,7 +992,7 @@ const DECK_CSS = `
   .p-chip.made { border-color: #E0991C; color: #8A5A1D; box-shadow: 0 6px 0 #F3D9A4; }
   .p-blend .p-compound { gap: 1.2vw; }
   .p-blend .p-compound .p-chip { padding: 1.4vh 2vw; }
-  .p-stars { font-size: 14vh; color: #E0991C; letter-spacing: 1vh; }
+  .p-stars { font-size: min(13vh, 16vw); color: #E0991C; letter-spacing: 1vh; }
   .p-recap .p-chip { font-size: 4vh; }
   .p-goal { font-family: ${FONT_STACK}; font-weight: 600; font-size: 6.4vh; margin: 0; color: var(--w-deep);
     max-width: 70vw; line-height: 1.3; }
@@ -952,7 +1002,7 @@ const DECK_CSS = `
   .p-tip b { color: #8A5A1D; white-space: nowrap; }
   .p-books { display: flex; gap: 4vw; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
   .p-book { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 1.4vh; }
-  .p-book-cover { height: 42vh; max-width: 34vw; object-fit: contain; background: #fff; border: 4px solid #fff;
+  .p-book-cover { height: min(40vh, 34vw); max-width: 34vw; object-fit: contain; background: #fff; border: 4px solid #fff;
     border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,.14); }
   .p-book figcaption { display: flex; flex-direction: column; gap: .4vh; }
   .p-book-title { font-size: 3.4vh; font-weight: 600; color: var(--w-deep); }
@@ -962,15 +1012,15 @@ const DECK_CSS = `
   .p-routines li { background: #fff; border-radius: 16px; padding: 1.4vh 3vw; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
   .p-poem-title { font-family: ${FONT_STACK}; font-weight: 600; font-size: 5.4vh; margin: 0; color: var(--w-deep); }
   .p-poem-wrap { display: flex; align-items: center; gap: 3vw; flex-wrap: wrap; justify-content: center; }
-  .p-poem-hero { height: 40vh; max-width: 42vw; object-fit: contain; border-radius: 22px;
+  .p-poem-hero { height: min(38vh, 42vw); max-width: 42vw; object-fit: contain; border-radius: 22px;
     box-shadow: 0 14px 34px rgba(0,0,0,.16); background: #fff; }
   .p-poem { white-space: pre-wrap; font-size: 4vh; line-height: 1.5; background: #fff;
     border: 4px solid #fff; border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,.1); padding: 3vh 4vw; }
   .p-poem-pics { display: flex; gap: 2vw; margin-top: 1vh; }
-  .p-poem-pics img { width: 16vh; height: 16vh; object-fit: contain; background: #fff; border: 4px solid #fff; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
+  .p-poem-pics img { width: min(15vh, 14vw); height: min(15vh, 14vw); object-fit: contain; background: #fff; border: 4px solid #fff; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
   /* Writing demo: every stroke draws itself in real stroke ORDER while a
      pencil tip follows the line - animated by animateWriting() in the deck JS. */
-  .p-write-svg { height: 52vh; max-width: 86vw; }
+  .p-write-svg { height: min(50vh, 60vw); max-width: 86vw; flex: 0 1 auto; min-height: 0; }
   .p-write-svg .p-guide { stroke: rgba(31,63,42,.18); stroke-width: 1.5; }
   .p-write-svg .p-guide.dash { stroke-dasharray: 6 5; }
   .p-write-svg .p-guide.base { stroke: rgba(31,63,42,.30); stroke-width: 2; }
@@ -982,16 +1032,17 @@ const DECK_CSS = `
   .p-pencil circle { fill: #F4A83C; stroke: #8A5A1D; stroke-width: 2.5; }
   .p-pencil path { fill: #F8C97E; stroke: #8A5A1D; stroke-width: 2.5; stroke-linejoin: round; }
   /* The Pals mascot, branding every slide */
-  .p-pal-corner { position: absolute; bottom: 3vh; right: 3vw; height: 22vh; pointer-events: none;
+  .p-pal-corner { position: absolute; bottom: 2vh; right: 2vw; height: min(18vh, 16vw); pointer-events: none; z-index: 1;
     animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0,0,0,.18)); }
-  .p-pal-hero { height: 34vh; animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 10px 18px rgba(0,0,0,.2)); }
+  .p-pal-hero { height: min(30vh, 30vw); flex: 0 0 auto; animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 10px 18px rgba(0,0,0,.2)); }
   @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1.4vh); } }
   #start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2vh; z-index: 10;
     background: radial-gradient(80vw 60vh at 50% 0%, color-mix(in srgb, var(--w-accent) 22%, #fff), transparent 70%), linear-gradient(180deg, #FFFDF7, var(--w-soft)); }
   #start button { font: inherit; font-weight: 600; font-size: 4.4vh; background: var(--w-accent); color: #fff; border: 0; border-radius: 999px; padding: 2.2vh 6vw; cursor: pointer; box-shadow: 0 10px 0 var(--w-deep); }
   #start button:active { transform: translateY(5px); box-shadow: 0 5px 0 var(--w-deep); }
   #start p { color: #9a8a76; font-size: 2.4vh; }
-  #nav { position: fixed; bottom: 2vh; left: 0; right: 0; display: none; align-items: center; justify-content: center; gap: 3vw; z-index: 9; }
+  #nav { flex: 0 0 auto; display: none; align-items: center; justify-content: center;
+    gap: 3vw; padding: 1.2vh 2vw 2vh; z-index: 9; }
   /* Projector-friendly hit areas: never below 56px even on small windows. */
   #nav button { font-size: 5vh; background: #fff; color: var(--w-deep); border: 3px solid var(--w-accent); border-radius: 16px;
     width: max(8vh, 56px); height: max(8vh, 56px); cursor: pointer; }
@@ -1001,68 +1052,3 @@ const DECK_CSS = `
   }
 `;
 
-const DECK_JS = `
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var idx = 0, started = false;
-  function playAudio(src){ if(!src) return; try { var a = new Audio(src); a.play().catch(function(){}); } catch(e){} }
-  var writeRaf = 0;
-  function animateWriting(slideEl){
-    cancelAnimationFrame(writeRaf);
-    var svg = slideEl && slideEl.querySelector('.p-write-svg'); if(!svg) return;
-    var pencil = svg.querySelector('[data-pencil]');
-    // NOTE: the writing demo is TEACHING CONTENT (like a video), so it plays
-    // even when the OS asks for reduced motion - only decorative motion obeys.
-    var paths = Array.prototype.slice.call(svg.querySelectorAll('[data-write-stroke]'));
-    var plan = paths.map(function(p){
-      var L = Math.max(p.getTotalLength(), 0.6);
-      p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
-      return { p: p, L: L, d: Math.max(300, L / 130 * 1000) };
-    });
-    if (!plan.length) return;
-    var i = 0, start = 0, pause = 0;
-    function step(now){
-      var it = plan[i];
-      if (!it) { if (pencil) pencil.style.opacity = 0; return; }
-      if (pause && now < pause) { writeRaf = requestAnimationFrame(step); return; }
-      if (pause) { pause = 0; start = 0; }
-      if (!start) start = now;
-      var t = Math.min(1, (now - start) / it.d), e = t * (2 - t);
-      it.p.style.strokeDashoffset = it.L * (1 - e);
-      if (pencil) {
-        var pt = it.p.getPointAtLength(it.L * e);
-        var off = Number(it.p.getAttribute('data-offset') || 0);
-        pencil.setAttribute('transform', 'translate(' + (pt.x + off) + ',' + pt.y + ')');
-        pencil.style.opacity = 1;
-      }
-      if (t >= 1) { i += 1; pause = now + 260; }
-      writeRaf = requestAnimationFrame(step);
-    }
-    writeRaf = requestAnimationFrame(step);
-  }
-  function show(i){
-    idx = Math.max(0, Math.min(slides.length - 1, i));
-    slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
-    document.getElementById('counter').textContent = (idx+1) + ' / ' + slides.length;
-    var s = slides[idx];
-    animateWriting(s);
-    if (started && s.getAttribute('data-audio')) playAudio(s.getAttribute('data-audio'));
-  }
-  function go(d){ show(idx + d); }
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(1); }
-    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
-    else if (e.key === 'f' || e.key === 'F') { toggleFs(); }
-  });
-  document.getElementById('next').addEventListener('click', function(){ go(1); });
-  document.getElementById('prev').addEventListener('click', function(){ go(-1); });
-  document.addEventListener('click', function(e){
-    var btn = e.target.closest('[data-play]'); if (btn) { playAudio(btn.getAttribute('data-play')); return; }
-    if (e.target.closest('[data-replay]')) { animateWriting(slides[idx]); return; }
-  });
-  function toggleFs(){ try { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); } catch(e){} }
-  document.getElementById('startBtn').addEventListener('click', function(){
-    started = true; document.getElementById('start').style.display = 'none';
-    document.getElementById('nav').style.display = 'flex'; toggleFs(); show(0);
-  });
-  show(0);
-`;

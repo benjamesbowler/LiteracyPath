@@ -6,13 +6,24 @@ import {
   buildReportContextRows,
   REPORT_INFO_SHEET_NAME
 } from "./exportReportSections.js";
+import {
+  addMetricDefinitionsWorksheet,
+  METRIC_DEFINITIONS_SHEET_NAME
+} from "./metricDefinitions.js";
+import {
+  addExportProvenanceWorksheet,
+  buildExportProvenanceRows,
+  REPORT_PROVENANCE_SHEET_NAME
+} from "./exportProvenance.js";
 
 export const GUIDED_READING_COMPLETION_SHEETS = {
   reportInfo: REPORT_INFO_SHEET_NAME,
   summary: "Summary",
-  studentCompletion: "Student Completion",
+  studentCompletion: "Student completion",
   booksCompleted: "Books Completed",
-  studentSummary: "Student Summary"
+  studentSummary: "Student summary",
+  provenance: REPORT_PROVENANCE_SHEET_NAME,
+  definitions: METRIC_DEFINITIONS_SHEET_NAME
 };
 
 export const GUIDED_READING_COMPLETION_HEADERS = {
@@ -31,7 +42,6 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
     "Book Title",
     "Series",
     "Level",
-    "Book ID",
     "Completed",
     "Completion Date",
     "Read Count",
@@ -46,7 +56,6 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
     "Book Title",
     "Series",
     "Level",
-    "Book ID",
     "Students Completed",
     "Total Completions",
     "Total Reads",
@@ -203,7 +212,10 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
     ...students.map(student => getClassName(student, options.classes || [])),
     ...rows.map(row => row.className)
   ].filter(Boolean)));
-  const exportDate = new Date();
+  const exportDate = new Date(options.generatedAt || Date.now());
+  if (Number.isNaN(exportDate.getTime())) {
+    throw new Error("Guided Reading export generatedAt must be a valid date.");
+  }
   const summaryRows = (classNames.length ? classNames : ["Unknown Class"]).map(className => {
     const classStudents = students.filter(student => getClassName(student, options.classes || []) === className);
     const classRows = rows.filter(row => row.className === className);
@@ -305,10 +317,26 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
       { field: "Guided Reading Sessions", value: rows.reduce((sum, row) => sum + row.readCount, 0) }
     ]
   });
+  const provenanceRows = buildExportProvenanceRows({
+    reportTitle: "Guided Reading Completion",
+    schoolName: options.schoolName,
+    classNames,
+    learnerCount: students.length || new Set(rows.map(row => row.studentId)).size,
+    generatedAt: exportDate,
+    timeZone: options.timeZone,
+    filters: options.filters || "Included roster and all available Guided Reading completion records",
+    evidenceSource: rows.map(row => ({
+      completedAt: row.rawCompletedAt,
+      observedAt: row.rawLastReadAt
+    })),
+    appVersion: options.appVersion,
+    definitions: `Definitions are included in the ${METRIC_DEFINITIONS_SHEET_NAME} sheet.`
+  });
 
   return {
     generatedAt: exportDate.toISOString(),
     reportInfoRows,
+    provenanceRows,
     summaryRows,
     studentCompletionRows: rows,
     booksCompletedRows: Array.from(booksById.values()).map(row => ({
@@ -350,7 +378,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   const data = buildGuidedReadingCompletionWorkbookData(options);
 
   workbook.creator = "Literacy Guide";
-  workbook.created = new Date();
+  workbook.created = new Date(data.generatedAt);
 
   const infoSheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.reportInfo);
   infoSheet.columns = GUIDED_READING_COMPLETION_HEADERS.reportInfo.map(header => ({
@@ -364,7 +392,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   summarySheet.columns = GUIDED_READING_COMPLETION_HEADERS.summary.map(header => ({ header, key: header, width: 28 }));
   addRowsOrEmpty(summarySheet, data.summaryRows, row => row ? {
     "Class Name": row.className,
-    "Total Students": row.totalStudents,
+      "Total Students": row.totalStudents,
     "Total Completed Books": row.totalCompletedBooks,
     "Total Unique Books Completed": row.totalUniqueBooksCompleted,
     "Total Guided Reading Sessions": row.totalGuidedReadingSessions,
@@ -386,7 +414,6 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Book Title": row.bookTitle,
     "Series": row.series,
     "Level": row.level,
-    "Book ID": row.bookId,
     "Completed": row.completed ? "Yes" : "No",
     "Completion Date": row.completionDate,
     "Read Count": row.readCount,
@@ -402,7 +429,6 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Book Title": "",
     "Series": "",
     "Level": "",
-    "Book ID": "",
     "Completed": "No",
     "Completion Date": "",
     "Read Count": 0,
@@ -420,7 +446,6 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Book Title": row.bookTitle,
     "Series": row.series,
     "Level": row.level,
-    "Book ID": row.bookId,
     "Students Completed": row.studentsCompleted,
     "Total Completions": row.totalCompletions,
     "Total Reads": row.totalReads,
@@ -430,7 +455,6 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Book Title": "No records yet",
     "Series": "",
     "Level": "",
-    "Book ID": "",
     "Students Completed": 0,
     "Total Completions": 0,
     "Total Reads": 0,
@@ -462,6 +486,8 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Recent Book": ""
   });
 
+  addExportProvenanceWorksheet(workbook, data.provenanceRows);
+  addMetricDefinitionsWorksheet(workbook, { generatedAt: data.generatedAt });
   workbook.worksheets.forEach(styleWorksheet);
   return { workbook, data };
 }

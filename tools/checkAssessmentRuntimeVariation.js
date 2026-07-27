@@ -10,11 +10,16 @@ import {
 } from "../src/data/assessmentMediaPicker.js";
 import { normalizeAssessmentSkillId } from "../src/data/assessmentMediaRegistry.js";
 import { getAssessmentMediaByPath } from "../src/data/assessmentMediaRegistry.js";
+import { loadAssessmentSkillBank } from "../src/data/loadAssessmentSkillBank.js";
+import { getAssessmentReleaseMediaRequirement } from "../src/content/releaseStandard.js";
 import {
-  getQuestionAudioPaths,
+  getAssessmentQuestionTemplate,
+  getAssessmentTemplateBudgetFailures,
+  selectAssessmentRoundCandidate
+} from "../src/data/assessmentRoundSelector.js";
+import {
   getQuestionImagePaths,
   repoRoot,
-  selectableRuntimeQuestionsForSkill,
   writeFile
 } from "./phonicsRuntimeUtils.js";
 
@@ -59,18 +64,6 @@ function shuffleDeterministic(items = [], seed = "") {
     .map(entry => entry.item);
 }
 
-function cloneUsage(usage) {
-  return createAssessmentSessionMediaUsage({
-    imagePaths: [...usage.imagePaths],
-    audioPaths: [...usage.audioPaths],
-    targetWords: [...usage.targetWords],
-    contentKeys: [...usage.contentKeys],
-    templateKeys: [...usage.templateKeys],
-    promptKeys: [...usage.promptKeys],
-    correctQuestionIds: [...usage.correctQuestionIds]
-  });
-}
-
 function questionPhase(question = {}) {
   const level = Number(question.level || question.difficulty || 1) >= 2 ? 2 : 1;
   const phase = Number(question.phase || question.assessmentPhase || question.initialSoundRoundPhase || 1) === 2 ? 2 : 1;
@@ -103,11 +96,18 @@ function getPrimaryImage(question = {}) {
 }
 
 function getPrimaryAudio(question = {}) {
-  return getQuestionAudioPaths(question)[0] || "";
+  return [
+    question.audioPath,
+    question.audioUrl,
+    question.audio,
+    question.promptAudio,
+    question.questionAudio,
+    question.targetAudio
+  ].find(value => typeof value === "string" && value.trim()) || "";
 }
 
 function getTemplateKey(question = {}) {
-  return String(question.runtimeTemplateKey || question.templateKey || question.templateType || question.formatType || question.questionType || "")
+  return String(getAssessmentQuestionTemplate(question))
     .toLowerCase()
     .replace(/\s+/g, "_")
     .trim();
@@ -146,34 +146,6 @@ function markResolvedUsed(usage, question = {}) {
   if (prompt) usage.promptKeys.add(prompt);
 }
 
-function scoreResolvedQuestion(question, usage) {
-  const image = getPrimaryImage(question);
-  const audio = getPrimaryAudio(question);
-  const contentKey = getQuestionMediaContentKey(question);
-  const target = inferAssessmentQuestionTargetWord(question);
-  const template = getTemplateKey(question);
-  const prompt = getPromptKey(question);
-  return (
-    (contentKey && usage.contentKeys.has(contentKey) ? 1000 : 0) +
-    (image && usage.imagePaths.has(image) ? 120 : 0) +
-    (audio && usage.audioPaths.has(audio) ? 80 : 0) +
-    (template && usage.templateKeys?.has(template) ? 60 : 0) +
-    (prompt && usage.promptKeys?.has(prompt) ? 45 : 0) +
-    (target && usage.targetWords.has(target) ? 700 : 0)
-  );
-}
-
-function scoreRoundRepeat(question, roundUsage) {
-  const target = inferAssessmentQuestionTargetWord(question);
-  const template = getTemplateKey(question);
-  const prompt = getPromptKey(question);
-  return (
-    (target && roundUsage.targetWords.has(target) ? 5000 : 0) +
-    (template && roundUsage.templateKeys.has(template) ? 450 : 0) +
-    (prompt && roundUsage.promptKeys.has(prompt) ? 350 : 0)
-  );
-}
-
 function pickRound(pool, context) {
   const selected = [];
   const failures = [];
@@ -181,33 +153,13 @@ function pickRound(pool, context) {
   const candidates = shuffleDeterministic(pool, `${context.skillId}:${context.sessionIndex}:${context.phase.key}`);
 
   while (selected.length < ROUND_SIZE && selected.length < candidates.length) {
-    let best = null;
-    for (const candidate of candidates) {
-      if (selected.some(item => item.id === candidate.id)) continue;
-      const previewUsage = cloneUsage(context.sessionUsage);
-      const resolved = resolveQuestionMediaDynamically(candidate, {
-        skillId: context.skillId,
-        level: context.phase.level,
-        phase: context.phase.phase,
-        sessionUsage: previewUsage
-      });
-      const score = scoreResolvedQuestion(resolved, context.sessionUsage) + scoreRoundRepeat(resolved, roundUsage);
-      const issues = validateResolvedQuestionMedia(resolved);
-      const ranked = { candidate, resolved, score, issues };
-      if (
-        !best ||
-        ranked.score < best.score ||
-        (
-          ranked.score === best.score &&
-          context.skillId.startsWith("hfw_") &&
-          String(resolved.id).localeCompare(String(best.resolved.id)) < 0
-        )
-      ) {
-        best = ranked;
-      }
-    }
-    if (!best) break;
-    const resolved = resolveQuestionMediaDynamically(best.candidate, {
+    const selection = selectAssessmentRoundCandidate(candidates, {
+      selectedQuestions: selected,
+      skillId: context.skillId,
+      roundLength: ROUND_SIZE
+    });
+    if (!selection.question) break;
+    const resolved = resolveQuestionMediaDynamically(selection.question, {
       skillId: context.skillId,
       level: context.phase.level,
       phase: context.phase.phase,
@@ -260,9 +212,9 @@ function approvedAudioAlternativeCount(audioPath = "") {
   }).length;
 }
 
-function auditSkill(skillId) {
+async function auditSkill(skillId) {
   const normalizedSkillId = normalizeAssessmentSkillId(skillId);
-  const pool = selectableRuntimeQuestionsForSkill(normalizedSkillId);
+  const pool = await loadAssessmentSkillBank(normalizedSkillId);
   const staticImages = [];
   const staticAudio = [];
   const dynamicImages = [];
@@ -297,20 +249,42 @@ function auditSkill(skillId) {
       const repeatedPrompts = countRepeats(round.selected.map(getPromptKey));
       const contentAlternatives = new Set(phasePool.map(getQuestionMediaContentKey).filter(Boolean)).size;
       const targetAlternatives = new Set(phasePool.map(inferAssessmentQuestionTargetWord).filter(Boolean)).size;
-      const templateAlternatives = new Set(phasePool.map(getTemplateKey).filter(Boolean)).size;
       const promptAlternatives = new Set(phasePool.map(getPromptKey).filter(Boolean)).size;
       const imageRepeatFailures = repeatedImages.filter(repeat => {
         const repeatedQuestion = round.selected.find(question => getPrimaryImage(question) === repeat.value);
-        return repeatedQuestion && approvedImageAlternativeCount(repeatedQuestion, normalizedSkillId, phase.level, phase.phase) > 1;
+        if (!repeatedQuestion) return false;
+        const target = inferAssessmentQuestionTargetWord(repeatedQuestion);
+        const targetUseCount = round.selected.filter(question =>
+          inferAssessmentQuestionTargetWord(question) === target
+        ).length;
+        const alternativeCount = approvedImageAlternativeCount(
+          repeatedQuestion,
+          normalizedSkillId,
+          phase.level,
+          phase.phase
+        );
+        return alternativeCount > 1 && targetUseCount <= alternativeCount;
       });
       const audioRepeatFailures = repeatedAudio.filter(repeat => approvedAudioAlternativeCount(repeat.value) > 1);
       const contentRepeatFailures = repeatedContent.filter(() => contentAlternatives >= ROUND_SIZE);
       const targetRepeatFailures = repeatedTargets.filter(() => targetAlternatives >= ROUND_SIZE);
-      const templateRepeatFailures = repeatedTemplates.filter(() => templateAlternatives >= Math.min(4, ROUND_SIZE));
+      const templateRepeatFailures = getAssessmentTemplateBudgetFailures(
+        round.selected,
+        phasePool,
+        {
+          skillId: normalizedSkillId,
+          roundLength: ROUND_SIZE
+        }
+      );
       const promptRepeatFailures = repeatedPrompts.filter(() => promptAlternatives >= ROUND_SIZE);
       const missingImageFailures = round.selected.filter(question => {
         const image = getPrimaryImage(question);
-        if (!image) return ["nouns", "verbs", "adjectives", "prepositions", "plurals", "antonyms_synonyms", "homophones_homonyms"].includes(normalizedSkillId);
+        const releaseSkillId = question.assessmentSkillId ||
+          (normalizedSkillId === "prepositions" ? "prepositions_of_place" : normalizedSkillId);
+        const requirement = getAssessmentReleaseMediaRequirement(releaseSkillId, question, {
+          template: getAssessmentQuestionTemplate(question)
+        });
+        if (!image) return requirement.requiresImage;
         const record = getAssessmentMediaByPath(image, "image");
         return Boolean(record && !record.available);
       });
@@ -441,7 +415,7 @@ function buildMarkdown(audit) {
   return `${lines.join("\n")}\n`;
 }
 
-const skills = PRIORITY_SKILLS.map(auditSkill);
+const skills = await Promise.all(PRIORITY_SKILLS.map(auditSkill));
 const failures = skills.flatMap(skill => skill.failures);
 const audit = {
   generatedAt: new Date().toISOString(),

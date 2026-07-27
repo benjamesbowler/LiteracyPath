@@ -12,19 +12,23 @@ const SIMPLE_WORDS_BY_SKILL = {
   vowel_teams: new Set([
     "tree", "beach", "rain", "train", "boat", "green", "sheep", "peach", "leaf", "coat",
     "goat", "seed", "feet", "road", "soap", "oak", "bead", "beak", "bean", "beehive",
-    "beet", "beetle", "chain", "cheese", "clay", "eel", "hay", "loaf", "pail", "paint"
+    "beef", "beet", "beetle", "blue", "bright", "chain", "cheese", "clay", "eel", "hay",
+    "loaf", "pail", "paint"
   ]),
   r_controlled: new Set([
     "car", "star", "farm", "arm", "bark", "barn", "card", "bird", "girl", "shirt",
-    "bluebird", "corn", "fork", "horse", "butter", "berry", "turtle", "nurse", "purse"
+    "bluebird", "corn", "fork", "horse", "butter", "berry", "turtle", "nurse", "purse",
+    "bar", "burn", "curl", "dirt", "fern", "horn", "turn"
   ]),
   plurals: new Set([
     "cats", "dogs", "cups", "hats", "books", "cars", "balls", "ducks", "birds", "bags",
-    "boxes", "buses", "dishes", "puppies", "leaves", "foxes", "benches"
+    "boxes", "buses", "dishes", "puppies", "leaves", "foxes", "benches", "bats", "beds",
+    "clocks", "flags", "frogs", "grapes", "hens", "maps", "pens", "pigs", "planes", "stars"
   ]),
   antonyms_synonyms: new Set([
     "hot", "cold", "big", "small", "happy", "sad", "wet", "dry", "open", "closed",
-    "full", "empty", "clean", "dirty", "fast", "slow", "tall", "short", "up", "down"
+    "full", "empty", "clean", "dirty", "fast", "slow", "tall", "short", "up", "down",
+    "day", "hard", "high", "light", "long", "loud", "near", "old", "same", "strong"
   ])
 };
 

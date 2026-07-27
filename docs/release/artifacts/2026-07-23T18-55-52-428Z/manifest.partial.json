@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-23T18:57:52.101Z",
+  "startedAt": "2026-07-23T18:55:52.428Z",
+  "finishedAt": "2026-07-23T18:57:52.101Z",
+  "commitSha": "36974fd9d196a1b9d4b4ed91e0f5043b7e491fca",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 21,
+    "passed": 21,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 19927,
+      "startedAt": "2026-07-23T18:55:52.539Z",
+      "finishedAt": "2026-07-23T18:56:12.466Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 4946,
+      "startedAt": "2026-07-23T18:56:12.466Z",
+      "finishedAt": "2026-07-23T18:56:17.412Z",
+      "counts": {
+        "tests": 992,
+        "passed": 992,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 14967,
+      "startedAt": "2026-07-23T18:56:17.412Z",
+      "finishedAt": "2026-07-23T18:56:32.379Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-dashboard-data",
+      "label": "Reachable teacher dashboard contracts",
+      "areas": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "command": "npm run check:teacher-dashboard-data",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6506,
+      "startedAt": "2026-07-23T18:56:32.379Z",
+      "finishedAt": "2026-07-23T18:56:38.885Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-dashboard-data.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-ia",
+      "label": "Five-intention teacher information architecture",
+      "areas": [
+        5,
+        6,
+        10
+      ],
+      "command": "npm run check:teacher-ia",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 4210,
+      "startedAt": "2026-07-23T18:56:38.885Z",
+      "finishedAt": "2026-07-23T18:56:43.095Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-ia.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-today",
+      "label": "Seeded Today evidence briefing and actions",
+      "areas": [
+        5,
+        6,
+        10
+      ],
+      "command": "npm run check:teacher-today",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5973,
+      "startedAt": "2026-07-23T18:56:43.095Z",
+      "finishedAt": "2026-07-23T18:56:49.068Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-today.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-context",
+      "label": "Persistent class, group, and learner teacher context",
+      "areas": [
+        5,
+        6,
+        10
+      ],
+      "command": "npm run check:teacher-context",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5176,
+      "startedAt": "2026-07-23T18:56:49.068Z",
+      "finishedAt": "2026-07-23T18:56:54.244Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-context.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "audit-school-live",
+      "label": "Audit school Auth, fixtures, and RLS isolation",
+      "areas": [
+        6,
+        8,
+        10
+      ],
+      "command": "npm run check:audit-school-live",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 409,
+      "startedAt": "2026-07-23T18:56:54.244Z",
+      "finishedAt": "2026-07-23T18:56:54.653Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/audit-school-live.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-onboarding",
+      "label": "Fresh-teacher setup and first-check golden path",
+      "areas": [
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run check:teacher-onboarding",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 8136,
+      "startedAt": "2026-07-23T18:56:54.653Z",
+      "finishedAt": "2026-07-23T18:57:02.789Z",
+      "counts": {
+        "passed": 2
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-onboarding.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-roster-scale",
+      "label": "Real-class roster import, bulk cards, archive, and transfer",
+      "areas": [
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run check:teacher-roster-scale",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 4338,
+      "startedAt": "2026-07-23T18:57:02.789Z",
+      "finishedAt": "2026-07-23T18:57:07.127Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-roster-scale.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-roster-device-matrix",
+      "label": "Configurable teacher roster and learner drawer at Chromebook and tablet sizes",
+      "areas": [
+        5,
+        6,
+        10
+      ],
+      "command": "npm run check:teacher-roster-device-matrix",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6398,
+      "startedAt": "2026-07-23T18:57:07.127Z",
+      "finishedAt": "2026-07-23T18:57:13.525Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-roster-device-matrix.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-class-code",
+      "label": "Accessible class-code copy and regeneration",
+      "areas": [
+        3,
+        5,
+        6,
+        8,
+        10
+      ],
+      "command": "npm run check:teacher-class-code",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3378,
+      "startedAt": "2026-07-23T18:57:13.525Z",
+      "finishedAt": "2026-07-23T18:57:16.903Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-class-code.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-login-cards",
+      "label": "Page-sized login-card route without document stream writes",
+      "areas": [
+        3,
+        5,
+        6,
+        8,
+        10
+      ],
+      "command": "npm run check:teacher-login-cards",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 3978,
+      "startedAt": "2026-07-23T18:57:16.903Z",
+      "finishedAt": "2026-07-23T18:57:20.881Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-login-cards.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-student-preview",
+      "label": "Read-only student preview with exact teacher return",
+      "areas": [
+        3,
+        5,
+        6,
+        8,
+        10
+      ],
+      "command": "npm run check:teacher-student-preview",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5005,
+      "startedAt": "2026-07-23T18:57:20.881Z",
+      "finishedAt": "2026-07-23T18:57:25.886Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-student-preview.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "teacher-interventions",
+      "label": "Trackable intervention lifecycle and Today follow-up",
+      "areas": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "command": "npm run check:teacher-interventions",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 4365,
+      "startedAt": "2026-07-23T18:57:25.886Z",
+      "finishedAt": "2026-07-23T18:57:30.251Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/teacher-interventions.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "product-finish-surface",
+      "label": "Reachable product finish contracts",
+      "areas": [
+        4,
+        5,
+        6,
+        7,
+        10
+      ],
+      "command": "npm run check:product-finish-surface",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6142,
+      "startedAt": "2026-07-23T18:57:30.251Z",
+      "finishedAt": "2026-07-23T18:57:36.393Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/product-finish-surface.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "release-readiness-surface",
+      "label": "Report and release-readiness contracts",
+      "areas": [
+        4,
+        7,
+        10
+      ],
+      "command": "npm run check:release-readiness-surface",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 8375,
+      "startedAt": "2026-07-23T18:57:36.393Z",
+      "finishedAt": "2026-07-23T18:57:44.768Z",
+      "counts": {
+        "passed": 2
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/release-readiness-surface.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "bundle-size",
+      "label": "Enforced bundle budgets",
+      "areas": [
+        9,
+        10
+      ],
+      "command": "npm run check:bundle-size",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 447,
+      "startedAt": "2026-07-23T18:57:44.769Z",
+      "finishedAt": "2026-07-23T18:57:45.216Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/bundle-size.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "database-bootstrap-schema",
+      "label": "Reconstructable core database schema",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:database-bootstrap-schema",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 245,
+      "startedAt": "2026-07-23T18:57:45.216Z",
+      "finishedAt": "2026-07-23T18:57:45.461Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/database-bootstrap-schema.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "audit-school-seed",
+      "label": "Deterministic non-production audit school",
+      "areas": [
+        6,
+        10
+      ],
+      "command": "npm run check:audit-school-seed",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 180,
+      "startedAt": "2026-07-23T18:57:45.461Z",
+      "finishedAt": "2026-07-23T18:57:45.641Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/audit-school-seed.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "a11y-teacher",
+      "label": "Authenticated teacher accessibility",
+      "areas": [
+        6,
+        10
+      ],
+      "command": "npm run check:a11y-teacher",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6460,
+      "startedAt": "2026-07-23T18:57:45.641Z",
+      "finishedAt": "2026-07-23T18:57:52.101Z",
+      "counts": {
+        "passed": 1
+      },
+      "logPath": "docs/release/artifacts/2026-07-23T18-55-52-428Z/a11y-teacher.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

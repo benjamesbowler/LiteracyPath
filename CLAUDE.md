@@ -13,6 +13,16 @@ The non-negotiables, applied on every task:
 
 Run the **5-question self-test** (in `AGENTS.md`) before sending any answer. Any "no" → the work isn't done.
 
+## Documentation: start at `docs/INDEX.md`
+
+`docs/` holds ~460 files and 1.66M words. **Always enter through `docs/INDEX.md`** — it
+separates **standards** (how things must be; edited in place; still true) from
+**records** (what happened on a date; never edited again), and tracks which audits have
+been **superseded**. When a record and a standard disagree, the standard wins.
+
+Check the index before acting on anything you found in `docs/`, and update it in the same
+change when your work alters how the product behaves. See `AGENTS.md` for the full rule.
+
 Everything below (graphify, and the repo's live-push/human-check conventions) are *applications* of the manual.
 
 ---

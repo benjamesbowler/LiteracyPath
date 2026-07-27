@@ -7,10 +7,15 @@ import {
   playWhoosh,
   playStarChime
 } from "../../../../utils/audio/gameSfx";
-import { soundRacerLadder, buildTrack, worldObstacles } from "../../../../utils/soundRacerTracks.js";
+import {
+  soundRacerLadder,
+  buildTrack,
+  buildSoundRacerTutorial,
+  worldObstacles
+} from "../../../../utils/soundRacerTracks.js";
 import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils/curriculumLadder.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import {
@@ -296,6 +301,26 @@ function startGame(THREE, mount, opts) {
     const timer = window.setTimeout(() => {
       recordedCueTimers.delete(timer);
       if (opts.getSound && opts.getSound()) playCueAudio(src);
+    }, delayMs);
+    recordedCueTimers.add(timer);
+    return timer;
+  }
+  function queueRecordedAction(action, delayMs = 0) {
+    if (!(opts.getSound && opts.getSound())) return null;
+    const run = () => {
+      try {
+        void action();
+      } catch {
+        // Recorded guidance is supplementary; the visual example remains.
+      }
+    };
+    if (delayMs <= 0) {
+      run();
+      return null;
+    }
+    const timer = window.setTimeout(() => {
+      recordedCueTimers.delete(timer);
+      if (opts.getSound && opts.getSound()) run();
     }, delayMs);
     recordedCueTimers.add(timer);
     return timer;
@@ -2701,10 +2726,11 @@ function startGame(THREE, mount, opts) {
       overlay.style.display = "none";
       overlay.removeAttribute("aria-modal");
       overlay.removeAttribute("role");
+      overlay.removeAttribute("aria-label");
     }
   }
 
-  function showOverlay(html) {
+  function showOverlay(html, accessibleName) {
     const overlay = el("overlay");
     overlayActive = true;
     pausedFrameRendered = false;
@@ -2712,6 +2738,7 @@ function startGame(THREE, mount, opts) {
     overlay.style.display = "grid";
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", accessibleName);
     return overlay;
   }
 
@@ -2861,7 +2888,8 @@ function startGame(THREE, mount, opts) {
         '<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">' +
           '<button data-sr="retry" aria-label="Retry this track" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#f8fbff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:13px 22px;cursor:pointer">↻ Retry track</button>' +
           '<button data-sr="next" aria-label="Go to the next map" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#071033;background:#ffd34e;border:0;padding:13px 24px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Next map</button>' +
-        '</div></div>'
+        '</div></div>',
+      "Track cleared"
     );
     overlay.querySelector('[data-sr="retry"]').addEventListener("click", () => {
       sfx(playTapSound);
@@ -2895,7 +2923,8 @@ function startGame(THREE, mount, opts) {
         `<div style="font-size:2.45rem;letter-spacing:8px">${"★".repeat(stars)}${"✩".repeat(3 - stars)}</div>` +
         `<div style="font-size:1.1rem;opacity:.92">Score <b>${score}</b> · Words <b>${correct}</b></div>` +
         '<button data-sr="done" aria-label="Finish Sound Racer" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Done</button>' +
-      '</div>'
+      '</div>',
+      "Sound Racer complete"
     );
     const doneButton = overlay.querySelector('[data-sr="done"]');
     doneButton.addEventListener("click", () => {
@@ -3172,30 +3201,57 @@ function startGame(THREE, mount, opts) {
     event.preventDefault();
     dismissIntro();
   }
+  function playTutorialExample(tutorial) {
+    if (!(opts.getSound && opts.getSound())) return;
+    void speakPhoneme(tutorial.target)
+      .then(() => {
+        if (opts.getSound && opts.getSound()) return speakWord(tutorial.exampleWord);
+        return null;
+      })
+      .catch(() => {
+        // Gold-voice policy stays silent when a recording cannot play.
+      });
+  }
+  function onIntroPointerDown(event) {
+    if (event.target.closest('[data-sr="intro-hear"]')) return;
+    dismissIntro();
+  }
   if (!hasSeenOnboarding("sound-racer")) {
     introActive = true;
     pause();
+    const tutorial = buildSoundRacerTutorial(track, { hasRecordedAudio: hasRecordedSpeech });
     const overlay = showOverlay(
       '<div style="display:grid;gap:14px;justify-items:center;padding:24px;max-width:min(560px,88vw)">' +
         '<div style="font-size:.85rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)">Sound Racer</div>' +
         '<div style="font-size:clamp(1.3rem,4vw,1.8rem);font-weight:900;line-height:1.25;text-wrap:balance">Catch the words that start with the target sound. Dodge everything else!</div>' +
-        '<div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">' +
-          '<span style="width:58px;height:58px;display:grid;place-items:center;background:#ffd34e;color:#071033;font-size:2rem;font-weight:950">S</span>' +
-          '<span style="font-size:1.8rem">→</span>' +
-          '<span style="min-width:94px;height:58px;display:grid;place-items:center;border:3px solid #7cf0b6;color:#fff;font-size:1.35rem;font-weight:900">sun</span>' +
-          '<span style="font-size:2rem;color:#7cf0b6">✓</span>' +
-          '<span style="width:58px;height:58px;display:grid;place-items:center;border:3px solid #ff8d8d;color:#ffb0b0;font-size:2rem;font-weight:950">×</span>' +
-        '</div>' +
-        '<div style="font-size:.98rem;font-weight:700;line-height:1.6;opacity:.92">Steer with the ← → arrow keys or A and D, or tap the left and right sides of the screen.<br>On a touch screen you can also swipe to change lanes.</div>' +
+        `<section data-sr="tutorial-phonics" aria-label="Sound example" style="display:grid;gap:10px;justify-items:center;padding:14px 18px;border:2px solid rgba(124,240,182,.58);background:rgba(5,30,46,.7)">` +
+          '<div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">' +
+            `<span data-sr="tutorial-target" style="min-width:58px;height:58px;padding:0 10px;display:grid;place-items:center;background:#ffd34e;color:#071033;font-size:2rem;font-weight:950">${tutorial.targetLabel}</span>` +
+            '<span style="font-size:1.8rem">→</span>' +
+            `<span data-sr="tutorial-word" style="min-width:94px;height:58px;padding:0 12px;display:grid;place-items:center;border:3px solid #7cf0b6;color:#fff;font-size:1.35rem;font-weight:900">${tutorial.exampleWord}</span>` +
+            '<span style="font-size:2rem;color:#7cf0b6">✓</span>' +
+          '</div>' +
+          `<p style="margin:0;font-size:.92rem;font-weight:800">${tutorial.phonicsInstruction}</p>` +
+          `<button data-sr="intro-hear" aria-label="Hear ${tutorial.targetLabel} in ${tutorial.exampleWord}" style="font-family:inherit;font-weight:900;color:#071033;background:#7cf0b6;border:0;min-height:44px;padding:8px 18px;cursor:pointer">Hear the example</button>` +
+        '</section>' +
+        `<section data-sr="tutorial-motor" aria-label="How to steer" style="display:grid;gap:4px;padding:10px 14px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06)">` +
+          `<strong>${tutorial.motorInstruction}</strong>` +
+          '<span style="font-size:.9rem;font-weight:700;line-height:1.5;opacity:.88">Use ← → or A and D. You can also tap or swipe left and right.</span>' +
+        '</section>' +
         '<button data-sr="intro-play" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">Tap to play</button>' +
         '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press Space / Enter / a steer key</div>' +
-      '</div>'
+      '</div>',
+      "Sound Racer instructions"
     );
     overlay.querySelector('[data-sr="intro-play"]').addEventListener("click", dismissIntro);
-    overlay.addEventListener("pointerdown", dismissIntro);
+    overlay.querySelector('[data-sr="intro-hear"]').addEventListener("click", () => playTutorialExample(tutorial));
+    overlay.addEventListener("pointerdown", onIntroPointerDown);
     window.addEventListener("keydown", onIntroKey, true);
-    opts.registerCleanup?.(() => window.removeEventListener("keydown", onIntroKey, true));
-    introCueTimer = queueRecordedCue("/audio/child-mode/clean-human/phrases/listen-and-find.mp3", 650);
+    opts.registerCleanup?.(() => {
+      window.removeEventListener("keydown", onIntroKey, true);
+      overlay.removeEventListener("pointerdown", onIntroPointerDown);
+    });
+    introCueTimer = queueRecordedAction(() => playTutorialExample(tutorial), 650);
   }
 
   const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });

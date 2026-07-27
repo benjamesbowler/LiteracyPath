@@ -163,7 +163,8 @@
 .lg-hop-grid button:focus-visible,
 .lg-floating-options button:focus-visible,
 .lg-family-tabs button:focus-visible {
-  outline: 0;
+  outline: 3px solid #0c6b65;
+  outline-offset: 3px;
   box-shadow: var(--lg-focus);
 }
 
@@ -262,8 +263,8 @@
 .lg-game-title-chip span {
   min-height: 30px;
   background: var(--game-accent-soft);
-  border-color: transparent;
-  color: var(--game-accent);
+  border-color: color-mix(in srgb, var(--game-accent), #334155 35%);
+  color: #334155;
   text-transform: capitalize;
 }
 
@@ -324,7 +325,10 @@
 .lg-phinny-help,
 .lg-game-close {
   width: 44px;
+  min-width: 44px;
   height: 44px;
+  min-height: 44px;
+  flex: 0 0 44px;
   display: grid;
   place-items: center;
   border: 1px solid var(--lg-border);
@@ -705,6 +709,44 @@
   background: var(--lp-color-danger);
   border-color: var(--lp-color-danger);
   color: #ffffff;
+}
+
+@media (prefers-contrast: more) {
+  .lg-game-player {
+    --lg-border: #64748b;
+    --lg-border-strong: #334155;
+  }
+
+  .lg-game-title-chip span,
+  .lg-game-score,
+  .lg-game-header-meter,
+  .lg-game-meter,
+  .lg-game-stage p,
+  .lg-game-confirm p {
+    color: #1e293b;
+  }
+}
+
+@media (forced-colors: active) {
+  .lg-game-player,
+  .lg-game-player-header,
+  .lg-game-stage,
+  .lg-game-confirm,
+  .lg-game-confirm > div,
+  .lg-game-title-chip span,
+  .lg-game-score {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .lg-game-player :where(button, [href], [tabindex]:not([tabindex="-1"])):focus-visible,
+  [data-sr="overlay"] button:focus-visible,
+  [data-sr="countdown"] button:focus-visible {
+    outline: 4px solid Highlight !important;
+    outline-offset: 3px !important;
+    box-shadow: none !important;
+  }
 }
 
 /* ─── Animation layer ──────────────────────────────────────────────────────── */

@@ -1170,7 +1170,7 @@ function startGame(mount, opts) {
     el.style.textContent = lineReady
       ? "Grammar line ready"
       : lineStep < 3
-        ? `Line ${lineStep + 1}/3`
+        ? `Line ${lineStep + 1} of 3`
         : styleWindow > 0
           ? `Style bank ${Math.round(styleScore)}`
           : "Collect tokens and tricks";

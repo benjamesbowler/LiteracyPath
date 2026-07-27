@@ -2,6 +2,7 @@
 // fast-moving children never hear clips stacked on top of each other.
 import { duckGameMusic, restoreGameMusic } from "./gameMusic.js";
 import { setQuestActionSfxInstructionActive } from "../questActionAudio.js";
+import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 
 let currentCue = null;
 let currentCueFinish = null;
@@ -35,7 +36,7 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
   }
   try {
     const audio = new Audio(src);
-    audio.volume = volume;
+    audio.volume = applyLearnerAudioIntensity(volume);
     currentCue = audio;
     setQuestActionSfxInstructionActive(true);
     const finish = () => {

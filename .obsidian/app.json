@@ -1,0 +1,21 @@
+{
+  "userIgnoreFilters": [
+    "node_modules",
+    "dist",
+    "preview",
+    "test-results",
+    "graphify-out",
+    "public/game-assets",
+    "docs/release/artifacts",
+    "docs/audio-recording",
+    ".artifacts",
+    ".vercel",
+    ".vscode",
+    ".github"
+  ],
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "showUnsupportedFiles": false,
+  "attachmentFolderPath": "./"
+}

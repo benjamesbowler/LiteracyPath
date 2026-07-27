@@ -13,11 +13,22 @@ import {
   dedupeReportingEvidence,
   normalizeReportingKey,
   reportingStatus,
+  REPORTING_DOMAIN_LABELS,
   REPORTING_EVIDENCE_KINDS,
   REPORTING_STATUS_IDS,
   REPORTING_STATUS_LABELS,
   resolveWholeChildConcepts
 } from "./reportingEvidenceModel.js";
+import {
+  finalSoundExpectedItemKeys,
+  initialSoundExpectedItemKeys
+} from "./coverageExpectations.js";
+import { normalizeDecodingSupportEvent } from "../utils/guidedReading/decodingSupport.js";
+import {
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -225,6 +236,14 @@ function readablePattern(value = "") {
   return String(value || "").replace(/_/g, " ").trim();
 }
 
+function canonicalPhonemeKey(value = "") {
+  const normalized = normalizeReportingKey(value);
+  if (["c", "k"].includes(normalized)) return "k";
+  if (["q", "qu"].includes(normalized)) return "kw";
+  if (normalized === "x") return "ks";
+  return normalized;
+}
+
 /** Keep constructs separate: a letter name is not its sound, and reading a
  * word in a book is not isolated decoding or spelling. */
 export function getReportingConceptForAssessmentQuestion(question = {}, attempt = {}) {
@@ -270,7 +289,7 @@ export function getReportingConceptForAssessmentQuestion(question = {}, attempt 
   }
 
   if (itemType === "initial_sound" || skillId === "initial_sounds") {
-    const key = normalizeReportingKey(
+    const key = canonicalPhonemeKey(
       question.targetSound || question.targetLetter || question.itemKey || cleanWord(question.targetWord).slice(0, 1)
     );
     return createReportingConcept({
@@ -283,7 +302,7 @@ export function getReportingConceptForAssessmentQuestion(question = {}, attempt 
 
   if (itemType === "final_sound" || skillId === "final_sounds") {
     const targetWord = cleanWord(question.targetWord);
-    const key = normalizeReportingKey(
+    const key = canonicalPhonemeKey(
       question.targetSound || question.targetPattern || question.itemKey || targetWord.slice(-1)
     );
     return createReportingConcept({
@@ -500,16 +519,38 @@ function scoredAssessmentStatus(attempt = null, fallbackEvidence = []) {
     if (attempt.administrationStatus === ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED) {
       return reportingStatus(REPORTING_STATUS_IDS.DEVELOPING);
     }
-    return reportingStatus(attempt.passed ? REPORTING_STATUS_IDS.SECURE : REPORTING_STATUS_IDS.NEEDS_TEACHING);
+    const conclusion = evaluateLearningConclusion({
+      accuracy: attempt.accuracy,
+      attempts: attempt.scoredCount || attempt.totalQuestions,
+      observedAt: attempt.completedAt
+    });
+    if (!conclusion.ready) {
+      return reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+    }
+    return reportingStatus(
+      conclusion.status.id === LEARNING_STATUS_IDS.SECURE
+        ? REPORTING_STATUS_IDS.SECURE
+        : conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING
+          ? REPORTING_STATUS_IDS.DEVELOPING
+          : REPORTING_STATUS_IDS.NEEDS_TEACHING
+    );
   }
   const scored = fallbackEvidence.filter(row => row.statusCandidate);
   if (!scored.length) return reportingStatus(REPORTING_STATUS_IDS.NOT_CHECKED);
   const correct = scored.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length;
   const accuracy = Math.round((correct / scored.length) * 100);
+  const conclusion = evaluateLearningConclusion({
+    accuracy,
+    attempts: scored.length,
+    observedAt: scored.map(row => row.observedAt).filter(Boolean).sort().at(-1) || ""
+  });
+  if (!conclusion.ready) {
+    return reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+  }
   return reportingStatus(
-    accuracy >= 80
+    conclusion.status.id === LEARNING_STATUS_IDS.SECURE
       ? REPORTING_STATUS_IDS.SECURE
-      : accuracy >= 60
+      : conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING
         ? REPORTING_STATUS_IDS.DEVELOPING
         : REPORTING_STATUS_IDS.NEEDS_TEACHING
   );
@@ -879,13 +920,14 @@ function guidedWordEvidence({
 
 function guidedQuizEvidence({ studentId, bookId, title, score, total, observedAt, raw }) {
   const percent = total > 0 ? Math.round((score / total) * 100) : null;
-  const candidate = percent === null
-    ? null
-    : percent >= 80
-      ? REPORTING_STATUS_IDS.SECURE
-      : percent >= 60
-        ? REPORTING_STATUS_IDS.DEVELOPING
-        : REPORTING_STATUS_IDS.NEEDS_TEACHING;
+  const learningStatus = percent === null ? null : rawLearningStatus(percent);
+  const candidate = learningStatus === LEARNING_STATUS_IDS.SECURE
+    ? REPORTING_STATUS_IDS.SECURE
+    : learningStatus === LEARNING_STATUS_IDS.DEVELOPING
+      ? REPORTING_STATUS_IDS.DEVELOPING
+      : learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
+        ? REPORTING_STATUS_IDS.NEEDS_TEACHING
+        : null;
   return createReportingEvidence({
     evidenceId: `guided_reading:${bookId}:quiz`,
     studentId,
@@ -919,8 +961,16 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
     const title = rawRecord.title || bookId;
     const level = rawRecord.level || "";
     const wordMarks = [];
+    const supportUseEvents = [];
     Object.entries(rawRecord.pages || {}).forEach(([pageKey, rawPage = {}]) => {
       const page = Number(pageKey) + 1;
+      asArray(rawPage.supportUseEvents).forEach(rawEvent => {
+        const event = normalizeDecodingSupportEvent({
+          ...rawEvent,
+          pageNumber: rawEvent?.pageNumber || page
+        });
+        if (event) supportUseEvents.push(event);
+      });
       Object.entries(rawPage.wordMarks || {}).forEach(([wordIndex, mark]) => {
         if (!["correct", "support"].includes(mark)) return;
         const word = rawPage.wordTexts?.[wordIndex] || rawPage.words?.[wordIndex] || "";
@@ -957,7 +1007,12 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
     const completed = Boolean(rawRecord.completed || rawRecord.completedAt);
     const readCount = Math.max(Number(rawRecord.readCount || 0), completed ? 1 : 0);
     const notes = normalizedNoteRows(rawRecord);
-    const hasActivity = completed || readCount > 0 || Number(rawRecord.completedPages || 0) > 0 || wordMarks.length || notes.length;
+    supportUseEvents.sort((a, b) => (
+      finiteTimestamp(b.occurredAt) - finiteTimestamp(a.occurredAt) ||
+      a.pageNumber - b.pageNumber ||
+      a.wordIndex - b.wordIndex
+    ));
+    const hasActivity = completed || readCount > 0 || Number(rawRecord.completedPages || 0) > 0 || wordMarks.length || notes.length || supportUseEvents.length;
     if (!hasActivity) return;
     books.push({
       bookId,
@@ -981,6 +1036,7 @@ function guidedRowsFromRecords({ guidedReadingRecords = {}, studentId = "" } = {
       wordMarks,
       correctWords: [...new Set(wordMarks.filter(row => row.mark === "correct").map(row => row.word))],
       supportWords: [...new Set(wordMarks.filter(row => row.mark === "support").map(row => row.word))],
+      supportUseEvents,
       notes,
       provenance: { bookId, rawRecord }
     });
@@ -1009,6 +1065,7 @@ function guidedRowsFromPreparedRows({ guidedReadingRows = [], guidedReadingWordR
     wordMarks: [],
     correctWords: asArray(row.correctWords).map(cleanWord).filter(Boolean),
     supportWords: asArray(row.supportWords).map(cleanWord).filter(Boolean),
+    supportUseEvents: asArray(row.supportUseEvents).map(normalizeDecodingSupportEvent).filter(Boolean),
     notes: asArray(row.notes).map(note => {
       if (typeof note === "string") {
         return {
@@ -1211,6 +1268,7 @@ export function buildGuidedReadingReportModel({
       wordsReadCorrectlyInText: correctWordRows.length,
       wordsNeedingSupportInText: supportWordRows.length,
       teacherNotes: books.reduce((sum, row) => sum + row.notes.length, 0),
+      decodingSupportUses: books.reduce((sum, row) => sum + row.supportUseEvents.length, 0),
       latestAt: latestDate(books.map(row => row.lastReadAt))
     },
     books,
@@ -1234,6 +1292,17 @@ export function buildGuidedReadingReportModel({
       finiteTimestamp(b.date) - finiteTimestamp(a.date) ||
       a.title.localeCompare(b.title) ||
       Number(a.page ?? -1) - Number(b.page ?? -1)
+    )),
+    supportUseEvents: books.flatMap(book => book.supportUseEvents.map(event => ({
+      ...event,
+      bookId: book.bookId,
+      title: book.title,
+      level: book.level
+    }))).sort((a, b) => (
+      finiteTimestamp(b.occurredAt) - finiteTimestamp(a.occurredAt) ||
+      a.title.localeCompare(b.title) ||
+      a.pageNumber - b.pageNumber ||
+      a.wordIndex - b.wordIndex
     )),
     evidence: rawEvidence,
     knowledgeEvidence,
@@ -1328,7 +1397,18 @@ function itemMasteryRows(itemMastery = {}) {
   });
 }
 
-function legacyItemMasteryEvidence({ itemMastery = {}, studentId = "", coveredConceptIds = new Set() } = {}) {
+function conceptSpineKey(concept = {}) {
+  return [concept.domain, concept.construct, concept.key]
+    .map(normalizeReportingKey)
+    .join("::");
+}
+
+function legacyItemMasteryEvidence({
+  itemMastery = {},
+  studentId = "",
+  coveredConceptIds = new Set(),
+  coveredConceptSpineKeys = new Set()
+} = {}) {
   return itemMasteryRows(itemMastery).flatMap((row, index) => {
     const skillId = normalizeReportingKey(row.skillId);
     if (EL_ASSESSMENT_IDS.has(skillId) || DESCRIPTIVE_EL_IDS.has(skillId)) return [];
@@ -1339,14 +1419,21 @@ function legacyItemMasteryEvidence({ itemMastery = {}, studentId = "", coveredCo
       skillId: row.skillId,
       skillName: row.skillName
     });
-    if (!concept.conceptId || coveredConceptIds.has(concept.conceptId)) return [];
+    if (
+      !concept.conceptId ||
+      coveredConceptIds.has(concept.conceptId) ||
+      coveredConceptSpineKeys.has(conceptSpineKey(concept))
+    ) return [];
     const accuracy = finiteNumber(row.accuracy) ?? (
       attempts > 0 ? Math.round((Number(row.correct || 0) / attempts) * 100) : null
     );
     const status = normalizeReportingKey(row.status);
+    const learningStatus = accuracy === null ? null : rawLearningStatus(accuracy);
     const statusCandidate = row.mastered || status === "mastered"
       ? REPORTING_STATUS_IDS.SECURE
-      : row.needsSupport || status === "needs_support" || (accuracy !== null && accuracy < 60)
+      : row.needsSupport
+        || status === "needs_support"
+        || learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
         ? REPORTING_STATUS_IDS.NEEDS_TEACHING
         : REPORTING_STATUS_IDS.DEVELOPING;
     return [createReportingEvidence({
@@ -1370,7 +1457,11 @@ function legacyItemMasteryEvidence({ itemMastery = {}, studentId = "", coveredCo
   });
 }
 
-function countSuppressedItemMasteryRows(itemMastery = {}, coveredConceptIds = new Set()) {
+function countSuppressedItemMasteryRows(
+  itemMastery = {},
+  coveredConceptIds = new Set(),
+  coveredConceptSpineKeys = new Set()
+) {
   return itemMasteryRows(itemMastery).filter(row => {
     const skillId = normalizeReportingKey(row.skillId);
     if (EL_ASSESSMENT_IDS.has(skillId) || DESCRIPTIVE_EL_IDS.has(skillId)) return false;
@@ -1381,7 +1472,12 @@ function countSuppressedItemMasteryRows(itemMastery = {}, coveredConceptIds = ne
       skillId: row.skillId,
       skillName: row.skillName
     });
-    return Boolean(concept.conceptId && coveredConceptIds.has(concept.conceptId));
+    return Boolean(
+      concept.conceptId && (
+        coveredConceptIds.has(concept.conceptId) ||
+        coveredConceptSpineKeys.has(conceptSpineKey(concept))
+      )
+    );
   }).length;
 }
 
@@ -1399,9 +1495,10 @@ function legacySkillSummaryEvidence({ skillMasterySummary = {}, studentId = "", 
     const accuracy = finiteNumber(row.accuracy) ?? (
       Number(row.total || 0) > 0 ? Math.round((Number(row.score || 0) / Number(row.total)) * 100) : null
     );
+    const learningStatus = accuracy === null ? null : rawLearningStatus(accuracy);
     const statusCandidate = row.mastered
       ? REPORTING_STATUS_IDS.SECURE
-      : accuracy !== null && accuracy < 60
+      : learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
         ? REPORTING_STATUS_IDS.NEEDS_TEACHING
         : REPORTING_STATUS_IDS.DEVELOPING;
     const concept = createReportingConcept({
@@ -1461,8 +1558,14 @@ export function buildSkillsCheckReportModel({
   });
   const primaryKnowledge = aggregateSkillEvidence(rawEvidence);
   const coveredConceptIds = new Set(rawEvidence.map(row => row.concept.conceptId).filter(Boolean));
+  const coveredConceptSpineKeys = new Set(rawEvidence.map(row => conceptSpineKey(row.concept)).filter(Boolean));
   const coveredSkillIds = new Set(attempts.map(row => normalizeReportingKey(row.skillId)));
-  const legacyItems = legacyItemMasteryEvidence({ itemMastery, studentId: resolvedStudentId, coveredConceptIds });
+  const legacyItems = legacyItemMasteryEvidence({
+    itemMastery,
+    studentId: resolvedStudentId,
+    coveredConceptIds,
+    coveredConceptSpineKeys
+  });
   const legacySkills = legacySkillSummaryEvidence({ skillMasterySummary, studentId: resolvedStudentId, coveredSkillIds });
   const knowledgeEvidence = dedupeReportingEvidence([...primaryKnowledge, ...legacyItems, ...legacySkills]);
   const bySkill = new Map();
@@ -1596,6 +1699,21 @@ export function buildSkillsCheckReportModel({
   });
   const skills = [...primarySkills, ...legacySkillRows]
     .sort((a, b) => finiteTimestamp(b.latestAt) - finiteTimestamp(a.latestAt) || a.skillName.localeCompare(b.skillName));
+  const activeSkillIds = new Set(skills.map(row => normalizeReportingKey(row.skillId)));
+  const expectedConcepts = [
+    ...(activeSkillIds.has("initial_sounds") ? initialSoundExpectedItemKeys.map(key => ({
+      domain: "phonological_awareness",
+      construct: "initial_sound",
+      key: canonicalPhonemeKey(key),
+      label: `Initial sound /${readablePattern(canonicalPhonemeKey(key))}/`
+    })) : []),
+    ...(activeSkillIds.has("final_sounds") ? finalSoundExpectedItemKeys.map(key => ({
+      domain: "phonological_awareness",
+      construct: "final_sound",
+      key: canonicalPhonemeKey(key),
+      label: `Final sound /${readablePattern(canonicalPhonemeKey(key))}/`
+    })) : [])
+  ].map(createReportingConcept);
 
   return {
     reportKey: "skills_check",
@@ -1619,12 +1737,107 @@ export function buildSkillsCheckReportModel({
     items: knowledgeEvidence,
     evidence: dedupeReportingEvidence([...rawEvidence, ...legacyItems, ...legacySkills]),
     knowledgeEvidence,
+    expectedConcepts,
     provenance: {
       canonicalAttemptIds: attempts.map(row => row.attemptId),
       attemptQuestionsAreCanonical: true,
       itemMasteryIsFallbackOnly: true,
-      suppressedItemMasteryConceptCount: countSuppressedItemMasteryRows(itemMastery, coveredConceptIds)
+      suppressedItemMasteryConceptCount: countSuppressedItemMasteryRows(
+        itemMastery,
+        coveredConceptIds,
+        coveredConceptSpineKeys
+      )
     }
+  };
+}
+
+function latestSourceTimestamp(rows = []) {
+  return latestDate(rows.flatMap(row => [
+    row?.updatedAt,
+    row?.updated_at,
+    row?.lastAssessed,
+    row?.completedAt,
+    row?.completed_at
+  ]).filter(Boolean));
+}
+
+function evidenceReadSourceState(evidenceReadState = {}, key = "") {
+  const source = evidenceReadState?.sources?.[key];
+  return source && typeof source === "object" ? source : {};
+}
+
+/**
+ * One read model for every student assessment report. Both the focused EL
+ * workbook and the Whole Child/Skills Check views consume this result so a
+ * store cannot silently exist in one export and disappear from the other.
+ */
+export function buildStudentAssessmentEvidenceReadModel({
+  student = {},
+  studentId = "",
+  assessmentHistory = [],
+  localAssessmentHistory = [],
+  cloudAssessmentHistory = [],
+  itemMastery = {},
+  skillMasterySummary = {},
+  evidenceReadState = {}
+} = {}) {
+  const resolvedStudentId = getStudentId(student, studentId);
+  const canonicalAttempts = getCanonicalStudentAssessmentAttempts({
+    student: { ...student, id: resolvedStudentId },
+    assessmentHistory,
+    localAssessmentHistory,
+    cloudAssessmentHistory
+  });
+  const itemRows = itemMasteryRows(itemMastery);
+  const skillRows = skillSummaryRows(skillMasterySummary);
+  const completedAt = evidenceReadState.completedAt || "";
+  const sourceDefinitions = [
+    {
+      key: "assessmentAttempts",
+      store: "assessment_attempts",
+      purpose: "Canonical completed and in-progress assessment attempts",
+      rows: canonicalAttempts
+    },
+    {
+      key: "itemMastery",
+      store: "item_mastery",
+      purpose: "Legacy item-level fallback when canonical question evidence is absent",
+      rows: itemRows
+    },
+    {
+      key: "skillMastery",
+      store: "mastery",
+      purpose: "Legacy skill-level fallback when canonical attempt evidence is absent",
+      rows: skillRows
+    }
+  ];
+  const sourceReads = sourceDefinitions.map(definition => {
+    const state = evidenceReadSourceState(evidenceReadState, definition.key);
+    return {
+      store: definition.store,
+      purpose: definition.purpose,
+      recordCount: definition.rows.length,
+      latestRecordAt: latestSourceTimestamp(definition.rows),
+      lastSyncedAt: state.lastSyncedAt || completedAt,
+      syncStatus: state.syncStatus || evidenceReadState.syncStatus || (
+        completedAt ? "complete" : "not_recorded"
+      )
+    };
+  });
+  const skillsCheck = buildSkillsCheckReportModel({
+    student: { ...student, id: resolvedStudentId },
+    assessmentHistory: canonicalAttempts,
+    itemMastery,
+    skillMasterySummary
+  });
+
+  return {
+    studentId: resolvedStudentId,
+    canonicalAttempts,
+    skillsCheck,
+    sourceReads,
+    completedAt,
+    latestSyncedAt: latestDate(sourceReads.map(row => row.lastSyncedAt))
   };
 }
 
@@ -1698,12 +1911,16 @@ export function buildOtherLearningReportModel({
         concept,
         outcome: bucket,
         statusCandidate: candidate,
-        observedAt: soundSeekersReport.lastActiveAt || soundSeekersReport?.interaction?.lastActiveAt || "",
+        observedAt: tile.lastActiveAt || "",
         administrationStatus: "practice",
         scorable: true,
         knowledgeEligible: true,
         details: { sourceResult, bucket, seen: tile.seen, independentSeen: tile.independentSeen, accuracy: tile.accuracy, rawTile: tile },
-        provenance: { masteryGateResult: bucket, sourceRecordKind: "current_sound_seekers_heat_tile" }
+        provenance: {
+          masteryGateResult: bucket,
+          sourceRecordKind: "current_sound_seekers_heat_tile",
+          timestampBasis: tile.lastActiveAt ? "per_sound_last_evidence" : "undated_snapshot"
+        }
       }));
     }
     const sharedStatus = soundEvidence.at(-1)?.sourceRecordId === tile.id
@@ -1717,6 +1934,7 @@ export function buildOtherLearningReportModel({
       practiceOnly: true,
       seen: Number(tile.seen || 0),
       accuracy: finiteNumber(tile.accuracy),
+      lastActiveAt: tile.lastActiveAt || "",
       raw: tile
     };
   });
@@ -1985,6 +2203,18 @@ export function buildWholeChildKnowledgeModel({
     domain.items.push(concept);
     byDomainMap.set(concept.domain, domain);
   });
+  Object.entries(REPORTING_DOMAIN_LABELS).forEach(([domainId, domainLabel]) => {
+    if (byDomainMap.has(domainId)) return;
+    byDomainMap.set(domainId, {
+      id: domainId,
+      domain: domainId,
+      label: domainLabel,
+      domainLabel,
+      concepts: [],
+      items: [],
+      noData: true
+    });
+  });
   const statusCounts = Object.values(REPORTING_STATUS_IDS).reduce((counts, statusId) => {
     counts[statusId] = concepts.filter(row => row.status.id === statusId).length;
     return counts;
@@ -2018,7 +2248,10 @@ export function buildWholeChildKnowledgeModel({
       mixedEvidence: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.MIXED_EVIDENCE),
       notChecked: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.NOT_CHECKED)
     },
-    byDomain: Array.from(byDomainMap.values()).sort((a, b) => a.domainLabel.localeCompare(b.domainLabel)),
+    byDomain: Array.from(byDomainMap.values()).sort((a, b) => (
+      Number(Boolean(a.noData)) - Number(Boolean(b.noData))
+      || a.domainLabel.localeCompare(b.domainLabel)
+    )),
     nextSteps,
     descriptiveAssessments: checkedDescriptiveAssessments,
     concepts,
@@ -2061,7 +2294,8 @@ export function buildStudentReportingWorkspaceModel({
   arcade = {},
   engagement = {},
   expectedConcepts = [],
-  wholeChildConflictWindowDays = 90
+  wholeChildConflictWindowDays = 90,
+  evidenceReadState = {}
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const suppliedStudentId = String(student.id || student.studentId || "");
@@ -2074,12 +2308,16 @@ export function buildStudentReportingWorkspaceModel({
     name: hasConflictingStudentIdentity ? "Student" : getStudentName(student),
     classId: hasConflictingStudentIdentity ? "" : getClassId(student)
   };
-  const canonicalAttempts = getCanonicalStudentAssessmentAttempts({
+  const evidenceRead = buildStudentAssessmentEvidenceReadModel({
     student: requestedStudent,
     assessmentHistory,
     localAssessmentHistory,
-    cloudAssessmentHistory
+    cloudAssessmentHistory,
+    itemMastery,
+    skillMasterySummary,
+    evidenceReadState
   });
+  const canonicalAttempts = evidenceRead.canonicalAttempts;
   const identityHistory = canonicalAttempts.slice().sort((a, b) => (
     finiteTimestamp(b.completedAt || b.updatedAt) - finiteTimestamp(a.completedAt || a.updatedAt)
   ));
@@ -2111,12 +2349,7 @@ export function buildStudentReportingWorkspaceModel({
     guidedReadingRows,
     guidedReadingWordRows
   });
-  const skillsCheck = buildSkillsCheckReportModel({
-    student: resolvedStudent,
-    assessmentHistory: canonicalAttempts,
-    itemMastery,
-    skillMasterySummary
-  });
+  const skillsCheck = evidenceRead.skillsCheck;
   const otherLearning = buildOtherLearningReportModel({
     student: resolvedStudent,
     soundSeekersReport,
@@ -2133,9 +2366,13 @@ export function buildStudentReportingWorkspaceModel({
   const wholeChild = buildWholeChildKnowledgeModel({
     student: resolvedStudent,
     evidence: wholeChildEvidence,
-    // Optional practice becomes evidence only after the child uses it. Unseen
-    // practice must not appear as a long list of formal learning gaps.
-    expectedConcepts: asArray(expectedConcepts),
+    // Once an area has been used, include its curriculum coverage as
+    // Not checked rows so omissions are visible rather than silent.
+    expectedConcepts: [
+      ...asArray(expectedConcepts),
+      ...asArray(skillsCheck.expectedConcepts),
+      ...asArray(otherLearning.expectedConcepts)
+    ],
     descriptiveAssessments: elAssessments.assessments.filter(row => row.descriptive),
     conflictWindowDays: wholeChildConflictWindowDays
   });
@@ -2159,6 +2396,9 @@ export function buildStudentReportingWorkspaceModel({
         flattenRecordCount(cloudAssessmentHistory),
       canonicalAssessmentAttemptCount: canonicalAttempts.length,
       wholeChildEvidenceCount: wholeChildEvidence.length,
+      evidenceReadCompletedAt: evidenceRead.completedAt,
+      evidenceLatestSyncedAt: evidenceRead.latestSyncedAt,
+      sourceReads: evidenceRead.sourceReads,
       sourceReportKeys: [
         elAssessments.reportKey,
         guidedReading.reportKey,

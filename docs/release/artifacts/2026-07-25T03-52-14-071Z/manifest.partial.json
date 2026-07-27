@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-25T03:53:04.604Z",
+  "startedAt": "2026-07-25T03:52:14.071Z",
+  "finishedAt": "2026-07-25T03:53:04.604Z",
+  "commitSha": "da2c763b3d85b1730b38d1f9ece553d435d171c0",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21319,
+      "startedAt": "2026-07-25T03:52:14.134Z",
+      "finishedAt": "2026-07-25T03:52:35.453Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T03-52-14-071Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6641,
+      "startedAt": "2026-07-25T03:52:35.453Z",
+      "finishedAt": "2026-07-25T03:52:42.094Z",
+      "counts": {
+        "tests": 1235,
+        "passed": 1235,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T03-52-14-071Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 22307,
+      "startedAt": "2026-07-25T03:52:42.094Z",
+      "finishedAt": "2026-07-25T03:53:04.401Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T03-52-14-071Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "database-bootstrap-schema",
+      "label": "Reconstructable core database schema",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:database-bootstrap-schema",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 203,
+      "startedAt": "2026-07-25T03:53:04.401Z",
+      "finishedAt": "2026-07-25T03:53:04.604Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T03-52-14-071Z/database-bootstrap-schema.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

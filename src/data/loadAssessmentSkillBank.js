@@ -1,4 +1,10 @@
 import { skillTree } from "../skillTree.js";
+import { ASSESSMENT_RELEASE_STANDARD_VERSION } from "../content/releaseStandard.js";
+import {
+  assessmentReleaseStatusBySkillId,
+  assessmentReleaseStatusVersion
+} from "../content/assessments/assessmentReleaseStatus.generated.js";
+import { SKILL_LEVEL_GAP_RUNTIME_SHARDS } from "./runtimeQuestionShardConfig.js";
 import { resolveAssessmentSkillId } from "./assessmentSkillMapping.js";
 import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
@@ -44,7 +50,7 @@ const ASSESSMENT_SKILL_GROUPS = [
   },
   {
     id: "grammar_language",
-    label: "Grammar and Language",
+    label: "Grammar & Language",
     skillIds: [
       "nouns",
       "verbs",
@@ -71,7 +77,6 @@ const ASSESSMENT_SKILL_GROUPS = [
     ]
   }
 ];
-
 const SKILL_ALIASES = {
   long_vowels: "long_vowels_silent_e",
   r_controlled: "r_controlled_vowels",
@@ -90,14 +95,6 @@ const RUNTIME_SKILL_IDS = {
   theme_higher_comprehension: "theme"
 };
 
-const GRAMMAR_SENTENCE_FIT_SKILLS = new Set(["nouns", "verbs", "adjectives", "adverbs"]);
-const EARLY_PHONICS_GENERATED_SKILLS = new Set([
-  "final_sounds",
-  "rhyming",
-  "cvc_short_vowels",
-  "short_vowel_discrimination"
-]);
-const HFW_SKILLS = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]);
 const REPLACEMENT_PHONICS_SKILLS = new Set([
   "blends",
   "digraphs",
@@ -120,44 +117,11 @@ const LANGUAGE_SKILLS = new Set([
   "homophones_homonyms",
   "homophones"
 ]);
-const COMPREHENSION_SKILLS = new Set([
-  "sentence_comprehension",
-  "key_details",
-  "sequencing",
-  "main_idea",
-  "inference",
-  "cause_effect",
-  "context_clues",
-  "theme_higher_comprehension",
-  "theme"
-]);
 const AUTHORED_COMPREHENSION_BANKS = new Set([
   "qbAssess_main_idea",
   "qbAssess_cause_effect",
   "qbAssess_sequencing"
 ]);
-
-function hasQuestionImage(question = {}) {
-  return Boolean(
-    question.imagePath ||
-    question.imageUrl ||
-    question.targetImage ||
-    question.targetImagePath ||
-    question.targetImageUrl ||
-    question.image
-  );
-}
-
-function isGrammarSentenceFitRuntimeQuestion(question = {}) {
-  const format = String(question.formatType || question.templateType || "").toUpperCase();
-  const answerOptions = Array.isArray(question.answerOptions) ? question.answerOptions : [];
-  return (
-    format === "GRAMMAR_SENTENCE_FIT" &&
-    question.questionType === "ixl_template" &&
-    hasQuestionImage(question) &&
-    answerOptions.length === 4
-  );
-}
 
 // Hand-written expansion banks, imported lazily per assessment skill family so
 // the first question of a skill only downloads that family's banks (~kB scale)
@@ -203,6 +167,12 @@ const EXPANSION_BANK_LOADERS = [
     source: "cvcShortVowelExpansionQuestions",
     families: ["early_phonics"],
     load: () => import("./cvcShortVowelExpansionQuestions.js").then(module => module.cvcShortVowelExpansionQuestions)
+  },
+  {
+    source: "shortVowelDiscriminationPhase2Questions",
+    families: ["early_phonics"],
+    load: () => import("./shortVowelDiscriminationPhase2Questions.js")
+      .then(module => module.shortVowelDiscriminationPhase2Questions)
   },
   {
     source: "contentExpansionPass3Questions",
@@ -369,7 +339,7 @@ const EXPANSION_BANK_LOADERS = [
 const dynamicBankCache = new Map();
 const skillBankCache = new Map();
 
-function normalizeSkillId(value = "") {
+function normalizeSkillId(value) {
   const normalized = String(value || "")
     .toLowerCase()
     .replace(/&/g, "and")
@@ -378,12 +348,12 @@ function normalizeSkillId(value = "") {
   return SKILL_ALIASES[normalized] || normalized;
 }
 
-function runtimeSkillIdFor(skillId = "") {
+function runtimeSkillIdFor(skillId) {
   const normalized = normalizeSkillId(skillId);
   return RUNTIME_SKILL_IDS[normalized] || normalized;
 }
 
-function groupForSkill(skillId = "") {
+function groupForSkill(skillId) {
   const normalized = normalizeSkillId(skillId);
   return ASSESSMENT_SKILL_GROUPS.find(group => group.skillIds.includes(normalized)) || null;
 }
@@ -396,8 +366,10 @@ function getQuestionSkillId(question = {}) {
 }
 
 function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
+  const runtimeQuestion = { ...question };
+  delete runtimeQuestion.__runtimeSourceIndex;
   const enriched = enrichQuestionWithExistingMedia(
-    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
+    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(runtimeQuestion))
   );
   const skillId = getQuestionSkillId(enriched);
   const approvedSource = AUTHORED_COMPREHENSION_BANKS.has(source)
@@ -405,7 +377,7 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
     : enriched.source;
   return normalizeRhymingQuestionChoices({
     ...enriched,
-    source: approvedSource || enriched.source,
+    source: approvedSource,
     skillId: runtimeSkillIdFor(skillId) || enriched.skillId || enriched.skill_id || "",
     assessmentSkillId: skillId,
     _source: source,
@@ -415,7 +387,11 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
 }
 
 function normalizeQuestionBank(source, bank = []) {
-  return bank.map((question, index) => normalizeQuestion(question, source, index));
+  return bank.map((question, index) => normalizeQuestion(
+    question,
+    source,
+    Number.isInteger(question.__runtimeSourceIndex) ? question.__runtimeSourceIndex : index
+  ));
 }
 
 function expansionBankAppliesToSkill(families = [], skillId = "") {
@@ -428,6 +404,16 @@ function expansionBankAppliesToSkill(families = [], skillId = "") {
 
 function shouldLoadForSkill(skillId, aliases = []) {
   return aliases.some(alias => normalizeSkillId(alias) === skillId || runtimeSkillIdFor(alias) === skillId);
+}
+
+function runtimeSkillShard({ source, skillId, load, bankName = source, shard }) {
+  return {
+    source,
+    bankName,
+    cacheKey: `${source}:${shard}`,
+    shouldLoad: requestedSkillId => requestedSkillId === skillId,
+    load
+  };
 }
 
 const DYNAMIC_BANK_LOADERS = [
@@ -454,22 +440,43 @@ const DYNAMIC_BANK_LOADERS = [
     shouldLoad: skillId => skillId === "short_vowel_discrimination",
     load: () => import("./generated/shortVowel.generated.js").then(module => module.shortVowelGeneratedQuestions)
   },
-  {
+  ...[
+    "level-1-part-a",
+    "level-1-part-b",
+    "level-1-part-c",
+    "level-1-part-d",
+    "level-2-part-a",
+    "level-2-part-b"
+  ].map(shard => runtimeSkillShard({
     source: "rhymingGeneratedQuestions",
     bankName: "generatedEarlySkillQuestions",
-    shouldLoad: skillId => skillId === "rhyming",
-    load: () => import("./generated/rhyming.generated.js").then(module => module.rhymingGeneratedQuestions)
-  },
-  {
+    skillId: "rhyming",
+    shard,
+    load: () => import(`./generated/runtimeShards/rhyming.${shard}.generated.js`).then(module => module.questions)
+  })),
+  ...[
+    ["hfw_1_25", ["hfw-1-25-part-a", "hfw-1-25-part-b"]],
+    ["hfw_26_50", ["hfw-26-50-part-a", "hfw-26-50-part-b"]],
+    ["hfw_51_75", ["hfw-51-75-part-a", "hfw-51-75-part-b"]],
+    ["hfw_76_100", ["hfw-76-100-part-a", "hfw-76-100-part-b"]]
+  ].flatMap(([skillId, shards]) => shards.map(shard => runtimeSkillShard({
     source: "hfwAssessmentQuestions",
-    shouldLoad: skillId => HFW_SKILLS.has(skillId),
-    load: () => import("./generated/hfwAssessmentQuestions.generated.js").then(module => module.hfwAssessmentQuestions)
-  },
-  {
+    skillId,
+    shard,
+    load: () => import(`./generated/runtimeShards/hfw.${shard}.generated.js`).then(module => module.questions)
+  }))),
+  runtimeSkillShard({
     source: "hfwLevel2Questions",
-    shouldLoad: skillId => HFW_SKILLS.has(skillId),
-    load: () => import("./generated/hfwLevel2Questions.generated.js").then(module => module.hfwLevel2Questions)
-  },
+    skillId: "hfw_1_25",
+    shard: "hfw-level-2-1-25",
+    load: () => import("./generated/runtimeShards/hfw-level-2.high-frequency-words-1-25.generated.js").then(module => module.questions)
+  }),
+  runtimeSkillShard({
+    source: "hfwLevel2Questions",
+    skillId: "hfw_26_50",
+    shard: "hfw-level-2-26-50",
+    load: () => import("./generated/runtimeShards/hfw-level-2.high-frequency-words-26-50.generated.js").then(module => module.questions)
+  }),
   {
     source: "firstTenSkillTopUpQuestions",
     shouldLoad: skillId => skillId === "blends",
@@ -505,34 +512,41 @@ const DYNAMIC_BANK_LOADERS = [
     shouldLoad: skillId => ["nouns", "verbs", "adjectives"].includes(skillId),
     load: () => import("./generated/grammarAssessmentQuestions.generated.js").then(module => module.grammarAssessmentQuestions)
   },
-  {
+  ...[
+    ["nouns", ["nouns-part-a", "nouns-part-b"]],
+    ["verbs", ["verbs-part-a", "verbs-part-b"]],
+    ["adjectives", ["adjectives-part-a", "adjectives-part-b"]],
+    ["prepositions_of_place", ["prepositions-of-place-part-a", "prepositions-of-place-part-b", "prepositions-of-place-part-c"]],
+    ["plurals", ["plurals-part-a", "plurals-part-b"]],
+    ["prefixes_suffixes", ["prefixes-suffixes-part-a", "prefixes-suffixes-part-b", "prefixes-suffixes-part-c"]],
+    ["antonyms_synonyms", ["antonyms-synonyms-part-a", "antonyms-synonyms-part-b", "antonyms-synonyms-part-c"]],
+    ["homophones_homonyms", ["homophones-homonyms-part-a"]]
+  ].flatMap(([skillId, shards]) => shards.map(shard => runtimeSkillShard({
     source: "languageSkillQuestions",
-    shouldLoad: skillId => LANGUAGE_SKILLS.has(skillId),
-    load: () => import("./generated/languageSkillQuestions.generated.js").then(module => module.languageSkillQuestions)
-  },
-  {
+    skillId,
+    shard,
+    load: () => import(`./generated/runtimeShards/language.${shard}.generated.js`).then(module => module.questions)
+  }))),
+  ...SKILL_LEVEL_GAP_RUNTIME_SHARDS.map(({ skillId, shard }) => runtimeSkillShard({
     source: "skillLevelGapQuestions",
-    shouldLoad: skillId =>
-      EARLY_PHONICS_GENERATED_SKILLS.has(skillId) ||
-      HFW_SKILLS.has(skillId) ||
-      REPLACEMENT_PHONICS_SKILLS.has(skillId) ||
-      LANGUAGE_SKILLS.has(skillId) ||
-      COMPREHENSION_SKILLS.has(skillId),
-    load: () => import("./generated/skillLevelGapQuestions.generated.js").then(module => module.skillLevelGapQuestions)
-  }
+    skillId,
+    shard,
+    load: () => import(`./generated/runtimeShards/skill-gap.${shard}.generated.js`).then(module => module.questions)
+  }))
 ];
 
 async function loadDynamicBank(loader) {
-  if (!dynamicBankCache.has(loader.source)) {
+  const cacheKey = loader.cacheKey || loader.source;
+  if (!dynamicBankCache.has(cacheKey)) {
     dynamicBankCache.set(
-      loader.source,
+      cacheKey,
       loader.load().then(bank => normalizeQuestionBank(loader.bankName || loader.source, bank || []))
     );
   }
-  return dynamicBankCache.get(loader.source);
+  return dynamicBankCache.get(cacheKey);
 }
 
-async function loadQuestionBanksForSkill(normalizedSkillId = "") {
+async function loadQuestionBanksForSkill(normalizedSkillId) {
   // Hand-written banks first, generated banks second — the exact order the old
   // static QUESTION_BANKS + dynamic loader concatenation produced, so
   // dedupeQuestions keeps the same record when keys collide.
@@ -559,9 +573,8 @@ function dedupeQuestions(questions = []) {
   });
 }
 
-export function getAssessmentSkillGroup(skillId = "") {
-  const group = groupForSkill(skillId);
-  return group?.id || null;
+export function getAssessmentSkillGroup(skillId) {
+  return groupForSkill(skillId)?.id || null;
 }
 
 export function getAssessmentSkillGroupMetadata() {
@@ -571,48 +584,102 @@ export function getAssessmentSkillGroupMetadata() {
   }));
 }
 
-export function getAssessmentSkillIdsForGroup(groupId = "") {
+export function getAssessmentSkillIdsForGroup(groupId) {
   return ASSESSMENT_SKILL_GROUPS.find(group => group.id === groupId)?.skillIds.slice() || [];
 }
 
-export async function loadAssessmentSkillBank(skillId = "") {
+export async function loadAssessmentSkillBankCandidates(skillId) {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (skillBankCache.has(normalizedSkillId)) return skillBankCache.get(normalizedSkillId);
 
   const allAssessmentQuestions = dedupeQuestions(await loadQuestionBanksForSkill(normalizedSkillId));
   const runtimeSkillId = runtimeSkillIdFor(normalizedSkillId);
-  const questions = allAssessmentQuestions.filter(question =>
-    (
+  const questions = allAssessmentQuestions.filter(question => {
+    const questionSkillId = normalizeSkillId(question.skillId);
+    return (
       question.assessmentSkillId === normalizedSkillId ||
-      normalizeSkillId(question.skillId) === normalizedSkillId ||
-      normalizeSkillId(question.skillId) === runtimeSkillId
-    ) &&
-    getRuntimeSourceIssues(question).length === 0
-  );
-  if (GRAMMAR_SENTENCE_FIT_SKILLS.has(normalizedSkillId)) {
-    const filtered = questions.filter(isGrammarSentenceFitRuntimeQuestion);
-    skillBankCache.set(normalizedSkillId, filtered);
-    return filtered;
-  }
+      questionSkillId === normalizedSkillId ||
+      questionSkillId === runtimeSkillId
+    ) && getRuntimeSourceIssues(question).length === 0;
+  });
   skillBankCache.set(normalizedSkillId, questions);
   return questions;
 }
 
-export function preloadAssessmentSkillBank(skillId = "") {
-  void loadAssessmentSkillBank(skillId);
+export function getAssessmentSkillPublicationStatus(skillId = "") {
+  const normalizedSkillId = normalizeSkillId(skillId);
+  const status = assessmentReleaseStatusBySkillId[normalizedSkillId] || null;
+  if (!status || assessmentReleaseStatusVersion !== ASSESSMENT_RELEASE_STANDARD_VERSION) {
+    return {
+      skillId: normalizedSkillId,
+      standardVersion: ASSESSMENT_RELEASE_STANDARD_VERSION,
+      releaseReady: false,
+      dimensions: {},
+      reasons: ["Release status is missing or was generated from a different standard version."]
+    };
+  }
+  return status;
+}
+
+export async function loadAssessmentSkillBank(skillId) {
+  const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
+  if (!publicationStatus.releaseReady) return [];
+  const candidates = await loadAssessmentSkillBankCandidates(skillId);
+  if (publicationStatus.publicationMode !== "audited-id-set") return [];
+  const {
+    assessmentReleaseExposureBySkillId,
+    assessmentReleaseExposureVersion
+  } = await import("../content/assessments/assessmentReleaseExposure.generated.js");
+  if (assessmentReleaseExposureVersion !== publicationStatus.standardVersion) return [];
+  const publishedLevels = new Map(
+    (assessmentReleaseExposureBySkillId[publicationStatus.skillId] || []).map(item => [
+      String(item.questionId || ""),
+      Number(item.level || 1)
+    ])
+  );
+  if (
+    !publishedLevels.size
+    || publishedLevels.size !== Number(publicationStatus.runtimeSelectableQuestions || 0)
+  ) return [];
+  const published = candidates
+    .filter(question => publishedLevels.has(String(question.id || question.questionId || "")))
+    .map(question => {
+      const releaseLevel = publishedLevels.get(String(question.id || question.questionId || ""));
+      return {
+        ...question,
+        level: releaseLevel,
+        assessmentLevel: releaseLevel,
+        releaseStandardVersion: publicationStatus.standardVersion
+      };
+    });
+  return published.length === publishedLevels.size ? published : [];
+}
+
+export function preloadAssessmentSkillBank(skillId) {
+  loadAssessmentSkillBank(skillId);
 }
 
 export async function loadAssessmentBanksForSkills(skillIds = []) {
-  const banks = await Promise.all(skillIds.map(skillId => loadAssessmentSkillBank(skillId)));
+  const banks = await Promise.all(skillIds.map(loadAssessmentSkillBank));
   return dedupeQuestions(banks.flat());
 }
 
-export async function loadHfwAssessmentBank(skillId = "") {
+export async function loadHfwAssessmentBankCandidates(skillId) {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (getAssessmentSkillGroup(normalizedSkillId) !== "hfw") return [];
-  const questions = await loadAssessmentSkillBank(normalizedSkillId);
   const { isRuntimeEligibleHfwQuestion } = await import("./hfwRuntimeEligibility.js");
-  return questions.filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
+  return (await loadAssessmentSkillBankCandidates(normalizedSkillId))
+    .filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
+}
+
+export async function loadHfwAssessmentBank(skillId) {
+  const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
+  if (!publicationStatus.releaseReady) return [];
+  const normalizedSkillId = normalizeSkillId(skillId);
+  if (getAssessmentSkillGroup(normalizedSkillId) !== "hfw") return [];
+  const { isRuntimeEligibleHfwQuestion } = await import("./hfwRuntimeEligibility.js");
+  return (await loadAssessmentSkillBank(normalizedSkillId))
+    .filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
 }
 
 export function getActiveAssessmentSkillIds() {

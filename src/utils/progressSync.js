@@ -11,6 +11,13 @@ import {
   readProgressQueueRecords,
   removeProgressQueueRecords
 } from "./progressQueue.js";
+import {
+  buildEngagementHealthSnapshot,
+  engagementRetryDelay,
+  enqueueEngagementEvent,
+  flushEngagementQueue,
+  updateEngagementHealth
+} from "./engagementQueue.js";
 
 export { PROGRESS_AREAS, localProgressKeysForStudent, RESET_AREA } from "./progressKeys.js";
 
@@ -24,9 +31,21 @@ const pendingTimers = new Map();
 const inFlightFlushes = new Map();
 const volatileEntries = new Map();
 let onlineListenerInstalled = false;
+let engagementFlushTimer = null;
+const engagementInFlightFlushes = new Map();
+const volatileEngagementEvents = new Map();
+const volatileEngagementHealth = new Map();
 
 function isBrowser() {
   return typeof window !== "undefined";
+}
+
+function engagementStorage() {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
 }
 
 function readJson(key, fallback) {
@@ -99,6 +118,7 @@ function emitProgressSyncState(status, entry) {
 
 function handleProgressOnline() {
   void flushQueuedProgressWrites(activeSession);
+  void flushQueuedEngagementEvents(activeSession, { force: true });
 }
 
 export function configureProgressSync(session = null) {
@@ -106,6 +126,11 @@ export function configureProgressSync(session = null) {
   if (isBrowser() && !onlineListenerInstalled) {
     window.addEventListener("online", handleProgressOnline);
     onlineListenerInstalled = true;
+  }
+  if (isBrowser() && activeSession?.mode === "student" && activeSession.token) {
+    window.setTimeout(() => {
+      void flushQueuedEngagementEvents(activeSession);
+    }, 0);
   }
 }
 
@@ -133,7 +158,7 @@ async function saveCloudProgress(entry) {
   const uploadPayload = sanitizeCloudProgressPayload(entry.area, entry.payload);
 
   if (entry.mode === "student" && entry.token) {
-    const { data, error } = await supabase.rpc("student_save_progress", {
+    const { data, error } = await supabase.call("student_save_progress", {
       p_token: entry.token,
       p_area: entry.area,
       p_key: entry.key,
@@ -144,7 +169,7 @@ async function saveCloudProgress(entry) {
   }
 
   const { error } = await supabase
-    .from("student_progress")
+    .table("student_progress")
     .upsert({
       student_id: entry.studentId,
       area: entry.area,
@@ -217,6 +242,18 @@ async function flushQueuedKey(identity, session = activeSession) {
 }
 
 export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
+  if (activeSession?.mode === "preview") {
+    if (isBrowser()) {
+      window.dispatchEvent(new CustomEvent("lp-preview-write-blocked", {
+        detail: {
+          studentId: activeSession.studentId,
+          area,
+          key
+        }
+      }));
+    }
+    return false;
+  }
   if (!activeSession?.studentId || activeSession.studentId !== scopeKey) return;
   const entry = {
     mode: activeSession.mode || "teacher",
@@ -256,13 +293,13 @@ export async function flushQueuedProgressWrites(session = activeSession) {
 export async function fetchStudentCloudProgress(session) {
   if (!session?.studentId) return [];
   if (session.mode === "student" && session.token) {
-    const { data, error } = await supabase.rpc("student_get_progress", { p_token: session.token });
+    const { data, error } = await supabase.call("student_get_progress", { p_token: session.token });
     if (error) throw error;
     return data || [];
   }
 
   const { data, error } = await supabase
-    .from("student_progress")
+    .table("student_progress")
     .select("area, key, payload, updated_at")
     .eq("student_id", session.studentId);
   if (error) throw error;
@@ -330,33 +367,243 @@ export function clearProgressSyncSession() {
   activeSession = null;
   pendingTimers.forEach(timer => window.clearTimeout?.(timer));
   pendingTimers.clear();
+  if (engagementFlushTimer !== null) {
+    window.clearTimeout?.(engagementFlushTimer);
+    engagementFlushTimer = null;
+  }
   if (isBrowser() && onlineListenerInstalled) {
     window.removeEventListener("online", handleProgressOnline);
     onlineListenerInstalled = false;
   }
 }
 
-/* Lightweight engagement logging. Records a learning event to the existing
-   `learn_activity` table via the student_log_activity RPC so we can see real
-   usage (daily missions, streaks). Fire-and-forget: it only runs for a signed-in
-   student session and NEVER throws into the child experience. */
+async function sendStudentActivity(session, entry) {
+  const client = session.client || supabase;
+  const { data, error } = await client.call("student_log_activity_v2", {
+    p_token: session.token,
+    p_client_event_id: entry.id,
+    p_area: entry.area,
+    p_item_id: entry.itemId,
+    p_event: entry.event,
+    p_payload: entry.payload,
+    p_occurred_at: entry.occurredAt,
+    p_delivery_attempts: Number(entry.attempts || 0) + 1
+  });
+  if (error || data?.ok === false) {
+    throw error || new Error(data?.error || "student_log_activity_v2 failed");
+  }
+}
+
+async function reportStudentActivitySyncHealth(session, snapshot) {
+  try {
+    const client = session.client || supabase;
+    const { data, error } = await client.call("student_report_activity_sync_health", {
+      p_token: session.token,
+      p_device_id: snapshot.deviceId,
+      p_attempted: snapshot.attempted,
+      p_delivered: snapshot.delivered,
+      p_recovered: snapshot.recovered,
+      p_storage_failures: snapshot.storageFailures,
+      p_pending: snapshot.pending,
+      p_lost: snapshot.lost,
+      p_oldest_pending_at: snapshot.oldestPendingAt || null
+    });
+    if (error || data?.ok === false) {
+      throw error || new Error(data?.error || "student_report_activity_sync_health failed");
+    }
+  } catch {
+    // The latest cumulative snapshot is retained locally and reported again.
+  }
+}
+
+function emitEngagementSyncState(snapshot) {
+  if (!isBrowser()) return;
+  window.dispatchEvent(new CustomEvent("lp-engagement-sync-state", {
+    detail: snapshot
+  }));
+}
+
+function scheduleEngagementFlush(session, nextAttemptAt = "") {
+  if (!isBrowser() || !session?.studentId || session.mode !== "student") return;
+  if (
+    activeSession?.studentId !== session.studentId
+    || activeSession?.token !== session.token
+  ) return;
+  if (engagementFlushTimer !== null) window.clearTimeout(engagementFlushTimer);
+  const nextAt = new Date(nextAttemptAt || Date.now()).getTime();
+  const delay = Math.max(0, Number.isFinite(nextAt) ? nextAt - Date.now() : 0);
+  engagementFlushTimer = window.setTimeout(() => {
+    engagementFlushTimer = null;
+    void flushQueuedEngagementEvents(session);
+  }, delay);
+}
+
+async function performEngagementFlush(
+  session = activeSession,
+  { force = false } = {}
+) {
+  if (!isBrowser() || !session?.studentId || session.mode !== "student" || !session.token) {
+    return null;
+  }
+  const durable = await flushEngagementQueue({
+    storage: engagementStorage(),
+    studentId: session.studentId,
+    force,
+    send: entry => sendStudentActivity(session, entry)
+  });
+  let volatileDelivered = 0;
+  let volatileRecovered = 0;
+  const now = Date.now();
+  for (const [id, entry] of volatileEngagementEvents) {
+    if (entry.studentId !== session.studentId) continue;
+    if (!force && new Date(entry.nextAttemptAt || 0).getTime() > now) continue;
+    try {
+      await sendStudentActivity(session, entry);
+      volatileEngagementEvents.delete(id);
+      volatileDelivered += 1;
+      if (entry.attempts > 0) volatileRecovered += 1;
+    } catch (error) {
+      const attempts = Number(entry.attempts || 0) + 1;
+      volatileEngagementEvents.set(id, {
+        ...entry,
+        attempts,
+        nextAttemptAt: new Date(now + engagementRetryDelay(attempts)).toISOString(),
+        lastError: String(error?.message || "delivery failed").slice(0, 160)
+      });
+    }
+  }
+
+  const carriedHealth = volatileEngagementHealth.get(session.studentId) || {};
+  const healthDelta = {
+    attempted: Number(carriedHealth.attempted || 0),
+    delivered: Number(carriedHealth.delivered || 0)
+      + durable.delivered
+      + volatileDelivered,
+    recovered: Number(carriedHealth.recovered || 0)
+      + durable.recovered
+      + volatileRecovered,
+    storageFailures: Number(carriedHealth.storageFailures || 0)
+      + durable.storageFailures
+  };
+  const healthUpdate = updateEngagementHealth(
+    engagementStorage(),
+    session.studentId,
+    healthDelta
+  );
+  if (healthUpdate.stored) volatileEngagementHealth.delete(session.studentId);
+  else volatileEngagementHealth.set(session.studentId, healthDelta);
+  const volatilePending = [...volatileEngagementEvents.values()]
+    .filter(entry => entry.studentId === session.studentId).length;
+  const volatileOldestPendingAt = [...volatileEngagementEvents.values()]
+    .filter(entry => entry.studentId === session.studentId)
+    .map(entry => entry.queuedAt)
+    .filter(Boolean)
+    .sort()[0] || "";
+  const remainingVolatileHealth = volatileEngagementHealth.get(session.studentId) || {};
+  const snapshot = buildEngagementHealthSnapshot(
+    engagementStorage(),
+    session.studentId,
+    {
+      volatileAttempted: remainingVolatileHealth.attempted,
+      volatileDelivered: remainingVolatileHealth.delivered,
+      volatileRecovered: remainingVolatileHealth.recovered,
+      volatileStorageFailures: remainingVolatileHealth.storageFailures,
+      volatilePending,
+      volatileOldestPendingAt
+    }
+  );
+  emitEngagementSyncState(snapshot);
+  await reportStudentActivitySyncHealth(session, snapshot);
+
+  const nextAttemptAt = [
+    durable.nextAttemptAt,
+    ...[...volatileEngagementEvents.values()]
+      .filter(entry => entry.studentId === session.studentId)
+      .map(entry => entry.nextAttemptAt)
+  ].filter(Boolean).sort()[0] || "";
+  if (snapshot.pending > 0) scheduleEngagementFlush(session, nextAttemptAt);
+  return snapshot;
+}
+
+export async function flushQueuedEngagementEvents(
+  session = activeSession,
+  { force = false } = {}
+) {
+  if (!isBrowser() || !session?.studentId || session.mode !== "student" || !session.token) {
+    return null;
+  }
+  const identity = session.studentId;
+  const current = engagementInFlightFlushes.get(identity);
+  if (current) {
+    const result = await current;
+    return force
+      ? flushQueuedEngagementEvents(session, { force: true })
+      : result;
+  }
+  const task = performEngagementFlush(session, { force });
+  engagementInFlightFlushes.set(identity, task);
+  try {
+    return await task;
+  } finally {
+    if (engagementInFlightFlushes.get(identity) === task) {
+      engagementInFlightFlushes.delete(identity);
+    }
+  }
+}
+
+/* Learning events are written to durable local storage before the RPC starts.
+   Delivery is non-blocking, idempotent, and retried with bounded backoff. */
 export function logStudentActivity(area, itemId = null, event = "done", payload = null) {
   if (!isBrowser()) return;
   const session = activeSession;
   if (!session || session.mode !== "student" || !session.token) return;
   try {
-    const result = supabase.rpc("student_log_activity", {
-      p_token: session.token,
-      p_area: area,
-      p_item_id: itemId,
-      p_event: event,
-      p_payload: payload
+    const storage = engagementStorage();
+    const queued = enqueueEngagementEvent(storage, {
+      studentId: session.studentId,
+      area,
+      itemId,
+      event,
+      payload
     });
-    // Swallow any rejection; analytics must never surface an error to the UI.
-    if (result && typeof result.then === "function") {
-      result.then(() => {}, () => {});
+    const healthUpdate = updateEngagementHealth(storage, session.studentId, {
+      attempted: 1,
+      storageFailures: queued.stored ? 0 : 1
+    });
+    if (!healthUpdate.stored) {
+      const current = volatileEngagementHealth.get(session.studentId) || {};
+      volatileEngagementHealth.set(session.studentId, {
+        attempted: Number(current.attempted || 0) + 1,
+        delivered: Number(current.delivered || 0),
+        recovered: Number(current.recovered || 0),
+        storageFailures: Number(current.storageFailures || 0) + (queued.stored ? 0 : 1)
+      });
     }
+    if (!queued.stored) {
+      volatileEngagementEvents.set(queued.event.id, queued.event);
+    }
+    const pendingHealth = volatileEngagementHealth.get(session.studentId) || {};
+    emitEngagementSyncState(buildEngagementHealthSnapshot(
+      storage,
+      session.studentId,
+      {
+        volatileAttempted: pendingHealth.attempted,
+        volatileDelivered: pendingHealth.delivered,
+        volatileRecovered: pendingHealth.recovered,
+        volatileStorageFailures: pendingHealth.storageFailures,
+        volatilePending: [...volatileEngagementEvents.values()]
+          .filter(entry => entry.studentId === session.studentId).length,
+        volatileOldestPendingAt: [...volatileEngagementEvents.values()]
+          .filter(entry => entry.studentId === session.studentId)
+          .map(entry => entry.queuedAt)
+          .filter(Boolean)
+          .sort()[0] || ""
+      }
+    ));
+    scheduleEngagementFlush(session);
+    return queued.stored;
   } catch {
-    // Never let logging break gameplay.
+    // Engagement telemetry must never block or break the learner flow.
+    return false;
   }
 }

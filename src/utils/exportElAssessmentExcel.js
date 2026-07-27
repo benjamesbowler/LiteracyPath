@@ -10,7 +10,22 @@ import {
   EL_FORMAL_CLASS_EVIDENCE_SCHEMA,
   isReportableElBenchmarkCandidatePlacement
 } from "../data/elFormalAssessmentReportBuilder.js";
+import { buildStudentAssessmentEvidenceReadModel } from "../data/studentReportingWorkspaceModel.js";
 import { formatExportDateTime } from "./exportReportSections.js";
+import { normalizeElExportScope } from "./elAssessmentExportPolicy.js";
+import {
+  addMetricDefinitionsWorksheet,
+  METRIC_DEFINITIONS_SHEET_NAME
+} from "./metricDefinitions.js";
+import {
+  addExportProvenanceWorksheet,
+  buildExportProvenanceRows,
+  REPORT_PROVENANCE_SHEET_NAME
+} from "./exportProvenance.js";
+import {
+  LEARNING_STATUS_IDS,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
 
 // EL workbooks are intentionally limited to Assessments 1-6. Other learning
 // areas have their own reports and must not leak into these exports.
@@ -32,7 +47,15 @@ export const EL_STUDENT_REPORT_SHEETS = [
   "Student Summary",
   "Letter Names & Sounds",
   "Advanced Phonics Patterns",
-  ...EL_STUDENT_BENCHMARK_SHEETS
+  ...EL_STUDENT_BENCHMARK_SHEETS,
+  REPORT_PROVENANCE_SHEET_NAME,
+  METRIC_DEFINITIONS_SHEET_NAME
+];
+
+export const EL_EMPTY_STUDENT_REPORT_SHEETS = [
+  "Student Summary",
+  REPORT_PROVENANCE_SHEET_NAME,
+  METRIC_DEFINITIONS_SHEET_NAME
 ];
 
 export const EL_CLASS_REPORT_SHEETS = [
@@ -41,7 +64,9 @@ export const EL_CLASS_REPORT_SHEETS = [
   "Advanced Phonics Class Matrix",
   "Advanced Phonics Patterns",
   "Pattern Detail",
-  ...EL_CLASS_BENCHMARK_SHEETS
+  ...EL_CLASS_BENCHMARK_SHEETS,
+  REPORT_PROVENANCE_SHEET_NAME,
+  METRIC_DEFINITIONS_SHEET_NAME
 ];
 
 export const EL_ASSESSMENT_TYPE_IDS = Object.freeze([
@@ -60,10 +85,13 @@ function normalizeAssessmentType(value) {
 }
 
 export function getElAssessmentTypeId(record = {}) {
-  const candidates = [record.assessmentType, record.assessmentId, record.skillId];
+  const assessmentType = normalizeAssessmentType(record.assessmentType);
+  if (assessmentType && EL_ASSESSMENT_TYPE_ID_SET.has(assessmentType)) return assessmentType;
+  if (assessmentType && assessmentType !== "el_benchmark") return "";
+  const candidates = [record.assessmentId, record.skillId];
   for (const candidate of candidates) {
     const normalized = normalizeAssessmentType(candidate);
-    if (normalized) return EL_ASSESSMENT_TYPE_ID_SET.has(normalized) ? normalized : "";
+    if (normalized && EL_ASSESSMENT_TYPE_ID_SET.has(normalized)) return normalized;
   }
   return "";
 }
@@ -71,6 +99,96 @@ export function getElAssessmentTypeId(record = {}) {
 export function filterElAssessmentHistory(assessmentHistory = []) {
   return (Array.isArray(assessmentHistory) ? assessmentHistory : [])
     .filter(record => Boolean(getElAssessmentTypeId(record)));
+}
+
+function formalStatusFromReportingStatus(status = "") {
+  const normalized = String(status || "").trim().toLowerCase();
+  if (normalized === "secure") return { status: "mastered", statusLabel: "Mastered" };
+  if (normalized === "developing") return { status: "developing", statusLabel: "Developing" };
+  if (normalized === "needs_teaching") return { status: "needs_support", statusLabel: "Needs Support" };
+  return { status: "not_assessed", statusLabel: "Not assessed" };
+}
+
+function skillsCheckLetterCellKey(concept = {}) {
+  if (!["letter_name", "letter_sound"].includes(concept.construct)) return "";
+  const letterCase = concept.variant === "uppercase" ? "uppercase" : "lowercase";
+  const mode = concept.construct === "letter_sound" ? "Sound" : "Name";
+  return `${letterCase}${mode}`;
+}
+
+function skillsCheckDetail(raw = {}, aggregate = {}) {
+  const status = raw.statusCandidate || aggregate.statusCandidate || "";
+  return {
+    sourceLabel: "Skills Check",
+    sourceStore: "assessment_attempts",
+    attemptId: raw.provenance?.attemptId || raw.sourceRecordId || aggregate.details?.currentAttemptId || "",
+    questionId: raw.provenance?.questionId || "",
+    itemKey: aggregate.concept?.key || "",
+    itemType: aggregate.concept?.construct || "",
+    targetLetter: aggregate.concept?.key || "",
+    responseStatus: raw.details?.responseStatus || status || "recorded",
+    isCorrect: status === "secure" ? true : status === "needs_teaching" ? false : null,
+    scored: Boolean(status),
+    administrationStatus: raw.administrationStatus || aggregate.administrationStatus || "",
+    formVersion: raw.provenance?.formVersion || "",
+    contentVersion: raw.provenance?.contentVersion || "",
+    scoringVersion: raw.provenance?.scoringVersion || "",
+    responseSchemaVersion: raw.provenance?.schemaVersion ?? "",
+    date: raw.observedAt || aggregate.observedAt || ""
+  };
+}
+
+function mergeSkillsCheckLettersIntoFormalAssessment(formalAssessments = {}, skillsCheck = {}) {
+  const rawById = new Map((skillsCheck.evidence || []).map(row => [row.evidenceId, row]));
+  const aggregateRows = (skillsCheck.knowledgeEvidence || []).filter(row => (
+    row?.concept?.domain === "alphabet_knowledge" &&
+    ["letter_name", "letter_sound"].includes(row?.concept?.construct) &&
+    row.statusCandidate
+  ));
+  if (!aggregateRows.length) return formalAssessments;
+
+  const byLetter = new Map((formalAssessments.individualLetterMatrix || []).map(row => [row.letter, row]));
+  let reconciledCellCount = 0;
+  aggregateRows.forEach(aggregate => {
+    const letter = String(aggregate.concept?.key || "").toLowerCase().match(/[a-z]/)?.[0] || "";
+    const cellKey = skillsCheckLetterCellKey(aggregate.concept);
+    const row = byLetter.get(letter);
+    if (!row || !cellKey || Number(row[cellKey]?.evidenceCount || 0) > 0) return;
+    const contributingIds = aggregate.details?.contributingEvidenceIds || [];
+    const rawDetails = contributingIds.map(id => rawById.get(id)).filter(Boolean);
+    const details = (rawDetails.length ? rawDetails : [aggregate])
+      .map(raw => skillsCheckDetail(raw, aggregate));
+    const attempts = Number(aggregate.details?.observations || details.length || 0);
+    const correct = Number(aggregate.details?.correct || 0);
+    const normalizedStatus = formalStatusFromReportingStatus(aggregate.statusCandidate);
+    row[cellKey] = {
+      ...row[cellKey],
+      ...normalizedStatus,
+      evidenceCount: details.length,
+      unscoredCount: Math.max(0, details.length - attempts),
+      attempts,
+      correct,
+      incorrect: Math.max(0, attempts - correct),
+      accuracy: aggregate.details?.accuracy ?? (attempts ? Math.round((correct / attempts) * 100) : null),
+      lastAssessed: formatDate(aggregate.observedAt),
+      details,
+      evidenceSources: ["Skills Check"],
+      reconciledFromSkillSpine: true
+    };
+    row.lastAssessed = [row.lastAssessed, formatDate(aggregate.observedAt)].filter(Boolean).sort().at(-1) || "";
+    reconciledCellCount += 1;
+  });
+
+  return {
+    ...formalAssessments,
+    individualLetterMatrix: Array.from(byLetter.values()),
+    reconciledSkillSpine: {
+      source: "Skills Check",
+      letterConceptCount: aggregateRows.length,
+      reconciledCellCount,
+      precedence: "EL Assessment 1 evidence is used when present; otherwise the canonical Skills Check concept supplies the same current skill-spine status."
+    }
+  };
 }
 
 const EL_DESCRIPTIVE_BENCHMARK_SHEETS = new Set([
@@ -130,14 +248,15 @@ function parsePercent(value) {
 function fillForAccuracy(value) {
   const percent = parsePercent(value);
   if (percent === null) return null;
-  if (percent >= 80) return EXPORT_COLORS.greenSoft;
-  if (percent >= 60) return EXPORT_COLORS.amberSoft;
+  const status = rawLearningStatus(percent);
+  if (status === LEARNING_STATUS_IDS.SECURE) return EXPORT_COLORS.greenSoft;
+  if (status === LEARNING_STATUS_IDS.DEVELOPING) return EXPORT_COLORS.amberSoft;
   return EXPORT_COLORS.redSoft;
 }
 
 function fillForStatus(value) {
   const normalized = String(value || "").toLowerCase();
-  if (/pass|master|on track|yes|correct/.test(normalized)) return EXPORT_COLORS.greenSoft;
+  if (/pass|master|secure|yes|correct/.test(normalized)) return EXPORT_COLORS.greenSoft;
   if (/develop|current|progress|attempt|retry/.test(normalized)) return EXPORT_COLORS.amberSoft;
   if (/support|miss|incorrect|no|risk/.test(normalized)) return EXPORT_COLORS.redSoft;
   if (/not|unseen|reached/.test(normalized)) return EXPORT_COLORS.greySoft;
@@ -366,6 +485,9 @@ function formalEvidenceProvenance(detail = {}, { includeStudent = false } = {}) 
   if (includeStudent && (detail.studentName || detail.studentId)) {
     parts.push(`Student: ${detail.studentName || detail.studentId}`);
   }
+  if (detail.sourceLabel || detail.sourceStore) {
+    parts.push(`Source: ${detail.sourceLabel || detail.sourceStore}`);
+  }
   parts.push(`Attempt: ${detail.attemptId || "not recorded"}`);
   parts.push(`Item: ${detail.questionId || detail.itemKey || "not recorded"}`);
   if (detail.itemType) parts.push(`Item type: ${detail.itemType}`);
@@ -393,9 +515,16 @@ function formalEvidenceList(details = [], options = {}) {
 
 function decodeClassEvidenceRows(report = {}, rows = []) {
   const schema = report.formalAssessments?.classEvidenceSchema || EL_FORMAL_CLASS_EVIDENCE_SCHEMA;
+  const dictionaries = report.formalAssessments?.classEvidenceDictionaries || {};
   return (Array.isArray(rows) ? rows : []).map(row => {
     if (!Array.isArray(row)) return row || {};
-    return Object.fromEntries(schema.map((key, index) => [key, row[index] ?? ""]));
+    return Object.fromEntries(schema.map((key, index) => {
+      const dictionary = dictionaries[key];
+      const value = row[index];
+      return [key, Array.isArray(dictionary) && Number.isInteger(value)
+        ? dictionary[value] ?? ""
+        : value ?? ""];
+    }));
   });
 }
 
@@ -444,6 +573,15 @@ function studentAdvancedEvidence(report = {}) {
   }, { evidenceCount: 0, unscoredCount: 0, attempts: 0, correct: 0, latestDate: "" });
 }
 
+export function getStudentElReportEvidenceCount(report = {}) {
+  const letter = studentLetterEvidence(report);
+  const advanced = studentAdvancedEvidence(report);
+  const benchmark = benchmarkProfileRows(report)
+    .filter(profile => profile.hasSavedEvidence)
+    .reduce((total, profile) => total + Math.max(1, Number(profile.attemptCount || 0)), 0);
+  return letter.evidenceCount + advanced.evidenceCount + benchmark;
+}
+
 function benchmarkProfileSummary(profile = {}) {
   if (!profile.hasSavedEvidence) return "No saved evidence";
   const metrics = profile.metrics || {};
@@ -475,15 +613,39 @@ function buildStudentElSummaryRows(report = {}) {
     const unscored = evidence.unscoredCount ? `; ${evidence.unscoredCount} unscored evidence item(s)` : "";
     return `${scored}${unscored}${evidence.latestDate ? `; latest ${evidence.latestDate}` : ""}`;
   };
-
-  return [
+  const sourceReads = Array.isArray(report.evidenceSourceReads) ? report.evidenceSourceReads : [];
+  const sourceSummary = sourceReads.length
+    ? sourceReads.map(source => `${source.store}: ${source.recordCount} row(s)`).join("; ")
+    : "No evidence-store read metadata";
+  const latestSync = sourceReads.map(source => source.lastSyncedAt).filter(Boolean).sort().at(-1) || "";
+  const contextRows = [
     ["Student Name", report.studentName || "Unknown Student"],
     ["Class Name", report.className || "Unknown Class"],
     ["Report Date", formatDate(report.generatedAt)],
     ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
     ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
     ["EL Assessment Date Range", getElReportDateRange(report)],
+    ["Evidence Stores Read", sourceSummary],
+    ["Evidence Read / Sync Completed", latestSync ? formatExportDateTime(latestSync) : "Sync time unavailable"]
+  ];
+  if (getStudentElReportEvidenceCount(report) === 0) {
+    return [
+      [
+        "Nothing to report",
+        `Nothing to report for ${report.studentName || "this student"} — no saved EL or reconciled Skills Check evidence. Run or save an assessment first.`
+      ],
+      ...contextRows,
+      [
+        "How To Read This Workbook",
+        "No assessment result rows are included because no evidence was saved. Provenance and definitions remain available for audit."
+      ]
+    ];
+  }
+
+  return [
+    ...contextRows.slice(0, 6),
     ["Assessments With Saved Evidence", `${savedAssessmentCount}/6`],
+    ...contextRows.slice(6),
     ["Assessment 1 — Letter Names & Sounds", evidenceSummary(letter, "letter/name/sound response(s)")],
     ["Assessment 2 — Advanced Phonics Patterns", evidenceSummary(advanced, "pattern response(s)")],
     ["Assessment 3 — Phonological Awareness", benchmarkProfileSummary(profileByDomain.get("phonologicalAwareness"))],
@@ -1684,12 +1846,16 @@ function addClassBenchmarkSheets(workbook, report = {}) {
   addClassBenchmarkEvidenceDetailSheet(workbook, report);
 }
 
-async function createWorkbook() {
+async function createWorkbook(generatedAt = null) {
   const module = await import("exceljs");
   const ExcelJS = module.default || module["module.exports"] || module;
   const workbook = new ExcelJS.Workbook();
   workbook.creator = "Literacy Guide";
-  workbook.created = new Date();
+  const createdAt = generatedAt ? new Date(generatedAt) : new Date();
+  if (Number.isNaN(createdAt.getTime())) {
+    throw new Error("EL export generatedAt must be a valid date.");
+  }
+  workbook.created = createdAt;
   return workbook;
 }
 
@@ -1706,13 +1872,159 @@ async function downloadWorkbook(workbook, fileName) {
   URL.revokeObjectURL(url);
 }
 
-export async function createStudentElAssessmentWorkbook(report) {
-  const workbook = await createWorkbook();
+const INTERNAL_EXPORT_COLUMN = /\b(?:attempt id|assessment id|item id|question id|item key|source record id|response schema|provenance|app version|assessment version|form version|content version|policy version|scoring version|scoring rule version|administration interface)\b/i;
+const INTERNAL_EXPORT_ROW = /^(?:app version\(s\)|check version\(s\)|content version\(s\)|scoring version\(s\)|policy version\(s\)|child id|learner id|student id)$/i;
+
+function teacherExportCopy(value) {
+  const original = String(value ?? "");
+  const statusLabels = {
+    not_assessed: "Not checked",
+    not_administered: "Not checked",
+    not_recorded: "Not recorded",
+    not_scorable: "Not scored",
+    in_progress: "In progress",
+    needs_teaching: "Needs more practice",
+    incorrect: "Needs another look"
+  };
+  const statusKey = original.trim().toLowerCase();
+  if (statusLabels[statusKey]) return statusLabels[statusKey];
+
+  const mapped = original
+    .replace(/\bBOY\b/g, "Beginning of year")
+    .replace(/\bMOY\b/g, "Middle of year")
+    .replace(/\bEOY\b/g, "End of year")
+    .replace(/\bAssessments\b/g, "Checks")
+    .replace(/\bAssessment\b/g, "Check")
+    .replace(/\bassessments\b/g, "checks")
+    .replace(/\bassessment\b/g, "check")
+    .replace(/\bEvidence\b/g, "Results")
+    .replace(/\bevidence\b/g, "results")
+    .replace(/\bLearners\b/g, "Students")
+    .replace(/\bLearner\b/g, "Student")
+    .replace(/\blearners\b/g, "students")
+    .replace(/\blearner\b/g, "student")
+    .replace(/\bProvenance\b/g, "Source details")
+    .replace(/\bprovenance\b/g, "source details")
+    .replace(/\bScope\b/g, "Period")
+    .replace(/\bscope\b/g, "period")
+    .replace(/\bPolicy\b/g, "Fairness rule")
+    .replace(/\bpolicy\b/g, "fairness rule")
+    .replace(/\bLogin\b/g, "Sign-in")
+    .replace(/\blogin\b/g, "sign-in")
+    .replace(/\bCumulative\b/g, "All saved")
+    .replace(/\bcumulative\b/g, "all saved")
+    .replace(/\bBaseline\b/g, "Starting point")
+    .replace(/\bbaseline\b/g, "starting point")
+    .replace(/\bAdministration\b/g, "Check")
+    .replace(/\badministration\b/g, "check")
+    .replace(/\bNot assessed\b/g, "Not checked")
+    .replace(/\bIncorrect\b/g, "Needs another look")
+    .replace(/(\d+)\s*\/\s*(\d+)/g, "$1 of $2");
+
+  if (/^[a-z0-9]+(?:[_-][a-z0-9]+)+$/.test(mapped.trim())) {
+    return mapped
+      .replace(/[_-]+/g, " ")
+      .replace(/^\w/, letter => letter.toUpperCase());
+  }
+  return mapped;
+}
+
+export function applyTeacherFacingWorkbookCopy(workbook) {
+  workbook.worksheets.forEach(sheet => {
+    const internalColumns = [];
+    sheet.getRow(1).eachCell((cell, columnNumber) => {
+      if (INTERNAL_EXPORT_COLUMN.test(String(cell.value || ""))) {
+        internalColumns.push(columnNumber);
+      }
+    });
+    internalColumns.sort((a, b) => b - a).forEach(columnNumber => {
+      sheet.spliceColumns(columnNumber, 1);
+    });
+    const internalRows = [];
+    sheet.eachRow((row, rowNumber) => {
+      if (INTERNAL_EXPORT_ROW.test(String(row.getCell(1).value || "").trim())) {
+        internalRows.push(rowNumber);
+      }
+    });
+    internalRows.sort((a, b) => b - a).forEach(rowNumber => {
+      sheet.spliceRows(rowNumber, 1);
+    });
+    sheet.eachRow(row => {
+      row.eachCell(cell => {
+        if (typeof cell.value === "string") cell.value = teacherExportCopy(cell.value);
+      });
+    });
+    sheet.name = teacherExportCopy(sheet.name).slice(0, 31);
+  });
+  return workbook;
+}
+
+function elEvidenceWindow(report = {}) {
+  const start = report.dateRange?.start || "";
+  const end = report.dateRange?.end || "";
+  if (start && end) return start === end ? start : `${start} to ${end}`;
+  return report.assessmentWindow || "";
+}
+
+function buildElExportProvenanceRows(report = {}, reportType = report.reportType) {
+  const isIndividual = reportType === "individual";
+  const learnerCount = isIndividual ? 1 : (
+    report.summary?.totalStudents || report.studentRows?.length || null
+  );
+  return buildExportProvenanceRows({
+    reportTitle: isIndividual ? "Child EL check report" : "Class EL check report",
+    schoolName: report.schoolName,
+    className: report.className,
+    learnerName: isIndividual ? report.studentName : "",
+    learnerId: isIndividual ? report.studentId : "",
+    learnerCount,
+    generatedAt: report.generatedAt,
+    timeZone: report.timeZone,
+    filters: {
+      "EL check period": report.benchmarkScope?.label || "No check period selected",
+      "Time of year": report.assessmentWindow || "All included results",
+      ...(Array.isArray(report.evidenceSourceReads)
+        ? {
+            "Saved result sources": report.evidenceSourceReads
+              .map(source => `${source.store} (${source.recordCount} row(s))`)
+              .join("; "),
+            "Latest saved-result update": report.evidenceSourceReads
+              .map(source => source.lastSyncedAt)
+              .filter(Boolean)
+              .sort()
+              .at(-1) || "Sync time unavailable"
+          }
+        : {})
+    },
+    evidenceWindow: elEvidenceWindow(report),
+    evidenceSource: report.sourceSnapshot?.records || [],
+    versionSummary: report.exportVersionSummary,
+    definitions: `Definitions are included in the ${METRIC_DEFINITIONS_SHEET_NAME} sheet.`
+  });
+}
+
+export async function createStudentElAssessmentWorkbook(report, { teacherFacing = false } = {}) {
+  const workbook = await createWorkbook(report?.generatedAt);
 
   const summarySheet = workbook.addWorksheet("Student Summary");
   setColumns(summarySheet, ["Field", "Value"], ["Value"]);
   buildStudentElSummaryRows(report)
     .forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
+  if (getStudentElReportEvidenceCount(report) === 0) {
+    const bannerRow = summarySheet.getRow(2);
+    bannerRow.eachCell(cell => {
+      cell.font = { bold: true, color: { argb: EXPORT_COLORS.navy } };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: EXPORT_COLORS.amberSoft }
+      };
+    });
+    addExportProvenanceWorksheet(workbook, buildElExportProvenanceRows(report, "individual"));
+    addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
+    applyWorkbookPresentation(workbook, EL_EMPTY_STUDENT_REPORT_SHEETS);
+    return teacherFacing ? applyTeacherFacingWorkbookCopy(workbook) : workbook;
+  }
 
   const letterSheet = workbook.addWorksheet("Letter Names & Sounds");
   setColumns(letterSheet, [
@@ -1836,13 +2148,15 @@ export async function createStudentElAssessmentWorkbook(report) {
   });
 
   addStudentBenchmarkSheets(workbook, report);
+  addExportProvenanceWorksheet(workbook, buildElExportProvenanceRows(report, "individual"));
+  addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_STUDENT_REPORT_SHEETS);
-  return workbook;
+  return teacherFacing ? applyTeacherFacingWorkbookCopy(workbook) : workbook;
 }
 
-export async function createClassElAssessmentWorkbook(report) {
-  const workbook = await createWorkbook();
+export async function createClassElAssessmentWorkbook(report, { teacherFacing = false } = {}) {
+  const workbook = await createWorkbook(report?.generatedAt);
 
   const summarySheet = workbook.addWorksheet("Class Summary");
   setColumns(summarySheet, ["Field", "Value"], ["Value"]);
@@ -2042,13 +2356,26 @@ export async function createClassElAssessmentWorkbook(report) {
   });
 
   addClassBenchmarkSheets(workbook, report);
+  addExportProvenanceWorksheet(workbook, buildElExportProvenanceRows(report, "whole_class"));
+  addMetricDefinitionsWorksheet(workbook, { generatedAt: report?.generatedAt });
 
   applyWorkbookPresentation(workbook, EL_CLASS_REPORT_SHEETS);
-  return workbook;
+  return teacherFacing ? applyTeacherFacingWorkbookCopy(workbook) : workbook;
 }
 
 export function buildStudentElAssessmentExportReport(options = {}) {
   const assessmentHistory = filterElAssessmentHistory(options.assessmentHistory);
+  const evidenceRead = buildStudentAssessmentEvidenceReadModel({
+    student: (Array.isArray(options.students) ? options.students : [])
+      .find(row => row?.id === options.studentId) || { id: options.studentId },
+    studentId: options.studentId,
+    assessmentHistory: options.assessmentHistory,
+    localAssessmentHistory: options.localAssessmentHistory,
+    cloudAssessmentHistory: options.cloudAssessmentHistory,
+    itemMastery: options.itemMastery,
+    skillMasterySummary: options.skillMasterySummary,
+    evidenceReadState: options.evidenceReadState
+  });
   const report = buildStudentElAssessmentReportData({
     ...options,
     assessmentHistory
@@ -2068,7 +2395,12 @@ export function buildStudentElAssessmentExportReport(options = {}) {
   });
   return {
     ...report,
-    formalAssessments,
+    evidenceSourceReads: evidenceRead.sourceReads,
+    evidenceReadCompletedAt: evidenceRead.completedAt,
+    formalAssessments: mergeSkillsCheckLettersIntoFormalAssessment(
+      formalAssessments,
+      evidenceRead.skillsCheck
+    ),
     benchmarkProfile: formalAssessments.individualBenchmarkProfile || [],
     benchmarkDetails: formalAssessments.individualBenchmarkDetails || []
   };
@@ -2097,6 +2429,26 @@ export function buildClassElAssessmentExportReport(options = {}) {
   };
 }
 
+export function hasResolvedElExportScope(report = {}) {
+  return normalizeElExportScope(report.benchmarkScope).isRouteScoped;
+}
+
+function assertResolvedElExportScope(report = {}) {
+  if (hasResolvedElExportScope(report)) return;
+  const error = new Error("Choose a grade and time of year before downloading this EL report.");
+  error.code = "EL_EXPORT_SCOPE_REQUIRED";
+  throw error;
+}
+
+function safeElAssessmentFileName(fileName = "", fallback = "el-assessment-report.xlsx") {
+  const cleaned = String(fileName || fallback)
+    .replace(/grade[-_\s]*not[-_\s]*recorded/gi, "scope-required")
+    .replace(/window[-_\s]*not[-_\s]*recorded/gi, "")
+    .replace(/-{2,}/g, "-")
+    .replace(/-+(\.xlsx)$/i, "$1");
+  return cleaned || fallback;
+}
+
 export async function exportStudentElAssessmentExcel(options = {}) {
   const previousReports = await hydrateElAssessmentReports({
     teacherId: options.teacherId || "local",
@@ -2106,8 +2458,9 @@ export async function exportStudentElAssessmentExcel(options = {}) {
     studentId: options.studentId || ""
   });
   const report = buildStudentElAssessmentExportReport({ ...options, previousReports });
-  const workbook = await createStudentElAssessmentWorkbook(report);
-  await downloadWorkbook(workbook, report.fileName);
+  assertResolvedElExportScope(report);
+  const workbook = await createStudentElAssessmentWorkbook(report, { teacherFacing: true });
+  await downloadWorkbook(workbook, safeElAssessmentFileName(report.fileName));
   report.persistence = await saveElAssessmentReport(report, options);
   return report;
 }
@@ -2120,7 +2473,7 @@ export async function exportClassElAssessmentExcel(options = {}) {
     classId: options.classId || ""
   });
   const report = buildClassElAssessmentExportReport({ ...options, previousReports });
-  const workbook = await createClassElAssessmentWorkbook(report);
+  const workbook = await createClassElAssessmentWorkbook(report, { teacherFacing: true });
   await downloadWorkbook(workbook, report.fileName);
   report.persistence = await saveElAssessmentReport(report, options);
   return report;
@@ -2128,8 +2481,14 @@ export async function exportClassElAssessmentExcel(options = {}) {
 
 export async function downloadElAssessmentReport(report = {}) {
   const workbook = report.reportType === "individual"
-    ? await createStudentElAssessmentWorkbook(report)
-    : await createClassElAssessmentWorkbook(report);
-  await downloadWorkbook(workbook, report.fileName || `el-assessment-report-${formatDate(new Date())}.xlsx`);
+    ? await createStudentElAssessmentWorkbook(report, { teacherFacing: true })
+    : await createClassElAssessmentWorkbook(report, { teacherFacing: true });
+  await downloadWorkbook(
+    workbook,
+    safeElAssessmentFileName(
+      report.fileName,
+      `el-assessment-report-${formatDate(new Date())}.xlsx`
+    )
+  );
   return report;
 }

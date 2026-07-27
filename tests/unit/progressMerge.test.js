@@ -104,6 +104,34 @@ test("guided_reading: completedPages and readCount take the max", () => {
   assert.equal(next.readCount, 2);
 });
 
+test("guided_reading: support-use events from different devices are both retained", () => {
+  const localEvent = {
+    eventId: "local-whole",
+    stage: "whole_word_audio",
+    word: "night"
+  };
+  const cloudEvent = {
+    eventId: "cloud-sounds",
+    stage: "segmented_phonemes",
+    word: "night"
+  };
+  const localStore = {
+    "book-3": {
+      pages: {
+        0: { supportUseEvents: [localEvent] }
+      }
+    }
+  };
+  const cloud = {
+    pages: {
+      0: { supportUseEvents: [cloudEvent] }
+    }
+  };
+  const next = computeHydratedValue("guided_reading", "book-3", localStore, cloud)["book-3"];
+
+  assert.deepEqual(next.pages[0].supportUseEvents, [localEvent, cloudEvent]);
+});
+
 test("phonics/cvc: a completed letter is never downgraded by a stale cloud status", () => {
   assert.equal(mergeStatusForward("completed", "inprogress"), "completed");
   assert.equal(mergeStatusForward("inprogress", "default"), "inprogress");

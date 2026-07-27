@@ -164,6 +164,28 @@ export function worldObstacles(world) {
   return "rock";
 }
 
+export function buildSoundRacerTutorial(track, { hasRecordedAudio = () => true } = {}) {
+  const target = String(track?.target || "").trim().toLowerCase();
+  if (!target) throw new Error("Sound Racer tutorial requires the current track target.");
+  const matchingGates = (track?.gates || []).filter(gate => (
+    gate?.kind === "word"
+    && gate.correct === true
+    && onsetGrapheme(gate.word) === target
+  ));
+  const exampleGate = matchingGates.find(gate => hasRecordedAudio(gate.word));
+  if (!exampleGate?.word) {
+    throw new Error(`Sound Racer tutorial has no recorded correct example for "${target}".`);
+  }
+  const exampleWord = String(exampleGate.word).toLowerCase();
+  return Object.freeze({
+    target,
+    targetLabel: target.toUpperCase(),
+    exampleWord,
+    phonicsInstruction: `Listen: ${target.toUpperCase()} starts ${exampleWord}.`,
+    motorInstruction: "Steer left or right to catch matching words. Dodge everything else."
+  });
+}
+
 export function buildTrack(target, { difficulty, seed } = {}) {
   const g = String(target || "").toLowerCase();
   const d = String(difficulty || "").toLowerCase();

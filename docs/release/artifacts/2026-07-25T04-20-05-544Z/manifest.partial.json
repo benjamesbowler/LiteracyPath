@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-25T04:20:53.847Z",
+  "startedAt": "2026-07-25T04:20:05.544Z",
+  "finishedAt": "2026-07-25T04:20:53.847Z",
+  "commitSha": "ad2e79c7ce5169b4e9935f853bfbb992ee0395d3",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21525,
+      "startedAt": "2026-07-25T04:20:05.616Z",
+      "finishedAt": "2026-07-25T04:20:27.141Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T04-20-05-544Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6489,
+      "startedAt": "2026-07-25T04:20:27.141Z",
+      "finishedAt": "2026-07-25T04:20:33.630Z",
+      "counts": {
+        "tests": 1244,
+        "passed": 1244,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T04-20-05-544Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 19561,
+      "startedAt": "2026-07-25T04:20:33.630Z",
+      "finishedAt": "2026-07-25T04:20:53.191Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T04-20-05-544Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "database-bootstrap-schema",
+      "label": "Reconstructable core database schema",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:database-bootstrap-schema",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 209,
+      "startedAt": "2026-07-25T04:20:53.191Z",
+      "finishedAt": "2026-07-25T04:20:53.400Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T04-20-05-544Z/database-bootstrap-schema.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "retention-policy",
+      "label": "School-configurable retention, cleanup job, and evidence-gated deletion propagation",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:retention-policy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 211,
+      "startedAt": "2026-07-25T04:20:53.400Z",
+      "finishedAt": "2026-07-25T04:20:53.611Z",
+      "counts": {
+        "tests": 9,
+        "passed": 9,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T04-20-05-544Z/retention-policy.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "legal-pack",
+      "label": "Complete counsel-ready legal, privacy, consent, region, security, and accessibility pack",
+      "areas": [
+        8,
+        10
+      ],
+      "command": "npm run check:legal-pack",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 236,
+      "startedAt": "2026-07-25T04:20:53.611Z",
+      "finishedAt": "2026-07-25T04:20:53.847Z",
+      "counts": {
+        "tests": 4,
+        "passed": 4,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T04-20-05-544Z/legal-pack.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

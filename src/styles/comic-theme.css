@@ -647,6 +647,7 @@
   text-transform: uppercase;
 }
 /* The real page title "Story Quests" becomes the big rotated red sticker */
+.student-mode-app .story-quest-learn-page .learn-story-quest-copy h1,
 .student-mode-app .story-quest-learn-page .learn-story-quest-copy h2 {
   display: inline-block;
   margin: 6px 0;
@@ -944,19 +945,19 @@
 }
 .student-mode-app .story-quest-learn-page .learn-story-level-button.active,
 .student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] {
-  background: var(--comic-red) !important;
-  color: #fff !important;
+  background: var(--comic-red);
+  color: #fff;
 }
 /* A=red (active), B=blue, C=green chips regardless of active (mockup) */
-.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(2).active { background: var(--comic-blue) !important; }
-.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(3).active { background: var(--comic-green) !important; }
+.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(2).active { background: var(--comic-blue); }
+.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(3).active { background: var(--comic-green); }
 /* Active chip: force the whole label (incl. the "0/5 complete" span) white so it
    is never dark-blue-on-red. */
 .student-mode-app .story-quest-learn-page .learn-story-level-button.active,
 .student-mode-app .story-quest-learn-page .learn-story-level-button.active *,
 .student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"],
 .student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] * {
-  color: #fff !important;
+  color: #fff;
 }
 
 /* ═══ G. ARCADE HUB — dark comic tile grid (no-scroll) ═════════════════ */
@@ -981,6 +982,12 @@
   background:
     linear-gradient(#0c0d16, #12142a) padding-box,
     linear-gradient(135deg, var(--comic-magenta), var(--comic-purple), var(--comic-cyan)) border-box;
+}
+.lg-arcade-comic .lg-arcade-instruction {
+  max-width: 48ch;
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font: 700 0.78rem/1.35 "Nunito", sans-serif;
 }
 .lg-arcade-comic .lg-arcade-8bit {
   margin: 0;
@@ -1017,17 +1024,54 @@
 }
 .lg-arcade-comic .lg-game-tile {
   display: flex; flex-direction: column; padding: 0;
-  border: 3px solid var(--game-accent, #23c4de); border-radius: 14px;
+  border: 3px solid #566087; border-radius: 14px;
   background: #0b0d1c; box-shadow: 0 0 0 2px #000, 5px 5px 0 rgba(0,0,0,0.5);
   overflow: hidden; cursor: pointer;
   transition: transform 120ms ease-out, box-shadow 120ms ease-out;
 }
+.lg-arcade-comic .lg-game-tile.is-recommended {
+  z-index: 1;
+  border-color: #FFD166;
+  outline: 4px solid #23c4de;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px #000, 7px 7px 0 rgba(0,0,0,0.55), 0 0 28px rgba(35,196,222,0.62);
+}
+.lg-arcade-comic .lg-game-tile-next {
+  width: fit-content;
+  margin: -2px auto 2px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #FFD166;
+  color: #17211f;
+  font: 900 0.64rem/1 "Nunito", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.lg-arcade-comic .lg-arcade-recommendation-reason {
+  margin: 4px 0 0;
+  color: #e8f7ff;
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+.lg-arcade-comic .lg-arcade-recommendation-reason strong {
+  color: #FFD166;
+}
 .lg-arcade-comic .lg-game-tile:hover { transform: translateY(-3px); box-shadow: 0 0 0 2px #000, 8px 10px 0 rgba(0,0,0,0.5); }
 .lg-arcade-comic .lg-game-tile-art {
   display: block; aspect-ratio: 1 / 1; background: #05060f;
-  border-bottom: 3px solid var(--game-accent, #23c4de);
+  border-bottom: 3px solid #566087;
 }
-.lg-arcade-comic .lg-game-tile-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lg-arcade-comic .lg-game-tile-art img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: saturate(0.62) brightness(0.82);
+}
+.lg-arcade-comic .lg-game-tile.is-recommended .lg-game-tile-art {
+  border-bottom-color: #FFD166;
+}
+.lg-arcade-comic .lg-game-tile.is-recommended .lg-game-tile-art img {
+  filter: saturate(1.08) brightness(1.04);
+}
 .lg-arcade-comic .lg-game-tile-art img.is-icon { object-fit: contain; padding: 14%; }
 .lg-arcade-comic .lg-game-tile-name {
   font-family: var(--comic-display, "Anton"), sans-serif; font-style: italic; text-transform: uppercase;
@@ -1201,10 +1245,22 @@
 
 /* ═══ I. LOGO IMAGES + DAILY BANNER BACKGROUND ═════════════════════════ */
 /* Story Quests logo replaces the CSS sticker title */
+.student-mode-app .story-quest-learn-page .learn-story-quest-copy h1.story-quest-title-logo,
 .student-mode-app .story-quest-learn-page .learn-story-quest-copy h2.story-quest-title-logo {
   background: none; border: 0; box-shadow: none; transform: none; padding: 0; margin: 4px 0;
 }
 .student-mode-app .story-quest-title-logo img { height: clamp(78px, 11vw, 128px); width: auto; display: block; }
+.child-surface-title-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* Reading Library logo image */
 .student-guided-reading-page .guided-library-logo { margin: 0 0 12px; }
@@ -1261,7 +1317,14 @@
 }
 
 /* ═══ K. READING LIBRARY — student shelf layout ═══════════════════════ */
-.student-guided-reading-page .guided-shelf-layout { display: flex; gap: 18px; align-items: flex-start; }
+.student-guided-reading-page .guided-shelf-layout {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  gap: 18px;
+  align-items: flex-start;
+}
 .student-guided-reading-page .guided-shelf-main { flex: 1; min-width: 0; }
 .student-guided-reading-page .guided-filter-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
 .student-guided-reading-page .guided-filter-chips button {
@@ -1292,6 +1355,33 @@
   border: var(--comic-bw) solid var(--comic-ink); border-radius: 10px; box-shadow: var(--comic-shadow-sm);
   overflow: hidden; background: #fff; cursor: pointer; position: relative; text-align: left;
 }
+.student-guided-reading-page .guided-shelf-card.is-primary {
+  z-index: 1;
+  width: 166px;
+  outline: 4px solid #2E4B3E;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 7px #DCEDE7, 0 10px 20px rgba(24, 56, 45, 0.24);
+}
+.student-guided-reading-page .guided-shelf-card-next {
+  margin-top: auto;
+  padding: 7px 10px;
+  background: #2E4B3E;
+  color: #fff;
+  font-family: var(--comic-label);
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.student-guided-reading-page .guided-shelf-card-reason {
+  display: block;
+  width: 100%;
+  padding: 0 10px 9px;
+  box-sizing: border-box;
+  color: #4c3b2f;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
 .student-guided-reading-page .guided-shelf-row.wrap .guided-shelf-card { width: auto; }
 .student-guided-reading-page .guided-shelf-card:hover { transform: translate(-2px,-3px); box-shadow: var(--comic-shadow); }
 .student-guided-reading-page .guided-shelf-card-cover { display: block; aspect-ratio: 4 / 3; min-height: 104px; overflow: hidden; border-bottom: 2px solid var(--comic-ink); background: linear-gradient(135deg, #d5e6ff, #eef4ff); }
@@ -1305,11 +1395,11 @@
   padding: 8px 10px; font-family: var(--comic-label); font-weight: 900; font-size: 0.85rem; color: var(--comic-ink); line-height: 1.05;
 }
 .student-guided-reading-page .guided-goal-panel {
-  width: 260px; flex-shrink: 0; border: var(--comic-bw-lg) solid var(--comic-ink); border-radius: var(--comic-r-lg);
-  box-shadow: var(--comic-shadow); background: var(--comic-red); color: #fff; padding: 18px; text-align: center;
+  width: 230px; flex-shrink: 0; border: 2px solid #9BB8AA; border-radius: var(--comic-r-lg);
+  box-shadow: none; background: #EAF3EF; color: #20382F; padding: 16px; text-align: center;
 }
 .student-guided-reading-page .guided-goal-panel h3 { margin: 0 0 10px; font-family: var(--comic-display); font-style: italic; text-transform: uppercase; }
-.student-guided-reading-page .guided-goal-stat strong { display: block; font-family: var(--comic-display); font-style: italic; font-size: 3rem; line-height: 1; }
+.student-guided-reading-page .guided-goal-stat strong { display: block; font-family: var(--comic-display); font-style: italic; font-size: 2.35rem; line-height: 1; }
 .student-guided-reading-page .guided-goal-stat span { font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
 .student-guided-reading-page .guided-goal-bar { height: 14px; border-radius: 999px; background: rgba(255,255,255,0.28); border: 2px solid var(--comic-ink); box-shadow: 2px 2px 0 var(--comic-ink); overflow: hidden; margin: 12px 0 2px; }
 .student-guided-reading-page .guided-goal-bar span { display: block; height: 100%; background: var(--comic-yellow); transition: width 0.4s ease; }
@@ -1382,6 +1472,26 @@
   border-radius: 12px; /* stand alone, not a bottom-open tab */
 }
 
+@media (max-width: 760px) {
+  .student-mode-app .story-quest-learn-page .story-quest-header-row {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-quest-copy {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-level-selector {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* Reading Library: logo on the left, All / Level A–C chips fill the space right */
 .student-guided-reading-page .guided-library-header {
   display: flex;
@@ -1391,6 +1501,17 @@
   flex-wrap: wrap;
 }
 .student-guided-reading-page .guided-library-header .guided-library-logo { margin: 0; flex: 0 0 auto; }
+.student-guided-reading-page .guided-child-library-heading {
+  display: grid;
+  gap: 4px;
+  flex: 0 1 420px;
+}
+.student-guided-reading-page .guided-child-library-heading p {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--comic-ink);
+  font: 750 0.9rem/1.4 var(--comic-label);
+}
 .student-guided-reading-page .guided-library-header .guided-filter-chips {
   margin: 0;
   flex: 1 1 auto;
@@ -1512,6 +1633,7 @@
   color: var(--comic-ink);
 }
 .student-mode-app .skills-block-quest .sbq-stop-skill { color: var(--comic-blue); }
+.student-mode-app .skills-block-quest .sbq-stop-reason { color: var(--comic-ink); }
 
 /* Book quiz: pre-readers can hear each word choice read aloud */
 .book-quiz-choice-row { display: flex; align-items: stretch; gap: 6px; }

@@ -1,0 +1,78 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+
+import {
+  DECODING_SUPPORT_STAGES,
+  appendDecodingSupportEvent,
+  createDecodingSupportEvent,
+  getNextDecodingSupportStep,
+  normalizeDecodingSupportEvent
+} from "../../src/utils/guidedReading/decodingSupport.js";
+
+test("multi-sound words follow whole word, sounds, reread, then restart", () => {
+  const whole = getNextDecodingSupportStep({ word: "ship" });
+  const sounds = getNextDecodingSupportStep({ word: "ship", previousStage: whole.stage });
+  const reread = getNextDecodingSupportStep({ word: "ship", previousStage: sounds.stage });
+  const restart = getNextDecodingSupportStep({ word: "ship", previousStage: reread.stage });
+
+  assert.equal(whole.stage, DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO);
+  assert.equal(sounds.stage, DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES);
+  assert.deepEqual(sounds.segments, ["sh", "i", "p"]);
+  assert.equal(sounds.hasCompletePhonemeAudio, true);
+  assert.equal(sounds.phonemeAudioPaths.length, 3);
+  assert.ok(sounds.phonemeAudioPaths.every(path => path.startsWith("/audio/")));
+  assert.equal(reread.stage, DECODING_SUPPORT_STAGES.REREAD_PROMPT);
+  assert.equal(restart.stage, DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO);
+});
+
+test("a single-sound word skips redundant segmentation and reaches reread", () => {
+  const whole = getNextDecodingSupportStep({ word: "a" });
+  const reread = getNextDecodingSupportStep({ word: "a", previousStage: whole.stage });
+
+  assert.equal(whole.stage, DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO);
+  assert.equal(reread.stage, DECODING_SUPPORT_STAGES.REREAD_PROMPT);
+});
+
+test("support events normalize, de-duplicate by identity, and retain the newest 300", () => {
+  const first = createDecodingSupportEvent({
+    eventId: "support-1",
+    stage: DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO,
+    word: "night",
+    wordIndex: 2,
+    pageNumber: 1,
+    occurredAt: "2026-07-24T10:00:00.000Z",
+    segments: ["n", "igh", "t"],
+    audioAvailable: true
+  });
+  const replaced = { ...first, occurredAt: "2026-07-24T10:01:00.000Z" };
+  const deduped = appendDecodingSupportEvent([first], replaced);
+
+  assert.equal(deduped.length, 1);
+  assert.equal(deduped[0].occurredAt, "2026-07-24T10:01:00.000Z");
+  assert.equal(deduped[0].stageLabel, "Whole-word audio");
+
+  const many = Array.from({ length: 305 }, (_, index) => ({
+    ...first,
+    eventId: `support-${index + 1}`
+  }));
+  const capped = appendDecodingSupportEvent(many, {
+    ...first,
+    eventId: "support-final",
+    stage: DECODING_SUPPORT_STAGES.REREAD_PROMPT
+  });
+  assert.equal(capped.length, 300);
+  assert.equal(capped.at(-1).eventId, "support-final");
+});
+
+test("invalid events are rejected and instructional copy never cues guessing", () => {
+  assert.equal(normalizeDecodingSupportEvent({ stage: "picture_hint", word: "ship" }), null);
+
+  const steps = [
+    getNextDecodingSupportStep({ word: "night" }),
+    getNextDecodingSupportStep({ word: "night", previousStage: DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO }),
+    getNextDecodingSupportStep({ word: "night", previousStage: DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES })
+  ];
+  const copy = steps.map(step => step.message).join(" ").toLowerCase();
+  assert.doesNotMatch(copy, /picture|context|guess|illustration/);
+  assert.match(copy, /letters and sounds/);
+});

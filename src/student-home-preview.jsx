@@ -10,16 +10,103 @@ import "./styles/sage-subpages.css";
 import "./styles/sage-soft.generated.css";
 import "./styles/sage-form.css";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
-import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
+import {
+  COMPANIONS,
+  loadStudentProfile,
+  saveStudentProfile,
+  setCompanion
+} from "./utils/studentProfile.js";
+import { localProgressStorageKey } from "./utils/progressKeys.js";
+import { markMissionDone } from "./utils/dailyMission.js";
 
 const PREVIEW_SCOPE = "student-home-preview";
-const noOp = () => {};
+const PREVIEW_SCENARIO = new URLSearchParams(window.location.search).get("scenario");
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 
+if (PREVIEW_SCENARIO === "reduced-choice") {
+  saveStudentProfile(PREVIEW_SCOPE, {
+    ...loadStudentProfile(PREVIEW_SCOPE),
+    reducedChoiceMode: true,
+    reducedChoiceModeAt: "2026-07-24T13:30:00.000Z",
+    reducedChoiceModeBy: "teacher-preview"
+  });
+}
+
+if (PREVIEW_SCENARIO === "continuation") {
+  const now = new Date();
+  const day = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("-");
+  window.localStorage.setItem(
+    localProgressStorageKey("daily_mission", PREVIEW_SCOPE),
+    JSON.stringify({
+      day,
+      done: { quest: true, book: true, game: true },
+      streak: 1,
+      lastCompletedDay: day,
+      shieldWeek: "",
+      celebratedDay: day,
+      celebratedSteps: ["quest", "book", "game"]
+    })
+  );
+  window.localStorage.setItem(
+    localProgressStorageKey("phonics_quest", PREVIEW_SCOPE),
+    JSON.stringify({
+      trail: {
+        stopsDone: Array.from({ length: 38 }, (_, index) => `s${index + 1}`)
+      }
+    })
+  );
+}
+
+if (PREVIEW_SCENARIO === "card-states") {
+  window.localStorage.setItem(
+    localProgressStorageKey("phonics_quest", PREVIEW_SCOPE),
+    JSON.stringify({
+      assignment: {
+        targets: ["m", "s"],
+        note: "Teacher practice"
+      },
+      trail: {
+        stopsDone: Array.from({ length: 38 }, (_, index) => `s${index + 1}`)
+      }
+    })
+  );
+  window.localStorage.setItem(
+    localProgressStorageKey("el_quest", PREVIEW_SCOPE),
+    JSON.stringify({
+      cycles: {
+        cycle1: { stars: 3 },
+        cycle2: { stations: { first: true } }
+      }
+    })
+  );
+  window.localStorage.setItem(
+    localProgressStorageKey("guided_reading", PREVIEW_SCOPE),
+    JSON.stringify({
+      book1: { completed: true },
+      book2: {
+        completedPages: 3,
+        lastReadAt: "2026-07-24T08:00:00.000Z",
+        readCount: 1
+      }
+    })
+  );
+}
+
+window.__completeStudentHomeMissionStep = kind => {
+  markMissionDone(PREVIEW_SCOPE, kind);
+};
+
 export function StudentHomePreview() {
-  function openHollow() {
-    document.documentElement.dataset.hollowOpened = "true";
+  function openDestination(destination) {
+    document.documentElement.dataset.studentDestination = destination;
+    if (destination === "my-hollow") {
+      document.documentElement.dataset.hollowOpened = "true";
+    }
   }
 
   return (
@@ -27,14 +114,14 @@ export function StudentHomePreview() {
       <StudentHomePage
         studentName="Aaron"
         progressScopeKey={PREVIEW_SCOPE}
-        onOpenPhonicsLearn={noOp}
-        onOpenArcade={noOp}
-        onOpenSkillsBlockQuest={noOp}
-        onOpenSoundSeekers={noOp}
-        onOpenStoryQuests={noOp}
-        onOpenGuidedReading={noOp}
-        onOpenRewards={openHollow}
-        onLogout={noOp}
+        onOpenPhonicsLearn={() => openDestination("phonics-learning")}
+        onOpenArcade={() => openDestination("arcade")}
+        onOpenSkillsBlockQuest={() => openDestination("adventure-map")}
+        onOpenSoundSeekers={() => openDestination("sound-seekers")}
+        onOpenStoryQuests={() => openDestination("story-quests")}
+        onOpenGuidedReading={() => openDestination("reading-library")}
+        onOpenRewards={() => openDestination("my-hollow")}
+        onLogout={() => openDestination("logout")}
       />
     </div>
   );

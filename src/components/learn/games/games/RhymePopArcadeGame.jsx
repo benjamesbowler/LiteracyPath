@@ -121,7 +121,7 @@ function drawHud(ctx, state, config, w, h) {
   const rightW = Math.min(330, w * 0.42);
   panel(ctx, w - rightW - 16, 14, rightW, 62, "rgba(7,10,24,.74)", "rgba(255,255,255,.24)");
   text(ctx, `${state.score} pts`, w - rightW + 12, 36, 21, "#fff");
-  text(ctx, `Level ${state.stage + 1}/10`, w - 28, 36, 18, config.accent2, "right");
+  text(ctx, `Level ${state.stage + 1} of 10`, w - 28, 36, 18, config.accent2, "right");
   text(ctx, `Combo x${Math.max(1, state.combo)}`, w - 28, 61, 14, "#ffeaa0", "right", 800);
 
   const progressX = 22;

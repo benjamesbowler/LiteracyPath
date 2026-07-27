@@ -1,8 +1,8 @@
 import crypto from "node:crypto";
-import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 import { getSkillBankItems } from "../src/content/skillMedia/skillAssetRegistry.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -120,7 +120,7 @@ function write(filePath, content) {
   fs.writeFileSync(filePath, content);
 }
 
-function analyzeImageColors(publicPaths = []) {
+async function analyzeImageColors(publicPaths = []) {
   const candidates = publicPaths
     .filter(assetPath => /\.(webp|png|jpe?g)$/i.test(assetPath))
     .map(assetPath => ({
@@ -131,55 +131,64 @@ function analyzeImageColors(publicPaths = []) {
 
   if (!candidates.length) return [];
 
-  const python = `
-import colorsys, json, sys
-from PIL import Image
+  const analyzeCandidate = async item => {
+    try {
+      const { data, info } = await sharp(item.filePath)
+        .resize({ width: 96, height: 96, fit: "inside", withoutEnlargement: true })
+        .removeAlpha()
+        .raw()
+        .toBuffer({ resolveWithObject: true });
+      let total = 0;
+      let saturated = 0;
+      let bright = 0;
+      const hueBuckets = new Set();
+      for (let offset = 0; offset < data.length; offset += info.channels) {
+        const red = data[offset];
+        const green = data[offset + 1];
+        const blue = data[offset + 2];
+        if (red > 238 && green > 238 && blue > 238) continue;
+        if (red < 35 && green < 35 && blue < 35) continue;
+        const redUnit = red / 255;
+        const greenUnit = green / 255;
+        const blueUnit = blue / 255;
+        const value = Math.max(redUnit, greenUnit, blueUnit);
+        const minimum = Math.min(redUnit, greenUnit, blueUnit);
+        const delta = value - minimum;
+        const saturation = value === 0 ? 0 : delta / value;
+        let hue = 0;
+        if (delta !== 0) {
+          if (value === redUnit) hue = ((greenUnit - blueUnit) / delta) % 6;
+          else if (value === greenUnit) hue = ((blueUnit - redUnit) / delta) + 2;
+          else hue = ((redUnit - greenUnit) / delta) + 4;
+          hue = ((hue * 60) + 360) % 360;
+        }
+        total += 1;
+        if (saturation > 0.55 && value > 0.45) {
+          saturated += 1;
+          hueBuckets.add(Math.floor(hue / 30));
+        }
+        if (saturation > 0.65 && value > 0.70) bright += 1;
+      }
+      return total
+        ? {
+          publicPath: item.publicPath,
+          samplePixels: total,
+          saturatedRatio: Number((saturated / total).toFixed(3)),
+          brightRatio: Number((bright / total).toFixed(3)),
+          hueBuckets: hueBuckets.size
+        }
+        : null;
+    } catch (error) {
+      return { publicPath: item.publicPath, error: error.message };
+    }
+  };
 
-items = json.load(sys.stdin)
-rows = []
-for item in items:
-    try:
-        img = Image.open(item["filePath"]).convert("RGB")
-        img.thumbnail((96, 96))
-        total = 0
-        saturated = 0
-        bright = 0
-        hue_buckets = set()
-        for r, g, b in img.getdata():
-            # Ignore white/near-white backgrounds and dark outline pixels.
-            if r > 238 and g > 238 and b > 238:
-                continue
-            if r < 35 and g < 35 and b < 35:
-                continue
-            h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
-            total += 1
-            if s > 0.55 and v > 0.45:
-                saturated += 1
-                hue_buckets.add(int(h * 12))
-            if s > 0.65 and v > 0.70:
-                bright += 1
-        if total:
-            rows.append({
-                "publicPath": item["publicPath"],
-                "samplePixels": total,
-                "saturatedRatio": round(saturated / total, 3),
-                "brightRatio": round(bright / total, 3),
-                "hueBuckets": len(hue_buckets),
-            })
-    except Exception as exc:
-        rows.append({"publicPath": item["publicPath"], "error": str(exc)})
-print(json.dumps(rows))
-`;
-
-  try {
-    return JSON.parse(execFileSync("python3", ["-c", python], {
-      input: JSON.stringify(candidates),
-      encoding: "utf8",
-      maxBuffer: 10 * 1024 * 1024
-    }));
-  } catch {
-    return [];
+  const rows = [];
+  for (let index = 0; index < candidates.length; index += 16) {
+    const batch = await Promise.all(candidates.slice(index, index + 16).map(analyzeCandidate));
+    rows.push(...batch.filter(Boolean));
   }
+  return rows;
 }
 
 const imageFiles = scanRoots.flatMap(walk);
@@ -267,7 +276,7 @@ const publicRainbowRows = imageFiles
     "Filename/path suggests rainbow or overly colorful asset."
   ]);
 const activeUniqueImagePaths = [...new Set(activeImageRows.map(row => row.imagePath).filter(Boolean))];
-const colorAnalysisRows = analyzeImageColors(activeUniqueImagePaths);
+const colorAnalysisRows = await analyzeImageColors(activeUniqueImagePaths);
 const saturatedReviewRows = colorAnalysisRows
   .filter(row =>
     !row.error &&

@@ -15,6 +15,7 @@ node_modules
 .cache/
 playwright-report/
 test-results/
+docs/release/artifacts/
 dist
 dist-quest-offline
 dist-ssr
@@ -54,8 +55,11 @@ LP Assets/
 /_DELETE_ME_*/
 .vercel
 
-# Guided-reading image factory: resumable local database and generated review candidates
-.artifacts/guided-reading-image-factory/
+# Local scratch and dev artefacts. Nothing under .artifacts/ is tracked; it holds the
+# guided-reading image factory (~174MB), story-quest backups and proof sheets, and
+# whatever else a tool drops. Ignoring the whole directory so `git add -A` cannot
+# sweep it into a commit. (2026-07-26)
+.artifacts/
 
 # WIP voice-recording sources/cuts (final mp3s live in public/audio)
 docs/audio-recording/incoming/
@@ -84,8 +88,20 @@ __pycache__/
 # generated dependency-graph output (regenerate on demand)
 graphify-out/
 
+# local Supabase CLI state
+supabase/.branches/
+supabase/.temp/
+
 # local Claude tool state (skills sync churn)
 .claude/
 
 # cleanup staging bin - empty manually
 _to_delete/
+
+# Obsidian vault. The vault is rooted at the repo so its config travels with the
+# branch (added 2026-07-27). Shared: app.json (exclusion filters), core-plugins.json.
+# Not shared: workspace layout and per-person UI state.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/hotkeys.json

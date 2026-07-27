@@ -9,6 +9,12 @@ import {
   guidedReadingBooks,
   summarizeGuidedReadingRecord
 } from "./guidedReadingBooks.js";
+import {
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_POLICY_VERSION,
+  LEARNING_STATUS_IDS,
+  rawLearningStatus
+} from "../policy/learningPolicy.js";
 
 const DEFAULT_REPORT_SECTIONS = {
   skills: true,
@@ -73,16 +79,21 @@ function getClassName(classId, classes = [], fallback = "") {
 
 function getStatusClass(accuracy, attempts = 0) {
   if (!attempts) return "not_assessed";
-  if (accuracy >= 80) return "mastered";
-  if (accuracy >= 60) return "developing";
+  if (attempts < LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses) {
+    return "not_enough_evidence";
+  }
+  const status = rawLearningStatus(accuracy);
+  if (status === LEARNING_STATUS_IDS.SECURE) return "mastered";
+  if (status === LEARNING_STATUS_IDS.DEVELOPING) return "developing";
   return "needs_support";
 }
 
 function statusLabel(status) {
-  if (status === "mastered") return "Mastered";
+  if (status === "mastered") return "Secure";
   if (status === "developing") return "Developing";
   if (status === "needs_support") return "Needs Support";
-  return "Not Yet Assessed";
+  if (status === "not_enough_evidence") return "Not enough evidence";
+  return "Not checked";
 }
 
 function inferShortVowelKey(record = {}) {
@@ -239,6 +250,7 @@ function aggregateAttempts(records = []) {
         label: row.label,
         status,
         statusLabel: statusLabel(status),
+        policyVersion: LEARNING_POLICY_VERSION,
         attempts: row.attempts,
         correct: row.correct,
         incorrect: row.incorrect,
@@ -260,6 +272,7 @@ function aggregateAttempts(records = []) {
       totalQuestions: section.totalQuestions,
       correctCount: section.correctCount,
       accuracy,
+      policyVersion: LEARNING_POLICY_VERSION,
       masteredItems: itemRows.filter(row => row.status === "mastered"),
       developingItems: itemRows.filter(row => row.status === "developing"),
       needsSupportItems: itemRows.filter(row => row.status === "needs_support"),

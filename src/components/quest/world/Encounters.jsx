@@ -197,7 +197,15 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
 // it before the clock runs out. A timeout is a real miss (hesitation is the
 // thing being measured), said kindly: the cue replays and the clock re-arms.
 // The correction ladder applies exactly as everywhere else.
-export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
+export function TrailRun({
+  beat,
+  isSoundEnabled,
+  onBeat,
+  onDone,
+  index,
+  total,
+  extendedResponse = false
+}) {
   const [done, mark] = useOnce(beat);
   const [picked, setPicked] = useState(null);
   const [lap, setLap] = useState(0);
@@ -216,7 +224,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
   // taught, and re-arms fresh after either — hesitation is what it measures,
   // not the time the game itself spends talking.
   useEffect(() => {
-    if (done || teaching || picked) return undefined;
+    if (extendedResponse || done || teaching || picked) return undefined;
     const timer = window.setTimeout(() => {
       if (isSoundEnabled) playSoftBuzz();
       // A timeout is HESITATION, not a wrong answer: tagged so mastery logs
@@ -227,7 +235,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
       setLap(l => l + 1);
     }, seconds * 1000);
     return () => window.clearTimeout(timer);
-  }, [lap, done, teaching, picked, beat, seconds, isSoundEnabled]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [lap, done, teaching, picked, beat, seconds, isSoundEnabled, extendedResponse]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function dash(g) {
     if (picked || done || teaching) return;
@@ -247,9 +255,11 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
 
   return (
     <div className="qw-enc qw-run">
-      <p className="qw-say">Quick — take the fork that says it!</p>
+      <p className="qw-say">
+        {extendedResponse ? "No timer — choose a fork." : "Quick — choose a fork!"}
+      </p>
       <Listen onClick={() => playLetterBeatCue(beat, isSoundEnabled)} disabled={!hasLetterBeatCue(beat)} />
-      {!done && !teaching && (
+      {!extendedResponse && !done && !teaching && (
         <span className="qw-run-clock" aria-hidden="true">
           <span key={`${lap}-${beat.target}-${index}`} className="qw-run-sand" style={{ animationDuration: `${seconds}s` }} />
         </span>
@@ -258,6 +268,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
         {showing.map(g => {
           const on = picked?.g === g;
           const reveal = teaching && g === beat.answer;
+          const label = displayGrapheme(g);
           return (
             <button
               key={g}
@@ -265,13 +276,9 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
               className={`qw-runsign${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal ? " is-reveal" : ""}`}
               disabled={Boolean(picked) || teaching}
               onClick={() => dash(g)}
-              aria-label={`Take the trail fork marked ${displayGrapheme(g)}`}
+              aria-label={`Take the trail fork marked ${label}`}
             >
-              <svg viewBox="0 0 96 110" aria-hidden="true">
-                <path d="M46,104 L46,44" stroke="var(--q-deep)" strokeWidth="8" strokeLinecap="round" fill="none" />
-                <path d="M14,14 L70,14 L86,31 L70,48 L14,48 Z" fill="var(--q-accent)" stroke="var(--q-deep)" strokeWidth="3" strokeLinejoin="round" />
-                <text x="44" y="41" textAnchor="middle" fontSize="30" fontWeight="800" fill={CREATURE_INK}>{displayGrapheme(g)}</text>
-              </svg>
+              <span className="qw-runsign-board" aria-hidden="true">{label}</span>
             </button>
           );
         })}

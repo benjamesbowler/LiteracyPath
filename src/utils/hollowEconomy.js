@@ -82,7 +82,7 @@ export const GEAR = [
 ];
 
 export const HOLLOW_ITEMS = [
-  { id: "hollow-glow-jar", name: "Glow jar", price: 30 },
+  { id: "hollow-glow-jar", name: "Glow jar", price: 20 },
   { id: "hollow-mushroom-stool", name: "Mushroom stool", price: 35 },
   { id: "hollow-moon-lantern", name: "Moon lantern", price: 40 },
   { id: "hollow-moss-rug", name: "Moss rug", price: 45 },

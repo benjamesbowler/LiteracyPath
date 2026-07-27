@@ -307,7 +307,7 @@ export function getInitialSoundRoundPlan({
     const remaining = uncoveredLetters;
     const reviewNeeded = Math.max(0, INITIAL_SOUND_ROUND_LENGTH - remaining.length);
     reviewSelected = reviewLetters.slice(0, reviewNeeded);
-    selectedLetters = [...remaining, ...reviewSelected];
+    selectedLetters = [...remaining, ...reviewSelected].slice(0, INITIAL_SOUND_ROUND_LENGTH);
   } else {
     const weak = weakLetters.slice(0, INITIAL_SOUND_ROUND_LENGTH);
     const unusedReview = prioritizedLetters

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T05:12:41.833Z",
+  "startedAt": "2026-07-24T05:11:41.548Z",
+  "finishedAt": "2026-07-24T05:12:41.833Z",
+  "commitSha": "e322df2eb63de3c4c35c8e009b9f6597ecd62f9d",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 20682,
+      "startedAt": "2026-07-24T05:11:41.620Z",
+      "finishedAt": "2026-07-24T05:12:02.302Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T05-11-41-548Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5722,
+      "startedAt": "2026-07-24T05:12:02.302Z",
+      "finishedAt": "2026-07-24T05:12:08.024Z",
+      "counts": {
+        "tests": 1089,
+        "passed": 1089,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T05-11-41-548Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 15142,
+      "startedAt": "2026-07-24T05:12:08.024Z",
+      "finishedAt": "2026-07-24T05:12:23.166Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T05-11-41-548Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "el-assessment-completion-device-matrix",
+      "label": "Reachable 8-item EL completion, placement, and finish controls across laptop and iPad viewports",
+      "areas": [
+        3,
+        4,
+        6,
+        10
+      ],
+      "command": "npm run check:el-assessment-completion-device-matrix",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 17587,
+      "startedAt": "2026-07-24T05:12:23.166Z",
+      "finishedAt": "2026-07-24T05:12:40.753Z",
+      "counts": {
+        "tests": 44,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T05-11-41-548Z/el-assessment-completion-device-matrix.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "el-assessment-item-copy",
+      "label": "Exact teacher directives and jargon-free EL assessment item headers",
+      "areas": [
+        4,
+        6,
+        10
+      ],
+      "command": "npm run check:el-assessment-item-copy",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 694,
+      "startedAt": "2026-07-24T05:12:40.753Z",
+      "finishedAt": "2026-07-24T05:12:41.447Z",
+      "counts": {
+        "tests": 44,
+        "passed": 44,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T05-11-41-548Z/el-assessment-item-copy.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "bundle-size",
+      "label": "Enforced bundle budgets",
+      "areas": [
+        9,
+        10
+      ],
+      "command": "npm run check:bundle-size",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 386,
+      "startedAt": "2026-07-24T05:12:41.447Z",
+      "finishedAt": "2026-07-24T05:12:41.833Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T05-11-41-548Z/bundle-size.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

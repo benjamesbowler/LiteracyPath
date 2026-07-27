@@ -14,6 +14,7 @@
 
 import { getMasteryRule } from "../masterySystem.js";
 import { formatItemLabel } from "../data/reportingSystem.js";
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 
 export const SOUND_LEVEL1_ITEM_TYPES = ["initial_sound", "rhyming_family", "short_vowel"];
 export const SOUND_LEVEL2_ITEM_TYPES = ["final_sound", "letter_sound", "phonics_pattern", "letter_name"];
@@ -21,9 +22,10 @@ export const SOUND_LEVEL2_ITEM_TYPES = ["final_sound", "letter_sound", "phonics_
 export const RETAKE_HINT_TEXT = "Retested today - consider waiting before another retake.";
 
 export const REPORT_STATUS_LEGEND =
-  "Mastered = passed this skill's checkpoint (see the Pass rule on each card). " +
-  "On Track = recent accuracy of 80% or higher without a checkpoint pass yet. " +
-  "Developing = 60-79%. Needs Support = below 60%.";
+  "Secure = current evidence meets the published accuracy and evidence policy. " +
+  `Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}-${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%. ` +
+  `Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%. ` +
+  `Not enough evidence = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses, or evidence outside the recency window.`;
 
 function clampPercent(value) {
   const numeric = Number(value);

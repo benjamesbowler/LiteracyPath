@@ -2,6 +2,7 @@ import {
   findAssessmentMediaCandidates,
   getAssessmentMediaByPath,
   isAssessmentMediaApproved,
+  isAssessmentMediaVariationSkill,
   isEarlyAssessmentMediaSkill,
   normalizeAssessmentMediaWord,
   normalizeAssessmentSkillId
@@ -19,6 +20,7 @@ import {
   isMediaPairingQuarantined
 } from "./mediaQaReviewStatus.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
+import { getAssessmentQuestionContentKey } from "./assessmentRoundSelector.js";
 
 function answerValue(value) {
   if (Array.isArray(value)) return value[0] || "";
@@ -74,23 +76,17 @@ function getQuestionPromptKey(question = {}) {
 }
 
 export function getQuestionMediaContentKey(question = {}) {
-  const skillId = normalizeAssessmentSkillId(question.skillId || question.skill || question.skillName || "");
-  const prompt = String(question.prompt || question.question || question.spokenPrompt || "")
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .trim();
-  const target = inferAssessmentQuestionTargetWord(question);
-  const answer = normalizeAssessmentMediaWord(answerValue(question.correctAnswer || question.answer || question.correctAnswers));
-  const template = String(question.templateType || question.formatType || question.questionType || "")
-    .toLowerCase()
-    .replace(/\s+/g, "_");
-  return [skillId, template, target, prompt, answer].filter(Boolean).join("::");
+  return getAssessmentQuestionContentKey(question);
 }
 
 export function inferAssessmentQuestionTargetWord(question = {}) {
   const skillId = normalizeAssessmentSkillId(question.skillId || question.skill || question.skillName || "");
   const canUseAnswer = isEarlyAssessmentMediaSkill(skillId) && !isGraphemeChoiceQuestion(question);
+  const pairTarget = isPairSelectionMediaQuestion(question)
+    ? question.anchorWord || question.correctWords?.[0] || question.correctAnswers?.[0] || ""
+    : "";
   return normalizeAssessmentMediaWord(
+    pairTarget ||
     question.targetWord ||
     question.word ||
     question.audioText ||
@@ -106,6 +102,13 @@ function roleForQuestion(question = {}, skillId = "") {
   const normalizedSkillId = normalizeAssessmentSkillId(skillId || question.skillId || question.skill || question.skillName || "");
   if (normalizedSkillId.startsWith("hfw_")) return "hfw_scene";
   if (normalizedSkillId === "rhyming") return "rhyming_target";
+  if (normalizedSkillId === "nouns") return "noun_image";
+  if (normalizedSkillId === "verbs") return "verb_action";
+  if (normalizedSkillId === "adjectives") return "adjective_visual";
+  if (normalizedSkillId === "prepositions") return "preposition_scene";
+  if (normalizedSkillId === "plurals") return "plural_pair";
+  if (normalizedSkillId === "antonyms_synonyms") return "antonym_synonym_scene";
+  if (normalizedSkillId === "homophones_homonyms") return "homophone_context";
   return "target_object";
 }
 
@@ -166,6 +169,65 @@ function currentAudioPath(question = {}) {
   return normalizePath(question.audioPath || question.audioUrl || question.audio || "");
 }
 
+function isPairSelectionMediaQuestion(question = {}) {
+  const format = String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
+  return /(?:INITIAL|FINAL|RHYME)_SOUND_PAIR_SELECT/.test(format) ||
+    ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(String(question.questionType || "").toLowerCase());
+}
+
+function isVisualCardMediaQuestion(question = {}) {
+  const format = String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
+  return Array.isArray(question.imageCards) &&
+    question.imageCards.length > 0 &&
+    (
+      String(question.questionType || "").toLowerCase() === "visual_card_choice" ||
+      format === "RHYMING_PICTURE"
+    );
+}
+
+function mediaOptionWord(option = {}) {
+  return normalizeAssessmentMediaWord(
+    option.word ||
+    option.targetWord ||
+    option.representedWord ||
+    option.value ||
+    option.label ||
+    option.text ||
+    option.answer
+  );
+}
+
+function mediaOptionPath(option = {}, mediaType = "image") {
+  if (mediaType === "audio") {
+    return normalizePath(option.audioPath || option.audioUrl || option.audio || "");
+  }
+  return normalizePath(option.imagePath || option.imageUrl || option.image || "");
+}
+
+function validateExactOptionMedia(option = {}, { requireImage = false, requireAudio = false } = {}) {
+  const issues = [];
+  const word = mediaOptionWord(option);
+  const imagePath = mediaOptionPath(option, "image");
+  const audioPath = mediaOptionPath(option, "audio");
+  const label = word || "(missing word)";
+  if (!word) issues.push("media option is missing its represented word");
+  if (requireImage && !imagePath) issues.push(`media option "${label}" is missing image media`);
+  if (requireAudio && !audioPath) issues.push(`media option "${label}" is missing audio media`);
+  if (word && imagePath) {
+    const imageRecord = getAssessmentMediaByPath(imagePath, "image");
+    if (!imageRecord?.available || imageRecord.normalizedWord !== word) {
+      issues.push(`media option "${label}" image is not approved exact-target media: ${imagePath}`);
+    }
+  }
+  if (word && audioPath) {
+    const audioRecord = getAssessmentMediaByPath(audioPath, "audio");
+    if (!audioRecord?.available || audioRecord.audioType !== "whole_word" || audioRecord.normalizedWord !== word) {
+      issues.push(`media option "${label}" audio is not approved whole-word exact-target media: ${audioPath}`);
+    }
+  }
+  return issues;
+}
+
 function isHfwSentenceQuestion(question = {}, skillId = "") {
   const normalizedSkillId = normalizeAssessmentSkillId(skillId || question.skillId || question.skill || question.skillName || "");
   const format = String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
@@ -190,7 +252,7 @@ function markUsed(usage, question = {}, resolved = {}) {
 
 export function resolveQuestionMediaDynamically(question = {}, context = {}) {
   const skillId = normalizeAssessmentSkillId(context.skillId || question.skillId || question.skill || question.skillName || "");
-  if (!isEarlyAssessmentMediaSkill(skillId)) return question;
+  if (!isAssessmentMediaVariationSkill(skillId)) return question;
 
   const targetWord = inferAssessmentQuestionTargetWord(question);
   if (!targetWord) return question;
@@ -203,6 +265,31 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
   const resolvedMedia = { image: null, audio: null, warnings: [] };
   const out = { ...question, skillId: question.skillId || skillId, targetWord: question.targetWord || targetWord };
   const questionId = out.approvedQuestionId || out.questionId || out.id || "";
+
+  if (isPairSelectionMediaQuestion(out)) {
+    const instructionAudioPath = currentAudioPath(out);
+    const instructionAudioRecord = instructionAudioPath
+      ? getAssessmentMediaByPath(instructionAudioPath, "audio")
+      : null;
+    markUsed(sessionUsage, out, resolvedMedia);
+    return {
+      ...out,
+      assessmentMediaResolved: true,
+      assessmentMediaResolution: {
+        targetWord,
+        skillId,
+        imageRole: "option_card",
+        requiredAudioType: "instruction",
+        imagePath: "",
+        audioPath: instructionAudioPath,
+        imageAssetId: "",
+        audioAssetId: instructionAudioRecord?.id || "",
+        warnings: instructionAudioPath && !instructionAudioRecord?.available
+          ? [`instruction_audio_not_registry_approved:${instructionAudioPath}`]
+          : []
+      }
+    };
+  }
 
   if (isHfwSentenceQuestion(out, skillId)) {
     const existingImage = currentImagePath(out);
@@ -359,6 +446,21 @@ export function validateResolvedQuestionMedia(question = {}, resolvedMedia = que
   const audioPath = resolvedMedia.audioPath || currentAudioPath(question);
   const imageRecord = imagePath ? getAssessmentMediaByPath(imagePath, "image") : null;
   const audioRecord = audioPath ? getAssessmentMediaByPath(audioPath, "audio") : null;
+  if (isPairSelectionMediaQuestion(question)) {
+    const instructionAudioRecord = audioPath ? getAssessmentMediaByPath(audioPath, "audio") : null;
+    if (audioPath && !instructionAudioRecord?.available) {
+      issues.push(`instruction audio is not approved media: ${audioPath}`);
+    }
+    for (const option of question.imageCards || []) {
+      issues.push(...validateExactOptionMedia(option, { requireImage: true, requireAudio: true }));
+    }
+    return issues;
+  }
+  if (isVisualCardMediaQuestion(question)) {
+    for (const option of question.imageCards || []) {
+      issues.push(...validateExactOptionMedia(option, { requireImage: true }));
+    }
+  }
   if (isHfwSentenceQuestion(question, skillId)) {
     const policy = String(question.imagePolicy || question.hfwImagePolicy || "").trim();
     if (imagePath && !isHfwQuestionImagePairApproved(question, imagePath)) {

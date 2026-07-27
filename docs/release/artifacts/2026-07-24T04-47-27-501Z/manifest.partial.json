@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T04:48:27.612Z",
+  "startedAt": "2026-07-24T04:47:27.501Z",
+  "finishedAt": "2026-07-24T04:48:27.612Z",
+  "commitSha": "96be1f64a03e4ef9e644ade475287258815a2202",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 20113,
+      "startedAt": "2026-07-24T04:47:27.562Z",
+      "finishedAt": "2026-07-24T04:47:47.675Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T04-47-27-501Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 5416,
+      "startedAt": "2026-07-24T04:47:47.675Z",
+      "finishedAt": "2026-07-24T04:47:53.091Z",
+      "counts": {
+        "tests": 1084,
+        "passed": 1084,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T04-47-27-501Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 15428,
+      "startedAt": "2026-07-24T04:47:53.091Z",
+      "finishedAt": "2026-07-24T04:48:08.519Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T04-47-27-501Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "audit-school-live",
+      "label": "Audit school Auth, fixtures, and RLS isolation",
+      "areas": [
+        6,
+        8,
+        10
+      ],
+      "command": "npm run check:audit-school-live",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 458,
+      "startedAt": "2026-07-24T04:48:08.519Z",
+      "finishedAt": "2026-07-24T04:48:08.977Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T04-47-27-501Z/audit-school-live.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "el-assessment-completion-device-matrix",
+      "label": "Reachable 8-item EL completion, placement, and finish controls across laptop and iPad viewports",
+      "areas": [
+        3,
+        4,
+        6,
+        10
+      ],
+      "command": "npm run check:el-assessment-completion-device-matrix",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 18214,
+      "startedAt": "2026-07-24T04:48:08.977Z",
+      "finishedAt": "2026-07-24T04:48:27.191Z",
+      "counts": {
+        "tests": 42,
+        "passed": 1,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T04-47-27-501Z/el-assessment-completion-device-matrix.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "bundle-size",
+      "label": "Enforced bundle budgets",
+      "areas": [
+        9,
+        10
+      ],
+      "command": "npm run check:bundle-size",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 421,
+      "startedAt": "2026-07-24T04:48:27.191Z",
+      "finishedAt": "2026-07-24T04:48:27.612Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T04-47-27-501Z/bundle-size.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-24T09:49:37.750Z",
+  "startedAt": "2026-07-24T09:48:40.374Z",
+  "finishedAt": "2026-07-24T09:49:37.750Z",
+  "commitSha": "09236bcb988971272425da6311a6177bae7e9a57",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21488,
+      "startedAt": "2026-07-24T09:48:40.441Z",
+      "finishedAt": "2026-07-24T09:49:01.929Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T09-48-40-374Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 6798,
+      "startedAt": "2026-07-24T09:49:01.929Z",
+      "finishedAt": "2026-07-24T09:49:08.727Z",
+      "counts": {
+        "tests": 1115,
+        "passed": 1115,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T09-48-40-374Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 17065,
+      "startedAt": "2026-07-24T09:49:08.727Z",
+      "finishedAt": "2026-07-24T09:49:25.792Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-24T09-48-40-374Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "smoke",
+      "label": "Reachable-product smoke tests",
+      "areas": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "command": "npm run test:smoke",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 11958,
+      "startedAt": "2026-07-24T09:49:25.792Z",
+      "finishedAt": "2026-07-24T09:49:37.750Z",
+      "counts": {
+        "passed": 12
+      },
+      "logPath": "docs/release/artifacts/2026-07-24T09-48-40-374Z/smoke.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "partial": true,
+  "generatedAt": "2026-07-25T08:13:59.768Z",
+  "startedAt": "2026-07-25T08:12:21.575Z",
+  "finishedAt": "2026-07-25T08:13:59.768Z",
+  "commitSha": "ffce41e3e5444ff2931edaa22d0c9ac177eb3a23",
+  "branch": "comic-redesign-audit-fixes",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "notImplemented": 0,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "id": "lint",
+      "label": "Lint with zero warnings",
+      "areas": [
+        4,
+        10
+      ],
+      "command": "npm run lint -- --max-warnings=0",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 21454,
+      "startedAt": "2026-07-25T08:12:21.647Z",
+      "finishedAt": "2026-07-25T08:12:43.101Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T08-12-21-575Z/lint.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "unit-tests",
+      "label": "Full unit suite",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm test",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 7124,
+      "startedAt": "2026-07-25T08:12:43.101Z",
+      "finishedAt": "2026-07-25T08:12:50.225Z",
+      "counts": {
+        "tests": 1268,
+        "passed": 1268,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T08-12-21-575Z/unit-tests.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "build",
+      "label": "Production build",
+      "areas": [
+        3,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run build",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 18978,
+      "startedAt": "2026-07-25T08:12:50.225Z",
+      "finishedAt": "2026-07-25T08:13:09.203Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T08-12-21-575Z/build.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "domain-boundaries",
+      "label": "Runtime-validated auth, class, evidence, report, and content backend boundaries",
+      "areas": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "command": "npm run check:domain-boundaries",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 935,
+      "startedAt": "2026-07-25T08:13:09.203Z",
+      "finishedAt": "2026-07-25T08:13:10.138Z",
+      "counts": {
+        "tests": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T08-12-21-575Z/domain-boundaries.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "bundle-size",
+      "label": "Enforced bundle budgets",
+      "areas": [
+        9,
+        10
+      ],
+      "command": "npm run check:bundle-size",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 358,
+      "startedAt": "2026-07-25T08:13:10.138Z",
+      "finishedAt": "2026-07-25T08:13:10.496Z",
+      "counts": {},
+      "logPath": "docs/release/artifacts/2026-07-25T08-12-21-575Z/bundle-size.log",
+      "outputTail": "",
+      "reason": null
+    },
+    {
+      "id": "external-program-readiness",
+      "label": "Manual accessibility and recurring observation programmes ready for human execution",
+      "areas": [
+        1,
+        2,
+        3,
+        10
+      ],
+      "command": "npm run check:external-program-readiness",
+      "status": "pass",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 49272,
+      "startedAt": "2026-07-25T08:13:10.496Z",
+      "finishedAt": "2026-07-25T08:13:59.768Z",
+      "counts": {
+        "tests": 4,
+        "passed": 4,
+        "failed": 0
+      },
+      "logPath": "docs/release/artifacts/2026-07-25T08-12-21-575Z/external-program-readiness.log",
+      "outputTail": "",
+      "reason": null
+    }
+  ]
+}
