@@ -1,24 +1,39 @@
 import { APP_VIEWS } from "./appViews.js";
+import { STUDENT_REPORT_VIEWS } from "../components/reports/studentReportUiUtils.js";
 
+// ── ONE HASH PER TEACHER SECTION ────────────────────────────────────────────
+//
+// Six sections, six paths. The older names below still resolve because they are
+// sitting in teachers' bookmarks and in saved sessions; each one lands on the
+// section that inherited its job rather than on a dead route.
 const TEACHER_PATH_VIEWS = Object.freeze({
   dashboard: APP_VIEWS.TEACHER_DASHBOARD,
-  children: APP_VIEWS.TEACHER_CLASSES,
-  checks: APP_VIEWS.TEACHER_CLASSES,
-  reports: APP_VIEWS.TEACHER_PROGRESS,
-  "reports/class": APP_VIEWS.REPORTS,
-  resources: APP_VIEWS.TEACHER_RESOURCES,
-  settings: APP_VIEWS.TEACHER_SETTINGS,
   today: APP_VIEWS.TEACHER_DASHBOARD,
+  children: APP_VIEWS.TEACHER_CLASSES,
   classes: APP_VIEWS.TEACHER_CLASSES,
-  assess: APP_VIEWS.TEACHER_CLASSES,
-  progress: APP_VIEWS.TEACHER_PROGRESS
+  assessments: APP_VIEWS.ASSESSMENTS,
+  // Legacy: both of these used to dump the teacher on the roster.
+  checks: APP_VIEWS.ASSESSMENTS,
+  assess: APP_VIEWS.ASSESSMENTS,
+  reports: APP_VIEWS.REPORTS,
+  // Legacy: the class report and the report picker are steps in one funnel now.
+  "reports/class": APP_VIEWS.REPORTS,
+  progress: APP_VIEWS.REPORTS,
+  resources: APP_VIEWS.TEACHER_RESOURCES,
+  settings: APP_VIEWS.TEACHER_SETTINGS
 });
-const TEACHER_REPORT_VIEWS = new Set([
-  "whole-child",
-  "el-assessments",
-  "skills-check",
-  "hfw"
-]);
+
+// Deep links must round-trip EVERY report style the report page can show.
+//
+// This was a hand-kept list of four while the report page offered six, so
+// `guided-reading` and `other-learning` were silently rewritten to `whole-child`
+// on reload: the teacher opened a link to the guided reading report and got the
+// overview with no explanation. Deriving it from the one list of styles means a
+// seventh style cannot reintroduce the bug.
+const TEACHER_REPORT_VIEWS = new Set(STUDENT_REPORT_VIEWS.map(view => view.id));
+
+// Sections that are about a whole class, so a learner in the URL is noise.
+const CLASS_ONLY_INTENTS = ["today", "dashboard", "settings", "reports/class"];
 
 function parseTeacherRouteHash(hash = "") {
   const normalized = String(hash || "").replace(/^#/, "");
@@ -48,10 +63,10 @@ function parseTeacherRouteHash(hash = "") {
   return {
     appView,
     classId: params.get("class") || "",
-    groupId: ["today", "dashboard", "settings", "reports/class"].includes(intent)
+    groupId: CLASS_ONLY_INTENTS.includes(intent)
       ? "all"
       : params.get("group") || "all",
-    learnerId: ["today", "dashboard", "settings", "reports/class"].includes(intent)
+    learnerId: CLASS_ONLY_INTENTS.includes(intent)
       ? ""
       : params.get("learner") || "",
     reportView: ""
@@ -89,7 +104,7 @@ async function hydrateTeacherRouteContext([
     ? ownedClasses.find(classRow => classRow.id === route.classId)
     : null;
   const fallbackView = route.appView === APP_VIEWS.FINISHED
-    ? APP_VIEWS.TEACHER_PROGRESS
+    ? APP_VIEWS.REPORTS
     : route.appView;
   const clearLearner = () => {
     setStudent(null, "");
@@ -98,7 +113,7 @@ async function hydrateTeacherRouteContext([
   const reject = () => {
     clearLearner();
     setView(fallbackView);
-    setMessage("That link is unavailable. Choose a class and child from Progress.");
+    setMessage("That link is unavailable. Choose a class and a student under Reports.");
     return false;
   };
 

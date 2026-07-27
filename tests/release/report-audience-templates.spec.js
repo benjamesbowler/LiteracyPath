@@ -19,7 +19,7 @@ async function logIn(page) {
 
 async function openAaravReport(page) {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   const rosterAdmin = page.locator(".teacher-roster-admin");
@@ -27,8 +27,8 @@ async function openAaravReport(page) {
     await rosterAdmin.locator(":scope > summary").click();
   }
   const aaravRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open child", exact: true }).click();
-  await page.getByRole("region", { name: "Child details: Aarav" })
+  await aaravRow.getByRole("button", { name: "Open student", exact: true }).click();
+  await page.getByRole("region", { name: "Student details: Aarav" })
     .getByRole("button", { name: "Review Aarav’s progress", exact: true })
     .click();
   const aaravReport = page.getByRole("article").filter({

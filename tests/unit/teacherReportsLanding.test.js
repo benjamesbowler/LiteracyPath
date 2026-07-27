@@ -1,3 +1,12 @@
+// Rewritten 2026-07-27.
+//
+// The class report is no longer a route. It is what the Reports funnel shows
+// when the answer to "whole class, or one student?" is the whole class, so the
+// class picker and the "back to reports" button it used to carry have gone -
+// the funnel above it already asked those questions.
+//
+// Previous note, still true about what this file is NOT testing:
+//
 // Rewritten 2026-07-26.
 //
 // This file used to test a per-student "report landing" screen that offered
@@ -51,35 +60,36 @@ const HISTORY = [{
   status: "needs_support"
 }];
 
-test("the reports route is a class report and points at the Student panel for one student", () => {
+test("the class report is the whole-class answer inside the Reports funnel", () => {
   const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
     allAssessmentHistory: HISTORY,
     classList: CLASS_LIST,
     selectedClassId: "class-a",
-    setSelectedClassId() {},
     students: STUDENTS,
     teacherName: "Ms Bell"
   }));
 
   assert.match(html, /<h2>Class report<\/h2>/);
-  // A teacher who wants one student must not hunt for them here.
-  assert.match(html, /Open one student&#x27;s report from the Student panel/);
+  // It points back up the funnel rather than at a page somewhere else.
+  assert.match(html, /Choose one student at step 2 above/);
+  // The questions the funnel already asked must not be asked twice.
+  assert.doesNotMatch(html, /Back to reports/);
+  assert.doesNotMatch(html, /<select[^>]*>\s*<option value="class-a"/);
   // The removed per-student landing must not creep back in.
   assert.doesNotMatch(html, /Open Skills check/);
   assert.doesNotMatch(html, /Results available/);
 });
 
-test("the class report exposes a class picker, a check period, and a print action", () => {
+test("the class report keeps its own check period and print action", () => {
   const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
     allAssessmentHistory: HISTORY,
     classList: CLASS_LIST,
     selectedClassId: "class-a",
-    setSelectedClassId() {},
     students: STUDENTS,
     teacherName: "Ms Bell"
   }));
 
-  assert.match(html, /<option value="class-a"[^>]*>Audit Class A<\/option>/);
+  assert.match(html, /Audit Class A/);
   assert.match(html, /Class check period/);
   assert.match(html, /<option value="last90"[^>]*>Last 90 days<\/option>/);
   assert.match(html, />Export Class PDF<\/button>/);

@@ -23,7 +23,8 @@ test("completed EL evidence accepts either durable store and returns a structure
   assert.match(source, /archiveResult\.persistence\.syncQueued/);
   assert.match(source, /ok: false,[\s\S]*durable: false/);
   assert.match(source, /ok: true,[\s\S]*durable: true/);
-  assert.match(source, /setAppView\(APP_VIEWS\.EL_ASSESSMENTS\)/);
+  // 2026-07-27: the EL hub became the Checks funnel, so finishing returns there.
+  assert.match(source, /setAppView\(APP_VIEWS\.ASSESSMENTS\)/);
 });
 
 test("a hard completion failure keeps the terminal session open for retry", () => {

@@ -84,9 +84,14 @@ export const ELBenchmarkAssessmentPage = lazyWithRetry(() =>
     default: module.ELBenchmarkAssessmentPage
   }))
 );
-export const ELAssessmentsPage = lazyWithRetry(() =>
-  import("../components/assessment/ELAssessmentsPage.jsx").then(module => ({
-    default: module.ELAssessmentsPage
+export const TeacherAssessmentsPage = lazyWithRetry(() =>
+  import("../components/TeacherAssessmentsPage.jsx").then(module => ({
+    default: module.TeacherAssessmentsPage
+  }))
+);
+export const TeacherReportsHubPage = lazyWithRetry(() =>
+  import("../components/TeacherReportsHubPage.jsx").then(module => ({
+    default: module.TeacherReportsHubPage
   }))
 );
 

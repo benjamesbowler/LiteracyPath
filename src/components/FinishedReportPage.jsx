@@ -797,7 +797,7 @@ function safeReportFilename(value = "student") {
 export function FinishedReportPage({
   buildReportHref,
   startAssessment,
-  openElAssessments,
+  openChecks,
   initialReportView = "whole-child",
   studentName,
   className = "",
@@ -814,6 +814,10 @@ export function FinishedReportPage({
   // Optional; wired in App.jsx by Benjamin (pass progressScopeKey={studentId || studentName}).
   progressScopeKey = "",
   reportStatusMessage = "",
+  // Called whenever the left rail changes which report is showing. The Reports
+  // funnel embeds this page under its own step 3, and without this the step
+  // would keep saying "Overview" after the teacher moved to Skills.
+  onReportViewChange,
   readReportRouteView = readTeacherReportRouteView,
   returnToTeacherDashboard
 }) {
@@ -1067,12 +1071,11 @@ export function FinishedReportPage({
   ]);
 
   const changeReportView = useCallback(viewId => {
-    setReportSelection({
-      contextKey: reportContextKey,
-      view: normalizeStudentReportView(viewId)
-    });
+    const nextView = normalizeStudentReportView(viewId);
+    setReportSelection({ contextKey: reportContextKey, view: nextView });
     setActionFeedback(null);
-  }, [reportContextKey]);
+    onReportViewChange?.(nextView);
+  }, [onReportViewChange, reportContextKey]);
 
   async function exportActiveReport() {
     if (benchmarkExporting) return;
@@ -1177,8 +1180,8 @@ export function FinishedReportPage({
   const elAssessments = elReport?.assessments || [];
   const assessmentAction = activeReportView === "skills-check"
     ? { label: "Start a check", handler: startAssessment }
-    : ["whole-child", "el-assessments"].includes(activeReportView) && openElAssessments
-      ? { label: "Open EL checks", handler: openElAssessments }
+    : ["whole-child", "el-assessments"].includes(activeReportView) && openChecks
+      ? { label: "Open checks", handler: openChecks }
       : null;
 
   return (

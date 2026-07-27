@@ -91,12 +91,23 @@ const TEACHER_INTENT_NAV_ITEMS = [
     icon: "student",
     views: [
       APP_VIEWS.TEACHER_CLASSES,
-      APP_VIEWS.STUDENT_HOME,
+      APP_VIEWS.STUDENT_HOME
+    ]
+  },
+  // Assessments are their own section again. They were parked under Students,
+  // which meant a running assessment lit up the Students item and the only way
+  // to start one was to find the student first. The funnel asks for the student
+  // itself, so the section can say what it is.
+  {
+    id: "assessments",
+    label: "Assessments",
+    icon: "assessment",
+    views: [
+      APP_VIEWS.ASSESSMENTS,
       APP_VIEWS.ASSESSMENT,
       APP_VIEWS.CHECKPOINT,
       APP_VIEWS.LETTERS,
       APP_VIEWS.ADVANCED_PHONICS,
-      APP_VIEWS.EL_ASSESSMENTS,
       APP_VIEWS.EL_BENCHMARK
     ]
   },
@@ -104,7 +115,7 @@ const TEACHER_INTENT_NAV_ITEMS = [
     id: "reports",
     label: "Reports",
     icon: "reports",
-    views: [APP_VIEWS.TEACHER_PROGRESS, APP_VIEWS.REPORTS, APP_VIEWS.FINISHED]
+    views: [APP_VIEWS.REPORTS, APP_VIEWS.FINISHED]
   },
   {
     id: "resources",
@@ -134,7 +145,8 @@ export function Sidebar({
   teacherEmail,
   goToTeacherDashboard,
   goToTeacherClasses,
-  goToTeacherProgress,
+  goToTeacherAssessments,
+  goToTeacherReports,
   goToTeacherResources,
   goToTeacherSettings,
   logOutTeacher,
@@ -189,7 +201,8 @@ export function Sidebar({
     switch (item.id) {
       case "dashboard":   return goToTeacherDashboard?.();
       case "children":    return goToTeacherClasses?.();
-      case "reports":     return goToTeacherProgress?.();
+      case "assessments": return goToTeacherAssessments?.();
+      case "reports":     return goToTeacherReports?.();
       case "resources":   return goToTeacherResources?.();
       case "settings":    return goToTeacherSettings?.();
       case "admin":       return openAdminDashboard?.();

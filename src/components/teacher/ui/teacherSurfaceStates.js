@@ -184,9 +184,9 @@ const SURFACE_COPY = Object.freeze({
         body: "We are loading the selected child's current results and the checks that fit."
       },
       empty: {
-        title: "Choose a child",
-        body: "Choose a child before starting a reading or progress check.",
-        primaryLabel: "Choose a child"
+        title: "Make your class first",
+        body: "A check is always saved against one class. Make a class, add your students, then come back and start a check.",
+        primaryLabel: "Make your class"
       },
       partial: {
         title: "Some earlier results are missing",

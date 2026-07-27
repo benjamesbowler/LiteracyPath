@@ -11,7 +11,11 @@ import {
 } from "../utils/teacherProgressOverview.js";
 import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
+  deleteRosterStudent,
+  describeRosterOperationError,
+  findDuplicateRosterName,
   insertRosterStudents,
+  normalizeRosterStudentName,
   setRosterStudentArchived,
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
@@ -412,6 +416,12 @@ export function TeacherStudentsPage({
   const [rosterOperation, setRosterOperation] = useState(null);
   const [operationTargetClassId, setOperationTargetClassId] = useState("");
   const [operationBusy, setOperationBusy] = useState(false);
+  // The confirm dialog covers the page banner, so a failure has to be readable
+  // inside the dialog itself. This is the state that used to not exist at all:
+  // a rejected promise left the dialog open and said nothing.
+  const [operationError, setOperationError] = useState("");
+  const [deleteConfirmName, setDeleteConfirmName] = useState("");
+  const [duplicateNameConfirm, setDuplicateNameConfirm] = useState("");
   const [rosterOperationStatus, setRosterOperationStatus] = useState("");
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [visiblePasswords, setVisiblePasswords] = useState({});
@@ -474,7 +484,9 @@ export function TeacherStudentsPage({
     setQuestionGuideSearch("");
     setShowQuestionGuide(true);
   }
-  async function handleDataRightsDeletion(learner) {
+  // Deleting a student has to clear this device too, or the child's saved work
+  // reappears from local storage the next time the app syncs.
+  async function forgetStudentOnThisDevice(learner) {
     clearLocalProgressForStudent(learner.id);
     await clearLocalElAssessmentDataForStudent({
       teacherId: learner.teacher_id || teacherId,
@@ -483,6 +495,9 @@ export function TeacherStudentsPage({
     });
     setStudentList?.(previous => previous.filter(row => row.id !== learner.id));
     if (selectedStudentId === learner.id) onClearStudent?.();
+  }
+  async function handleDataRightsDeletion(learner) {
+    await forgetStudentOnThisDevice(learner);
     setDataRightsStudent(null);
     setRosterOperationStatus(
       `${learner.name}'s data was deleted. The privacy-safe request reference remains in the audit log.`
@@ -633,6 +648,28 @@ export function TeacherStudentsPage({
   const enabledRosterColumns = new Set(visibleRosterColumns);
   const rosterColumnCount = 3 + visibleRosterColumns.length;
 
+  // Scale the friction to what is actually being destroyed. A student with
+  // nothing saved needs one clear confirmation; a student with a term of saved
+  // work needs to be named before the button will work.
+  const operationStudent = rosterOperation?.student || null;
+  const operationSavedAnswers = Number(operationStudent?.answered) || 0;
+  const operationQuestStops = Number(operationStudent?.soundSeekers?.stopsCompleted) || 0;
+  const operationHasSavedResults = operationSavedAnswers > 0 || operationQuestStops > 0;
+  const operationSavedSummary = [
+    operationSavedAnswers > 0 ? countPhrase(operationSavedAnswers, "saved answer") : "",
+    operationQuestStops > 0 ? countPhrase(operationQuestStops, "Sound Seekers stop") : ""
+  ].filter(Boolean).join(" and ");
+  const deleteConfirmReady = !operationHasSavedResults
+    || (Boolean(operationStudent) && normalizeRosterStudentName(deleteConfirmName).toLowerCase()
+      === normalizeRosterStudentName(operationStudent.name).toLowerCase());
+
+  function openRosterOperation(kind, student) {
+    setOperationError("");
+    setDeleteConfirmName("");
+    setOperationTargetClassId("");
+    setRosterOperation({ kind, student });
+  }
+
   const skillTotal = skillTree.length;
   const startedCount = studentRows.filter(row => row.answered > 0).length;
   const loginReadyCount = studentRows.filter(row => row.symbol_password).length;
@@ -687,11 +724,31 @@ export function TeacherStudentsPage({
     const nextClassId = event.target.value || null;
     setSelectedClassId?.(nextClassId);
     setStudentList?.([]);
+    // A pending "press Add student again" warning belongs to the class it was
+    // raised in; carrying it across classes would wave a second click through.
+    setDuplicateNameConfirm("");
   }
 
+  // A double-click on Add student used to create a second identical student in
+  // silence — which is how a roster ends up with two Aarons. Two real children
+  // can share a name, so this warns once and then trusts the teacher.
   async function handleCreateStudent() {
-    const clean = newStudentName.trim();
+    const clean = normalizeRosterStudentName(newStudentName);
     if (!clean) return;
+    const duplicate = findDuplicateRosterName(clean, [...studentRows, ...archivedStudentList]);
+    if (duplicate && duplicateNameConfirm !== clean.toLowerCase()) {
+      setDuplicateNameConfirm(clean.toLowerCase());
+      const isArchived = archivedStudentList.some(row => row.id === duplicate.id);
+      setRosterOperationStatus({
+        kind: "error",
+        message: isArchived
+          ? `${duplicate.name} is already in this class but archived. Restore them under Archived students instead, or press Add student again to add a second ${clean}.`
+          : `${clean} is already in this class. Press Add student again to add a second ${clean}, or change the name first so you can tell them apart.`
+      });
+      return;
+    }
+    setDuplicateNameConfirm("");
+    setRosterOperationStatus("");
     await createStudent?.(clean);
     setNewStudentName("");
   }
@@ -873,72 +930,111 @@ export function TeacherStudentsPage({
     }
   }
 
+  function reportRosterFailure(error, operation, student) {
+    console.error(`Roster ${operation} failed for ${student?.id || "unknown student"}:`, error);
+    const message = describeRosterOperationError(error, {
+      operation,
+      studentName: student?.name
+    });
+    setOperationError(message);
+    setRosterOperationStatus({ kind: "error", message });
+  }
+
+  function closeRosterOperation() {
+    setRosterOperation(null);
+    setOperationTargetClassId("");
+    setOperationError("");
+    setDeleteConfirmName("");
+  }
+
+  // EVERY failure path here now ends in a sentence the teacher can read.
+  // This function used to be try/finally with no catch: a rejected write threw
+  // past the dialog, left it open and reported nothing at all, which is exactly
+  // what "I clicked archive and nothing happened" looks like from the outside.
   async function confirmRosterOperation() {
     if (!rosterOperation || operationBusy) return;
+    const { kind, student } = rosterOperation;
     setOperationBusy(true);
+    setOperationError("");
     try {
+      let failure = null;
       let saved = false;
-      if (rosterOperation.kind === "archive") {
-        const { data, error } = await setRosterStudentArchived({
+      if (kind === "archive") {
+        const { error } = await setRosterStudentArchived({
           supabase,
-          studentId: rosterOperation.student.id,
+          studentId: student.id,
           classId: selectedClassId,
           archived: true
         });
-        saved = !error && Boolean(data?.length);
+        failure = error;
+        saved = !error;
         if (saved) {
-          const archivedStudent = rosterOperation.student;
           setRosterOperationStatus({
             kind: "undo",
-            message: `${archivedStudent.name} archived. Their saved results remain.`,
-            actionLabel: `Undo archive for ${archivedStudent.name}`,
-            onAction: () => handleRestoreStudent(archivedStudent)
+            message: `${student.name} archived. Their saved results remain, and you can restore them at any time.`,
+            actionLabel: `Undo archive for ${student.name}`,
+            onAction: () => handleRestoreStudent(student)
           });
         }
-      } else if (rosterOperation.kind === "transfer") {
+      } else if (kind === "delete") {
+        await deleteRosterStudent({ supabase, studentId: student.id });
+        await forgetStudentOnThisDevice(student);
+        saved = true;
+        setRosterOperationStatus({
+          kind: "success",
+          message: `${student.name} was deleted permanently. Nothing of theirs is kept.`
+        });
+      } else if (kind === "transfer") {
         const targetClass = classList.find(row => row.id === operationTargetClassId);
-        const { data, error } = await transferRosterStudent({
+        const { error } = await transferRosterStudent({
           supabase,
-          studentId: rosterOperation.student.id,
+          studentId: student.id,
           sourceClassId: selectedClassId,
           targetClassId: operationTargetClassId
         });
-        saved = !error && Boolean(data?.length);
+        failure = error;
+        saved = !error;
         if (saved) {
           setRosterOperationStatus(
-            `${rosterOperation.student.name} transferred to ${targetClass?.name || "the selected class"}. Their saved results moved too.`
+            `${student.name} moved to ${targetClass?.name || "the chosen class"}. Their saved results moved too.`
           );
         }
       }
-      if (saved) {
-        if (selectedStudentId === rosterOperation.student.id) onClearStudent?.();
-        await loadStudents?.(selectedClassId);
-        await loadClassDashboard?.(selectedClassId);
-        setSelectedRosterIds(previous => previous.filter(id => id !== rosterOperation.student.id));
-        setRosterOperation(null);
-        setOperationTargetClassId("");
-      } else {
-        setRosterOperationStatus(`We couldn't ${rosterOperation.kind} that student. Try again.`);
+
+      if (!saved) {
+        reportRosterFailure(failure, kind, student);
+        return;
       }
+      if (selectedStudentId === student.id) onClearStudent?.();
+      await loadStudents?.(selectedClassId);
+      await loadClassDashboard?.(selectedClassId);
+      setSelectedRosterIds(previous => previous.filter(id => id !== student.id));
+      closeRosterOperation();
+    } catch (error) {
+      reportRosterFailure(error, kind, student);
     } finally {
       setOperationBusy(false);
     }
   }
 
   async function handleRestoreStudent(row) {
-    const { data, error } = await setRosterStudentArchived({
-      supabase,
-      studentId: row.id,
-      classId: selectedClassId,
-      archived: false
-    });
-    if (error || !data?.length) {
-      setRosterOperationStatus(`Could not restore ${row.name}.`);
-      return;
+    try {
+      const { error } = await setRosterStudentArchived({
+        supabase,
+        studentId: row.id,
+        classId: selectedClassId,
+        archived: false
+      });
+      if (error) {
+        reportRosterFailure(error, "restore", row);
+        return;
+      }
+      await loadStudents?.(selectedClassId);
+      await loadClassDashboard?.(selectedClassId);
+      setRosterOperationStatus(`${row.name} restored to the class roster.`);
+    } catch (error) {
+      reportRosterFailure(error, "restore", row);
     }
-    await loadStudents?.(selectedClassId);
-    await loadClassDashboard?.(selectedClassId);
-    setRosterOperationStatus(`${row.name} restored to the active roster.`);
   }
 
   if (loginCardRows.length > 0) {
@@ -1319,9 +1415,10 @@ export function TeacherStudentsPage({
               <button
                 className="lp-button lp-button-danger-outline"
                 type="button"
-                onClick={() => setRosterOperation({ kind: "archive", student: selectedStudentRow })}
+                aria-haspopup="dialog"
+                onClick={() => openRosterOperation("archive", selectedStudentRow)}
               >
-                Archive student
+                Archive student…
               </button>
               <button
                 className="lp-button lp-button-secondary"
@@ -1432,7 +1529,10 @@ export function TeacherStudentsPage({
                   autoComplete="off"
                   value={newStudentName}
                   placeholder={TEACHER_COPY.roster.displayNamePlaceholder}
-                  onChange={event => setNewStudentName(event.target.value)}
+                  onChange={event => {
+                    setNewStudentName(event.target.value);
+                    setDuplicateNameConfirm("");
+                  }}
                   onKeyDown={event => {
                     if (event.key === "Enter") handleCreateStudent();
                   }}
@@ -1967,13 +2067,13 @@ export function TeacherStudentsPage({
                 <button
                   className="lp-button lp-button-secondary"
                   type="button"
+                  aria-haspopup="dialog"
                   onClick={() => {
-                    setRosterOperation({ kind: "transfer", student: actionsStudent });
-                    setOperationTargetClassId("");
+                    openRosterOperation("transfer", actionsStudent);
                     setActionsStudent(null);
                   }}
                 >
-                  Move to another class
+                  Move to another class…
                 </button>
               )}
               <button
@@ -1990,13 +2090,32 @@ export function TeacherStudentsPage({
               <button
                 className="lp-button lp-button-danger-outline"
                 type="button"
+                aria-haspopup="dialog"
                 onClick={() => {
-                  setRosterOperation({ kind: "archive", student: actionsStudent });
+                  openRosterOperation("archive", actionsStudent);
                   setActionsStudent(null);
                 }}
               >
-                Archive student
+                Archive student…
               </button>
+              {/* Archiving is the safe default and stays first. Deleting is the
+                  answer to "I typed the name wrong", so it has to exist — but it
+                  is last, marked permanent, and routed through the same audited
+                  deletion the privacy workflow uses. */}
+              <button
+                className="lp-button lp-button-danger"
+                type="button"
+                aria-haspopup="dialog"
+                onClick={() => {
+                  openRosterOperation("delete", actionsStudent);
+                  setActionsStudent(null);
+                }}
+              >
+                Delete student…
+              </button>
+              <p className="muted-text">
+                Deleting is permanent. Archive instead to keep everything this student has done.
+              </p>
             </div>
             <footer className="teacher-dialog-footer">
               <button
@@ -2072,24 +2191,71 @@ export function TeacherStudentsPage({
       {rosterOperation && (
         <TeacherModal
           className="teacher-roster-operation-modal"
-          label={`${rosterOperation.kind === "archive" ? "Archive" : "Transfer"} ${rosterOperation.student.name}`}
+          label={rosterOperation.kind === "archive"
+            ? `Archive ${operationStudent.name}`
+            : rosterOperation.kind === "delete"
+              ? `Delete ${operationStudent.name} permanently`
+              : `Move ${operationStudent.name} to another class`}
           onClose={() => {
             if (operationBusy) return;
-            setRosterOperation(null);
-            setOperationTargetClassId("");
+            closeRosterOperation();
           }}
         >
           <div className="symbol-password-modal-card">
             <h3>
               {rosterOperation.kind === "archive"
-                ? `Archive ${rosterOperation.student.name}?`
-                : `Transfer ${rosterOperation.student.name}?`}
+                ? `Archive ${operationStudent.name}?`
+                : rosterOperation.kind === "delete"
+                  ? `Delete ${operationStudent.name} permanently?`
+                  : `Move ${operationStudent.name} to another class?`}
             </h3>
-            {rosterOperation.kind === "archive" ? (
-              <p>
-                This removes the student from sign-in and class groups. Their saved results stay attached and can be restored.
-              </p>
-            ) : (
+            {rosterOperation.kind === "archive" && (
+              <>
+                <p>
+                  Archiving takes {operationStudent.name} off the class roster and stops them signing in.
+                </p>
+                <p>
+                  Nothing is deleted. Everything {operationStudent.name} has already done is kept, and
+                  you can restore them at any time from Archived students at the bottom of this page.
+                </p>
+              </>
+            )}
+            {rosterOperation.kind === "delete" && (
+              <>
+                {operationHasSavedResults ? (
+                  <>
+                    <p>
+                      This permanently deletes {operationSavedSummary} for {operationStudent.name},
+                      together with their reports, progress and sign-in pictures. It cannot be undone.
+                    </p>
+                    <p>
+                      Archive {operationStudent.name} instead to take them off the roster and keep
+                      everything they have done.
+                    </p>
+                    <label className="teacher-dashboard-control">
+                      <span>Type {operationStudent.name} to confirm</span>
+                      <input
+                        autoComplete="off"
+                        value={deleteConfirmName}
+                        disabled={operationBusy}
+                        onChange={event => setDeleteConfirmName(event.target.value)}
+                      />
+                    </label>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      {operationStudent.name} has no saved results, so there is nothing to keep.
+                    </p>
+                    <p>
+                      Deleting removes {operationStudent.name} from this class for good and cannot be
+                      undone. Archive them instead if you might want them back.
+                    </p>
+                  </>
+                )}
+              </>
+            )}
+            {rosterOperation.kind === "transfer" && (
               <>
                 <p>
                   The student and their saved results move together. Nothing is copied or deleted.
@@ -2108,27 +2274,35 @@ export function TeacherStudentsPage({
                 </label>
               </>
             )}
+            {operationError && (
+              <p className="teacher-inline-error" role="alert">{operationError}</p>
+            )}
             <div className="teacher-roster-operation-actions">
               <button
-                className={rosterOperation.kind === "archive" ? "lp-button lp-button-danger-outline" : "lp-button lp-button-primary"}
+                className={rosterOperation.kind === "delete"
+                  ? "lp-button lp-button-danger"
+                  : rosterOperation.kind === "archive"
+                    ? "lp-button lp-button-danger-outline"
+                    : "lp-button lp-button-primary"}
                 type="button"
-                disabled={operationBusy || (rosterOperation.kind === "transfer" && !operationTargetClassId)}
+                disabled={operationBusy
+                  || (rosterOperation.kind === "transfer" && !operationTargetClassId)
+                  || (rosterOperation.kind === "delete" && !deleteConfirmReady)}
                 onClick={confirmRosterOperation}
               >
                 {operationBusy
-                  ? "Saving..."
+                  ? (rosterOperation.kind === "delete" ? "Deleting…" : "Saving…")
                   : rosterOperation.kind === "archive"
-                    ? "Archive student"
-                    : "Transfer student"}
+                    ? `Yes, archive ${operationStudent.name}`
+                    : rosterOperation.kind === "delete"
+                      ? `Yes, delete ${operationStudent.name} permanently`
+                      : `Yes, move ${operationStudent.name}`}
               </button>
               <button
                 className="lp-button lp-button-secondary"
                 type="button"
                 disabled={operationBusy}
-                onClick={() => {
-                  setRosterOperation(null);
-                  setOperationTargetClassId("");
-                }}
+                onClick={closeRosterOperation}
               >
                 Cancel
               </button>

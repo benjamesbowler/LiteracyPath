@@ -139,7 +139,7 @@ async function seedRightsLearner(page) {
 
 async function openClassRoster(page) {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   const rosterAdmin = page.locator(".teacher-roster-admin");

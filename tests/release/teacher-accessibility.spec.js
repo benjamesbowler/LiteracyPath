@@ -39,7 +39,7 @@ async function activateWithKeyboard(locator) {
   await locator.press("Enter");
 }
 
-test("@a11y-teacher authenticated six-section journey is keyboard and screen-reader ready", async ({ page }) => {
+test("@a11y-teacher authenticated section journey is keyboard and screen-reader ready", async ({ page }) => {
   test.setTimeout(120_000);
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
@@ -52,9 +52,10 @@ test("@a11y-teacher authenticated six-section journey is keyboard and screen-rea
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   await expectNoSeriousOrCritical(page, "Today");
 
-  const childrenButton = primaryNav.getByRole("button", { name: "Children", exact: true });
-  await activateWithKeyboard(childrenButton);
-  await expect(page.getByRole("heading", { name: "Children", exact: true })).toBeVisible();
+  // 2026-07-27: the section is called Students, not Children.
+  const studentsButton = primaryNav.getByRole("button", { name: "Students", exact: true });
+  await activateWithKeyboard(studentsButton);
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(page.getByRole("main")).toHaveCount(1);
   const rosterAdmin = page.locator(".teacher-roster-admin");
   if (!await rosterAdmin.evaluate(element => element.open)) {
@@ -82,7 +83,10 @@ test("@a11y-teacher authenticated six-section journey is keyboard and screen-rea
   await expect(moreOptions).toBeFocused();
 
   const intentionChecks = [
-    ["Reports", "Choose a child’s report"],
+    // 2026-07-27: Checks is a destination again, and both it and Reports open
+    // on step 1 of a funnel rather than on a picker.
+    ["Checks", "Start a check"],
+    ["Reports", "Open a report"],
     ["Resources", "Choose a teaching resource"],
     ["Settings", "Settings"]
   ];

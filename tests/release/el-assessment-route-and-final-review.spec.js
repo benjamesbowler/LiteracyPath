@@ -18,7 +18,7 @@ async function logIn(page) {
 
 async function openAmaraAssessmentHub(page) {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   const rosterAdmin = page.locator(".teacher-roster-admin");
@@ -26,32 +26,33 @@ async function openAmaraAssessmentHub(page) {
     await rosterAdmin.locator(":scope > summary").click();
   }
   const amaraRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Amara" });
-  await amaraRow.getByRole("button", { name: "Open child", exact: true }).click();
-  await page.getByRole("region", { name: "Child details: Amara" })
+  await amaraRow.getByRole("button", { name: "Open student", exact: true }).click();
+  await page.getByRole("region", { name: "Student details: Amara" })
     .getByRole("button", { name: "Check Amara", exact: true })
     .click();
   await page.getByRole("article")
     .filter({ hasText: "EL formal check" })
     .getByRole("button", { name: "Open EL check", exact: true })
     .click();
-  await expect(page.getByRole("heading", {
-    name: "Choose a check for Amara",
-    exact: true
-  })).toBeVisible();
+  // 2026-07-27: the EL hub is gone. Starting one of these is step 3 and step 4
+  // of the one Checks funnel, which asks for the class and the student itself -
+  // so the roster shortcut lands on the funnel with both already answered.
+  await expect(page.getByRole("heading", { name: "Start a check", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose a check", exact: true })).toBeVisible();
 }
 
 async function startEncoding(page) {
-  const encodingCard = page.getByRole("article").filter({
-    has: page.getByRole("heading", { name: "Word Encoding and Spelling", exact: true })
-  });
-  const directStart = encodingCard.getByRole("button", { name: "Start spelling", exact: true });
-  if (await directStart.count()) {
-    await directStart.click();
-  } else {
-    await encodingCard.getByRole("button", { name: "Check & start spelling", exact: true }).click();
-    const review = page.getByRole("region", { name: "One quick check before starting" });
+  // Step 3: which check. Step 4: grade and time of year. Then Begin.
+  await page.getByRole("button", { name: /^Spelling/ }).click();
+  await page.getByLabel("Grade", { exact: true }).selectOption("K");
+  await page.getByLabel("Time of year", { exact: true }).selectOption("BOY");
+  await page.getByRole("button", { name: "Begin Spelling", exact: true }).click();
+  // Starting somewhere the child's own results do not point at still needs a
+  // recorded reason before it will run.
+  const review = page.getByRole("region", { name: "One quick question before you start" });
+  if (await review.count()) {
     await review.getByRole("button", { name: /Recent classroom work/ }).click();
-    await review.getByRole("button", { name: "Start Encoding", exact: true }).click();
+    await review.getByRole("button", { name: "Begin Spelling", exact: true }).click();
   }
   await expect(page.getByRole("heading", { name: "Word Encoding and Spelling", exact: true })).toBeVisible();
 }
@@ -111,10 +112,8 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   await expect(finishReview).toContainText("8 scored · 0 skipped");
   await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
 
-  await expect(page.getByRole("heading", {
-    name: "Choose a check for Amara",
-    exact: true
-  })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole("heading", { name: "Start a check", exact: true }))
+    .toBeVisible({ timeout: 20_000 });
   await expect(page).toHaveURL(/#teacher\/(?:checks|assess)\?/);
   await expect(page).not.toHaveURL(/el-benchmark/);
 });

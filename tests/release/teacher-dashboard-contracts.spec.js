@@ -23,15 +23,15 @@ async function logIn(page, email) {
 
 async function selectAuditClass(page, className = "Audit Class A") {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
-  await expect(page.getByRole("heading", { name: "Children", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: className });
   await expect(classSelect.locator("option:checked")).toHaveText(className);
-  await expect(page.getByRole("heading", { name: "Children", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(page.getByText(
-    `Add, update, move, or archive children in ${className}.`,
+    `Add, update, move, or archive students in ${className}.`,
     { exact: true }
   )).toBeVisible();
   const rosterAdmin = page.locator(".teacher-roster-admin");
@@ -44,15 +44,12 @@ async function selectAuditClass(page, className = "Audit Class A") {
 async function openAaravReports(page) {
   const roster = page.locator(".teacher-roster-table");
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open child", exact: true }).click();
-  const childDetail = page.getByRole("region", { name: "Child details: Aarav" });
-  await expect(childDetail).toBeVisible();
-  await childDetail.getByRole("button", { name: "Review Aarav’s progress", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Choose a child’s report", exact: true })).toBeVisible();
-  const aaravReport = page.getByRole("article").filter({
-    has: page.getByRole("heading", { name: "Aarav", exact: true })
-  });
-  await aaravReport.getByRole("button", { name: "Open report", exact: true }).click();
+  await aaravRow.getByRole("button", { name: "Open student", exact: true }).click();
+  const studentDetail = page.getByRole("region", { name: "Student details: Aarav" });
+  await expect(studentDetail).toBeVisible();
+  // The Student panel opens that child's report directly - it already knows who
+  // it is about, so there is no picker in between.
+  await studentDetail.getByRole("button", { name: "Report", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Overview", exact: true })).toBeVisible({
     timeout: 20_000
   });
@@ -80,7 +77,7 @@ function recordConsoleErrors(page) {
   return errors;
 }
 
-test("@teacher-five-intention-ia @teacher-assessment-hub @teacher-contextual-help uses six clear, separate sections", async ({
+test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help uses six clear, separate sections", async ({
   page
 }) => {
   const pageErrors = recordPageErrors(page);
@@ -89,21 +86,34 @@ test("@teacher-five-intention-ia @teacher-assessment-hub @teacher-contextual-hel
 
   const primaryNav = page.getByTestId("teacher-primary-nav");
   const intentButtons = primaryNav.locator(":scope > .lg-sb-intent > .lg-sb-item");
-  const expectedSections = ["Dashboard", "Students", "Reports", "Resources", "Settings"];
+  // 2026-07-27: Checks is a destination again, between Students and Reports.
+  // It was parked under Students, which meant the only way to start a check was
+  // to find the child first and the Students item lit up during a running check.
+  const expectedSections = ["Dashboard", "Students", "Checks", "Reports", "Resources", "Settings"];
   await expect(intentButtons).toHaveCount(expectedSections.length);
   for (const [index, label] of expectedSections.entries()) {
     await expect(intentButtons.nth(index)).toHaveAttribute("aria-label", label);
   }
 
-  // Checks is no longer a destination: a check starts from a roster row or the
-  // Student panel, so the roster row carries the button instead of a nav item.
+  // The roster shortcut stays: a check can still start from a row, and lands on
+  // the same funnel with the class and the student already answered.
   await primaryNav.getByRole("button", { name: "Students", exact: true }).click();
   await expect(
     page.getByRole("table").getByRole("button", { name: /^Check / }).first()
   ).toBeVisible();
 
+  // Both funnels are one page with the same numbered steps.
+  await primaryNav.getByRole("button", { name: "Checks", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Start a check", exact: true })).toBeVisible();
+  for (const step of ["Choose a class", "Choose a student", "Choose a check"]) {
+    await expect(page.getByRole("heading", { name: step, exact: true })).toBeVisible();
+  }
+
   await primaryNav.getByRole("button", { name: "Reports", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Choose a child’s report", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
+  for (const step of ["Choose a class", "Whole class, or one student?", "Choose a report"]) {
+    await expect(page.getByRole("heading", { name: step, exact: true })).toBeVisible();
+  }
 
   await primaryNav.getByRole("button", { name: "Resources", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Choose a teaching resource", exact: true })).toBeVisible();
@@ -133,8 +143,8 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
   }
   await expect(roster.locator("tbody > tr")).toHaveCount(12);
-  for (const child of ["Aarav", "Aisha", "Amara", "Bao", "Camila"]) {
-    await expect(roster.getByText(child, { exact: true })).toBeVisible();
+  for (const student of ["Aarav", "Aisha", "Amara", "Bao", "Camila"]) {
+    await expect(roster.getByText(student, { exact: true })).toBeVisible();
   }
 
   await openAaravReports(page);
@@ -175,59 +185,108 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
   expect(pageErrors).toEqual([]);
 });
 
-test("@teacher-child-lifecycle @teacher-roster-scale edits, opens privacy, archives, and restores one child", async ({
+test("@teacher-child-lifecycle @teacher-roster-scale edits, opens privacy, archives, and restores one student", async ({
   page
 }) => {
   const pageErrors = recordPageErrors(page);
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await selectAuditClass(page);
 
-  const rosterTools = page.getByRole("region", { name: "Search, sort, and filter children" });
-  await rosterTools.getByLabel("Search children").fill("Aarav");
+  const rosterTools = page.getByRole("region", { name: "Search, sort, and filter students" });
+  await rosterTools.getByLabel("Search students").fill("Aarav");
   await expect(roster.locator("tbody > tr")).toHaveCount(1);
-  await rosterTools.getByLabel("Search children").fill("");
+  await rosterTools.getByLabel("Search students").fill("");
 
-  let childRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  await childRow.getByRole("button", { name: "More options for Aarav", exact: true }).click();
+  let studentRow = roster.getByRole("row").filter({ hasText: "Aarav" });
+  await studentRow.getByRole("button", { name: "More options for Aarav", exact: true }).click();
   let options = page.getByRole("dialog", { name: "Options for Aarav" });
-  await options.getByRole("button", { name: "Edit child information", exact: true }).click();
+  await options.getByRole("button", { name: "Edit student information", exact: true }).click();
   const editDialog = page.getByRole("dialog", { name: "Edit Aarav" });
   await editDialog.getByLabel("Display name").fill("Aarav Audit");
-  await editDialog.getByRole("button", { name: "Save child information", exact: true }).click();
+  await editDialog.getByRole("button", { name: "Save student information", exact: true }).click();
   await expect(roster.getByText("Aarav Audit", { exact: true })).toBeVisible();
 
-  childRow = roster.getByRole("row").filter({ hasText: "Aarav Audit" });
-  await childRow.getByRole("button", { name: "More options for Aarav Audit", exact: true }).click();
+  studentRow = roster.getByRole("row").filter({ hasText: "Aarav Audit" });
+  await studentRow.getByRole("button", { name: "More options for Aarav Audit", exact: true }).click();
   options = page.getByRole("dialog", { name: "Options for Aarav Audit" });
   await options.getByRole("button", { name: "Privacy and data rights", exact: true }).click();
   const privacyDialog = page.getByRole("dialog", { name: "Data choices for Aarav Audit" });
   await privacyDialog.getByLabel("Who made the request?").selectOption({ index: 1 });
   await privacyDialog.getByLabel("How was identity and authority verified?").selectOption({ index: 1 });
-  await expect(privacyDialog.getByRole("button", { name: "Download child data", exact: true })).toBeEnabled();
+  await expect(privacyDialog.getByRole("button", { name: "Download student data", exact: true })).toBeEnabled();
   await expect(privacyDialog.getByRole("heading", { name: "Request history", exact: true })).toBeVisible();
   await privacyDialog.getByRole("button", { name: "Close", exact: true }).click();
 
-  await childRow.getByRole("button", { name: "More options for Aarav Audit", exact: true }).click();
-  await page.getByRole("dialog", { name: "Options for Aarav Audit" })
-    .getByRole("button", { name: "Archive child", exact: true })
-    .click();
+  // The trigger opens a dialog; the dialog carries the final act. These two
+  // labels were identical ("Archive child"), which read as "nothing happened".
+  await studentRow.getByRole("button", { name: "More options for Aarav Audit", exact: true }).click();
+  options = page.getByRole("dialog", { name: "Options for Aarav Audit" });
+  await expect(options.getByRole("button", { name: "Archive student…", exact: true }))
+    .toHaveAttribute("aria-haspopup", "dialog");
+  await options.getByRole("button", { name: "Archive student…", exact: true }).click();
   const archiveDialog = page.getByRole("dialog", { name: "Archive Aarav Audit" });
-  await expect(archiveDialog).toContainText("saved results stay attached and can be restored");
-  await archiveDialog.getByRole("button", { name: "Archive child", exact: true }).click();
+  await expect(archiveDialog).toContainText("Nothing is deleted.");
+  await expect(archiveDialog).toContainText("you can restore them at any time");
+  await expect(archiveDialog.getByRole("button", { name: "Archive student…", exact: true })).toHaveCount(0);
+  await archiveDialog.getByRole("button", { name: "Yes, archive Aarav Audit", exact: true }).click();
   await expect(roster.getByText("Aarav Audit", { exact: true })).toHaveCount(0);
 
-  await page.getByText("Archived children (2)", { exact: true }).click();
+  // Archiving must report itself. A silent no-op is the failure this whole
+  // spec exists to catch.
+  const archiveFeedback = page.locator("[data-action-feedback]")
+    .filter({ hasText: "Aarav Audit archived" });
+  await expect(archiveFeedback).toBeVisible();
+
+  await page.getByText("Archived students (2)", { exact: true }).click();
   await page.getByRole("button", { name: "Restore Aarav Audit", exact: true }).click();
   await expect(roster.getByText("Aarav Audit", { exact: true })).toBeVisible();
 
-  childRow = roster.getByRole("row").filter({ hasText: "Aarav Audit" });
-  await childRow.getByRole("button", { name: "More options for Aarav Audit", exact: true }).click();
+  studentRow = roster.getByRole("row").filter({ hasText: "Aarav Audit" });
+  await studentRow.getByRole("button", { name: "More options for Aarav Audit", exact: true }).click();
   await page.getByRole("dialog", { name: "Options for Aarav Audit" })
-    .getByRole("button", { name: "Edit child information", exact: true })
+    .getByRole("button", { name: "Edit student information", exact: true })
     .click();
   const restoreNameDialog = page.getByRole("dialog", { name: "Edit Aarav Audit" });
   await restoreNameDialog.getByLabel("Display name").fill("Aarav");
-  await restoreNameDialog.getByRole("button", { name: "Save child information", exact: true }).click();
+  await restoreNameDialog.getByRole("button", { name: "Save student information", exact: true }).click();
+  await expect(roster.getByText("Aarav", { exact: true })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("@teacher-child-lifecycle offers a real delete whose friction matches what is destroyed", async ({
+  page
+}) => {
+  const pageErrors = recordPageErrors(page);
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
+  const roster = await selectAuditClass(page);
+
+  // Aarav carries a long saved history, so deleting has to name what it
+  // destroys and stay disabled until the teacher types the display name.
+  // The dialog is opened and cancelled: this fixture is shared, and the point
+  // is the gate, not the destruction.
+  const studentRow = roster.getByRole("row").filter({ hasText: "Aarav" });
+  await studentRow.getByRole("button", { name: "More options for Aarav", exact: true }).click();
+  const options = page.getByRole("dialog", { name: "Options for Aarav" });
+  const archiveTrigger = options.getByRole("button", { name: "Archive student…", exact: true });
+  const deleteTrigger = options.getByRole("button", { name: "Delete student…", exact: true });
+  await expect(archiveTrigger).toBeVisible();
+  await expect(deleteTrigger).toBeVisible();
+  await expect(options).toContainText("Deleting is permanent. Archive instead");
+  await deleteTrigger.click();
+
+  const deleteDialog = page.getByRole("dialog", { name: "Delete Aarav permanently" });
+  await expect(deleteDialog).toContainText(/This permanently deletes \d+ saved answers?/);
+  await expect(deleteDialog).toContainText("for Aarav");
+  await expect(deleteDialog).toContainText("It cannot be undone.");
+  await expect(deleteDialog).toContainText("Archive Aarav instead");
+  const confirmDelete = deleteDialog.getByRole("button", {
+    name: "Yes, delete Aarav permanently",
+    exact: true
+  });
+  await expect(confirmDelete).toBeDisabled();
+  await deleteDialog.getByLabel("Type Aarav to confirm").fill("Aarav");
+  await expect(confirmDelete).toBeEnabled();
+  await deleteDialog.getByRole("button", { name: "Cancel", exact: true }).click();
   await expect(roster.getByText("Aarav", { exact: true })).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
@@ -290,11 +349,11 @@ test("@teacher-class-code @teacher-login-card-print keeps class entry controls i
   await expect(page.getByRole("radio", { name: "This class only", exact: true })).toBeChecked();
 
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
   const roster = page.locator(".teacher-roster-table");
-  for (const child of ["Aarav", "Aisha"]) {
-    await roster.getByRole("checkbox", { name: `Select ${child}`, exact: true }).check();
+  for (const student of ["Aarav", "Aisha"]) {
+    await roster.getByRole("checkbox", { name: `Select ${student}`, exact: true }).check();
   }
   await page.getByText("More tools", { exact: true }).click();
   await page.getByRole("button", { name: "Preview selected cards (2)", exact: true }).click();
@@ -334,7 +393,7 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
   await expect(page.getByRole("heading", { name: "Letter and sound checks", exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Reading checks", exact: true })).toBeVisible();
   await expect(page.getByText(
-    "These checks describe what the child did. They do not use a made-up pass percentage.",
+    "These checks describe what the student did. They do not use a made-up pass percentage.",
     { exact: true }
   )).toBeVisible();
   await page.getByRole("button", { name: "Print or save PDF", exact: true }).click();
@@ -345,14 +404,14 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
   expect(pageErrors).toEqual([]);
 });
 
-test("@teacher-persistent-context @teacher-student-preview preserves the selected child across teacher sections", async ({
+test("@teacher-persistent-context @teacher-student-preview preserves the selected student across teacher sections", async ({
   page
 }) => {
   const pageErrors = recordPageErrors(page);
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await selectAuditClass(page);
   await roster.getByRole("row").filter({ hasText: "Aarav" })
-    .getByRole("button", { name: "Open child", exact: true })
+    .getByRole("button", { name: "Open student", exact: true })
     .click();
 
   const shell = page.locator(".lg-app-shell");
@@ -375,7 +434,7 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
   expect(pageErrors).toEqual([]);
 });
 
-test("@teacher-onboarding fresh teacher starts the saved setup path from Children", async ({ page }) => {
+test("@teacher-onboarding fresh teacher starts the saved setup path from Students", async ({ page }) => {
   const pageErrors = recordPageErrors(page);
   await logIn(page, "audit-teacher-fresh@literacypath.invalid");
 
@@ -385,7 +444,7 @@ test("@teacher-onboarding fresh teacher starts the saved setup path from Childre
   await expect(checklist.getByText("Create your class", { exact: true })).toBeVisible();
   await expect(checklist.getByRole("button", { name: "Explore with a sample class", exact: true })).toBeVisible();
   await checklist.getByRole("button", { name: "Continue: Create your class", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Children", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(page.getByLabel("New class")).toBeVisible();
   await expect(page.getByRole("button", { name: "Create class", exact: true })).toBeVisible();
   expect(pageErrors).toEqual([]);
@@ -397,15 +456,15 @@ test("@teacher-onboarding-demo sample class is clearly labelled and evidence-emp
   const checklist = page.getByRole("region", { name: "Class setup checklist" });
   await checklist.getByRole("button", { name: "Explore with a sample class", exact: true }).click();
 
-  await expect(page.getByRole("heading", { name: "Children", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(page.getByLabel("Current class").locator("option:checked")).toHaveText("Demo Class (sample)");
   const rosterAdmin = page.locator(".teacher-roster-admin");
   if (!await rosterAdmin.evaluate(element => element.open)) {
     await rosterAdmin.locator(":scope > summary").click();
   }
   const roster = page.locator(".teacher-roster-table");
-  for (const child of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
-    const row = roster.getByRole("row").filter({ hasText: child });
+  for (const student of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
+    const row = roster.getByRole("row").filter({ hasText: student });
     await expect(row).toBeVisible();
     await expect(row.getByText("No practice yet", { exact: true })).toBeVisible();
   }

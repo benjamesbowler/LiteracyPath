@@ -49,6 +49,21 @@ const reportStore = await import(pathToFileURL(reportStorePath).href);
 const exportHelpers = await import(pathToFileURL(exportPath).href);
 const appSource = fs.readFileSync(appPath, "utf8");
 const elAssessmentsSource = fs.readFileSync(elAssessmentsPath, "utf8");
+// 2026-07-27: the EL hub page became the Checks funnel. The rules it used to
+// hold moved to three named homes, so this guard follows them there rather than
+// quietly passing against a file that no longer does the job.
+const startPointSource = fs.readFileSync(
+  path.join(root, "src/components/assessment/elBenchmarkStartPoint.js"),
+  "utf8"
+);
+const checksFunnelSource = fs.readFileSync(
+  path.join(root, "src/components/TeacherAssessmentsPage.jsx"),
+  "utf8"
+);
+const assessmentCatalogSource = fs.readFileSync(
+  path.join(root, "src/data/assessmentCatalog.js"),
+  "utf8"
+);
 const adminSource = fs.readFileSync(adminPath, "utf8");
 const storeSource = fs.readFileSync(storePath, "utf8");
 const exportSource = fs.readFileSync(exportPath, "utf8");
@@ -94,11 +109,11 @@ assert(
 assert(!elAssessmentsSource.includes("Export Letter Excel"), "EL Assessments page must not show Export Letter Excel");
 assert(!elAssessmentsSource.includes("Export Pattern Excel"), "EL Assessments page must not show Export Pattern Excel");
 assert(
-  elAssessmentsSource.includes("Name and sound recognition for uppercase and lowercase letters."),
-  "letter assessment card must describe the evidence collected"
+  assessmentCatalogSource.includes("which capital and small letters the child can name and sound out"),
+  "the letter check entry must describe what it tells the teacher"
 );
 assert(
-  elAssessmentsSource.includes("supplemental diagnostic"),
+  assessmentCatalogSource.includes("it does not replace the other checks"),
   "advanced phonics must be labelled as supplemental rather than a replacement benchmark"
 );
 assert(
@@ -116,15 +131,20 @@ assert(
   assert(appSource.includes(token), `App EL benchmark lifecycle is missing ${token}`);
 });
 [
-  "EL_BENCHMARK_CATALOG",
-  "Decoding start",
-  "Fluency start",
-  "isCompletedElBenchmarkRouteEvidence",
-  "No unpublished cut score is assumed",
-  "elBenchmarkDraft"
-].forEach(token => {
-  assert(elAssessmentsSource.includes(token), `EL assessment hub is missing ${token}`);
+  ["EL_BENCHMARK_CATALOG", assessmentCatalogSource, "the one check catalog"],
+  ["isCompletedElBenchmarkRouteEvidence", startPointSource, "the EL start-point rules"],
+  ["buildStartOptions", startPointSource, "the EL start-point rules"],
+  ["Word group it starts on", checksFunnelSource, "the Checks funnel"],
+  ["No unpublished cut score is assumed", checksFunnelSource, "the Checks funnel"],
+  ["elBenchmarkDraft", checksFunnelSource, "the Checks funnel"]
+].forEach(([token, source, where]) => {
+  assert(source.includes(token), `${where} is missing ${token}`);
 });
+assert(
+  elAssessmentsSource.includes("EL_PREREQUISITE_REASON_OPTIONS")
+    && elAssessmentsSource.includes("disabled={!reasonText}"),
+  "starting outside the indicated band must still require a recorded reason"
+);
 assert(
   storeSource.includes("CLOUD_HYDRATION_PAGE_SIZE") && storeSource.includes(".range(from,"),
   "cloud assessment history hydration must paginate beyond the hosted row cap"

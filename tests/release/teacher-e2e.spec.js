@@ -21,7 +21,7 @@ async function logIn(page, email) {
 
 async function openClass(page, className) {
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: className });
@@ -51,23 +51,23 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
   const roster = await openClass(page, "Audit Class A");
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
   await expect(aaravRow).toBeVisible();
-  await aaravRow.getByRole("button", { name: "Open child", exact: true }).click();
+  await aaravRow.getByRole("button", { name: "Open student", exact: true }).click();
 
-  const childDetail = page.getByRole("region", { name: "Child details: Aarav" });
+  const childDetail = page.getByRole("region", { name: "Student details: Aarav" });
   await expect(childDetail).toBeVisible();
   // One click to a check: the Student panel starts it directly.
   await expect(childDetail.getByRole("button", { name: /^Check Aarav$/ })).toBeEnabled();
 
+  // 2026-07-27: Reports is one page - class, who, report - and the report opens
+  // in place at the end of it rather than on a separate screen.
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Reports", exact: true })
     .click();
-  const aaravReport = page.getByRole("article").filter({
-    has: page.getByRole("heading", { name: "Aarav", exact: true })
-  });
-  await aaravReport.getByRole("button", { name: "Open report", exact: true }).click();
-  await page.getByRole("navigation", { name: "Student reports" })
-    .getByRole("link", { name: /^Skills/ })
-    .click();
+  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
+  await page.getByLabel("Class", { exact: true }).selectOption({ label: "Audit Class A" });
+  await page.getByRole("button", { name: "Aarav", exact: true }).click();
+  await page.getByRole("button", { name: /^Skills/ }).click();
+  await page.getByRole("button", { name: "Show the report", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Skills", exact: true })).toBeVisible();
 
   const provenance = page.getByRole("region", { name: "About this report" });
@@ -132,7 +132,7 @@ test("A10.7 @teacher-route-denial teacher B cannot discover or deep-link into te
 }) => {
   await logIn(page, "audit-teacher-b@literacypath.invalid");
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
 
   const classSelect = page.getByLabel("Current class");
@@ -142,14 +142,13 @@ test("A10.7 @teacher-route-denial teacher B cannot discover or deep-link into te
   await page.goto(
     `/#teacher/reports/report?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check`
   );
-  await expect(page.locator('[data-teacher-product="class-dashboard"]')).toBeVisible({
+  // 2026-07-27: a rejected deep link now falls back to the Reports funnel,
+  // which is where the teacher would have had to start anyway.
+  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible({
     timeout: 20_000
   });
-  await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Reports", exact: true })
-    .click();
 
-  await expect(page.getByLabel("Current class").locator("option")
+  await expect(page.getByLabel("Class", { exact: true }).locator("option")
     .filter({ hasText: "Audit Class A" })).toHaveCount(0);
   await expect(page.getByRole("region", { name: "Child progress results: Aarav" }))
     .toHaveCount(0);

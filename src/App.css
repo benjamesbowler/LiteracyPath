@@ -764,15 +764,28 @@ body {
   color: var(--lp-color-text-muted);
 }
 
+/* The Sign-in cell holds a status pill, a three-dot SymbolSequence and the
+   Show / Change / Reset actions. It used to be `display: grid` with no
+   `grid-template-columns`, i.e. a single-column grid, so those three children
+   stacked vertically; combined with the 44px `.text-button` floor below it
+   made every roster row ~190px tall. It is a horizontal row. */
 .teacher-login-cell {
-  display: grid;
-  gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* The 44px touch target lives here, on the row, instead of on each button.
+     One 44px row holds all three actions; three 44px buttons stacked in a
+     single-column grid was the ~190px row. */
+  min-height: 44px;
+  gap: 6px 10px;
 }
 
 .teacher-login-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 10px;
 }
 
 .text-button {
@@ -788,6 +801,18 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Scope off the 44px box floor for the dense roster Sign-in actions only.
+   They are stretched to the cell's 44px min-height instead, so the hit area
+   is unchanged while three buttons share one row rather than three. A
+   pseudo-element hit area was tried first and rejected: a 44px overlay on a
+   ~24px button in a ~40px table row bleeds into the rows above and below and
+   steals their clicks. */
+.teacher-login-actions .text-button {
+  min-height: 0;
+  padding: 0 2px;
+  white-space: nowrap;
 }
 
 .symbol-password-modal {
@@ -2134,7 +2159,11 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   box-shadow: 0 4px 16px rgba(22, 34, 51, 0.05);
 }
 
-.dash-card span {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.dash-card span:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   display: block;
   color: var(--lp-color-text-muted) !important;
   font-size: 13px;
@@ -2142,7 +2171,11 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   margin-bottom: 6px;
 }
 
-.dash-card strong {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.dash-card strong:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   color: var(--lp-color-text-strong) !important;
   font-size: 22px;
   font-weight: 800;
@@ -2533,6 +2566,20 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   color: var(--lp-color-primary-strong) !important;
 }
 
+/* Danger variant. Promoted out of .teacher-data-rights-dialog / .admin-retention-policy
+   scoping 2026-07-27 so destructive roster actions (delete student) can use it too.
+   The two scoped copies below still exist and simply win by specificity where they apply. */
+.lp-button-danger {
+  border-color: #8f2525;
+  background: #8f2525;
+  color: #ffffff;
+}
+
+.lp-button-danger:hover:not(:disabled) {
+  background: #741d1d;
+  border-color: #741d1d;
+}
+
 .lp-button-danger-outline {
   background: var(--lp-color-surface) !important;
   color: var(--lp-color-danger) !important;
@@ -2683,64 +2730,150 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   outline-offset: 2px;
 }
 
-.lp-metric-definition-tooltip {
+/* ─────────────────────────────────────────────────────────────────────────
+   METRIC DEFINITION TOOLTIP — READ THIS BEFORE EDITING
+
+   TRAP 1 — never drive this tooltip's open/closed state with `display`.
+   App.css contains ~50 container rules shaped like
+   `.dash-card span { display: block }` (also .snapshot-metric,
+   .checkpoint-result-grid, .formal-class-report-metric, .learn-* …).
+   A bare-element descendant selector like that has specificity (0,1,1),
+   which beats a single-class (0,1,0) `display: none` on the tooltip. The
+   result was every tooltip inside such a container being pinned
+   permanently open, absolutely positioned over the page content.
+   The open/closed state is therefore carried by `visibility`, `opacity`
+   and a collapsed box — properties that `<container> element` rules never
+   set. A future `.whatever span { display: block }` rule (or even
+   `display: block !important`) can no longer reveal a closed tooltip,
+   whatever its specificity, because it does not touch the state carriers.
+   The closed box is collapsed to 0×0 with `overflow: hidden` so a hidden
+   tooltip never contributes scrollable overflow to ancestors such as
+   `.table-scroll`.
+
+   TRAP 2 — `text-transform`, `font-size`, `letter-spacing`, `font-weight`,
+   `color` and `line-height` all inherit, and the same container rules set
+   them (e.g. `.teacher-dashboard-context span { text-transform: uppercase }`
+   used to repaint the whole tooltip body in 11px CAPS). The tooltip and
+   every descendant therefore re-declare those properties for themselves.
+   The `.lp-metric-definition > …tooltip.…tooltip` form is deliberate: it
+   is specificity (0,3,0), so no `<container> <element>` rule can win.
+   Container rules that used to reach in have also been narrowed at source
+   with `:not(.lp-defined-metric, .lp-defined-metric *, …)` — search for
+   that guard before adding another `<container> span` rule.
+
+   TRAP 3 — placement is generic. Do NOT add per-container overrides such
+   as `.teacher-roster-table td:last-child .lp-metric-definition-tooltip`;
+   five of those were deleted when this was fixed and they never covered
+   every mount point. Collision handling lives in MetricDefinition.jsx,
+   which measures on open and sets `--lp-tooltip-shift` / `data-flip`.
+   With JS unavailable the tooltip still opens on :hover / :focus-within,
+   centred and width-clamped to the viewport.
+   ───────────────────────────────────────────────────────────────────── */
+
+.lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip {
   position: absolute;
   z-index: 80;
   top: calc(100% + 8px);
   left: 50%;
-  width: min(340px, calc(100vw - 32px));
-  display: none;
-  gap: 5px;
-  padding: 12px;
-  border: 1px solid var(--lp-color-border);
+  box-sizing: border-box;
+  /* closed: collapsed, invisible, inert. State lives in the hiding
+     properties below, never in `display`. */
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  /* Third, independent hiding layer. Two `!important` rules elsewhere in this
+     file can force `visibility: visible` / `opacity: 1` onto a bare descendant
+     (`@media print` sign-in cards, and `.choice-button span`). Nothing sets
+     `clip-path` on a bare element, so a closed tooltip stays clipped even if a
+     future rule wins on the other two. */
+  clip-path: inset(50%);
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0 solid var(--lp-color-border);
   border-radius: 8px;
   background: var(--lp-color-surface);
-  box-shadow: var(--shadow-card);
-  color: var(--lp-color-text);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.45;
+  box-shadow: none;
   pointer-events: none;
+  /* typography reset — see TRAP 2 */
+  color: var(--lp-color-text);
+  font-family: inherit;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.45;
   text-align: left;
-  transform: translateX(-50%);
+  text-transform: none;
+  white-space: normal;
+  word-spacing: normal;
+  transform: translateX(calc(-50% + var(--lp-tooltip-shift, 0px)));
 }
 
-.lp-metric-definition-tooltip strong,
-.lp-metric-definition-tooltip span {
+/* Descendants inherit from whatever the tooltip is mounted inside, so they
+   get the same reset. (0,3,0) beats any `<container> <element>` rule. */
+.lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip * {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: normal;
+  line-height: inherit;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  word-spacing: normal;
+}
+
+/* Layout of the tooltip body must not depend on `display: grid` surviving,
+   because a container rule may force `display: block` on it. Spacing is
+   therefore done with margins, which work in either layout mode. */
+.lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip > * {
   display: block;
+  margin: 0;
 }
 
-.lp-metric-definition-tooltip b {
+.lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip > * + * {
+  margin-top: 5px;
+}
+
+.lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip strong {
+  font-size: 13px;
   font-weight: 800;
 }
 
-.lp-metric-definition:hover .lp-metric-definition-tooltip,
-.lp-metric-definition:focus-within .lp-metric-definition-tooltip {
-  display: grid;
+.lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip b {
+  font-weight: 800;
 }
 
-.teacher-roster-table td:first-child .lp-metric-definition-tooltip,
-.teacher-roster-table td:nth-child(2) .lp-metric-definition-tooltip {
-  left: 0;
-  transform: none;
+/* Open. `:not([data-dismissed="true"])` lets Escape close a tooltip that is
+   still hovered without needing a higher-specificity "force closed" rule. */
+.lp-metric-definition:hover > .lp-metric-definition-tooltip.lp-metric-definition-tooltip:not([data-dismissed="true"]),
+.lp-metric-definition:focus-within > .lp-metric-definition-tooltip.lp-metric-definition-tooltip:not([data-dismissed="true"]) {
+  width: min(340px, calc(100vw - 32px));
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+  overflow: visible;
+  clip-path: none;
+  padding: 12px;
+  border-width: 1px;
+  box-shadow: var(--shadow-card);
 }
 
-.teacher-roster-table td:last-child .lp-metric-definition-tooltip {
-  right: 0;
-  left: auto;
-  transform: none;
+/* Flipped above the trigger when there is no room below (set by JS). */
+.lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip[data-flip="up"] {
+  top: auto;
+  bottom: calc(100% + 8px);
 }
 
-.teacher-roster-metric:last-child .lp-metric-definition-tooltip {
-  right: 0;
-  left: auto;
-  transform: none;
-}
-
-.teacher-learner-drawer .lp-metric-definition-tooltip {
-  right: 0;
-  left: auto;
-  transform: none;
+@media (prefers-reduced-motion: no-preference) {
+  .lp-metric-definition > .lp-metric-definition-tooltip.lp-metric-definition-tooltip {
+    transition: opacity 120ms ease;
+  }
 }
 
 .teacher-dashboard-page {
@@ -2863,8 +2996,12 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   background: rgba(255, 255, 255, 0.72);
 }
 
-.teacher-dashboard-context span,
-.teacher-roster-metric span {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.teacher-dashboard-context span:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *),
+.teacher-roster-metric span:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   color: var(--lp-color-text-muted);
   font-size: 11px;
   font-weight: 800;
@@ -3882,6 +4019,13 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
+}
+
+/* Sign-in is the widest cell content in the roster; without a floor it is the
+   column the table steals width from, which forces the actions to wrap.
+   Reset inside the mobile card layout, where each td is its own grid row. */
+.teacher-roster-table td[data-label="Sign-in"] {
+  min-width: 250px;
 }
 
 .teacher-student-cell,
@@ -7312,6 +7456,10 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     border-bottom: 0;
   }
 
+  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Sign-in"] {
+    min-width: 0;
+  }
+
   .teacher-roster-table .teacher-row-actions {
     align-items: stretch;
     flex-direction: row;
@@ -10234,7 +10382,11 @@ select:focus {
   background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
 }
 
-.checkpoint-result-grid span {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.checkpoint-result-grid span:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   display: block;
   margin-bottom: 4px;
   color: var(--lp-color-text-muted) !important;
@@ -10243,7 +10395,11 @@ select:focus {
   text-transform: uppercase;
 }
 
-.checkpoint-result-grid strong {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.checkpoint-result-grid strong:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   color: var(--lp-color-text-strong) !important;
   font-size: clamp(17px, 2vw, 20px);
 }
@@ -11289,7 +11445,11 @@ select:focus {
   padding: 12px 13px;
 }
 
-.formal-class-report-metric span {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.formal-class-report-metric span:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   color: #52637a;
   display: block;
   font-size: 10px;
@@ -11299,7 +11459,11 @@ select:focus {
   text-transform: uppercase;
 }
 
-.formal-class-report-metric strong {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.formal-class-report-metric strong:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   color: #111827;
   display: block;
   font-size: 24px;
@@ -17467,7 +17631,11 @@ select:focus {
   border-left: 5px solid #7c3aed;
 }
 
-.snapshot-metric span {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.snapshot-metric span:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   color: #64748b;
   display: block;
   font-size: 11px;
@@ -17477,7 +17645,11 @@ select:focus {
   text-transform: uppercase;
 }
 
-.snapshot-metric strong {
+/* Guarded: this bare-element descendant selector (0,1,1) used to reach into
+   the metric definition tooltip and repaint it (see the METRIC DEFINITION
+   TOOLTIP block). Keep the :not() guard on any `<container> span|strong`
+   rule that can wrap a <MetricFigure>. */
+.snapshot-metric strong:not(.lp-defined-metric, .lp-defined-metric *, .lp-metric-definition, .lp-metric-definition *) {
   color: #0f172a;
   display: block;
   font-size: 24px;
@@ -19428,10 +19600,6 @@ select:focus {
   gap: 14px;
 }
 
-.teacher-intent-page[data-teacher-intent="assess"] .teacher-intent-actions {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .teacher-intent-page .teacher-page-header > div:first-child {
   min-width: 0;
   flex: 1 1 auto;
@@ -21035,10 +21203,6 @@ select:focus {
 }
 
 @media (max-width: 820px) {
-  .teacher-intent-page[data-teacher-intent="assess"] .teacher-intent-actions {
-    grid-template-columns: 1fr;
-  }
-
   .teacher-intent-page .teacher-page-header {
     flex-direction: column;
     align-items: stretch;
@@ -22561,4 +22725,196 @@ body {
   max-width: 13rem;
   padding: 0.25rem 0.4rem;
   font-size: 0.82rem;
+}
+
+
+/* ── THE TWO FUNNELS ────────────────────────────────────────────────────────
+   Checks and Reports are the same page shape: numbered steps down one column,
+   the answer showing in the head of each step, later steps visibly waiting
+   rather than hidden. The styling is deliberately shared so the two read as one
+   pattern a teacher learns once. */
+.teacher-funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+}
+
+.teacher-funnel-step {
+  background: #ffffff;
+  border: 1px solid var(--lp-color-border, #e2e5e1);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.teacher-funnel-step.locked {
+  background: #f6f7f5;
+  border-style: dashed;
+  color: var(--lp-color-text-muted, #5c6660);
+}
+
+.teacher-funnel-step-head {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+}
+
+.teacher-funnel-step-head > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.teacher-funnel-step-number {
+  align-items: center;
+  background: var(--lp-color-primary-soft, #e7efe9);
+  border-radius: 999px;
+  color: var(--lp-color-primary-strong, #24503a);
+  display: flex;
+  flex: 0 0 auto;
+  font-weight: 800;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.teacher-funnel-step.locked .teacher-funnel-step-number {
+  background: #e8eae7;
+  color: #78827b;
+}
+
+.teacher-funnel-step h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.teacher-funnel-step h3:focus-visible {
+  outline: 3px solid var(--lp-color-primary, #2e4b3e);
+  outline-offset: 3px;
+}
+
+.teacher-funnel-step-answer,
+.teacher-funnel-step-help,
+.teacher-funnel-step-locked {
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.teacher-funnel-step-answer {
+  color: var(--lp-color-primary-strong, #24503a);
+  font-weight: 700;
+}
+
+.teacher-funnel-step-body {
+  margin-top: 12px;
+}
+
+.teacher-funnel-field {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 700;
+  gap: 4px;
+  max-width: 340px;
+}
+
+.teacher-funnel-field select {
+  min-height: var(--teacher-ui-target-min, 44px);
+}
+
+.teacher-funnel-field small {
+  font-weight: 500;
+}
+
+.teacher-funnel-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.teacher-funnel-options {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.teacher-funnel-cards {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.teacher-funnel-option {
+  background: #ffffff;
+  border: 1px solid var(--lp-color-border, #e2e5e1);
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: var(--teacher-ui-target-min, 44px);
+  padding: 10px 12px;
+  text-align: left;
+  width: 100%;
+}
+
+.teacher-funnel-option[aria-pressed="true"] {
+  border-color: var(--lp-color-primary, #2e4b3e);
+  box-shadow: inset 0 0 0 1px var(--lp-color-primary, #2e4b3e);
+}
+
+.teacher-funnel-option-wide {
+  grid-column: 1 / -1;
+}
+
+.teacher-funnel-option small,
+.teacher-funnel-option span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.teacher-funnel-draft {
+  align-items: center;
+  background: #fff8e6;
+  border: 1px solid #e8d9a8;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.teacher-funnel-draft small {
+  display: block;
+  font-size: 12px;
+}
+
+.teacher-funnel-begin {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.teacher-funnel-begin .lp-button {
+  align-self: flex-start;
+}
+
+.teacher-funnel-report {
+  border-top: 1px solid var(--lp-color-border, #e2e5e1);
+  margin-top: 8px;
+  padding-top: 12px;
+}
+
+.teacher-funnel-report > h3:focus-visible {
+  outline: 3px solid var(--lp-color-primary, #2e4b3e);
+  outline-offset: 3px;
+}
+
+@media (max-width: 820px) {
+  .teacher-funnel-options {
+    grid-template-columns: 1fr;
+  }
 }

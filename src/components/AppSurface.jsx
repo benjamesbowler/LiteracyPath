@@ -25,7 +25,6 @@ import {
   AdminDashboardPage,
   AssessmentErrorBoundary,
   ConfirmActionDialog,
-  ELAssessmentsPage,
   ELBenchmarkAssessmentPage,
   ElSkillsQuest,
   FinishedReportPage,
@@ -40,7 +39,9 @@ import {
   QuestRoot,
   ResetStudentProgressDialog,
   Sidebar,
+  TeacherAssessmentsPage,
   TeacherIntentPage,
+  TeacherReportsHubPage,
   TeacherStudentsPage,
   TeacherTodayPage,
   TeacherSettingsPage,
@@ -150,6 +151,19 @@ export function AppSurface({ surface }) {
       setArchivedStudentList([]);
       setClassDashboard([]);
     }
+  }
+
+  // ONE WAY TO OPEN A STUDENT REPORT.
+  //
+  // There were two copies of this, with the same body: one on the Students
+  // panel that used whichever student happened to be selected, and one on the
+  // report picker that used the student whose row was clicked. The first was
+  // wrong whenever the row and the selection disagreed.
+  function openStudentReport(learnerId, reportView = "whole-child") {
+    if (!learnerId) return;
+    setStudentReportView(reportView);
+    pushRouteHash(teacherReportHash(selectedClassId, learnerId, reportView));
+    setAppView(APP_VIEWS.FINISHED);
   }
 
   function clearSelectedLearner() {
@@ -472,6 +486,88 @@ export function AppSurface({ surface }) {
     pushRouteHash(nextHash);
     setAppView(nextView);
   };
+  // The Reports funnel keeps the teacher on one page, so the report styles in
+  // the report's own left rail must link back into the funnel rather than off
+  // to the standalone report route.
+  const reportsFunnelHash = reportView => {
+    const base = teacherIntentHash({
+      appView: APP_VIEWS.REPORTS,
+      classId: selectedClassId,
+      groupId: teacherGroupId,
+      learnerId: studentId
+    });
+    if (!base) return "";
+    const [path, query = ""] = base.replace(/^#/, "").split("?");
+    const params = new URLSearchParams(query);
+    params.set("report", reportView);
+    params.set("show", "1");
+    return `#${path}?${params.toString()}`;
+  };
+
+  // ONE STUDENT REPORT, TWO PLACES IT APPEARS: at the end of a check, and
+  // inside the last step of the Reports funnel. The props are assembled once so
+  // the two can never drift apart.
+  const renderStudentReport = (reportView, options = {}) => (
+    <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
+      <FinishedReportPage
+        buildReportHref={options.buildReportHref || (view => (
+          teacherReportHash(selectedClassId, studentId, view)
+        ))}
+        onReportViewChange={options.onReportViewChange}
+        startAssessment={startAssessment}
+        openChecks={() => setAppView(APP_VIEWS.ASSESSMENTS)}
+        initialReportView={reportView}
+        keepPracticingSkill={keepPracticingSkill}
+        startTargetedReview={startTargetedReview}
+        studentName={studentName}
+        className={getSelectedClassName(classList, selectedClassId)}
+        totalAnswered={totalAnswered}
+        accuracy={accuracy}
+        currentStage={currentStage}
+        currentSkillIndex={currentSkillIndex}
+        setCurrentSkillIndex={setCurrentSkillIndex}
+        setRoundAnswers={setRoundAnswers}
+        setCurrentQuestion={setCurrentQuestion}
+        setFeedback={setFeedback}
+        setMessage={setMessage}
+        skillTree={skillTree}
+        currentStageQuestions={currentStageQuestions}
+        mastery={mastery}
+        coverageSnapshot={coverageSnapshot}
+        skillMasterySummary={reportSkillMasterySummary}
+        itemMastery={itemMastery}
+        assessmentHistory={reportsAssessmentHistory}
+        evidenceReadState={selectedStudentEvidenceReadState}
+        allowPassageAudio={allowPassageAudio}
+        setAllowPassageAudio={setAllowPassageAudio}
+        exportData={exportData}
+        exportCSVData={exportCSVData}
+        exportStudentExcel={exportStudentAssessmentWorkbook}
+        exportReadingReport={exportReadingReport}
+        letterAssessment={letterAssessment}
+        patternAssessment={patternAssessment}
+        exportLetterAssessment={exportLetterAssessment}
+        exportPatternAssessment={exportPatternAssessment}
+        guidedReadingRecords={guidedReadingRecords}
+        storyQuestProgressScopeKey={studentId || studentName || "default"}
+        progressScopeKey={studentId || studentName || "default"}
+        openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+        returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
+      />
+    </Suspense>
+  );
+
+  // Both funnels report what just happened through the one shared feedback
+  // component rather than each growing its own status line.
+  const funnelFeedback = message ? (
+    <Suspense fallback={null}>
+      <LazyActionFeedback
+        className={`el-benchmark-hub-message${message.includes("Cloud sync is pending") || message.includes("cloud copy could not") ? " sync-pending" : ""}`}
+        message={message}
+      />
+    </Suspense>
+  ) : null;
+
   const railActions = {
     sounds: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_QUEST); },
     phonics: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_LEARN); },
@@ -527,7 +623,8 @@ export function AppSurface({ surface }) {
             className={getSelectedClassName(classList, selectedClassId)}
             goToTeacherDashboard={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
             goToTeacherClasses={() => goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES)}
-            goToTeacherProgress={() => goToTeacherIntent(APP_VIEWS.TEACHER_PROGRESS)}
+            goToTeacherAssessments={() => goToTeacherIntent(APP_VIEWS.ASSESSMENTS)}
+            goToTeacherReports={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
             goToTeacherResources={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             goToTeacherSettings={() => goToTeacherIntent(APP_VIEWS.TEACHER_SETTINGS)}
             teacherEmail={teacherUser.email}
@@ -723,7 +820,7 @@ export function AppSurface({ surface }) {
               }}
               onStartCheck={startCheckForStudent}
               onOpenClasses={openStudentsPage}
-              onOpenProgress={() => setAppView(APP_VIEWS.TEACHER_PROGRESS)}
+              onOpenProgress={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
               createDemoClass={createDemoClass}
               teacherId={teacherId}
               schoolName={teacherSchoolName}
@@ -768,12 +865,7 @@ export function AppSurface({ surface }) {
                 setNameSaved(false);
               }}
               onStartCheck={startCheckForStudent}
-              onOpenReport={() => {
-                const nextReportView = "whole-child";
-                setStudentReportView(nextReportView);
-                pushRouteHash(teacherReportHash(selectedClassId, studentId, nextReportView));
-                setAppView(APP_VIEWS.FINISHED);
-              }}
+              onOpenReport={() => openStudentReport(studentId)}
               onOpenGuidedReading={() => {
                 setGuidedInitialBookId("");
                 setAppView(APP_VIEWS.GUIDED_READING);
@@ -781,7 +873,7 @@ export function AppSurface({ surface }) {
               onOpenStoryQuests={() => openStudentPreview(APP_VIEWS.LEARN)}
               onOpenElFormalCheck={async student => {
                 await selectStudentIfNeeded(student);
-                setAppView(APP_VIEWS.EL_ASSESSMENTS);
+                goToTeacherIntent(APP_VIEWS.ASSESSMENTS);
               }}
               onResetCheckData={async student => {
                 await selectStudentIfNeeded(student);
@@ -810,38 +902,6 @@ export function AppSurface({ surface }) {
               message={message}
               setupFocus={setupFocus}
               onSetupFocusHandled={() => setSetupFocus("")}
-            />
-          </Suspense>
-        </PageBoundary>
-      )}
-
-      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_PROGRESS && (
-        <PageBoundary resetKey="teacher-progress">
-          <Suspense fallback={<LazyPageFallback label="Loading progress tools..." />}>
-            <TeacherIntentPage
-              intent="progress"
-              supabase={supabase}
-              teacherId={teacherId}
-              className={getSelectedClassName(classList, selectedClassId)}
-              classList={classList}
-              selectedClassId={selectedClassId}
-              onSelectClass={selectTeacherClass}
-              progressRows={classDashboard}
-              selectedLearnerId={nameSaved ? studentId : ""}
-              studentName={nameSaved ? studentName : ""}
-              onSelectLearner={(id, name) => loadStudentProgress(id, name, { navigate: false })}
-              onClearLearner={clearSelectedLearner}
-              onOpenReports={learnerId => {
-                const nextReportView = "whole-child";
-                setStudentReportView(nextReportView);
-                pushRouteHash(teacherReportHash(
-                  selectedClassId,
-                  learnerId,
-                  nextReportView
-                ));
-                setAppView(APP_VIEWS.FINISHED);
-              }}
-              onOpenClassReport={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
             />
           </Suspense>
         </PageBoundary>
@@ -890,31 +950,33 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {appView === APP_VIEWS.EL_ASSESSMENTS && nameSaved && (
-        <PageBoundary resetKey={`el-assessments-${studentId}`}>
-          <>
-            {message && (
-              <Suspense fallback={null}>
-                <LazyActionFeedback
-                  className={`el-benchmark-hub-message${message.includes("Cloud sync is pending") || message.includes("cloud copy could not") ? " sync-pending" : ""}`}
-                  message={message}
-                />
-              </Suspense>
-            )}
-            <Suspense fallback={<LazyPageFallback label="Loading assessments..." />}>
-              <ELAssessmentsPage
-                studentId={studentId}
-                studentName={studentName}
-                startLetterAssessment={startLetterAssessment}
-                startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-                startElBenchmarkAssessment={startElBenchmarkAssessment}
-                resumeElBenchmarkAssessment={resumeElBenchmarkAssessment}
-                discardElBenchmarkDraft={discardElBenchmarkDraft}
-                elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
-                assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
-              />
-            </Suspense>
-          </>
+      {sessionMode !== "student" && appView === APP_VIEWS.ASSESSMENTS && (
+        <PageBoundary resetKey="teacher-assessments">
+          {funnelFeedback}
+          <Suspense fallback={<LazyPageFallback label="Loading checks..." />}>
+            <TeacherAssessmentsPage
+              classList={classList}
+              selectedClassId={selectedClassId}
+              className={getSelectedClassName(classList, selectedClassId)}
+              onSelectClass={selectTeacherClass}
+              studentRows={classDashboard}
+              studentList={studentList}
+              loadingStudents={loadingStudents}
+              selectedStudentId={nameSaved ? studentId : ""}
+              selectedStudentName={nameSaved ? studentName : ""}
+              onSelectStudent={(id, name) => loadStudentProgress(id, name, { navigate: false })}
+              onClearStudent={clearSelectedLearner}
+              firstUnsecuredSkillIndex={currentSkillIndex}
+              assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
+              elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
+              onResumeDraft={resumeElBenchmarkAssessment}
+              onDiscardDraft={discardElBenchmarkDraft}
+              onStartSkillCheck={stageIndex => startAssessment(stageIndex)}
+              onStartLetterCheck={startLetterAssessment}
+              onStartPhonicsPatternCheck={startAdvancedPhonicsAssessment}
+              onStartBenchmark={startElBenchmarkAssessment}
+            />
+          </Suspense>
         </PageBoundary>
       )}
 
@@ -986,35 +1048,40 @@ export function AppSurface({ surface }) {
       )}
 
       {sessionMode !== "student" && appView === APP_VIEWS.REPORTS && (
-        <PageBoundary resetKey={`reports-${studentId}`}>
-          <TeacherReportsPage
-            onBackToReports={() => goToTeacherIntent(APP_VIEWS.TEACHER_PROGRESS)}
-            allAssessmentHistory={assessmentHistory}
-            classList={classList}
-            selectedClassId={selectedClassId}
-            setSelectedClassId={async nextClassId => {
-              // The class report reads the roster and the saved class results,
-              // so changing class here has to reload both. Passing the setter
-              // straight through would leave the previous class's students on
-              // screen under the new class's name.
-              setSelectedClassId(nextClassId);
-              setTeacherGroupId("all");
-              setTeacherStudentContext({ studentId: null, studentName: "" });
-              setNameSaved(false);
-              if (nextClassId) {
-                await loadStudents(nextClassId);
-                await loadClassDashboard(nextClassId);
-              } else {
-                setStudentList([]);
-                setArchivedStudentList([]);
-                setClassDashboard([]);
-              }
-            }}
-            students={studentList}
-            teacherName={teacherUser?.email || ""}
-            teacherId={teacherId}
-            supabase={isSupabaseConfigured ? supabase : null}
-          />
+        <PageBoundary resetKey="teacher-reports">
+          {funnelFeedback}
+          <Suspense fallback={<LazyPageFallback label="Loading reports..." />}>
+            <TeacherReportsHubPage
+              classList={classList}
+              selectedClassId={selectedClassId}
+              className={getSelectedClassName(classList, selectedClassId)}
+              onSelectClass={selectTeacherClass}
+              studentRows={classDashboard}
+              studentList={studentList}
+              loadingStudents={loadingStudents}
+              selectedStudentId={nameSaved ? studentId : ""}
+              selectedStudentName={nameSaved ? studentName : ""}
+              onSelectStudent={(id, name) => loadStudentProgress(id, name, { navigate: false })}
+              onClearStudent={clearSelectedLearner}
+              reportView={studentReportView}
+              onSelectReportView={setStudentReportView}
+              renderStudentReport={reportView => renderStudentReport(reportView, {
+                buildReportHref: reportsFunnelHash,
+                onReportViewChange: setStudentReportView
+              })}
+              renderClassReport={() => (
+                <TeacherReportsPage
+                  allAssessmentHistory={assessmentHistory}
+                  classList={classList}
+                  selectedClassId={selectedClassId}
+                  students={studentList}
+                  teacherName={teacherUser?.email || ""}
+                  teacherId={teacherId}
+                  supabase={isSupabaseConfigured ? supabase : null}
+                />
+              )}
+            />
+          </Suspense>
         </PageBoundary>
       )}
 
@@ -1034,7 +1101,7 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {sessionMode !== "student" && shouldShowDashboardSummary({ appView, isFocusedAssessment: isFocusedShell }) && (
+      {sessionMode !== "student" && shouldShowDashboardSummary({ appView }) && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -1170,52 +1237,7 @@ export function AppSurface({ surface }) {
 
       {appView === APP_VIEWS.FINISHED && (
         <PageBoundary resetKey="finished-report">
-          <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
-            <FinishedReportPage
-              buildReportHref={reportView => (
-                teacherReportHash(selectedClassId, studentId, reportView)
-              )}
-              startAssessment={startAssessment}
-              openElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
-              initialReportView={studentReportView}
-              keepPracticingSkill={keepPracticingSkill}
-              startTargetedReview={startTargetedReview}
-              studentName={studentName}
-              className={getSelectedClassName(classList, selectedClassId)}
-              totalAnswered={totalAnswered}
-              accuracy={accuracy}
-              currentStage={currentStage}
-              currentSkillIndex={currentSkillIndex}
-              setCurrentSkillIndex={setCurrentSkillIndex}
-              setRoundAnswers={setRoundAnswers}
-              setCurrentQuestion={setCurrentQuestion}
-              setFeedback={setFeedback}
-              setMessage={setMessage}
-              skillTree={skillTree}
-              currentStageQuestions={currentStageQuestions}
-              mastery={mastery}
-              coverageSnapshot={coverageSnapshot}
-              skillMasterySummary={reportSkillMasterySummary}
-              itemMastery={itemMastery}
-              assessmentHistory={reportsAssessmentHistory}
-              evidenceReadState={selectedStudentEvidenceReadState}
-              allowPassageAudio={allowPassageAudio}
-              setAllowPassageAudio={setAllowPassageAudio}
-              exportData={exportData}
-              exportCSVData={exportCSVData}
-              exportStudentExcel={exportStudentAssessmentWorkbook}
-              exportReadingReport={exportReadingReport}
-              letterAssessment={letterAssessment}
-              patternAssessment={patternAssessment}
-              exportLetterAssessment={exportLetterAssessment}
-              exportPatternAssessment={exportPatternAssessment}
-              guidedReadingRecords={guidedReadingRecords}
-              storyQuestProgressScopeKey={studentId || studentName || "default"}
-              progressScopeKey={studentId || studentName || "default"}
-              openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-              returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
-            />
-          </Suspense>
+          {renderStudentReport(studentReportView)}
         </PageBoundary>
       )}
 

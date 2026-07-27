@@ -21,7 +21,7 @@ import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepe
 import { deleteAssessmentAttemptsForStudent, flushAssessmentAttemptSyncQueue, hydrateAssessmentAttempts, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
 import { deleteSavedClassElAssessmentReportsForStudent } from "./data/elAssessmentReportStore.js";
 import { APP_VIEWS } from "./appState/appViews.js";
-import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isStudentAllowedView, restoreElBenchmarkSessionFromHash, teacherIntentHash } from "./appState/appViewHelpers.js";
+import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isSameTeacherRoute, isStudentAllowedView, restoreElBenchmarkSessionFromHash, teacherIntentHash } from "./appState/appViewHelpers.js";
 import { deleteElBenchmarkDraft, loadElBenchmarkDraft, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
 import { calculateAccuracy, calculateRoundCorrect } from "./appState/assessmentSessionHelpers.js";
 import { preloadQuestionMedia } from "./utils/preloadQuestionMedia.js";
@@ -609,7 +609,7 @@ export default function App() {
       if (String(studentId || "") === resetStudentId) {
         setElBenchmarkDraftSaveFailed(false);
         if (appView === APP_VIEWS.EL_BENCHMARK) {
-          setAppView(APP_VIEWS.EL_ASSESSMENTS);
+          setAppView(APP_VIEWS.ASSESSMENTS);
         }
         setMessage("This student's progress was reset on another device. Local assessment drafts and reports were cleared.");
       }
@@ -682,7 +682,7 @@ export default function App() {
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
     hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
-    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isStudentAllowedView,
+    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isSameTeacherRoute, isStudentAllowedView,
     isSupabaseConfigured, itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
     letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
@@ -796,7 +796,7 @@ export default function App() {
     setElBenchmarkDraftSaveFailed(false);
     setElBenchmarkSession(null);
     setMessage("");
-    if (appView === APP_VIEWS.EL_BENCHMARK) setAppView(APP_VIEWS.EL_ASSESSMENTS);
+    if (appView === APP_VIEWS.EL_BENCHMARK) setAppView(APP_VIEWS.ASSESSMENTS);
   }
 
   async function archiveElBenchmarkSession(nextSession) {
@@ -842,7 +842,7 @@ export default function App() {
     setMessage(draftSaved
       ? "Partial benchmark evidence saved. You can resume this draft from the assessment hub."
       : "Partial evidence was archived, but this device could not keep a resumable draft.");
-    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+    setAppView(APP_VIEWS.ASSESSMENTS);
   }
 
   async function finishElBenchmarkAssessment(nextSession) {
@@ -881,7 +881,7 @@ export default function App() {
         ? "Assessment completed and saved on this device, but a cloud copy could not be queued. Keep this device's data and retry from a reliable connection."
         : "Assessment completed and saved to this student's reports.";
     setMessage(successMessage);
-    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+    setAppView(APP_VIEWS.ASSESSMENTS);
     return {
       ok: true,
       durable: true,
@@ -929,7 +929,7 @@ export default function App() {
         ? "Discontinued evidence saved on this device, but a cloud copy could not be queued. Keep this device's data and retry from a reliable connection."
         : "Discontinued evidence saved without counting unadministered items as incorrect.";
     setMessage(successMessage);
-    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+    setAppView(APP_VIEWS.ASSESSMENTS);
     return {
       ok: true,
       durable: true,
@@ -943,7 +943,7 @@ export default function App() {
 
   function returnFromElBenchmarkAssessment() {
     setMessage("Draft auto-saved on this device. Use Resume draft to continue.");
-    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+    setAppView(APP_VIEWS.ASSESSMENTS);
   }
 
   function startAdvancedPhonicsAssessment() {

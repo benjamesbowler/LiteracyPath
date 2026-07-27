@@ -39,7 +39,7 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   Object.freeze({
     id: "teacher-learner-drawer",
     url: "/preview/teacher-a11y.html?surface=classes&learner=1",
-    dialogName: "Child details: Aarav"
+    dialogName: "Student details: Aarav"
   }),
   Object.freeze({
     id: "teacher-child-options",

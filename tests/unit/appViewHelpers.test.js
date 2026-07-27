@@ -6,6 +6,8 @@ import {
   STUDENT_ALLOWED_VIEWS,
   isStudentAllowedView,
   isFocusedAssessmentView,
+  isSameTeacherRoute,
+  shouldShowDashboardSummary,
   shouldShowFooterUtilityActions,
   elBenchmarkAssessmentHash,
   getRestoredAppView,
@@ -15,6 +17,7 @@ import {
   teacherIntentHash
 } from "../../src/appState/appViewHelpers.js";
 import { parse as parseTeacherRouteHash } from "../../src/appState/routes.js";
+import { STUDENT_REPORT_VIEWS } from "../../src/components/reports/studentReportUiUtils.js";
 
 // ── THE REGRESSION THIS FILE EXISTS FOR ─────────────────────────────────────
 //
@@ -71,7 +74,7 @@ test("teacher-only views are NOT on the student allowlist", () => {
   for (const view of [
     APP_VIEWS.TEACHER_DASHBOARD,
     APP_VIEWS.TEACHER_CLASSES,
-    APP_VIEWS.TEACHER_PROGRESS,
+    APP_VIEWS.ASSESSMENTS,
     APP_VIEWS.TEACHER_RESOURCES,
     APP_VIEWS.TEACHER_SETTINGS,
     APP_VIEWS.ADMIN_DASHBOARD,
@@ -112,7 +115,9 @@ test("teacher intentions persist and restore without requiring a selected learne
   for (const view of [
     APP_VIEWS.TEACHER_DASHBOARD,
     APP_VIEWS.TEACHER_CLASSES,
-    APP_VIEWS.TEACHER_PROGRESS,
+    // Both funnels open on step 1, so neither needs a student to be restorable.
+    APP_VIEWS.ASSESSMENTS,
+    APP_VIEWS.REPORTS,
     APP_VIEWS.TEACHER_RESOURCES,
     APP_VIEWS.TEACHER_SETTINGS
   ]) {
@@ -127,10 +132,14 @@ test("restored module-shaped teacher routes redirect to the focused teacher IA",
     // "overview" and "teacherAssess" are retired names still sitting in older
     // saved sessions: a check now starts from the roster, so they land there.
     ["overview", APP_VIEWS.TEACHER_CLASSES],
-    ["teacherAssess", APP_VIEWS.TEACHER_CLASSES],
+    // 2026-07-27: checks have their own section again, so the two retired check
+    // view names land there instead of on the roster, and the retired report
+    // picker lands on the Reports funnel that replaced it.
+    ["teacherAssess", APP_VIEWS.ASSESSMENTS],
+    ["elAssessments", APP_VIEWS.ASSESSMENTS],
+    ["teacherProgress", APP_VIEWS.REPORTS],
     ["tools", APP_VIEWS.TEACHER_CLASSES],
-    [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.TEACHER_CLASSES],
-    // REPORTS is no longer redirected: it is the reachable class report view.
+    // REPORTS is no longer redirected: it is the Reports funnel itself.
     [APP_VIEWS.GUIDED_READING, APP_VIEWS.TEACHER_RESOURCES],
     [APP_VIEWS.LEARN, APP_VIEWS.TEACHER_RESOURCES],
     [APP_VIEWS.WORKSHEETS, APP_VIEWS.TEACHER_RESOURCES],
@@ -165,14 +174,25 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
     }),
     "#teacher/children?class=class-a&group=attention&learner=learner-a"
   );
+  // 2026-07-27: Reports is the funnel, so #teacher/reports carries the student
+  // the teacher picked at step 2 rather than being a class-only page.
   assert.equal(
     teacherIntentHash({
-      appView: APP_VIEWS.TEACHER_PROGRESS,
+      appView: APP_VIEWS.REPORTS,
       classId: "class-a",
       groupId: "all",
       learnerId: "learner-a"
     }),
     "#teacher/reports?class=class-a&group=all&learner=learner-a"
+  );
+  assert.equal(
+    teacherIntentHash({
+      appView: APP_VIEWS.ASSESSMENTS,
+      classId: "class-a",
+      groupId: "all",
+      learnerId: "learner-a"
+    }),
+    "#teacher/assessments?class=class-a&group=all&learner=learner-a"
   );
   assert.equal(
     teacherIntentHash({
@@ -189,22 +209,12 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
     }),
     "#teacher/settings?class=class-a"
   );
-  // The class report is a real destination now, so it must have a real link.
-  assert.equal(
-    teacherIntentHash({ appView: APP_VIEWS.REPORTS, classId: "class-a" }),
-    "#teacher/reports/class?class=class-a"
-  );
 });
 
-test("the class report link restores a class without needing a chosen student", () => {
-  const classReportHash = teacherIntentHash({
-    appView: APP_VIEWS.REPORTS,
-    classId: "class-a",
-    groupId: "attention",
-    learnerId: "learner-a"
-  });
-  assert.equal(classReportHash, "#teacher/reports/class?class=class-a");
-  assert.deepEqual(parseTeacherRouteHash(classReportHash), {
+test("the old class-report link still lands on the funnel that absorbed it", () => {
+  // The class report is the "Whole class" answer to step 2 now, not a separate
+  // destination. Bookmarks of the old address must still open Reports.
+  assert.deepEqual(parseTeacherRouteHash("#teacher/reports/class?class=class-a"), {
     appView: APP_VIEWS.REPORTS,
     classId: "class-a",
     groupId: "all",
@@ -217,13 +227,93 @@ test("the class report link restores a class without needing a chosen student", 
   );
 });
 
+test("both funnels round-trip through their own hash", () => {
+  for (const [view, path] of [
+    [APP_VIEWS.ASSESSMENTS, "assessments"],
+    [APP_VIEWS.REPORTS, "reports"]
+  ]) {
+    const hash = teacherIntentHash({
+      appView: view,
+      classId: "class-a",
+      groupId: "all",
+      learnerId: "learner-a"
+    });
+    assert.equal(hash, `#teacher/${path}?class=class-a&group=all&learner=learner-a`);
+    assert.deepEqual(parseTeacherRouteHash(hash), {
+      appView: view,
+      classId: "class-a",
+      groupId: "all",
+      learnerId: "learner-a",
+      reportView: ""
+    });
+  }
+  // The names the two sections used to answer to still resolve.
+  assert.equal(parseTeacherRouteHash("#teacher/checks?class=c")?.appView, APP_VIEWS.ASSESSMENTS);
+  assert.equal(parseTeacherRouteHash("#teacher/assess?class=c")?.appView, APP_VIEWS.ASSESSMENTS);
+  assert.equal(parseTeacherRouteHash("#teacher/progress?class=c")?.appView, APP_VIEWS.REPORTS);
+});
+
+test("a funnel's remaining steps survive a re-render of the same section", () => {
+  // The appView -> URL mirror used to overwrite the whole hash on every render,
+  // which wiped the chosen check and starting point and made a mid-flow refresh
+  // land back on step 1.
+  assert.equal(
+    isSameTeacherRoute(
+      "#teacher/assessments?class=class-a&group=all&learner=learner-a&check=el_decoding&band=middle_full",
+      "#teacher/assessments?class=class-a&group=all&learner=learner-a"
+    ),
+    true
+  );
+  assert.equal(
+    isSameTeacherRoute(
+      "#teacher/assessments?class=class-a&group=all&learner=learner-a&check=el_decoding",
+      "#teacher/assessments?class=class-a&group=all&learner=learner-b"
+    ),
+    false,
+    "a different student is a different place and must be rewritten"
+  );
+  assert.equal(isSameTeacherRoute("#teacher/reports?class=a", "#teacher/children?class=a"), false);
+  assert.equal(isSameTeacherRoute("", "#teacher/reports?class=a"), false);
+});
+
+test("EVERY report style a teacher can open round-trips through a deep link", () => {
+  // The whitelist behind this was hand-kept at four while the report page
+  // offered six, so guided-reading and other-learning were silently rewritten
+  // to whole-child: the teacher opened a link to one report and got another.
+  for (const style of STUDENT_REPORT_VIEWS.map(view => view.id)) {
+    const hash = teacherIntentHash({
+      appView: APP_VIEWS.FINISHED,
+      classId: "class-a",
+      learnerId: "learner-a",
+      reportView: style
+    });
+    assert.equal(
+      parseTeacherRouteHash(hash)?.reportView,
+      style,
+      `${style} does not survive a reload`
+    );
+  }
+  assert.equal(STUDENT_REPORT_VIEWS.length, 6);
+});
+
+test("the live-session strip is allow-listed, not gated by omission", () => {
+  // It reports this sitting on this device only, so it must never sit above a
+  // saved report - which is exactly what "show it unless listed" produced.
+  assert.equal(shouldShowDashboardSummary({ appView: APP_VIEWS.FINISHED }), false);
+  assert.equal(shouldShowDashboardSummary({ appView: APP_VIEWS.REPORTS }), false);
+  assert.equal(shouldShowDashboardSummary({ appView: APP_VIEWS.ASSESSMENTS }), false);
+  assert.equal(shouldShowDashboardSummary({ appView: "a-view-invented-tomorrow" }), false);
+  assert.equal(shouldShowDashboardSummary({}), false);
+  assert.equal(shouldShowDashboardSummary({ appView: APP_VIEWS.CHECKPOINT }), true);
+});
+
 test("teacher intention and report URLs parse into restorable owned context", () => {
   assert.deepEqual(
     parseTeacherRouteHash(
       "#teacher/reports?class=class-a&group=attention&learner=learner-a"
     ),
     {
-      appView: APP_VIEWS.TEACHER_PROGRESS,
+      appView: APP_VIEWS.REPORTS,
       classId: "class-a",
       groupId: "attention",
       learnerId: "learner-a",

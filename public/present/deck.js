@@ -11,6 +11,30 @@
 // Served from /present/deck.js it is a real same-origin script, allowed by
 // `script-src 'self'`, with no hash to keep in sync.
 
+  // Broken-image fallbacks. The deck used to carry inline onerror="" handlers,
+  // but the same CSP that blocked the inline <script> (`script-src 'self'`, no
+  // 'unsafe-inline') blocks inline event handlers too, so they never fired in
+  // production and a missing asset showed the browser's broken-image icon on
+  // the projector. The builder now emits data-hide-on-error instead:
+  //   "self"      -> hide the <img>
+  //   a CSS selector -> hide the nearest matching ancestor (the whole word card)
+  function hideBroken(img){
+    var sel = img.getAttribute('data-hide-on-error');
+    if (!sel) return;
+    var target = sel === 'self' ? img : img.closest(sel);
+    if (target) target.style.display = 'none';
+  }
+  // 'error' does not bubble, so listen in the capture phase.
+  document.addEventListener('error', function(e){
+    var t = e.target;
+    if (t && t.tagName === 'IMG') hideBroken(t);
+  }, true);
+  // Images that already failed while the document was parsing fired their error
+  // before this script ran - sweep them once.
+  Array.prototype.forEach.call(document.images, function(img){
+    if (img.complete && !img.naturalWidth) hideBroken(img);
+  });
+
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var idx = 0, started = false;
   function playAudio(src){ if(!src) return; try { var a = new Audio(src); a.play().catch(function(){}); } catch { /* autoplay blocked or no audio device — the slide still shows */ } }

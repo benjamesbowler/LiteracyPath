@@ -1140,20 +1140,18 @@ export function GuidedReadingPage(props) {
 }
 // THE CLASS REPORT.
 //
-// This page used to open on a second student-report picker that duplicated the
-// one on Reports and needed a student selected somewhere else to work at all.
-// Per-student reports now open from the Student panel, so this page is what its
-// route already said it was: the class report.
+// 2026-07-27: this is no longer a route of its own. It is what the Reports
+// funnel shows when the answer to "whole class, or one student?" is the whole
+// class, so the class picker and the "back to reports" button it used to carry
+// have gone with the duplication - the funnel above it already asked.
 export function TeacherReportsPage({
   allAssessmentHistory = [],
   classList = [],
   selectedClassId = "",
-  setSelectedClassId,
   students = [],
   teacherName = "",
   teacherId = "local",
-  supabase = null,
-  onBackToReports = null
+  supabase = null
 }) {
   const [dateRange, setDateRange] = useState("last90");
 
@@ -1208,17 +1206,8 @@ export function TeacherReportsPage({
         <div>
           <p className="panel-label">Reports</p>
           <h2>Class report</h2>
-          <p>See the whole class in one place. Open one student&apos;s report from the Student panel.</p>
+          <p>The whole class in one place. Choose one student at step 2 above for a single child&apos;s report.</p>
         </div>
-        {onBackToReports && (
-          <button
-            className="lp-button lp-button-secondary"
-            onClick={onBackToReports}
-            type="button"
-          >
-            Back to reports
-          </button>
-        )}
         <label className="report-filter-control">
           <span>Class check period</span>
           <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
@@ -1232,20 +1221,7 @@ export function TeacherReportsPage({
 
       <section className="class-report-workspace" aria-label="Class report">
         <div className="class-report-print-actions class-report-view-controls screen-only">
-          <label>
-            Class
-            <select
-              value={effectiveSelectedClassId}
-              onChange={event => setSelectedClassId?.(event.target.value || null)}
-              disabled={classList.length === 0}
-            >
-              {classList.length === 0 ? (
-                <option value="">No classes yet</option>
-              ) : classList.map(cls => (
-                <option key={cls.id} value={cls.id}>{getClassOptionLabel(cls)}</option>
-              ))}
-            </select>
-          </label>
+          <p className="panel-label">{classList.length === 0 ? "No classes yet" : getClassOptionLabel(classList.find(cls => cls.id === effectiveSelectedClassId) || {})}</p>
           <button className="lp-button lp-button-primary" onClick={() => window.print()} type="button">
             Export Class PDF
           </button>

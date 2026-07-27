@@ -26,7 +26,7 @@ export function useAppSessionController(context) {
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
     hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
-    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isStudentAllowedView,
+    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isSameTeacherRoute, isStudentAllowedView,
     isSupabaseConfigured, itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
     letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
@@ -507,7 +507,7 @@ export function useAppSessionController(context) {
             : teacherRoute?.appView || data.appView
         });
         const restoredAppView = requestedRestoredAppView === APP_VIEWS.EL_BENCHMARK && !restoredElBenchmarkSession
-          ? APP_VIEWS.EL_ASSESSMENTS
+          ? APP_VIEWS.ASSESSMENTS
           : requestedRestoredAppView;
 
         setTeacherStudentContext({
@@ -678,14 +678,18 @@ export function useAppSessionController(context) {
       : appView === APP_VIEWS.FINISHED
         ? teacherReportHash(selectedClassId, studentId, studentReportView)
       : teacherIntentHash({
-          appView: appView === APP_VIEWS.EL_ASSESSMENTS
-            ? APP_VIEWS.TEACHER_CLASSES
-            : appView,
+          appView,
           classId: selectedClassId,
           groupId: teacherGroupId,
           learnerId: studentId
         });
     if (!nextHash) return;
+    // The two funnels keep their remaining steps in the query string. Rewriting
+    // the URL whenever anything re-renders would wipe those, and a refresh
+    // half-way through choosing a check would land back on step 1 - which is
+    // exactly the "convoluted" complaint. Only rewrite when the section or its
+    // class/group/student context actually moved.
+    if (appView !== APP_VIEWS.FINISHED && isSameTeacherRoute(window.location.hash, nextHash)) return;
     if (window.location.hash !== nextHash) {
       window.history.replaceState(window.history.state, "", nextHash);
     }
@@ -2508,18 +2512,21 @@ export function useAppSessionController(context) {
   }
 
 
+  // Returns true when the student was created, false on any refusal or failure.
+  // 2026-07-27: it used to return undefined either way, so the roster form could not
+  // tell success from failure and cleared the typed name even when the save failed.
   async function createStudentForSelectedClass(name, { navigate = true } = {}) {
     const clean = String(name || "").trim();
-    if (!clean) return;
+    if (!clean) return false;
 
     if (!teacherId) {
       setMessage("Please log in first.");
-      return;
+      return false;
     }
 
     if (!selectedClassId) {
       setMessage("Please select or create a class first.");
-      return;
+      return false;
     }
 
     const { data, error } = await supabase
@@ -2540,7 +2547,7 @@ export function useAppSessionController(context) {
           ? `Could not create student: ${error.message}`
           : "Could not create student. Please try again.";
       setMessage(reason);
-      return;
+      return false;
     }
 
     resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
@@ -2555,6 +2562,7 @@ export function useAppSessionController(context) {
     await loadStudents(selectedClassId);
     await loadClassDashboard(selectedClassId);
     setMessage(`Student created and selected: ${data.name || clean}`);
+    return true;
   }
 
 

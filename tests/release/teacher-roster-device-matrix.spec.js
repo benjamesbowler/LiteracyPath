@@ -22,7 +22,7 @@ async function openAuditRoster(page) {
     timeout: 20_000
   });
   await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Children", exact: true })
+    .getByRole("button", { name: "Students", exact: true })
     .click();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: "Audit Class A" });
@@ -30,7 +30,7 @@ async function openAuditRoster(page) {
   if (!await rosterAdmin.evaluate(element => element.open)) {
     await rosterAdmin.locator(":scope > summary").click();
   }
-  await expect(page.getByRole("heading", { name: "Children — Audit Class A", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(page.locator(".teacher-roster-table tbody > tr")).toHaveCount(12);
 }
 
@@ -66,14 +66,14 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toBeAttached();
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Children", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible({
     timeout: 20_000
   });
   const reloadedRosterAdmin = page.locator(".teacher-roster-admin");
   if (!await reloadedRosterAdmin.evaluate(element => element.open)) {
     await reloadedRosterAdmin.locator(":scope > summary").click();
   }
-  await expect(page.getByRole("heading", { name: "Children — Audit Class A", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toBeAttached();
   await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toBeAttached();
   await columnPicker.getByText(/Choose columns/).click();
@@ -88,10 +88,10 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   );
 
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open child", exact: true }).click();
-  const drawerDialog = page.getByRole("dialog", { name: "Child details: Aarav" });
+  await aaravRow.getByRole("button", { name: "Open student", exact: true }).click();
+  const drawerDialog = page.getByRole("dialog", { name: "Student details: Aarav" });
   await expect(drawerDialog).toBeVisible();
-  await expect(drawerDialog.getByRole("region", { name: "Child details: Aarav" })).toContainText(
+  await expect(drawerDialog.getByRole("region", { name: "Student details: Aarav" })).toContainText(
     "Pictures ready"
   );
   await expect(drawerDialog.getByRole("button", { name: "Close child details", exact: true })).toBeFocused();
@@ -105,7 +105,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   );
   await page.keyboard.press("Escape");
   await expect(drawerDialog).toHaveCount(0);
-  await expect(aaravRow.getByRole("button", { name: "Open child", exact: true })).toBeFocused();
+  await expect(aaravRow.getByRole("button", { name: "Open student", exact: true })).toBeFocused();
 
   await page.setViewportSize({ width: 1024, height: 768 });
   await expectNoViewportOverflow(page);
@@ -130,15 +130,15 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   expect(rosterBox).not.toBeNull();
   expect(tabletRowBox.x).toBeGreaterThanOrEqual(rosterBox.x);
   expect(tabletRowBox.x + tabletRowBox.width).toBeLessThanOrEqual(rosterBox.x + rosterBox.width + 1);
-  await expect.poll(() => tabletRow.getByRole("button", { name: "Open child", exact: true })
+  await expect.poll(() => tabletRow.getByRole("button", { name: "Open student", exact: true })
     .evaluate(button => button.getBoundingClientRect().height)).toBeGreaterThanOrEqual(44);
   await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
     "teacher-roster-tablet.png",
     { animations: "disabled", maxDiffPixelRatio: 0.025 }
   );
 
-  await tabletRow.getByRole("button", { name: "Open child", exact: true }).click();
-  const tabletDrawer = page.getByRole("dialog", { name: "Child details: Aarav" });
+  await tabletRow.getByRole("button", { name: "Open student", exact: true }).click();
+  const tabletDrawer = page.getByRole("dialog", { name: "Student details: Aarav" });
   const tabletDrawerBox = await tabletDrawer.locator(".teacher-learner-drawer").boundingBox();
   expect(tabletDrawerBox).not.toBeNull();
   expect(tabletDrawerBox.x).toBeGreaterThanOrEqual(0);

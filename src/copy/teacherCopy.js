@@ -174,11 +174,6 @@ export const TEACHER_COPY = Object.freeze({
     comparable: "Both class accuracy views use enough saved results to be compared fairly."
   }),
   intents: Object.freeze({
-    progress: Object.freeze({
-      eyebrow: "Reports",
-      title: "Choose a student's report",
-      description: "Open one simple report at a time. The EL formal report stays separate."
-    }),
     resources: Object.freeze({
       eyebrow: "Resources",
       title: "Choose a teaching resource",

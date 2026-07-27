@@ -9,6 +9,8 @@ import { Sidebar } from "./components/Sidebar.jsx";
 import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
 import { TeacherTodayPage } from "./components/TeacherTodayPage.jsx";
 import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
+import { TeacherAssessmentsPage } from "./components/TeacherAssessmentsPage.jsx";
+import { TeacherReportsHubPage } from "./components/TeacherReportsHubPage.jsx";
 import { TeacherSettingsPage } from "./components/teacher/TeacherSettingsPage.jsx";
 import { FinishedReportPage } from "./components/FinishedReportPage.jsx";
 import { ELBenchmarkAssessmentPage } from "./components/assessment/ELBenchmarkAssessmentPage.jsx";
@@ -135,7 +137,8 @@ function viewForSurface(value) {
   return {
     today: APP_VIEWS.TEACHER_DASHBOARD,
     classes: APP_VIEWS.TEACHER_CLASSES,
-    progress: APP_VIEWS.TEACHER_PROGRESS,
+    assess: APP_VIEWS.ASSESSMENTS,
+    progress: APP_VIEWS.REPORTS,
     resources: APP_VIEWS.TEACHER_RESOURCES,
     settings: APP_VIEWS.TEACHER_SETTINGS,
     report: APP_VIEWS.FINISHED,
@@ -328,7 +331,6 @@ function Intent({ intent }) {
       onSelectLearner={noop}
       onClearLearner={noop}
       onOpenView={noop}
-      onOpenReports={noop}
       onOpenGuidedReading={noop}
       onOpenStoryQuests={noop}
       onOpenWorksheets={noop}
@@ -337,11 +339,58 @@ function Intent({ intent }) {
   );
 }
 
+// The two funnels, on the a11y route ids they already had: teacher-checks and
+// teacher-reports. Both used to render nothing useful here - "assess" fell
+// through to Today because the intent behind it had been dead for months.
+function Checks() {
+  return (
+    <TeacherAssessmentsPage
+      classList={classList}
+      selectedClassId={classId}
+      className="Audit Class A"
+      onSelectClass={asyncNoop}
+      studentRows={progressRows}
+      studentList={students}
+      selectedStudentId={studentId}
+      selectedStudentName="Aarav"
+      onSelectStudent={asyncNoop}
+      onClearStudent={noop}
+      firstUnsecuredSkillIndex={3}
+      assessmentHistory={assessmentHistory}
+      onStartSkillCheck={noop}
+      onStartLetterCheck={noop}
+      onStartPhonicsPatternCheck={noop}
+      onStartBenchmark={noop}
+    />
+  );
+}
+
+function Reports() {
+  return (
+    <TeacherReportsHubPage
+      classList={classList}
+      selectedClassId={classId}
+      className="Audit Class A"
+      onSelectClass={asyncNoop}
+      studentRows={progressRows}
+      studentList={students}
+      selectedStudentId={studentId}
+      selectedStudentName="Aarav"
+      onSelectStudent={asyncNoop}
+      onClearStudent={noop}
+      reportView=""
+      onSelectReportView={noop}
+      renderStudentReport={() => null}
+      renderClassReport={() => null}
+    />
+  );
+}
+
 function Report() {
   return (
     <FinishedReportPage
       startAssessment={noop}
-      openElAssessments={noop}
+      openChecks={noop}
       initialReportView="el-assessments"
       studentName="Aarav"
       className="Audit Class A"
@@ -424,8 +473,10 @@ function Surface() {
   switch (surface) {
     case "classes":
       return <Dashboard page="classes" />;
+    case "assess":
+      return <Checks />;
     case "progress":
-      return <Intent intent="progress" />;
+      return <Reports />;
     case "resources":
       return <Intent intent="resources" />;
     case "settings":
@@ -464,7 +515,8 @@ export function TeacherA11yPreview() {
           teacherEmail="audit-teacher-a@literacypath.invalid"
           goToTeacherDashboard={noop}
           goToTeacherClasses={noop}
-          goToTeacherProgress={noop}
+          goToTeacherAssessments={noop}
+          goToTeacherReports={noop}
           goToTeacherResources={noop}
           goToTeacherSettings={noop}
           logOutTeacher={noop}

@@ -206,7 +206,8 @@ test("reset propagation is wired through tombstone hydration, live App state, an
   assert.match(appSource, /window\.addEventListener\("lp-progress-hydrated", handleRemoteProgressHydration\)/);
   assert.match(appSource, /setAssessmentHistory\(previous => previous\.filter/);
   assert.match(appSource, /setElBenchmarkSession\(previous => \([\s\S]*?previous\?\.studentId === resetStudentId \? null : previous/);
-  assert.match(appSource, /appView === APP_VIEWS\.EL_BENCHMARK[\s\S]*?setAppView\(APP_VIEWS\.EL_ASSESSMENTS\)/);
+  // 2026-07-27: the EL hub became the Checks funnel, so a discarded draft lands there.
+  assert.match(appSource, /appView === APP_VIEWS\.EL_BENCHMARK[\s\S]*?setAppView\(APP_VIEWS\.ASSESSMENTS\)/);
   assert.match(appSource, /assessmentResetAtByStudentRef[\s\S]*?resetAtOrBefore: resetAt/, "an older in-flight history response can resurrect reset evidence");
 
   const adminStudentBlock = appSource.match(/async function executeAdminDeleteStudent[\s\S]*?async function adminSetTeacherSchool/)?.[0] || "";

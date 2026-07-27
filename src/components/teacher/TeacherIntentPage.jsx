@@ -4,29 +4,14 @@ import {
   TeacherPageHeader,
   TeacherPageShell
 } from "./ui/TeacherPrimitives.jsx";
-import { TeacherProgressOverview } from "./TeacherProgressOverview.jsx";
 
 const INTENT_COPY = TEACHER_COPY.intents;
 
-function buildIntentActions({
-  intent,
-  onOpenReports,
-  onOpenWorksheets,
-  onOpenPresent
-}) {
-  if (intent === "progress") {
-    return [
-      {
-        id: "learner-reports",
-        category: "Student results",
-        label: "Reports and downloads",
-        description: "Open Overview, Skills, HFW/sight words, or the standalone EL formal report.",
-        actionLabel: "Open report",
-        requiresStudent: true,
-        onOpen: onOpenReports
-      }
-    ];
-  }
+// 2026-07-27: this page used to serve two intents. "progress" (the report
+// picker) became step 1 and step 2 of the Reports funnel, and "assess" had been
+// dead for months - it returned null because no copy was ever written for it.
+// Resources is the one whole-class intent left.
+function buildIntentActions({ onOpenWorksheets, onOpenPresent }) {
   // Guided reading and Story Quests moved into the Student panel on the Students
   // page. They are per-student tools, and asking for a student twice - once in a
   // picker here, once wherever the student was actually chosen - was the reason
@@ -53,8 +38,6 @@ function buildIntentActions({
 
 export function TeacherIntentPage({
   intent,
-  supabase,
-  teacherId = "",
   className = "",
   classList = [],
   selectedClassId = "",
@@ -64,9 +47,7 @@ export function TeacherIntentPage({
   studentName = "",
   onSelectLearner,
   onClearLearner,
-  onOpenReports,
   onOpenClasses,
-  onOpenClassReport,
   onOpenWorksheets,
   onOpenPresent,
   surfaceState = "",
@@ -76,16 +57,9 @@ export function TeacherIntentPage({
 }) {
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
-  // The Reports page renders its own class picker inside TeacherProgressOverview.
-  const showClassPicker = intent !== "progress";
   const hasClasses = classList.length > 0;
   const hasStudents = progressRows.length > 0;
-  const actions = buildIntentActions({
-    intent,
-    onOpenReports,
-    onOpenWorksheets,
-    onOpenPresent
-  });
+  const actions = buildIntentActions({ onOpenWorksheets, onOpenPresent });
 
   return (
     <TeacherPageShell
@@ -104,7 +78,7 @@ export function TeacherIntentPage({
               student picker only appeared once class rows happened to be loaded — which
               nothing on this route ever did, so every student-requiring action was a dead
               button with no picker above it. */}
-          {showClassPicker && onSelectClass && hasClasses && (
+          {onSelectClass && hasClasses && (
             <label className="teacher-context-class">
               <select
                 aria-label={INTENT_COPY.classFieldLabel}
@@ -157,22 +131,7 @@ export function TeacherIntentPage({
         />
       ) : (
         <>
-          {intent === "progress" ? (
-            <TeacherProgressOverview
-              supabase={supabase}
-              teacherId={teacherId}
-              className={className}
-              classList={classList}
-              selectedClassId={selectedClassId}
-              onSelectClass={onSelectClass}
-              rows={progressRows}
-              selectedLearnerId={selectedLearnerId}
-              onSelectLearner={onSelectLearner}
-              onClearLearner={onClearLearner}
-              onOpenReports={onOpenReports}
-              onOpenClassReport={onOpenClassReport}
-            />
-          ) : !hasClasses ? (
+          {!hasClasses ? (
             <section className="teacher-intent-empty" aria-label={INTENT_COPY.noClassesTitle}>
               <h2>{INTENT_COPY.noClassesTitle}</h2>
               <p>{INTENT_COPY.noClassesBody}</p>
