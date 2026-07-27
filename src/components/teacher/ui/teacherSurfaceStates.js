@@ -84,21 +84,21 @@ const SURFACE_COPY = Object.freeze({
       },
       partial: {
         title: "Some results are still arriving",
-        body: "Recent results are available for some children, but one or more updates have not arrived yet.",
+        body: "Recent results are available for some students, but one or more updates have not arrived yet.",
         preserved: "The actions shown use only the results available now.",
         primaryLabel: "Review available actions",
         secondaryLabel: "Try missing updates again"
       },
       offline: {
         title: "Today's view cannot refresh offline",
-        body: "You can read the last view saved on this device. New child activity will appear when the connection returns.",
+        body: "You can read the last view saved on this device. New student activity will appear when the connection returns.",
         preserved: "The last saved view remains available and will not be overwritten.",
         primaryLabel: "Use saved view",
         secondaryLabel: "Try connection again"
       },
       denied: {
         title: "You cannot view this class",
-        body: "Your account no longer has access to the selected class. No child details have been shown.",
+        body: "Your account no longer has access to the selected class. No student details have been shown.",
         primaryLabel: "Choose another class",
         secondaryLabel: "Request access"
       },
@@ -111,14 +111,14 @@ const SURFACE_COPY = Object.freeze({
       },
       expired: {
         title: "Sign in again to view today",
-        body: "Your session ended before the latest child results could be confirmed.",
+        body: "Your session ended before the latest student results could be confirmed.",
         preserved: "No class data was changed.",
         primaryLabel: "Sign in again",
         secondaryLabel: "Return to teacher home"
       },
       "retry-success": {
         title: "Today's view is up to date",
-        body: "The missing child updates arrived and today's actions now use the latest results.",
+        body: "The missing student updates arrived and today's actions now use the latest results.",
         primaryLabel: "Continue to today's actions"
       }
     }
@@ -127,16 +127,16 @@ const SURFACE_COPY = Object.freeze({
     label: "Classes",
     states: {
       loading: {
-        title: "Loading classes and children",
-        body: "We are loading the current children, sign-in details, and class settings."
+        title: "Loading classes and students",
+        body: "We are loading the current students, sign-in details, and class settings."
       },
       empty: {
         title: "No classes yet",
-        body: "Create a class to add children, prepare sign-in cards, and save the first results.",
+        body: "Create a class to add students, prepare sign-in cards, and save the first results.",
         primaryLabel: "Create a class"
       },
       partial: {
-        title: "Some child details are missing",
+        title: "Some student details are missing",
         body: "Names are available, but some progress, sign-in, or activity details could not be loaded.",
         preserved: "Available details remain usable. Missing values are not counted as zero.",
         primaryLabel: "Use available details",
@@ -144,14 +144,14 @@ const SURFACE_COPY = Object.freeze({
       },
       offline: {
         title: "Changes need a connection",
-        body: "You can read the children saved on this device, but adding, moving, or archiving is paused.",
+        body: "You can read the students saved on this device, but adding, moving, or archiving is paused.",
         preserved: "No change will be sent without confirmation.",
-        primaryLabel: "View saved children",
+        primaryLabel: "View saved students",
         secondaryLabel: "Try connection again"
       },
       denied: {
         title: "You cannot manage this class",
-        body: "Your account cannot manage the selected class. Child sign-in details remain hidden.",
+        body: "Your account cannot manage the selected class. Student sign-in details remain hidden.",
         primaryLabel: "Choose another class",
         secondaryLabel: "Request class access"
       },
@@ -171,7 +171,7 @@ const SURFACE_COPY = Object.freeze({
       },
       "retry-success": {
         title: "Class list is up to date",
-        body: "The latest children, sign-in details, and class settings are now available.",
+        body: "The latest students, sign-in details, and class settings are now available.",
         primaryLabel: "Continue managing the class"
       }
     }
@@ -181,7 +181,7 @@ const SURFACE_COPY = Object.freeze({
     states: {
       loading: {
         title: "Preparing check choices",
-        body: "We are loading the selected child's current results and the checks that fit."
+        body: "We are loading the selected student's current results and the checks that fit."
       },
       empty: {
         title: "Make your class first",
@@ -190,7 +190,7 @@ const SURFACE_COPY = Object.freeze({
       },
       partial: {
         title: "Some earlier results are missing",
-        body: "The child and available checks loaded, but some earlier results could not be retrieved.",
+        body: "The student and available checks loaded, but some earlier results could not be retrieved.",
         preserved: "You can check now. Comparisons will use only the results shown.",
         primaryLabel: "Choose an available check",
         secondaryLabel: "Try earlier results again"
@@ -203,14 +203,14 @@ const SURFACE_COPY = Object.freeze({
         secondaryLabel: "Try connection again"
       },
       denied: {
-        title: "You cannot check this child",
-        body: "Your account no longer has access to this child's results. No check was started.",
-        primaryLabel: "Choose another child",
+        title: "You cannot check this student",
+        body: "Your account no longer has access to this student's results. No check was started.",
+        primaryLabel: "Choose another student",
         secondaryLabel: "Request access"
       },
       conflict: {
         title: "A newer check result is available",
-        body: "Another authorised session saved a result for this child while this page was open.",
+        body: "Another authorised session saved a result for this student while this page was open.",
         preserved: "Your unsaved observations remain available until you review the newer result.",
         primaryLabel: "Compare check results",
         secondaryLabel: "Keep my observations"
@@ -218,13 +218,13 @@ const SURFACE_COPY = Object.freeze({
       expired: {
         title: "Sign in again before checking",
         body: "Your session ended before the check result could be saved.",
-        preserved: "No incomplete result was added to the child's record.",
+        preserved: "No incomplete result was added to the student's record.",
         primaryLabel: "Sign in again",
         secondaryLabel: "Return to checks"
       },
       "retry-success": {
         title: "Check choices are restored",
-        body: "The child's latest results and all available check choices are ready.",
+        body: "The student's latest results and all available check choices are ready.",
         primaryLabel: "Continue to check"
       }
     }
@@ -234,11 +234,11 @@ const SURFACE_COPY = Object.freeze({
     states: {
       loading: {
         title: "Loading progress",
-        body: "We are combining the selected child's checks, reading activity, and skill history."
+        body: "We are combining the selected student's checks, reading activity, and skill history."
       },
       empty: {
         title: "No progress results yet",
-        body: "Complete a check or reading activity before reviewing this child's progress.",
+        body: "Complete a check or reading activity before reviewing this student's progress.",
         primaryLabel: "Choose a check"
       },
       partial: {
@@ -250,15 +250,15 @@ const SURFACE_COPY = Object.freeze({
       },
       offline: {
         title: "Progress cannot refresh offline",
-        body: "You can read the last report saved on this device, but recent child activity is not included.",
+        body: "You can read the last report saved on this device, but recent student activity is not included.",
         preserved: "The saved report is labelled as older and remains read-only.",
         primaryLabel: "View saved report",
         secondaryLabel: "Try connection again"
       },
       denied: {
         title: "You cannot view this progress record",
-        body: "Your account does not have access to the selected child's results.",
-        primaryLabel: "Choose another child",
+        body: "Your account does not have access to the selected student's results.",
+        primaryLabel: "Choose another student",
         secondaryLabel: "Request report access"
       },
       conflict: {
@@ -287,16 +287,16 @@ const SURFACE_COPY = Object.freeze({
     states: {
       loading: {
         title: "Loading teaching resources",
-        body: "We are preparing resources for the selected class, child, and current curriculum focus."
+        body: "We are preparing resources for the selected class, student, and current curriculum focus."
       },
       empty: {
         title: "No saved plan yet",
-        body: "Browse the curriculum to prepare a whole-class lesson, small-group session, or child practice.",
+        body: "Browse the curriculum to prepare a whole-class lesson, small-group session, or student practice.",
         primaryLabel: "Browse teaching resources"
       },
       partial: {
         title: "Some resources are unavailable",
-        body: "The main teaching materials loaded, but one or more linked files or child suggestions are missing.",
+        body: "The main teaching materials loaded, but one or more linked files or student suggestions are missing.",
         preserved: "Available resources are complete files and safe to use.",
         primaryLabel: "Use available resources",
         secondaryLabel: "Try missing resources again"
@@ -310,7 +310,7 @@ const SURFACE_COPY = Object.freeze({
       },
       denied: {
         title: "You cannot open these resources",
-        body: "Your account does not have access to the selected class, child, or protected teaching file.",
+        body: "Your account does not have access to the selected class, student, or protected teaching file.",
         primaryLabel: "Browse available resources",
         secondaryLabel: "Request resource access"
       },

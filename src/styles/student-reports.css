@@ -18,20 +18,26 @@
   box-shadow: var(--lp-shadow-nav);
 }
 
+/* 2026-07-27: the student name and the "Selected student" label used to sit in two
+   `auto` grid columns on a full-width page. The report now renders INSIDE the Reports
+   funnel, which is narrower, so `auto auto` squeezed the label to 89px against a
+   149px intrinsic width and `text-overflow: ellipsis` clipped it to "Selecte…".
+   Observed live. The columns now shrink-wrap honestly and the label wraps rather than
+   truncating — a person's name is exactly the thing that must never be cut off. */
 .lg-report-topbar-copy {
   min-width: 0;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
   align-items: baseline;
   column-gap: 10px;
 }
 
 .lg-report-topbar-copy strong {
-  overflow: hidden;
   color: var(--lp-color-text-strong);
   font-size: 18px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .lg-report-topbar-copy > span:last-child {

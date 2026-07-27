@@ -393,7 +393,7 @@ export function TeacherTodayPage({
     setupComplete,
     setupEverComplete,
     studentsMissingSignIn
-  } = useTeacherSetupState({ selectedClass, selectedClassId, studentRows });
+  } = useTeacherSetupState({ selectedClass, selectedClassId, studentRows, classCount: classList.length });
   const className = selectedClass?.name || "No class selected";
 
   useEffect(() => {

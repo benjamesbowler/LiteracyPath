@@ -71,3 +71,29 @@ instead of being a second place to go.
 - `TeacherProgressOverview.jsx` is kept but its `onOpenClassReport` branch is now
   unreachable. It survives only because `tools/checkLearningPolicyThresholds.mjs` names
   it as a surface.
+
+---
+
+## Browser pass on the deployed preview — 2026-07-27
+
+Nine defects found by opening the app that no gate caught. Recorded because the pattern
+matters more than the list: every one of these was invisible to a source-string check.
+
+| # | What a teacher saw | Cause |
+| --- | --- | --- |
+| 1 | "Get set up in four steps · **0 of 4** · Create your class" on an account with a class and two students | `hasSetupClass = Boolean(selectedClass)` — the SELECTED class, not whether any exist. The primary button would have made a duplicate class. |
+| 2 | Funnel choices rendered as bare bold text, no card, no border | `.app button` (0,1,1) beats `.teacher-funnel-option` (0,1,0) and sets `border: none`, `radius: 14px`, `padding: 10px 16px`. Measured in the browser. |
+| 3 | "**[]** Full screen" mid-assessment | The literal string `"[]"` was a placeholder that shipped. |
+| 4 | Full-screen icon would have drawn blobs | Both icons are stroke drawings with open subpaths; nothing set `fill: none`/`stroke`. The Learn area had been rendering blobs already. |
+| 5 | A report rendered titled "**· Overview**" with no student | Show was gated on `styleChosen` alone, and `reportView` carries a persisted default, so step 3 counted as answered before step 2 existed. |
+| 6 | Step 3 greyed out and locked, yet showing an answer and a Change link | `answer` was passed unconditionally to a locked step. |
+| 7 | "Selecte…" in the report toolbar | `auto auto` grid squeezed a 149px label into 89px with `text-overflow: ellipsis`. The report is narrower now that it renders inside the funnel. |
+| 8 | "Loaded Aaron." pinned at the top through the whole funnel | Developer phrasing in `setMessage`, and it shifts the layout on arrival. |
+| 9 | Step 4 asked about "this check" while its own field said "assessment" | Missed in the Checks → Assessments rename. |
+
+**The lesson, again.** Every gate was green before this pass and stayed green during it.
+Defect 2 is the sharpest example: the CSS was correct, present, committed and deployed —
+it simply never won. No amount of reading `App.css` would have revealed it; it took
+`getComputedStyle` on the live page. `tools/checkButtonSpecificity.mjs` was added so this
+particular trap fails a build instead of a teacher, and it ratchets against a baseline of
+38 pre-existing losers rather than starting red.

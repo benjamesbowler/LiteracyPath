@@ -82,15 +82,16 @@ export function TeacherReportsHubPage({
   const wholeClass = who === WHOLE_CLASS;
   const whoChosen = wholeClass || Boolean(selectedStudentId);
   const styleChosen = wholeClass || Boolean(reportView);
+  const readyToShow = whoChosen && styleChosen;
   const currentStyle = STUDENT_REPORT_VIEWS.find(view => view.id === reportView) || null;
 
   useEffect(() => {
     writeTeacherFunnelParams({
       who: wholeClass ? WHOLE_CLASS : "",
-      report: wholeClass ? "" : reportView,
+      report: wholeClass || !whoChosen ? "" : reportView,
       show: showing ? "1" : ""
     });
-  }, [reportView, showing, wholeClass]);
+  }, [reportView, showing, wholeClass, whoChosen]);
 
   const openStep = editingStep
     || (!hasClass ? 1 : !whoChosen ? 2 : !styleChosen ? 3 : showing ? 0 : 4);
@@ -148,7 +149,9 @@ export function TeacherReportsHubPage({
         </div>
       </section>
 
-      {classList.length === 0 ? (
+      {classList.length === 0 && selectedClassId ? (
+        <TeacherSurfaceState surface="progress" state="loading" />
+      ) : classList.length === 0 ? (
         <TeacherSurfaceState surface="progress" state="empty" />
       ) : (
         <div className="teacher-funnel">
@@ -224,7 +227,12 @@ export function TeacherReportsHubPage({
           </TeacherFunnelStep>
 
           <TeacherFunnelStep
-            answer={styleAnswer}
+            /* 2026-07-27: was `answer={styleAnswer}` unconditionally. `reportView`
+               carries a persisted default ("whole-child"), so step 3 rendered as
+               ANSWERED — "Overview", with a Change link — while still locked and
+               greyed out, before step 2 had been touched. Observed live. A locked
+               step shows no answer. */
+            answer={whoChosen ? styleAnswer : ""}
             help="Each one answers a different question."
             lockedReason={whoChosen ? "" : "Choose the whole class or one student first."}
             number={3}
@@ -263,7 +271,11 @@ export function TeacherReportsHubPage({
             )}
           </TeacherFunnelStep>
 
-          {styleChosen && !showing && (
+          {/* readyToShow, not styleChosen. `styleChosen` is true from the persisted
+              default report view alone, so "Show the report" was live — and clickable —
+              with no student and no whole-class choice. It rendered a student report
+              shell with an empty name, titled "· Overview". */}
+          {readyToShow && !showing && (
             <div className="teacher-funnel-begin">
               <button
                 className="lp-button lp-button-primary"
@@ -275,7 +287,7 @@ export function TeacherReportsHubPage({
             </div>
           )}
 
-          {styleChosen && showing && (
+          {readyToShow && showing && (
             <section
               aria-labelledby="teacher-funnel-report-title"
               className="teacher-funnel-report"

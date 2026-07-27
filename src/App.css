@@ -22844,8 +22844,25 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
-.teacher-funnel-option {
+/* SPECIFICITY TRAP — READ BEFORE EDITING.
+   `.app button` (App.css ~8743) is specificity (0,1,1) and declares display, border,
+   border-radius, padding, min-height, font-weight, text-align, white-space and more.
+   A component rule written as a single class — `.teacher-funnel-option`, (0,1,0) — LOSES
+   to it on every one of those properties. That is not theoretical: it shipped. On the
+   deployed preview the student and assessment choices in both funnels rendered as bare
+   bold centred text with no border, no card and the wrong padding, because `.app button`
+   was winning. Measured in the browser: border `0px none`, radius `14px`, padding
+   `10px 16px` — all of them `.app button`'s values, none of them this file's.
+   Every funnel rule that targets a <button> is therefore scoped under `.teacher-funnel`
+   to reach (0,2,0) and win honestly. If you add a new funnel button rule, scope it the
+   same way. Do not reach for !important. This is the same trap documented on the metric
+   tooltip block above. 2026-07-27. */
+.teacher-funnel .teacher-funnel-option {
+  align-items: flex-start;
   background: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
   border: 1px solid var(--lp-color-border, #e2e5e1);
   border-radius: 12px;
   cursor: pointer;
@@ -22858,17 +22875,17 @@ body {
   width: 100%;
 }
 
-.teacher-funnel-option[aria-pressed="true"] {
+.teacher-funnel .teacher-funnel-option[aria-pressed="true"] {
   border-color: var(--lp-color-primary, #2e4b3e);
   box-shadow: inset 0 0 0 1px var(--lp-color-primary, #2e4b3e);
 }
 
-.teacher-funnel-option-wide {
+.teacher-funnel .teacher-funnel-option-wide {
   grid-column: 1 / -1;
 }
 
-.teacher-funnel-option small,
-.teacher-funnel-option span {
+.teacher-funnel .teacher-funnel-option small,
+.teacher-funnel .teacher-funnel-option span {
   font-size: 12px;
   font-weight: 500;
 }
@@ -22917,4 +22934,29 @@ body {
   .teacher-funnel-options {
     grid-template-columns: 1fr;
   }
+}
+
+/* Full-screen toggle icons — assessment and Learn.
+   These two paths are STROKE drawings: open subpaths ("M8 3H3v5M16 3h5v5…") with no
+   closing segment. The SVG default is fill:black / stroke:none, which fills each open
+   subpath and renders four small blobs instead of four corner brackets. Nothing in this
+   file set stroke on them, so the Learn toggle had been drawing blobs; the assessment
+   button dodged it only by rendering the literal text "[]" instead of an icon at all,
+   which teachers saw as "[] Full screen" mid-assessment. Both now share one icon and
+   this rule. If you add another line-art icon, give it fill:none/stroke:currentColor.
+   2026-07-27. */
+.learn-fullscreen-toggle svg,
+.assessment-fullscreen-button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.learn-fullscreen-toggle svg path,
+.assessment-fullscreen-button svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

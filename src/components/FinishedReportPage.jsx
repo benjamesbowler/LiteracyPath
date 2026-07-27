@@ -1181,7 +1181,7 @@ export function FinishedReportPage({
   const assessmentAction = activeReportView === "skills-check"
     ? { label: "Start a check", handler: startAssessment }
     : ["whole-child", "el-assessments"].includes(activeReportView) && openChecks
-      ? { label: "Open checks", handler: openChecks }
+      ? { label: "Open assessments", handler: openChecks }
       : null;
 
   return (

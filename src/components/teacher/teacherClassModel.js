@@ -139,8 +139,22 @@ export function useTeacherStudentRows({ studentList = [], classDashboard = [] } 
 // The setup checklist is the teacher's only map of what is left to do, so both
 // pages show it until setup is finished. It used to live on Today alone, which
 // meant it vanished at the exact moment a teacher followed it onto Students.
-export function useTeacherSetupState({ selectedClass = null, selectedClassId = "", studentRows = [] } = {}) {
-  const hasSetupClass = Boolean(selectedClass);
+// 2026-07-27: `classCount` added. `hasSetupClass` was `Boolean(selectedClass)` — the
+// SELECTED class, not whether the teacher has any. Landing on Today with no class
+// chosen therefore scored every step incomplete and showed a returning teacher
+// "Get set up in four steps · 0 of 4 · Create your class" with a primary button that
+// would have made a duplicate class. Observed live on the deployed preview with one
+// class ("Trial") and two students already on the account.
+//
+// Steps 2-4 describe ONE class (its students, their sign-ins, their first result), so
+// they cannot be scored at all until a class is chosen. When classes exist but none is
+// selected the checklist is therefore withheld entirely rather than shown part-filled —
+// the page header already says "Choose a class to see today's next actions", and the
+// class picker is right there.
+export function useTeacherSetupState({ selectedClass = null, selectedClassId = "", studentRows = [], classCount = 0 } = {}) {
+  const hasAnyClass = classCount > 0 || Boolean(selectedClass);
+  const awaitingClassChoice = !selectedClass && hasAnyClass;
+  const hasSetupClass = hasAnyClass;
   const hasSetupLearners = studentRows.length > 0;
   const setupLoginsReady = hasSetupLearners && studentRows.every(row => Boolean(row.symbol_password));
   const firstCheckComplete = studentRows.some(row => row.answered > 0);
@@ -172,7 +186,8 @@ export function useTeacherSetupState({ selectedClass = null, selectedClassId = "
     setupSteps,
     setupComplete,
     setupEverComplete,
-    showSetupChecklist: !setupComplete && !setupEverComplete,
+    awaitingClassChoice,
+    showSetupChecklist: !awaitingClassChoice && !setupComplete && !setupEverComplete,
     studentsMissingSignIn: studentRows.filter(row => !row.symbol_password)
   };
 }

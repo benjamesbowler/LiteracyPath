@@ -2484,7 +2484,10 @@ export function useAppSessionController(context) {
     setRoundAnswers([]);
     setCurrentQuestion(null);
     setFeedback(null);
-    setMessage(`Loaded ${selectedStudentName}.`);
+    // 2026-07-27: was "Loaded {name}." — developer phrasing, and it sat pinned at the
+    // top of the page through the whole Assessments funnel, shifting the layout on
+    // arrival. Say what it means to a teacher, in their words.
+    setMessage(`${selectedStudentName}’s saved results are ready.`);
     const evidenceReadCompletedAt = new Date().toISOString();
     setSelectedStudentEvidenceReadState({
       completedAt: evidenceReadCompletedAt,

@@ -57,6 +57,12 @@ export function TeacherIntentPage({
 }) {
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
+  // 2026-07-27: a selected class id with an empty class list means the classes have not
+  // arrived yet (or the load failed). It NEVER means the teacher has no classes. Telling
+  // someone to "create your class first" while a class is plainly selected reads as data
+  // loss. Observed live on the deployed preview: the Resources route showed the no-classes
+  // empty state with a valid class id in the URL.
+  const classesPending = classList.length === 0 && Boolean(selectedClassId);
   const hasClasses = classList.length > 0;
   const hasStudents = progressRows.length > 0;
   const actions = buildIntentActions({ onOpenWorksheets, onOpenPresent });
@@ -131,7 +137,9 @@ export function TeacherIntentPage({
         />
       ) : (
         <>
-          {!hasClasses ? (
+          {classesPending ? (
+            <TeacherSurfaceState surface={intent} state="loading" />
+          ) : !hasClasses ? (
             <section className="teacher-intent-empty" aria-label={INTENT_COPY.noClassesTitle}>
               <h2>{INTENT_COPY.noClassesTitle}</h2>
               <p>{INTENT_COPY.noClassesBody}</p>

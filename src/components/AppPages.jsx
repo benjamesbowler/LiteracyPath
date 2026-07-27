@@ -1952,13 +1952,25 @@ export function AssessmentPage({
             aria-label={assessmentFullscreen ? "Exit full screen" : "Enter full screen"}
             title={assessmentFullscreen ? "Exit full screen" : "Full screen"}
           >
-            <span aria-hidden="true">{assessmentFullscreen ? "X" : "[]"}</span>
+            {/* 2026-07-27: these were the literal strings "[]" and "X". The button
+                rendered a visible "[] Full screen" to teachers mid-assessment. The Learn
+                area (src/App.jsx) already had the correct corner-bracket and close icons
+                as inline SVG; this is the same pair rather than a new drawing. */}
+            {assessmentFullscreen ? (
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path d="M8 8l8 8M16 8l-8 8" />
+              </svg>
+            ) : (
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5" />
+              </svg>
+            )}
             <span>{assessmentFullscreen ? "Exit" : "Full screen"}</span>
           </button>
         )}
 
         <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
-          End check
+          End assessment
         </button>
       </div>
     </div>

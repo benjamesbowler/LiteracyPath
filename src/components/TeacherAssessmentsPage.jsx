@@ -243,7 +243,9 @@ export function TeacherAssessmentsPage({
         </div>
       </section>
 
-      {classList.length === 0 ? (
+      {classList.length === 0 && selectedClassId ? (
+        <TeacherSurfaceState surface="assess" state="loading" />
+      ) : classList.length === 0 ? (
         <TeacherSurfaceState surface="assess" state="empty" detail="Make a class and add your students, then come back to start an assessment." />
       ) : (
         <div className="teacher-funnel">

@@ -110,7 +110,7 @@ function benchmarkEntry(source) {
         ? ASSESSMENT_START_POINT_KINDS.GRADE_TIME_AND_BAND
         : ASSESSMENT_START_POINT_KINDS.GRADE_AND_TIME,
       fields: Object.freeze(needsBand ? ["grade", "timeOfYear", "band"] : ["grade", "timeOfYear"]),
-      label: needsBand ? "Where should this check start?" : "Which grade and time of year?",
+      label: needsBand ? "Where should this assessment start?" : "Which grade and time of year?",
       help: needsBand
         ? "The suggested band comes from this student's last saved result. Change it only when you can say why."
         : "The grade and time of year decide which words and tasks are used."
@@ -129,7 +129,7 @@ export const ASSESSMENT_CATALOG = Object.freeze([
     startPoint: Object.freeze({
       kind: ASSESSMENT_START_POINT_KINDS.SKILL,
       fields: Object.freeze(["skillIndex"]),
-      label: "Which skill should this check start on?",
+      label: "Which skill should this assessment start on?",
       help: "The student's first skill that is not yet secure is chosen for you. Change it if you want to look somewhere else."
     })
   }),
