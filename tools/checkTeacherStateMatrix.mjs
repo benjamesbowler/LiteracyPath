@@ -13,7 +13,11 @@ const read = relativePath =>
   fs.readFileSync(path.join(root, relativePath), "utf8");
 
 const documentSource = read("docs/teacher/STATE_MATRIX.md");
-const dashboardSource = read("src/components/TeacherDashboardPage.jsx");
+const dashboardSource = [
+  read("src/components/TeacherTodayPage.jsx"),
+  read("src/components/TeacherStudentsPage.jsx"),
+  read("src/components/teacher/TeacherClassParts.jsx")
+].join("\n");
 const intentSource = read("src/components/teacher/TeacherIntentPage.jsx");
 const stylesSource = read("src/App.css");
 const teacherTokensSource = read(

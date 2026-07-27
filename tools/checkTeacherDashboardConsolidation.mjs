@@ -11,7 +11,10 @@ const app = read("src/App.jsx");
 const appSurface = read("src/components/AppSurface.jsx");
 const runtimeSurfaces = read("src/appState/appRuntimeSurfaces.jsx");
 const admin = read("src/components/AdminDashboardPage.jsx");
-const teacher = read("src/components/TeacherDashboardPage.jsx");
+const teacher = [
+  read("src/components/TeacherTodayPage.jsx"),
+  read("src/components/TeacherStudentsPage.jsx")
+].join("\n");
 const routeTest = read("tests/release/teacher-dashboard-contracts.spec.js");
 
 const capabilityRows = matrix
@@ -40,9 +43,11 @@ for (const [name, source] of [["App.jsx", app], ["AdminDashboardPage.jsx", admin
 }
 
 if (
-  !appSurface.includes("<TeacherDashboardPage")
+  !appSurface.includes("<TeacherTodayPage")
+  || !appSurface.includes("<TeacherStudentsPage")
   || !appSurface.includes("<AdminDashboardPage")
-  || !runtimeSurfaces.includes("TeacherDashboardPage")
+  || !runtimeSurfaces.includes("TeacherTodayPage")
+  || !runtimeSurfaces.includes("TeacherStudentsPage")
   || !runtimeSurfaces.includes("AdminDashboardPage")
 ) {
   failures.push("The decomposed app surface must retain explicit lazy teacher and admin routes.");
@@ -51,7 +56,7 @@ if (
   !teacher.includes('data-teacher-product="class-dashboard"') &&
   !/TeacherPageShell[\s\S]*?product="class-dashboard"/.test(teacher)
 ) {
-  failures.push("TeacherDashboardPage is missing the canonical teacher product marker.");
+  failures.push("The teacher class pages are missing the canonical teacher product marker.");
 }
 if (!routeTest.includes('[data-teacher-product="class-dashboard"]')) {
   failures.push("Reachable teacher route tests do not assert the canonical teacher product marker.");

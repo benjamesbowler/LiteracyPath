@@ -1006,7 +1006,7 @@ function guidedImageQaToKimiMarkdown(records) {
           `- Required replacement path: ${record.image}`,
           `- Exact app text: ${record.text}`,
           `- Admin notes: ${record.reviewerNotes || "Whole-book continuity remake requested."}`,
-          `- Prompt: Create one warm child-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". This page must be part of a completely continuous full-book image set with the same characters, same setting logic, same season/time/lighting continuity, same recurring props, and same art style as all other pages in the book. No embedded text, captions, labels, watermarks, or speech bubbles.`,
+          `- Prompt: Create one warm student-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". This page must be part of a completely continuous full-book image set with the same characters, same setting logic, same season/time/lighting continuity, same recurring props, and same art style as all other pages in the book. No embedded text, captions, labels, watermarks, or speech bubbles.`,
           ""
         ].join("\n"))
       ];
@@ -1028,7 +1028,7 @@ function guidedImageQaToKimiMarkdown(records) {
       `- Required replacement path: ${record.image}`,
       `- Exact app text: ${record.text}`,
       `- Admin notes: ${record.reviewerNotes || "Image does not match the page text."}`,
-      `- Prompt: Create one warm child-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". Show the main character(s), setting, and action from this text only. Do not include embedded text, captions, labels, or speech bubbles. Preserve book continuity and natural colors.`,
+      `- Prompt: Create one warm student-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". Show the main character(s), setting, and action from this text only. Do not include embedded text, captions, labels, or speech bubbles. Preserve book continuity and natural colors.`,
       ""
     ].join("\n"))
   ].join("\n");
@@ -2625,7 +2625,7 @@ export function AdminDashboardPage({
         <p className="muted-text">
           One canonical rubric decides each skill. Authored is the deduplicated source bank,
           approved passes the strict content review, and student exposure today comes from the
-          exact release-gated bank the child loader can return.
+          exact release-gated bank the student loader can return.
         </p>
 
         <div className="admin-content-filters">
@@ -2701,7 +2701,7 @@ export function AdminDashboardPage({
                     {row.runtimeSelectable || 0} questions
                     {row.runtimeSelectable
                       ? ` (L1 ${row.exposureLevel1}; L2 ${row.exposureLevel2})`
-                      : " — blocked from children"}
+                      : " — blocked from students"}
                   </td>
                   <td data-label="Exact exposure set">
                     {row.exposureFingerprint
@@ -3130,7 +3130,7 @@ function RemoteErrorMonitorPanel({ client }) {
           <p className="panel-label">Operations</p>
           <h2>Fleet error monitor</h2>
           <p className="muted-text">
-            Redacted diagnostics only. No child names, answers, class codes, account IDs,
+            Redacted diagnostics only. No student names, answers, class codes, account IDs,
             URLs, or arbitrary message text are collected. Events expire after 30 days.
           </p>
         </div>
@@ -3241,7 +3241,7 @@ function CrashLogPanel() {
           Recent app errors on this device ({rows.length})
         </summary>
         <p className="muted-text">
-          Caught by the in-app safety net. Children saw a friendly &ldquo;try again&rdquo; screen;
+          Caught by the in-app safety net. Students saw a friendly &ldquo;try again&rdquo; screen;
           these redacted details remain on this device as a delivery fallback.
         </p>
         <ul className="crash-log-list">

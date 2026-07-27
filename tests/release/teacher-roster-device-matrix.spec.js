@@ -49,11 +49,12 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   await openAuditRoster(page);
 
   const roster = page.locator(".teacher-roster-table");
-  for (const column of ["Display name", "Focus", "Progress", "Last active", "Actions"]) {
+  // 2026-07-26: "Sign-in" is a default column now — it was the only route to setting
+  // sign-in pictures and hiding it behind the picker made a new class unusable.
+  for (const column of ["Display name", "Focus", "Progress", "Sign-in", "Last active", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeAttached();
   }
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toHaveCount(0);
-  await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toHaveCount(0);
   await expectNoViewportOverflow(page);
   await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
 
@@ -78,7 +79,8 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   await columnPicker.getByText(/Choose columns/).click();
   await columnPicker.getByRole("button", { name: "Restore scannable defaults", exact: true }).click();
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toHaveCount(0);
-  await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toHaveCount(0);
+  // Sign-in survives a reset to defaults, by design.
+  await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toBeAttached();
   await columnPicker.getByText(/Choose columns/).click();
   await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
     "teacher-roster-chromebook.png",

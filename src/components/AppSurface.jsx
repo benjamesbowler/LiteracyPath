@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import logoUrl from "../assets/logo.svg";
@@ -12,8 +12,6 @@ import {
   DashboardSummary,
   GuidedReadingPage,
   LetterAssessmentPage,
-  SkillsProgressPage,
-  StudentOverviewPage,
   TeacherReportsPage
 } from "./AppPages.jsx";
 import { ErrorBoundary } from "./ErrorBoundary.jsx";
@@ -42,8 +40,9 @@ import {
   QuestRoot,
   ResetStudentProgressDialog,
   Sidebar,
-  TeacherDashboardPage,
   TeacherIntentPage,
+  TeacherStudentsPage,
+  TeacherTodayPage,
   TeacherSettingsPage,
   WorksheetGeneratorPage
 } from "../appState/appRuntimeSurfaces.jsx";
@@ -67,7 +66,7 @@ import { worldForScope } from "../utils/palWorlds.js";
 
 export function AppSurface({ surface }) {
   const {
-    PASS_SCORE, ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,
+    ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,
     adminDeleteStudent, adminLoading, adminPendingAccounts, adminPendingAccountsWarning, adminSchools, adminSetTeacherSchool,
     adminStudents, adminTeachers, allQuestions, allowPassageAudio, answerQuestion, appView,
     applyStudentSession, archivedStudentList, assessmentFullscreen, assessmentHistory, assessmentMode, assessmentTransitioning,
@@ -76,10 +75,10 @@ export function AppSurface({ surface }) {
     checkpointDecision, chunkLoadFailure, classDashboard, classList,
     clearQuestPractice, completePasswordReset, continueCheckpointSkill, correctAnswered, coverageSnapshot, createClass,
     createDemoClass, createStudentForSelectedClass, currentQuestion, currentSkillIndex, currentStage, currentStageQuestions,
-    demoTeacherEnabled, diagnosticFollowUp, discardElBenchmarkDraft, discontinueElBenchmarkAssessment, elBenchmarkDraftSaveFailed, elBenchmarkSession,
+    demoTeacherEnabled, discardElBenchmarkDraft, discontinueElBenchmarkAssessment, elBenchmarkDraftSaveFailed, elBenchmarkSession,
     endAssessment, entryMode, executeAdminDeleteClass, executeAdminDeleteStudent, exitToTeacherEntry, exportCSVData,
     exportData, exportLetterAssessment, exportPatternAssessment, exportReadingReport, exportStudentAssessmentWorkbook, feedback,
-    finishElBenchmarkAssessment, goToOverview, guidedInitialBookId, guidedReadingRecords, handleAssessmentEvidenceImageError,
+    finishElBenchmarkAssessment, guidedInitialBookId, guidedReadingRecords, handleAssessmentEvidenceImageError,
     isAdmin, isStudentSurfaceView, isTeacherAccountApproved, itemMastery,
     keepPracticingSkill, learnFullscreen, learnerAccessibility, letterAssessment, letterIndex,
     letterItems, loadAdminDashboard, loadClassDashboard, loadStudentProgress, loadStudents, loadingStudents,
@@ -90,8 +89,8 @@ export function AppSurface({ surface }) {
     regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, resetLetterAssessment,
     resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
     resumeElBenchmarkAssessment, retryCheckpointSkill, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
-    reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,
-    selectedStudentEvidenceReadState, selectedStudentEvidenceReady, sessionMode, setAdminConfirm, setAdminConfirmBusy, setAllowPassageAudio,
+    returnFromCheck, reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,
+    selectedStudentEvidenceReadState, sessionMode, setAdminConfirm, setAdminConfirmBusy, setAllowPassageAudio,
     setAppView, setArchivedStudentList, setAuthDisplayName, setAuthEmail, setAuthMode, setAuthPassword,
     setAuthSchoolName, setAuthUsername, setClassDashboard, setCurrentQuestion, setCurrentSkillIndex, setEntryMode,
     setFeedback, setGuidedInitialBookId, setMessage, setNameSaved, setNewClassName, setResetProgressDialogOpen,
@@ -102,8 +101,62 @@ export function AppSurface({ surface }) {
     studentId, studentList, studentName, studentPreview, studentPreviewStatus, studentReportView,
     studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
     teacherId, teacherSchoolName, teacherUser, toggleAssessmentFullscreen,
-    totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot
+    totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
+    assignMissingSymbolPasswords
   } = surface;
+
+  // Which setup step the teacher pressed "Continue" on over on Today. Students
+  // picks it up once, opens the right control, then clears it.
+  const [setupFocus, setSetupFocus] = useState("");
+
+  // ONE CLICK TO A CHECK.
+  //
+  // Starting a check used to be four screens: Checks → a card menu → a student
+  // picker → a per-student dashboard with a start button next to a red reset
+  // button. Every roster row, the Student panel and the Today briefing now call
+  // this instead. loadStudentProgress hands back the skill it worked out, so the
+  // check opens at the right level without waiting for a re-render.
+  async function startCheckForStudent(student) {
+    if (!student?.id) return;
+    const context = await loadStudentProgress(student.id, student.name, { navigate: false });
+    await startAssessment(context?.skillIndex);
+  }
+
+  // Row-level actions can target a student who is not the selected one.
+  async function selectStudentIfNeeded(student) {
+    if (!student?.id || student.id === studentId) return;
+    await loadStudentProgress(student.id, student.name, { navigate: false });
+  }
+
+  // Today's setup checklist says which step it wants; Students opens that control.
+  function openStudentsPage(focusStep = "") {
+    setSetupFocus(typeof focusStep === "string" ? focusStep : "");
+    setAppView(APP_VIEWS.TEACHER_CLASSES);
+  }
+
+  // Choosing a class must always load the roster AND the class dashboard rows.
+  // The Resources route never did, which is why its student picker had nothing
+  // to offer.
+  async function selectTeacherClass(nextClassId) {
+    setSelectedClassId(nextClassId);
+    setTeacherGroupId("all");
+    setTeacherStudentContext({ studentId: null, studentName: "" });
+    setNameSaved(false);
+    if (nextClassId) {
+      await loadStudents(nextClassId);
+      await loadClassDashboard(nextClassId);
+    } else {
+      setStudentList([]);
+      setArchivedStudentList([]);
+      setClassDashboard([]);
+    }
+  }
+
+  function clearSelectedLearner() {
+    setTeacherStudentContext({ studentId: null, studentName: "" });
+    setNameSaved(false);
+  }
+
   if (showSkillsQuestPrototype) {
     return (
       <PageBoundary resetKey="skills-quest-preview">
@@ -321,7 +374,7 @@ export function AppSurface({ surface }) {
           <div className="card page-card page-stack auth-card">
             <div className="auth-heading">
               <h2>Set your school</h2>
-              <p className="muted-text">Children use their school, class and name to sign in.</p>
+              <p className="muted-text">Students use their school, class and name to sign in.</p>
             </div>
             <label className="auth-field">
               <strong>School</strong>
@@ -350,8 +403,8 @@ export function AppSurface({ surface }) {
   const isStudentMode = sessionMode === "student";
   const hasTeacherSchool = Boolean(teacherAccountRecord?.school_id || teacherSchoolName);
   const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isStudentSurfaceView && learnFullscreen);
-  // A teacher previewing a child surface (Student Page, Guided Reading, Story
-  // Quests, Phonics, Adventure, Hollow) needs the child-facing CSS scope so the
+  // A teacher previewing a student surface (Student Page, Guided Reading, Story
+  // Quests, Phonics, Adventure, Hollow) needs the student-facing CSS scope so the
   // images/logos are constrained — without it they render at natural size and
   // the whole preview balloons. Apply student-mode-app but KEEP the sidebar
   // (no "no-sidebar", no world backdrop).
@@ -433,7 +486,7 @@ export function AppSurface({ surface }) {
     go: railActions[item.id]
   }));
   // Wraps a menu sub-page so it keeps the rail. Fullscreen mode still strips
-  // it — a child who asked for fullscreen asked for the content, not the menu.
+  // it — a student who asked for fullscreen asked for the content, not the menu.
   const withStudentRail = (activeId, content) => {
     if (!isStudentMode || studentArcadeOpen || learnFullscreen) return content;
     return (
@@ -472,16 +525,8 @@ export function AppSurface({ surface }) {
             nameSaved={nameSaved}
             studentName={studentName}
             className={getSelectedClassName(classList, selectedClassId)}
-            goToStudentHome={() => setAppView(APP_VIEWS.STUDENT_HOME)}
-            goToElSkillsQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
-            goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-            goToLearn={() => setAppView(APP_VIEWS.LEARN)}
-            goToPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
-            goToWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
-            goToPresent={() => setAppView(APP_VIEWS.PRESENT)}
             goToTeacherDashboard={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
             goToTeacherClasses={() => goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES)}
-            goToTeacherAssess={() => goToTeacherIntent(APP_VIEWS.TEACHER_ASSESS)}
             goToTeacherProgress={() => goToTeacherIntent(APP_VIEWS.TEACHER_PROGRESS)}
             goToTeacherResources={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             goToTeacherSettings={() => goToTeacherIntent(APP_VIEWS.TEACHER_SETTINGS)}
@@ -508,7 +553,7 @@ export function AppSurface({ surface }) {
         <aside className="teacher-student-preview-banner" aria-label={`Previewing as ${studentPreview.studentName}`}>
           <div>
             <strong>Previewing as {studentPreview.studentName}</strong>
-            <span>Read-only preview · this child's progress is protected</span>
+            <span>Read-only preview · this student's progress is protected</span>
           </div>
           <p role="status" aria-live="polite">{studentPreviewStatus}</p>
           <button className="lp-button lp-button-secondary" type="button" onClick={returnFromStudentPreview}>
@@ -603,14 +648,14 @@ export function AppSurface({ surface }) {
               <ElSkillsQuest
                 studentName={studentName || "Reader"}
                 progressScopeKey={studentId || studentName || "default"}
-                onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
+                onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.TEACHER_CLASSES)}
               />
             </Suspense>
           ))}
         </PageBoundary>
       )}
 
-      {/* Sound Seekers. Lazy: it is a whole mode, and a child who never opens it
+      {/* Sound Seekers. Lazy: it is a whole mode, and a student who never opens it
           should not pay for it on first load. */}
       {appView === APP_VIEWS.PHONICS_QUEST && nameSaved && (
         <PageBoundary resetKey={`phonics-quest-${studentId}`}>
@@ -618,7 +663,7 @@ export function AppSurface({ surface }) {
             <QuestRoot
               progressScopeKey={studentId || studentName || "default"}
               accessibilitySettings={learnerAccessibility}
-              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
+              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.TEACHER_CLASSES)}
             />
           </Suspense>
         </PageBoundary>
@@ -653,13 +698,46 @@ export function AppSurface({ surface }) {
 
       {sessionMode !== "student" && (
         appView === APP_VIEWS.TEACHER_DASHBOARD
-        || appView === APP_VIEWS.TEACHER_CLASSES
         || appView === APP_VIEWS.SELECT
       ) && (
-        <PageBoundary resetKey="teacher-dashboard">
+        <PageBoundary resetKey="teacher-today">
           <Suspense fallback={<LazyPageFallback label="Loading dashboard..." />}>
-            <TeacherDashboardPage
-              pageIntent={appView === APP_VIEWS.TEACHER_CLASSES ? "classes" : "today"}
+            <TeacherTodayPage
+              classList={classList}
+              selectedClassId={selectedClassId}
+              setSelectedClassId={nextClassId => {
+                setSelectedClassId(nextClassId);
+                setTeacherGroupId("all");
+                setTeacherStudentContext({ studentId: null, studentName: "" });
+                setNameSaved(false);
+              }}
+              setStudentList={setStudentList}
+              studentList={studentList}
+              loadStudents={loadStudents}
+              loadClassDashboard={loadClassDashboard}
+              classDashboard={classDashboard}
+              onLoadStudent={async (id, name) => {
+                const loadPromise = loadStudentProgress(id, name, { navigate: false });
+                setAppView(APP_VIEWS.TEACHER_CLASSES);
+                await loadPromise;
+              }}
+              onStartCheck={startCheckForStudent}
+              onOpenClasses={openStudentsPage}
+              onOpenProgress={() => setAppView(APP_VIEWS.TEACHER_PROGRESS)}
+              createDemoClass={createDemoClass}
+              teacherId={teacherId}
+              schoolName={teacherSchoolName}
+              hasSchool={hasTeacherSchool}
+              message={message}
+            />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_CLASSES && (
+        <PageBoundary resetKey="teacher-students">
+          <Suspense fallback={<LazyPageFallback label="Loading students..." />}>
+            <TeacherStudentsPage
               classList={classList}
               selectedClassId={selectedClassId}
               setSelectedClassId={nextClassId => {
@@ -677,13 +755,7 @@ export function AppSurface({ surface }) {
               clearQuestPractice={clearQuestPractice}
               setReducedChoiceMode={setStudentReducedChoiceMode}
               setAccessibilitySettings={setStudentAccessibilitySettings}
-              onLoadStudent={async (id, name) => {
-                const loadPromise = loadStudentProgress(id, name, { navigate: false });
-                if (appView !== APP_VIEWS.TEACHER_CLASSES) {
-                  setAppView(APP_VIEWS.TEACHER_CLASSES);
-                }
-                await loadPromise;
-              }}
+              onLoadStudent={(id, name) => loadStudentProgress(id, name, { navigate: false })}
               selectedStudentId={studentId}
               onClearStudent={() => {
                 setTeacherStudentContext({ studentId: null, studentName: "" });
@@ -695,12 +767,28 @@ export function AppSurface({ surface }) {
                 setTeacherStudentContext({ studentId: null, studentName: "" });
                 setNameSaved(false);
               }}
-              onOpenClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
-              onOpenAssess={() => setAppView(APP_VIEWS.TEACHER_ASSESS)}
-              onOpenProgress={() => setAppView(APP_VIEWS.TEACHER_PROGRESS)}
+              onStartCheck={startCheckForStudent}
+              onOpenReport={() => {
+                const nextReportView = "whole-child";
+                setStudentReportView(nextReportView);
+                pushRouteHash(teacherReportHash(selectedClassId, studentId, nextReportView));
+                setAppView(APP_VIEWS.FINISHED);
+              }}
+              onOpenGuidedReading={() => {
+                setGuidedInitialBookId("");
+                setAppView(APP_VIEWS.GUIDED_READING);
+              }}
+              onOpenStoryQuests={() => openStudentPreview(APP_VIEWS.LEARN)}
+              onOpenElFormalCheck={async student => {
+                await selectStudentIfNeeded(student);
+                setAppView(APP_VIEWS.EL_ASSESSMENTS);
+              }}
+              onResetCheckData={async student => {
+                await selectStudentIfNeeded(student);
+                setResetProgressDialogOpen(true);
+              }}
               createClass={createClass}
               createDemoClass={createDemoClass}
-              regenerateClassCode={regenerateClassCode}
               newClassName={newClassName}
               setNewClassName={setNewClassName}
               createStudent={name => createStudentForSelectedClass(name, { navigate: false })}
@@ -710,6 +798,7 @@ export function AppSurface({ surface }) {
               skillTree={skillTree}
               updateStudentName={updateStudentName}
               updateStudentSymbolPassword={updateStudentSymbolPassword}
+              assignMissingSymbolPasswords={assignMissingSymbolPasswords}
               resetStudentSymbolPassword={resetStudentSymbolPassword}
               startStudentLogin={() => {
                 setSessionMode("teacher");
@@ -718,22 +807,9 @@ export function AppSurface({ surface }) {
               }}
               schoolName={teacherSchoolName}
               hasSchool={hasTeacherSchool}
-              saveSchool={saveTeacherSchool}
               message={message}
-            />
-          </Suspense>
-        </PageBoundary>
-      )}
-
-      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_ASSESS && (
-        <PageBoundary resetKey="teacher-assess">
-          <Suspense fallback={<LazyPageFallback label="Loading check tools…" />}>
-            <TeacherIntentPage
-              intent="assess"
-              className={getSelectedClassName(classList, selectedClassId)}
-              studentName={nameSaved ? studentName : ""}
-              onOpenAssessment={goToOverview}
-              onOpenView={setAppView}
+              setupFocus={setupFocus}
+              onSetupFocusHandled={() => setSetupFocus("")}
             />
           </Suspense>
         </PageBoundary>
@@ -749,28 +825,12 @@ export function AppSurface({ surface }) {
               className={getSelectedClassName(classList, selectedClassId)}
               classList={classList}
               selectedClassId={selectedClassId}
-              onSelectClass={async nextClassId => {
-                setSelectedClassId(nextClassId);
-                setTeacherGroupId("all");
-                setTeacherStudentContext({ studentId: null, studentName: "" });
-                setNameSaved(false);
-                if (nextClassId) {
-                  await loadStudents(nextClassId);
-                  await loadClassDashboard(nextClassId);
-                } else {
-                  setStudentList([]);
-                  setArchivedStudentList([]);
-                  setClassDashboard([]);
-                }
-              }}
+              onSelectClass={selectTeacherClass}
               progressRows={classDashboard}
               selectedLearnerId={nameSaved ? studentId : ""}
               studentName={nameSaved ? studentName : ""}
               onSelectLearner={(id, name) => loadStudentProgress(id, name, { navigate: false })}
-              onClearLearner={() => {
-                setTeacherStudentContext({ studentId: null, studentName: "" });
-                setNameSaved(false);
-              }}
+              onClearLearner={clearSelectedLearner}
               onOpenReports={learnerId => {
                 const nextReportView = "whole-child";
                 setStudentReportView(nextReportView);
@@ -781,6 +841,7 @@ export function AppSurface({ surface }) {
                 ));
                 setAppView(APP_VIEWS.FINISHED);
               }}
+              onOpenClassReport={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
             />
           </Suspense>
         </PageBoundary>
@@ -792,11 +853,17 @@ export function AppSurface({ surface }) {
             <TeacherIntentPage
               intent="resources"
               className={getSelectedClassName(classList, selectedClassId)}
+              classList={classList}
+              selectedClassId={selectedClassId}
+              onSelectClass={selectTeacherClass}
               studentName={nameSaved ? studentName : ""}
-              onOpenGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-              onOpenStoryQuests={() => openStudentPreview(APP_VIEWS.LEARN)}
               onOpenWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
               onOpenPresent={() => setAppView(APP_VIEWS.PRESENT)}
+              onOpenClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
+              progressRows={classDashboard}
+              selectedLearnerId={nameSaved ? studentId : ""}
+              onSelectLearner={(id, name) => loadStudentProgress(id, name, { navigate: false })}
+              onClearLearner={clearSelectedLearner}
             />
           </Suspense>
         </PageBoundary>
@@ -809,20 +876,7 @@ export function AppSurface({ surface }) {
               client={supabase}
               classList={classList}
               selectedClassId={selectedClassId}
-              onSelectClass={async nextClassId => {
-                setSelectedClassId(nextClassId);
-                setTeacherGroupId("all");
-                setTeacherStudentContext({ studentId: null, studentName: "" });
-                setNameSaved(false);
-                if (nextClassId) {
-                  await loadStudents(nextClassId);
-                  await loadClassDashboard(nextClassId);
-                } else {
-                  setStudentList([]);
-                  setArchivedStudentList([]);
-                  setClassDashboard([]);
-                }
-              }}
+              onSelectClass={selectTeacherClass}
               studentList={studentList}
               archivedStudentList={archivedStudentList}
               schoolName={teacherSchoolName}
@@ -833,54 +887,6 @@ export function AppSurface({ surface }) {
               onSignOut={logOutTeacher}
             />
           </Suspense>
-        </PageBoundary>
-      )}
-
-      {appView === APP_VIEWS.OVERVIEW && nameSaved && (
-        <PageBoundary resetKey={`overview-${studentId}`}>
-          <StudentOverviewPage
-            diagnosticFollowUp={diagnosticFollowUp}
-            studentName={studentName}
-            currentSkillIndex={currentSkillIndex}
-            currentStage={currentStage}
-            accuracy={accuracy}
-            totalAnswered={totalAnswered}
-            roundCorrect={roundCorrect}
-            passScore={PASS_SCORE}
-            roundLength={ROUND_LENGTH}
-            skillTree={skillTree}
-            setCurrentSkillIndex={setCurrentSkillIndex}
-            setRoundAnswers={setRoundAnswers}
-            setCurrentQuestion={setCurrentQuestion}
-            setFeedback={setFeedback}
-            setMessage={setMessage}
-            startAssessment={startAssessment}
-            startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-            startTargetedReview={startTargetedReview}
-            weaknessSnapshot={weaknessSnapshot}
-            coverageSnapshot={coverageSnapshot}
-            switchStudent={switchStudent}
-            openResetStudentProgress={() => setResetProgressDialogOpen(true)}
-            isAdmin={isAdmin}
-          />
-        </PageBoundary>
-      )}
-
-      {appView === APP_VIEWS.SKILLS && nameSaved && (
-        <PageBoundary resetKey={`skills-${studentId}`}>
-          <SkillsProgressPage
-            studentName={studentName}
-            skillTree={skillTree}
-            currentSkillIndex={currentSkillIndex}
-            setCurrentSkillIndex={setCurrentSkillIndex}
-            setRoundAnswers={setRoundAnswers}
-            setCurrentQuestion={setCurrentQuestion}
-            setFeedback={setFeedback}
-            setMessage={setMessage}
-            mastery={mastery}
-            coverageSnapshot={coverageSnapshot}
-            startAssessment={startAssessment}
-          />
         </PageBoundary>
       )}
 
@@ -979,29 +985,35 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {appView === APP_VIEWS.REPORTS && nameSaved && (
+      {sessionMode !== "student" && appView === APP_VIEWS.REPORTS && (
         <PageBoundary resetKey={`reports-${studentId}`}>
           <TeacherReportsPage
-            studentName={studentName}
-            startAssessment={startAssessment}
-            viewFinishedReport={viewId => {
-              const nextReportView = viewId || "whole-child";
-              setStudentReportView(nextReportView);
-              pushRouteHash(teacherReportHash(selectedClassId, studentId, nextReportView));
-              setAppView(APP_VIEWS.FINISHED);
-            }}
-            guidedReadingRecords={guidedReadingRecords}
-            assessmentHistory={reportsAssessmentHistory}
+            onBackToReports={() => goToTeacherIntent(APP_VIEWS.TEACHER_PROGRESS)}
             allAssessmentHistory={assessmentHistory}
-            skillMasterySummary={reportSkillMasterySummary}
             classList={classList}
             selectedClassId={selectedClassId}
-            setSelectedClassId={setSelectedClassId}
+            setSelectedClassId={async nextClassId => {
+              // The class report reads the roster and the saved class results,
+              // so changing class here has to reload both. Passing the setter
+              // straight through would leave the previous class's students on
+              // screen under the new class's name.
+              setSelectedClassId(nextClassId);
+              setTeacherGroupId("all");
+              setTeacherStudentContext({ studentId: null, studentName: "" });
+              setNameSaved(false);
+              if (nextClassId) {
+                await loadStudents(nextClassId);
+                await loadClassDashboard(nextClassId);
+              } else {
+                setStudentList([]);
+                setArchivedStudentList([]);
+                setClassDashboard([]);
+              }
+            }}
             students={studentList}
             teacherName={teacherUser?.email || ""}
             teacherId={teacherId}
             supabase={isSupabaseConfigured ? supabase : null}
-            evidenceReady={selectedStudentEvidenceReady}
           />
         </PageBoundary>
       )}
@@ -1076,7 +1088,7 @@ export function AppSurface({ surface }) {
                   ? `transition-${currentSkillIndex}`
                   : `skill-${currentSkillIndex}`
           }:${currentSkillIndex}:${appView}`}
-          returnToStudentOverview={goToOverview}
+          returnToStudentOverview={returnFromCheck}
           isTransient={assessmentTransitioning || Boolean(feedback)}
         >
           <AssessmentPage
@@ -1095,12 +1107,14 @@ export function AppSurface({ surface }) {
             speakText={speakText}
             message={message}
             endAssessment={endAssessment}
-            returnToStudentOverview={goToOverview}
+            returnToStudentOverview={returnFromCheck}
             assessmentMode={assessmentMode}
             isAssessmentTransitioning={assessmentTransitioning}
             assessmentFullscreen={effectiveAssessmentFullscreen}
             toggleAssessmentFullscreen={toggleAssessmentFullscreen}
             onEvidenceImageError={handleAssessmentEvidenceImageError}
+            skillTree={skillTree}
+            onChangeSkillLevel={stageIndex => startAssessment(stageIndex)}
           />
         </AssessmentErrorBoundary>
       )}
@@ -1114,7 +1128,9 @@ export function AppSurface({ surface }) {
             moveToNextSkill={moveToNextCheckpointSkill}
             retrySkill={retryCheckpointSkill}
             reviewMistakes={startTargetedReview}
-            returnToOverview={goToOverview}
+            returnToOverview={returnFromCheck}
+            suggestedFocus={weaknessSnapshot?.suggestedNextFocus || null}
+            totalAnswered={totalAnswered}
           />
         </PageBoundary>
       )}
@@ -1122,11 +1138,11 @@ export function AppSurface({ surface }) {
       {adminConfirm && <Suspense fallback={null}><ConfirmActionDialog
         open={Boolean(adminConfirm)}
         busy={adminConfirmBusy}
-        title={adminConfirm?.kind === "class" ? "Delete class?" : "Delete child?"}
+        title={adminConfirm?.kind === "class" ? "Delete class?" : "Delete student?"}
         body={adminConfirm?.kind === "class"
-          ? `This permanently removes ${adminConfirm?.name || "this class"}, every child in it, and all of their saved results. This cannot be undone.`
-          : `This permanently removes ${adminConfirm?.name || "this child"} and all of their saved results. This cannot be undone.`}
-        confirmLabel={adminConfirm?.kind === "class" ? "Delete class" : "Delete child"}
+          ? `This permanently removes ${adminConfirm?.name || "this class"}, every student in it, and all of their saved results. This cannot be undone.`
+          : `This permanently removes ${adminConfirm?.name || "this student"} and all of their saved results. This cannot be undone.`}
+        confirmLabel={adminConfirm?.kind === "class" ? "Delete class" : "Delete student"}
         onCancel={() => setAdminConfirm(null)}
         onConfirm={async () => {
           if (!adminConfirm || adminConfirmBusy) return;
@@ -1164,7 +1180,6 @@ export function AppSurface({ surface }) {
               initialReportView={studentReportView}
               keepPracticingSkill={keepPracticingSkill}
               startTargetedReview={startTargetedReview}
-              goToOverview={goToOverview}
               studentName={studentName}
               className={getSelectedClassName(classList, selectedClassId)}
               totalAnswered={totalAnswered}
@@ -1207,11 +1222,11 @@ export function AppSurface({ surface }) {
       {sessionMode !== "student" && shouldShowFooterUtilityActions({ appView, isFocusedAssessment: isFocusedShell }) && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
-            Switch child
+            Switch student
           </button>
 
           <button className="reset-button" onClick={resetStudent}>
-            Reset child
+            Reset student
           </button>
         </div>
       )}

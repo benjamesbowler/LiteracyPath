@@ -24,9 +24,14 @@ export const HollowPage = lazyWithRetry(() =>
 );
 
 // Teacher-only pages: lazy so the student bundle never downloads them.
-export const TeacherDashboardPage = lazyWithRetry(() =>
-  import("../components/TeacherDashboardPage.jsx").then(module => ({
-    default: module.TeacherDashboardPage
+export const TeacherTodayPage = lazyWithRetry(() =>
+  import("../components/TeacherTodayPage.jsx").then(module => ({
+    default: module.TeacherTodayPage
+  }))
+);
+export const TeacherStudentsPage = lazyWithRetry(() =>
+  import("../components/TeacherStudentsPage.jsx").then(module => ({
+    default: module.TeacherStudentsPage
   }))
 );
 export const LazyActionFeedback = lazyWithRetry(() =>

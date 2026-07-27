@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 import {
   buildSimpleHfwRows,
@@ -16,11 +16,11 @@ const BAND_MARKS = Object.freeze({
 
 function AccuracyLegend() {
   return (
-    <div className="simple-report-legend" aria-label="Accuracy colour key">
-      <span className="unseen">Grey · not seen</span>
-      <span className="red">Red · below 20%</span>
-      <span className="orange">Orange · 20–49%</span>
-      <span className="green">Green · 50% or more</span>
+    <div className="simple-report-legend" aria-label="Learning status colour key">
+      <span className="green">Green · Secure</span>
+      <span className="orange">Orange · Practising</span>
+      <span className="red">Red · Needs teaching</span>
+      <span className="unseen">Grey · Not enough yet</span>
     </div>
   );
 }
@@ -42,6 +42,9 @@ function AccuracyTile({ row }) {
       <footer>
         <span>{scoreLabel}</span>
         <small>Learning status: {row.statusLabel}</small>
+        {row.whyNotSecure ? (
+          <small className="simple-report-tile-why">{row.whyNotSecure}</small>
+        ) : null}
       </footer>
     </article>
   );
@@ -83,34 +86,89 @@ function SimpleResultCollection({ rows, seenLabel, unseenLabel }) {
   );
 }
 
-export function SimpleOverviewReportView({ workspace = {}, studentName = "This child" }) {
+const OVERVIEW_PREVIEW_SIZE = 5;
+
+// Every group shows the same coloured tile the Skills view uses, so a teacher
+// sees the score, the status and the "why not secure" line without leaving the
+// overview. Only the first few are drawn until asked, which is what kept the
+// old flat list of 107 unreadable.
+function OverviewGroup({ group }) {
+  const [expanded, setExpanded] = useState(false);
+  const visibleRows = expanded ? group.rows : group.rows.slice(0, OVERVIEW_PREVIEW_SIZE);
+  const hiddenCount = group.rows.length - visibleRows.length;
+  return (
+    <details className={`simple-report-group ${group.id}`} open={group.defaultOpen}>
+      <summary>{group.title} ({group.rows.length})</summary>
+      <p className="simple-report-group-description">{group.description}</p>
+      {group.rows.length ? (
+        <>
+          <section className="simple-report-grid" aria-label={group.title}>
+            {visibleRows.map(row => <AccuracyTile key={row.id} row={row} />)}
+          </section>
+          {(hiddenCount > 0 || expanded) && (
+            <button
+              className="text-button simple-report-show-all"
+              type="button"
+              aria-expanded={expanded}
+              onClick={() => setExpanded(value => !value)}
+            >
+              {expanded
+                ? TEACHER_COPY.common.showFewer
+                : TEACHER_COPY.common.showAll(group.rows.length)}
+            </button>
+          )}
+        </>
+      ) : (
+        <p>Nothing is in this group yet.</p>
+      )}
+    </details>
+  );
+}
+
+export function SimpleOverviewReportView({ workspace = {}, studentName = "This student" }) {
   const overview = useMemo(
     () => buildSimpleOverview(workspace, studentName),
     [studentName, workspace]
   );
   const groups = [
     {
-      id: "mastered",
-      title: "Mastered",
-      description: TEACHER_COPY.reports.masteredDescription,
-      rows: overview.mastered
+      id: "needs-teaching",
+      title: TEACHER_COPY.reports.needsTeachingTitle,
+      description: TEACHER_COPY.reports.needsTeachingDescription,
+      rows: overview.needsTeaching,
+      defaultOpen: true
     },
     {
-      id: "developing",
-      title: "Developing",
-      description: TEACHER_COPY.reports.developingDescription,
-      rows: overview.developing
+      id: "practising",
+      title: TEACHER_COPY.reports.practisingTitle,
+      description: TEACHER_COPY.reports.practisingDescription,
+      rows: overview.practising,
+      defaultOpen: false
+    },
+    {
+      id: "mastered",
+      title: TEACHER_COPY.reports.masteredTitle,
+      description: TEACHER_COPY.reports.masteredDescription,
+      rows: overview.mastered,
+      defaultOpen: false
+    },
+    {
+      id: "not-enough-yet",
+      title: TEACHER_COPY.reports.notEnoughYetTitle,
+      description: TEACHER_COPY.reports.notEnoughYetDescription,
+      rows: overview.notEnoughYet,
+      defaultOpen: false
     },
     {
       id: "yet-to-learn",
-      title: "Yet to learn",
+      title: TEACHER_COPY.reports.yetToLearnTitle,
       description: TEACHER_COPY.reports.yetToLearnDescription,
-      rows: overview.yetToLearn
+      rows: overview.yetToLearn,
+      defaultOpen: false
     }
   ];
-  const totalSeen = overview.mastered.length + overview.developing.length;
   const descriptiveAssessments = workspace.wholeChild?.descriptiveAssessments || [];
-  if (!totalSeen && !overview.yetToLearn.length) {
+  if (!overview.totalCount) {
     return <EmptySimpleReport>Complete a check to begin this report.</EmptySimpleReport>;
   }
   return (
@@ -124,19 +182,12 @@ export function SimpleOverviewReportView({ workspace = {}, studentName = "This c
           </article>
         ))}
       </section>
+      <p className="simple-report-intro">
+        {TEACHER_COPY.reports.overviewReconcile(overview.checkedCount, overview.totalCount)}
+      </p>
+      <AccuracyLegend />
       <section className="simple-report-groups">
-        {groups.map(group => (
-          <details key={group.id} open={group.id !== "yet-to-learn"}>
-            <summary>{group.title} ({group.rows.length})</summary>
-            {group.rows.length ? (
-              <ul>
-                {group.rows.map(row => <li key={row.id}>{row.displayLabel}</li>)}
-              </ul>
-            ) : (
-              <p>Nothing is in this group yet.</p>
-            )}
-          </details>
-        ))}
+        {groups.map(group => <OverviewGroup group={group} key={group.id} />)}
       </section>
       {descriptiveAssessments.length > 0 && (
         <section className="simple-report-descriptive-el" aria-label="Descriptive EL check results">
@@ -158,7 +209,7 @@ export function SimpleOverviewReportView({ workspace = {}, studentName = "This c
   );
 }
 
-export function SimpleSkillsReportView({ workspace = {}, studentName = "This child" }) {
+export function SimpleSkillsReportView({ workspace = {}, studentName = "This student" }) {
   const rows = useMemo(
     () => buildSimpleSkillsRows(workspace, studentName),
     [studentName, workspace]
@@ -182,7 +233,7 @@ export function SimpleSkillsReportView({ workspace = {}, studentName = "This chi
   );
 }
 
-export function SimpleHfwReportView({ workspace = {}, studentName = "This child" }) {
+export function SimpleHfwReportView({ workspace = {}, studentName = "This student" }) {
   const rows = useMemo(
     () => buildSimpleHfwRows(workspace, studentName),
     [studentName, workspace]

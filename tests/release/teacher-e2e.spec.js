@@ -55,12 +55,8 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
 
   const childDetail = page.getByRole("region", { name: "Child details: Aarav" });
   await expect(childDetail).toBeVisible();
-  await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Checks", exact: true })
-    .click();
-  await expect(page.getByRole("heading", { name: "Choose one check", exact: true })).toBeVisible();
-  await expect(page.getByRole("article").filter({ hasText: "Skills check" })
-    .getByRole("button", { name: "Open Skills check", exact: true })).toBeEnabled();
+  // One click to a check: the Student panel starts it directly.
+  await expect(childDetail.getByRole("button", { name: /^Check Aarav$/ })).toBeEnabled();
 
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Reports", exact: true })
@@ -69,7 +65,7 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
     has: page.getByRole("heading", { name: "Aarav", exact: true })
   });
   await aaravReport.getByRole("button", { name: "Open report", exact: true }).click();
-  await page.getByRole("navigation", { name: "Child reports" })
+  await page.getByRole("navigation", { name: "Student reports" })
     .getByRole("link", { name: /^Skills/ })
     .click();
   await expect(page.getByRole("heading", { name: "Skills", exact: true })).toBeVisible();

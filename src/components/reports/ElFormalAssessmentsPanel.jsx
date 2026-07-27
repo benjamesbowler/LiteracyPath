@@ -256,7 +256,7 @@ export function ElFormalAssessmentsPanel({
         <strong>Saved-report retention</strong>
         <p>
           {supabase
-            ? "Signed-in report history stays in cloud storage until you delete it, reset an included child's check data, or remove the teacher account. This browser also keeps only the latest 12 reports for offline access."
+            ? "Signed-in report history stays in cloud storage until you delete it, reset an included student's check data, or remove the teacher account. This browser also keeps only the latest 12 reports for offline access."
             : "This browser keeps only the latest 12 reports for offline access. Older local reports are removed automatically as new reports are saved."}
         </p>
       </div>

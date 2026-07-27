@@ -13,13 +13,41 @@ function finiteNumber(value) {
   return Number.isFinite(number) ? number : null;
 }
 
-export function simpleAccuracyBand({ attempts = 0, accuracy = null } = {}) {
+// 2026-07-26: the tile colour is now driven by the child's STATUS, not by raw accuracy.
+//
+// It used to be a bare accuracy cut — green at >=50%. That produced the contradiction a
+// teacher reported: a tile rendered GREEN at 100% accuracy while the same tile's footer
+// read "Developing" and the summary above it read "0 mastered". Worse, 50% on a
+// three-option item is near chance, and an item at 55% went green while its policy status
+// was Needs teaching (below the 70% developing floor in learningPolicy.js).
+//
+// The five-state ladder in reportingEvidenceModel.js is the single source of truth. Thin
+// evidence is deliberately NEUTRAL, never red — "we haven't seen enough yet" is not a
+// failure and must not look like one.
+export function simpleAccuracyBand({ attempts = 0, statusId = "" } = {}) {
   const seen = Math.max(0, finiteNumber(attempts) || 0);
-  const score = finiteNumber(accuracy);
-  if (!seen || score === null) return SIMPLE_ACCURACY_BANDS.UNSEEN;
-  if (score < 20) return SIMPLE_ACCURACY_BANDS.RED;
-  if (score < 50) return SIMPLE_ACCURACY_BANDS.ORANGE;
-  return SIMPLE_ACCURACY_BANDS.GREEN;
+  if (!seen) return SIMPLE_ACCURACY_BANDS.UNSEEN;
+  switch (statusId) {
+    case "secure":
+      return SIMPLE_ACCURACY_BANDS.GREEN;
+    case "needs_teaching":
+      return SIMPLE_ACCURACY_BANDS.RED;
+    case "developing":
+      return SIMPLE_ACCURACY_BANDS.ORANGE;
+    // not_enough_evidence / not_checked / anything unrecognised: stay neutral.
+    default:
+      return SIMPLE_ACCURACY_BANDS.UNSEEN;
+  }
+}
+
+// Why an accurate item is not yet Secure. Mastery needs evidence across more than one
+// sitting and more than one question type — being right three times in one go is a good
+// start, not proof. Returns "" when the item is already secure or has no evidence.
+export function whyNotSecure({ attempts = 0, correct = 0, statusId = "" } = {}) {
+  if (statusId === "secure" || !attempts) return "";
+  if (attempts < 3) return "Needs a few more goes before we can say.";
+  if (correct >= attempts) return "Right every time so far — needs to show it again on another day.";
+  return "Getting there — needs to be right more often, across more than one day.";
 }
 
 function conceptCounts(concept = {}) {
@@ -58,15 +86,23 @@ function compactConceptLabel(concept = {}) {
   return String(concept.label || plainConceptLabel(concept));
 }
 
-export function simpleConceptRow(concept = {}, studentName = "This child") {
+function countedTimes(count) {
+  return `${count} ${count === 1 ? "time" : "times"}`;
+}
+
+export function simpleConceptRow(concept = {}, studentName = "This student") {
   const counts = conceptCounts(concept);
-  const band = simpleAccuracyBand(counts);
   const statusId = concept.status?.id || "not_checked";
+  const band = simpleAccuracyBand({ ...counts, statusId });
   const statusLabel = !counts.attempts
     ? "Yet to learn"
     : statusId === "secure"
-      ? "Mastered"
-      : "Developing";
+      ? "Secure"
+      : statusId === "needs_teaching"
+        ? "Needs teaching"
+        : statusId === "developing"
+          ? "Practising"
+          : "Not enough yet";
   return {
     id: concept.conceptId || `${concept.construct || "item"}::${concept.key || concept.label}`,
     key: concept.key || "",
@@ -78,9 +114,12 @@ export function simpleConceptRow(concept = {}, studentName = "This child") {
     statusLabel,
     ...counts,
     band,
+    whyNotSecure: whyNotSecure({ ...counts, statusId }),
+    // Plain teacher language. "Has been exposed to X 4 times" was research
+    // register that told a teacher nothing they could act on.
     sentence: counts.attempts > 0
-      ? `${studentName} has been exposed to ${plainConceptLabel(concept)} ${counts.attempts} ${counts.attempts === 1 ? "time" : "times"}${counts.correct === null ? "." : `, with ${counts.correct} correct ${counts.correct === 1 ? "answer" : "answers"}.`}`
-      : `${studentName} has not been exposed to ${plainConceptLabel(concept)} yet.`
+      ? `${studentName} answered ${plainConceptLabel(concept)} ${countedTimes(counts.attempts)}${counts.correct === null ? "." : `, right ${countedTimes(counts.correct)}.`}`
+      : `${studentName} has not tried ${plainConceptLabel(concept)} yet.`
   };
 }
 
@@ -89,7 +128,7 @@ function isHfwConcept(concept = {}) {
     && ALL_HFW_WORD_SET.has(String(concept.key || "").toLowerCase());
 }
 
-export function buildSimpleSkillsRows(workspace = {}, studentName = "This child") {
+export function buildSimpleSkillsRows(workspace = {}, studentName = "This student") {
   return (workspace.wholeChild?.concepts || [])
     .filter(concept => !isHfwConcept(concept))
     .map(concept => simpleConceptRow(concept, studentName))
@@ -99,7 +138,7 @@ export function buildSimpleSkillsRows(workspace = {}, studentName = "This child"
     ));
 }
 
-export function buildSimpleHfwRows(workspace = {}, studentName = "This child") {
+export function buildSimpleHfwRows(workspace = {}, studentName = "This student") {
   const concepts = new Map(
     (workspace.wholeChild?.concepts || [])
       .filter(isHfwConcept)
@@ -119,14 +158,44 @@ export function buildSimpleHfwRows(workspace = {}, studentName = "This child") {
   });
 }
 
-export function buildSimpleOverview(workspace = {}, studentName = "This child") {
+// Worst first inside each domain, so the item a teacher should open first is at
+// the top of the list rather than wherever the alphabet happened to put it.
+// Unknown accuracy sorts last: it is not a low score, it is no score.
+function bySeverityWithinDomain(left, right) {
+  const domain = String(left.domain).localeCompare(String(right.domain));
+  if (domain !== 0) return domain;
+  const leftAccuracy = left.accuracy === null ? Number.POSITIVE_INFINITY : left.accuracy;
+  const rightAccuracy = right.accuracy === null ? Number.POSITIVE_INFINITY : right.accuracy;
+  if (leftAccuracy !== rightAccuracy) return leftAccuracy - rightAccuracy;
+  return String(left.displayLabel).localeCompare(String(right.displayLabel));
+}
+
+// Five groups, and every row lands in exactly one of them. "needs_teaching"
+// used to be folded into "developing", which hid the only group a teacher acts
+// on; "notEnoughYet" was computed and never rendered, so the headline counts
+// did not add up to the number of items checked.
+export function buildSimpleOverview(workspace = {}, studentName = "This student") {
   const rows = [
     ...buildSimpleSkillsRows(workspace, studentName),
     ...buildSimpleHfwRows(workspace, studentName).filter(row => row.attempts > 0)
   ];
+  const seen = rows.filter(row => row.attempts > 0);
+  const sorted = list => [...list].sort(bySeverityWithinDomain);
+
+  const needsTeaching = sorted(seen.filter(row => row.statusId === "needs_teaching"));
+  const practising = sorted(seen.filter(row => row.statusId === "developing"));
+  const mastered = sorted(seen.filter(row => row.statusId === "secure"));
+  const notEnoughYet = sorted(seen.filter(row => !["needs_teaching", "developing", "secure"]
+    .includes(row.statusId)));
+  const yetToLearn = sorted(rows.filter(row => row.attempts === 0));
+
   return {
-    mastered: rows.filter(row => row.statusId === "secure"),
-    developing: rows.filter(row => row.attempts > 0 && row.statusId !== "secure"),
-    yetToLearn: rows.filter(row => row.attempts === 0)
+    needsTeaching,
+    practising,
+    mastered,
+    notEnoughYet,
+    yetToLearn,
+    checkedCount: seen.length,
+    totalCount: rows.length
   };
 }

@@ -82,7 +82,6 @@ test("@a11y-teacher authenticated six-section journey is keyboard and screen-rea
   await expect(moreOptions).toBeFocused();
 
   const intentionChecks = [
-    ["Checks", "Choose one check"],
     ["Reports", "Choose a child’s report"],
     ["Resources", "Choose a teaching resource"],
     ["Settings", "Settings"]

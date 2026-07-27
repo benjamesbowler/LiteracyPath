@@ -1,4 +1,4 @@
-import { APP_VIEWS } from "../../appState/appViews.js";
+import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { TeacherSurfaceState } from "./ui/TeacherSurfaceState.jsx";
 import {
   TeacherPageHeader,
@@ -6,79 +6,19 @@ import {
 } from "./ui/TeacherPrimitives.jsx";
 import { TeacherProgressOverview } from "./TeacherProgressOverview.jsx";
 
-const INTENT_COPY = Object.freeze({
-  assess: {
-    eyebrow: "Checks",
-    title: "Choose one check",
-    description: "Each option has one purpose. Choose a child first, then begin."
-  },
-  progress: {
-    eyebrow: "Reports",
-    title: "Choose a child’s report",
-    description: "Open one simple report at a time. The EL formal report remains separate."
-  },
-  resources: {
-    eyebrow: "Resources",
-    title: "Choose a teaching resource",
-    description: "Open classroom resources, with child-specific tools when a child is selected."
-  }
-});
+const INTENT_COPY = TEACHER_COPY.intents;
 
 function buildIntentActions({
   intent,
-  onOpenAssessment,
-  onOpenView,
   onOpenReports,
-  onOpenGuidedReading,
-  onOpenStoryQuests,
   onOpenWorksheets,
   onOpenPresent
 }) {
-  if (intent === "assess") {
-    return [
-      {
-        id: "skills-check",
-        category: "Literacy skills",
-        label: "Skills check",
-        description: "Check one child against the literacy sequence and save the exact answers.",
-        actionLabel: "Open Skills check",
-        requiresStudent: true,
-        onOpen: () => onOpenAssessment?.(false)
-      },
-      {
-        id: "el-formal",
-        category: "School record",
-        label: "EL formal check",
-        description: "Run or review the standalone EL check required for school records.",
-        actionLabel: "Open EL check",
-        requiresStudent: true,
-        onOpen: () => onOpenView?.(APP_VIEWS.EL_ASSESSMENTS)
-      },
-      {
-        id: "focused-follow-up",
-        category: "Specific teaching question",
-        label: "Focused follow-up",
-        description: "Check one known gap without running a broad check.",
-        actionLabel: "Choose a skill",
-        requiresStudent: true,
-        onOpen: () => onOpenAssessment?.(true)
-      },
-      {
-        id: "practice",
-        category: "Practice",
-        label: "Teaching and practice",
-        description: "Open resources when you want to teach or rehearse, not record a check.",
-        actionLabel: "Open resources",
-        requiresStudent: false,
-        onOpen: () => onOpenView?.(APP_VIEWS.TEACHER_RESOURCES)
-      }
-    ];
-  }
   if (intent === "progress") {
     return [
       {
         id: "learner-reports",
-        category: "Child results",
+        category: "Student results",
         label: "Reports and downloads",
         description: "Open Overview, Skills, HFW/sight words, or the standalone EL formal report.",
         actionLabel: "Open report",
@@ -87,23 +27,11 @@ function buildIntentActions({
       }
     ];
   }
+  // Guided reading and Story Quests moved into the Student panel on the Students
+  // page. They are per-student tools, and asking for a student twice - once in a
+  // picker here, once wherever the student was actually chosen - was the reason
+  // both buttons so often sat greyed out. What is left here is whole-class.
   return [
-    {
-      id: "guided-reading",
-      category: "Small-group teaching",
-      label: "Guided reading",
-      description: "Open the selected child's connected-text reading record and book tools.",
-      requiresStudent: true,
-      onOpen: onOpenGuidedReading
-    },
-    {
-      id: "story-quests",
-      category: "Assigned practice",
-      label: "Story Quests",
-      description: "Preview the selected child's story practice and comprehension route.",
-      requiresStudent: true,
-      onOpen: onOpenStoryQuests
-    },
     {
       id: "worksheets",
       category: "Print",
@@ -136,11 +64,9 @@ export function TeacherIntentPage({
   studentName = "",
   onSelectLearner,
   onClearLearner,
-  onOpenAssessment,
-  onOpenView,
   onOpenReports,
-  onOpenGuidedReading,
-  onOpenStoryQuests,
+  onOpenClasses,
+  onOpenClassReport,
   onOpenWorksheets,
   onOpenPresent,
   surfaceState = "",
@@ -150,13 +76,13 @@ export function TeacherIntentPage({
 }) {
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
+  // The Reports page renders its own class picker inside TeacherProgressOverview.
+  const showClassPicker = intent !== "progress";
+  const hasClasses = classList.length > 0;
+  const hasStudents = progressRows.length > 0;
   const actions = buildIntentActions({
     intent,
-    onOpenAssessment,
-    onOpenView,
     onOpenReports,
-    onOpenGuidedReading,
-    onOpenStoryQuests,
     onOpenWorksheets,
     onOpenPresent
   });
@@ -171,10 +97,53 @@ export function TeacherIntentPage({
         title={copy.title}
         description={copy.description}
       >
-        <div className="teacher-dashboard-context" aria-label="Current teaching context">
+        <div className="teacher-dashboard-context" aria-label={INTENT_COPY.contextLabel}>
           <span>Current context</span>
-          <strong>{className || "Choose a class"}</strong>
-          <small>{studentName ? `Child: ${studentName}` : "No child selected"}</small>
+          <strong>{className || INTENT_COPY.chooseClass}</strong>
+          {/* Both pickers live here. Previously the class was a read-only label and the
+              student picker only appeared once class rows happened to be loaded — which
+              nothing on this route ever did, so every student-requiring action was a dead
+              button with no picker above it. */}
+          {showClassPicker && onSelectClass && hasClasses && (
+            <label className="teacher-context-class">
+              <select
+                aria-label={INTENT_COPY.classFieldLabel}
+                onChange={event => onSelectClass(event.target.value || null)}
+                value={selectedClassId || ""}
+              >
+                <option value="">{INTENT_COPY.chooseClass}</option>
+                {classList.map(row => (
+                  <option key={row.id} value={row.id}>{row.name}</option>
+                ))}
+              </select>
+            </label>
+          )}
+          {onSelectLearner && hasStudents ? (
+            <label className="teacher-context-student">
+              <select
+                aria-label={INTENT_COPY.studentFieldLabel}
+                onChange={event => {
+                  const row = progressRows.find(item => String(item.id) === event.target.value);
+                  if (row) onSelectLearner(row.id, row.name);
+                }}
+                value={selectedLearnerId || ""}
+              >
+                <option value="">{INTENT_COPY.studentPlaceholder}</option>
+                {progressRows.map(row => (
+                  <option key={row.id} value={row.id}>{row.name}</option>
+                ))}
+              </select>
+            </label>
+          ) : (
+            <small>
+              {studentName ? INTENT_COPY.selectedStudent(studentName) : INTENT_COPY.noStudentSelected}
+            </small>
+          )}
+          {selectedLearnerId && onClearLearner && (
+            <button className="text-button" type="button" onClick={onClearLearner}>
+              {INTENT_COPY.clearStudent}
+            </button>
+          )}
         </div>
       </TeacherPageHeader>
 
@@ -201,9 +170,38 @@ export function TeacherIntentPage({
               onSelectLearner={onSelectLearner}
               onClearLearner={onClearLearner}
               onOpenReports={onOpenReports}
+              onOpenClassReport={onOpenClassReport}
             />
+          ) : !hasClasses ? (
+            <section className="teacher-intent-empty" aria-label={INTENT_COPY.noClassesTitle}>
+              <h2>{INTENT_COPY.noClassesTitle}</h2>
+              <p>{INTENT_COPY.noClassesBody}</p>
+              {onOpenClasses && (
+                <button className="lp-button lp-button-primary" type="button" onClick={onOpenClasses}>
+                  {INTENT_COPY.noClassesAction}
+                </button>
+              )}
+            </section>
+          ) : !selectedClassId ? (
+            <section className="teacher-intent-empty" aria-label={INTENT_COPY.chooseClassTitle}>
+              <h2>{INTENT_COPY.chooseClassTitle}</h2>
+              <p>{INTENT_COPY.chooseClassBody}</p>
+            </section>
+          ) : !hasStudents ? (
+            <section className="teacher-intent-empty" aria-label={INTENT_COPY.noStudentsTitle(className || INTENT_COPY.chooseClass)}>
+              <h2>{INTENT_COPY.noStudentsTitle(className || INTENT_COPY.chooseClass)}</h2>
+              <p>{INTENT_COPY.noStudentsBody}</p>
+              {onOpenClasses && (
+                <button className="lp-button lp-button-primary" type="button" onClick={onOpenClasses}>
+                  {INTENT_COPY.noStudentsAction}
+                </button>
+              )}
+            </section>
           ) : (
             <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
+              <p className="teacher-intent-class-summary">
+                {INTENT_COPY.classSummary(className, progressRows.length)}
+              </p>
               {actions.map(action => {
                 const needsLearner = action.requiresStudent && !studentName;
                 return (
@@ -213,18 +211,16 @@ export function TeacherIntentPage({
                       <h3>{action.label}</h3>
                       <p>{action.description}</p>
                       {needsLearner && (
-                        <small className="muted-text">Choose a child to continue.</small>
+                        <small className="muted-text">Pick a student above to continue.</small>
                       )}
                     </div>
                     <button
                       className="lp-button lp-button-secondary"
-                      disabled={needsLearner && !onOpenView}
-                      onClick={needsLearner
-                        ? () => onOpenView(APP_VIEWS.TEACHER_CLASSES)
-                        : action.onOpen}
+                      disabled={needsLearner}
+                      onClick={action.onOpen}
                       type="button"
                     >
-                      {needsLearner ? "Choose child" : action.actionLabel || "Open"}
+                      {action.actionLabel || "Open"}
                     </button>
                   </article>
                 );

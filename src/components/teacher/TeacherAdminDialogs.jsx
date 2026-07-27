@@ -46,7 +46,7 @@ export function ResetStudentProgressDialog({
   if (!open) return null;
 
   const canConfirmReset = resetPhrase.trim() === "RESET";
-  const studentLabel = studentName || "this child";
+  const studentLabel = studentName || "this student";
 
   function cancelReset() {
     setResetPhrase("");

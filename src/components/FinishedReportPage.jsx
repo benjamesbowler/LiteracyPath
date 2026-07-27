@@ -80,17 +80,17 @@ function teacherResultText(value = "") {
     .replace(/\bevidence\b/gi, "results")
     .replace(/\blearners?\b/gi, match => preserveLeadingCase(
       match,
-      match.toLowerCase().endsWith("s") ? "children" : "child"
+      match.toLowerCase().endsWith("s") ? "students" : "student"
     ))
     .replace(/\bstudents?\b/gi, match => preserveLeadingCase(
       match,
-      match.toLowerCase().endsWith("s") ? "children" : "child"
+      match.toLowerCase().endsWith("s") ? "students" : "student"
     ))
     .replace(/\bincorrect\b/gi, "needs another look");
 }
 
 function reportViewLabel(viewId = "") {
-  return STUDENT_REPORT_VIEWS.find(view => view.id === viewId)?.label || "Child results";
+  return STUDENT_REPORT_VIEWS.find(view => view.id === viewId)?.label || "Student results";
 }
 
 function visibleReportDetails(rows = []) {
@@ -1085,7 +1085,7 @@ export function FinishedReportPage({
         await exportReadingReport?.();
       } else if (activeReportView === "hfw") {
         const rows = buildSimpleHfwRows(reportingWorkspace, studentName).map(row => ({
-          child: studentName,
+          student: studentName,
           word: row.key,
           exposures: row.attempts,
           correctAnswers: row.correct ?? "",
@@ -1243,7 +1243,7 @@ export function FinishedReportPage({
           </ReportSection>
 
           <ReportSection
-            description="These checks describe what the child did. They do not use a made-up pass percentage."
+            description="These checks describe what the student did. They do not use a made-up pass percentage."
             title="Reading checks"
           >
             <BenchmarkScopeControl
@@ -1320,8 +1320,8 @@ export function FinishedReportPage({
       <section className="modal-card empty-el-export-dialog">
         <h2 id="empty-el-export-title">
           {emptyElExportScope?.emptyReport
-            ? `Nothing to report for ${studentName || "this child"}`
-            : `No saved EL checks for ${studentName || "this child"}`}
+            ? `Nothing to report for ${studentName || "this student"}`
+            : `No saved EL checks for ${studentName || "this student"}`}
         </h2>
         <p>No saved EL results are available. Do or save a check first.</p>
         <p>

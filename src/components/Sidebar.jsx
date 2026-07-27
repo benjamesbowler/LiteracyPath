@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId, useRef } from "react";
 import logomarkUrl from "../assets/logo.svg";
 import { APP_VIEWS } from "../appState/appViews.js";
+import { isFocusedAssessmentView } from "../appState/appViewHelpers.js";
 
 const STORAGE_KEY = "lg_sidebar_collapsed";
 
@@ -82,39 +83,28 @@ const TEACHER_INTENT_NAV_ITEMS = [
     id: "dashboard",
     label: "Dashboard",
     icon: "dashboard",
-    views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD],
-    modules: []
+    views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD]
   },
   {
     id: "children",
-    label: "Children",
+    label: "Students",
     icon: "student",
-    views: [APP_VIEWS.TEACHER_CLASSES, APP_VIEWS.STUDENT_HOME],
-    modules: []
-  },
-  {
-    id: "checks",
-    label: "Checks",
-    icon: "assessment",
     views: [
-      APP_VIEWS.TEACHER_ASSESS,
-      APP_VIEWS.OVERVIEW,
-      APP_VIEWS.SKILLS,
+      APP_VIEWS.TEACHER_CLASSES,
+      APP_VIEWS.STUDENT_HOME,
       APP_VIEWS.ASSESSMENT,
       APP_VIEWS.CHECKPOINT,
       APP_VIEWS.LETTERS,
       APP_VIEWS.ADVANCED_PHONICS,
       APP_VIEWS.EL_ASSESSMENTS,
       APP_VIEWS.EL_BENCHMARK
-    ],
-    modules: []
+    ]
   },
   {
     id: "reports",
     label: "Reports",
     icon: "reports",
-    views: [APP_VIEWS.TEACHER_PROGRESS, APP_VIEWS.REPORTS, APP_VIEWS.FINISHED],
-    modules: []
+    views: [APP_VIEWS.TEACHER_PROGRESS, APP_VIEWS.REPORTS, APP_VIEWS.FINISHED]
   },
   {
     id: "resources",
@@ -126,15 +116,13 @@ const TEACHER_INTENT_NAV_ITEMS = [
       APP_VIEWS.LEARN,
       APP_VIEWS.PRESENT,
       APP_VIEWS.WORKSHEETS
-    ],
-    modules: []
+    ]
   },
   {
     id: "settings",
     label: "Settings",
     icon: "admin",
-    views: [APP_VIEWS.TEACHER_SETTINGS],
-    modules: []
+    views: [APP_VIEWS.TEACHER_SETTINGS]
   },
 ];
 
@@ -144,14 +132,8 @@ export function Sidebar({
   studentName,
   className,
   teacherEmail,
-  goToStudentHome,
-  goToGuidedReading,
-  goToLearn,
-  goToWorksheets,
-  goToPresent,
   goToTeacherDashboard,
   goToTeacherClasses,
-  goToTeacherAssess,
   goToTeacherProgress,
   goToTeacherResources,
   goToTeacherSettings,
@@ -166,6 +148,25 @@ export function Sidebar({
       return false;
     }
   });
+  // A check that is open on screen is unfinished work. Navigation used to fire
+  // straight away, so one stray click ended the check with nothing said. The
+  // teacher is asked once, and can always carry on leaving.
+  const [pendingItem, setPendingItem] = useState(null);
+  const leaveCheckTitleId = useId();
+  const leaveCheckBodyId = useId();
+  const stayButtonRef = useRef(null);
+  const checkInProgress = isFocusedAssessmentView(appView);
+
+  // Derived, not stored: once the check is over the question is moot, so the
+  // prompt disappears on its own rather than needing to be cleaned up.
+  const leaveCheckItem = checkInProgress ? pendingItem : null;
+  // A question worth asking is worth being able to read: the rail opens itself
+  // while the prompt is up, without changing the teacher's saved preference.
+  const railCollapsed = collapsed && !leaveCheckItem;
+
+  useEffect(() => {
+    if (leaveCheckItem) stayButtonRef.current?.focus();
+  }, [leaveCheckItem]);
 
   useEffect(() => {
     try {
@@ -177,19 +178,21 @@ export function Sidebar({
 
   function handleNavClick(item) {
     if (item.requiresStudent && !nameSaved) return null;
+    if (checkInProgress) {
+      setPendingItem(item);
+      return null;
+    }
+    return navigateToItem(item);
+  }
+
+  function navigateToItem(item) {
     switch (item.id) {
       case "dashboard":   return goToTeacherDashboard?.();
       case "children":    return goToTeacherClasses?.();
-      case "checks":      return goToTeacherAssess?.();
       case "reports":     return goToTeacherProgress?.();
       case "resources":   return goToTeacherResources?.();
       case "settings":    return goToTeacherSettings?.();
-      case "studentHome": return goToStudentHome?.();
-      case "assessment-hub": return goToTeacherAssess?.();
-      case "reading":     return goToGuidedReading?.();
-      case "learn":       return goToLearn?.();
-      case "worksheets":  return goToWorksheets?.();
-      case "present":     return goToPresent?.();
+      case "admin":       return openAdminDashboard?.();
       default:            return null;
     }
   }
@@ -200,13 +203,13 @@ export function Sidebar({
 
   function getItemTitle(item) {
     if (item.requiresStudent && !nameSaved) return "Select a student first";
-    if (collapsed) return item.description ? `${item.label} - ${item.description}` : item.label;
+    if (railCollapsed) return item.description ? `${item.label} - ${item.description}` : item.label;
     return item.description || undefined;
   }
 
   return (
     <aside
-      className={`lg-sidebar${collapsed ? " collapsed" : ""}`}
+      className={`lg-sidebar${railCollapsed ? " collapsed" : ""}`}
       aria-label="Main navigation"
     >
       {/* ── Logo + toggle ── */}
@@ -215,27 +218,63 @@ export function Sidebar({
           <div className="lg-sb-icon" aria-hidden="true">
             <img src={logomarkUrl} alt="" width="16" height="16" />
           </div>
-          <span className="lg-sb-name" aria-hidden={collapsed}>
+          <span className="lg-sb-name" aria-hidden={railCollapsed}>
             Literacy Guide
           </span>
         </div>
         <button
           className="lg-sb-toggle"
           onClick={() => setCollapsed(c => !c)}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-          aria-expanded={!collapsed}
+          aria-label={railCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-expanded={!railCollapsed}
         >
           <span className="lg-sb-toggle-icon">{ICONS.chevron}</span>
         </button>
       </div>
 
       {/* ── Class / context label ── */}
-      <div className="lg-sb-class" aria-hidden={collapsed}>
-        {className || (studentName ? `Child: ${studentName}` : "No class selected")}
+      <div className="lg-sb-class" aria-hidden={railCollapsed}>
+        {className || (studentName ? `Student: ${studentName}` : "No class selected")}
       </div>
 
       {/* ── Nav items ── */}
       <nav className="lg-sb-nav" aria-label="App sections">
+        {leaveCheckItem && (
+          <div
+            className="lg-sb-leave-check"
+            role="alertdialog"
+            aria-labelledby={leaveCheckTitleId}
+            aria-describedby={leaveCheckBodyId}
+            onKeyDown={event => {
+              if (event.key === "Escape") setPendingItem(null);
+            }}
+          >
+            <strong id={leaveCheckTitleId}>Leave this check?</strong>
+            <p id={leaveCheckBodyId}>
+              This check is still open. Going to {leaveCheckItem.label} now ends it,
+              and anything not already saved is lost.
+            </p>
+            <button
+              className="lp-button lp-button-secondary"
+              onClick={() => setPendingItem(null)}
+              ref={stayButtonRef}
+              type="button"
+            >
+              Stay on the check
+            </button>
+            <button
+              className="lp-button lp-button-primary"
+              onClick={() => {
+                const item = leaveCheckItem;
+                setPendingItem(null);
+                navigateToItem(item);
+              }}
+              type="button"
+            >
+              Leave and go to {leaveCheckItem.label}
+            </button>
+          </div>
+        )}
         <div data-testid="teacher-primary-nav" role="group" aria-label="Teacher primary">
           {TEACHER_INTENT_NAV_ITEMS.map(item => (
             <div key={item.id} className="lg-sb-intent">
@@ -252,27 +291,6 @@ export function Sidebar({
                   {item.label}
                 </span>
               </button>
-              {!collapsed && isActive(item) && item.modules.length > 0 && (
-                <div
-                  className="lg-sb-context-nav"
-                  aria-label={`${item.label} tools`}
-                  role="navigation"
-                >
-                  {item.modules.map(module => (
-                    <button
-                      key={module.id}
-                      className={`lg-sb-context-item${isActive(module) ? " active" : ""}`}
-                      disabled={module.requiresStudent && !nameSaved}
-                      onClick={() => handleNavClick(module)}
-                      aria-current={isActive(module) ? "page" : undefined}
-                      title={getItemTitle(module)}
-                      type="button"
-                    >
-                      {module.label}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
         </div>
@@ -280,9 +298,9 @@ export function Sidebar({
         {isAdmin && (
           <button
             className={`lg-sb-item${appView === APP_VIEWS.ADMIN_DASHBOARD ? " active" : ""}`}
-            onClick={openAdminDashboard}
+            onClick={() => handleNavClick({ id: "admin", label: "Admin" })}
             aria-current={appView === APP_VIEWS.ADMIN_DASHBOARD ? "page" : undefined}
-            title={collapsed ? "Admin" : undefined}
+            title={railCollapsed ? "Admin" : undefined}
           >
             <span className="lg-sb-item-icon">{ICONS.admin}</span>
             <span className="lg-sb-item-label">Admin</span>
@@ -298,7 +316,7 @@ export function Sidebar({
             className="lg-sb-item"
             onClick={logOutTeacher}
             aria-label={`Sign out ${teacherEmail}`}
-            title={collapsed ? `Sign out (${teacherEmail})` : undefined}
+            title={railCollapsed ? `Sign out (${teacherEmail})` : undefined}
           >
             <span className="lg-sb-item-icon">{ICONS.logout}</span>
             <span className="lg-sb-item-label lg-sb-email">

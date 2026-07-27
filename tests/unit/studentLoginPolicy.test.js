@@ -14,7 +14,7 @@ test("child login keeps the code-gated roster but requires teacher-set pictures"
   const [loginFlow, classApi, dashboard, migration] = await Promise.all([
     source("src/components/StudentLoginFlow.jsx"),
     source("src/data/classApiCompatibility.js"),
-    source("src/components/TeacherDashboardPage.jsx"),
+    source("src/components/TeacherStudentsPage.jsx"),
     source("supabase/migrations/20260723090000_teacher_only_student_password_setup.sql")
   ]);
 

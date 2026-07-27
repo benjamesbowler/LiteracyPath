@@ -3,13 +3,14 @@ import { APP_VIEWS } from "./appViews.js";
 const TEACHER_PATH_VIEWS = Object.freeze({
   dashboard: APP_VIEWS.TEACHER_DASHBOARD,
   children: APP_VIEWS.TEACHER_CLASSES,
-  checks: APP_VIEWS.TEACHER_ASSESS,
+  checks: APP_VIEWS.TEACHER_CLASSES,
   reports: APP_VIEWS.TEACHER_PROGRESS,
+  "reports/class": APP_VIEWS.REPORTS,
   resources: APP_VIEWS.TEACHER_RESOURCES,
   settings: APP_VIEWS.TEACHER_SETTINGS,
   today: APP_VIEWS.TEACHER_DASHBOARD,
   classes: APP_VIEWS.TEACHER_CLASSES,
-  assess: APP_VIEWS.TEACHER_ASSESS,
+  assess: APP_VIEWS.TEACHER_CLASSES,
   progress: APP_VIEWS.TEACHER_PROGRESS
 });
 const TEACHER_REPORT_VIEWS = new Set([
@@ -47,10 +48,10 @@ function parseTeacherRouteHash(hash = "") {
   return {
     appView,
     classId: params.get("class") || "",
-    groupId: ["today", "dashboard", "settings"].includes(intent)
+    groupId: ["today", "dashboard", "settings", "reports/class"].includes(intent)
       ? "all"
       : params.get("group") || "all",
-    learnerId: ["today", "dashboard", "settings"].includes(intent)
+    learnerId: ["today", "dashboard", "settings", "reports/class"].includes(intent)
       ? ""
       : params.get("learner") || "",
     reportView: ""

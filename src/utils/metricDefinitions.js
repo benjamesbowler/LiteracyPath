@@ -4,43 +4,78 @@ export const METRIC_DEFINITIONS = Object.freeze({
   accuracy: Object.freeze({
     id: "accuracy",
     label: "Accuracy",
-    counts: "Correct scored answers out of all scored answers, shown as a percentage.",
-    timeWindow: "All saved answers in the selected child, class, check, or report unless a shorter period is shown.",
+    counts: "Correct scored answers out of all scored answers, shown as a percentage. A high score on very few answers does not mean it is secure yet — check the status word beside it.",
+    timeWindow: "All saved answers in the selected student, class, check, or report unless a shorter period is shown.",
     excludes: "Unscored answers and groups too small for a fair result."
   }),
   mastered: Object.freeze({
     id: "mastered",
-    label: "Mastered",
-    counts: "Skills whose saved results meet the mastery rule.",
-    timeWindow: "All saved scored answers in the selected view.",
-    excludes: "Practice seen once and skills that have not met the mastery rule."
+    label: "Secure",
+    counts: "The student was right at least 4 times, on two different days, in two different kinds of question. Being right 3 times in one sitting is a great start, but it is not secure yet.",
+    timeWindow: "Their recent answers, within the last 90 days.",
+    excludes: "Practice games played on their own, answers given with help on screen, and anything older than 90 days."
+  }),
+  practising: Object.freeze({
+    id: "practising",
+    label: "Practising",
+    counts: "The student is getting this right, but not yet often enough, or not yet on enough different days, for us to call it secure.",
+    timeWindow: "Their recent answers, within the last 90 days.",
+    excludes: "Answers given with help on screen."
+  }),
+  "needs-teaching": Object.freeze({
+    id: "needs-teaching",
+    label: "Needs teaching",
+    counts: "The student got this right less than 70% of the time, across at least 3 tries. This one needs teaching.",
+    timeWindow: "Their recent answers, within the last 90 days.",
+    excludes: "Items with fewer than 3 tries — those show as Not enough yet, which is not a worry."
+  }),
+  "not-enough-yet": Object.freeze({
+    id: "not-enough-yet",
+    label: "Not enough yet",
+    counts: "Fewer than 3 answers so far, or the only answers we have are old, or the student had help. This is not a low score — we just cannot say either way yet.",
+    timeWindow: "All saved answers for this item.",
+    excludes: "Nothing. It means there is not enough to judge, not that the student did badly."
+  }),
+  round: Object.freeze({
+    id: "round",
+    label: "Round",
+    counts: "Answers correct so far in this round only. It resets when a new round starts.",
+    timeWindow: "The current round.",
+    excludes: "Everything before this round. This is not progress towards mastery."
+  }),
+  "el-placement": Object.freeze({
+    id: "el-placement",
+    label: "Provisional placement",
+    counts: "What the student did on this benchmark check, described as it happened.",
+    timeWindow: "The most recent completed check.",
+    excludes: "There is no pass mark for this check, so we will not turn it into mastered or secure. Use it alongside what you see in class, then confirm the placement yourself."
   }),
   active: Object.freeze({
     id: "active",
     label: "Active",
-    counts: "Children with a saved answer or saved Sound Seekers play.",
+    counts: "Students with a saved answer or saved Sound Seekers play.",
     timeWindow: "Today when the figure says today; otherwise the period shown beside it.",
-    excludes: "Children without saved activity in that period."
+    excludes: "Students without saved activity in that period."
   }),
   started: Object.freeze({
     id: "started",
     label: "Started",
-    counts: "Children with at least one saved answer.",
+    counts: "Students with at least one saved answer.",
     timeWindow: "All saved activity for the selected class.",
-    excludes: "Children with no saved answers."
+    excludes: "Students with no saved answers."
   }),
   "current-skill": Object.freeze({
     id: "current-skill",
     label: "Current skill",
-    counts: "The first tried skill not yet mastered, or the first skill still to learn.",
-    timeWindow: "All saved attempts and mastered skills for the child.",
-    excludes: "Skills already mastered and skills later in the teaching order."
+    counts: "Where the student is in the teaching order — 30 skills, in sequence. \"2 of 30\" means they are working on skill number 2. It is a position, not a score: it does not mean 2 skills are finished.",
+    timeWindow: "All saved attempts and secure skills for the student.",
+    excludes: "Skills already secure and skills later in the teaching order."
   }),
   trails: Object.freeze({
     id: "trails",
     label: "Trails",
     counts: "Sound Seekers trail stops completed and saved.",
-    timeWindow: "All saved Sound Seekers progress for the child.",
+    timeWindow: "All saved Sound Seekers progress for the student.",
     excludes: "Stops that were opened but not completed and saved."
   })
 });

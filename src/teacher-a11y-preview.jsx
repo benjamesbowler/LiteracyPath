@@ -6,7 +6,8 @@ import "./App.css";
 import { APP_VIEWS } from "./appState/appViews.js";
 import { EL_BENCHMARK_IDS } from "./data/elBenchmarkAssessments.js";
 import { Sidebar } from "./components/Sidebar.jsx";
-import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
+import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
+import { TeacherTodayPage } from "./components/TeacherTodayPage.jsx";
 import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
 import { TeacherSettingsPage } from "./components/teacher/TeacherSettingsPage.jsx";
 import { FinishedReportPage } from "./components/FinishedReportPage.jsx";
@@ -134,7 +135,6 @@ function viewForSurface(value) {
   return {
     today: APP_VIEWS.TEACHER_DASHBOARD,
     classes: APP_VIEWS.TEACHER_CLASSES,
-    assess: APP_VIEWS.TEACHER_ASSESS,
     progress: APP_VIEWS.TEACHER_PROGRESS,
     resources: APP_VIEWS.TEACHER_RESOURCES,
     settings: APP_VIEWS.TEACHER_SETTINGS,
@@ -145,7 +145,7 @@ function viewForSurface(value) {
   }[value] || APP_VIEWS.TEACHER_DASHBOARD;
 }
 
-function Dashboard({ pageIntent }) {
+function Dashboard({ page }) {
   const [selectedClassId, setSelectedClassId] = useState(classId);
   const [newClassName, setNewClassName] = useState("");
   const [dashboardRows, setDashboardRows] = useState(() => progressRows.map(row => ({
@@ -192,9 +192,30 @@ function Dashboard({ pageIntent }) {
     return true;
   }
 
+  if (page === "today") {
+    return (
+      <TeacherTodayPage
+        classList={classList}
+        selectedClassId={selectedClassId}
+        setSelectedClassId={setSelectedClassId}
+        setStudentList={noop}
+        studentList={students}
+        loadStudents={asyncNoop}
+        loadClassDashboard={asyncNoop}
+        classDashboard={dashboardRows}
+        onLoadStudent={asyncNoop}
+        onStartCheck={asyncNoop}
+        onOpenClasses={noop}
+        onOpenProgress={noop}
+        teacherId=""
+        schoolName="LiteracyPath Audit School"
+        hasSchool={true}
+      />
+    );
+  }
+
   return (
-    <TeacherDashboardPage
-      pageIntent={pageIntent}
+    <TeacherStudentsPage
       classList={classList}
       selectedClassId={selectedClassId}
       setSelectedClassId={setSelectedClassId}
@@ -211,9 +232,12 @@ function Dashboard({ pageIntent }) {
       onClearStudent={noop}
       selectedGroupId="all"
       onSelectGroup={noop}
-      onOpenClasses={noop}
-      onOpenAssess={noop}
-      onOpenProgress={noop}
+      onStartCheck={asyncNoop}
+      onOpenReport={noop}
+      onOpenGuidedReading={noop}
+      onOpenStoryQuests={noop}
+      onOpenElFormalCheck={asyncNoop}
+      onResetCheckData={asyncNoop}
       createClass={asyncNoop}
       regenerateClassCode={async () => ({ ok: true, accessCode: "READ43" })}
       newClassName={newClassName}
@@ -303,7 +327,6 @@ function Intent({ intent }) {
       studentName="Aarav"
       onSelectLearner={noop}
       onClearLearner={noop}
-      onOpenAssessment={noop}
       onOpenView={noop}
       onOpenReports={noop}
       onOpenGuidedReading={noop}
@@ -400,9 +423,7 @@ function GuidedReading() {
 function Surface() {
   switch (surface) {
     case "classes":
-      return <Dashboard pageIntent="classes" />;
-    case "assess":
-      return <Intent intent="assess" />;
+      return <Dashboard page="classes" />;
     case "progress":
       return <Intent intent="progress" />;
     case "resources":
@@ -419,7 +440,7 @@ function Surface() {
       return <AccessibilityEffects />;
     case "today":
     default:
-      return <Dashboard pageIntent="today" />;
+      return <Dashboard page="today" />;
   }
 }
 
@@ -441,15 +462,8 @@ export function TeacherA11yPreview() {
           studentName="Aarav"
           className="Audit Class A"
           teacherEmail="audit-teacher-a@literacypath.invalid"
-          goToStudentHome={noop}
-          goToGuidedReading={noop}
-          goToLearn={noop}
-          goToReports={noop}
-          goToWorksheets={noop}
-          goToPresent={noop}
           goToTeacherDashboard={noop}
           goToTeacherClasses={noop}
-          goToTeacherAssess={noop}
           goToTeacherProgress={noop}
           goToTeacherResources={noop}
           goToTeacherSettings={noop}

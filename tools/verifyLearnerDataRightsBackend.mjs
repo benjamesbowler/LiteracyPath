@@ -10,7 +10,7 @@ const migration = source(
 );
 const service = source("src/data/learnerDataRights.js");
 const dialog = source("src/components/teacher/LearnerDataRightsDialog.jsx");
-const teacherDashboard = source("src/components/TeacherDashboardPage.jsx");
+const teacherDashboard = source("src/components/TeacherStudentsPage.jsx");
 const adminDashboard = source("src/components/AdminDashboardPage.jsx");
 const runbook = source("docs/ops/DATA_RIGHTS_RUNBOOK.md");
 

@@ -15,7 +15,7 @@ const requiredAdoptions = [
     ]
   },
   {
-    file: "src/components/TeacherDashboardPage.jsx",
+    file: "src/components/TeacherStudentsPage.jsx",
     required: ["ActionFeedback", "kind: \"undo\"", "Undo archive for"],
     forbidden: [
       /teacher-class-code-status" role="status"/,

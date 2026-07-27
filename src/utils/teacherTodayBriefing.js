@@ -118,10 +118,17 @@ export function buildTeacherTodayBriefing(
       };
     });
 
+  // Day one: nobody has answered anything, so "25 students due a first check"
+  // is one fact, not 25 rows. The UI collapses to a single line and one button.
+  const allFirstCheckDue = rows.length > 0
+    && due.length === rows.length
+    && due.every(row => row.title === "First check due");
+
   return {
     attention,
     due,
     changed,
+    allFirstCheckDue,
     insufficientEvidenceCount: insufficientEvidence.length,
     policy
   };

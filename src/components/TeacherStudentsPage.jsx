@@ -1,35 +1,27 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
-import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
+import {
+  assignUniqueSymbolSequences,
+  symbolIconByDigit
+} from "../data/symbolPasswordIcons.js";
 import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/worksheets/practicePack.js";
-import { classHeatSummary } from "../utils/questReport.js";
-import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
-import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
 import {
   PROGRESS_MIN_RESPONSES,
   buildClassAccuracySummary
 } from "../utils/teacherProgressOverview.js";
-import {
-  LEARNING_EVIDENCE_POLICY,
-  LEARNING_STATUS_IDS,
-  evaluateLearningConclusion
-} from "../policy/learningPolicy.js";
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
   insertRosterStudents,
   setRosterStudentArchived,
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
-import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
-import {
-  MetricFigure
-} from "./MetricDefinition.jsx";
+import { MetricFigure } from "./MetricDefinition.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import {
-  TeacherChart,
   TeacherDataTable,
   TeacherFilterBar,
   TeacherPageHeader,
@@ -41,9 +33,21 @@ import {
 } from "./teacher/ui/TeacherDialog.jsx";
 import { metricDefinitionText } from "../utils/metricDefinitions.js";
 import {
-  LEARNER_ACCESSIBILITY_FIELDS,
-  normalizeLearnerAccessibilitySettings
-} from "../accessibility/learnerAccessibility.js";
+  LearnerAccessibilityDialog,
+  QuestionTypeGuideDialog,
+  RosterMetric,
+  StudentInitial,
+  TeacherSetupChecklist
+} from "./teacher/TeacherClassParts.jsx";
+import {
+  accuracyConclusion,
+  formatLastActive,
+  getProgressPercent,
+  latestMetricUpdate,
+  needsSupportConclusion,
+  useTeacherSetupState,
+  useTeacherStudentRows
+} from "./teacher/teacherClassModel.js";
 import { supabase } from "../supabaseClient.js";
 import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
 import { clearLocalProgressForStudent } from "../utils/progressSync.js";
@@ -54,47 +58,6 @@ import {
 } from "../copy/teacherCopy.js";
 import logoUrl from "../assets/logo.svg";
 
-function formatLastActive(value) {
-  if (!value) return "No activity yet";
-  const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) return String(value);
-
-  const today = new Date();
-  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const startOfDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  const diffDays = Math.round((startOfToday - startOfDate) / 86400000);
-
-  if (diffDays <= 0) return "Today";
-  if (diffDays === 1) return "Yesterday";
-  if (diffDays < 7) return `${diffDays} days ago`;
-  return date.toLocaleDateString();
-}
-
-function accuracyConclusion(row) {
-  if (!row?.learningConclusion) return "Not checked";
-  if (!row.learningConclusion.ready) return row.learningConclusion.status.label;
-  return `${row.learningConclusion.accuracy}%`;
-}
-
-function needsSupportConclusion(row) {
-  return row?.learningConclusion?.ready
-    && row.learningConclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT;
-}
-
-function latestMetricUpdate(values = []) {
-  return values
-    .filter(Boolean)
-    .map(value => ({ value, timestamp: new Date(value).getTime() }))
-    .filter(row => Number.isFinite(row.timestamp))
-    .sort((a, b) => a.timestamp - b.timestamp)
-    .at(-1)?.value || "";
-}
-
-function getProgressPercent(row, skillTotal) {
-  if (!skillTotal) return 0;
-  return Math.max(0, Math.min(100, Math.round((row.masteredCount / skillTotal) * 100)));
-}
-
 const ROSTER_COLUMN_OPTIONS = [
   { id: "focus", label: "Focus" },
   { id: "progress", label: "Progress" },
@@ -102,7 +65,10 @@ const ROSTER_COLUMN_OPTIONS = [
   { id: "login", label: "Sign-in" },
   { id: "last-active", label: "Last active" }
 ];
-const DEFAULT_ROSTER_COLUMNS = ["focus", "progress", "last-active"];
+// "login" (the Sign-in column) is back in the defaults: it carries the only
+// per-student control that lets a class sign in at all, so hiding it behind the
+// column picker made a brand-new class unusable.
+const DEFAULT_ROSTER_COLUMNS = ["focus", "progress", "login", "last-active"];
 
 function loadVisibleRosterColumns(teacherId) {
   if (!teacherId || typeof localStorage === "undefined") return DEFAULT_ROSTER_COLUMNS;
@@ -254,450 +220,11 @@ function LoginCardPrintRoute({
   );
 }
 
-function RosterMetric({
-  definitionId = "",
-  definitionOptions = {},
-  label,
-  value,
-  tone = ""
-}) {
-  return (
-    <div className={["teacher-roster-metric", tone].filter(Boolean).join(" ")}>
-      <span>{label}</span>
-      <strong>
-        {definitionId
-          ? <MetricFigure metricId={definitionId} {...definitionOptions}>{value}</MetricFigure>
-          : value}
-      </strong>
-    </div>
-  );
-}
-
-function StudentInitial({ name }) {
-  return (
-    <span className="teacher-student-initial" aria-hidden="true">
-      {String(name || "S").slice(0, 1).toUpperCase()}
-    </span>
-  );
-}
-
-function QuestionTypeGuideDialog({ query, onQueryChange, onClose }) {
-  const normalizedQuery = query.trim().toLowerCase();
-  const rows = QUESTION_TYPE_GUIDE.filter(row => (
-    !normalizedQuery
-    || [row.name, row.what, row.skill, row.onMiss]
-      .some(value => value.toLowerCase().includes(normalizedQuery))
-  ));
-
-  return (
-    <TeacherModal
-      className="teacher-question-guide-modal"
-      label={TEACHER_COPY.help.checkGuide}
-      onClose={onClose}
-    >
-      <section className="symbol-password-modal-card teacher-question-guide-dialog">
-        <header>
-          <div>
-            <p className="panel-label">{TEACHER_COPY.help.checkGuideLabel}</p>
-            <h2>{TEACHER_COPY.help.checkGuide}</h2>
-            <p>{TEACHER_COPY.help.checkGuideBody}</p>
-          </div>
-          <button className="text-button" type="button" onClick={onClose}>
-            {TEACHER_COPY.help.checkGuideClose}
-          </button>
-        </header>
-        <label className="teacher-question-guide-search">
-          <span>Search checks, skills, or teaching guidance</span>
-          <input
-            data-autofocus
-            type="search"
-            value={query}
-            onChange={event => onQueryChange(event.target.value)}
-            placeholder="Try digraphs, blending, or sight words"
-          />
-        </label>
-        <p className="teacher-question-guide-count" role="status">
-          {progressPhrase(rows.length, QUESTION_TYPE_GUIDE.length)} checks shown
-        </p>
-        {rows.length ? (
-          <ul
-            className="teacher-question-guide-results"
-            aria-label="Check explanations"
-            tabIndex={0}
-          >
-            {rows.map(row => (
-              <li key={row.id}>
-                <article aria-labelledby={`question-guide-${row.id}`}>
-                  <header>
-                    <h3 id={`question-guide-${row.id}`}>{row.name}</h3>
-                    <span>{row.skill}</span>
-                  </header>
-                  <dl>
-                    <div>
-                      <dt>What the child does</dt>
-                      <dd>{row.what}</dd>
-                    </div>
-                    <div>
-                      <dt>If they miss it</dt>
-                      <dd>{row.onMiss}</dd>
-                    </div>
-                  </dl>
-                </article>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="report-empty-state">
-            <strong>No matching check.</strong>
-            <p>Try a skill such as rhyme, blending, digraphs, grammar, or sight words.</p>
-          </div>
-        )}
-      </section>
-    </TeacherModal>
-  );
-}
-
-function LearnerAccessibilityDialog({ student, saving = false, onSave, onClose }) {
-  const [draft, setDraft] = useState(
-    () => normalizeLearnerAccessibilitySettings(student?.accessibilitySettings)
-  );
-
-  async function save() {
-    const saved = await onSave?.(student, draft);
-    if (saved !== false) onClose?.();
-  }
-
-  return (
-    <TeacherModal
-      className="teacher-accessibility-settings-modal"
-      label={`Accessibility settings for ${student.name}`}
-      onClose={() => {
-        if (!saving) onClose?.();
-      }}
-    >
-      <section className="symbol-password-modal-card teacher-accessibility-settings-card">
-        <header>
-          <div>
-            <p className="panel-label">Child access</p>
-            <h2>{student.name}&apos;s accessibility settings</h2>
-            <p>These choices follow this child across signed-in devices.</p>
-          </div>
-          <button className="text-button" type="button" disabled={saving} onClick={onClose}>
-            Close settings
-          </button>
-        </header>
-        <fieldset className="teacher-accessibility-setting-list">
-          <legend>Comfort and response supports</legend>
-          {LEARNER_ACCESSIBILITY_FIELDS.map(field => (
-            <label key={field.id}>
-              <input
-                type="checkbox"
-                checked={draft[field.id]}
-                disabled={saving}
-                onChange={event => setDraft(current => ({
-                  ...current,
-                  [field.id]: event.target.checked
-                }))}
-              />
-              <span>
-                <strong>{field.label}</strong>
-                <small>{field.description}</small>
-              </span>
-            </label>
-          ))}
-        </fieldset>
-        <div className="teacher-roster-operation-actions">
-          <button
-            className="lp-button lp-button-primary"
-            type="button"
-            disabled={saving}
-            onClick={save}
-          >
-            {saving ? "Saving settings..." : "Save accessibility settings"}
-          </button>
-          <button
-            className="lp-button lp-button-secondary"
-            type="button"
-            disabled={saving}
-            onClick={onClose}
-          >
-            Cancel
-          </button>
-        </div>
-      </section>
-    </TeacherModal>
-  );
-}
-
-function TeacherSetupChecklist({
-  hasClass,
-  hasLearners,
-  loginsReady,
-  firstCheckComplete,
-  onContinue,
-  onCreateDemo,
-  creatingDemo = false
-}) {
-  const completionById = {
-    class: hasClass,
-    children: hasLearners,
-    "sign-in": loginsReady,
-    check: firstCheckComplete
-  };
-  const steps = TEACHER_COPY.setup.steps.map(step => ({
-    ...step,
-    complete: completionById[step.id]
-  }));
-  const completedCount = steps.filter(step => step.complete).length;
-  const nextStep = steps.find(step => !step.complete) || null;
-
-  return (
-    <section
-      className={`teacher-setup-checklist${nextStep ? "" : " is-complete"}`}
-      aria-label={TEACHER_COPY.setup.ariaLabel}
-      data-setup-complete={nextStep ? "false" : "true"}
-      data-teacher-priority="setup-blockers"
-    >
-      <header>
-        <div>
-          <p className="panel-label">
-            {nextStep ? TEACHER_COPY.setup.firstLabel : TEACHER_COPY.setup.completeLabel}
-          </p>
-          <h3>
-            {nextStep ? TEACHER_COPY.setup.firstTitle : TEACHER_COPY.setup.completeTitle}
-          </h3>
-          <p>
-            {nextStep
-              ? TEACHER_COPY.setup.firstBody
-              : TEACHER_COPY.setup.completeBody}
-          </p>
-        </div>
-        <div
-          className="teacher-setup-progress"
-          aria-label={TEACHER_COPY.setup.progressLabel(completedCount, steps.length)}
-        >
-          <strong>{TEACHER_COPY.setup.progressValue(completedCount, steps.length)}</strong>
-          <span>complete</span>
-        </div>
-      </header>
-
-      <ol>
-        {steps.map((step, index) => {
-          const current = nextStep?.id === step.id;
-          return (
-            <li
-              className={step.complete ? "is-complete" : current ? "is-current" : ""}
-              key={step.id}
-              aria-current={current ? "step" : undefined}
-            >
-              <span className="teacher-setup-step-mark" aria-hidden="true">
-                {step.complete ? "✓" : index + 1}
-              </span>
-              <div>
-                <strong>{step.title}</strong>
-                <p>{step.description}</p>
-              </div>
-              <span className="teacher-setup-step-state">
-                {step.complete
-                  ? TEACHER_COPY.setup.completeState
-                  : current
-                    ? TEACHER_COPY.setup.nextState
-                    : TEACHER_COPY.setup.laterState}
-              </span>
-            </li>
-          );
-        })}
-      </ol>
-
-      {nextStep && (
-        <footer>
-          <button className="lp-button lp-button-primary" type="button" onClick={() => onContinue?.(nextStep.id)}>
-            Continue: {nextStep.title}
-          </button>
-          {!hasClass && onCreateDemo && (
-            <button
-              className="lp-button lp-button-secondary"
-              type="button"
-              disabled={creatingDemo}
-              onClick={onCreateDemo}
-            >
-              {creatingDemo ? "Creating sample..." : "Explore with a sample class"}
-            </button>
-          )}
-          {!hasClass && (
-            <p>
-              Sample data is clearly labelled, uses fictional nicknames, and contains no saved check results.
-            </p>
-          )}
-        </footer>
-      )}
-    </section>
-  );
-}
-
-function TodayBriefing({
-  rows,
-  onLoadStudent,
-  onPlanIntervention,
-  onOpenClasses,
-  onOpenAssess,
-  onOpenProgress
-}) {
-  const briefing = useMemo(() => buildTeacherTodayBriefing(rows), [rows]);
-  const policy = briefing.policy;
-
-  return (
-    <section
-      className="teacher-today-briefing"
-      aria-label="Today's class briefing"
-      data-teacher-priority="today-actions"
-    >
-      <header className="teacher-today-briefing-head">
-        <div>
-          <p className="panel-label">Today&apos;s results</p>
-          <h3>What needs your attention today</h3>
-        </div>
-        <p>
-          Suggestions use saved answers, never guesses. A child appears after
-          {` ${policy.minimumResponsesForAttention} answers when accuracy is below ${policy.attentionAccuracyBelow}%.`}
-        </p>
-      </header>
-
-      <div className="teacher-today-grid">
-        <section className="teacher-today-zone attention" aria-label="Who needs attention">
-          <div className="teacher-today-zone-head">
-            <span>Who needs attention</span>
-            <strong>{briefing.attention.length}</strong>
-          </div>
-          {briefing.attention.length ? (
-            <ul>
-              {briefing.attention.slice(0, 4).map(row => (
-                <li key={row.id}>
-                  <div>
-                    <strong>{row.name}</strong>
-                    <span>{row.focus}</span>
-                    <small>{row.evidence}</small>
-                    <small>{row.policyBasis}</small>
-                    <TeacherRecommendationExplanation
-                      explanation={row.explanation}
-                      surface="teacher-today"
-                    />
-                  </div>
-                  <div className="teacher-today-row-actions">
-                    <button
-                      className="text-button"
-                      type="button"
-                      onClick={() => onLoadStudent?.(row.id, row.name)}
-                    >
-                      Review
-                    </button>
-                    <button
-                      className="text-button"
-                      type="button"
-                      onClick={() => onPlanIntervention?.(row)}
-                    >
-                      Plan support
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="teacher-today-empty">No child needs a review from the results saved so far.</p>
-          )}
-          {briefing.insufficientEvidenceCount > 0 && (
-            <p className="teacher-today-evidence-note">
-              {countPhrase(briefing.insufficientEvidenceCount, "child has", "children have")} too few answers for a fair suggestion yet.
-            </p>
-          )}
-        </section>
-
-        <section className="teacher-today-zone due" aria-label="What's due">
-          <div className="teacher-today-zone-head">
-            <span>What&rsquo;s due</span>
-            <strong>{briefing.due.length}</strong>
-          </div>
-          {briefing.due.length ? (
-            <ul>
-              {briefing.due.slice(0, 4).map(row => (
-                <li key={row.id}>
-                  <div>
-                    <strong>{row.name}</strong>
-                    <span>{row.title}</span>
-                    <small>{row.evidence}</small>
-                    <TeacherRecommendationExplanation
-                      explanation={row.explanation}
-                      surface="teacher-today"
-                    />
-                  </div>
-                  <button
-                    className="text-button"
-                    type="button"
-                    onClick={() => onLoadStudent?.(row.id, row.name)}
-                  >
-                    Open {row.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="teacher-today-empty">
-              No child is due for a check after {policy.inactivityDueDays} days without activity.
-            </p>
-          )}
-        </section>
-
-        <section className="teacher-today-zone changed" aria-label="What changed">
-          <div className="teacher-today-zone-head">
-            <span>What changed</span>
-            <strong>{briefing.changed.length}</strong>
-          </div>
-          {briefing.changed.length ? (
-            <ul>
-              {briefing.changed.slice(0, 4).map(row => (
-                <li key={row.id}>
-                  <div>
-                    <strong>{row.name}</strong>
-                    <span>{row.summary}</span>
-                    <small>{row.comparison}</small>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="teacher-today-empty">
-              No new answers or mastered skills in the last {policy.changeWindowDays} days.
-            </p>
-          )}
-        </section>
-
-        <section className="teacher-today-zone actions" aria-label="Direct actions">
-          <div className="teacher-today-zone-head">
-            <span>Direct actions</span>
-          </div>
-          <div className="teacher-today-direct-actions">
-            <button className="lp-button lp-button-primary" type="button" onClick={onOpenAssess}>
-              Start a check
-            </button>
-            <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
-              Review progress
-            </button>
-            <button className="lp-button lp-button-secondary" type="button" onClick={onOpenClasses}>
-              Manage this class
-            </button>
-          </div>
-          <p>Each action keeps the current class in context.</p>
-        </section>
-      </div>
-    </section>
-  );
-}
-
 // THE SOUND HEAT MAP + PRACTICE-ASSIGN.
 //
 // One tile per grapheme, in the order the trail teaches them, coloured by the
 // honest buckets (got it / almost there / needs re-teaching / not met yet) —
-// and tappable: pick up to six sounds, press Assign, and that child's Free
+// and tappable: pick up to six sounds, press Assign, and that student's Free
 // Roam serves exactly those sounds next session (questReviewMode reads the
 // assignment out of the phonics_quest payload). This pair of features is the
 // mode's whole commercial argument made visible: evidence in, action out.
@@ -729,9 +256,9 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
     setBusy(false);
   }
 
-  // Print the home practice pack straight from this child's evidence: the
+  // Print the home practice pack straight from this student's evidence: the
   // sounds the teacher tapped, or the weakest five when nothing is tapped,
-  // with every word decodable at the furthest stop the child has reached.
+  // with every word decodable at the furthest stop the student has reached.
   function printPack() {
     const targets = selected.length ? selected : (report?.weakest || []).map(row => row.target);
     const stop = packStopIndex(report);
@@ -778,7 +305,7 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
               : metricDefinitionText("accuracy", {
                   label: `${tile.label} · ${tile.stopName} accuracy`,
                   denominator: `${tile.seen} scored Sound Seekers response${tile.seen === 1 ? "" : "s"} for this sound.`,
-                  dateRange: "All saved Sound Seekers play for this child.",
+                  dateRange: "All saved Sound Seekers play for this student.",
                   minimumEvidence: "At least one scored answer for this sound.",
                   updatedAt: tile.lastActiveAt || report?.lastActiveAt
                 })}
@@ -795,7 +322,7 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
             Assigned: <strong>{assignment.targets.join(", ")}</strong>
             <button className="text-button" type="button" disabled={busy} onClick={clear}>Clear</button>
           </span>
-        ) : <span className="muted-text">Tap sounds, then assign them as this child&rsquo;s next practice.</span>}
+        ) : <span className="muted-text">Tap sounds, then assign them as this student&rsquo;s next practice.</span>}
         <button
           className="lp-button lp-button-secondary"
           type="button"
@@ -813,99 +340,12 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
   );
 }
 
-// THE CLASS SOUND MAP (REVIEW.md, Educator #7). One row of tiles for the
-// whole class — coloured by how many children still need each sound — plus
-// concrete grouping hints: "sh — Sam, Maya, Leo need re-teaching" with a
-// one-click group practice sheet printed at the LOWEST member's curriculum
-// stop, so every word on it is decodable for every child in the group.
-function ClassHeatPanel({ rows }) {
-  const [open, setOpen] = useState(false);
-  const [note, setNote] = useState("");
-  const summary = useMemo(
-    () => classHeatSummary(rows
-      .filter(row => row.soundSeekers)
-      .map(row => ({ name: row.name, report: row.soundSeekers }))),
-    [rows]
-  );
-
-  // One child is a heat map (their own panel below); a class view needs two.
-  if (summary.studentsWithEvidence < 2) return null;
-
-  function severityClass(tile) {
-    if (!tile.met) return "is-unseen";
-    if (tile.reteachShare >= 0.5) return "is-reteach";
-    if (tile.reteachShare >= 0.25 || tile.almost > tile.gotIt) return "is-almost";
-    return "is-got-it";
-  }
-
-  function printGroupPack(group) {
-    try {
-      const result = printPracticePack({
-        name: `The ${group.label} group`,
-        targets: [group.id],
-        stopIndex: group.stopIndex
-      });
-      setNote(result ? "" : "Please allow pop-ups for this site so the pack can open.");
-    } catch (error) {
-      setNote(error.message || "Could not build that group pack.");
-    }
-  }
-
-  const groupSummary = summary.groups.length
-    ? `${summary.groups.length} sound${summary.groups.length === 1 ? "" : "s"} could use a small group`
-    : "no sound needs a group right now";
-
-  return (
-    <div className="quest-heat-panel class-heat-panel">
-      <div className="quest-heat-head">
-        <strong>Class sound map</strong>
-        <span className="muted-text">
-          {countPhrase(summary.studentsWithEvidence, "child", "children")} with results · {groupSummary}
-        </span>
-        <button className="text-button" type="button" aria-expanded={open} onClick={() => setOpen(value => !value)}>
-          {open ? "Hide" : "Show"}
-        </button>
-      </div>
-      {open && (
-        <>
-          <TeacherChart
-            className="quest-heat-grid"
-            label={`Class sound map. ${summary.groups.length
-              ? summary.groups.map(group => `${group.label}: ${countPhrase(group.count, "child", "children")} need re-teaching`).join(". ")
-              : "No sound currently needs a re-teaching group."}`}
-          >
-            {summary.tiles.map(tile => (
-              <span
-                key={tile.id}
-                aria-hidden="true"
-                className={`quest-heat-tile ${severityClass(tile)}`}
-                title={`${tile.label} · ${tile.stopName} · ${tile.gotIt} got it · ${tile.almost} almost · ${tile.reteach} need re-teaching · ${tile.unseen} not met yet`}
-              >
-                {tile.label}
-              </span>
-            ))}
-          </TeacherChart>
-          {summary.groups.length > 0 && (
-            <ul className="class-heat-groups">
-              {summary.groups.map(group => (
-                <li key={group.id}>
-                  <strong>{group.label}</strong> — {group.students.join(", ")}
-                  <button className="text-button" type="button" onClick={() => printGroupPack(group)}>
-                    Print group pack
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          {note && <p className="muted-text quest-heat-note" role="status">{note}</p>}
-        </>
-      )}
-    </div>
-  );
-}
-
-export function TeacherDashboardPage({
-  pageIntent = "today",
+// STUDENTS. One question: is this class set up and up to date?
+//
+// The roster, its modals, import, sign-in cards and archiving all live here.
+// Deciding what to teach next lives on Today. This page also carries the single
+// Student panel: everything you can do to one student opens from the drawer.
+export function TeacherStudentsPage({
   classList = [],
   selectedClassId,
   setSelectedClassId,
@@ -923,9 +363,12 @@ export function TeacherDashboardPage({
   onClearStudent,
   selectedGroupId = "all",
   onSelectGroup,
-  onOpenClasses,
-  onOpenAssess,
-  onOpenProgress,
+  onStartCheck,
+  onOpenReport,
+  onOpenGuidedReading,
+  onOpenStoryQuests,
+  onOpenElFormalCheck,
+  onResetCheckData,
   createClass,
   createDemoClass,
   newClassName,
@@ -937,11 +380,14 @@ export function TeacherDashboardPage({
   skillTree = [],
   updateStudentName,
   updateStudentSymbolPassword,
+  assignMissingSymbolPasswords,
   resetStudentSymbolPassword,
   startStudentLogin,
   schoolName = "",
   hasSchool = false,
   message,
+  setupFocus = "",
+  onSetupFocusHandled,
   surfaceState = "",
   surfaceStateDetail = "",
   onSurfaceStatePrimary,
@@ -962,6 +408,7 @@ export function TeacherDashboardPage({
   );
   const [selectedRosterIds, setSelectedRosterIds] = useState([]);
   const [loginCardRows, setLoginCardRows] = useState([]);
+  const [assigningSignIn, setAssigningSignIn] = useState(false);
   const [rosterOperation, setRosterOperation] = useState(null);
   const [operationTargetClassId, setOperationTargetClassId] = useState("");
   const [operationBusy, setOperationBusy] = useState(false);
@@ -976,10 +423,9 @@ export function TeacherDashboardPage({
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
   const [heatOpenId, setHeatOpenId] = useState(null);
-  const [interventionRecommendation, setInterventionRecommendation] = useState(null);
   const [showQuestionGuide, setShowQuestionGuide] = useState(false);
   const [questionGuideSearch, setQuestionGuideSearch] = useState("");
-  const [rosterAdminOpen, setRosterAdminOpen] = useState(() => pageIntent === "classes");
+  const [rosterAdminOpen, setRosterAdminOpen] = useState(true);
   const [savingChoiceModeIds, setSavingChoiceModeIds] = useState([]);
   const [savingAccessibilityIds, setSavingAccessibilityIds] = useState([]);
   const [accessibilityStudent, setAccessibilityStudent] = useState(null);
@@ -1047,45 +493,7 @@ export function TeacherDashboardPage({
     }
   }
   const selectedClass = classList.find(row => row.id === selectedClassId) || null;
-  const dashboardById = useMemo(
-    () => new Map(classDashboard.map(row => [row.id, row])),
-    [classDashboard]
-  );
-  const studentRows = useMemo(
-    () => studentList.map(student => {
-      const dashboardRow = dashboardById.get(student.id) || {};
-      const normalized = {
-        ...student,
-        answered: dashboardRow.answered ?? 0,
-        correct: dashboardRow.correct ?? null,
-        accuracy: dashboardRow.accuracy ?? null,
-        masteredCount: dashboardRow.masteredCount ?? 0,
-        currentSkill: dashboardRow.currentSkill || "Not started",
-        soundSeekers: dashboardRow.soundSeekers || null,
-        lastActive: dashboardRow.lastActive || student.lastActive || student.updated_at || student.created_at || null,
-        recentAnswers: dashboardRow.recentAnswers ?? 0,
-        previousAnswers: dashboardRow.previousAnswers ?? 0,
-        recentMastered: dashboardRow.recentMastered ?? 0,
-        previousMastered: dashboardRow.previousMastered ?? 0,
-        reducedChoiceMode: Boolean(dashboardRow.reducedChoiceMode),
-        accessibilitySettings: normalizeLearnerAccessibilitySettings(
-          dashboardRow.accessibilitySettings
-        )
-      };
-      normalized.learningConclusion = evaluateLearningConclusion({
-        accuracy: normalized.accuracy,
-        attempts: normalized.answered,
-        skillDiversity: Array.isArray(dashboardRow.evidenceSkills)
-          ? dashboardRow.evidenceSkills.length
-          : normalized.currentSkill && normalized.currentSkill !== "Not started"
-            ? 1
-            : 0,
-        observedAt: normalized.lastActive
-      });
-      return normalized;
-    }),
-    [dashboardById, studentList]
-  );
+  const studentRows = useTeacherStudentRows({ studentList, classDashboard });
   const rosterGroups = useMemo(() => [
     {
       id: "all",
@@ -1139,7 +547,7 @@ export function TeacherDashboardPage({
         explanation: {
           evidence: `${reteachNames} have enough saved results to compare, with accuracy below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}% on ${reteach[0]}.`,
           dependency: `${reteach[0]} is their current recorded focus and should be secured before dependent practice advances.`,
-          confidence: `${countPhrase(reteach[1].length, "child", "children")} meet the minimum-results and recency rules; individual results remain available for review.`,
+          confidence: `${countPhrase(reteach[1].length, "student", "students")} meet the minimum-results and recency rules; individual results remain available for review.`,
           unlock: "A focused re-teach creates a shared practice target and a clear point for the next check."
         },
         action: "Show group",
@@ -1158,12 +566,12 @@ export function TeacherDashboardPage({
         title: inactive.some(row => row.answered === 0) ? "Get everyone started" : "Re-engage quiet readers",
         detail: `${inactiveNames} ${inactive.length === 1 ? "has" : "have"} little or no recent practice.`,
         explanation: {
-          evidence: `${inactiveNames}: ${notStartedCount} ${notStartedCount === 1 ? "child has" : "children have"} no scored answers; the rest have no recent saved activity.`,
+          evidence: `${inactiveNames}: ${notStartedCount} ${notStartedCount === 1 ? "student has" : "students have"} no scored answers; the rest have no recent saved activity.`,
           dependency: "Current practice results are needed before the app can suggest a next teaching step.",
           confidence: "This is an activity-coverage signal only; it does not infer low attainment.",
           unlock: "New answers create enough current results to support a next-skill decision."
         },
-        action: "Show children",
+        action: "Show students",
         studentIds: inactive.map(row => row.id)
       });
     }
@@ -1178,7 +586,7 @@ export function TeacherDashboardPage({
         detail: `${star.masteredCount} skill${star.masteredCount === 1 ? "" : "s"} mastered - worth a shout-out today.`,
         explanation: {
           evidence: `${star.name} has ${star.masteredCount} recorded mastered skill${star.masteredCount === 1 ? "" : "s"}, the highest current total in this class.`,
-          dependency: "Recognition follows a saved milestone; the private comparison never labels or ranks children publicly.",
+          dependency: "Recognition follows a saved milestone; the private comparison never labels or ranks students publicly.",
           confidence: star.learningConclusion?.ready
             ? `${star.learningConclusion.confidence.label}: ${star.learningConclusion.confidence.detail}.`
             : "The recommendation relies on the mastery record only; no current accuracy conclusion is inferred.",
@@ -1238,15 +646,12 @@ export function TeacherDashboardPage({
   );
   const classMetricUpdatedAt = latestMetricUpdate(studentRows.map(row => row.lastActive));
   const className = selectedClass?.name || "No class selected";
-  const isClassesPage = pageIntent === "classes";
-  const hasSetupClass = Boolean(selectedClass);
-  const hasSetupLearners = studentRows.length > 0;
-  const setupLoginsReady = hasSetupLearners && studentRows.every(row => Boolean(row.symbol_password));
-  const firstCheckComplete = studentRows.some(row => row.answered > 0);
-  const setupComplete = hasSetupClass
-    && hasSetupLearners
-    && setupLoginsReady
-    && firstCheckComplete;
+  const {
+    hasSetupClass,
+    setupSteps,
+    showSetupChecklist,
+    studentsMissingSignIn
+  } = useTeacherSetupState({ selectedClass, selectedClassId, studentRows });
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
@@ -1350,7 +755,7 @@ export function TeacherDashboardPage({
     const names = rosterImportPreview?.accepted || [];
     if (!names.length || importingRoster) return;
     if (names.length > 40 || !teacherId || !selectedClassId) {
-      setRosterOperationStatus("Import up to 40 children into a selected class.");
+      setRosterOperationStatus("Import up to 40 students into a selected class.");
       return;
     }
     setImportingRoster(true);
@@ -1363,12 +768,12 @@ export function TeacherDashboardPage({
       });
       if (error) {
         console.error("Roster import error:", error);
-        setRosterOperationStatus("We couldn't import that class list. No children were added.");
+        setRosterOperationStatus("We couldn't import that class list. No students were added.");
         return;
       }
       await loadStudents?.(selectedClassId);
       await loadClassDashboard?.(selectedClassId);
-      setRosterOperationStatus(`${countPhrase(names.length, "child", "children")} imported. Set sign-in pictures next.`);
+      setRosterOperationStatus(`${countPhrase(names.length, "student", "students")} imported. Set sign-in pictures next.`);
       setRosterImportText("");
       setRosterImportPreview(null);
       setShowRosterImport(false);
@@ -1377,45 +782,59 @@ export function TeacherDashboardPage({
     }
   }
 
-  async function handleSetupContinue(stepId) {
+  // "Continue" on the setup checklist arrives here from Today with the step it
+  // wants. The checklist stays visible on this page too, so the map never
+  // disappears at the moment the teacher follows it.
+  function handleSetupContinue(stepId) {
     if (stepId === "class") {
-      if (!isClassesPage) onOpenClasses?.();
-      else focusNewClassInput();
+      focusNewClassInput();
       return;
     }
-    if (stepId === "children") {
+    if (stepId === "students") {
       setRosterAdminOpen(true);
-      if (!isClassesPage) {
-        onOpenClasses?.();
-        window.requestAnimationFrame(focusNewStudentInput);
-      } else {
-        focusNewStudentInput();
-      }
+      focusNewStudentInput();
       return;
     }
     if (stepId === "sign-in") {
       const learner = studentRows.find(row => !row.symbol_password);
       if (!learner) return;
+      setRosterAdminOpen(true);
       setEditingStudent(learner);
       setEditingSequence("");
-      if (!isClassesPage) onOpenClasses?.();
+      return;
+    }
+    if (stepId === "sign-in-all") {
+      setRosterAdminOpen(true);
+      giveEveryoneSignInPictures();
       return;
     }
     if (stepId === "check") {
       const learner = selectedStudentRow || studentRows[0];
-      if (!learner) return;
-      await onLoadStudent?.(learner.id, learner.name);
-      onOpenAssess?.();
+      if (learner) onStartCheck?.(learner);
     }
   }
+
+  // Arriving from Today's checklist: run the same step handler the on-page
+  // checklist uses, one frame later so the inputs it focuses already exist.
+  useEffect(() => {
+    if (!setupFocus) return undefined;
+    // Every step but "create a class" needs the roster in hand. Acting before it
+    // arrives is how a Continue button silently does nothing.
+    if (setupFocus !== "class" && selectedClassId && studentRows.length === 0) return undefined;
+    const frame = window.requestAnimationFrame(() => {
+      handleSetupContinue(setupFocus);
+      onSetupFocusHandled?.();
+    });
+    return () => window.cancelAnimationFrame(frame);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setupFocus, selectedClassId, studentRows.length]);
 
   async function handleCreateDemo() {
     if (creatingDemo) return;
     setCreatingDemo(true);
     setRosterAdminOpen(true);
     try {
-      const created = await createDemoClass?.();
-      if (created && !isClassesPage) onOpenClasses?.();
+      await createDemoClass?.();
     } finally {
       setCreatingDemo(false);
     }
@@ -1423,6 +842,35 @@ export function TeacherDashboardPage({
 
   function openLoginCardPreview(rows) {
     setLoginCardRows(rows.filter(row => row.symbol_password));
+  }
+
+  // Two clicks for a whole class: make a unique picture sequence for everyone
+  // who has none, then open the printable cards. Preview rows are built from
+  // the sequences we just wrote rather than waiting for the roster to reload.
+  async function giveEveryoneSignInPictures() {
+    if (assigningSignIn) return;
+    const missing = studentRows.filter(row => !row.symbol_password);
+    if (!missing.length) {
+      openLoginCardPreview(studentRows);
+      return;
+    }
+    setAssigningSignIn(true);
+    try {
+      const assignments = assignUniqueSymbolSequences(
+        missing,
+        studentRows.map(row => row.symbol_password).filter(Boolean)
+      );
+      const result = await assignMissingSymbolPasswords?.(assignments);
+      if (result && result.saved === 0) return;
+      const assignedById = new Map(assignments.map(item => [item.student.id, item.sequence]));
+      openLoginCardPreview(studentRows.map(row => (
+        row.symbol_password
+          ? row
+          : { ...row, symbol_password: assignedById.get(row.id) || "" }
+      )));
+    } finally {
+      setAssigningSignIn(false);
+    }
   }
 
   async function confirmRosterOperation() {
@@ -1470,7 +918,7 @@ export function TeacherDashboardPage({
         setRosterOperation(null);
         setOperationTargetClassId("");
       } else {
-        setRosterOperationStatus(`We couldn't ${rosterOperation.kind} that child. Try again.`);
+        setRosterOperationStatus(`We couldn't ${rosterOperation.kind} that student. Try again.`);
       }
     } finally {
       setOperationBusy(false);
@@ -1507,7 +955,7 @@ export function TeacherDashboardPage({
 
   return (
     <TeacherPageShell
-      className="teacher-dashboard-page"
+      className="teacher-dashboard-page teacher-students-page"
       product="class-dashboard"
     >
       <TeacherPageHeader
@@ -1515,19 +963,13 @@ export function TeacherDashboardPage({
         brand={(
           <div className="teacher-page-brand">
             <img src={logoUrl} alt="" />
-            <p className="panel-label">
-              {isClassesPage ? TEACHER_COPY.classes.label : TEACHER_COPY.today.label}
-            </p>
+            <p className="panel-label">{TEACHER_COPY.classes.label}</p>
           </div>
         )}
-        title={isClassesPage ? TEACHER_COPY.classes.title : TEACHER_COPY.today.title}
-        description={isClassesPage
-          ? (selectedClass
-            ? TEACHER_COPY.classes.descriptionWithClass(selectedClass.name)
-            : TEACHER_COPY.classes.descriptionWithoutClass)
-          : (selectedClass
-            ? TEACHER_COPY.today.descriptionWithClass(selectedClass.name)
-            : TEACHER_COPY.today.descriptionWithoutClass)}
+        title={TEACHER_COPY.classes.title}
+        description={selectedClass
+          ? TEACHER_COPY.classes.descriptionWithClass(selectedClass.name)
+          : TEACHER_COPY.classes.descriptionWithoutClass}
       >
         <div
           className="teacher-dashboard-context"
@@ -1548,7 +990,7 @@ export function TeacherDashboardPage({
 
       {surfaceState ? (
         <TeacherSurfaceState
-          surface={isClassesPage ? "classes" : "today"}
+          surface="classes"
           state={surfaceState}
           detail={surfaceStateDetail}
           onPrimaryAction={onSurfaceStatePrimary}
@@ -1556,12 +998,10 @@ export function TeacherDashboardPage({
         />
       ) : (
       <>
-      {!isClassesPage && !setupComplete && (
+      {showSetupChecklist && (
         <TeacherSetupChecklist
           hasClass={hasSetupClass}
-          hasLearners={hasSetupLearners}
-          loginsReady={setupLoginsReady}
-          firstCheckComplete={firstCheckComplete}
+          steps={setupSteps}
           onContinue={handleSetupContinue}
           onCreateDemo={createDemoClass ? handleCreateDemo : null}
           creatingDemo={creatingDemo}
@@ -1569,8 +1009,8 @@ export function TeacherDashboardPage({
       )}
 
       <section
-        className={`teacher-dashboard-controls${isClassesPage ? "" : " teacher-today-class-control"}`}
-        aria-label={isClassesPage ? "Class controls" : "Today class"}
+        className="teacher-dashboard-controls"
+        aria-label="Class controls"
       >
         <div className="teacher-dashboard-control-group">
           <label className="teacher-dashboard-control">
@@ -1586,7 +1026,7 @@ export function TeacherDashboardPage({
           </label>
         </div>
 
-        {isClassesPage && <div className="teacher-dashboard-create teacher-dashboard-control-group">
+        <div className="teacher-dashboard-create teacher-dashboard-control-group">
           <label className="teacher-dashboard-control">
             <span>New class</span>
             <input
@@ -1603,42 +1043,10 @@ export function TeacherDashboardPage({
           <button className="lp-button lp-button-primary" onClick={handleCreateClass} type="button">
             Create class
           </button>
-        </div>}
-
+        </div>
       </section>
 
-      {!isClassesPage && selectedClass && (
-        <TodayBriefing
-          rows={studentRows}
-          onLoadStudent={onLoadStudent}
-          onPlanIntervention={row => setInterventionRecommendation({
-            id: row.id,
-            name: row.name,
-            focus: row.focus
-          })}
-          onOpenClasses={onOpenClasses}
-          onOpenAssess={onOpenAssess}
-          onOpenProgress={onOpenProgress}
-        />
-      )}
-
-      {!isClassesPage && selectedClass && (
-        <details className="teacher-dashboard-secondary">
-          <summary>Intervention follow-up</summary>
-          <InterventionLoop
-            key={`${teacherId || "teacher"}:${selectedClass.id}`}
-            supabase={supabase}
-            teacherId={teacherId}
-            classId={selectedClass.id}
-            className={selectedClass.name}
-            rows={studentRows}
-            recommendation={interventionRecommendation}
-            onRecommendationConsumed={() => setInterventionRecommendation(null)}
-          />
-        </details>
-      )}
-
-      {isClassesPage && selectedClass && (
+      {selectedClass && (
         <details className="teacher-dashboard-secondary">
           <summary>{TEACHER_COPY.sync.label}</summary>
           <TeacherActivitySyncHealth
@@ -1650,13 +1058,13 @@ export function TeacherDashboardPage({
         </details>
       )}
 
-      {isClassesPage && selectedClass && (
+      {selectedClass && (
         <section
           className="teacher-roster-metrics"
           aria-label={TEACHER_COPY.metrics.summaryAriaLabel}
           data-teacher-priority="class-pulse"
         >
-          <RosterMetric label={TEACHER_COPY.metrics.children} value={studentRows.length} />
+          <RosterMetric label={TEACHER_COPY.metrics.students} value={studentRows.length} />
           <RosterMetric
             label={TEACHER_COPY.metrics.readyToSignIn}
             value={progressPhrase(loginReadyCount, studentRows.length || 0)}
@@ -1665,7 +1073,7 @@ export function TeacherDashboardPage({
           <RosterMetric
             definitionId="started"
             definitionOptions={{
-              denominator: `${countPhrase(studentRows.length, "child", "children")} in this class.`,
+              denominator: `${countPhrase(studentRows.length, "student", "students")} in this class.`,
               updatedAt: classMetricUpdatedAt
             }}
             label={TEACHER_COPY.metrics.havePlayed}
@@ -1686,7 +1094,7 @@ export function TeacherDashboardPage({
                   <dd>
                     <MetricFigure
                       metricId="accuracy"
-                      denominator={`${countPhrase(classAccuracySummary.policyReadyLearnerCount, "child", "children")} with at least ${PROGRESS_MIN_RESPONSES} scored answers each.`}
+                      denominator={`${countPhrase(classAccuracySummary.policyReadyLearnerCount, "student", "students")} with at least ${PROGRESS_MIN_RESPONSES} scored answers each.`}
                       dateRange="All saved scored answers for this class."
                       updatedAt={classMetricUpdatedAt}
                     >
@@ -1701,7 +1109,7 @@ export function TeacherDashboardPage({
                   <dd>
                     <MetricFigure
                       metricId="accuracy"
-                      denominator={`${countPhrase(classAccuracySummary.responseCount, "scored answer")} from ${countPhrase(classAccuracySummary.policyReadyLearnerCount, "child", "children")}.`}
+                      denominator={`${countPhrase(classAccuracySummary.responseCount, "scored answer")} from ${countPhrase(classAccuracySummary.policyReadyLearnerCount, "student", "students")}.`}
                       dateRange="All saved scored answers for this class."
                       updatedAt={classMetricUpdatedAt}
                     >
@@ -1717,7 +1125,7 @@ export function TeacherDashboardPage({
           <RosterMetric
             definitionId="active"
             definitionOptions={{
-              denominator: `${countPhrase(studentRows.length, "child", "children")} in this class.`,
+              denominator: `${countPhrase(studentRows.length, "student", "students")} in this class.`,
               updatedAt: classMetricUpdatedAt
             }}
             label={TEACHER_COPY.metrics.playedToday}
@@ -1735,7 +1143,7 @@ export function TeacherDashboardPage({
         </section>
       )}
 
-      {isClassesPage && selectedClass && (
+      {selectedClass && (
         <section className="teacher-roster-groups" aria-label={TEACHER_COPY.groups.ariaLabel}>
           <div>
             <p className="panel-label">{TEACHER_COPY.groups.label}</p>
@@ -1768,21 +1176,21 @@ export function TeacherDashboardPage({
         </section>
       )}
 
-      {isClassesPage && selectedClass && selectedStudentRow && (
+      {selectedClass && selectedStudentRow && (
         <TeacherDrawer
-          label={`Child details: ${selectedStudentRow.name}`}
+          label={`Student details: ${selectedStudentRow.name}`}
           onClose={onClearStudent}
         >
           <aside
             className="teacher-learner-drawer"
             role="region"
-            aria-label={`Child details: ${selectedStudentRow.name}`}
+            aria-label={`Student details: ${selectedStudentRow.name}`}
             data-teacher-learner-id={selectedStudentRow.id}
           >
             <header>
               <div>
                 <p className="teacher-context-trail">
-                  Classes <span aria-hidden="true">/</span> {selectedClass.name}
+                  Students <span aria-hidden="true">/</span> {selectedClass.name}
                   <span aria-hidden="true">/</span> {selectedRosterGroup.label}
                   <span aria-hidden="true">/</span> {selectedStudentRow.name}
                 </p>
@@ -1797,7 +1205,7 @@ export function TeacherDashboardPage({
                 </p>
               </div>
               <button className="text-button" data-autofocus type="button" onClick={onClearStudent}>
-                Close child details
+                Close student details
               </button>
             </header>
             <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} results summary`}>
@@ -1805,7 +1213,7 @@ export function TeacherDashboardPage({
               <RosterMetric
                 definitionId="accuracy"
                 definitionOptions={{
-                  denominator: `${countPhrase(selectedStudentRow.answered, "scored answer")} for this child.`,
+                  denominator: `${countPhrase(selectedStudentRow.answered, "scored answer")} for this student.`,
                   updatedAt: selectedStudentRow.lastActive
                 }}
                 label="Accuracy"
@@ -1823,7 +1231,7 @@ export function TeacherDashboardPage({
               <RosterMetric
                 definitionId="active"
                 definitionOptions={{
-                  denominator: "This child's saved answers and Sound Seekers play.",
+                  denominator: "This student's saved answers and Sound Seekers play.",
                   dateRange: "Most recent saved activity across all time.",
                   updatedAt: selectedStudentRow.lastActive
                 }}
@@ -1852,12 +1260,76 @@ export function TeacherDashboardPage({
                 </dd>
               </div>
             </dl>
+            {/* THE STUDENT PANEL. Everything you can do to one student is here,
+                including the teaching tools that used to be stranded on the
+                Resources page behind a second student picker. */}
             <div className="teacher-learner-drawer-actions">
-              <button className="lp-button lp-button-primary" type="button" onClick={onOpenAssess}>
+              <button
+                className="lp-button lp-button-primary teacher-start-check"
+                type="button"
+                onClick={() => onStartCheck?.(selectedStudentRow)}
+              >
                 Check {selectedStudentRow.name}
               </button>
-              <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
-                Review {selectedStudentRow.name}&rsquo;s progress
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => onOpenReport?.(selectedStudentRow)}
+              >
+                Report
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => onOpenGuidedReading?.(selectedStudentRow)}
+              >
+                Guided reading
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => onOpenStoryQuests?.(selectedStudentRow)}
+              >
+                Story Quests
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => {
+                  setEditingStudent(selectedStudentRow);
+                  setEditingSequence("");
+                }}
+              >
+                {selectedStudentRow.symbol_password ? "Change sign-in pictures" : "Set sign-in pictures"}
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => setAccessibilityStudent(selectedStudentRow)}
+              >
+                Accessibility settings
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => setDataRightsStudent(selectedStudentRow)}
+              >
+                Privacy and data rights
+              </button>
+              <button
+                className="lp-button lp-button-danger-outline"
+                type="button"
+                onClick={() => setRosterOperation({ kind: "archive", student: selectedStudentRow })}
+              >
+                Archive student
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                aria-haspopup="dialog"
+                onClick={() => setActionsStudent(selectedStudentRow)}
+              >
+                More options
               </button>
               <button
                 className="lp-button lp-button-secondary"
@@ -1866,19 +1338,12 @@ export function TeacherDashboardPage({
               >
                 {TEACHER_COPY.help.checkGuide}
               </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => setDataRightsStudent(selectedStudentRow)}
-              >
-                Export or delete child data
-              </button>
             </div>
           </aside>
         </TeacherDrawer>
       )}
 
-      {isClassesPage && selectedClass && actionCards.length > 0 && (
+      {selectedClass && actionCards.length > 0 && (
         <section className="teacher-action-cards" aria-label="Suggested next steps">
           {actionCards.map(card => (
             <article
@@ -1909,10 +1374,10 @@ export function TeacherDashboardPage({
         </section>
       )}
 
-      {isClassesPage && effectiveRosterFilterIds && (
+      {effectiveRosterFilterIds && (
         <div className="teacher-roster-filter-chip">
           <span>
-            {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} children
+            {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} students
           </span>
           <button
             className="text-button"
@@ -1927,8 +1392,7 @@ export function TeacherDashboardPage({
         </div>
       )}
 
-      {isClassesPage && (
-        <details
+      <details
           className="teacher-roster-admin"
           data-teacher-priority="roster-admin"
           open={rosterAdminOpen}
@@ -1990,6 +1454,18 @@ export function TeacherDashboardPage({
               >
                 {showRosterImport ? "Close import" : "Import class list"}
               </button>
+              {studentsMissingSignIn.length > 0 && (
+                <button
+                  className="lp-button lp-button-primary"
+                  type="button"
+                  disabled={assigningSignIn}
+                  onClick={giveEveryoneSignInPictures}
+                >
+                  {assigningSignIn
+                    ? "Making pictures..."
+                    : `${TEACHER_COPY.setup.signInGapAction} (${studentsMissingSignIn.length})`}
+                </button>
+              )}
               <details className="teacher-roster-more-tools">
                 <summary>More tools</summary>
                 <div>
@@ -2019,7 +1495,7 @@ export function TeacherDashboardPage({
         )}
 
         {selectedClass && showRosterImport && (
-          <section className="teacher-roster-import" aria-label="Import children&apos;s names">
+          <section className="teacher-roster-import" aria-label="Import students&apos;s names">
             <div>
               <strong>{TEACHER_COPY.roster.importTitle}</strong>
               <p>{TEACHER_COPY.roster.importBody}</p>
@@ -2059,7 +1535,7 @@ export function TeacherDashboardPage({
                     {rosterImportPreview.duplicates.length === 1 ? "" : "s"} skipped
                   </p>
                   {rosterImportPreview.duplicates.length > 0 && (
-                    <ul aria-label="Duplicate children&apos;s names">
+                    <ul aria-label="Duplicate students&apos;s names">
                       {rosterImportPreview.duplicates.map((row, index) => (
                         <li key={`${row.name}-${index}`}>{row.name}: {row.reason}</li>
                       ))}
@@ -2073,7 +1549,7 @@ export function TeacherDashboardPage({
                   >
                     {importingRoster
                       ? "Importing..."
-                      : `Import ${countPhrase(rosterImportPreview.accepted.length, "child", "children")}`}
+                      : `Import ${countPhrase(rosterImportPreview.accepted.length, "student", "students")}`}
                   </button>
                 </>
               )}
@@ -2085,10 +1561,10 @@ export function TeacherDashboardPage({
           <>
             <TeacherFilterBar
               className="teacher-roster-tools"
-              label="Search, sort, and filter children"
+              label="Search, sort, and filter students"
             >
               <label>
-                <span>Search children</span>
+                <span>Search students</span>
                 <input
                   type="search"
                   value={rosterSearch}
@@ -2145,29 +1621,17 @@ export function TeacherDashboardPage({
           </>
         )}
 
-        {selectedClass && !loadingStudents && studentRows.length > 0 && (
-          <ClassHeatPanel rows={studentRows} />
-        )}
-
-        {!selectedClass && isClassesPage ? (
+        {!selectedClass ? (
           <TeacherSurfaceState
             compact
             surface="classes"
             state="empty"
             onPrimaryAction={focusNewClassInput}
           />
-        ) : !selectedClass ? (
-          <div className="report-empty-state teacher-onboard-empty">
-            <strong>Your children will appear here.</strong>
-            <p>Create a class above or continue from the setup checklist.</p>
-            <button className="lp-button lp-button-primary" type="button" onClick={focusNewClassInput}>
-              Create your first class
-            </button>
-          </div>
         ) : loadingStudents ? (
           <TeacherSurfaceState
             compact
-            surface={isClassesPage ? "classes" : "today"}
+            surface="classes"
             state="loading"
           />
         ) : studentRows.length === 0 ? (
@@ -2181,13 +1645,13 @@ export function TeacherDashboardPage({
         ) : (
           <TeacherDataTable
             className="dashboard-table teacher-roster-table"
-            label={`${selectedClass.name} children`}
+            label={`${selectedClass.name} students`}
           >
               <thead>
                 <tr>
-                  <th scope="col" aria-label="Select children">
+                  <th scope="col" aria-label="Select students">
                     <input
-                      aria-label="Select all visible children"
+                      aria-label="Select all visible students"
                       type="checkbox"
                       checked={visibleStudentRows.length > 0 && selectedVisibleCount === visibleStudentRows.length}
                       onChange={event => {
@@ -2256,7 +1720,7 @@ export function TeacherDashboardPage({
                           </strong>
                           {row.answered ? (
                             <MetricFigure
-                              denominator={`${countPhrase(row.answered, "scored answer")} for this child.`}
+                              denominator={`${countPhrase(row.answered, "scored answer")} for this student.`}
                               metricId="accuracy"
                               updatedAt={row.lastActive}
                             >
@@ -2322,8 +1786,16 @@ export function TeacherDashboardPage({
                     )}
                     <td data-label="Actions">
                       <div className="teacher-row-actions">
+                        <button
+                          className="lp-button lp-button-primary teacher-start-check"
+                          onClick={() => onStartCheck?.(row)}
+                          type="button"
+                          aria-label={`Check ${row.name}`}
+                        >
+                          Check
+                        </button>
                         <button className="lp-button lp-button-secondary teacher-open-student" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
-                          Open child
+                          Open student
                         </button>
                         <button
                           className="lp-button lp-button-secondary"
@@ -2358,10 +1830,10 @@ export function TeacherDashboardPage({
       </section>
 
       {selectedClass && archivedStudentList.length > 0 && (
-        <section className="teacher-archived-roster" aria-label="Archived children">
+        <section className="teacher-archived-roster" aria-label="Archived students">
           <details>
-            <summary>Archived children ({archivedStudentList.length})</summary>
-            <p>Archived children cannot sign in, but their saved results remain. Restore a child to return them to this class.</p>
+            <summary>Archived students ({archivedStudentList.length})</summary>
+            <p>Archived students cannot sign in, but their saved results remain. Restore a student to return them to this class.</p>
             <ul>
               {archivedStudentList.map(row => (
                 <li key={row.id}>
@@ -2384,7 +1856,6 @@ export function TeacherDashboardPage({
       )}
           </div>
         </details>
-      )}
 
       {showQuestionGuide && (
         <QuestionTypeGuideDialog
@@ -2406,23 +1877,34 @@ export function TeacherDashboardPage({
 
       {actionsStudent && (
         <TeacherModal
-          className="teacher-child-actions-modal"
+          className="teacher-student-actions-modal"
           label={`Options for ${actionsStudent.name}`}
           onClose={() => setActionsStudent(null)}
         >
           <div className="symbol-password-modal-card page-stack">
             <header>
-              <p className="panel-label">Child information</p>
+              <p className="panel-label">Student information</p>
               <h3>{actionsStudent.name}</h3>
               <p>Choose one task. Each task opens in its own focused window.</p>
             </header>
-            <div className="teacher-child-action-list">
+            <div className="teacher-student-action-list">
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => {
+                  const student = actionsStudent;
+                  setActionsStudent(null);
+                  onOpenElFormalCheck?.(student);
+                }}
+              >
+                EL formal check
+              </button>
               <button
                 className="lp-button lp-button-secondary"
                 type="button"
                 onClick={() => openStudentProfile(actionsStudent)}
               >
-                Edit child information
+                Edit student information
               </button>
               <button
                 className="lp-button lp-button-secondary"
@@ -2459,7 +1941,7 @@ export function TeacherDashboardPage({
                   setActionsStudent(null);
                 }}
               >
-                {actionsStudent.reducedChoiceMode ? "Use all child choices" : "Reduce child choices"}
+                {actionsStudent.reducedChoiceMode ? "Use all student choices" : "Reduce student choices"}
               </button>
               <button
                 className="lp-button lp-button-secondary"
@@ -2498,11 +1980,22 @@ export function TeacherDashboardPage({
                 className="lp-button lp-button-danger-outline"
                 type="button"
                 onClick={() => {
+                  const student = actionsStudent;
+                  setActionsStudent(null);
+                  onResetCheckData?.(student);
+                }}
+              >
+                Reset check data
+              </button>
+              <button
+                className="lp-button lp-button-danger-outline"
+                type="button"
+                onClick={() => {
                   setRosterOperation({ kind: "archive", student: actionsStudent });
                   setActionsStudent(null);
                 }}
               >
-                Archive child
+                Archive student
               </button>
             </div>
             <footer className="teacher-dialog-footer">
@@ -2529,15 +2022,15 @@ export function TeacherDashboardPage({
 
       {editingStudentProfile && (
         <TeacherModal
-          className="teacher-child-profile-modal"
+          className="teacher-student-profile-modal"
           label={`Edit ${editingStudentProfile.name}`}
           onClose={savingStudentProfile ? undefined : () => setEditingStudentProfile(null)}
         >
           <form className="page-stack" onSubmit={saveStudentProfile}>
             <header>
-              <p className="panel-label">Child information</p>
+              <p className="panel-label">Student information</p>
               <h3>Edit display name</h3>
-              <p>Use the classroom name the child and staff already recognise. Do not add a surname unless your school requires it.</p>
+              <p>Use the classroom name the student and staff already recognise. Do not add a surname unless your school requires it.</p>
             </header>
             <label>
               <span>Display name</span>
@@ -2561,7 +2054,7 @@ export function TeacherDashboardPage({
                 type="submit"
                 disabled={savingStudentProfile}
               >
-                {savingStudentProfile ? "Saving…" : "Save child information"}
+                {savingStudentProfile ? "Saving…" : "Save student information"}
               </button>
               <button
                 className="lp-button lp-button-secondary"
@@ -2594,12 +2087,12 @@ export function TeacherDashboardPage({
             </h3>
             {rosterOperation.kind === "archive" ? (
               <p>
-                This removes the child from sign-in and class groups. Their saved results stay attached and can be restored.
+                This removes the student from sign-in and class groups. Their saved results stay attached and can be restored.
               </p>
             ) : (
               <>
                 <p>
-                  The child and their saved results move together. Nothing is copied or deleted.
+                  The student and their saved results move together. Nothing is copied or deleted.
                 </p>
                 <label className="teacher-dashboard-control">
                   <span>Destination class</span>
@@ -2625,8 +2118,8 @@ export function TeacherDashboardPage({
                 {operationBusy
                   ? "Saving..."
                   : rosterOperation.kind === "archive"
-                    ? "Archive child"
-                    : "Transfer child"}
+                    ? "Archive student"
+                    : "Transfer student"}
               </button>
               <button
                 className="lp-button lp-button-secondary"
@@ -2654,7 +2147,7 @@ export function TeacherDashboardPage({
         >
           <div className="symbol-password-modal-card">
             <h3>Change {editingStudent.name}'s pictures</h3>
-            <p className="muted-text">This child gate is teacher-visible by design; real data protection remains in the signed-in teacher account.</p>
+            <p className="muted-text">This student gate is teacher-visible by design; real data protection remains in the signed-in teacher account.</p>
             <SymbolPasswordPad
               value={editingSequence}
               onChange={setEditingSequence}
@@ -2670,6 +2163,7 @@ export function TeacherDashboardPage({
           </div>
         </TeacherModal>
       )}
+
       </>
       )}
     </TeacherPageShell>

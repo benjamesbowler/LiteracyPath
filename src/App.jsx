@@ -667,6 +667,7 @@ export default function App() {
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
+    assignMissingSymbolPasswords,
   } = useAppSessionController({
     accountAccessCheckInFlightRef, accountAccessCheckSeqRef, accountAccessCheckUserIdRef, adminStatusError,
     adminStudents, answerHistory, answerHistoryRef, answerInFlightRef,
@@ -2015,15 +2016,16 @@ export default function App() {
     setAppView(APP_VIEWS.FINISHED);
   }
 
-  async function goToOverview(diagnosticFollowUp) {
+  // Leaving a check returns to the roster it was started from. There is no
+  // second per-student dashboard to go back to any more.
+  function returnFromCheck() {
     answerInFlightRef.current = false;
     resetFailedAssessmentMedia();
     setCurrentQuestion(null);
     setFeedback(null);
     setCheckpointDecision(null);
-    setDiagnosticFollowUp(diagnosticFollowUp === true);
-    setAppView(APP_VIEWS.OVERVIEW);
-
+    setDiagnosticFollowUp(false);
+    setAppView(APP_VIEWS.TEACHER_CLASSES);
   }
   function returnToTeacherDashboard() {
     answerInFlightRef.current = false;
@@ -2286,7 +2288,7 @@ export default function App() {
       demoTeacherEnabled, diagnosticFollowUp, discardElBenchmarkDraft, discontinueElBenchmarkAssessment, elBenchmarkDraftSaveFailed, elBenchmarkSession,
       endAssessment, entryMode, executeAdminDeleteClass, executeAdminDeleteStudent, exitToTeacherEntry, exportCSVData,
       exportData, exportLetterAssessment, exportPatternAssessment, exportReadingReport, exportStudentAssessmentWorkbook, feedback,
-      finishElBenchmarkAssessment, goToOverview, guidedInitialBookId, guidedReadingRecords, handleAssessmentEvidenceImageError,
+      finishElBenchmarkAssessment, guidedInitialBookId, guidedReadingRecords, handleAssessmentEvidenceImageError,
       isAdmin, isStudentSurfaceView, isTeacherAccountApproved, itemMastery,
       keepPracticingSkill, learnFullscreen, learnerAccessibility, letterAssessment, letterIndex,
       letterItems, loadAdminDashboard, loadClassDashboard, loadStudentProgress, loadStudents, loadingStudents,
@@ -2297,7 +2299,7 @@ export default function App() {
       regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, resetLetterAssessment,
       resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
       resumeElBenchmarkAssessment, retryCheckpointSkill, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
-      reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,
+      returnFromCheck, reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,
       selectedStudentEvidenceReadState, selectedStudentEvidenceReady, sessionMode, setAdminConfirm, setAdminConfirmBusy, setAllowPassageAudio,
       setAppView, setArchivedStudentList, setAuthDisplayName, setAuthEmail, setAuthMode, setAuthPassword,
       setAuthSchoolName, setAuthUsername, setClassDashboard, setCurrentQuestion, setCurrentSkillIndex, setEntryMode,
@@ -2309,7 +2311,8 @@ export default function App() {
       studentId, studentList, studentName, studentPreview, studentPreviewStatus, studentReportView,
       studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
       teacherId, teacherSchoolName, teacherUser, toggleAssessmentFullscreen,
-      totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot
+      totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
+      assignMissingSymbolPasswords
         }}
       />
     </Suspense>

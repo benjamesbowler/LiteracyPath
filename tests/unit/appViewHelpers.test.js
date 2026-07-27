@@ -71,7 +71,6 @@ test("teacher-only views are NOT on the student allowlist", () => {
   for (const view of [
     APP_VIEWS.TEACHER_DASHBOARD,
     APP_VIEWS.TEACHER_CLASSES,
-    APP_VIEWS.TEACHER_ASSESS,
     APP_VIEWS.TEACHER_PROGRESS,
     APP_VIEWS.TEACHER_RESOURCES,
     APP_VIEWS.TEACHER_SETTINGS,
@@ -103,7 +102,7 @@ test("the footer stays out of the way on full-screen child surfaces", () => {
 });
 
 test("an unknown stored view falls back rather than crashing", () => {
-  assert.equal(getRestoredAppView({ restoredStudentId: "s1", storedAppView: "nonsense" }), APP_VIEWS.OVERVIEW);
+  assert.equal(getRestoredAppView({ restoredStudentId: "s1", storedAppView: "nonsense" }), APP_VIEWS.TEACHER_CLASSES);
   assert.equal(getRestoredAppView({ restoredStudentId: "", storedAppView: APP_VIEWS.LEARN }), APP_VIEWS.SELECT);
   assert.equal(getPersistedAppView({ studentId: "s1", appView: APP_VIEWS.PHONICS_QUEST }), APP_VIEWS.PHONICS_QUEST);
   assert.equal(getPersistedAppView({ studentId: "", appView: APP_VIEWS.PHONICS_QUEST }), APP_VIEWS.SELECT);
@@ -113,7 +112,6 @@ test("teacher intentions persist and restore without requiring a selected learne
   for (const view of [
     APP_VIEWS.TEACHER_DASHBOARD,
     APP_VIEWS.TEACHER_CLASSES,
-    APP_VIEWS.TEACHER_ASSESS,
     APP_VIEWS.TEACHER_PROGRESS,
     APP_VIEWS.TEACHER_RESOURCES,
     APP_VIEWS.TEACHER_SETTINGS
@@ -126,9 +124,13 @@ test("teacher intentions persist and restore without requiring a selected learne
 test("restored module-shaped teacher routes redirect to the focused teacher IA", () => {
   const redirects = new Map([
     [APP_VIEWS.STUDENT_HOME, APP_VIEWS.TEACHER_CLASSES],
-    [APP_VIEWS.OVERVIEW, APP_VIEWS.TEACHER_ASSESS],
-    [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.TEACHER_ASSESS],
-    [APP_VIEWS.REPORTS, APP_VIEWS.TEACHER_PROGRESS],
+    // "overview" and "teacherAssess" are retired names still sitting in older
+    // saved sessions: a check now starts from the roster, so they land there.
+    ["overview", APP_VIEWS.TEACHER_CLASSES],
+    ["teacherAssess", APP_VIEWS.TEACHER_CLASSES],
+    ["tools", APP_VIEWS.TEACHER_CLASSES],
+    [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.TEACHER_CLASSES],
+    // REPORTS is no longer redirected: it is the reachable class report view.
     [APP_VIEWS.GUIDED_READING, APP_VIEWS.TEACHER_RESOURCES],
     [APP_VIEWS.LEARN, APP_VIEWS.TEACHER_RESOURCES],
     [APP_VIEWS.WORKSHEETS, APP_VIEWS.TEACHER_RESOURCES],
@@ -165,14 +167,6 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
   );
   assert.equal(
     teacherIntentHash({
-      appView: APP_VIEWS.TEACHER_ASSESS,
-      classId: "class-a",
-      learnerId: "learner-a"
-    }),
-    "#teacher/checks?class=class-a&group=all&learner=learner-a"
-  );
-  assert.equal(
-    teacherIntentHash({
       appView: APP_VIEWS.TEACHER_PROGRESS,
       classId: "class-a",
       groupId: "all",
@@ -195,7 +189,32 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
     }),
     "#teacher/settings?class=class-a"
   );
-  assert.equal(teacherIntentHash({ appView: APP_VIEWS.REPORTS }), "");
+  // The class report is a real destination now, so it must have a real link.
+  assert.equal(
+    teacherIntentHash({ appView: APP_VIEWS.REPORTS, classId: "class-a" }),
+    "#teacher/reports/class?class=class-a"
+  );
+});
+
+test("the class report link restores a class without needing a chosen student", () => {
+  const classReportHash = teacherIntentHash({
+    appView: APP_VIEWS.REPORTS,
+    classId: "class-a",
+    groupId: "attention",
+    learnerId: "learner-a"
+  });
+  assert.equal(classReportHash, "#teacher/reports/class?class=class-a");
+  assert.deepEqual(parseTeacherRouteHash(classReportHash), {
+    appView: APP_VIEWS.REPORTS,
+    classId: "class-a",
+    groupId: "all",
+    learnerId: "",
+    reportView: ""
+  });
+  assert.equal(
+    getRestoredAppView({ restoredStudentId: "", storedAppView: APP_VIEWS.REPORTS }),
+    APP_VIEWS.REPORTS
+  );
 });
 
 test("teacher intention and report URLs parse into restorable owned context", () => {

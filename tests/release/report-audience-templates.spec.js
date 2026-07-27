@@ -46,7 +46,9 @@ test("@report-audience-templates keeps Aarav's reachable report brief and audien
   await logIn(page);
   await openAaravReport(page);
 
-  const reportNav = page.getByRole("navigation", { name: "Child reports" });
+  // 2026-07-26: teacher copy no longer says "child" or "has been exposed to" — the
+  // report nav is "Student reports" and tiles read "Aarav answered X 4 times".
+  const reportNav = page.getByRole("navigation", { name: "Student reports" });
   await expect(reportNav.getByRole("link")).toHaveCount(4);
   for (const view of ["Overview", "Skills", "HFW / sight words", "EL formal report"]) {
     await expect(reportNav.getByRole("link", {
@@ -56,7 +58,7 @@ test("@report-audience-templates keeps Aarav's reachable report brief and audien
 
   await reportNav.getByRole("link", { name: /^Skills/ }).click();
   const firstTile = page.locator(".simple-report-tile").first();
-  await expect(firstTile).toContainText(/Aarav has been exposed to/i);
+  await expect(firstTile).toContainText(/Aarav answered/i);
   await expect(firstTile).toContainText(/correct answer/i);
   const reportText = await page.locator(".lg-report-main").innerText();
   expect(reportText).not.toMatch(denseAnalyticsJargon);

@@ -39,7 +39,7 @@ for (const token of [
 
 const adoptions = [
   {
-    file: "src/components/TeacherDashboardPage.jsx",
+    file: "src/components/TeacherStudentsPage.jsx",
     tokens: [
       "MetricFigure",
       "definitionId=\"started\"",

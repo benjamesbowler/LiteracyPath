@@ -61,3 +61,34 @@ test("Today changes show current-window results beside the previous window", () 
     `Previous ${TEACHER_TODAY_POLICY.changeWindowDays} days: 4 answers and 1 mastered skill.`
   );
 });
+
+// 2026-07-26: day one used to print 25 identical "First check due" rows. The UI now
+// collapses that to one line and one button, which needs a flag it can trust.
+test("day one is reported as a single fact, not one row per student", () => {
+  const wholeClass = Array.from({ length: 25 }, (_unused, index) => ({
+    id: `student-${index}`,
+    name: `Student ${index}`,
+    answered: 0,
+    accuracy: null,
+    lastActive: null
+  }));
+  const dayOne = buildTeacherTodayBriefing(wholeClass);
+  assert.equal(dayOne.due.length, 25);
+  assert.equal(dayOne.allFirstCheckDue, true);
+
+  // One student with saved answers means the list is no longer one single fact.
+  const mixed = buildTeacherTodayBriefing([
+    ...wholeClass.slice(0, 24),
+    {
+      id: "student-active",
+      name: "Active",
+      answered: 20,
+      accuracy: 40,
+      lastActive: new Date().toISOString()
+    }
+  ]);
+  assert.equal(mixed.allFirstCheckDue, false);
+
+  // A class with no students at all is not "everyone is due".
+  assert.equal(buildTeacherTodayBriefing([]).allFirstCheckDue, false);
+});

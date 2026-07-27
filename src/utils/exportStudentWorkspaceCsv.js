@@ -41,11 +41,11 @@ function exportDisplayText(value = "") {
     .replace(/\bevidence\b/gi, "results")
     .replace(/\blearners?\b/gi, match => preserveLeadingCase(
       match,
-      match.toLowerCase().endsWith("s") ? "children" : "child"
+      match.toLowerCase().endsWith("s") ? "students" : "student"
     ))
     .replace(/\bstudents?\b/gi, match => preserveLeadingCase(
       match,
-      match.toLowerCase().endsWith("s") ? "children" : "child"
+      match.toLowerCase().endsWith("s") ? "students" : "student"
     ))
     .replace(/\bincorrect\b/gi, "needs another look");
 }

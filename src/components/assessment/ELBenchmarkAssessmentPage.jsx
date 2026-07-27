@@ -136,8 +136,7 @@ function teacherGuidanceText(value = "") {
     .replace(/\bunadministered\b/gi, "not done")
     .replace(/\bassessments?\b/gi, match => match.toLowerCase().endsWith("s") ? "checks" : "check")
     .replace(/\bevidence\b/gi, "results")
-    .replace(/\blearners?\b/gi, match => match.toLowerCase().endsWith("s") ? "children" : "child")
-    .replace(/\bstudents?\b/gi, match => match.toLowerCase().endsWith("s") ? "children" : "child");
+    .replace(/\blearners?\b/gi, match => match.toLowerCase().endsWith("s") ? "students" : "student");
 }
 
 function formatGrade(grade = "") {

@@ -22,7 +22,23 @@ import {
 } from "../../src/utils/exportElAssessmentExcel.js";
 import { buildStudentWorkspaceCsvRows } from "../../src/utils/exportStudentWorkspaceCsv.js";
 
-const REQUIRED_METRICS = ["accuracy", "mastered", "active", "started", "current-skill", "trails"];
+// 2026-07-26: added practising / needs-teaching / not-enough-yet / round / el-placement.
+// A teacher reported a report saying "0 mastered" beside tiles showing 100% accuracy with
+// no explanation of the gap. These five keys are what make the status ladder explainable
+// on screen, and they ship the Excel/CSV glossary rows at the same time.
+const REQUIRED_METRICS = [
+  "accuracy",
+  "mastered",
+  "practising",
+  "needs-teaching",
+  "not-enough-yet",
+  "round",
+  "el-placement",
+  "active",
+  "started",
+  "current-skill",
+  "trails"
+];
 const REQUIRED_FIELDS = ["Counts", "Time", "Excludes"];
 
 function assertDefinitionsSheet(workbook) {

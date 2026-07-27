@@ -139,7 +139,7 @@ export function LearnerDataRightsDialog({
         preparedRequest,
         confirmation
       });
-      setStatus("The child's data has been deleted.");
+      setStatus("The student's data has been deleted.");
       await onDeleted?.(learner, result);
     } catch {
       setError("We couldn't delete the data. Nothing has changed. Try again.");

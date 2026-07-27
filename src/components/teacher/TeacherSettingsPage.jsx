@@ -294,7 +294,7 @@ export function TeacherSettingsPage({
               <header>
                 <p className="panel-label">Site settings</p>
                 <h2>Class sign-in and visibility</h2>
-                <p>These settings affect how children enter the app and what a class leaderboard can show.</p>
+                <p>These settings affect how students enter the app and what a class leaderboard can show.</p>
               </header>
               <label>
                 <span>Class</span>
@@ -312,7 +312,7 @@ export function TeacherSettingsPage({
                     <div className="page-stack">
                       <div className="teacher-settings-card">
                         <div>
-                          <h3>Child sign-in code</h3>
+                          <h3>Student sign-in code</h3>
                           <p className="teacher-settings-code">{selectedClass.access_code || "Not available"}</p>
                           <small>Making a new code stops the old code immediately.</small>
                         </div>
@@ -417,7 +417,7 @@ export function TeacherSettingsPage({
                       aria-label="Class sign-in history"
                     >
                       <h3>Class sign-in history</h3>
-                      <p>No child names, passwords, class codes, device IDs, or network addresses are stored here.</p>
+                      <p>No student names, passwords, class codes, device IDs, or network addresses are stored here.</p>
                       {accessBusy ? (
                         <p role="status">Loading sign-in activity…</p>
                       ) : visibleAccessError ? (
@@ -450,16 +450,16 @@ export function TeacherSettingsPage({
             <div className="page-stack">
               <header>
                 <p className="panel-label">Privacy and data</p>
-                <h2>Child data requests</h2>
-                <p>Download or permanently delete one child's saved data after the school verifies the request.</p>
+                <h2>Student data requests</h2>
+                <p>Download or permanently delete one student's saved data after the school verifies the request.</p>
               </header>
               <label>
-                <span>Child</span>
+                <span>Student</span>
                 <select
                   value={privacyStudentId}
                   onChange={event => setPrivacyStudentId(event.target.value)}
                 >
-                  <option value="">Choose a child</option>
+                  <option value="">Choose a student</option>
                   {allStudents.map(row => (
                     <option key={row.id} value={row.id}>
                       {row.name}{row.archived_at ? " (archived)" : ""}
@@ -479,7 +479,7 @@ export function TeacherSettingsPage({
                   Open privacy request
                 </button>
               </div>
-              <p className="muted-text">To correct a name, sign-in pictures, accessibility, or archive status, use Children → More.</p>
+              <p className="muted-text">To correct a name, sign-in pictures, accessibility, or archive status, use Students → More.</p>
             </div>
           )}
 
@@ -512,7 +512,7 @@ export function TeacherSettingsPage({
           setPrivacyStudent(null);
           setPrivacyStudentId("");
           await onReloadStudents?.(selectedClassId);
-          setStatus("The child's data has been deleted.");
+          setStatus("The student's data has been deleted.");
         }}
       />
     </TeacherPageShell>

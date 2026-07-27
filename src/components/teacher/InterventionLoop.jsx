@@ -114,7 +114,7 @@ function InterventionPlanner({
         </label>
       </div>
       <fieldset>
-        <legend>Children in this group</legend>
+        <legend>Students in this group</legend>
         <div className="teacher-intervention-learners">
           {rows.map(row => (
             <label key={row.id}>
@@ -157,7 +157,7 @@ function InterventionPlanner({
         <button className="lp-button lp-button-secondary" type="button" disabled={busy} onClick={onCancel}>
           Cancel
         </button>
-        <span>{className} · {draft.studentIds.length || "No"} selected {draft.studentIds.length === 1 ? "child" : "children"}</span>
+        <span>{className} · {draft.studentIds.length || "No"} selected {draft.studentIds.length === 1 ? "student" : "students"}</span>
       </div>
     </form>
   );
@@ -198,7 +198,7 @@ export function InterventionLoop({
       setLoading(false);
       if (error) {
         console.error("Load interventions error:", error);
-        setStatus("Teaching plans could not be loaded. Existing child results are unchanged.");
+        setStatus("Teaching plans could not be loaded. Existing student results are unchanged.");
         return;
       }
       setInterventions(data || []);
@@ -434,7 +434,7 @@ export function InterventionLoop({
                 </header>
                 <dl>
                   <div><dt>Owner</dt><dd>{intervention.owner_label}</dd></div>
-                  <div><dt>Group</dt><dd>{(intervention.student_ids || []).length} {intervention.student_ids?.length === 1 ? "child" : "children"}</dd></div>
+                  <div><dt>Group</dt><dd>{(intervention.student_ids || []).length} {intervention.student_ids?.length === 1 ? "student" : "students"}</dd></div>
                   <div><dt>Activity</dt><dd>{intervention.activity}</dd></div>
                   {intervention.outcome && <div><dt>Outcome</dt><dd>{intervention.outcome}</dd></div>}
                   {intervention.outcome_note && <div><dt>Observation</dt><dd>{intervention.outcome_note}</dd></div>}

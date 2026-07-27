@@ -89,25 +89,25 @@ test("@teacher-five-intention-ia @teacher-assessment-hub @teacher-contextual-hel
 
   const primaryNav = page.getByTestId("teacher-primary-nav");
   const intentButtons = primaryNav.locator(":scope > .lg-sb-intent > .lg-sb-item");
-  const expectedSections = ["Dashboard", "Children", "Checks", "Reports", "Resources", "Settings"];
+  const expectedSections = ["Dashboard", "Students", "Reports", "Resources", "Settings"];
   await expect(intentButtons).toHaveCount(expectedSections.length);
   for (const [index, label] of expectedSections.entries()) {
     await expect(intentButtons.nth(index)).toHaveAttribute("aria-label", label);
   }
 
-  await primaryNav.getByRole("button", { name: "Checks", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Choose one check", exact: true })).toBeVisible();
-  for (const card of ["Skills check", "EL formal check", "Focused follow-up", "Teaching and practice"]) {
-    await expect(page.getByRole("heading", { name: card, exact: true })).toBeVisible();
-  }
-  await expect(page.getByText(/Choose a child first, then begin\./)).toBeVisible();
+  // Checks is no longer a destination: a check starts from a roster row or the
+  // Student panel, so the roster row carries the button instead of a nav item.
+  await primaryNav.getByRole("button", { name: "Students", exact: true }).click();
+  await expect(
+    page.getByRole("table").getByRole("button", { name: /^Check / }).first()
+  ).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Reports", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Choose a child’s report", exact: true })).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Resources", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Choose a teaching resource", exact: true })).toBeVisible();
-  for (const card of ["Guided reading", "Story Quests", "Worksheets", "Present"]) {
+  for (const card of ["Worksheets", "Present"]) {
     await expect(page.getByRole("heading", { name: card, exact: true })).toBeVisible();
   }
 
@@ -127,7 +127,9 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await selectAuditClass(page);
 
-  for (const column of ["Display name", "Focus", "Progress", "Last active", "Actions"]) {
+  // 2026-07-26: "Sign-in" is a default column again — it holds the only per-student
+  // control that lets a class sign in, so it can no longer be opt-in.
+  for (const column of ["Display name", "Focus", "Progress", "Sign-in", "Last active", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
   }
   await expect(roster.locator("tbody > tr")).toHaveCount(12);
@@ -136,8 +138,19 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
   }
 
   await openAaravReports(page);
-  const reportNav = page.getByRole("navigation", { name: "Child reports" });
-  for (const view of ["Overview", "Skills", "HFW / sight words", "EL formal report"]) {
+  // 2026-07-26: teacher copy no longer says "child" or "has been exposed to" — the
+  // report nav is "Student reports" and tiles read "Aarav answered X 4 times".
+  const reportNav = page.getByRole("navigation", { name: "Student reports" });
+  // 2026-07-26: Guided reading and Other learning are real report views again — they
+  // were silently redirected to the overview while both still rendered.
+  for (const view of [
+    "Overview",
+    "Skills",
+    "Guided reading",
+    "HFW / sight words",
+    "Other learning",
+    "EL formal report"
+  ]) {
     await expect(reportNav.getByRole("link", {
       name: new RegExp(`^${view.replace("/", "\\/")}`)
     })).toBeVisible();
@@ -149,7 +162,7 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
     await expect(page.getByText(band, { exact: true })).toBeVisible();
   }
   const firstTile = page.locator(".simple-report-tile").first();
-  await expect(firstTile).toContainText(/Aarav has been exposed to/i);
+  await expect(firstTile).toContainText(/Aarav answered/i);
   await expect(firstTile).toContainText(/correct answer/i);
   await expect(page.getByText(/confidence interval|outlier|instructional group/i)).toHaveCount(0);
   await expect(page).toHaveURL(/#teacher\/reports\/report\?.*report=skills-check/);
@@ -307,7 +320,7 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
   await selectAuditClass(page);
   await openAaravReports(page);
 
-  const reportNav = page.getByRole("navigation", { name: "Child reports" });
+  const reportNav = page.getByRole("navigation", { name: "Student reports" });
   await reportNav.getByRole("link", { name: /^Skills/ }).click();
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download Skills Check data", exact: true }).click();
@@ -347,17 +360,16 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
   await expect(shell).toHaveAttribute("data-teacher-learner-id", AARAV_ID);
 
   const primaryNav = page.getByTestId("teacher-primary-nav");
-  await primaryNav.getByRole("button", { name: "Resources", exact: true }).click();
-  await expect(page.getByText("Child: Aarav", { exact: true })).toBeVisible();
-  const storyAction = page.getByRole("article").filter({ hasText: "Story Quests" });
-  await storyAction.getByRole("button", { name: "Open", exact: true }).click();
+  // Story Quests is a per-student tool, so it opens from the Student panel
+  // rather than from a second student picker on Resources.
+  const studentPanel = page.getByRole("region", { name: /^Student details: Aarav$/ });
+  await studentPanel.getByRole("button", { name: "Story Quests", exact: true }).click();
   const previewBanner = page.getByRole("complementary", { name: "Previewing as Aarav" });
   await expect(previewBanner).toBeVisible();
   await expect(previewBanner).toContainText("Read-only preview");
   await previewBanner.getByRole("button", { name: /Return to/ }).click();
 
-  await primaryNav.getByRole("button", { name: "Checks", exact: true }).click();
-  await expect(page.getByText("Child: Aarav", { exact: true })).toBeVisible();
+  await primaryNav.getByRole("button", { name: "Students", exact: true }).click();
   await expect(shell).toHaveAttribute("data-teacher-class-id", AUDIT_CLASS_A_ID);
   await expect(shell).toHaveAttribute("data-teacher-learner-id", AARAV_ID);
   expect(pageErrors).toEqual([]);
@@ -440,7 +452,7 @@ test("@release-readiness-surface reachable 520-item report is paginated and expo
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await selectAuditClass(page);
   await openAaravReports(page);
-  await page.getByRole("navigation", { name: "Child reports" })
+  await page.getByRole("navigation", { name: "Student reports" })
     .getByRole("link", { name: /^Skills/ })
     .click();
   await expect(page.getByRole("heading", { name: "Skills", exact: true })).toBeVisible();

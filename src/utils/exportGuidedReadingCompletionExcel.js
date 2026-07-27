@@ -19,9 +19,9 @@ import {
 export const GUIDED_READING_COMPLETION_SHEETS = {
   reportInfo: REPORT_INFO_SHEET_NAME,
   summary: "Summary",
-  studentCompletion: "Child completion",
+  studentCompletion: "Student completion",
   booksCompleted: "Books Completed",
-  studentSummary: "Child summary",
+  studentSummary: "Student summary",
   provenance: REPORT_PROVENANCE_SHEET_NAME,
   definitions: METRIC_DEFINITIONS_SHEET_NAME
 };
@@ -30,14 +30,14 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
   reportInfo: ["Field", "Value"],
   summary: [
     "Class Name",
-    "Total Children",
+    "Total Students",
     "Total Completed Books",
     "Total Unique Books Completed",
     "Total Guided Reading Sessions",
     "Export Date"
   ],
   studentCompletion: [
-    "Child Name",
+    "Student Name",
     "Class Name",
     "Book Title",
     "Series",
@@ -56,14 +56,14 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
     "Book Title",
     "Series",
     "Level",
-    "Children Completed",
+    "Students Completed",
     "Total Completions",
     "Total Reads",
     "Total Rereads",
     "Last Completed Date"
   ],
   studentSummary: [
-    "Child Name",
+    "Student Name",
     "Class Name",
     "Books Completed",
     "Unique Books Completed",
@@ -155,7 +155,7 @@ export function collectGuidedReadingCompletionRecords({
   storageRows.forEach(row => {
     const student = studentById.get(row.studentId) || {
       id: row.studentId,
-      name: row.studentName || "Unknown Child",
+      name: row.studentName || "Unknown Student",
       class_id: row.classId || ""
     };
     const className = getClassName(student, classes);
@@ -173,7 +173,7 @@ export function collectGuidedReadingCompletionRecords({
       const rereadCount = completed ? Math.max(0, readCount - 1) : 0;
       completionRows.push({
         studentId: row.studentId,
-        studentName: student.name || record.studentName || "Unknown Child",
+        studentName: student.name || record.studentName || "Unknown Student",
         className,
         bookId,
         bookTitle: book.title || record.title || bookId || "Unknown Book",
@@ -292,7 +292,7 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
     if (studentMap.has(key)) return;
     studentMap.set(key, {
       studentId: student.id || "",
-      studentName: student.name || "Unknown Child",
+      studentName: student.name || "Unknown Student",
       className: getClassName(student, options.classes || []),
       completedBookIds: new Set(),
       booksCompleted: 0,
@@ -392,14 +392,14 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   summarySheet.columns = GUIDED_READING_COMPLETION_HEADERS.summary.map(header => ({ header, key: header, width: 28 }));
   addRowsOrEmpty(summarySheet, data.summaryRows, row => row ? {
     "Class Name": row.className,
-      "Total Children": row.totalStudents,
+      "Total Students": row.totalStudents,
     "Total Completed Books": row.totalCompletedBooks,
     "Total Unique Books Completed": row.totalUniqueBooksCompleted,
     "Total Guided Reading Sessions": row.totalGuidedReadingSessions,
     "Export Date": row.exportDate
   } : {
     "Class Name": "No records yet",
-    "Total Children": 0,
+    "Total Students": 0,
     "Total Completed Books": 0,
     "Total Unique Books Completed": 0,
     "Total Guided Reading Sessions": 0,
@@ -409,7 +409,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   const completionSheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.studentCompletion);
   completionSheet.columns = GUIDED_READING_COMPLETION_HEADERS.studentCompletion.map(header => ({ header, key: header, width: header.length > 18 ? 28 : 18 }));
   addRowsOrEmpty(completionSheet, data.studentCompletionRows, row => row ? {
-    "Child Name": row.studentName,
+    "Student Name": row.studentName,
     "Class Name": row.className,
     "Book Title": row.bookTitle,
     "Series": row.series,
@@ -424,7 +424,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Marked Words Count": row.markedWordsCount,
     "Notes / Status": row.notes
   } : {
-    "Child Name": "No records yet",
+    "Student Name": "No records yet",
     "Class Name": "",
     "Book Title": "",
     "Series": "",
@@ -446,7 +446,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Book Title": row.bookTitle,
     "Series": row.series,
     "Level": row.level,
-    "Children Completed": row.studentsCompleted,
+    "Students Completed": row.studentsCompleted,
     "Total Completions": row.totalCompletions,
     "Total Reads": row.totalReads,
     "Total Rereads": row.totalRereads,
@@ -455,7 +455,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Book Title": "No records yet",
     "Series": "",
     "Level": "",
-    "Children Completed": 0,
+    "Students Completed": 0,
     "Total Completions": 0,
     "Total Reads": 0,
     "Total Rereads": 0,
@@ -465,7 +465,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   const studentSheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.studentSummary);
   studentSheet.columns = GUIDED_READING_COMPLETION_HEADERS.studentSummary.map(header => ({ header, key: header, width: 28 }));
   addRowsOrEmpty(studentSheet, data.studentSummaryRows, row => row ? {
-    "Child Name": row.studentName,
+    "Student Name": row.studentName,
     "Class Name": row.className,
     "Books Completed": row.booksCompleted,
     "Unique Books Completed": row.uniqueBooksCompleted,
@@ -475,7 +475,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Last Guided Reading Date": row.lastGuidedReadingDate,
     "Recent Book": row.recentBook
   } : {
-    "Child Name": "No records yet",
+    "Student Name": "No records yet",
     "Class Name": "",
     "Books Completed": 0,
     "Unique Books Completed": 0,

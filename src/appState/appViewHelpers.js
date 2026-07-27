@@ -38,7 +38,6 @@ const PRIMARY_SHELL_VIEWS = new Set([
   APP_VIEWS.ADMIN_DASHBOARD,
   APP_VIEWS.TEACHER_DASHBOARD,
   APP_VIEWS.TEACHER_CLASSES,
-  APP_VIEWS.TEACHER_ASSESS,
   APP_VIEWS.TEACHER_PROGRESS,
   APP_VIEWS.TEACHER_RESOURCES,
   APP_VIEWS.TEACHER_SETTINGS,
@@ -46,8 +45,6 @@ const PRIMARY_SHELL_VIEWS = new Set([
   APP_VIEWS.LEARN,
   APP_VIEWS.SKILLS_BLOCK_QUEST,
   APP_VIEWS.PHONICS_QUEST,
-  APP_VIEWS.OVERVIEW,
-  APP_VIEWS.SKILLS,
   APP_VIEWS.EL_ASSESSMENTS,
   APP_VIEWS.GUIDED_READING,
   APP_VIEWS.PHONICS_LEARN,
@@ -58,8 +55,6 @@ const PRIMARY_SHELL_VIEWS = new Set([
 
 const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.SELECT,
-  APP_VIEWS.OVERVIEW,
-  APP_VIEWS.SKILLS,
   APP_VIEWS.EL_ASSESSMENTS,
   APP_VIEWS.GUIDED_READING,
   APP_VIEWS.PHONICS_LEARN,
@@ -69,7 +64,6 @@ const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.ADMIN_DASHBOARD,
   APP_VIEWS.TEACHER_DASHBOARD,
   APP_VIEWS.TEACHER_CLASSES,
-  APP_VIEWS.TEACHER_ASSESS,
   APP_VIEWS.TEACHER_PROGRESS,
   APP_VIEWS.TEACHER_RESOURCES,
   APP_VIEWS.TEACHER_SETTINGS,
@@ -80,13 +74,16 @@ const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.FINISHED
 ]);
 
+// Views a teacher can sit on, and be restored to, without a child selected.
+// The class report belongs here: it is about a whole class, so requiring a
+// selected child would be wrong.
 const TEACHER_INTENTION_VIEWS = new Set([
   APP_VIEWS.TEACHER_DASHBOARD,
   APP_VIEWS.TEACHER_CLASSES,
-  APP_VIEWS.TEACHER_ASSESS,
   APP_VIEWS.TEACHER_PROGRESS,
   APP_VIEWS.TEACHER_RESOURCES,
-  APP_VIEWS.TEACHER_SETTINGS
+  APP_VIEWS.TEACHER_SETTINGS,
+  APP_VIEWS.REPORTS
 ]);
 
 export function isFocusedAssessmentView(appView) {
@@ -107,13 +104,15 @@ export function getRestoredAppView({ restoredStudentId, storedAppView } = {}) {
       ? storedAppView
       : APP_VIEWS.SELECT;
   }
-  if (storedAppView === "tools") return APP_VIEWS.OVERVIEW;
   const legacyTeacherModuleRedirects = {
+    // "tools", "overview" and "teacherAssess" are retired view names still sitting
+    // in older saved sessions. Checks now start from the roster, so they all land
+    // on Students rather than on a page that no longer exists.
+    tools: APP_VIEWS.TEACHER_CLASSES,
+    overview: APP_VIEWS.TEACHER_CLASSES,
+    teacherAssess: APP_VIEWS.TEACHER_CLASSES,
     [APP_VIEWS.STUDENT_HOME]: APP_VIEWS.TEACHER_CLASSES,
-    [APP_VIEWS.OVERVIEW]: APP_VIEWS.TEACHER_ASSESS,
-    [APP_VIEWS.SKILLS]: APP_VIEWS.TEACHER_ASSESS,
-    [APP_VIEWS.EL_ASSESSMENTS]: APP_VIEWS.TEACHER_ASSESS,
-    [APP_VIEWS.REPORTS]: APP_VIEWS.TEACHER_PROGRESS,
+    [APP_VIEWS.EL_ASSESSMENTS]: APP_VIEWS.TEACHER_CLASSES,
     [APP_VIEWS.FINISHED]: APP_VIEWS.TEACHER_PROGRESS,
     [APP_VIEWS.GUIDED_READING]: APP_VIEWS.TEACHER_RESOURCES,
     [APP_VIEWS.LEARN]: APP_VIEWS.TEACHER_RESOURCES,
@@ -124,7 +123,7 @@ export function getRestoredAppView({ restoredStudentId, storedAppView } = {}) {
   if (legacyTeacherModuleRedirects[storedAppView]) {
     return legacyTeacherModuleRedirects[storedAppView];
   }
-  return Object.values(APP_VIEWS).includes(storedAppView) ? storedAppView : APP_VIEWS.OVERVIEW;
+  return Object.values(APP_VIEWS).includes(storedAppView) ? storedAppView : APP_VIEWS.TEACHER_CLASSES;
 }
 
 export function getPersistedAppView({ studentId, appView } = {}) {
@@ -133,15 +132,15 @@ export function getPersistedAppView({ studentId, appView } = {}) {
       ? appView
       : APP_VIEWS.SELECT;
   }
-  return Object.values(APP_VIEWS).includes(appView) ? appView : APP_VIEWS.OVERVIEW;
+  return Object.values(APP_VIEWS).includes(appView) ? appView : APP_VIEWS.TEACHER_CLASSES;
 }
 
 const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.SELECT]: "dashboard",
   [APP_VIEWS.TEACHER_DASHBOARD]: "dashboard",
   [APP_VIEWS.TEACHER_CLASSES]: "children",
-  [APP_VIEWS.TEACHER_ASSESS]: "checks",
   [APP_VIEWS.TEACHER_PROGRESS]: "reports",
+  [APP_VIEWS.REPORTS]: "reports/class",
   [APP_VIEWS.TEACHER_RESOURCES]: "resources",
   [APP_VIEWS.TEACHER_SETTINGS]: "settings",
   [APP_VIEWS.FINISHED]: "reports/report"
@@ -165,7 +164,7 @@ export function teacherIntentHash({
     context.set("report", reportView);
     return `#teacher/${intent}?${context.toString()}`;
   }
-  if (!["dashboard", "settings"].includes(intent)) {
+  if (!["dashboard", "settings", "reports/class"].includes(intent)) {
     context.set("group", groupId || "all");
     if (learnerId) context.set("learner", learnerId);
   }

@@ -282,7 +282,7 @@ function buildGroups(rows) {
           confidenceOverride: {
             id: "policy-ready-group",
             label: "Ready to compare",
-            detail: `${group.learners.length} children have enough results`,
+            detail: `${group.learners.length} students have enough results`,
             policyVersion: LEARNING_POLICY_VERSION
           }
         })
@@ -302,7 +302,7 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
       const normalized = {
         ...row,
         id: String(row.id),
-        name: String(row.name || "Child"),
+        name: String(row.name || "Student"),
         answered: Math.max(0, finiteNumber(row.answered)),
         correct: row.correct !== null
           && row.correct !== undefined
@@ -353,7 +353,7 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
   distribution.push({
     id: LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
     label: `Fewer than ${PROGRESS_MIN_RESPONSES}`,
-    description: "More results are needed before placing these children in an accuracy band.",
+    description: "More results are needed before placing these students in an accuracy band.",
     policyVersion: LEARNING_POLICY_VERSION,
     count: insufficientRows.length,
     learners: insufficientRows.map(row => ({ id: row.id, name: row.name }))
@@ -392,7 +392,7 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
       confidenceOverride: {
         id: "coverage-only",
         label: "Results coverage",
-        detail: `${readyRows.length} of ${rows.length} children have enough results`,
+        detail: `${readyRows.length} of ${rows.length} students have enough results`,
         policyVersion: LEARNING_POLICY_VERSION
       }
     })
@@ -407,13 +407,13 @@ export function buildTeacherProgressOverview(sourceRows = [], { now = new Date()
       ? {
           id: "policy-ready-class",
           label: "Ready to compare",
-          detail: `${readyRows.length} children have enough results`,
+          detail: `${readyRows.length} students have enough results`,
           policyVersion: LEARNING_POLICY_VERSION
         }
       : {
           id: "not-enough-evidence",
           label: "Not enough results",
-          detail: `No child has ${PROGRESS_MIN_RESPONSES} scored answers`,
+          detail: `No student has ${PROGRESS_MIN_RESPONSES} scored answers`,
           policyVersion: LEARNING_POLICY_VERSION
         }
   });

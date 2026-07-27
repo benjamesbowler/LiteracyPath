@@ -7,7 +7,11 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = relativePath =>
   fs.readFileSync(path.join(root, relativePath), "utf8");
 
-const dashboard = read("src/components/TeacherDashboardPage.jsx");
+const dashboard = [
+  read("src/components/TeacherTodayPage.jsx"),
+  read("src/components/TeacherStudentsPage.jsx"),
+  read("src/components/teacher/TeacherClassParts.jsx")
+].join("\n");
 const intents = read("src/components/teacher/TeacherIntentPage.jsx");
 const appPages = read("src/components/AppPages.jsx");
 const runtimeSurfaces = read("src/appState/appRuntimeSurfaces.jsx");

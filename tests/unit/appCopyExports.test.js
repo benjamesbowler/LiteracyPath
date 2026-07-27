@@ -6,7 +6,8 @@ import ExcelJS from "exceljs";
 import { applyTeacherFacingWorkbookCopy } from "../../src/utils/exportElAssessmentExcel.js";
 import { buildStudentWorkspaceCsvRows } from "../../src/utils/exportStudentWorkspaceCsv.js";
 
-const BANNED_TEACHER_COPY = /\b(?:assessment|evidence|student|learner|policy|login|BOY|MOY|EOY|provenance)\b/i;
+// 2026-07-26: "student" removed — see tools/checkAppCopy.js. Teachers say students.
+const BANNED_TEACHER_COPY = /\b(?:assessment|evidence|learner|policy|login|BOY|MOY|EOY|provenance)\b/i;
 const RAW_FIXTURE_VALUE = /(?:student_internal_42|attempt_internal_99|benchmark-form-v7|policy-v12|not_assessed)/i;
 
 function workbookText(workbook) {
@@ -51,7 +52,7 @@ test("teacher-facing workbooks remove internal columns, version rows, raw values
   assert.doesNotMatch(text, RAW_FIXTURE_VALUE);
   assert.doesNotMatch(text, /\b\d+\s*\/\s*\d+\b/);
   assert.match(text, /Check Results/);
-  assert.match(text, /Child Name/);
+  assert.match(text, /Student Name/);
   assert.match(text, /Not checked/);
   assert.match(text, /3 of 5/);
 });
@@ -90,9 +91,10 @@ test("child report CSV rows use friendly labels and never include internal recor
   const text = JSON.stringify(rows);
 
   assert.match(text, /Skills check/);
-  assert.match(text, /Child Skills Check/);
+  assert.match(text, /Student Skills Check/);
   assert.doesNotMatch(text, RAW_FIXTURE_VALUE);
-  assert.doesNotMatch(text, /\bStudent\b/);
+  // 2026-07-26: teacher exports now say Student. "Learner" stays banned.
+  assert.doesNotMatch(text, /\bLearner\b/);
   assert.equal(rows.some(row => /version/i.test(String(row.Field || ""))), false);
   assert.equal(rows.some(row => Object.hasOwn(row, "Attempt ID")), false);
 });

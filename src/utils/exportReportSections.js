@@ -5,7 +5,7 @@
 // only browser-touching code is the localStorage fallback collectors, and
 // those are guarded so importing this module under node stays safe.
 //
-// Terminology contract: the child currency is COINS and the brand is
+// Terminology contract: the student currency is COINS and the brand is
 // "Literacy Guide"; older wordings must not appear in any exported label
 // (tests/unit/exportShapes.test.js enforces this).
 
@@ -18,7 +18,7 @@ export const STORY_QUEST_SHEET_NAME = "Story Quests";
 export const ENGAGEMENT_SHEET_NAME = "Engagement";
 
 export const STORY_QUEST_HEADERS = [
-  "Child Name",
+  "Student Name",
   "Quest Title",
   "Level",
   "Series",
@@ -33,7 +33,7 @@ export const STORY_QUEST_HEADERS = [
 ];
 
 export const ENGAGEMENT_HEADERS = [
-  "Child Name",
+  "Student Name",
   "Class Name",
   "Daily Mission Streak",
   "Last Mission Completed",
@@ -83,12 +83,12 @@ export function buildReportContextRows({
   const rows = [];
   if (reportTitle) rows.push({ field: "Report", value: reportTitle });
   rows.push({ field: "Generated At", value: formatExportDateTime(generatedAt) || formatExportDateTime(new Date()) });
-  if (studentName) rows.push({ field: "Child", value: studentName });
+  if (studentName) rows.push({ field: "Student", value: studentName });
   if (className) rows.push({ field: "Class", value: className });
   const classList = (classNames || []).filter(Boolean);
   if (classList.length) rows.push({ field: "Classes Covered", value: classList.join(", ") });
   if (Number.isFinite(Number(studentCount)) && studentCount !== null) {
-    rows.push({ field: "Children covered", value: Number(studentCount) });
+    rows.push({ field: "Students covered", value: Number(studentCount) });
   }
   (extraRows || []).forEach(row => {
     if (row && row.field) rows.push({ field: row.field, value: row.value ?? "" });
@@ -154,7 +154,7 @@ export function buildStoryQuestRows({ studentName = "", studentId = "", progress
 
 export function storyQuestRowToCells(row = {}) {
   return {
-    "Child Name": row.studentName || "",
+    "Student Name": row.studentName || "",
     "Quest Title": row.title || "",
     "Level": row.level || "",
     "Series": row.series || "",
@@ -171,7 +171,7 @@ export function storyQuestRowToCells(row = {}) {
 
 export function emptyStoryQuestCells(message = "No Story Quest records yet") {
   return {
-    "Child Name": message,
+    "Student Name": message,
     "Quest Title": "",
     "Level": "",
     "Series": "",
@@ -245,7 +245,7 @@ export function buildEngagementRow({ studentName = "", studentId = "", className
 
 export function engagementRowToCells(row = {}) {
   return {
-    "Child Name": row.studentName || "",
+    "Student Name": row.studentName || "",
     "Class Name": row.className || "",
     "Daily Mission Streak": Number(row.missionStreak) || 0,
     "Last Mission Completed": formatExportDate(row.lastMissionCompletedDay),
@@ -265,7 +265,7 @@ export function engagementRowToCells(row = {}) {
 
 export function emptyEngagementCells(message = "No engagement records yet") {
   return {
-    "Child Name": message,
+    "Student Name": message,
     "Class Name": "",
     "Daily Mission Streak": 0,
     "Last Mission Completed": "",
@@ -347,7 +347,7 @@ export function buildEngagementRows({ students = [], classes = [], engagementByS
   const lookup = byStudentLookup(engagementByStudent);
   return uniqueStudents(students)
     .map(student => buildEngagementRow({
-      studentName: student.name || "Unknown child",
+      studentName: student.name || "Unknown student",
       studentId: student.id || "",
       className: resolveClassName(student, classes),
       areas: collectStudentEngagementAreas(student, lookup(student.id))
@@ -358,7 +358,7 @@ export function buildEngagementRows({ students = [], classes = [], engagementByS
 export function collectStoryQuestRowsForStudents({ students = [], storyQuestProgressByStudent = null, quests = [] } = {}) {
   const lookup = byStudentLookup(storyQuestProgressByStudent);
   return uniqueStudents(students).flatMap(student => buildStoryQuestRows({
-    studentName: student.name || "Unknown child",
+    studentName: student.name || "Unknown student",
     studentId: student.id || "",
     progress: collectStoryQuestProgressForStudent(student, lookup(student.id)),
     quests

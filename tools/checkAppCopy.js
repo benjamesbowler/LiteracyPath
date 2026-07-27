@@ -10,7 +10,10 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const sourceRoot = path.join(repoRoot, "src");
 const renderedMode = process.argv.includes("--rendered");
 
-const TEACHER_BANNED = /\b(?:evidence|learning event|telemetry|sync health|policy-ready|learner-weighted|response-weighted|cumulative|roster administration|access activity|drill down|provenance|contract|scope|baseline|BOY|MOY|EOY|learners?|students?|assessments?|checkpoints?|logins?)\b|(?<!privacy )\bpolicy\b/i;
+// 2026-07-26: `students?` removed from the teacher ban. Ben's call — teachers say
+// "students", and calling it jargon forced the whole teacher UI to say "children".
+// `learners?` stays banned so copy normalises learner -> student.
+const TEACHER_BANNED = /\b(?:evidence|learning event|telemetry|sync health|policy-ready|learner-weighted|response-weighted|cumulative|roster administration|access activity|drill down|provenance|contract|scope|baseline|BOY|MOY|EOY|learners?|assessments?|checkpoints?|logins?)\b|(?<!privacy )\bpolicy\b/i;
 const CHILD_BANNED = /\b(?:assessments?|evidence|learners?|students?|checkpoints?|wrong|failed|incorrect|needs teaching|not[-_ ]assessed)\b/i;
 const RAW_TOKEN = /\b(?:level-[a-z]|[a-z0-9]+(?:_[a-z0-9]+){1,})\b/i;
 const FRACTION = /\b\d+\s*\/\s*\d+\b/;

@@ -7,7 +7,8 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const policyPath = "src/policy/learningPolicy.js";
 const conclusionFiles = [
   "src/components/AdminDashboardPage.jsx",
-  "src/components/TeacherDashboardPage.jsx",
+  "src/components/teacher/teacherClassModel.js",
+  "src/components/TeacherStudentsPage.jsx",
   "src/components/teacher/TeacherProgressOverview.jsx",
   "src/data/assessmentHistoryStore.js",
   "src/data/elAssessmentReportStore.js",

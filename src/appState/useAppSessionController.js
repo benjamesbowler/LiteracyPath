@@ -679,7 +679,7 @@ export function useAppSessionController(context) {
         ? teacherReportHash(selectedClassId, studentId, studentReportView)
       : teacherIntentHash({
           appView: appView === APP_VIEWS.EL_ASSESSMENTS
-            ? APP_VIEWS.TEACHER_ASSESS
+            ? APP_VIEWS.TEACHER_CLASSES
             : appView,
           classId: selectedClassId,
           groupId: teacherGroupId,
@@ -2041,6 +2041,47 @@ export function useAppSessionController(context) {
     setMessage(`Sign-in pictures updated for ${selectedStudentName}.`);
   }
 
+  // Bulk sign-in setup. One write per student but a single roster reload and a
+  // single message at the end, so a class of 25 is one action, not 25.
+  async function assignMissingSymbolPasswords(assignments = []) {
+    if (!teacherId || !assignments.length) return { saved: 0, failed: 0 };
+    const setAt = new Date().toISOString();
+    let saved = 0;
+    let failed = 0;
+
+    for (const assignment of assignments) {
+      const studentRowId = assignment?.student?.id;
+      const sequence = assignment?.sequence || "";
+      if (!studentRowId || !/^[1-9]{3}$/.test(sequence)) {
+        failed += 1;
+        continue;
+      }
+      const { data, error } = await supabase
+        .table("students")
+        .update({
+          symbol_password: sequence,
+          password_set_at: setAt,
+          password_updated_by: teacherId,
+          failed_login_count: 0,
+          last_failed_login_at: null
+        })
+        .eq("id", studentRowId)
+        .select("id");
+      if (error || !data?.length) {
+        console.error("Could not set student symbol password in bulk.", error);
+        failed += 1;
+      } else {
+        saved += 1;
+      }
+    }
+
+    await loadStudents(selectedClassId);
+    setMessage(failed
+      ? `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}. ${failed} could not be saved — try again.`
+      : `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}.`);
+    return { saved, failed };
+  }
+
   async function updateStudentName(studentRowId, nextName) {
     if (!teacherId || !selectedClassId || !studentRowId) return false;
     const normalizedName = normalizeRosterStudentName(nextName);
@@ -2233,7 +2274,7 @@ export function useAppSessionController(context) {
       });
     }
     setResetProgressDialogOpen(false);
-    setAppView(APP_VIEWS.OVERVIEW);
+    setAppView(APP_VIEWS.TEACHER_CLASSES);
     setMessage(resetWarning || `Progress reset for ${studentName || "student"}.`);
 
     await loadStudents(selectedClassId);
@@ -2303,7 +2344,7 @@ export function useAppSessionController(context) {
     void hydrateCloudProgress(progressSyncSession).catch(error => {
       console.warn("Could not hydrate teacher-selected cloud progress.", error);
     });
-    if (navigate) setAppView(APP_VIEWS.OVERVIEW);
+    if (navigate) setAppView(APP_VIEWS.TEACHER_CLASSES);
     setCheckpointDecision(null);
     const selectedAttemptHistoryPromise = hydrateAssessmentAttempts({
       teacherId,
@@ -2460,6 +2501,10 @@ export function useAppSessionController(context) {
       }
     });
     setSelectedStudentEvidenceReady(true);
+    // Handed back so a caller can start a check at the right level in the same
+    // turn: reading currentSkillIndex from state here would still be the
+    // previous student's.
+    return { skillIndex: firstUnmastered === -1 ? skillTree.length - 1 : firstUnmastered };
   }
 
 
@@ -2506,7 +2551,7 @@ export function useAppSessionController(context) {
     setGuidedReadingRecords({});
     setNameSaved(true);
     setCurrentSkillIndex(0);
-    if (navigate) setAppView(APP_VIEWS.OVERVIEW);
+    if (navigate) setAppView(APP_VIEWS.TEACHER_CLASSES);
     await loadStudents(selectedClassId);
     await loadClassDashboard(selectedClassId);
     setMessage(`Student created and selected: ${data.name || clean}`);
@@ -2515,7 +2560,7 @@ export function useAppSessionController(context) {
 
   return {
     adminDeleteClass, adminDeleteStudent, adminSetTeacherSchool, applyStudentSession,
-    assignQuestPractice, clearQuestPractice, clearTeacherState,
+    assignMissingSymbolPasswords, assignQuestPractice, clearQuestPractice, clearTeacherState,
     completePasswordReset, createClass, createDemoClass, createStudentForSelectedClass,
     demoTeacherEnabled, executeAdminDeleteClass, executeAdminDeleteStudent, exitToTeacherEntry,
     isTeacherAccountApproved, loadAdminDashboard, loadClassDashboard, loadClasses,

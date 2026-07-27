@@ -318,7 +318,8 @@ test("reports route renders a compact class-and-child picker instead of class an
     })
   );
 
-  assert.match(html, /aria-label="Choose report child"/);
+  // Renamed 2026-07-26: teacher-facing copy says "student", not "child".
+  assert.match(html, /aria-label="Choose report student"/);
   assert.match(html, />Find a child</);
   assert.match(html, /Audit Class A · 4 children/);
   for (const child of ["Aarav", "Aisha", "Bao", "Camila"]) {

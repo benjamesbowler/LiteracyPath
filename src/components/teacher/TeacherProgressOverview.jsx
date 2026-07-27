@@ -39,7 +39,8 @@ export function TeacherProgressOverview({
   selectedLearnerId = "",
   onSelectLearner,
   onClearLearner,
-  onOpenReports
+  onOpenReports,
+  onOpenClassReport
 }) {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -60,7 +61,7 @@ export function TeacherProgressOverview({
 
   return (
     <div className="teacher-report-picker">
-      <section className="teacher-report-picker-controls" aria-label="Choose report child">
+      <section className="teacher-report-picker-controls" aria-label="Choose report student">
         <label>
           <span>Class</span>
           <select
@@ -78,7 +79,7 @@ export function TeacherProgressOverview({
           </select>
         </label>
         <label>
-          <span>Find a child</span>
+          <span>Find a student</span>
           <input
             type="search"
             value={search}
@@ -92,29 +93,44 @@ export function TeacherProgressOverview({
         </label>
         <p>
           {selectedClassId
-            ? `${className || "Selected class"} · ${countPhrase(rows.length, "child", "children")}`
-            : "Choose a class, then open one child's report."}
+            ? `${className || "Selected class"} · ${countPhrase(rows.length, "student", "students")}`
+            : "Choose a class, then open one student's report."}
         </p>
+        {onOpenClassReport && (
+          <div className="teacher-report-picker-class-report">
+            <button
+              className="lp-button lp-button-secondary"
+              type="button"
+              disabled={classList.length === 0}
+              onClick={onOpenClassReport}
+            >
+              Open class report
+            </button>
+            <small>
+              Skill coverage for the whole class, who needs support, and a printable copy.
+            </small>
+          </div>
+        )}
       </section>
 
       {!selectedClassId ? (
         <section className="teacher-report-picker-empty">
           <h2>Choose a class</h2>
-          <p>Reports are always opened for one child at a time.</p>
+          <p>Reports are always opened for one student at a time.</p>
         </section>
       ) : rows.length === 0 ? (
         <section className="teacher-report-picker-empty">
-          <h2>No children in this class yet</h2>
-          <p>Add children in the Children section before opening reports.</p>
+          <h2>No students in this class yet</h2>
+          <p>Add students in the Students section before opening reports.</p>
         </section>
       ) : filteredRows.length === 0 ? (
         <section className="teacher-report-picker-empty">
-          <h2>No matching child</h2>
+          <h2>No matching student</h2>
           <p>Try a different display name.</p>
         </section>
       ) : (
         <>
-          <section className="teacher-report-picker-list" aria-label="Children">
+          <section className="teacher-report-picker-list" aria-label="Students">
             {visibleRows.map(row => {
               const answers = learnerAnswerCount(row);
               const mastered = learnerMasteredCount(row);
@@ -146,7 +162,7 @@ export function TeacherProgressOverview({
           </section>
 
           {pageCount > 1 && (
-            <nav className="teacher-report-picker-pages" aria-label="Child pages">
+            <nav className="teacher-report-picker-pages" aria-label="Student pages">
               <button
                 className="lp-button lp-button-secondary"
                 type="button"
@@ -171,7 +187,7 @@ export function TeacherProgressOverview({
 
       {selectedLearnerId && (
         <button className="text-button" type="button" onClick={onClearLearner}>
-          Clear selected child
+          Clear selected student
         </button>
       )}
     </div>

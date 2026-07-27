@@ -465,35 +465,33 @@ body {
   margin-top: 2px;
 }
 
-.lg-sb-context-nav {
+/* Leaving an open check is a decision, so the rail asks before it navigates. */
+.lg-sb-leave-check {
   display: grid;
-  gap: 2px;
-  margin: 3px 0 7px 36px;
-  padding-left: 9px;
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.lg-sb-context-item {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  color: #CBD5E1;
-  padding: 5px 6px;
-  border-radius: 5px;
-  font: 500 11px/1.25 inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.lg-sb-context-item:hover:not(:disabled),
-.lg-sb-context-item.active {
+  gap: 6px;
+  margin: 4px 2px 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  color: #E2E8F0;
+  font-size: 12px;
 }
 
-.lg-sb-context-item:disabled {
-  cursor: not-allowed;
-  opacity: 0.36;
+.lg-sb-leave-check strong {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.lg-sb-leave-check p {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.lg-sb-leave-check .lp-button {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 12px;
 }
 
 /* Tooltip — shown in collapsed state on hover */
@@ -1065,10 +1063,7 @@ body {
   box-shadow: var(--lp-shadow-card) !important;
 }
 
-/* ─── 20. Teacher dashboard hero — remove warm gradient ─────────────────────── */
-.teacher-overview-hero,
 .teacher-page-header,
-.teacher-primary-action,
 .overview-start-panel {
   background: var(--lp-color-surface) !important;
 }

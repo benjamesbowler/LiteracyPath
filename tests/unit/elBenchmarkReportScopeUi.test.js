@@ -172,7 +172,8 @@ test("Overview keeps descriptive EL checks separate from learning-status totals"
   assert.match(html, /Descriptive EL check results/);
   assert.match(html, /Phonological and Phonemic Awareness/);
   assert.match(html, /These checks are reported separately/);
-  assert.match(html, /do not change the Mastered, Developing, or Yet to learn totals/);
+  // Renamed 2026-07-26: the reporting ladder now says "Practising", not "Developing".
+  assert.match(html, /do not change the Mastered, Practising, or Yet to learn totals/);
   assert.match(html, />Download knowledge data</);
 });
 
@@ -313,8 +314,9 @@ test("finished report exposes expandable semantic answer details for every bench
   assert.match(html, /<strong>Self-corrections:<\/strong> 2/);
   assert.match(html, /data-label="What to review">Vowel Team Confusion<\/td>/);
   assert.match(html, /data-label="Check notes">Response Transcription Required<\/td>/);
-  assert.match(html, /data-label="Why it was not scored">Child Unwell<\/td>/);
-  assert.match(html, /data-label="Teacher note">The child reported a headache\.<\/td>/);
+  // Renamed 2026-07-26: teacher-facing copy says "student", not "child".
+  assert.match(html, /data-label="Why it was not scored">Student Unwell<\/td>/);
+  assert.match(html, /data-label="Teacher note">The student reported a headache\.<\/td>/);
   assert.match(html, /<h4>Prerequisite review<\/h4>/);
   assert.match(html, /<dt>Review state<\/dt><dd>Override<\/dd>/);
   assert.match(html, /<dt>Review source<\/dt><dd>Letter Sound Benchmark<\/dd>/);

@@ -97,7 +97,7 @@ test("report context rows always include a well-formed Generated At entry", () =
   assert.ok(generatedAt, "Generated At row exists");
   assert.match(String(generatedAt.value), DATE_TIME_PATTERN);
   assert.ok(rows.some(row => row.field === "Classes Covered" && row.value === "Class A"));
-  assert.ok(rows.some(row => row.field === "Children covered" && row.value === 12));
+  assert.ok(rows.some(row => row.field === "Students covered" && row.value === 12));
 });
 
 test("guided reading workbook data carries generatedAt and a report info header", () => {

@@ -12,10 +12,22 @@ export const STUDENT_REPORT_VIEWS = [
     description: "Saved answers and accuracy by literacy skill."
   },
   {
+    id: "guided-reading",
+    label: "Guided reading",
+    shortLabel: "Guided reading",
+    description: "Books read, words read correctly, support words and teacher notes."
+  },
+  {
     id: "hfw",
     label: "High-frequency words",
     shortLabel: "HFW / sight words",
     description: "All 100 words, including those not seen yet."
+  },
+  {
+    id: "other-learning",
+    label: "Other learning",
+    shortLabel: "Other learning",
+    description: "Practice results from Sound Seekers, the Arcade and Story Quests."
   },
   {
     id: "el-assessments",
@@ -26,14 +38,14 @@ export const STUDENT_REPORT_VIEWS = [
 ];
 
 const VIEW_IDS = new Set(STUDENT_REPORT_VIEWS.map(view => view.id));
-const LEGACY_VIEW_MAP = Object.freeze({
-  "guided-reading": "whole-child",
-  "other-learning": "whole-child"
-});
 
+// 2026-07-26: "guided-reading" and "other-learning" were silently rewritten to
+// "whole-child" here while both views were still built and still rendered in
+// FinishedReportPage. The two buttons that opened them therefore opened the
+// wrong report. They are real destinations again, so there is nothing left to
+// rewrite; anything unrecognised still falls back to the overview.
 export function normalizeStudentReportView(value = "") {
-  const normalized = LEGACY_VIEW_MAP[value] || value;
-  return VIEW_IDS.has(normalized) ? normalized : "whole-child";
+  return VIEW_IDS.has(value) ? value : "whole-child";
 }
 
 export function readStudentReportHash() {
@@ -67,26 +79,9 @@ export function reportStatusLabel(value = "") {
   return "Not checked";
 }
 
-export function getGuidedReadingLandingMeta({ progress = null, loadStatus = "idle" } = {}) {
-  if (progress) {
-    const totalBooksRead = Math.max(0, Number(progress.totalBooksRead) || 0);
-    return `${totalBooksRead} completed book${totalBooksRead === 1 ? "" : "s"}`;
-  }
-  if (loadStatus === "error") return "Reading summary unavailable";
-  return "Reading records loading";
-}
-
-export function getSkillsCheckLandingMeta({ attemptCount = 0, skillMasterySummary = [] } = {}) {
-  const hasMastery = Array.isArray(skillMasterySummary) &&
-    skillMasterySummary.some(summary => Number(summary?.masteredCount || 0) > 0);
-  if (hasMastery) return "Saved check results available";
-
-  const savedAttempts = Math.max(0, Number(attemptCount) || 0);
-  if (savedAttempts > 0) {
-    return `${savedAttempts} saved check${savedAttempts === 1 ? "" : "s"}`;
-  }
-  return "No saved checks yet";
-}
+// Removed 2026-07-26: getGuidedReadingLandingMeta / getSkillsCheckLandingMeta fed the
+// per-student report landing screen, which no longer exists. A student report now
+// opens straight from the Student panel (TeacherStudentsPage -> FinishedReportPage).
 
 function firstValidTimestamp(...values) {
   for (const value of values) {

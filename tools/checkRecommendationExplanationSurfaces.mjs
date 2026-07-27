@@ -17,8 +17,8 @@ const inventory = Object.freeze({
     "guided-reading": "src/components/guided-reading/GuidedReadingPage.jsx"
   }),
   teacher: Object.freeze({
-    "teacher-dashboard-next-steps": "src/components/TeacherDashboardPage.jsx",
-    "teacher-today": "src/components/TeacherDashboardPage.jsx",
+    "teacher-dashboard-next-steps": "src/components/TeacherStudentsPage.jsx",
+    "teacher-today": "src/components/TeacherTodayPage.jsx",
     "guided-reading": "src/components/guided-reading/GuidedReadingPage.jsx",
     "targeted-review": "src/components/AppPages.jsx"
   })

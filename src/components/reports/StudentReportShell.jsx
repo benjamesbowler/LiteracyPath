@@ -6,6 +6,9 @@ import {
   studentReportHash
 } from "./studentReportUiUtils.js";
 import { ActionFeedback } from "../ActionFeedback.jsx";
+import { TEACHER_COPY } from "../../copy/teacherCopy.js";
+
+const SHELL_COPY = TEACHER_COPY.reportShell;
 
 export function StudentReportShell({
   activeView,
@@ -66,8 +69,8 @@ export function StudentReportShell({
     <div className="lg-report-shell">
       <header className="lg-report-topbar screen-only">
         <div className="lg-report-topbar-copy">
-          <span className="lg-report-product-label">Child reports</span>
-          <strong>{studentName || "Selected child"}</strong>
+          <span className="lg-report-product-label">{SHELL_COPY.productLabel}</span>
+          <strong>{studentName || SHELL_COPY.fallbackStudent}</strong>
           {className && <span>{className}</span>}
         </div>
         <div className="lg-report-actions" aria-label="Report actions">
@@ -93,10 +96,10 @@ export function StudentReportShell({
       </header>
 
       <div className="lg-report-workspace">
-        <nav className="lg-report-nav" aria-label="Child reports">
+        <nav className="lg-report-nav" aria-label={SHELL_COPY.navLabel}>
           <div className="lg-report-nav-intro">
-            <strong>Report view</strong>
-            <span>Choose the results you need.</span>
+            <strong>{SHELL_COPY.viewLabel}</strong>
+            <span>{SHELL_COPY.viewHelp}</span>
           </div>
           <div className="lg-report-nav-links">
             {STUDENT_REPORT_VIEWS.map(view => (
@@ -115,7 +118,7 @@ export function StudentReportShell({
             ))}
           </div>
           <label className="lg-report-mobile-select">
-            <span>Report view</span>
+            <span>{SHELL_COPY.viewLabel}</span>
             <select value={activeView} onChange={event => selectView(event.target.value)}>
               {STUDENT_REPORT_VIEWS.map(view => (
                 <option key={view.id} value={view.id}>{view.label}</option>
@@ -127,7 +130,7 @@ export function StudentReportShell({
         <main className="lg-report-main" id={`student-report-${current.id}`}>
           <div className="lg-report-view-heading">
             <div>
-              <p>{studentName || "Selected child"}</p>
+              <p>{studentName || SHELL_COPY.fallbackStudent}</p>
               <h1 ref={headingRef} tabIndex="-1">{headingLabel || current.label}</h1>
               <span>{headingDescription || current.description}</span>
             </div>
@@ -140,8 +143,8 @@ export function StudentReportShell({
           {children}
           {provenanceRows.length > 0 && (
             <section className="lg-report-provenance" aria-label="About this report">
-              <h2>About this report</h2>
-              <p>This shows which child, class, dates, results, and privacy choices are included.</p>
+              <h2>{SHELL_COPY.aboutTitle}</h2>
+              <p>{SHELL_COPY.aboutBody}</p>
               <dl>
                 {provenanceRows.map(row => (
                   <div key={row.field}>
