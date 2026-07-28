@@ -583,7 +583,9 @@ test("resources are class-aware whole-class tools without a second student picke
   assert.match(worksheet, /Class: \{className\}/);
   assert.match(worksheet, /Open print preview/);
   assert.match(worksheet, /Back to Resources/);
-  assert.match(present, /Class: \{className\}/);
+  // The redesigned picker folds the class name into the headline sentence
+  // ("<class> is on Cycle N") instead of a detached "Class:" chip.
+  assert.match(present, /\$\{className\} is on/);
   assert.match(present, /Projector and keyboard help/);
   assert.match(present, /Back to Resources/);
   assert.match(viewHelpers, /"resources\/worksheets"/);

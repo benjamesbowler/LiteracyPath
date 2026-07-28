@@ -33,7 +33,7 @@ test("teacher resource subroutes expose main landmarks and a real route back", (
   assert.match(worksheet, /<main className="ws-page" data-teacher-route="worksheets">/);
   assert.match(worksheet, /<nav className="ws-route-nav" aria-label="Worksheet navigation">/);
   assert.match(worksheet, /← Back to Resources/);
-  assert.match(present, /<main className="ws-page" data-teacher-route="present">/);
+  assert.match(present, /<main className="ws-page pr-page" data-teacher-route="present">/);
   assert.match(present, /<nav className="ws-route-nav" aria-label="Presentation navigation">/);
   assert.match(present, /← Back to Resources/);
   assert.match(students, /<main[\s\S]*?data-teacher-route="login-cards"/);

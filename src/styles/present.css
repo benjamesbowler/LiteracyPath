@@ -1,0 +1,311 @@
+/* Present-mode picker (teacher-facing).
+   Sits on top of worksheets.css — the shared teacher page shell, back link and
+   button styles still come from there. This file only adds what the redesigned
+   picker needs: the day grid, the contents list and the live deck preview.
+   All colours are the app's --lp-* teacher tokens, NOT the deck's palette: the
+   deck is a children's surface, this is a tool the adult drives. */
+
+.pr-page {
+  max-width: 1200px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.pr-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.pr-head h1 {
+  margin: 0 0 4px;
+  font-family: var(--lp-font-reading);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--lp-color-text-strong);
+}
+
+.pr-head p {
+  margin: 0;
+  max-width: 64ch;
+  color: var(--lp-color-text-muted);
+}
+
+.pr-head p strong {
+  color: var(--lp-color-text-strong);
+}
+
+.pr-head-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pr-present {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pr-present svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.pr-grid {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.pr-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.pr-card {
+  background: var(--lp-color-surface);
+  border: 1px solid var(--lp-color-border);
+  border-radius: 16px;
+  box-shadow: var(--lp-shadow-card);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.pr-card-title {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--lp-color-text-muted);
+}
+
+/* ── Day grid ───────────────────────────────────────────────────────────── */
+.pr-days {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pr-days-label {
+  font-weight: 600;
+  color: var(--lp-color-text-strong);
+  font-size: 0.9rem;
+}
+
+.pr-day-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.pr-day {
+  min-height: 56px;
+  border-radius: 10px;
+  border: 1.5px solid var(--lp-color-border-strong);
+  background: var(--lp-color-surface);
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--lp-color-text-strong);
+  transition: border-color 0.12s, background 0.12s;
+}
+
+.pr-day:hover {
+  border-color: var(--lp-color-primary);
+}
+
+.pr-day:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--lp-color-primary) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.pr-day.active {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary);
+  color: #fff;
+}
+
+.pr-day-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.pr-day-count {
+  font-size: 0.75rem;
+  color: var(--lp-color-text-muted);
+}
+
+.pr-day.active .pr-day-count {
+  color: color-mix(in srgb, #fff 78%, var(--lp-color-primary));
+}
+
+/* ── Contents ───────────────────────────────────────────────────────────── */
+.pr-contents {
+  max-height: 340px;
+  overflow: auto;
+}
+
+.pr-list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pr-list-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.pr-list-row dt {
+  width: 104px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--lp-color-text-muted);
+}
+
+.pr-list-row dd {
+  margin: 0;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--lp-color-text-strong);
+  min-width: 0;
+}
+
+.pr-foot {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--lp-color-border);
+  color: var(--lp-color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* ── Preview ────────────────────────────────────────────────────────────── */
+.pr-preview {
+  gap: 12px;
+}
+
+.pr-preview-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pr-preview-nav {
+  display: flex;
+  gap: 6px;
+}
+
+.pr-preview-nav button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid var(--lp-color-border-strong);
+  background: var(--lp-color-surface);
+  cursor: pointer;
+  color: var(--lp-color-text-strong);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pr-preview-nav button:hover {
+  background: var(--lp-color-surface-subtle);
+  border-color: var(--lp-color-primary);
+}
+
+/* The preview is the real deck in an iframe at 16:9, so it can never fall out
+   of date with what projects. Pointer events are off: the teacher drives the
+   preview from the thumbnail rail, not by clicking inside the deck. */
+.pr-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--lp-color-background);
+  box-shadow: var(--lp-shadow-soft);
+}
+
+.pr-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+.pr-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.pr-thumb {
+  flex: 0 0 auto;
+  width: 104px;
+  min-height: 52px;
+  border-radius: 8px;
+  border: 2px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+  cursor: pointer;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-align: left;
+  transition: border-color 0.12s;
+}
+
+.pr-thumb:hover {
+  border-color: var(--lp-color-primary);
+}
+
+.pr-thumb.active {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+}
+
+.pr-thumb-n {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--lp-color-text-subtle);
+}
+
+.pr-thumb-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--lp-color-text-strong);
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .pr-grid {
+    grid-template-columns: 1fr;
+  }
+  .pr-contents {
+    max-height: none;
+  }
+}
