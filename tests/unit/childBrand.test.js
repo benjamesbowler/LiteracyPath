@@ -69,22 +69,22 @@ test("entry, home, and preloading cannot drift back to retired runtime names", (
 
 test("the entry gateway gives students and teachers their own branded destinations", () => {
   const entrySource = readFileSync(path.join(repoRoot, "src/components/StudentEntryPage.jsx"), "utf8");
-  const entryStyles = readFileSync(path.join(repoRoot, "src/styles/pal-worlds.css"), "utf8");
+  const entryStyles = readFileSync(path.join(repoRoot, "src/styles/landing.css"), "utf8");
 
   assert.doesNotMatch(entrySource, /className="pals-entry-brand"/, "the child logo must not brand the whole gateway");
   assert.match(entrySource, /className="entry-brand-logo entry-student-logo"/);
   assert.match(entrySource, /import teacherMarkUrl from "\.\.\/assets\/logomark\.svg"/);
   assert.match(entrySource, /className="entry-teacher-name">\{TEACHER_BRAND\.name\}<\/span>/);
   assert.match(entrySource, /className="entry-teacher-tools">\{TEACHER_BRAND\.areaName\}<\/span>/);
-  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Children<\/span>/);
-  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Teachers<\/span>/);
+  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Start playing<\/span>/);
+  assert.match(entrySource, /className="student-entry-card-cta pals-cta">Open Teacher Tools<\/span>/);
   assert.match(entrySource, /aria-labelledby="student-entry-title"/);
   assert.match(entrySource, /aria-describedby="student-entry-description"/);
   assert.match(entrySource, /aria-labelledby="teacher-entry-title"/);
   assert.match(entrySource, /aria-describedby="teacher-entry-description"/);
   assert.match(
     entryStyles,
-    /\.student-entry-page\.pals-entry\s*\{[\s\S]*?#edf1ee;/,
+    /\.student-entry-page\.pals-entry\.lp-landing\s*\{[\s\S]*?--landing-paper: #f7f0e4;/,
     "the shared gateway must use a neutral platform background"
   );
   assert.match(
@@ -94,7 +94,7 @@ test("the entry gateway gives students and teachers their own branded destinatio
   );
   assert.match(
     entryStyles,
-    /@media \(max-width: 720px\)[\s\S]*?\.pals-entry \.student-entry-grid\s*\{\s*grid-template-columns: minmax\(0, 420px\);/,
+    /@media \(max-width: 720px\)[\s\S]*?\.pals-entry \.student-entry-grid\s*\{\s*grid-template-columns: min\(100%, 420px\);/,
     "phones must stack both destinations into one readable column"
   );
 });

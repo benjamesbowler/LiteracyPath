@@ -1,0 +1,793 @@
+/* The public landing page (2026-07-28 redesign) and the entry gateway cards
+   that live inside its hero. Supersedes the entry block that used to sit in
+   pal-worlds.css. Layout tokens come from the app (--lp-*); the landing's own
+   voice is the warm paper ground and the deep-navy teacher band below. */
+
+.student-entry-page.pals-entry.lp-landing {
+  /* The shared gateway ground stays neutral - warm paper, not a child brand. */
+  --landing-paper: #f7f0e4;
+  --landing-paper-deep: #f1e6d2;
+  --landing-ink: #1d2433;
+  --landing-navy: #0f172a;
+  --landing-navy-soft: #1e293b;
+  /* App.css gives .student-entry-page `display: grid; place-items: center`.
+     Both halves must be reset: modern Chromium applies box alignment to BLOCK
+     containers too, so a lingering place-items keeps shrink-centering every
+     section (and their min-content overflows a phone viewport). The landing
+     is an ordinary document flow. */
+  display: block;
+  place-items: initial;
+  padding: 0;
+  margin: 0;
+  background: var(--landing-paper);
+  color: var(--landing-ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* One readable content column inside each full-bleed band. */
+.lp-landing-section > * {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.lp-landing h1,
+.lp-landing h2,
+.lp-landing h3,
+.lp-landing-stats dt {
+  font-family: Lexend, Inter, sans-serif;
+}
+
+.lp-landing :focus-visible {
+  outline: 2px solid var(--lp-color-primary, #0c6b65);
+  outline-offset: 2px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.lp-landing-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px clamp(20px, 5vw, 56px);
+  background: color-mix(in srgb, var(--landing-paper) 92%, #ffffff 8%);
+  border-bottom: 1px solid rgba(29, 36, 51, 0.08);
+}
+
+.lp-landing-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lp-landing-mark {
+  width: 30px;
+  height: 30px;
+}
+
+.lp-landing-domain {
+  display: block;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.lp-landing-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(29, 36, 51, 0.55);
+}
+
+.lp-landing-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 22px);
+  flex-wrap: wrap;
+}
+
+.lp-landing-nav a {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(29, 36, 51, 0.78);
+  text-decoration: none;
+  padding: 10px 4px;
+}
+
+.lp-landing-nav a:hover {
+  color: var(--lp-color-primary, #0c6b65);
+}
+
+.lp-landing-signin {
+  min-height: 44px;
+  padding: 10px 26px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lp-color-primary, #0c6b65);
+  color: #ffffff;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lp-landing-signin:hover {
+  background: var(--lp-color-primary-strong, #084e4a);
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────── */
+.lp-landing-hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(24px, 4vw, 40px);
+  padding: clamp(32px, 6vw, 72px) clamp(20px, 5vw, 56px) clamp(28px, 5vw, 56px);
+  background:
+    radial-gradient(1000px 620px at 14% -10%, rgba(255, 255, 255, 0.85), transparent 60%),
+    radial-gradient(900px 560px at 90% 8%, rgba(240, 205, 148, 0.35), transparent 55%),
+    var(--landing-paper);
+}
+
+.entry-gateway-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  max-width: 760px;
+}
+
+.lp-landing-kicker {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lp-color-primary-strong, #084e4a);
+  background: rgba(12, 107, 101, 0.08);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.lp-landing-kicker-mark {
+  width: 16px;
+  height: 16px;
+}
+
+.entry-gateway-intro h1 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--landing-ink);
+  max-width: 18ch;
+}
+
+.lp-landing-lede {
+  margin: 0;
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.55;
+  color: rgba(29, 36, 51, 0.72);
+  max-width: 62ch;
+}
+
+/* ── The two branded destinations ───────────────────────────────────── */
+.pals-entry .student-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+  width: min(100%, 960px);
+}
+
+.pals-entry .student-entry-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(22px, 3vw, 34px) clamp(18px, 3vw, 32px);
+  border: 1px solid rgba(29, 36, 51, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05), 0 14px 34px rgba(15, 23, 42, 0.08);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: center;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.pals-entry .student-entry-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06), 0 22px 44px rgba(15, 23, 42, 0.12);
+}
+
+.pals-entry .student-entry-card:active {
+  transform: translateY(-1px);
+}
+
+.entry-card-accessible-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.entry-card-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 116px;
+}
+
+.entry-brand-logo {
+  display: block;
+}
+
+.entry-student-logo {
+  width: min(240px, 70%);
+  height: auto;
+}
+
+.entry-teacher-brand {
+  gap: 14px;
+}
+
+.entry-teacher-mark {
+  width: 58px;
+  height: auto;
+}
+
+.entry-teacher-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(29, 36, 51, 0.14);
+  text-align: left;
+}
+
+.entry-teacher-name {
+  font-family: Lexend, Inter, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--landing-ink);
+}
+
+.entry-teacher-tools {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4553c8;
+}
+
+.student-entry-card-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(29, 36, 51, 0.7);
+  max-width: 40ch;
+}
+
+.pals-entry .pals-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 30px;
+  border-radius: 999px;
+  background: var(--lp-color-primary, #0c6b65);
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.pals-entry .pals-cta::after {
+  content: "→";
+}
+
+.pals-entry .student-entry-card:hover .pals-cta {
+  background: var(--lp-color-primary-strong, #084e4a);
+}
+
+/* ── Stat strip ─────────────────────────────────────────────────────── */
+.lp-landing-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 14px);
+  margin: 0;
+  width: min(100%, 960px);
+  padding: 14px clamp(14px, 3vw, 26px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(29, 36, 51, 0.08);
+  border-radius: 16px;
+}
+
+.lp-landing-stats > div {
+  flex: 1 1 150px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lp-landing-stats dt {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--landing-ink);
+}
+
+.lp-landing-stat-note dt {
+  font-size: 14px;
+}
+
+.lp-landing-stats dd {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(29, 36, 51, 0.65);
+}
+
+/* ── Sections ───────────────────────────────────────────────────────── */
+.lp-landing-section {
+  position: relative;
+  padding: clamp(40px, 7vw, 84px) clamp(20px, 5vw, 56px);
+}
+
+.lp-landing-section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 720px;
+  margin-bottom: clamp(22px, 3.5vw, 36px);
+}
+
+.lp-landing-center {
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lp-landing-section h2 {
+  margin: 0;
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+#for-children {
+  background: #ffffff;
+}
+
+.lp-landing-pal {
+  position: absolute;
+  top: clamp(24px, 5vw, 64px);
+  right: clamp(20px, 6vw, 96px);
+  width: clamp(80px, 9vw, 130px);
+  pointer-events: none;
+}
+
+.lp-landing-tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.lp-landing-tile {
+  background: var(--landing-paper);
+  border: 1px solid rgba(29, 36, 51, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  padding-bottom: 18px;
+}
+
+.lp-landing-tile-art {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.lp-landing-tile h3 {
+  margin: 0 18px 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.lp-landing-tile p {
+  margin: 0 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(29, 36, 51, 0.68);
+}
+
+/* ── Worlds ─────────────────────────────────────────────────────────── */
+.lp-landing-worlds {
+  background: var(--landing-paper-deep);
+}
+
+.lp-landing-world-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(14px, 2vw, 20px);
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.lp-landing-world {
+  position: relative;
+  min-height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 20px;
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
+}
+
+.lp-landing-world::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 14, 24, 0.78) 0%, rgba(10, 14, 24, 0.12) 55%, transparent 100%);
+}
+
+.lp-landing-world > * {
+  position: relative;
+}
+
+.lp-landing-world-band {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--landing-ink);
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+}
+
+.lp-landing-world-band img {
+  width: 18px;
+  height: 18px;
+}
+
+.lp-landing-world h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(10, 14, 24, 0.5);
+}
+
+.lp-landing-world p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 34ch;
+  text-shadow: 0 1px 6px rgba(10, 14, 24, 0.55);
+}
+
+/* ── Teachers ───────────────────────────────────────────────────────── */
+.lp-landing-teachers {
+  background: var(--landing-navy);
+  color: #f1f5f9;
+}
+
+.lp-landing-teachers .lp-landing-lede {
+  color: rgba(241, 245, 249, 0.72);
+}
+
+.lp-landing-teachers h2 {
+  color: #ffffff;
+  max-width: 22ch;
+}
+
+.lp-landing-kicker-light {
+  color: #7dd3c8;
+  background: rgba(125, 211, 200, 0.1);
+}
+
+.lp-landing-steps {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(14px, 2vw, 18px);
+}
+
+.lp-landing-step {
+  background: var(--landing-navy-soft);
+  border: 1px solid rgba(241, 245, 249, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lp-landing-step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(125, 211, 200, 0.16);
+  color: #7dd3c8;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-landing-step h3 {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.lp-landing-step p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(241, 245, 249, 0.72);
+}
+
+.lp-landing-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.lp-landing-chip {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(241, 245, 249, 0.08);
+  color: rgba(241, 245, 249, 0.85);
+}
+
+.lp-landing-setup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  background: var(--landing-navy-soft);
+  border: 1px solid rgba(241, 245, 249, 0.1);
+  border-radius: 16px;
+  padding: 20px 22px;
+}
+
+.lp-landing-setup h3 {
+  margin: 0 0 6px;
+  font-size: 16.5px;
+  color: #ffffff;
+}
+
+.lp-landing-setup p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(241, 245, 249, 0.72);
+  max-width: 64ch;
+}
+
+.lp-landing-cta-button {
+  min-height: 44px;
+  padding: 12px 30px;
+  border: 0;
+  border-radius: 999px;
+  background: #6172f3;
+  color: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lp-landing-cta-button:hover {
+  background: #4553c8;
+}
+
+/* ── Safe by default ────────────────────────────────────────────────── */
+.lp-landing-safe {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  flex-wrap: wrap;
+  background: var(--landing-paper);
+}
+
+.lp-landing-safe-text {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.lp-landing-safe-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lp-landing-safe-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(29, 36, 51, 0.78);
+  max-width: 56ch;
+}
+
+.lp-landing-safe-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--lp-color-primary, #0c6b65);
+}
+
+.lp-landing-safe-art {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+  gap: clamp(14px, 2vw, 24px);
+}
+
+.lp-landing-safe-art img {
+  width: clamp(130px, 16vw, 190px);
+  height: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px;
+  border: 1px solid rgba(29, 36, 51, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+}
+
+/* ── Final call to action ───────────────────────────────────────────── */
+.lp-landing-final {
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 56px);
+  text-align: center;
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(12, 16, 34, 0.72), rgba(12, 16, 34, 0.82)),
+    url("/images/pals/moonwood-panorama.webp") center / cover no-repeat;
+}
+
+.lp-landing-final h2 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -0.02em;
+}
+
+.lp-landing-final p {
+  margin: 0 0 26px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.lp-landing-final-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.lp-landing-final-child,
+.lp-landing-final-teacher {
+  min-height: 48px;
+  padding: 13px 34px;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lp-landing-final-child {
+  background: #ffffff;
+  color: var(--landing-ink);
+}
+
+.lp-landing-final-teacher {
+  background: #6172f3;
+  color: #ffffff;
+}
+
+.lp-landing-final-child:hover {
+  background: #f1e6d2;
+}
+
+.lp-landing-final-teacher:hover {
+  background: #4553c8;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+.lp-landing-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 22px clamp(20px, 5vw, 56px);
+  background: var(--landing-paper);
+  border-top: 1px solid rgba(29, 36, 51, 0.08);
+}
+
+.lp-landing-footer-note {
+  font-size: 12.5px;
+  color: rgba(29, 36, 51, 0.6);
+}
+
+/* ── Small screens ──────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .pals-entry .student-entry-grid {
+    grid-template-columns: min(100%, 420px);
+    justify-content: center;
+  }
+
+  .lp-landing-pal {
+    display: none;
+  }
+
+  .lp-landing-safe-art img {
+    width: clamp(110px, 30vw, 150px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pals-entry .student-entry-card,
+  .pals-entry .student-entry-card:hover,
+  .pals-entry .student-entry-card:active {
+    transition: none;
+    transform: none;
+  }
+}
