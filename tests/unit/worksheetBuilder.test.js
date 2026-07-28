@@ -17,16 +17,21 @@ test("cycle options are the numbered cycles", () => {
   assert.ok(opts.every(o => o.id && o.cycleNumber && o.title));
 });
 
-test("cycle labels never repeat the generated cycle prefix", () => {
+test("cycle labels name what the cycle covers and never repeat the prefix", () => {
+  // The curriculum data leaves most titles as a bare "Cycle N"; the label must
+  // still say what that cycle teaches, so a teacher can pick at a glance.
   assert.equal(
     worksheetCycleLabel({ cycleNumber: 1, title: "Cycle 1: Meet A and M" }),
-    "Cycle 1: Meet A and M"
+    "Cycle 1 · Meet A and M"
   );
-  assert.equal(worksheetCycleLabel({ cycleNumber: 2, title: "Cycle 2" }), "Cycle 2");
-  assert.equal(worksheetCycleLabel({ cycleNumber: 8, title: "B and W" }), "Cycle 8: B and W");
-  assert.ok(worksheetCycleOptions().every(option => (
-    !/^Cycle \d+\s*[—-]\s*Cycle \d+/i.test(worksheetCycleLabel(option))
-  )));
+  assert.equal(worksheetCycleLabel({ cycleNumber: 8, title: "B and W" }), "Cycle 8 · B and W");
+
+  const labels = worksheetCycleOptions().map(option => worksheetCycleLabel(option));
+  assert.equal(labels.length, 27);
+  for (const label of labels) {
+    assert.doesNotMatch(label, /^Cycle \d+$/, `"${label}" must name its content`);
+    assert.doesNotMatch(label, /^Cycle \d+\s*[—·-]\s*Cycle \d+/i, `"${label}" repeats the prefix`);
+  }
 });
 
 test("available types match the cycle's content", () => {

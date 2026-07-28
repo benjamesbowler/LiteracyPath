@@ -9,6 +9,7 @@
 // only ever tests against material taught by that point in the curriculum,
 // so no two cycles print the same worksheet.
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
+import { cycleOptionLabel } from "../cycleTitles.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
@@ -39,22 +40,30 @@ export function getWorksheetCycle(cycleId) {
   return elSkillsBlockCycles.find(c => c.id === cycleId) || null;
 }
 
-// Cycles a teacher can pick from (numbered cycles only).
+// Cycles a teacher can pick from (numbered cycles only). Each option carries
+// its own finished label so the picker never has to re-derive one.
 export function worksheetCycleOptions() {
   return elSkillsBlockCycles
     .filter(c => c.cycleNumber)
-    .map(c => ({ id: c.id, cycleNumber: c.cycleNumber, title: c.title }));
+    .map(c => ({
+      id: c.id,
+      cycleNumber: c.cycleNumber,
+      title: c.title,
+      label: cycleOptionLabel(c)
+    }));
 }
 
+// Every cycle picker in the app names what the cycle covers ("Cycle 2 · Tt and
+// Ss"), never a bare "Cycle 2" - most cycle titles in the curriculum data carry
+// no topic, so the topic is derived from the cycle's own focus letters.
+// Callers may pass a picker option or a whole cycle record; when the caller
+// only has the option shape, the full record is looked up for its letters.
 export function worksheetCycleLabel(cycle = {}) {
-  const number = Number(cycle.cycleNumber);
-  const prefix = Number.isFinite(number) && number > 0 ? `Cycle ${number}` : "Cycle";
-  const title = String(cycle.title || "").trim();
-  if (!title) return prefix;
-  const withoutRepeatedPrefix = title
-    .replace(new RegExp(`^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*[:—-]?\\s*`, "i"), "")
-    .trim();
-  return withoutRepeatedPrefix ? `${prefix}: ${withoutRepeatedPrefix}` : prefix;
+  if (cycle.label) return cycle.label;
+  const full = (cycle.focusLetters || cycle.reviewLetters)
+    ? cycle
+    : (cycle.id ? getWorksheetCycle(cycle.id) : null) || cycle;
+  return cycleOptionLabel(full);
 }
 
 // ── Curriculum-aware content selectors (all deterministic) ───────────────────
