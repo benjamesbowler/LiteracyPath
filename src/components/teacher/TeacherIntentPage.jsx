@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { getClassListReadView } from "../../appState/classListReadState.js";
+import { teacherCycleOptions } from "./teacherCycleReference.js";
+import { loadLevelCShelf } from "./teacherResourceShelf.js";
 import { TeacherSurfaceState } from "./ui/TeacherSurfaceState.jsx";
 import {
   TeacherPageHeader,
@@ -12,44 +15,115 @@ const INTENT_COPY = TEACHER_COPY.intents;
 // picker) became step 1 and step 2 of the Reports funnel, and "assess" had been
 // dead for months - it returned null because no copy was ever written for it.
 // Resources is the one whole-class intent left.
-function buildIntentActions({ onOpenWorksheets, onOpenPresent }) {
-  // Guided reading and Story Quests moved into the Student panel on the Students
-  // page. They are per-student tools, and asking for a student twice - once in a
-  // picker here, once wherever the student was actually chosen - was the reason
-  // both buttons so often sat greyed out. What is left here is whole-class.
+//
+// 2026-07-28 (teacher redesign v2, phase 6): the whole-class shelf. Three tool
+// cards - Present, Worksheets, Guided reading - then the Level C book tiles.
+// The class picker and the "current context" chip that used to sit in this
+// header are gone: the shared context bar above the page owns class, school and
+// teaching cycle, and asking for the same thing twice was the reason this page
+// read as a second lobby rather than a shelf.
+function buildResourceTools({
+  tools,
+  cycleNumber,
+  onOpenWorksheets,
+  onOpenPresent,
+  onOpenGuidedReading
+}) {
+  // A button that does nothing on tap is worse than no button, so each tool
+  // carries a handler only when the shell wired somewhere for it to go.
   return [
     {
-      id: "worksheets",
-      category: "Print",
-      label: "Worksheets",
-      description: "Choose a teaching cycle and create printable class practice.",
-      actionLabel: "Build a worksheet",
-      onOpen: onOpenWorksheets
+      id: "present",
+      ...tools.present,
+      action: tools.present.action(cycleNumber),
+      onOpen: onOpenPresent || null
     },
     {
-      id: "present",
-      category: "Whole class",
-      label: "Present",
-      description: "Choose a teaching cycle and open projector-ready class slides.",
-      actionLabel: "Open a presentation",
-      onOpen: onOpenPresent
+      id: "worksheets",
+      ...tools.worksheets,
+      onOpen: onOpenWorksheets || null
+    },
+    {
+      id: "guided-reading",
+      ...tools.guidedReading,
+      onOpen: onOpenGuidedReading ? () => onOpenGuidedReading("") : null
     }
   ];
 }
 
+// The book list arrives from a dynamically imported catalogue, so it has three
+// separate outcomes - and "empty" is never the stand-in for the other two.
+function useLevelCShelf() {
+  const [shelf, setShelf] = useState({ status: "loading", rows: [] });
+
+  useEffect(() => {
+    let active = true;
+    loadLevelCShelf()
+      .then(rows => {
+        if (active) setShelf({ status: "ready", rows });
+      })
+      .catch(() => {
+        if (active) setShelf({ status: "failed", rows: [] });
+      });
+    return () => { active = false; };
+  }, []);
+
+  return shelf;
+}
+
+function LevelCShelf({ copy, onOpenReader }) {
+  const shelf = useLevelCShelf();
+
+  if (shelf.status === "loading") {
+    return (
+      <p className="teacher-resource-shelf-note" aria-busy="true">
+        {copy.shelfLoading}
+      </p>
+    );
+  }
+  // A catalogue that failed to arrive is not a catalogue with nothing in it.
+  if (shelf.status === "failed") {
+    return <p className="teacher-resource-shelf-note">{copy.shelfFailed}</p>;
+  }
+  if (!shelf.rows.length) {
+    return <p className="teacher-resource-shelf-note">{copy.shelfEmpty}</p>;
+  }
+
+  return (
+    <ul className="teacher-resource-books">
+      {shelf.rows.map(book => (
+        <li className="teacher-resource-book" key={book.id}>
+          <strong>{book.title}</strong>
+          <span>{book.meta}</span>
+          {onOpenReader && (
+            <button
+              aria-label={copy.shelfActionFor(book.title)}
+              className="lp-button teacher-resource-book-action"
+              onClick={() => onOpenReader(book.id)}
+              type="button"
+            >
+              {copy.shelfAction}
+            </button>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function TeacherIntentPage({
   intent,
-  className = "",
   classList = [],
   classListReadState = null,
   teacherId,
   selectedClassId = "",
+  cycleId = "",
   loadingClasses = false,
   onRetryClasses,
-  onSelectClass,
   onOpenClasses,
   onOpenWorksheets,
-  onOpenPresent
+  onOpenPresent,
+  onOpenGuidedReading
 }) {
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
@@ -71,42 +145,28 @@ export function TeacherIntentPage({
   const visibleClassList = classRead.rowsVerified ? classList : [];
   const classesPending = classRead.loading;
   const hasClasses = classRead.complete && visibleClassList.length > 0;
-  const verifiedClassName = visibleClassList.some(row => row.id === selectedClassId)
-    ? className
-    : "";
-  const actions = buildIntentActions({ onOpenWorksheets, onOpenPresent });
+  // The teaching cycle is set once in the context bar and read here. It is a
+  // teacher-set reference, never derived from results, so an unset cycle stays
+  // unset rather than guessing one.
+  const cycle = teacherCycleOptions().find(option => option.id === cycleId) || null;
+  const tools = buildResourceTools({
+    tools: copy.tools,
+    cycleNumber: cycle?.cycleNumber || 0,
+    onOpenWorksheets,
+    onOpenPresent,
+    onOpenGuidedReading
+  });
 
   return (
     <TeacherPageShell
-      className="teacher-intent-page"
+      className="teacher-intent-page teacher-resources-page"
       intent={intent}
     >
       <TeacherPageHeader
         eyebrow={copy.eyebrow}
         title={copy.title}
-        description={copy.description}
-      >
-        <div className="teacher-dashboard-context" aria-label={INTENT_COPY.contextLabel}>
-          <span>Current context</span>
-          <strong>{verifiedClassName || INTENT_COPY.chooseClass}</strong>
-          {onSelectClass && visibleClassList.length > 0 && (
-            <label className="teacher-context-class">
-              <select
-                aria-label={INTENT_COPY.classFieldLabel}
-                disabled={!classRead.complete}
-                onChange={event => onSelectClass(event.target.value || null)}
-                value={selectedClassId || ""}
-              >
-                <option value="">{INTENT_COPY.chooseClass}</option>
-                {visibleClassList.map(row => (
-                  <option key={row.id} value={row.id}>{row.name}</option>
-                ))}
-              </select>
-            </label>
-          )}
-          <small>Whole-class tools</small>
-        </div>
-      </TeacherPageHeader>
+        description={copy.description(cycle?.label || "")}
+      />
 
       <>
           {classesPending ? (
@@ -136,27 +196,36 @@ export function TeacherIntentPage({
               <p>{INTENT_COPY.chooseClassBody}</p>
             </section>
           ) : (
-            <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
-              <p className="teacher-intent-class-summary">
-                {INTENT_COPY.classSummary(verifiedClassName)}
-              </p>
-              {actions.map(action => (
-                <article className="teacher-action-card" key={action.id}>
-                  <div>
-                    <p className="panel-label">{action.category}</p>
-                    <h3>{action.label}</h3>
-                    <p>{action.description}</p>
-                  </div>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    onClick={action.onOpen}
-                    type="button"
-                  >
-                    {action.actionLabel || "Open"}
-                  </button>
-                </article>
-              ))}
-            </section>
+            <>
+              <section className="teacher-resource-tools" aria-label={copy.toolsLabel}>
+                {tools.map(tool => (
+                  <article className="teacher-resource-card" key={tool.id}>
+                    <p className="teacher-resource-kind" data-resource-kind={tool.id}>
+                      {tool.kind}
+                    </p>
+                    <h3>{tool.title}</h3>
+                    <p className="teacher-resource-body">{tool.body}</p>
+                    <ul className="teacher-resource-points">
+                      {tool.bullets.map(point => <li key={point}>{point}</li>)}
+                    </ul>
+                    {tool.onOpen && (
+                      <button
+                        className="lp-button lp-button-primary teacher-resource-action"
+                        onClick={tool.onOpen}
+                        type="button"
+                      >
+                        {tool.action}
+                      </button>
+                    )}
+                  </article>
+                ))}
+              </section>
+
+              <section className="teacher-resource-shelf" aria-label={copy.shelfTitle}>
+                <h3>{copy.shelfTitle}</h3>
+                <LevelCShelf copy={copy} onOpenReader={onOpenGuidedReading} />
+              </section>
+            </>
           )}
       </>
     </TeacherPageShell>

@@ -20819,40 +20819,215 @@ select:focus {
   color: var(--lp-color-text-muted);
 }
 
-.teacher-intent-class-summary {
-  grid-column: 1 / -1;
-  margin: 0;
-  color: var(--lp-color-text-muted);
-}
-
-.teacher-context-class select,
-.teacher-context-student select {
-  max-width: 100%;
-}
-
-.teacher-intent-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 14px;
-}
-
 .teacher-intent-page .teacher-page-header > div:first-child {
   min-width: 0;
   flex: 1 1 auto;
 }
 
-.teacher-intent-page .teacher-dashboard-context {
-  flex: 0 0 clamp(210px, 22vw, 250px);
+/* ── TEACHER RESOURCES (teacher-area redesign v2, phase 6) ─────────────────
+   The whole-class shelf: three tool cards on the app background, then the
+   Level C book tiles. Class, school, teaching cycle and the global Present /
+   Assess-a-student actions live in the shared context bar ABOVE this page -
+   never inside it. */
+
+.teacher-product-page.teacher-resources-page {
+  padding: 24px;
+  gap: 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--lp-color-background);
+  box-shadow: none;
 }
 
-.teacher-intent-actions .teacher-action-card {
-  min-height: 150px;
+.teacher-resources-page .teacher-page-header,
+.lg-app-shell .teacher-resources-page .teacher-page-header {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  /* lg-design-system paints .teacher-page-header white with !important; the
+     v2 Resources header sits directly on the page background. */
+  background: transparent !important;
+  box-shadow: none;
 }
 
-.teacher-intent-actions .teacher-action-card h3 {
-  margin: 2px 0 0;
+.teacher-resources-page .teacher-page-header > div:only-child {
+  flex: 1;
+  text-align: left;
+}
+
+.teacher-resources-page .teacher-page-header .panel-label {
+  margin: 0 0 4px;
+  color: var(--lp-color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.teacher-resources-page .teacher-page-header h2 {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.teacher-resources-page .teacher-page-header p:not(.panel-label) {
+  margin-top: 6px;
+  max-width: 64ch;
+}
+
+.teacher-resources-page :focus-visible {
+  outline: 2px solid var(--lp-color-primary);
+  outline-offset: 2px;
+}
+
+.teacher-resource-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.teacher-resource-card {
+  min-width: 0;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-resource-kind {
+  margin: 0;
+  color: var(--lp-color-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.teacher-resource-kind[data-resource-kind="worksheets"] {
+  color: var(--lg-domain-phonics);
+}
+
+.teacher-resource-kind[data-resource-kind="guided-reading"] {
+  color: var(--lp-color-success);
+}
+
+.teacher-resource-card h3 {
+  margin: 0;
   color: var(--lp-color-text-strong);
-  font-size: 17px;
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.teacher-resource-body {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13.5px;
+}
+
+.teacher-resource-points {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 4px 0 0;
+  padding: 0 0 0 16px;
+  color: var(--lp-color-text-muted);
+  font-size: 12.5px;
+}
+
+/* .lp-button's base pins every button to 40px with !important, so the full
+   44px teacher touch target has to say so too. */
+.lp-button.teacher-resource-action {
+  width: 100%;
+  min-height: var(--teacher-ui-target-min) !important;
+  margin-top: 4px;
+}
+
+/* The Level C shelf. */
+.teacher-resource-shelf {
+  overflow: hidden;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-resource-shelf > h3 {
+  margin: 0;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-resource-shelf-note {
+  margin: 0;
+  padding: 16px 18px;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-resource-books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 16px 18px;
+  list-style: none;
+}
+
+.teacher-resource-book {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 13px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+}
+
+.teacher-resource-book:hover {
+  border-color: var(--lp-color-primary);
+}
+
+.teacher-resource-book > strong {
+  color: var(--lp-color-text-strong);
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.teacher-resource-book > span {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+/* A secondary in-row action, so 40px is the allowed exception to the 44px
+   minimum the rest of the teacher area keeps. */
+.lp-button.teacher-resource-book-action {
+  align-self: flex-start;
+  min-height: 40px;
+  margin-top: 2px;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--lp-color-primary) !important;
+  font-size: 13px !important;
+  box-shadow: none;
+}
+
+.lp-button.teacher-resource-book-action:hover:not(:disabled) {
+  background: var(--lp-color-primary-soft) !important;
+  color: var(--lp-color-primary-strong) !important;
 }
 
 .teacher-assessment-language-guide {
@@ -22447,10 +22622,6 @@ select:focus {
   .teacher-intent-page .teacher-page-header {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .teacher-intent-page .teacher-dashboard-context {
-    flex-basis: auto;
   }
 
   .teacher-assessment-language-guide dl {

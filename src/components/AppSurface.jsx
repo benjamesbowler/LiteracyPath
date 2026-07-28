@@ -1097,16 +1097,28 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading resources..." />}>
             <TeacherIntentPage
               intent="resources"
-              className={getSelectedClassName(classList, selectedClassId)}
               classList={classList}
               classListReadState={classListReadState}
               teacherId={teacherId}
               selectedClassId={selectedClassId}
+              cycleId={teacherCycleId}
               loadingClasses={loadingClasses}
               onRetryClasses={loadClasses}
-              onSelectClass={selectTeacherClass}
               onOpenWorksheets={() => goToTeacherIntent(APP_VIEWS.WORKSHEETS)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
+              onOpenGuidedReading={bookId => {
+                // The reader is a per-student surface: GUIDED_READING only
+                // renders once a student is chosen, so opening it straight from
+                // the whole-class shelf would land on a blank view. With nobody
+                // chosen the roster is the honest next step, and the book is
+                // not pre-set for a student who has not been picked yet.
+                if (!nameSaved) {
+                  goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES);
+                  return;
+                }
+                setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");
+                setAppView(APP_VIEWS.GUIDED_READING);
+              }}
               onOpenClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
             />
           </Suspense>

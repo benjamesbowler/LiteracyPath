@@ -576,7 +576,24 @@ test("resources are class-aware whole-class tools without a second student picke
   ]);
 
   assert.doesNotMatch(intentPage, /selectedStudentId|selectedStudentName|onSelectStudent/);
-  assert.match(intentPage, /Whole-class tools/);
+  // v2 Resources: the shelf carries three whole-class tools and the page copy
+  // lives in teacherCopy rather than as literals in the page.
+  assert.match(TEACHER_COPY.intents.resources.toolsLabel, /Whole-class tools/);
+  assert.match(
+    TEACHER_COPY.intents.resources.description("Cycle 6 · Digraphs and blends"),
+    /Whole-class tools, already set to Cycle 6 · Digraphs and blends\./
+  );
+  for (const tool of ["present", "worksheets", "guidedReading"]) {
+    const card = TEACHER_COPY.intents.resources.tools[tool];
+    assert.ok(card.kind && card.title && card.body, `${tool} needs a kicker, title and body`);
+    assert.equal(card.bullets.length, 3, `${tool} shows three bullets`);
+  }
+  // The class picker and the "current context" chip moved to the shared
+  // context bar; the page must not grow a second one.
+  assert.doesNotMatch(intentPage, /teacher-dashboard-context|onSelectClass/);
+  // The teaching cycle is read from the context bar's state, never re-derived.
+  assert.match(intentPage, /cycleId = ""/);
+  assert.match(appSurface, /<TeacherIntentPage[\s\S]*?cycleId=\{teacherCycleId\}/);
   assert.match(appSurface, /<WorksheetGeneratorPage[\s\S]*?onBack=\{\(\) => goToTeacherIntent\(APP_VIEWS\.TEACHER_RESOURCES\)\}/);
   assert.match(appSurface, /<PresentPage[\s\S]*?onBack=\{\(\) => goToTeacherIntent\(APP_VIEWS\.TEACHER_RESOURCES\)\}/);
   assert.match(worksheet, /Class: \{className\}/);
@@ -589,6 +606,47 @@ test("resources are class-aware whole-class tools without a second student picke
   assert.match(present, /Back to Resources/);
   assert.match(viewHelpers, /"resources\/worksheets"/);
   assert.match(viewHelpers, /"resources\/present"/);
+});
+
+// Hardcoded book titles outlive the books. A title typed into the page keeps
+// showing after a book is withdrawn or re-levelled, and the tile then opens a
+// reader that has nothing to open.
+test("the Level C shelf is read from the book catalogue, never typed into the page", async () => {
+  const [intentPage, shelfSource] = await Promise.all([
+    source("src/components/teacher/TeacherIntentPage.jsx"),
+    source("src/components/teacher/teacherResourceShelf.js")
+  ]);
+  const { firstFactsLevelCBooks } = await import("../../src/data/firstFactsLevelCBooks.js");
+  const { loadLevelCShelf, selectLevelCShelf } = await import(
+    "../../src/components/teacher/teacherResourceShelf.js"
+  );
+
+  assert.match(shelfSource, /import\("\.\.\/\.\.\/data\/firstFactsLevelCBooks\.js"\)/);
+  const catalogueTitles = firstFactsLevelCBooks.map(book => book.title);
+  for (const title of catalogueTitles) {
+    assert.doesNotMatch(intentPage, new RegExp(`"${title}"`), `${title} must not be typed into the page`);
+  }
+
+  const rows = await loadLevelCShelf();
+  assert.equal(rows.length, 4);
+  rows.forEach(row => {
+    assert.ok(catalogueTitles.includes(row.title), `${row.title} comes from the catalogue`);
+    assert.equal(row.meta, "First Facts · nonfiction · Level C");
+  });
+
+  // Withdrawn, unapproved and teacher-preview books never reach a teacher.
+  const filtered = selectLevelCShelf([
+    { id: "a", title: "Withdrawn", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "approved", active: false },
+    { id: "b", title: "Draft", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "draft" },
+    { id: "c", title: "Preview", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "approved", teacherPreviewOnly: true },
+    { id: "d", title: "Wrong level", seriesTitle: "First Facts", type: "nonfiction", level: "A", status: "approved" },
+    { id: "e", title: "Kept", seriesTitle: "First Facts", type: "nonfiction", level: "C", status: "approved", order: 2 }
+  ]);
+  assert.deepEqual(filtered.map(row => row.title), ["Kept"]);
+  // An unreadable catalogue must not resolve to an empty shelf.
+  assert.deepEqual(selectLevelCShelf(null), []);
+  assert.match(intentPage, /status: "failed"/);
+  assert.match(intentPage, /shelfFailed/);
 });
 
 test("settings separates school, sign-in, privacy and account tasks", async () => {

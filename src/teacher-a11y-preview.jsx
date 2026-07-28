@@ -10,6 +10,7 @@ import { Sidebar } from "./components/Sidebar.jsx";
 import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
 import { TeacherTodayPage } from "./components/TeacherTodayPage.jsx";
 import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
+import { teacherCycleOptions } from "./components/teacher/teacherCycleReference.js";
 import { TeacherAssessmentsPage } from "./components/TeacherAssessmentsPage.jsx";
 import { TeacherReportsHubPage } from "./components/TeacherReportsHubPage.jsx";
 import { TeacherSettingsPage } from "./components/teacher/TeacherSettingsPage.jsx";
@@ -384,18 +385,10 @@ function Intent({ intent }) {
     <TeacherIntentPage
       intent={intent}
       teacherId=""
-      className="Audit Class A"
       classList={classList}
       selectedClassId={classId}
-      onSelectClass={asyncNoop}
-      progressRows={progressRows}
-      selectedLearnerId={studentId}
-      studentName="Aarav"
-      onSelectLearner={noop}
-      onClearLearner={noop}
-      onOpenView={noop}
+      cycleId={teacherCycleOptions()[5]?.id || ""}
       onOpenGuidedReading={noop}
-      onOpenStoryQuests={noop}
       onOpenWorksheets={noop}
       onOpenPresent={noop}
     />

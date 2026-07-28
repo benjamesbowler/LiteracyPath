@@ -269,8 +269,59 @@ export const TEACHER_COPY = Object.freeze({
   intents: Object.freeze({
     resources: Object.freeze({
       eyebrow: "Resources",
-      title: "Choose a teaching resource",
-      description: "Open whole-class teaching resources. Per-student tools live in the Student panel."
+      title: "Teach, print, project",
+      // The teaching cycle comes from the shared context bar above the page, so
+      // the subheading names it instead of making the teacher look it up.
+      description: cycleLabel => (
+        cycleLabel
+          ? `Whole-class tools, already set to ${cycleLabel}. Per-student tools live in the Student panel.`
+          : "Whole-class tools for the class in the bar above. Per-student tools live in the Student panel."
+      ),
+      tools: Object.freeze({
+        present: Object.freeze({
+          kind: "Whole class",
+          title: "Present",
+          body: "Projector-ready slides for the current teaching cycle. Opens full screen with keyboard control.",
+          bullets: Object.freeze([
+            "Sound cards, blending, dictation",
+            "Class word bank from saved results",
+            "Works on an interactive whiteboard"
+          ]),
+          action: cycleNumber => (
+            cycleNumber ? `Open Cycle ${cycleNumber} slides` : "Open the slides"
+          )
+        }),
+        worksheets: Object.freeze({
+          kind: "Print",
+          title: "Worksheets",
+          body: "Printable practice built from what the class has actually been taught. Every word is decodable at the chosen stop.",
+          bullets: Object.freeze([
+            "Whole class or a suggested group",
+            "Prints at the lowest member's stop",
+            "Answer sheet included"
+          ]),
+          action: "Build a worksheet"
+        }),
+        guidedReading: Object.freeze({
+          kind: "Small group",
+          title: "Guided reading",
+          body: "Levelled books matched to saved reading history and word difficulty, with teacher notes and line focus.",
+          bullets: Object.freeze([
+            "Levels A to F",
+            "Teacher notes and word taps",
+            "Saves a reading record"
+          ]),
+          action: "Open the reader"
+        })
+      }),
+      shelfTitle: "Suggested next books — Level C",
+      shelfAction: "Open reader",
+      shelfActionFor: title => `Open reader: ${title}`,
+      shelfLoading: "Getting the book list...",
+      // A book list that failed to arrive is not a book list that is empty.
+      shelfFailed: "The book list could not be loaded. The reader still opens from the Guided reading card above.",
+      shelfEmpty: "No Level C books are ready to suggest yet.",
+      toolsLabel: "Whole-class tools"
     }),
     contextLabel: "Current teaching context",
     chooseClass: "Choose a class",
@@ -279,8 +330,7 @@ export const TEACHER_COPY = Object.freeze({
     noClassesBody: "Everything on this page works on one class at a time. Make a class, add your students, and these tools open up.",
     noClassesAction: "Create your class",
     chooseClassTitle: "Choose a class",
-    chooseClassBody: "Pick the class you are working with and its students appear here.",
-    classSummary: className => `Whole-class resources for ${className}.`
+    chooseClassBody: "Pick the class you are working with and its students appear here."
   }),
   groups: Object.freeze({
     ariaLabel: "Class groups",
