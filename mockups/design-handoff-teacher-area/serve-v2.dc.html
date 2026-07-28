@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>window.__resources={
+ "https://unpkg.com/react@18.3.1/umd/react.production.min.js":"./react.production.min.js",
+ "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"./react-dom.production.min.js",
+ "https://unpkg.com/@babel/standalone@7.29.0/babel.min.js":"./babel.min.js"};</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lp-color-primary: #0C6B65;
+    --lp-color-primary-strong: #084E4A;
+    --lp-color-primary-soft: #E3F4F2;
+    --lp-color-primary-mid: #C0E6E3;
+    --lp-color-accent-warm: #d68a11;
+    --lp-color-accent-warm-soft: #fff7e8;
+    --lp-color-success: #15803D;
+    --lp-color-success-soft: #F0FDF4;
+    --lp-color-success-text: #14532D;
+    --lp-color-warning: #B45309;
+    --lp-color-warning-soft: #FEF3C7;
+    --lp-color-danger: #B91C1C;
+    --lp-color-danger-soft: #FEF2F2;
+    --lp-color-text: #172033;
+    --lp-color-text-strong: #101828;
+    --lp-color-text-muted: #51607A;
+    --lp-color-text-subtle: #6B7585;
+    --lp-color-surface: #ffffff;
+    --lp-color-surface-subtle: #F8FAFC;
+    --lp-color-background: #F1F5F9;
+    --lp-color-border: #E2E8F0;
+    --lp-color-border-strong: #CBD5E1;
+    --lp-shadow-card: 0 1px 4px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
+    --lp-shadow-nav: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --lp-radius-sm: 4px;
+    --lp-radius-md: 6px;
+    --lp-radius-lg: 8px;
+    --lp-radius-card: 10px;
+    --lp-radius-pill: 999px;
+    --lg-sidebar-bg: #0F172A;
+    --lg-domain-phonics: #2563EB;
+    --lg-domain-grammar: #6D28D9;
+  }
+  html, body { margin: 0; padding: 0; background: #F1F5F9; }
+  body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #0C6B65; text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: #084E4A; }
+  button { font-family: inherit; }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid #0C6B65; outline-offset: 2px; }
+  ::selection { background: #C0E6E3; }
+</style>
+</helmet>
+
+<div style="display: grid; grid-template-columns: 208px minmax(0, 1fr); min-height: 100vh; background: var(--lp-color-background); font-size: 14px; line-height: 1.45;">
+
+  <aside style="background: var(--lg-sidebar-bg); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; color: rgba(255,255,255,0.78);">
+    <div style="padding: 18px 16px 14px; display: flex; align-items: center; gap: 9px;">
+      <span style="display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: var(--lp-radius-md); background: var(--lp-color-primary); color: #fff; font-size: 13px; font-weight: 800;">L</span>
+      <span style="font-weight: 700; font-size: 14px; color: #fff; letter-spacing: -0.01em;">Literacy Guide</span>
+    </div>
+
+    <div style="margin: 0 12px 10px; padding: 9px 11px; border-radius: var(--lp-radius-md); background: rgba(255,255,255,0.06);">
+      <div style="font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 600;">Class</div>
+      <div style="margin-top: 2px; font-size: 13px; font-weight: 600; color: #fff;">Willow Class</div>
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 2px; padding: 4px 10px; flex: 1;" aria-label="Teacher sections">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="6">
+        <button type="button" onClick="{{ item.go }}" style="appearance: none; border: 0; border-radius: var(--lp-radius-md); background: {{ item.bg }}; color: {{ item.fg }}; text-align: left; padding: 0 12px; font-size: 13.5px; font-weight: {{ item.weight }}; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px;" style-hover="background: rgba(255,255,255,0.07);">
+          <span>{{ item.label }}</span>
+          <span style="font-size: 11px; font-weight: 700; color: {{ item.badgeFg }};">{{ item.badge }}</span>
+        </button>
+      </sc-for>
+    </nav>
+
+    <div style="padding: 12px 14px 16px; border-top: 1px solid rgba(255,255,255,0.09);">
+      <div style="font-size: 11px; color: rgba(255,255,255,0.55); overflow-wrap: anywhere;">h.okafor@stmarys.sch.uk</div>
+      <button type="button" style="margin-top: 8px; appearance: none; background: none; border: 0; padding: 0; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.8); cursor: pointer;" style-hover="color: #fff;">Sign out</button>
+    </div>
+  </aside>
+
+  <main style="min-width: 0; display: flex; flex-direction: column;">
+
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding: 12px 24px; background: var(--lp-color-surface); border-bottom: 1px solid var(--lp-color-border); box-shadow: var(--lp-shadow-nav); position: sticky; top: 0; z-index: 20;">
+      <div style="display: flex; flex-direction: column; gap: 1px;">
+        <span style="font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--lp-color-text-subtle); font-weight: 600;">School and class</span>
+        <div style="display: flex; align-items: baseline; gap: 8px;">
+          <strong style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">Willow Class</strong>
+          <button type="button" onClick="{{ toggleClassMenu }}" style="appearance: none; background: none; border: 0; padding: 0; font-size: 12px; font-weight: 600; color: var(--lp-color-primary); cursor: pointer;">Change</button>
+        </div>
+        <span style="font-size: 12px; color: var(--lp-color-text-muted);">St Mary&rsquo;s Primary &middot; 28 students</span>
+      </div>
+      <div style="height: 38px; width: 1px; background: var(--lp-color-border);"></div>
+      <div style="display: flex; flex-direction: column; gap: 1px;">
+        <span style="font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--lp-color-text-subtle); font-weight: 600;">Teaching cycle</span>
+        <strong style="font-size: 14px; font-weight: 600;">Cycle 6 &middot; Digraphs and blends</strong>
+      </div>
+      <div style="flex: 1; min-width: 12px;"></div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button type="button" onClick="{{ goResources }}" style="appearance: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap;" style-hover="background: var(--lp-color-surface-subtle); border-color: var(--lp-color-primary);">Present</button>
+        <button type="button" onClick="{{ goAssess }}" style="appearance: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--lp-color-primary); background: var(--lp-color-primary); color: #fff; border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap;" style-hover="background: var(--lp-color-primary-strong); border-color: var(--lp-color-primary-strong);">Assess a student</button>
+      </div>
+    </div>
+
+    <sc-if value="{{ isToday }}" hint-placeholder-val="{{ true }}">
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+
+        <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+          <div style="max-width: 640px;">
+            <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; color: var(--lp-color-primary);">Today &middot; Tuesday 28 July</p>
+            <h1 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 27px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--lp-color-text-strong);">Start with these students</h1>
+            <p style="margin: 6px 0 0; font-size: 14px; color: var(--lp-color-text-muted); text-wrap: pretty; max-width: 60ch;">Two urgent lists, capped at three names each. Everything else is one click away.</p>
+          </div>
+        </header>
+
+        <section aria-label="Class summary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px;">
+          <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="5">
+            <div style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); padding: 14px 16px;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-text-subtle);">{{ m.label }}</span>
+                <span style="width: 15px; height: 15px; border-radius: 999px; border: 1px solid var(--lp-color-border-strong); color: var(--lp-color-text-subtle); font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help;" title="{{ m.help }}">i</span>
+              </div>
+              <div style="margin-top: 6px; font-family: Lexend, Inter, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--lp-color-text-strong);">{{ m.value }}</div>
+              <div style="margin-top: 4px; font-size: 12px; color: var(--lp-color-text-muted);">{{ m.note }}</div>
+            </div>
+          </sc-for>
+        </section>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 16px;">
+
+          <section aria-label="Who needs attention" style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 18px; background: var(--lp-color-danger-soft); border-bottom: 1px solid var(--lp-color-border);">
+              <span style="font-size: 13px; font-weight: 700; color: var(--lp-color-danger);">Who needs attention</span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 8px; border-radius: var(--lp-radius-pill); background: var(--lp-color-danger); color: #fff; font-size: 13px; font-weight: 700;">3</span>
+            </div>
+            <sc-for list="{{ attention }}" as="row" hint-placeholder-count="3">
+              <article style="padding: 14px 18px; border-bottom: 1px solid var(--lp-color-border); display: flex; gap: 16px; align-items: flex-start; justify-content: space-between;">
+                <div style="min-width: 0;">
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <strong style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">{{ row.name }}</strong>
+                    <span style="display: inline-block; border-radius: var(--lp-radius-pill); padding: 3px 10px; font-size: 11px; font-weight: 700; background: var(--lp-color-danger-soft); color: var(--lp-color-danger);">{{ row.status }}</span>
+                  </div>
+                  <p style="margin: 4px 0 0; font-size: 14px; font-weight: 600;">{{ row.focus }}</p>
+                  <p style="margin: 2px 0 0; font-size: 12px; color: var(--lp-color-text-muted); text-wrap: pretty;">{{ row.evidence }}</p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; align-items: stretch;">
+                  <button type="button" onClick="{{ goAssess }}" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-primary); background: var(--lp-color-primary); color: #fff; border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 40px; font-size: 13px; font-weight: 600; white-space: nowrap;" style-hover="background: var(--lp-color-primary-strong);">Assess</button>
+                  <button type="button" onClick="{{ row.open }}" style="appearance: none; cursor: pointer; border: 1px solid transparent; background: transparent; color: var(--lp-color-primary); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 40px; font-size: 13px; font-weight: 600; white-space: nowrap;" style-hover="background: var(--lp-color-primary-soft);">Open student</button>
+                </div>
+              </article>
+            </sc-for>
+            <p style="margin: 0; padding: 11px 18px; font-size: 12px; color: var(--lp-color-text-muted); background: var(--lp-color-surface-subtle);">4 students have too few answers for a fair suggestion yet.</p>
+          </section>
+
+          <section aria-label="What's due" style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 18px; background: var(--lp-color-primary-soft); border-bottom: 1px solid var(--lp-color-border);">
+              <span style="font-size: 13px; font-weight: 700; color: var(--lp-color-primary-strong);">What&rsquo;s due</span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 8px; border-radius: var(--lp-radius-pill); background: var(--lp-color-primary); color: #fff; font-size: 13px; font-weight: 700;">5</span>
+            </div>
+            <sc-for list="{{ due }}" as="row" hint-placeholder-count="3">
+              <article style="padding: 14px 18px; border-bottom: 1px solid var(--lp-color-border); display: flex; gap: 16px; align-items: flex-start; justify-content: space-between;">
+                <div style="min-width: 0;">
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <strong style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">{{ row.name }}</strong>
+                    <span style="display: inline-block; border-radius: var(--lp-radius-pill); padding: 3px 10px; font-size: 11px; font-weight: 600; background: var(--lp-color-surface-subtle); border: 1px solid var(--lp-color-border); color: var(--lp-color-text-muted);">{{ row.status }}</span>
+                  </div>
+                  <p style="margin: 4px 0 0; font-size: 14px; font-weight: 600;">{{ row.focus }}</p>
+                  <p style="margin: 2px 0 0; font-size: 12px; color: var(--lp-color-text-muted); text-wrap: pretty;">{{ row.evidence }}</p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; flex-shrink: 0;">
+                  <button type="button" onClick="{{ goAssess }}" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 40px; font-size: 13px; font-weight: 600; white-space: nowrap;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Assess</button>
+                  <button type="button" onClick="{{ row.open }}" style="appearance: none; cursor: pointer; border: 1px solid transparent; background: transparent; color: var(--lp-color-primary); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 40px; font-size: 13px; font-weight: 600; white-space: nowrap;" style-hover="background: var(--lp-color-primary-soft);">Open student</button>
+                </div>
+              </article>
+            </sc-for>
+            <button type="button" onClick="{{ goStudents }}" style="appearance: none; background: var(--lp-color-surface-subtle); border: 0; padding: 11px 18px; text-align: left; font-size: 12px; font-weight: 600; color: var(--lp-color-primary); cursor: pointer;" style-hover="background: var(--lp-color-primary-soft);">Show all 5</button>
+          </section>
+        </div>
+
+        <section aria-label="Class sound map" style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 18px; border-bottom: 1px solid var(--lp-color-border);">
+            <div>
+              <span style="font-size: 13px; font-weight: 700; color: var(--lp-color-text-strong);">Class sound map</span>
+              <p style="margin: 3px 0 0; font-size: 12.5px; color: var(--lp-color-text-muted);">How many students still need each skill. Tap a skill to group and print at the lowest member&rsquo;s stop.</p>
+            </div>
+            <button type="button" onClick="{{ goResources }}" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 40px; font-size: 13px; font-weight: 600; white-space: nowrap;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Print group pack</button>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; padding: 14px 18px;">
+            <sc-for list="{{ soundMap }}" as="tile" hint-placeholder-count="10">
+              <button type="button" onClick="{{ goReports }}" style="appearance: none; text-align: left; cursor: pointer; border: 1px solid {{ tile.border }}; border-radius: var(--lp-radius-lg); background: {{ tile.bg }}; color: {{ tile.fg }}; padding: 11px 13px; display: flex; flex-direction: column; gap: 4px; min-height: 84px;" style-hover="box-shadow: var(--lp-shadow-card);">
+                <span style="font-size: 12.5px; font-weight: 600;">{{ tile.label }}</span>
+                <span style="font-family: Lexend, Inter, sans-serif; font-size: 22px; font-weight: 700; line-height: 1; letter-spacing: -0.02em;">{{ tile.count }}</span>
+                <span style="font-size: 11px; opacity: 0.85;">{{ tile.note }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </section>
+
+        <details style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden;">
+          <summary style="padding: 13px 18px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--lp-color-text-strong); list-style: none;">
+            <span>Recent changes</span>
+            <span style="display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 24px; padding: 0 8px; border-radius: var(--lp-radius-pill); background: var(--lp-color-surface-subtle); border: 1px solid var(--lp-color-border); color: var(--lp-color-text-muted); font-size: 12px; font-weight: 700;">6</span>
+          </summary>
+          <div style="border-top: 1px solid var(--lp-color-border);">
+            <sc-for list="{{ changed }}" as="row" hint-placeholder-count="3">
+              <div style="padding: 11px 18px; border-bottom: 1px solid var(--lp-color-border); display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap;">
+                <strong style="font-size: 14px; font-weight: 700; min-width: 110px;">{{ row.name }}</strong>
+                <span style="font-size: 13px; flex: 1;">{{ row.summary }}</span>
+                <small style="font-size: 12px; color: var(--lp-color-text-subtle);">{{ row.comparison }}</small>
+              </div>
+            </sc-for>
+          </div>
+        </details>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isStudents }}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+        <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+          <div>
+            <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; color: var(--lp-color-primary);">Students</p>
+            <h1 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--lp-color-text-strong);">Willow Class &mdash; 28 students</h1>
+            <p style="margin: 6px 0 0; font-size: 14px; color: var(--lp-color-text-muted);">Pick a student on the left; everything you can do for them is on the right.</p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Import a class list</button>
+            <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Print sign-in cards</button>
+            <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-primary); background: var(--lp-color-primary); color: #fff; border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap;" style-hover="background: var(--lp-color-primary-strong);">Add student</button>
+          </div>
+        </header>
+
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <input type="search" placeholder="Search students" aria-label="Search students" style="border: 1px solid var(--lp-color-border-strong); border-radius: var(--lp-radius-md); background: var(--lp-color-surface); padding: 0 12px; min-height: 44px; font-size: 14px; color: var(--lp-color-text); max-width: 250px; width: 100%;">
+          <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+            <button type="button" onClick="{{ g.select }}" style="appearance: none; cursor: pointer; border: 1px solid {{ g.border }}; border-radius: var(--lp-radius-pill); background: {{ g.bg }}; color: {{ g.fg }}; padding: 0 15px; min-height: 40px; font-size: 13px; font-weight: 600; white-space: nowrap;" style-hover="border-color: var(--lp-color-primary);">{{ g.label }}</button>
+          </sc-for>
+          <span style="margin-left: auto; font-size: 12px; color: var(--lp-color-text-subtle);">Showing 8 of 28 students</span>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start;">
+
+          <div style="flex: 1 1 640px; min-width: min(640px, 100%); background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden; overflow-x: auto;">
+            <div style="display: grid; grid-template-columns: minmax(150px, 1.4fr) minmax(140px, 1fr) minmax(70px, 0.7fr) minmax(130px, 0.9fr) minmax(90px, 0.8fr); gap: 8px; min-width: 620px; padding: 11px 16px; background: var(--lp-color-surface-subtle); border-bottom: 1px solid var(--lp-color-border); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-text-subtle);">
+              <span>Student</span>
+              <span>Current focus</span>
+              <span>Accuracy</span>
+              <span>Status</span>
+              <span>Last active</span>
+            </div>
+            <sc-for list="{{ students }}" as="row" hint-placeholder-count="8">
+              <button type="button" onClick="{{ row.select }}" style="appearance: none; width: 100%; text-align: left; cursor: pointer; border: 0; border-bottom: 1px solid var(--lp-color-border); border-left: 3px solid {{ row.bar }}; background: {{ row.bg }}; display: grid; grid-template-columns: minmax(150px, 1.4fr) minmax(140px, 1fr) minmax(70px, 0.7fr) minmax(130px, 0.9fr) minmax(90px, 0.8fr); align-items: center; gap: 8px; min-width: 620px; padding: 11px 16px 11px 13px; min-height: 56px; font-size: 13px; color: var(--lp-color-text);" style-hover="background: var(--lp-color-surface-subtle);">
+                <span style="display: flex; flex-direction: column; gap: 1px;">
+                  <strong style="font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em;">{{ row.name }}</strong>
+                  <small style="font-size: 11px; color: var(--lp-color-text-subtle);">{{ row.signIn }}</small>
+                </span>
+                <span>{{ row.focus }}</span>
+                <span style="font-weight: 700; font-size: 14px;">{{ row.accuracy }}</span>
+                <span><span style="display: inline-block; border-radius: var(--lp-radius-pill); padding: 3px 10px; font-size: 11px; font-weight: 700; background: {{ row.tagBg }}; color: {{ row.tagFg }};">{{ row.status }}</span></span>
+                <span style="color: var(--lp-color-text-muted);">{{ row.lastActive }}</span>
+              </button>
+            </sc-for>
+            <div style="padding: 11px 16px; font-size: 12px; color: var(--lp-color-text-muted); background: var(--lp-color-surface-subtle);">Archived students (3) &middot; results kept, sign-in revoked</div>
+          </div>
+
+          <aside style="flex: 1 1 340px; max-width: 400px; min-width: min(340px, 100%); background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden;">
+            <div style="padding: 16px 18px; border-bottom: 1px solid var(--lp-color-border);">
+              <p style="margin: 0 0 3px; font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-text-subtle);">Student panel</p>
+              <h2 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -0.02em; color: var(--lp-color-text-strong);">{{ selected.name }}</h2>
+              <p style="margin: 5px 0 0; font-size: 13px; color: var(--lp-color-text-muted);">{{ selected.summary }}</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--lp-color-border);">
+              <div style="border-radius: var(--lp-radius-md); background: var(--lp-color-success-soft); padding: 9px 11px;">
+                <div style="font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-success-text);">Secure</div>
+                <div style="font-family: Lexend, Inter, sans-serif; font-size: 20px; font-weight: 700; color: var(--lp-color-success-text);">{{ selected.secure }}</div>
+              </div>
+              <div style="border-radius: var(--lp-radius-md); background: var(--lp-color-warning-soft); padding: 9px 11px;">
+                <div style="font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-warning);">Developing</div>
+                <div style="font-family: Lexend, Inter, sans-serif; font-size: 20px; font-weight: 700; color: var(--lp-color-warning);">{{ selected.developing }}</div>
+              </div>
+              <div style="border-radius: var(--lp-radius-md); background: var(--lp-color-danger-soft); padding: 9px 11px;">
+                <div style="font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-danger);">Needs</div>
+                <div style="font-family: Lexend, Inter, sans-serif; font-size: 20px; font-weight: 700; color: var(--lp-color-danger);">{{ selected.needs }}</div>
+              </div>
+            </div>
+            <div style="padding: 14px 18px; border-bottom: 1px solid var(--lp-color-border);">
+              <p style="margin: 0 0 9px; font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-text-subtle);">Do next</p>
+              <div style="display: grid; gap: 8px;">
+                <button type="button" onClick="{{ goAssess }}" style="appearance: none; cursor: pointer; width: 100%; border: 1px solid var(--lp-color-primary); background: var(--lp-color-primary); color: #fff; border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 44px; font-size: 14px; font-weight: 600; text-align: left;" style-hover="background: var(--lp-color-primary-strong);">Assess {{ selected.first }}</button>
+                <button type="button" style="appearance: none; cursor: pointer; width: 100%; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 44px; font-size: 14px; font-weight: 600; text-align: left;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Open guided reading &mdash; Level C</button>
+                <button type="button" onClick="{{ goReports }}" style="appearance: none; cursor: pointer; width: 100%; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 44px; font-size: 14px; font-weight: 600; text-align: left;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Open report</button>
+                <button type="button" style="appearance: none; cursor: pointer; width: 100%; border: 1px solid transparent; background: transparent; color: var(--lp-color-primary); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 44px; font-size: 14px; font-weight: 600; text-align: left;" style-hover="background: var(--lp-color-primary-soft);">Print practice pack</button>
+              </div>
+            </div>
+            <div style="padding: 14px 18px; border-bottom: 1px solid var(--lp-color-border);">
+              <p style="margin: 0 0 6px; font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; color: var(--lp-color-text-subtle);">Latest evidence</p>
+              <sc-for list="{{ selectedSkills }}" as="s" hint-placeholder-count="4">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--lp-color-border);">
+                  <span style="font-size: 13px; font-weight: 500;">{{ s.label }}</span>
+                  <span style="font-size: 12px; color: var(--lp-color-text-muted);">{{ s.accuracy }}</span>
+                  <span style="display: inline-block; border-radius: var(--lp-radius-pill); padding: 3px 9px; font-size: 10.5px; font-weight: 700; white-space: nowrap; background: {{ s.tagBg }}; color: {{ s.tagFg }};">{{ s.status }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="padding: 12px 18px; display: flex; gap: 14px; flex-wrap: wrap;">
+              <button type="button" style="appearance: none; background: none; border: 0; padding: 0; font-size: 12px; font-weight: 600; color: var(--lp-color-primary); cursor: pointer;">Sign-in pictures</button>
+              <button type="button" style="appearance: none; background: none; border: 0; padding: 0; font-size: 12px; font-weight: 600; color: var(--lp-color-primary); cursor: pointer;">Move class</button>
+              <button type="button" style="appearance: none; background: none; border: 0; padding: 0; font-size: 12px; font-weight: 600; color: var(--lp-color-danger); cursor: pointer;">Archive</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isAssess }}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+        <header>
+          <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; color: var(--lp-color-primary);">Assessments</p>
+          <h1 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--lp-color-text-strong);">Assess a student</h1>
+          <p style="margin: 6px 0 0; font-size: 14px; color: var(--lp-color-text-muted); max-width: 62ch; text-wrap: pretty;">Three steps, always in the same order. The student stays selected from wherever you came in.</p>
+        </header>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+            <div style="padding: 13px 16px; border: 1px solid {{ s.border }}; border-radius: var(--lp-radius-card); display: flex; gap: 12px; align-items: center; background: {{ s.bg }}; color: {{ s.fg }};">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: {{ s.dotBg }}; color: {{ s.dotFg }}; font-size: 14px; font-weight: 700; flex-shrink: 0;">{{ s.n }}</span>
+              <div>
+                <div style="font-size: 14px; font-weight: 700;">{{ s.title }}</div>
+                <div style="font-size: 12px; opacity: 0.85;">{{ s.detail }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start;">
+          <section style="flex: 1 1 300px; max-width: 360px; min-width: min(300px, 100%); background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden;">
+            <div style="padding: 12px 16px; background: var(--lp-color-surface-subtle); border-bottom: 1px solid var(--lp-color-border); font-size: 12px; font-weight: 700; color: var(--lp-color-text-strong);">1 &middot; Student</div>
+            <div style="padding: 16px;">
+              <label style="display: block;">
+                <span style="font-size: 12px; font-weight: 600; color: var(--lp-color-text-muted);">Student in Willow Class</span>
+                <select aria-label="Student" style="display: block; width: 100%; margin-top: 6px; min-height: 44px; border: 1px solid var(--lp-color-border-strong); border-radius: var(--lp-radius-md); background: var(--lp-color-surface); padding: 0 10px; font-size: 14px; color: var(--lp-color-text);">
+                  <option>Amara N.</option>
+                  <option>Theo B.</option>
+                  <option>Priya R.</option>
+                  <option>Jonah K.</option>
+                </select>
+              </label>
+              <p style="margin: 10px 0 0; font-size: 12px; color: var(--lp-color-text-muted); text-wrap: pretty;">Changing student here does not leave the page. You stay in Willow Class.</p>
+              <div style="margin-top: 14px; padding: 12px; border-radius: var(--lp-radius-md); background: var(--lp-color-primary-soft);">
+                <div style="font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 700; color: var(--lp-color-primary-strong);">Suggested for Amara</div>
+                <p style="margin: 5px 0 0; font-size: 13.5px; font-weight: 600; color: var(--lp-color-text-strong);">Digraphs &mdash; skills check</p>
+                <p style="margin: 2px 0 0; font-size: 12px; color: var(--lp-color-text-muted);">7 of 18 answers correct in the last 14 days.</p>
+              </div>
+            </div>
+          </section>
+
+          <section style="flex: 1 1 480px; min-width: min(420px, 100%); background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden;">
+            <div style="padding: 12px 16px; background: var(--lp-color-surface-subtle); border-bottom: 1px solid var(--lp-color-border); font-size: 12px; font-weight: 700; color: var(--lp-color-text-strong);">2 &middot; Assessment</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; padding: 16px;">
+              <sc-for list="{{ assessments }}" as="a" hint-placeholder-count="6">
+                <article style="padding: 14px; border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-lg); display: flex; flex-direction: column; gap: 6px; background: var(--lp-color-surface);" style-hover="border-color: var(--lp-color-primary); box-shadow: var(--lp-shadow-card);">
+                  <span style="font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 700; color: {{ a.kindFg }};">{{ a.kind }}</span>
+                  <h3 style="margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--lp-color-text-strong);">{{ a.title }}</h3>
+                  <p style="margin: 0; font-size: 13px; color: var(--lp-color-text-muted); text-wrap: pretty; flex: 1;">{{ a.body }}</p>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px;">
+                    <small style="font-size: 12px; color: var(--lp-color-text-subtle);">{{ a.meta }}</small>
+                    <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 14px; min-height: 40px; font-size: 13px; font-weight: 600;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Start</button>
+                  </div>
+                </article>
+              </sc-for>
+            </div>
+            <div style="padding: 11px 16px; font-size: 12px; color: var(--lp-color-text-muted); background: var(--lp-color-surface-subtle); border-top: 1px solid var(--lp-color-border);">Answer accuracy and learning status are saved separately. A high percentage alone does not prove that learning is secure.</div>
+          </section>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isReports }}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+        <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+          <div>
+            <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; color: var(--lp-color-primary);">Reports</p>
+            <h1 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--lp-color-text-strong);">Willow Class report</h1>
+            <p style="margin: 6px 0 0; font-size: 14px; color: var(--lp-color-text-muted);">Every skill appears in exactly one group. 22 of 30 items have saved answers.</p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">Export spreadsheet</button>
+            <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-primary); background: var(--lp-color-primary); color: #fff; border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; white-space: nowrap;" style-hover="background: var(--lp-color-primary-strong);">Export PDF</button>
+          </div>
+        </header>
+
+        <section aria-label="Status split" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px;">
+          <sc-for list="{{ statusSplit }}" as="s" hint-placeholder-count="5">
+            <div style="padding: 14px 16px; border: 1px solid {{ s.border }}; border-radius: var(--lp-radius-card); background: {{ s.bg }}; color: {{ s.fg }};">
+              <div style="font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700;">{{ s.label }}</div>
+              <div style="margin-top: 6px; font-family: Lexend, Inter, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1;">{{ s.count }}</div>
+              <p style="margin: 6px 0 0; font-size: 12px; opacity: 0.85; text-wrap: pretty;">{{ s.note }}</p>
+            </div>
+          </sc-for>
+        </section>
+
+        <section style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 13px 18px; border-bottom: 1px solid var(--lp-color-border);">
+            <span style="font-size: 13px; font-weight: 700; color: var(--lp-color-text-strong);">Skills with saved results</span>
+            <span style="font-size: 12px; color: var(--lp-color-text-subtle);">Accuracy and learning status shown separately</span>
+          </div>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px;">
+              <thead>
+                <tr style="background: var(--lp-color-surface-subtle);">
+                  <th style="text-align: left; padding: 10px 18px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--lp-color-text-subtle); font-weight: 600; border-bottom: 1px solid var(--lp-color-border);">Skill</th>
+                  <th style="text-align: left; padding: 10px 18px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--lp-color-text-subtle); font-weight: 600; border-bottom: 1px solid var(--lp-color-border);">Students assessed</th>
+                  <th style="text-align: left; padding: 10px 18px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--lp-color-text-subtle); font-weight: 600; border-bottom: 1px solid var(--lp-color-border);">Answers</th>
+                  <th style="text-align: left; padding: 10px 18px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--lp-color-text-subtle); font-weight: 600; border-bottom: 1px solid var(--lp-color-border);">Accuracy</th>
+                  <th style="text-align: left; padding: 10px 18px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--lp-color-text-subtle); font-weight: 600; border-bottom: 1px solid var(--lp-color-border);">Class status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{ reportRows }}" as="r" hint-placeholder-count="9">
+                  <tr>
+                    <td style="padding: 11px 18px; border-bottom: 1px solid var(--lp-color-border); font-weight: 600;">{{ r.skill }}</td>
+                    <td style="padding: 11px 18px; border-bottom: 1px solid var(--lp-color-border); color: var(--lp-color-text-muted);">{{ r.students }}</td>
+                    <td style="padding: 11px 18px; border-bottom: 1px solid var(--lp-color-border); color: var(--lp-color-text-muted);">{{ r.answers }}</td>
+                    <td style="padding: 11px 18px; border-bottom: 1px solid var(--lp-color-border); font-weight: 700;">{{ r.accuracy }}</td>
+                    <td style="padding: 11px 18px; border-bottom: 1px solid var(--lp-color-border);"><span style="display: inline-block; border-radius: var(--lp-radius-pill); padding: 3px 10px; font-size: 11px; font-weight: 700; background: {{ r.tagBg }}; color: {{ r.tagFg }};">{{ r.status }}</span></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin: 0; padding: 12px 18px; border-top: 1px solid var(--lp-color-border); font-size: 12px; color: var(--lp-color-text-muted); background: var(--lp-color-surface-subtle); text-wrap: pretty;">EL benchmark assessments are reported separately. They do not change the Secure, Developing or Not checked totals.</p>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isResources }}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+        <header>
+          <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; color: var(--lp-color-primary);">Resources</p>
+          <h1 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--lp-color-text-strong);">Teach, print, project</h1>
+          <p style="margin: 6px 0 0; font-size: 14px; color: var(--lp-color-text-muted); max-width: 64ch; text-wrap: pretty;">Whole-class tools, already set to Cycle 6 &mdash; Digraphs and blends. Per-student tools live in the Student panel.</p>
+        </header>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <sc-for list="{{ resources }}" as="r" hint-placeholder-count="3">
+            <article style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); padding: 20px; display: flex; flex-direction: column; gap: 8px; min-height: 250px;">
+              <span style="font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 700; color: {{ r.kindFg }};">{{ r.kind }}</span>
+              <h2 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--lp-color-text-strong);">{{ r.title }}</h2>
+              <p style="margin: 0; font-size: 13.5px; color: var(--lp-color-text-muted); text-wrap: pretty;">{{ r.body }}</p>
+              <ul style="margin: 4px 0 0; padding: 0 0 0 16px; font-size: 12.5px; color: var(--lp-color-text-muted); display: flex; flex-direction: column; gap: 3px; flex: 1;">
+                <sc-for list="{{ r.bullets }}" as="b" hint-placeholder-count="3">
+                  <li>{{ b }}</li>
+                </sc-for>
+              </ul>
+              <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-primary); background: var(--lp-color-primary); color: #fff; border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; margin-top: 4px;" style-hover="background: var(--lp-color-primary-strong);">{{ r.action }}</button>
+            </article>
+          </sc-for>
+        </div>
+
+        <section style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); overflow: hidden;">
+          <div style="padding: 13px 18px; border-bottom: 1px solid var(--lp-color-border); font-size: 13px; font-weight: 700; color: var(--lp-color-text-strong);">Suggested next books &mdash; Level C</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; padding: 16px 18px;">
+            <sc-for list="{{ books }}" as="b" hint-placeholder-count="4">
+              <div style="border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-lg); padding: 13px; display: flex; flex-direction: column; gap: 5px;" style-hover="border-color: var(--lp-color-primary);">
+                <strong style="font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em;">{{ b.title }}</strong>
+                <span style="font-size: 12px; color: var(--lp-color-text-muted);">{{ b.focus }}</span>
+                <button type="button" style="appearance: none; cursor: pointer; border: 1px solid transparent; background: transparent; color: var(--lp-color-primary); border-radius: var(--lp-radius-md); padding: 0 12px; min-height: 40px; font-size: 13px; font-weight: 600; text-align: left; margin-top: 2px;" style-hover="background: var(--lp-color-primary-soft);">Open reader</button>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+        <header>
+          <p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; color: var(--lp-color-primary);">Settings</p>
+          <h1 style="margin: 0; font-family: Lexend, Inter, sans-serif; font-size: 26px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; color: var(--lp-color-text-strong);">Class and account</h1>
+        </header>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+          <sc-for list="{{ settings }}" as="s" hint-placeholder-count="4">
+            <article style="background: var(--lp-color-surface); border: 1px solid var(--lp-color-border); border-radius: var(--lp-radius-card); box-shadow: var(--lp-shadow-card); padding: 18px; display: flex; flex-direction: column; gap: 6px;">
+              <h3 style="margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--lp-color-text-strong);">{{ s.title }}</h3>
+              <p style="margin: 0; font-size: 13px; color: var(--lp-color-text-muted); text-wrap: pretty;">{{ s.body }}</p>
+              <button type="button" style="appearance: none; cursor: pointer; border: 1px solid var(--lp-color-border-strong); background: var(--lp-color-surface); color: var(--lp-color-text); border-radius: var(--lp-radius-md); padding: 0 16px; min-height: 44px; font-size: 14px; font-weight: 600; align-self: flex-start; margin-top: 4px;" style-hover="border-color: var(--lp-color-primary); background: var(--lp-color-surface-subtle);">{{ s.action }}</button>
+            </article>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;screen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;today&quot;,&quot;students&quot;,&quot;assess&quot;,&quot;reports&quot;,&quot;resources&quot;,&quot;settings&quot;],&quot;default&quot;:null,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}">
+const TAG = {
+  needs: { tagBg: "var(--lp-color-danger-soft)", tagFg: "var(--lp-color-danger)" },
+  developing: { tagBg: "var(--lp-color-warning-soft)", tagFg: "var(--lp-color-warning)" },
+  secure: { tagBg: "var(--lp-color-success-soft)", tagFg: "var(--lp-color-success-text)" },
+  none: { tagBg: "var(--lp-color-background)", tagFg: "var(--lp-color-text-subtle)" }
+};
+
+const NAV = [
+  { id: "today", label: "Dashboard", badge: "8" },
+  { id: "students", label: "Students", badge: "" },
+  { id: "assess", label: "Assessments", badge: "" },
+  { id: "reports", label: "Reports", badge: "" },
+  { id: "resources", label: "Resources", badge: "" },
+  { id: "settings", label: "Settings", badge: "" }
+];
+
+const STUDENTS = [
+  { id: "s1", name: "Amara N.", focus: "Digraphs", accuracy: "39%", status: "Needs support", tone: "needs", lastActive: "3 days ago", signIn: "Sign-in ready", secure: 6, developing: 4, needs: 3,
+    summary: "Working on digraphs. 18 saved answers in the last 14 days.",
+    skills: [
+      { label: "Digraphs", accuracy: "39%", status: "Needs support", tone: "needs" },
+      { label: "CVC words and short vowels", accuracy: "71%", status: "Developing", tone: "developing" },
+      { label: "Initial sounds", accuracy: "94%", status: "Secure", tone: "secure" },
+      { label: "High-frequency words", accuracy: "—", status: "Not checked", tone: "none" }
+    ] },
+  { id: "s2", name: "Theo B.", focus: "CVC words and short vowels", accuracy: "58%", status: "Developing", tone: "developing", lastActive: "Today", signIn: "Sign-in ready", secure: 8, developing: 5, needs: 1,
+    summary: "Building consistency on short vowels. Played today.",
+    skills: [
+      { label: "CVC words and short vowels", accuracy: "58%", status: "Developing", tone: "developing" },
+      { label: "Rhyming", accuracy: "86%", status: "Secure", tone: "secure" },
+      { label: "Final sounds", accuracy: "77%", status: "Developing", tone: "developing" },
+      { label: "Blends", accuracy: "—", status: "Not checked", tone: "none" }
+    ] },
+  { id: "s3", name: "Priya R.", focus: "High-frequency words", accuracy: "47%", status: "Needs support", tone: "needs", lastActive: "Today", signIn: "Sign-in ready", secure: 5, developing: 6, needs: 2,
+    summary: "Reading HFW well; spelling the same words is behind.",
+    skills: [
+      { label: "High-frequency words — reading", accuracy: "72%", status: "Developing", tone: "developing" },
+      { label: "High-frequency words — spelling", accuracy: "31%", status: "Needs support", tone: "needs" },
+      { label: "Digraphs", accuracy: "68%", status: "Developing", tone: "developing" },
+      { label: "Long vowels and silent e", accuracy: "—", status: "Not checked", tone: "none" }
+    ] },
+  { id: "s4", name: "Jonah K.", focus: "Blends", accuracy: "76%", status: "Developing", tone: "developing", lastActive: "Yesterday", signIn: "Sign-in ready", secure: 9, developing: 3, needs: 1,
+    summary: "Close to secure on initial blends; final blends lag.",
+    skills: [
+      { label: "Initial blends", accuracy: "84%", status: "Developing", tone: "developing" },
+      { label: "Final blends", accuracy: "61%", status: "Developing", tone: "developing" },
+      { label: "Digraphs", accuracy: "91%", status: "Secure", tone: "secure" },
+      { label: "Vowel teams", accuracy: "—", status: "Not checked", tone: "none" }
+    ] },
+  { id: "s5", name: "Elsie M.", focus: "Long vowels and silent e", accuracy: "88%", status: "Secure", tone: "secure", lastActive: "Today", signIn: "Sign-in ready", secure: 13, developing: 2, needs: 0,
+    summary: "Ready to move on. Consider Level C guided reading.",
+    skills: [
+      { label: "Long vowels and silent e", accuracy: "88%", status: "Secure", tone: "secure" },
+      { label: "Digraphs", accuracy: "96%", status: "Secure", tone: "secure" },
+      { label: "Blends", accuracy: "90%", status: "Secure", tone: "secure" },
+      { label: "R-controlled vowels", accuracy: "—", status: "Not checked", tone: "none" }
+    ] },
+  { id: "s6", name: "Kofi A.", focus: "Initial sounds", accuracy: "—", status: "Not enough results", tone: "none", lastActive: "6 days ago", signIn: "Pictures missing", secure: 0, developing: 1, needs: 0,
+    summary: "Four saved answers. Too few for a learning judgement.",
+    skills: [
+      { label: "Initial sounds", accuracy: "3 of 4", status: "Not enough results", tone: "none" },
+      { label: "Rhyming", accuracy: "—", status: "Not checked", tone: "none" },
+      { label: "Final sounds", accuracy: "—", status: "Not checked", tone: "none" },
+      { label: "CVC words and short vowels", accuracy: "—", status: "Not checked", tone: "none" }
+    ] },
+  { id: "s7", name: "Mia L.", focus: "Rhyming", accuracy: "92%", status: "Secure", tone: "secure", lastActive: "Today", signIn: "Sign-in ready", secure: 11, developing: 3, needs: 0,
+    summary: "Strong phonological awareness. Move to phonics checks.",
+    skills: [
+      { label: "Rhyming", accuracy: "92%", status: "Secure", tone: "secure" },
+      { label: "Initial sounds", accuracy: "97%", status: "Secure", tone: "secure" },
+      { label: "CVC words and short vowels", accuracy: "74%", status: "Developing", tone: "developing" },
+      { label: "Digraphs", accuracy: "—", status: "Not checked", tone: "none" }
+    ] },
+  { id: "s8", name: "Ruben O.", focus: "Final sounds", accuracy: "63%", status: "Developing", tone: "developing", lastActive: "2 days ago", signIn: "Sign-in ready", secure: 4, developing: 6, needs: 1,
+    summary: "Complex final sounds are the sticking point.",
+    skills: [
+      { label: "Final sounds", accuracy: "63%", status: "Developing", tone: "developing" },
+      { label: "Complex final sounds", accuracy: "44%", status: "Needs support", tone: "needs" },
+      { label: "Initial sounds", accuracy: "89%", status: "Secure", tone: "secure" },
+      { label: "High-frequency words", accuracy: "—", status: "Not checked", tone: "none" }
+    ] }
+];
+
+const HEAT = {
+  low: { bg: "var(--lp-color-success-soft)", fg: "var(--lp-color-success-text)", border: "#BBF7D0" },
+  mid: { bg: "var(--lp-color-warning-soft)", fg: "var(--lp-color-warning)", border: "#FDE68A" },
+  high: { bg: "var(--lp-color-danger-soft)", fg: "var(--lp-color-danger)", border: "#FECACA" },
+  off: { bg: "var(--lp-color-surface-subtle)", fg: "var(--lp-color-text-subtle)", border: "var(--lp-color-border)" }
+};
+
+class Component extends DCLogic {
+  state = { screen: "today", studentId: "s1", group: "Everyone" };
+
+  go = screen => () => this.setState({ screen });
+
+  renderVals() {
+    const screen = this.props.screen || this.state.screen;
+    const selected = STUDENTS.find(s => s.id === this.state.studentId) || STUDENTS[0];
+
+    return {
+      nav: NAV.map(item => {
+        const active = item.id === screen;
+        return {
+          ...item,
+          go: this.go(item.id),
+          bg: active ? "rgba(12, 107, 101, 0.32)" : "transparent",
+          fg: active ? "#ffffff" : "rgba(255,255,255,0.78)",
+          badgeFg: active ? "#ffffff" : "rgba(255,255,255,0.55)",
+          weight: active ? 600 : 500
+        };
+      }),
+      isToday: screen === "today",
+      isStudents: screen === "students",
+      isAssess: screen === "assess",
+      isReports: screen === "reports",
+      isResources: screen === "resources",
+      isSettings: screen === "settings",
+      goStudents: this.go("students"),
+      goAssess: this.go("assess"),
+      goReports: this.go("reports"),
+      goResources: this.go("resources"),
+      toggleClassMenu: this.go("settings"),
+
+      metrics: [
+        { label: "Students", value: "28", note: "3 archived", help: "Active students in this class." },
+        { label: "Ready to sign in", value: "26", note: "2 need pictures", help: "Students with a full set of sign-in pictures." },
+        { label: "Have played", value: "24", note: "of 28", help: "Students with at least one saved answer." },
+        { label: "Played today", value: "11", note: "since 8am", help: "Students with a saved answer today." },
+        { label: "Class accuracy", value: "72%", note: "Averaging students equally", help: "A class average appears once at least 5 students have done enough assessments to be measured fairly." }
+      ],
+
+      attention: [
+        { name: "Amara N.", status: "Needs support", focus: "Digraphs", evidence: "7 of 18 answers correct in the last 14 days.", open: this.go("students") },
+        { name: "Priya R.", status: "Needs support", focus: "High-frequency words — spelling", evidence: "Reads the same words at 72%. Spelling sits at 31%.", open: this.go("students") },
+        { name: "Ruben O.", status: "Needs support", focus: "Complex final sounds", evidence: "8 of 18 answers correct across two sessions.", open: this.go("students") }
+      ],
+
+      due: [
+        { name: "Kofi A.", status: "Not checked in 6 days", focus: "Initial sounds", evidence: "4 saved answers — too few for a judgement.", open: this.go("students") },
+        { name: "Elsie M.", status: "Ready to move on", focus: "Vowel teams", evidence: "Long vowels secure since 14 July. Nothing checked after it.", open: this.go("students") },
+        { name: "Jonah K.", status: "Cycle check due", focus: "Final blends", evidence: "Cycle 6 check not saved yet.", open: this.go("students") }
+      ],
+
+      changed: [
+        { name: "Mia L.", summary: "Rhyming moved to Secure", comparison: "was Developing, 4 days ago" },
+        { name: "Theo B.", summary: "34 new answers saved", comparison: "CVC words and short vowels" },
+        { name: "Elsie M.", summary: "Long vowels and silent e moved to Secure", comparison: "was Developing, 2 days ago" }
+      ],
+
+      soundMap: [
+        { label: "Initial sounds", count: "2", note: "need re-teaching", ...HEAT.low },
+        { label: "Final sounds", count: "5", note: "need re-teaching", ...HEAT.mid },
+        { label: "Rhyming", count: "1", note: "needs re-teaching", ...HEAT.low },
+        { label: "CVC / short vowels", count: "6", note: "need re-teaching", ...HEAT.mid },
+        { label: "High-frequency words", count: "9", note: "need re-teaching", ...HEAT.high },
+        { label: "Digraphs", count: "11", note: "Sam, Maya, Leo +8", ...HEAT.high },
+        { label: "Blends", count: "7", note: "need re-teaching", ...HEAT.mid },
+        { label: "Long vowels, silent e", count: "3", note: "need re-teaching", ...HEAT.low },
+        { label: "Vowel teams", count: "—", note: "not checked yet", ...HEAT.off },
+        { label: "R-controlled vowels", count: "—", note: "not checked yet", ...HEAT.off }
+      ],
+
+      groups: ["Everyone", "Needs help", "No scored answers", "Played today"].map(label => {
+        const active = label === this.state.group;
+        return {
+          label,
+          select: () => this.setState({ group: label }),
+          bg: active ? "var(--lp-color-primary)" : "var(--lp-color-surface)",
+          fg: active ? "#ffffff" : "var(--lp-color-text)",
+          border: active ? "var(--lp-color-primary)" : "var(--lp-color-border-strong)"
+        };
+      }),
+
+      students: STUDENTS.map(row => {
+        const active = row.id === this.state.studentId;
+        return {
+          ...row,
+          ...TAG[row.tone],
+          select: () => this.setState({ studentId: row.id }),
+          bar: active ? "var(--lp-color-primary)" : "transparent",
+          bg: active ? "var(--lp-color-primary-soft)" : "var(--lp-color-surface)"
+        };
+      }),
+
+      selected: { ...selected, first: selected.name.split(" ")[0] },
+      selectedSkills: selected.skills.map(s => ({ ...s, ...TAG[s.tone] })),
+
+      steps: [
+        { n: "1", title: "Choose the student", detail: "Scoped to Willow Class", bg: "var(--lp-color-primary-soft)", fg: "var(--lp-color-text-strong)", border: "var(--lp-color-primary-mid)", dotBg: "var(--lp-color-primary)", dotFg: "#ffffff" },
+        { n: "2", title: "Choose the assessment", detail: "Suggested one is first", bg: "var(--lp-color-surface)", fg: "var(--lp-color-text)", border: "var(--lp-color-border)", dotBg: "var(--lp-color-background)", dotFg: "var(--lp-color-text-muted)" },
+        { n: "3", title: "Run it and save", detail: "Result lands in Reports", bg: "var(--lp-color-surface)", fg: "var(--lp-color-text-muted)", border: "var(--lp-color-border)", dotBg: "var(--lp-color-background)", dotFg: "var(--lp-color-text-muted)" }
+      ],
+
+      assessments: [
+        { kind: "Suggested", kindFg: "var(--lp-color-primary)", title: "Digraphs — skills check", body: "Twelve items on sh, ch, th and wh in initial and final position.", meta: "12 items · ~6 min" },
+        { kind: "Phonics", kindFg: "var(--lg-domain-phonics)", title: "Letters and sounds", body: "Letter names and single-letter sounds, spoken and matched.", meta: "26 items · ~10 min" },
+        { kind: "Phonics", kindFg: "var(--lg-domain-phonics)", title: "Advanced phonics", body: "Blends, long vowels, vowel teams and r-controlled vowels.", meta: "20 items · ~9 min" },
+        { kind: "Curriculum", kindFg: "var(--lg-domain-grammar)", title: "Cycle 6 checkpoint", body: "The end-of-cycle check for the class's current teaching cycle.", meta: "15 items · ~8 min" },
+        { kind: "Benchmark", kindFg: "var(--lp-color-warning)", title: "EL benchmark assessment", body: "Reported separately as a standards document, by grade and time of year.", meta: "Grade and period required" },
+        { kind: "Words", kindFg: "var(--lp-color-warning)", title: "High-frequency words", body: "Reading, sentence and spelling results stay separate.", meta: "Bands 1–4 · ~7 min" }
+      ],
+
+      statusSplit: [
+        { label: "Needs support", count: "4", note: "Review these first and assess again after giving support.", bg: "var(--lp-color-danger-soft)", fg: "var(--lp-color-danger)", border: "#FECACA" },
+        { label: "Developing", count: "9", note: "Making progress but not secure yet.", bg: "var(--lp-color-warning-soft)", fg: "var(--lp-color-warning)", border: "#FDE68A" },
+        { label: "Secure", count: "9", note: "Enough saved results support a secure judgement.", bg: "var(--lp-color-success-soft)", fg: "var(--lp-color-success-text)", border: "#BBF7D0" },
+        { label: "Not enough results", count: "3", note: "Some answers, but not enough for a judgement.", bg: "var(--lp-color-surface)", fg: "var(--lp-color-text-muted)", border: "var(--lp-color-border)" },
+        { label: "Not checked", count: "5", note: "This has not been assessed yet.", bg: "var(--lp-color-surface)", fg: "var(--lp-color-text-muted)", border: "var(--lp-color-border)" }
+      ],
+
+      reportRows: [
+        { skill: "Initial sounds", students: "26 of 28", answers: "612", accuracy: "88%", status: "Secure", tone: "secure" },
+        { skill: "Final sounds", students: "24 of 28", answers: "497", accuracy: "69%", status: "Developing", tone: "developing" },
+        { skill: "Rhyming", students: "25 of 28", answers: "431", accuracy: "84%", status: "Secure", tone: "secure" },
+        { skill: "CVC words and short vowels", students: "23 of 28", answers: "702", accuracy: "61%", status: "Developing", tone: "developing" },
+        { skill: "High-frequency words — reading", students: "22 of 28", answers: "588", accuracy: "70%", status: "Developing", tone: "developing" },
+        { skill: "High-frequency words — spelling", students: "19 of 28", answers: "241", accuracy: "42%", status: "Needs support", tone: "needs" },
+        { skill: "Digraphs", students: "21 of 28", answers: "356", accuracy: "47%", status: "Needs support", tone: "needs" },
+        { skill: "Blends", students: "18 of 28", answers: "219", accuracy: "58%", status: "Developing", tone: "developing" },
+        { skill: "Long vowels and silent e", students: "11 of 28", answers: "96", accuracy: "74%", status: "Not enough results", tone: "none" }
+      ].map(r => ({ ...r, ...TAG[r.tone] })),
+
+      resources: [
+        { kind: "Whole class", kindFg: "var(--lp-color-primary)", title: "Present", body: "Projector-ready slides for the current teaching cycle. Opens full screen with keyboard control.", action: "Open Cycle 6 slides", bullets: ["Sound cards, blending, dictation", "Class word bank from saved results", "Works on an interactive whiteboard"] },
+        { kind: "Print", kindFg: "var(--lg-domain-phonics)", title: "Worksheets", body: "Printable practice built from what the class has actually been taught. Every word is decodable at the chosen stop.", action: "Build a worksheet", bullets: ["Whole class or a suggested group", "Prints at the lowest member's stop", "Answer sheet included"] },
+        { kind: "Small group", kindFg: "var(--lp-color-success)", title: "Guided reading", body: "Levelled books matched to saved reading history and word difficulty, with teacher notes and line focus.", action: "Open the reader", bullets: ["Levels A to F", "Teacher notes and word taps", "Saves a reading record"] }
+      ],
+
+      books: [
+        { title: "Bees", focus: "First Facts · nonfiction · Level C" },
+        { title: "Volcanoes", focus: "First Facts · nonfiction · Level C" },
+        { title: "Penguins", focus: "First Facts · nonfiction · Level C" },
+        { title: "The Moon", focus: "First Facts · nonfiction · Level C" }
+      ],
+
+      settings: [
+        { title: "Classes and groups", body: "Create classes, move students between them, and set the current teaching cycle.", action: "Manage classes" },
+        { title: "Sign-in pictures", body: "Set or reprint the picture passwords students use to sign in. 2 students still need a set.", action: "Manage sign-in" },
+        { title: "Accessibility", body: "Reading supports, audio and motion settings applied to every student in this class.", action: "Open accessibility" },
+        { title: "Data and privacy", body: "Export or delete a student's saved results. Deletions are irreversible and logged.", action: "Open data rights" }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
