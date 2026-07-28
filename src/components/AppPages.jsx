@@ -1872,6 +1872,41 @@ export function DashboardSummary({
   );
 }
 
+const MANUAL_OUTCOME_CHOICES = [
+  { value: "correct", label: "Yes", tone: "yes" },
+  { value: "incorrect", label: "No", tone: "no" },
+  { value: "not_administered", label: "Not checked", tone: "skip" }
+];
+
+// Green yes / red no marking, one tap per field. Restores the pre-dropdown
+// interaction Benjamin asked for; the recorded values are unchanged
+// ("correct" | "incorrect" | "not_administered").
+function ManualOutcomeChoice({ groupId, label, value, disabled, onChange }) {
+  return (
+    <div className="assessment-outcome-choice" role="group" aria-labelledby={`${groupId}-label`}>
+      <span className="assessment-outcome-label" id={`${groupId}-label`}>{label}</span>
+
+      <div className="assessment-outcome-buttons">
+        {MANUAL_OUTCOME_CHOICES.map(choice => {
+          const pressed = value === choice.value;
+          return (
+            <button
+              key={choice.value}
+              aria-pressed={pressed}
+              className={`assessment-outcome-button outcome-${choice.tone}${pressed ? " active" : ""}`}
+              disabled={disabled}
+              onClick={() => onChange(choice.value)}
+              type="button"
+            >
+              {choice.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export function AdvancedPhonicsPatternAssessmentPage({
   studentName,
   patternIndex,
@@ -1959,39 +1994,27 @@ export function AdvancedPhonicsPatternAssessmentPage({
           </section>
 
           <div className="letter-action-panel pattern-action-panel">
-            <label className="pattern-check-control">
-              <span>Pattern sound</span>
-              <select
-                aria-label="Pattern sound result"
-                value={soundOutcome}
-                onChange={event => {
-                  setSoundOutcome(event.target.value);
-                  setSaveError("");
-                }}
-              >
-                <option value="">Choose result</option>
-                <option value="correct">Correct</option>
-                <option value="incorrect">Incorrect</option>
-                <option value="not_administered">Not checked</option>
-              </select>
-            </label>
+            <ManualOutcomeChoice
+              disabled={saving}
+              groupId="pattern-sound-outcome"
+              label="Pattern sound"
+              onChange={nextValue => {
+                setSoundOutcome(nextValue);
+                setSaveError("");
+              }}
+              value={soundOutcome}
+            />
 
-            <label className="pattern-check-control">
-              <span>Example word</span>
-              <select
-                aria-label="Example word result"
-                value={wordOutcome}
-                onChange={event => {
-                  setWordOutcome(event.target.value);
-                  setSaveError("");
-                }}
-              >
-                <option value="">Choose result</option>
-                <option value="correct">Correct</option>
-                <option value="incorrect">Incorrect</option>
-                <option value="not_administered">Not checked</option>
-              </select>
-            </label>
+            <ManualOutcomeChoice
+              disabled={saving}
+              groupId="example-word-outcome"
+              label="Example word"
+              onChange={nextValue => {
+                setWordOutcome(nextValue);
+                setSaveError("");
+              }}
+              value={wordOutcome}
+            />
 
             <button
               className="main-button letter-next-button"
@@ -2162,39 +2185,27 @@ export function LetterAssessmentPage({
           </section>
 
           <div className="letter-action-panel">
-            <label className="pattern-check-control">
-              <span>Letter name</span>
-              <select
-                aria-label="Letter name result"
-                value={nameOutcome}
-                onChange={event => {
-                  setNameOutcome(event.target.value);
-                  setSaveError("");
-                }}
-              >
-                <option value="">Choose result</option>
-                <option value="correct">Correct</option>
-                <option value="incorrect">Incorrect</option>
-                <option value="not_administered">Not checked</option>
-              </select>
-            </label>
+            <ManualOutcomeChoice
+              disabled={saving}
+              groupId="letter-name-outcome"
+              label="Letter name"
+              onChange={nextValue => {
+                setNameOutcome(nextValue);
+                setSaveError("");
+              }}
+              value={nameOutcome}
+            />
 
-            <label className="pattern-check-control">
-              <span>Letter sound</span>
-              <select
-                aria-label="Letter sound result"
-                value={soundOutcome}
-                onChange={event => {
-                  setSoundOutcome(event.target.value);
-                  setSaveError("");
-                }}
-              >
-                <option value="">Choose result</option>
-                <option value="correct">Correct</option>
-                <option value="incorrect">Incorrect</option>
-                <option value="not_administered">Not checked</option>
-              </select>
-            </label>
+            <ManualOutcomeChoice
+              disabled={saving}
+              groupId="letter-sound-outcome"
+              label="Letter sound"
+              onChange={nextValue => {
+                setSoundOutcome(nextValue);
+                setSaveError("");
+              }}
+              value={soundOutcome}
+            />
 
             <button
               className="main-button letter-next-button"

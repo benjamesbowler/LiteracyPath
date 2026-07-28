@@ -1010,6 +1010,29 @@ test("manual letter and phonics checks save once, recover visibly, and preserve 
   assert.match(pages, /finally \{\s*setSaving\(false\);\s*\}/);
 });
 
+// The letter and phonics-pattern sittings are 52 and 33 items long. A dropdown
+// per field turned every item into two taps and a menu, which is why they were
+// reverted to green yes / red no buttons. The three recorded values are
+// unchanged, so the guard is on the interaction, not on the data.
+test("manual letter and pattern marking is a yes/no button pair, never a dropdown", async () => {
+  const pages = await source("src/components/AppPages.jsx");
+  const marking = pages.slice(
+    pages.indexOf("const MANUAL_OUTCOME_CHOICES"),
+    pages.indexOf("export function AssessmentPage")
+  );
+
+  assert.ok(marking.length > 0, "the marking components were found");
+  assert.doesNotMatch(marking, /<select|Choose result/);
+  assert.match(pages, /\{ value: "correct", label: "Yes", tone: "yes" \}/);
+  assert.match(pages, /\{ value: "incorrect", label: "No", tone: "no" \}/);
+  // The third state stays reachable: a skipped item is not a wrong answer.
+  assert.match(pages, /\{ value: "not_administered", label: "Not checked", tone: "skip" \}/);
+  assert.match(pages, /aria-pressed=\{pressed\}/);
+  for (const field of ["Letter name", "Letter sound", "Pattern sound", "Example word"]) {
+    assert.match(marking, new RegExp(`label="${field}"`), `${field} is marked with the button pair`);
+  }
+});
+
 test("active assessments use a focused shell and their own durable exit handlers", async () => {
   const [surface, sidebar] = await Promise.all([
     source("src/components/AppSurface.jsx"),

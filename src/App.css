@@ -11473,10 +11473,15 @@ select:focus {
   font-size: clamp(140px, 46vh, 390px);
 }
 
+/* Centred control row: the stimulus above it is centred, so this must be too. */
 .letter-action-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr minmax(180px, 0.8fr);
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 22px);
+  width: min(100%, 1080px);
+  margin-inline: auto;
   padding: 12px;
   background: var(--lp-color-surface);
   border: 1px solid var(--lp-color-border);
@@ -11484,23 +11489,73 @@ select:focus {
   box-shadow: 0 4px 16px rgba(22, 34, 51, 0.05);
 }
 
-.letter-mark-button,
-.letter-next-button {
+.letter-action-panel .teacher-inline-error {
+  flex-basis: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+/* Two classes: `.app button` (0,1,1) would otherwise win and hold it at 44px. */
+.letter-action-panel .letter-next-button {
   min-height: 68px;
   border-radius: 16px;
+  padding-inline: 26px;
   font-size: 17px;
 }
 
-.letter-mark-button {
-  background: var(--lp-color-surface) !important;
-  color: #344054 !important;
-  border: 1.5px solid var(--lp-color-border-strong) !important;
+/* Yes / no marking pair — one tap per field, green for yes, red for no. */
+.letter-action-panel .assessment-outcome-choice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.letter-mark-button.active {
-  background: var(--lp-color-success-soft) !important;
-  color: var(--lp-color-success-text) !important;
-  border-color: var(--lg-domain-reading-mid) !important;
+.letter-action-panel .assessment-outcome-label {
+  color: #344054;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.letter-action-panel .assessment-outcome-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.letter-action-panel .assessment-outcome-button {
+  min-height: 68px;
+  min-width: 76px;
+  padding: 10px 18px;
+  background: var(--lp-color-surface);
+  color: #344054;
+  border: 1.5px solid var(--lp-color-border-strong);
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.letter-action-panel .assessment-outcome-button.outcome-yes.active {
+  background: var(--lp-color-success);
+  color: #ffffff;
+  border-color: var(--lp-color-success);
+}
+
+.letter-action-panel .assessment-outcome-button.outcome-no.active {
+  background: var(--lp-color-danger);
+  color: #ffffff;
+  border-color: var(--lp-color-danger);
+}
+
+.letter-action-panel .assessment-outcome-button.outcome-skip {
+  min-width: 0;
+  font-size: 15px;
+}
+
+.letter-action-panel .assessment-outcome-button.outcome-skip.active {
+  background: #344054;
+  color: #ffffff;
+  border-color: #344054;
 }
 
 .letter-complete-card {
@@ -12807,36 +12862,6 @@ select:focus {
   font-size: clamp(34px, 8vh, 72px);
   font-weight: 800;
   color: #344054 !important;
-}
-
-.pattern-action-panel {
-  grid-template-columns: 1fr 1fr minmax(190px, 0.8fr);
-}
-
-.pattern-check-control {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-height: 68px;
-  border: 1.5px solid var(--lp-color-border-strong);
-  border-radius: 16px;
-  background: var(--lp-color-surface);
-  color: #344054 !important;
-  font-size: 17px;
-  font-weight: 800;
-}
-
-.pattern-check-control.active {
-  background: var(--lp-color-success-soft);
-  color: var(--lp-color-success-text) !important;
-  border-color: var(--lg-domain-reading-mid);
-}
-
-.pattern-check-control input {
-  width: 22px;
-  height: 22px;
-  margin: 0;
 }
 
 .message {
@@ -17028,17 +17053,27 @@ select:focus {
   }
 
   .letter-action-panel {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
     padding: 10px;
   }
 
-  .pattern-action-panel {
-    grid-template-columns: 1fr;
+  .letter-action-panel .assessment-outcome-choice {
+    justify-content: space-between;
   }
 
-  .letter-mark-button,
-  .letter-next-button {
+  .letter-action-panel .assessment-outcome-buttons {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .letter-action-panel .assessment-outcome-button {
+    min-height: 58px;
+    font-size: 16px;
+  }
+
+  .letter-action-panel .letter-next-button {
     min-height: 58px;
     font-size: 16px;
   }
