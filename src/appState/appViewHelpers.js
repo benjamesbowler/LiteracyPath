@@ -58,6 +58,7 @@ const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.REPORTS,
   APP_VIEWS.WORKSHEETS,
   APP_VIEWS.PRESENT,
+  APP_VIEWS.TEACHER_GUIDED_READING,
   APP_VIEWS.ADMIN_DASHBOARD,
   APP_VIEWS.TEACHER_DASHBOARD,
   APP_VIEWS.TEACHER_CLASSES,
@@ -81,7 +82,8 @@ const TEACHER_INTENTION_VIEWS = new Set([
   APP_VIEWS.TEACHER_RESOURCES,
   APP_VIEWS.TEACHER_SETTINGS,
   APP_VIEWS.WORKSHEETS,
-  APP_VIEWS.PRESENT
+  APP_VIEWS.PRESENT,
+  APP_VIEWS.TEACHER_GUIDED_READING
 ]);
 
 export function isFocusedAssessmentView(appView) {
@@ -174,6 +176,7 @@ const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.TEACHER_RESOURCES]: "resources",
   [APP_VIEWS.WORKSHEETS]: "resources/worksheets",
   [APP_VIEWS.PRESENT]: "resources/present",
+  [APP_VIEWS.TEACHER_GUIDED_READING]: "resources/guided-reading",
   [APP_VIEWS.TEACHER_SETTINGS]: "settings",
   [APP_VIEWS.FINISHED]: "reports/report"
 });
@@ -184,6 +187,7 @@ const CLASS_ONLY_INTENTS = [
   "resources",
   "resources/worksheets",
   "resources/present",
+  "resources/guided-reading",
   "settings"
 ];
 

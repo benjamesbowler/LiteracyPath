@@ -553,6 +553,17 @@ export function GuidedReadingPage({
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
   const isStudentMode = mode === "student";
+  // "class" is the whole-class read opened from the Resources shelf: a teacher
+  // reading to the room, with no single student to attribute anything to. It
+  // keeps every reading tool and drops every capture control, because a note or
+  // a running record with nobody to save it against is discarded silently.
+  const isClassMode = mode === "class";
+  const canRecord = !isStudentMode && !isClassMode;
+  const guidedReadingSurfaceLabel = isStudentMode
+    ? "Reading library"
+    : isClassMode
+      ? "Whole-class guided reading"
+      : `${studentName || "Student"} guided reading`;
   const readerCopy = isStudentMode
     ? CHILD_COPY.guidedReading
     : TEACHER_COPY.guidedReading.controls;
@@ -850,7 +861,7 @@ export function GuidedReadingPage({
   }
 
   function updateRecord(patch) {
-    if (!selectedBook) return;
+    if (!selectedBook || isClassMode) return;
     const previous = getWorkingRecord();
     const nextRecord = {
       ...previous,
@@ -867,7 +878,7 @@ export function GuidedReadingPage({
   }
 
   function touchBookProgress(nextPageIndex = pageIndex, patch = {}) {
-    if (!selectedBook) return;
+    if (!selectedBook || isClassMode) return;
     const now = new Date().toISOString();
     const totalPages = selectedBook.pages.length;
     const previous = getWorkingRecord();
@@ -1561,14 +1572,14 @@ export function GuidedReadingPage({
   if (!selectedBook) {
     return (
       <div
-        aria-label={isStudentMode ? "Reading library" : `${studentName || "Student"} guided reading`}
+        aria-label={guidedReadingSurfaceLabel}
         className={`teacher-product-page guided-reading-page ${guidedReadingModeClass}`}
         role="main"
       >
         <section className="teacher-page-header guided-reading-hero">
           <div>
             <p className="panel-label">{isStudentMode ? "Reading library" : "Guided reading"}</p>
-            <h2>{studentName || "Reader"}&apos;s reading library</h2>
+            <h2>{isClassMode ? "Whole-class reading library" : `${studentName || "Reader"}'s reading library`}</h2>
             <p>{isStudentMode
               ? "New books are on the way. Check back soon!"
               : "Guided reading books are paused while their page images and text are checked."}</p>
@@ -1590,7 +1601,7 @@ export function GuidedReadingPage({
           )}
         </section>
 
-        {!isStudentMode && recordSummaries.length > 0 && (
+        {canRecord && recordSummaries.length > 0 && (
           <section className="teacher-action-panel">
             <h3>Saved guided reading summaries</h3>
             <div className="guided-record-list">
@@ -1610,7 +1621,7 @@ export function GuidedReadingPage({
 
   return (
     <div
-      aria-label={isStudentMode ? "Reading library" : `${studentName || "Student"} guided reading`}
+      aria-label={guidedReadingSurfaceLabel}
       className={guidedReadingPageClassName}
       data-child-surface={isStudentMode ? "reading-library" : undefined}
       data-auto-narration={isStudentMode && autoNarration ? "true" : "false"}
@@ -1656,8 +1667,10 @@ export function GuidedReadingPage({
       <section className="teacher-page-header guided-reading-hero">
         <div>
           <p className="panel-label">Guided reading</p>
-          <h2>{studentName || "Child"}&apos;s reading library</h2>
-          <p>Choose a guided reading book to listen, read, reread, and capture teacher notes.</p>
+          <h2>{isClassMode ? "Whole-class reading library" : `${studentName || "Child"}'s reading library`}</h2>
+          <p>{isClassMode
+            ? "Choose a book to read with the whole class: listen, read and reread together. Notes and reading records belong to a single student, so open a student's own reader for those."
+            : "Choose a guided reading book to listen, read, reread, and capture teacher notes."}</p>
         </div>
         <span className="guided-reading-mode-pill">Teacher tools</span>
       </section>
@@ -2083,7 +2096,7 @@ export function GuidedReadingPage({
                   </div>
                 )}
                 <div className="guided-reader-secondary-controls" role="group" aria-label="Reader view controls">
-                  {!isStudentMode && !isReaderFullscreen && (
+                  {canRecord && !isReaderFullscreen && (
                     <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
                       {TEACHER_COPY.guidedReading.controls.teacherNotes}
                     </button>
@@ -2123,7 +2136,7 @@ export function GuidedReadingPage({
                   <strong>Reading</strong>
                   <span>Tap words to hear them.</span>
                 </div>
-              ) : (
+              ) : canRecord ? (
                 <div className="guided-mode-toggle" role="group" aria-label="Reader mode">
                   <button
                     className={readingMode === "reading" ? "active" : ""}
@@ -2140,12 +2153,14 @@ export function GuidedReadingPage({
                     {readerCopy.markingMode}
                   </button>
                 </div>
-              )}
+              ) : null}
               {!isStudentMode && (
                 <p>
-                  {readingMode === "reading"
-                    ? "Tap a word for help: hear the word, use its sounds, then reread the sentence."
-                    : "Tap words to cycle neutral, read correctly, and needs support. Alt-click a word to hear it."}
+                  {isClassMode
+                    ? "Tap a word for help: hear the word, use its sounds, then reread the sentence. Nothing is saved against a student on a whole-class read."
+                    : readingMode === "reading"
+                      ? "Tap a word for help: hear the word, use its sounds, then reread the sentence."
+                      : "Tap words to cycle neutral, read correctly, and needs support. Alt-click a word to hear it."}
                 </p>
               )}
             </div>}
@@ -2260,7 +2275,7 @@ export function GuidedReadingPage({
                     <p className="guided-complete-message">Book completed. You can finish again to record a reread.</p>
                   )}
 
-                  {!isStudentMode && !isReaderFullscreen && readingMode === "marking" && (
+                  {canRecord && !isReaderFullscreen && readingMode === "marking" && (
                     <div className="guided-mark-legend" aria-label="Word marking legend">
                       <span><b className="legend-dot correct"></b> Read correctly</span>
                       <span><b className="legend-dot support"></b> Needs support</span>
@@ -2268,7 +2283,7 @@ export function GuidedReadingPage({
                     </div>
                   )}
 
-                  {!isStudentMode && !isReaderFullscreen && <details className="guided-note-drawer">
+                  {canRecord && !isReaderFullscreen && <details className="guided-note-drawer">
                     <summary>Page notes</summary>
                     <label className="guided-note-field">
                       <strong>Page note</strong>
@@ -2319,7 +2334,7 @@ export function GuidedReadingPage({
             </div>}
           </div>
 
-          {!isStudentMode && !isReaderFullscreen && <aside className={teacherNotesOpen ? "guided-notes-panel open" : "guided-notes-panel"} aria-hidden={!teacherNotesOpen}>
+          {canRecord && !isReaderFullscreen && <aside className={teacherNotesOpen ? "guided-notes-panel open" : "guided-notes-panel"} aria-hidden={!teacherNotesOpen}>
             <div className="guided-notes-header">
                 <h3>Teacher notes</h3>
               <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(false)} type="button">
@@ -2372,7 +2387,7 @@ export function GuidedReadingPage({
             </div>
           </div>
 
-          {!isStudentMode && (
+          {canRecord && (
             <div className="checkpoint-detail-grid">
               <section>
                 <h3>Support words</h3>

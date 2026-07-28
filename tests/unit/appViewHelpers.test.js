@@ -308,7 +308,10 @@ test("all teacher sections expose an honest class, group, and learner hash", () 
 test("whole-class resource subroutes survive refresh without inventing a learner", () => {
   for (const [view, path] of [
     [APP_VIEWS.WORKSHEETS, "worksheets"],
-    [APP_VIEWS.PRESENT, "present"]
+    [APP_VIEWS.PRESENT, "present"],
+    // The whole-class reader belongs to the same shelf: it opens with no
+    // student chosen, so a learner in its address would be invented.
+    [APP_VIEWS.TEACHER_GUIDED_READING, "guided-reading"]
   ]) {
     const hash = teacherIntentHash({
       appView: view,

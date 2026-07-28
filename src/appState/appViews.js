@@ -20,6 +20,10 @@ export const APP_VIEWS = {
   TEACHER_DASHBOARD: "teacherDashboard",
   TEACHER_CLASSES: "teacherClasses",
   TEACHER_RESOURCES: "teacherResources",
+  // The whole-class reader on the Resources shelf. GUIDED_READING is the
+  // per-student conference and only renders once a student is chosen; this one
+  // needs no student, because a class read has no single reader.
+  TEACHER_GUIDED_READING: "teacherGuidedReading",
   TEACHER_SETTINGS: "teacherSettings",
   WORKSHEETS: "worksheets",
   PRESENT: "present",

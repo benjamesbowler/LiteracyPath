@@ -22,6 +22,7 @@ const TEACHER_PATH_VIEWS = Object.freeze({
   resources: APP_VIEWS.TEACHER_RESOURCES,
   "resources/worksheets": APP_VIEWS.WORKSHEETS,
   "resources/present": APP_VIEWS.PRESENT,
+  "resources/guided-reading": APP_VIEWS.TEACHER_GUIDED_READING,
   settings: APP_VIEWS.TEACHER_SETTINGS
 });
 
@@ -41,6 +42,7 @@ const CLASS_ONLY_INTENTS = [
   "resources",
   "resources/worksheets",
   "resources/present",
+  "resources/guided-reading",
   "settings",
   "reports/class"
 ];

@@ -552,6 +552,9 @@ export function AppSurface({ surface }) {
   const isChildPreviewView = !isStudentMode && [
     APP_VIEWS.STUDENT_HOME,
     APP_VIEWS.GUIDED_READING,
+    // The whole-class reader renders the same book pages, so it needs the same
+    // CSS scope or the page images render at natural size.
+    APP_VIEWS.TEACHER_GUIDED_READING,
     APP_VIEWS.LEARN,
     APP_VIEWS.PHONICS_LEARN,
     APP_VIEWS.SKILLS_BLOCK_QUEST,
@@ -1107,16 +1110,16 @@ export function AppSurface({ surface }) {
               onOpenWorksheets={() => goToTeacherIntent(APP_VIEWS.WORKSHEETS)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
               onOpenGuidedReading={bookId => {
-                // The reader is a per-student surface: GUIDED_READING only
-                // renders once a student is chosen, so opening it straight from
-                // the whole-class shelf would land on a blank view. With nobody
-                // chosen the roster is the honest next step, and the book is
-                // not pre-set for a student who has not been picked yet.
+                // GUIDED_READING is the per-student conference and only renders
+                // once a student is chosen. The Resources shelf is whole-class,
+                // so with nobody chosen it opens the whole-class reader instead
+                // of bouncing the teacher to the roster. Either way the card
+                // lands on guided reading, and the chosen book comes along.
+                setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");
                 if (!nameSaved) {
-                  goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES);
+                  goToTeacherIntent(APP_VIEWS.TEACHER_GUIDED_READING);
                   return;
                 }
-                setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");
                 setAppView(APP_VIEWS.GUIDED_READING);
               }}
               onOpenClasses={() => setAppView(APP_VIEWS.TEACHER_CLASSES)}
@@ -1262,6 +1265,20 @@ export function AppSurface({ surface }) {
               speakText={speakText}
             />
           ))}
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_GUIDED_READING && (
+        <PageBoundary resetKey="teacher-guided-reading">
+          <GuidedReadingPage
+            initialBookId={guidedInitialBookId}
+            mode="class"
+            guidedReadingRecords={{}}
+            saveGuidedReadingRecord={() => {}}
+            speakText={speakText}
+            studentId=""
+            studentName=""
+          />
         </PageBoundary>
       )}
 
