@@ -23,12 +23,13 @@ import { buildClassReportModel } from "../data/reportingSystem.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
-import { addQuestionFlag } from "../data/questionFlagStore.js";
+import { submitQuestionReport } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 import { MetricFigure } from "./MetricDefinition.jsx";
 import { RouteLoadingFallback } from "./RouteLoadingFallback.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
+import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import {
   getAssessmentDecorativeMediaProps,
   getAssessmentEvidenceAccessibleName,
@@ -36,6 +37,11 @@ import {
 } from "../policy/assessmentMediaEvidence.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import { countPhrase, progressPhrase } from "../copy/teacherCopy.js";
+import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
+import {
+  printTeacherDocument,
+  TEACHER_PRINT_TARGETS
+} from "../utils/teacherPrintTarget.js";
 
 export { AuthPage } from "./AuthPage.jsx";
 
@@ -46,9 +52,9 @@ const EL_BENCHMARK_ASSESSMENT_IDS = new Set([
   "el_oral_reading_fluency"
 ]);
 
-const FormalClassReportDocument = lazyWithRetry(() =>
-  import("./AdminDashboardPage.jsx").then(module => ({
-    default: module.FormalClassReportDocument
+const ClassSummaryReportDocument = lazyWithRetry(() =>
+  import("./reports/ClassSummaryReportDocument.jsx").then(module => ({
+    default: module.ClassSummaryReportDocument
   }))
 );
 
@@ -804,42 +810,106 @@ function IxlStyleTemplateQuestion({
   );
 }
 
-function QuestionFlagControls({ currentQuestion, currentStage, visiblePrompt }) {
-  const [flaggedTypes, setFlaggedTypes] = useState(() => new Set());
+function QuestionFlagControls({
+  currentQuestion,
+  currentStage,
+  studentId,
+  studentSessionToken,
+  supabase,
+  visiblePrompt
+}) {
+  const [reportStates, setReportStates] = useState(() => ({
+    image: { status: "idle", reportId: "", message: "" },
+    question: { status: "idle", reportId: "", message: "" }
+  }));
 
   useEffect(() => {
-    setFlaggedTypes(new Set());
+    setReportStates({
+      image: { status: "idle", reportId: "", message: "" },
+      question: { status: "idle", reportId: "", message: "" }
+    });
   }, [currentQuestion?.id]);
 
-  function flag(type) {
-    addQuestionFlag({
+  async function report(type) {
+    const previous = reportStates[type];
+    if (previous.status === "saving" || previous.status === "saved") return;
+    setReportStates(states => ({
+      ...states,
+      [type]: {
+        ...states[type],
+        status: "saving",
+        message: ""
+      }
+    }));
+    const result = await submitQuestionReport({
+      supabase,
+      studentId,
+      studentSessionToken,
       flagType: type,
       question: currentQuestion,
       stage: currentStage,
-      visiblePrompt
+      visiblePrompt,
+      reportId: previous.reportId || undefined
     });
-    setFlaggedTypes(previous => new Set([...previous, type]));
+    setReportStates(states => ({
+      ...states,
+      [type]: result.ok
+        ? {
+            status: "saved",
+            reportId: result.reportId,
+            message: `${type === "image" ? "Image" : "Question"} report sent.`
+          }
+        : {
+            status: "error",
+            reportId: result.reportId,
+            message: result.error?.message || "The report was not sent. Try again."
+          }
+    }));
   }
 
   if (!currentQuestion) return null;
 
   return (
-    <div className="question-flag-controls" aria-label="Flag this question for review">
+    <div
+      className="question-flag-controls"
+      aria-label="Report a problem with this assessment question"
+    >
       {[
-        ["image", "Flag image"],
-        ["question", "Flag question"]
-      ].map(([type, label]) => (
-        <label key={type}>
-          <input
-            checked={flaggedTypes.has(type)}
-            onChange={event => {
-              if (event.target.checked) flag(type);
-            }}
-            type="checkbox"
-          />
-          <span>{flaggedTypes.has(type) ? `${label} sent` : label}</span>
-        </label>
-      ))}
+        ["image", "image"],
+        ["question", "question"]
+      ].map(([type, noun]) => {
+        const state = reportStates[type];
+        const label = state.status === "saving"
+          ? `Sending ${noun} report…`
+          : state.status === "saved"
+            ? `${noun === "image" ? "Image" : "Question"} report sent`
+            : state.status === "error"
+              ? `Try ${noun} report again`
+              : `Report ${noun}`;
+        return (
+          <div key={type}>
+            <button
+              aria-describedby={state.message ? `question-report-${type}-status` : undefined}
+              className="text-button"
+              disabled={state.status === "saving" || state.status === "saved"}
+              onClick={() => report(type)}
+              type="button"
+            >
+              {label}
+            </button>
+            {state.message && (
+              <span
+                className={state.status === "error" ? "question-report-error" : "question-report-success"}
+                data-question-report-id={state.reportId || undefined}
+                id={`question-report-${type}-status`}
+                role={state.status === "error" ? "alert" : "status"}
+              >
+                {state.message}
+              </span>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -1144,60 +1214,247 @@ export function GuidedReadingPage(props) {
 // funnel shows when the answer to "whole class, or one student?" is the whole
 // class, so the class picker and the "back to reports" button it used to carry
 // have gone with the duplication - the funnel above it already asked.
+function classReportSchoolYearStart(now = new Date()) {
+  const current = now instanceof Date ? now : new Date(now);
+  let cutoff = new Date(current.getFullYear(), 7, 1);
+  if (current < cutoff) cutoff = new Date(current.getFullYear() - 1, 7, 1);
+  return cutoff;
+}
+
+function shortReportDate(value) {
+  return new Intl.DateTimeFormat(undefined, {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  }).format(value);
+}
+
+function classReportPeriodLabel(dateRange = "last90", now = new Date()) {
+  if (dateRange === "schoolYear") {
+    return `Since ${shortReportDate(classReportSchoolYearStart(now))} (1 August school-year default)`;
+  }
+  return {
+    last30: "Last 30 days",
+    last90: "Last 90 days",
+    all: "All time"
+  }[dateRange] || dateRange;
+}
+
+function filterRowsForClassReportPeriod(rows = [], dateRange = "last90") {
+  if (dateRange === "all") return rows;
+  const now = new Date();
+  let cutoff = null;
+
+  if (dateRange === "schoolYear") {
+    cutoff = classReportSchoolYearStart(now);
+  } else {
+    const days = { last30: 30, last90: 90 }[dateRange] || 90;
+    cutoff = new Date(now);
+    cutoff.setDate(cutoff.getDate() - days);
+  }
+
+  return rows.filter(record => {
+    const completedAt = new Date(
+      record.completedAt
+      || record.completed_at
+      || record.answeredAt
+      || record.answered_at
+      || record.date
+      || 0
+    );
+    return Number.isFinite(completedAt.getTime()) && completedAt >= cutoff;
+  });
+}
+
+function ClassReportScreenSummary({ model }) {
+  const priorities = Array.isArray(model?.focusRows) ? model.focusRows.slice(0, 3) : [];
+  const groups = Array.isArray(model?.groups) ? model.groups.slice(0, 3) : [];
+  const totalStudents = Number(model?.snapshot?.totalStudents || 0);
+  const readyStudents = Number(model?.snapshot?.policyReadyStudents || 0);
+  const answersInPeriod = (Array.isArray(model?.studentRows) ? model.studentRows : [])
+    .reduce(
+      (total, student) => total + Number(student?.selectedPeriodTotalQuestions || 0),
+      0
+    );
+  const classAccuracyValue = model?.snapshot?.averageAccuracy;
+  const classAccuracy = classAccuracyValue !== null
+    && classAccuracyValue !== undefined
+    && classAccuracyValue !== ""
+    && Number.isFinite(Number(classAccuracyValue))
+    ? `${Math.round(Number(model.snapshot.averageAccuracy))}%`
+    : "Not enough results";
+
+  return (
+    <section className="class-report-screen-summary" aria-labelledby="class-report-next-title">
+      <header>
+        <div>
+          <p className="panel-label">Quick class view</p>
+          <h3 id="class-report-next-title">What to teach next</h3>
+          <p>Start here. Open the formal tools only when you need a saved or printed record.</p>
+        </div>
+        <dl className="class-report-screen-facts">
+          <div>
+            <dt>Students</dt>
+            <dd>{totalStudents}</dd>
+          </div>
+          <div>
+            <dt>Enough results</dt>
+            <dd>{readyStudents} of {totalStudents}</dd>
+          </div>
+          <div>
+            <dt>Class accuracy</dt>
+            <dd>{classAccuracy}</dd>
+          </div>
+          <div>
+            <dt>Answers in period</dt>
+            <dd>{answersInPeriod}</dd>
+          </div>
+        </dl>
+      </header>
+
+      <div className="class-report-next-grid">
+        <section aria-label="Class teaching priorities">
+          <h4>Class priorities</h4>
+          {priorities.length ? (
+            <ol>
+              {priorities.map(priority => (
+                <li key={priority.skill}>
+                  <strong>{priority.skill}</strong>
+                  <span>
+                    {priority.classAccuracy !== null
+                      && priority.classAccuracy !== undefined
+                      && priority.classAccuracy !== ""
+                      && Number.isFinite(Number(priority.classAccuracy))
+                      ? `${Math.round(Number(priority.classAccuracy))}% across the class`
+                      : "More results are needed"}
+                  </span>
+                  {priority.suggestedAction && <p>{priority.suggestedAction}</p>}
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="teacher-empty-state">
+              No shared class priority is ready yet. Add more assessment results before making a class-wide judgement.
+            </p>
+          )}
+        </section>
+
+        <section aria-label="Suggested teaching groups">
+          <h4>Suggested groups</h4>
+          {groups.length ? (
+            <ul>
+              {groups.map((group, index) => (
+                <li key={`${group.focus}-${index}`}>
+                  <strong>{group.focus}</strong>
+                  <span>{group.students?.join(", ") || "No students listed"}</span>
+                  {group.suggestedActivity && <p>{group.suggestedActivity}</p>}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="teacher-empty-state">
+              No group is suggested yet. Individual student reports remain available.
+            </p>
+          )}
+        </section>
+      </div>
+    </section>
+  );
+}
+
 export function TeacherReportsPage({
   allAssessmentHistory = [],
+  allAnswerHistory = [],
+  answerHistoryReadState = {
+    status: "complete",
+    complete: true,
+    truncated: false,
+    error: null
+  },
+  assessmentHistoryReadState = {
+    status: "complete",
+    complete: true,
+    truncated: false,
+    error: null
+  },
   classList = [],
+  loadingStudents = false,
+  onRetryAnswerHistory,
+  onRetryAssessmentHistory,
+  onRetryStudents,
+  onBack,
   selectedClassId = "",
+  studentListReadState = null,
   students = [],
   teacherName = "",
   teacherId = "local",
   supabase = null
 }) {
   const [dateRange, setDateRange] = useState("last90");
+  const rosterRead = getStudentRosterReadView({
+    readState: studentListReadState,
+    classId: selectedClassId,
+    legacyLoading: loadingStudents
+  });
+  const historyReady = assessmentHistoryReadState?.complete === true
+    && assessmentHistoryReadState?.truncated !== true
+    && !assessmentHistoryReadState?.error;
+  const answersReady = answerHistoryReadState?.complete === true
+    && answerHistoryReadState?.truncated !== true
+    && !answerHistoryReadState?.error;
+  const reportSourcesReady = historyReady && answersReady && rosterRead.complete;
+  const reportSourcesLoading = ["idle", "loading"].includes(assessmentHistoryReadState?.status)
+    || ["idle", "loading"].includes(answerHistoryReadState?.status)
+    || rosterRead.loading;
+  const reportSourceMessage = reportSourcesLoading
+    ? "Loading the full class list and saved assessment results. Report figures, printing and new downloads are paused until this finishes."
+    : "Some class or assessment results could not be confirmed. Report figures are hidden rather than treating missing information as zero; printing and new downloads are paused.";
+
+  function retryReportSources() {
+    if (!historyReady) onRetryAssessmentHistory?.();
+    if (!answersReady) onRetryAnswerHistory?.(selectedClassId);
+    if (!rosterRead.complete) onRetryStudents?.(selectedClassId);
+  }
 
   // The class tab is about a whole class, so it filters the teacher's complete
   // record by date.
-  const classAssessmentHistory = useMemo(() => {
-    if (dateRange === "all") return allAssessmentHistory;
-    const now = new Date();
-    let cutoff = null;
-
-    if (dateRange === "schoolYear") {
-      cutoff = new Date(now.getFullYear(), 7, 1);
-      if (now < cutoff) cutoff = new Date(now.getFullYear() - 1, 7, 1);
-    } else {
-      const days = { last30: 30, last90: 90 }[dateRange] || 90;
-      cutoff = new Date(now);
-      cutoff.setDate(cutoff.getDate() - days);
-    }
-
-    return allAssessmentHistory.filter(record => {
-      const completedAt = new Date(record.completedAt || record.date || 0);
-      return Number.isFinite(completedAt.getTime()) && completedAt >= cutoff;
-    });
-  }, [allAssessmentHistory, dateRange]);
+  const classAssessmentHistory = useMemo(
+    () => filterRowsForClassReportPeriod(allAssessmentHistory, dateRange),
+    [allAssessmentHistory, dateRange]
+  );
+  const classAnswerHistory = useMemo(
+    () => filterRowsForClassReportPeriod(allAnswerHistory, dateRange),
+    [allAnswerHistory, dateRange]
+  );
 
   const effectiveSelectedClassId = selectedClassId || classList[0]?.id || "";
+  const selectedDatePeriod = {
+    key: dateRange,
+    label: classReportPeriodLabel(dateRange)
+  };
   const classReportingModel = useMemo(() =>
     buildClassReportModel({
       students,
       classes: classList,
       assessmentHistory: classAssessmentHistory,
+      answerHistory: classAnswerHistory,
       classId: effectiveSelectedClassId,
       teacherName
     }),
-  [students, classList, classAssessmentHistory, effectiveSelectedClassId, teacherName]);
+  [
+    students,
+    classList,
+    classAssessmentHistory,
+    classAnswerHistory,
+    effectiveSelectedClassId,
+    teacherName
+  ]);
   const classReportProvenanceOptions = useMemo(() => ({
     filters: {
       Class: classReportingModel.className,
-      "Check period": {
-        last30: "Last 30 days",
-        last90: "Last 90 days",
-        schoolYear: "This school year",
-        all: "All time"
-      }[dateRange] || dateRange
+      "Assessment period": selectedDatePeriod.label
     }
-  }), [classReportingModel, dateRange]);
+  }), [classReportingModel, selectedDatePeriod.label]);
   const getClassOptionLabel = cls => cls.name || cls.className || cls.class_name || "Class";
 
   return (
@@ -1206,43 +1463,95 @@ export function TeacherReportsPage({
         <div>
           <p className="panel-label">Reports</p>
           <h2>Class report</h2>
-          <p>The whole class in one place. Choose one student at step 2 above for a single child&apos;s report.</p>
+          <p>The whole class in one place. Use Back to reports to choose one student instead.</p>
         </div>
-        <label className="report-filter-control">
-          <span>Class check period</span>
-          <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
-            <option value="last30">Last 30 days</option>
-            <option value="last90">Last 90 days</option>
-            <option value="schoolYear">This school year</option>
-            <option value="all">All time</option>
-          </select>
-        </label>
+        <div className="class-report-header-actions">
+          {onBack && (
+            <button className="lp-button lp-button-secondary" onClick={onBack} type="button">
+              Back to reports
+            </button>
+          )}
+          <label className="report-filter-control">
+            <span>Class assessment period</span>
+            <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
+              <option value="last30">Last 30 days</option>
+              <option value="last90">Last 90 days</option>
+              <option value="schoolYear">
+                Since {shortReportDate(classReportSchoolYearStart())}
+              </option>
+              <option value="all">All time</option>
+            </select>
+            {dateRange === "schoolYear" && (
+              <small>
+                The school-year view starts on 1 August because this school has no
+                separate reporting-year start setting.
+              </small>
+            )}
+          </label>
+        </div>
       </section>
 
       <section className="class-report-workspace" aria-label="Class report">
+        {!reportSourcesReady && (
+          <TeacherSurfaceState
+            surface="progress"
+            state={reportSourcesLoading ? "loading" : "partial"}
+            detail={reportSourceMessage}
+            primaryLabel="Try loading the class report again"
+            onPrimaryAction={
+              !reportSourcesLoading
+              && (onRetryAnswerHistory || onRetryAssessmentHistory || onRetryStudents)
+                ? retryReportSources
+                : undefined
+            }
+          />
+        )}
+        {reportSourcesReady && <ClassReportScreenSummary model={classReportingModel} />}
         <div className="class-report-print-actions class-report-view-controls screen-only">
           <p className="panel-label">{classList.length === 0 ? "No classes yet" : getClassOptionLabel(classList.find(cls => cls.id === effectiveSelectedClassId) || {})}</p>
-          <button className="lp-button lp-button-primary" onClick={() => window.print()} type="button">
-            Export Class PDF
+          <button
+            className="lp-button lp-button-primary"
+            disabled={!reportSourcesReady}
+            onClick={() => printTeacherDocument(
+              TEACHER_PRINT_TARGETS.CLASS,
+              () => window.print()
+            )}
+            type="button"
+          >
+            Print or save PDF
           </button>
         </div>
-        <Suspense fallback={<div className="teacher-report-card">Loading EL formal report history…</div>}>
-          <ElFormalAssessmentsPanel
-            assessmentHistory={allAssessmentHistory}
-            classes={classList}
-            onPrint={() => window.print()}
-            selectedClassId={effectiveSelectedClassId}
-            students={students}
-            supabase={supabase}
-            teacherId={teacherId}
-          />
-        </Suspense>
-        <Suspense fallback={<div className="teacher-action-panel">Loading class report...</div>}>
-          <FormalClassReportDocument
-            model={classReportingModel}
-            provenanceOptions={classReportProvenanceOptions}
-          />
-        </Suspense>
+        <details className="class-report-formal-tools">
+          <summary>
+            <span>
+              <strong>Formal EL reports and downloads</strong>
+              <small>Grade and time-of-year reports, saved files and report history</small>
+            </span>
+          </summary>
+          <Suspense fallback={<div className="teacher-report-card">Loading EL report tools…</div>}>
+            <ElFormalAssessmentsPanel
+              assessmentHistory={classAssessmentHistory}
+              classes={classList}
+              evidenceReady={reportSourcesReady}
+              evidenceStatusMessage={reportSourceMessage}
+              onRetryEvidence={reportSourcesLoading ? null : retryReportSources}
+              onPrint={() => window.print()}
+              reportPeriod={selectedDatePeriod}
+              selectedClassId={effectiveSelectedClassId}
+              students={students}
+              supabase={supabase}
+              teacherId={teacherId}
+            />
+          </Suspense>
+        </details>
+        <div className="class-report-print-document" aria-hidden="true">
+          <Suspense fallback={null}>
+            <ClassSummaryReportDocument
+              model={classReportingModel}
+              provenanceOptions={classReportProvenanceOptions}
+            />
+          </Suspense>
+        </div>
       </section>
     </div>
   );
@@ -1262,7 +1571,7 @@ export function CheckpointDecisionPage({
   if (!checkpoint) return null;
 
   const completedText =
-    `${checkpoint.correct}/${checkpoint.total} ${checkpoint.skillLabel}`;
+    `${progressPhrase(checkpoint.correct, checkpoint.total)} ${checkpoint.skillLabel}`;
   const canMoveNext =
     checkpoint.passed && checkpoint.nextSkillLabel;
   const isInitialSoundsCheckpoint = checkpoint?.skillId === "initial_sounds";
@@ -1287,7 +1596,7 @@ export function CheckpointDecisionPage({
   return (
     <main className="assessment-shell checkpoint-decision-shell">
       <section className="card checkpoint-decision-card">
-        <p className="panel-label">Check complete</p>
+        <p className="panel-label">Assessment complete</p>
         <h2>You completed {completedText}.</h2>
         <div className="level-mastery-callout checkpoint-path-callout">
           <strong>{pathStatus.label}</strong>
@@ -1323,20 +1632,20 @@ export function CheckpointDecisionPage({
             <strong>{checkpoint.accuracy}%</strong>
           </div>
           <div>
-            <span>Check</span>
-            <strong>{checkpoint.passed ? "Passed" : "Needs retry"}</strong>
+            <span>Assessment result</span>
+            <strong>{checkpoint.passed ? "Passed" : "Needs another try"}</strong>
           </div>
           <div>
-            <span>Skill coverage</span>
+            <span>Skills assessed</span>
             <strong>
-              {checkpoint.coverage.mastered}/{checkpoint.coverage.total} {checkpoint.coverage.unit} covered
+              {progressPhrase(checkpoint.coverage.mastered, checkpoint.coverage.total)} {checkpoint.coverage.unit} covered
             </strong>
           </div>
           {checkpoint.masteryDepth && (
             <div>
-              <span>Mastery depth</span>
+              <span>Secure progress</span>
               <strong>
-                {checkpoint.masteryDepth.mastered}/{checkpoint.masteryDepth.total} mastered
+                {progressPhrase(checkpoint.masteryDepth.mastered, checkpoint.masteryDepth.total)} mastered
               </strong>
             </div>
           )}
@@ -1351,7 +1660,7 @@ export function CheckpointDecisionPage({
 
         <div className="checkpoint-detail-grid">
           <section>
-            <h3>Learned correctly</h3>
+            <h3>Correct this time</h3>
             {checkpoint.coveredThisRound.length > 0 ? (
               <div className="word-chip-row">
                 {checkpoint.coveredThisRound.map(item => (
@@ -1378,9 +1687,9 @@ export function CheckpointDecisionPage({
 
           {checkpoint.initialSoundDebug && (
             <section>
-              <h3>Initial Sounds round details</h3>
+              <h3>Initial sounds details</h3>
               <p className="muted-text">
-                Level {checkpoint.initialSoundDebug.level}, phase {checkpoint.initialSoundDebug.phase || "review"}.
+                Level {checkpoint.initialSoundDebug.level}, step {checkpoint.initialSoundDebug.phase || "review"}.
               </p>
               {checkpoint.initialSoundDebug.reviewLetters?.length > 0 && (
                 <>
@@ -1404,7 +1713,7 @@ export function CheckpointDecisionPage({
               )}
               {checkpoint.initialSoundDebug.blockedLetters?.length > 0 && (
                 <>
-                  <strong>Blocked because media is missing</strong>
+                  <strong>Unavailable items</strong>
                   <div className="word-chip-row">
                     {checkpoint.initialSoundDebug.blockedLetters.map(item => (
                       <span className="word-chip" key={item}>{item}</span>
@@ -1417,9 +1726,9 @@ export function CheckpointDecisionPage({
 
           {checkpoint.masteryDepth && (
             <section>
-              <h3>{checkpoint.masteryDepth.label} depth</h3>
+              <h3>{checkpoint.masteryDepth.label} secure progress</h3>
               <p className="muted-text">
-                Successful rounds: {checkpoint.masteryDepth.successfulRounds}/{checkpoint.masteryDepth.requiredSuccessfulRounds}.
+                Successful assessments so far: {checkpoint.masteryDepth.successfulRounds}.
                 {finalSoundsLevelOneMastered
                   ? " Level 1 depth is complete. Level 2 is unlocked."
                   : " Level 2 stays locked until every Level 1 sound has enough correct examples."}
@@ -1427,17 +1736,17 @@ export function CheckpointDecisionPage({
               <div className="word-chip-row">
                 {Object.values(checkpoint.masteryDepth.bySound || {}).map(row => (
                   <span className={row.mastered ? "word-chip mastered" : "word-chip"} key={row.target}>
-                    {row.target}: {row.correctCount} correct, {row.uniqueCorrectTargetWords.length} words, {row.availableTargetWords?.length || 0}/{row.requiredContentWords || 3} content
+                    {row.target}: {row.correctCount} correct, {row.uniqueCorrectTargetWords.length} different words
                   </span>
                 ))}
               </div>
               {checkpoint.masteryDepth.contentGaps?.length > 0 && (
                 <>
-                  <strong>Content gaps</strong>
+                  <strong>More word examples needed</strong>
                   <div className="word-chip-row">
                     {checkpoint.masteryDepth.contentGaps.map(gap => (
                       <span className="word-chip" key={gap.target}>
-                        {gap.target}: {gap.availableWordCount}/{gap.requiredWordCount} distinct usable words
+                        {gap.target}: {gap.availableWordCount} usable {gap.availableWordCount === 1 ? "word" : "words"} available
                       </span>
                     ))}
                   </div>
@@ -1490,10 +1799,10 @@ export function CheckpointDecisionPage({
                 <TeacherRecommendationExplanation
                   surface="targeted-review"
                   explanation={{
-                    evidence: `${countPhrase(suggestedFocus.incorrect || 0, "saved miss", "saved misses")} identify ${suggestedFocus.target} as the strongest current practice signal.`,
-                    dependency: `${suggestedFocus.target} sits within ${suggestedFocus.stage} and should be checked before advancing related skills.`,
-                    confidence: `${countPhrase(totalAnswered, "scored answer")} are available; the suggestion ranks saved misses and remains teacher-reviewable.`,
-                    unlock: "A focused review can confirm the gap, update the result, and show whether to re-teach or move on."
+                    evidence: `${countPhrase(suggestedFocus.incorrect || 0, "incorrect answer")} point to ${suggestedFocus.target} as the clearest current practice need.`,
+                    dependency: `${suggestedFocus.target} sits within ${suggestedFocus.stage} and should be assessed before advancing related skills.`,
+                    confidence: `${countPhrase(totalAnswered, "scored answer")} ${totalAnswered === 1 ? "is" : "are"} available. The suggestion puts the most frequent errors first, and you can change it.`,
+                    unlock: "A focused review can confirm the need, update the result, and show whether to re-teach or move on."
                   }}
                 />
               )}
@@ -1573,12 +1882,16 @@ export function AdvancedPhonicsPatternAssessmentPage({
   resetPatternAssessment,
   returnToTeacherDashboard
 }) {
-  const [soundCorrect, setSoundCorrect] = useState(false);
-  const [wordCorrect, setWordCorrect] = useState(false);
+  const [soundOutcome, setSoundOutcome] = useState("");
+  const [wordOutcome, setWordOutcome] = useState("");
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   useEffect(() => {
-    setSoundCorrect(false);
-    setWordCorrect(false);
+    setSoundOutcome("");
+    setWordOutcome("");
+    setSaving(false);
+    setSaveError("");
   }, [patternIndex]);
 
   const currentPattern = patternItems[patternIndex];
@@ -1590,7 +1903,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
           <div className="assessment-topbar letter-topbar">
             <div className="assessment-meta">
               <span>{studentName || "Unnamed student"}</span>
-              <strong>Phonics Pattern Diagnostic</strong>
+              <h1>Phonics pattern assessment</h1>
             </div>
 
             <div className="assessment-progress">
@@ -1606,12 +1919,36 @@ export function AdvancedPhonicsPatternAssessmentPage({
               </div>
             </div>
 
-            <button className="reset-button assessment-end-button" onClick={endAssessment}>
-              End check
+            <button
+              className="reset-button assessment-end-button"
+              disabled={saving}
+              title="Saves the results entered so far. If the full assessment is unfinished, you can resume it later."
+              onClick={async () => {
+                setSaving(true);
+                setSaveError("");
+                try {
+                  const saved = await endAssessment(soundOutcome, wordOutcome);
+                  if (saved === false) {
+                    setSaveError("We couldn't save this assessment. Your choices are still here. Try again.");
+                  }
+                } catch (error) {
+                  console.warn("Could not save and exit the phonics pattern assessment.", error);
+                  setSaveError("We couldn't save this assessment. Your choices are still here. Try again.");
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              type="button"
+            >
+              {saving ? "Saving…" : "Save & exit"}
             </button>
           </div>
 
           <section className="card letter-focus-card pattern-focus-card">
+            <div className="letter-task-instruction">
+              <h2>Show the pattern and example word</h2>
+              <p>Ask which sound the pattern makes, then ask the student to read the word.</p>
+            </div>
             <div className="pattern-display">
               {currentPattern.pattern}
             </div>
@@ -1622,46 +1959,98 @@ export function AdvancedPhonicsPatternAssessmentPage({
           </section>
 
           <div className="letter-action-panel pattern-action-panel">
-            <label className={soundCorrect ? "pattern-check-control active" : "pattern-check-control"}>
-              <input
-                checked={soundCorrect}
-                onChange={event => setSoundCorrect(event.target.checked)}
-                type="checkbox"
-              />
-              <span>Sound correct</span>
+            <label className="pattern-check-control">
+              <span>Pattern sound</span>
+              <select
+                aria-label="Pattern sound result"
+                value={soundOutcome}
+                onChange={event => {
+                  setSoundOutcome(event.target.value);
+                  setSaveError("");
+                }}
+              >
+                <option value="">Choose result</option>
+                <option value="correct">Correct</option>
+                <option value="incorrect">Incorrect</option>
+                <option value="not_administered">Not checked</option>
+              </select>
             </label>
 
-            <label className={wordCorrect ? "pattern-check-control active" : "pattern-check-control"}>
-              <input
-                checked={wordCorrect}
-                onChange={event => setWordCorrect(event.target.checked)}
-                type="checkbox"
-              />
-              <span>Word correct</span>
+            <label className="pattern-check-control">
+              <span>Example word</span>
+              <select
+                aria-label="Example word result"
+                value={wordOutcome}
+                onChange={event => {
+                  setWordOutcome(event.target.value);
+                  setSaveError("");
+                }}
+              >
+                <option value="">Choose result</option>
+                <option value="correct">Correct</option>
+                <option value="incorrect">Incorrect</option>
+                <option value="not_administered">Not checked</option>
+              </select>
             </label>
 
             <button
               className="main-button letter-next-button"
-              onClick={() => recordPatternResult(soundCorrect, wordCorrect)}
+              disabled={!soundOutcome || !wordOutcome || saving}
+              onClick={async () => {
+                setSaving(true);
+                setSaveError("");
+                try {
+                  const saved = await recordPatternResult(soundOutcome, wordOutcome);
+                  if (saved === false) {
+                    setSaveError("We couldn't save this result. Your choices are still here. Try again.");
+                  }
+                } catch (error) {
+                  console.warn("Could not save the phonics pattern result.", error);
+                  setSaveError("We couldn't save this result. Your choices are still here. Try again.");
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              type="button"
             >
-              Next Pattern
+              {saving
+                ? "Saving…"
+                : patternIndex === patternItems.length - 1
+                  ? "Finish and save"
+                  : "Next pattern"}
             </button>
+            {saveError && (
+              <p className="teacher-inline-error" role="alert">{saveError}</p>
+            )}
           </div>
         </>
       ) : (
         <section className="card letter-complete-card page-stack">
-          <h2>Check complete</h2>
+          <h2>Assessment complete</h2>
 
           <p>
             Pattern sounds correct:
             {" "}
-            {patternAssessment.filter(x => x.soundCorrect).length}/{patternItems.length}
+            {progressPhrase(
+              patternAssessment.filter(x => x.soundCorrect).length,
+              patternAssessment.filter(x => x.soundOutcome !== "not_administered").length
+            )}
           </p>
 
           <p>
             Example words correct:
             {" "}
-            {patternAssessment.filter(x => x.wordCorrect).length}/{patternItems.length}
+            {progressPhrase(
+              patternAssessment.filter(x => x.wordCorrect).length,
+              patternAssessment.filter(x => x.wordOutcome !== "not_administered").length
+            )}
+          </p>
+          <p>
+            Not checked:
+            {" "}
+            {patternAssessment.filter(x => (
+              x.soundOutcome === "not_administered" || x.wordOutcome === "not_administered"
+            )).length}
           </p>
 
           <div className="button-row">
@@ -1669,7 +2058,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
               className="reset-button"
               onClick={resetPatternAssessment}
             >
-              Restart pattern check
+              Restart pattern assessment
             </button>
 
             {returnToTeacherDashboard && (
@@ -1698,12 +2087,16 @@ export function LetterAssessmentPage({
   resetLetterAssessment,
   returnToTeacherDashboard
 }) {
-  const [knowsName, setKnowsName] = useState(false);
-  const [knowsSound, setKnowsSound] = useState(false);
+  const [nameOutcome, setNameOutcome] = useState("");
+  const [soundOutcome, setSoundOutcome] = useState("");
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   useEffect(() => {
-    setKnowsName(false);
-    setKnowsSound(false);
+    setNameOutcome("");
+    setSoundOutcome("");
+    setSaving(false);
+    setSaveError("");
   }, [letterIndex]);
 
   const currentLetter = letterItems[letterIndex];
@@ -1715,7 +2108,7 @@ export function LetterAssessmentPage({
           <div className="assessment-topbar letter-topbar">
             <div className="assessment-meta">
               <span>{studentName || "Unnamed student"}</span>
-              <strong>EL Letter Name and Sound</strong>
+              <h1>Letter name and sound assessment</h1>
             </div>
 
             <div className="assessment-progress">
@@ -1733,54 +2126,134 @@ export function LetterAssessmentPage({
               </div>
             </div>
 
-            <button className="reset-button assessment-end-button" onClick={endAssessment}>
-              End check
+            <button
+              className="reset-button assessment-end-button"
+              disabled={saving}
+              title="Saves the results entered so far. If the full assessment is unfinished, you can resume it later."
+              onClick={async () => {
+                setSaving(true);
+                setSaveError("");
+                try {
+                  const saved = await endAssessment(nameOutcome, soundOutcome);
+                  if (saved === false) {
+                    setSaveError("We couldn't save this assessment. Your choices are still here. Try again.");
+                  }
+                } catch (error) {
+                  console.warn("Could not save and exit the letter assessment.", error);
+                  setSaveError("We couldn't save this assessment. Your choices are still here. Try again.");
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              type="button"
+            >
+              {saving ? "Saving…" : "Save & exit"}
             </button>
           </div>
 
           <section className="card letter-focus-card">
+            <div className="letter-task-instruction">
+              <h2>Show this letter to the student</h2>
+              <p>Ask for the letter name and the sound it makes.</p>
+            </div>
             <div className="letter-display">
               {currentLetter.display}
             </div>
           </section>
 
           <div className="letter-action-panel">
-            <button
-              className={knowsName ? "letter-mark-button active" : "letter-mark-button"}
-              onClick={() => setKnowsName(value => !value)}
-            >
-              Name Known
-            </button>
+            <label className="pattern-check-control">
+              <span>Letter name</span>
+              <select
+                aria-label="Letter name result"
+                value={nameOutcome}
+                onChange={event => {
+                  setNameOutcome(event.target.value);
+                  setSaveError("");
+                }}
+              >
+                <option value="">Choose result</option>
+                <option value="correct">Correct</option>
+                <option value="incorrect">Incorrect</option>
+                <option value="not_administered">Not checked</option>
+              </select>
+            </label>
 
-            <button
-              className={knowsSound ? "letter-mark-button active" : "letter-mark-button"}
-              onClick={() => setKnowsSound(value => !value)}
-            >
-              Sound Known
-            </button>
+            <label className="pattern-check-control">
+              <span>Letter sound</span>
+              <select
+                aria-label="Letter sound result"
+                value={soundOutcome}
+                onChange={event => {
+                  setSoundOutcome(event.target.value);
+                  setSaveError("");
+                }}
+              >
+                <option value="">Choose result</option>
+                <option value="correct">Correct</option>
+                <option value="incorrect">Incorrect</option>
+                <option value="not_administered">Not checked</option>
+              </select>
+            </label>
 
             <button
               className="main-button letter-next-button"
-              onClick={() => recordLetterResult(knowsName, knowsSound)}
+              disabled={!nameOutcome || !soundOutcome || saving}
+              onClick={async () => {
+                setSaving(true);
+                setSaveError("");
+                try {
+                  const saved = await recordLetterResult(nameOutcome, soundOutcome);
+                  if (saved === false) {
+                    setSaveError("We couldn't save this result. Your choices are still here. Try again.");
+                  }
+                } catch (error) {
+                  console.warn("Could not save the letter result.", error);
+                  setSaveError("We couldn't save this result. Your choices are still here. Try again.");
+                } finally {
+                  setSaving(false);
+                }
+              }}
+              type="button"
             >
-              Next Letter
+              {saving
+                ? "Saving…"
+                : letterIndex === letterItems.length - 1
+                  ? "Finish and save"
+                  : "Next letter"}
             </button>
+            {saveError && (
+              <p className="teacher-inline-error" role="alert">{saveError}</p>
+            )}
           </div>
         </>
       ) : (
         <section className="card letter-complete-card page-stack">
-          <h2>Check complete</h2>
+          <h2>Assessment complete</h2>
 
           <p>
             Letter names known:
             {" "}
-            {progressPhrase(letterAssessment.filter(x => x.knowsName).length, 52)}
+            {progressPhrase(
+              letterAssessment.filter(x => x.knowsName).length,
+              letterAssessment.filter(x => x.nameOutcome !== "not_administered").length
+            )}
           </p>
 
           <p>
             Letter sounds known:
             {" "}
-            {progressPhrase(letterAssessment.filter(x => x.knowsSound).length, 52)}
+            {progressPhrase(
+              letterAssessment.filter(x => x.knowsSound).length,
+              letterAssessment.filter(x => x.soundOutcome !== "not_administered").length
+            )}
+          </p>
+          <p>
+            Items not assessed:
+            {" "}
+            {letterAssessment.filter(x => (
+              x.nameOutcome === "not_administered" || x.soundOutcome === "not_administered"
+            )).length}
           </p>
 
           <div className="button-row">
@@ -1788,7 +2261,7 @@ export function LetterAssessmentPage({
               className="reset-button"
               onClick={resetLetterAssessment}
             >
-              Restart letter check
+              Restart letter assessment
             </button>
 
             {returnToTeacherDashboard && (
@@ -1830,7 +2303,10 @@ export function AssessmentPage({
   toggleAssessmentFullscreen = null,
   onEvidenceImageError = null,
   skillTree = [],
-  onChangeSkillLevel = null
+  onChangeSkillLevel = null,
+  studentId = "",
+  studentSessionToken = "",
+  supabase = null
 }) {
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
@@ -1840,7 +2316,7 @@ export function AssessmentPage({
     null;
   const safeCurrentStage = currentStage || {
     id: safeSkillId || "unknown_skill",
-    label: currentQuestion?.skillName || currentQuestion?.skill || "Check"
+    label: currentQuestion?.skillName || currentQuestion?.skill || "Assessment"
   };
   const assessmentExit = returnToStudentOverview || endAssessment;
 
@@ -1898,7 +2374,7 @@ export function AssessmentPage({
         <div
           className="assessment-progress-dots"
           role="progressbar"
-          aria-label="Check progress"
+          aria-label="Assessment progress"
           aria-valuemin="1"
           aria-valuemax={roundLength}
           aria-valuenow={Math.min(roundAnswers.length + 1, roundLength)}
@@ -1929,7 +2405,7 @@ export function AssessmentPage({
             <select
               value={currentSkillIndex}
               onChange={event => onChangeSkillLevel(Number(event.target.value))}
-              aria-label="Change the skill level for this check"
+              aria-label="Change the skill level for this assessment"
             >
               {skillTree.map((stage, index) => (
                 <option key={stage.id} value={index}>
@@ -1975,7 +2451,7 @@ export function AssessmentPage({
       </div>
     </div>
   );
-  const renderAssessmentLoadingCard = ({ title = "Getting the check ready...", actionLabel = "" } = {}) => (
+  const renderAssessmentLoadingCard = ({ title = "Getting the assessment ready...", actionLabel = "" } = {}) => (
     <div className="card assessment-card assessment-loading-card">
       <div className="assessment-loading-mark" aria-hidden="true">
         <span></span>
@@ -2133,7 +2609,7 @@ export function AssessmentPage({
     return (
       <main className={assessmentShellClassName}>
         <div className="card assessment-card">
-          <h2>This check needs a quick fix.</h2>
+          <h2>This assessment needs a quick fix.</h2>
           <p>Please return and try again.</p>
           <button className="main-button" onClick={assessmentExit} type="button">
             Return to student overview
@@ -2354,6 +2830,9 @@ export function AssessmentPage({
             <QuestionFlagControls
               currentQuestion={currentQuestion}
               currentStage={safeCurrentStage}
+              studentId={studentId}
+              studentSessionToken={studentSessionToken}
+              supabase={supabase}
               visiblePrompt={visiblePrompt}
             />
           </motion.div>

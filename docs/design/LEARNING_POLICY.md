@@ -12,15 +12,23 @@ numeric cutoff.
 - **Secure:** 85–100%.
 - **Developing:** 70–84%.
 - **Needs support:** below 70%.
-- **Not enough evidence:** the accuracy is based on fewer than eight scored
-  learner responses, fewer than three independent attempts for an exact item,
-  missing or stale evidence, or an otherwise insufficient confidence basis.
+- **Not enough evidence:** the accuracy does not meet the declared conclusion
+  scope, is missing or stale, or has an otherwise insufficient confidence
+  basis.
 - **Not checked:** no scored evidence exists.
 - Accuracy conclusions use evidence from the latest 90-day window.
-- Stronger confidence requires at least 20 responses across at least three
-  skills; moderate confidence requires at least two skills. Limited diversity
-  is disclosed and may support an item-level conclusion only when the item
-  attempt minimum and recency rule are met.
+- Every policy call declares one of three scopes:
+  - **General learner/class:** at least eight current scored responses across
+    at least two distinct skills. One heavily practised skill cannot become a
+    whole-learner or whole-class judgement.
+  - **Named skill:** at least eight current scored responses for that named
+    skill. The UI must keep the skill name attached to the conclusion.
+  - **Exact item:** at least three independent current attempts at that exact
+    item. Repeated variants in one sitting count once.
+- Stronger general confidence requires at least 20 responses across at least
+  three skills; moderate general confidence requires at least two skills.
+  Single-skill evidence is sufficient only for an explicitly named skill or
+  exact-item conclusion.
 - Progression requires a Secure exact-item conclusion and at least two correct
   responses. Practice exposure alone cannot establish progression.
 - Class outliers require policy-ready learner evidence and a distance of at
@@ -41,10 +49,11 @@ auditable rather than silently rewriting history.
 ## Product behavior
 
 A sparse or stale sample never creates a reteach group, outlier, mastery,
-average, or challenge recommendation. The UI renders **Not enough evidence**
-and discloses attempts, diversity, recency, confidence, and recorded support
-use. A current, sufficiently large sample may resolve to Secure, Developing,
-or Needs support.
+average, or challenge recommendation. A single-skill result may create a
+clearly named skill conclusion, but it cannot create an overall learner band,
+class average, outlier or general recommendation. The UI renders **Not enough
+evidence** for the broader scope and discloses attempts, diversity, recency,
+confidence, and recorded support use.
 
 ## Change control
 

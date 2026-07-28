@@ -21,7 +21,7 @@ function latestIso(values) {
 }
 
 function nameFor(rowsById, id) {
-  return rowsById.get(id)?.name || "Learner no longer on the active roster";
+  return rowsById.get(id)?.name || "Student no longer in this class";
 }
 
 function namedMembers(ids, rowsById) {
@@ -44,8 +44,8 @@ export function criterionFromSuggestion(suggestion) {
     label,
     basis,
     policy: sourceId.startsWith("sound:")
-      ? "Each learner has at least three independent attempts on the same exact item and a current re-teaching signal."
-      : "Each learner meets the eight-response policy minimum and shares the same current curriculum focus."
+      ? "These students recently needed the same item taught again."
+      : "These students share the same current teaching focus and have enough recent results."
   };
 }
 

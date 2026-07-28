@@ -52,7 +52,7 @@ export function getStudentElExportEntryDecision({
       action: "warn",
       scope: normalizedScope,
       emptyReport: Number(reconciledEvidenceCount || 0) <= 0,
-      message: `Nothing to report for ${studentName || "this student"} — no saved EL evidence. Run or save an assessment first.`
+      message: `Nothing to report for ${studentName || "this student"} — no saved EL results. Run or save an assessment first.`
     };
   }
   return {

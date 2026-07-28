@@ -25,10 +25,19 @@ import {
 } from "./coverageExpectations.js";
 import { normalizeDecodingSupportEvent } from "../utils/guidedReading/decodingSupport.js";
 import {
+  LEARNING_CONCLUSION_SCOPES,
+  LEARNING_EVIDENCE_POLICY,
   LEARNING_STATUS_IDS,
   evaluateLearningConclusion,
+  isLearningEvidenceRecent,
   rawLearningStatus
 } from "../policy/learningPolicy.js";
+import {
+  isHfwClozeFormat,
+  isHfwSentenceSpellFormat
+} from "./hfwAssessmentFormatConfig.js";
+import { isHfwSpellingQuestionCandidate } from "./isHfwSpellingQuestion.js";
+import { benchmarkWindowLabel } from "./elBenchmarkReportScope.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -121,6 +130,16 @@ function isTerminalAdministrationStatus(value = "") {
     ASSESSMENT_ADMINISTRATION_STATUSES.IN_PROGRESS,
     ASSESSMENT_ADMINISTRATION_STATUSES.PARTIAL
   ].includes(normalizeReportingKey(value));
+}
+
+function latestCompletedOrSavedPartialAttempt(attempts = []) {
+  const rows = asArray(attempts);
+  return rows.find(attempt => isTerminalAdministrationStatus(attempt.administrationStatus))
+    || rows.find(attempt => (
+      normalizeReportingKey(attempt.administrationStatus)
+      === ASSESSMENT_ADMINISTRATION_STATUSES.PARTIAL
+    ))
+    || null;
 }
 
 function latestDate(values = []) {
@@ -324,17 +343,54 @@ export function getReportingConceptForAssessmentQuestion(question = {}, attempt 
   }
 
   if (itemType === "short_vowel" || ["cvc_short_vowels", "short_vowel_discrimination"].includes(skillId)) {
-    const key = itemKey || normalizeReportingKey(question.targetPattern || question.targetSound);
+    const key = (
+      itemKey || normalizeReportingKey(
+        question.diagnosticTarget || question.targetPattern || question.targetSound
+      )
+    ).replace(/^short_/, "");
     return createReportingConcept({
       domain: "phonics",
       construct: "short_vowel",
       key,
-      label: titleCase(key || "Short vowel")
+      label: key ? `Short vowel “${key}”` : "Short vowel"
     });
   }
 
   if (itemType === "sight_word" || skillId.startsWith("hfw")) {
     const word = cleanWord(question.targetWord || question.itemKey || question.correctAnswer);
+    const format = [
+      question.formatType,
+      question.templateType,
+      question.templateKey,
+      question.runtimeTemplateKey,
+      question.questionType
+    ].find(Boolean) || "";
+    const normalizedFormat = normalizeReportingKey(format);
+    const spelling = isHfwSentenceSpellFormat(format)
+      || normalizedFormat === "hfw_sentence_spell"
+      || normalizedFormat.startsWith("hfw_sentence_spell_")
+      || normalizedFormat.startsWith("hfw_listen_spell")
+      || isHfwSpellingQuestionCandidate({ ...question, skillId });
+    if (spelling) {
+      return createReportingConcept({
+        domain: "encoding",
+        construct: "word_spelling",
+        key: word,
+        label: `Spell “${word}” in a sentence`
+      });
+    }
+    if (
+      isHfwClozeFormat(format)
+      || normalizedFormat === "hfw_sentence_cloze"
+      || normalizedFormat.startsWith("hfw_sentence_cloze_")
+    ) {
+      return createReportingConcept({
+        domain: "literacy_skill",
+        construct: "word_in_context",
+        key: word,
+        label: `Choose “${word}” in a sentence`
+      });
+    }
     return createReportingConcept({
       domain: "decoding",
       construct: "isolated_word_reading",
@@ -376,6 +432,10 @@ function rawAssessmentQuestionEvidence({
   const concept = getReportingConceptForAssessmentQuestion(question, attempt);
   const scorable = !descriptive && isQuestionScorable(question, attempt);
   const statusCandidate = scorable ? responseStatusCandidate(question) : null;
+  const exactCorrect = scorable && statusCandidate === REPORTING_STATUS_IDS.SECURE;
+  const partialAccuracy = scorable && statusCandidate === REPORTING_STATUS_IDS.DEVELOPING
+    ? 50
+    : null;
   return createReportingEvidence({
     evidenceId: `${sourceArea}:${attempt.attemptId}:${identity}`,
     studentId: attempt.studentId,
@@ -405,13 +465,20 @@ function rawAssessmentQuestionEvidence({
       isCorrect: question.isCorrect,
       pointsEarned: question.pointsEarned,
       pointsPossible: question.pointsPossible,
-      metadata: question.metadata
+      formatType: question.formatType || question.templateType || question.questionType || "",
+      metadata: question.metadata,
+      observations: scorable ? 1 : 0,
+      correct: scorable ? Number(exactCorrect) : null,
+      accuracy: scorable ? partialAccuracy ?? Number(exactCorrect) * 100 : null,
+      independentAttempts: scorable ? 1 : 0
     },
     provenance: {
       attemptId: attempt.attemptId,
       questionId: question.questionId,
+      answerEventId: question.answerEventId || question.metadata?.answerEventId || "",
       questionIdentity: identity,
       assessmentType: assessmentIdForAttempt(attempt),
+      formatType: question.formatType || question.templateType || question.questionType || "",
       formVersion: attempt.formVersion,
       contentVersion: attempt.contentVersion,
       scoringVersion: attempt.scoringVersion || attempt.scoringRuleVersion,
@@ -503,7 +570,7 @@ function attemptHasScorableResult(attempt = null, evidence = []) {
   return Number(attempt.totalQuestions || 0) > 0 && finiteNumber(attempt.correctCount) !== null;
 }
 
-function scoredAssessmentStatus(attempt = null, fallbackEvidence = []) {
+function scoredAssessmentStatus(attempt = null, fallbackEvidence = [], now = new Date()) {
   if (attempt) {
     if ([
       ASSESSMENT_ADMINISTRATION_STATUSES.NOT_ADMINISTERED,
@@ -520,9 +587,12 @@ function scoredAssessmentStatus(attempt = null, fallbackEvidence = []) {
       return reportingStatus(REPORTING_STATUS_IDS.DEVELOPING);
     }
     const conclusion = evaluateLearningConclusion({
+      scope: LEARNING_CONCLUSION_SCOPES.SKILL,
       accuracy: attempt.accuracy,
       attempts: attempt.scoredCount || attempt.totalQuestions,
-      observedAt: attempt.completedAt
+      skillDiversity: 1,
+      observedAt: attempt.completedAt,
+      now
     });
     if (!conclusion.ready) {
       return reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
@@ -540,9 +610,12 @@ function scoredAssessmentStatus(attempt = null, fallbackEvidence = []) {
   const correct = scored.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length;
   const accuracy = Math.round((correct / scored.length) * 100);
   const conclusion = evaluateLearningConclusion({
+    scope: LEARNING_CONCLUSION_SCOPES.SKILL,
     accuracy,
     attempts: scored.length,
-    observedAt: scored.map(row => row.observedAt).filter(Boolean).sort().at(-1) || ""
+    skillDiversity: 1,
+    observedAt: scored.map(row => row.observedAt).filter(Boolean).sort().at(-1) || "",
+    now
   });
   if (!conclusion.ready) {
     return reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
@@ -562,7 +635,7 @@ function administrationLabel(status = "") {
     completed: "Completed",
     partial: "Partially completed",
     in_progress: "In progress",
-    discontinued: "Discontinued; evidence retained",
+    discontinued: "Discontinued; results kept",
     not_administered: "Not administered",
     not_scorable: "Not scorable"
   };
@@ -602,7 +675,14 @@ function buildLegacyLetterEvidence({ letterAssessment = [], studentId = "" } = {
         },
         outcome: row.knowsName ? "correct" : "incorrect",
         statusCandidate: row.knowsName ? REPORTING_STATUS_IDS.SECURE : REPORTING_STATUS_IDS.NEEDS_TEACHING,
-        details: { rawLegacyResult: row, check: "name" }
+        details: {
+          rawLegacyResult: row,
+          check: "name",
+          observations: 1,
+          correct: row.knowsName ? 1 : 0,
+          accuracy: row.knowsName ? 100 : 0,
+          independentAttempts: 1
+        }
       }),
       createReportingEvidence({
         ...base,
@@ -616,7 +696,14 @@ function buildLegacyLetterEvidence({ letterAssessment = [], studentId = "" } = {
         },
         outcome: row.knowsSound ? "correct" : "incorrect",
         statusCandidate: row.knowsSound ? REPORTING_STATUS_IDS.SECURE : REPORTING_STATUS_IDS.NEEDS_TEACHING,
-        details: { rawLegacyResult: row, check: "sound" }
+        details: {
+          rawLegacyResult: row,
+          check: "sound",
+          observations: 1,
+          correct: row.knowsSound ? 1 : 0,
+          accuracy: row.knowsSound ? 100 : 0,
+          independentAttempts: 1
+        }
       })
     ];
   });
@@ -651,7 +738,14 @@ function buildLegacyPatternEvidence({ patternAssessment = [], studentId = "" } =
         },
         outcome: row.soundCorrect ? "correct" : "incorrect",
         statusCandidate: row.soundCorrect ? REPORTING_STATUS_IDS.SECURE : REPORTING_STATUS_IDS.NEEDS_TEACHING,
-        details: { rawLegacyResult: row, check: "sound" }
+        details: {
+          rawLegacyResult: row,
+          check: "sound",
+          observations: 1,
+          correct: row.soundCorrect ? 1 : 0,
+          accuracy: row.soundCorrect ? 100 : 0,
+          independentAttempts: 1
+        }
       }),
       createReportingEvidence({
         ...base,
@@ -665,7 +759,14 @@ function buildLegacyPatternEvidence({ patternAssessment = [], studentId = "" } =
         },
         outcome: row.wordCorrect ? "correct" : "incorrect",
         statusCandidate: row.wordCorrect ? REPORTING_STATUS_IDS.SECURE : REPORTING_STATUS_IDS.NEEDS_TEACHING,
-        details: { rawLegacyResult: row, check: "word" }
+        details: {
+          rawLegacyResult: row,
+          check: "word",
+          observations: 1,
+          correct: row.wordCorrect ? 1 : 0,
+          accuracy: row.wordCorrect ? 100 : 0,
+          independentAttempts: 1
+        }
       })
     ];
   });
@@ -685,7 +786,8 @@ export function buildElAssessmentReportModel({
   patternAssessment = [],
   benchmarkScope = null,
   benchmarkGrade = "",
-  benchmarkWindow = ""
+  benchmarkWindow = "",
+  now = new Date()
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const resolvedStudent = { ...student, id: resolvedStudentId };
@@ -742,9 +844,13 @@ export function buildElAssessmentReportModel({
 
   const knowledgeEvidence = [];
   ["el_letter_assessment", "advanced_phonics_patterns"].forEach(type => {
-    const latestAttempt = (attemptsByType.get(type) || []).find(attempt => (
-      isTerminalAdministrationStatus(attempt.administrationStatus)
-    )) || null;
+    // A completed administration remains the baseline when one exists. If the
+    // only saved run is partial, keep its administered answers visible as
+    // provisional evidence after reload instead of falling back to empty
+    // legacy React state and making those observations disappear.
+    const latestAttempt = latestCompletedOrSavedPartialAttempt(
+      attemptsByType.get(type) || []
+    );
     const currentRaw = latestAttempt
       ? rawEvidence.filter(row => row.sourceRecordId === latestAttempt.attemptId)
       : legacyByType.get(type) || [];
@@ -767,9 +873,15 @@ export function buildElAssessmentReportModel({
     const profile = formalReport.individualBenchmarkProfile?.find(row => row.assessmentId === definition.assessmentId) || null;
     const latestAttempt = definition.reportingMode === "descriptive" && profile?.latestAttemptId
       ? typeAttempts.find(attempt => attempt.attemptId === profile.latestAttemptId) || null
-      : typeAttempts.find(attempt => isTerminalAdministrationStatus(attempt.administrationStatus)) || null;
+      : latestCompletedOrSavedPartialAttempt(typeAttempts);
     const fallbackEvidence = !latestAttempt ? legacyByType.get(definition.assessmentId) || [] : [];
-    const source = latestAttempt ? "completed_history" : fallbackEvidence.length ? "legacy_fallback" : "none";
+    const source = latestAttempt
+      ? normalizeReportingKey(latestAttempt.administrationStatus) === ASSESSMENT_ADMINISTRATION_STATUSES.PARTIAL
+        ? "partial_history"
+        : "completed_history"
+      : fallbackEvidence.length
+        ? "legacy_fallback"
+        : "none";
     const detail = formalReport.individualBenchmarkDetails?.find(row => row.attemptId === latestAttempt?.attemptId) || null;
     const currentEvidence = latestAttempt
       ? rawEvidence.filter(row => row.sourceRecordId === latestAttempt.attemptId)
@@ -793,7 +905,7 @@ export function buildElAssessmentReportModel({
         wholeChildStatus: null,
         descriptive: true,
         scorable: false,
-        interpretation: profile?.interpretation || "Descriptive evidence; no generic mastery cut score is applied.",
+        interpretation: profile?.interpretation || "These results are descriptive and do not use the general Secure cut-off.",
         latestAt,
         attemptCount: typeAttempts.length,
         latestAttempt: latestAttempt ? attemptDisplayRow(latestAttempt) : null,
@@ -804,7 +916,11 @@ export function buildElAssessmentReportModel({
       };
     }
 
-    const status = scoredAssessmentStatus(latestAttempt, currentEvidence.length ? currentEvidence : fallbackEvidence);
+    const status = scoredAssessmentStatus(
+      latestAttempt,
+      currentEvidence.length ? currentEvidence : fallbackEvidence,
+      now
+    );
     return {
       ...definition,
       checked,
@@ -815,6 +931,10 @@ export function buildElAssessmentReportModel({
       scorable,
       latestAt,
       attemptCount: typeAttempts.length,
+      administrationStatus: latestAttempt?.administrationStatus || "",
+      administrationStatusLabel: latestAttempt
+        ? administrationLabel(latestAttempt.administrationStatus)
+        : "",
       latestAttempt: latestAttempt ? attemptDisplayRow(latestAttempt) : null,
       attempts: typeAttempts.map(attemptDisplayRow),
       evidence: currentEvidence,
@@ -913,7 +1033,20 @@ function guidedWordEvidence({
     administrationStatus: "teacher_observation",
     scorable: Boolean(normalizedWord),
     knowledgeEligible: Boolean(normalizedWord),
-    details: { bookId, title, level, page, wordIndex, word: normalizedWord, mark, rawMark: raw },
+    details: {
+      bookId,
+      title,
+      level,
+      page,
+      wordIndex,
+      word: normalizedWord,
+      mark,
+      rawMark: raw,
+      observations: normalizedWord ? 1 : 0,
+      correct: normalizedWord ? Number(mark === "correct") : null,
+      accuracy: normalizedWord ? Number(mark === "correct") * 100 : null,
+      independentAttempts: normalizedWord ? 1 : 0
+    },
     provenance: { bookId, page, wordIndex, recordKind: "current_word_mark" }
   });
 }
@@ -948,7 +1081,18 @@ function guidedQuizEvidence({ studentId, bookId, title, score, total, observedAt
     administrationStatus: "completed",
     scorable: percent !== null,
     knowledgeEligible: percent !== null,
-    details: { bookId, title, score, total, percent, rawQuiz: raw },
+    details: {
+      bookId,
+      title,
+      score,
+      total,
+      percent,
+      observations: total > 0 ? total : 0,
+      correct: total > 0 ? score : null,
+      accuracy: percent,
+      independentAttempts: total > 0 ? 1 : 0,
+      rawQuiz: raw
+    },
     provenance: { bookId, recordKind: "book_quiz" }
   });
 }
@@ -1314,7 +1458,10 @@ export function buildGuidedReadingReportModel({
   };
 }
 
-function aggregateSkillEvidence(rawEvidence = []) {
+function aggregateSkillEvidence(rawEvidence = [], {
+  now = new Date(),
+  aggregateId = "canonical"
+} = {}) {
   const byConcept = new Map();
   rawEvidence.filter(row => isTerminalAdministrationStatus(row.administrationStatus)).forEach(row => {
     const group = byConcept.get(row.concept.conceptId) || [];
@@ -1329,63 +1476,462 @@ function aggregateSkillEvidence(rawEvidence = []) {
       attemptRows.push(row);
       byAttempt.set(attemptId, attemptRows);
     });
-    const currentRows = Array.from(byAttempt.entries())
-      .sort(([, left], [, right]) => (
-        finiteTimestamp(latestDate(right.map(row => row.observedAt))) -
-          finiteTimestamp(latestDate(left.map(row => row.observedAt))) ||
-        String(right[0]?.sourceRecordId || "").localeCompare(String(left[0]?.sourceRecordId || ""))
-      ))[0]?.[1] || [];
-    const scoredCurrent = currentRows.filter(row => row.statusCandidate);
-    const currentCorrect = scoredCurrent.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length;
-    const currentSelfCorrected = scoredCurrent.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.DEVELOPING).length;
-    const currentScore = currentCorrect + currentSelfCorrected * 0.5;
-    const accuracy = scoredCurrent.length ? Math.round((currentScore / scoredCurrent.length) * 100) : null;
-    const currentStatuses = new Set(scoredCurrent.map(row => row.statusCandidate));
-    const statusCandidate = !scoredCurrent.length
-      ? null
-      : currentStatuses.size === 1
-        ? scoredCurrent[0].statusCandidate
-        : REPORTING_STATUS_IDS.DEVELOPING;
+    const recentRows = rows.filter(row => isLearningEvidenceRecent(row.observedAt, {
+      now,
+      allowUndated: false
+    }));
+    // Old observations remain available in the lifetime fields below, but they
+    // cannot become a current teaching conclusion.
+    const decisionRows = recentRows;
+    const currentScored = decisionRows.filter(row => row.statusCandidate);
     const lifetimeScored = rows.filter(row => row.statusCandidate);
+    // Current and lifetime are separate ledgers. Falling back to lifetime rows
+    // here made old evidence appear in `currentEvidenceCount` even though the
+    // eventual status was downgraded for recency.
+    const scored = currentScored;
+    const displayRows = decisionRows.length ? decisionRows : rows;
+    const correct = scored.filter(
+      row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE
+    ).length;
+    const selfCorrected = scored.filter(
+      row => row.statusCandidate === REPORTING_STATUS_IDS.DEVELOPING
+    ).length;
+    const score = correct + selfCorrected * 0.5;
+    const accuracy = scored.length ? Math.round((score / scored.length) * 100) : null;
+    const learningStatus = accuracy === null ? null : rawLearningStatus(accuracy);
+    const statusCandidate = learningStatus === LEARNING_STATUS_IDS.SECURE
+      ? REPORTING_STATUS_IDS.SECURE
+      : learningStatus === LEARNING_STATUS_IDS.DEVELOPING
+        ? REPORTING_STATUS_IDS.DEVELOPING
+        : learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
+          ? REPORTING_STATUS_IDS.NEEDS_TEACHING
+          : null;
+    const hasIncompleteAttemptIdentity = decisionRows.some(
+      row => row.provenance?.incompleteAttemptIdentity === true
+    );
+    const hasLifetimeIncompleteAttemptIdentity = rows.some(
+      row => row.provenance?.incompleteAttemptIdentity === true
+    );
+    // Older `answers` rows prove each response and its timestamp, but they do
+    // not identify the assessment sitting that produced it. Preserve the
+    // counts and accuracy while refusing to turn one unknown sitting into a
+    // Secure/Needs-support learning judgement.
+    const reportedStatusCandidate = !currentScored.length
+      ? null
+      : hasIncompleteAttemptIdentity
+        ? REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+        : statusCandidate;
+    const attemptIds = [...new Set(
+      decisionRows.map(row => row.provenance?.attemptId || row.sourceRecordId).filter(Boolean)
+    )];
+    const verifiedAttemptIds = [...new Set(
+      decisionRows
+        .filter(row => row.provenance?.incompleteAttemptIdentity !== true)
+        .map(row => row.provenance?.attemptId || row.sourceRecordId)
+        .filter(Boolean)
+    )];
+    const independentAttempts = !decisionRows.length
+      ? 0
+      : hasIncompleteAttemptIdentity
+        ? Math.max(1, verifiedAttemptIds.length)
+        : attemptIds.length;
+    const latestAttemptId = Array.from(byAttempt.entries())
+      .filter(([, attemptRows]) => decisionRows.some(row => attemptRows.includes(row)))
+      .sort(([, left], [, right]) => (
+        finiteTimestamp(latestDate(right.map(row => row.observedAt)))
+          - finiteTimestamp(latestDate(left.map(row => row.observedAt)))
+      ))[0]?.[0] || "";
     const lifetimeCorrect = lifetimeScored.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length;
     const lifetimeSelfCorrected = lifetimeScored.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.DEVELOPING).length;
     const lifetimeAccuracy = lifetimeScored.length
       ? Math.round(((lifetimeCorrect + lifetimeSelfCorrected * 0.5) / lifetimeScored.length) * 100)
       : null;
+    const lifetimeAttemptIds = [...new Set(
+      rows.map(row => row.provenance?.attemptId || row.sourceRecordId).filter(Boolean)
+    )];
+    const lifetimeVerifiedAttemptIds = [...new Set(
+      rows
+        .filter(row => row.provenance?.incompleteAttemptIdentity !== true)
+        .map(row => row.provenance?.attemptId || row.sourceRecordId)
+        .filter(Boolean)
+    )];
+    const lifetimeIndependentAttempts = hasLifetimeIncompleteAttemptIdentity
+      ? Math.max(1, lifetimeVerifiedAttemptIds.length)
+      : lifetimeAttemptIds.length;
+    const evidenceKinds = new Set(rows.map(row => row.evidenceKind).filter(Boolean));
+    const aggregateEvidenceKind = hasLifetimeIncompleteAttemptIdentity
+      ? REPORTING_EVIDENCE_KINDS.LEGACY_PROJECTION
+      : evidenceKinds.size === 1
+      ? rows[0].evidenceKind
+      : REPORTING_EVIDENCE_KINDS.FORMAL;
+    const decisionDates = decisionRows.map(row => row.observedAt).filter(Boolean).sort();
+    const lifetimeDates = rows.map(row => row.observedAt).filter(Boolean).sort();
     return createReportingEvidence({
-      evidenceId: `skills_check:aggregate:${rows[0].concept.conceptId}`,
+      evidenceId: `skills_check:aggregate:${aggregateId}:${rows[0].concept.conceptId}`,
       studentId: rows[0].studentId,
       sourceArea: "skills_check",
-      sourceLabel: "Skills Check",
-      sourceRecordId: currentRows[0]?.sourceRecordId || rows[0].sourceRecordId,
-      sourceRecordType: "skill_checkpoint",
-      evidenceKind: REPORTING_EVIDENCE_KINDS.FORMAL,
+      sourceLabel: rows[0].sourceLabel || "Skills assessment",
+      sourceRecordId: latestAttemptId,
+      sourceRecordType: hasLifetimeIncompleteAttemptIdentity
+        ? "legacy_answer_history"
+        : "skill_checkpoint",
+      evidenceKind: aggregateEvidenceKind,
       concept: rows[0].concept,
-      outcome: statusCandidate || "not_checked",
-      statusCandidate,
-      observedAt: latestDate(currentRows.map(row => row.observedAt)),
-      administrationStatus: currentRows[0]?.administrationStatus || "completed",
-      scorable: Boolean(statusCandidate),
-      knowledgeEligible: Boolean(statusCandidate),
+      outcome: reportedStatusCandidate || "not_checked",
+      statusCandidate: reportedStatusCandidate,
+      observedAt: decisionDates.at(-1) || lifetimeDates.at(-1) || "",
+      administrationStatus: displayRows[0]?.administrationStatus || "completed",
+      scorable: Boolean(reportedStatusCandidate),
+      knowledgeEligible: Boolean(reportedStatusCandidate),
       details: {
-        observations: scoredCurrent.length,
-        correct: currentCorrect,
-        selfCorrected: currentSelfCorrected,
+        observations: scored.length,
+        correct,
+        selfCorrected,
         accuracy,
-        contributingEvidenceIds: currentRows.map(row => row.evidenceId),
-        currentAttemptId: currentRows[0]?.provenance?.attemptId || currentRows[0]?.sourceRecordId || "",
+        independentAttempts,
+        contributingEvidenceIds: decisionRows.map(row => row.evidenceId),
+        currentAttemptId: latestAttemptId,
+        attemptIds,
+        windowStart: decisionDates[0] || "",
+        windowEnd: decisionDates.at(-1) || "",
+        incompleteAttemptIdentity: hasIncompleteAttemptIdentity,
         lifetimeObservations: lifetimeScored.length,
         lifetimeCorrect,
         lifetimeSelfCorrected,
         lifetimeAccuracy,
+        lifetimeIndependentAttempts,
+        lifetimeWindowStart: lifetimeDates[0] || "",
+        lifetimeWindowEnd: lifetimeDates.at(-1) || "",
         lifetimeContributingEvidenceIds: lifetimeScored.map(row => row.evidenceId)
       },
       provenance: {
-        derivedFromEvidenceIds: currentRows.map(row => row.evidenceId),
-        currentAttemptId: currentRows[0]?.provenance?.attemptId || "",
-        lifetimeAttemptIds: [...new Set(rows.map(row => row.provenance.attemptId).filter(Boolean))]
+        derivedFromEvidenceIds: decisionRows.map(row => row.evidenceId),
+        currentAttemptId: latestAttemptId,
+        attemptIds,
+        incompleteAttemptIdentity: hasIncompleteAttemptIdentity,
+        lifetimeIncompleteAttemptIdentity: hasLifetimeIncompleteAttemptIdentity,
+        lifetimeAttemptIds
       }
     });
+  });
+}
+
+function answerHistorySkillId(row = {}) {
+  return normalizeReportingKey(row.skillId || row.skill || row.stage);
+}
+
+function answerHistoryObservedAt(row = {}) {
+  return row.timestamp
+    || row.answeredAt
+    || row.answered_at
+    || row.date
+    || row.updatedAt
+    || row.updated_at
+    || "";
+}
+
+function answerHistoryCorrectness(row = {}) {
+  if (typeof row.isCorrect === "boolean") return row.isCorrect;
+  if (typeof row.is_correct === "boolean") return row.is_correct;
+  return null;
+}
+
+function answerHistoryConceptQuestion(row = {}, skillId = "") {
+  const diagnosticKey = normalizeReportingKey(row.diagnosticTarget || row.diagnostic_target);
+  let itemType = normalizeReportingKey(row.itemType || row.item_type);
+  let itemKey = normalizeReportingKey(row.itemKey || row.item_key);
+
+  if (skillId === "initial_sounds") {
+    itemType = "initial_sound";
+    itemKey = diagnosticKey || itemKey;
+  } else if (skillId === "final_sounds") {
+    itemType = "final_sound";
+    itemKey = diagnosticKey || itemKey;
+  } else if (["cvc_short_vowels", "short_vowel_discrimination"].includes(skillId)) {
+    itemType = "short_vowel";
+    itemKey = (diagnosticKey || itemKey).replace(/^short_/, "");
+  }
+
+  return {
+    ...row,
+    skillId,
+    itemType,
+    itemKey,
+    diagnosticTarget: row.diagnosticTarget || row.diagnostic_target || "",
+    targetSound: ["initial_sound", "final_sound"].includes(itemType)
+      ? diagnosticKey || itemKey
+      : row.targetSound || row.target_sound || "",
+    correctAnswer: row.correctAnswer ?? row.correct,
+    selectedAnswer: row.selectedAnswer ?? row.chosen,
+    responseStatus: answerHistoryCorrectness(row) ? "correct" : "incorrect"
+  };
+}
+
+const TRUSTWORTHY_LEGACY_ANSWER_ITEM_TYPES = new Set([
+  "cvc_word",
+  "final_sound",
+  "initial_sound",
+  "letter_name",
+  "letter_sound",
+  "phonics_pattern",
+  "rhyming_family",
+  "short_vowel",
+  "sight_word"
+]);
+
+/**
+ * The oldest Skills Check persistence boundary stored one durable row per
+ * answer, before immutable assessment-attempt archives existed. Those rows
+ * still contain truthful response counts, accuracy, skill and time, but no
+ * attempt/session id. Keep them as conservative fallback evidence: visible in
+ * reports, never silently upgraded into multiple independent sittings.
+ */
+function legacyAnswerHistoryEvidence({
+  answerHistory = [],
+  studentId = ""
+} = {}) {
+  if (!studentId) return [];
+  const seen = new Set();
+
+  return asArray(answerHistory).flatMap((row, index) => {
+    const rowStudentId = String(row?.studentId || row?.student_id || "");
+    if (rowStudentId && rowStudentId !== studentId) return [];
+    const isCorrect = answerHistoryCorrectness(row);
+    if (isCorrect === null) return [];
+
+    const skillId = answerHistorySkillId(row);
+    const question = answerHistoryConceptQuestion(row, skillId);
+    const hasTrustworthyItemClassification = TRUSTWORTHY_LEGACY_ANSWER_ITEM_TYPES.has(question.itemType)
+      && (
+        question.itemType !== "sight_word"
+        || Boolean(
+          question.formatType
+          || question.templateType
+          || question.templateKey
+          || question.runtimeTemplateKey
+          || question.questionType
+        )
+      );
+    const concept = hasTrustworthyItemClassification
+      ? getReportingConceptForAssessmentQuestion(question, {
+        assessmentType: "skill_checkpoint",
+        skillId,
+        skillName: row.skill || row.stage || titleCase(skillId)
+      })
+      : createReportingConcept({
+        domain: "literacy_skill",
+        construct: "skill_overview",
+        key: skillId || "unclassified_skill",
+        label: row.skill || row.stage || titleCase(skillId || "Literacy skill")
+      });
+    if (!concept.conceptId || !concept.key) return [];
+
+    const observedAt = answerHistoryObservedAt(row);
+    const explicitId = row.answerEventId
+      || row.clientEventId
+      || row.client_event_id
+      || row.answerId
+      || row.id
+      || "";
+    const fallbackIdentity = [
+      observedAt,
+      skillId,
+      row.diagnosticTarget || row.diagnostic_target,
+      row.question,
+      row.chosen,
+      row.correct,
+      index
+    ].map(value => normalizeReportingKey(value)).join("::");
+    const identity = String(explicitId || fallbackIdentity || index);
+    if (seen.has(identity)) return [];
+    seen.add(identity);
+
+    const unknownAttemptId = `legacy_answer_history:${skillId || concept.conceptId}`;
+    return [createReportingEvidence({
+      evidenceId: `skills_check:legacy_answer:${identity}`,
+      studentId,
+      sourceArea: "skills_check",
+      sourceLabel: "Saved assessment answers",
+      sourceRecordId: unknownAttemptId,
+      sourceRecordType: "legacy_answer_history",
+      evidenceKind: REPORTING_EVIDENCE_KINDS.LEGACY_PROJECTION,
+      concept,
+      outcome: isCorrect ? "correct" : "incorrect",
+      statusCandidate: isCorrect
+        ? REPORTING_STATUS_IDS.SECURE
+        : REPORTING_STATUS_IDS.NEEDS_TEACHING,
+      observedAt,
+      administrationStatus: "legacy_projection",
+      scorable: true,
+      knowledgeEligible: true,
+      details: {
+        observations: 1,
+        correct: Number(isCorrect),
+        accuracy: Number(isCorrect) * 100,
+        prompt: row.question || row.prompt || "",
+        selectedAnswer: row.chosen ?? row.selectedAnswer ?? "",
+        correctAnswer: row.correct ?? row.correctAnswer ?? "",
+        incompleteAttemptIdentity: true
+      },
+      provenance: {
+        legacyFallback: true,
+        incompleteAttemptIdentity: true,
+        attemptId: unknownAttemptId,
+        answerId: row.answerId || row.id || "",
+        answerEventId: row.answerEventId || row.clientEventId || row.client_event_id || "",
+        skillId,
+        skillLabel: row.skill || row.stage || titleCase(skillId)
+      }
+    })];
+  });
+}
+
+function crossStoreAnswerFingerprint(row = {}) {
+  if (!row.concept?.conceptId) return "";
+  const responseParts = [
+    normalizeReportingKey(row.details?.prompt),
+    normalizeReportingKey(row.details?.selectedAnswer),
+    normalizeReportingKey(row.details?.correctAnswer)
+  ];
+  if (!responseParts.some(Boolean)) return "";
+  return [
+    conceptSpineKey(row.concept),
+    normalizeReportingKey(row.outcome),
+    ...responseParts
+  ].join("::");
+}
+
+function suppressArchivedAnswerCopies(canonicalEvidence = [], legacyEvidence = []) {
+  const candidates = canonicalEvidence.map((row, index) => ({
+    index,
+    eventId: String(row.provenance?.answerEventId || ""),
+    fingerprint: crossStoreAnswerFingerprint(row),
+    observedAt: finiteTimestamp(row.observedAt)
+  }));
+  const byEventId = new Map();
+  const byFingerprint = new Map();
+  candidates.forEach(candidate => {
+    if (candidate.eventId) {
+      const queue = byEventId.get(candidate.eventId) || [];
+      queue.push(candidate.index);
+      byEventId.set(candidate.eventId, queue);
+    }
+    if (candidate.fingerprint) {
+      const queue = byFingerprint.get(candidate.fingerprint) || [];
+      queue.push(candidate.index);
+      byFingerprint.set(candidate.fingerprint, queue);
+    }
+  });
+
+  const consumedCanonicalIndexes = new Set();
+  function takeUnconsumed(queue = []) {
+    while (queue.length && consumedCanonicalIndexes.has(queue[0])) queue.shift();
+    const next = queue.shift();
+    if (next === undefined) return false;
+    consumedCanonicalIndexes.add(next);
+    return true;
+  }
+  function takeNearestFingerprint(queue = [], observedAt = 0) {
+    if (!observedAt) return false;
+    const maximumClockDriftMs = 5 * 60 * 1000;
+    let bestQueueIndex = -1;
+    let bestDistance = Number.POSITIVE_INFINITY;
+    queue.forEach((candidateIndex, queueIndex) => {
+      if (consumedCanonicalIndexes.has(candidateIndex)) return;
+      const candidateTime = candidates[candidateIndex]?.observedAt || 0;
+      if (!candidateTime) return;
+      const distance = Math.abs(candidateTime - observedAt);
+      if (distance <= maximumClockDriftMs && distance < bestDistance) {
+        bestQueueIndex = queueIndex;
+        bestDistance = distance;
+      }
+    });
+    if (bestQueueIndex < 0) return false;
+    const [candidateIndex] = queue.splice(bestQueueIndex, 1);
+    consumedCanonicalIndexes.add(candidateIndex);
+    return true;
+  }
+
+  const used = [];
+  const suppressed = [];
+  legacyEvidence.forEach(row => {
+    const eventId = String(row.provenance?.answerEventId || "");
+    const fingerprint = crossStoreAnswerFingerprint(row);
+    const observedAt = finiteTimestamp(row.observedAt);
+    const exactEventMatch = eventId
+      ? takeUnconsumed(byEventId.get(eventId))
+      : false;
+    const exactFingerprintMatch = !exactEventMatch && fingerprint
+      ? takeNearestFingerprint(byFingerprint.get(fingerprint), observedAt)
+      : false;
+    if (exactEventMatch || exactFingerprintMatch) {
+      suppressed.push(row);
+    } else {
+      used.push(row);
+    }
+  });
+
+  return { used, suppressed };
+}
+
+function legacyAnswerSkillRows(answerEvidence = []) {
+  const bySkill = new Map();
+  answerEvidence.forEach(row => {
+    const skillId = normalizeReportingKey(row.provenance?.skillId);
+    if (!skillId) return;
+    const rows = bySkill.get(skillId) || [];
+    rows.push(row);
+    bySkill.set(skillId, rows);
+  });
+
+  return Array.from(bySkill.entries()).map(([skillId, rows]) => {
+    const correct = rows.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length;
+    const total = rows.length;
+    const accuracy = total ? Math.round((correct / total) * 100) : null;
+    const latestAt = latestDate(rows.map(row => row.observedAt));
+    const currentStatus = reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+    return {
+      skillId,
+      skillName: rows[0]?.provenance?.skillLabel || titleCase(skillId),
+      attempts: [],
+      history: [],
+      latestAt,
+      latestDate: latestAt,
+      correctCount: correct,
+      totalQuestions: total,
+      attemptCount: 1,
+      accuracy,
+      latestCorrectCount: correct,
+      latestTotalQuestions: total,
+      latestAccuracy: accuracy,
+      latestPassed: null,
+      currentAccuracy: accuracy,
+      currentScore: {
+        correct,
+        total,
+        accuracy,
+        scorable: true
+      },
+      lifetimeAttemptCount: 1,
+      lifetimeAccuracy: accuracy,
+      lifetime: {
+        attempts: 1,
+        correct,
+        total,
+        accuracy,
+        latestAt
+      },
+      currentStatus,
+      status: currentStatus,
+      statusLabel: currentStatus.label,
+      latestAttempt: null,
+      source: "legacy_answer_history",
+      legacy: true,
+      provenance: {
+        incompleteAttemptIdentity: true,
+        evidenceIds: rows.map(row => row.evidenceId)
+      }
+    };
   });
 }
 
@@ -1407,7 +1953,8 @@ function legacyItemMasteryEvidence({
   itemMastery = {},
   studentId = "",
   coveredConceptIds = new Set(),
-  coveredConceptSpineKeys = new Set()
+  coveredConceptSpineKeys = new Set(),
+  now = new Date()
 } = {}) {
   return itemMasteryRows(itemMastery).flatMap((row, index) => {
     const skillId = normalizeReportingKey(row.skillId);
@@ -1424,35 +1971,68 @@ function legacyItemMasteryEvidence({
       coveredConceptIds.has(concept.conceptId) ||
       coveredConceptSpineKeys.has(conceptSpineKey(concept))
     ) return [];
+    const correct = finiteNumber(row.correct);
     const accuracy = finiteNumber(row.accuracy) ?? (
-      attempts > 0 ? Math.round((Number(row.correct || 0) / attempts) * 100) : null
+      attempts > 0 && correct !== null ? Math.round((correct / attempts) * 100) : null
     );
-    const status = normalizeReportingKey(row.status);
-    const learningStatus = accuracy === null ? null : rawLearningStatus(accuracy);
-    const statusCandidate = row.mastered || status === "mastered"
-      ? REPORTING_STATUS_IDS.SECURE
-      : row.needsSupport
-        || status === "needs_support"
-        || learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
-        ? REPORTING_STATUS_IDS.NEEDS_TEACHING
-        : REPORTING_STATUS_IDS.DEVELOPING;
+    const hasSessionEvidence = Object.prototype.hasOwnProperty.call(row, "sessionsSeen")
+      || Object.prototype.hasOwnProperty.call(row, "sessions_seen");
+    const independentAttempts = hasSessionEvidence
+      ? Math.min(
+          attempts,
+          Math.max(0, Number(row.sessionsSeen ?? row.sessions_seen) || 0)
+        )
+      : 0;
+    const observedAt = row.lastAssessed || row.updatedAt || "";
+    const conclusion = evaluateLearningConclusion({
+      scope: LEARNING_CONCLUSION_SCOPES.ITEM,
+      accuracy,
+      attempts: independentAttempts,
+      observedAt,
+      now,
+      minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
+      skillDiversity: 1
+    });
+    const statusCandidate = !hasSessionEvidence && attempts > 0
+      ? REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+      : conclusion.status.id === LEARNING_STATUS_IDS.SECURE
+        ? REPORTING_STATUS_IDS.SECURE
+        : conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING
+          ? REPORTING_STATUS_IDS.DEVELOPING
+          : conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT
+            ? REPORTING_STATUS_IDS.NEEDS_TEACHING
+            : conclusion.status.id === LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+              ? REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+              : null;
     return [createReportingEvidence({
       evidenceId: `skills_check:legacy_item_mastery:${row.stateKey || index}`,
       studentId,
       sourceArea: "skills_check",
-      sourceLabel: "Skills Check",
+      sourceLabel: "Skills assessment",
       sourceRecordId: row.stateKey || `legacy_item_${index}`,
       sourceRecordType: "legacy_item_mastery",
       evidenceKind: REPORTING_EVIDENCE_KINDS.LEGACY_PROJECTION,
       concept,
       outcome: statusCandidate,
       statusCandidate,
-      observedAt: row.lastAssessed || row.updatedAt || "",
+      observedAt,
       administrationStatus: "legacy_projection",
       scorable: true,
       knowledgeEligible: true,
-      details: { attempts, correct: Number(row.correct || 0), accuracy, rawProjection: row },
-      provenance: { legacyFallback: true, generatedProjection: true, stateKey: row.stateKey || "" }
+      details: {
+        attempts,
+        independentAttempts,
+        correct,
+        accuracy,
+        incompleteAttemptIdentity: !hasSessionEvidence,
+        rawProjection: row
+      },
+      provenance: {
+        legacyFallback: true,
+        generatedProjection: true,
+        incompleteAttemptIdentity: !hasSessionEvidence,
+        stateKey: row.stateKey || ""
+      }
     })];
   });
 }
@@ -1486,7 +2066,12 @@ function skillSummaryRows(skillMasterySummary = {}) {
   return Object.entries(skillMasterySummary || {}).map(([skillId, row = {}]) => ({ skillId, ...row }));
 }
 
-function legacySkillSummaryEvidence({ skillMasterySummary = {}, studentId = "", coveredSkillIds = new Set() } = {}) {
+function legacySkillSummaryEvidence({
+  skillMasterySummary = {},
+  studentId = "",
+  coveredSkillIds = new Set(),
+  now = new Date()
+} = {}) {
   return skillSummaryRows(skillMasterySummary).flatMap((row, index) => {
     const skillId = normalizeReportingKey(row.skillId || row.id);
     if (!skillId || coveredSkillIds.has(skillId) || EL_ASSESSMENT_IDS.has(skillId)) return [];
@@ -1495,12 +2080,25 @@ function legacySkillSummaryEvidence({ skillMasterySummary = {}, studentId = "", 
     const accuracy = finiteNumber(row.accuracy) ?? (
       Number(row.total || 0) > 0 ? Math.round((Number(row.score || 0) / Number(row.total)) * 100) : null
     );
-    const learningStatus = accuracy === null ? null : rawLearningStatus(accuracy);
-    const statusCandidate = row.mastered
+    const observedAt = row.lastAssessed || row.updatedAt || row.lastRetakeFailedAt || "";
+    const scoredResponses = Number(row.total || row.attempts || 0);
+    const conclusion = evaluateLearningConclusion({
+      scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+      accuracy,
+      attempts: scoredResponses,
+      skillDiversity: 1,
+      observedAt,
+      now
+    });
+    const statusCandidate = conclusion.status.id === LEARNING_STATUS_IDS.SECURE
       ? REPORTING_STATUS_IDS.SECURE
-      : learningStatus === LEARNING_STATUS_IDS.NEEDS_SUPPORT
-        ? REPORTING_STATUS_IDS.NEEDS_TEACHING
-        : REPORTING_STATUS_IDS.DEVELOPING;
+      : conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING
+        ? REPORTING_STATUS_IDS.DEVELOPING
+        : conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT
+          ? REPORTING_STATUS_IDS.NEEDS_TEACHING
+          : conclusion.status.id === LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+            ? REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+            : null;
     const concept = createReportingConcept({
       domain: "literacy_skill",
       construct: "skill_overview",
@@ -1511,18 +2109,24 @@ function legacySkillSummaryEvidence({ skillMasterySummary = {}, studentId = "", 
       evidenceId: `skills_check:legacy_skill_summary:${skillId || index}`,
       studentId,
       sourceArea: "skills_check",
-      sourceLabel: "Skills Check",
+      sourceLabel: "Skills assessment",
       sourceRecordId: skillId,
       sourceRecordType: "legacy_skill_mastery",
       evidenceKind: REPORTING_EVIDENCE_KINDS.LEGACY_PROJECTION,
       concept,
       outcome: statusCandidate,
       statusCandidate,
-      observedAt: row.lastAssessed || row.updatedAt || row.lastRetakeFailedAt || "",
+      observedAt,
       administrationStatus: "legacy_projection",
       scorable: true,
       knowledgeEligible: true,
-      details: { attempts, accuracy, rawProjection: row },
+      details: {
+        attempts: scoredResponses,
+        independentAttempts: attempts,
+        correct: finiteNumber(row.score),
+        accuracy,
+        rawProjection: row
+      },
       provenance: { legacyFallback: true, generatedProjection: true, skillId }
     })];
   });
@@ -1534,8 +2138,10 @@ export function buildSkillsCheckReportModel({
   assessmentHistory = [],
   localAssessmentHistory = [],
   cloudAssessmentHistory = [],
+  answerHistory = [],
   itemMastery = {},
-  skillMasterySummary = {}
+  skillMasterySummary = {},
+  now = new Date()
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const attempts = getCanonicalStudentAssessmentAttempts({
@@ -1544,30 +2150,81 @@ export function buildSkillsCheckReportModel({
     localAssessmentHistory,
     cloudAssessmentHistory
   }).filter(attempt => assessmentIdForAttempt(attempt) === "skill_checkpoint");
-  const rawEvidence = [];
+  const canonicalRawEvidence = [];
   attempts.forEach(attempt => {
     dedupeAttemptQuestions(attempt).forEach(({ identity, question }) => {
-      rawEvidence.push(rawAssessmentQuestionEvidence({
+      canonicalRawEvidence.push(rawAssessmentQuestionEvidence({
         question,
         identity,
         attempt,
         sourceArea: "skills_check",
-        sourceLabel: "Skills Check"
+        sourceLabel: "Skills assessment"
       }));
     });
   });
-  const primaryKnowledge = aggregateSkillEvidence(rawEvidence);
+  const allLegacyAnswerEvidence = legacyAnswerHistoryEvidence({
+    answerHistory,
+    studentId: resolvedStudentId
+  });
+  // Immutable assessment attempts are richer and already contain their
+  // question rows. Suppress only an exact one-to-one copy of a question, not
+  // every older answer for the same concept; concept-wide suppression erased
+  // legitimate history whenever even one archived question existed.
+  const answerReconciliation = suppressArchivedAnswerCopies(
+    canonicalRawEvidence,
+    allLegacyAnswerEvidence
+  );
+  const legacyAnswerEvidence = answerReconciliation.used;
+  const rawEvidence = [...canonicalRawEvidence, ...legacyAnswerEvidence];
+  // Keep verified attempt evidence and unknown-session answer history as
+  // separate aggregates. The formal aggregate decides the current status when
+  // it exists; the reconciled answer aggregate remains visible in lifetime
+  // counts without promoting or erasing that verified conclusion.
+  const canonicalKnowledge = aggregateSkillEvidence(canonicalRawEvidence, {
+    now,
+    aggregateId: "canonical"
+  });
+  const answerHistoryKnowledge = aggregateSkillEvidence(legacyAnswerEvidence, {
+    now,
+    aggregateId: "answer_history"
+  });
+  const primaryKnowledge = [...canonicalKnowledge, ...answerHistoryKnowledge];
+  const canonicalKnowledgeConceptIds = new Set(
+    canonicalKnowledge.map(row => row.concept.conceptId).filter(Boolean)
+  );
+  const displayPrimaryKnowledge = [
+    ...canonicalKnowledge,
+    ...answerHistoryKnowledge.filter(row => !canonicalKnowledgeConceptIds.has(row.concept.conceptId))
+  ];
   const coveredConceptIds = new Set(rawEvidence.map(row => row.concept.conceptId).filter(Boolean));
   const coveredConceptSpineKeys = new Set(rawEvidence.map(row => conceptSpineKey(row.concept)).filter(Boolean));
-  const coveredSkillIds = new Set(attempts.map(row => normalizeReportingKey(row.skillId)));
+  const coveredSkillIds = new Set([
+    ...attempts.map(row => normalizeReportingKey(row.skillId)),
+    ...legacyAnswerEvidence.map(row => normalizeReportingKey(row.provenance?.skillId))
+  ].filter(Boolean));
   const legacyItems = legacyItemMasteryEvidence({
     itemMastery,
     studentId: resolvedStudentId,
     coveredConceptIds,
-    coveredConceptSpineKeys
+    coveredConceptSpineKeys,
+    now
   });
-  const legacySkills = legacySkillSummaryEvidence({ skillMasterySummary, studentId: resolvedStudentId, coveredSkillIds });
-  const knowledgeEvidence = dedupeReportingEvidence([...primaryKnowledge, ...legacyItems, ...legacySkills]);
+  const legacySkills = legacySkillSummaryEvidence({
+    skillMasterySummary,
+    studentId: resolvedStudentId,
+    coveredSkillIds,
+    now
+  });
+  const knowledgeEvidence = dedupeReportingEvidence([
+    ...primaryKnowledge,
+    ...legacyItems,
+    ...legacySkills
+  ]);
+  const displayItems = dedupeReportingEvidence([
+    ...displayPrimaryKnowledge,
+    ...legacyItems,
+    ...legacySkills
+  ]);
   const bySkill = new Map();
   attempts.forEach(attempt => {
     const skillId = normalizeReportingKey(attempt.skillId) || "unclassified_skill";
@@ -1604,7 +2261,11 @@ export function buildSkillsCheckReportModel({
       ? rawEvidence.filter(evidence => evidence.sourceRecordId === latestAttempt.attemptId)
       : [];
     const currentScorable = attemptHasScorableResult(latestAttempt?.raw || null, currentEvidence);
-    const currentStatus = scoredAssessmentStatus(latestAttempt?.raw || null, currentEvidence);
+    const currentStatus = scoredAssessmentStatus(
+      latestAttempt?.raw || null,
+      currentEvidence,
+      now
+    );
     const currentAccuracy = currentScorable ? finiteNumber(latestAttempt?.accuracy) : null;
     const lifetimeAccuracy = row.lifetimeTotalQuestions
       ? Math.round((row.lifetimeCorrectCount / row.lifetimeTotalQuestions) * 100)
@@ -1697,7 +2358,9 @@ export function buildSkillsCheckReportModel({
       }
     }];
   });
-  const skills = [...primarySkills, ...legacySkillRows]
+  const answerSkillRows = legacyAnswerSkillRows(legacyAnswerEvidence)
+    .filter(row => !primarySkills.some(primary => primary.skillId === row.skillId));
+  const skills = [...primarySkills, ...answerSkillRows, ...legacySkillRows]
     .sort((a, b) => finiteTimestamp(b.latestAt) - finiteTimestamp(a.latestAt) || a.skillName.localeCompare(b.skillName));
   const activeSkillIds = new Set(skills.map(row => normalizeReportingKey(row.skillId)));
   const expectedConcepts = [
@@ -1717,30 +2380,40 @@ export function buildSkillsCheckReportModel({
 
   return {
     reportKey: "skills_check",
-    title: "Skills Check",
-    subtitle: "Checkpoint assessments",
+    title: "Skills assessment",
+    subtitle: "Saved assessments",
     studentId: resolvedStudentId,
     summary: {
       attempts: attempts.length,
       lifetimeAttempts: skills.reduce((total, row) => total + Number(row.lifetimeAttemptCount || 0), 0),
       skillsChecked: skills.length,
-      currentItems: knowledgeEvidence.length,
-      secureItems: knowledgeEvidence.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length,
-      developingItems: knowledgeEvidence.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.DEVELOPING).length,
-      needsTeachingItems: knowledgeEvidence.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.NEEDS_TEACHING).length,
-      legacyFallbackItems: [...legacyItems, ...legacySkills].length,
+      currentItems: displayItems.length,
+      secureItems: displayItems.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.SECURE).length,
+      developingItems: displayItems.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.DEVELOPING).length,
+      needsTeachingItems: displayItems.filter(row => row.statusCandidate === REPORTING_STATUS_IDS.NEEDS_TEACHING).length,
+      legacyFallbackItems: [
+        ...primaryKnowledge.filter(row => row.sourceRecordType === "legacy_answer_history"),
+        ...legacyItems,
+        ...legacySkills
+      ].length,
       latestAt: latestDate(skills.map(row => row.latestAt)),
       historyLatestAt: latestDate(attempts.map(row => row.completedAt))
     },
     skills,
     attempts: attempts.map(attemptDisplayRow),
-    items: knowledgeEvidence,
+    items: displayItems,
     evidence: dedupeReportingEvidence([...rawEvidence, ...legacyItems, ...legacySkills]),
     knowledgeEvidence,
     expectedConcepts,
     provenance: {
       canonicalAttemptIds: attempts.map(row => row.attemptId),
       attemptQuestionsAreCanonical: true,
+      answerHistoryIsFallbackOnly: true,
+      answerHistoryRowsRead: asArray(answerHistory).length,
+      answerHistoryRowsUsed: legacyAnswerEvidence.length,
+      answerHistoryRowsSuppressedByCanonicalAttempts:
+        answerReconciliation.suppressed.length,
+      answerHistoryAttemptIdentityComplete: false,
       itemMasteryIsFallbackOnly: true,
       suppressedItemMasteryConceptCount: countSuppressedItemMasteryRows(
         itemMastery,
@@ -1757,7 +2430,12 @@ function latestSourceTimestamp(rows = []) {
     row?.updated_at,
     row?.lastAssessed,
     row?.completedAt,
-    row?.completed_at
+    row?.completed_at,
+    row?.answeredAt,
+    row?.answered_at,
+    row?.observedAt,
+    row?.timestamp,
+    row?.date
   ]).filter(Boolean));
 }
 
@@ -1777,9 +2455,11 @@ export function buildStudentAssessmentEvidenceReadModel({
   assessmentHistory = [],
   localAssessmentHistory = [],
   cloudAssessmentHistory = [],
+  answerHistory = [],
   itemMastery = {},
   skillMasterySummary = {},
-  evidenceReadState = {}
+  evidenceReadState = {},
+  now = new Date()
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const canonicalAttempts = getCanonicalStudentAssessmentAttempts({
@@ -1793,6 +2473,12 @@ export function buildStudentAssessmentEvidenceReadModel({
   const completedAt = evidenceReadState.completedAt || "";
   const sourceDefinitions = [
     {
+      key: "answers",
+      store: "answers",
+      purpose: "Saved question answers used when an assessment attempt archive is unavailable",
+      rows: asArray(answerHistory)
+    },
+    {
       key: "assessmentAttempts",
       store: "assessment_attempts",
       purpose: "Canonical completed and in-progress assessment attempts",
@@ -1801,13 +2487,13 @@ export function buildStudentAssessmentEvidenceReadModel({
     {
       key: "itemMastery",
       store: "item_mastery",
-      purpose: "Legacy item-level fallback when canonical question evidence is absent",
+      purpose: "Older item results used when question-level results are unavailable",
       rows: itemRows
     },
     {
       key: "skillMastery",
       store: "mastery",
-      purpose: "Legacy skill-level fallback when canonical attempt evidence is absent",
+      purpose: "Older skill results used when assessment-level results are unavailable",
       rows: skillRows
     }
   ];
@@ -1827,8 +2513,10 @@ export function buildStudentAssessmentEvidenceReadModel({
   const skillsCheck = buildSkillsCheckReportModel({
     student: { ...student, id: resolvedStudentId },
     assessmentHistory: canonicalAttempts,
+    answerHistory,
     itemMastery,
-    skillMasterySummary
+    skillMasterySummary,
+    now
   });
 
   return {
@@ -2028,7 +2716,7 @@ export function buildOtherLearningReportModel({
   const evidence = dedupeReportingEvidence([...soundEvidence, ...storyEvidence, ...arcadeEvidence]);
   return {
     reportKey: "other_learning",
-    title: "Other Learning",
+    title: "Other learning",
     studentId: resolvedStudentId,
     summary: {
       soundSeekersSoundsSeen: sounds.filter(row => row.seen > 0).length,
@@ -2045,7 +2733,7 @@ export function buildOtherLearningReportModel({
     soundSeekers: {
       title: "Sound Seekers",
       sounds,
-      note: "Sound Seekers is practice evidence. Even a passed game mastery gate cannot create a Secure Whole Child status by itself."
+      note: "Sound Seekers is practice. A passed game result cannot make the student overview Secure by itself."
     },
     arcade: {
       title: "Arcade practice",
@@ -2056,7 +2744,7 @@ export function buildOtherLearningReportModel({
       title: "Story Quests",
       stories,
       vocabularyLabel: "Vocabulary encountered",
-      note: "Encountered words are not reported as learned without scored evidence."
+      note: "Words a student has encountered are not reported as learned without scored results."
     },
     engagement: cloneValue(engagement, {}),
     evidence,
@@ -2083,6 +2771,9 @@ function wholeChildOverallStatus(concepts = []) {
   if (concepts.some(row => row.status.id === REPORTING_STATUS_IDS.DEVELOPING)) {
     return reportingStatus(REPORTING_STATUS_IDS.DEVELOPING);
   }
+  if (concepts.some(row => row.status.id === REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE)) {
+    return reportingStatus(REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+  }
   return reportingStatus(REPORTING_STATUS_IDS.SECURE);
 }
 
@@ -2090,7 +2781,8 @@ function wholeChildPriorityRows(concepts = []) {
   const statusRank = {
     [REPORTING_STATUS_IDS.NEEDS_TEACHING]: 0,
     [REPORTING_STATUS_IDS.MIXED_EVIDENCE]: 1,
-    [REPORTING_STATUS_IDS.DEVELOPING]: 2
+    [REPORTING_STATUS_IDS.DEVELOPING]: 2,
+    [REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: 3
   };
   return concepts
     .filter(row => Object.prototype.hasOwnProperty.call(statusRank, row.status.id))
@@ -2130,7 +2822,13 @@ function wholeChildDescriptiveAssessment(row = {}) {
   const scoringVersion = profile.scoringVersion || latestAttempt.scoringVersion || detail.scoringVersion || "";
   const scoringRuleVersion = profile.scoringRuleVersion || detail.scoringRuleVersion || "";
   const administrationVersion = profile.administrationVersion || detail.administrationVersion || "";
-  const routeLabel = grade && benchmarkWindow ? `Grade ${grade} · ${benchmarkWindow}` : grade || benchmarkWindow;
+  const routeLabel = grade && benchmarkWindow
+    ? `Grade ${grade} · ${benchmarkWindowLabel(benchmarkWindow)}`
+    : grade
+      ? `Grade ${grade}`
+      : benchmarkWindow
+        ? benchmarkWindowLabel(benchmarkWindow)
+        : "";
   return {
     assessmentId: row.assessmentId || "",
     number: row.number ?? null,
@@ -2138,7 +2836,7 @@ function wholeChildDescriptiveAssessment(row = {}) {
     label: row.shortTitle || row.title || "EL assessment",
     shortTitle: row.shortTitle || row.title || "EL assessment",
     resultLabel: row.resultLabel || "Recorded",
-    interpretation: row.interpretation || profile.interpretation || "Descriptive evidence; no generic mastery cut score is applied.",
+    interpretation: row.interpretation || profile.interpretation || "These results are descriptive and do not use the general Secure cut-off.",
     latestAt: row.latestAt || profile.latestDate || latestAttempt.completedAt || "",
     attemptCount: Number(row.attemptCount || profile.attemptCount || 0),
     latestAttemptId: latestAttempt.attemptId || profile.latestAttemptId || detail.attemptId || "",
@@ -2178,7 +2876,8 @@ export function buildWholeChildKnowledgeModel({
   evidence = [],
   expectedConcepts = [],
   descriptiveAssessments = [],
-  conflictWindowDays = 90
+  conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
+  now = new Date()
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const filteredEvidence = dedupeReportingEvidence(evidence).filter(row => (
@@ -2187,7 +2886,8 @@ export function buildWholeChildKnowledgeModel({
   const concepts = resolveWholeChildConcepts({
     evidence: filteredEvidence,
     expectedConcepts,
-    conflictWindowDays
+    conflictWindowDays,
+    now
   });
   const byDomainMap = new Map();
   concepts.forEach(concept => {
@@ -2246,6 +2946,9 @@ export function buildWholeChildKnowledgeModel({
       developing: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.DEVELOPING),
       needsTeaching: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.NEEDS_TEACHING),
       mixedEvidence: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.MIXED_EVIDENCE),
+      notEnoughEvidence: concepts.filter(
+        row => row.status.id === REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+      ),
       notChecked: concepts.filter(row => row.status.id === REPORTING_STATUS_IDS.NOT_CHECKED)
     },
     byDomain: Array.from(byDomainMap.values()).sort((a, b) => (
@@ -2264,7 +2967,7 @@ export function buildWholeChildKnowledgeModel({
       missingMeansNotChecked: true,
       conflictsAreNotAveraged: true,
       descriptiveAssessmentsDoNotAffectMasteryCounts: true,
-      priorityOrder: "Needs teaching, then Mixed evidence, then Developing; stronger and newer evidence first."
+      priorityOrder: "Needs support, then Results differ, then Developing; newer teacher-led assessments first."
     }
   };
 }
@@ -2279,6 +2982,7 @@ export function buildStudentReportingWorkspaceModel({
   assessmentHistory = [],
   localAssessmentHistory = [],
   cloudAssessmentHistory = [],
+  answerHistory = [],
   letterAssessment = [],
   patternAssessment = [],
   benchmarkScope = null,
@@ -2295,7 +2999,8 @@ export function buildStudentReportingWorkspaceModel({
   engagement = {},
   expectedConcepts = [],
   wholeChildConflictWindowDays = 90,
-  evidenceReadState = {}
+  evidenceReadState = {},
+  now = new Date()
 } = {}) {
   const resolvedStudentId = getStudentId(student, studentId);
   const suppliedStudentId = String(student.id || student.studentId || "");
@@ -2313,9 +3018,11 @@ export function buildStudentReportingWorkspaceModel({
     assessmentHistory,
     localAssessmentHistory,
     cloudAssessmentHistory,
+    answerHistory,
     itemMastery,
     skillMasterySummary,
-    evidenceReadState
+    evidenceReadState,
+    now
   });
   const canonicalAttempts = evidenceRead.canonicalAttempts;
   const identityHistory = canonicalAttempts.slice().sort((a, b) => (
@@ -2341,7 +3048,8 @@ export function buildStudentReportingWorkspaceModel({
     patternAssessment,
     benchmarkScope,
     benchmarkGrade,
-    benchmarkWindow
+    benchmarkWindow,
+    now
   });
   const guidedReading = buildGuidedReadingReportModel({
     student: resolvedStudent,
@@ -2367,14 +3075,15 @@ export function buildStudentReportingWorkspaceModel({
     student: resolvedStudent,
     evidence: wholeChildEvidence,
     // Once an area has been used, include its curriculum coverage as
-    // Not checked rows so omissions are visible rather than silent.
+    // Not checked rows make omissions visible rather than silent.
     expectedConcepts: [
       ...asArray(expectedConcepts),
       ...asArray(skillsCheck.expectedConcepts),
       ...asArray(otherLearning.expectedConcepts)
     ],
     descriptiveAssessments: elAssessments.assessments.filter(row => row.descriptive),
-    conflictWindowDays: wholeChildConflictWindowDays
+    conflictWindowDays: wholeChildConflictWindowDays,
+    now
   });
 
   return {
@@ -2384,7 +3093,7 @@ export function buildStudentReportingWorkspaceModel({
       name: getStudentName(resolvedStudent),
       classId: getClassId(resolvedStudent)
     },
-    generatedAt: new Date().toISOString(),
+    generatedAt: new Date(now).toISOString(),
     wholeChild,
     elAssessments,
     guidedReading,
@@ -2394,6 +3103,7 @@ export function buildStudentReportingWorkspaceModel({
       inputAssessmentRecordCount: flattenRecordCount(assessmentHistory) +
         flattenRecordCount(localAssessmentHistory) +
         flattenRecordCount(cloudAssessmentHistory),
+      inputAnswerRecordCount: flattenRecordCount(answerHistory),
       canonicalAssessmentAttemptCount: canonicalAttempts.length,
       wholeChildEvidenceCount: wholeChildEvidence.length,
       evidenceReadCompletedAt: evidenceRead.completedAt,

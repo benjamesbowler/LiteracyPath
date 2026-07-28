@@ -5,6 +5,7 @@ import {
   getElBenchmarkPlan,
   scoreElBenchmarkSession
 } from "../../data/elBenchmarkAssessments.js";
+import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import "./el-benchmark-assessment.css";
 
 const ASSESSMENT_KINDS = Object.freeze({
@@ -23,6 +24,8 @@ const RESPONSE_CAPTURE_MODES = Object.freeze({
 const QUICK_ADMINISTRATION_VERSION = "2026.07.22-quick-v1";
 
 const TERMINAL_SESSION_STATUSES = new Set(["completed", "discontinued"]);
+const CHECK_LOAD_ERROR_COPY = "We couldn't load this assessment. Nothing was changed. Return and choose it again.";
+const CHECK_SAVE_ERROR_COPY = "We couldn't save this assessment. Your answers are still on this screen. Make sure you are connected and try again.";
 
 function getTerminalSessionStatus(session = {}) {
   const administrationStatus = String(session.administrationStatus || "").trim();
@@ -48,18 +51,18 @@ function preserveTerminalSessionStatus(session = {}, snapshot = {}) {
 }
 
 const DISCONTINUE_REASONS = Object.freeze([
-  { value: "frustration", label: "Child showed frustration" },
+  { value: "frustration", label: "Student showed frustration" },
   { value: "independent_level_clear", label: "Independent level was clear" },
   { value: "instructional_level_clear", label: "Instructional level was clear" },
-  { value: "letter_knowledge_needed", label: "Letter knowledge needs checking first" },
-  { value: "unable_to_continue", label: "Child was unable to continue" },
+  { value: "letter_knowledge_needed", label: "Review letter knowledge first" },
+  { value: "unable_to_continue", label: "Student was unable to continue" },
   { value: "interrupted", label: "Session was interrupted" },
   { value: "other", label: "Other" }
 ]);
 
 const NOT_SCORABLE_REASONS = Object.freeze([
   { value: "interrupted_or_noisy", label: "Interrupted or too noisy" },
-  { value: "student_unwell_or_distressed", label: "Child unwell or distressed" },
+  { value: "student_unwell_or_distressed", label: "Student unwell or distressed" },
   { value: "directions_or_material_issue", label: "Directions or material issue" },
   { value: "response_unreliable", label: "Answer could not be captured reliably" },
   { value: "other", label: "Other" }
@@ -134,9 +137,23 @@ function teacherGuidanceText(value = "") {
     .replace(/\bAdminister orally\b/gi, "Run this aloud")
     .replace(/\bnot administered\b/gi, "not done")
     .replace(/\bunadministered\b/gi, "not done")
-    .replace(/\bassessments?\b/gi, match => match.toLowerCase().endsWith("s") ? "checks" : "check")
+    .replace(/\bchecks?\b/gi, match => match.toLowerCase().endsWith("s") ? "assessments" : "assessment")
+    .replace(/\bchildren\b/gi, "students")
+    .replace(/\bchild\b/gi, "student")
     .replace(/\bevidence\b/gi, "results")
-    .replace(/\blearners?\b/gi, match => match.toLowerCase().endsWith("s") ? "students" : "student");
+    .replace(/\blearners?\b/gi, match => match.toLowerCase().endsWith("s") ? "students" : "student")
+    .replace(/\bcandidate microphases\b/gi, "suggested reading stages")
+    .replace(/\bcandidate microphase\b/gi, "suggested reading stage")
+    .replace(/\bmicrophases\b/gi, "reading stages")
+    .replace(/\bmicrophase\b/gi, "reading stage")
+    .replace(/\bnamed bands?\b/gi, "named reading stages")
+    .replace(/\bbands\b/gi, "word groups")
+    .replace(/\bband\b/gi, "word group")
+    .replace(/\bcandidate\b/gi, "suggested reading stage")
+    .replace(/\bassessment route\b/gi, "assessment plan")
+    .replace(/\bbeginning-of-year route\b/gi, "beginning-of-year assessment plan")
+    .replace(/\brouting\b/gi, "assessment sequence")
+    .replace(/\broute\b/gi, "assessment plan");
 }
 
 function formatGrade(grade = "") {
@@ -555,7 +572,7 @@ function getErrorTagOptions(kind, item = {}) {
 }
 
 function getStudentName(session = {}) {
-  return session.studentName || session.student?.name || "Selected child";
+  return session.studentName || session.student?.name || "Selected student";
 }
 
 function getPlanResult(session = {}) {
@@ -571,7 +588,7 @@ function getPlanResult(session = {}) {
   } catch (error) {
     return {
       plan: null,
-      error: error instanceof Error ? error : new Error("The check could not be loaded.")
+      error: error instanceof Error ? error : new Error("The assessment could not be loaded.")
     };
   }
 }
@@ -585,7 +602,10 @@ function getStartingBandLabel(plan = {}, item = {}) {
     || item.bandId
     || plan.route?.selectedStartMicrophase
     || plan.route?.defaultStartMicrophase;
-  return `${formatWindow(plan.window)} · starting band: ${humanize(band) || "Provisional"}`;
+  return TEACHER_COPY.formalEl.startingReadingStage(
+    formatWindow(plan.window),
+    humanize(band)
+  );
 }
 
 function getAdministrationRangeLabel(administrationRange = {}) {
@@ -620,20 +640,20 @@ function getItemTeacherDirective(kind, item = {}) {
   const teacherSay = String(item.teacherSay || item.prompt || "").trim();
   if (kind === ASSESSMENT_KINDS.ENCODING) {
     const word = item.targetWord || item.word || "target word";
-    return `Dictate aloud — word, sentence, word. The child writes only “${word}” on paper.`;
+    return `Dictate aloud — word, sentence, word. The student writes only “${word}” on paper.`;
   }
   if (kind === ASSESSMENT_KINDS.DECODING) {
-    return "Ask the child to read the word aloud. Do not name it, sound it out, or point to parts of it.";
+    return "Ask the student to read the word aloud. Do not name it, sound it out, or point to parts of it.";
   }
   if (kind === ASSESSMENT_KINDS.FLUENCY) {
-    return "Place the reading copy in front of the child. Start timing on the first spoken word and mark the last word reached at 60 seconds.";
+    return "Place the reading copy in front of the student. Start timing on the first spoken word and mark the last word reached at 60 seconds.";
   }
   if (item.strand === "rhyme" && item.task === "recognition") {
-    return `Say aloud: “${teacherSay}” Say both words naturally — never show this screen to the child.`;
+    return `Say aloud: “${teacherSay}” Say both words naturally — never show this screen to the student.`;
   }
   return teacherSay
-    ? `Say aloud: “${teacherSay}” Listen to the child's oral response.`
-    : "Give the oral task exactly as written and listen to the child's answer.";
+    ? `Say aloud: “${teacherSay}” Listen to the student's oral response.`
+    : "Give the oral task exactly as written and listen to the student's answer.";
 }
 
 function getPassage(plan = {}, item = {}) {
@@ -772,7 +792,7 @@ function NotScorableSummary({ response }) {
   );
 }
 
-function ExactResponseField({ value = "", onChange, label = "Exact child answer", help = "Record what the child said, including an approximation or no answer." }) {
+function ExactResponseField({ value = "", onChange, label = "Exact student answer", help = "Record what the student said, including an approximation or no answer." }) {
   return (
     <label className="el-benchmark-control">
       <span>{label}</span>
@@ -846,12 +866,12 @@ function PhonologicalAwarenessPanel({ item, response, onResponseChange, onQuickS
           <span>{rhymePair[0]}</span>
           <small>and</small>
           <span>{rhymePair[1]}</span>
-          <p>Teacher screen — say both words aloud. Do not show the print to the child.</p>
+          <p>Teacher screen — say both words aloud. Do not show the print to the student.</p>
         </div>
       )}
 
       <QuickOutcomeButtons
-        legend={isRhymeRecognition ? "What did the child answer?" : "Was the spoken answer correct?"}
+        legend={isRhymeRecognition ? "What did the student answer?" : "Was the spoken answer correct?"}
         onChoose={value => {
           if (value === "other") {
             setShowOther(true);
@@ -1022,7 +1042,7 @@ function EncodingPanel({ item, response, onResponseChange, onQuickScore }) {
         </div>
 
         <label className="el-benchmark-control">
-          <span>Child&apos;s spelling (optional)</span>
+          <span>Student&apos;s spelling (optional)</span>
           <input
             autoComplete="off"
             onChange={event => onResponseChange({
@@ -1239,7 +1259,7 @@ function DecodingPanel({ item, response, onResponseChange, onQuickScore }) {
   return (
     <div className="el-benchmark-response-stack el-benchmark-simple-response">
       <QuickOutcomeButtons
-        legend="How did the child read the word?"
+        legend="How did the student read the word?"
         onChoose={recordEvaluation}
         options={[
           { value: "automatic_accurate", label: "Straight away", symbol: "✓", tone: "positive" },
@@ -1271,7 +1291,7 @@ function DecodingPanel({ item, response, onResponseChange, onQuickScore }) {
 
         <ExactResponseField
           help="Optional. Add the spoken answer only when it will help instruction."
-          label="What the child said (optional)"
+          label="What the student said (optional)"
           onChange={responseText => onResponseChange({
             responseText,
             responseCaptureMode: responseText.trim()
@@ -1348,12 +1368,12 @@ function ProtectedEncodingPrompt({ item }) {
   return (
     <section className="el-benchmark-prompt-panel el-benchmark-protected-prompt" aria-label="Protected teacher prompt">
       <div className="el-benchmark-encoding-setup">
-        <strong>Child setup</strong>
-        <span>Give the child a pencil and lined paper. Keep this screen facing you.</span>
+        <strong>Student setup</strong>
+        <span>Give the student a pencil and lined paper. Keep this screen facing you.</span>
       </div>
       <div className="el-benchmark-protected-script">
         <span>Say exactly</span>
-        <p>{item.teacherSay || item.sentence || "Ask the child to write the word they hear."}</p>
+        <p>{item.teacherSay || item.sentence || "Ask the student to write the word they hear."}</p>
       </div>
     </section>
   );
@@ -1640,7 +1660,7 @@ function FluencyTimer({ response, onFinishEarly, onResponseChange }) {
               onClick={finishPassageEarly}
               type="button"
             >
-              Child finished the whole passage
+              Student finished the whole passage
             </button>
           </>
         ) : (
@@ -1776,7 +1796,7 @@ function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChan
       <section className="el-benchmark-passage-panel" aria-labelledby="el-benchmark-passage-title">
         <div className="el-benchmark-passage-header">
           <div>
-            <span>Child reads this aloud</span>
+            <span>Student reads this aloud</span>
             <h3 id="el-benchmark-passage-title">{passage.title || "Fluency passage"}</h3>
           </div>
           <strong>{passage.wordCount || wordTokens.length} words</strong>
@@ -1823,10 +1843,10 @@ function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChan
 
         <p className="el-benchmark-passage-help" id="el-benchmark-token-help">
           {standardTimingValid
-            ? "Time is up. Tap the last word the child reached."
+            ? "Time is up. Tap the last word the student reached."
             : timingEvidenceReady
               ? "The full passage finish is recorded."
-              : "Start the timer, then let the child read directly from this screen."}
+              : "Start the timer, then let the student read directly from this screen."}
         </p>
         <button
           aria-pressed={zeroWordsReached}
@@ -1836,7 +1856,7 @@ function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChan
           type="button"
         >
           <strong>No words reached (0)</strong>
-          <small>Use only when the full minute ends before the child reads the first word.</small>
+          <small>Use only when the full minute ends before the student reads the first word.</small>
         </button>
         <div className="el-benchmark-tokenized-passage" aria-describedby="el-benchmark-token-help">
           {tokens.map(token => token.isWord ? (
@@ -1935,7 +1955,7 @@ function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChan
           <details className="el-benchmark-clean-passage">
             <summary>Printable clean passage</summary>
             <div className="el-benchmark-clean-passage-actions">
-              <span>Child-facing copy</span>
+              <span>Student-facing copy</span>
               <button
                 className="el-benchmark-button secondary compact"
                 disabled={response.timerStatus === "running"}
@@ -2035,7 +2055,7 @@ function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChan
           <p className="el-benchmark-inline-note">Errors plus self-corrections cannot exceed the number of words attempted.</p>
         )}
         {response.status !== "not_scorable" && timingEvidenceReady && !zeroWordsReached && typeof accuracyJudgment !== "boolean" && (
-          <p className="el-benchmark-inline-note">Record the teacher accuracy judgment before reviewing the passage route.</p>
+          <p className="el-benchmark-inline-note">Record the teacher accuracy judgment before reviewing what should happen next.</p>
         )}
         {response.status !== "not_scorable" && timingEvidenceReady && zeroWordsReached && accuracyJudgment !== null && (
           <p className="el-benchmark-inline-note">Accuracy must remain N/A when no words were reached.</p>
@@ -2186,7 +2206,7 @@ function DecodingBandDecision({
         <details>
           <summary>See the result</summary>
           <strong>{automaticCount} of {denominator} read straight away</strong>
-          <small>The check uses your observation of automatic reading, not a seconds-based cutoff.</small>
+          <small>The assessment uses your observation of automatic reading, not a seconds-based cutoff.</small>
         </details>
       </div>
 
@@ -2234,7 +2254,7 @@ function DecodingBandDecision({
       ) : stopRuleMet ? (
         <div className="el-benchmark-band-message stopping">
           <strong>This is a good place to finish</strong>
-          <p>The child has shown enough for the report to choose a useful next step.</p>
+          <p>The student has shown enough for the report to choose a useful next step.</p>
           {laterHasEvidence ? (
             <p className="el-benchmark-band-warning">Later answers are already saved. Keep reading to preserve them.</p>
           ) : nextBand ? (
@@ -2269,7 +2289,7 @@ function DecodingBandDecision({
                 <span>Why will another word set help?</span>
                 <textarea
                   onChange={event => setOverrideReason(event.target.value)}
-                  placeholder="For example: the child was distracted and needs another chance"
+                  placeholder="For example: the student was distracted and needs another chance"
                   required
                   rows="2"
                   value={overrideReason}
@@ -2292,8 +2312,8 @@ function DecodingBandDecision({
         </div>
       ) : (
         <div className="el-benchmark-band-message continue">
-          <strong>{nextBand ? "The child is ready for the next word set" : "All planned word sets are complete"}</strong>
-          <p>{nextBand ? "Continue while the child is reading comfortably." : "No more word sets are needed."}</p>
+          <strong>{nextBand ? "The student is ready for the next word set" : "All planned word sets are complete"}</strong>
+          <p>{nextBand ? "Continue while the student is reading comfortably." : "No more word sets are needed."}</p>
           {nextBand && (
             <button
               className="el-benchmark-button primary el-benchmark-decision-primary"
@@ -2378,7 +2398,7 @@ function FluencyPassageDecision({
           <strong>This is a good place to finish</strong>
           <p>{zeroWordsReached
             ? "The full-minute 0-word result is saved."
-            : "The child’s first not-yet-accurate passage gives a useful stopping point."}</p>
+            : "The student’s first not-yet-accurate passage gives a useful stopping point."}</p>
           {laterHasEvidence && (
             <>
               <p className="el-benchmark-band-warning">
@@ -2412,10 +2432,10 @@ function FluencyPassageDecision({
         </div>
       ) : nextItem ? (
         <div className={`el-benchmark-band-message ${response.status === "not_scorable" ? "caution" : "continue"}`}>
-          <strong>{response.status === "not_scorable" ? "Try another passage for a clearer result" : "The child is ready for the next passage"}</strong>
+          <strong>{response.status === "not_scorable" ? "Try another passage for a clearer result" : "The student is ready for the next passage"}</strong>
           <p>{response.status === "not_scorable"
             ? "This passage did not provide an accuracy result."
-            : "Continue while the child is reading comfortably."}</p>
+            : "Continue while the student is reading comfortably."}</p>
           <button
             className="el-benchmark-button primary el-benchmark-decision-primary"
             onClick={() => onContinue(index + 1, response.status === "not_scorable" ? "passage_not_scorable" : "teacher_judgment_accurate")}
@@ -2443,7 +2463,7 @@ function RouteSummary({
   currentIndex,
   navigationLocked,
   isItemNavigationAllowed = () => true,
-  navigationLockMessage = "Review the completed decoding band before moving ahead",
+  navigationLockMessage = "Review the completed word group before moving ahead",
   onSelectItem
 }) {
   const administeredCount = items.filter((item, index) => {
@@ -2463,9 +2483,12 @@ function RouteSummary({
   const scoringNotes = toArray(plan.instructions?.scoringNotes);
 
   return (
-    <aside className="el-benchmark-route-summary" aria-label="Check route and progress">
+    <aside
+      className="el-benchmark-route-summary"
+      aria-label={TEACHER_COPY.formalEl.assessmentPlanAriaLabel}
+    >
       <div className="el-benchmark-route-heading">
-        <span>Check route</span>
+        <span>{TEACHER_COPY.formalEl.assessmentPlanLabel}</span>
         <strong>{getStartingBandLabel(plan)}</strong>
         <small>{formatGrade(session.grade)} | {formatWindow(session.window)}</small>
       </div>
@@ -2485,7 +2508,7 @@ function RouteSummary({
         </div>
       </dl>
 
-      <div className="el-benchmark-item-navigator" aria-label="Check items">
+      <div className="el-benchmark-item-navigator" aria-label="Assessment items">
         {items.map((item, index) => {
           const itemId = getItemId(item, index, kind);
           const response = responses[itemId] || {};
@@ -2527,7 +2550,7 @@ function RouteSummary({
 
       {(teacherInstructions.length > 0 || scoringNotes.length > 0) && (
         <details className="el-benchmark-guidance">
-          <summary>How to run this check</summary>
+          <summary>How to run this assessment</summary>
           {teacherInstructions.length > 0 && (
             <div>
               <strong>Teacher guidance</strong>
@@ -2544,7 +2567,7 @@ function RouteSummary({
       )}
 
       <p className="el-benchmark-provisional-note">
-        Literacy Guide EL-aligned content and routing are provisional. This is not an official EL Education form.
+        Literacy Guide EL-aligned content and assessment sequence are provisional. This is not an official EL Education form.
       </p>
     </aside>
   );
@@ -2635,7 +2658,7 @@ function PlacementConfirmationPanel({
               <span>Suggested starting point</span>
               <strong>{recommendedOption.label}</strong>
               <p>{isEncoding
-                ? "Based on the child’s grade and this time of year."
+                ? "Based on the student’s grade and this time of year."
                 : "Based on the word-reading results just recorded."}</p>
               <button
                 className="el-benchmark-button primary el-benchmark-placement-accept"
@@ -2650,9 +2673,11 @@ function PlacementConfirmationPanel({
               </button>
               <details className="el-benchmark-placement-why">
                 <summary>Why is this suggested?</summary>
-                <p>{proposedPlacement.reason || (isEncoding
-                  ? "Spelling does not use an automatic spelling-to-reading conversion. The grade and time of year provide a safe default that the teacher can change."
-                  : "The suggestion uses the completed word-reading results and this check's route.")}</p>
+                <p>{proposedPlacement.reason
+                  ? teacherGuidanceText(proposedPlacement.reason)
+                  : (isEncoding
+                    ? "Spelling does not use an automatic spelling-to-reading conversion. The grade and time of year provide a safe default that the teacher can change."
+                    : "The suggestion uses the completed word-reading results and this assessment plan.")}</p>
                 <small>Result status: {scoreStatus} · {scoredCount} scored item{scoredCount === 1 ? "" : "s"}</small>
                 {administrationRange && <small>Expected range: {getAdministrationRangeLabel(administrationRange)}</small>}
               </details>
@@ -2680,7 +2705,7 @@ function PlacementConfirmationPanel({
             >
               {confirmedMicrophase && !confirmedMicrophaseAllowed && (
                 <p className="el-benchmark-band-warning">
-                  The saved starting point is outside this check. Choose one of the available options.
+                  The saved starting point is outside this assessment. Choose one of the available options.
                 </p>
               )}
               <label className="el-benchmark-control">
@@ -2754,9 +2779,9 @@ function FinishConfirmationPanel({
       tabIndex="-1"
     >
       <span>Final review</span>
-      <h2 id="el-benchmark-finish-review-title">Check the tally before finishing</h2>
-      <p>This saves the completed check. Go back now if the final tap was not what you intended.</p>
-      <dl aria-label="Check completion tally">
+      <h2 id="el-benchmark-finish-review-title">Review the tally before finishing</h2>
+      <p>This saves the completed assessment. Go back now if the final tap was not what you intended.</p>
+      <dl aria-label="Assessment completion tally">
         <div><dt>Scored</dt><dd>{tally.scored}</dd></div>
         <div><dt>Skipped</dt><dd>{tally.skipped}</dd></div>
         <div><dt>Not scorable</dt><dd>{tally.notScorable}</dd></div>
@@ -2835,7 +2860,7 @@ function DiscontinuePanel({ onClose, onConfirm }) {
         />
       </label>
       <div className="el-benchmark-button-row">
-        <button className="el-benchmark-button secondary" onClick={onClose} type="button">Continue check</button>
+        <button className="el-benchmark-button secondary" onClick={onClose} type="button">Continue assessment</button>
         <button
           className="el-benchmark-button danger"
           disabled={!isDiscontinueEvidenceComplete(reason, note)}
@@ -3002,10 +3027,10 @@ export function ELBenchmarkAssessmentPage({
   const routeNavigationLockMessage = kind === ASSESSMENT_KINDS.FLUENCY
     ? fluencyStopEvidence?.confirmed
       ? "locked after the confirmed fluency stop"
-      : "locked until the current passage route is reviewed"
+      : "locked until the current passage is reviewed"
     : session.decodingStop?.confirmed
       ? "locked after the confirmed decoding stop"
-      : "locked until the current decoding band is reviewed";
+      : "locked until the current word group is reviewed";
 
   const makeSessionSnapshot = useCallback((patch = {}) => preserveTerminalSessionStatus(session, {
     ...session,
@@ -3267,7 +3292,7 @@ export function ELBenchmarkAssessmentPage({
       completionLockRef.current
     ) return null;
     completionLockRef.current = true;
-    setCompletionState({ status: "saving", message: "Finishing and saving the check." });
+    setCompletionState({ status: "saving", message: "Finishing and saving the assessment." });
     const now = new Date().toISOString();
     const nextSession = emitSession(makeSessionSnapshot({
       status: "completed",
@@ -3280,15 +3305,15 @@ export function ELBenchmarkAssessmentPage({
         ? await onComplete(nextSession)
         : null;
       if (result?.ok === true) return result;
-      const message = result?.message || "The check could not be saved. Your completed answers are still on this screen.";
-      setCompletionState({ status: "error", message });
-      return { ok: false, message };
+      if (result?.message) {
+        console.error("EL check save was refused:", result.message);
+      }
+      setCompletionState({ status: "error", message: CHECK_SAVE_ERROR_COPY });
+      return { ok: false, message: CHECK_SAVE_ERROR_COPY };
     } catch (error) {
-      const message = error instanceof Error && error.message
-        ? `The check could not be saved: ${error.message}`
-        : "The check could not be saved. Your completed answers are still on this screen.";
-      setCompletionState({ status: "error", message });
-      return { ok: false, message };
+      console.error("EL check save failed:", error);
+      setCompletionState({ status: "error", message: CHECK_SAVE_ERROR_COPY });
+      return { ok: false, message: CHECK_SAVE_ERROR_COPY };
     } finally {
       completionLockRef.current = false;
     }
@@ -3677,8 +3702,8 @@ export function ELBenchmarkAssessmentPage({
       <main className="el-benchmark-shell el-benchmark-empty-state" aria-labelledby="el-benchmark-error-title">
         <section>
           <span className="el-benchmark-framework-label">LiteracyPath EL-aligned</span>
-          <h1 id="el-benchmark-error-title">Check unavailable</h1>
-          <p>{planResult.error?.message || "This check could not be loaded."}</p>
+          <h1 id="el-benchmark-error-title">Assessment unavailable</h1>
+          <p>{CHECK_LOAD_ERROR_COPY}</p>
           <div className="el-benchmark-button-row">
             <button className="el-benchmark-button secondary" onClick={() => onCancel?.()} type="button">Return</button>
           </div>
@@ -3693,7 +3718,7 @@ export function ELBenchmarkAssessmentPage({
         <section>
           <span className="el-benchmark-framework-label">LiteracyPath EL-aligned</span>
           <h1 id="el-benchmark-empty-title">No items in this plan</h1>
-          <p>The selected grade, time of year, and starting point did not return a check.</p>
+          <p>The selected grade, time of year, and starting point did not return an assessment.</p>
           <div className="el-benchmark-button-row">
             <button className="el-benchmark-button secondary" onClick={() => onCancel?.()} type="button">Return</button>
           </div>
@@ -3711,7 +3736,7 @@ export function ELBenchmarkAssessmentPage({
       <header className="el-benchmark-topbar">
         <div className="el-benchmark-title-block">
           <div>
-            <h1 id="el-benchmark-page-title">{plan.title || "EL-aligned check"}</h1>
+            <h1 id="el-benchmark-page-title">{teacherGuidanceText(plan.title || "EL-aligned assessment")}</h1>
           </div>
           <p>{getStudentName(session)} · {formatGrade(session.grade)} · {formatWindow(session.window)}</p>
         </div>
@@ -3742,11 +3767,11 @@ export function ELBenchmarkAssessmentPage({
             ) : (
               <p>
                 {completionIsSaving
-                  ? "Saving the completed check. Keep this page open."
+                  ? "Saving the completed assessment. Keep this page open."
                   : canCompleteAssessment
                     ? "Everything is ready to save."
                     : needsPlacementConfirmation
-                      ? "One final step: choose the child’s next starting point."
+                      ? "One final step: choose the student’s next starting point."
                       : resolvedItems.length === items.length
                         ? "Review the suggested next step below."
                         : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} left.`}
@@ -3760,7 +3785,7 @@ export function ELBenchmarkAssessmentPage({
             title={timerIsRunning
               ? "Stop the timer before saving"
               : terminalSessionStatus === "completed"
-                ? "Use Retry finish below to save this completed check"
+                ? "Use Retry finish below to save this completed assessment"
                 : undefined}
             type="button"
           >
@@ -3786,7 +3811,7 @@ export function ELBenchmarkAssessmentPage({
                 ? "Retry finish"
                 : needsPlacementConfirmation
                   ? "Choose starting point"
-                  : "Finish check"}
+                  : "Finish assessment"}
           </button>
         </div>
       </header>
@@ -3920,7 +3945,7 @@ export function ELBenchmarkAssessmentPage({
             onClick={() => setShowDiscontinue(show => !show)}
             type="button"
           >
-            {showDiscontinue ? "Close stop-early panel" : "Stop check early"}
+            {showDiscontinue ? "Close stop-early panel" : "Stop assessment early"}
           </button>
         </details>
       </footer>

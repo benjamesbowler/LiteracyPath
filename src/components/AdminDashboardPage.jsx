@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { readErrorLog, clearErrorLog } from "../utils/errorLog.js";
 import { MapStopEditor } from "./admin/MapStopEditor.jsx";
@@ -21,19 +21,26 @@ import {
   setGuidedReadingLevelOverride
 } from "../utils/guidedReading/bookLevelOverrides";
 import { exportAssessmentAttemptsCsv } from "../data/assessmentHistoryStore";
+import { assessmentHistoryExportReadiness } from "../data/assessmentHistoryExportPolicy.js";
 import { buildClassReportModel } from "../data/reportingSystem.js";
 import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
+  buildClassElAssessmentReportData,
   deleteSavedElAssessmentReport,
   getSavedElAssessmentReports,
   hydrateElAssessmentReports
 } from "../data/elAssessmentReportStore.js";
 import { resolveElBenchmarkReportScope } from "../data/elFormalAssessmentReportBuilder.js";
+import { displayBenchmarkScopeLabel } from "../data/elBenchmarkReportScope.js";
 import {
   downloadElAssessmentReport,
   exportClassElAssessmentExcel
 } from "../utils/exportElAssessmentExcel.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
+import {
+  printTeacherDocument,
+  TEACHER_PRINT_TARGETS
+} from "../utils/teacherPrintTarget.js";
 import {
   buildExportProvenanceRows,
   exportProvenanceCsvPreamble
@@ -51,15 +58,35 @@ import {
 import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
 import { SchoolRetentionPolicyPanel } from "./admin/SchoolRetentionPolicyPanel.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
+import { TeacherDialog } from "./teacher/ui/TeacherDialog.jsx";
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
-import { clearLocalProgressForStudent } from "../utils/progressSync.js";
+import { clearAndVerifyLocalProgressForStudent } from "../utils/progressSync.js";
 import { resetRetiredMediaQaReviewStorage } from "../data/questionFlagStore.js";
 import {
   FLEET_ERROR_BUDGET_POLICY,
   evaluateFleetErrorBudget
 } from "../policy/fleetErrorBudget.js";
 import { CalibrationMonitoringPanel } from "./admin/CalibrationMonitoringPanel.jsx";
+import { ElClassReportDocument } from "./reports/ElClassReportDocument.jsx";
+import { buildQuestionBankCoverage } from "../appState/assessmentRuntime.js";
+import { curriculumReleaseBoard } from "../content/assessments/curriculumReleaseBoard.generated.js";
+import {
+  ADMIN_SECTION_ROUTES,
+  adminPathForSection,
+  adminQaHistoryState,
+  adminRouteForPath,
+  shouldCloseAdminQaWithHistoryBack,
+  withoutAdminQaHistoryState
+} from "../appState/adminQaNavigation.js";
+import {
+  TEACHER_ACCOUNT_DECISION_STATUSES,
+  resolveTeacherAccountSchool,
+  validateTeacherAccountDecision
+} from "../appState/adminAccountDecision.js";
+import {
+  loadTeacherAccountDecisionHistory
+} from "../data/teacherAccountDecisionHistory.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -100,6 +127,17 @@ function shortClassReportSkillName(value = "") {
     .replace("High-Frequency Words", "HFW")
     .replace("Long Vowels / Silent E", "Long Vowels")
     .replace("CVC / Short Vowels", "CVC");
+}
+
+function reportPercentage(value, unavailable = "Not enough results") {
+  if (value === "" || value === null || value === undefined) return unavailable;
+  const numeric = Number(value);
+  return Number.isFinite(numeric) ? `${Math.round(numeric)}%` : unavailable;
+}
+
+function reportStatusCount(model, statusId) {
+  return model.snapshot.statusDistribution
+    ?.find(row => row.statusId === statusId)?.count || 0;
 }
 
 function ClassReportPage({ children, className = "", model, pageNumber }) {
@@ -150,19 +188,30 @@ function ClassGrowthSummary({ rows = [] }) {
   }
   return (
     <div className="formal-class-growth-list">
-      {rows.slice(0, 8).map((row, index) => (
-        <div className={`formal-class-growth-row tone-${index % 6}`} key={row.canonicalSkillName || row.skillName}>
-          <div>
-            <strong>{row.skillName}</strong>
-            <span>{row.mastered}/{row.developing}/{row.needsSupport}</span>
+      {rows.slice(0, 8).map((row, index) => {
+        const accuracy = Number.isFinite(Number(row.accuracy)) ? Number(row.accuracy) : null;
+        const delta = Number.isFinite(Number(row.delta)) ? Number(row.delta) : null;
+        return (
+          <div className={`formal-class-growth-row tone-${index % 6}`} key={row.canonicalSkillName || row.skillName}>
+            <div>
+              <strong>{row.skillName}</strong>
+              <span>{row.mastered} secure · {row.developing} developing · {row.needsSupport} need support</span>
+            </div>
+            <div
+              className="formal-class-growth-track"
+              aria-label={accuracy === null
+                ? `${row.skillName}: not enough comparable results`
+                : `${row.skillName}: ${Math.round(accuracy)}%`}
+            >
+              {accuracy !== null && (
+                <span style={{ width: `${Math.max(0, Math.min(100, accuracy))}%` }}></span>
+              )}
+            </div>
+            <b>{reportPercentage(accuracy)}</b>
+            <em>{delta === null ? "—" : delta > 0 ? `+${delta}` : delta}</em>
           </div>
-          <div className="formal-class-growth-track" aria-label={`${row.skillName} ${row.accuracy}%`}>
-            <span style={{ width: `${Math.max(4, row.accuracy)}%` }}></span>
-          </div>
-          <b>{row.accuracy}%</b>
-          <em>{row.delta > 0 ? `+${row.delta}` : row.delta}</em>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -208,10 +257,11 @@ function StudentProgressGrid({ model }) {
   return (
     <div className="formal-class-progress-grid-wrap">
       <div className="formal-class-progress-legend">
-        <span className="mastered">Mastered</span>
+        <span className="mastered">Secure</span>
         <span className="developing">Developing</span>
-        <span className="needs-support">Needs Support</span>
-        <span className="not-assessed">Not Assessed</span>
+        <span className="needs-support">Needs support</span>
+        <span className="not-enough-evidence">Not enough results</span>
+        <span className="not-assessed">Not checked</span>
       </div>
       <table className="formal-class-progress-grid">
         <thead>
@@ -220,7 +270,6 @@ function StudentProgressGrid({ model }) {
             {skillColumns.map(skill => (
               <th key={skill.skillName}>{shortClassReportSkillName(skill.displaySkillName)}</th>
             ))}
-            <th>Reading</th>
           </tr>
         </thead>
         <tbody>
@@ -230,27 +279,45 @@ function StudentProgressGrid({ model }) {
               <tr key={student.studentId}>
                 <td>
                   <strong>{student.studentName}</strong>
-                  <span>{student.accuracy}% overall</span>
+                  <span>{student.status?.label || "Not enough results"}</span>
+                  {student.selectedPeriodTotalQuestions > 0 && (
+                    <small>
+                      Selected period: {student.selectedPeriodCorrectCount}/
+                      {student.selectedPeriodTotalQuestions} correct (
+                      {reportPercentage(student.selectedPeriodAccuracy)})
+                    </small>
+                  )}
                 </td>
                 {skillColumns.map(skill => {
                   const cell = bySkill.get(skill.skillName);
                   const statusId = cell?.statusId || "not_assessed";
+                  const cellLabel = statusId === "not_assessed"
+                    ? "Not checked"
+                    : statusId === "not_enough_evidence"
+                      ? "Not enough results"
+                      : `${reportPercentage(cell?.accuracy, "No score")} · ${cell?.statusLabel}`;
+                  const selectedPeriodLabel = cell?.selectedPeriodScoredResponses > 0
+                    ? `Selected period: ${cell.selectedPeriodCorrectResponses}/${cell.selectedPeriodScoredResponses} correct (${reportPercentage(cell.selectedPeriodAccuracy)})`
+                    : "";
                   return (
                     <td key={`${student.studentId}-${skill.skillName}`}>
-                      <span className={`formal-class-progress-cell ${statusId}`}>
-                        {cell?.attempts ? `${cell.accuracy}%` : "-"}
+                      <span
+                        aria-label={`${student.studentName}, ${skill.displaySkillName}: ${cellLabel}${selectedPeriodLabel ? `. ${selectedPeriodLabel}` : ""}`}
+                        className={`formal-class-progress-cell ${statusId}`}
+                      >
+                        {cellLabel}
                       </span>
+                      {cell?.savedAnswers > 0 && selectedPeriodLabel ? (
+                        <small>{selectedPeriodLabel}</small>
+                      ) : null}
                     </td>
                   );
                 })}
-                <td>
-                  <span className="formal-class-progress-cell not_assessed">NR</span>
-                </td>
               </tr>
             );
           }) : (
             <tr>
-              <td colSpan={skillColumns.length + 2}>No students are available for this class report yet.</td>
+              <td colSpan={skillColumns.length + 1}>No students are available for this class report yet.</td>
             </tr>
           )}
         </tbody>
@@ -287,8 +354,8 @@ function FocusGroups({ groups = [] }) {
 function ReportProvenanceBlock({ rows = [] }) {
   if (!rows.length) return null;
   return (
-    <section className="formal-class-report-provenance" aria-label="Report provenance">
-      <h3>Report provenance</h3>
+    <section className="formal-class-report-provenance" aria-label="Report details">
+      <h3>Report details</h3>
       <dl>
         {rows.map(row => (
           <div key={row.field}>
@@ -313,109 +380,141 @@ export function FormalClassReportDocument({
     generatedAt: model.generatedAt,
     filters: { Class: model.className },
     evidenceSource: model.provenanceEvidence || [],
-    definitions: `Average accuracy = correct responses ÷ scored responses; Secure = at least ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%; Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%; Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%; Not enough evidence = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses.`,
+    definitions: `Average accuracy = correct responses ÷ scored responses; Secure = at least ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%; Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%; Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%; Not enough results = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses.`,
     ...provenanceOptions
   });
   const generated = formatClassReportDate(model.generatedAt);
+  const hasClassPriorities = model.masteryRows.length > 0 || model.focusRows.length > 0;
+  const hasProgressGrid = model.studentRows.length > 0 && model.heatmap.length > 0;
+  const hasReadingRows = model.readingRows.length > 0;
+  const hasGroups = model.groups.length > 0;
+  let nextPageNumber = 1;
+  const pageNumbers = {
+    snapshot: nextPageNumber++,
+    priorities: hasClassPriorities || hasGroups ? nextPageNumber++ : null,
+    progress: hasProgressGrid ? nextPageNumber++ : null,
+    reading: hasReadingRows ? nextPageNumber++ : null,
+    details: nextPageNumber
+  };
   const metricRows = [
-    ["Avg Accuracy", `${model.snapshot.averageAccuracy}%`, "teal"],
-    ["Secure", `${model.snapshot.onTrack}/${model.snapshot.totalStudents}`, "green"],
-    ["Developing", `${model.snapshot.developing}/${model.snapshot.totalStudents}`, "amber"],
-    ["Needs Support", `${model.snapshot.needsSupport}/${model.snapshot.totalStudents}`, "red"],
-    ["Avg Reading Level", model.snapshot.avgReadingLevel, "green"],
-    ["Avg Reading Accuracy", model.snapshot.avgReadingAccuracy === null ? "Not recorded" : `${model.snapshot.avgReadingAccuracy}%`, "teal"],
-    ["Skills at Class Mastery", `${model.snapshot.skillsAtClassMastery}/${model.snapshot.totalSkillsAssessed}`, "blue"],
-    ["Most Urgent Focus", model.snapshot.mostUrgentFocus, "red"]
+    ["Students", model.snapshot.totalStudents, "teal"],
+    ["Enough results", `${model.snapshot.policyReadyStudents} of ${model.snapshot.totalStudents}`, "blue"],
+    ["Answer accuracy", reportPercentage(model.snapshot.averageAccuracy), "teal"],
+    ["Skills assessed", model.snapshot.totalSkillsAssessed, "blue"],
+    ["Secure class skills", model.snapshot.skillsAtClassMastery, "green"],
+    ["Skills to teach next", model.focusRows.length, "red"],
+    ["Not enough results", reportStatusCount(model, "not_enough_evidence"), "amber"],
+    ["Not checked", reportStatusCount(model, "not_started"), "teal"]
   ];
 
   return (
     <article className="formal-class-report-document" aria-label={`Class report for ${model.className}`}>
-      <ClassReportPage model={model} pageNumber={1}>
+      <ClassReportPage model={model} pageNumber={pageNumbers.snapshot}>
         <header className="formal-class-report-hero">
-          <span>Class Report</span>
+          <span>Class report</span>
           <h1>{model.className}</h1>
-          <p>{model.teacherName || "Teacher"} · {model.snapshot.totalStudents} Students · Generated {generated}</p>
+          <p>{model.teacherName || "Teacher"} · {model.snapshot.totalStudents} students · Generated {generated}</p>
         </header>
-        <ClassReportSectionBand title="Class Snapshot" subtitle="Whole-class assessment position across saved Literacy Guide checkpoints.">
+        <ClassReportSectionBand
+          title="Class snapshot"
+          subtitle="A quick view of saved results for the selected period. Status and accuracy are kept separate."
+        >
           <div className="formal-class-report-metrics">
             {metricRows.map(([label, value, tone]) => (
               <ClassReportMetric key={label} label={label} value={value} tone={tone} />
             ))}
           </div>
         </ClassReportSectionBand>
-        <ClassReportSectionBand title="Growth by Skill Area" subtitle="Class average, change over available attempts, and mastered/developing/support counts." accent="#2563eb">
-          <ClassGrowthSummary rows={model.growthAreas} />
-        </ClassReportSectionBand>
+        {model.growthAreas.length > 0 && (
+          <ClassReportSectionBand
+            title="Change over time"
+            subtitle="Shown only when two fair, comparable result windows are available."
+            accent="#2563eb"
+          >
+            <ClassGrowthSummary rows={model.growthAreas} />
+          </ClassReportSectionBand>
+        )}
+        {!model.comparability?.comparable && (
+          <div className="formal-class-report-empty">
+            A class accuracy appears once enough students have enough recent results for a fair comparison.
+          </div>
+        )}
       </ClassReportPage>
 
-      <ClassReportPage model={model} pageNumber={2}>
-        <ClassReportSectionBand title="Skills at Class Mastery Level" subtitle="Areas where the class is ready to maintain, apply, or extend." accent="#15803d">
-          <ClassReportTable
-            tone="green"
-            columns={[
-              { key: "skill", label: "Skill" },
-              { key: "classAccuracy", label: "Class Avg", render: row => `${row.classAccuracy}%` },
-              { key: "mastered", label: "Mastered" },
-              { key: "developing", label: "Developing" },
-              { key: "needsSupport", label: "Support" },
-              { key: "note", label: "Note" }
-            ]}
-            rows={model.masteryRows}
-            emptyText="No assessed skill has reached class mastery yet."
-          />
-        </ClassReportSectionBand>
-        <ClassReportSectionBand title="Areas Needing Whole-Class Focus" subtitle="Prioritised from low class accuracy and numbers of students needing support." accent="#b91c1c">
-          <ClassReportTable
-            tone="red"
-            columns={[
-              { key: "skill", label: "Skill" },
-              { key: "classAccuracy", label: "Class Avg", render: row => `${row.classAccuracy}%` },
-              { key: "students", label: "Students", render: row => row.students.join(", ") || "No named support group yet" },
-              { key: "suggestedAction", label: "Suggested Action" }
-            ]}
-            rows={model.focusRows}
-            emptyText="No whole-class focus area is currently above the support threshold."
-          />
-        </ClassReportSectionBand>
-      </ClassReportPage>
+      {(hasClassPriorities || hasGroups) && (
+        <ClassReportPage model={model} pageNumber={pageNumbers.priorities}>
+          {model.masteryRows.length > 0 && (
+            <ClassReportSectionBand title="Secure class skills" subtitle="Skills with enough fair results to support a class-level judgement." accent="#15803d">
+              <ClassReportTable
+                tone="green"
+                columns={[
+                  { key: "skill", label: "Skill" },
+                  { key: "classAccuracy", label: "Class accuracy", render: row => reportPercentage(row.classAccuracy) },
+                  { key: "mastered", label: "Secure" },
+                  { key: "developing", label: "Developing" },
+                  { key: "needsSupport", label: "Needs support" },
+                  { key: "note", label: "Note" }
+                ]}
+                rows={model.masteryRows}
+              />
+            </ClassReportSectionBand>
+          )}
+          {model.focusRows.length > 0 && (
+            <ClassReportSectionBand title="Teach next" subtitle="Skills with enough fair results to show a shared support need." accent="#b91c1c">
+              <ClassReportTable
+                tone="red"
+                columns={[
+                  { key: "skill", label: "Skill" },
+                  { key: "classAccuracy", label: "Class accuracy", render: row => reportPercentage(row.classAccuracy) },
+                  { key: "students", label: "Students", render: row => row.students.join(", ") || "No group yet" },
+                  { key: "suggestedAction", label: "Suggested activity" }
+                ]}
+                rows={model.focusRows}
+              />
+            </ClassReportSectionBand>
+          )}
+          {hasGroups && (
+            <ClassReportSectionBand title="Suggested groups" subtitle="Students who share a current skill need." accent="#6d28d9">
+              <FocusGroups groups={model.groups} />
+            </ClassReportSectionBand>
+          )}
+        </ClassReportPage>
+      )}
 
-      <ClassReportPage model={model} pageNumber={3}>
-        <ClassReportSectionBand title="Student Progress Grid" subtitle="Fast scan of each student by assessed skill." accent="#1e293b">
-          <StudentProgressGrid model={model} />
-        </ClassReportSectionBand>
-      </ClassReportPage>
+      {hasProgressGrid && (
+        <ClassReportPage model={model} pageNumber={pageNumbers.progress}>
+          <ClassReportSectionBand title="Student progress" subtitle="A quick scan of each student by assessed skill." accent="#1e293b">
+            <StudentProgressGrid model={model} />
+          </ClassReportSectionBand>
+        </ClassReportPage>
+      )}
 
-      <ClassReportPage model={model} pageNumber={4}>
-        <ClassReportSectionBand title="Reading Summary" subtitle="Guided reading rows will populate here when reading records are included in this class report feed." accent="#15803d">
-          <ClassReportTable
-            tone="green"
-            columns={[
-              { key: "studentName", label: "Student" },
-              { key: "level", label: "Level" },
-              { key: "reads", label: "Reads" },
-              { key: "accuracy", label: "Accuracy", render: row => row.accuracy === null ? "Not recorded" : `${row.accuracy}%` },
-              { key: "trend", label: "Trend" },
-              { key: "note", label: "Note" }
-            ]}
-            rows={model.readingRows}
-            emptyText="No guided reading records are available for this report yet."
-          />
-        </ClassReportSectionBand>
-      </ClassReportPage>
+      {hasReadingRows && (
+        <ClassReportPage model={model} pageNumber={pageNumbers.reading}>
+          <ClassReportSectionBand title="Reading summary" subtitle="Shown only when real Guided Reading records are included." accent="#15803d">
+            <ClassReportTable
+              tone="green"
+              columns={[
+                { key: "studentName", label: "Student" },
+                { key: "level", label: "Level" },
+                { key: "reads", label: "Reads" },
+                { key: "accuracy", label: "Accuracy", render: row => reportPercentage(row.accuracy, "Not recorded") },
+                { key: "trend", label: "Trend" },
+                { key: "note", label: "Note" }
+              ]}
+              rows={model.readingRows}
+            />
+          </ClassReportSectionBand>
+        </ClassReportPage>
+      )}
 
-      <ClassReportPage model={model} pageNumber={5}>
-        <ClassReportSectionBand title="Suggested Focus Groups" subtitle="Auto-generated from shared skill gaps · 2-5 students per group" accent="#6d28d9">
-          <FocusGroups groups={model.groups} />
+      <ClassReportPage className="formal-class-report-print-details" model={model} pageNumber={pageNumbers.details}>
+        <ClassReportSectionBand title="Report details" subtitle="Class, result dates, definitions and privacy handling." accent="#1e3a5f">
+          <ReportProvenanceBlock rows={resolvedProvenanceRows} />
         </ClassReportSectionBand>
         <footer className="formal-class-report-final-footer">
           Generated by Literacy Guide · {model.className} · {model.teacherName || "Teacher"} · {generated} · For teacher use only
         </footer>
-      </ClassReportPage>
-
-      <ClassReportPage model={model} pageNumber={6}>
-        <ClassReportSectionBand title="Report Provenance" subtitle="Exact report scope, evidence window, version lineage, definitions, and privacy handling." accent="#1e3a5f">
-          <ReportProvenanceBlock rows={resolvedProvenanceRows} />
-        </ClassReportSectionBand>
       </ClassReportPage>
     </article>
   );
@@ -641,10 +740,10 @@ function buildReleaseReadinessModel({
     actionCount,
     reviewCount,
     summaryCards: [
-      { label: "Release blockers", value: actionCount, status: actionCount ? "action" : "ready" },
-      { label: "Review queue", value: reviewCount, status: reviewCount ? "review" : "ready" },
-      { label: "Runtime questions", value: mediaQuestions.length, status: mediaQuestions.length ? "ready" : "review" },
-      { label: "Saved evidence", value: assessmentHistory.length, status: assessmentHistory.length ? "ready" : "review" }
+      { label: "Must fix", value: actionCount, status: actionCount ? "action" : "ready" },
+      { label: "Needs checking", value: reviewCount, status: reviewCount ? "review" : "ready" },
+      { label: "Available questions", value: mediaQuestions.length, status: mediaQuestions.length ? "ready" : "review" },
+      { label: "Saved results", value: assessmentHistory.length, status: assessmentHistory.length ? "ready" : "review" }
     ],
     checklist: [
       {
@@ -671,7 +770,9 @@ function buildReleaseReadinessModel({
       {
         label: "Report exports",
         value: savedElReports.length ? `${savedElReports.length} saved` : "Ready to generate",
-        detail: assessmentHistory.length ? "PDF, CSV, JSON, and Excel report routes have saved evidence available." : "Complete assessments to populate export-ready reports.",
+        detail: assessmentHistory.length
+          ? "Saved assessment results are ready to use in reports and downloads."
+          : "Complete an assessment before creating a report or download.",
         status: assessmentHistory.length ? "ready" : "review",
         sectionId: "teacherReport"
       }
@@ -705,9 +806,9 @@ function buildReleaseReadinessModel({
         sectionId: "guidedMediaQa"
       },
       {
-        label: "Question flags",
-        value: "Review",
-        detail: "Open flagged assessment questions and retire anything unsafe for runtime.",
+        label: "Reported questions",
+        value: "Check",
+        detail: "Review reported question or image problems and record what needs checking.",
         status: "review",
         sectionId: "questionFlags"
       }
@@ -717,7 +818,7 @@ function buildReleaseReadinessModel({
 
 function ReleaseStatusPill({ status }) {
   const statusClass = getReadinessStatusClass(status);
-  const label = statusClass === "action" ? "Action" : statusClass === "review" ? "Review" : "Ready";
+  const label = statusClass === "action" ? "Fix" : statusClass === "review" ? "Check" : "Ready";
   return <span className={`release-status-pill ${statusClass}`}>{label}</span>;
 }
 
@@ -734,8 +835,8 @@ function ReleaseReadinessPanel({ model, onOpenSection, onOpenQuestionFlags }) {
     <section className="report-panel release-readiness-panel page-stack admin-section admin-section-panel">
       <div className="admin-section-heading">
         <div>
-          <h3>Release Readiness</h3>
-          <p className="muted-text">One place to check reporting evidence, admin cleanup, content QA, and launch blockers.</p>
+          <h3>App readiness</h3>
+          <p className="muted-text">See what needs fixing or checking before teachers and students use the app.</p>
         </div>
         <ReleaseStatusPill status={model.actionCount ? "action" : model.reviewCount ? "review" : "ready"} />
       </div>
@@ -751,7 +852,7 @@ function ReleaseReadinessPanel({ model, onOpenSection, onOpenQuestionFlags }) {
 
       <div className="release-readiness-grid">
         <article className="teacher-report-card release-checklist-card">
-          <h4>Launch Checklist</h4>
+          <h4>What to check</h4>
           {model.checklist.map(row => (
             <button className="release-readiness-row" key={row.label} onClick={() => openRow(row)} type="button">
               <span>
@@ -765,7 +866,7 @@ function ReleaseReadinessPanel({ model, onOpenSection, onOpenQuestionFlags }) {
         </article>
 
         <article className="teacher-report-card">
-          <h4>Cleanup Tools</h4>
+          <h4>School data checks</h4>
           <div className="release-tool-list">
             {model.cleanupRows.map(row => (
               <button key={row.label} onClick={() => openRow(row)} type="button">
@@ -777,7 +878,7 @@ function ReleaseReadinessPanel({ model, onOpenSection, onOpenQuestionFlags }) {
         </article>
 
         <article className="teacher-report-card release-qa-card">
-          <h4>Content QA Workflow</h4>
+          <h4>Content checks</h4>
           {model.qaRows.map(row => (
             <button className="release-readiness-row" key={row.label} onClick={() => openRow(row)} type="button">
               <span>
@@ -1748,9 +1849,10 @@ export function AdminDashboardPage({
   deleteClass,
   deleteStudent,
   updateTeacherAccountStatus,
-  questionBankCoverage = [],
   mediaQuestions = [],
   assessmentHistory = [],
+  assessmentHistoryReadState = {},
+  retryAssessmentHistory,
   teacherId = "",
   supabase = null,
   message,
@@ -1760,15 +1862,15 @@ export function AdminDashboardPage({
   const [expandedTeacherId, setExpandedTeacherId] = useState("");
   const [retentionSchoolId, setRetentionSchoolId] = useState("");
   const [teacherSchoolDraft, setTeacherSchoolDraft] = useState("");
-  const [adminQaPage, setAdminQaPage] = useState(() => {
-    if (typeof window === "undefined") return "dashboard";
-    if (window.location.pathname.includes("/admin/media/images")) return "images";
-    if (window.location.pathname.includes("/admin/media/audio")) return "audio";
-    if (window.location.pathname.includes("/admin/guided-reading/image-qa")) return "guidedReadingImages";
-    if (window.location.pathname.includes("/admin/question-flags")) return "questionFlags";
-    return "dashboard";
-  });
-  const [activeSection, setActiveSection] = useState("overview");
+  const initialAdminRoute = typeof window === "undefined"
+    ? null
+    : adminRouteForPath(window.location.pathname);
+  const [adminArea, setAdminArea] = useState(
+    initialAdminRoute?.area || "school"
+  );
+  const [activeSection, setActiveSection] = useState(
+    initialAdminRoute?.sectionId || "overview"
+  );
   const [dataRightsStudent, setDataRightsStudent] = useState(null);
   const [templateFilter, setTemplateFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
@@ -1780,6 +1882,56 @@ export function AdminDashboardPage({
   const [selectedElBenchmarkScopeKey, setSelectedElBenchmarkScopeKey] = useState("");
   const [savedElReports, setSavedElReports] = useState([]);
   const [showReviewedSignupAccounts, setShowReviewedSignupAccounts] = useState(false);
+  const [accountDecision, setAccountDecision] = useState(null);
+  const [accountDecisionReason, setAccountDecisionReason] = useState("");
+  const [accountDecisionBusy, setAccountDecisionBusy] = useState(false);
+  const [accountDecisionError, setAccountDecisionError] = useState("");
+  const [accountDecisionNotice, setAccountDecisionNotice] = useState("");
+  const [accountDecisionHistoryState, setAccountDecisionHistoryState] = useState({
+    error: null,
+    rows: [],
+    status: "idle"
+  });
+  const accountDecisionHistorySequenceRef = useRef(0);
+  const refreshTeacherAccountDecisionHistory = useCallback(async () => {
+    const sequence = accountDecisionHistorySequenceRef.current + 1;
+    accountDecisionHistorySequenceRef.current = sequence;
+    setAccountDecisionHistoryState(previous => ({
+      ...previous,
+      error: null,
+      status: "loading"
+    }));
+    const result = await loadTeacherAccountDecisionHistory({
+      client: supabase
+    });
+    if (accountDecisionHistorySequenceRef.current !== sequence) return result;
+    setAccountDecisionHistoryState({
+      error: result.error || null,
+      rows: result.complete ? result.rows : [],
+      status: result.status
+    });
+    return result;
+  }, [supabase]);
+
+  useEffect(() => {
+    function syncAdminRouteFromHistory() {
+      const route = adminRouteForPath(window.location.pathname);
+      if (!route) return;
+      setAdminArea(route.area);
+      setActiveSection(route.sectionId);
+    }
+    window.addEventListener("popstate", syncAdminRouteFromHistory);
+    return () => window.removeEventListener("popstate", syncAdminRouteFromHistory);
+  }, []);
+
+  useEffect(() => {
+    if (activeSection !== "signups") return;
+    void refreshTeacherAccountDecisionHistory();
+  }, [activeSection, refreshTeacherAccountDecisionHistory]);
+  const questionBankCoverage = useMemo(
+    () => buildQuestionBankCoverage(mediaQuestions, curriculumReleaseBoard.rows),
+    [mediaQuestions]
+  );
   const teacherStorageId = teacherId || "local";
   const selectedClassId = selectedElClassId || classes[0]?.id || "";
   const selectedClassRow = classes.find(row => row.id === selectedClassId) || {};
@@ -1891,6 +2043,10 @@ export function AdminDashboardPage({
   const recentAttempts = [...assessmentHistory]
     .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))
     .slice(0, 40);
+  const assessmentHistoryExportState = assessmentHistoryExportReadiness({
+    readState: assessmentHistoryReadState,
+    recordCount: assessmentHistory.length
+  });
   const classReportingModel = useMemo(() =>
     buildClassReportModel({
       students,
@@ -1900,25 +2056,6 @@ export function AdminDashboardPage({
       teacherName: classReportTeacherName
     }),
   [students, classes, assessmentHistory, selectedClassId, classReportTeacherName]);
-  const selectedSchoolId = selectedClassRow.school_id || selectedClassRow.schoolId || "";
-  const selectedSchoolRow = schools.find(row => (
-    row.id === selectedSchoolId || row.school_id === selectedSchoolId
-  )) || {};
-  const classReportProvenanceRows = useMemo(() => buildExportProvenanceRows({
-    reportTitle: "Class Progress Report",
-    schoolName: selectedSchoolRow.name || selectedSchoolRow.school_name || selectedClassRow.schoolName || "",
-    className: classReportingModel.className,
-    learnerCount: classReportingModel.snapshot.totalStudents,
-    generatedAt: classReportingModel.generatedAt,
-    filters: { Class: classReportingModel.className },
-    evidenceSource: classReportingModel.provenanceEvidence,
-    definitions: `Average accuracy = correct responses ÷ scored responses; Secure = at least ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%; Developing = ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}–${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum - 1}%; Needs support = below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%; Not enough evidence = fewer than ${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses.`
-  }), [
-    classReportingModel,
-    selectedClassRow.schoolName,
-    selectedSchoolRow.name,
-    selectedSchoolRow.school_name
-  ]);
   const selectedClassAttempts = assessmentHistory.filter(record =>
     !selectedClassId ||
     record.classId === selectedClassId ||
@@ -1931,6 +2068,25 @@ export function AdminDashboardPage({
   const activeElBenchmarkScope = elBenchmarkScopeOptions.find(scope => (
     getBenchmarkScopeKey(scope) === selectedElBenchmarkScopeKey
   )) || elBenchmarkScopeOptions[0] || classBenchmarkScopeResolution;
+  const elClassPrintReport = useMemo(() => (
+    selectedClassId && activeElBenchmarkScope
+      ? buildClassElAssessmentReportData({
+          assessmentHistory,
+          students,
+          classes,
+          classId: selectedClassId,
+          teacherId: teacherStorageId,
+          benchmarkScope: activeElBenchmarkScope
+        })
+      : null
+  ), [
+    activeElBenchmarkScope,
+    assessmentHistory,
+    classes,
+    selectedClassId,
+    students,
+    teacherStorageId
+  ]);
   const reportReadinessRows = [
     {
       label: "Roster scope",
@@ -1957,14 +2113,25 @@ export function AdminDashboardPage({
       status: "ready"
     }
   ];
-  function openAdminQaPage(page) {
-    setAdminQaPage(page);
-    if (typeof window !== "undefined") {
-      const path = page === "questionFlags"
-        ? "/admin/question-flags"
-        : "/";
-      window.history.pushState({}, "", path);
+  function closeAdminQaPage() {
+    if (typeof window === "undefined") {
+      setAdminArea("technical");
+      setActiveSection("release");
+      return;
     }
+    if (shouldCloseAdminQaWithHistoryBack(window.history.state)) {
+      window.history.back();
+      return;
+    }
+    const nextPath = adminPathForSection("release");
+    const nextState = withoutAdminQaHistoryState(window.history.state);
+    window.history.replaceState(
+      nextState,
+      "",
+      nextPath
+    );
+    setAdminArea("technical");
+    setActiveSection("release");
   }
 
   async function handleGuidedReadingCompletionExport() {
@@ -1987,8 +2154,46 @@ export function AdminDashboardPage({
     }
   }
 
+  function handleAssessmentHistoryCsvExport() {
+    if (!assessmentHistoryExportState.canExport) {
+      setExportNotice(assessmentHistoryExportState.message);
+      return;
+    }
+    const generatedAt = new Date();
+    const provenanceRows = buildExportProvenanceRows({
+      reportTitle: "Assessment History Export",
+      learnerCount: new Set(assessmentHistory.map(row => row.studentId || row.student_id).filter(Boolean)).size,
+      generatedAt,
+      filters: "All assessment-history rows available to this authorised administrator",
+      evidenceSource: assessmentHistory,
+      definitions: "Each data row is one persisted assessment attempt; score fields use the versions identified in this source-details block."
+    });
+    const csv = [
+      exportProvenanceCsvPreamble(provenanceRows),
+      "",
+      exportAssessmentAttemptsCsv(assessmentHistory)
+    ].join("\n");
+    downloadTextFile("assessment-history.csv", csv, "text/csv");
+  }
+
+  function handleAssessmentHistoryJsonExport() {
+    if (!assessmentHistoryExportState.canExport) {
+      setExportNotice(assessmentHistoryExportState.message);
+      return;
+    }
+    downloadTextFile(
+      "assessment-history.json",
+      JSON.stringify(assessmentHistory, null, 2),
+      "application/json"
+    );
+  }
+
   async function handleClassElAssessmentExport() {
     setExportNotice("");
+    if (!assessmentHistoryExportState.canExport) {
+      setExportNotice(assessmentHistoryExportState.message);
+      return;
+    }
     try {
       const report = await exportClassElAssessmentExcel({
         assessmentHistory,
@@ -2002,11 +2207,25 @@ export function AdminDashboardPage({
       await refreshSavedElReports();
       setExportNotice(report.persistence?.durable === false
         ? `Class EL assessment Excel exported for ${report.className}, but its saved-report history could not be stored. Keep the downloaded file and try again when storage is available.`
-        : `Class EL assessment Excel exported for ${report.className}, ${report.benchmarkScope?.label || "selected benchmark route"}.`);
+        : `Class EL assessment Excel exported for ${report.className}, ${displayBenchmarkScopeLabel(
+            report.benchmarkScope,
+            "selected assessment period"
+          )}.`);
     } catch (error) {
       console.error("Class EL assessment Excel export failed.", error);
       setExportNotice("Could not export the class EL assessment Excel.");
     }
+  }
+
+  function handleClassReportPdfExport() {
+    if (!assessmentHistoryExportState.canExport) {
+      setExportNotice(assessmentHistoryExportState.message);
+      return;
+    }
+    printTeacherDocument(
+      TEACHER_PRINT_TARGETS.EL_CLASS,
+      () => window.print()
+    );
   }
 
   async function handleDownloadSavedElReport(report) {
@@ -2032,12 +2251,8 @@ export function AdminDashboardPage({
   }
 
   async function handleAdminDataRightsDeletion(learner) {
-    clearLocalProgressForStudent(learner.id);
-    await clearLocalElAssessmentDataForStudent({
-      teacherId: learner.teacher_id,
-      studentId: learner.id,
-      studentName: learner.name
-    });
+    // LearnerDataRightsDialog only invokes this after both local cleanup
+    // layers have been verified and the tracked request is complete.
     setDataRightsStudent(null);
     setExportNotice(
       `${learner.name}'s data was deleted. The privacy-safe request reference remains in the audit log.`
@@ -2048,12 +2263,79 @@ export function AdminDashboardPage({
   async function handleRetentionLearnersDeleted(studentIds = []) {
     for (const deletedStudentId of studentIds) {
       const learner = students.find(row => row.id === deletedStudentId);
-      clearLocalProgressForStudent(deletedStudentId);
+      await clearAndVerifyLocalProgressForStudent(deletedStudentId);
       await clearLocalElAssessmentDataForStudent({
         teacherId: learner?.teacher_id || "",
         studentId: deletedStudentId,
         studentName: learner?.name || ""
       });
+    }
+  }
+
+  function schoolForTeacherAccount(account = {}) {
+    return resolveTeacherAccountSchool(account, schools);
+  }
+
+  function openTeacherAccountDecision(account, status) {
+    if (!account?.id || !TEACHER_ACCOUNT_DECISION_STATUSES.includes(status)) {
+      return;
+    }
+    setAccountDecision({ account, status });
+    setAccountDecisionReason("");
+    setAccountDecisionError("");
+    setAccountDecisionNotice("");
+  }
+
+  function closeTeacherAccountDecision() {
+    if (accountDecisionBusy) return;
+    setAccountDecision(null);
+    setAccountDecisionReason("");
+    setAccountDecisionError("");
+  }
+
+  async function submitTeacherAccountDecision(event) {
+    event.preventDefault();
+    if (!accountDecision || accountDecisionBusy) return;
+
+    const { account, status } = accountDecision;
+    const validation = validateTeacherAccountDecision({
+      account,
+      schools,
+      status,
+      reason: accountDecisionReason
+    });
+    if (!validation.ok) {
+      setAccountDecisionError(validation.errorMessage);
+      return;
+    }
+
+    setAccountDecisionBusy(true);
+    setAccountDecisionError("");
+    try {
+      const result = await updateTeacherAccountStatus?.(
+        account.id,
+        status,
+        validation.reason
+      );
+      if (!result?.ok) {
+        setAccountDecisionError(
+          result?.errorMessage || "The decision was not saved. Try again."
+        );
+        return;
+      }
+      const teacherLabel =
+        account.display_name || account.name || account.email || "Teacher account";
+      setAccountDecisionNotice(
+        `${teacherLabel} was ${status}.`
+      );
+      setAccountDecision(null);
+      setAccountDecisionReason("");
+      void refreshTeacherAccountDecisionHistory();
+    } catch (error) {
+      console.error("Teacher account decision failed.", error);
+      setAccountDecisionError("The decision was not saved. Try again.");
+    } finally {
+      setAccountDecisionBusy(false);
     }
   }
 
@@ -2073,27 +2355,50 @@ export function AdminDashboardPage({
     savedElReports
   });
 
-  const adminSections = [
+  const schoolAdminSections = [
     { id: "overview", label: "Overview", count: null },
-    { id: "release", label: "Release Check", count: releaseReadinessModel.actionCount + releaseReadinessModel.reviewCount },
-    { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
-    { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
-    { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : visibleSignupCount },
-    { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
-    { id: "guidedMediaQa", label: "Guided Media QA", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
-    { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
-    { id: "calibration", label: "Calibration", count: null },
-    { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
+    { id: "signups", label: "Teacher requests", count: pendingAccountsWarning ? null : visibleSignupCount },
     { id: "schools", label: "Schools", count: schools.length },
     { id: "teachers", label: "Teachers", count: teachers.length },
     { id: "classes", label: "Classes", count: classes.length },
     { id: "students", label: "Students", count: students.length },
-    { id: "mapStops", label: "Map Stops", count: null },
-    { id: "hollowSpots", label: "Hollow Spots", count: null }
+    { id: "teacherReport", label: "School reports", count: assessmentHistory.length },
+    { id: "archive", label: "Assessment records", count: assessmentHistory.length }
   ];
+  const technicalAdminSections = [
+    { id: "release", label: "App readiness", count: releaseReadinessModel.actionCount + releaseReadinessModel.reviewCount },
+    { id: "guidedInsight", label: "Reading book checks", count: guidedReadingInsight.active },
+    { id: "guidedMediaQa", label: "Book media checks", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
+    { id: "coverage", label: "Lesson content checks", count: filteredCoverage.length },
+    { id: "calibration", label: "Assessment consistency", count: null },
+    { id: "assessmentAudio", label: "Assessment audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
+    { id: "questionFlags", label: "Reported questions", count: null },
+    { id: "mapStops", label: "Student map", count: null },
+    { id: "hollowSpots", label: "Student rewards", count: null }
+  ];
+  const adminSections = adminArea === "technical"
+    ? technicalAdminSections
+    : schoolAdminSections;
 
-  if (adminQaPage === "questionFlags") {
-    return <QuestionFlagReviewPage onBack={() => openAdminQaPage("dashboard")} />;
+  function openAdminSection(sectionId) {
+    const route = ADMIN_SECTION_ROUTES[sectionId];
+    if (!route) return;
+    setAdminArea(route.area);
+    setActiveSection(sectionId);
+    if (
+      typeof window !== "undefined"
+      && window.location.pathname !== route.path
+    ) {
+      window.history.pushState(
+        adminQaHistoryState(window.history.state, sectionId),
+        "",
+        route.path
+      );
+    }
+  }
+
+  if (activeSection === "questionFlags") {
+    return <QuestionFlagReviewPage onBack={closeAdminQaPage} supabase={supabase} />;
   }
 
   return (
@@ -2102,7 +2407,7 @@ export function AdminDashboardPage({
         <div className="admin-header">
           <div className="admin-page-heading">
             <h2>Admin Dashboard</h2>
-            <p className="muted-text">Review content coverage and manage app data.</p>
+            <p className="muted-text">Manage schools, teacher accounts, classes and student data.</p>
           </div>
 
           <div className="button-row admin-controls">
@@ -2116,32 +2421,51 @@ export function AdminDashboardPage({
 
         {message && <p className="message">{message}</p>}
 
+        <div className="admin-area-switch" aria-label="Admin areas">
+          <button
+            aria-pressed={adminArea === "school"}
+            className={adminArea === "school" ? "active" : ""}
+            onClick={() => {
+              if (adminArea !== "school") openAdminSection("overview");
+            }}
+            type="button"
+          >
+            School administration
+          </button>
+          <button
+            aria-pressed={adminArea === "technical"}
+            className={adminArea === "technical" ? "active" : ""}
+            onClick={() => {
+              if (adminArea !== "technical") openAdminSection("release");
+            }}
+            type="button"
+          >
+            App checks
+          </button>
+        </div>
+
         <label className="teacher-section-select">
-          Choose dashboard section
-          <select value={activeSection} onChange={event => setActiveSection(event.target.value)}>
+          Choose {adminArea === "technical" ? "an app check" : "a school admin page"}
+          <select value={activeSection} onChange={event => openAdminSection(event.target.value)}>
             {adminSections.map(section => (
               <option key={section.id} value={section.id}>{section.label}</option>
             ))}
           </select>
         </label>
 
-        <nav className="admin-section-tabs" aria-label="Admin Dashboard sections" role="tablist">
+        <nav className="admin-section-tabs" aria-label={adminArea === "technical" ? "App checks" : "School administration pages"}>
           {adminSections.map(section => (
             <button
               className={activeSection === section.id ? "active" : ""}
-              aria-selected={activeSection === section.id}
+              aria-current={activeSection === section.id ? "page" : undefined}
               key={section.id}
-              onClick={() => setActiveSection(section.id)}
-              role="tab"
+              onClick={() => openAdminSection(section.id)}
               type="button"
             >
               <span>{section.label}</span>
               {typeof section.count === "number" && <small>{section.count}</small>}
             </button>
           ))}
-          <button onClick={() => openAdminQaPage("questionFlags")} type="button">
-            <span>Question Flags</span>
-          </button>
         </nav>
       </section>
 
@@ -2154,38 +2478,36 @@ export function AdminDashboardPage({
             </div>
           </div>
           <div className="admin-overview-grid">
-            {adminSections.filter(section => section.id !== "overview").map(section => (
+            {schoolAdminSections.filter(section => section.id !== "overview").map(section => (
               <button
                 className="admin-overview-card"
                 key={section.id}
-                onClick={() => setActiveSection(section.id)}
+                onClick={() => openAdminSection(section.id)}
                 type="button"
               >
                 <span>{section.label}</span>
                 <strong>{section.count}</strong>
               </button>
             ))}
-            <button className="admin-overview-card" onClick={() => openAdminQaPage("questionFlags")} type="button">
-              <span>Question Flags</span>
-              <strong>Open</strong>
-            </button>
           </div>
-          {selectedClassId && (
-            <TeacherActivitySyncHealth
-              supabase={supabase}
-              classId={selectedClassId}
-              className={selectedClassRow.name || "Selected class"}
-            />
-          )}
         </section>
       )}
 
       {activeSection === "release" && (
-        <ReleaseReadinessPanel
-          model={releaseReadinessModel}
-          onOpenQuestionFlags={() => openAdminQaPage("questionFlags")}
-          onOpenSection={setActiveSection}
-        />
+        <>
+          <ReleaseReadinessPanel
+            model={releaseReadinessModel}
+            onOpenQuestionFlags={() => openAdminSection("questionFlags")}
+            onOpenSection={openAdminSection}
+          />
+          {selectedClassId && (
+            <TeacherActivitySyncHealth
+              supabase={supabase}
+              classId={selectedClassId}
+              className={selectedClassRow.name || "No class selected"}
+            />
+          )}
+        </>
       )}
 
       {activeSection === "teacherReport" && (
@@ -2218,7 +2540,7 @@ export function AdminDashboardPage({
                 onClick={() => setActiveSection("archive")}
                 type="button"
               >
-                Open Evidence
+                Open results
               </button>
             </div>
           </div>
@@ -2246,19 +2568,26 @@ export function AdminDashboardPage({
               onChange={setSelectedElBenchmarkScopeKey}
               options={elBenchmarkScopeOptions}
             />
-            <button className="lp-button lp-button-primary primary-export" onClick={() => window.print()} type="button">
-              Export Class PDF
+            <button
+              className="lp-button lp-button-primary primary-export"
+              disabled={!assessmentHistoryExportState.canExport}
+              onClick={handleClassReportPdfExport}
+              type="button"
+            >
+              Print or save EL PDF
             </button>
-            <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
+            <button
+              className="lp-button lp-button-secondary"
+              disabled={!assessmentHistoryExportState.canExport}
+              onClick={handleClassElAssessmentExport}
+              type="button"
+            >
               Export Class Excel
             </button>
           </div>
 
           <div className="class-report-workspace">
-            <FormalClassReportDocument
-              model={classReportingModel}
-              provenanceRows={classReportProvenanceRows}
-            />
+            <ElClassReportDocument report={elClassPrintReport} />
           </div>
 
           {savedElReports.length > 0 && (
@@ -2271,7 +2600,7 @@ export function AdminDashboardPage({
                     <span>
                       {report.studentName || report.className || "Unknown"} · {report.generatedAt ? new Date(report.generatedAt).toLocaleDateString() : ""}
                     </span>
-                    <small>{report.benchmarkScope?.label || "Benchmark route not recorded"} · {report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
+                    <small>{displayBenchmarkScopeLabel(report.benchmarkScope)} · {report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
                   </div>
                   <div className="button-row">
                     <button className="report-button" onClick={() => handleDownloadSavedElReport(report)} type="button">
@@ -2305,37 +2634,37 @@ export function AdminDashboardPage({
               </button>
               <button
                 className="lp-button lp-button-secondary"
-                disabled={assessmentHistory.length === 0}
-                onClick={() => {
-                  const generatedAt = new Date();
-                  const provenanceRows = buildExportProvenanceRows({
-                    reportTitle: "Assessment History Export",
-                    learnerCount: new Set(assessmentHistory.map(row => row.studentId || row.student_id).filter(Boolean)).size,
-                    generatedAt,
-                    filters: "All assessment-history rows available to this authorised administrator",
-                    evidenceSource: assessmentHistory,
-                    definitions: "Each data row is one persisted assessment attempt; score fields use the versions identified in this provenance block."
-                  });
-                  const csv = [
-                    exportProvenanceCsvPreamble(provenanceRows),
-                    "",
-                    exportAssessmentAttemptsCsv(assessmentHistory)
-                  ].join("\n");
-                  downloadTextFile("assessment-history.csv", csv, "text/csv");
-                }}
+                disabled={!assessmentHistoryExportState.canExport}
+                onClick={handleAssessmentHistoryCsvExport}
                 type="button"
               >
                 Export CSV
               </button>
               <button
                 className="lp-button lp-button-secondary"
-                disabled={assessmentHistory.length === 0}
-                onClick={() => downloadTextFile("assessment-history.json", JSON.stringify(assessmentHistory, null, 2), "application/json")}
+                disabled={!assessmentHistoryExportState.canExport}
+                onClick={handleAssessmentHistoryJsonExport}
                 type="button"
               >
                 Export JSON
               </button>
             </div>
+          </div>
+
+          <div
+            className={`message assessment-history-export-state ${assessmentHistoryExportState.state}`}
+            role={assessmentHistoryExportState.state === "error" ? "alert" : "status"}
+          >
+            <span>{assessmentHistoryExportState.message}</span>
+            {assessmentHistoryExportState.canRetry && (
+              <button
+                className="lp-button lp-button-secondary"
+                onClick={retryAssessmentHistory}
+                type="button"
+              >
+                Try again
+              </button>
+            )}
           </div>
 
           {recentAttempts.length === 0 ? (
@@ -2382,6 +2711,11 @@ export function AdminDashboardPage({
           </div>
           <span className="admin-count-pill">{pendingAccountsWarning ? "Unavailable" : visibleSignupCount}</span>
         </div>
+        {accountDecisionNotice && (
+          <p className="message admin-account-decision-notice" role="status">
+            {accountDecisionNotice}
+          </p>
+        )}
         {!pendingAccountsWarning && reviewedSignupAccounts.length > 0 && (
           <label className="admin-inline-toggle">
             <input
@@ -2406,6 +2740,7 @@ export function AdminDashboardPage({
                   <th>Email</th>
                   <th>Username</th>
                   <th>Name</th>
+                  <th>School</th>
                   <th>Status</th>
                   <th>Requested</th>
                   <th>Reviewed</th>
@@ -2416,22 +2751,42 @@ export function AdminDashboardPage({
                 {pendingSignupAccounts.map(account => {
                   const accountStatus = getTeacherAccountApprovalStatus(account);
                   const isPending = accountStatus === "pending";
+                  const accountSchool = schoolForTeacherAccount(account);
 
                   return (
                     <tr key={account.id || account.user_id || account.email}>
                       <td data-label="Email">{account.email || "Email unavailable"}</td>
                       <td data-label="Username">{account.username || "-"}</td>
                       <td data-label="Name">{account.display_name || account.name || "-"}</td>
+                      <td data-label="School">
+                        {accountSchool ? (
+                          accountSchool.name
+                        ) : (
+                          <span className="admin-account-school-missing">
+                            School not resolved — approval blocked
+                          </span>
+                        )}
+                      </td>
                       <td data-label="Status">{accountStatus}</td>
                       <td data-label="Requested">{(account.requested_at || account.created_at) ? new Date(account.requested_at || account.created_at).toLocaleDateString() : ""}</td>
                       <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
                       <td data-label="Actions">
                         {isPending ? (
                           <div className="admin-row-actions">
-                            <button className="report-button" onClick={() => updateTeacherAccountStatus?.(account.id, "approved")} type="button">
+                            <button
+                              className="report-button"
+                              disabled={!accountSchool}
+                              onClick={() => openTeacherAccountDecision(account, "approved")}
+                              title={!accountSchool ? "Resolve the teacher's school before approving access." : undefined}
+                              type="button"
+                            >
                               Approve
                             </button>
-                            <button className="report-button danger" onClick={() => updateTeacherAccountStatus?.(account.id, "rejected")} type="button">
+                            <button
+                              className="report-button danger"
+                              onClick={() => openTeacherAccountDecision(account, "rejected")}
+                              type="button"
+                            >
                               Reject
                             </button>
                           </div>
@@ -2456,31 +2811,288 @@ export function AdminDashboardPage({
                     <th>Email</th>
                     <th>Username</th>
                     <th>Name</th>
+                    <th>School</th>
                     <th>Status</th>
                     <th>Requested</th>
                     <th>Reviewed</th>
+                    <th>Decision note</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {reviewedSignupAccounts.map(account => {
                     const accountStatus = getTeacherAccountApprovalStatus(account);
+                    const accountSchool = schoolForTeacherAccount(account);
+                    const canApprove = Boolean(accountSchool);
 
                     return (
                       <tr key={account.id || account.user_id || account.email}>
                         <td data-label="Email">{account.email || "Email unavailable"}</td>
                         <td data-label="Username">{account.username || "-"}</td>
                         <td data-label="Name">{account.display_name || account.name || "-"}</td>
+                        <td data-label="School">
+                          {accountSchool ? (
+                            accountSchool.name
+                          ) : (
+                            <span className="admin-account-school-missing">
+                              School not resolved
+                            </span>
+                          )}
+                        </td>
                         <td data-label="Status">{accountStatus}</td>
                         <td data-label="Requested">{(account.requested_at || account.created_at) ? new Date(account.requested_at || account.created_at).toLocaleDateString() : ""}</td>
                         <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
-                        <td data-label="Actions"><span className="muted-text">Reviewed</span></td>
+                        <td data-label="Decision note">
+                          {account.rejection_reason || (
+                            accountStatus === "approved"
+                              ? "Approved"
+                              : "No reason recorded"
+                          )}
+                        </td>
+                        <td data-label="Actions">
+                          {accountStatus === "approved" ? (
+                            <button
+                              className="report-button danger"
+                              onClick={() => openTeacherAccountDecision(account, "disabled")}
+                              type="button"
+                            >
+                              Disable
+                            </button>
+                          ) : (
+                            <button
+                              className="report-button"
+                              disabled={!canApprove}
+                              onClick={() => openTeacherAccountDecision(account, "approved")}
+                              title={!canApprove ? "Resolve the teacher's school before approving access." : undefined}
+                              type="button"
+                            >
+                              Approve
+                            </button>
+                          )}
+                        </td>
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
             </div>
+          </div>
+        )}
+        <section
+          aria-labelledby="admin-account-decision-history-title"
+          className="admin-account-decision-history page-stack"
+        >
+          <div className="admin-section-heading">
+            <div>
+              <h4 id="admin-account-decision-history-title">
+                Account decision history
+              </h4>
+              <p className="muted-text">
+                An append-only record of approvals, rejections and disabled access.
+              </p>
+            </div>
+            <button
+              className="report-button"
+              disabled={accountDecisionHistoryState.status === "loading"}
+              onClick={refreshTeacherAccountDecisionHistory}
+              type="button"
+            >
+              {accountDecisionHistoryState.status === "loading"
+                ? "Loading history…"
+                : "Refresh history"}
+            </button>
+          </div>
+          {accountDecisionHistoryState.status === "loading" ? (
+            <p className="admin-decision-history-state" role="status">
+              Loading account decision history…
+            </p>
+          ) : accountDecisionHistoryState.status === "error" ? (
+            <div className="admin-section-warning" role="alert">
+              <strong>Decision history could not be loaded.</strong>
+              <span>
+                The latest account status above is still available, but the history has not been treated as empty. Try again.
+              </span>
+            </div>
+          ) : accountDecisionHistoryState.status === "unavailable" ? (
+            <div className="admin-section-warning" role="status">
+              <strong>Decision history is unavailable.</strong>
+              <span>
+                No empty-history conclusion has been made. Reconnect the Admin data service and refresh.
+              </span>
+            </div>
+          ) : accountDecisionHistoryState.status === "complete"
+            && accountDecisionHistoryState.rows.length === 0 ? (
+              <p className="admin-decision-history-state">
+                No account decisions have been recorded yet.
+              </p>
+            ) : accountDecisionHistoryState.status === "complete" ? (
+              <div className="admin-table-wrap">
+                <table className="dashboard-table admin-table admin-responsive-table admin-decision-history-table">
+                  <thead>
+                    <tr>
+                      <th>Teacher account</th>
+                      <th>Decision</th>
+                      <th>Reason</th>
+                      <th>School at decision</th>
+                      <th>Reviewed</th>
+                      <th>Reviewer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {accountDecisionHistoryState.rows.map(event => {
+                      const currentAccount = pendingAccounts.find(account => (
+                        account.id === event.account_id
+                        || account.user_id === event.teacher_user_id
+                      ));
+                      const accountLabel = currentAccount?.display_name
+                        || currentAccount?.name
+                        || currentAccount?.email
+                        || `Account ending ${String(event.teacher_user_id || "").slice(-8)}`;
+                      const decidedAt = event.decided_at
+                        ? new Date(event.decided_at).toLocaleString()
+                        : "Time unavailable";
+                      const reviewerId = String(event.decided_by || "");
+                      const reviewerLabel = reviewerId
+                        ? `Admin ID ending ${reviewerId.slice(-8)}`
+                        : "Reviewer unavailable";
+                      return (
+                        <tr key={event.id}>
+                          <td data-label="Teacher account">{accountLabel}</td>
+                          <td data-label="Decision">
+                            <strong>{event.decision_status}</strong>
+                            <small>Previously {event.previous_status}</small>
+                          </td>
+                          <td data-label="Reason">
+                            {event.reason || (
+                              event.decision_status === "approved"
+                                ? "Not required for approval"
+                                : "No reason was recorded"
+                            )}
+                          </td>
+                          <td data-label="School at decision">
+                            {event.school_name || "No school snapshot recorded"}
+                          </td>
+                          <td data-label="Reviewed">{decidedAt}</td>
+                          <td data-label="Reviewer">
+                            <span title={reviewerId || undefined}>
+                              {reviewerLabel}
+                            </span>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="admin-decision-history-state" role="status">
+                Decision history has not been loaded yet.
+              </p>
+            )}
+        </section>
+        {accountDecision && (
+          <div
+            className="admin-account-decision-overlay"
+            onMouseDown={event => {
+              if (event.target === event.currentTarget) closeTeacherAccountDecision();
+            }}
+          >
+            <TeacherDialog
+              busy={accountDecisionBusy}
+              className="admin-account-decision-dialog"
+              closeOnEscape={!accountDecisionBusy}
+              describedBy="admin-account-decision-summary"
+              labelledBy="admin-account-decision-title"
+              onClose={closeTeacherAccountDecision}
+            >
+              <form className="page-stack" onSubmit={submitTeacherAccountDecision}>
+                <div>
+                  <p className="panel-label">Teacher account decision</p>
+                  <h4 id="admin-account-decision-title">
+                    Confirm {accountDecision.status === "approved"
+                      ? "approval"
+                      : accountDecision.status === "rejected"
+                        ? "rejection"
+                        : "account disable"}
+                  </h4>
+                </div>
+                <p id="admin-account-decision-summary">
+                  <strong>
+                    {accountDecision.account.display_name
+                      || accountDecision.account.name
+                      || accountDecision.account.email
+                      || "Teacher account"}
+                  </strong>
+                  {" · "}
+                  {accountDecision.account.email || "Email unavailable"}
+                  {" · "}
+                  {schoolForTeacherAccount(accountDecision.account)?.name
+                    || "School not resolved"}
+                </p>
+                {accountDecision.status === "approved" ? (
+                  <p className="muted-text">
+                    Approval opens this school&apos;s teacher tools and student data to this account.
+                  </p>
+                ) : (
+                  <label className="auth-field" htmlFor="admin-account-decision-reason">
+                    <strong>
+                      Reason for {accountDecision.status === "rejected"
+                        ? "rejection"
+                        : "disabling the account"}
+                    </strong>
+                    <textarea
+                      id="admin-account-decision-reason"
+                      maxLength={500}
+                      minLength={5}
+                      onChange={event => {
+                        setAccountDecisionReason(event.target.value);
+                        setAccountDecisionError("");
+                      }}
+                      required
+                      rows={4}
+                      value={accountDecisionReason}
+                    />
+                    <span className="muted-text auth-field-hint">
+                      Use plain, factual wording. This note is kept with the review record.
+                    </span>
+                  </label>
+                )}
+                {accountDecisionError && (
+                  <p className="admin-account-decision-error" role="alert">
+                    {accountDecisionError}
+                  </p>
+                )}
+                <div className="button-row admin-account-decision-actions">
+                  <button
+                    className="report-button"
+                    data-autofocus
+                    disabled={accountDecisionBusy}
+                    onClick={closeTeacherAccountDecision}
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className={accountDecision.status === "approved"
+                      ? "main-button"
+                      : "report-button danger"}
+                    disabled={accountDecisionBusy || (
+                      accountDecision.status !== "approved"
+                      && accountDecisionReason.trim().length < 5
+                    )}
+                    type="submit"
+                  >
+                    {accountDecisionBusy
+                      ? "Saving decision…"
+                      : `Confirm ${accountDecision.status === "approved"
+                        ? "approval"
+                        : accountDecision.status === "rejected"
+                          ? "rejection"
+                          : "disable"}`}
+                  </button>
+                </div>
+              </form>
+            </TeacherDialog>
           </div>
         )}
       </section>

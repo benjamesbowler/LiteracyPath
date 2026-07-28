@@ -7,10 +7,32 @@ import {
   deleteRosterStudent,
   describeRosterOperationError,
   findDuplicateRosterName,
+  insertRosterStudents,
   normalizeRosterStudentName,
+  reviewRosterImportNames,
   setRosterStudentArchived,
+  transferRosterStudent,
   updateRosterStudentName
 } from "../../src/data/teacherRosterOperations.js";
+import {
+  LEARNER_LOCAL_CLEANUP_PROOF_STORES
+} from "../../src/data/learnerDataRights.js";
+
+function verifiedCleanupResults() {
+  return {
+    progressCleanup: {
+      storageAvailable: true,
+      residualCount: 0,
+      residuals: []
+    },
+    evidenceCleanup: {
+      storageAvailable: true,
+      residualCount: 0,
+      storesChecked: LEARNER_LOCAL_CLEANUP_PROOF_STORES
+        .filter(store => store !== "progress")
+    }
+  };
+}
 
 function updateQuery(result, calls) {
   const call = { filters: [] };
@@ -88,6 +110,127 @@ test("blank and overlong child names are rejected before a write", async () => {
   assert.equal(writes, 0);
 });
 
+test("roster import review normalises names and distinguishes archived students", () => {
+  const result = reviewRosterImportNames([
+    "  AARON ",
+    "Bella   Rose",
+    "  Chen   Li ",
+    "chen li",
+    "x".repeat(81)
+  ], {
+    activeRows: [{ id: "student-1", name: "Aaron" }],
+    archivedRows: [{ id: "student-2", name: " Bella Rose " }]
+  });
+
+  assert.deepEqual(result.accepted, ["Chen Li"]);
+  assert.deepEqual(result.skipped.map(row => row.reason), [
+    "Already in this class",
+    "Already archived — restore this student instead",
+    "Repeated in this import",
+    "Display names must be 80 characters or fewer"
+  ]);
+  assert.equal(result.total, 5);
+});
+
+test("roster import validates the complete batch before writing", async () => {
+  let writes = 0;
+  const client = {
+    table() {
+      writes += 1;
+      return {};
+    }
+  };
+
+  const missingClass = await insertRosterStudents({
+    supabase: client,
+    names: ["Aarav"],
+    classId: "",
+    teacherId: "teacher-1"
+  });
+  const repeated = await insertRosterStudents({
+    supabase: client,
+    names: ["Aarav", "  AARAV "],
+    classId: "class-1",
+    teacherId: "teacher-1"
+  });
+  const tooMany = await insertRosterStudents({
+    supabase: client,
+    names: Array.from({ length: 41 }, (_, index) => `Student ${index}`),
+    classId: "class-1",
+    teacherId: "teacher-1"
+  });
+
+  assert.equal(missingClass.error.code, "LP_INVALID_ROSTER_IMPORT");
+  assert.equal(repeated.error.code, "LP_INVALID_ROSTER_IMPORT");
+  assert.equal(tooMany.error.code, "LP_INVALID_ROSTER_IMPORT");
+  assert.equal(writes, 0);
+});
+
+test("student transfer uses the owned RPC and proves that a row changed", async () => {
+  const calls = [];
+  const client = {
+    async call(name, payload) {
+      calls.push({ name, payload });
+      return {
+        data: [{ id: "student-1", class_id: "class-2" }],
+        error: null
+      };
+    }
+  };
+
+  const result = await transferRosterStudent({
+    supabase: client,
+    studentId: "student-1",
+    sourceClassId: "class-1",
+    targetClassId: "class-2"
+  });
+
+  assert.equal(result.error, null);
+  assert.deepEqual(calls, [{
+    name: "teacher_transfer_student",
+    payload: {
+      p_student_id: "student-1",
+      p_source_class_id: "class-1",
+      p_target_class_id: "class-2"
+    }
+  }]);
+});
+
+test("student transfer rejects invalid targets and zero-row responses", async () => {
+  let calls = 0;
+  const client = {
+    async call() {
+      calls += 1;
+      return { data: [], error: null };
+    }
+  };
+
+  const sameClass = await transferRosterStudent({
+    supabase: client,
+    studentId: "student-1",
+    sourceClassId: "class-1",
+    targetClassId: "class-1"
+  });
+  assert.equal(sameClass.error.code, "LP_INVALID_TRANSFER_TARGET");
+  assert.equal(calls, 0);
+
+  const noRows = await transferRosterStudent({
+    supabase: client,
+    studentId: "student-1",
+    sourceClassId: "class-1",
+    targetClassId: "class-2"
+  });
+  assert.equal(noRows.error.code, "LP_ROSTER_NO_ROWS");
+  assert.equal(calls, 1);
+  assert.match(
+    describeRosterOperationError(
+      { code: "22023" },
+      { operation: "transfer", studentName: "Aarav" }
+    ),
+    /Choose a different class from this account/
+  );
+});
+
 test("archive uses the owned RPC and does not fall through after real errors", async () => {
   let tableCalls = 0;
   const denied = { code: "42501", message: "You do not have permission." };
@@ -118,8 +261,8 @@ test("archive uses the owned RPC and does not fall through after real errors", a
   assert.equal(tableCalls, 0);
 });
 
-test("archive falls back during a frontend-first rolling release", async () => {
-  const calls = [];
+test("archive fails closed during a frontend-first rolling release", async () => {
+  let tableCalls = 0;
   const client = {
     async call() {
       return {
@@ -130,17 +273,9 @@ test("archive falls back during a frontend-first rolling release", async () => {
         }
       };
     },
-    table(name) {
-      assert.equal(name, "students");
-      return {
-        update(values) {
-          calls.push({ values });
-          return updateQuery({
-            data: [{ id: "student-1" }],
-            error: null
-          }, calls);
-        }
-      };
+    table() {
+      tableCalls += 1;
+      throw new Error("A missing archive RPC must never fall back to a direct table update.");
     }
   };
 
@@ -151,8 +286,10 @@ test("archive falls back during a frontend-first rolling release", async () => {
     archived: false
   });
 
-  assert.equal(result.error, null);
-  assert.deepEqual(calls[0].values, { archived_at: null });
+  assert.equal(result.data, null);
+  assert.equal(result.error.code, "LP_ARCHIVE_UNSUPPORTED");
+  assert.equal(tableCalls, 0);
+  assert.match(result.error.message, /No roster row or learner session was changed/);
 });
 
 test("a successful call that changed nothing is reported as a failure, not a silent success", async () => {
@@ -179,7 +316,8 @@ test("a successful call that changed nothing is reported as a failure, not a sil
   );
 });
 
-test("a database without the archive column fails loudly instead of reporting success", async () => {
+test("a database without the archive RPC fails before attempting a legacy column write", async () => {
+  let tableCalls = 0;
   const client = {
     async call() {
       return {
@@ -191,17 +329,8 @@ test("a database without the archive column fails loudly instead of reporting su
       };
     },
     table() {
-      return {
-        update() {
-          return updateQuery({
-            data: null,
-            error: {
-              code: "42703",
-              message: "column students.archived_at does not exist"
-            }
-          }, []);
-        }
-      };
+      tableCalls += 1;
+      throw new Error("The unsafe rolling-release fallback must stay removed.");
     }
   };
 
@@ -214,6 +343,7 @@ test("a database without the archive column fails loudly instead of reporting su
 
   assert.equal(result.data, null);
   assert.equal(result.error.code, "LP_ARCHIVE_UNSUPPORTED");
+  assert.equal(tableCalls, 0);
   assert.match(
     describeRosterOperationError(result.error, { operation: "archive", studentName: "Aaron" }),
     /has not been updated to store archived students yet/
@@ -296,7 +426,11 @@ test("a missing-function failure keeps its code when it travels through the data
       }
     })
   };
-  const error = await deleteRosterStudent({ supabase: client, studentId: "s-1" })
+  const error = await deleteRosterStudent({
+    supabase: client,
+    studentId: "s-1",
+    cleanup: async () => {}
+  })
     .then(() => null, caught => caught);
   assert.equal(error?.code, "PGRST202");
   const message = describeRosterOperationError(error, {
@@ -326,8 +460,24 @@ test("roster deletion reuses the verified data-rights deletion rather than a sec
           error: null
         };
       }
+      if (name === "teacher_delete_learner_data_staged") {
+        return {
+          data: {
+            requestId: "request-1",
+            status: "awaiting_local_cleanup",
+            subjectRef,
+            residualManagedRecords: 0
+          },
+          error: null
+        };
+      }
       return {
-        data: { status: "completed", subjectRef, residualManagedRecords: 0 },
+        data: {
+          requestId: "request-1",
+          status: "completed",
+          subjectRef,
+          residualManagedRecords: 0
+        },
         error: null
       };
     },
@@ -336,12 +486,22 @@ test("roster deletion reuses the verified data-rights deletion rather than a sec
     }
   };
 
-  const result = await deleteRosterStudent({ supabase: client, studentId: "student-1" });
+  let cleanupCount = 0;
+  const result = await deleteRosterStudent({
+    supabase: client,
+    studentId: "student-1",
+    cleanup: async () => {
+      cleanupCount += 1;
+      return verifiedCleanupResults();
+    }
+  });
 
   assert.equal(result.status, "completed");
+  assert.equal(cleanupCount, 1);
   assert.deepEqual(calls.map(call => call.name), [
     "teacher_prepare_learner_deletion",
-    "teacher_delete_learner_data"
+    "teacher_delete_learner_data_staged",
+    "teacher_complete_learner_deletion"
   ]);
   assert.deepEqual(calls[0].payload, {
     p_student_id: "student-1",
@@ -354,6 +514,51 @@ test("roster deletion reuses the verified data-rights deletion rather than a sec
     p_subject_ref: subjectRef,
     p_confirmation: "DELETE LEARNER DATA"
   });
+  assert.equal(calls[2].payload.p_request_id, "request-1");
+  assert.equal(calls[2].payload.p_subject_ref, subjectRef);
+  assert.equal(calls[2].payload.p_cleanup_proof.studentId, "student-1");
+  assert.deepEqual(
+    calls[2].payload.p_cleanup_proof.storesChecked,
+    LEARNER_LOCAL_CLEANUP_PROOF_STORES
+  );
+});
+
+test("roster deletion stays open when cleanup does not return verified store evidence", async () => {
+  const subjectRef = "c".repeat(64);
+  const client = {
+    async call(name) {
+      if (name === "teacher_prepare_learner_deletion") {
+        return {
+          data: {
+            requestId: "request-2",
+            subjectRef,
+            status: "in_progress",
+            dueAt: "2026-08-26T00:00:00.000Z",
+            confirmationPhrase: "DELETE LEARNER DATA"
+          },
+          error: null
+        };
+      }
+      return {
+        data: {
+          requestId: "request-2",
+          status: "awaiting_local_cleanup",
+          subjectRef,
+          residualManagedRecords: 0
+        },
+        error: null
+      };
+    }
+  };
+
+  await assert.rejects(
+    deleteRosterStudent({
+      supabase: client,
+      studentId: "student-2",
+      cleanup: async () => undefined
+    }),
+    error => error?.code === "LP_LOCAL_CLEANUP_INCOMPLETE"
+  );
 });
 
 test("a refused deletion throws and becomes a plain sentence instead of a silent no-op", async () => {
@@ -367,7 +572,11 @@ test("a refused deletion throws and becomes a plain sentence instead of a silent
   };
 
   await assert.rejects(
-    () => deleteRosterStudent({ supabase: client, studentId: "student-1" }),
+    () => deleteRosterStudent({
+      supabase: client,
+      studentId: "student-1",
+      cleanup: async () => {}
+    }),
     error => {
       assert.match(
         describeRosterOperationError(error, { operation: "delete", studentName: "Aaron" }),
@@ -402,7 +611,11 @@ test("a deletion the database cannot prove is complete is never reported as done
   };
 
   await assert.rejects(
-    () => deleteRosterStudent({ supabase: client, studentId: "student-1" }),
+    () => deleteRosterStudent({
+      supabase: client,
+      studentId: "student-1",
+      cleanup: async () => {}
+    }),
     /did not prove that managed records were removed/
   );
 });

@@ -95,7 +95,7 @@ export function createRenderer(THREE, {
   }
   if (shadowMap) {
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = shadowMap === "pcfsoft" ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
   }
   return renderer;
 }
@@ -204,7 +204,7 @@ export function prefersReducedMotion() {
 export const QUALITY_TIERS = Object.freeze({
   low: { pixelRatioCap: 1, shadowMap: "off", particleScale: 0.4 },
   medium: { pixelRatioCap: 1.5, shadowMap: "pcf", particleScale: 0.7 },
-  high: { pixelRatioCap: 2, shadowMap: "pcfsoft", particleScale: 1 }
+  high: { pixelRatioCap: 2, shadowMap: "pcf", particleScale: 1 }
 });
 
 function readQualitySignals() {
@@ -238,7 +238,7 @@ export function detectQualityTier(signals) {
 
 // createRenderer's `shadowMap` option, capped at the tier's ceiling: low
 // disables shadow maps entirely, medium forces the cheap basic PCF map, high
-// keeps the game's own pick (pcf or pcfsoft).
+// keeps the game's own PCF shadow pick.
 export function shadowMapForTier(tier, preferred = null) {
   if (!preferred || tier === "low") return null;
   if (tier === "medium") return "pcf";

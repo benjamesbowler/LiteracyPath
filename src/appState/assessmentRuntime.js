@@ -728,7 +728,12 @@ export const vowelTeamPatterns = ["ai", "ay", "ee", "ea", "oa", "ow", "igh", "ie
 export const rControlledPatterns = ["ar", "er", "ir", "or", "ur"];
 export const blendPatterns = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
 export const digraphPatterns = ["sh", "ch", "th", "wh", "ph"];
-export const DEBUG_ASSESSMENT_COVERAGE = Boolean(import.meta.env?.DEV);
+// Coverage snapshots are useful while deliberately auditing a question bank,
+// but calculating a snapshot is a normal part of the live assessment flow.
+// Logging every calculation in every development session flooded the console
+// and hid real persistence failures. Opt in explicitly for a coverage audit.
+export const DEBUG_ASSESSMENT_COVERAGE =
+  import.meta.env?.VITE_DEBUG_ASSESSMENT_COVERAGE === "true";
 
 export function debugAssessmentCoverage(label, payload) {
   if (!DEBUG_ASSESSMENT_COVERAGE) return;
@@ -776,15 +781,17 @@ export function inferItemMetadata(question) {
 
   if (skill.includes("initial")) {
     const soundMatch = text.match(/\/([a-z]{1,3})\//);
+    const diagnosticSound = diagnosticTarget.match(/^([a-z]{1,3})$/)?.[1];
     return {
-      itemKey: soundMatch?.[1] || answer[0],
+      itemKey: diagnosticSound || soundMatch?.[1] || answer[0],
       itemType: "initial_sound"
     };
   }
 
   if (skill.includes("final")) {
+    const diagnosticSound = diagnosticTarget.match(/^([a-z]{1,3})$/)?.[1];
     return {
-      itemKey: answer.at(-1),
+      itemKey: diagnosticSound || answer.at(-1),
       itemType: "final_sound"
     };
   }
@@ -797,13 +804,14 @@ export function inferItemMetadata(question) {
     };
   }
 
-  if (skill.includes("cvc")) {
-    return { itemKey: answer, itemType: "cvc_word" };
+  if (skill.includes("short vowel")) {
+    const vowel = diagnosticTarget.match(/^short[\s_-]*([aeiou])$/)?.[1]
+      || ["a", "e", "i", "o", "u"].find(letter => answer.includes(letter));
+    return vowel ? { itemKey: `short_${vowel}`, itemType: "short_vowel" } : null;
   }
 
-  if (skill.includes("short vowel")) {
-    const vowel = ["a", "e", "i", "o", "u"].find(letter => answer.includes(letter));
-    return vowel ? { itemKey: `short_${vowel}`, itemType: "short_vowel" } : null;
+  if (skill.includes("cvc")) {
+    return { itemKey: answer, itemType: "cvc_word" };
   }
 
   if (skill.includes("blend")) {

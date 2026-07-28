@@ -15,7 +15,10 @@ import {
   loadElBenchmarkDraft,
   saveElBenchmarkDraft
 } from "../../src/appState/studentSessionHelpers.js";
-import { clearLocalElAssessmentDataForStudent } from "../../src/utils/elAssessmentReset.js";
+import {
+  LEARNER_EVIDENCE_CLEANUP_STORES,
+  clearLocalElAssessmentDataForStudent
+} from "../../src/utils/elAssessmentReset.js";
 
 function createLocalStorage() {
   const values = new Map();
@@ -107,7 +110,26 @@ test("a synced reset removes only the target learner from every local EL assessm
     attemptFixture({ attemptId: "classmate-attempt", studentId: "student-classmate", studentName: "Leo" })
   ]));
   storage.setItem("readingMasteryProfile:teacher-1", JSON.stringify({
+    teacherStudentName: "Ada",
+    teacherStudentId: "student-target",
+    studentName: "Ada",
     studentId: "student-target",
+    assessmentMode: "el",
+    currentSkillIndex: 4,
+    roundAnswers: [true],
+    roundItemKeys: ["sound:a"],
+    roundQuestionIds: ["question-1"],
+    usedByStage: { initial: ["question-1"] },
+    mastery: { initial_sounds: true },
+    totalAnswered: 8,
+    correctAnswered: 7,
+    letterIndex: 1,
+    letterAssessment: [{ letter: "a", correct: true }],
+    patternIndex: 2,
+    patternAssessment: [{ pattern: "sh", correct: true }],
+    patternAttempt: 3,
+    answerHistory: [{ studentId: "student-target", correct: true }],
+    itemMastery: { "sound:a": { studentId: "student-target", mastered: true } },
     elBenchmarkSession: { studentId: "student-target", sessionId: "legacy-target-draft" },
     assessmentHistory: [
       attemptFixture({ attemptId: "legacy-target-attempt", studentId: "student-target", studentName: "Ada" }),
@@ -115,6 +137,18 @@ test("a synced reset removes only the target learner from every local EL assessm
     ],
     unrelatedPreference: "keep-me"
   }));
+  storage.setItem(
+    "guidedReadingAssessment:teacher-1:student-target",
+    JSON.stringify({ studentId: "student-target", response: "target evidence" })
+  );
+  storage.setItem(
+    "literacy-guide:manual-assessment-draft:v1:teacher-1:student-target",
+    JSON.stringify({ studentId: "student-target", response: "target evidence" })
+  );
+  storage.setItem(
+    "lp-student-session-v1",
+    JSON.stringify({ studentId: "student-target", token: "local-token" })
+  );
 
   await saveElAssessmentReport(reportFixture({ reportId: "target-individual" }), { teacherId: "teacher-1" });
   await saveElAssessmentReport(reportFixture({
@@ -163,7 +197,25 @@ test("a synced reset removes only the target learner from every local EL assessm
   assert.equal(result.draftsDeleted, 1);
   assert.equal(result.legacyDraftsDeleted, 1);
   assert.equal(result.attemptsDeleted, 2);
-  assert.equal(result.reportsDeleted, 3);
+  assert.equal(result.reportsDeleted, 2);
+  assert.equal(result.reportsRedacted, 1);
+  assert.equal(result.teacherProfilesSanitized, 1);
+  assert.equal(result.guidedReadingAssessmentsDeleted, 1);
+  assert.equal(result.manualAssessmentDraftsDeleted, 1);
+  assert.equal(result.storageAvailable, true);
+  assert.equal(result.residualCount, 0);
+  assert.deepEqual(result.storesChecked, LEARNER_EVIDENCE_CLEANUP_STORES);
+  assert.equal(
+    storage.getItem("guidedReadingAssessment:teacher-1:student-target"),
+    null
+  );
+  assert.equal(
+    storage.getItem(
+      "literacy-guide:manual-assessment-draft:v1:teacher-1:student-target"
+    ),
+    null
+  );
+  assert.equal(storage.getItem("lp-student-session-v1"), null);
   assert.equal(loadElBenchmarkDraft({ teacherId: "teacher-1", studentId: "student-target", storage }), null);
   assert.equal(
     loadElBenchmarkDraft({ teacherId: "teacher-1", studentId: "student-classmate", storage })?.sessionId,
@@ -175,10 +227,19 @@ test("a synced reset removes only the target learner from every local EL assessm
   );
   assert.deepEqual(
     new Set(getSavedElAssessmentReports({ teacherId: "teacher-1" }).map(report => report.reportId)),
-    new Set(["different-ada-individual", "class-without-target", "classmate-individual"])
+    new Set([
+      "different-ada-individual",
+      "class-with-target",
+      "class-without-target",
+      "classmate-individual"
+    ])
   );
+  const redactedClassReport = getSavedElAssessmentReports({ teacherId: "teacher-1" })
+    .find(report => report.reportId === "class-with-target");
+  assert.deepEqual(redactedClassReport.studentRows, [
+    { studentId: "student-classmate", studentName: "Leo" }
+  ]);
   assert.deepEqual(JSON.parse(storage.getItem("readingMasteryProfile:teacher-1")), {
-    studentId: "student-target",
     assessmentHistory: [
       attemptFixture({ attemptId: "legacy-classmate-attempt", studentId: "student-classmate", studentName: "Leo" })
     ],
@@ -186,11 +247,123 @@ test("a synced reset removes only the target learner from every local EL assessm
   });
 });
 
-test("reset propagation is wired through tombstone hydration, live App state, and every teacher/admin deletion path", async () => {
-  const [progressSource, appControllerSource, sessionControllerSource, reportStoreSource] = await Promise.all([
+test("unreadable learner caches are removed and cleanup fails closed if removal cannot be proved", async t => {
+  const previousStorage = globalThis.localStorage;
+  const storage = createLocalStorage();
+  globalThis.localStorage = storage;
+  t.after(() => {
+    if (previousStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = previousStorage;
+  });
+
+  storage.setItem("readingMasteryProfile:teacher-1", "{not-json");
+  storage.setItem("lp-student-session-v1", "{not-json");
+  const result = await clearLocalElAssessmentDataForStudent({
+    teacherId: "teacher-1",
+    studentId: "student-target",
+    studentName: "Ada",
+    storage
+  });
+
+  assert.equal(result.malformedProfilesRemoved, 1);
+  assert.equal(storage.getItem("readingMasteryProfile:teacher-1"), null);
+  assert.equal(storage.getItem("lp-student-session-v1"), null);
+  assert.deepEqual(result.storesChecked, LEARNER_EVIDENCE_CLEANUP_STORES);
+
+  const refusingStorage = createLocalStorage();
+  refusingStorage.setItem("readingMasteryProfile:teacher-1", "{not-json");
+  const removeItem = refusingStorage.removeItem;
+  refusingStorage.removeItem = key => {
+    if (key === "readingMasteryProfile:teacher-1") return;
+    removeItem.call(refusingStorage, key);
+  };
+  globalThis.localStorage = refusingStorage;
+
+  await assert.rejects(
+    clearLocalElAssessmentDataForStudent({
+      teacherId: "teacher-1",
+      studentId: "student-target",
+      studentName: "Ada",
+      storage: refusingStorage
+    }),
+    error => error?.code === "LP_LOCAL_CLEANUP_INCOMPLETE"
+  );
+});
+
+test("explicit teacher ownership protects another teacher's same-name legacy evidence", async t => {
+  const previousStorage = globalThis.localStorage;
+  const storage = createLocalStorage();
+  globalThis.localStorage = storage;
+  t.after(() => {
+    if (previousStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = previousStorage;
+  });
+
+  storage.setItem("lpAssessmentHistory:v1:teacher-a", JSON.stringify([
+    attemptFixture({
+      attemptId: "teacher-a-legacy-aaron",
+      studentId: "",
+      studentName: "Aaron"
+    })
+  ]));
+  storage.setItem("lpAssessmentHistory:v1:teacher-b", JSON.stringify([
+    attemptFixture({
+      attemptId: "teacher-b-legacy-aaron",
+      studentId: "",
+      studentName: "Aaron"
+    })
+  ]));
+  storage.setItem("lpElAssessmentReports:v1:teacher-a", JSON.stringify([
+    reportFixture({
+      reportId: "teacher-a-legacy-aaron",
+      studentId: "",
+      studentName: "Aaron",
+      teacherId: "teacher-a"
+    })
+  ]));
+  storage.setItem("lpElAssessmentReports:v1:teacher-b", JSON.stringify([
+    reportFixture({
+      reportId: "teacher-b-legacy-aaron",
+      studentId: "",
+      studentName: "Aaron",
+      teacherId: "teacher-b"
+    })
+  ]));
+
+  const result = await clearLocalElAssessmentDataForStudent({
+    teacherId: "teacher-a",
+    studentId: "teacher-a-student-aaron",
+    studentName: "Aaron",
+    storage
+  });
+
+  assert.deepEqual(result.teacherIds, ["teacher-a"]);
+  assert.equal(loadAssessmentAttempts({ teacherId: "teacher-a" }).length, 0);
+  assert.deepEqual(
+    loadAssessmentAttempts({ teacherId: "teacher-b" }).map(row => row.attemptId),
+    ["teacher-b-legacy-aaron"]
+  );
+  assert.equal(getSavedElAssessmentReports({ teacherId: "teacher-a" }).length, 0);
+  assert.deepEqual(
+    getSavedElAssessmentReports({ teacherId: "teacher-b" }).map(row => row.reportId),
+    ["teacher-b-legacy-aaron"]
+  );
+});
+
+test("practice reset retains formal evidence while every learner deletion clears and verifies local caches", async () => {
+  const [
+    progressSource,
+    appControllerSource,
+    sessionControllerSource,
+    teacherStudentsSource,
+    dataRightsDialogSource,
+    reportStoreSource
+  ] = await Promise.all([
     readFile(new URL("../../src/utils/progressSync.js", import.meta.url), "utf8"),
     readFile(new URL("../../src/App.jsx", import.meta.url), "utf8"),
     readFile(new URL("../../src/appState/useAppSessionController.js", import.meta.url), "utf8"),
+    readFile(new URL("../../src/components/TeacherStudentsPage.jsx", import.meta.url), "utf8"),
+    readFile(new URL("../../src/components/teacher/LearnerDataRightsDialog.jsx", import.meta.url), "utf8"),
     readFile(new URL("../../src/data/elAssessmentReportStore.js", import.meta.url), "utf8")
   ]);
   const appSource = `${appControllerSource}\n${sessionControllerSource}`;
@@ -198,24 +371,36 @@ test("reset propagation is wired through tombstone hydration, live App state, an
   assert.match(progressSource, /async function applyResetTombstone\(session, rows\)/);
   assert.match(
     progressSource,
-    /await clearLocalElAssessmentDataForStudent\([\s\S]*?teacherId: session\.teacherId[\s\S]*?studentId[\s\S]*?storage: window\.localStorage[\s\S]*?localStorage\.setItem\(markerKey, cloudResetAt\)/,
-    "the reset marker must only advance after EL caches are cleared"
+    /clearAndVerifyLocalProgressForStudent\(studentId,[\s\S]*?preserveProfile: true[\s\S]*?localStorage\.setItem\(markerKey, cloudResetAt\)/,
+    "the reset marker must only advance after practice caches are cleared"
+  );
+  assert.doesNotMatch(
+    progressSource.match(/async function applyResetTombstone[\s\S]*?\n\}/)?.[0] || "",
+    /clearLocalElAssessmentDataForStudent|deleteAssessmentAttemptsForStudent/,
+    "a practice reset must not delete formal assessment evidence"
   );
   assert.match(progressSource, /const resetApplied = await applyResetTombstone\(session, rows\)/);
 
   assert.match(appSource, /window\.addEventListener\("lp-progress-hydrated", handleRemoteProgressHydration\)/);
-  assert.match(appSource, /setAssessmentHistory\(previous => previous\.filter/);
-  assert.match(appSource, /setElBenchmarkSession\(previous => \([\s\S]*?previous\?\.studentId === resetStudentId \? null : previous/);
-  // 2026-07-27: the EL hub became the Checks funnel, so a discarded draft lands there.
-  assert.match(appSource, /appView === APP_VIEWS\.EL_BENCHMARK[\s\S]*?setAppView\(APP_VIEWS\.ASSESSMENTS\)/);
-  assert.match(appSource, /assessmentResetAtByStudentRef[\s\S]*?resetAtOrBefore: resetAt/, "an older in-flight history response can resurrect reset evidence");
+  assert.match(appSource, /Completed assessments and formal assessment records were kept/);
+  assert.doesNotMatch(appControllerSource, /assessmentResetAtByStudentRef|deleteAssessmentAttemptsForStudent/);
 
   const adminStudentBlock = appSource.match(/async function executeAdminDeleteStudent[\s\S]*?async function adminSetTeacherSchool/)?.[0] || "";
-  const adminClassBlock = appSource.match(/async function executeAdminDeleteClass[\s\S]*?async function updateTeacherAccountStatus/)?.[0] || "";
   const teacherResetBlock = appSource.match(/async function resetSelectedStudentProgress[\s\S]*?async function loadStudentProgress/)?.[0] || "";
-  assert.match(adminStudentBlock, /deleteSavedClassElAssessmentReportsForStudent\([\s\S]*?supabase/);
-  assert.match(adminClassBlock, /\.select\("id, name, teacher_id"\)[\s\S]*?deleteSavedClassElAssessmentReportsForStudent\([\s\S]*?supabase/);
-  assert.match(teacherResetBlock, /deleteSavedClassElAssessmentReportsForStudent\([\s\S]*?supabase/);
+  assert.match(adminStudentBlock, /deleteRosterStudent\([\s\S]*?cleanup: async \(\) =>[\s\S]*?clearAndVerifyLocalProgressForStudent[\s\S]*?clearLocalElAssessmentDataForStudent/);
+  assert.match(teacherStudentsSource, /deleteRosterStudent\([\s\S]*?cleanup: \(\) => forgetStudentOnThisDevice/);
+  assert.match(teacherStudentsSource, /clearAndVerifyLocalProgressForStudent[\s\S]*?clearLocalElAssessmentDataForStudent/);
+  assert.match(
+    dataRightsDialogSource,
+    /deleteLearnerData\([\s\S]*?clearAndVerifyLocalProgressForStudent[\s\S]*?clearLocalElAssessmentDataForStudent[\s\S]*?completeLearnerDeletion\(/,
+    "the privacy request must complete only after both local cleanup layers"
+  );
+  assert.match(teacherResetBlock, /teacher_reset_student_progress/);
+  assert.match(teacherResetBlock, /clearAndVerifyLocalProgressForStudent\([\s\S]*?allowFutureWritesAfterCleanup: true/);
+  assert.match(teacherResetBlock, /preserveEngagement: true/);
+  assert.match(teacherResetBlock, /preserveProfile: true/);
+  assert.match(teacherResetBlock, /preserveAreas: PRACTICE_RESET_RETAINED_AREAS/);
+  assert.doesNotMatch(teacherResetBlock, /deleteSavedClassElAssessmentReportsForStudent|clearLocalElAssessmentDataForStudent/);
   assert.match(reportStoreSource, /throwOnCloudError: true/, "destructive cleanup must not silently ignore a failed cloud read");
 });
 

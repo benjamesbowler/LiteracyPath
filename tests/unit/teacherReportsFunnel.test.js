@@ -86,8 +86,46 @@ test("step 3 lists every report style with the question it answers", () => {
   }
   // Two of these silently opened the overview instead until the deep-link
   // whitelist was derived from this same list.
-  assert.match(html, /Which books has this child read/);
-  assert.match(html, /What has this child done in the games and story worlds\?/);
+  assert.match(html, /Which books has this student read/);
+  assert.match(html, /What has this student done in the games and story worlds\?/);
+  assert.match(html, /Reading and practice detail/);
+  assert.match(html, /aria-label="Main reports"/);
+});
+
+test("the student choice is searchable without hiding the whole-class report", () => {
+  const html = render("#teacher/reports?class=class-a");
+  assert.match(html, /Find a student/);
+  assert.match(html, /type="search"/);
+  assert.match(html, /<strong>Whole class<\/strong>/);
+});
+
+test("a bare Reports route still renders the class and student recovery steps", () => {
+  const html = render("#teacher/reports?group=all", {
+    selectedClassId: "",
+    className: "",
+    selectedStudentId: "",
+    selectedStudentName: "",
+    reportView: "whole-child"
+  });
+  assert.match(html, /Choose a class/);
+  assert.match(html, /Whole class, or one student/);
+  assert.match(html, /Choose the whole class or one student first\./);
+  assert.doesNotMatch(html, /student report: whole-child/);
+  assert.doesNotMatch(html, /No progress results yet/);
+});
+
+test("stale student route state never renders an empty student report", () => {
+  const html = render(
+    "#teacher/reports?class=class-a&learner=missing&report=whole-child&show=1",
+    {
+      selectedStudentId: "missing",
+      selectedStudentName: "",
+      reportView: "whole-child"
+    }
+  );
+  assert.match(html, /Whole class, or one student/);
+  assert.doesNotMatch(html, /student report: whole-child/);
+  assert.doesNotMatch(html, /· Summary/);
 });
 
 test("a deep link restores the exact report the teacher was reading", () => {
@@ -97,6 +135,40 @@ test("a deep link restores the exact report the teacher was reading", () => {
   );
   assert.match(html, /Ada · High-frequency words/);
   assert.match(html, /student report: hfw<\/p>/);
+});
+
+test("an individual report deep link waits for complete saved evidence", () => {
+  const html = render(
+    "#teacher/reports?class=class-a&learner=student-1&report=whole-child&show=1",
+    {
+      selectedStudentId: "student-1",
+      selectedStudentName: "Ada",
+      reportView: "whole-child",
+      studentEvidenceReady: false,
+      studentEvidenceStatus: "error",
+      onRetryStudentEvidence: () => {}
+    }
+  );
+
+  assert.match(html, /Some report information could not be loaded/);
+  assert.match(html, /Missing students and results are not counted as zero/);
+  assert.match(html, /Try loading again/);
+  assert.doesNotMatch(html, /student report: whole-child/);
+});
+
+test("a class report deep link cannot reuse incomplete class evidence", () => {
+  const html = render(
+    "#teacher/reports?class=class-a&who=class&show=1",
+    {
+      classReportEvidenceReady: false,
+      classReportEvidenceLoading: false,
+      onRetryClassReportEvidence: () => {}
+    }
+  );
+
+  assert.match(html, /Some report information could not be loaded/);
+  assert.match(html, /roster and every saved class result have been confirmed/);
+  assert.doesNotMatch(html, /class report<\/p>/);
 });
 
 test("earlier answers stay visible and changeable, later steps say why they wait", () => {
@@ -122,4 +194,22 @@ test("both funnels use the same step component, so the pattern is learned once",
     // A step that unlocks takes focus, or a keyboard user never learns it did.
     assert.match(source, /target\?\.current\?\.focus\(\{ preventScroll: true \}\)/);
   }
+});
+
+test("opening a report focuses a visible heading with a visible focus ring", () => {
+  const css = readFileSync(
+    new URL("../../src/App.css", import.meta.url),
+    "utf8"
+  );
+  const openReportHeadingRule = css.match(
+    /\.teacher-funnel-page\.report-open \.teacher-funnel-report > h3 \{([^}]*)\}/
+  )?.[1] || "";
+  const focusRule = css.match(
+    /\.teacher-funnel-report > h3:focus \{([^}]*)\}/
+  )?.[1] || "";
+
+  assert.ok(openReportHeadingRule, "open report heading rule is missing");
+  assert.doesNotMatch(openReportHeadingRule, /clip(?:-path)?:|position:\s*absolute|height:\s*1px/);
+  assert.match(focusRule, /outline:\s*3px/);
+  assert.doesNotMatch(focusRule, /outline:\s*0/);
 });

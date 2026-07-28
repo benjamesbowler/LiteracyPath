@@ -1,3 +1,5 @@
+import { selectAllRows } from "./pagedSelect.js";
+
 const CURRENT_CLASS_FIELDS = [
   "id",
   "name",
@@ -18,6 +20,7 @@ const LEGACY_CLASS_FIELDS = [
 const CURRENT_STUDENT_FIELDS = [
   "id",
   "name",
+  "teacher_id",
   "class_id",
   "created_at",
   "updated_at",
@@ -28,6 +31,7 @@ const CURRENT_STUDENT_FIELDS = [
 const LEGACY_STUDENT_FIELDS = [
   "id",
   "name",
+  "teacher_id",
   "class_id",
   "created_at",
   "symbol_password"
@@ -68,11 +72,15 @@ function teacherClassQuery(client, teacherId, fields) {
  * through unchanged.
  */
 export async function loadCompatibleTeacherClasses({ client, teacherId }) {
-  const current = await teacherClassQuery(client, teacherId, CURRENT_CLASS_FIELDS);
+  const current = await selectAllRows(() =>
+    teacherClassQuery(client, teacherId, CURRENT_CLASS_FIELDS)
+  );
   if (!isLegacyClassSchemaError(current.error)) {
     return { ...current, compatibility: "current" };
   }
-  const legacy = await teacherClassQuery(client, teacherId, LEGACY_CLASS_FIELDS);
+  const legacy = await selectAllRows(() =>
+    teacherClassQuery(client, teacherId, LEGACY_CLASS_FIELDS)
+  );
   return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
 }
 
@@ -101,21 +109,25 @@ export async function loadCompatibleTeacherStudents({
   teacherId,
   classId
 }) {
-  const current = await teacherStudentQuery(client, {
-    teacherId,
-    classId,
-    fields: CURRENT_STUDENT_FIELDS,
-    activeOnly: false
-  });
+  const current = await selectAllRows(() =>
+    teacherStudentQuery(client, {
+      teacherId,
+      classId,
+      fields: CURRENT_STUDENT_FIELDS,
+      activeOnly: false
+    })
+  );
   if (!isLegacyStudentSchemaError(current.error)) {
     return { ...current, compatibility: "current" };
   }
-  const legacy = await teacherStudentQuery(client, {
-    teacherId,
-    classId,
-    fields: LEGACY_STUDENT_FIELDS,
-    activeOnly: false
-  });
+  const legacy = await selectAllRows(() =>
+    teacherStudentQuery(client, {
+      teacherId,
+      classId,
+      fields: LEGACY_STUDENT_FIELDS,
+      activeOnly: false
+    })
+  );
   return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
 }
 
@@ -129,28 +141,33 @@ export async function loadCompatibleDashboardStudents({
   classId
 }) {
   const fields = "id,name,created_at";
-  const current = await teacherStudentQuery(client, {
-    teacherId,
-    classId,
-    fields,
-    activeOnly: true
-  });
+  const current = await selectAllRows(() =>
+    teacherStudentQuery(client, {
+      teacherId,
+      classId,
+      fields,
+      activeOnly: true
+    })
+  );
   if (!isLegacyStudentSchemaError(current.error)) {
     return { ...current, compatibility: "current" };
   }
-  const legacy = await teacherStudentQuery(client, {
-    teacherId,
-    classId,
-    fields,
-    activeOnly: false
-  });
+  const legacy = await selectAllRows(() =>
+    teacherStudentQuery(client, {
+      teacherId,
+      classId,
+      fields,
+      activeOnly: false
+    })
+  );
   return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
 }
 
 /**
- * The July class-access migration added a device ID to the roster lookup. Retry
- * the previous signature only when PostgREST proves that exact overload is not
- * installed yet.
+ * The device-aware class lookup is a security boundary, not a compatibility
+ * enhancement. If the backend is behind the frontend, fail closed and let the
+ * child-facing recovery UI ask for teacher help. Retrying the retired overload
+ * would bypass the device/network/code throttles that replaced it.
  */
 export async function loadCompatibleStudentClass({
   client,
@@ -161,16 +178,18 @@ export async function loadCompatibleStudentClass({
     p_code: code,
     p_device_id: deviceId
   });
-  if (!isMissingRpcOverload(current.error, "student_class_by_code")) {
-    return { ...current, compatibility: "current" };
-  }
-  const legacy = await client.call("student_class_by_code", { p_code: code });
-  return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
+  return {
+    ...current,
+    compatibility: isMissingRpcOverload(current.error, "student_class_by_code")
+      ? "migration-required"
+      : "current"
+  };
 }
 
 /**
- * The matching student-login overload changed in the same migration. As above,
- * no functional or authorization error is converted into a legacy retry.
+ * Student login follows the same fail-closed rule. A rolling release may keep
+ * teacher-side read compatibility, but it must never restore a retired
+ * anonymous authentication path.
  */
 export async function loginCompatibleStudent({
   client,
@@ -185,12 +204,10 @@ export async function loginCompatibleStudent({
     p_device_id: deviceId,
     p_code: code
   });
-  if (!isMissingRpcOverload(current.error, "student_login")) {
-    return { ...current, compatibility: "current" };
-  }
-  const legacy = await client.call("student_login", {
-    p_student_id: studentId,
-    p_sequence: sequence
-  });
-  return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
+  return {
+    ...current,
+    compatibility: isMissingRpcOverload(current.error, "student_login")
+      ? "migration-required"
+      : "current"
+  };
 }

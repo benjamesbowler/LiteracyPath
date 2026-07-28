@@ -3,11 +3,20 @@ import test from "node:test";
 
 import ExcelJS from "exceljs";
 
-import { applyTeacherFacingWorkbookCopy } from "../../src/utils/exportElAssessmentExcel.js";
+import {
+  applyTeacherFacingWorkbookCopy,
+  createClassElAssessmentWorkbook,
+  createStudentElAssessmentWorkbook
+} from "../../src/utils/exportElAssessmentExcel.js";
+import {
+  buildPresetExportProvenanceRows,
+  exportProvenanceTextBlock
+} from "../../src/utils/exportProvenance.js";
+import { buildReadingMasteryTextReport } from "../../src/utils/exportReadingMasteryText.js";
 import { buildStudentWorkspaceCsvRows } from "../../src/utils/exportStudentWorkspaceCsv.js";
 
-// 2026-07-26: "student" removed — see tools/checkAppCopy.js. Teachers say students.
-const BANNED_TEACHER_COPY = /\b(?:assessment|evidence|learner|policy|login|BOY|MOY|EOY|provenance)\b/i;
+const BANNED_TEACHER_COPY = /\b(?:child|children|checks?|evidence|learners?|policy|logins?|BOY|MOY|EOY|provenance)\b/i;
+const BANNED_FORMAL_EL_SYSTEM_COPY = /\b(?:microphase|route decision|route judgment|benchmark scope)\b/i;
 const RAW_FIXTURE_VALUE = /(?:student_internal_42|attempt_internal_99|benchmark-form-v7|policy-v12|not_assessed)/i;
 
 function workbookText(workbook) {
@@ -38,6 +47,13 @@ test("teacher-facing workbooks remove internal columns, version rows, raw values
     "3/5",
     "benchmark-form-v7"
   ]);
+  results.addRow([
+    "",
+    "Mina",
+    "Not checked yet",
+    "1/2",
+    ""
+  ]);
 
   const details = workbook.addWorksheet("About this report");
   details.addRow(["Field", "Value"]);
@@ -51,13 +67,15 @@ test("teacher-facing workbooks remove internal columns, version rows, raw values
   assert.doesNotMatch(text, BANNED_TEACHER_COPY);
   assert.doesNotMatch(text, RAW_FIXTURE_VALUE);
   assert.doesNotMatch(text, /\b\d+\s*\/\s*\d+\b/);
-  assert.match(text, /Check Results/);
+  assert.match(text, /Assessment Results/);
   assert.match(text, /Student Name/);
   assert.match(text, /Not checked/);
+  assert.doesNotMatch(text, /Not (?:assessed|checked) yet/);
+  assert.doesNotMatch(text, /yet yet/);
   assert.match(text, /3 of 5/);
 });
 
-test("child report CSV rows use friendly labels and never include internal record identifiers", () => {
+test("student report CSV rows use friendly labels and never include internal record identifiers", () => {
   const generatedAt = "2026-07-25T12:00:00.000Z";
   const workspace = {
     generatedAt,
@@ -90,11 +108,100 @@ test("child report CSV rows use friendly labels and never include internal recor
   });
   const text = JSON.stringify(rows);
 
-  assert.match(text, /Skills check/);
-  assert.match(text, /Student Skills Check/);
+  assert.match(text, /Skills assessment/);
+  assert.match(text, /Student Skills Assessment/);
   assert.doesNotMatch(text, RAW_FIXTURE_VALUE);
-  // 2026-07-26: teacher exports now say Student. "Learner" stays banned.
-  assert.doesNotMatch(text, /\bLearner\b/);
+  assert.doesNotMatch(text, BANNED_TEACHER_COPY);
   assert.equal(rows.some(row => /version/i.test(String(row.Field || ""))), false);
   assert.equal(rows.some(row => Object.hasOwn(row, "Attempt ID")), false);
+});
+
+test("every teacher download preset uses student and assessment terminology", () => {
+  for (const presetId of ["letter", "pattern", "reading-csv", "reading-text", "guided-reading"]) {
+    const text = exportProvenanceTextBlock(buildPresetExportProvenanceRows(presetId, {
+      generatedAt: "2026-07-25T12:00:00.000Z",
+      learnerName: "Aarav"
+    }));
+    assert.doesNotMatch(text, BANNED_TEACHER_COPY, `${presetId} provenance uses current teacher wording`);
+    assert.match(text, /Student: Aarav/);
+  }
+});
+
+test("plain-text reading reports use student and assessment terminology throughout", () => {
+  const report = buildReadingMasteryTextReport({
+    accuracy: 50,
+    answerHistory: [{
+      stage: "Initial sounds",
+      question: "Which word starts with m?",
+      chosen: "sun",
+      correct: "moon",
+      isCorrect: false,
+      date: "2026-07-25T12:00:00.000Z"
+    }],
+    className: "Class 2B",
+    correctAnswered: 0,
+    currentStage: { id: "initial-sounds", label: "Initial sounds" },
+    generatedAt: "2026-07-25T12:00:00.000Z",
+    mastery: {},
+    roundLength: 1,
+    skillTree: [{ id: "initial-sounds", label: "Initial sounds" }],
+    studentName: "Aarav",
+    totalAnswered: 1
+  });
+
+  assert.doesNotMatch(report, BANNED_TEACHER_COPY);
+  assert.match(report, /Student: Aarav/);
+  assert.match(report, /Student answered: sun/);
+  assert.match(report, /Status: current working skill/);
+  assert.match(report, /Result: Needs another look/);
+});
+
+test("generated EL downloads use current teacher terminology in every visible cell", async () => {
+  const report = {
+    generatedAt: "2026-07-25T12:00:00.000Z",
+    reportType: "individual",
+    studentName: "Aarav",
+    className: "Class 2B",
+    formalAssessments: {}
+  };
+  const workbooks = [
+    await createStudentElAssessmentWorkbook(report, { teacherFacing: true }),
+    await createClassElAssessmentWorkbook({
+      ...report,
+      reportType: "whole_class",
+      studentName: "",
+      studentRows: []
+    }, { teacherFacing: true })
+  ];
+
+  workbooks.forEach(workbook => {
+    assert.doesNotMatch(workbookText(workbook), BANNED_TEACHER_COPY);
+  });
+});
+
+test("formal EL workbook presentation uses teacher language for stages and next-step decisions", () => {
+  const workbook = new ExcelJS.Workbook();
+  const sheet = workbook.addWorksheet("Benchmark Scope");
+  sheet.addRow([
+    "EL Benchmark Scope",
+    "Microphase",
+    "Route judgment usable",
+    "Route decision"
+  ]);
+  sheet.addRow([
+    "Grade 1 · MOY",
+    "Middle partial",
+    "Yes",
+    "Continue to the next passage"
+  ]);
+
+  applyTeacherFacingWorkbookCopy(workbook);
+
+  const text = workbookText(workbook);
+  assert.doesNotMatch(text, BANNED_FORMAL_EL_SYSTEM_COPY);
+  assert.doesNotMatch(text, /\bMOY\b/);
+  assert.match(text, /EL grade and time of year/);
+  assert.match(text, /Reading stage/);
+  assert.match(text, /Next-step decision available/);
+  assert.match(text, /Next-step decision/);
 });

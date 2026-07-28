@@ -42,7 +42,7 @@ import {
   TeacherRecommendationExplanation
 } from "../recommendations/RecommendationExplanation.jsx";
 import { CHILD_COPY } from "../../copy/childCopy.js";
-import { progressPhrase } from "../../copy/teacherCopy.js";
+import { progressPhrase, TEACHER_COPY } from "../../copy/teacherCopy.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 
@@ -470,6 +470,8 @@ export function GuidedReadingPage({
   initialBookId = "",
   studentId,
   studentName,
+  studentProgress = null,
+  recommendationEvidenceReady = true,
   guidedReadingRecords = {},
   saveGuidedReadingRecord,
   speakText,
@@ -551,6 +553,9 @@ export function GuidedReadingPage({
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
   const isStudentMode = mode === "student";
+  const readerCopy = isStudentMode
+    ? CHILD_COPY.guidedReading
+    : TEACHER_COPY.guidedReading.controls;
   const changeInitialBook = useEffectEvent(bookId => changeBook(bookId));
   const stopCurrentPageAudio = useEffectEvent(() => stopPageAudio());
   const recordCurrentGuidedPageVisit = useEffectEvent(nextPageIndex => {
@@ -623,12 +628,27 @@ export function GuidedReadingPage({
 
   const recommendedBooks = recommendBooksForStudent({
     books: runtimeGuidedReadingBooks,
-    studentProgress: {
-      currentMicrophase: enrichedSelectedBook?.recommendedMicrophase,
-      needs: enrichedSelectedBook?.recommendedSkillsToReinforce || []
-    },
+    studentProgress: recommendationEvidenceReady && studentProgress ? studentProgress : {},
     readingHistory: guidedReadingRecords
   }).slice(0, 5);
+  const recommendationLevel = recommendedBooks[0]?.readingLevel || "A";
+  const recommendationFocus = recommendationEvidenceReady
+    ? String(studentProgress?.currentSkillLabel || "").trim()
+    : "";
+  const recommendationDescription = !recommendationEvidenceReady
+    ? TEACHER_COPY.guidedReading.descriptionWithoutResults(recommendationLevel)
+    : recommendationFocus
+      ? TEACHER_COPY.guidedReading.descriptionWithFocus(
+        studentName || "the student",
+        recommendationFocus,
+        recommendationLevel
+      )
+      : TEACHER_COPY.guidedReading.descriptionWithoutFocus(recommendationLevel);
+  const selectedBookFocusLabels = [...new Set(
+    (enrichedSelectedBook?.recommendedSkillsToReinforce || [])
+      .map(TEACHER_COPY.guidedReading.patternLabel)
+      .filter(Boolean)
+  )].slice(0, 3);
   const readingTokens = tokenizeReadingText(page?.text || "");
   const pageSentences = sentenceParts(page?.text || "");
   let sentenceWordOffset = -1;
@@ -1540,7 +1560,11 @@ export function GuidedReadingPage({
 
   if (!selectedBook) {
     return (
-      <div className={`teacher-product-page guided-reading-page ${guidedReadingModeClass}`}>
+      <div
+        aria-label={isStudentMode ? "Reading library" : `${studentName || "Student"} guided reading`}
+        className={`teacher-product-page guided-reading-page ${guidedReadingModeClass}`}
+        role="main"
+      >
         <section className="teacher-page-header guided-reading-hero">
           <div>
             <p className="panel-label">{isStudentMode ? "Reading library" : "Guided reading"}</p>
@@ -1560,11 +1584,8 @@ export function GuidedReadingPage({
             </>
           ) : (
             <>
-              <h3>No checked Guided reading books are active right now.</h3>
-              <p>
-                The book pack is paused because some illustrations contain text or story details that do not match the reading copy.
-                The quality report lists the exact books and pages that need new artwork.
-              </p>
+              <h3>{TEACHER_COPY.guidedReading.unavailableTitle}</h3>
+              <p>{TEACHER_COPY.guidedReading.unavailableBody}</p>
             </>
           )}
         </section>
@@ -1576,7 +1597,7 @@ export function GuidedReadingPage({
               {recordSummaries.map(item => (
                 <article key={item.bookId}>
                   <strong>{item.title}</strong>
-                  <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                  <span>{progressPhrase(item.correct, item.attempted)} correct · {item.accuracy}% accuracy</span>
                   <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
                 </article>
               ))}
@@ -1589,9 +1610,11 @@ export function GuidedReadingPage({
 
   return (
     <div
+      aria-label={isStudentMode ? "Reading library" : `${studentName || "Student"} guided reading`}
       className={guidedReadingPageClassName}
       data-child-surface={isStudentMode ? "reading-library" : undefined}
       data-auto-narration={isStudentMode && autoNarration ? "true" : "false"}
+      role="main"
     >
       {showQuiz && selectedBook && (
         <BookQuiz key={selectedBook.id} book={selectedBook} onFinish={handleQuizFinish} />
@@ -1904,29 +1927,47 @@ export function GuidedReadingPage({
       {!readerOpen && !isStudentMode && recommendedBooks.length > 0 && (
         <section className="guided-recommendation-panel" aria-label="Guided reading recommendations">
           <div>
-            <p className="panel-label">Suggested next</p>
-            <h3>Suggested next reads</h3>
-            <p>Based on phonics patterns, readable words, rereading history, and checked book status.</p>
+            <p className="panel-label">{TEACHER_COPY.guidedReading.suggestionLabel}</p>
+            <h3>{TEACHER_COPY.guidedReading.suggestionTitle}</h3>
+            <p>{recommendationDescription}</p>
           </div>
           <div className="guided-recommendation-list">
-            {recommendedBooks.map(item => (
-              <article key={item.book.id} data-teacher-recommendation="guided-reading">
-                <button onClick={() => changeBook(item.book.id)} type="button">
-                  <strong>{item.book.title}</strong>
-                  <span>Level {item.book.level} · {item.book.recommendedMicrophase || "early reading"}</span>
-                  <small>{item.reasons.slice(0, 2).join(" · ")}</small>
-                </button>
-                <TeacherRecommendationExplanation
-                  surface="guided-reading"
-                  explanation={{
-                    evidence: item.reasons.join(" · "),
-                    dependency: `${item.book.recommendedMicrophase || "Early reading"} is the book's recorded decoding demand.`,
-                    confidence: `Rule-based match score ${item.score}; teacher review remains required before assignment.`,
-                    unlock: "A matched read gives connected-text practice and creates fresh reading and comprehension results."
-                  }}
-                />
-              </article>
-            ))}
+            {recommendedBooks.map(item => {
+              const matchedFocusLabels = item.matchedNeeds
+                .map(TEACHER_COPY.guidedReading.needLabel)
+                .filter(Boolean);
+              const shortReason = matchedFocusLabels.length
+                ? TEACHER_COPY.guidedReading.matchedFocusReason(matchedFocusLabels)
+                : TEACHER_COPY.guidedReading.levelReason(item.readingLevel, item.readingLevelSource);
+              return (
+                <article key={item.book.id} data-teacher-recommendation="guided-reading">
+                  <button onClick={() => changeBook(item.book.id)} type="button">
+                    <strong>{item.book.title}</strong>
+                    <span>
+                      Level {item.book.level} · {formatGuidedReadingType(item.book.type)}
+                    </span>
+                    <small>{shortReason} {item.reasons[0]}</small>
+                  </button>
+                  <TeacherRecommendationExplanation
+                    surface="guided-reading"
+                    explanation={{
+                      evidence: [
+                        TEACHER_COPY.guidedReading.matchedFocusReason(matchedFocusLabels),
+                        ...item.reasons
+                      ].join(" "),
+                      dependency: TEACHER_COPY.guidedReading.levelReason(
+                        item.readingLevel,
+                        item.readingLevelSource
+                      ),
+                      confidence: recommendationEvidenceReady
+                        ? TEACHER_COPY.guidedReading.confidenceWithResults
+                        : TEACHER_COPY.guidedReading.confidenceWithoutResults,
+                      unlock: TEACHER_COPY.guidedReading.nextStep
+                    }}
+                  />
+                </article>
+              );
+            })}
           </div>
         </section>
       )}
@@ -1945,7 +1986,7 @@ export function GuidedReadingPage({
             <div className="guided-reader-header">
               <div>
                 <div className="guided-reader-title-row">
-                  {!isStudentMode && <p className="panel-label">{selectedBook.type} · Level {selectedBook.level}</p>}
+                  {!isStudentMode && <p className="panel-label">{formatGuidedReadingType(selectedBook.type)} · Level {selectedBook.level}</p>}
                   {!isStudentMode && (
                     <span className="guided-reading-mode-pill compact">Teacher conference</span>
                   )}
@@ -1954,8 +1995,8 @@ export function GuidedReadingPage({
                   )}
                 </div>
                 <h3>{selectedBook.title}</h3>
-                {!isStudentMode && (
-                  <p>{(selectedBook.targetSkills || selectedBook.recommendedSkillsToReinforce || []).join(" · ")}</p>
+                {!isStudentMode && selectedBookFocusLabels.length > 0 && (
+                  <p>{TEACHER_COPY.guidedReading.bookFocus(selectedBookFocusLabels)}</p>
                 )}
               </div>
               <div className="guided-page-controls">
@@ -1977,7 +2018,11 @@ export function GuidedReadingPage({
                     type="button"
                   >
                     {isReadAloudLoading && !isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
-                    {isReadAloudLoading && !isWholeBookReading ? "Loading Page" : isPageAudioPlaying ? "Stop Reading" : "Read Page"}
+                    {isReadAloudLoading && !isWholeBookReading
+                      ? readerCopy.loadingPage
+                      : isPageAudioPlaying
+                        ? readerCopy.stopReading
+                        : readerCopy.readPage}
                   </button>
                   <button
                     className={[
@@ -1990,7 +2035,11 @@ export function GuidedReadingPage({
                     type="button"
                   >
                     {isReadAloudLoading && isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
-                    {isReadAloudLoading && isWholeBookReading ? "Loading Book" : isWholeBookReading ? "Stop Book" : "Read Whole Book"}
+                    {isReadAloudLoading && isWholeBookReading
+                      ? readerCopy.loadingBook
+                      : isWholeBookReading
+                        ? readerCopy.stopBook
+                        : readerCopy.readWholeBook}
                   </button>
                   {!isReaderFullscreen && (isPageAudioPlaying || isWholeBookReading) && (
                     <button className="lp-button lp-button-secondary" onClick={toggleReadAloudPause} type="button">
@@ -2036,7 +2085,7 @@ export function GuidedReadingPage({
                 <div className="guided-reader-secondary-controls" role="group" aria-label="Reader view controls">
                   {!isStudentMode && !isReaderFullscreen && (
                     <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
-                      Teacher Notes
+                      {TEACHER_COPY.guidedReading.controls.teacherNotes}
                     </button>
                   )}
                   <button
@@ -2048,14 +2097,14 @@ export function GuidedReadingPage({
                     }}
                     type="button"
                   >
-                    Line Focus
+                    {readerCopy.lineFocus}
                   </button>
                   <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
-                    {isReaderFullscreen ? "Exit" : "Full Screen"}
+                    {isReaderFullscreen ? readerCopy.exitFullScreen : readerCopy.fullScreen}
                   </button>
                   {!isReaderFullscreen && (
                     <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
-                      {isStudentMode ? "Back to Library" : "Close Reader"}
+                      {isStudentMode ? readerCopy.backToLibrary : readerCopy.closeReader}
                     </button>
                   )}
                 </div>
@@ -2081,14 +2130,14 @@ export function GuidedReadingPage({
                     onClick={() => setReadingMode("reading")}
                     type="button"
                   >
-                    Reading Mode
+                    {readerCopy.readingMode}
                   </button>
                   <button
                     className={readingMode === "marking" ? "active" : ""}
                     onClick={() => setReadingMode("marking")}
                     type="button"
                   >
-                    Marking Mode
+                    {readerCopy.markingMode}
                   </button>
                 </div>
               )}
@@ -2252,7 +2301,7 @@ export function GuidedReadingPage({
                 onClick={goToPreviousPage}
                 type="button"
               >
-                Previous Page
+                {readerCopy.previousPage}
               </button>
               {pageIndex < selectedBook.pages.length - 1 ? (
                 <button
@@ -2260,11 +2309,11 @@ export function GuidedReadingPage({
                   onClick={goToNextPage}
                   type="button"
                 >
-                  Next Page
+                  {readerCopy.nextPage}
                 </button>
               ) : (
                 <button className="lp-button lp-button-primary" onClick={completeBook} type="button">
-                  Finish Book
+                  {readerCopy.finishBook}
                 </button>
               )}
             </div>}
@@ -2295,7 +2344,9 @@ export function GuidedReadingPage({
           <div>
             <p className="panel-label">Book complete</p>
             <h3>{selectedBook.title}</h3>
-            <p>{readingProgress?.lastReadAt ? `Last read ${new Date(readingProgress.lastReadAt).toLocaleString()}` : "Summary saved locally."}</p>
+            <p>{readingProgress?.lastReadAt
+              ? `Last read ${new Date(readingProgress.lastReadAt).toLocaleString()}`
+              : TEACHER_COPY.guidedReading.summarySaved}</p>
           </div>
 
           <div className="checkpoint-result-grid">
@@ -2345,7 +2396,7 @@ export function GuidedReadingPage({
               {isStudentMode ? CHILD_COPY.actions.readAgain : "Continue marking"}
             </button>
             <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
-              Back to library
+              {readerCopy.backToLibrary}
             </button>
           </div>
         </section>
@@ -2365,7 +2416,7 @@ export function GuidedReadingPage({
             {recordSummaries.map(item => (
               <article key={item.bookId}>
                 <strong>{item.title}</strong>
-                <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                <span>{progressPhrase(item.correct, item.attempted)} correct · {item.accuracy}% accuracy</span>
                 <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
               </article>
             ))}

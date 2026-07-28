@@ -9,34 +9,43 @@ test("A4.3 class summary shows both weighted views, counts, and weak-comparabili
 
   await page.goto("/preview/learning-policy.html");
 
-  const summary = page.getByRole("article", { name: "Class accuracy comparison" });
-  const facts = summary.locator(".teacher-progress-accuracy-facts");
-  const learnerWeighted = facts.locator("div").filter({ hasText: "Learner-weighted accuracy" });
-  const responseWeighted = facts.locator("div").filter({ hasText: "Response-weighted accuracy" });
-  await expect(summary).toHaveAttribute("data-class-comparable", "false");
-  await expect(summary.getByText("No single class average", { exact: true })).toBeVisible();
-  await expect(learnerWeighted.locator("dt")).toHaveText("Learner-weighted accuracy");
+  const preview = page.locator('[data-preview-surface="learning-policy"]');
+  await expect(preview).toHaveAttribute("data-learning-policy-version", "2026.07.28-a4.3b");
+  await preview.getByText("Class overview", { exact: true }).click();
+
+  const summary = preview.getByRole("region", { name: "Class summary" });
+  const accuracy = summary
+    .locator(".teacher-roster-metric-accuracy")
+    .filter({ hasText: "Class accuracy" });
+  const heldBack = summary.locator("[data-class-average-suppressed]");
+  await expect(heldBack).toHaveAttribute("data-class-average-suppressed", "true");
+  await expect(accuracy).toContainText("Not enough results yet");
+
+  await accuracy.getByText("See both averages", { exact: true }).click();
+  const learnerWeighted = accuracy.locator("dl > div").filter({
+    hasText: "Averaging students equally"
+  });
+  const responseWeighted = accuracy.locator("dl > div").filter({
+    hasText: "Averaging every answer equally"
+  });
+  await expect(learnerWeighted.locator("dt")).toHaveText("Averaging students equally");
   await expect(learnerWeighted.locator("dd")).toContainText("66%");
-  await expect(learnerWeighted.locator("dd")).toContainText("2 policy-ready learners of 3");
-  await expect(responseWeighted.locator("dt")).toHaveText("Response-weighted accuracy");
+  await expect(learnerWeighted.locator("dd")).toContainText(
+    "2 students with at least 8 scored answers each."
+  );
+  await expect(responseWeighted.locator("dt")).toHaveText("Averaging every answer equally");
   await expect(responseWeighted.locator("dd")).toContainText("71.9%");
-  await expect(responseWeighted.locator("dd")).toContainText("32 scored responses");
+  await expect(responseWeighted.locator("dd")).toContainText(
+    "32 scored answers from 2 students."
+  );
   await expect(
-    summary.getByText(/67% of learners are policy-ready; 70% required/)
+    summary.getByText(
+      /Only 2 students of 3 have done enough assessments so far/
+    )
   ).toBeVisible();
 
-  const insufficientSegment = page.locator(
-    ".teacher-progress-distribution-chart .is-not_enough_evidence"
-  );
-  const segmentColours = await insufficientSegment.evaluate(element => ({
-    segment: getComputedStyle(element).backgroundColor,
-    track: getComputedStyle(element.parentElement).backgroundColor
-  }));
-  expect(segmentColours.segment).not.toBe("rgba(0, 0, 0, 0)");
-  expect(segmentColours.segment).not.toBe(segmentColours.track);
-
   const axe = await new AxeBuilder({ page })
-    .include('[aria-label="Class accuracy comparison"]')
+    .include('[aria-label="Class summary"]')
     .analyze();
   expect(
     axe.violations.filter(violation => ["serious", "critical"].includes(violation.impact))

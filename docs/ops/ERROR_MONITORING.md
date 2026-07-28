@@ -30,6 +30,13 @@ user IDs, teacher IDs, school IDs, class IDs, learner IDs, names, class codes,
 passwords, answers, tokens, or response content. The server rejects malformed
 frames and common secret/PII patterns before insertion.
 
+Flood control is atomic and layered. It limits a one-way caller bucket derived
+by the server, a one-way network bucket derived from trusted request headers, a
+client error fingerprint, and total anonymous ingestion. Rotating the client
+event ID or client-supplied fingerprint therefore cannot reset the caller,
+network, or global limits. The private rate rows contain no raw network address
+and expire after their short window.
+
 ## Sampling
 
 - React error-boundary events: 100%.
@@ -86,8 +93,9 @@ When an alert appears:
 ## Verification
 
 `npm run check:error-monitoring` proves the collection contract, client
-redaction, release tag, sampling, retention, alert policy, local fallback, and
-an authenticated deliberate-error journey into the administrator monitor.
+redaction, release tag, layered server-side flood limits, sampling, retention,
+alert policy, local fallback, and an authenticated deliberate-error journey
+into the administrator monitor.
 
 `npm run check:private-source-maps` separately proves private hidden-map
 generation and resolves a real generated production frame back to its original

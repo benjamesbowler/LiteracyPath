@@ -176,7 +176,10 @@ test("the admin route exposes the calibration dashboard and its no-fake-evidence
     new URL("../../src/components/admin/CalibrationMonitoringPanel.jsx", import.meta.url),
     "utf8"
   );
-  assert.match(adminSource, /id: "calibration", label: "Calibration"/);
+  assert.match(
+    adminSource,
+    /id: "calibration", label: "Assessment consistency"/
+  );
   assert.match(adminSource, /activeSection === "calibration".*CalibrationMonitoringPanel/s);
   assert.match(panelSource, /Synthetic demonstration data — not real child evidence/);
   assert.match(panelSource, /Specialist review required/);

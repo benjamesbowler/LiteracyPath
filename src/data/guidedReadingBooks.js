@@ -3233,7 +3233,7 @@ export function normalizeGuidedReadingType(type = "") {
 }
 
 export function formatGuidedReadingType(type = "") {
-  return normalizeGuidedReadingType(type) === "nonfiction" ? "Non-Fiction" : "Fiction";
+  return normalizeGuidedReadingType(type) === "nonfiction" ? "Non-fiction" : "Fiction";
 }
 
 export function getGuidedReadingProgress(book = {}, record = {}) {

@@ -33,8 +33,8 @@ export const METRIC_DEFINITIONS = Object.freeze({
   accuracy: Object.freeze({
     id: "accuracy",
     label: "Accuracy",
-    counts: "Correct scored answers out of all scored answers, shown as a percentage. A high score on very few answers does not mean it is secure yet — check the status word beside it.",
-    timeWindow: "All saved answers in the selected student, class, check, or report unless a shorter period is shown.",
+    counts: "Correct scored answers out of all scored answers, shown as a percentage. A high score on very few answers does not mean it is secure yet — read the status word beside it.",
+    timeWindow: `Raw benchmark percentages use the selected assessment period. Current status words use answers from the latest ${CONCLUSION_WINDOW_DAYS} days.`,
     excludes: "Unscored answers and groups too small for a fair result."
   }),
   // This definition used to describe the Sound Seekers game's rule (4 correct,
@@ -44,22 +44,20 @@ export const METRIC_DEFINITIONS = Object.freeze({
   mastered: Object.freeze({
     id: "mastered",
     label: "Skills secured",
-    counts: "Curriculum skills where the student has passed the skill's check at least once. Each check has its own pass mark — most need 7 to 12 correct out of that check's questions. A skill is counted once however many times it is passed.",
-    timeWindow: "All saved checks, however long ago they were taken.",
-    excludes: "Practice games played on their own, and checks the student started but did not finish."
+    counts: "Curriculum skills whose recent assessment results are Secure. A skill is counted once however many recent secure results are saved.",
+    timeWindow: `Assessment results from the latest ${CONCLUSION_WINDOW_DAYS} days.`,
+    excludes: "Practice games played on their own, and assessments the student started but did not finish."
   }),
   // 2026-07-27: the next three describe the status groups in
   // SimpleOverviewReportView (src/components/reports/SimpleStudentReportViews.jsx),
-  // whose on-screen titles come from TEACHER_COPY.reports — "Needs teaching",
-  // "Practising", "Not enough yet". Nothing binds them to a <MetricFigure>, so
+  // whose on-screen titles come from TEACHER_COPY.reports — "Needs support",
+  // "Developing", "Not enough results". Nothing binds them to a <MetricFigure>, so
   // they are deliberately absent from RENDERED_METRIC_IDS and therefore from the
   // exported glossary. Bind them to those group headings and add their ids to
   // RENDERED_METRIC_IDS to put them back in exports.
   //
   // Note for whoever does that: the policy module and reportingEvidenceModel.js
   // label the same underlying status "Needs support" / "Not enough results".
-  // Two live vocabularies for one ladder is its own defect; these strings follow
-  // the surface they describe, not learningPolicy.js.
   practising: Object.freeze({
     id: "practising",
     label: "Practising",
@@ -69,10 +67,10 @@ export const METRIC_DEFINITIONS = Object.freeze({
   }),
   "needs-teaching": Object.freeze({
     id: "needs-teaching",
-    label: "Needs teaching",
-    counts: `The student got this right less than ${DEVELOPING_MINIMUM}% of the time, across at least ${ITEM_MINIMUM_ATTEMPTS} tries. This one needs teaching.`,
+    label: "Needs support",
+    counts: `The student got this right less than ${DEVELOPING_MINIMUM}% of the time, across at least ${ITEM_MINIMUM_ATTEMPTS} tries. This one needs support.`,
     timeWindow: `Their recent answers, within the last ${CONCLUSION_WINDOW_DAYS} days.`,
-    excludes: `Items with fewer than ${ITEM_MINIMUM_ATTEMPTS} tries — those show as Not enough yet, which is not a worry.`
+    excludes: `Items with fewer than ${ITEM_MINIMUM_ATTEMPTS} tries — those show as Not enough results, which is not a worry.`
   }),
   "not-enough-yet": Object.freeze({
     id: "not-enough-yet",
@@ -94,9 +92,9 @@ export const METRIC_DEFINITIONS = Object.freeze({
   "el-placement": Object.freeze({
     id: "el-placement",
     label: "Provisional placement",
-    counts: "What the student did on this benchmark check, described as it happened.",
-    timeWindow: "The most recent completed check.",
-    excludes: "There is no pass mark for this check, so we will not turn it into mastered or secure. Use it alongside what you see in class, then confirm the placement yourself."
+    counts: "What the student did on this benchmark assessment, described as it happened.",
+    timeWindow: "The most recent completed assessment.",
+    excludes: "There is no pass mark for this assessment, so we will not turn it into mastered or secure. Use it alongside what you see in class, then confirm the placement yourself."
   }),
   active: Object.freeze({
     id: "active",

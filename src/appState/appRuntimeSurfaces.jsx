@@ -143,7 +143,7 @@ export function PageErrorFallback() {
   return (
     <div className="card page-card page-stack error-boundary-fallback">
       <h2>We couldn&apos;t load this page.</h2>
-      <p>Your data is safe. Check your internet, then try again.</p>
+      <p>Your data is safe. Make sure you&apos;re online, then try again.</p>
       <button className="main-button" type="button" onClick={() => window.location.reload()}>
         Try again
       </button>
@@ -183,7 +183,7 @@ export function AssessmentErrorBoundary({ children, resetKey, returnToStudentOve
                 <p>{TEACHER_COPY.errors.checkPausedHelp}</p>
                 {import.meta.env.DEV && <p>{error.message}</p>}
                 <button className="main-button" onClick={returnToStudentOverview} type="button">
-                  Return to child overview
+                  Return to student overview
                 </button>
               </>
             )}

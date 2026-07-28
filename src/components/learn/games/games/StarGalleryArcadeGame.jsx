@@ -26,6 +26,10 @@ import {
   disposeRenderer,
   disposeObject
 } from "../shared/threeShell.js";
+import {
+  createPausableFrameTimer,
+  neutralizeArcadeInput
+} from "../shared/frameTiming.js";
 
 // PS2-style architecture note for future learners:
 // The browser is standing in for the PS2 hardware here. The JS update loop acts like the EE core
@@ -1204,7 +1208,7 @@ function createStarGalleryEngine(mount, options) {
     pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
     srgbOutput: true,
     toneMappingExposure: 1.08,
-    shadowMap: shadowMapForTier(qualityTier, "pcfsoft")
+    shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
   applyQualityTier(renderer, qualityTier, { floor: 1 });
   renderer.domElement.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;background:#050716;touch-action:none";
@@ -1215,7 +1219,13 @@ function createStarGalleryEngine(mount, options) {
 
   const scene = createScene(THREE);
   const camera = createPerspectiveCamera(THREE, { fov: 56, aspect: 16 / 9, near: 0.1, far: 220 });
-  const clock = new THREE.Clock();
+  const frameTimer = createPausableFrameTimer();
+  let elapsedTime = 0;
+  function readFrameDelta(now) {
+    const delta = frameTimer.read(now);
+    elapsedTime += delta;
+    return delta;
+  }
   const keys = { left: false, right: false, up: false, down: false, boost: false };
   const timers = new Set();
   const state = {
@@ -1289,7 +1299,7 @@ function createStarGalleryEngine(mount, options) {
     qualityTier = detectQualityTier();
     applyQualityTier(renderer, qualityTier, { floor: 1 });
     if (renderer.shadowMap) {
-      renderer.shadowMap.type = qualityTier === "high" ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
+      renderer.shadowMap.type = THREE.PCFShadowMap;
     }
     state.levelRoot?.traverse?.(node => {
       if (node.isDirectionalLight) node.castShadow = qualityTier !== "low";
@@ -1665,7 +1675,7 @@ function createStarGalleryEngine(mount, options) {
   function updateVehicle(dt) {
     if (!state.vehicle) return;
     const speedNorm = clamp(Math.abs(state.player.speed) / Math.max(1, settingsFor(state).maxSpeed), 0, 1);
-    const bounce = Math.sin(clock.elapsedTime * (7 + speedNorm * 10)) * 0.04 * speedNorm;
+    const bounce = Math.sin(elapsedTime * (7 + speedNorm * 10)) * 0.04 * speedNorm;
     const roll = -state.steerVisual * 0.22 * speedNorm;
     const pitch = -Math.sign(state.player.speed) * speedNorm * 0.035;
     state.vehicle.position.set(state.player.x, 0.04 + bounce, state.player.z);
@@ -1676,7 +1686,7 @@ function createStarGalleryEngine(mount, options) {
   }
 
   function updateScenery(dt) {
-    const t = clock.elapsedTime;
+    const t = elapsedTime;
     for (const actor of state.sceneryActors) {
       if (!actor?.userData?.motion) continue;
       const motion = actor.userData.motion;
@@ -1720,7 +1730,7 @@ function createStarGalleryEngine(mount, options) {
     if (activeTrailCount && speed > 4.2 && state.trailClock <= 0) {
       const particle = state.trailParticles[state.trailCursor % activeTrailCount];
       state.trailCursor += 1;
-      const side = Math.sin(clock.elapsedTime * 19 + state.trailCursor) * 0.34;
+      const side = Math.sin(elapsedTime * 19 + state.trailCursor) * 0.34;
       const forward = new THREE.Vector3(Math.sin(state.player.yaw), 0, Math.cos(state.player.yaw));
       const right = new THREE.Vector3(Math.cos(state.player.yaw), 0, -Math.sin(state.player.yaw));
       particle.position.set(
@@ -1728,7 +1738,7 @@ function createStarGalleryEngine(mount, options) {
         0.52,
         state.player.z - forward.z * 1.72 + right.z * side
       );
-      particle.rotation.set(clock.elapsedTime * 2.1, state.player.yaw, clock.elapsedTime * 1.7);
+      particle.rotation.set(elapsedTime * 2.1, state.player.yaw, elapsedTime * 1.7);
       particle.scale.setScalar(state.rush > 0 ? 1.55 : 1);
       particle.userData.life = state.rush > 0 ? 0.72 : 0.5;
       particle.userData.maxLife = particle.userData.life;
@@ -1778,14 +1788,14 @@ function createStarGalleryEngine(mount, options) {
       }
       token.group.position.set(
         token.home.x,
-        token.home.y + Math.sin(clock.elapsedTime * 2.1 + token.home.x) * 0.025 + Math.abs(bumpWave) * 0.38,
+        token.home.y + Math.sin(elapsedTime * 2.1 + token.home.x) * 0.025 + Math.abs(bumpWave) * 0.38,
         token.home.z
       );
       token.group.rotation.z = bumpWave * 0.22;
-      token.labelMesh.scale.copy(token.baseScale).multiplyScalar(1 + (dist < 6 ? 0.13 : Math.sin(clock.elapsedTime * 3.2) * 0.025) + token.bump * 0.2);
+      token.labelMesh.scale.copy(token.baseScale).multiplyScalar(1 + (dist < 6 ? 0.13 : Math.sin(elapsedTime * 3.2) * 0.025) + token.bump * 0.2);
       token.beacon.rotation.y += dt * 1.6;
-      token.beacon.position.y = 5.68 + Math.sin(clock.elapsedTime * 4 + token.home.x) * 0.18;
-      token.glow.intensity = (dist < 6 ? 1.75 : 0.82) + Math.sin(clock.elapsedTime * 4) * 0.12 + token.bump * 1.8;
+      token.beacon.position.y = 5.68 + Math.sin(elapsedTime * 4 + token.home.x) * 0.18;
+      token.glow.intensity = (dist < 6 ? 1.75 : 0.82) + Math.sin(elapsedTime * 4) * 0.12 + token.bump * 1.8;
     }
     // Cutting is always deliberate: Space/Enter/E, or the on-screen CUT button
     // (see tryCutNearestTree) — never a proximity accident.
@@ -1795,7 +1805,7 @@ function createStarGalleryEngine(mount, options) {
   function updateHazards(dt) {
     for (const hazard of state.hazards) {
       hazard.stun = Math.max(0, hazard.stun - dt);
-      const t = clock.elapsedTime * hazard.speed + hazard.phase;
+      const t = elapsedTime * hazard.speed + hazard.phase;
       hazard.mesh.position.set(
         hazard.cx + Math.cos(t) * hazard.rx,
         1.45 + Math.sin(t * 2.1) * 0.24,
@@ -1815,15 +1825,15 @@ function createStarGalleryEngine(mount, options) {
     const floorGlow = state.frameGroup.userData.floorGlow;
     if (beacon) {
       beacon.rotation.y += dt * 1.5;
-      beacon.position.y = 5.25 + Math.sin(clock.elapsedTime * 4) * 0.18;
-      beacon.scale.setScalar(1 + state.framePulse * 0.45 + Math.sin(clock.elapsedTime * 5) * 0.06);
+      beacon.position.y = 5.25 + Math.sin(elapsedTime * 4) * 0.18;
+      beacon.scale.setScalar(1 + state.framePulse * 0.45 + Math.sin(elapsedTime * 5) * 0.06);
     }
     if (panel?.material) {
-      panel.material.opacity = 0.42 + state.framePulse * 0.22 + Math.sin(clock.elapsedTime * 3) * 0.05;
+      panel.material.opacity = 0.42 + state.framePulse * 0.22 + Math.sin(elapsedTime * 3) * 0.05;
       panel.material.emissiveIntensity = 0.32 + state.framePulse * 0.45;
     }
     if (floorGlow) {
-      floorGlow.scale.set(1 + Math.sin(clock.elapsedTime * 6) * 0.08 + state.framePulse * 0.22, 1, 1 + state.framePulse * 0.24);
+      floorGlow.scale.set(1 + Math.sin(elapsedTime * 6) * 0.08 + state.framePulse * 0.22, 1, 1 + state.framePulse * 0.24);
     }
     state.framePulse = Math.max(0, state.framePulse - dt * 1.8);
   }
@@ -1928,14 +1938,14 @@ function createStarGalleryEngine(mount, options) {
     updateHud();
   }
 
-  function animate() {
-    update(clock.getDelta());
+  function animate(now) {
+    update(readFrameDelta(now));
     renderer.render(scene, camera);
   }
   const loop = createFrameLoop(animate);
 
   function onKeyDown(event) {
-    if (state.ended) return;
+    if (state.ended || state.paused) return;
     if (event.key === "ArrowLeft" || event.key === "a") {
       event.preventDefault();
       keys.left = true;
@@ -2034,11 +2044,13 @@ function createStarGalleryEngine(mount, options) {
     markOnboardingSeen(options.kind || "star-gallery");
     if (introEl) introEl.style.display = "none";
     window.removeEventListener("keydown", onIntroKey, true);
+    neutralizeArcadeInput(keys, state.pointer);
     state.paused = false;
-    clock.getDelta(); // discard the time spent reading, so the countdown doesn't lurch
+    frameTimer.resume(); // discard the time spent reading, so the countdown doesn't lurch
   }
   function onIntroKey(event) {
     event.preventDefault();
+    event.stopImmediatePropagation();
     dismissIntro();
   }
   if (!hasSeenOnboarding(options.kind || "star-gallery")) {
@@ -2064,12 +2076,15 @@ function createStarGalleryEngine(mount, options) {
 
   const api = {
     pause() {
+      neutralizeArcadeInput(keys, state.pointer);
       state.paused = true;
+      frameTimer.pause();
     },
     resume() {
       if (introActive) return;
+      neutralizeArcadeInput(keys, state.pointer);
       state.paused = false;
-      clock.getDelta();
+      frameTimer.resume();
     },
     destroy() {
       state.ended = true;
@@ -2111,6 +2126,12 @@ function createStarGalleryEngine(mount, options) {
         player: { ...state.player },
         gateLocked: state.gateLocked,
         nearTreeLabel: state.nearTreeLabel,
+        elapsedTime,
+        paused: state.paused,
+        input: {
+          keys: { ...keys },
+          pointer: { ...state.pointer }
+        },
         mapBounds: state.mapBounds,
         frame: state.frameGroup
           ? {

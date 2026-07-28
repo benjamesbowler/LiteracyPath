@@ -10,14 +10,14 @@ function asArray(value) {
 
 const TEACHER_HIDDEN_REPORT_FIELDS = new Set([
   "App version(s)",
-  "Check version(s)",
+  "Assessment version(s)",
   "Content version(s)",
   "Scoring version(s)"
 ]);
 
 const WORKSPACE_VIEW_LABELS = Object.freeze({
-  "whole-child": "Whole child",
-  "skills-check": "Skills check",
+  "whole-child": "Student overview",
+  "skills-check": "Skills assessment",
   "other-learning": "Other learning"
 });
 
@@ -34,10 +34,12 @@ function exportDisplayText(value = "") {
     .replace(/\bBOY\b/g, "Beginning of year")
     .replace(/\bMOY\b/g, "Middle of year")
     .replace(/\bEOY\b/g, "End of year")
-    .replace(/\bassessments?\b/gi, match => preserveLeadingCase(
+    .replace(/\bchecks?\b/gi, match => preserveLeadingCase(
       match,
-      match.toLowerCase().endsWith("s") ? "checks" : "check"
+      match.toLowerCase().endsWith("s") ? "assessments" : "assessment"
     ))
+    .replace(/\bchildren\b/gi, match => preserveLeadingCase(match, "students"))
+    .replace(/\bchild\b/gi, match => preserveLeadingCase(match, "student"))
     .replace(/\bevidence\b/gi, "results")
     .replace(/\blearners?\b/gi, match => preserveLeadingCase(
       match,
@@ -72,8 +74,8 @@ function statusLabel(value) {
     incorrect: "Needs another look",
     secure: "Secure",
     developing: "Growing",
-    needs_teaching: "Needs more practice",
-    needs_practice: "Needs more practice",
+    needs_teaching: "Needs support",
+    needs_practice: "Needs support",
     not_assessed: "Not checked",
     not_recorded: "Not recorded",
     not_started: "Not started yet"
@@ -170,12 +172,12 @@ function wholeChildRows(workspace = {}, options = {}) {
     }),
     ...asArray(report.descriptiveAssessments).map(assessment => ({
       "Section": "Summary",
-      "Row type": "Descriptive check summary",
-      "Literacy area": "EL checks",
+      "Row type": "Descriptive assessment summary",
+      "Literacy area": "EL assessments",
       "Knowledge or skill": assessment.title || assessment.label,
       "Status": "Descriptive results (not a pass rating)",
       "Interpretation": assessment.interpretation || assessment.resultLabel || "Results recorded",
-      "Result sources": "EL checks",
+      "Result sources": "EL assessments",
       "Attempts": assessment.attemptCount ?? "",
       "Results period": evidenceWindowLabel({
         windowStart: assessment.latestAt,
@@ -241,14 +243,14 @@ function skillsCheckRows(workspace = {}, options = {}) {
     const raw = attempt.raw && typeof attempt.raw === "object" ? attempt.raw : attempt;
     return {
       "Section": "Result details",
-      "Row type": "Check attempt",
+      "Row type": "Assessment attempt",
       "Skill": raw.skillName || raw.skillId || "",
       "Status": statusLabel(attempt.status || attempt.scoreStatus),
       "Attempts": 1,
       "Correct": attempt.correctCount ?? "",
       "Questions": attempt.totalQuestions ?? "",
       "Accuracy": attempt.accuracy == null ? "" : `${attempt.accuracy}%`,
-      ...evidenceTimeFields(attempt.completedAt, options, { basis: "Check completed" })
+      ...evidenceTimeFields(attempt.completedAt, options, { basis: "Assessment completed" })
     };
   });
   const questionRows = asArray(report.attempts).flatMap(attempt => {
@@ -260,7 +262,7 @@ function skillsCheckRows(workspace = {}, options = {}) {
       "Status": question.responseStatus || (question.isCorrect === true ? "correct" : question.isCorrect === false ? "incorrect" : ""),
       "Correct": question.isCorrect === true ? 1 : question.isCorrect === false ? 0 : "",
       ...evidenceTimeFields(question.timestamp || attempt.completedAt, options, {
-        basis: question.timestamp ? "Question answered" : "Check completed"
+        basis: question.timestamp ? "Question answered" : "Assessment completed"
       }),
       "Question": index + 1,
       "Prompt": question.prompt || question.question || "",
@@ -316,7 +318,7 @@ function otherLearningRows(workspace = {}, options = {}) {
 }
 
 export function buildStudentWorkspaceCsvRows(viewId, workspace = {}, options = {}) {
-  const viewLabel = WORKSPACE_VIEW_LABELS[viewId] || "Child results";
+  const viewLabel = WORKSPACE_VIEW_LABELS[viewId] || "Student results";
   const reportRows = viewId === "whole-child"
     ? wholeChildRows(workspace, options)
     : viewId === "skills-check"

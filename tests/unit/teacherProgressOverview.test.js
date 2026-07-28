@@ -256,15 +256,15 @@ test("evidence bases expose attempts, diversity, recency, confidence, and suppor
 
   assert.equal(PROGRESS_ITEM_MIN_ATTEMPTS, 3);
   assert.equal(aisha.evidence.attemptsLabel, "20 scored responses");
-  assert.equal(aisha.evidence.diversityLabel, "3 check skills");
+  assert.equal(aisha.evidence.diversityLabel, "3 assessed skills");
   assert.equal(aisha.evidence.recencyLabel, "23 Jul 2026");
   assert.match(aisha.evidence.confidenceLabel, /^Stronger results/);
   assert.equal(aisha.evidence.supportUseLabel, "0 supported of 12 recorded Sound Seekers encounters");
   assert.equal(item.policyReady, true);
-  assert.match(item.evidence.confidenceLabel, /^Limited diversity/);
+  assert.match(item.evidence.confidenceLabel, /^Enough results for this skill/);
 });
 
-test("a sparse child picker never presents a bare accuracy conclusion", () => {
+test("a sparse student picker never presents a bare accuracy conclusion", () => {
   const sparse = {
     id: "amara",
     name: "Amara",
@@ -305,7 +305,7 @@ test("a sparse child picker never presents a bare accuracy conclusion", () => {
   assert.match(html, />Open report<\/button>/);
 });
 
-test("reports route renders a compact class-and-child picker instead of class analytics", () => {
+test("reports route renders a compact class-and-student picker instead of class analytics", () => {
   const html = renderToStaticMarkup(
     React.createElement(TeacherProgressOverview, {
       className: "Audit Class A",
@@ -323,10 +323,10 @@ test("reports route renders a compact class-and-child picker instead of class an
 
   // Renamed 2026-07-26: teacher-facing copy says "student", not "child".
   assert.match(html, /aria-label="Choose report student"/);
-  assert.match(html, />Find a child</);
-  assert.match(html, /Audit Class A · 4 children/);
-  for (const child of ["Aarav", "Aisha", "Bao", "Camila"]) {
-    assert.match(html, new RegExp(`<h2>${child}</h2>`));
+  assert.match(html, />Find a student</);
+  assert.match(html, /Audit Class A · 4 students/);
+  for (const student of ["Aarav", "Aisha", "Bao", "Camila"]) {
+    assert.match(html, new RegExp(`<h2>${student}</h2>`));
   }
   assert.equal((html.match(/>Open report<\/button>/g) || []).length, 4);
   assert.doesNotMatch(html, /Class accuracy comparison|Distribution|Outliers|Averaging every answer/);

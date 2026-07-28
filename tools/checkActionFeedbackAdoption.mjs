@@ -24,7 +24,12 @@ const requiredAdoptions = [
   },
   {
     file: "src/components/FinishedReportPage.jsx",
-    required: ["kind: \"pending\"", "kind: \"success\"", "kind: \"error\"", "feedback={actionFeedback}"],
+    required: [
+      "kind: \"pending\"",
+      "kind: \"success\"",
+      "kind: \"error\"",
+      "feedback={actionFeedback || incompleteReportFeedback}"
+    ],
     forbidden: [/setExportStatus\(/]
   },
   {

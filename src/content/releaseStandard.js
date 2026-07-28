@@ -438,6 +438,13 @@ export function getAssessmentReleaseMediaRequirement(skillId = "", question = {}
       answer.audio || answer.audioUrl || answer.audioPath
     ))
   );
+  // HFW sentence tasks use text-to-speech for the whole sentence and must not
+  // be forced back onto isolated target-word audio. `disableAudio` alone is
+  // not a universal no-audio policy: grammar sentence-fit questions use it
+  // while deliberately retaining required audio on each answer tile.
+  const suppressAudioAsset = question.noAudio === true || (
+    String(skillId).startsWith("hfw_") && question.disableAudio === true
+  );
   const earlyMediaSkill = EARLY_MEDIA_SKILLS.has(skillId);
   const requiresImage = skillId === "initial_sounds" || Boolean(
     earlyMediaSkill && (
@@ -448,11 +455,13 @@ export function getAssessmentReleaseMediaRequirement(skillId = "", question = {}
       /\b(?:picture|image)\b/u.test(prompt)
     )
   );
-  const requiresAudio = ["initial_sounds", "final_sounds"].includes(skillId) || Boolean(
-    template.includes("listen") ||
-    template.includes("audio") ||
-    /\b(?:listen|hear|sound|sounds)\b/u.test(prompt) ||
-    hasAudio
+  const requiresAudio = !suppressAudioAsset && (
+    ["initial_sounds", "final_sounds"].includes(skillId) || Boolean(
+      template.includes("listen") ||
+      template.includes("audio") ||
+      /\b(?:listen|hear|sound|sounds)\b/u.test(prompt) ||
+      hasAudio
+    )
   );
   return { requiresImage, requiresAudio };
 }

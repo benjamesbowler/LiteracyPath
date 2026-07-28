@@ -1,3 +1,5 @@
+import { hfwApprovedWordsBySkill } from "./hfwApprovedCoverageWords.js";
+
 const normalizeWord = value =>
   String(value || "")
     .toLowerCase()
@@ -5,29 +7,13 @@ const normalizeWord = value =>
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 
-export const HFW_WORDS_1_25 = [
-  "the", "to", "and", "a", "i", "you", "it", "in", "said", "for",
-  "up", "look", "is", "go", "we", "little", "can", "see", "me", "my",
-  "on", "one", "big", "come", "like"
-];
-
-export const HFW_WORDS_26_50 = [
-  "down", "not", "play", "all", "are", "as", "be", "but", "came", "from",
-  "have", "he", "she", "they", "was", "with", "that", "then", "this", "what",
-  "when", "where", "will", "help", "make"
-];
-
-export const HFW_WORDS_51_75 = [
-  "after", "again", "an", "any", "around", "ask", "away", "before", "by", "could",
-  "every", "find", "fly", "found", "funny", "give", "going", "had", "has", "her",
-  "here", "him", "his", "how", "into"
-];
-
-export const HFW_WORDS_76_100 = [
-  "just", "know", "let", "live", "made", "may", "must", "new", "now", "of",
-  "old", "once", "open", "our", "out", "over", "please", "pretty", "put", "read",
-  "round", "some", "take", "thank", "yes"
-];
+// The approved workbook is the active HFW curriculum source of truth. Keep
+// every runtime, report and media lookup on that same sequence instead of
+// maintaining a second hand-written list that can silently drift.
+export const HFW_WORDS_1_25 = [...hfwApprovedWordsBySkill.hfw_1_25];
+export const HFW_WORDS_26_50 = [...hfwApprovedWordsBySkill.hfw_26_50];
+export const HFW_WORDS_51_75 = [...hfwApprovedWordsBySkill.hfw_51_75];
+export const HFW_WORDS_76_100 = [...hfwApprovedWordsBySkill.hfw_76_100];
 
 export const HFW_WORDS_51_100 = [...new Set([...HFW_WORDS_51_75, ...HFW_WORDS_76_100])];
 

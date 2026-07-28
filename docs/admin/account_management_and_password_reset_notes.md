@@ -1,77 +1,53 @@
-# Admin Account Management And Password Reset Notes
+# Admin account management and password reset
 
-## What Changed
+## Teacher account approval
 
-- New teacher signups can create in-app pending account notifications for the owner/admin.
-- Admin Dashboard now shows a New Teacher Signups panel with approve, reject, disable, and mark-reviewed controls.
-- Pending/rejected/disabled teacher accounts are blocked from teacher tools once the `pending_teacher_accounts` table is enabled.
-- Teachers can only delete students and classes that are loaded under their own `teacher_id`.
-- Password reset uses Supabase Auth reset emails and password recovery links.
+New teacher signups create a pending account record. Pending, rejected, and
+disabled accounts cannot open teacher tools or call protected teacher
+functions. An app administrator can approve or reject a request from the Admin
+Dashboard.
 
-## Supabase Table Required For Full Approval Control
+The browser never writes approval status, reviewer identity, decision time, or
+rejection metadata directly. The dashboard calls
+`admin_set_teacher_account_status`; the database then:
 
-Create this table before relying on approval gating for new accounts:
+- checks that the signed-in person is an app administrator;
+- applies only an approved, rejected, or disabled state;
+- derives `reviewed_by`, approval/rejection identities, and decision times from
+  `auth.uid()` and database time;
+- keeps account identity and request timestamps unchanged; and
+- returns the saved row so the dashboard confirms the real server result.
 
-```sql
-create table if not exists public.pending_teacher_accounts (
-  id uuid primary key default gen_random_uuid(),
-  user_id uuid not null unique references auth.users(id) on delete cascade,
-  email text not null,
-  name text,
-  status text not null default 'pending'
-    check (status in ('pending', 'approved', 'rejected', 'disabled')),
-  created_at timestamptz not null default now(),
-  reviewed_at timestamptz,
-  reviewed_by uuid references auth.users(id)
-);
+A database trigger rejects attempts to change decision fields through the
+ordinary `pending_teacher_accounts` table update route. A pending user may edit
+only their permitted profile fields while the row-level policy allows it.
+Database-owner migration and deterministic audit-seed connections remain
+supported; an authenticated or anonymous PostgREST role cannot enter that
+trusted setup path.
 
-alter table public.pending_teacher_accounts enable row level security;
-```
+Do not recreate the table or policies by hand. Apply the managed Supabase
+migrations in order. The relevant final integrity change is
+`20260728120000_security_integrity_hardening.sql`.
 
-Suggested RLS policy shape:
+## School assignment
 
-```sql
-create policy "Users can create their own pending account"
-on public.pending_teacher_accounts
-for insert
-with check (auth.uid() = user_id);
+Existing school names can be selected by an approved teacher or administrator.
+Creating a new school directory entry is bounded per account over 24 hours.
+Pending accounts cannot call the public create-or-find function. The trusted
+signup trigger uses a separate private helper so a valid first signup can still
+record its requested school before approval.
 
-create policy "Users can read their own pending account"
-on public.pending_teacher_accounts
-for select
-using (auth.uid() = user_id);
+The frontend uses only the Supabase anonymous/public client. Never put a
+service-role key in the browser bundle.
 
-create policy "Admins can manage pending teacher accounts"
-on public.pending_teacher_accounts
-for all
-using (
-  exists (
-    select 1
-    from public.app_admins
-    where app_admins.user_id = auth.uid()
-  )
-)
-with check (
-  exists (
-    select 1
-    from public.app_admins
-    where app_admins.user_id = auth.uid()
-  )
-);
-```
+## Password reset
 
-The frontend intentionally uses only the Supabase anon client. Do not add service-role keys to the app bundle.
+The login screen’s **Forgot password** action asks Supabase Auth to send a
+recovery email back to the deployed app origin. When Supabase returns a password
+recovery session, the app shows the new-password form and saves the replacement
+through Supabase Auth.
 
-## Current Admin Safety Behavior
-
-- The existing app owner/admin remains approved through `app_admins`.
-- If `pending_teacher_accounts` is not present yet, existing non-admin accounts fall back to `legacy_approved` so the live app is not accidentally locked out during rollout.
-- Once the table exists and a signup row is created, `pending`, `rejected`, and `disabled` users are blocked before teacher tools load.
-
-## Future Email Notification
-
-The current implementation adds an in-app Admin Dashboard notification. A future Supabase Edge Function can send owner email notifications on insert into `pending_teacher_accounts`. That Edge Function may use service-role credentials server-side only.
-
-## Password Reset
-
-The login screen exposes Forgot password. It calls `supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin })`. When Supabase returns a password recovery session, the app shows the reset password form and calls `supabase.auth.updateUser({ password })`.
+Before a production launch, verify the deployed origin and recovery redirect in
+the Supabase Auth settings. Test the complete email link journey with a
+non-production teacher account; a successful API call alone does not prove that
+the mail and redirect configuration works.

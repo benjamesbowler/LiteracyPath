@@ -3,9 +3,11 @@ import { useMemo, useState } from "react";
 import {
   buildSimpleHfwRows,
   buildSimpleOverview,
-  buildSimpleSkillsRows
+  buildSimpleSkillsRows,
+  countSimpleRowsWithSavedResults
 } from "../../data/simpleStudentReports.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
+import { teacherReportText } from "./teacherReportCopy.jsx";
 
 const BAND_MARKS = Object.freeze({
   unseen: "—",
@@ -14,21 +16,36 @@ const BAND_MARKS = Object.freeze({
   green: "✓"
 });
 
-function AccuracyLegend() {
+function displayLearningStatus(value = "") {
+  if (["Yet to learn", "Not checked", "Not assessed"].includes(value)) {
+    return "Not checked";
+  }
+  if (value === "Not enough yet") return "Not enough results";
+  if (value === "Practising") return "Developing";
+  return teacherReportText(value);
+}
+
+function ReportKey() {
   return (
-    <div className="simple-report-legend" aria-label="Learning status colour key">
-      <span className="green">Green · Secure</span>
-      <span className="orange">Orange · Practising</span>
-      <span className="red">Red · Needs teaching</span>
-      <span className="unseen">Grey · Not enough yet</span>
+    <div className="simple-report-legend" aria-label="Learning status key">
+      <strong>Learning status</strong>
+      <span className="green">Secure</span>
+      <span className="orange">Developing</span>
+      <span className="red">Needs support</span>
+      <span className="unseen">Not enough results or not checked</span>
+      <small>Answer accuracy is shown separately when enough scored answers are available.</small>
     </div>
   );
 }
 
 function AccuracyTile({ row }) {
-  const scoreLabel = row.attempts > 0 && row.accuracy !== null
-    ? `${Math.round(row.accuracy)}% accuracy`
-    : "Not seen yet";
+  const scoreLabel = row.attempts > 0
+    ? row.accuracy !== null
+      ? `${Math.round(row.accuracy)}% accuracy`
+      : "Not enough results"
+    : row.hasAnyResults
+      ? "No current results"
+      : "Not checked";
   return (
     <article
       className={`simple-report-tile ${row.band}`}
@@ -38,48 +55,91 @@ function AccuracyTile({ row }) {
         <strong>{row.displayLabel}</strong>
         <span aria-hidden="true">{BAND_MARKS[row.band]}</span>
       </div>
-      <p>{row.sentence}</p>
+      <p>{teacherReportText(row.sentence)}</p>
+      {row.historySentence ? (
+        <p className="simple-report-history">{teacherReportText(row.historySentence)}</p>
+      ) : null}
       <footer>
-        <span>{scoreLabel}</span>
-        <small>Learning status: {row.statusLabel}</small>
+        <span><strong>Answer accuracy:</strong> {scoreLabel}</span>
+        <small><strong>Learning status:</strong> {displayLearningStatus(row.statusLabel)}</small>
         {row.whyNotSecure ? (
-          <small className="simple-report-tile-why">{row.whyNotSecure}</small>
+          <small className="simple-report-tile-why">{teacherReportText(row.whyNotSecure)}</small>
         ) : null}
       </footer>
     </article>
   );
 }
 
-function EmptySimpleReport({ children }) {
+function EmptySimpleReport({ actionLabel = "", children, onAction }) {
   return (
     <section className="simple-report-empty">
       <h2>No results yet</h2>
       <p>{children}</p>
+      {onAction && actionLabel && (
+        <button className="lp-button lp-button-primary" type="button" onClick={onAction}>
+          {actionLabel}
+        </button>
+      )}
     </section>
   );
 }
 
-function SimpleResultCollection({ rows, seenLabel, unseenLabel }) {
-  const seenRows = rows.filter(row => row.attempts > 0);
-  const unseenRows = rows.filter(row => row.attempts === 0);
+function SimpleResultCollection({
+  rows,
+  seenLabel,
+  unseenLabel,
+  previewSize = 24
+}) {
+  const [showAllSeen, setShowAllSeen] = useState(false);
+  const [showAllUnseen, setShowAllUnseen] = useState(false);
+  const seenRows = rows.filter(row => row.hasAnyResults);
+  const unseenRows = rows.filter(row => !row.hasAnyResults);
+  const visibleSeenRows = showAllSeen ? seenRows : seenRows.slice(0, previewSize);
+  const visibleUnseenRows = showAllUnseen ? unseenRows : unseenRows.slice(0, previewSize);
   return (
     <>
       {seenRows.length ? (
-        <section className="simple-report-grid" aria-label={seenLabel}>
-          {seenRows.map(row => <AccuracyTile key={row.id} row={row} />)}
-        </section>
+        <>
+          <section className="simple-report-grid" aria-label={seenLabel}>
+            {visibleSeenRows.map(row => <AccuracyTile key={row.id} row={row} />)}
+          </section>
+          {seenRows.length > previewSize && (
+            <button
+              className="text-button simple-report-show-all"
+              type="button"
+              aria-expanded={showAllSeen}
+              onClick={() => setShowAllSeen(value => !value)}
+            >
+              {showAllSeen
+                ? TEACHER_COPY.common.showFewer
+                : TEACHER_COPY.common.showAll(seenRows.length)}
+            </button>
+          )}
+        </>
       ) : (
         <section className="simple-report-empty compact">
           <h2>{TEACHER_COPY.reports.noSavedResults}</h2>
-          <p>{TEACHER_COPY.reports.unseenHelp}</p>
+          <p>{teacherReportText(TEACHER_COPY.reports.unseenHelp)}</p>
         </section>
       )}
       {unseenRows.length > 0 && (
         <details className="simple-report-unseen">
           <summary>{unseenLabel} ({unseenRows.length})</summary>
           <section className="simple-report-grid" aria-label={unseenLabel}>
-            {unseenRows.map(row => <AccuracyTile key={row.id} row={row} />)}
+            {visibleUnseenRows.map(row => <AccuracyTile key={row.id} row={row} />)}
           </section>
+          {unseenRows.length > previewSize && (
+            <button
+              className="text-button simple-report-show-all"
+              type="button"
+              aria-expanded={showAllUnseen}
+              onClick={() => setShowAllUnseen(value => !value)}
+            >
+              {showAllUnseen
+                ? TEACHER_COPY.common.showFewer
+                : TEACHER_COPY.common.showAll(unseenRows.length)}
+            </button>
+          )}
         </details>
       )}
     </>
@@ -94,10 +154,15 @@ const OVERVIEW_PREVIEW_SIZE = 5;
 // old flat list of 107 unreadable.
 function OverviewGroup({ group }) {
   const [expanded, setExpanded] = useState(false);
+  const [isOpen, setIsOpen] = useState(Boolean(group.defaultOpen));
   const visibleRows = expanded ? group.rows : group.rows.slice(0, OVERVIEW_PREVIEW_SIZE);
   const hiddenCount = group.rows.length - visibleRows.length;
   return (
-    <details className={`simple-report-group ${group.id}`} open={group.defaultOpen}>
+    <details
+      className={`simple-report-group ${group.id}`}
+      open={isOpen}
+      onToggle={event => setIsOpen(event.currentTarget.open)}
+    >
       <summary>{group.title} ({group.rows.length})</summary>
       <p className="simple-report-group-description">{group.description}</p>
       {group.rows.length ? (
@@ -125,7 +190,11 @@ function OverviewGroup({ group }) {
   );
 }
 
-export function SimpleOverviewReportView({ workspace = {}, studentName = "This student" }) {
+export function SimpleOverviewReportView({
+  workspace = {},
+  studentName = "This student",
+  onStartAssessment
+}) {
   const overview = useMemo(
     () => buildSimpleOverview(workspace, studentName),
     [studentName, workspace]
@@ -133,43 +202,50 @@ export function SimpleOverviewReportView({ workspace = {}, studentName = "This s
   const groups = [
     {
       id: "needs-teaching",
-      title: TEACHER_COPY.reports.needsTeachingTitle,
-      description: TEACHER_COPY.reports.needsTeachingDescription,
+      title: teacherReportText(TEACHER_COPY.reports.needsTeachingTitle),
+      description: teacherReportText(TEACHER_COPY.reports.needsTeachingDescription),
       rows: overview.needsTeaching,
       defaultOpen: true
     },
     {
       id: "practising",
-      title: TEACHER_COPY.reports.practisingTitle,
-      description: TEACHER_COPY.reports.practisingDescription,
+      title: teacherReportText(TEACHER_COPY.reports.practisingTitle),
+      description: teacherReportText(TEACHER_COPY.reports.practisingDescription),
       rows: overview.practising,
       defaultOpen: false
     },
     {
       id: "mastered",
-      title: TEACHER_COPY.reports.masteredTitle,
-      description: TEACHER_COPY.reports.masteredDescription,
+      title: teacherReportText(TEACHER_COPY.reports.masteredTitle),
+      description: teacherReportText(TEACHER_COPY.reports.masteredDescription),
       rows: overview.mastered,
       defaultOpen: false
     },
     {
       id: "not-enough-yet",
-      title: TEACHER_COPY.reports.notEnoughYetTitle,
-      description: TEACHER_COPY.reports.notEnoughYetDescription,
+      title: teacherReportText(TEACHER_COPY.reports.notEnoughYetTitle),
+      description: teacherReportText(TEACHER_COPY.reports.notEnoughYetDescription),
       rows: overview.notEnoughYet,
       defaultOpen: false
     },
     {
       id: "yet-to-learn",
-      title: TEACHER_COPY.reports.yetToLearnTitle,
-      description: TEACHER_COPY.reports.yetToLearnDescription,
+      title: teacherReportText(TEACHER_COPY.reports.yetToLearnTitle),
+      description: teacherReportText(TEACHER_COPY.reports.yetToLearnDescription),
       rows: overview.yetToLearn,
       defaultOpen: false
     }
   ];
   const descriptiveAssessments = workspace.wholeChild?.descriptiveAssessments || [];
   if (!overview.totalCount) {
-    return <EmptySimpleReport>Complete a check to begin this report.</EmptySimpleReport>;
+    return (
+      <EmptySimpleReport
+        actionLabel="Start an assessment"
+        onAction={onStartAssessment}
+      >
+        Complete an assessment to begin this report.
+      </EmptySimpleReport>
+    );
   }
   return (
     <div className="simple-report-stack">
@@ -183,23 +259,23 @@ export function SimpleOverviewReportView({ workspace = {}, studentName = "This s
         ))}
       </section>
       <p className="simple-report-intro">
-        {TEACHER_COPY.reports.overviewReconcile(overview.checkedCount, overview.totalCount)}
+        {teacherReportText(TEACHER_COPY.reports.overviewReconcile(overview.checkedCount, overview.totalCount))}
       </p>
-      <AccuracyLegend />
+      <ReportKey />
       <section className="simple-report-groups">
         {groups.map(group => <OverviewGroup group={group} key={group.id} />)}
       </section>
       {descriptiveAssessments.length > 0 && (
-        <section className="simple-report-descriptive-el" aria-label="Descriptive EL check results">
+        <section className="simple-report-descriptive-el" aria-label="Descriptive EL assessment results">
           <header>
-            <h2>Descriptive EL check results</h2>
-            <p>{TEACHER_COPY.reports.descriptiveElHelp}</p>
+            <h2>Descriptive EL assessment results</h2>
+            <p>{teacherReportText(TEACHER_COPY.reports.descriptiveElHelp)}</p>
           </header>
           <ul>
             {descriptiveAssessments.map(assessment => (
               <li key={assessment.assessmentId || assessment.id || assessment.title}>
                 <strong>{assessment.title || assessment.label}</strong>
-                <span>{assessment.resultLabel || "Result recorded"}</span>
+                <span>{teacherReportText(assessment.resultLabel || "Result recorded")}</span>
               </li>
             ))}
           </ul>
@@ -209,20 +285,31 @@ export function SimpleOverviewReportView({ workspace = {}, studentName = "This s
   );
 }
 
-export function SimpleSkillsReportView({ workspace = {}, studentName = "This student" }) {
+export function SimpleSkillsReportView({
+  workspace = {},
+  studentName = "This student",
+  onStartAssessment
+}) {
   const rows = useMemo(
     () => buildSimpleSkillsRows(workspace, studentName),
     [studentName, workspace]
   );
-  const seenRows = rows.filter(row => row.attempts > 0);
+  const savedResultCount = countSimpleRowsWithSavedResults(rows);
   if (!rows.length) {
-    return <EmptySimpleReport>Complete a Skills check to add skill results.</EmptySimpleReport>;
+    return (
+      <EmptySimpleReport
+        actionLabel="Start a skills assessment"
+        onAction={onStartAssessment}
+      >
+        Complete a skills assessment to add skill results.
+      </EmptySimpleReport>
+    );
   }
   return (
     <div className="simple-report-stack">
-      <AccuracyLegend />
+      <ReportKey />
       <p className="simple-report-intro">
-        {TEACHER_COPY.reports.skillsIntro(seenRows.length, rows.length)}
+        {teacherReportText(TEACHER_COPY.reports.skillsIntro(savedResultCount, rows.length))}
       </p>
       <SimpleResultCollection
         rows={rows}
@@ -233,23 +320,69 @@ export function SimpleSkillsReportView({ workspace = {}, studentName = "This stu
   );
 }
 
-export function SimpleHfwReportView({ workspace = {}, studentName = "This student" }) {
+export function SimpleHfwReportView({
+  workspace = {},
+  studentName = "This student",
+  onStartAssessment
+}) {
   const rows = useMemo(
     () => buildSimpleHfwRows(workspace, studentName),
     [studentName, workspace]
   );
-  const seenRows = rows.filter(row => row.attempts > 0);
+  const savedResultCount = countSimpleRowsWithSavedResults(rows);
+  const constructLabels = {
+    isolated_word_reading: "Reading words on their own",
+    word_in_context: "Choosing words in a sentence",
+    word_spelling: "Spelling words in a sentence"
+  };
+  const constructOrder = [
+    "isolated_word_reading",
+    "word_in_context",
+    "word_spelling"
+  ];
+  const groups = constructOrder
+    .map(construct => ({
+      construct,
+      title: constructLabels[construct],
+      rows: rows.filter(row => row.construct === construct)
+    }))
+    .filter(group => group.rows.length > 0);
   return (
     <div className="simple-report-stack">
-      <AccuracyLegend />
+      <ReportKey />
       <p className="simple-report-intro">
-        {TEACHER_COPY.reports.hfwIntro(seenRows.length)}
+        {teacherReportText(TEACHER_COPY.reports.hfwIntro(savedResultCount, rows.length))}
       </p>
-      <SimpleResultCollection
-        rows={rows}
-        seenLabel={TEACHER_COPY.reports.hfwWithResults}
-        unseenLabel={TEACHER_COPY.reports.hfwNotSeen}
-      />
+      <section className="simple-report-hfw-groups" aria-label="High-frequency word results by task">
+        {groups.map(group => (
+          <details
+            className="simple-report-hfw-group"
+            key={group.construct}
+            open={group.rows.some(row => row.hasAnyResults)}
+          >
+            <summary>
+              {group.title}
+              {" · "}
+              {group.rows.filter(row => row.hasAnyResults).length} of {group.rows.length} checked
+            </summary>
+            <SimpleResultCollection
+              rows={group.rows}
+              seenLabel={`${group.title}: ${TEACHER_COPY.reports.hfwWithResults}`}
+              unseenLabel={`${group.title}: ${TEACHER_COPY.reports.hfwNotSeen}`}
+              previewSize={12}
+            />
+          </details>
+        ))}
+      </section>
+      {savedResultCount === 0 && onStartAssessment && (
+        <button
+          className="lp-button lp-button-primary simple-report-start-action"
+          type="button"
+          onClick={onStartAssessment}
+        >
+          Start an assessment
+        </button>
+      )}
     </div>
   );
 }

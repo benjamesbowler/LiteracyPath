@@ -11,7 +11,7 @@ async function logIn(page) {
   await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
   await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });
@@ -22,20 +22,12 @@ async function openAaravReport(page) {
     .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
-  const rosterAdmin = page.locator(".teacher-roster-admin");
-  if (!await rosterAdmin.evaluate(element => element.open)) {
-    await rosterAdmin.locator(":scope > summary").click();
-  }
   const aaravRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open student", exact: true }).click();
-  await page.getByRole("region", { name: "Student details: Aarav" })
-    .getByRole("button", { name: "Review Aarav’s progress", exact: true })
+  await aaravRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
+  await page.getByRole("dialog", { name: "Student details: Aarav" })
+    .getByRole("button", { name: "Open report", exact: true })
     .click();
-  const aaravReport = page.getByRole("article").filter({
-    has: page.getByRole("heading", { name: "Aarav", exact: true })
-  });
-  await aaravReport.getByRole("button", { name: "Open report", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Overview", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Summary", exact: true })).toBeVisible({
     timeout: 20_000
   });
 }
@@ -49,14 +41,26 @@ test("@report-audience-templates keeps Aarav's reachable report brief and audien
   // 2026-07-26: teacher copy no longer says "child" or "has been exposed to" — the
   // report nav is "Student reports" and tiles read "Aarav answered X 4 times".
   const reportNav = page.getByRole("navigation", { name: "Student reports" });
-  await expect(reportNav.getByRole("link")).toHaveCount(4);
-  for (const view of ["Overview", "Skills", "HFW / sight words", "EL formal report"]) {
-    await expect(reportNav.getByRole("link", {
-      name: new RegExp(`^${view.replace("/", "\\/")}`)
-    })).toBeVisible();
+  const reportLinks = reportNav.getByRole("link");
+  const primaryViews = ["Summary", "Skills", "High-frequency words", "EL assessments"];
+  if (await reportLinks.count()) {
+    await expect(reportLinks).toHaveCount(4);
+    for (const view of primaryViews) {
+      await expect(reportNav.getByRole("link", {
+        name: new RegExp(`^${view.replace("/", "\\/")}`)
+      })).toBeVisible();
+    }
+    await reportNav.getByRole("link", { name: /^Skills/ }).click();
+  } else {
+    const reportSelect = reportNav.getByRole("combobox", { name: "Choose a report" });
+    await expect(reportSelect).toBeVisible();
+    for (const view of primaryViews) {
+      await expect(reportSelect.locator("option", { hasText: view })).toHaveCount(1);
+    }
+    await reportSelect.selectOption("skills-check");
   }
 
-  await reportNav.getByRole("link", { name: /^Skills/ }).click();
+  await expect(page.getByRole("heading", { name: "Skills", exact: true })).toBeVisible();
   const firstTile = page.locator(".simple-report-tile").first();
   await expect(firstTile).toContainText(/Aarav answered/i);
   await expect(firstTile).toContainText(/correct answer/i);

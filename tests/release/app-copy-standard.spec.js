@@ -4,7 +4,7 @@ import { expect, test } from "@playwright/test";
 // reasoning as `students?` before it — teachers say "assessments", and banning the word
 // forced the funnel to be labelled "Checks" against the name he asked for. It stays
 // banned for CHILD copy, where a five-year-old should never see it.
-const TEACHER_BANNED = /\b(?:evidence|learning event|telemetry|sync health|policy-ready|learner-weighted|response-weighted|cumulative|roster administration|access activity|drill down|provenance|contract|scope|baseline|BOY|MOY|EOY|learners?|checkpoints?|logins?)\b|(?<!privacy )\bpolicy\b/i;
+const TEACHER_BANNED = /\b(?:children?|checks?|evidence|learning event|telemetry|sync health|policy-ready|learner-weighted|response-weighted|cumulative|roster administration|access activity|drill down|provenance|contract|scope|baseline|BOY|MOY|EOY|learners?|checkpoints?|logins?)\b|(?<!privacy )\bpolicy\b/i;
 const CHILD_BANNED = /\b(?:assessments?|evidence|learners?|students?|checkpoints?|wrong|failed|incorrect|needs teaching|not[-_ ]assessed)\b/i;
 const RAW_TOKEN = /\b(?:level-[a-z]|[a-z0-9]+(?:_[a-z0-9]+){1,})\b/i;
 const FRACTION = /\b\d+\s*\/\s*\d+\b/;

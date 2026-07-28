@@ -6,10 +6,17 @@ export function storyQuestProgressStorageKey(progressScopeKey = "default") {
   return `${STORY_QUEST_PROGRESS_STORAGE_KEY}.${encodeURIComponent(progressScopeKey || "default")}`;
 }
 
+export function isStoryQuestTeacherPreviewScope(progressScopeKey = "") {
+  return String(progressScopeKey || "").startsWith("teacher-preview:");
+}
+
 export function loadStoryQuestProgress(progressScopeKey = "default") {
   if (typeof window === "undefined") return {};
   try {
-    return JSON.parse(window.localStorage.getItem(storyQuestProgressStorageKey(progressScopeKey)) || "{}");
+    const parsed = JSON.parse(
+      window.localStorage.getItem(storyQuestProgressStorageKey(progressScopeKey)) || "{}"
+    );
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
   } catch {
     return {};
   }
@@ -57,6 +64,62 @@ export function getStoryQuestWords(row = {}) {
   }
 
   return [];
+}
+
+export function buildStoryQuestResumeHistory({
+  currentPageId = "",
+  progress = {},
+  validPageIds = []
+} = {}) {
+  const validPages = new Set(validPageIds);
+  const route = Array.isArray(progress?.visitedPageIds)
+    ? progress.visitedPageIds
+      .map(pageId => String(pageId || ""))
+      .filter((pageId, index, values) => (
+        pageId
+        && pageId !== currentPageId
+        && validPages.has(pageId)
+        && values.indexOf(pageId) === index
+      ))
+    : [];
+
+  return route;
+}
+
+export function mergeStoryQuestProgressRow(
+  previous = {},
+  patch = {},
+  updatedAt = new Date().toISOString()
+) {
+  const previousWords = Array.isArray(previous?.wordsFound) ? previous.wordsFound : [];
+  const patchWords = Array.isArray(patch?.wordsFound) ? patch.wordsFound : [];
+  const wordsFound = Array.from(new Set(
+    [...previousWords, ...patchWords]
+      .map(word => String(word || "").trim().toLowerCase())
+      .filter(Boolean)
+  ));
+  const visitedPageCount = Math.max(
+    Number(previous?.visitedPageCount) || 0,
+    Number(patch?.visitedPageCount) || 0
+  );
+
+  return {
+    ...previous,
+    ...patch,
+    ...(previousWords.length || patchWords.length ? {
+      wordsFound,
+      wordsFoundCount: Math.max(
+        wordsFound.length,
+        Number(previous?.wordsFoundCount) || 0,
+        Number(patch?.wordsFoundCount) || 0
+      )
+    } : {}),
+    ...(visitedPageCount > 0 ? { visitedPageCount } : {}),
+    completed: Boolean(previous?.completed || patch?.completed),
+    completedAt: patch?.completedAt || previous?.completedAt || "",
+    opened: true,
+    updatedAt
+  };
 }
 
 export function summarizeStoryQuestProgress(progress = {}, quests = []) {

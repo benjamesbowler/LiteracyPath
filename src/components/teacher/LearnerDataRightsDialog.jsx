@@ -5,6 +5,8 @@ import {
   DATA_RIGHTS_RESPONSE_TARGET_DAYS,
   DATA_RIGHTS_VERIFICATION_METHODS,
   LEARNER_DELETION_CONFIRMATION,
+  buildLearnerLocalCleanupProof,
+  completeLearnerDeletion,
   deleteLearnerData,
   downloadLearnerDataPackage,
   exportLearnerData,
@@ -14,6 +16,8 @@ import {
 } from "../../data/learnerDataRights.js";
 import { describeRosterOperationError } from "../../data/teacherRosterOperations.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
+import { clearLocalElAssessmentDataForStudent } from "../../utils/elAssessmentReset.js";
+import { clearAndVerifyLocalProgressForStudent } from "../../utils/progressSync.js";
 import { TeacherModal } from "./ui/TeacherDialog.jsx";
 
 export function LearnerDataRightsDialog({
@@ -26,6 +30,7 @@ export function LearnerDataRightsDialog({
   const [requesterRole, setRequesterRole] = useState("");
   const [verificationMethod, setVerificationMethod] = useState("");
   const [preparedRequest, setPreparedRequest] = useState(null);
+  const [databaseDeletion, setDatabaseDeletion] = useState(null);
   const [confirmation, setConfirmation] = useState("");
   const [busy, setBusy] = useState("");
   const [status, setStatus] = useState("");
@@ -125,8 +130,8 @@ export function LearnerDataRightsDialog({
     } catch (error) {
       console.error(`Learner deletion request failed for ${learner.id}:`, error);
       setError(error?.code === "PGRST202"
-        ? "We couldn't check the request. This site's database is missing a pending update. Nothing is lost. Ask whoever manages the database to apply the pending updates, then try again."
-        : "We couldn't check the request. Nothing is lost. Try again.");
+        ? "We couldn't review the request because this part of the privacy process is not ready yet. Nothing was changed. Ask your school's Literacy Guide administrator to finish the setup, then try again."
+        : "We couldn't review the request. Nothing is lost. Try again.");
     } finally {
       setBusy("");
     }
@@ -136,34 +141,90 @@ export function LearnerDataRightsDialog({
     setBusy("delete");
     setError("");
     setStatus("");
-    let result;
+    let databaseResult = databaseDeletion;
     try {
-      result = await deleteLearnerData({
-        client,
-        studentId: learner.id,
-        preparedRequest,
-        confirmation
-      });
+      if (!databaseResult) {
+        databaseResult = await deleteLearnerData({
+          client,
+          studentId: learner.id,
+          preparedRequest,
+          confirmation,
+          studentName: learner.name,
+          accountId: learner.teacher_id || ""
+        });
+        setDatabaseDeletion(databaseResult);
+      }
     } catch (error) {
       console.error(`Learner deletion failed for ${learner.id}:`, error);
-      setError(describeRosterOperationError(error, {
-        operation: "delete",
-        studentName: learner.name
-      }));
+      setError(error?.code === "LP_DELETION_MARKER_UNAVAILABLE"
+        ? "Permanent deletion cannot start because this browser is not allowing Literacy Guide to save the recovery step. Allow site data for Literacy Guide, then try again."
+        : error?.code === "PGRST202"
+          ? "Permanent deletion is not ready on this site yet. Nothing was changed. Ask your school's Literacy Guide administrator to finish the setup, then try again."
+          : describeRosterOperationError(error, {
+              operation: "delete",
+              studentName: learner.name
+            }));
       setBusy("");
       return;
     }
 
-    // The deletion has happened and cannot be undone. Everything below is
-    // refreshing the screen, so a failure here must never be reported as
-    // "Nothing has changed" — that sentence used to overwrite a completed,
-    // irreversible delete whenever the roster reload threw.
-    setStatus("The student's data has been deleted.");
+    // The database phase is irreversible, but the privacy request deliberately
+    // remains in progress until this browser proves its local caches and retry
+    // queues are clear.
+    setStatus("The student's online data has been deleted. Checking this device…");
+    let result;
+    try {
+      const progressCleanup = await clearAndVerifyLocalProgressForStudent(learner.id);
+      const evidenceCleanup = await clearLocalElAssessmentDataForStudent({
+        teacherId: learner.teacher_id || "",
+        studentId: learner.id,
+        studentName: learner.name
+      });
+      const localCleanupProof = buildLearnerLocalCleanupProof({
+        preparedRequest,
+        studentId: learner.id,
+        progressCleanup,
+        evidenceCleanup
+      });
+      result = await completeLearnerDeletion({
+        client,
+        preparedRequest,
+        localCleanupProof
+      });
+      setHistory(previous => previous.map(request => (
+        request.id === preparedRequest.requestId
+          ? {
+              ...request,
+              status: "completed",
+              completedAt: result.completedAt,
+              events: [
+                ...(request.events || []),
+                {
+                  eventType: "deletion_completed",
+                  eventAt: result.completedAt
+                }
+              ]
+            }
+          : request
+      )));
+    } catch (error) {
+      console.error("Learner deletion local cleanup or completion failed:", error);
+      setError(
+        "The student's online data was deleted, but Literacy Guide could not finish clearing saved copies on this device. "
+        + "The privacy request is still open. Allow site data, then choose Finish cleanup again."
+      );
+      setBusy("");
+      return;
+    }
+
+    setStatus("The student's online data and saved copies on this device have been deleted.");
     try {
       await onDeleted?.(learner, result);
     } catch (error) {
-      console.error("Roster refresh after deletion failed:", error);
-      setError("The data was deleted. We could not refresh this screen afterwards — reload the page to see the class as it is now.");
+      console.error("Roster refresh after completed deletion failed:", error);
+      setError(
+        "The data was deleted and the privacy request is complete, but this screen could not refresh. Reload the page to see the current class."
+      );
     } finally {
       setBusy("");
     }
@@ -215,7 +276,7 @@ export function LearnerDataRightsDialog({
         <section className="teacher-data-rights-action">
           <h3>{TEACHER_COPY.privacy.exportTitle}</h3>
           <p>{TEACHER_COPY.privacy.exportBody}</p>
-          <p className="muted-text">Sign-in tokens and device identifiers are excluded.</p>
+          <p className="muted-text">The download does not include class sign-in codes or technical device details.</p>
           <button
             className="lp-button lp-button-secondary"
             type="button"
@@ -229,7 +290,7 @@ export function LearnerDataRightsDialog({
         <section className="teacher-data-rights-action teacher-data-rights-delete">
           <h3>{TEACHER_COPY.privacy.deleteTitle}</h3>
           <p>{TEACHER_COPY.privacy.deleteBody}</p>
-          <p className="muted-text">Only a minimal audit record of the request remains.</p>
+          <p className="muted-text">No student work, results or profile details remain after deletion.</p>
           {!preparedRequest ? (
             <button
               className="lp-button lp-button-danger-outline"
@@ -237,7 +298,7 @@ export function LearnerDataRightsDialog({
               disabled={!verificationComplete || Boolean(busy)}
               onClick={handlePrepareDeletion}
             >
-              {busy === "prepare" ? "Checking request…" : TEACHER_COPY.privacy.prepareDelete}
+              {busy === "prepare" ? "Reviewing request…" : TEACHER_COPY.privacy.prepareDelete}
             </button>
           ) : (
             <div className="page-stack">
@@ -262,13 +323,15 @@ export function LearnerDataRightsDialog({
                 disabled={confirmation !== LEARNER_DELETION_CONFIRMATION || Boolean(busy)}
                 onClick={handleDelete}
               >
-                {busy === "delete" ? "Deleting…" : TEACHER_COPY.privacy.deleteAction}
+                {busy === "delete"
+                  ? databaseDeletion ? "Finishing deletion…" : "Deleting…"
+                  : databaseDeletion ? "Finish cleanup" : TEACHER_COPY.privacy.deleteAction}
               </button>
             </div>
           )}
         </section>
 
-        <section className="teacher-data-rights-history" aria-label="Data-rights request history">
+        <section className="teacher-data-rights-history" aria-label="Privacy request history">
           <h3>{TEACHER_COPY.privacy.trackingTitle}</h3>
           {historyState === "loading" ? (
             <p role="status">{TEACHER_COPY.privacy.trackingLoading}</p>
@@ -294,7 +357,7 @@ export function LearnerDataRightsDialog({
               {history.map(request => (
                 <li key={request.id}>
                   <strong>
-                    {request.requestType === "access_export" ? "Access export" : "Deletion"}
+                    {request.requestType === "access_export" ? "Data download" : "Deletion"}
                   </strong>
                   <span>
                     {request.status === "completed" ? "Completed" : "In progress"}

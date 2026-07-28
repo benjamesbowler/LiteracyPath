@@ -2,6 +2,7 @@ import { ReportSkeleton, ReportState } from "./StudentReportShell.jsx";
 import { reportStatusLabel } from "./studentReportUiUtils.js";
 import { MetricFigure } from "../MetricDefinition.jsx";
 import { progressPhrase } from "../../copy/teacherCopy.js";
+import { teacherReportText } from "./teacherReportCopy.jsx";
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
@@ -20,7 +21,7 @@ function statusClass(value = "") {
 }
 
 export function ReportStatus({ value }) {
-  const label = reportStatusLabel(value);
+  const label = teacherReportText(reportStatusLabel(value));
   return <span className={`lg-report-status ${statusClass(value)}`}>{label}</span>;
 }
 
@@ -31,7 +32,7 @@ export function ReportMetricStrip({ metrics = [] }) {
     <section className="lg-report-metrics" aria-label="Report summary">
       {rows.map(metric => (
         <article key={metric.label}>
-          <span>{metric.label}</span>
+          <span>{teacherReportText(metric.label)}</span>
           <strong>
             {metric.definitionId
               ? (
@@ -39,12 +40,12 @@ export function ReportMetricStrip({ metrics = [] }) {
                   metricId={metric.definitionId}
                   {...(metric.definitionOptions || {})}
                 >
-                  {metric.value ?? "Not checked"}
+                  {teacherReportText(metric.value ?? "Not checked")}
                 </MetricFigure>
               )
-              : metric.value ?? "Not checked"}
+              : teacherReportText(metric.value ?? "Not checked")}
           </strong>
-          {metric.detail && <small>{metric.detail}</small>}
+          {metric.detail && <small>{teacherReportText(metric.detail)}</small>}
         </article>
       ))}
     </section>
@@ -163,7 +164,7 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
                       ) : "No marked words"}
                     </dd>
                   </div>
-                  <div><dt>Comprehension check</dt><dd>{book.quizTotal ? progressPhrase(book.quizScore, book.quizTotal) : "Not recorded"}</dd></div>
+                  <div><dt>Comprehension assessment</dt><dd>{book.quizTotal ? progressPhrase(book.quizScore, book.quizTotal) : "Not recorded"}</dd></div>
                 </dl>
                 {asArray(book.correctWords).length > 0 && (
                   <div><h4>Read correctly in this book</h4><p>{book.correctWords.join(", ")}</p></div>
@@ -198,7 +199,7 @@ export function GuidedReadingReportView({ error = "", loading = false, onRetry, 
       </ReportSection>
 
       <div className="lg-report-two-column">
-        <ReportSection description="These words were read correctly in connected text. This does not automatically mean mastered in isolation." title="Words read correctly">
+        <ReportSection description="These words were read correctly in connected text. This does not automatically mean they are secure in isolation." title="Words read correctly">
           {uniqueCorrectWords.length ? (
             <div className="lg-report-word-list">
               {uniqueCorrectWords.map((row, index) => (
@@ -265,7 +266,7 @@ export function OtherLearningReportView({ report = {} }) {
 
   return (
     <div className="lg-report-view-stack">
-      <p className="lg-report-practice-note">Practice results support teacher judgment but are not formal check results.</p>
+      <p className="lg-report-practice-note">Practice results support teacher judgment but are not formal assessment results.</p>
 
       <ReportSection description="Independent sound results collected during the trail." title="Sound Seekers">
         {soundGroups.some(([, rows]) => rows.length) ? (
@@ -293,7 +294,7 @@ export function OtherLearningReportView({ report = {} }) {
       </ReportSection>
 
       <div className="lg-report-two-column">
-        <ReportSection description="Games and broad skills practised. Scores and stars do not prove mastery." title="Arcade">
+        <ReportSection description="Games and broad skills practised. Scores and stars do not prove that learning is secure." title="Arcade">
           {gameRows.length ? (
             <div className="lg-report-practice-list">
               {gameRows.map((game, index) => (

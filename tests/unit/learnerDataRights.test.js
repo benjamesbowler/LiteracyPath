@@ -2,10 +2,15 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  DATA_RIGHTS_REQUESTER_ROLES,
+  LEARNER_LOCAL_CLEANUP_PROOF_STORES,
   LEARNER_DELETION_CONFIRMATION,
+  buildLearnerLocalCleanupProof,
   buildLearnerDataDownload,
+  completeLearnerDeletion,
   deleteLearnerData,
   exportLearnerData,
+  isValidLearnerLocalCleanupProof,
   isLearnerDataRightsVerificationComplete,
   loadLearnerDataRightsHistory,
   prepareLearnerDeletion
@@ -13,6 +18,30 @@ import {
 
 const studentId = "40000000-0000-4000-8000-000000000099";
 const subjectRef = "a".repeat(64);
+
+function verifiedCleanupResults() {
+  return {
+    progressCleanup: {
+      storageAvailable: true,
+      residualCount: 0,
+      residuals: []
+    },
+    evidenceCleanup: {
+      storageAvailable: true,
+      residualCount: 0,
+      storesChecked: LEARNER_LOCAL_CLEANUP_PROOF_STORES
+        .filter(store => store !== "progress")
+    }
+  };
+}
+
+test("privacy requester options use teacher-facing student language", () => {
+  assert.equal(
+    DATA_RIGHTS_REQUESTER_ROLES.find(option => option.value === "learner")?.label,
+    "Student through the school"
+  );
+  assert.ok(DATA_RIGHTS_REQUESTER_ROLES.every(option => !/\blearner\b/i.test(option.label)));
+});
 
 test("verified privacy actions do not depend on request-history availability", () => {
   assert.equal(isLearnerDataRightsVerificationComplete({
@@ -80,6 +109,18 @@ test("deletion must be prepared and confirmed exactly before the destructive RPC
           error: null
         };
       }
+      if (name === "teacher_delete_learner_data_staged") {
+        return {
+          data: {
+            requestId: "request-delete",
+            subjectRef,
+            status: "awaiting_local_cleanup",
+            residualManagedRecords: 0,
+            deletedCounts: { answers: 2 }
+          },
+          error: null
+        };
+      }
       return {
         data: {
           requestId: "request-delete",
@@ -109,17 +150,89 @@ test("deletion must be prepared and confirmed exactly before the destructive RPC
     /Type DELETE LEARNER DATA exactly/
   );
 
-  const result = await deleteLearnerData({
+  const staged = await deleteLearnerData({
     client,
     studentId,
     preparedRequest,
     confirmation: LEARNER_DELETION_CONFIRMATION
   });
+  assert.equal(staged.status, "awaiting_local_cleanup");
+  const localCleanupProof = buildLearnerLocalCleanupProof({
+    preparedRequest,
+    studentId,
+    ...verifiedCleanupResults(),
+    checkedAt: "2026-07-25T12:05:00.000Z"
+  });
+  const result = await completeLearnerDeletion({
+    client,
+    preparedRequest,
+    localCleanupProof
+  });
   assert.equal(result.residualManagedRecords, 0);
   assert.deepEqual(calls.map(([name]) => name), [
     "teacher_prepare_learner_deletion",
-    "teacher_delete_learner_data"
+    "teacher_delete_learner_data_staged",
+    "teacher_complete_learner_deletion"
   ]);
+  assert.deepEqual(calls.at(-1)[1], {
+    p_request_id: "request-delete",
+    p_subject_ref: subjectRef,
+    p_cleanup_proof: localCleanupProof
+  });
+});
+
+test("deletion completion refuses an attestation that was not built from every verified local store", async () => {
+  let called = false;
+  const client = {
+    async call() {
+      called = true;
+      return { data: {}, error: null };
+    }
+  };
+  const preparedRequest = { requestId: "request-delete", subjectRef };
+
+  await assert.rejects(
+    completeLearnerDeletion({ client, preparedRequest }),
+    error => error?.code === "LP_LOCAL_CLEANUP_PROOF_REQUIRED"
+  );
+  assert.equal(called, false);
+
+  assert.throws(
+    () => buildLearnerLocalCleanupProof({
+      preparedRequest,
+      studentId,
+      progressCleanup: {
+        storageAvailable: true,
+        residualCount: 0,
+        residuals: []
+      },
+      evidenceCleanup: {
+        storageAvailable: true,
+        residualCount: 0,
+        storesChecked: ["assessment_attempts"]
+      }
+    }),
+    error => error?.code === "LP_LOCAL_CLEANUP_INCOMPLETE"
+  );
+});
+
+test("exact local cleanup evidence produces a subject-bound, all-store proof", () => {
+  const preparedRequest = { requestId: "request-delete", subjectRef };
+  const proof = buildLearnerLocalCleanupProof({
+    preparedRequest,
+    studentId,
+    ...verifiedCleanupResults(),
+    checkedAt: "2026-07-25T12:05:00.000Z"
+  });
+
+  assert.equal(isValidLearnerLocalCleanupProof(proof, {
+    preparedRequest,
+    studentId
+  }), true);
+  assert.deepEqual(proof.storesChecked, LEARNER_LOCAL_CLEANUP_PROOF_STORES);
+  assert.equal(proof.residualCount, 0);
+  assert.equal(proof.storageAvailable, true);
+  assert.equal(Object.isFrozen(proof), true);
 });
 
 test("deletion rejects a backend response that cannot prove zero residual records", async () => {

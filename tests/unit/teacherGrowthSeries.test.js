@@ -270,5 +270,5 @@ test("missing source evidence stays empty instead of becoming a flat zero trend"
   assert.equal(model.attemptCount, 0);
   assert.equal(model.markers.length, 0);
   assert.ok(model.series.every(series => series.points.length === 0));
-  assert.ok(model.series.every(series => series.current === "No evidence"));
+  assert.ok(model.series.every(series => series.current === "No results"));
 });

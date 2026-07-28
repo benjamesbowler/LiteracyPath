@@ -103,7 +103,7 @@ test("saved criteria preserve the exact transparent source and policy", () => {
     kind: "shared-exact-reteaching-evidence",
     label: "m re-teaching",
     basis: "Shared Sound Seekers re-teaching evidence",
-    policy: "Each learner has at least three independent attempts on the same exact item and a current re-teaching signal."
+    policy: "These students recently needed the same item taught again."
   });
   assert.equal(criterionFromSuggestion({ id: "", label: "", basis: "" }), null);
 });

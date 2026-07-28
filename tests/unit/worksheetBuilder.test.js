@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   worksheetCycleOptions,
+  worksheetCycleLabel,
   availableWorksheetTypes,
   getWorksheetCycle,
   buildWorksheetDocument
@@ -14,6 +15,18 @@ test("cycle options are the numbered cycles", () => {
   const opts = worksheetCycleOptions();
   assert.ok(opts.length >= 27);
   assert.ok(opts.every(o => o.id && o.cycleNumber && o.title));
+});
+
+test("cycle labels never repeat the generated cycle prefix", () => {
+  assert.equal(
+    worksheetCycleLabel({ cycleNumber: 1, title: "Cycle 1: Meet A and M" }),
+    "Cycle 1: Meet A and M"
+  );
+  assert.equal(worksheetCycleLabel({ cycleNumber: 2, title: "Cycle 2" }), "Cycle 2");
+  assert.equal(worksheetCycleLabel({ cycleNumber: 8, title: "B and W" }), "Cycle 8: B and W");
+  assert.ok(worksheetCycleOptions().every(option => (
+    !/^Cycle \d+\s*[—-]\s*Cycle \d+/i.test(worksheetCycleLabel(option))
+  )));
 });
 
 test("available types match the cycle's content", () => {

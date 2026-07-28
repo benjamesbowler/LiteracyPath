@@ -40,150 +40,108 @@ test.after(async () => {
   await vite?.close();
 });
 
-test("state catalog is an exact five-surface by eight-state matrix", () => {
+test("catalog contains only state combinations reached by production teacher pages", () => {
   assert.deepEqual(
     TEACHER_SURFACE_IDS,
     ["today", "classes", "assess", "progress", "resources"]
   );
   assert.deepEqual(
     TEACHER_SURFACE_STATE_IDS,
+    ["loading", "empty", "partial"]
+  );
+  assert.deepEqual(
+    TEACHER_SURFACE_STATE_FIXTURES.map(fixture => fixture.id),
     [
-      "loading",
-      "empty",
-      "partial",
-      "offline",
-      "denied",
-      "conflict",
-      "expired",
-      "retry-success"
+      "today:loading",
+      "today:partial",
+      "classes:loading",
+      "classes:empty",
+      "classes:partial",
+      "assess:loading",
+      "assess:empty",
+      "assess:partial",
+      "progress:loading",
+      "progress:partial",
+      "resources:loading",
+      "resources:partial"
     ]
   );
-  assert.equal(TEACHER_SURFACE_STATE_FIXTURES.length, 40);
-  assert.equal(
-    new Set(TEACHER_SURFACE_STATE_FIXTURES.map(fixture => fixture.id)).size,
-    40
-  );
 });
 
-for (const surface of TEACHER_SURFACE_IDS) {
-  for (const state of TEACHER_SURFACE_STATE_IDS) {
-    test(`${surface}/${state} fixture has specific accessible recovery content`, () => {
-      const content = getTeacherSurfaceState(surface, state);
-      // Handlers are supplied because a recovery action is only rendered when it
-      // can actually do something. See the dead-button test below.
-      const html = renderToStaticMarkup(
-        React.createElement(TeacherSurfaceState, {
-          surface,
-          state,
-          onPrimaryAction: () => {},
-          onSecondaryAction: () => {}
-        })
-      );
+for (const fixture of TEACHER_SURFACE_STATE_FIXTURES) {
+  test(`${fixture.id} has specific accessible recovery content`, () => {
+    const html = renderToStaticMarkup(
+      React.createElement(TeacherSurfaceState, {
+        surface: fixture.surfaceId,
+        state: fixture.stateId,
+        onPrimaryAction: () => {}
+      })
+    );
 
-      assert.match(html, new RegExp(`data-teacher-surface="${surface}"`));
-      assert.match(html, new RegExp(`data-teacher-state="${state}"`));
-      assert.ok(
-        html.includes(escapeRenderedText(content.title)),
-        `${content.id} title is rendered`
-      );
-      assert.ok(
-        html.includes(escapeRenderedText(content.body)),
-        `${content.id} body is rendered`
-      );
-      assert.ok(!/something went wrong|please refresh/i.test(html));
+    assert.match(html, new RegExp(`data-teacher-surface="${fixture.surfaceId}"`));
+    assert.match(html, new RegExp(`data-teacher-state="${fixture.stateId}"`));
+    assert.ok(html.includes(escapeRenderedText(fixture.title)));
+    assert.ok(html.includes(escapeRenderedText(fixture.body)));
+    assert.ok(!/something went wrong|please refresh/i.test(html));
+    assert.match(html, /role="status"/);
+    assert.match(html, /aria-live="polite"/);
 
-      if (["denied", "conflict", "expired"].includes(state)) {
-        assert.match(html, /role="alert"/);
-        assert.match(html, /aria-live="assertive"/);
-      } else {
-        assert.match(html, /role="status"/);
-        assert.match(html, /aria-live="polite"/);
-      }
+    if (fixture.stateId === "loading") {
+      assert.match(html, /aria-busy="true"/);
+      assert.doesNotMatch(html, /<button/);
+      return;
+    }
 
-      if (state === "loading") {
-        assert.match(html, /aria-busy="true"/);
-        assert.doesNotMatch(html, /<button/);
-      } else {
-        assert.doesNotMatch(html, /aria-busy="true"/);
-        assert.ok(content.primaryLabel);
-        assert.ok(html.includes(escapeRenderedText(content.primaryLabel)));
-      }
-
-      if (["partial", "offline", "conflict", "expired"].includes(state)) {
-        assert.ok(content.preserved);
-        assert.match(html, /What stays safe:/);
-      }
-
-      if (state === "retry-success") {
-        assert.match(content.marker, /up to date/i);
-        assert.match(content.primaryLabel, /continue/i);
-      }
-    });
-  }
+    assert.doesNotMatch(html, /aria-busy="true"/);
+    assert.ok(fixture.primaryLabel);
+    assert.ok(html.includes(escapeRenderedText(fixture.primaryLabel)));
+    if (fixture.stateId === "partial") {
+      assert.ok(fixture.preserved);
+      assert.match(html, /What stays safe:/);
+    }
+  });
 }
 
-test("a recovery action is never rendered without a handler behind it", () => {
-  for (const surface of TEACHER_SURFACE_IDS) {
-    for (const state of TEACHER_SURFACE_STATE_IDS) {
-      const content = getTeacherSurfaceState(surface, state);
-      const noHandlers = renderToStaticMarkup(
-        React.createElement(TeacherSurfaceState, { surface, state })
-      );
-      assert.doesNotMatch(
-        noHandlers,
-        /<button/,
-        `${content.id} must not offer a button that does nothing`
-      );
-
-      if (!content.primaryLabel) continue;
-
-      const primaryOnly = renderToStaticMarkup(
-        React.createElement(TeacherSurfaceState, {
-          surface,
-          state,
-          onPrimaryAction: () => {}
-        })
-      );
-      assert.equal(
-        (primaryOnly.match(/<button/g) || []).length,
-        1,
-        `${content.id} renders only the action it was given a handler for`
-      );
-      assert.ok(primaryOnly.includes(escapeRenderedText(content.primaryLabel)));
-      if (content.secondaryLabel) {
-        assert.ok(!primaryOnly.includes(escapeRenderedText(content.secondaryLabel)));
-      }
-    }
+test("a recovery action is never rendered without a handler", () => {
+  for (const fixture of TEACHER_SURFACE_STATE_FIXTURES) {
+    const html = renderToStaticMarkup(
+      React.createElement(TeacherSurfaceState, {
+        surface: fixture.surfaceId,
+        state: fixture.stateId
+      })
+    );
+    assert.doesNotMatch(html, /<button/);
   }
 });
 
-test("storybook-style fixture sheet renders every matrix cell once", () => {
+test("fixture sheet renders every production combination once", () => {
   const html = renderToStaticMarkup(
     React.createElement(TeacherSurfaceStateFixtureSheet)
   );
 
-  assert.equal((html.match(/data-teacher-surface=/g) || []).length, 40);
-  assert.equal((html.match(/data-teacher-state=/g) || []).length, 40);
-  assert.match(html, /Five surfaces × eight recoverable states/);
-
-  // The design sheet still shows every recovery action, because it supplies its
-  // own handlers rather than relying on labels alone.
+  assert.equal(
+    (html.match(/data-teacher-surface=/g) || []).length,
+    TEACHER_SURFACE_STATE_FIXTURES.length
+  );
+  assert.match(html, /Production teacher read states/);
   for (const fixture of TEACHER_SURFACE_STATE_FIXTURES) {
-    if (!fixture.primaryLabel) continue;
-    assert.ok(
-      html.includes(escapeRenderedText(fixture.primaryLabel)),
-      `${fixture.id} action is visible on the fixture sheet`
-    );
+    if (fixture.primaryLabel) {
+      assert.ok(html.includes(escapeRenderedText(fixture.primaryLabel)));
+    }
   }
 });
 
-test("unknown surface-state combinations fail closed", () => {
+test("unsupported and invented combinations fail closed", () => {
   assert.throws(
-    () => getTeacherSurfaceState("unknown", "offline"),
+    () => getTeacherSurfaceState("unknown", "loading"),
     /Unknown teacher surface state/
   );
   assert.throws(
-    () => getTeacherSurfaceState("today", "unknown"),
+    () => getTeacherSurfaceState("today", "empty"),
+    /Unknown teacher surface state/
+  );
+  assert.throws(
+    () => getTeacherSurfaceState("today", "conflict"),
     /Unknown teacher surface state/
   );
 });

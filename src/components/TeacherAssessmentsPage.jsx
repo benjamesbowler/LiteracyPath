@@ -20,7 +20,12 @@ import {
 import { useElBenchmarkStartPoint } from "./assessment/elBenchmarkStartPoint.js";
 import { ElPrerequisiteReview } from "./assessment/ELAssessmentsPage.jsx";
 import { TeacherFunnelStep } from "./TeacherFunnelStep.jsx";
+import { ConfirmActionDialog } from "./teacher/TeacherAdminDialogs.jsx";
+import { TeacherFunnelStudentPicker } from "./teacher/TeacherFunnelStudentPicker.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
+import { getClassListReadView } from "../appState/classListReadState.js";
+import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
+import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 
 // ── ONE PAGE, ONE PATH ──────────────────────────────────────────────────────
 //
@@ -44,21 +49,33 @@ function studentDisplayRows(rows = [], fallback = []) {
 
 export function TeacherAssessmentsPage({
   classList = [],
+  classListReadState = null,
+  teacherId,
   selectedClassId = "",
   className = "",
   onSelectClass,
   onOpenClasses,
   studentRows = [],
+  classDashboardReadState = null,
   studentList = [],
+  studentListReadState = null,
   loadingClasses = false,
   loadingStudents = false,
+  onRetryClasses,
+  onRetryStudents,
+  onRetryClassDashboard,
   selectedStudentId = "",
   selectedStudentName = "",
   onSelectStudent,
   onClearStudent,
+  studentEvidenceReady = true,
+  studentEvidenceReadState = { syncStatus: "complete" },
+  onRetryStudentEvidence,
   firstUnsecuredSkillIndex = 0,
   assessmentHistory = [],
   elBenchmarkDraft = null,
+  letterAssessmentDraft = null,
+  phonicsPatternAssessmentDraft = null,
   onResumeDraft,
   onDiscardDraft,
   onStartSkillCheck,
@@ -90,6 +107,11 @@ export function TeacherAssessmentsPage({
   });
   const [awaitingReason, setAwaitingReason] = useState(false);
   const [editingStep, setEditingStep] = useState(0);
+  const [studentSearch, setStudentSearch] = useState("");
+  const [studentPage, setStudentPage] = useState(1);
+  const [discardDraftConfirmOpen, setDiscardDraftConfirmOpen] = useState(false);
+  const [discardDraftBusy, setDiscardDraftBusy] = useState(false);
+  const [discardDraftError, setDiscardDraftError] = useState("");
 
   const classHeadingRef = useRef(null);
   const studentHeadingRef = useRef(null);
@@ -97,19 +119,66 @@ export function TeacherAssessmentsPage({
   const startPointHeadingRef = useRef(null);
   const unlockedStepRef = useRef(0);
 
+  const classRead = getClassListReadView({
+    readState: classListReadState,
+    teacherId,
+    legacyLoading: loadingClasses
+  });
+  const visibleClassList = classRead.rowsVerified ? classList : [];
+  const rosterRead = getStudentRosterReadView({
+    readState: studentListReadState,
+    classId: selectedClassId,
+    legacyLoading: loadingStudents
+  });
+  const dashboardRead = getClassDashboardReadView({
+    readState: classDashboardReadState,
+    classId: selectedClassId
+  });
   const rows = useMemo(
-    () => studentDisplayRows(studentRows, studentList),
-    [studentRows, studentList]
+    () => {
+      const verifiedRosterRows = rosterRead.rowsBelongToClass ? studentList : [];
+      const verifiedDashboardRows = dashboardRead.rowsBelongToClass
+        ? studentRows.filter(row => (
+          !classDashboardReadState?.status
+          || String(row?.classId || "") === String(selectedClassId || "")
+        ))
+        : [];
+      return studentDisplayRows(
+        dashboardRead.complete ? verifiedDashboardRows : [],
+        verifiedRosterRows
+      );
+    },
+    [
+      classDashboardReadState?.status,
+      dashboardRead.complete,
+      dashboardRead.rowsBelongToClass,
+      rosterRead.rowsBelongToClass,
+      selectedClassId,
+      studentList,
+      studentRows
+    ]
   );
   const entry = getAssessmentCatalogEntry(checkId);
-  const hasClass = Boolean(selectedClassId);
-  const hasStudent = Boolean(selectedStudentId);
+  const hasClass = Boolean(
+    classRead.complete
+    && selectedClassId
+    && visibleClassList.some(row => row.id === selectedClassId)
+  );
+  const hasStudent = Boolean(
+    rosterRead.complete
+    && selectedStudentId
+    && rows.some(row => row.id === selectedStudentId)
+  );
+  const evidenceSyncStatus = String(studentEvidenceReadState?.syncStatus || "not_recorded");
+  const evidenceLoading = hasStudent && evidenceSyncStatus === "loading";
+  const studentEvidenceAvailable = hasStudent
+    && studentEvidenceReady === true
+    && evidenceSyncStatus === "complete";
   // "No classes" is a conclusion, not a starting assumption. On a fresh sign-in
   // the class fetch is still running and no class is selected yet, so the old
   // "empty list plus a selected class" guess left an established teacher reading
   // "Make your class first". The real loading flag settles it.
-  const classesLoading = loadingClasses
-    || (classList.length === 0 && Boolean(selectedClassId));
+  const classesLoading = classRead.loading;
 
   const elStartPoint = useElBenchmarkStartPoint({
     assessmentHistory,
@@ -146,6 +215,29 @@ export function TeacherAssessmentsPage({
   const startPointReady = entry ? isStartPointSatisfied(entry, selection) : false;
   const draftBlocksStart = Boolean(elBenchmarkDraft)
     && entry?.starter === ASSESSMENT_STARTERS.EL_BENCHMARK;
+  const manualDrafts = [
+    letterAssessmentDraft
+      ? {
+          ...letterAssessmentDraft,
+          starter: ASSESSMENT_STARTERS.LETTER_CHECK,
+          label: "letter name and sound assessment",
+          itemLabel: "letters",
+          onResume: onStartLetterCheck
+        }
+      : null,
+    phonicsPatternAssessmentDraft
+      ? {
+          ...phonicsPatternAssessmentDraft,
+          starter: ASSESSMENT_STARTERS.PHONICS_PATTERN_CHECK,
+          label: "phonics pattern assessment",
+          itemLabel: "patterns",
+          onResume: onStartPhonicsPatternCheck
+        }
+      : null
+  ].filter(Boolean);
+  const selectedManualDraft = manualDrafts.find(
+    draft => draft.starter === entry?.starter
+  ) || null;
 
   // Keep the URL honest on every answer, so a refresh lands exactly here.
   useEffect(() => {
@@ -160,7 +252,9 @@ export function TeacherAssessmentsPage({
     });
   }, [band, bandChosenByTeacher, checkId, entry, grade, needsBand, skillIndex, timeOfYear]);
 
-  const openStep = editingStep || (!hasClass ? 1 : !hasStudent ? 2 : !entry ? 3 : 4);
+  const openStep = editingStep || (
+    !hasClass ? 1 : !hasStudent ? 2 : !studentEvidenceAvailable || !entry ? 3 : 4
+  );
 
   // Focus the heading of a step as it unlocks. Without this a teacher using a
   // keyboard answers step 2 and is left at the bottom of a list with no idea
@@ -181,6 +275,8 @@ export function TeacherAssessmentsPage({
     setBandChosenByTeacher(false);
     setAwaitingReason(false);
     setEditingStep(0);
+    setStudentSearch("");
+    setStudentPage(1);
     onSelectClass?.(nextClassId || null);
   }
 
@@ -191,6 +287,7 @@ export function TeacherAssessmentsPage({
     setBandChosenByTeacher(false);
     setAwaitingReason(false);
     setEditingStep(0);
+    setStudentPage(1);
     onSelectStudent?.(row.id, row.name);
   }
 
@@ -204,7 +301,7 @@ export function TeacherAssessmentsPage({
   }
 
   function begin(reasonText = "") {
-    if (!entry || !startPointReady) return;
+    if (!entry || !startPointReady || !studentEvidenceAvailable) return;
     setAwaitingReason(false);
     switch (entry.starter) {
       case ASSESSMENT_STARTERS.SKILL_CHECK:
@@ -231,29 +328,66 @@ export function TeacherAssessmentsPage({
     begin();
   }
 
+  async function confirmDiscardDraft() {
+    if (discardDraftBusy) return;
+    setDiscardDraftBusy(true);
+    setDiscardDraftError("");
+    try {
+      const discarded = await onDiscardDraft?.();
+      if (discarded === true) {
+        setDiscardDraftConfirmOpen(false);
+        return;
+      }
+      setDiscardDraftError(
+        "We couldn't clear the unfinished assessment. It is still available, so no work was lost. Try again."
+      );
+    } catch (error) {
+      console.error("Could not clear unfinished EL assessment.", error);
+      setDiscardDraftError(
+        "We couldn't clear the unfinished assessment. It is still available, so no work was lost. Try again."
+      );
+    } finally {
+      setDiscardDraftBusy(false);
+    }
+  }
+
   const classAnswer = hasClass ? (className || "Class chosen") : "";
   const studentAnswer = hasStudent ? selectedStudentName : "";
-  const checkAnswer = entry ? entry.label : "";
-  const startPointAnswer = entry && startPointReady
+  const checkAnswer = entry && studentEvidenceAvailable
+    ? selectedManualDraft
+      ? `${entry.label} · ${selectedManualDraft.completedItems} of ${selectedManualDraft.plannedItems} saved`
+      : entry.label
+    : "";
+  const startPointAnswer = entry && startPointReady && studentEvidenceAvailable
     ? describeStartPointSelection(entry, selection)
     : "";
 
   return (
-    <div className="teacher-product-page teacher-funnel-page" data-teacher-funnel="checks">
+    <>
+    <main className="teacher-product-page teacher-funnel-page" data-teacher-funnel="checks">
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Assessments</p>
           <h2>Start an assessment</h2>
           <p>
-            Four questions, top to bottom. Every answer stays on screen and can be changed;
-            changing one clears the answers below it.
+            Choose a class, student and assessment. Your choices stay visible, so you can
+            review the details before you begin.
           </p>
         </div>
       </section>
 
       {classesLoading ? (
         <TeacherSurfaceState surface="assess" state="loading" />
-      ) : classList.length === 0 ? (
+      ) : classRead.failed ? (
+        <TeacherSurfaceState
+          surface="assess"
+          state="partial"
+          detail={classRead.truncated
+            ? "The full class list reached its safety limit. No missing class is being treated as absent."
+            : "The class list could not be confirmed. No class or student has been treated as missing."}
+          onPrimaryAction={onRetryClasses}
+        />
+      ) : visibleClassList.length === 0 ? (
         <TeacherSurfaceState
           surface="assess"
           state="empty"
@@ -278,7 +412,7 @@ export function TeacherAssessmentsPage({
                 value={selectedClassId || ""}
               >
                 <option value="">Choose a class</option>
-                {classList.map(row => (
+                {visibleClassList.map(row => (
                   <option key={row.id} value={row.id}>{row.name}</option>
                 ))}
               </select>
@@ -298,33 +432,67 @@ export function TeacherAssessmentsPage({
             ref={studentHeadingRef}
             title="Choose a student"
           >
-            {loadingStudents ? (
+            {rosterRead.loading ? (
               <p className="teacher-funnel-step-help">Getting the class list…</p>
+            ) : rosterRead.incomplete ? (
+              <div className="teacher-funnel-empty" role="alert">
+                <p className="teacher-funnel-step-help">
+                  {rosterRead.truncated
+                    ? "The full student list reached its safety limit. No student is being treated as absent."
+                    : "The student list could not be confirmed. No empty-class conclusion is being shown."}
+                </p>
+                {onRetryStudents && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    onClick={() => onRetryStudents(selectedClassId)}
+                    type="button"
+                  >
+                    Try loading students again
+                  </button>
+                )}
+              </div>
             ) : rows.length === 0 ? (
               <p className="teacher-funnel-step-help">
                 No students in this class yet. Add them under Students, then come back.
               </p>
             ) : (
-              <ul className="teacher-funnel-options" aria-label="Students in this class">
-                {rows.map(row => (
-                  <li key={row.id}>
-                    <button
-                      aria-pressed={row.id === selectedStudentId}
-                      className="teacher-funnel-option"
-                      onClick={() => chooseStudent(row)}
-                      type="button"
-                    >
-                      <strong>{row.name}</strong>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+              <TeacherFunnelStudentPicker
+                onChoose={chooseStudent}
+                onPageChange={setStudentPage}
+                onSearchChange={value => {
+                  setStudentSearch(value);
+                  setStudentPage(1);
+                }}
+                page={studentPage}
+                rows={rows}
+                search={studentSearch}
+                selectedStudentId={selectedStudentId}
+              />
+            )}
+            {rosterRead.complete && dashboardRead.failed && (
+              <div className="teacher-funnel-empty" role="alert">
+                <p className="teacher-funnel-step-help">
+                  Class progress summaries could not be confirmed. Student names are current,
+                  but no earlier class figure is being reused.
+                </p>
+                {onRetryClassDashboard && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    onClick={() => onRetryClassDashboard(selectedClassId)}
+                    type="button"
+                  >
+                    Try loading class progress again
+                  </button>
+                )}
+              </div>
             )}
           </TeacherFunnelStep>
 
           <TeacherFunnelStep
             answer={checkAnswer}
-            help="Pick by what you want to find out."
+            help={studentEvidenceAvailable
+              ? "Pick by what you want to find out."
+              : "Saved results must finish loading before an assessment can start."}
             lockedReason={hasStudent ? "" : "Choose a student first."}
             number={3}
             onChange={() => setEditingStep(3)}
@@ -332,54 +500,135 @@ export function TeacherAssessmentsPage({
             ref={checkHeadingRef}
             title="Choose an assessment"
           >
+            {!studentEvidenceAvailable ? (
+              <div
+                aria-busy={evidenceLoading ? "true" : "false"}
+                className="teacher-funnel-evidence-state"
+                role={evidenceLoading ? "status" : "alert"}
+              >
+                <p>
+                  {evidenceLoading
+                    ? `Getting ${selectedStudentName || "this student"}’s saved results…`
+                    : `We couldn't load all of ${selectedStudentName || "this student"}’s saved results. Nothing is being counted as zero. Try again before starting an assessment.`}
+                </p>
+                {!evidenceLoading && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    onClick={onRetryStudentEvidence}
+                    type="button"
+                  >
+                    Try again
+                  </button>
+                )}
+              </div>
+            ) : (
+              <>
             {elBenchmarkDraft && (
               <div className="teacher-funnel-draft" role="status">
                 <div>
                   <strong>{selectedStudentName} has an unfinished assessment saved on this device.</strong>
-                  <small>Finish or clear it before starting one of the four spoken-sound, spelling, word reading or reading fluency checks.</small>
+                  <small>Finish or clear it before starting one of the four spoken-sound, spelling, word reading or reading fluency assessments.</small>
                 </div>
                 <div className="teacher-action-list">
                   <button className="lp-button lp-button-primary" onClick={onResumeDraft} type="button">
                     Carry on with it
                   </button>
-                  <button className="lp-button lp-button-secondary" onClick={onDiscardDraft} type="button">
-                    Clear it
+                  <button
+                    className="lp-button lp-button-secondary"
+                    onClick={() => {
+                      setDiscardDraftError("");
+                      setDiscardDraftConfirmOpen(true);
+                    }}
+                    type="button"
+                  >
+                    Clear saved draft…
                   </button>
                 </div>
               </div>
             )}
-            <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Assessments you can start">
-              {CATALOG.map(row => (
-                <li key={row.id}>
+            {manualDrafts.map(draft => (
+              <div
+                className="teacher-funnel-draft"
+                key={draft.starter}
+                role="status"
+              >
+                <div>
+                  <strong>
+                    {selectedStudentName} has an unfinished {draft.label}.
+                  </strong>
+                  <small>
+                    {draft.completedItems} of {draft.plannedItems} {draft.itemLabel} saved.
+                    {" "}
+                    Carrying on uses the same assessment record.
+                  </small>
+                </div>
+                <div className="teacher-action-list">
                   <button
-                    aria-pressed={row.id === checkId}
-                    className="teacher-funnel-option"
-                    onClick={() => chooseCheck(row.id)}
+                    className="lp-button lp-button-primary"
+                    onClick={draft.onResume}
                     type="button"
                   >
-                    <strong>{row.label}</strong>
-                    <span>{row.description}</span>
-                    <small>{formatEstimatedMinutes(row)} · {row.administration}</small>
+                    Resume {draft.label}
                   </button>
-                </li>
+                </div>
+              </div>
+            ))}
+            <div className="teacher-assessment-groups">
+              {[
+                {
+                  id: "quick",
+                  title: "Everyday assessments",
+                  help: "Use these to decide what to teach or practise next.",
+                  rows: CATALOG.filter(row => row.starter !== ASSESSMENT_STARTERS.EL_BENCHMARK)
+                },
+                {
+                  id: "el",
+                  title: "EL assessments",
+                  help: "Use these when you need a standalone assessment record for the school file.",
+                  rows: CATALOG.filter(row => row.starter === ASSESSMENT_STARTERS.EL_BENCHMARK)
+                }
+              ].map(group => (
+                <section className="teacher-assessment-group" key={group.id}>
+                  <header>
+                    <h4>{group.title}</h4>
+                    <p>{group.help}</p>
+                  </header>
+                  <ul
+                    className="teacher-funnel-options teacher-funnel-cards"
+                    aria-label={group.title}
+                  >
+                    {group.rows.map(row => (
+                      <li key={row.id}>
+                        <button
+                          aria-pressed={row.id === checkId}
+                          className="teacher-funnel-option"
+                          onClick={() => chooseCheck(row.id)}
+                          type="button"
+                        >
+                          <strong>{row.label}</strong>
+                          <span>{row.description}</span>
+                          <small>{formatEstimatedMinutes(row)} · {row.administration}</small>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
               ))}
-            </ul>
+            </div>
+              </>
+            )}
           </TeacherFunnelStep>
 
           <TeacherFunnelStep
             help={entry?.startPoint.help || ""}
-            lockedReason={entry ? "" : "Choose an assessment first."}
+            lockedReason={!studentEvidenceAvailable
+              ? "Wait for the student's saved results before choosing a starting point."
+              : entry ? "" : "Choose an assessment first."}
             number={4}
             open={openStep === 4}
             ref={startPointHeadingRef}
             title={entry?.startPoint.label || "Choose a starting point"}
           >
-            {entry?.startPoint.kind === ASSESSMENT_START_POINT_KINDS.NONE && (
-              <p className="teacher-funnel-step-help">
-                This one always runs through the whole set, so there is nothing to choose.
-              </p>
-            )}
-
             {entry?.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL && (
               <label className="teacher-funnel-field">
                 <span>Skill this assessment starts on</span>
@@ -434,7 +683,7 @@ export function TeacherAssessmentsPage({
 
             {entry?.starter === ASSESSMENT_STARTERS.EL_BENCHMARK && (
               <p className="teacher-funnel-step-help">
-                Results are descriptive. No unpublished cut score is assumed.
+                The completed result is saved to this student&apos;s standalone EL report.
               </p>
             )}
 
@@ -448,7 +697,11 @@ export function TeacherAssessmentsPage({
             ) : (
               <div className="teacher-funnel-begin">
                 {startPointAnswer && (
-                  <p className="teacher-funnel-step-answer">Starting at: {startPointAnswer}</p>
+                  <p className="teacher-funnel-step-answer">
+                    {entry?.startPoint.kind === ASSESSMENT_START_POINT_KINDS.NONE
+                      ? startPointAnswer
+                      : `Starting at: ${startPointAnswer}`}
+                  </p>
                 )}
                 {draftBlocksStart && (
                   <p className="teacher-funnel-step-locked">
@@ -463,24 +716,38 @@ export function TeacherAssessmentsPage({
                 )}
                 <button
                   className="lp-button lp-button-primary"
-                  disabled={!startPointReady || draftBlocksStart}
+                  disabled={!studentEvidenceAvailable || !startPointReady || draftBlocksStart}
                   onClick={requestBegin}
                   type="button"
                 >
-                  Begin {entry?.label || "the assessment"}
+                  {selectedManualDraft ? "Resume" : "Begin"} {entry?.label || "the assessment"}
                 </button>
               </div>
             )}
           </TeacherFunnelStep>
 
           <p className="el-assessment-validity-note">
-            The four spoken-sound, spelling, word reading and reading fluency checks are original
-            Literacy Guide checks written against the supplied EL Skills Block overview. They are
+            The four spoken-sound, spelling, word reading and reading fluency assessments are original
+            Literacy Guide assessments written against the supplied EL Skills Block overview. They are
             not official EL Education forms, nationally normed scores, or diagnostic tests for a
             disability.
           </p>
         </div>
       )}
-    </div>
+    </main>
+    <ConfirmActionDialog
+      body={`This removes the unfinished assessment saved on this device for ${selectedStudentName || "this student"}. Completed assessments and reports are not changed. You cannot recover this draft.`}
+      busy={discardDraftBusy}
+      confirmLabel="Clear unfinished assessment"
+      error={discardDraftError}
+      onCancel={() => {
+        setDiscardDraftConfirmOpen(false);
+        setDiscardDraftError("");
+      }}
+      onConfirm={confirmDiscardDraft}
+      open={discardDraftConfirmOpen}
+      title="Clear this unfinished assessment?"
+    />
+    </>
   );
 }

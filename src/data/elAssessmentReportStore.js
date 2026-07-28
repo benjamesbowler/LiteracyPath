@@ -17,16 +17,93 @@ import {
 } from "./reportingSystem.js";
 import { buildExportVersionSummary } from "../utils/exportProvenance.js";
 import {
+  LEARNING_CONCLUSION_SCOPES,
   LEARNING_POLICY_VERSION,
+  LEARNING_EVIDENCE_POLICY,
   LEARNING_STATUS_IDS,
   evaluateLearningConclusion,
+  isLearningEvidenceRecent,
   rawLearningStatus
 } from "../policy/learningPolicy.js";
 
 const STORAGE_PREFIX = "lpElAssessmentReports:v1";
 const LOCAL_REPORT_CACHE_MAX_COUNT = 12;
 const LOCAL_REPORT_CACHE_MAX_BYTES = 4_250_000;
+const activeElReportOperations = new Map();
+const blockedElReportLearners = new Map();
 export const EL_REPORT_SCHEMA_VERSION = 2;
+
+function blockedLearnersForTeacher(teacherId) {
+  return blockedElReportLearners.get(String(teacherId || "local")) || [];
+}
+
+function reportBelongsToBlockedLearner(report, learner) {
+  const reportStudentId = String(report?.studentId || "").trim();
+  if (learner.studentId && reportStudentId === learner.studentId) return true;
+  if (
+    !reportStudentId
+    && learner.studentName
+    && report?.reportType !== "whole_class"
+    && String(report?.studentName || "").trim().toLowerCase() === learner.studentName
+  ) {
+    return true;
+  }
+  return savedClassElAssessmentReportContainsStudent(report, learner);
+}
+
+function removeBlockedLearnersFromReports(reports, teacherId) {
+  let next = reports;
+  for (const learner of blockedLearnersForTeacher(teacherId)) {
+    next = next
+      .filter(report => !(
+        report?.reportType !== "whole_class"
+        && reportBelongsToBlockedLearner(report, learner)
+      ))
+      .map(report => (
+        report?.reportType === "whole_class"
+        && savedClassElAssessmentReportContainsStudent(report, learner)
+          ? redactStudentFromSavedValue(report, learner)
+          : report
+      ));
+  }
+  return next;
+}
+
+function trackElReportOperation(teacherId, operation) {
+  const scopedTeacherId = String(teacherId || "local");
+  const token = `${scopedTeacherId}:${Date.now()}:${Math.random().toString(36).slice(2)}`;
+  const tracked = Promise.resolve(operation).finally(() => {
+    activeElReportOperations.delete(token);
+  });
+  activeElReportOperations.set(token, {
+    teacherId: scopedTeacherId,
+    promise: tracked
+  });
+  return tracked;
+}
+
+export async function blockAndWaitForElAssessmentReportOperations({
+  teacherId = "local",
+  studentId = "",
+  studentName = ""
+} = {}) {
+  const scopedTeacherId = String(teacherId || "local");
+  const learner = {
+    studentId: String(studentId || "").trim(),
+    studentName: String(studentName || "").trim().toLowerCase()
+  };
+  const current = blockedLearnersForTeacher(scopedTeacherId);
+  if (!current.some(candidate => (
+    candidate.studentId === learner.studentId
+    && candidate.studentName === learner.studentName
+  ))) {
+    blockedElReportLearners.set(scopedTeacherId, [...current, learner]);
+  }
+  const pending = [...activeElReportOperations.values()]
+    .filter(operation => operation.teacherId === scopedTeacherId)
+    .map(operation => operation.promise);
+  if (pending.length) await Promise.allSettled(pending);
+}
 
 export const EL_SKILL_AREAS = [
   {
@@ -118,12 +195,12 @@ const BENCHMARK_REPORT_SKILLS = Object.freeze([
 ]);
 
 const BENCHMARK_ADMINISTRATION_LABELS = {
-  completed: "Evidence Recorded",
-  partial: "Partial Evidence",
+  completed: "Assessment completed",
+  partial: "Partly completed",
   discontinued: "Discontinued",
-  in_progress: "In Progress",
-  not_administered: "Not Administered",
-  not_scorable: "Not Scorable"
+  in_progress: "In progress",
+  not_administered: "Not administered",
+  not_scorable: "Not scorable"
 };
 
 function getStorageKey(teacherId = "local") {
@@ -171,14 +248,6 @@ function uniq(values = []) {
   return Array.from(new Set(values.filter(Boolean)));
 }
 
-function normalizePatternKey(value = "") {
-  return String(value || "")
-    .trim()
-    .toLowerCase()
-    .replace(/_/g, " ")
-    .replace(/\s+/g, " ");
-}
-
 function getStudentClassId(student = {}) {
   return student.classId || student.class_id || "";
 }
@@ -208,17 +277,25 @@ function isElReportRecord(record = {}) {
   return EL_REPORT_ASSESSMENT_IDS.has(String(record.skillId || "").trim());
 }
 
-function getStatusFromAccuracy(accuracy, attempts = 0) {
+function getStatusFromAccuracy(accuracy, attempts = 0, observedAt = "", now = new Date()) {
   if (!attempts) return "Not checked";
   const conclusion = evaluateLearningConclusion({
+    scope: LEARNING_CONCLUSION_SCOPES.SKILL,
     accuracy,
     attempts,
-    requireRecency: false
+    skillDiversity: 1,
+    observedAt,
+    now,
+    requireRecency: true
   });
-  if (!conclusion.ready) return "Not enough evidence";
+  if (!conclusion.ready) return "Not enough results";
   if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) return "Secure";
   if (conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING) return "Developing";
   return "Needs support";
+}
+
+function isCurrentConclusionRecord(record = {}, now = new Date()) {
+  return isLearningEvidenceRecent(record.completedAt, { now });
 }
 
 function isAdvancedPhonicsRecord(record = {}) {
@@ -239,7 +316,7 @@ function benchmarkRecordsForDefinition(records = [], definition = {}) {
 function benchmarkEvidenceStatus(record = null) {
   if (!record) return "Not checked";
   const administrationStatus = String(record.administrationStatus || record.status || "completed").toLowerCase();
-  return BENCHMARK_ADMINISTRATION_LABELS[administrationStatus] || "Evidence Recorded";
+  return BENCHMARK_ADMINISTRATION_LABELS[administrationStatus] || "Assessment completed";
 }
 
 function benchmarkAccuracy(record = {}) {
@@ -254,9 +331,9 @@ function benchmarkAccuracy(record = {}) {
 
 function getNextStepForStatus(status, skillName) {
   if (status === "Secure") return "Keep practicing in connected reading.";
-  if (status === "Developing") return `Review ${skillName} with a short small-group check.`;
+  if (status === "Developing") return `Review ${skillName} with a short small-group assessment.`;
   if (status === "Needs support") return `Reteach ${skillName} with targeted examples.`;
-  return "Complete an assessment to gather evidence.";
+  return "Complete an assessment to collect results.";
 }
 
 export function getElSkillArea(skillNameOrId = "") {
@@ -275,65 +352,70 @@ function getSkillUniverse(records = []) {
   ]);
 }
 
-function buildPatternDetailRows(records = [], students = [], classes = []) {
-  const studentById = new Map(students.map(student => [student.id, student]));
-  const classById = new Map(classes.map(row => [row.id, row]));
-  const groups = new Map();
-
+function buildPatternDetailRows(records = [], students = [], classes = [], now = new Date()) {
+  const reportStudents = new Map(
+    students.filter(student => student?.id).map(student => [student.id, student])
+  );
   records.filter(isAdvancedPhonicsRecord).forEach(record => {
-    const student = studentById.get(record.studentId) || {};
-    const className = classById.get(record.classId)?.name || getClassNameForStudent(student, classes);
-    const questionRows = record.questionRecords?.length ? record.questionRecords : record.answers || [];
-    questionRows.forEach(question => {
-      const pattern = normalizePatternKey(question.targetPattern || question.pattern || question.itemKey || question.correctAnswer);
-      if (!pattern) return;
-      const groupKey = `${record.studentId || record.studentName}::${pattern}`;
-      const group = groups.get(groupKey) || {
-        studentId: record.studentId,
-        studentName: record.studentName || getStudentName(student),
-        className,
-        pattern,
-        attempts: 0,
-        correct: 0,
-        incorrect: 0,
-        examples: new Set(),
-        latestDate: record.completedAt || ""
-      };
-      group.attempts += 1;
-      if (question.isCorrect) group.correct += 1;
-      else group.incorrect += 1;
-      const example = question.targetWord || question.correctAnswer;
-      if (example && example !== pattern) group.examples.add(example);
-      if (!group.latestDate || new Date(record.completedAt) > new Date(group.latestDate)) {
-        group.latestDate = record.completedAt;
-      }
-      groups.set(groupKey, group);
+    if (!record.studentId || reportStudents.has(record.studentId)) return;
+    reportStudents.set(record.studentId, {
+      id: record.studentId,
+      name: record.studentName || "Unknown Student",
+      classId: record.classId || ""
     });
   });
 
-  return Array.from(groups.values())
-    .map(row => {
-      const accuracy = row.attempts ? Math.round((row.correct / row.attempts) * 100) : 0;
-      return {
-        ...row,
-        accuracy,
-        status: getStatusFromAccuracy(accuracy, row.attempts),
-        policyVersion: LEARNING_POLICY_VERSION,
-        examples: Array.from(row.examples).slice(0, 8)
-      };
+  return Array.from(reportStudents.values())
+    .flatMap(student => {
+      const formal = buildIndividualElFormalAssessmentReport({
+        student,
+        assessmentHistory: records,
+        now
+      });
+      return formal.individualAdvancedPhonicsMatrix
+        .filter(row => row.evidenceCount > 0)
+        .map(row => ({
+          studentId: student.id,
+          studentName: getStudentName(student),
+          className: getClassNameForStudent(student, classes),
+          pattern: row.pattern,
+          attempts: row.attempts,
+          selectedPeriodAttempts: row.selectedPeriodAttempts,
+          correct: row.correct,
+          selectedPeriodCorrect: row.selectedPeriodCorrect,
+          incorrect: row.incorrect,
+          accuracy: row.accuracy,
+          status: row.statusLabel,
+          policyVersion: LEARNING_POLICY_VERSION,
+          currentStatusWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
+          readingAttempts: row.readingResult.attempts,
+          readingCorrect: row.readingResult.correct,
+          readingStatus: row.readingResult.statusLabel,
+          soundAttempts: row.soundResult.attempts,
+          soundCorrect: row.soundResult.correct,
+          soundStatus: row.soundResult.statusLabel,
+          examples: row.exampleWords,
+          latestDate: row.lastAssessed
+        }));
     })
     .sort((a, b) => a.studentName.localeCompare(b.studentName) || a.pattern.localeCompare(b.pattern));
 }
 
-function buildAdvancedPhonicsSummary(records = []) {
+function buildAdvancedPhonicsSummary(
+  records = [],
+  students = [],
+  classes = [],
+  now = new Date()
+) {
   const advancedRecords = records.filter(isAdvancedPhonicsRecord)
     .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
   const latest = advancedRecords[0] || null;
-  const rows = buildPatternDetailRows(advancedRecords);
+  const rows = buildPatternDetailRows(advancedRecords, students, classes, now);
   return {
     attempts: advancedRecords.length,
     latestDate: latest?.completedAt || "",
     latestAccuracy: latest?.accuracy || 0,
+    currentStatusWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
     masteredPatterns: rows.filter(row => row.status === "Secure").map(row => row.pattern),
     developingPatterns: rows.filter(row => row.status === "Developing").map(row => row.pattern),
     needsSupportPatterns: rows.filter(row => row.status === "Needs support").map(row => row.pattern),
@@ -349,16 +431,46 @@ function buildDateRange(records = []) {
   };
 }
 
-function collectSkillRows(records = [], { includeAllSkills = true } = {}) {
+function buildReportingPeriods(records = [], benchmarkScope = {}, now = new Date()) {
+  const asOf = new Date(now);
+  const safeAsOf = Number.isFinite(asOf.getTime()) ? asOf : new Date();
+  const currentStart = new Date(
+    safeAsOf.getTime() -
+    LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays * 24 * 60 * 60 * 1000
+  );
+  const dateRange = buildDateRange(records);
+  return {
+    descriptiveResults: {
+      label: benchmarkScope.isRouteScoped
+        ? `All saved non-benchmark results and ${benchmarkScope.label}`
+        : "All saved results in this report",
+      start: dateRange.start,
+      end: dateRange.end,
+      benchmarkScopeLabel: benchmarkScope.label || ""
+    },
+    currentConclusions: {
+      label: `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`,
+      days: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
+      start: currentStart.toISOString(),
+      end: safeAsOf.toISOString(),
+      appliesTo: "Secure, Developing and Needs support conclusions"
+    }
+  };
+}
+
+function collectSkillRows(records = [], { includeAllSkills = true, now = new Date() } = {}) {
   const skillNames = includeAllSkills ? getSkillUniverse(records) : uniq(records.map(record => record.skillName));
   return skillNames.map(skillName => {
     const benchmarkDefinition = getBenchmarkSkillDefinition(skillName);
-    const skillRecords = benchmarkDefinition
+    const selectedPeriodSkillRecords = benchmarkDefinition
       ? benchmarkRecordsForDefinition(records, benchmarkDefinition)
       : records.filter(record => (
           !isElBenchmarkAssessmentRecord(record) &&
           (record.skillName === skillName || record.skillId === skillName)
         ));
+    const skillRecords = benchmarkDefinition
+      ? selectedPeriodSkillRecords
+      : selectedPeriodSkillRecords.filter(record => isCurrentConclusionRecord(record, now));
     const totalQuestions = skillRecords.reduce((sum, record) => sum + Number(record.totalQuestions || 0), 0);
     const correctCount = skillRecords.reduce((sum, record) => sum + Number(record.correctCount || 0), 0);
     const accuracy = benchmarkDefinition
@@ -366,12 +478,40 @@ function collectSkillRows(records = [], { includeAllSkills = true } = {}) {
       : totalQuestions
         ? Math.round((correctCount / totalQuestions) * 100)
         : 0;
+    const advancedPatternRows = !benchmarkDefinition && selectedPeriodSkillRecords.some(isAdvancedPhonicsRecord)
+      ? buildPatternDetailRows(selectedPeriodSkillRecords, [], [], now)
+      : [];
+    const advancedPatternStatuses = advancedPatternRows.map(row => row.status);
+    const advancedStatus = !advancedPatternStatuses.length
+      ? null
+      : advancedPatternStatuses.some(status => (
+          status === "Not enough results" ||
+          status === "Unscored results" ||
+          status === "Not checked"
+        ))
+        ? "Not enough results"
+        : advancedPatternStatuses.some(status => status === "Needs support")
+          ? "Needs support"
+          : advancedPatternStatuses.some(status => status === "Developing")
+            ? "Developing"
+            : "Secure";
+    const latestCurrent = skillRecords
+      .slice()
+      .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
+    const latest = selectedPeriodSkillRecords
+      .slice()
+      .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
     const status = benchmarkDefinition
       ? benchmarkEvidenceStatus(skillRecords.slice().sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0])
-      : getStatusFromAccuracy(accuracy, totalQuestions);
+      : advancedStatus || (
+          totalQuestions
+            ? getStatusFromAccuracy(accuracy, totalQuestions, latestCurrent?.completedAt, now)
+            : selectedPeriodSkillRecords.length
+              ? "Not enough results"
+              : "Not checked"
+        );
     const mastered = uniq(skillRecords.flatMap(record => record.masteredItems || record.itemKeysCovered || []));
     const missed = uniq(skillRecords.flatMap(record => record.missedItems || []));
-    const latest = skillRecords.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
 
     return {
       skillArea: getElSkillArea(skillName),
@@ -382,12 +522,22 @@ function collectSkillRows(records = [], { includeAllSkills = true } = {}) {
           ? `L${latest.skillLevel ?? 1} P${latest.skillPhase ?? 1}`
           : "",
       attempts: skillRecords.length,
+      selectedPeriodAttempts: selectedPeriodSkillRecords.length,
       totalQuestions,
+      selectedPeriodTotalQuestions: selectedPeriodSkillRecords.reduce(
+        (sum, record) => sum + Number(record.totalQuestions || 0),
+        0
+      ),
       correctCount,
       accuracy,
       masteryStatus: status,
       policyVersion: LEARNING_POLICY_VERSION,
-      statusModel: benchmarkDefinition ? "descriptive_benchmark_evidence" : "mastery_threshold",
+      statusModel: benchmarkDefinition
+        ? "descriptive_benchmark_evidence"
+        : "current_90_day_conclusion",
+      currentStatusWindowDays: benchmarkDefinition
+        ? null
+        : LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
       isProvisionalBenchmark: Boolean(benchmarkDefinition),
       assessmentId: benchmarkDefinition?.assessmentId || "",
       administrationStatus: latest?.administrationStatus || "",
@@ -399,8 +549,9 @@ function collectSkillRows(records = [], { includeAllSkills = true } = {}) {
       itemsMastered: benchmarkDefinition ? [] : mastered,
       itemsMissed: benchmarkDefinition ? [] : missed,
       lastAssessed: latest?.completedAt || "",
+      lastCurrentAssessed: latestCurrent?.completedAt || "",
       recommendedNextStep: benchmarkDefinition
-        ? "Review the descriptive domain evidence and confirm instructional placement with classroom evidence."
+        ? "Review these domain results and confirm the teaching placement against classroom work."
         : getNextStepForStatus(status, skillName)
     };
   });
@@ -435,10 +586,10 @@ function buildAttemptRows(records = []) {
       itemsCovered: record.itemKeysCovered || [],
       missedItems: benchmarkRecord ? [] : record.missedItems || [],
       notes: benchmarkRecord
-        ? "Descriptive provisional benchmark evidence; no mastery cut score applied."
+        ? "Descriptive benchmark results; no pass mark is applied."
         : record.passed
-          ? "Checkpoint passed."
-          : "Needs more evidence."
+          ? "Assessment passed."
+          : "Needs more results."
       };
     });
 }
@@ -462,10 +613,10 @@ function buildProgressRows(records = []) {
       phase: record.skillPhase ?? 1,
       checkpointPassed: benchmarkRecord ? false : Boolean(record.passed || record.status === "mastered"),
       notes: benchmarkRecord
-        ? `${benchmarkEvidenceStatus(record)} — descriptive provisional evidence`
+        ? `${benchmarkEvidenceStatus(record)} — descriptive results`
         : record.passed
-          ? "Mastered or passed"
-          : "Needs more evidence"
+          ? "Assessment passed"
+          : "Needs more results"
     };
   });
 }
@@ -548,12 +699,18 @@ function makeReportId(reportType, classId, studentId, generatedAt) {
   return `el_${reportType}_${slugify(classId || "class")}_${slugify(studentId || "all")}_${new Date(generatedAt).getTime()}`;
 }
 
-function buildReportSummary(skillRows = [], records = []) {
+function buildReportSummary(skillRows = [], records = [], now = new Date()) {
   const mastered = skillRows.filter(row => row.masteryStatus === "Secure");
   const developing = skillRows.filter(row => row.masteryStatus === "Developing");
   const support = skillRows.filter(row => row.masteryStatus === "Needs support");
-  const assessed = skillRows.filter(row => row.attempts > 0 && !row.isProvisionalBenchmark);
-  const thresholdRecords = records.filter(record => !isElBenchmarkAssessmentRecord(record));
+  const assessed = skillRows.filter(row => (
+    !row.isProvisionalBenchmark &&
+    ["Secure", "Developing", "Needs support"].includes(row.masteryStatus)
+  ));
+  const thresholdRecords = records.filter(record => (
+    !isElBenchmarkAssessmentRecord(record) &&
+    isCurrentConclusionRecord(record, now)
+  ));
 
   return {
     totalAssessments: records.length,
@@ -567,8 +724,12 @@ function buildReportSummary(skillRows = [], records = []) {
   };
 }
 
-function buildStoredStudentArtifacts(records = [], skillRows = []) {
-  const itemMasteryRows = normalizeItemMasteryRows({}, records);
+function buildStoredStudentArtifacts(records = [], skillRows = [], now = new Date()) {
+  const currentRecords = records.filter(record => (
+    !isElBenchmarkAssessmentRecord(record) &&
+    isCurrentConclusionRecord(record, now)
+  ));
+  const itemMasteryRows = normalizeItemMasteryRows({}, currentRecords, { now });
   const focusSkill = skillRows.find(row => row.masteryStatus === "Needs support") || skillRows[0] || {};
   return {
     itemMasteryRows,
@@ -578,17 +739,21 @@ function buildStoredStudentArtifacts(records = [], skillRows = []) {
         id: focusSkill.skillId || "",
         label: focusSkill.skillName || ""
       },
-      assessmentHistory: records
+      assessmentHistory: currentRecords
     })
   };
 }
 
-function buildStoredClassWeakPointRows(records = [], students = []) {
+function buildStoredClassWeakPointRows(records = [], students = [], now = new Date()) {
   const studentNameById = new Map(students.map(student => [student.id, getStudentName(student)]));
   const rowsByKey = new Map();
   students.forEach(student => {
-    const studentRecords = records.filter(record => record.studentId === student.id);
-    normalizeItemMasteryRows({}, studentRecords)
+    const studentRecords = records.filter(record => (
+      record.studentId === student.id &&
+      !isElBenchmarkAssessmentRecord(record) &&
+      isCurrentConclusionRecord(record, now)
+    ));
+    normalizeItemMasteryRows({}, studentRecords, { now })
       .filter(row => row.status === "needs_support")
       .forEach(row => {
         const key = `${row.itemType}::${row.itemKey}`;
@@ -645,14 +810,17 @@ export function buildStudentElAssessmentReportData({
   previousReports = [],
   benchmarkScope = null,
   benchmarkGrade = "",
-  benchmarkWindow = ""
+  benchmarkWindow = "",
+  now = new Date()
 } = {}) {
   const allRecords = normalizeRecords(assessmentHistory).filter(isElReportRecord);
   const student = students.find(row => row.id === studentId) || {};
   const effectiveClassId = classId || getStudentClassId(student) || allRecords.find(record => record.studentId === studentId)?.classId || "";
+  // A transfer changes the learner's current roster, not the ownership of
+  // their earlier assessment results. Individual reports therefore follow the
+  // stable learner id across classes while class reports remain class-scoped.
   const studentRecords = allRecords.filter(record =>
-    (!studentId || record.studentId === studentId) &&
-    (!effectiveClassId || !record.classId || record.classId === effectiveClassId)
+    !studentId || record.studentId === studentId
   );
   const resolvedBenchmarkScope = resolveElBenchmarkReportScope({
     records: studentRecords,
@@ -664,20 +832,31 @@ export function buildStudentElAssessmentReportData({
     studentRecords,
     resolvedBenchmarkScope
   );
-  const generatedAt = new Date().toISOString();
+  const evidenceClassIds = uniq(records.map(record => record.classId));
+  const includesFormerClassEvidence = Boolean(
+    effectiveClassId
+    && evidenceClassIds.some(recordClassId => recordClassId !== effectiveClassId)
+  );
+  const generatedAt = new Date(now).toISOString();
   const studentName = getStudentName(student, records[0]?.studentName || "Unknown Student");
   const className = getClassNameForId(effectiveClassId, classes) || getClassNameForStudent(student, classes);
-  const skillRows = collectSkillRows(records);
+  const skillRows = collectSkillRows(records, { now });
   const attemptRows = buildAttemptRows(records);
   const progressRows = buildProgressRows(records);
-  const advancedPhonics = buildAdvancedPhonicsSummary(records);
+  const advancedPhonics = buildAdvancedPhonicsSummary(
+    records,
+    [student].filter(row => row.id),
+    classes,
+    now
+  );
   const formalAssessments = buildIndividualElFormalAssessmentReport({
     student,
     assessmentHistory: records,
-    benchmarkScope: resolvedBenchmarkScope
+    benchmarkScope: resolvedBenchmarkScope,
+    now
   });
-  const summary = buildReportSummary(skillRows, records);
-  const storedArtifacts = buildStoredStudentArtifacts(records, skillRows);
+  const summary = buildReportSummary(skillRows, records, now);
+  const storedArtifacts = buildStoredStudentArtifacts(records, skillRows, now);
   const report = {
     reportId: makeReportId("individual", effectiveClassId, studentId || studentName, generatedAt),
     reportType: "individual",
@@ -688,10 +867,19 @@ export function buildStudentElAssessmentReportData({
     teacherId,
     generatedAt,
     dateRange: buildDateRange(records),
-    assessmentWindow: resolvedBenchmarkScope.isRouteScoped
-      ? `All non-benchmark attempts; EL benchmark ${resolvedBenchmarkScope.label}`
-      : "All saved attempts; no EL benchmark route available",
+    reportingPeriods: buildReportingPeriods(records, resolvedBenchmarkScope, now),
+    assessmentWindow: `${
+      resolvedBenchmarkScope.isRouteScoped
+        ? `Descriptive results: all saved non-benchmark results and ${resolvedBenchmarkScope.label}.`
+        : "Descriptive results: all saved results."
+    } Current conclusions: latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.${
+      includesFormerClassEvidence
+        ? " Saved results from the student's previous class are included."
+        : ""
+    }`,
     benchmarkScope: resolvedBenchmarkScope,
+    evidenceClassIds,
+    includesFormerClassEvidence,
     sourceAttemptIds: records.map(record => record.attemptId),
     summary,
     skillRows,
@@ -729,11 +917,17 @@ export function buildStudentElAssessmentReportData({
   return report;
 }
 
-function buildStudentRows({ records = [], students = [], classes = [], skillRowsByStudent = new Map() }) {
+function buildStudentRows({
+  records = [],
+  students = [],
+  classes = [],
+  skillRowsByStudent = new Map(),
+  now = new Date()
+}) {
   return students.map(student => {
     const studentRecords = records.filter(record => record.studentId === student.id);
-    const skillRows = skillRowsByStudent.get(student.id) || collectSkillRows(studentRecords);
-    const summary = buildReportSummary(skillRows, studentRecords);
+    const skillRows = skillRowsByStudent.get(student.id) || collectSkillRows(studentRecords, { now });
+    const summary = buildReportSummary(skillRows, studentRecords, now);
     const latest = studentRecords.slice().sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
     return {
       studentId: student.id,
@@ -746,13 +940,13 @@ function buildStudentRows({ records = [], students = [], classes = [], skillRows
       skillsNeedingSupport: summary.needsSupportSkillCount,
       currentLevel: latest ? `L${latest.skillLevel ?? 1} P${latest.skillPhase ?? 1}` : "",
       lastAssessmentDate: latest?.completedAt || "",
-      recommendedFocus: summary.focusSkills.slice(0, 3).join(", ") || "Gather more assessment evidence",
+      recommendedFocus: summary.focusSkills.slice(0, 3).join(", ") || "Complete another assessment",
       focusSkills: summary.focusSkills
     };
   });
 }
 
-function buildClassSkillRows({ records = [], students = [] }) {
+function buildClassSkillRows({ records = [], students = [], now = new Date() }) {
   const skillNames = getSkillUniverse(records);
   return skillNames.map(skillName => {
     const benchmarkDefinition = getBenchmarkSkillDefinition(skillName);
@@ -779,46 +973,77 @@ function buildClassSkillRows({ records = [], students = [] }) {
         studentsDeveloping: 0,
         studentsNeedingSupport: 0,
         studentsWithEvidence: statuses.filter(status => status !== "Not checked").length,
-        studentsCompleted: statuses.filter(status => status === "Evidence Recorded").length,
-        studentsPartial: statuses.filter(status => status === "Partial Evidence").length,
+        studentsCompleted: statuses.filter(status => status === "Assessment completed").length,
+        studentsPartial: statuses.filter(status => status === "Partly completed").length,
         studentsDiscontinued: statuses.filter(status => status === "Discontinued").length,
         notAssessed: statuses.filter(status => status === "Not checked").length,
         administrationCounts,
         classAverageAccuracy: nullableAverage(skillRecords.map(benchmarkAccuracy)),
-        suggestedSmallGroup: "Review descriptive benchmark evidence; no provisional cut score is applied."
+        suggestedSmallGroup: "Review the benchmark results; no pass mark is applied."
       };
     }
     const studentStatuses = students.map(student => {
-      const studentSkillRecords = records.filter(record => (
+      const selectedPeriodStudentSkillRecords = records.filter(record => (
         !isElBenchmarkAssessmentRecord(record) &&
         record.studentId === student.id &&
         record.skillName === skillName
       ));
+      if (selectedPeriodStudentSkillRecords.some(isAdvancedPhonicsRecord)) {
+        return collectSkillRows(selectedPeriodStudentSkillRecords, {
+          includeAllSkills: false,
+          now
+        })[0]?.masteryStatus || "Not checked";
+      }
+      const studentSkillRecords = selectedPeriodStudentSkillRecords.filter(
+        record => isCurrentConclusionRecord(record, now)
+      );
       const total = studentSkillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
       const correct = studentSkillRecords.reduce((sum, record) => sum + record.correctCount, 0);
       const accuracy = total ? Math.round((correct / total) * 100) : 0;
-      return getStatusFromAccuracy(accuracy, total);
+      const latest = studentSkillRecords
+        .slice()
+        .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
+      return total
+        ? getStatusFromAccuracy(accuracy, total, latest?.completedAt, now)
+        : selectedPeriodStudentSkillRecords.length
+          ? "Not enough results"
+          : "Not checked";
     });
-    const skillRecords = records.filter(record => !isElBenchmarkAssessmentRecord(record) && record.skillName === skillName);
+    const selectedPeriodSkillRecords = records.filter(
+      record => !isElBenchmarkAssessmentRecord(record) && record.skillName === skillName
+    );
+    const skillRecords = selectedPeriodSkillRecords.filter(
+      record => isCurrentConclusionRecord(record, now)
+    );
     return {
       skillArea: getElSkillArea(skillName),
       skillName,
       studentsMastered: studentStatuses.filter(status => status === "Secure").length,
       studentsDeveloping: studentStatuses.filter(status => status === "Developing").length,
       studentsNeedingSupport: studentStatuses.filter(status => status === "Needs support").length,
-      notAssessed: studentStatuses.filter(status => (
-        status === "Not checked" || status === "Not enough evidence"
-      )).length,
+      studentsWithNotEnoughResults: studentStatuses.filter(
+        status => status === "Not enough results"
+      ).length,
+      notAssessed: studentStatuses.filter(status => status === "Not checked").length,
+      currentStatusWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
       classAverageAccuracy: average(skillRecords.map(record => record.accuracy)),
       suggestedSmallGroup: studentStatuses.includes("Needs support") ? `Reteach ${skillName}` : "Monitor"
     };
   });
 }
 
-function buildHeatmapRows({ records = [], students = [], skillRowsByStudent = new Map() }) {
+function buildHeatmapRows({
+  records = [],
+  students = [],
+  skillRowsByStudent = new Map(),
+  now = new Date()
+}) {
   const skillNames = getSkillUniverse(records);
   return students.map(student => {
-    const skillRows = new Map((skillRowsByStudent.get(student.id) || collectSkillRows(records.filter(record => record.studentId === student.id))).map(row => [row.skillName, row]));
+    const skillRows = new Map((
+      skillRowsByStudent.get(student.id) ||
+      collectSkillRows(records.filter(record => record.studentId === student.id), { now })
+    ).map(row => [row.skillName, row]));
     return {
       studentId: student.id,
       studentName: getStudentName(student),
@@ -838,7 +1063,7 @@ function buildSmallGroups(studentRows = []) {
         groupName: `${skill} support group`,
         skill,
         students: [],
-        reason: "Students have recent evidence below mastery.",
+        reason: "Recent results show these students need more teaching.",
         suggestedActivity: `Small-group review for ${skill}.`
       };
       group.students.push(student.studentName);
@@ -857,7 +1082,9 @@ export function buildClassElAssessmentReportData({
   previousReports = [],
   benchmarkScope = null,
   benchmarkGrade = "",
-  benchmarkWindow = ""
+  benchmarkWindow = "",
+  reportPeriod = null,
+  now = new Date()
 } = {}) {
   const allRecords = normalizeRecords(assessmentHistory).filter(isElReportRecord);
   const classStudents = students.filter(student => !classId || getStudentClassId(student) === classId);
@@ -876,22 +1103,47 @@ export function buildClassElAssessmentReportData({
     classRecords,
     resolvedBenchmarkScope
   );
-  const generatedAt = new Date().toISOString();
+  const generatedAt = new Date(now).toISOString();
+  const selectedDatePeriod = reportPeriod && typeof reportPeriod === "object"
+    ? {
+        key: String(reportPeriod.key || ""),
+        label: String(reportPeriod.label || ""),
+        start: reportPeriod.start || "",
+        end: reportPeriod.end || ""
+      }
+    : null;
   const className = getClassNameForId(classId, classes) || classes[0]?.name || "Unknown Class";
   const skillRowsByStudent = new Map(classStudents.map(student => [
     student.id,
-    collectSkillRows(records.filter(record => record.studentId === student.id))
+    collectSkillRows(records.filter(record => record.studentId === student.id), { now })
   ]));
-  const studentRows = buildStudentRows({ records, students: classStudents, classes, skillRowsByStudent });
-  const skillRows = buildClassSkillRows({ records, students: classStudents });
-  const heatmapRows = buildHeatmapRows({ records, students: classStudents, skillRowsByStudent });
-  const patternDetailRows = buildPatternDetailRows(records, classStudents, classes);
-  const advancedPhonics = buildAdvancedPhonicsSummary(records);
+  const studentRows = buildStudentRows({
+    records,
+    students: classStudents,
+    classes,
+    skillRowsByStudent,
+    now
+  });
+  const skillRows = buildClassSkillRows({ records, students: classStudents, now });
+  const heatmapRows = buildHeatmapRows({
+    records,
+    students: classStudents,
+    skillRowsByStudent,
+    now
+  });
+  const patternDetailRows = buildPatternDetailRows(records, classStudents, classes, now);
+  const advancedPhonics = buildAdvancedPhonicsSummary(
+    records,
+    classStudents,
+    classes,
+    now
+  );
   const formalAssessments = buildClassElFormalAssessmentReport({
     students: classStudents,
     assessmentHistory: records,
     classId,
-    benchmarkScope: resolvedBenchmarkScope
+    benchmarkScope: resolvedBenchmarkScope,
+    now
   });
   const smallGroups = buildSmallGroups(studentRows);
   const summary = buildReportSummary(skillRows.map(row => ({
@@ -899,10 +1151,13 @@ export function buildClassElAssessmentReportData({
     isProvisionalBenchmark: Boolean(row.isProvisionalBenchmark),
     attempts: row.isProvisionalBenchmark
       ? Number(row.studentsWithEvidence || 0)
-      : records.filter(record => record.skillName === row.skillName).length,
+      : records.filter(record => (
+          record.skillName === row.skillName &&
+          isCurrentConclusionRecord(record, now)
+        )).length,
     accuracy: row.classAverageAccuracy,
     masteryStatus: row.isProvisionalBenchmark
-      ? row.studentsWithEvidence > 0 ? "Evidence Recorded" : "Not checked"
+      ? row.studentsWithEvidence > 0 ? "Assessment completed" : "Not checked"
       : row.studentsNeedingSupport > 0
         ? "Needs support"
         : row.studentsDeveloping > 0
@@ -910,7 +1165,7 @@ export function buildClassElAssessmentReportData({
           : row.studentsMastered > 0
             ? "Secure"
             : "Not checked"
-  })), records);
+  })), records, now);
   summary.totalStudents = classStudents.length;
   summary.studentsNeedingSupport = studentRows.filter(row => row.skillsNeedingSupport > 0).map(row => row.studentName);
   summary.studentsReadyForChallenge = studentRows.filter(row => (
@@ -926,10 +1181,12 @@ export function buildClassElAssessmentReportData({
     studentName: "",
     teacherId,
     generatedAt,
+    selectedDatePeriod,
     dateRange: buildDateRange(records),
+    reportingPeriods: buildReportingPeriods(records, resolvedBenchmarkScope, now),
     assessmentWindow: resolvedBenchmarkScope.isRouteScoped
-      ? `All non-benchmark attempts; EL benchmark ${resolvedBenchmarkScope.label}`
-      : "All saved attempts; no EL benchmark route available",
+      ? `Descriptive results: all saved non-benchmark results and ${resolvedBenchmarkScope.label}. Current conclusions: latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
+      : `Descriptive results: all saved results. Current conclusions: latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
     benchmarkScope: resolvedBenchmarkScope,
     sourceAttemptIds: records.map(record => record.attemptId),
     summary,
@@ -946,7 +1203,7 @@ export function buildClassElAssessmentReportData({
     benchmarkDomainSummaries: formalAssessments.classBenchmarkDomainSummaries || [],
     benchmarkDetails: formalAssessments.classBenchmarkDetails || [],
     exportVersionSummary: buildExportVersionSummary(records),
-    classWeakPointRows: buildStoredClassWeakPointRows(records, classStudents),
+    classWeakPointRows: buildStoredClassWeakPointRows(records, classStudents, now),
     weeklyAccuracyRows: buildStoredClassWeeklyRows(records),
     fileName: `el-assessment-class-${slugify(className)}-${slugify(resolvedBenchmarkScope.label)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
@@ -1254,6 +1511,41 @@ function filterSavedElAssessmentReports(reports = [], {
     );
 }
 
+/**
+ * Final UI boundary for saved-report ownership.
+ *
+ * Store hydration is teacher-scoped because the same cache serves every class.
+ * A teacher's class report page must apply this second boundary before it
+ * exposes download or delete actions:
+ * - class exports must carry the selected class ID;
+ * - individual exports must carry that class ID and a stable learner ID that
+ *   is still present in the selected class roster;
+ * - legacy/name-only or unknown report shapes fail closed.
+ */
+export function filterSavedElAssessmentReportsForClassRoster(reports = [], {
+  classId = "",
+  students = []
+} = {}) {
+  const selectedClassId = String(classId || "").trim();
+  if (!selectedClassId) return [];
+
+  const currentRosterIds = new Set((Array.isArray(students) ? students : [])
+    .filter(student => {
+      const studentClassId = String(student?.classId || student?.class_id || "").trim();
+      return !studentClassId || studentClassId === selectedClassId;
+    })
+    .map(student => String(student?.id || student?.studentId || student?.student_id || "").trim())
+    .filter(Boolean));
+
+  return mergeSavedElAssessmentReports(reports).filter(report => {
+    if (String(report?.classId || "").trim() !== selectedClassId) return false;
+    if (report.reportType === "whole_class") return true;
+    if (report.reportType !== "individual") return false;
+    const reportStudentId = String(report.studentId || "").trim();
+    return Boolean(reportStudentId && currentRosterIds.has(reportStudentId));
+  });
+}
+
 export function getSavedElAssessmentReports({
   teacherId = "local",
   reportType = "",
@@ -1273,7 +1565,7 @@ export function getSavedElAssessmentReports({
   });
 }
 
-export async function hydrateElAssessmentReports({
+async function hydrateElAssessmentReportsUntracked({
   teacherId = "local",
   supabase = null,
   reportType = "",
@@ -1340,7 +1632,10 @@ export async function hydrateElAssessmentReports({
       console.warn("Cloud EL assessment report history is unavailable; using the local cache.", error);
     }
   }
-  const merged = mergeSavedElAssessmentReports(cloudReports, localReports);
+  const merged = removeBlockedLearnersFromReports(
+    mergeSavedElAssessmentReports(cloudReports, localReports),
+    teacherId
+  );
   writeLocalSavedElAssessmentReports(merged, teacherId);
   return filterSavedElAssessmentReports(merged, {
     reportType,
@@ -1352,7 +1647,18 @@ export async function hydrateElAssessmentReports({
   });
 }
 
-export async function saveElAssessmentReport(report, { teacherId = report.teacherId || "local", supabase = null } = {}) {
+export function hydrateElAssessmentReports(options = {}) {
+  const teacherId = options.teacherId || "local";
+  return trackElReportOperation(
+    teacherId,
+    hydrateElAssessmentReportsUntracked(options)
+  );
+}
+
+async function saveElAssessmentReportUntracked(report, {
+  teacherId = report.teacherId || "local",
+  supabase = null
+} = {}) {
   const normalized = compactElAssessmentReportForStorage({
     ...report,
     teacherId: report.teacherId || teacherId,
@@ -1409,15 +1715,40 @@ export async function saveElAssessmentReport(report, { teacherId = report.teache
   };
 }
 
+export function saveElAssessmentReport(report, {
+  teacherId = report.teacherId || "local",
+  supabase = null
+} = {}) {
+  const blockedLearner = blockedLearnersForTeacher(teacherId)
+    .find(learner => reportBelongsToBlockedLearner(report, learner));
+  if (blockedLearner) {
+    const error = new Error("Report writes are blocked because this student is being deleted.");
+    error.code = "LP_LEARNER_WRITE_BLOCKED";
+    return Promise.resolve({
+      report: compactElAssessmentReportForStorage(report),
+      reports: getSavedElAssessmentReports({ teacherId }),
+      localSaved: false,
+      cloudSaved: false,
+      durable: false,
+      localError: error,
+      cloudError: null
+    });
+  }
+  return trackElReportOperation(
+    teacherId,
+    saveElAssessmentReportUntracked(report, { teacherId, supabase })
+  );
+}
+
 export async function deleteSavedElAssessmentReport(reportId, { teacherId = "local", supabase = null } = {}) {
   if (supabase) {
     try {
-      const result = await supabase
-        .table("el_assessment_reports")
-        .delete()
-        .eq("report_id", reportId)
-        .eq("teacher_id", teacherId);
-      if (result?.error) throw result.error;
+      const result = await supabase.call("teacher_delete_saved_assessment_report", {
+        p_report_id: reportId
+      });
+      if (result?.error || result?.data?.ok === false) {
+        throw result?.error || new Error("The saved report was not deleted.");
+      }
     } catch (error) {
       const deletionError = new Error("Could not delete the saved EL assessment report from cloud storage.");
       deletionError.cause = error;
@@ -1468,6 +1799,77 @@ export function getSavedClassElAssessmentReportsForStudent({
 } = {}) {
   return getSavedElAssessmentReports({ teacherId, reportType: "whole_class" })
     .filter(report => savedClassElAssessmentReportContainsStudent(report, { studentId, studentName }));
+}
+
+function savedEvidenceRowBelongsToStudent(value, {
+  studentId = "",
+  studentName = ""
+} = {}) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const rowId = String(
+    value.studentId
+    || value.student_id
+    || value.learnerId
+    || value.learner_id
+    || ""
+  ).trim();
+  if (studentId && rowId === String(studentId)) return true;
+  const normalizedName = String(studentName || "").trim().toLowerCase();
+  const rowName = String(
+    value.studentName
+    || value.student_name
+    || value.learnerName
+    || value.learner_name
+    || value.name
+    || ""
+  ).trim().toLowerCase();
+  return Boolean(normalizedName && !rowId && rowName === normalizedName);
+}
+
+function redactStudentFromSavedValue(value, learner) {
+  if (Array.isArray(value)) {
+    return value
+      .filter(item => !savedEvidenceRowBelongsToStudent(item, learner))
+      .map(item => redactStudentFromSavedValue(item, learner));
+  }
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([key]) => !learner.studentId || !key.includes(String(learner.studentId)))
+        .map(([key, item]) => [key, redactStudentFromSavedValue(item, learner)])
+    );
+  }
+  if (typeof value === "string" && learner.studentId) {
+    return value.replaceAll(String(learner.studentId), "[removed]");
+  }
+  return value;
+}
+
+/**
+ * Remove one learner from locally cached whole-class reports while preserving
+ * every classmate's snapshot. The cloud deletion transaction performs the
+ * equivalent JSONB redaction; deleting the whole cached report here would
+ * destroy other learners' retained evidence on this device.
+ */
+export function redactSavedClassElAssessmentReportsForStudent({
+  teacherId = "local",
+  studentId = "",
+  studentName = ""
+} = {}) {
+  const reports = getSavedElAssessmentReports({ teacherId });
+  const redactedReportIds = [];
+  const next = reports.map(report => {
+    if (!savedClassElAssessmentReportContainsStudent(report, { studentId, studentName })) {
+      return report;
+    }
+    redactedReportIds.push(report.reportId);
+    return redactStudentFromSavedValue(report, { studentId, studentName });
+  });
+  writeLocalSavedElAssessmentReports(next, teacherId);
+  return {
+    redactedReportIds,
+    reports: getSavedElAssessmentReports({ teacherId, reportType: "whole_class" })
+  };
 }
 
 export async function deleteSavedClassElAssessmentReportsForStudent({

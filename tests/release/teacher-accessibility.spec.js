@@ -11,7 +11,7 @@ async function logIn(page) {
   await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
   await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });
@@ -66,26 +66,26 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   await columnPicker.getByText(/Choose columns/).click();
   await columnPicker.getByLabel("Sound Seekers", { exact: true }).check();
   await columnPicker.getByLabel("Sign-in", { exact: true }).check();
-  await expect(roster.getByRole("columnheader")).toHaveCount(8);
-  await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(8);
+  await expect(roster.getByRole("columnheader")).toHaveCount(7);
+  await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(7);
 
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  const moreOptions = aaravRow.getByRole("button", {
-    name: "More options for Aarav",
-    exact: true
-  });
-  await activateWithKeyboard(moreOptions);
+  const openAarav = aaravRow.getByRole("button", { name: "Open Aarav", exact: true });
+  await activateWithKeyboard(openAarav);
+  const studentDrawer = page.getByRole("dialog", { name: "Student details: Aarav" });
+  await expect(studentDrawer).toBeVisible();
+  await activateWithKeyboard(
+    studentDrawer.getByRole("button", { name: "Student settings", exact: true })
+  );
   const childOptions = page.getByRole("dialog", { name: "Options for Aarav" });
   await expect(childOptions).toBeVisible();
   await expectNoSeriousOrCritical(page, "Child options dialog");
   await page.keyboard.press("Escape");
   await expect(childOptions).toHaveCount(0);
-  await expect(moreOptions).toBeFocused();
+  await expect(page.locator("body")).not.toBeFocused();
 
   const intentionChecks = [
-    // 2026-07-27: Checks is a destination again, and both it and Reports open
-    // on step 1 of a funnel rather than on a picker.
-    ["Checks", "Start a check"],
+    ["Assessments", "Start an assessment"],
     ["Reports", "Open a report"],
     ["Resources", "Choose a teaching resource"],
     ["Settings", "Settings"]
@@ -99,13 +99,13 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   }
 
   await primaryNav.getByRole("button", { name: "Settings", exact: true }).click();
-  const siteSettings = page.getByRole("button", { name: "Site settings", exact: true });
+  const siteSettings = page.getByRole("button", { name: "Class sign-in", exact: true });
   await activateWithKeyboard(siteSettings);
   await expect(page.getByRole("heading", {
-    name: "Class sign-in and visibility",
+    name: "Code expiry and leaderboard",
     exact: true
   })).toBeVisible();
-  await expectNoSeriousOrCritical(page, "Site settings");
+  await expectNoSeriousOrCritical(page, "Class sign-in");
 
   await expect(shell).toHaveAttribute("data-teacher-class-id", "30000000-0000-4000-8000-000000000001");
   expect(pageErrors).toEqual([]);

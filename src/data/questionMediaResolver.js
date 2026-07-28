@@ -57,6 +57,23 @@ function firstPath(...paths) {
   return paths.find(Boolean) || "";
 }
 
+function withoutAudioPathFields(value) {
+  if (!value || typeof value !== "object") return value;
+  const clean = { ...value };
+  delete clean.audio;
+  delete clean.audioUrl;
+  delete clean.audioPath;
+  if (clean.media && typeof clean.media === "object") {
+    clean.media = withoutAudioPathFields(clean.media);
+  }
+  for (const field of ["answerOptions", "options", "choices", "imageCards"]) {
+    if (Array.isArray(clean[field])) {
+      clean[field] = clean[field].map(withoutAudioPathFields);
+    }
+  }
+  return clean;
+}
+
 function resolveWordAsset(word) {
   const normalized = normalizeWord(word);
   if (!normalized) return null;
@@ -385,6 +402,7 @@ function isHfwSentenceSkill(skillId = "") {
 
 export function enrichQuestionWithExistingMedia(question = {}) {
   const releaseWiring = getAssessmentMediaWiring(question.id);
+  const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
   const normalizeAudioFields = value => {
     if (!value || typeof value !== "object") return value;
     const normalized = { ...value };
@@ -405,7 +423,16 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     return normalized;
   };
   const applyReleaseWiring = value => {
-    const wiredQuestion = normalizeAudioFields(value);
+    // `disableAudio` is not a product-wide "strip every audio field" flag.
+    // Grammar sentence-fit questions use it to suppress a standalone prompt
+    // track while deliberately retaining audio on each answer tile. HFW
+    // questions pair it with `noAudio` because their full sentence is spoken
+    // from text and isolated target-word audio would disclose the answer.
+    const suppressAudio = value?.noAudio === true
+      || (isHfwSentenceSkill(skillId) && value?.disableAudio === true);
+    const wiredQuestion = suppressAudio
+      ? withoutAudioPathFields(normalizeAudioFields(value))
+      : normalizeAudioFields(value);
     if (!releaseWiring.length) return wiredQuestion;
     wiredQuestion.assessmentMediaWiringApplied = true;
     for (const entry of releaseWiring) {
@@ -413,7 +440,7 @@ export function enrichQuestionWithExistingMedia(question = {}) {
         wiredQuestion.image = entry.filePath;
         wiredQuestion.imageUrl = entry.filePath;
         wiredQuestion.imagePath = entry.filePath;
-      } else {
+      } else if (!suppressAudio) {
         wiredQuestion.audio = entry.filePath;
         wiredQuestion.audioUrl = entry.filePath;
         wiredQuestion.audioPath = entry.filePath;
@@ -426,19 +453,23 @@ export function enrichQuestionWithExistingMedia(question = {}) {
           }
           return entry.mediaType === "image"
             ? { ...option, image: entry.filePath, imageUrl: entry.filePath, imagePath: entry.filePath }
-            : { ...option, audio: entry.filePath, audioUrl: entry.filePath, audioPath: entry.filePath };
+            : suppressAudio
+              ? withoutAudioPathFields(option)
+              : { ...option, audio: entry.filePath, audioUrl: entry.filePath, audioPath: entry.filePath };
         });
       }
     }
-    return wiredQuestion;
+    return suppressAudio ? withoutAudioPathFields(wiredQuestion) : wiredQuestion;
   };
 
-  const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
   if (isHfwSentenceSkill(skillId)) {
+    const suppressAudio = question.noAudio === true || question.disableAudio === true;
     const targetWord = inferTargetWord(question);
     const existingAudio = firstPath(question.audioPath, question.audioUrl, question.audio);
-    const approvedAudio = getAssessmentHfwAudioWiring(targetWord) ||
-      getApprovedAudioPath(`hfw:${targetWord}`, existingAudio);
+    const approvedAudio = suppressAudio
+      ? ""
+      : getAssessmentHfwAudioWiring(targetWord) ||
+        getApprovedAudioPath(`hfw:${targetWord}`, existingAudio);
     const audioWiredQuestion = approvedAudio
       ? {
           ...question,
@@ -447,7 +478,9 @@ export function enrichQuestionWithExistingMedia(question = {}) {
           audioUrl: approvedAudio,
           audioPath: approvedAudio
         }
-      : question;
+      : suppressAudio
+        ? withoutAudioPathFields(question)
+        : question;
     const questionId = question.approvedQuestionId || question.questionId || question.id || "";
     const existingImage = firstPath(
       audioWiredQuestion.imagePath,

@@ -50,17 +50,33 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 }
 
 test("all five domain registries expose the complete reviewed backend surface", () => {
-  assert.equal(BOUNDARY_TABLES.length, 18);
-  assert.equal(BOUNDARY_RPCS.length, 37);
+  assert.equal(BOUNDARY_TABLES.length, 20);
+  assert.equal(BOUNDARY_RPCS.length, 54);
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("assessment_attempts"));
+  assert.ok(BOUNDARY_TABLES.includes("assessment_question_reports"));
   assert.ok(BOUNDARY_TABLES.includes("el_assessment_reports"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_instructional_groups"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_instructional_group_reviews"));
+  assert.ok(BOUNDARY_TABLES.includes("teacher_intervention_events"));
   assert.ok(BOUNDARY_TABLES.includes("worksheet_bank"));
   assert.ok(BOUNDARY_RPCS.includes("student_login"));
+  assert.ok(BOUNDARY_RPCS.includes("report_assessment_question"));
+  assert.ok(BOUNDARY_RPCS.includes("admin_review_assessment_question_report"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_export_learner_data"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_delete_learner_data_staged"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_complete_learner_deletion"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_reset_student_progress"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_set_student_archived"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_transfer_student"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_create_intervention_plan"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_update_planned_intervention"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_delete_planned_intervention"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_mark_intervention_delivered"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_record_intervention_outcome"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_review_intervention"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_cancel_intervention"));
+  assert.ok(!BOUNDARY_RPCS.includes("teacher_cancel_planned_intervention"));
   assert.deepEqual(FACADE_TABLES, BOUNDARY_TABLES);
   assert.deepEqual(FACADE_RPCS, BOUNDARY_RPCS);
 });
@@ -157,6 +173,42 @@ test("known RPC payload fields and auth identities are runtime validated", async
     }
   }));
   await assert.rejects(() => authClient.auth.getSession(), DomainBoundaryError);
+});
+
+test("question-report RPC accepts only correctly typed acknowledgement and review rows", async () => {
+  const validClient = createValidatedSupabaseClient(fakeRawClient({
+    rpcResponses: {
+      report_assessment_question: {
+        data: [{
+          report_id: "report-1",
+          report_status: "open",
+          report_type: "question",
+          reported_at: "2026-07-28T00:00:00.000Z"
+        }],
+        error: null
+      }
+    }
+  }));
+  const valid = await validClient.call("report_assessment_question");
+  assert.equal(valid.data[0].report_id, "report-1");
+
+  const malformedClient = createValidatedSupabaseClient(fakeRawClient({
+    rpcResponses: {
+      report_assessment_question: {
+        data: [{
+          report_id: 42,
+          report_status: "open",
+          report_type: "question",
+          reported_at: "2026-07-28T00:00:00.000Z"
+        }],
+        error: null
+      }
+    }
+  }));
+  await assert.rejects(
+    async () => await malformedClient.call("report_assessment_question"),
+    DomainBoundaryError
+  );
 });
 
 test("student identity RPCs reject malformed nested and token payloads", async () => {

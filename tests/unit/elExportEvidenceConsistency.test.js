@@ -87,7 +87,7 @@ function skillsCheckLetterAttempt() {
   };
 }
 
-test("D-001: Whole Child and focused EL export read the same Skills Check letter spine", async () => {
+test("D-001: Whole Child and the formal EL workbook keep sparse Skills results provisional", async () => {
   const assessmentHistory = [skillsCheckLetterAttempt()];
   const evidenceReadState = {
     completedAt: syncedAt,
@@ -117,12 +117,24 @@ test("D-001: Whole Child and focused EL export read the same Skills Check letter
     workspace.wholeChild.concepts.map(row => [row.conceptId, row.status.id])
   );
   const letterM = report.formalAssessments.individualLetterMatrix.find(row => row.letter === "m");
-  assert.equal(wholeChildByConcept.get("alphabet_knowledge::letter_name::m::uppercase"), "secure");
-  assert.equal(wholeChildByConcept.get("alphabet_knowledge::letter_sound::m::lowercase"), "needs_teaching");
-  assert.equal(letterM.uppercaseName.status, "mastered");
-  assert.equal(letterM.lowercaseSound.status, "needs_support");
+  assert.equal(
+    wholeChildByConcept.get("alphabet_knowledge::letter_name::m::uppercase"),
+    "not_enough_evidence"
+  );
+  assert.equal(
+    wholeChildByConcept.get("alphabet_knowledge::letter_sound::m::lowercase"),
+    "not_enough_evidence"
+  );
+  assert.equal(letterM.uppercaseName.status, "not_enough_evidence");
+  assert.equal(letterM.uppercaseName.attempts, 1);
+  assert.equal(letterM.uppercaseName.correct, 1);
+  assert.equal(letterM.uppercaseName.accuracy, 100);
+  assert.equal(letterM.lowercaseSound.status, "not_enough_evidence");
+  assert.equal(letterM.lowercaseSound.attempts, 1);
+  assert.equal(letterM.lowercaseSound.correct, 0);
+  assert.equal(letterM.lowercaseSound.accuracy, 0);
   assert.equal(letterM.uppercaseName.reconciledFromSkillSpine, true);
-  assert.equal(letterM.uppercaseName.details[0].sourceLabel, "Skills Check");
+  assert.equal(letterM.uppercaseName.details[0].sourceLabel, "Skills assessment");
   assert.equal(report.evidenceSourceReads.find(row => row.store === "assessment_attempts").lastSyncedAt, syncedAt);
   assert.equal(report.evidenceSourceReads.find(row => row.store === "assessment_attempts").recordCount, 1);
 
@@ -130,12 +142,44 @@ test("D-001: Whole Child and focused EL export read the same Skills Check letter
   assert.deepEqual(workbook.worksheets.map(sheet => sheet.name), EL_STUDENT_REPORT_SHEETS);
   const letterRows = worksheetRows(workbook.getWorksheet("Letter Names & Sounds"));
   const exportedM = letterRows.find(row => row["Letter pair"] === "M/m");
-  assert.equal(exportedM["Uppercase name result"], "Mastered");
-  assert.equal(exportedM["Lowercase sound result"], "Needs Support");
-  assert.match(exportedM["Uppercase name evidence provenance"], /Source: Skills Check/);
+  assert.equal(exportedM["Uppercase name result"], "Not enough results");
+  assert.equal(exportedM["Lowercase sound result"], "Not enough results");
+  assert.match(exportedM["Uppercase name evidence provenance"], /Source: Skills assessment/);
   const summaryText = workbook.getWorksheet("Student Summary").getColumn(2).values.join(" ");
   assert.match(summaryText, /assessment_attempts: 1 row/);
   assert.match(summaryText, /2026-07-23 19:06/);
+});
+
+test("two repeated variants in one Skills sitting cannot become Secure in the formal EL workbook", () => {
+  const attempt = skillsCheckLetterAttempt();
+  attempt.questionRecords.push({
+    ...attempt.questionRecords[0],
+    questionId: "m-uppercase-name-repeat",
+    timestamp: "2026-06-12T09:00:50.000Z"
+  });
+  const report = buildStudentElAssessmentExportReport({
+    assessmentHistory: [attempt],
+    students: [student],
+    classes,
+    studentId: student.id,
+    classId: student.classId,
+    benchmarkScope: explicitScope,
+    evidenceReadState: {
+      completedAt: syncedAt,
+      syncStatus: "complete",
+      sources: {
+        assessmentAttempts: { lastSyncedAt: syncedAt, syncStatus: "complete" },
+        itemMastery: { lastSyncedAt: syncedAt, syncStatus: "complete" },
+        skillMastery: { lastSyncedAt: syncedAt, syncStatus: "complete" }
+      }
+    }
+  });
+  const letterM = report.formalAssessments.individualLetterMatrix.find(row => row.letter === "m");
+  assert.equal(letterM.uppercaseName.attempts, 2);
+  assert.equal(letterM.uppercaseName.correct, 2);
+  assert.equal(letterM.uppercaseName.accuracy, 100);
+  assert.equal(letterM.uppercaseName.status, "not_enough_evidence");
+  assert.equal(letterM.uppercaseName.statusLabel, "Not enough results");
 });
 
 test("D-002: zero saved EL evidence enters an explicit warning path", () => {
@@ -155,7 +199,7 @@ test("D-002: zero saved EL evidence enters an explicit warning path", () => {
   assert.equal(warned.action, "warn");
   assert.equal(warned.emptyReport, true);
   assert.match(warned.message, /Nothing to report for Aaron/);
-  assert.match(warned.message, /no saved EL evidence/);
+  assert.match(warned.message, /no saved EL results/);
 
   const ready = getStudentElExportEntryDecision({
     scope: explicitScope,
@@ -196,7 +240,7 @@ test("D-002: empty workbook has one banner, no filler sheets, and a clean filena
   assert.deepEqual(workbook.worksheets.map(sheet => sheet.name), EL_EMPTY_STUDENT_REPORT_SHEETS);
   const summaryRows = worksheetRows(workbook.getWorksheet("Student Summary"));
   assert.equal(summaryRows[0].Field, "Nothing to report");
-  assert.match(summaryRows[0].Value, /no saved EL or reconciled Skills Check evidence/i);
+  assert.match(summaryRows[0].Value, /no saved EL or reconciled Skills assessment results/i);
   assert.equal(summaryRows.filter(row => row.Field === "Nothing to report").length, 1);
   assert.equal(workbook.getWorksheet("Letter Names & Sounds"), undefined);
   assert.equal(workbook.getWorksheet("Advanced Phonics Patterns"), undefined);

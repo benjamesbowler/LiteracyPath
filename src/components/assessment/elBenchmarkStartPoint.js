@@ -39,20 +39,20 @@ export const EL_PREREQUISITE_REASON_OPTIONS = Object.freeze([
   {
     id: "recent_classroom_work",
     label: "Recent classroom work",
-    detail: "Current work shows the child is ready.",
-    reason: "Recent classroom work shows the child is ready for this check."
+    detail: "Current work shows the student is ready.",
+    reason: "Recent classroom work shows the student is ready for this assessment."
   },
   {
     id: "comparable_result",
     label: "Comparable result seen",
     detail: "I have a comparable result from elsewhere.",
-    reason: "The teacher reviewed a comparable result showing the child is ready for this check."
+    reason: "The teacher reviewed a comparable result showing the student is ready for this assessment."
   },
   {
     id: "agreed_support",
     label: "Agreed support plan",
     detail: "This start matches an agreed support or adjustment.",
-    reason: "This starting decision follows the child's agreed support or adjustment."
+    reason: "This starting decision follows the student's agreed support or adjustment."
   },
   {
     id: "other",
@@ -148,9 +148,9 @@ export function useElBenchmarkStartPoint({
   const bandNote = !EL_CHECKS_WITH_A_BAND.includes(assessmentId)
     ? ""
     : indicatedIsAllowed && isFluency
-      ? "Set from this child's last completed word reading result."
+      ? "Set from this student's last completed word reading result."
       : indicatedIsAllowed && suggestedBandSource === "confirmed_encoding_placement"
-        ? "Set from this child's last confirmed spelling result."
+        ? "Set from this student's last confirmed spelling result."
         : indicatedIsAllowed
           ? "Set from a spelling result that has not been confirmed yet. Read it before you start."
           : "The usual starting point for this grade and time of year is chosen.";
@@ -173,7 +173,7 @@ export function useElBenchmarkStartPoint({
         code: isFluency
           ? "decoding_fluency_handoff_outside_selected_route"
           : "confirmed_encoding_outside_selected_route",
-        message: "This child's last result points outside the grade and time of year you chose. Say why a different start is right."
+        message: "This student's last result points outside the grade and time of year you chose. Say why a different start is right."
       };
     }
     if (bandChosenByTeacher && band && band !== firmIndication) {
@@ -183,7 +183,7 @@ export function useElBenchmarkStartPoint({
         code: isFluency
           ? "teacher_changed_decoding_fluency_handoff"
           : "teacher_changed_confirmed_encoding_start",
-        message: `This child's last result points at ${humanizeBandId(firmIndication)}. Say why ${humanizeBandId(band)} is the better start.`
+        message: `This student's last result points at ${humanizeBandId(firmIndication)}. Say why ${humanizeBandId(band)} is the better start.`
       };
     }
     return baseStatus;
@@ -232,4 +232,3 @@ export function useElBenchmarkStartPoint({
     buildStartOptions
   };
 }
-

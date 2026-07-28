@@ -1,7 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
-import { resolveElBenchmarkReportScope } from "../../data/elBenchmarkReportScope.js";
+import {
+  displayBenchmarkScopeLabel,
+  resolveElBenchmarkReportScope
+} from "../../data/elBenchmarkReportScope.js";
+import { filterSavedElAssessmentReportsForClassRoster } from "../../data/elAssessmentReportStore.js";
+import { buildClassElAssessmentReportData } from "../../data/elAssessmentReportStore.js";
+import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { importWithRetry } from "../../utils/lazyWithRetry.js";
+import {
+  printTeacherDocument,
+  TEACHER_PRINT_TARGETS
+} from "../../utils/teacherPrintTarget.js";
 import { ActionFeedback } from "../ActionFeedback.jsx";
+import { ElClassReportDocument } from "./ElClassReportDocument.jsx";
 
 function getScopeKey(scope = {}) {
   return `${scope.grade || ""}::${scope.benchmarkWindow || scope.window || ""}`;
@@ -17,10 +28,14 @@ function getSavedReportLabel(report = {}, students = [], classes = []) {
 export function ElFormalAssessmentsPanel({
   assessmentHistory = [],
   classes = [],
+  evidenceReady = true,
+  evidenceStatusMessage = "",
+  onRetryEvidence,
   selectedClassId = "",
   students = [],
   teacherId = "local",
   supabase = null,
+  reportPeriod = null,
   onPrint
 }) {
   const [selectedScopeKey, setSelectedScopeKey] = useState("");
@@ -42,17 +57,59 @@ export function ElFormalAssessmentsPanel({
   const activeScope = scopeOptions.find(scope => getScopeKey(scope) === selectedScopeKey)
     || scopeOptions[0]
     || null;
+  const classPrintReport = useMemo(() => (
+    evidenceReady && selectedClassId && activeScope
+      ? buildClassElAssessmentReportData({
+          assessmentHistory,
+          students,
+          classes,
+          classId: selectedClassId,
+          teacherId: teacherStorageId,
+          benchmarkScope: activeScope,
+          reportPeriod
+        })
+      : null
+  ), [
+    activeScope,
+    assessmentHistory,
+    classes,
+    evidenceReady,
+    reportPeriod,
+    selectedClassId,
+    students,
+    teacherStorageId
+  ]);
+  const visibleSavedReports = useMemo(() => (
+    filterSavedElAssessmentReportsForClassRoster(savedReports, {
+      classId: selectedClassId,
+      students
+    })
+  ), [savedReports, selectedClassId, students]);
+  const visibleSavedReportIds = useMemo(
+    () => new Set(visibleSavedReports.map(report => String(report.reportId || ""))),
+    [visibleSavedReports]
+  );
 
   async function refreshSavedReports() {
     const store = await importWithRetry(() => import("../../data/elAssessmentReportStore.js"));
-    const localReports = store.getSavedElAssessmentReports({ teacherId: teacherStorageId });
+    const localReports = store.filterSavedElAssessmentReportsForClassRoster(
+      store.getSavedElAssessmentReports({
+        teacherId: teacherStorageId,
+        classId: selectedClassId
+      }),
+      { classId: selectedClassId, students }
+    );
     setSavedReports(localReports);
     try {
-      const hydrated = await store.hydrateElAssessmentReports({
-        teacherId: teacherStorageId,
-        supabase,
-        throwOnCloudError: Boolean(supabase)
-      });
+      const hydrated = store.filterSavedElAssessmentReportsForClassRoster(
+        await store.hydrateElAssessmentReports({
+          teacherId: teacherStorageId,
+          supabase,
+          classId: selectedClassId,
+          throwOnCloudError: Boolean(supabase)
+        }),
+        { classId: selectedClassId, students }
+      );
       setSavedReports(hydrated);
       setHistoryStatus("ready");
       setHistoryNotice(null);
@@ -75,14 +132,25 @@ export function ElFormalAssessmentsPanel({
         if (cancelled) return;
         setHistoryStatus("loading");
         setHistoryNotice(null);
-        const localReports = store.getSavedElAssessmentReports({ teacherId: teacherStorageId });
+        setDeleteTarget(null);
+        const localReports = store.filterSavedElAssessmentReportsForClassRoster(
+          store.getSavedElAssessmentReports({
+            teacherId: teacherStorageId,
+            classId: selectedClassId
+          }),
+          { classId: selectedClassId, students }
+        );
         setSavedReports(localReports);
         try {
-          const hydrated = await store.hydrateElAssessmentReports({
-            teacherId: teacherStorageId,
-            supabase,
-            throwOnCloudError: Boolean(supabase)
-          });
+          const hydrated = store.filterSavedElAssessmentReportsForClassRoster(
+            await store.hydrateElAssessmentReports({
+              teacherId: teacherStorageId,
+              supabase,
+              classId: selectedClassId,
+              throwOnCloudError: Boolean(supabase)
+            }),
+            { classId: selectedClassId, students }
+          );
           if (cancelled) return;
           setSavedReports(hydrated);
           setHistoryStatus("ready");
@@ -108,9 +176,16 @@ export function ElFormalAssessmentsPanel({
     return () => {
       cancelled = true;
     };
-  }, [supabase, teacherStorageId]);
+  }, [selectedClassId, students, supabase, teacherStorageId]);
 
   async function exportClassExcel() {
+    if (!evidenceReady) {
+      setActionNotice({
+        kind: "error",
+        message: evidenceStatusMessage || "All saved assessment results must finish loading before creating a new report."
+      });
+      return;
+    }
     if (!selectedClassId || !activeScope) return;
     setBusyAction("export");
     setActionNotice({ kind: "pending", message: "Creating the EL Excel report..." });
@@ -123,6 +198,7 @@ export function ElFormalAssessmentsPanel({
         classId: selectedClassId,
         teacherId: teacherStorageId,
         benchmarkScope: activeScope,
+        reportPeriod,
         supabase
       });
       await refreshSavedReports();
@@ -130,7 +206,9 @@ export function ElFormalAssessmentsPanel({
         kind: report.persistence?.durable === false ? "error" : "success",
         message: report.persistence?.durable === false
           ? "Excel downloaded, but the saved-report copy could not be retained. Keep the downloaded file."
-          : `Excel downloaded and saved for ${report.benchmarkScope?.label || activeScope.label}.`
+          : `Excel downloaded and saved for ${displayBenchmarkScopeLabel(
+              report.benchmarkScope || activeScope
+            )}.`
       });
     } catch (error) {
       console.error("Class EL assessment Excel export failed:", error);
@@ -144,10 +222,20 @@ export function ElFormalAssessmentsPanel({
   }
 
   function printClassReport() {
+    if (!evidenceReady) {
+      setActionNotice({
+        kind: "error",
+        message: evidenceStatusMessage || "All saved assessment results must finish loading before printing a new report."
+      });
+      return;
+    }
     setActionNotice({ kind: "pending", message: "Opening the EL report print dialog..." });
     window.requestAnimationFrame(() => {
       try {
-        onPrint?.();
+        printTeacherDocument(
+          TEACHER_PRINT_TARGETS.EL_CLASS,
+          onPrint || (() => window.print())
+        );
         setActionNotice({
           kind: "success",
           message: "Print dialog opened. Choose a printer or save as PDF."
@@ -162,6 +250,13 @@ export function ElFormalAssessmentsPanel({
   }
 
   async function downloadSavedReport(report) {
+    if (!visibleSavedReportIds.has(String(report?.reportId || ""))) {
+      setActionNotice({
+        kind: "error",
+        message: "That saved report does not belong to the selected class, so it was not opened."
+      });
+      return;
+    }
     setBusyAction(`download:${report.reportId}`);
     setActionNotice({ kind: "pending", message: "Preparing the saved EL report download..." });
     try {
@@ -184,6 +279,14 @@ export function ElFormalAssessmentsPanel({
 
   async function confirmDeleteSavedReport() {
     if (!deleteTarget) return;
+    if (!visibleSavedReportIds.has(String(deleteTarget.reportId || ""))) {
+      setDeleteTarget(null);
+      setActionNotice({
+        kind: "error",
+        message: "That saved report does not belong to the selected class, so it was not deleted."
+      });
+      return;
+    }
     const reportId = deleteTarget.reportId;
     setBusyAction(`delete:${reportId}`);
     setActionNotice({ kind: "pending", message: "Deleting the saved report..." });
@@ -213,12 +316,19 @@ export function ElFormalAssessmentsPanel({
     <section className="teacher-report-card el-formal-assessments-panel" aria-labelledby="el-formal-assessments-title">
       <header className="el-formal-assessments-heading">
         <div>
-          <p className="panel-label">Saved check results</p>
-          <h3 id="el-formal-assessments-title">EL checks</h3>
-          <p>Choose one grade and time-of-year route before creating a class PDF or spreadsheet.</p>
+          <p className="panel-label">Saved assessment results</p>
+          <h3 id="el-formal-assessments-title">EL assessments</h3>
+          <p>
+            {TEACHER_COPY.formalEl.choosePeriodIntro}
+            {reportPeriod?.label ? ` Showing ${reportPeriod.label.toLowerCase()}.` : ""}
+          </p>
         </div>
         <span className="report-scope-count">
-          {activeScope ? `${activeScope.attemptCount} included attempt${activeScope.attemptCount === 1 ? "" : "s"}` : "No check route"}
+          {!evidenceReady
+            ? "Current results unavailable"
+            : activeScope
+              ? TEACHER_COPY.formalEl.savedAssessmentCount(activeScope.attemptCount)
+              : TEACHER_COPY.formalEl.noMatchingAssessments}
         </span>
       </header>
 
@@ -231,20 +341,31 @@ export function ElFormalAssessmentsPanel({
             onChange={event => setSelectedScopeKey(event.target.value)}
             value={activeScope ? getScopeKey(activeScope) : ""}
           >
-            {scopeOptions.length === 0 && <option value="">No completed check routes</option>}
+            {scopeOptions.length === 0 && (
+              <option value="">
+                {evidenceReady
+                  ? TEACHER_COPY.formalEl.noCompletedAssessments
+                  : "Current results unavailable — try again above"}
+              </option>
+            )}
             {scopeOptions.map((scope, index) => (
               <option key={getScopeKey(scope)} value={getScopeKey(scope)}>
-                {scope.label} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " — most recent" : ""}
+                {scope.label} ({TEACHER_COPY.formalEl.periodOptionCount(scope.attemptCount)}){index === 0 ? " — most recent" : ""}
               </option>
             ))}
           </select>
         </label>
-        <button className="lp-button lp-button-primary" disabled={!activeScope} onClick={printClassReport} type="button">
+        <button
+          className="lp-button lp-button-primary"
+          disabled={!evidenceReady || !activeScope}
+          onClick={printClassReport}
+          type="button"
+        >
           Print or save EL PDF
         </button>
         <button
           className="lp-button lp-button-secondary"
-          disabled={!activeScope || busyAction === "export"}
+          disabled={!evidenceReady || !activeScope || busyAction === "export"}
           onClick={exportClassExcel}
           type="button"
         >
@@ -252,11 +373,22 @@ export function ElFormalAssessmentsPanel({
         </button>
       </div>
 
+      {!evidenceReady && (
+        <ActionFeedback
+          feedback={{
+            kind: "error",
+            message: evidenceStatusMessage || "Some saved assessment results are not available, so new reports are paused.",
+            actionLabel: onRetryEvidence ? "Try again" : "",
+            onAction: onRetryEvidence
+          }}
+        />
+      )}
+
       <div className="el-report-retention-note">
         <strong>Saved-report retention</strong>
         <p>
           {supabase
-            ? "Signed-in report history stays in cloud storage until you delete it, reset an included student's check data, or remove the teacher account. This browser also keeps only the latest 12 reports for offline access."
+            ? "Signed-in report history stays in cloud storage until you delete it, reset an included student's assessment data, or remove the teacher account. This browser also keeps only the latest 12 reports for offline access."
             : "This browser keeps only the latest 12 reports for offline access. Older local reports are removed automatically as new reports are saved."}
         </p>
       </div>
@@ -272,12 +404,12 @@ export function ElFormalAssessmentsPanel({
       <div className="el-saved-reports" aria-busy={historyStatus === "loading"}>
         <div className="el-saved-reports-heading">
           <h4>Saved EL reports</h4>
-          <span>{historyStatus === "loading" ? "Loading…" : `${savedReports.length} saved`}</span>
+          <span>{historyStatus === "loading" ? "Loading…" : `${visibleSavedReports.length} saved`}</span>
         </div>
-        {historyStatus !== "loading" && savedReports.length === 0 && (
+        {historyStatus !== "loading" && visibleSavedReports.length === 0 && (
           <p className="muted-text">No saved EL exports yet. Creating an Excel report adds it here.</p>
         )}
-        {savedReports.map(report => {
+        {visibleSavedReports.map(report => {
           const deleting = deleteTarget?.reportId === report.reportId;
           const busy = busyAction.endsWith(`:${report.reportId}`);
           return (
@@ -286,8 +418,11 @@ export function ElFormalAssessmentsPanel({
                 <strong>{getSavedReportLabel(report, students, classes)}</strong>
                 <span>{report.generatedAt ? new Date(report.generatedAt).toLocaleString() : "Date unavailable"}</span>
                 <small>
-                  {report.benchmarkScope?.label || "Check route not recorded"} · {report.summary?.totalAssessments ?? report.summary?.studentCount ?? 0} result records
+                  {displayBenchmarkScopeLabel(report.benchmarkScope)} · {report.summary?.totalAssessments ?? report.summary?.studentCount ?? 0} result records
                 </small>
+                {report.selectedDatePeriod?.label && (
+                  <small>Class report period: {report.selectedDatePeriod.label}</small>
+                )}
               </div>
               {deleting ? (
                 <div className="el-report-delete-confirmation" role="group" aria-label="Confirm saved report deletion">
@@ -316,6 +451,7 @@ export function ElFormalAssessmentsPanel({
           );
         })}
       </div>
+      <ElClassReportDocument report={classPrintReport} />
     </section>
   );
 }

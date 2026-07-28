@@ -9,10 +9,12 @@ import {
   resolveElBenchmarkReportScope
 } from "./elBenchmarkReportScope.js";
 import {
+  LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,
   LEARNING_POLICY_VERSION,
   LEARNING_STATUS_IDS,
-  evaluateLearningConclusion
+  evaluateLearningConclusion,
+  isLearningEvidenceRecent
 } from "../policy/learningPolicy.js";
 
 export {
@@ -84,8 +86,8 @@ const STATUS_LABELS = {
   mastered: "Secure",
   developing: "Developing",
   needs_support: "Needs support",
-  not_enough_evidence: "Not enough evidence",
-  unscored_evidence: "Unscored evidence",
+  not_enough_evidence: "Not enough results",
+  unscored_evidence: "Unscored results",
   not_assessed: "Not checked"
 };
 
@@ -96,9 +98,9 @@ const UNSCORED_RESPONSE_STATUSES = new Set([
 ]);
 
 const ADMINISTRATION_STATUS_LABELS = {
-  completed: "Completed evidence",
-  partial: "Partial evidence",
-  discontinued: "Discontinued — evidence retained",
+  completed: "Assessment completed",
+  partial: "Partly completed",
+  discontinued: "Discontinued — results kept",
   in_progress: "In progress",
   not_administered: "Not administered",
   not_scorable: "Not scorable"
@@ -201,7 +203,7 @@ function administrationStatusForRecord(record = {}) {
 }
 
 function administrationLabel(status = "") {
-  return ADMINISTRATION_STATUS_LABELS[status] || "Evidence recorded";
+  return ADMINISTRATION_STATUS_LABELS[status] || "Result recorded";
 }
 
 function performanceSuppressedForRecord(record = {}) {
@@ -317,7 +319,7 @@ function benchmarkAttemptBase(record = {}, definition = {}) {
     recommendations: cloneValue(record.recommendations, []),
     observations: cloneValue(record.observations, []),
     provisional: true,
-    interpretation: "Descriptive provisional evidence; no mastery cut score is applied."
+    interpretation: "This records what the student did; it does not apply a pass mark."
   };
 }
 
@@ -661,7 +663,7 @@ function buildIndividualBenchmarkEvidence(records = [], benchmarkScope = {}) {
         attemptCount: 0,
         hasSavedEvidence: false,
         administrationStatus: "no_record",
-        administrationStatusLabel: "No saved evidence",
+        administrationStatusLabel: "No saved results",
         latestAttemptId: "",
         latestDate: "",
         grade: benchmarkScope.grade || "",
@@ -679,7 +681,7 @@ function buildIndividualBenchmarkEvidence(records = [], benchmarkScope = {}) {
         recommendations: [],
         observations: [],
         provisional: true,
-        interpretation: "No saved evidence; no mastery inference is made."
+        interpretation: "No saved results; no learning judgement is made."
       };
     }
     return {
@@ -736,14 +738,18 @@ function getClassId(student = {}) {
   return student.classId || student.class_id || "";
 }
 
-function getStatus(correct = 0, attempts = 0) {
+function getStatus(correct = 0, attempts = 0, observedAt = "", now = new Date()) {
   if (!attempts) return "not_assessed";
   const accuracy = Math.round((correct / attempts) * 100);
   const conclusion = evaluateLearningConclusion({
+    scope: LEARNING_CONCLUSION_SCOPES.ITEM,
     accuracy,
     attempts,
+    skillDiversity: 1,
     minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
-    requireRecency: false
+    observedAt,
+    now,
+    requireRecency: true
   });
   if (!conclusion.ready) return "not_enough_evidence";
   if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) return "mastered";
@@ -757,22 +763,30 @@ function makeCell() {
     statusLabel: STATUS_LABELS.not_assessed,
     policyVersion: LEARNING_POLICY_VERSION,
     evidenceCount: 0,
+    currentEvidenceCount: 0,
+    staleEvidenceCount: 0,
     unscoredCount: 0,
+    selectedPeriodUnscoredCount: 0,
     attempts: 0,
+    selectedPeriodAttempts: 0,
     correct: 0,
+    selectedPeriodCorrect: 0,
     incorrect: 0,
     accuracy: null,
     lastAssessed: "",
+    lastCurrentAssessed: "",
     details: []
   };
 }
 
-function finalizeCell(cell) {
+function finalizeCell(cell, now = new Date()) {
   const accuracy = cell.attempts ? Math.round((cell.correct / cell.attempts) * 100) : null;
   const status = cell.attempts
-    ? getStatus(cell.correct, cell.attempts)
-    : cell.evidenceCount > 0
+    ? getStatus(cell.correct, cell.attempts, cell.lastCurrentAssessed, now)
+    : cell.currentEvidenceCount > 0
       ? "unscored_evidence"
+      : cell.evidenceCount > 0
+        ? "not_enough_evidence"
       : "not_assessed";
   return {
     ...cell,
@@ -911,7 +925,7 @@ function inferAdvancedPattern(question = {}) {
   return explicit;
 }
 
-function inferPatternResultType(question = {}) {
+export function inferAdvancedPhonicsResultType(question = {}) {
   const text = [
     question.resultType,
     question.itemType,
@@ -924,18 +938,51 @@ function inferPatternResultType(question = {}) {
   return "recognition";
 }
 
-function addDetail(cell, question = {}, record = {}) {
+export function combineAdvancedPhonicsStatus(readingResult = {}, soundResult = {}) {
+  const readingStatus = readingResult.status || "not_assessed";
+  const soundStatus = soundResult.status || "not_assessed";
+  const readyStatuses = new Set(["mastered", "developing", "needs_support"]);
+
+  if (readyStatuses.has(readingStatus) && readyStatuses.has(soundStatus)) {
+    if (readingStatus === "needs_support" || soundStatus === "needs_support") return "needs_support";
+    if (readingStatus === "developing" || soundStatus === "developing") return "developing";
+    return "mastered";
+  }
+  if (readingStatus === "not_assessed" && soundStatus === "not_assessed") return "not_assessed";
+  if (
+    [readingStatus, soundStatus].every(status => (
+      status === "not_assessed" || status === "unscored_evidence"
+    ))
+    && [readingStatus, soundStatus].includes("unscored_evidence")
+  ) {
+    return "unscored_evidence";
+  }
+  return "not_enough_evidence";
+}
+
+function addDetail(cell, question = {}, record = {}, now = new Date()) {
   const isCorrect = question.formalIsCorrect ?? null;
   const scored = typeof isCorrect === "boolean";
+  const date = question.timestamp || record.completedAt || "";
+  const withinCurrentWindow = isLearningEvidenceRecent(date, { now });
   cell.evidenceCount += 1;
+  cell.selectedPeriodAttempts += scored ? 1 : 0;
+  cell.selectedPeriodCorrect += scored && isCorrect ? 1 : 0;
+  cell.selectedPeriodUnscoredCount += scored ? 0 : 1;
+  if (withinCurrentWindow) cell.currentEvidenceCount += 1;
+  else cell.staleEvidenceCount += 1;
   if (scored) {
-    cell.attempts += 1;
-    if (isCorrect) cell.correct += 1;
-  } else {
+    if (withinCurrentWindow) {
+      cell.attempts += 1;
+      if (isCorrect) cell.correct += 1;
+    }
+  } else if (withinCurrentWindow) {
     cell.unscoredCount += 1;
   }
-  const date = question.timestamp || record.completedAt || "";
   cell.lastAssessed = [cell.lastAssessed, date].filter(Boolean).sort().at(-1) || "";
+  if (withinCurrentWindow) {
+    cell.lastCurrentAssessed = [cell.lastCurrentAssessed, date].filter(Boolean).sort().at(-1) || "";
+  }
   const detail = {
     attemptId: record.attemptId || record.id || "",
     questionId: question.questionId || "",
@@ -957,7 +1004,8 @@ function addDetail(cell, question = {}, record = {}) {
     scoringRuleVersion: record.scoringRuleVersion || "",
     administrationVersion: record.administrationVersion || "",
     responseSchemaVersion: record.responseSchemaVersion ?? "",
-    date
+    date,
+    withinCurrentWindow
   };
   cell.details.push(detail);
   return detail;
@@ -977,7 +1025,8 @@ export function buildIndividualElFormalAssessmentReport({
   assessmentHistory = [],
   benchmarkScope = null,
   benchmarkGrade = "",
-  benchmarkWindow = ""
+  benchmarkWindow = "",
+  now = new Date()
 } = {}) {
   const studentId = getStudentId(student);
   // A student without an id must match NO attempts, not all of them —
@@ -1007,17 +1056,17 @@ export function buildIndividualElFormalAssessmentReport({
       const mode = inferLetterMode(question);
       const cellKey = `${letterCase}${mode === "sound" ? "Sound" : "Name"}`;
       const row = letterMap.get(letter);
-      addDetail(row[cellKey], question, record);
+      addDetail(row[cellKey], question, record, now);
       row.lastAssessed = [row.lastAssessed, question.timestamp || record.completedAt].filter(Boolean).sort().at(-1) || "";
     });
   });
 
   const individualLetterMatrix = Array.from(letterMap.values()).map(row => ({
     ...row,
-    uppercaseName: finalizeCell(row.uppercaseName),
-    uppercaseSound: finalizeCell(row.uppercaseSound),
-    lowercaseName: finalizeCell(row.lowercaseName),
-    lowercaseSound: finalizeCell(row.lowercaseSound),
+    uppercaseName: finalizeCell(row.uppercaseName, now),
+    uppercaseSound: finalizeCell(row.uppercaseSound, now),
+    lowercaseName: finalizeCell(row.lowercaseName, now),
+    lowercaseSound: finalizeCell(row.lowercaseSound, now),
     lastAssessed: formatDate(row.lastAssessed)
   }));
 
@@ -1054,17 +1103,10 @@ export function buildIndividualElFormalAssessmentReport({
       const pattern = inferAdvancedPattern(question);
       const row = ensurePattern(pattern);
       if (!row) return;
-      const type = inferPatternResultType(question);
+      const type = inferAdvancedPhonicsResultType(question);
       const targetCell = type === "sound" ? row.soundResult : row.readingResult;
-      const detail = addDetail(targetCell, question, record);
+      const detail = addDetail(targetCell, question, record, now);
       row.evidenceCount += 1;
-      if (detail.scored) {
-        row.attempts += 1;
-        if (detail.isCorrect) row.correct += 1;
-        else row.incorrect += 1;
-      } else {
-        row.unscoredCount += 1;
-      }
       const example = normalizeKey(question.targetWord || question.correctAnswer || "");
       if (example && example !== pattern) row.exampleWords.add(example);
       const date = question.timestamp || record.completedAt || "";
@@ -1074,16 +1116,37 @@ export function buildIndividualElFormalAssessmentReport({
   });
 
   const individualAdvancedPhonicsMatrix = Array.from(patternMap.values()).map(row => {
-    const accuracy = row.attempts ? Math.round((row.correct / row.attempts) * 100) : null;
-    const status = row.attempts
-      ? getStatus(row.correct, row.attempts)
-      : row.evidenceCount > 0
-        ? "unscored_evidence"
-        : "not_assessed";
+    const readingResult = finalizeCell(row.readingResult, now);
+    const soundResult = finalizeCell(row.soundResult, now);
+    const attempts = readingResult.attempts + soundResult.attempts;
+    const correct = readingResult.correct + soundResult.correct;
+    const currentEvidenceCount = readingResult.currentEvidenceCount + soundResult.currentEvidenceCount;
+    const staleEvidenceCount = readingResult.staleEvidenceCount + soundResult.staleEvidenceCount;
+    const unscoredCount = readingResult.unscoredCount + soundResult.unscoredCount;
+    const selectedPeriodAttempts = (
+      readingResult.selectedPeriodAttempts + soundResult.selectedPeriodAttempts
+    );
+    const selectedPeriodCorrect = (
+      readingResult.selectedPeriodCorrect + soundResult.selectedPeriodCorrect
+    );
+    const selectedPeriodUnscoredCount = (
+      readingResult.selectedPeriodUnscoredCount + soundResult.selectedPeriodUnscoredCount
+    );
+    const accuracy = attempts ? Math.round((correct / attempts) * 100) : null;
+    const status = combineAdvancedPhonicsStatus(readingResult, soundResult);
     return {
       ...row,
-      readingResult: finalizeCell(row.readingResult),
-      soundResult: finalizeCell(row.soundResult),
+      readingResult,
+      soundResult,
+      currentEvidenceCount,
+      staleEvidenceCount,
+      unscoredCount,
+      attempts,
+      selectedPeriodAttempts,
+      correct,
+      selectedPeriodCorrect,
+      selectedPeriodUnscoredCount,
+      incorrect: attempts - correct,
       accuracy,
       status,
       statusLabel: STATUS_LABELS[status],
@@ -1107,6 +1170,7 @@ export function buildIndividualElFormalAssessmentReport({
   return {
     studentId,
     studentName: getStudentName(student),
+    currentStatusWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
     individualLetterMatrix,
     individualAdvancedPhonicsMatrix,
     ...benchmarkEvidence
@@ -1118,9 +1182,11 @@ function countCellByStudent(rows = [], cellKey, students = []) {
     mastered: 0,
     developing: 0,
     needs_support: 0,
+    not_enough_evidence: 0,
     unscored_evidence: 0,
     not_assessed: 0,
     supportStudents: [],
+    notEnoughResultsStudents: [],
     unscoredEvidenceStudents: [],
     evidenceRows: []
   };
@@ -1129,6 +1195,9 @@ function countCellByStudent(rows = [], cellKey, students = []) {
     const status = cell.status || "not_assessed";
     counts[status] += 1;
     if (status === "needs_support") counts.supportStudents.push(getStudentName(student));
+    if (status === "not_enough_evidence") {
+      counts.notEnoughResultsStudents.push(getStudentName(student));
+    }
     if (status === "unscored_evidence") counts.unscoredEvidenceStudents.push(getStudentName(student));
     (cell.details || []).forEach(detail => {
       counts.evidenceRows.push(compactClassEvidenceDetail(student, detail));
@@ -1204,7 +1273,7 @@ function buildClassBenchmarkEvidence(individualReports = [], classStudents = [],
         .filter(row => row.profile.confirmedPlacement)
         .map(row => ({ studentId: getStudentId(row.student), studentName: getStudentName(row.student), placement: row.profile.confirmedPlacement })),
       provisional: true,
-      interpretation: "Descriptive class evidence; no mastery cut score is applied."
+      interpretation: "These are descriptive class results; no pass mark is applied."
     };
 
     if (definition.assessmentId === EL_BENCHMARK_ASSESSMENT_IDS.PHONOLOGICAL_AWARENESS) {
@@ -1282,7 +1351,8 @@ export function buildClassElFormalAssessmentReport({
   classId = "",
   benchmarkScope = null,
   benchmarkGrade = "",
-  benchmarkWindow = ""
+  benchmarkWindow = "",
+  now = new Date()
 } = {}) {
   const classStudents = (Array.isArray(students) ? students : [])
     .filter(student => !classId || getClassId(student) === classId);
@@ -1305,7 +1375,8 @@ export function buildClassElFormalAssessmentReport({
     report: buildIndividualElFormalAssessmentReport({
       student,
       assessmentHistory: classRecords,
-      benchmarkScope: resolvedBenchmarkScope
+      benchmarkScope: resolvedBenchmarkScope,
+      now
     })
   }));
 
@@ -1335,22 +1406,26 @@ export function buildClassElFormalAssessmentReport({
       row: report.individualAdvancedPhonicsMatrix.find(item => item.pattern === pattern)
     }));
     const withEvidence = rows.filter(item => item.row?.evidenceCount > 0);
-    const scored = withEvidence.filter(item => item.row?.attempts > 0);
-    const unscored = withEvidence.filter(item => item.row?.attempts === 0);
-    const mastered = scored.filter(item => item.row.status === "mastered");
-    const developing = scored.filter(item => item.row.status === "developing");
-    const support = scored.filter(item => item.row.status === "needs_support");
+    const attempted = withEvidence.filter(item => item.row?.attempts > 0);
+    const unscored = withEvidence.filter(item => item.row.status === "unscored_evidence");
+    const notEnough = withEvidence.filter(item => item.row.status === "not_enough_evidence");
+    const mastered = withEvidence.filter(item => item.row.status === "mastered");
+    const developing = withEvidence.filter(item => item.row.status === "developing");
+    const support = withEvidence.filter(item => item.row.status === "needs_support");
+    const ready = [...mastered, ...developing, ...support];
     return {
       pattern,
       evidenceStudents: withEvidence.length,
-      attemptedStudents: scored.length,
+      attemptedStudents: attempted.length,
       unscoredEvidenceStudents: unscored.length,
+      notEnoughResultsStudents: notEnough.length,
       masteredStudents: mastered.length,
       developingStudents: developing.length,
       needsSupportStudents: support.length,
       notAssessedStudents: Math.max(0, classStudents.length - withEvidence.length),
-      masteryPercentage: scored.length ? Math.round((mastered.length / scored.length) * 100) : null,
+      masteryPercentage: ready.length ? Math.round((mastered.length / ready.length) * 100) : null,
       studentsNeedingSupport: support.map(item => getStudentName(item.student)),
+      studentsWithNotEnoughResults: notEnough.map(item => getStudentName(item.student)),
       studentsWithUnscoredEvidence: unscored.map(item => getStudentName(item.student)),
       evidenceRows: withEvidence.flatMap(item => (
         (item.row.details || []).map(detail => compactClassEvidenceDetail(item.student, detail))
@@ -1370,6 +1445,7 @@ export function buildClassElFormalAssessmentReport({
 
   return {
     benchmarkScope: resolvedBenchmarkScope,
+    currentStatusWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
     classEvidenceSchema: [...EL_FORMAL_CLASS_EVIDENCE_SCHEMA],
     classLetterMatrix,
     classAdvancedPhonicsMatrix,

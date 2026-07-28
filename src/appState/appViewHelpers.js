@@ -1,4 +1,5 @@
 import { APP_VIEWS } from "./appViews.js";
+import { canonicalTeacherSettingsRoutePath } from "./teacherSettingsRoutes.js";
 
 const FOCUSED_ASSESSMENT_VIEWS = new Set([
   APP_VIEWS.ASSESSMENT,
@@ -78,7 +79,9 @@ const TEACHER_INTENTION_VIEWS = new Set([
   APP_VIEWS.ASSESSMENTS,
   APP_VIEWS.REPORTS,
   APP_VIEWS.TEACHER_RESOURCES,
-  APP_VIEWS.TEACHER_SETTINGS
+  APP_VIEWS.TEACHER_SETTINGS,
+  APP_VIEWS.WORKSHEETS,
+  APP_VIEWS.PRESENT
 ]);
 
 export function isFocusedAssessmentView(appView) {
@@ -91,6 +94,33 @@ export function shouldShowDashboardSummary({ appView } = {}) {
 
 export function shouldShowFooterUtilityActions({ appView, isFocusedAssessment = false } = {}) {
   return !isFocusedAssessment && !FOOTER_HIDDEN_VIEWS.has(appView);
+}
+
+export function shouldOpenDefaultTeacherRoute({
+  appView,
+  authReady,
+  isApproved,
+  profileLoaded,
+  profileLoadedTeacherId,
+  teacherUserId
+} = {}) {
+  return Boolean(
+    authReady
+    && isApproved
+    && profileLoaded
+    && teacherUserId
+    && profileLoadedTeacherId === teacherUserId
+    && appView === APP_VIEWS.SELECT
+  );
+}
+
+export function shouldApplyRestoredAppView({
+  currentNavigationRevision,
+  restoreNavigationRevision
+} = {}) {
+  return Number.isInteger(currentNavigationRevision)
+    && Number.isInteger(restoreNavigationRevision)
+    && currentNavigationRevision === restoreNavigationRevision;
 }
 
 export function getRestoredAppView({ restoredStudentId, storedAppView } = {}) {
@@ -116,9 +146,7 @@ export function getRestoredAppView({ restoredStudentId, storedAppView } = {}) {
     [APP_VIEWS.FINISHED]: APP_VIEWS.REPORTS,
     [APP_VIEWS.GUIDED_READING]: APP_VIEWS.TEACHER_RESOURCES,
     [APP_VIEWS.LEARN]: APP_VIEWS.TEACHER_RESOURCES,
-    [APP_VIEWS.PHONICS_LEARN]: APP_VIEWS.TEACHER_RESOURCES,
-    [APP_VIEWS.WORKSHEETS]: APP_VIEWS.TEACHER_RESOURCES,
-    [APP_VIEWS.PRESENT]: APP_VIEWS.TEACHER_RESOURCES
+    [APP_VIEWS.PHONICS_LEARN]: APP_VIEWS.TEACHER_RESOURCES
   };
   if (legacyTeacherModuleRedirects[storedAppView]) {
     return legacyTeacherModuleRedirects[storedAppView];
@@ -144,12 +172,20 @@ const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.ASSESSMENTS]: "assessments",
   [APP_VIEWS.REPORTS]: "reports",
   [APP_VIEWS.TEACHER_RESOURCES]: "resources",
+  [APP_VIEWS.WORKSHEETS]: "resources/worksheets",
+  [APP_VIEWS.PRESENT]: "resources/present",
   [APP_VIEWS.TEACHER_SETTINGS]: "settings",
   [APP_VIEWS.FINISHED]: "reports/report"
 });
 
 // Sections that are about a whole class, so the URL carries no group or learner.
-const CLASS_ONLY_INTENTS = ["dashboard", "settings"];
+const CLASS_ONLY_INTENTS = [
+  "dashboard",
+  "resources",
+  "resources/worksheets",
+  "resources/present",
+  "settings"
+];
 
 export function teacherIntentHash({
   appView,
@@ -188,10 +224,25 @@ export function isSameTeacherRoute(currentHash = "", nextHash = "") {
   if (!currentHash || !nextHash) return false;
   const [currentPath, currentQuery = ""] = String(currentHash).replace(/^#/, "").split("?");
   const [nextPath, nextQuery = ""] = String(nextHash).replace(/^#/, "").split("?");
-  if (currentPath !== nextPath) return false;
+  // Settings owns four real sub-pages. The app-level mirror only knows that
+  // the current React view is Settings, so its fallback hash is the bare
+  // `teacher/settings` route. Treat a valid Settings sub-page as the same
+  // route identity or every unrelated re-render replaces its bookmarkable
+  // URL and a reload silently falls back to School information.
+  if (
+    canonicalTeacherSettingsRoutePath(currentPath)
+    !== canonicalTeacherSettingsRoutePath(nextPath)
+  ) return false;
   const current = new URLSearchParams(currentQuery);
   const next = new URLSearchParams(nextQuery);
-  return ["class", "group", "learner"].every(key => (
+  // A live EL assessment is not a chooser funnel: its session and item are
+  // resumable route state. Treating item 1 and item 4 as the same route left
+  // the address stale while the assessment advanced, so refresh reopened the
+  // wrong item.
+  const contextKeys = currentPath === "teacher/checks/el-benchmark"
+    ? ["class", "learner", "assessment", "session", "item"]
+    : ["class", "group", "learner"];
+  return contextKeys.every(key => (
     (current.get(key) || "") === (next.get(key) || "")
   ));
 }
@@ -206,10 +257,36 @@ export function readTeacherFunnelParams(hash) {
   return new URLSearchParams(query);
 }
 
+// A history navigation temporarily puts class and roster reads back into their
+// loading states. That is not a new funnel answer, so it must not erase the
+// report named by the address while ownership is being re-confirmed.
+export function shouldWriteTeacherReportFunnelParams({
+  classReadComplete = false,
+  rosterReadComplete = false,
+  who = ""
+} = {}) {
+  if (!classReadComplete) return false;
+  return !who || rosterReadComplete;
+}
+
+const TEACHER_FUNNEL_ROUTE_PATHS = new Set([
+  "teacher/assessments",
+  "teacher/assess",
+  "teacher/checks",
+  "teacher/reports",
+  "teacher/progress",
+  "teacher/reports/class"
+]);
+
 export function writeTeacherFunnelParams(patch = {}) {
   if (typeof window === "undefined") return "";
   const [path, query = ""] = String(window.location.hash || "").replace(/^#/, "").split("?");
   if (!path) return "";
+  // This helper belongs to the two chooser funnels. During a retryable
+  // deep-link read, the Reports chooser is the safe visible fallback while
+  // the exact standalone report address must remain untouched. Without this
+  // boundary its mount effect deleted `report=...` before retry could succeed.
+  if (!TEACHER_FUNNEL_ROUTE_PATHS.has(path)) return window.location.hash;
   const params = new URLSearchParams(query);
   Object.entries(patch).forEach(([key, value]) => {
     if (value === "" || value === null || value === undefined) params.delete(key);
@@ -229,7 +306,12 @@ export function elBenchmarkAssessmentHash({
 } = {}) {
   if (!session?.sessionId || !session?.assessmentId || !learnerId) return "";
   const context = new URLSearchParams();
-  if (classId) context.set("class", classId);
+  // Once an assessment exists, its stored class is authoritative. A class
+  // switch elsewhere in the teacher shell must not rewrite this route to make
+  // the unfinished assessment appear to belong to the newly selected class.
+  const sessionClassId = String(session.classId || "").trim();
+  const ownedClassId = sessionClassId || classId;
+  if (ownedClassId) context.set("class", ownedClassId);
   context.set("learner", learnerId);
   context.set("assessment", session.assessmentId);
   context.set("session", session.sessionId);
@@ -272,6 +354,11 @@ export function restoreElBenchmarkSessionFromHash({
     || route.learnerId !== session.studentId
     || route.assessmentId !== session.assessmentId
     || route.sessionId !== session.sessionId
+    || (
+      route.classId
+      && session.classId
+      && String(route.classId) !== String(session.classId)
+    )
   ) {
     return null;
   }

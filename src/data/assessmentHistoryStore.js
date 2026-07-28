@@ -1,4 +1,5 @@
 import {
+  LEARNING_CONCLUSION_SCOPES,
   LEARNING_POLICY_VERSION,
   LEARNING_STATUS_IDS,
   evaluateLearningConclusion,
@@ -9,6 +10,8 @@ import {
 const STORAGE_PREFIX = "lpAssessmentHistory:v1";
 const SYNC_QUEUE_PREFIX = "lpAssessmentSyncQueue:v1";
 const activeSyncQueueFlushes = new Map();
+const activeAssessmentAttemptWrites = new Map();
+const blockedAssessmentAttemptScopes = new Set();
 
 export const CURRENT_ASSESSMENT_ATTEMPT_SCHEMA_VERSION = 2;
 export const ASSESSMENT_EVIDENCE_SCHEMA_VERSION = 1;
@@ -81,6 +84,19 @@ function getStorageKey(teacherId = "local") {
 
 function getSyncQueueKey(teacherId = "local") {
   return `${SYNC_QUEUE_PREFIX}:${teacherId || "local"}`;
+}
+
+function assessmentAttemptScope(teacherId, studentId) {
+  const scopedTeacherId = String(teacherId || "").trim();
+  const scopedStudentId = String(studentId || "").trim();
+  return scopedTeacherId && scopedStudentId
+    ? `${scopedTeacherId}:${scopedStudentId}`
+    : "";
+}
+
+function assessmentAttemptWritesBlocked(teacherId, studentId) {
+  const scope = assessmentAttemptScope(teacherId, studentId);
+  return Boolean(scope && blockedAssessmentAttemptScopes.has(scope));
 }
 
 function safeParse(value, fallback) {
@@ -258,6 +274,7 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
 
   return {
     questionId: item.questionId || item.id || "",
+    answerEventId: item.answerEventId || item.clientEventId || existingMetadata.answerEventId || "",
     title: item.title || item.passageTitle || "",
     passageId: item.passageId || "",
     passageTitle: item.passageTitle || item.title || "",
@@ -393,6 +410,7 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
         String(item.responseText ?? item.exactResponse ?? item.transcription ?? item.studentSpelling ?? item.selectedAnswer ?? "").trim()
       ),
       outcomeRecordedAt: item.outcomeRecordedAt || existingMetadata.outcomeRecordedAt || "",
+      answerEventId: item.answerEventId || item.clientEventId || existingMetadata.answerEventId || "",
       evaluationSource: item.evaluationSource || existingMetadata.evaluationSource || "",
       teacherOverride: cloneJsonValue(item.teacherOverride, existingMetadata.teacherOverride ?? null),
       overrideReason: item.overrideReason || existingMetadata.overrideReason || "",
@@ -956,6 +974,7 @@ export function mergeAssessmentAttemptIntoItemMastery(itemMastery = {}, record =
     const previous = next[key] || {};
     const attempts = Number(previous.attempts || 0) + row.attempts;
     const correct = Number(previous.correct || 0) + row.correct;
+    const sessionsSeen = Number(previous.sessionsSeen || 0) + 1;
     const accuracy = attempts ? Math.round((correct / attempts) * 100) : 0;
     next[key] = {
       ...previous,
@@ -973,13 +992,13 @@ export function mergeAssessmentAttemptIntoItemMastery(itemMastery = {}, record =
       // "Last result correct" only when every instance in the latest attempt
       // was correct — 1-of-6 right must not read as a correct last answer.
       lastResult: row.attempts > 0 && row.correct >= row.attempts,
-      sessionsSeen: Number(previous.sessionsSeen || 0) + 1,
+      sessionsSeen,
       // Recompute each merge instead of carrying previous.mastered forward:
       // a child who later fails an item repeatedly must drop out of "mastered"
       // so remediation can re-teach it.
       mastered: Boolean(
-        row.mastered
-        || meetsLearningProgressionRule({
+        sessionsSeen >= 2
+        && meetsLearningProgressionRule({
           accuracy,
           attempts,
           correct,
@@ -1423,7 +1442,8 @@ export async function hydrateAssessmentAttempts({
   teacherId = "local",
   studentId = "",
   classId = "",
-  supabase = null
+  supabase = null,
+  returnStatus = false
 } = {}) {
   if (supabase && teacherId && teacherId !== "local") {
     await flushAssessmentAttemptSyncQueue({ teacherId, supabase });
@@ -1433,9 +1453,23 @@ export async function hydrateAssessmentAttempts({
     (!studentId || record.studentId === studentId) &&
     (!classId || record.classId === classId)
   ));
+  const resultForCaller = (records, {
+    source,
+    complete,
+    error = null,
+    truncated = false
+  }) => {
+    const sorted = sortAttemptsNewestFirst(filterRequestedRows(records));
+    return returnStatus
+      ? { records: sorted, source, complete, error, truncated }
+      : sorted;
+  };
 
   if (!supabase || !teacherId || teacherId === "local") {
-    return sortAttemptsNewestFirst(filterRequestedRows(localRecords));
+    return resultForCaller(localRecords, {
+      source: "local",
+      complete: true
+    });
   }
 
   try {
@@ -1454,12 +1488,14 @@ export async function hydrateAssessmentAttempts({
 
     const firstQuery = buildOrderedQuery();
     let cloudRows = [];
+    let truncated = false;
     if (typeof firstQuery?.range !== "function") {
       // Keep compatibility with lightweight/offline Supabase adapters while
       // real hosted clients use pagination below.
       const { data, error } = await firstQuery;
       if (error) throw error;
       cloudRows = Array.isArray(data) ? data : [];
+      truncated = cloudRows.length >= CLOUD_HYDRATION_PAGE_SIZE;
     } else {
       const seenCloudRows = new Set();
       for (let from = 0; ; from += CLOUD_HYDRATION_PAGE_SIZE) {
@@ -1487,10 +1523,18 @@ export async function hydrateAssessmentAttempts({
     // never overwrite unrelated student/class records during a filtered load.
     const merged = mergeAssessmentAttemptRecords(localRecords, cloudRecords);
     saveAssessmentAttemptListLocal(merged, { teacherId });
-    return sortAttemptsNewestFirst(filterRequestedRows(merged));
+    return resultForCaller(merged, {
+      source: truncated ? "cloud-partial" : "cloud",
+      complete: !truncated,
+      truncated
+    });
   } catch (error) {
     console.warn("Assessment attempt cloud hydration is unavailable; using local history.", error);
-    return sortAttemptsNewestFirst(filterRequestedRows(localRecords));
+    return resultForCaller(localRecords, {
+      source: "local-fallback",
+      complete: false,
+      error
+    });
   }
 }
 
@@ -1516,11 +1560,16 @@ export function saveAssessmentAttemptLocal(record, {
 }
 
 export function deleteAssessmentAttemptsForStudent({
+  blockFutureWrites = false,
   teacherId = "local",
   studentId = "",
   studentName = "",
   resetAtOrBefore = ""
 } = {}) {
+  if (blockFutureWrites) {
+    const scope = assessmentAttemptScope(teacherId, studentId);
+    if (scope) blockedAssessmentAttemptScopes.add(scope);
+  }
   if (typeof localStorage === "undefined") return [];
   const existing = loadAssessmentAttempts({ teacherId });
   const normalizedStudentId = String(studentId || "").trim();
@@ -1553,7 +1602,71 @@ export function deleteAssessmentAttemptsForStudent({
   return next;
 }
 
-export async function saveAssessmentAttempt(record, { teacherId = record.teacherId || "local", supabase = null } = {}) {
+export async function clearAndVerifyAssessmentAttemptsForStudent({
+  teacherId = "local",
+  studentId = "",
+  studentName = ""
+} = {}) {
+  const scopedTeacherId = String(teacherId || "").trim();
+  const scopedStudentId = String(studentId || "").trim();
+  if (!scopedTeacherId || !scopedStudentId || typeof localStorage === "undefined") {
+    const error = new Error("The assessment evidence cache is unavailable for privacy cleanup.");
+    error.code = "LP_ASSESSMENT_ATTEMPT_CLEANUP_INCOMPLETE";
+    throw error;
+  }
+
+  deleteAssessmentAttemptsForStudent({
+    blockFutureWrites: true,
+    teacherId: scopedTeacherId,
+    studentId: scopedStudentId,
+    studentName
+  });
+  const scope = assessmentAttemptScope(scopedTeacherId, scopedStudentId);
+  const pending = [
+    ...[...activeAssessmentAttemptWrites.values()]
+      .filter(write => write.scope === scope)
+      .map(write => write.promise)
+  ];
+  const activeFlush = activeSyncQueueFlushes.get(scopedTeacherId);
+  if (activeFlush) pending.push(activeFlush);
+  if (pending.length) await Promise.allSettled(pending);
+
+  deleteAssessmentAttemptsForStudent({
+    blockFutureWrites: true,
+    teacherId: scopedTeacherId,
+    studentId: scopedStudentId,
+    studentName
+  });
+  const normalizedStudentName = String(studentName || "").trim().toLowerCase();
+  const residualAttempts = loadAssessmentAttempts({
+    teacherId: scopedTeacherId
+  }).filter(record => {
+    const recordStudentId = String(record.studentId || "").trim();
+    return recordStudentId === scopedStudentId || Boolean(
+      !recordStudentId
+      && normalizedStudentName
+      && String(record.studentName || "").trim().toLowerCase() === normalizedStudentName
+    );
+  });
+  const residualQueue = loadAssessmentAttemptSyncQueue({
+    teacherId: scopedTeacherId
+  }).filter(record => String(record.studentId || "") === scopedStudentId);
+  if (residualAttempts.length || residualQueue.length) {
+    const error = new Error("Cached assessment evidence could not be cleared and verified.");
+    error.code = "LP_ASSESSMENT_ATTEMPT_CLEANUP_INCOMPLETE";
+    error.residualCount = residualAttempts.length + residualQueue.length;
+    throw error;
+  }
+  return {
+    attemptsResidual: 0,
+    queuedResidual: 0
+  };
+}
+
+async function saveAssessmentAttemptUntracked(record, {
+  teacherId = record.teacherId || "local",
+  supabase = null
+} = {}) {
   const normalized = normalizeAssessmentAttempt({
     ...record,
     teacherId: record.teacherId || teacherId,
@@ -1601,7 +1714,12 @@ export async function saveAssessmentAttempt(record, { teacherId = record.teacher
     }
   }
 
-  if (supabase && !cloudSaved && localResult.saved) {
+  if (
+    supabase
+    && !cloudSaved
+    && localResult.saved
+    && !assessmentAttemptWritesBlocked(teacherId, recordToPersist.studentId)
+  ) {
     syncQueued = enqueueAssessmentAttemptSync(recordToPersist, { teacherId });
   }
   if (supabase && cloudSaved) {
@@ -1620,6 +1738,36 @@ export async function saveAssessmentAttempt(record, { teacherId = record.teacher
   };
 }
 
+export function saveAssessmentAttempt(record, {
+  teacherId = record.teacherId || "local",
+  supabase = null
+} = {}) {
+  const studentId = String(record?.studentId || "").trim();
+  const scope = assessmentAttemptScope(teacherId, studentId);
+  if (assessmentAttemptWritesBlocked(teacherId, studentId)) {
+    const error = new Error("Assessment evidence writes are blocked because this learner is being deleted.");
+    error.code = "LP_LEARNER_WRITE_BLOCKED";
+    return Promise.resolve({
+      records: loadAssessmentAttempts({ teacherId }),
+      localSaved: false,
+      cloudSaved: false,
+      durable: false,
+      syncQueued: false,
+      pendingSyncCount: loadAssessmentAttemptSyncQueue({ teacherId }).length,
+      localError: error,
+      cloudError: null
+    });
+  }
+
+  const token = `${scope}:${record?.attemptId || nowIso()}:${Math.random().toString(36).slice(2)}`;
+  const promise = saveAssessmentAttemptUntracked(record, { teacherId, supabase })
+    .finally(() => {
+      activeAssessmentAttemptWrites.delete(token);
+    });
+  activeAssessmentAttemptWrites.set(token, { scope, promise });
+  return promise;
+}
+
 export function buildAssessmentAttemptRecord({
   studentId,
   studentName,
@@ -1635,6 +1783,7 @@ export function buildAssessmentAttemptRecord({
 }) {
   const normalizedQuestions = questionRecords.map(record => ({
     questionId: record.questionId,
+    answerEventId: record.answerEventId || "",
     prompt: record.question,
     targetWord: record.targetWord,
     targetLetter: record.targetLetter,
@@ -1673,9 +1822,11 @@ export function buildAssessmentAttemptRecord({
     completedAt: new Date().toISOString(),
     totalQuestions: normalizedQuestions.length,
     correctCount: normalizedQuestions.filter(record => record.isCorrect).length,
-    passed: checkpoint?.passed,
-    status: checkpoint?.passed ? "mastered" : "needs_retry",
-    masteredItems: checkpoint?.totalCoveredItems || [],
+    passed: Boolean(checkpoint?.masteryEstablished),
+    status: checkpoint?.masteryEstablished ? "mastered" : "evidence_recorded",
+    masteredItems: checkpoint?.masteryEstablished
+      ? checkpoint?.totalCoveredItems || []
+      : [],
     missedItems,
     itemKeysCovered: checkpoint?.coveredThisRound || [],
     contentCoverage: checkpoint?.coverage || {},
@@ -1766,8 +1917,10 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
   const skills = Array.from(skillMap.values()).map(skill => {
     const accuracy = skill.total ? Math.round((skill.correct / skill.total) * 100) : 0;
     const conclusion = evaluateLearningConclusion({
+      scope: LEARNING_CONCLUSION_SCOPES.SKILL,
       accuracy,
       attempts: skill.total,
+      skillDiversity: 1,
       observedAt: skill.latestAt
     });
     return {
@@ -1776,15 +1929,20 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
       conclusion,
       policyVersion: conclusion.policyVersion,
       status: skill.isDescriptiveBenchmark
-        ? skill.descriptiveEvidence > 0 ? "evidence recorded" : "not checked"
+        ? skill.descriptiveEvidence > 0 ? "evidence recorded" : "not assessed"
         : conclusion.status.label.toLowerCase()
     };
   });
   const studentsSummary = Array.from(studentMap.values()).map(student => {
     const accuracy = student.total ? Math.round((student.correct / student.total) * 100) : 0;
+    const skillDiversity = new Set([
+      ...student.masteredSkills,
+      ...student.supportSkills
+    ]).size;
     const conclusion = evaluateLearningConclusion({
       accuracy,
       attempts: student.total,
+      skillDiversity,
       observedAt: student.latestScored?.completedAt || ""
     });
     return {

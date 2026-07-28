@@ -9,6 +9,7 @@ import {
   PROGRESS_MIN_RESPONSES,
   buildClassAccuracySummary
 } from "../utils/teacherProgressOverview.js";
+import { TEACHER_TODAY_POLICY } from "../utils/teacherTodayBriefing.js";
 import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
   deleteRosterStudent,
@@ -16,6 +17,7 @@ import {
   findDuplicateRosterName,
   insertRosterStudents,
   normalizeRosterStudentName,
+  reviewRosterImportNames,
   setRosterStudentArchived,
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
@@ -42,8 +44,11 @@ import {
   StudentInitial,
   TeacherSetupChecklist
 } from "./teacher/TeacherClassParts.jsx";
+import { getTeacherPaginationWindow } from "./teacher/teacherPagination.js";
+import { getTeacherArchivedRosterView } from "./teacher/teacherArchivedRoster.js";
 import {
   accuracyConclusion,
+  activityIsAtLeastDaysOld,
   formatLastActive,
   getProgressPercent,
   latestMetricUpdate,
@@ -53,16 +58,19 @@ import {
 } from "./teacher/teacherClassModel.js";
 import { supabase } from "../supabaseClient.js";
 import { clearLocalElAssessmentDataForStudent } from "../utils/elAssessmentReset.js";
-import { clearLocalProgressForStudent } from "../utils/progressSync.js";
+import { clearAndVerifyLocalProgressForStudent } from "../utils/progressSync.js";
 import {
   TEACHER_COPY,
   countPhrase,
   progressPhrase
 } from "../copy/teacherCopy.js";
+import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
+import { getClassListReadView } from "../appState/classListReadState.js";
+import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 import logoUrl from "../assets/logo.svg";
 
 const ROSTER_COLUMN_OPTIONS = [
-  { id: "focus", label: "Focus" },
+  { id: "focus", label: "Current focus" },
   { id: "progress", label: "Progress" },
   { id: "sound-seekers", label: "Sound Seekers" },
   { id: "login", label: "Sign-in" },
@@ -71,7 +79,11 @@ const ROSTER_COLUMN_OPTIONS = [
 // "login" (the Sign-in column) is back in the defaults: it carries the only
 // per-student control that lets a class sign in at all, so hiding it behind the
 // column picker made a brand-new class unusable.
-const DEFAULT_ROSTER_COLUMNS = ["focus", "progress", "login", "last-active"];
+// The default roster answers the four questions teachers use during a lesson:
+// who, current focus, can they sign in, and when were they last active.
+// Detailed progress stays in the student panel instead of widening every row.
+const DEFAULT_ROSTER_COLUMNS = ["focus", "login", "last-active"];
+const ROSTER_PAGE_SIZE = 10;
 
 function loadVisibleRosterColumns(teacherId) {
   if (!teacherId || typeof localStorage === "undefined") return DEFAULT_ROSTER_COLUMNS;
@@ -100,7 +112,7 @@ function classAverageHeldBackNote(comparability = {}) {
     return TEACHER_COPY.metrics.fairAverage(rule.minimumPolicyReadyLearners);
   }
   if ((Number(comparability.readyProportion) || 0) < rule.minimumPolicyReadyProportion) {
-    return `Only ${countPhrase(ready, "student", "students")} of ${total} have done enough checks so far. A class average appears once most of the class has enough saved answers.`;
+    return `Only ${countPhrase(ready, "student", "students")} of ${total} have done enough assessments so far. A class average appears once most of the class has enough saved answers.`;
   }
   if (imbalance !== null && imbalance !== undefined && imbalance > rule.maximumResponseImbalanceRatio) {
     return "One student has answered far more often than the others, so a class average would mostly describe that student. It appears once the class has answered more evenly.";
@@ -149,12 +161,77 @@ function parseCsvNames(text = "") {
   return names;
 }
 
+const LOGIN_CARD_ROUTE_VIEW = "sign-in-cards";
+
+function readLoginCardRouteStudentIds(hash = "") {
+  const [path, query = ""] = String(hash || "").replace(/^#/, "").split("?");
+  if (path !== "teacher/children") return [];
+  const params = new URLSearchParams(query);
+  if (params.get("view") !== LOGIN_CARD_ROUTE_VIEW) return [];
+  return [...new Set(
+    String(params.get("cards") || "")
+      .split(",")
+      .map(value => value.trim())
+      .filter(Boolean)
+  )];
+}
+
+function pushLoginCardRoute(rows = []) {
+  if (typeof window === "undefined") return;
+  const ids = rows.map(row => row?.id).filter(Boolean);
+  if (!ids.length) return;
+  const [path, query = ""] = String(window.location.hash || "")
+    .replace(/^#/, "")
+    .split("?");
+  if (path !== "teacher/children") return;
+  const params = new URLSearchParams(query);
+  params.set("view", LOGIN_CARD_ROUTE_VIEW);
+  params.set("cards", ids.join(","));
+  const nextHash = `#${path}?${params.toString()}`;
+  if (window.location.hash === nextHash) return;
+  const previewAlreadyOpen = new URLSearchParams(query).get("view") === LOGIN_CARD_ROUTE_VIEW;
+  if (previewAlreadyOpen) {
+    window.history.replaceState(
+      { ...window.history.state, literacyPathLoginCardPreview: true },
+      "",
+      nextHash
+    );
+    return;
+  }
+  window.history.pushState(
+    { ...window.history.state, literacyPathLoginCardPreview: true },
+    "",
+    nextHash
+  );
+}
+
+function clearLoginCardRoute() {
+  if (typeof window === "undefined") return;
+  if (window.history.state?.literacyPathLoginCardPreview) {
+    window.history.back();
+    return;
+  }
+  const [path, query = ""] = String(window.location.hash || "")
+    .replace(/^#/, "")
+    .split("?");
+  if (path !== "teacher/children") return;
+  const params = new URLSearchParams(query);
+  params.delete("view");
+  params.delete("cards");
+  const nextHash = `#${path}${params.size ? `?${params.toString()}` : ""}`;
+  window.history.replaceState(window.history.state, "", nextHash);
+}
+
 function LoginCardPrintRoute({
   rows,
+  failedAssignments = [],
+  retryingFailures = false,
+  retryFailureMessage = "",
   schoolName,
   className,
   classCode,
-  onClose
+  onClose,
+  onRetryFailures
 }) {
   const [printFeedback, setPrintFeedback] = useState({
     kind: "success",
@@ -184,7 +261,7 @@ function LoginCardPrintRoute({
   }
 
   return (
-    <section
+    <main
       className="teacher-login-card-route"
       data-teacher-route="login-cards"
       aria-labelledby="teacher-login-card-route-title"
@@ -197,16 +274,37 @@ function LoginCardPrintRoute({
             {schoolName || "School"} · {className || "Class"} · {rows.length} card{rows.length === 1 ? "" : "s"}
           </p>
         </div>
-        <div className="teacher-login-card-route-actions">
+        <nav className="teacher-login-card-route-actions" aria-label="Sign-in card navigation">
           <button className="lp-button lp-button-secondary" type="button" onClick={onClose}>
-            Return to roster
+            ← Back to Students
           </button>
           <button className="lp-button lp-button-primary" type="button" onClick={printCards}>
             Print cards
           </button>
-        </div>
+        </nav>
       </header>
       <ActionFeedback className="teacher-login-card-feedback" feedback={printFeedback} />
+      {failedAssignments.length > 0 && (
+        <section className="teacher-login-card-partial" role="alert">
+          <strong>
+            {countPhrase(failedAssignments.length, "student")} still need sign-in pictures
+          </strong>
+          <p>
+            No card was made for:{" "}
+            {failedAssignments.map(item => item.student?.name || "Unnamed student").join(", ")}.
+            The cards below are safe to use.
+          </p>
+          {retryFailureMessage && <p>{retryFailureMessage}</p>}
+          <button
+            className="lp-button lp-button-primary"
+            type="button"
+            disabled={retryingFailures}
+            onClick={onRetryFailures}
+          >
+            {retryingFailures ? "Trying again…" : "Try saving missing pictures again"}
+          </button>
+        </section>
+      )}
       <div className="teacher-login-card-pages" aria-label="Page-sized sign-in card preview">
         {pages.map((pageRows, pageIndex) => (
           <section
@@ -242,7 +340,7 @@ function LoginCardPrintRoute({
           </section>
         ))}
       </div>
-    </section>
+    </main>
   );
 }
 
@@ -270,6 +368,7 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
   const [selected, setSelected] = useState([]);
   const [busy, setBusy] = useState(false);
   const [packNote, setPackNote] = useState("");
+  const [assignmentFeedback, setAssignmentFeedback] = useState(null);
   const tiles = report?.heat || [];
   const assignment = report?.assignment || null;
 
@@ -282,16 +381,58 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
   async function assign() {
     if (!selected.length || busy) return;
     setBusy(true);
-    const saved = await onAssign?.(selected);
-    setBusy(false);
-    if (saved) setSelected([]);
+    setAssignmentFeedback({ kind: "pending", message: "Saving this practice assignment…" });
+    try {
+      const saved = await onAssign?.(selected);
+      if (saved !== true) {
+        setAssignmentFeedback({
+          kind: "error",
+          message: "We couldn't save this practice assignment. Nothing changed. Try again."
+        });
+        return;
+      }
+      setSelected([]);
+      setAssignmentFeedback({
+        kind: "success",
+        message: `Practice assigned to ${studentName}.`
+      });
+    } catch (error) {
+      console.error("Could not save the student's practice assignment.", error);
+      setAssignmentFeedback({
+        kind: "error",
+        message: "We couldn't save this practice assignment. Nothing changed. Try again."
+      });
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function clear() {
     if (busy) return;
     setBusy(true);
-    await onClear?.();
-    setBusy(false);
+    setAssignmentFeedback({ kind: "pending", message: "Clearing this practice assignment…" });
+    try {
+      const cleared = await onClear?.();
+      if (cleared !== true) {
+        setAssignmentFeedback({
+          kind: "error",
+          message: "We couldn't clear this practice assignment. The saved assignment is unchanged."
+        });
+        return;
+      }
+      setAssignmentFeedback({
+        kind: "success",
+        message: `Practice assignment cleared for ${studentName}.`
+      });
+    } catch (error) {
+      console.error("Could not clear the student's practice assignment.", error);
+      setAssignmentFeedback({
+        kind: "error",
+        message: "We couldn't clear this practice assignment. The saved assignment is unchanged."
+      });
+    } finally {
+      setBusy(false);
+    }
   }
 
   // Print the home practice pack straight from this student's evidence: the
@@ -314,7 +455,8 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
         ? `Skipped (too few decodable words yet): ${result.skipped.map(packTargetLabel).join(", ")}`
         : "");
     } catch (error) {
-      setPackNote(error.message || "Could not build that pack.");
+      console.error("Could not build the student's practice pack.", error);
+      setPackNote("We couldn't build this practice pack. Nothing was printed. Try again.");
     }
   }
 
@@ -339,7 +481,7 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
           <em className="is-unseen">Not met yet</em>
         </span>
       </div>
-      <div className="quest-heat-grid" role="group" aria-label={`Sound mastery for ${studentName}. Tap sounds to build a practice assignment.`}>
+      <div className="quest-heat-grid" role="group" aria-label={`Sound learning status for ${studentName}. Tap sounds to build a practice assignment.`}>
         {tiles.map(tile => (
           <button
             key={tile.id}
@@ -374,6 +516,7 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
           {selected.length ? `Print pack (${selected.length} sound${selected.length === 1 ? "" : "s"})` : "Print practice pack"}
         </button>
       </div>
+      <ActionFeedback className="quest-heat-feedback" feedback={assignmentFeedback} />
       {packNote && <p className="muted-text quest-heat-note" role="status">{packNote}</p>}
     </div>
   );
@@ -386,10 +529,15 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
 // Student panel: everything you can do to one student opens from the drawer.
 export function TeacherStudentsPage({
   classList = [],
+  classListReadState = null,
+  loadingClasses = false,
+  loadClasses,
   selectedClassId,
   setSelectedClassId,
   setStudentList,
+  setArchivedStudentList,
   studentList = [],
+  studentListReadState = null,
   archivedStudentList = [],
   loadingStudents = false,
   loadStudents,
@@ -415,6 +563,7 @@ export function TeacherStudentsPage({
   createStudent,
   teacherId,
   classDashboard = [],
+  classDashboardReadState = null,
   loadClassDashboard,
   skillTree = [],
   updateStudentName,
@@ -427,17 +576,15 @@ export function TeacherStudentsPage({
   message,
   setupFocus = "",
   onSetupFocusHandled,
-  surfaceState = "",
-  surfaceStateDetail = "",
-  onSurfaceStatePrimary,
-  onSurfaceStateSecondary,
   activitySyncHealthSeedRows = null
 }) {
   const [newStudentName, setNewStudentName] = useState("");
+  const [addingStudent, setAddingStudent] = useState(false);
   const [showRosterImport, setShowRosterImport] = useState(false);
   const [rosterImportText, setRosterImportText] = useState("");
   const [rosterImportPreview, setRosterImportPreview] = useState(null);
   const [importingRoster, setImportingRoster] = useState(false);
+  const [creatingClass, setCreatingClass] = useState(false);
   const [creatingDemo, setCreatingDemo] = useState(false);
   const [rosterSearch, setRosterSearch] = useState("");
   const [rosterSort, setRosterSort] = useState("name");
@@ -447,6 +594,8 @@ export function TeacherStudentsPage({
   );
   const [selectedRosterIds, setSelectedRosterIds] = useState([]);
   const [loginCardRows, setLoginCardRows] = useState([]);
+  const [loginCardFailures, setLoginCardFailures] = useState([]);
+  const [loginCardRetryError, setLoginCardRetryError] = useState("");
   const [assigningSignIn, setAssigningSignIn] = useState(false);
   const [rosterOperation, setRosterOperation] = useState(null);
   const [operationTargetClassId, setOperationTargetClassId] = useState("");
@@ -456,42 +605,105 @@ export function TeacherStudentsPage({
   // a rejected promise left the dialog open and said nothing.
   const [operationError, setOperationError] = useState("");
   const [deleteConfirmName, setDeleteConfirmName] = useState("");
+  const [duplicateClassConfirm, setDuplicateClassConfirm] = useState("");
   const [duplicateNameConfirm, setDuplicateNameConfirm] = useState("");
   const [rosterOperationStatus, setRosterOperationStatus] = useState("");
+  const [restoringStudentIds, setRestoringStudentIds] = useState([]);
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [visiblePasswords, setVisiblePasswords] = useState({});
   const [actionsStudent, setActionsStudent] = useState(null);
+  const [studentActionError, setStudentActionError] = useState("");
   const [editingStudentProfile, setEditingStudentProfile] = useState(null);
   const [studentNameDraft, setStudentNameDraft] = useState("");
   const [studentProfileError, setStudentProfileError] = useState("");
   const [savingStudentProfile, setSavingStudentProfile] = useState(false);
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
+  const [signInPictureError, setSignInPictureError] = useState("");
+  const [savingSignInPictures, setSavingSignInPictures] = useState(false);
   const [heatOpenId, setHeatOpenId] = useState(null);
   const [showQuestionGuide, setShowQuestionGuide] = useState(false);
   const [questionGuideSearch, setQuestionGuideSearch] = useState("");
-  const [rosterAdminOpen, setRosterAdminOpen] = useState(true);
+  const [classToolsOpen, setClassToolsOpen] = useState(false);
+  const [rosterAdminOpen, setRosterAdminOpen] = useState(false);
+  const [rosterPage, setRosterPage] = useState(1);
+  const [archivedRosterSearch, setArchivedRosterSearch] = useState("");
+  const [archivedRosterPage, setArchivedRosterPage] = useState(1);
   const [savingChoiceModeIds, setSavingChoiceModeIds] = useState([]);
   const [savingAccessibilityIds, setSavingAccessibilityIds] = useState([]);
   const [accessibilityStudent, setAccessibilityStudent] = useState(null);
   const [dataRightsStudent, setDataRightsStudent] = useState(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
+  const loadClassesRef = useRef(loadClasses);
+  const selectedClassIdRef = useRef(selectedClassId);
+  selectedClassIdRef.current = selectedClassId;
   const newClassInputRef = useRef(null);
   const newStudentInputRef = useRef(null);
   function focusNewClassInput() {
-    newClassInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
-    newClassInputRef.current?.focus?.();
+    setClassToolsOpen(true);
+    window.requestAnimationFrame(() => {
+      newClassInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
+      newClassInputRef.current?.focus?.();
+    });
   }
   function focusNewStudentInput() {
-    newStudentInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
-    newStudentInputRef.current?.focus?.();
+    setRosterAdminOpen(true);
+    window.requestAnimationFrame(() => {
+      newStudentInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
+      newStudentInputRef.current?.focus?.();
+    });
   }
   function openStudentProfile(student) {
     setActionsStudent(null);
     setEditingStudentProfile(student);
     setStudentNameDraft(student?.name || "");
     setStudentProfileError("");
+  }
+  function openSignInPictureEditor(student) {
+    setEditingStudent(student);
+    setEditingSequence("");
+    setSignInPictureError("");
+  }
+  function closeSignInPictureEditor() {
+    if (savingSignInPictures) return;
+    setEditingStudent(null);
+    setEditingSequence("");
+    setSignInPictureError("");
+  }
+  async function saveSignInPictures(sequence) {
+    if (!editingStudent || savingSignInPictures) return;
+    setSavingSignInPictures(true);
+    setSignInPictureError("");
+    try {
+      const saved = await updateStudentSymbolPassword?.(
+        editingStudent.id,
+        sequence,
+        editingStudent.name
+      );
+      if (saved !== true) {
+        setSignInPictureError(
+          "We couldn't save those sign-in pictures. Nothing changed. Try again or cancel."
+        );
+        return;
+      }
+      setEditingStudent(null);
+      setEditingSequence("");
+    } catch {
+      setSignInPictureError(
+        "We couldn't save those sign-in pictures. Nothing changed. Try again or cancel."
+      );
+    } finally {
+      setSavingSignInPictures(false);
+    }
+  }
+  function closeStudentPanelBefore(action) {
+    onClearStudent?.();
+    action();
+  }
+  function openStudentActions(student) {
+    setStudentActionError("");
+    closeStudentPanelBefore(() => setActionsStudent(student));
   }
   async function saveStudentProfile(event) {
     event.preventDefault();
@@ -506,14 +718,19 @@ export function TeacherStudentsPage({
     }
     setSavingStudentProfile(true);
     setStudentProfileError("");
-    const saved = await updateStudentName?.(editingStudentProfile.id, cleanName);
-    setSavingStudentProfile(false);
-    if (!saved) {
-      setStudentProfileError("We couldn't save this change. Check the message above and try again.");
-      return;
+    try {
+      const saved = await updateStudentName?.(editingStudentProfile.id, cleanName);
+      if (!saved) {
+        setStudentProfileError("We couldn't save this change. Nothing was changed. Try again.");
+        return;
+      }
+      setEditingStudentProfile(null);
+      setStudentNameDraft("");
+    } catch {
+      setStudentProfileError("We couldn't save this change. Nothing was changed. Try again.");
+    } finally {
+      setSavingStudentProfile(false);
     }
-    setEditingStudentProfile(null);
-    setStudentNameDraft("");
   }
   function openQuestionGuide() {
     setQuestionGuideSearch("");
@@ -521,29 +738,87 @@ export function TeacherStudentsPage({
   }
   // Deleting a student has to clear this device too, or the child's saved work
   // reappears from local storage the next time the app syncs.
-  async function forgetStudentOnThisDevice(learner) {
-    clearLocalProgressForStudent(learner.id);
-    await clearLocalElAssessmentDataForStudent({
-      teacherId: learner.teacher_id || teacherId,
-      studentId: learner.id,
-      studentName: learner.name
-    });
+  async function forgetStudentOnThisDevice(learner, { cleanup = true } = {}) {
+    let cleanupResult = null;
+    if (cleanup) {
+      const progressCleanup = await clearAndVerifyLocalProgressForStudent(learner.id);
+      const evidenceCleanup = await clearLocalElAssessmentDataForStudent({
+        teacherId: learner.teacher_id || teacherId,
+        studentId: learner.id,
+        studentName: learner.name
+      });
+      cleanupResult = { progressCleanup, evidenceCleanup };
+    }
     setStudentList?.(previous => previous.filter(row => row.id !== learner.id));
     if (selectedStudentId === learner.id) onClearStudent?.();
+    return cleanupResult;
   }
   async function handleDataRightsDeletion(learner) {
-    await forgetStudentOnThisDevice(learner);
-    setDataRightsStudent(null);
-    setRosterOperationStatus(
-      `${learner.name}'s data was deleted. The privacy-safe request reference remains in the audit log.`
-    );
+    // The data-rights dialog has already verified both local cleanup layers
+    // before it is allowed to invoke this callback.
+    await forgetStudentOnThisDevice(learner, { cleanup: false });
     if (selectedClassId) {
       await loadStudentsRef.current?.(selectedClassId);
       await loadClassDashboardRef.current?.(selectedClassId);
     }
+    setDataRightsStudent(null);
+    setRosterOperationStatus(
+      TEACHER_COPY.privacy.deleteComplete(learner.name)
+    );
   }
-  const selectedClass = classList.find(row => row.id === selectedClassId) || null;
-  const studentRows = useTeacherStudentRows({ studentList, classDashboard });
+  const classRead = getClassListReadView({
+    readState: classListReadState,
+    teacherId,
+    legacyLoading: loadingClasses
+  });
+  const visibleClassList = classRead.rowsVerified ? classList : [];
+  const knownSelectedClass = visibleClassList.find(row => row.id === selectedClassId) || null;
+  const selectedClass = classRead.complete ? knownSelectedClass : null;
+  const archivedRowsForSelectedClass = useMemo(
+    () => archivedStudentList.filter(
+      row => String(row?.class_id || "") === String(selectedClassId || "")
+    ),
+    [archivedStudentList, selectedClassId]
+  );
+  const archivedRosterView = useMemo(() => getTeacherArchivedRosterView({
+    archivedStudents: archivedRowsForSelectedClass,
+    page: archivedRosterPage,
+    search: archivedRosterSearch,
+    selectedClassId
+  }), [
+    archivedRowsForSelectedClass,
+    archivedRosterPage,
+    archivedRosterSearch,
+    selectedClassId
+  ]);
+  const rosterRead = getStudentRosterReadView({
+    readState: studentListReadState,
+    classId: selectedClassId,
+    legacyLoading: loadingStudents
+  });
+  const dashboardRead = getClassDashboardReadView({
+    readState: classDashboardReadState,
+    classId: selectedClassId
+  });
+  const dashboardRowsForClass = dashboardRead.rowsBelongToClass
+    ? classDashboard.filter(row => (
+      !classDashboardReadState?.status
+      || String(row?.classId || "") === String(selectedClassId || "")
+    ))
+    : [];
+  const studentRows = useTeacherStudentRows({
+    studentList: rosterRead.rowsBelongToClass ? studentList : [],
+    classDashboard: rosterRead.complete ? dashboardRowsForClass : []
+  });
+  const completeEvidenceRows = useMemo(
+    () => studentRows.filter(row => row.evidenceReadStatus === "complete"),
+    [studentRows]
+  );
+  const incompleteEvidenceRows = useMemo(
+    () => studentRows.filter(row => row.evidenceReadStatus !== "complete"),
+    [studentRows]
+  );
+  const hasIncompleteEvidence = incompleteEvidenceRows.length > 0;
   const rosterGroups = useMemo(() => [
     {
       id: "all",
@@ -560,24 +835,31 @@ export function TeacherStudentsPage({
     {
       id: "not-started",
       label: TEACHER_COPY.groups.notStarted,
-      studentIds: studentRows.filter(row => row.answered === 0).map(row => row.id)
+      studentIds: studentRows
+        .filter(row => row.evidenceReadStatus === "complete" && row.answered === 0)
+        .map(row => row.id)
     },
     {
       id: "active-today",
       label: TEACHER_COPY.groups.playedToday,
       studentIds: studentRows
-        .filter(row => formatLastActive(row.lastActive) === "Today")
+        .filter(row =>
+          row.evidenceReadStatus === "complete"
+          && formatLastActive(row.lastActive) === "Today"
+        )
         .map(row => row.id)
     }
   ], [studentRows]);
   const selectedRosterGroup = rosterGroups.find(group => group.id === selectedGroupId) || rosterGroups[0];
   const selectedStudentRow = studentRows.find(row => row.id === selectedStudentId) || null;
+  const selectedStudentResultsAvailable =
+    selectedStudentRow?.evidenceReadStatus === "complete";
   // ── Action cards: turn roster data into one-click next steps ──────────────
   const actionCards = useMemo(() => {
     const cards = [];
 
     // Reteach: 2+ students stuck on the same skill with low accuracy.
-    const struggling = studentRows.filter(row =>
+    const struggling = completeEvidenceRows.filter(row =>
       needsSupportConclusion(row)
       && row.currentSkill
       && row.currentSkill !== "Not started"
@@ -595,30 +877,39 @@ export function TeacherStudentsPage({
         title: `Reteach ${reteach[0]}`,
         detail: `${reteachNames} need more practice with ${reteach[0]}.`,
         explanation: {
-          evidence: `${reteachNames} have enough saved results to compare, with accuracy below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}% on ${reteach[0]}.`,
+          evidence: `${reteachNames} have enough saved results to compare and are finding ${reteach[0]} difficult.`,
           dependency: `${reteach[0]} is their current recorded focus and should be secured before dependent practice advances.`,
-          confidence: `${countPhrase(reteach[1].length, "student", "students")} meet the minimum-results and recency rules; individual results remain available for review.`,
-          unlock: "A focused re-teach creates a shared practice target and a clear point for the next check."
+          confidence: `Results are recent and complete enough to use for ${countPhrase(reteach[1].length, "student", "students")}; individual results remain available for review.`,
+          unlock: "A focused re-teach creates a shared practice target and a clear point for the next assessment."
         },
         action: "Show group",
         studentIds: reteach[1].map(row => row.id)
       });
     }
 
-    // Nudge: students who haven't started or have gone quiet.
-    const inactive = studentRows.filter(row => row.answered === 0 || !row.lastActive || formatLastActive(row.lastActive).includes("days ago"));
-    if (inactive.length >= 1 && studentRows.length > 1) {
+    // Nudge: students without scored answers, or with no recent saved activity.
+    const inactive = completeEvidenceRows.filter(row =>
+      row.answered === 0
+      || !row.lastActive
+      || activityIsAtLeastDaysOld(
+        row.lastActive,
+        TEACHER_TODAY_POLICY.inactivityDueDays
+      )
+    );
+    if (inactive.length >= 1 && completeEvidenceRows.length > 1) {
       const inactiveNames = `${inactive.map(row => row.name).slice(0, 4).join(", ")}${inactive.length > 4 ? ` +${inactive.length - 4}` : ""}`;
       const notStartedCount = inactive.filter(row => row.answered === 0).length;
       cards.push({
         id: "nudge",
         tone: "info",
-        title: inactive.some(row => row.answered === 0) ? "Get everyone started" : "Re-engage quiet readers",
-        detail: `${inactiveNames} ${inactive.length === 1 ? "has" : "have"} little or no recent practice.`,
+        title: inactive.some(row => row.answered === 0)
+          ? "Run first assessments"
+          : "Follow up with students who have not practised recently",
+        detail: `${inactiveNames} ${inactive.length === 1 ? "has" : "have"} no scored answers or no recent saved activity.`,
         explanation: {
           evidence: `${inactiveNames}: ${notStartedCount} ${notStartedCount === 1 ? "student has" : "students have"} no scored answers; the rest have no recent saved activity.`,
           dependency: "Current practice results are needed before the app can suggest a next teaching step.",
-          confidence: "This is an activity-coverage signal only; it does not infer low attainment.",
+          confidence: "This only reflects recent activity. It does not judge what a student can do.",
           unlock: "New answers create enough current results to support a next-skill decision."
         },
         action: "Show students",
@@ -626,21 +917,21 @@ export function TeacherStudentsPage({
       });
     }
 
-    // Celebrate: the strongest mastery in the class.
-    const star = [...studentRows].filter(row => row.masteredCount > 0).sort((a, b) => b.masteredCount - a.masteredCount)[0];
+    // Recognise one genuine saved milestone without ranking students.
+    const star = completeEvidenceRows.find(row => row.masteredCount > 0);
     if (star) {
       cards.push({
         id: "celebrate",
         tone: "good",
-        title: `Celebrate ${star.name}`,
-        detail: `${star.masteredCount} skill${star.masteredCount === 1 ? "" : "s"} mastered - worth a shout-out today.`,
+        title: `Recognise ${star.name}'s progress`,
+        detail: `${star.masteredCount} skill${star.masteredCount === 1 ? " is" : "s are"} recorded as secure — a useful milestone to acknowledge.`,
         explanation: {
-          evidence: `${star.name} has ${star.masteredCount} recorded mastered skill${star.masteredCount === 1 ? "" : "s"}, the highest current total in this class.`,
-          dependency: "Recognition follows a saved milestone; the private comparison never labels or ranks students publicly.",
+          evidence: `${star.name} has ${star.masteredCount} recorded secure skill${star.masteredCount === 1 ? "" : "s"}.`,
+          dependency: "Recognition follows a saved learning milestone and does not compare students.",
           confidence: star.learningConclusion?.ready
             ? `${star.learningConclusion.confidence.label}: ${star.learningConclusion.confidence.detail}.`
-            : "The recommendation relies on the mastery record only; no current accuracy conclusion is inferred.",
-          unlock: "A private or class-appropriate celebration reinforces secured learning and opens a positive check-in."
+            : "This suggestion uses the recorded secure-skill total only. It does not infer current answer accuracy.",
+          unlock: "A private or class-appropriate celebration reinforces secured learning and opens a positive conversation."
         },
         action: "Open profile",
         onClick: () => onLoadStudent?.(star.id, star.name)
@@ -648,7 +939,7 @@ export function TeacherStudentsPage({
     }
 
     return cards.slice(0, 3);
-  }, [studentRows, onLoadStudent]);
+  }, [completeEvidenceRows, onLoadStudent]);
 
   const groupFilterIds = selectedRosterGroup.id === "all" ? null : selectedRosterGroup.studentIds;
   const effectiveRosterFilterIds = rosterFilterIds || groupFilterIds;
@@ -660,7 +951,9 @@ export function TeacherStudentsPage({
     .filter(row => !normalizedRosterSearch || row.name.toLowerCase().includes(normalizedRosterSearch))
     .filter(row => {
       if (rosterStatusFilter === "login-missing") return !row.symbol_password;
-      if (rosterStatusFilter === "not-started") return row.answered === 0;
+      if (rosterStatusFilter === "not-started") {
+        return row.evidenceReadStatus === "complete" && row.answered === 0;
+      }
       if (rosterStatusFilter === "needs-attention") {
         return needsSupportConclusion(row);
       }
@@ -679,24 +972,36 @@ export function TeacherStudentsPage({
       }
       return left.name.localeCompare(right.name);
     });
-  const selectedVisibleCount = visibleStudentRows.filter(row => selectedRosterIds.includes(row.id)).length;
+  const rosterPageCount = Math.max(1, Math.ceil(visibleStudentRows.length / ROSTER_PAGE_SIZE));
+  const currentRosterPage = Math.min(rosterPage, rosterPageCount);
+  const rosterPaginationItems = getTeacherPaginationWindow({
+    page: currentRosterPage,
+    pageCount: rosterPageCount
+  });
+  const rosterPageStart = (currentRosterPage - 1) * ROSTER_PAGE_SIZE;
+  const rosterPageRows = visibleStudentRows.slice(
+    rosterPageStart,
+    rosterPageStart + ROSTER_PAGE_SIZE
+  );
+  const selectedPageCount = rosterPageRows.filter(row => selectedRosterIds.includes(row.id)).length;
   const enabledRosterColumns = new Set(visibleRosterColumns);
   const rosterColumnCount = 3 + visibleRosterColumns.length;
 
-  // Scale the friction to what is actually being destroyed. A student with
-  // nothing saved needs one clear confirmation; a student with a term of saved
-  // work needs to be named before the button will work.
+  // The roster summary is not a complete inventory of every record linked to a
+  // student (for example, a formal assessment report may exist without a
+  // practice answer). Permanent deletion therefore always needs typed
+  // confirmation and never claims that there is "nothing to keep".
   const operationStudent = rosterOperation?.student || null;
   const operationSavedAnswers = Number(operationStudent?.answered) || 0;
   const operationQuestStops = Number(operationStudent?.soundSeekers?.stopsCompleted) || 0;
-  const operationHasSavedResults = operationSavedAnswers > 0 || operationQuestStops > 0;
+  const operationEvidenceComplete = operationStudent?.evidenceReadStatus === "complete";
   const operationSavedSummary = [
-    operationSavedAnswers > 0 ? countPhrase(operationSavedAnswers, "saved answer") : "",
+    countPhrase(operationSavedAnswers, "saved answer"),
     operationQuestStops > 0 ? countPhrase(operationQuestStops, "Sound Seekers stop") : ""
   ].filter(Boolean).join(" and ");
-  const deleteConfirmReady = !operationHasSavedResults
-    || (Boolean(operationStudent) && normalizeRosterStudentName(deleteConfirmName).toLowerCase()
-      === normalizeRosterStudentName(operationStudent.name).toLowerCase());
+  const deleteConfirmReady = Boolean(operationStudent)
+    && normalizeRosterStudentName(deleteConfirmName).toLowerCase()
+      === normalizeRosterStudentName(operationStudent.name).toLowerCase();
 
   function openRosterOperation(kind, student) {
     setOperationError("");
@@ -706,35 +1011,93 @@ export function TeacherStudentsPage({
   }
 
   const skillTotal = skillTree.length;
-  const startedCount = studentRows.filter(row => row.answered > 0).length;
+  const startedCount = completeEvidenceRows.filter(row => row.answered > 0).length;
   const loginReadyCount = studentRows.filter(row => row.symbol_password).length;
-  const activeTodayCount = studentRows.filter(row => formatLastActive(row.lastActive) === "Today").length;
+  const activeTodayCount = completeEvidenceRows.filter(
+    row => formatLastActive(row.lastActive) === "Today"
+  ).length;
   const classAccuracySummary = useMemo(
-    () => buildClassAccuracySummary(studentRows.map(row => ({
+    () => buildClassAccuracySummary(completeEvidenceRows.map(row => ({
       ...row,
+      answered: row.currentAnswered,
+      correct: row.currentCorrect,
+      accuracy: row.currentAccuracy,
       conclusion: row.learningConclusion
     }))),
-    [studentRows]
+    [completeEvidenceRows]
   );
-  const classMetricUpdatedAt = latestMetricUpdate(studentRows.map(row => row.lastActive));
-  const className = selectedClass?.name || "No class selected";
+  const classMetricUpdatedAt = latestMetricUpdate(
+    completeEvidenceRows.map(row => row.currentLastActive)
+  );
+  const className = knownSelectedClass?.name || "No class selected";
   const {
     hasSetupClass,
     setupSteps,
     showSetupChecklist,
     studentsMissingSignIn
-  } = useTeacherSetupState({ selectedClass, selectedClassId, studentRows });
+  } = useTeacherSetupState({
+    selectedClass,
+    selectedClassId,
+    studentRows,
+    classCount: classRead.complete ? visibleClassList.length : 0
+  });
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
     loadClassDashboardRef.current = loadClassDashboard;
-  }, [loadStudents, loadClassDashboard]);
+    loadClassesRef.current = loadClasses;
+  }, [loadStudents, loadClassDashboard, loadClasses]);
+
+  const previousArchivedClassIdRef = useRef(selectedClassId);
+  useEffect(() => {
+    if (previousArchivedClassIdRef.current !== selectedClassId) {
+      previousArchivedClassIdRef.current = selectedClassId;
+      setArchivedRosterSearch("");
+      setArchivedRosterPage(1);
+      return;
+    }
+    setArchivedRosterPage(current => (
+      current === archivedRosterView.page
+        ? current
+        : archivedRosterView.page
+    ));
+  }, [archivedRosterView.page, selectedClassId]);
 
   useEffect(() => {
     if (!selectedClassId) return;
+    if (classListReadState?.status && classListReadState.status !== "complete") return;
     loadStudentsRef.current?.(selectedClassId);
     loadClassDashboardRef.current?.(selectedClassId);
-  }, [selectedClassId]);
+  }, [classListReadState?.status, selectedClassId]);
+
+  useEffect(() => {
+    function syncLoginCardRoute() {
+      const routeIds = readLoginCardRouteStudentIds(window.location.hash);
+      if (!routeIds.length) {
+        setLoginCardRows(current => current.length ? [] : current);
+        setLoginCardFailures(current => current.length ? [] : current);
+        setLoginCardRetryError("");
+        return;
+      }
+      const requestedIds = new Set(routeIds);
+      const restoredRows = studentRows.filter(
+        row => requestedIds.has(row.id) && row.symbol_password
+      );
+      if (!restoredRows.length) return;
+      // A just-created preview can include successful picture assignments that
+      // have not reached the reloaded roster yet. Keep those confirmed local
+      // rows; route hydration is only needed when no preview is already open.
+      setLoginCardRows(current => current.length ? current : restoredRows);
+    }
+
+    syncLoginCardRoute();
+    window.addEventListener("hashchange", syncLoginCardRoute);
+    window.addEventListener("popstate", syncLoginCardRoute);
+    return () => {
+      window.removeEventListener("hashchange", syncLoginCardRoute);
+      window.removeEventListener("popstate", syncLoginCardRoute);
+    };
+  }, [studentRows]);
 
   function saveVisibleRosterColumns(nextColumns) {
     setVisibleRosterColumns(nextColumns);
@@ -757,10 +1120,37 @@ export function TeacherStudentsPage({
 
   function handleClassChange(event) {
     const nextClassId = event.target.value || null;
+    // Some browsers and automation can dispatch change for the option that is
+    // already selected. Clearing here without changing selectedClassId leaves
+    // React nothing to react to, so the current roster disappears permanently.
+    if (nextClassId === selectedClassId) return;
     setSelectedClassId?.(nextClassId);
     setStudentList?.([]);
+    setRosterPage(1);
+    setArchivedRosterSearch("");
+    setArchivedRosterPage(1);
+    setSelectedRosterIds([]);
+    setRosterSearch("");
+    setRosterStatusFilter("all");
+    setRosterFilterIds(null);
+    setVisiblePasswords({});
+    setHeatOpenId(null);
+    setRosterOperationStatus("");
+    setNewStudentName("");
+    setShowRosterImport(false);
+    setRosterImportText("");
+    setRosterImportPreview(null);
+    setActionsStudent(null);
+    setEditingStudentProfile(null);
+    setEditingStudent(null);
+    setAccessibilityStudent(null);
+    setDataRightsStudent(null);
+    setRestoringStudentIds([]);
+    onClearStudent?.();
+    onSelectGroup?.("all");
     // A pending "press Add student again" warning belongs to the class it was
     // raised in; carrying it across classes would wave a second click through.
+    setDuplicateClassConfirm("");
     setDuplicateNameConfirm("");
   }
 
@@ -768,12 +1158,23 @@ export function TeacherStudentsPage({
   // silence — which is how a roster ends up with two Aarons. Two real children
   // can share a name, so this warns once and then trusts the teacher.
   async function handleCreateStudent() {
+    if (addingStudent) return;
     const clean = normalizeRosterStudentName(newStudentName);
     if (!clean) return;
-    const duplicate = findDuplicateRosterName(clean, [...studentRows, ...archivedStudentList]);
+    if (clean.length > 80) {
+      setRosterOperationStatus({
+        kind: "error",
+        message: "Display names must be 80 characters or fewer."
+      });
+      return;
+    }
+    const duplicate = findDuplicateRosterName(clean, [
+      ...studentRows,
+      ...archivedRowsForSelectedClass
+    ]);
     if (duplicate && duplicateNameConfirm !== clean.toLowerCase()) {
       setDuplicateNameConfirm(clean.toLowerCase());
-      const isArchived = archivedStudentList.some(row => row.id === duplicate.id);
+      const isArchived = archivedRowsForSelectedClass.some(row => row.id === duplicate.id);
       setRosterOperationStatus({
         kind: "error",
         message: isArchived
@@ -784,15 +1185,36 @@ export function TeacherStudentsPage({
     }
     setDuplicateNameConfirm("");
     setRosterOperationStatus("");
-    await createStudent?.(clean);
-    setNewStudentName("");
+    setAddingStudent(true);
+    try {
+      const saved = await createStudent?.(clean);
+      if (saved === true) {
+        setNewStudentName("");
+        return;
+      }
+      setRosterOperationStatus({
+        kind: "error",
+        message: `We couldn't add ${clean}. Nothing was changed. Try again.`
+      });
+    } catch (error) {
+      console.error("Could not add student from the roster.", error);
+      setRosterOperationStatus({
+        kind: "error",
+        message: `We couldn't add ${clean}. Nothing was changed. Try again.`
+      });
+    } finally {
+      setAddingStudent(false);
+    }
   }
 
   async function handleReducedChoiceMode(row) {
-    if (!setReducedChoiceMode || savingChoiceModeIds.includes(row.id)) return;
+    if (!setReducedChoiceMode || savingChoiceModeIds.includes(row.id)) return false;
     setSavingChoiceModeIds(ids => [...ids, row.id]);
     try {
-      await setReducedChoiceMode(row.id, !row.reducedChoiceMode);
+      return await setReducedChoiceMode(row.id, !row.reducedChoiceMode) === true;
+    } catch (error) {
+      console.error("Could not change the student's navigation choices.", error);
+      return false;
     } finally {
       setSavingChoiceModeIds(ids => ids.filter(id => id !== row.id));
     }
@@ -809,38 +1231,75 @@ export function TeacherStudentsPage({
   }
 
   async function handleCreateClass() {
+    if (creatingClass || !newClassName.trim()) return;
+    const cleanName = String(newClassName || "").trim().replace(/\s+/g, " ");
+    if (cleanName.length > 120) {
+      setRosterOperationStatus({
+        kind: "error",
+        message: "Class names must be 120 characters or fewer."
+      });
+      return;
+    }
+    const duplicateKey = cleanName.toLowerCase();
+    const duplicateClass = visibleClassList.find(
+      row => String(row?.name || "").trim().replace(/\s+/g, " ").toLowerCase() === duplicateKey
+    );
+    if (duplicateClass && duplicateClassConfirm !== duplicateKey) {
+      setDuplicateClassConfirm(duplicateKey);
+      setRosterOperationStatus({
+        kind: "error",
+        message: `${duplicateClass.name} already exists. Choose it above, or press Create class again if you really need another class with the same name.`
+      });
+      return;
+    }
+    setDuplicateClassConfirm("");
     setRosterAdminOpen(true);
-    await createClass?.();
+    setCreatingClass(true);
+    setRosterOperationStatus("");
+    try {
+      const saved = await createClass?.();
+      if (saved !== true) {
+        setRosterOperationStatus({
+          kind: "error",
+          message: "We couldn't create that class. Nothing was added. Try again."
+        });
+      } else {
+        setDuplicateClassConfirm("");
+      }
+    } catch (error) {
+      console.error("Could not create class from the roster.", error);
+      setRosterOperationStatus({
+        kind: "error",
+        message: "We couldn't create that class. Nothing was added. Try again."
+      });
+    } finally {
+      setCreatingClass(false);
+    }
   }
 
   function reviewRosterImport(names) {
-    const existingNames = new Set(studentRows.map(row => row.name.trim().toLowerCase()));
-    const seenNames = new Set();
-    const accepted = [];
-    const duplicates = [];
-    for (const rawName of names) {
-      const name = String(rawName || "").trim();
-      if (!name) continue;
-      const key = name.toLowerCase();
-      if (existingNames.has(key)) {
-        duplicates.push({ name, reason: "Already in this class" });
-      } else if (seenNames.has(key)) {
-        duplicates.push({ name, reason: "Repeated in this import" });
-      } else {
-        seenNames.add(key);
-        accepted.push(name);
-      }
-    }
-    setRosterImportPreview({ total: accepted.length + duplicates.length, accepted, duplicates });
+    setRosterImportPreview(reviewRosterImportNames(names, {
+      activeRows: studentRows,
+      archivedRows: archivedRowsForSelectedClass
+    }));
   }
 
   async function handleCsvFile(event) {
     const file = event.target.files?.[0];
     if (!file) return;
-    const names = parseCsvNames(await file.text());
-    setRosterImportText(names.join("\n"));
-    reviewRosterImport(names);
-    event.target.value = "";
+    try {
+      const names = parseCsvNames(await file.text());
+      setRosterImportText(names.join("\n"));
+      reviewRosterImport(names);
+    } catch (error) {
+      console.error("Could not read roster file.", error);
+      setRosterOperationStatus({
+        kind: "error",
+        message: "We couldn't read that class-list file. Nothing was imported. Try another CSV file."
+      });
+    } finally {
+      event.target.value = "";
+    }
   }
 
   async function handleImportStudents() {
@@ -851,27 +1310,64 @@ export function TeacherStudentsPage({
       return;
     }
     setImportingRoster(true);
+    let writeResult;
     try {
-      const { error } = await insertRosterStudents({
+      writeResult = await insertRosterStudents({
         supabase,
         names,
         classId: selectedClassId,
         teacherId
       });
-      if (error) {
-        console.error("Roster import error:", error);
-        setRosterOperationStatus("We couldn't import that class list. No students were added.");
-        return;
-      }
-      await loadStudents?.(selectedClassId);
-      await loadClassDashboard?.(selectedClassId);
-      setRosterOperationStatus(`${countPhrase(names.length, "student", "students")} imported. Set sign-in pictures next.`);
-      setRosterImportText("");
-      setRosterImportPreview(null);
-      setShowRosterImport(false);
-    } finally {
+    } catch (error) {
+      console.error("Roster import error:", error);
+      setRosterOperationStatus({
+        kind: "error",
+        message: "We couldn't import that class list. No students were added."
+      });
       setImportingRoster(false);
+      return;
     }
+    if (writeResult?.error) {
+      console.error("Roster import error:", writeResult.error);
+      setRosterOperationStatus("We couldn't import that class list. No students were added.");
+      setImportingRoster(false);
+      return;
+    }
+
+    // The insert is authoritative. Clear the import draft and report it before
+    // attempting any read-back, so a failed refresh can never invite a teacher
+    // to import the same students again.
+    setRosterImportText("");
+    setRosterImportPreview(null);
+    setShowRosterImport(false);
+    setRosterOperationStatus(
+      `${countPhrase(names.length, "student", "students")} imported. Set sign-in pictures next.`
+    );
+
+    let refreshIncomplete;
+    try {
+      const [studentsResult, dashboardResult] = await Promise.all([
+        loadStudents?.(selectedClassId),
+        loadClassDashboard?.(selectedClassId)
+      ]);
+      refreshIncomplete = !Array.isArray(studentsResult)
+        || dashboardResult?.ok !== true;
+    } catch (refreshError) {
+      console.error("Roster import was saved but refresh failed:", refreshError);
+      refreshIncomplete = true;
+    }
+    if (refreshIncomplete) {
+      setRosterOperationStatus({
+        kind: "success",
+        message: `${countPhrase(names.length, "student", "students")} imported. The latest class list could not reload, so do not import them again. Try loading the class list instead.`,
+        actionLabel: "Try loading the class list",
+        onAction: () => {
+          loadStudentsRef.current?.(selectedClassId);
+          loadClassDashboardRef.current?.(selectedClassId);
+        }
+      });
+    }
+    setImportingRoster(false);
   }
 
   // "Continue" on the setup checklist arrives here from Today with the step it
@@ -891,8 +1387,7 @@ export function TeacherStudentsPage({
       const learner = studentRows.find(row => !row.symbol_password);
       if (!learner) return;
       setRosterAdminOpen(true);
-      setEditingStudent(learner);
-      setEditingSequence("");
+      openSignInPictureEditor(learner);
       return;
     }
     if (stepId === "sign-in-all") {
@@ -900,7 +1395,7 @@ export function TeacherStudentsPage({
       giveEveryoneSignInPictures();
       return;
     }
-    if (stepId === "check") {
+    if (stepId === "assessment") {
       const learner = selectedStudentRow || studentRows[0];
       if (learner) onStartCheck?.(learner);
     }
@@ -912,28 +1407,87 @@ export function TeacherStudentsPage({
     if (!setupFocus) return undefined;
     // Every step but "create a class" needs the roster in hand. Acting before it
     // arrives is how a Continue button silently does nothing.
-    if (setupFocus !== "class" && selectedClassId && studentRows.length === 0) return undefined;
+    if (setupFocus !== "class" && selectedClassId && !rosterRead.complete) return undefined;
     const frame = window.requestAnimationFrame(() => {
       handleSetupContinue(setupFocus);
       onSetupFocusHandled?.();
     });
     return () => window.cancelAnimationFrame(frame);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setupFocus, selectedClassId, studentRows.length]);
+  }, [rosterRead.complete, setupFocus, selectedClassId, studentRows.length]);
 
   async function handleCreateDemo() {
     if (creatingDemo) return;
     setCreatingDemo(true);
     setRosterAdminOpen(true);
+    setRosterOperationStatus("");
     try {
-      await createDemoClass?.();
+      const created = await createDemoClass?.();
+      if (created !== true) {
+        setRosterOperationStatus({
+          kind: "error",
+          message: "We couldn't create the sample class. Nothing was added. Try again."
+        });
+      }
+    } catch (error) {
+      console.error("Could not create sample class from the roster.", error);
+      setRosterOperationStatus({
+        kind: "error",
+        message: "We couldn't create the sample class. Nothing was added. Try again."
+      });
     } finally {
       setCreatingDemo(false);
     }
   }
 
-  function openLoginCardPreview(rows) {
-    setLoginCardRows(rows.filter(row => row.symbol_password));
+  function openLoginCardPreview(rows, { failedAssignments = [] } = {}) {
+    const printableRows = rows.filter(row => row.symbol_password);
+    if (!printableRows.length) return;
+    setLoginCardRows(printableRows);
+    setLoginCardFailures(failedAssignments);
+    setLoginCardRetryError("");
+    pushLoginCardRoute(printableRows);
+  }
+
+  function closeLoginCardPreview() {
+    setLoginCardRows([]);
+    setLoginCardFailures([]);
+    setLoginCardRetryError("");
+    clearLoginCardRoute();
+  }
+
+  async function retryFailedSignInPictures() {
+    if (assigningSignIn || !loginCardFailures.length) return;
+    setAssigningSignIn(true);
+    setLoginCardRetryError("");
+    try {
+      const result = await assignMissingSymbolPasswords?.(loginCardFailures);
+      const savedIds = new Set(result?.savedIds || []);
+      const newlySavedRows = loginCardFailures
+        .filter(item => savedIds.has(item.student?.id))
+        .map(item => ({ ...item.student, symbol_password: item.sequence }));
+      const remaining = loginCardFailures.filter(
+        item => !savedIds.has(item.student?.id)
+      );
+      const mergedRows = Array.from(new Map(
+        [...loginCardRows, ...newlySavedRows].map(row => [row.id, row])
+      ).values());
+      setLoginCardRows(mergedRows);
+      setLoginCardFailures(remaining);
+      pushLoginCardRoute(mergedRows);
+      if (remaining.length > 0) {
+        setLoginCardRetryError(
+          `We still couldn't save ${countPhrase(remaining.length, "student")}. Nothing incorrect was added to the printable cards.`
+        );
+      }
+    } catch (error) {
+      console.error("Could not retry missing class sign-in pictures.", error);
+      setLoginCardRetryError(
+        "We couldn't save the missing pictures. Nothing incorrect was added to the printable cards. Try again."
+      );
+    } finally {
+      setAssigningSignIn(false);
+    }
   }
 
   // Two clicks for a whole class: make a unique picture sequence for everyone
@@ -953,7 +1507,13 @@ export function TeacherStudentsPage({
         studentRows.map(row => row.symbol_password).filter(Boolean)
       );
       const result = await assignMissingSymbolPasswords?.(assignments);
-      if (!result || result.saved === 0) return;
+      if (!result || result.saved === 0) {
+        setRosterOperationStatus({
+          kind: "error",
+          message: "We couldn't save any sign-in pictures. No cards were opened. Try again."
+        });
+        return;
+      }
       // Only children whose sequence was actually written get a card. Building
       // the preview from the locally generated map printed pictures that had
       // failed to save, and a laminated card that does not work is worse than
@@ -962,11 +1522,23 @@ export function TeacherStudentsPage({
       const assignedById = new Map(assignments
         .filter(item => savedIds.has(item.student.id))
         .map(item => [item.student.id, item.sequence]));
-      openLoginCardPreview(studentRows.map(row => (
-        row.symbol_password
-          ? row
-          : { ...row, symbol_password: assignedById.get(row.id) || "" }
-      )));
+      const failedAssignments = assignments.filter(
+        item => !savedIds.has(item.student.id)
+      );
+      openLoginCardPreview(
+        studentRows.map(row => (
+          row.symbol_password
+            ? row
+            : { ...row, symbol_password: assignedById.get(row.id) || "" }
+        )),
+        { failedAssignments }
+      );
+    } catch (error) {
+      console.error("Could not make class sign-in pictures.", error);
+      setRosterOperationStatus({
+        kind: "error",
+        message: "We couldn't save the sign-in pictures. No cards were opened. Try again."
+      });
     } finally {
       setAssigningSignIn(false);
     }
@@ -1001,6 +1573,7 @@ export function TeacherStudentsPage({
     try {
       let failure = null;
       let saved = false;
+      let successFeedback = null;
       if (kind === "archive") {
         const { error } = await setRosterStudentArchived({
           supabase,
@@ -1011,23 +1584,36 @@ export function TeacherStudentsPage({
         failure = error;
         saved = !error;
         if (saved) {
-          setRosterOperationStatus({
+          successFeedback = {
             kind: "undo",
             message: `${student.name} archived. Their saved results remain, and you can restore them at any time.`,
             actionLabel: `Undo archive for ${student.name}`,
             onAction: () => handleRestoreStudent(student)
-          });
+          };
         }
       } else if (kind === "delete") {
-        await deleteRosterStudent({ supabase, studentId: student.id });
-        await forgetStudentOnThisDevice(student);
-        saved = true;
-        setRosterOperationStatus({
-          kind: "success",
-          message: `${student.name} was deleted permanently. Nothing of theirs is kept.`
+        await deleteRosterStudent({
+          supabase,
+          studentId: student.id,
+          studentName: student.name,
+          accountId: student.teacher_id || teacherId,
+          cleanup: () => forgetStudentOnThisDevice(student)
         });
+        saved = true;
+        successFeedback = {
+          kind: "success",
+          message: TEACHER_COPY.privacy.deleteComplete(student.name)
+        };
       } else if (kind === "transfer") {
-        const targetClass = classList.find(row => row.id === operationTargetClassId);
+        const targetClass = visibleClassList.find(row => row.id === operationTargetClassId);
+        if (!targetClass || targetClass.id === selectedClassId) {
+          failure = {
+            code: "LP_INVALID_TRANSFER_TARGET",
+            message: "Choose another class from this account."
+          };
+          reportRosterFailure(failure, kind, student);
+          return;
+        }
         const { error } = await transferRosterStudent({
           supabase,
           studentId: student.id,
@@ -1037,21 +1623,65 @@ export function TeacherStudentsPage({
         failure = error;
         saved = !error;
         if (saved) {
-          setRosterOperationStatus(
-            `${student.name} moved to ${targetClass?.name || "the chosen class"}. Their saved results moved too.`
-          );
+          successFeedback = {
+            kind: "success",
+            message: `${student.name} moved to ${targetClass.name}. Their individual progress and saved work stay with them. Earlier class records stay with the class where they were recorded. They will need to sign in again.`
+          };
         }
+      } else if (kind === "reset-sign-in") {
+        saved = await resetStudentSymbolPassword?.(student.id, student.name) === true;
+        if (!saved) {
+          const resetError = "We couldn't reset these sign-in pictures. Nothing was changed. Try again.";
+          setOperationError(resetError);
+          setRosterOperationStatus({ kind: "error", message: resetError });
+          return;
+        }
+        setRosterOperationStatus({
+          kind: "success",
+          message: `${student.name}'s sign-in pictures were reset. Set new pictures before their next sign-in.`
+        });
+        closeRosterOperation();
+        return;
       }
 
       if (!saved) {
         reportRosterFailure(failure, kind, student);
         return;
       }
+
+      // The write is now authoritative. Reflect it immediately and close the
+      // dialog before refreshing: a later read failure must never tell the
+      // teacher that an archive, transfer, or permanent deletion did not
+      // happen.
+      setStudentList?.(previous => previous.filter(row => row.id !== student.id));
+      setArchivedStudentList?.(previous => {
+        const withoutStudent = previous.filter(row => row.id !== student.id);
+        if (kind !== "archive") return withoutStudent;
+        return [
+          ...withoutStudent,
+          {
+            ...student,
+            archived_at: student.archived_at || new Date().toISOString()
+          }
+        ];
+      });
       if (selectedStudentId === student.id) onClearStudent?.();
-      await loadStudents?.(selectedClassId);
-      await loadClassDashboard?.(selectedClassId);
       setSelectedRosterIds(previous => previous.filter(id => id !== student.id));
+      setRosterOperationStatus(successFeedback);
       closeRosterOperation();
+
+      try {
+        await loadStudents?.(selectedClassId);
+        await loadClassDashboard?.(selectedClassId);
+      } catch (refreshError) {
+        console.error(`Roster ${kind} was saved but the screen could not refresh:`, refreshError);
+        setRosterOperationStatus({
+          kind: "success",
+          message: `${successFeedback?.message || `${student.name}'s change was saved.`} The latest class list could not reload. Refresh this page before making another change.`,
+          actionLabel: "Refresh page",
+          onAction: () => window.location.reload()
+        });
+      }
     } catch (error) {
       reportRosterFailure(error, kind, student);
     } finally {
@@ -1060,22 +1690,63 @@ export function TeacherStudentsPage({
   }
 
   async function handleRestoreStudent(row) {
+    if (restoringStudentIds.includes(row.id)) return;
+    const classId = selectedClassId;
+    if (!classId || String(row?.class_id || "") !== String(classId)) return;
+    setRestoringStudentIds(ids => [...ids, row.id]);
+    setRosterOperationStatus({
+      kind: "pending",
+      message: `Restoring ${row.name}…`
+    });
     try {
       const { error } = await setRosterStudentArchived({
         supabase,
         studentId: row.id,
-        classId: selectedClassId,
+        classId,
         archived: false
       });
+      if (selectedClassIdRef.current !== classId) {
+        if (error) {
+          console.error(`Roster restore failed for ${row?.id || "unknown student"} after the class changed:`, error);
+        }
+        return;
+      }
       if (error) {
         reportRosterFailure(error, "restore", row);
         return;
       }
-      await loadStudents?.(selectedClassId);
-      await loadClassDashboard?.(selectedClassId);
-      setRosterOperationStatus(`${row.name} restored to the class roster.`);
+      setStudentList?.(previous => (
+        previous.some(student => student.id === row.id)
+          ? previous
+          : [...previous, { ...row, archived_at: null }]
+      ));
+      setArchivedStudentList?.(previous => previous.filter(student => student.id !== row.id));
+      setRosterOperationStatus({
+        kind: "success",
+        message: `${row.name} restored to the class roster.`
+      });
+      try {
+        await loadStudents?.(classId);
+        await loadClassDashboard?.(classId);
+      } catch (refreshError) {
+        console.error("Roster restore was saved but the screen could not refresh:", refreshError);
+        if (selectedClassIdRef.current === classId) {
+          setRosterOperationStatus({
+            kind: "success",
+            message: `${row.name} was restored to the class roster. The latest class list could not reload. Refresh this page before making another change.`,
+            actionLabel: "Refresh page",
+            onAction: () => window.location.reload()
+          });
+        }
+      }
     } catch (error) {
-      reportRosterFailure(error, "restore", row);
+      if (selectedClassIdRef.current === classId) {
+        reportRosterFailure(error, "restore", row);
+      } else {
+        console.error(`Roster restore failed for ${row?.id || "unknown student"}:`, error);
+      }
+    } finally {
+      setRestoringStudentIds(ids => ids.filter(id => id !== row.id));
     }
   }
 
@@ -1083,10 +1754,14 @@ export function TeacherStudentsPage({
     return (
       <LoginCardPrintRoute
         rows={loginCardRows}
+        failedAssignments={loginCardFailures}
+        retryingFailures={assigningSignIn}
+        retryFailureMessage={loginCardRetryError}
         schoolName={schoolName}
         className={selectedClass?.name}
         classCode={selectedClass?.access_code}
-        onClose={() => setLoginCardRows([])}
+        onClose={closeLoginCardPreview}
+        onRetryFailures={retryFailedSignInPictures}
       />
     );
   }
@@ -1105,8 +1780,8 @@ export function TeacherStudentsPage({
           </div>
         )}
         title={TEACHER_COPY.classes.title}
-        description={selectedClass
-          ? TEACHER_COPY.classes.descriptionWithClass(selectedClass.name)
+        description={knownSelectedClass
+          ? TEACHER_COPY.classes.descriptionWithClass(knownSelectedClass.name)
           : TEACHER_COPY.classes.descriptionWithoutClass}
       >
         <div
@@ -1116,8 +1791,14 @@ export function TeacherStudentsPage({
           <span>School</span>
           <strong>{hasSchool ? schoolName : "Not set"}</strong>
           <small>
-            {selectedClass
-              ? TEACHER_COPY.classes.childCount(studentRows.length)
+            {knownSelectedClass
+              ? !classRead.complete
+                ? "Class list needs reloading"
+                : rosterRead.complete
+                ? TEACHER_COPY.classes.childCount(studentRows.length)
+                : rosterRead.incomplete
+                  ? "Student list needs reloading"
+                  : "Loading students…"
               : className}
           </small>
         </div>
@@ -1126,17 +1807,11 @@ export function TeacherStudentsPage({
       <ActionFeedback className="teacher-dashboard-message" message={message} />
       <ActionFeedback className="teacher-dashboard-message" feedback={rosterOperationStatus} />
 
-      {surfaceState ? (
-        <TeacherSurfaceState
-          surface="classes"
-          state={surfaceState}
-          detail={surfaceStateDetail}
-          onPrimaryAction={onSurfaceStatePrimary}
-          onSecondaryAction={onSurfaceStateSecondary}
-        />
-      ) : (
       <>
-      {showSetupChecklist && (
+      {classRead.complete
+        && dashboardRead.complete
+        && (!selectedClass || rosterRead.complete)
+        && showSetupChecklist && (
         <TeacherSetupChecklist
           hasClass={hasSetupClass}
           steps={setupSteps}
@@ -1153,9 +1828,21 @@ export function TeacherStudentsPage({
         <div className="teacher-dashboard-control-group">
           <label className="teacher-dashboard-control">
             <span>Current class</span>
-            <select value={selectedClassId || ""} onChange={handleClassChange}>
+            <select
+              value={selectedClassId || ""}
+              disabled={
+                !classRead.complete
+                || addingStudent
+                || importingRoster
+                || creatingClass
+                || assigningSignIn
+                || operationBusy
+                || restoringStudentIds.length > 0
+              }
+              onChange={handleClassChange}
+            >
               <option value="">Choose class</option>
-              {classList.map(cls => (
+              {visibleClassList.map(cls => (
                 <option key={cls.id} value={cls.id}>
                   {cls.name}
                 </option>
@@ -1164,25 +1851,72 @@ export function TeacherStudentsPage({
           </label>
         </div>
 
-        <div className="teacher-dashboard-create teacher-dashboard-control-group">
-          <label className="teacher-dashboard-control">
-            <span>New class</span>
-            <input
-              ref={newClassInputRef}
-              autoComplete="off"
-              value={newClassName}
-              placeholder="Enter class name"
-              onChange={event => setNewClassName?.(event.target.value)}
-              onKeyDown={event => {
-                if (event.key === "Enter") handleCreateClass();
-              }}
-            />
-          </label>
-          <button className="lp-button lp-button-primary" onClick={handleCreateClass} type="button">
-            Create class
-          </button>
-        </div>
+        {classRead.complete && <details
+          className="teacher-class-tools"
+          open={classToolsOpen}
+          onToggle={event => setClassToolsOpen(event.currentTarget.open)}
+        >
+          <summary>{visibleClassList.length ? "Create another class" : "Create a class"}</summary>
+          <div className="teacher-dashboard-create teacher-dashboard-control-group">
+            <label className="teacher-dashboard-control">
+              <span>Class name</span>
+              <input
+                ref={newClassInputRef}
+                autoComplete="off"
+                disabled={creatingClass}
+                maxLength={120}
+                value={newClassName}
+                placeholder="For example, Willow Class"
+                onChange={event => {
+                  setNewClassName?.(event.target.value);
+                  setDuplicateClassConfirm("");
+                }}
+                onKeyDown={event => {
+                  if (event.key === "Enter" && !event.repeat) handleCreateClass();
+                }}
+              />
+            </label>
+            <button
+              className="lp-button lp-button-primary"
+              disabled={creatingClass || !newClassName.trim()}
+              onClick={handleCreateClass}
+              type="button"
+            >
+              {creatingClass ? "Creating…" : "Create class"}
+            </button>
+          </div>
+        </details>}
       </section>
+
+      {selectedClass && rosterRead.complete && dashboardRead.loading && (
+        <TeacherSurfaceState
+          compact
+          surface="classes"
+          state="loading"
+        />
+      )}
+
+      {selectedClass && rosterRead.complete && dashboardRead.failed && (
+        <TeacherSurfaceState
+          compact
+          surface="classes"
+          state="partial"
+          detail={dashboardRead.truncated
+            ? "The full set of class results reached its safety limit. Names and sign-in remain available, but no missing result is counted as zero."
+            : "Class progress could not be confirmed. Names and sign-in remain available, but no earlier class figure is being reused."}
+          onPrimaryAction={() => loadClassDashboardRef.current?.(selectedClassId)}
+        />
+      )}
+
+      {selectedClass && rosterRead.complete && dashboardRead.complete && hasIncompleteEvidence && (
+        <TeacherSurfaceState
+          compact
+          surface="classes"
+          state="partial"
+          detail={`${countPhrase(incompleteEvidenceRows.length, "student has", "students have")} results that need loading again.`}
+          onPrimaryAction={() => loadClassDashboardRef.current?.(selectedClassId)}
+        />
+      )}
 
       {selectedClass && (
         <details className="teacher-dashboard-secondary">
@@ -1196,12 +1930,17 @@ export function TeacherStudentsPage({
         </details>
       )}
 
-      {selectedClass && (
-        <section
-          className="teacher-roster-metrics"
-          aria-label={TEACHER_COPY.metrics.summaryAriaLabel}
-          data-teacher-priority="class-pulse"
-        >
+      {selectedClass && rosterRead.complete && dashboardRead.complete && (
+        <details className="teacher-students-secondary teacher-students-overview">
+          <summary>
+            <span>Class overview</span>
+            <small>Sign-in, activity and class-level results</small>
+          </summary>
+          <section
+            className="teacher-roster-metrics"
+            aria-label={TEACHER_COPY.metrics.summaryAriaLabel}
+            data-teacher-priority="class-pulse"
+          >
           <RosterMetric label={TEACHER_COPY.metrics.students} value={studentRows.length} />
           <RosterMetric
             label={TEACHER_COPY.metrics.readyToSignIn}
@@ -1215,16 +1954,20 @@ export function TeacherStudentsPage({
               updatedAt: classMetricUpdatedAt
             }}
             label={TEACHER_COPY.metrics.havePlayed}
-            value={progressPhrase(startedCount, studentRows.length || 0)}
+            value={hasIncompleteEvidence
+              ? "Results unavailable"
+              : progressPhrase(startedCount, studentRows.length || 0)}
           />
           <div className="teacher-roster-metric teacher-roster-metric-accuracy">
             <span>{TEACHER_COPY.metrics.classAccuracy}</span>
             <strong>
-              {classAccuracySummary.comparability.comparable
+              {hasIncompleteEvidence
+                ? "Results unavailable"
+                : classAccuracySummary.comparability.comparable
                 ? `${classAccuracySummary.learnerWeightedAccuracy}%`
                 : TEACHER_COPY.metrics.notEnough}
             </strong>
-            <details>
+            {!hasIncompleteEvidence && <details>
               <summary>See both averages</summary>
               <dl>
                 <div>
@@ -1233,7 +1976,7 @@ export function TeacherStudentsPage({
                     <MetricFigure
                       metricId="accuracy"
                       denominator={`${countPhrase(classAccuracySummary.policyReadyLearnerCount, "student", "students")} with at least ${PROGRESS_MIN_RESPONSES} scored answers each.`}
-                      dateRange="All saved scored answers for this class."
+                      dateRange={`Scored answers from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
                       updatedAt={classMetricUpdatedAt}
                     >
                       {classAccuracySummary.learnerWeightedAccuracy === null
@@ -1248,7 +1991,7 @@ export function TeacherStudentsPage({
                     <MetricFigure
                       metricId="accuracy"
                       denominator={`${countPhrase(classAccuracySummary.responseCount, "scored answer")} from ${countPhrase(classAccuracySummary.policyReadyLearnerCount, "student", "students")}.`}
-                      dateRange="All saved scored answers for this class."
+                      dateRange={`Scored answers from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
                       updatedAt={classMetricUpdatedAt}
                     >
                       {classAccuracySummary.responseWeightedAccuracy === null
@@ -1258,7 +2001,7 @@ export function TeacherStudentsPage({
                   </dd>
                 </div>
               </dl>
-            </details>
+            </details>}
           </div>
           <RosterMetric
             definitionId="active"
@@ -1267,54 +2010,68 @@ export function TeacherStudentsPage({
               updatedAt: classMetricUpdatedAt
             }}
             label={TEACHER_COPY.metrics.playedToday}
-            value={progressPhrase(activeTodayCount, studentRows.length || 0)}
+            value={hasIncompleteEvidence
+              ? "Results unavailable"
+              : progressPhrase(activeTodayCount, studentRows.length || 0)}
           />
           <p
             className="teacher-roster-metric-note"
             role="status"
-            data-class-average-suppressed={!classAccuracySummary.comparability.comparable}
+            data-class-average-suppressed={
+              hasIncompleteEvidence || !classAccuracySummary.comparability.comparable
+            }
           >
-            {classAccuracySummary.comparability.comparable
+            {hasIncompleteEvidence
+              ? "Class progress totals are paused until every saved result source loads completely."
+              : classAccuracySummary.comparability.comparable
               ? TEACHER_COPY.metrics.comparable
               : classAverageHeldBackNote(classAccuracySummary.comparability)}
           </p>
-        </section>
+          </section>
+        </details>
       )}
 
-      {selectedClass && (
-        <section className="teacher-roster-groups" aria-label={TEACHER_COPY.groups.ariaLabel}>
-          <div>
-            <p className="panel-label">{TEACHER_COPY.groups.label}</p>
-            <strong>{TEACHER_COPY.groups.description}</strong>
-          </div>
-          <div className="teacher-roster-group-buttons">
-            {rosterGroups.map(group => (
-              <button
-                key={group.id}
-                className={group.id === selectedRosterGroup.id ? "is-active" : ""}
-                type="button"
-                aria-pressed={group.id === selectedRosterGroup.id}
-                onClick={() => {
-                  setRosterFilterIds(null);
-                  onSelectGroup?.(group.id);
-                }}
-              >
-                <span>{group.label}</span>
-                <strong>{group.studentIds.length}</strong>
-              </button>
-            ))}
-          </div>
-          <button
-            className="lp-button lp-button-secondary teacher-question-guide-button"
-            type="button"
-            onClick={openQuestionGuide}
-          >
-            {TEACHER_COPY.help.checkGuide}
-          </button>
-        </section>
+      {selectedClass && rosterRead.complete && dashboardRead.complete && (
+        <details className="teacher-students-secondary teacher-students-groups">
+          <summary>
+            <span>Groups and assessment guide</span>
+            <small>Filter the roster or review what each assessment measures</small>
+          </summary>
+          <section className="teacher-roster-groups" aria-label={TEACHER_COPY.groups.ariaLabel}>
+            <div>
+              <p className="panel-label">{TEACHER_COPY.groups.label}</p>
+              <strong>{TEACHER_COPY.groups.description}</strong>
+            </div>
+            <div className="teacher-roster-group-buttons">
+              {rosterGroups.map(group => (
+                <button
+                  key={group.id}
+                  className={group.id === selectedRosterGroup.id ? "is-active" : ""}
+                  type="button"
+                  aria-pressed={group.id === selectedRosterGroup.id}
+                  onClick={() => {
+                    setRosterFilterIds(null);
+                    setRosterPage(1);
+                    onSelectGroup?.(group.id);
+                  }}
+                >
+                  <span>{group.label}</span>
+                  <strong>{group.studentIds.length}</strong>
+                </button>
+              ))}
+            </div>
+            <button
+              className="lp-button lp-button-secondary teacher-question-guide-button"
+              type="button"
+              onClick={openQuestionGuide}
+            >
+              {TEACHER_COPY.help.checkGuide}
+            </button>
+          </section>
+        </details>
       )}
 
-      {selectedClass && selectedStudentRow && (
+      {selectedClass && rosterRead.complete && selectedStudentRow && (
         <TeacherDrawer
           label={`Student details: ${selectedStudentRow.name}`}
           onClose={onClearStudent}
@@ -1334,12 +2091,15 @@ export function TeacherStudentsPage({
                 </p>
                 <h3>{selectedStudentRow.name}</h3>
                 <p>
-                  <MetricFigure
-                    metricId="current-skill"
-                    updatedAt={selectedStudentRow.lastActive}
-                  >
-                    {selectedStudentRow.currentSkill}
-                  </MetricFigure>
+                  <strong>Current focus:</strong>{" "}
+                  {selectedStudentResultsAvailable ? (
+                    <MetricFigure
+                      metricId="current-skill"
+                      updatedAt={selectedStudentRow.lastActive}
+                    >
+                      {selectedStudentRow.currentSkill}
+                    </MetricFigure>
+                  ) : "Results unavailable"}
                 </p>
               </div>
               <button className="text-button" data-autofocus type="button" onClick={onClearStudent}>
@@ -1347,15 +2107,17 @@ export function TeacherStudentsPage({
               </button>
             </header>
             <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} results summary`}>
-              <RosterMetric label="Answers" value={selectedStudentRow.answered} />
               <RosterMetric
                 definitionId="accuracy"
                 definitionOptions={{
-                  denominator: `${countPhrase(selectedStudentRow.answered, "scored answer")} for this student.`,
-                  updatedAt: selectedStudentRow.lastActive
+                  denominator: `${countPhrase(selectedStudentRow.currentAnswered, "scored answer")} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
+                  dateRange: `The last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
+                  updatedAt: selectedStudentRow.currentLastActive
                 }}
-                label="Accuracy"
-                value={accuracyConclusion(selectedStudentRow)}
+                label="Accuracy across skills"
+                value={selectedStudentResultsAvailable
+                  ? accuracyConclusion(selectedStudentRow)
+                  : "Results unavailable"}
               />
               <RosterMetric
                 definitionId="mastered"
@@ -1364,7 +2126,9 @@ export function TeacherStudentsPage({
                   updatedAt: selectedStudentRow.lastActive
                 }}
                 label="Skills secured"
-                value={progressPhrase(selectedStudentRow.masteredCount, skillTotal)}
+                value={selectedStudentResultsAvailable
+                  ? progressPhrase(selectedStudentRow.masteredCount, skillTotal)
+                  : "Results unavailable"}
               />
               <RosterMetric
                 definitionId="active"
@@ -1374,18 +2138,43 @@ export function TeacherStudentsPage({
                   updatedAt: selectedStudentRow.lastActive
                 }}
                 label="Last active"
-                value={formatLastActive(selectedStudentRow.lastActive)}
+                value={selectedStudentResultsAvailable
+                  ? formatLastActive(selectedStudentRow.lastActive)
+                  : "Results unavailable"}
               />
             </div>
             <dl className="teacher-learner-drawer-details">
               <div>
                 <dt>Sign-in</dt>
-                <dd>{selectedStudentRow.symbol_password ? "Pictures ready" : "Pictures need setting"}</dd>
+                <dd>
+                  <span>{selectedStudentRow.symbol_password ? "Pictures ready" : "Pictures need setting"}</span>
+                  {selectedStudentRow.symbol_password && (
+                    <>
+                      <SymbolSequence
+                        sequence={selectedStudentRow.symbol_password}
+                        hidden={!visiblePasswords[selectedStudentRow.id]}
+                        size={20}
+                      />
+                      <button
+                        className="text-button"
+                        type="button"
+                        onClick={() => setVisiblePasswords(previous => ({
+                          ...previous,
+                          [selectedStudentRow.id]: !previous[selectedStudentRow.id]
+                        }))}
+                      >
+                        {visiblePasswords[selectedStudentRow.id] ? "Hide pictures" : "Show pictures"}
+                      </button>
+                    </>
+                  )}
+                </dd>
               </div>
               <div>
                 <dt>Sound Seekers</dt>
                 <dd>
-                  {selectedStudentRow.soundSeekers?.sessions || selectedStudentRow.soundSeekers?.stopsCompleted > 0
+                  {!selectedStudentResultsAvailable
+                    ? "Results unavailable"
+                    : selectedStudentRow.soundSeekers?.sessions || selectedStudentRow.soundSeekers?.stopsCompleted > 0
                     ? (
                       <MetricFigure
                         metricId="trails"
@@ -1407,113 +2196,88 @@ export function TeacherStudentsPage({
                 type="button"
                 onClick={() => onStartCheck?.(selectedStudentRow)}
               >
-                Check {selectedStudentRow.name}
+                Assess {selectedStudentRow.name}
               </button>
               <button
                 className="lp-button lp-button-secondary"
                 type="button"
                 onClick={() => onOpenReport?.(selectedStudentRow)}
               >
-                Report
+                Open report
               </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => onOpenGuidedReading?.(selectedStudentRow)}
-              >
-                Guided reading
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => onOpenStoryQuests?.(selectedStudentRow)}
-              >
-                Story Quests
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => {
-                  setEditingStudent(selectedStudentRow);
-                  setEditingSequence("");
-                }}
-              >
-                {selectedStudentRow.symbol_password ? "Change sign-in pictures" : "Set sign-in pictures"}
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => setAccessibilityStudent(selectedStudentRow)}
-              >
-                Accessibility settings
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => setDataRightsStudent(selectedStudentRow)}
-              >
-                Privacy and data rights
-              </button>
-              <button
-                className="lp-button lp-button-danger-outline"
-                type="button"
-                aria-haspopup="dialog"
-                onClick={() => openRosterOperation("archive", selectedStudentRow)}
-              >
-                Archive student…
-              </button>
+              <details className="teacher-student-panel-more">
+                <summary>Learning tools</summary>
+                <div>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    onClick={() => onOpenGuidedReading?.(selectedStudentRow)}
+                  >
+                    Guided reading
+                  </button>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    onClick={() => onOpenStoryQuests?.(selectedStudentRow)}
+                  >
+                    Preview Story Quests
+                  </button>
+                </div>
+              </details>
               <button
                 className="lp-button lp-button-secondary"
                 type="button"
                 aria-haspopup="dialog"
-                onClick={() => setActionsStudent(selectedStudentRow)}
+                onClick={() => openStudentActions(selectedStudentRow)}
               >
-                More options
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={openQuestionGuide}
-              >
-                {TEACHER_COPY.help.checkGuide}
+                Student settings
               </button>
             </div>
           </aside>
         </TeacherDrawer>
       )}
 
-      {selectedClass && actionCards.length > 0 && (
-        <section className="teacher-action-cards" aria-label="Suggested next steps">
-          {actionCards.map(card => (
-            <article
-              key={card.id}
-              className={`teacher-action-card ${card.tone}`}
-              data-teacher-recommendation={card.id}
-            >
-              <div className="teacher-action-card-copy">
-                <strong>{card.title}</strong>
-                <p>{card.detail}</p>
-                <TeacherRecommendationExplanation
-                  explanation={card.explanation}
-                  surface="teacher-dashboard-next-steps"
-                />
-              </div>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => {
-                  if (card.onClick) card.onClick();
-                  else if (card.studentIds) setRosterFilterIds(card.studentIds);
-                }}
+      {selectedClass && rosterRead.complete && dashboardRead.complete && actionCards.length > 0 && (
+        <details className="teacher-students-secondary teacher-students-suggestions">
+          <summary>
+            <span>Suggested next steps</span>
+            <small>{countPhrase(actionCards.length, "suggestion")}</small>
+          </summary>
+          <section className="teacher-action-cards" aria-label="Suggested next steps">
+            {actionCards.map(card => (
+              <article
+                key={card.id}
+                className={`teacher-action-card ${card.tone}`}
+                data-teacher-recommendation={card.id}
               >
-                {card.action}
-              </button>
-            </article>
-          ))}
-        </section>
+                <div className="teacher-action-card-copy">
+                  <strong>{card.title}</strong>
+                  <p>{card.detail}</p>
+                  <TeacherRecommendationExplanation
+                    explanation={card.explanation}
+                    surface="teacher-dashboard-next-steps"
+                  />
+                </div>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    if (card.onClick) card.onClick();
+                    else if (card.studentIds) {
+                      setRosterFilterIds(card.studentIds);
+                      setRosterPage(1);
+                    }
+                  }}
+                >
+                  {card.action}
+                </button>
+              </article>
+            ))}
+          </section>
+        </details>
       )}
 
-      {effectiveRosterFilterIds && (
+      {rosterRead.complete && effectiveRosterFilterIds && (
         <div className="teacher-roster-filter-chip">
           <span>
             {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} students
@@ -1523,6 +2287,7 @@ export function TeacherStudentsPage({
             type="button"
             onClick={() => {
               setRosterFilterIds(null);
+              setRosterPage(1);
               onSelectGroup?.("all");
             }}
           >
@@ -1531,7 +2296,9 @@ export function TeacherStudentsPage({
         </div>
       )}
 
-      <details
+      <section className="teacher-dashboard-roster" aria-label={TEACHER_COPY.roster.panelLabel}>
+        {selectedClass && rosterRead.complete && (
+        <details
           className="teacher-roster-admin"
           data-teacher-priority="roster-admin"
           open={rosterAdminOpen}
@@ -1542,26 +2309,9 @@ export function TeacherStudentsPage({
               <strong>{TEACHER_COPY.roster.manageTitle}</strong>
               <small>{TEACHER_COPY.roster.manageBody}</small>
             </span>
-            <span>{TEACHER_COPY.roster.activeCount(studentRows.length)}</span>
+            <span>Optional setup</span>
           </summary>
           <div className="teacher-roster-admin-content">
-      <section className="teacher-dashboard-roster" aria-label={TEACHER_COPY.roster.panelLabel}>
-        <div className="teacher-panel-header">
-          <div>
-            <p className="panel-label">{TEACHER_COPY.roster.panelLabel}</p>
-            <h3>{TEACHER_COPY.roster.panelTitle(selectedClass?.name)}</h3>
-            <p>
-              {selectedClass
-                ? TEACHER_COPY.roster.inClass(studentRows.length)
-                : TEACHER_COPY.roster.chooseClass}
-            </p>
-            {selectedClass && (
-              <small className="muted-text">{TEACHER_COPY.roster.privacy}</small>
-            )}
-          </div>
-        </div>
-
-        {selectedClass && (
           <div className="teacher-roster-actionbar">
             <div className="teacher-roster-add">
               <label className="teacher-dashboard-control">
@@ -1569,6 +2319,8 @@ export function TeacherStudentsPage({
                 <input
                   ref={newStudentInputRef}
                   autoComplete="off"
+                  disabled={addingStudent}
+                  maxLength={80}
                   value={newStudentName}
                   placeholder={TEACHER_COPY.roster.displayNamePlaceholder}
                   onChange={event => {
@@ -1580,8 +2332,13 @@ export function TeacherStudentsPage({
                   }}
                 />
               </label>
-              <button className="lp-button lp-button-primary" disabled={!newStudentName.trim()} onClick={handleCreateStudent} type="button">
-                {TEACHER_COPY.roster.add}
+              <button
+                className="lp-button lp-button-primary"
+                disabled={addingStudent || !newStudentName.trim()}
+                onClick={handleCreateStudent}
+                type="button"
+              >
+                {addingStudent ? "Adding…" : TEACHER_COPY.roster.add}
               </button>
             </div>
             <div className="teacher-roster-actions">
@@ -1634,9 +2391,8 @@ export function TeacherStudentsPage({
               </details>
             </div>
           </div>
-        )}
 
-        {selectedClass && showRosterImport && (
+          {showRosterImport && (
           <section className="teacher-roster-import" aria-label="Import students&apos;s names">
             <div>
               <strong>{TEACHER_COPY.roster.importTitle}</strong>
@@ -1673,12 +2429,11 @@ export function TeacherStudentsPage({
                   <p role="status">
                     <strong>{rosterImportPreview.accepted.length} ready</strong>
                     {" · "}
-                    {rosterImportPreview.duplicates.length} duplicate
-                    {rosterImportPreview.duplicates.length === 1 ? "" : "s"} skipped
+                    {rosterImportPreview.skipped.length} skipped
                   </p>
-                  {rosterImportPreview.duplicates.length > 0 && (
-                    <ul aria-label="Duplicate students&apos;s names">
-                      {rosterImportPreview.duplicates.map((row, index) => (
+                  {rosterImportPreview.skipped.length > 0 && (
+                    <ul aria-label="Students not included in this import">
+                      {rosterImportPreview.skipped.map((row, index) => (
                         <li key={`${row.name}-${index}`}>{row.name}: {row.reason}</li>
                       ))}
                     </ul>
@@ -1697,9 +2452,13 @@ export function TeacherStudentsPage({
               )}
             </div>
           </section>
+          )}
+          <p className="teacher-roster-privacy-note">{TEACHER_COPY.roster.privacy}</p>
+          </div>
+        </details>
         )}
 
-        {selectedClass && studentRows.length > 0 && (
+        {selectedClass && rosterRead.complete && studentRows.length > 0 && (
           <>
             <TeacherFilterBar
               className="teacher-roster-tools"
@@ -1710,22 +2469,37 @@ export function TeacherStudentsPage({
                 <input
                   type="search"
                   value={rosterSearch}
-                  onChange={event => setRosterSearch(event.target.value)}
+                  onChange={event => {
+                    setRosterSearch(event.target.value);
+                    setRosterPage(1);
+                  }}
                   placeholder="Search display names"
                 />
               </label>
               <label>
                 <span>Filter</span>
-                <select value={rosterStatusFilter} onChange={event => setRosterStatusFilter(event.target.value)}>
+                <select
+                  value={rosterStatusFilter}
+                  onChange={event => {
+                    setRosterStatusFilter(event.target.value);
+                    setRosterPage(1);
+                  }}
+                >
                   <option value="all">{TEACHER_COPY.roster.activeFilter}</option>
                   <option value="login-missing">{TEACHER_COPY.roster.signInMissingFilter}</option>
-                  <option value="not-started">Not started</option>
+                  <option value="not-started">No scored answers</option>
                   <option value="needs-attention">Needs attention</option>
                 </select>
               </label>
               <label>
                 <span>Sort</span>
-                <select value={rosterSort} onChange={event => setRosterSort(event.target.value)}>
+                <select
+                  value={rosterSort}
+                  onChange={event => {
+                    setRosterSort(event.target.value);
+                    setRosterPage(1);
+                  }}
+                >
                   <option value="name">Display name</option>
                   <option value="last-active">Last active</option>
                   <option value="focus">Current focus</option>
@@ -1733,7 +2507,9 @@ export function TeacherStudentsPage({
                 </select>
               </label>
               <p role="status">
-                {TEACHER_COPY.roster.showing(visibleStudentRows.length, studentRows.length)}
+                {visibleStudentRows.length
+                  ? `Showing ${rosterPageStart + 1}–${Math.min(rosterPageStart + ROSTER_PAGE_SIZE, visibleStudentRows.length)} of ${visibleStudentRows.length} matching students`
+                  : `No matches in ${countPhrase(studentRows.length, "student")}`}
               </p>
             </TeacherFilterBar>
             <details className="teacher-roster-column-picker">
@@ -1763,14 +2539,56 @@ export function TeacherStudentsPage({
           </>
         )}
 
-        {!selectedClass ? (
+        {classRead.loading ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="loading"
+          />
+        ) : classRead.failed ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="partial"
+            detail={classRead.truncated
+              ? "The full class list reached its safety limit. No missing class is being treated as absent."
+              : "The class list could not be confirmed. Previously verified class names remain in the chooser, but class changes are paused until retry succeeds."}
+            onPrimaryAction={() => loadClassesRef.current?.()}
+          />
+        ) : !selectedClass ? (
+          visibleClassList.length > 0 ? (
+            <div className="report-empty-state teacher-onboard-empty">
+              <strong>Choose a class</strong>
+              <p>Select a class above to manage its students.</p>
+            </div>
+          ) : (
           <TeacherSurfaceState
             compact
             surface="classes"
             state="empty"
             onPrimaryAction={focusNewClassInput}
           />
-        ) : loadingStudents ? (
+          )
+        ) : rosterRead.loading ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="loading"
+          />
+        ) : rosterRead.incomplete ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="partial"
+            detail={rosterRead.reason === "truncated"
+              ? "The complete student list could not be confirmed because the read reached its safety limit. No missing student is being counted as absent."
+              : "The student list could not be confirmed. An empty class has not been assumed, and no roster changes are available until retry succeeds."}
+            onPrimaryAction={() => {
+              loadStudentsRef.current?.(selectedClassId);
+              loadClassDashboardRef.current?.(selectedClassId);
+            }}
+          />
+        ) : !rosterRead.complete ? (
           <TeacherSurfaceState
             compact
             surface="classes"
@@ -1784,7 +2602,26 @@ export function TeacherStudentsPage({
               {TEACHER_COPY.roster.firstAction}
             </button>
           </div>
+        ) : visibleStudentRows.length === 0 ? (
+          <div className="report-empty-state teacher-roster-empty-filter">
+            <strong>No students match these filters</strong>
+            <p>Clear the search and filters to return to the whole class.</p>
+            <button
+              className="lp-button lp-button-secondary"
+              type="button"
+              onClick={() => {
+                setRosterSearch("");
+                setRosterStatusFilter("all");
+                setRosterFilterIds(null);
+                setRosterPage(1);
+                onSelectGroup?.("all");
+              }}
+            >
+              Clear filters
+            </button>
+          </div>
         ) : (
+          <>
           <TeacherDataTable
             className="dashboard-table teacher-roster-table"
             label={`${selectedClass.name} students`}
@@ -1793,11 +2630,11 @@ export function TeacherStudentsPage({
                 <tr>
                   <th scope="col" aria-label="Select students">
                     <input
-                      aria-label="Select all visible students"
+                      aria-label="Select all students on this page"
                       type="checkbox"
-                      checked={visibleStudentRows.length > 0 && selectedVisibleCount === visibleStudentRows.length}
+                      checked={rosterPageRows.length > 0 && selectedPageCount === rosterPageRows.length}
                       onChange={event => {
-                        const visibleIds = visibleStudentRows.map(row => row.id);
+                        const visibleIds = rosterPageRows.map(row => row.id);
                         setSelectedRosterIds(previous => event.target.checked
                           ? [...new Set([...previous, ...visibleIds])]
                           : previous.filter(id => !visibleIds.includes(id)));
@@ -1805,7 +2642,7 @@ export function TeacherStudentsPage({
                     />
                   </th>
                   <th scope="col">Display name</th>
-                  {enabledRosterColumns.has("focus") && <th scope="col">Focus</th>}
+                  {enabledRosterColumns.has("focus") && <th scope="col">Current focus</th>}
                   {enabledRosterColumns.has("progress") && <th scope="col">Progress</th>}
                   {enabledRosterColumns.has("sound-seekers") && <th scope="col">Sound Seekers</th>}
                   {enabledRosterColumns.has("login") && <th scope="col">Sign-in</th>}
@@ -1814,12 +2651,18 @@ export function TeacherStudentsPage({
                 </tr>
               </thead>
               <tbody>
-                {visibleStudentRows.map(row => {
-                  const progressPercent = getProgressPercent(row, skillTotal);
+                {rosterPageRows.map(row => {
+                  const resultsAvailable = row.evidenceReadStatus === "complete";
+                  const progressPercent = resultsAvailable
+                    ? getProgressPercent(row, skillTotal)
+                    : 0;
                   const loginReady = Boolean(row.symbol_password);
                   return (
                   <Fragment key={row.id}>
-                  <tr className={loginReady ? "login-ready" : "login-missing"}>
+                  <tr
+                    className={`${loginReady ? "login-ready" : "login-missing"}${resultsAvailable ? "" : " results-incomplete"}`}
+                    data-results-status={resultsAvailable ? "complete" : "incomplete"}
+                  >
                     <td data-label="Select">
                       <input
                         aria-label={`Select ${row.name}`}
@@ -1835,19 +2678,27 @@ export function TeacherStudentsPage({
                         <StudentInitial name={row.name} />
                         <div>
                           <strong>{row.name}</strong>
-                          <span>{row.answered ? `${row.answered} answer${row.answered === 1 ? "" : "s"}` : "No practice yet"}</span>
+                          <span>
+                            {resultsAvailable
+                              ? row.answered
+                                ? `${row.answered} answer${row.answered === 1 ? "" : "s"}`
+                                : "No scored answers yet"
+                              : "Some results could not load"}
+                          </span>
                         </div>
                       </div>
                     </td>
-                    {enabledRosterColumns.has("focus") && <td data-label="Focus">
-                      <span className="teacher-focus-pill">
-                        <MetricFigure metricId="current-skill" updatedAt={row.lastActive}>
-                          {row.currentSkill}
-                        </MetricFigure>
-                      </span>
+                    {enabledRosterColumns.has("focus") && <td data-label="Current focus">
+                      {resultsAvailable ? (
+                        <span className="teacher-focus-pill">
+                          <MetricFigure metricId="current-skill" updatedAt={row.lastActive}>
+                            {row.currentSkill}
+                          </MetricFigure>
+                        </span>
+                      ) : <span className="muted-text">Results unavailable</span>}
                     </td>}
                     {enabledRosterColumns.has("progress") && <td data-label="Progress">
-                      <div className="teacher-progress-cell">
+                      {resultsAvailable ? <div className="teacher-progress-cell">
                         <div className="teacher-progress-line">
                           <strong>
                             <MetricFigure
@@ -1856,15 +2707,16 @@ export function TeacherStudentsPage({
                               updatedAt={row.lastActive}
                             >
                               {row.answered
-                                ? `${progressPhrase(row.masteredCount, skillTotal)} mastered`
-                                : "Not started"}
+                                ? `${progressPhrase(row.masteredCount, skillTotal)} secure`
+                                : "No scored answers"}
                             </MetricFigure>
                           </strong>
                           {row.answered ? (
                             <MetricFigure
-                              denominator={`${countPhrase(row.answered, "scored answer")} for this student.`}
+                              denominator={`${countPhrase(row.currentAnswered, "scored answer")} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
+                              dateRange={`The last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
                               metricId="accuracy"
-                              updatedAt={row.lastActive}
+                              updatedAt={row.currentLastActive}
                             >
                               {accuracyConclusion(row)}
                             </MetricFigure>
@@ -1873,10 +2725,12 @@ export function TeacherStudentsPage({
                         <div className="teacher-progress-track" aria-hidden="true">
                           <span style={{ width: `${progressPercent}%` }} />
                         </div>
-                      </div>
+                      </div> : <span className="muted-text">Results unavailable</span>}
                     </td>}
                     {enabledRosterColumns.has("sound-seekers") && <td data-label="Sound Seekers">
-                      {row.soundSeekers?.sessions || row.soundSeekers?.stopsCompleted > 0 ? (
+                      {!resultsAvailable
+                        ? <span className="muted-text">Results unavailable</span>
+                        : row.soundSeekers?.sessions || row.soundSeekers?.stopsCompleted > 0 ? (
                         <div className="teacher-quest-cell">
                           <strong>
                             <MetricFigure
@@ -1905,42 +2759,26 @@ export function TeacherStudentsPage({
                         <span className={loginReady ? "teacher-login-status ready" : "teacher-login-status missing"}>
                           {loginReady ? "Ready" : "Needs pictures"}
                         </span>
-                        <SymbolSequence sequence={row.symbol_password || ""} hidden={!visiblePasswords[row.id]} size={20} />
                         <div className="teacher-login-actions">
-                          <button
-                            className="text-button"
-                            aria-label={`${visiblePasswords[row.id] ? "Hide" : "Show"} ${row.name}'s sign-in pictures`}
-                            onClick={() => setVisiblePasswords(previous => ({ ...previous, [row.id]: !previous[row.id] }))}
-                            type="button"
-                          >
-                            {visiblePasswords[row.id] ? "Hide" : "Show"}
-                          </button>
                           <button
                             className="text-button"
                             aria-label={`${loginReady ? "Change" : "Set"} sign-in pictures for ${row.name}`}
                             onClick={() => {
-                              setEditingStudent(row);
-                              setEditingSequence("");
+                              openSignInPictureEditor(row);
                             }}
                             type="button"
                           >
                             {loginReady ? "Change" : "Set pictures"}
                           </button>
-                          {loginReady && (
-                            <button
-                              className="text-button"
-                              aria-label={`Reset sign-in pictures for ${row.name}`}
-                              onClick={() => resetStudentSymbolPassword?.(row.id, row.name)}
-                              type="button"
-                            >
-                              Reset
-                            </button>
-                          )}
                         </div>
                       </div>
                     </td>}
                     {enabledRosterColumns.has("last-active") && (
-                      <td data-label="Last active">{formatLastActive(row.lastActive)}</td>
+                      <td data-label="Last active">
+                        {resultsAvailable
+                          ? formatLastActive(row.lastActive)
+                          : "Results unavailable"}
+                      </td>
                     )}
                     <td data-label="Actions">
                       <div className="teacher-row-actions">
@@ -1948,9 +2786,9 @@ export function TeacherStudentsPage({
                           className="lp-button lp-button-primary teacher-start-check"
                           onClick={() => onStartCheck?.(row)}
                           type="button"
-                          aria-label={`Check ${row.name}`}
+                          aria-label={`Assess ${row.name}`}
                         >
-                          Check
+                          Assess
                         </button>
                         <button
                           className="lp-button lp-button-secondary teacher-open-student"
@@ -1958,21 +2796,12 @@ export function TeacherStudentsPage({
                           onClick={() => onLoadStudent?.(row.id, row.name)}
                           type="button"
                         >
-                          Open student
-                        </button>
-                        <button
-                          className="lp-button lp-button-secondary"
-                          type="button"
-                          aria-haspopup="dialog"
-                          aria-label={`More options for ${row.name}`}
-                          onClick={() => setActionsStudent(row)}
-                        >
-                          More
+                          Open
                         </button>
                       </div>
                     </td>
                   </tr>
-                  {heatOpenId === row.id && row.soundSeekers && (
+                  {resultsAvailable && heatOpenId === row.id && row.soundSeekers && (
                     <tr className="teacher-heat-row">
                       <td colSpan={rosterColumnCount}>
                         <QuestHeatPanel
@@ -1989,16 +2818,107 @@ export function TeacherStudentsPage({
                 })}
               </tbody>
           </TeacherDataTable>
+          {rosterPageCount > 1 && (
+            <nav className="teacher-roster-pagination" aria-label="Student roster pages">
+              <p>
+                Page {currentRosterPage} of {rosterPageCount}
+                <span aria-hidden="true"> · </span>
+                {rosterPageStart + 1}–{Math.min(rosterPageStart + ROSTER_PAGE_SIZE, visibleStudentRows.length)} of {visibleStudentRows.length}
+              </p>
+              <div>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  disabled={currentRosterPage === 1}
+                  onClick={() => setRosterPage(Math.max(1, currentRosterPage - 1))}
+                >
+                  Previous
+                </button>
+                {rosterPaginationItems.map(item => (
+                  typeof item === "number" ? (
+                    <button
+                      className={item === currentRosterPage ? "is-current" : ""}
+                      type="button"
+                      aria-label={`Page ${item}`}
+                      aria-current={item === currentRosterPage ? "page" : undefined}
+                      onClick={() => setRosterPage(item)}
+                      key={item}
+                    >
+                      {item}
+                    </button>
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="teacher-roster-pagination-ellipsis"
+                      key={item}
+                    >
+                      …
+                    </span>
+                  )
+                ))}
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  disabled={currentRosterPage === rosterPageCount}
+                  onClick={() => setRosterPage(Math.min(rosterPageCount, currentRosterPage + 1))}
+                >
+                  Next
+                </button>
+              </div>
+            </nav>
+          )}
+          </>
         )}
       </section>
 
-      {selectedClass && archivedStudentList.length > 0 && (
+      {selectedClass && rosterRead.complete && archivedRowsForSelectedClass.length > 0 && (
         <section className="teacher-archived-roster" aria-label="Archived students">
           <details>
-            <summary>Archived students ({archivedStudentList.length})</summary>
-            <p>Archived students cannot sign in, but their saved results remain. Restore a student to return them to this class.</p>
-            <ul>
-              {archivedStudentList.map(row => (
+            <summary>{TEACHER_COPY.roster.archivedSummary(archivedRowsForSelectedClass.length)}</summary>
+            <p>{TEACHER_COPY.roster.archivedHelp}</p>
+            <TeacherFilterBar
+              className="teacher-archived-roster-tools"
+              label={TEACHER_COPY.roster.archivedSearchLabel}
+            >
+              <label>
+                <span>{TEACHER_COPY.roster.archivedSearchLabel}</span>
+                <input
+                  type="search"
+                  value={archivedRosterSearch}
+                  onChange={event => {
+                    setArchivedRosterSearch(event.target.value);
+                    setArchivedRosterPage(1);
+                  }}
+                  placeholder={TEACHER_COPY.roster.archivedSearchPlaceholder}
+                />
+              </label>
+              <p aria-live="polite" role="status">
+                {archivedRosterView.matchingCount
+                  ? TEACHER_COPY.roster.archivedShowing(
+                      archivedRosterView.start + 1,
+                      archivedRosterView.end,
+                      archivedRosterView.matchingCount
+                    )
+                  : TEACHER_COPY.roster.archivedNoMatches}
+              </p>
+            </TeacherFilterBar>
+            {archivedRosterView.matchingCount === 0 ? (
+              <div className="teacher-archived-roster-empty">
+                <strong>{TEACHER_COPY.roster.archivedNoMatchesTitle}</strong>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    setArchivedRosterSearch("");
+                    setArchivedRosterPage(1);
+                  }}
+                >
+                  {TEACHER_COPY.roster.archivedClearSearch}
+                </button>
+              </div>
+            ) : (
+            <ul aria-label="Matching archived students">
+              {archivedRosterView.pageRows.map(row => (
                 <li key={row.id}>
                   <span>
                     <strong>{row.name}</strong>
@@ -2007,18 +2927,78 @@ export function TeacherStudentsPage({
                   <button
                     className="lp-button lp-button-secondary"
                     type="button"
+                    disabled={restoringStudentIds.includes(row.id)}
                     onClick={() => handleRestoreStudent(row)}
                   >
-                    Restore {row.name}
+                    {restoringStudentIds.includes(row.id)
+                      ? `Restoring ${row.name}…`
+                      : `Restore ${row.name}`}
                   </button>
                 </li>
               ))}
             </ul>
+            )}
+            {archivedRosterView.pageCount > 1 && (
+              <nav
+                className="teacher-roster-pagination teacher-archived-roster-pagination"
+                aria-label="Archived student pages"
+              >
+                <p>
+                  Page {archivedRosterView.page} of {archivedRosterView.pageCount}
+                  <span aria-hidden="true"> · </span>
+                  {archivedRosterView.start + 1}–{archivedRosterView.end} of {archivedRosterView.matchingCount}
+                </p>
+                <div>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    disabled={archivedRosterView.page === 1}
+                    onClick={() => setArchivedRosterPage(Math.max(
+                      1,
+                      archivedRosterView.page - 1
+                    ))}
+                  >
+                    Previous
+                  </button>
+                  {archivedRosterView.paginationItems.map(item => (
+                    typeof item === "number" ? (
+                      <button
+                        className={item === archivedRosterView.page ? "is-current" : ""}
+                        type="button"
+                        aria-label={`Archived page ${item}`}
+                        aria-current={item === archivedRosterView.page ? "page" : undefined}
+                        onClick={() => setArchivedRosterPage(item)}
+                        key={item}
+                      >
+                        {item}
+                      </button>
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="teacher-roster-pagination-ellipsis"
+                        key={item}
+                      >
+                        …
+                      </span>
+                    )
+                  ))}
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    disabled={archivedRosterView.page === archivedRosterView.pageCount}
+                    onClick={() => setArchivedRosterPage(Math.min(
+                      archivedRosterView.pageCount,
+                      archivedRosterView.page + 1
+                    ))}
+                  >
+                    Next
+                  </button>
+                </div>
+              </nav>
+            )}
           </details>
         </section>
       )}
-          </div>
-        </details>
 
       {showQuestionGuide && (
         <QuestionTypeGuideDialog
@@ -2050,135 +3030,155 @@ export function TeacherStudentsPage({
               <h3>{actionsStudent.name}</h3>
               <p>Choose one task. Each task opens in its own focused window.</p>
             </header>
+            {studentActionError && (
+              <p className="teacher-inline-error" role="alert">{studentActionError}</p>
+            )}
             <div className="teacher-student-action-list">
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => {
-                  const student = actionsStudent;
-                  setActionsStudent(null);
-                  onOpenElFormalCheck?.(student);
-                }}
-              >
-                EL formal check
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => openStudentProfile(actionsStudent)}
-              >
-                Edit student information
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => {
-                  setEditingStudent(actionsStudent);
-                  setEditingSequence("");
-                  setActionsStudent(null);
-                }}
-              >
-                {actionsStudent.symbol_password ? "Change sign-in pictures" : "Set sign-in pictures"}
-              </button>
-              {actionsStudent.symbol_password && (
+              <section className="teacher-student-action-group" aria-labelledby="student-detail-actions">
+                <h4 id="student-detail-actions">Student details</h4>
                 <button
                   className="lp-button lp-button-secondary"
                   type="button"
-                  onClick={async () => {
-                    const student = actionsStudent;
-                    setActionsStudent(null);
-                    await resetStudentSymbolPassword?.(student.id, student.name);
-                  }}
+                  onClick={() => openStudentProfile(actionsStudent)}
                 >
-                  Reset sign-in pictures
+                  Edit student information
                 </button>
-              )}
-              <button
-                className="lp-button lp-button-secondary teacher-choice-mode-toggle"
-                type="button"
-                aria-pressed={actionsStudent.reducedChoiceMode}
-                disabled={savingChoiceModeIds.includes(actionsStudent.id)}
-                onClick={async () => {
-                  const student = actionsStudent;
-                  await handleReducedChoiceMode(student);
-                  setActionsStudent(null);
-                }}
-              >
-                {actionsStudent.reducedChoiceMode ? "Use all student choices" : "Reduce student choices"}
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => {
-                  setAccessibilityStudent(actionsStudent);
-                  setActionsStudent(null);
-                }}
-              >
-                Accessibility settings
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => {
-                  setDataRightsStudent(actionsStudent);
-                  setActionsStudent(null);
-                }}
-              >
-                Privacy and data rights
-              </button>
-              {classList.length > 1 && (
                 <button
                   className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    openSignInPictureEditor(actionsStudent);
+                    setActionsStudent(null);
+                  }}
+                >
+                  {actionsStudent.symbol_password ? "Change sign-in pictures" : "Set sign-in pictures"}
+                </button>
+                {actionsStudent.symbol_password && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    aria-haspopup="dialog"
+                    onClick={() => {
+                      openRosterOperation("reset-sign-in", actionsStudent);
+                      setActionsStudent(null);
+                    }}
+                  >
+                    Reset sign-in pictures
+                  </button>
+                )}
+              </section>
+
+              <section className="teacher-student-action-group" aria-labelledby="student-support-actions">
+                <h4 id="student-support-actions">Learning support</h4>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    const student = actionsStudent;
+                    setActionsStudent(null);
+                    onOpenElFormalCheck?.(student);
+                  }}
+                >
+                  EL assessment
+                </button>
+                <button
+                  className="lp-button lp-button-secondary teacher-choice-mode-toggle"
+                  type="button"
+                  aria-pressed={actionsStudent.reducedChoiceMode}
+                  disabled={savingChoiceModeIds.includes(actionsStudent.id)}
+                  onClick={async () => {
+                    const student = actionsStudent;
+                    setStudentActionError("");
+                    const saved = await handleReducedChoiceMode(student);
+                    if (saved) {
+                      setActionsStudent(null);
+                      return;
+                    }
+                    setStudentActionError(
+                      "We couldn't change this student's navigation choices. Nothing changed. Try again."
+                    );
+                  }}
+                >
+                  {actionsStudent.reducedChoiceMode ? "Use all student choices" : "Reduce student choices"}
+                </button>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    setAccessibilityStudent(actionsStudent);
+                    setActionsStudent(null);
+                  }}
+                >
+                  Accessibility settings
+                </button>
+              </section>
+
+              <section className="teacher-student-action-group teacher-student-record-actions" aria-labelledby="student-record-actions">
+                <h4 id="student-record-actions">Class and records</h4>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    setDataRightsStudent(actionsStudent);
+                    setActionsStudent(null);
+                  }}
+                >
+                  Privacy and data rights
+                </button>
+                {visibleClassList.length > 1 && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    aria-haspopup="dialog"
+                    onClick={() => {
+                      openRosterOperation("transfer", actionsStudent);
+                      setActionsStudent(null);
+                    }}
+                  >
+                    Move to another class…
+                  </button>
+                )}
+                <button
+                  className="lp-button lp-button-danger-outline"
+                  type="button"
+                  onClick={() => {
+                    const student = actionsStudent;
+                    setActionsStudent(null);
+                    onResetCheckData?.(student);
+                  }}
+                >
+                  Reset assessment data
+                </button>
+                <button
+                  className="lp-button lp-button-danger-outline"
                   type="button"
                   aria-haspopup="dialog"
                   onClick={() => {
-                    openRosterOperation("transfer", actionsStudent);
+                    openRosterOperation("archive", actionsStudent);
                     setActionsStudent(null);
                   }}
                 >
-                  Move to another class…
+                  Archive student…
                 </button>
-              )}
-              <button
-                className="lp-button lp-button-danger-outline"
-                type="button"
-                onClick={() => {
-                  const student = actionsStudent;
-                  setActionsStudent(null);
-                  onResetCheckData?.(student);
-                }}
-              >
-                Reset check data
-              </button>
-              <button
-                className="lp-button lp-button-danger-outline"
-                type="button"
-                aria-haspopup="dialog"
-                onClick={() => {
-                  openRosterOperation("archive", actionsStudent);
-                  setActionsStudent(null);
-                }}
-              >
-                Archive student…
-              </button>
-              {/* Archiving is the safe default and stays first. Deleting is the
-                  answer to "I typed the name wrong", so it has to exist — but it
-                  is last, marked permanent, and routed through the same audited
-                  deletion the privacy workflow uses. */}
-              <button
-                className="lp-button lp-button-danger"
-                type="button"
-                aria-haspopup="dialog"
-                onClick={() => {
-                  openRosterOperation("delete", actionsStudent);
-                  setActionsStudent(null);
-                }}
-              >
-                Delete student…
-              </button>
-              <p className="muted-text">
-                Deleting is permanent. Archive instead to keep everything this student has done.
-              </p>
+                {/* Archiving is the safe default and stays first. Deleting is the
+                    answer to "I typed the name wrong", so it has to exist — but it
+                    is last, marked permanent, and routed through the same audited
+                    deletion the privacy workflow uses. */}
+                <button
+                  className="lp-button lp-button-danger"
+                  type="button"
+                  aria-haspopup="dialog"
+                  onClick={() => {
+                    openRosterOperation("delete", actionsStudent);
+                    setActionsStudent(null);
+                  }}
+                >
+                  Delete student…
+                </button>
+                <p className="muted-text">
+                  Deleting is permanent. Archive instead to keep everything this student has done.
+                </p>
+              </section>
             </div>
             <footer className="teacher-dialog-footer">
               <button
@@ -2258,6 +3258,8 @@ export function TeacherStudentsPage({
             ? `Archive ${operationStudent.name}`
             : rosterOperation.kind === "delete"
               ? `Delete ${operationStudent.name} permanently`
+              : rosterOperation.kind === "reset-sign-in"
+                ? `Reset sign-in pictures for ${operationStudent.name}`
               : `Move ${operationStudent.name} to another class`}
           onClose={() => {
             if (operationBusy) return;
@@ -2270,6 +3272,8 @@ export function TeacherStudentsPage({
                 ? `Archive ${operationStudent.name}?`
                 : rosterOperation.kind === "delete"
                   ? `Delete ${operationStudent.name} permanently?`
+                  : rosterOperation.kind === "reset-sign-in"
+                    ? `Reset sign-in pictures for ${operationStudent.name}?`
                   : `Move ${operationStudent.name} to another class?`}
             </h3>
             {rosterOperation.kind === "archive" && (
@@ -2285,43 +3289,48 @@ export function TeacherStudentsPage({
             )}
             {rosterOperation.kind === "delete" && (
               <>
-                {operationHasSavedResults ? (
-                  <>
-                    <p>
-                      This permanently deletes {operationSavedSummary} for {operationStudent.name},
-                      together with their reports, progress and sign-in pictures. It cannot be undone.
-                    </p>
-                    <p>
-                      Archive {operationStudent.name} instead to take them off the roster and keep
-                      everything they have done.
-                    </p>
-                    <label className="teacher-dashboard-control">
-                      <span>Type {operationStudent.name} to confirm</span>
-                      <input
-                        autoComplete="off"
-                        value={deleteConfirmName}
-                        disabled={operationBusy}
-                        onChange={event => setDeleteConfirmName(event.target.value)}
-                      />
-                    </label>
-                  </>
+                {operationEvidenceComplete ? (
+                  <p>
+                    The roster currently shows {operationSavedSummary}. Permanent deletion also
+                    removes any reports, assessment records, progress, activity and sign-in pictures
+                    saved for {operationStudent.name}. It cannot be undone.
+                  </p>
                 ) : (
-                  <>
-                    <p>
-                      {operationStudent.name} has no saved results, so there is nothing to keep.
-                    </p>
-                    <p>
-                      Deleting removes {operationStudent.name} from this class for good and cannot be
-                      undone. Archive them instead if you might want them back.
-                    </p>
-                  </>
+                  <p>
+                    Saved-result totals are still loading or unavailable. Permanent deletion removes
+                    {operationStudent.name}'s student record and any saved results, reports, assessment
+                    records, progress, activity and sign-in pictures. It cannot be undone.
+                  </p>
                 )}
+                <p>
+                  Archive {operationStudent.name} instead to take them off the roster and keep
+                  everything they have done.
+                </p>
+                <p>
+                  A minimal record of the deletion request is kept so the school can show that
+                  the request was completed.
+                </p>
+                <label className="teacher-dashboard-control">
+                  <span>Type {operationStudent.name} to confirm</span>
+                  <input
+                    autoComplete="off"
+                    value={deleteConfirmName}
+                    disabled={operationBusy}
+                    onChange={event => setDeleteConfirmName(event.target.value)}
+                  />
+                </label>
               </>
             )}
             {rosterOperation.kind === "transfer" && (
               <>
                 <p>
-                  The student and their saved results move together. Nothing is copied or deleted.
+                  {operationStudent.name} moves to the new class. Their individual progress and
+                  saved work stay with them.
+                </p>
+                <p>
+                  Earlier class reports and class activity stay with the class where they were
+                  recorded. Their current sign-in ends, so they must sign in again through the new
+                  class.
                 </p>
                 <label className="teacher-dashboard-control">
                   <span>Destination class</span>
@@ -2330,11 +3339,21 @@ export function TeacherStudentsPage({
                     onChange={event => setOperationTargetClassId(event.target.value)}
                   >
                     <option value="">Choose another class</option>
-                    {classList.filter(row => row.id !== selectedClassId).map(row => (
+                    {visibleClassList.filter(row => row.id !== selectedClassId).map(row => (
                       <option key={row.id} value={row.id}>{row.name}</option>
                     ))}
                   </select>
                 </label>
+              </>
+            )}
+            {rosterOperation.kind === "reset-sign-in" && (
+              <>
+                <p>
+                  {operationStudent.name} will not be able to sign in with their current pictures.
+                </p>
+                <p>
+                  Nothing else is changed. Set new sign-in pictures before their next sign-in.
+                </p>
               </>
             )}
             {operationError && (
@@ -2344,7 +3363,7 @@ export function TeacherStudentsPage({
               <button
                 className={rosterOperation.kind === "delete"
                   ? "lp-button lp-button-danger"
-                  : rosterOperation.kind === "archive"
+                  : rosterOperation.kind === "archive" || rosterOperation.kind === "reset-sign-in"
                     ? "lp-button lp-button-danger-outline"
                     : "lp-button lp-button-primary"}
                 type="button"
@@ -2354,11 +3373,17 @@ export function TeacherStudentsPage({
                 onClick={confirmRosterOperation}
               >
                 {operationBusy
-                  ? (rosterOperation.kind === "delete" ? "Deleting…" : "Saving…")
+                  ? (rosterOperation.kind === "delete"
+                      ? "Deleting…"
+                      : rosterOperation.kind === "reset-sign-in"
+                        ? "Resetting…"
+                        : "Saving…")
                   : rosterOperation.kind === "archive"
                     ? `Yes, archive ${operationStudent.name}`
                     : rosterOperation.kind === "delete"
                       ? `Yes, delete ${operationStudent.name} permanently`
+                      : rosterOperation.kind === "reset-sign-in"
+                        ? `Yes, reset ${operationStudent.name}'s sign-in pictures`
                       : `Yes, move ${operationStudent.name}`}
               </button>
               <button
@@ -2377,24 +3402,41 @@ export function TeacherStudentsPage({
       {editingStudent && (
         <TeacherModal
           label={`Change sign-in pictures for ${editingStudent.name}`}
-          onClose={() => {
-            setEditingStudent(null);
-            setEditingSequence("");
-          }}
+          onClose={closeSignInPictureEditor}
         >
           <div className="symbol-password-modal-card">
             <h3>Change sign-in pictures for {editingStudent.name}</h3>
-            <p className="muted-text">Picture sign-in only gets the right child to their own work, so you can see and change these pictures at any time. Your teacher account is what keeps class information private.</p>
+            <p className="muted-text">Picture sign-in only gets the right student to their own work, so you can see and change these pictures at any time. Your teacher account is what keeps class information private.</p>
+            <p className="teacher-sign-in-picture-instruction">
+              <strong>Choose three pictures in order.</strong> They save after you choose the third one.
+            </p>
+            <p className="muted-text" role="status" aria-live="polite">
+              {editingSequence.length < 3
+                ? `Choose picture ${editingSequence.length + 1} of 3.`
+                : "All three pictures chosen. Saving…"}
+            </p>
             <SymbolPasswordPad
               value={editingSequence}
-              onChange={setEditingSequence}
-              onComplete={async sequence => {
-                await updateStudentSymbolPassword?.(editingStudent.id, sequence, editingStudent.name);
-                setEditingStudent(null);
-                setEditingSequence("");
+              disabled={savingSignInPictures}
+              label={`Choose three sign-in pictures in order for ${editingStudent.name}`}
+              onChange={sequence => {
+                setEditingSequence(sequence);
+                setSignInPictureError("");
               }}
+              onComplete={saveSignInPictures}
             />
-            <button className="report-button" onClick={() => setEditingStudent(null)} type="button">
+            {savingSignInPictures && (
+              <p className="muted-text" role="status">Saving sign-in pictures…</p>
+            )}
+            {signInPictureError && (
+              <p className="teacher-inline-error" role="alert">{signInPictureError}</p>
+            )}
+            <button
+              className="report-button"
+              disabled={savingSignInPictures}
+              onClick={closeSignInPictureEditor}
+              type="button"
+            >
               Cancel
             </button>
           </div>
@@ -2402,7 +3444,6 @@ export function TeacherStudentsPage({
       )}
 
       </>
-      )}
     </TeacherPageShell>
   );
 }

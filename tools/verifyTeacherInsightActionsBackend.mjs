@@ -251,11 +251,11 @@ async function main() {
       "The backend accepted an unknown insight snapshot field"
     );
   } finally {
-    if (createdInterventionIds.length) {
+    for (const interventionId of createdInterventionIds) {
       requireNoError(
-        await teacherA.from("teacher_interventions")
-          .delete()
-          .in("id", createdInterventionIds),
+        await teacherA.rpc("teacher_delete_planned_intervention", {
+          p_intervention_id: interventionId
+        }),
         "Insight-action verifier cleanup"
       );
     }

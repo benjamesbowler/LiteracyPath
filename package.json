@@ -125,7 +125,7 @@
     "check:practice-surface-regressions": "node tools/checkPracticeSurfaceRegressions.js",
     "check:release-readiness-surface": "npm run test:release-teacher -- --grep @release-readiness-surface",
     "check:teacher-dashboard-data": "npm run test:release-teacher -- --grep @teacher-dashboard-data",
-    "check:teacher-ia": "npm run test:release-teacher -- --grep @teacher-five-intention-ia",
+    "check:teacher-ia": "npm run test:release-teacher -- --grep @teacher-six-intention-ia",
     "check:teacher-today": "npm run test:release-teacher -- --grep @teacher-today-briefing",
     "check:teacher-urgency-order": "npm run test:release-teacher -- --grep @teacher-urgency-order",
     "check:teacher-action-feedback": "node tools/checkActionFeedbackAdoption.mjs && npm run test:release-teacher -- --grep @teacher-action-feedback",

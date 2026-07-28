@@ -99,6 +99,15 @@ test("A3.5 every registered game overlay passes contrast and visible-focus check
   page
 }) => {
   test.setTimeout(150_000);
+  const deprecatedThreeWarnings = [];
+  page.on("console", message => {
+    if (
+      message.type() === "warning"
+      && /THREE\.(?:Clock|WebGLShadowMap)|PCFSoftShadowMap/.test(message.text())
+    ) {
+      deprecatedThreeWarnings.push(message.text());
+    }
+  });
   for (const game of GAME_LIST) {
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}`);
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
@@ -137,6 +146,7 @@ test("A3.5 every registered game overlay passes contrast and visible-focus check
     await expectNoColourContrastViolations(page, ".lg-game-confirm", `${game.title} quit prompt`);
     await expectAllVisibleControlsHaveFocus(page, quit, `${game.title} quit prompt`);
   }
+  expect(deprecatedThreeWarnings).toEqual([]);
 });
 
 test("A3.5 every registered game overlay retains focus in forced-colours mode", async ({

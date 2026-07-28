@@ -18,9 +18,13 @@ for (const pass of [1, 2, 3]) {
   }
 }
 
-const want = ["teacher_prepare_learner_deletion","teacher_delete_learner_data",
+const want = ["teacher_prepare_learner_deletion","teacher_delete_learner_data_staged",
+  "teacher_complete_learner_deletion","teacher_get_learner_deletion_status",
   "teacher_export_learner_data","teacher_list_learner_data_rights",
-  "teacher_set_student_archived","redact_learner_from_shared_reports",
+  "teacher_set_student_archived","teacher_set_student_symbol_password",
+  "teacher_transfer_student",
+  "teacher_reset_student_progress","teacher_delete_saved_assessment_report",
+  "teacher_delete_empty_class","redact_learner_from_shared_reports",
   "jsonb_strip_student_entries","student_from_token"];
 const { rows } = await db.query(
   `select p.proname from pg_proc p join pg_namespace n on n.oid=p.pronamespace

@@ -26,6 +26,16 @@ export function formatLastActive(value) {
   return date.toLocaleDateString();
 }
 
+export function activityIsAtLeastDaysOld(value, minimumDays, now = new Date()) {
+  const activeAt = value ? new Date(value) : null;
+  const current = now instanceof Date ? now : new Date(now);
+  const threshold = Math.max(0, Number(minimumDays) || 0);
+  if (!activeAt || !Number.isFinite(activeAt.getTime()) || !Number.isFinite(current.getTime())) {
+    return false;
+  }
+  return current.getTime() - activeAt.getTime() >= threshold * 86400000;
+}
+
 export function accuracyConclusion(row) {
   if (!row?.learningConclusion) return "Not checked";
   if (!row.learningConclusion.ready) return row.learningConclusion.status.label;
@@ -65,7 +75,7 @@ export function buildSetupSteps({
     class: hasClass,
     students: hasStudents,
     "sign-in": loginsReady,
-    check: firstCheckComplete
+    assessment: firstCheckComplete
   };
   return TEACHER_COPY.setup.steps.map(step => ({
     ...step,
@@ -93,15 +103,16 @@ export function rememberSetupComplete(classId) {
   }
 }
 
-// One reading of the roster, shared by both pages.
-export function useTeacherStudentRows({ studentList = [], classDashboard = [] } = {}) {
-  const dashboardById = useMemo(
-    () => new Map(classDashboard.map(row => [row.id, row])),
-    [classDashboard]
-  );
-  return useMemo(
-    () => studentList.map(student => {
+// One reading of the roster, shared by both pages. Kept pure as well as hooked
+// so the activity contract can be tested without a browser: creating or
+// renaming a student is not learning activity.
+export function buildTeacherStudentRows({ studentList = [], classDashboard = [] } = {}) {
+  const dashboardById = new Map(classDashboard.map(row => [row.id, row]));
+  return studentList.map(student => {
+      const hasDashboardRow = dashboardById.has(student.id);
       const dashboardRow = dashboardById.get(student.id) || {};
+      const evidenceReadStatus = dashboardRow.evidenceReadStatus
+        || (hasDashboardRow ? "complete" : "incomplete");
       const normalized = {
         ...student,
         answered: dashboardRow.answered ?? 0,
@@ -110,7 +121,23 @@ export function useTeacherStudentRows({ studentList = [], classDashboard = [] } 
         masteredCount: dashboardRow.masteredCount ?? 0,
         currentSkill: dashboardRow.currentSkill || "Not started",
         soundSeekers: dashboardRow.soundSeekers || null,
-        lastActive: dashboardRow.lastActive || student.lastActive || student.updated_at || student.created_at || null,
+        // Only a real saved learning event may set this field. Roster creation,
+        // name edits and profile changes update student timestamps but do not
+        // mean the student practised or completed a check.
+        lastActive: dashboardRow.lastActive || student.lastActive || null,
+        focusEvidence: dashboardRow.focusEvidence || null,
+        evidenceReadStatus,
+        evidenceMissingSources: dashboardRow.evidenceMissingSources
+          || (hasDashboardRow ? [] : ["dashboard"]),
+        currentAnswered: dashboardRow.currentAnswered ?? dashboardRow.answered ?? 0,
+        currentCorrect: dashboardRow.currentCorrect ?? dashboardRow.correct ?? null,
+        currentAccuracy: dashboardRow.currentAccuracy ?? dashboardRow.accuracy ?? null,
+        currentEvidenceSkills: dashboardRow.currentEvidenceSkills
+          || dashboardRow.evidenceSkills
+          || [],
+        currentLastActive: dashboardRow.currentLastActive
+          || dashboardRow.lastActive
+          || null,
         recentAnswers: dashboardRow.recentAnswers ?? 0,
         previousAnswers: dashboardRow.previousAnswers ?? 0,
         recentMastered: dashboardRow.recentMastered ?? 0,
@@ -120,19 +147,35 @@ export function useTeacherStudentRows({ studentList = [], classDashboard = [] } 
           dashboardRow.accessibilitySettings
         )
       };
-      normalized.learningConclusion = evaluateLearningConclusion({
-        accuracy: normalized.accuracy,
-        attempts: normalized.answered,
-        skillDiversity: Array.isArray(dashboardRow.evidenceSkills)
-          ? dashboardRow.evidenceSkills.length
+      const conclusion = evaluateLearningConclusion({
+        accuracy: normalized.currentAccuracy,
+        attempts: normalized.currentAnswered,
+        skillDiversity: Array.isArray(normalized.currentEvidenceSkills)
+          ? normalized.currentEvidenceSkills.length
           : normalized.currentSkill && normalized.currentSkill !== "Not started"
             ? 1
             : 0,
-        observedAt: normalized.lastActive
+        observedAt: normalized.currentLastActive
       });
+      normalized.learningConclusion = normalized.evidenceReadStatus === "complete"
+        ? conclusion
+        : {
+          ...conclusion,
+          ready: false,
+          status: {
+            id: LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+            label: "Not enough results"
+          },
+          reason: "Some saved results could not be loaded."
+        };
       return normalized;
-    }),
-    [dashboardById, studentList]
+    });
+}
+
+export function useTeacherStudentRows({ studentList = [], classDashboard = [] } = {}) {
+  return useMemo(
+    () => buildTeacherStudentRows({ studentList, classDashboard }),
+    [classDashboard, studentList]
   );
 }
 

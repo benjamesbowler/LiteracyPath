@@ -68,10 +68,44 @@
 .learn-story-quest-copy h1,
 .learn-story-quest-copy h2,
 .learn-story-quest-card h3,
-.story-quest-header h2 {
+.story-quest-header h1 {
   margin: 0;
   color: var(--lp-color-text);
   letter-spacing: 0;
+}
+
+.story-quest-preview-notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid #b7791f;
+  border-radius: 8px;
+  background: #fff7d6;
+  color: #4a3212;
+}
+
+.story-quest-preview-notice strong {
+  font-weight: 900;
+}
+
+.story-quest-preview-notice span {
+  min-width: 0;
+  font-weight: 700;
+}
+
+.story-quest-preview-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 4px 8px;
+  border: 1px solid #b7791f;
+  border-radius: 999px;
+  background: #fff7d6;
+  color: #4a3212;
+  font-size: 0.76rem;
+  font-weight: 850;
 }
 
 .story-quest-primary-action {
@@ -206,13 +240,14 @@
   gap: 8px 14px;
 }
 
-.learn-story-level-header h3,
+.learn-story-level-header h2,
 .learn-story-level-header p {
   margin: 0;
 }
 
-.learn-story-level-header h3 {
+.learn-story-level-header h2 {
   color: var(--lp-color-text);
+  font-size: 1.1rem;
 }
 
 .learn-story-level-header p,
@@ -230,6 +265,7 @@
 }
 
 .learn-story-quest-card {
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 14px;
@@ -238,6 +274,10 @@
   border: 1px solid var(--lp-color-border);
   border-radius: 8px;
   background: var(--lp-color-surface-warm);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 
 .story-quest-player {
@@ -634,7 +674,7 @@
   align-items: center;
 }
 
-.story-quest-reader.fullscreen .story-quest-header h2 {
+.story-quest-reader.fullscreen .story-quest-header h1 {
   font-size: clamp(1.05rem, 2.2vw, 1.45rem);
   line-height: 1.08;
 }
@@ -755,7 +795,7 @@
     align-items: center;
   }
 
-  .story-quest-header h2 {
+  .story-quest-header h1 {
     font-size: 1.22rem;
     line-height: 1.05;
   }
@@ -912,7 +952,7 @@
     gap: 6px;
   }
 
-  .story-quest-header h2 {
+  .story-quest-header h1 {
     font-size: clamp(1.05rem, 5.2vw, 1.3rem);
     line-height: 1.08;
   }
@@ -1359,6 +1399,18 @@
   display: none;
 }
 
+.story-quest-preview-reader.fullscreen .story-quest-header > div:first-child,
+.story-quest-preview-reader:fullscreen .story-quest-header > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+
+.story-quest-preview-reader.fullscreen .story-quest-header,
+.story-quest-preview-reader:fullscreen .story-quest-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
 .story-quest-reader.fullscreen .story-quest-header-actions,
 .story-quest-reader:fullscreen .story-quest-header-actions {
   display: grid;
@@ -1699,6 +1751,44 @@
   overflow: visible;
 }
 
+/* A teacher preview has a sticky protection banner above the child surface.
+ * Let flexbox allocate the remaining height instead of adding a second 100dvh
+ * surface below that banner. This keeps the complete story reader and its exit
+ * controls visible at every banner height, including the stacked phone layout. */
+.app.teacher-child-preview:has(.student-surface-story) {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app.teacher-child-preview:has(.student-surface-story) .teacher-student-preview-banner {
+  flex: 0 0 auto;
+}
+
+.app.teacher-child-preview:has(.student-surface-story) .student-surface-story {
+  flex: 1 1 0;
+  height: auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+.app.teacher-child-preview:has(.student-surface-story) .story-quest-active-page.learn-area-page {
+  height: 100%;
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .story-quest-preview-notice {
+    grid-template-columns: 1fr;
+  }
+
+  .story-quest-preview-reader.fullscreen .story-quest-header,
+  .story-quest-preview-reader:fullscreen .story-quest-header {
+    grid-template-columns: 1fr;
+  }
+}
+
 .story-quest-reader.fullscreen .story-quest-decision,
 .story-quest-reader:fullscreen .story-quest-decision {
   gap: clamp(4px, 0.7dvh, 7px);
@@ -1767,5 +1857,12 @@
   .story-quest-reader:fullscreen .story-quest-text {
     max-height: none;
     overflow: visible;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 680px) {
+  .story-quest-preview-reader.fullscreen .story-quest-header > div:first-child,
+  .story-quest-preview-reader:fullscreen .story-quest-header > div:first-child {
+    display: grid;
   }
 }

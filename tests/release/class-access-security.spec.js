@@ -10,7 +10,7 @@ async function logInTeacher(page) {
   await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
   await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });
@@ -42,27 +42,49 @@ test("A8.3 teacher sees a privacy-minimal access log, alert, and optional expiry
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Settings", exact: true })
     .click();
-  await page.getByRole("button", { name: "Site settings", exact: true }).click();
+  await page.getByRole("button", { name: "Class sign-in", exact: true }).click();
+  await expect(page.getByRole("heading", {
+    name: "Code expiry and leaderboard",
+    exact: true
+  })).toBeVisible();
   const panel = page.locator(".teacher-site-settings");
   await panel.locator("select").first().selectOption({ label: "Audit Class A" });
   await panel.getByRole("button", { name: "See sign-in history", exact: true }).click();
   const history = page.getByRole("region", { name: "Class sign-in history" });
   await expect(history).toBeVisible();
-  await expect(history).toContainText("Abusive burst blocked");
-  await expect(history).toContainText("Learner sign-in rejected");
+  await expect(history).toContainText("Too many sign-in attempts");
+  await expect(history).toContainText("Sign-in details were not accepted");
   await expect(history).toContainText(
-    "No child names, passwords, class codes, device IDs, or network addresses are stored here."
+    "No student names, passwords, class codes, device IDs, or network addresses are stored here."
   );
   const eventCount = await history.getByRole("listitem").count();
   expect(eventCount).toBeGreaterThanOrEqual(3);
   expect(eventCount).toBeLessThanOrEqual(20);
 
-  const expiry = panel.getByLabel("Code expiry");
+  const expiry = panel.getByRole("combobox", { name: "Code expires", exact: true });
+  const saveStatus = page.locator(".teacher-inline-status");
   await expiry.selectOption("7");
-  await expect(page.getByRole("status")).toHaveText("Class-code expiry saved.");
-  await expect(expiry.locator("option:checked")).toHaveText("Expiry is set");
+  await expect(saveStatus).toHaveText("Class-code expiry saved.");
+  await expect(expiry.locator("option:checked")).toHaveText(/^Stops working on /);
   await expiry.selectOption("0");
-  await expect(page.getByRole("status")).toHaveText(
+  await expect(saveStatus).toHaveText(
     "This class code will not expire automatically."
   );
+  await expect(expiry).toHaveValue("0");
+  await expect(expiry.locator("option:checked")).toHaveText("Never");
+  await expect(expiry.locator("option:checked")).not.toContainText("Stops working on");
+
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Settings", exact: true })).toBeVisible({
+    timeout: 20_000
+  });
+  await page.getByRole("button", { name: "Class sign-in", exact: true }).click();
+  const refreshedPanel = page.locator(".teacher-site-settings");
+  await refreshedPanel.locator("select").first().selectOption({ label: "Audit Class A" });
+  const refreshedExpiry = refreshedPanel.getByRole("combobox", {
+    name: "Code expires",
+    exact: true
+  });
+  await expect(refreshedExpiry).toHaveValue("0");
+  await expect(refreshedExpiry.locator("option:checked")).toHaveText("Never");
 });

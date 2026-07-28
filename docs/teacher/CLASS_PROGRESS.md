@@ -37,19 +37,20 @@ same five bases:
 
 | Basis | Displayed meaning |
 |---|---|
-| Attempts | Scored responses for learner/class conclusions; independent attempts for an exact item. |
+| Attempts | Scored responses for learner/class and named-skill conclusions; independent attempts for an exact item. |
 | Diversity | Distinct assessment skills represented in the saved response history. |
 | Recency | Latest saved evidence date in UTC, or an explicit no-time state. |
 | Confidence | `Insufficient evidence` below 8 learner responses; `Limited diversity` when policy-ready evidence covers fewer than 2 skills; `Moderate evidence` at 8+ responses across 2+ skills; `Stronger evidence` at 20+ responses across 3+ skills. |
 | Support use | Supported versus recorded Sound Seekers encounters when the source captures it; otherwise `Not captured in scored checks`, never an invented zero. |
 
-An overall accuracy conclusion requires 8 scored responses. Below that
-threshold, the product retains the raw record but renders `Insufficient
-evidence` instead of a percentage in Progress, roster rows, the learner
-drawer, and the class average. Exact-item accuracy requires 3 independent
-attempts. Suggested groups exclude sparse learner accuracy and require either
-policy-ready shared-focus evidence or policy-ready exact-item re-teaching
-evidence.
+An overall learner/class accuracy conclusion requires 8 scored responses
+across at least 2 distinct skills. A conclusion for one explicitly named skill
+requires 8 scored responses for that skill. Exact-item accuracy requires 3
+independent attempts. Below the relevant threshold, the product retains the
+raw record but renders `Insufficient evidence`; one named skill can never
+silently become a whole-learner band or class average. Suggested groups exclude
+sparse learner accuracy and require either policy-ready shared-focus evidence
+or policy-ready exact-item re-teaching evidence.
 
 ## Longitudinal growth
 

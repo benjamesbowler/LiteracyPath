@@ -65,7 +65,7 @@ for (const levelCase of LEVEL_CASES) {
     const imageCard = reader.locator(".guided-page-image-card");
     const readingCard = reader.locator(".guided-page-reading");
     const viewControls = reader.getByRole("group", { name: "Reader view controls" });
-    const lineFocus = viewControls.getByRole("button", { name: "Line Focus", exact: true });
+    const lineFocus = viewControls.getByRole("button", { name: "Line focus", exact: true });
     const progress = reader.getByRole("status", { name: "Reading progress" });
 
     await expect(layout).toHaveAttribute("data-reading-level", levelCase.level);
@@ -87,7 +87,7 @@ for (const levelCase of LEVEL_CASES) {
       ).toBeLessThanOrEqual(measure.maxRenderedCharactersPerLine);
 
       if (pageIndex < pageCount - 1) {
-        await reader.getByRole("button", { name: "Next Page", exact: true }).click();
+        await reader.getByRole("button", { name: "Next page", exact: true }).click();
       }
     }
 

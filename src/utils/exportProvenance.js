@@ -1,10 +1,10 @@
 export const REPORT_PROVENANCE_SHEET_NAME = "About this report";
 
 export const REPORT_PRIVACY_CLASSIFICATION =
-  "CONFIDENTIAL — child educational record — authorised school staff only";
+  "CONFIDENTIAL — student educational record — authorised school staff only";
 
 export const REPORT_LEARNER_ID_POLICY =
-  "Internal child IDs are not included in teacher or family downloads.";
+  "Internal student IDs are not included in teacher or family downloads.";
 
 const VERSION_KEYS = Object.freeze({
   appVersions: new Set(["appVersion"]),
@@ -171,14 +171,14 @@ export function buildExportProvenanceRows({
   const coveredClasses = uniqueSorted([className, ...(classNames || [])]);
   const learnerLabel = learnerName || (
     Number.isFinite(Number(learnerCount)) && Number(learnerCount) > 0
-      ? `${Number(learnerCount)} children`
+      ? `${Number(learnerCount)} ${Number(learnerCount) === 1 ? "student" : "students"}`
       : "Not specified"
   );
   return [
     { field: "Report", value: reportTitle },
     { field: "School / organisation", value: schoolName || "Not recorded by this deployment" },
     { field: "Class", value: coveredClasses.join(", ") || "Not specified" },
-    { field: "Child", value: learnerLabel },
+    { field: "Student", value: learnerLabel },
     { field: "Generated at", value: generatedDate.toISOString() },
     { field: "Time zone", value: resolveExportTimeZone(timeZone) },
     { field: "Filters", value: filterLabel(filters) },
@@ -191,8 +191,8 @@ export function buildExportProvenanceRows({
       value: versionLabel(derivedVersions.appVersions, "Local build")
     },
     {
-      field: "Check version(s)",
-      value: versionLabel(derivedVersions.assessmentVersions, "No check version details included")
+      field: "Assessment version(s)",
+      value: versionLabel(derivedVersions.assessmentVersions, "No assessment version details included")
     },
     {
       field: "Content version(s)",
@@ -252,28 +252,28 @@ export function exportProvenanceTextBlock(rows = []) {
 
 const REPORT_PROVENANCE_PRESETS = Object.freeze({
   letter: {
-    reportTitle: "Letter name and sound check",
+    reportTitle: "Letter name and sound assessment",
     filters: "All recorded letter-name and letter-sound responses",
     definitions: "Knows Name and Knows Sound are teacher-recorded Y/N observations for each uppercase and lowercase letter."
   },
   pattern: {
-    reportTitle: "Advanced phonics pattern check",
+    reportTitle: "Advanced phonics pattern assessment",
     filters: "All recorded advanced-phonics pattern responses",
     definitions: "Sound Correct and Word Correct are teacher-recorded Y/N observations for each assessed pattern."
   },
   "reading-csv": {
-    reportTitle: "Child reading and check data",
-    filters: "All answer-history rows for the selected child",
+    reportTitle: "Student reading and assessment data",
+    filters: "All answer-history rows for the selected student",
     definitions: "Metric definition rows are included in this CSV file."
   },
   "reading-text": {
     reportTitle: "Reading Mastery Report",
-    filters: "All answer-history and Guided Reading results for the selected child",
+    filters: "All answer-history and Guided Reading results for the selected student",
     definitions: "Metric definitions are included in this text report."
   },
   "guided-reading": {
-    reportTitle: "Child Guided Reading report",
-    filters: "All available Guided Reading records for the selected child",
+    reportTitle: "Student Guided Reading report",
+    filters: "All available Guided Reading records for the selected student",
     definitions: "Marked-word accuracy = words read correctly ÷ marked words; completion and reread totals are derived from saved book progress."
   }
 });

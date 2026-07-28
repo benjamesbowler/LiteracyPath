@@ -21,11 +21,13 @@ export function TeacherDialog({
   open = true,
   label,
   labelledBy,
+  describedBy,
   className = "",
   onClose,
   closeOnEscape = true,
   trapFocus = true,
   modal = true,
+  busy = false,
   children
 }) {
   const dialogRef = useRef(null);
@@ -88,6 +90,8 @@ export function TeacherDialog({
       aria-modal={modal ? "true" : "false"}
       aria-label={label}
       aria-labelledby={labelledBy}
+      aria-describedby={describedBy}
+      aria-busy={busy || undefined}
       tabIndex={-1}
     >
       {children}

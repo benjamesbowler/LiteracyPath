@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";
 import "./App.css";
 import { APP_VIEWS } from "./appState/appViews.js";
+import { readTeacherFunnelParams } from "./appState/appViewHelpers.js";
 import { EL_BENCHMARK_IDS } from "./data/elBenchmarkAssessments.js";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { TeacherStudentsPage } from "./components/TeacherStudentsPage.jsx";
@@ -27,10 +28,9 @@ import { computeHydratedValue } from "./utils/progressMerge.js";
 const params = new URLSearchParams(window.location.search);
 const surface = params.get("surface") || "today";
 const showLearnerDrawer = params.get("learner") === "1";
-const previewClient = {
-  call: async () => ({ data: [], error: null })
-};
 const classId = "00000000-0000-4000-8000-0000000000a1";
+const secondClassId = "00000000-0000-4000-8000-0000000000b2";
+const teacherId = "00000000-0000-4000-8000-0000000000f1";
 const studentId = "student-aarav";
 const classList = [{
   id: classId,
@@ -42,19 +42,25 @@ const students = [
   {
     id: studentId,
     name: "Aarav",
-    symbol_password: "1234",
+    teacher_id: teacherId,
+    class_id: classId,
+    symbol_password: "123",
     lastActive: new Date().toISOString()
   },
   {
     id: "student-aisha",
     name: "Aisha",
-    symbol_password: "2341",
+    teacher_id: teacherId,
+    class_id: classId,
+    symbol_password: "234",
     lastActive: "2026-07-22T09:00:00.000Z"
   },
   {
     id: "student-camila",
     name: "Camila",
-    symbol_password: "3412",
+    teacher_id: teacherId,
+    class_id: classId,
+    symbol_password: "341",
     lastActive: "2026-07-21T09:00:00.000Z"
   }
 ];
@@ -109,6 +115,56 @@ const progressRows = [
     soundSeekers: { heat: [] }
   }
 ];
+const requestedStudentCount = Math.min(
+  120,
+  Math.max(students.length, Number(params.get("students")) || students.length)
+);
+const previewStudents = requestedStudentCount > students.length
+  ? [
+      students[0],
+      ...Array.from({ length: requestedStudentCount - 1 }, (_unused, index) => {
+        const number = index + 2;
+        return {
+          id: `student-scale-${String(number).padStart(3, "0")}`,
+          name: `Learner ${String(number).padStart(3, "0")}`,
+          teacher_id: teacherId,
+          class_id: classId,
+          symbol_password: number % 5 === 0 ? "" : "234",
+          lastActive: `2026-07-${String(1 + (number % 24)).padStart(2, "0")}T09:00:00.000Z`
+        };
+      })
+    ]
+  : students;
+const previewProgressRows = requestedStudentCount > progressRows.length
+  ? previewStudents.map((student, index) => ({
+      ...student,
+      answered: 6 + (index % 18),
+      accuracy: index % 4 === 0 ? 35 : 82,
+      masteredCount: index % 5,
+      currentSkill: index % 2 === 0 ? "Initial Sounds" : "Final Sounds",
+      evidenceReadStatus: "complete",
+      evidenceSkills: ["Initial Sounds"],
+      soundSeekers: { heat: [] }
+    }))
+  : progressRows;
+const requestedArchivedStudentCount = Math.min(
+  120,
+  Math.max(0, Number(params.get("archived")) || 0)
+);
+const previewArchivedStudents = Array.from(
+  { length: requestedArchivedStudentCount },
+  (_unused, index) => {
+    const number = index + 1;
+    return {
+      id: `student-archived-${String(number).padStart(3, "0")}`,
+      name: `Archived learner ${String(number).padStart(3, "0")}`,
+      teacher_id: teacherId,
+      class_id: classId,
+      symbol_password: "234",
+      archived_at: `2026-06-${String(1 + (index % 28)).padStart(2, "0")}T09:00:00.000Z`
+    };
+  }
+);
 const assessmentHistory = [{
   attemptId: "pa-audit-1",
   assessmentType: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
@@ -150,8 +206,14 @@ function viewForSurface(value) {
 
 function Dashboard({ page }) {
   const [selectedClassId, setSelectedClassId] = useState(classId);
+  const [selectedPreviewStudentId, setSelectedPreviewStudentId] = useState(
+    showLearnerDrawer ? studentId : ""
+  );
+  const [archivedPreviewStudents, setArchivedPreviewStudents] = useState(
+    () => previewArchivedStudents
+  );
   const [newClassName, setNewClassName] = useState("");
-  const [dashboardRows, setDashboardRows] = useState(() => progressRows.map(row => ({
+  const [dashboardRows, setDashboardRows] = useState(() => previewProgressRows.map(row => ({
     ...row,
     accessibilitySettings: learnerAccessibilityFromProfile(loadStudentProfile(row.id))
   })));
@@ -202,7 +264,7 @@ function Dashboard({ page }) {
         selectedClassId={selectedClassId}
         setSelectedClassId={setSelectedClassId}
         setStudentList={noop}
-        studentList={students}
+        studentList={previewStudents}
         loadStudents={asyncNoop}
         loadClassDashboard={asyncNoop}
         classDashboard={dashboardRows}
@@ -223,16 +285,17 @@ function Dashboard({ page }) {
       selectedClassId={selectedClassId}
       setSelectedClassId={setSelectedClassId}
       setStudentList={noop}
-      studentList={students}
-      archivedStudentList={[]}
+      setArchivedStudentList={setArchivedPreviewStudents}
+      studentList={previewStudents}
+      archivedStudentList={archivedPreviewStudents}
       loadStudents={asyncNoop}
       assignQuestPractice={asyncNoop}
       clearQuestPractice={asyncNoop}
       setReducedChoiceMode={asyncNoop}
       setAccessibilitySettings={setAccessibilitySettings}
-      onLoadStudent={asyncNoop}
-      selectedStudentId={showLearnerDrawer ? studentId : ""}
-      onClearStudent={noop}
+      onLoadStudent={rowStudentId => setSelectedPreviewStudentId(rowStudentId)}
+      selectedStudentId={selectedPreviewStudentId}
+      onClearStudent={() => setSelectedPreviewStudentId("")}
       selectedGroupId="all"
       onSelectGroup={noop}
       onStartCheck={asyncNoop}
@@ -349,8 +412,8 @@ function Checks() {
       selectedClassId={classId}
       className="Audit Class A"
       onSelectClass={asyncNoop}
-      studentRows={progressRows}
-      studentList={students}
+      studentRows={previewProgressRows}
+      studentList={previewStudents}
       selectedStudentId={studentId}
       selectedStudentName="Aarav"
       onSelectStudent={asyncNoop}
@@ -366,21 +429,28 @@ function Checks() {
 }
 
 function Reports() {
+  const [selectedReportView, setSelectedReportView] = useState(
+    () => readTeacherFunnelParams().get("report") || ""
+  );
   return (
     <TeacherReportsHubPage
       classList={classList}
       selectedClassId={classId}
       className="Audit Class A"
       onSelectClass={asyncNoop}
-      studentRows={progressRows}
-      studentList={students}
+      studentRows={previewProgressRows}
+      studentList={previewStudents}
       selectedStudentId={studentId}
       selectedStudentName="Aarav"
       onSelectStudent={asyncNoop}
       onClearStudent={noop}
-      reportView=""
-      onSelectReportView={noop}
-      renderStudentReport={() => null}
+      reportView={selectedReportView}
+      onSelectReportView={setSelectedReportView}
+      renderStudentReport={view => (
+        <section aria-label="Preview report result">
+          <h3>{view}</h3>
+        </section>
+      )}
       renderClassReport={() => null}
     />
   );
@@ -412,19 +482,241 @@ function Report() {
 
 function Settings() {
   const [selectedClassId, setSelectedClassId] = useState(classId);
+  const initialClassRead = params.get("settingsClassRead") || "complete";
+  const initialStudentRead = params.get("settingsStudentRead") || "complete";
+  const initialSchoolRead = params.get("settingsSchoolRead") || "complete";
+  const [classReadStatus, setClassReadStatus] = useState(initialClassRead);
+  const [studentReadStatus, setStudentReadStatus] = useState(initialStudentRead);
+  const [schoolReadStatus, setSchoolReadStatus] = useState(initialSchoolRead);
+  const [studentReadClassId, setStudentReadClassId] = useState(classId);
+  const [studentReloadCount, setStudentReloadCount] = useState(0);
+  const [settingsClasses, setSettingsClasses] = useState(() => [
+    ...classList,
+    {
+      id: secondClassId,
+      name: "Audit Class B",
+      access_code: "BOOK27",
+      leaderboard_scope: "class"
+    }
+  ]);
+  const [settingsStudents] = useState(() => [
+    ...students,
+    {
+      id: "student-diego",
+      name: "Diego",
+      teacher_id: teacherId,
+      class_id: secondClassId,
+      symbol_password: "456",
+      lastActive: "2026-07-20T09:00:00.000Z"
+    }
+  ]);
+  const heldExpiryResolverRef = useRef(null);
+  const privacySubjectRef = "a".repeat(64);
+  const settingsClient = useMemo(() => ({
+    call: async (operation, payload = {}) => {
+      if (operation === "teacher_class_access_summary") {
+        if (params.get("settingsAccessSummary") === "error") {
+          return {
+            data: null,
+            error: new Error("Preview summary failure")
+          };
+        }
+        return {
+          data: {
+            ok: true,
+            allowed: 0,
+            denied: 0,
+            blocked: 0,
+            anomaly: false
+          },
+          error: null
+        };
+      }
+      if (operation === "teacher_class_access_log") {
+        if (params.get("settingsAccessLog") === "success") {
+          return {
+            data: [{
+              event_type: "login_succeeded",
+              outcome: "allowed",
+              occurred_at: "2026-07-27T12:00:00.000Z",
+              device_label: "Classroom tablet"
+            }],
+            error: null
+          };
+        }
+        return { data: [], error: null };
+      }
+      if (operation === "teacher_set_class_code_expiry") {
+        const response = {
+          data: {
+            ok: true,
+            access_code_expires_at: payload.p_expires_at
+          },
+          error: null
+        };
+        if (params.get("settingsMutation") !== "held") return response;
+        return new Promise(resolve => {
+          heldExpiryResolverRef.current = () => resolve(response);
+        });
+      }
+      if (operation === "teacher_set_class_leaderboard_scope") {
+        return {
+          data: [{ leaderboard_scope: payload.p_scope }],
+          error: null
+        };
+      }
+      if (operation === "teacher_list_learner_data_rights") {
+        return {
+          data: {
+            subjectRef: privacySubjectRef,
+            requests: []
+          },
+          error: null
+        };
+      }
+      if (operation === "teacher_prepare_learner_deletion") {
+        return {
+          data: {
+            requestId: "preview-delete-request",
+            subjectRef: privacySubjectRef,
+            confirmationPhrase: "DELETE LEARNER DATA",
+            status: "in_progress",
+            dueAt: "2026-08-27T00:00:00.000Z"
+          },
+          error: null
+        };
+      }
+      if (operation === "teacher_delete_learner_data_staged") {
+        return {
+          data: {
+            requestId: "preview-delete-request",
+            subjectRef: privacySubjectRef,
+            status: "awaiting_local_cleanup",
+            residualManagedRecords: 0
+          },
+          error: null
+        };
+      }
+      if (operation === "teacher_complete_learner_deletion") {
+        return {
+          data: {
+            requestId: "preview-delete-request",
+            subjectRef: privacySubjectRef,
+            status: "completed",
+            residualManagedRecords: 0,
+            completedAt: "2026-07-27T12:00:00.000Z"
+          },
+          error: null
+        };
+      }
+      return { data: [], error: null };
+    }
+  }), [privacySubjectRef]);
+
+  useEffect(() => {
+    window.__releaseSettingsMutation = () => {
+      heldExpiryResolverRef.current?.();
+      heldExpiryResolverRef.current = null;
+    };
+    return () => {
+      delete window.__releaseSettingsMutation;
+    };
+  }, []);
+
+  async function reloadSettingsClasses() {
+    setClassReadStatus("loading");
+    await Promise.resolve();
+    setClassReadStatus("complete");
+    return settingsClasses;
+  }
+
+  async function reloadSettingsStudents(requestedClassId) {
+    const nextAttempt = studentReloadCount + 1;
+    setStudentReloadCount(nextAttempt);
+    if (
+      params.get("settingsStudentRefresh") === "fail-once"
+      && nextAttempt === 1
+    ) {
+      return null;
+    }
+    setStudentReadClassId(requestedClassId);
+    setStudentReadStatus("complete");
+    return settingsStudents.filter(row => row.class_id === requestedClassId);
+  }
+
+  const classListReadState = {
+    status: classReadStatus,
+    teacherId,
+    lastCompleteTeacherId: classReadStatus === "complete" ? teacherId : "",
+    attempt: 1
+  };
+  const studentListReadState = {
+    status: studentReadStatus,
+    classId: studentReadClassId,
+    lastCompleteClassId: studentReadStatus === "complete" ? studentReadClassId : "",
+    reason: studentReadStatus === "truncated" ? "truncated" : "",
+    attempt: 1
+  };
+
   return (
     <TeacherSettingsPage
-      client={previewClient}
-      classList={classList}
+      client={settingsClient}
+      classList={settingsClasses}
+      classListReadState={classListReadState}
+      loadingClasses={classReadStatus === "loading"}
+      onRetryClasses={reloadSettingsClasses}
+      teacherId={teacherId}
       selectedClassId={selectedClassId}
-      onSelectClass={setSelectedClassId}
-      studentList={students}
+      onSelectClass={nextClassId => {
+        setSelectedClassId(nextClassId);
+        setStudentReadClassId(nextClassId || "");
+        setStudentReadStatus(nextClassId ? "complete" : "idle");
+      }}
+      studentList={settingsStudents}
+      studentListReadState={studentListReadState}
+      loadingStudents={studentReadStatus === "loading"}
       archivedStudentList={[]}
-      schoolName="LiteracyPath Audit School"
+      schoolName={schoolReadStatus === "complete"
+        ? "LiteracyPath Audit School"
+        : ""}
+      schoolNameReadState={{
+        status: schoolReadStatus,
+        teacherId,
+        schoolId: "preview-school",
+        error: schoolReadStatus === "error"
+          ? new Error("Preview school lookup failure")
+          : null
+      }}
       onSaveSchool={async () => true}
-      onRegenerateClassCode={async () => ({ ok: true, accessCode: "READ43" })}
-      onReloadStudents={asyncNoop}
+      onRetrySchoolName={async () => {
+        setSchoolReadStatus("loading");
+        await Promise.resolve();
+        setSchoolReadStatus("complete");
+      }}
+      onRegenerateClassCode={async targetClassId => {
+        const nextCode = targetClassId === classId ? "READ43" : "BOOK28";
+        if (params.get("settingsCodeRefresh") === "fail") {
+          setClassReadStatus("error");
+          return {
+            ok: true,
+            accessCode: nextCode,
+            refreshComplete: false
+          };
+        }
+        setSettingsClasses(previous => previous.map(row => (
+          row.id === targetClassId
+            ? { ...row, access_code: nextCode }
+            : row
+        )));
+        return {
+          ok: true,
+          accessCode: nextCode,
+          refreshComplete: true
+        };
+      }}
+      onReloadStudents={reloadSettingsStudents}
       teacherEmail="audit-teacher-a@literacypath.invalid"
+      profileLoaded={params.get("settingsProfile") !== "loading"}
       onSignOut={noop}
     />
   );

@@ -1657,7 +1657,7 @@ export const storyQuests = [
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p06_grumpy_full"),
         narrationNeedsRebuild: true,
         choicePrompt: "Where can Chompy go?",
-        skillTags: ["chompy", "basket", "grumpy"],
+        skillTags: ["chompy", "basket", "grumpy", "leaves"],
         choices: [
           { label: "Long Meadow", nextPageId: "p05_long_meadow" },
           { label: "Big Flat Rock", nextPageId: "p05_big_flat_rock" },

@@ -81,6 +81,43 @@ test("teacher classes do not mask permission or unrelated database failures", as
   assert.equal(calls.length, 1);
 });
 
+test("teacher class loading reads beyond the server's first 1,000 rows", async () => {
+  const rows = Array.from({ length: 1001 }, (_unused, index) => ({
+    id: `class-${index}`,
+    name: `Class ${String(index).padStart(4, "0")}`
+  }));
+  const client = {
+    table(name) {
+      assert.equal(name, "classes");
+      return {
+        select() {
+          return {
+            eq() {
+              return this;
+            },
+            order() {
+              return this;
+            },
+            async range(from, to) {
+              return { data: rows.slice(from, to + 1), error: null };
+            }
+          };
+        }
+      };
+    }
+  };
+
+  const result = await loadCompatibleTeacherClasses({
+    client,
+    teacherId: "teacher-1"
+  });
+
+  assert.equal(result.error, null);
+  assert.equal(result.truncated, false);
+  assert.equal(result.data.length, 1001);
+  assert.equal(result.data.at(-1).id, "class-1000");
+});
+
 function studentQueryResponse(response, calls, fields) {
   const call = { fields, filters: [] };
   calls.push(call);
@@ -139,9 +176,10 @@ test("teacher roster retries the pre-archive student fields", async () => {
   assert.equal(result.compatibility, "legacy");
   assert.equal(result.data[0].name, "Robin");
   assert.match(calls[0].fields, /updated_at/);
+  assert.match(calls[0].fields, /teacher_id/);
   assert.equal(
     calls[1].fields,
-    "id,name,class_id,created_at,symbol_password"
+    "id,name,teacher_id,class_id,created_at,symbol_password"
   );
   assert.equal(isLegacyStudentSchemaError(missingUpdatedAt), true);
 });
@@ -182,23 +220,56 @@ test("dashboard roster removes only the unavailable archive filter", async () =>
   );
 });
 
-test("student roster lookup retries the previous signature only when absent", async () => {
+test("teacher roster loading reads beyond the server's first 1,000 rows", async () => {
+  const rows = Array.from({ length: 1001 }, (_unused, index) => ({
+    id: `student-${index}`,
+    name: `Student ${String(index).padStart(4, "0")}`,
+    class_id: "class-1"
+  }));
+  const client = {
+    table(name) {
+      assert.equal(name, "students");
+      return {
+        select() {
+          return {
+            eq() {
+              return this;
+            },
+            order() {
+              return this;
+            },
+            async range(from, to) {
+              return { data: rows.slice(from, to + 1), error: null };
+            }
+          };
+        }
+      };
+    }
+  };
+
+  const result = await loadCompatibleTeacherStudents({
+    client,
+    teacherId: "teacher-1",
+    classId: "class-1"
+  });
+
+  assert.equal(result.error, null);
+  assert.equal(result.truncated, false);
+  assert.equal(result.data.length, 1001);
+  assert.equal(result.data.at(-1).id, "student-1000");
+});
+
+test("student roster lookup fails closed when the secure signature is absent", async () => {
   const calls = [];
   const client = {
     async call(name, payload) {
       calls.push([name, payload]);
-      if (calls.length === 1) {
-        return {
-          data: null,
-          error: {
-            code: "PGRST202",
-            message: "Could not find the function public.student_class_by_code(p_code, p_device_id)"
-          }
-        };
-      }
       return {
-        data: { ok: true, class: { id: "class-1", name: "Owls" }, students: [] },
-        error: null
+        data: null,
+        error: {
+          code: "PGRST202",
+          message: "Could not find the function public.student_class_by_code(p_code, p_device_id)"
+        }
       };
     }
   };
@@ -209,29 +280,26 @@ test("student roster lookup retries the previous signature only when absent", as
     deviceId: "device-1"
   });
 
-  assert.equal(result.data.ok, true);
-  assert.equal(result.compatibility, "legacy");
+  assert.equal(result.data, null);
+  assert.equal(result.error.code, "PGRST202");
+  assert.equal(result.compatibility, "migration-required");
   assert.deepEqual(calls.map(([, payload]) => payload), [
-    { p_code: "READ42", p_device_id: "device-1" },
-    { p_code: "READ42" }
+    { p_code: "READ42", p_device_id: "device-1" }
   ]);
 });
 
-test("student login retries the matching previous signature but preserves real errors", async () => {
+test("student login never retries the retired insecure signature", async () => {
   const calls = [];
   const client = {
     async call(name, payload) {
       calls.push([name, payload]);
-      if (calls.length === 1) {
-        return {
-          data: null,
-          error: {
-            code: "PGRST202",
-            message: "Could not find the function public.student_login(p_code, p_device_id, p_sequence, p_student_id)"
-          }
-        };
-      }
-      return { data: { ok: true, token: "token-1" }, error: null };
+      return {
+        data: null,
+        error: {
+          code: "PGRST202",
+          message: "Could not find the function public.student_login(p_code, p_device_id, p_sequence, p_student_id)"
+        }
+      };
     }
   };
 
@@ -243,12 +311,15 @@ test("student login retries the matching previous signature but preserves real e
     code: "READ42"
   });
 
-  assert.equal(result.data.ok, true);
-  assert.equal(result.compatibility, "legacy");
-  assert.deepEqual(calls[1][1], {
+  assert.equal(result.data, null);
+  assert.equal(result.error.code, "PGRST202");
+  assert.equal(result.compatibility, "migration-required");
+  assert.deepEqual(calls.map(([, payload]) => payload), [{
     p_student_id: "student-1",
-    p_sequence: "123"
-  });
+    p_sequence: "123",
+    p_device_id: "device-1",
+    p_code: "READ42"
+  }]);
   assert.equal(isMissingRpcOverload(
     { code: "42501", message: "permission denied for public.student_login" },
     "student_login"

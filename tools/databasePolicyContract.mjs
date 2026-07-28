@@ -4,11 +4,14 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260727091000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260728125000_security_definer_boundary.sql";
+export const TEACHER_ACCOUNT_STATUS_MIGRATION = "20260728100000_teacher_account_status_rls.sql";
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "get_game_leaderboard(text, integer)",
+  "list_school_names()",
   "report_app_error(uuid, text, text, text, text, text, text, text[], numeric)",
+  "report_assessment_question(text, uuid, text, uuid, jsonb)",
   "student_class_by_code(text, text)",
   "student_get_progress(text)",
   "student_log_activity_v2(text, text, text, text, text, jsonb, timestamp with time zone, integer)",
@@ -24,28 +27,36 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "admin_preview_school_retention(uuid)",
   "admin_purge_expired_error_events()",
   "admin_recent_error_events(integer)",
+  "admin_review_assessment_question_report(uuid, text, text)",
   "admin_run_school_retention(uuid, text)",
   "admin_save_school_retention_policy(uuid, integer, integer, text, integer, integer, integer)",
+  "admin_set_teacher_account_status(uuid, text, text)",
   "admin_verify_deletion_propagation(uuid, text, text)",
   "find_or_create_school(text)",
   "is_app_admin(uuid)",
-  "list_school_names()",
   "set_app_config(text, jsonb)",
   "teacher_assign_instructional_group_follow_up(uuid, text, text, date)",
   "teacher_class_access_log(uuid, integer)",
   "teacher_class_access_summary(uuid)",
+  "teacher_complete_learner_deletion(uuid, text, jsonb)",
   "teacher_create_insight_intervention(text, uuid, jsonb, uuid[], text[], text, text, date)",
-  "teacher_delete_learner_data(uuid, uuid, text, text)",
+  "teacher_delete_empty_class(uuid)",
+  "teacher_delete_learner_data_staged(uuid, uuid, text, text)",
+  "teacher_delete_saved_assessment_report(text)",
   "teacher_export_learner_data(uuid, text, text)",
+  "teacher_get_learner_deletion_status(uuid, text)",
   "teacher_list_learner_data_rights(uuid)",
   "teacher_prepare_learner_deletion(uuid, text, text)",
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)",
   "teacher_regenerate_class_code(uuid)",
+  "teacher_reset_student_progress(uuid, timestamp with time zone)",
   "teacher_review_instructional_group(uuid, uuid[], jsonb)",
   "teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)",
   "teacher_set_class_code_expiry(uuid, timestamp with time zone)",
   "teacher_set_class_leaderboard_scope(uuid, text)",
   "teacher_set_student_archived(uuid, uuid, boolean)",
+  "teacher_set_student_symbol_password(uuid, text, timestamp with time zone)",
+  "teacher_transfer_student(uuid, uuid, uuid)",
   "teacher_set_school(text)"
 ]);
 
@@ -53,6 +64,12 @@ export const AUTHENTICATED_SECURITY_DEFINER_RPCS = Object.freeze([
   ...ANON_SECURITY_DEFINER_RPCS,
   ...AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS
 ].sort());
+
+export const TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS = Object.freeze(
+  AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS
+    .filter(signature => signature.startsWith("teacher_"))
+    .sort()
+);
 
 const LEGACY_RPC_SIGNATURES = Object.freeze([
   "student_list_schools()",
@@ -87,11 +104,18 @@ function sameValues(actual, expected) {
 
 export function auditSecurityBoundarySource({
   files = fs.readdirSync(migrationDir).filter(file => file.endsWith(".sql")).sort(),
-  source = fs.readFileSync(path.join(migrationDir, SECURITY_BOUNDARY_MIGRATION), "utf8")
+  source = fs.readFileSync(path.join(migrationDir, SECURITY_BOUNDARY_MIGRATION), "utf8"),
+  teacherAccountSource = fs.readFileSync(
+    path.join(migrationDir, TEACHER_ACCOUNT_STATUS_MIGRATION),
+    "utf8"
+  )
 } = {}) {
   const failures = [];
   if (!files.includes(SECURITY_BOUNDARY_MIGRATION)) {
     failures.push(`missing ${SECURITY_BOUNDARY_MIGRATION}`);
+  }
+  if (!files.includes(TEACHER_ACCOUNT_STATUS_MIGRATION)) {
+    failures.push(`missing ${TEACHER_ACCOUNT_STATUS_MIGRATION}`);
   }
   const laterSecurityDefiners = files
     .filter(file => file > SECURITY_BOUNDARY_MIGRATION)
@@ -117,6 +141,24 @@ export function auditSecurityBoundarySource({
       .replaceAll(",\\ ", ",\\s*");
     if (!new RegExp(`drop function if exists public\\.${escaped}`, "i").test(source)) {
       failures.push(`legacy RPC is not dropped: ${signature}`);
+    }
+  }
+  for (const required of [
+    "create or replace function public.assert_current_actor_teacher_access()",
+    "procedure.prosecdef",
+    "has_function_privilege('authenticated', procedure.oid, 'EXECUTE')",
+    "Authenticated teacher RPC inventory drift",
+    "perform public.assert_current_actor_teacher_access();",
+    "public.perform_verified_learner_deletion(uuid,uuid,text,text,boolean)"
+  ]) {
+    if (!teacherAccountSource.includes(required)) {
+      failures.push(`missing teacher-account RPC boundary contract: ${required}`);
+    }
+  }
+  for (const signature of TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS) {
+    const inventorySignature = signature.replaceAll(", ", ",");
+    if (!teacherAccountSource.includes(`'${inventorySignature}'`)) {
+      failures.push(`teacher RPC is absent from the account-status guard: ${signature}`);
     }
   }
   const grantMatches = [...source.matchAll(

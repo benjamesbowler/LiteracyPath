@@ -14,8 +14,10 @@ export function TeacherActivitySyncHealth({
   seedRows = null,
   now
 }) {
+  const [reload, setReload] = useState(0);
   const [loadResult, setLoadResult] = useState({
     classId: "",
+    revision: -1,
     state: "idle",
     rows: []
   });
@@ -29,20 +31,20 @@ export function TeacherActivitySyncHealth({
     }
     void loadClassActivitySyncHealth(supabase, classId).then(rows => {
       if (!active) return;
-      setLoadResult({ classId, state: "ready", rows });
+      setLoadResult({ classId, revision: reload, state: "ready", rows });
     }).catch(error => {
       if (!active) return;
       console.error("Load activity sync health error:", error);
-      setLoadResult({ classId, state: "error", rows: [] });
+      setLoadResult({ classId, revision: reload, state: "error", rows: [] });
     });
     return () => {
       active = false;
     };
-  }, [classId, seedRows, supabase]);
+  }, [classId, reload, seedRows, supabase]);
 
   const rows = seedRows !== null
     ? seedRows
-    : loadResult.classId === classId
+    : loadResult.classId === classId && loadResult.revision === reload
       ? loadResult.rows
       : [];
   const health = buildClassActivitySyncHealth(rows, { now: now || new Date() });
@@ -50,7 +52,7 @@ export function TeacherActivitySyncHealth({
     ? "ready"
     : !supabase
       ? "error"
-      : loadResult.classId === classId
+      : loadResult.classId === classId && loadResult.revision === reload
         ? loadResult.state
         : "loading";
 
@@ -67,7 +69,7 @@ export function TeacherActivitySyncHealth({
           <p className="panel-label">{TEACHER_COPY.sync.label}</p>
           <h3>{TEACHER_COPY.sync.title}</h3>
           <p>
-            {className || "Selected class"} · {TEACHER_COPY.sync.range(ACTIVITY_SYNC_HEALTH_POLICY.activeSnapshotDays)}
+            {className || "No class selected"} · {TEACHER_COPY.sync.range(ACTIVITY_SYNC_HEALTH_POLICY.activeSnapshotDays)}
           </p>
         </div>
         <strong role={health.status === "alert" ? "alert" : "status"}>
@@ -86,7 +88,18 @@ export function TeacherActivitySyncHealth({
       {state === "loading" ? (
         <p>Checking whether results are reaching your dashboard.</p>
       ) : state === "error" ? (
-        <p>{TEACHER_COPY.sync.error}</p>
+        <div className="page-stack">
+          <p>{TEACHER_COPY.sync.error}</p>
+          {supabase && classId && (
+            <button
+              className="lp-button lp-button-secondary"
+              type="button"
+              onClick={() => setReload(value => value + 1)}
+            >
+              Try again
+            </button>
+          )}
+        </div>
       ) : (
         <>
           <dl>
@@ -119,7 +132,7 @@ export function TeacherActivitySyncHealth({
           {health.storageFailures > 0 && (
             <p className="teacher-sync-health-storage" role="alert">
               {countPhrase(health.storageFailures, "result may", "results may")} not be saved yet.
-              Check the shared device and its internet connection.
+              Make sure the shared device is online.
             </p>
           )}
         </>

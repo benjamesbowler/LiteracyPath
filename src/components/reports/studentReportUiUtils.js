@@ -1,9 +1,9 @@
 export const STUDENT_REPORT_VIEWS = [
   {
     id: "whole-child",
-    label: "Overview",
-    shortLabel: "Overview",
-    description: "Mastered, developing, and yet to learn."
+    label: "Summary",
+    shortLabel: "Summary",
+    description: "The main results and the next teaching priority."
   },
   {
     id: "skills-check",
@@ -20,8 +20,8 @@ export const STUDENT_REPORT_VIEWS = [
   {
     id: "hfw",
     label: "High-frequency words",
-    shortLabel: "HFW / sight words",
-    description: "All 100 words, including those not seen yet."
+    shortLabel: "High-frequency words",
+    description: "Common words assessed so far, with unseen words kept separate."
   },
   {
     id: "other-learning",
@@ -31,9 +31,9 @@ export const STUDENT_REPORT_VIEWS = [
   },
   {
     id: "el-assessments",
-    label: "EL formal report",
-    shortLabel: "EL formal report",
-    description: "The standalone formal check record for school files."
+    label: "EL assessments",
+    shortLabel: "EL assessments",
+    description: "A standalone assessment record for school files."
   }
 ];
 
@@ -74,7 +74,7 @@ export function reportStatusLabel(value = "") {
   const status = cleanStatus(value?.id || value?.label || value);
   if (["secure", "mastered", "passed", "got it", "on track"].includes(status)) return "Secure";
   if (["developing", "building", "almost", "almost there", "current", "attempted"].includes(status)) return "Developing";
-  if (["needs support", "needs teaching", "needs reteaching", "needs re teaching", "support"].includes(status)) return "Needs teaching";
+  if (["needs support", "needs teaching", "needs reteaching", "needs re teaching", "support"].includes(status)) return "Needs support";
   if (status === "mixed" || status === "mixed evidence") return "Mixed results";
   return "Not checked";
 }

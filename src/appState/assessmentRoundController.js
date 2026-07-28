@@ -8,7 +8,7 @@ import { normalize, shuffleArray } from "../utils/assessmentRoundBuilder";
 import { getQuestionRoutingFormat } from "../data/skillTemplateRouting";
 import { createAssessmentRoundDuplicateProfile, getAssessmentRoundDuplicateFlags, selectAssessmentRoundCandidate } from "../data/assessmentRoundSelector.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation";
-import { buildFinalSoundAvailableWordMap, evaluateFinalSoundLevelOneMasteryDepth, finalSoundLevelOneTargets, getFinalSoundTargetFromEvidence, FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT, FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS, FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS } from "../data/finalSoundMasteryDepth";
+import { buildFinalSoundAvailableWordMap, evaluateFinalSoundLevelOneMasteryDepth, finalSoundLevelOneTargets, getFinalSoundTargetFromEvidence } from "../data/finalSoundMasteryDepth";
 import { getQuestionFormatMetadata, isMasteryEligible } from "../questionFormatFramework";
 import { buildInitialSoundsProgressFromAnswerHistory, getInitialSoundRoundPlan } from "../content/initialSounds/initialSoundSelector";
 import { INITIAL_SOUND_LETTERS } from "../content/initialSounds/initialSoundWordBank";
@@ -39,6 +39,11 @@ export function createAssessmentRoundController(context) {
     setShowConfetti, setTotalAnswered, setUsedByStage, studentId,
     studentName, teacherId, usedByStage, weaknessSnapshot,
   } = context;
+
+  function makeEvidenceEventId(prefix = "evidence") {
+    if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
+    return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  }
 
   function getStageAssessmentRecords(stage) {
     if (!stage) return [];
@@ -629,24 +634,15 @@ export function createAssessmentRoundController(context) {
     });
     const covered = new Set();
 
-    if (!options.level && !options.phase) {
-      Object.values(itemMastery || {})
-        .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
-        .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
-        .filter(key => expectedKeys.has(key))
-        .forEach(key => covered.add(key));
-    }
-
-    answerHistoryRef.current
-      .filter(record =>
-        record.isCorrect &&
-        (record.stage === stage?.label || record.skillId === stage?.id) &&
-        (!options.level || Number(record.itemLevel || 1) === Number(options.level)) &&
-        (!options.phase || Number(record.itemPhase || 1) === Number(options.phase))
-      )
-      .map(inferAnswerRecordMetadata)
-      .filter(metadata => metadata?.itemKey && metadata?.itemType)
-      .map(metadata => getItemMasteryStateKey(metadata.itemKey, metadata.itemType))
+    const rows = {
+      ...(itemMastery || {}),
+      ...(options.itemMasteryOverrides || {})
+    };
+    Object.values(rows)
+      // Coverage is a mastery claim, not an exposure count. One correct answer
+      // remains useful evidence but cannot advance a formal skill path.
+      .filter(row => row?.itemKey && row?.itemType && row.mastered)
+      .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
       .filter(key => expectedKeys.has(key))
       .forEach(key => covered.add(key));
 
@@ -1139,7 +1135,7 @@ export function createAssessmentRoundController(context) {
     return { error, row };
   }
 
-  function updateItemMastery(source, isCorrect) {
+  async function updateItemMastery(source, isCorrect) {
     const metadata = inferItemMetadata(source);
     if (!metadata?.itemKey || !metadata?.itemType) {
       debugAssessmentCoverage("item_mastery skipped", {
@@ -1147,7 +1143,11 @@ export function createAssessmentRoundController(context) {
         skill: source?.skill,
         reason: "No inferable itemType/itemKey"
       });
-      return;
+      return { row: null, durable: true, skipped: true };
+    }
+
+    if (source?.source && source.source !== "assessment") {
+      return { row: null, durable: true, skipped: true };
     }
 
     const formatMetadata = getQuestionFormatMetadata(source);
@@ -1164,11 +1164,17 @@ export function createAssessmentRoundController(context) {
     // invocation. Same-event calls always target distinct keys, so reading the
     // render-scope snapshot here is safe.
     const nextRow = nextItemMasteryRow(itemMastery[key], metadata, isCorrect, isNewSessionSeen, formatMetadata, source);
-    saveItemMasteryToSupabase(nextRow);
     setItemMastery(prev => ({
       ...prev,
       [key]: nextRow
     }));
+    const persistence = await saveItemMasteryToSupabase(nextRow);
+    return {
+      row: nextRow,
+      durable: !persistence?.error || isMissingItemMasteryTableError(persistence.error),
+      skipped: false,
+      error: persistence?.error || null
+    };
   }
 
   async function persistCompletedAssessmentAttempt(
@@ -1189,7 +1195,9 @@ export function createAssessmentRoundController(context) {
           ...attemptRecord,
           masteredItems: attemptRecord.masteredItems?.length
             ? attemptRecord.masteredItems
-            : masterySnapshot.masteredItems.map(row => row.itemKey),
+            : attemptRecord.passed
+              ? masterySnapshot.masteredItems.map(row => row.itemKey)
+              : [],
           developingItems: masterySnapshot.developingItems.map(row => row.itemKey),
           needsSupportItems: masterySnapshot.needsSupportItems.map(row => row.itemKey)
         }
@@ -1199,10 +1207,6 @@ export function createAssessmentRoundController(context) {
           developingItems: attemptRecord.developingItems || [],
           needsSupportItems: attemptRecord.needsSupportItems || []
         };
-
-    if (mergeIntoMastery) {
-      setItemMastery(prev => mergeAssessmentAttemptIntoItemMastery(prev, enrichedAttempt));
-    }
 
     try {
       const savePromise = saveAssessmentAttempt(enrichedAttempt, { teacherId, supabase });
@@ -1214,6 +1218,13 @@ export function createAssessmentRoundController(context) {
       if (!saveResult.durable) {
         console.warn("Assessment attempt was not durably saved to either local or cloud storage.", saveResult);
         return null;
+      }
+      // A rebuildable mastery summary must never get ahead of the immutable
+      // assessment evidence. Merge only after at least one durable copy of the
+      // attempt exists; otherwise a refused save would still change the
+      // teacher's progress view.
+      if (mergeIntoMastery) {
+        setItemMastery(prev => mergeAssessmentAttemptIntoItemMastery(prev, enrichedAttempt));
       }
       setAssessmentHistory(previous => mergeAssessmentAttemptRecords(previous, saveResult.records));
       return { attempt: enrichedAttempt, saveResult };
@@ -1286,14 +1297,17 @@ export function createAssessmentRoundController(context) {
   }
 
   async function saveAnswerToSupabase(record) {
-    if (!studentId || !teacherId) return;
+    if (!studentId || !teacherId) {
+      return { durable: false, error: new Error("A teacher and student are required before an answer can be saved.") };
+    }
     const normalizedRecord = normalizeAnswerRecordShape(record);
 
     // insertWithRetry queues the row on failure and retries on reconnect, so a
     // flaky network no longer silently drops a teacher's assessment record.
-    await insertWithRetry("answers", {
+    return insertWithRetry("answers", {
       student_id: studentId,
       teacher_id: teacherId,
+      client_event_id: record.answerEventId,
       skill: normalizedRecord.skill,
       stage: normalizedRecord.stage,
       diagnostic_target: normalizedRecord.diagnosticTarget,
@@ -1302,21 +1316,30 @@ export function createAssessmentRoundController(context) {
       chosen_answer: normalizedRecord.chosen,
       correct_answer: normalizedRecord.correct,
       is_correct: normalizedRecord.isCorrect
+    }, {
+      accountId: teacherId,
+      onConflict: "teacher_id,client_event_id"
     });
   }
 
-  async function saveMasteryToSupabase(stage, score, total, mastered) {
-    if (!studentId || !teacherId) return;
+  async function saveMasteryToSupabase(stage, score, total, mastered, checkpointId) {
+    if (!studentId || !teacherId) {
+      return { durable: false, error: new Error("A teacher and student are required before mastery can be saved.") };
+    }
 
-    await insertWithRetry("mastery", {
+    return insertWithRetry("mastery", {
       student_id: studentId,
       teacher_id: teacherId,
+      checkpoint_id: checkpointId,
       skill_id: stage.id,
       skill_label: stage.label,
       mastered,
       attempts: (mastery?.[stage.id]?.attempts || 0) + 1,
       last_score: score,
       last_total: total
+    }, {
+      accountId: teacherId,
+      onConflict: "teacher_id,checkpoint_id"
     });
   }
 
@@ -1421,13 +1444,10 @@ export function createAssessmentRoundController(context) {
         const effectivePassed = passed;
         const missingCoverage = finalSoundLevelOneTargets.filter(target => !depth.coveredTargets.includes(target));
         const stillNeedsPractice = depth.stillNeedsPractice;
-        const contentGapText = depth.contentGaps.length
-          ? ` Content gap: ${depth.contentGaps.map(gap => `${gap.target} has ${gap.availableWordCount}/${gap.requiredWordCount} distinct usable words`).join("; ")}.`
-          : "";
         const blockedPassReason = !coverageComplete
           ? ""
           : !depthComplete
-            ? `Level 2 opens after each Level 1 sound has ${FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT} correct answers across ${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} different words and at least ${FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS} successful rounds.${contentGapText}`
+            ? "Level 2 opens after every Level 1 sound is answered correctly with different words across more than one successful assessment."
             : "";
         const learnedCorrectly = getRoundItemLabels(currentRoundRecords, { correctOnly: true });
         const missedThisRound = getRoundItemLabels(currentRoundRecords, { correctOnly: false });
@@ -1545,8 +1565,24 @@ export function createAssessmentRoundController(context) {
     };
   }
 
+  function isFormalStageMasteryComplete(stage, currentItemMasteryRow = null) {
+    const expectedKeys = getCoverageItemKeysForStage(stage, {});
+    if (!expectedKeys?.size) return false;
+    const overrides = {};
+    if (currentItemMasteryRow?.itemKey && currentItemMasteryRow?.itemType) {
+      overrides[getItemMasteryStateKey(
+        currentItemMasteryRow.itemKey,
+        currentItemMasteryRow.itemType
+      )] = currentItemMasteryRow;
+    }
+    const masteredKeys = getCoveredStageItemKeys(stage, {
+      itemMasteryOverrides: overrides
+    });
+    return Array.from(expectedKeys).every(key => masteredKeys.has(key));
+  }
 
-  function answerQuestion(choice) {
+
+  async function answerQuestion(choice) {
     if (!currentQuestion || answerInFlightRef.current) return;
     answerInFlightRef.current = true;
     setAssessmentTransitioning(true);
@@ -1583,6 +1619,7 @@ export function createAssessmentRoundController(context) {
           : submittedAnswer === correctAnswer;
     const questionStage =
       skillTree[getStageIndex(answeredQuestion)] || initialQuestionStage || currentStage;
+    const isTargetedReview = assessmentMode === "targetedReview";
     const stage = questionStage;
     const stageIndex = getStageIndex(answeredQuestion);
     const nextRound = [...roundAnswers, isCorrect];
@@ -1599,20 +1636,8 @@ export function createAssessmentRoundController(context) {
       : [...roundQuestionIdsRef.current];
     const questionPathStep = getQuestionPathStep(questionStage, answeredQuestion);
 
-    setUsedByStage(prev => ({
-      ...prev,
-      [questionStage.id]: [...(prev[questionStage.id] || []), answeredQuestion.id]
-    }));
-
-    roundQuestionIdsRef.current = nextRoundQuestionIds.filter(Boolean);
-    setRoundQuestionIds(roundQuestionIdsRef.current);
-
-    roundItemKeysRef.current = nextRoundItemKeys;
-    setRoundItemKeys(nextRoundItemKeys);
-
-    setTotalAnswered(n => n + 1);
-
-    const answerRecord = normalizeAnswerRecordShape({
+    const answerRecord = {
+      ...normalizeAnswerRecordShape({
       questionId: answeredQuestion.id,
       questionSignature: getRuntimeQuestionSignature(answeredQuestion),
       promptAnswerSignature: getRuntimeQuestionPromptAnswerSignature(answeredQuestion),
@@ -1643,7 +1668,10 @@ export function createAssessmentRoundController(context) {
         : questionPathStep.level || answeredQuestion.level || "",
       itemPhase: questionPathStep.phase || "",
       selectionReason: answeredQuestion.selectionReason || ""
-    });
+      }),
+      answerEventId: makeEvidenceEventId("answer"),
+      evidenceSource: isTargetedReview ? "targeted_review" : "formal_assessment"
+    };
 
     debugAssessmentCoverage("assessment answer", {
       questionId: answeredQuestion.id,
@@ -1655,18 +1683,54 @@ export function createAssessmentRoundController(context) {
       isCorrect
     });
 
-    answerHistoryRef.current = [...answerHistoryRef.current, answerRecord];
-    setAnswerHistory(answerHistoryRef.current);
+    let answerPersistence = { durable: true };
+    let itemPersistence = { row: null, durable: true, skipped: true };
+    if (!isTargetedReview) {
+      answerHistoryRef.current = [...answerHistoryRef.current, answerRecord];
+      setAnswerHistory(answerHistoryRef.current);
+      setTotalAnswered(n => n + 1);
+      answerPersistence = await saveAnswerToSupabase(answerRecord);
+      if (answerPersistence?.durable) {
+        itemPersistence = await updateItemMastery(
+          { ...answeredQuestion, source: "assessment" },
+          isCorrect
+        );
+      }
+    }
 
-    saveAnswerToSupabase(answerRecord);
-    updateItemMastery(answeredQuestion, isCorrect);
+    if (!answerPersistence?.durable) {
+      // Do not advance an assessment after an answer that exists only in
+      // memory. Keeping the question visible lets the teacher retry without a
+      // false "saved" or "complete" state.
+      answerHistoryRef.current = answerHistoryRef.current.filter(record => (
+        record.answerEventId !== answerRecord.answerEventId
+      ));
+      setAnswerHistory(answerHistoryRef.current);
+      setTotalAnswered(value => Math.max(0, value - 1));
+      setMessage("That answer could not be saved on this device or to the cloud. Nothing has been marked complete. Check the connection and try again.");
+      setAssessmentTransitioning(false);
+      answerInFlightRef.current = false;
+      return;
+    }
 
-    if (isCorrect) {
+    // Only consume the question and advance round coverage after the answer is
+    // durable. A failed write keeps the exact question retryable and cannot
+    // leave duplicate item/question keys in the eventual completed attempt.
+    setUsedByStage(prev => ({
+      ...prev,
+      [questionStage.id]: [...(prev[questionStage.id] || []), answeredQuestion.id]
+    }));
+    roundQuestionIdsRef.current = nextRoundQuestionIds.filter(Boolean);
+    setRoundQuestionIds(roundQuestionIdsRef.current);
+    roundItemKeysRef.current = nextRoundItemKeys;
+    setRoundItemKeys(nextRoundItemKeys);
+
+    if (isCorrect && !isTargetedReview) {
       setCorrectAnswered(n => n + 1);
       setShowConfetti(true);
     }
 
-    if (assessmentMode === "targetedReview") {
+    if (isTargetedReview) {
       if (nextRound.length >= ROUND_LENGTH) {
         setCurrentQuestion(null);
         setFeedback(null);
@@ -1716,7 +1780,7 @@ export function createAssessmentRoundController(context) {
       const score = nextRound.filter(Boolean).length;
       const accuracyPassed = score >= PASS_SCORE;
       const nextRoundCorrectItemKeys = nextRoundItemKeys.filter((key, index) => nextRound[index] && key);
-      const checkpoint = buildCheckpointDecision(
+      const roundCheckpoint = buildCheckpointDecision(
         stage,
         stageIndex,
         nextRound,
@@ -1724,7 +1788,21 @@ export function createAssessmentRoundController(context) {
         accuracyPassed,
         nextRoundCorrectItemKeys
       );
-      const mastered = Boolean(checkpoint.passed);
+      const masteryEstablished = Boolean(
+        accuracyPassed
+        && roundCheckpoint.pathStatus?.finalStepComplete
+        && isFormalStageMasteryComplete(stage, itemPersistence?.row)
+      );
+      const checkpoint = {
+        ...roundCheckpoint,
+        passed: masteryEstablished,
+        masteryEstablished,
+        blockedPassReason: masteryEstablished || !accuracyPassed
+          ? roundCheckpoint.blockedPassReason
+          : roundCheckpoint.blockedPassReason
+            || "This round was accurate, but the skill still needs enough correct results across separate assessments before it can be marked Secure."
+      };
+      const mastered = masteryEstablished;
       const roundRecords = answerHistoryRef.current.slice(-nextRound.length);
       const attemptRecord = buildAssessmentAttemptRecord({
         studentId,
@@ -1745,11 +1823,28 @@ export function createAssessmentRoundController(context) {
         }
       });
 
+      const attemptPersistence = await persistCompletedAssessmentAttempt(attemptRecord);
+      if (!attemptPersistence) {
+        setMessage("This assessment could not be saved on this device or to the cloud, so it was not marked complete. Return to the assessment list and run it again when storage is available.");
+        setRoundAnswers([]);
+        setRoundItemKeys([]);
+        setRoundQuestionIds([]);
+        roundItemKeysRef.current = [];
+        roundQuestionIdsRef.current = [];
+        setCurrentQuestion(null);
+        setFeedback(null);
+        setAssessmentTransitioning(false);
+        setAppView(APP_VIEWS.ASSESSMENTS);
+        answerInFlightRef.current = false;
+        return;
+      }
+
+      const retainedMastery = Boolean(mastery?.[stage.id]?.mastered || mastered);
       setMastery(prev => ({
         ...prev,
         [stage.id]: {
           attempts: (prev[stage.id]?.attempts || 0) + 1,
-          mastered: mastered || prev[stage.id]?.mastered || false,
+          mastered: retainedMastery,
           // A failed retake never silently disappears: keep the ratchet for
           // the child, but stamp it so the teacher dashboard can surface it.
           lastRetakeFailedAt: !mastered && prev[stage.id]?.mastered
@@ -1760,8 +1855,16 @@ export function createAssessmentRoundController(context) {
         }
       }));
 
-      saveMasteryToSupabase(stage, score, ROUND_LENGTH, mastered);
-      persistCompletedAssessmentAttempt(attemptRecord);
+      const masteryPersistence = await saveMasteryToSupabase(
+        stage,
+        score,
+        ROUND_LENGTH,
+        retainedMastery,
+        attemptRecord.attemptId
+      );
+      if (!masteryPersistence?.durable) {
+        setMessage("The completed assessment is safely archived, but its dashboard summary could not be queued. The saved results will remain available for recovery.");
+      }
 
       setCheckpointDecision(checkpoint);
       setRoundAnswers([]);

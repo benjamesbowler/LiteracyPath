@@ -8,6 +8,7 @@ export function ConfirmActionDialog({
   body,
   confirmLabel = "Delete",
   busy = false,
+  error = "",
   onConfirm,
   onCancel
 }) {
@@ -15,12 +16,13 @@ export function ConfirmActionDialog({
     <TeacherDialog
       className="modal-backdrop"
       labelledBy="confirm-action-title"
-      onClose={onCancel}
+      onClose={busy ? undefined : onCancel}
       open={open}
     >
       <section className="modal-card reset-progress-dialog">
         <h2 id="confirm-action-title">{title}</h2>
         <p>{body}</p>
+        {error && <p className="teacher-inline-error" role="alert">{error}</p>}
         <div className="button-row">
           <button className="report-button" disabled={busy} onClick={onCancel} type="button">
             Cancel
@@ -42,27 +44,48 @@ export function ResetStudentProgressDialog({
   onCancel
 }) {
   const [resetPhrase, setResetPhrase] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [resetError, setResetError] = useState("");
 
   if (!open) return null;
 
   const canConfirmReset = resetPhrase.trim() === "RESET";
   const studentLabel = studentName || "this student";
+  const busy = resetting || submitting;
 
   function cancelReset() {
+    if (busy) return;
     setResetPhrase("");
+    setResetError("");
     onCancel();
   }
 
-  function confirmReset() {
-    if (!canConfirmReset || resetting) return;
-    onReset();
+  async function confirmReset() {
+    if (!canConfirmReset || busy) return;
+    setSubmitting(true);
+    setResetError("");
+    try {
+      const saved = await onReset?.();
+      if (saved !== true) {
+        setResetError(
+          "We couldn't reset this student's practice progress. Nothing was changed. Check the connection and try again."
+        );
+      }
+    } catch (error) {
+      console.error("Practice progress reset failed:", error);
+      setResetError(
+        "We couldn't reset this student's practice progress. Nothing was changed. Check the connection and try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
     <TeacherDialog
       className="modal-backdrop"
       labelledBy="reset-progress-title"
-      onClose={cancelReset}
+      onClose={busy ? undefined : cancelReset}
     >
       <section className="modal-card reset-progress-dialog">
         <h2 id="reset-progress-title">{TEACHER_COPY.admin.resetTitle}</h2>
@@ -77,17 +100,19 @@ export function ResetStudentProgressDialog({
             <input
               autoComplete="off"
               data-autofocus
-              disabled={resetting}
+              disabled={busy}
               onChange={event => setResetPhrase(event.target.value)}
               value={resetPhrase}
             />
           </label>
         </div>
 
+        {resetError && <p className="teacher-inline-error" role="alert">{resetError}</p>}
+
         <div className="button-row">
           <button
             className="report-button"
-            disabled={resetting}
+            disabled={busy}
             onClick={cancelReset}
             type="button"
           >
@@ -95,11 +120,11 @@ export function ResetStudentProgressDialog({
           </button>
           <button
             className="reset-button"
-            disabled={resetting || !canConfirmReset}
+            disabled={busy || !canConfirmReset}
             onClick={confirmReset}
             type="button"
           >
-            {TEACHER_COPY.admin.resetAction}
+            {busy ? "Resetting…" : TEACHER_COPY.admin.resetAction}
           </button>
         </div>
       </section>

@@ -6,6 +6,9 @@ function source(path) {
 }
 
 const migration = source("supabase/migrations/20260725100000_remote_error_monitoring.sql");
+const integrityMigration = source(
+  "supabase/migrations/20260728120000_security_integrity_hardening.sql"
+);
 const budgetMigration = source("supabase/migrations/20260725125000_error_monitor_budget.sql");
 const client = source("src/utils/errorLog.js");
 const boundary = source("src/components/ErrorBoundary.jsx");
@@ -27,6 +30,23 @@ assert.match(migration, /invalid_or_sensitive_payload/i);
 assert.match(migration, /frame !~ '\^\(assets\|src\)/i);
 assert.match(migration, /v_recent_count >= 100/i);
 assert.match(migration, /p_severity = 'fatal' or v_recent_count >= 4/i);
+assert.match(
+  integrityMigration,
+  /dimension in \('global', 'caller', 'network', 'fingerprint'\)/i
+);
+assert.match(
+  integrityMigration,
+  /public\.class_access_network_fingerprint\(\)/i
+);
+assert.match(
+  integrityMigration,
+  /coalesce\(auth\.uid\(\)::text, public\.class_access_network_fingerprint\(\)\)/i
+);
+assert.match(integrityMigration, /'literacy-path-error-global-v1'[\s\S]*1000/i);
+assert.match(
+  integrityMigration,
+  /on conflict \(bucket_key\)[\s\S]*attempt_count = case[\s\S]*returning \* into v_bucket/i
+);
 assert.doesNotMatch(
   migration,
   /p_(message|url|user_id|student_id|learner_id|class_id|answer|context)\b/i
@@ -43,7 +63,7 @@ assert.doesNotMatch(main, /CLIENT_ERROR_LOG_KEY|recordClientError/);
 assert.match(vite, /VERCEL_GIT_COMMIT_SHA/);
 assert.match(vite, /__APP_RELEASE_ID__/);
 assert.match(admin, /Fleet error monitor/);
-assert.match(admin, /No child names, answers, class codes, account IDs/);
+assert.match(admin, /No student names, answers, class codes, account IDs/);
 assert.match(admin, /admin_error_monitor_summary/);
 assert.match(admin, /admin_recent_error_events/);
 assert.match(admin, /fatal_events_24h/);
@@ -65,6 +85,7 @@ assert.match(workflow, /private-source-maps-\$\{\{ github\.sha \}\}/);
 console.log(
   "Remote error monitoring: release attribution, strict no-message payload, "
   + "PII rejection, 25% global/100% boundary sampling, 30-day retention, "
-  + "repeat/fatal alerting, strict 24-hour error budget, private source-map "
+  + "atomic caller/network/global flood limits, repeat/fatal alerting, "
+  + "strict 24-hour error budget, private source-map "
   + "symbolication, admin fleet view, and local fallback verified."
 );

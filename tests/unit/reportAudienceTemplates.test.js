@@ -36,7 +36,7 @@ const seededWholeChildReport = {
       domain: "phonics",
       domainLabel: "Phonics",
       label: "Sound for sh",
-      status: { id: "needs_teaching", label: "Needs teaching" }
+      status: { id: "needs_teaching", label: "Needs support" }
     },
     {
       conceptId: "comprehension:key_details",

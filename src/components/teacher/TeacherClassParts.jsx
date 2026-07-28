@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { QUESTION_TYPE_GUIDE } from "../../data/questionTypeGuide.js";
 import { TeacherModal } from "./ui/TeacherDialog.jsx";
 import { MetricFigure } from "../MetricDefinition.jsx";
@@ -7,6 +7,10 @@ import {
   normalizeLearnerAccessibilitySettings
 } from "../../accessibility/learnerAccessibility.js";
 import { TEACHER_COPY, progressPhrase } from "../../copy/teacherCopy.js";
+import {
+  ACCESSIBILITY_SAVE_ERROR,
+  runAccessibilitySave
+} from "./accessibilitySaveFlow.js";
 
 // Presentational pieces shared by the Today page and the Students page. Kept
 // apart from teacherClassModel.js so each module exports one kind of thing.
@@ -62,7 +66,7 @@ export function QuestionTypeGuideDialog({ query, onQueryChange, onClose }) {
           </button>
         </header>
         <label className="teacher-question-guide-search">
-          <span>Search checks, skills, or teaching guidance</span>
+          <span>Search assessments, skills, or teaching guidance</span>
           <input
             data-autofocus
             type="search"
@@ -72,12 +76,12 @@ export function QuestionTypeGuideDialog({ query, onQueryChange, onClose }) {
           />
         </label>
         <p className="teacher-question-guide-count" role="status">
-          {progressPhrase(rows.length, QUESTION_TYPE_GUIDE.length)} checks shown
+          {progressPhrase(rows.length, QUESTION_TYPE_GUIDE.length)} assessments shown
         </p>
         {rows.length ? (
           <ul
             className="teacher-question-guide-results"
-            aria-label="Check explanations"
+            aria-label="Assessment explanations"
             tabIndex={0}
           >
             {rows.map(row => (
@@ -103,7 +107,7 @@ export function QuestionTypeGuideDialog({ query, onQueryChange, onClose }) {
           </ul>
         ) : (
           <div className="report-empty-state">
-            <strong>No matching check.</strong>
+            <strong>No matching assessment.</strong>
             <p>Try a skill such as rhyme, blending, digraphs, grammar, or sight words.</p>
           </div>
         )}
@@ -115,10 +119,30 @@ export function LearnerAccessibilityDialog({ student, saving = false, onSave, on
   const [draft, setDraft] = useState(
     () => normalizeLearnerAccessibilitySettings(student?.accessibilitySettings)
   );
+  const [submitting, setSubmitting] = useState(false);
+  const [saveError, setSaveError] = useState("");
+  const saveButtonRef = useRef(null);
+  const busy = saving || submitting;
+
+  useEffect(() => {
+    // A failed request first has to re-enable the button. Focusing it in the
+    // same tick as setSubmitting(false) targets the still-disabled DOM node
+    // and browsers correctly ignore that focus request.
+    if (!saveError || busy) return;
+    saveButtonRef.current?.focus();
+  }, [busy, saveError]);
 
   async function save() {
-    const saved = await onSave?.(student, draft);
-    if (saved !== false) onClose?.();
+    if (busy) return;
+    setSubmitting(true);
+    setSaveError("");
+    const result = await runAccessibilitySave({ onSave, student, draft });
+    setSubmitting(false);
+    if (result.ok) {
+      onClose?.();
+      return;
+    }
+    setSaveError(result.error || ACCESSIBILITY_SAVE_ERROR);
   }
 
   return (
@@ -126,7 +150,7 @@ export function LearnerAccessibilityDialog({ student, saving = false, onSave, on
       className="teacher-accessibility-settings-modal"
       label={`Accessibility settings for ${student.name}`}
       onClose={() => {
-        if (!saving) onClose?.();
+        if (!busy) onClose?.();
       }}
     >
       <section className="symbol-password-modal-card teacher-accessibility-settings-card">
@@ -136,7 +160,7 @@ export function LearnerAccessibilityDialog({ student, saving = false, onSave, on
             <h2>{student.name}&apos;s accessibility settings</h2>
             <p>These choices follow this student across signed-in devices.</p>
           </div>
-          <button className="text-button" type="button" disabled={saving} onClick={onClose}>
+          <button className="text-button" type="button" disabled={busy} onClick={onClose}>
             Close settings
           </button>
         </header>
@@ -147,11 +171,14 @@ export function LearnerAccessibilityDialog({ student, saving = false, onSave, on
               <input
                 type="checkbox"
                 checked={draft[field.id]}
-                disabled={saving}
-                onChange={event => setDraft(current => ({
-                  ...current,
-                  [field.id]: event.target.checked
-                }))}
+                disabled={busy}
+                onChange={event => {
+                  setSaveError("");
+                  setDraft(current => ({
+                    ...current,
+                    [field.id]: event.target.checked
+                  }));
+                }}
               />
               <span>
                 <strong>{field.label}</strong>
@@ -160,19 +187,26 @@ export function LearnerAccessibilityDialog({ student, saving = false, onSave, on
             </label>
           ))}
         </fieldset>
+        {busy && (
+          <p className="muted-text" role="status">Saving accessibility settings…</p>
+        )}
+        {saveError && (
+          <p className="teacher-inline-error" role="alert">{saveError}</p>
+        )}
         <div className="teacher-roster-operation-actions">
           <button
+            ref={saveButtonRef}
             className="lp-button lp-button-primary"
             type="button"
-            disabled={saving}
+            disabled={busy}
             onClick={save}
           >
-            {saving ? "Saving settings..." : "Save accessibility settings"}
+            {busy ? "Saving settings..." : "Save accessibility settings"}
           </button>
           <button
             className="lp-button lp-button-secondary"
             type="button"
-            disabled={saving}
+            disabled={busy}
             onClick={onClose}
           >
             Cancel
@@ -267,7 +301,7 @@ export function TeacherSetupChecklist({
           )}
           {!hasClass && (
             <p>
-              Sample data is clearly labelled, uses fictional nicknames, and contains no saved check results.
+              Sample data is clearly labelled, uses fictional nicknames, and contains no saved assessment results.
             </p>
           )}
         </footer>

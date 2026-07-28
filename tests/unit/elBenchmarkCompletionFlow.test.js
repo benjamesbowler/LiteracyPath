@@ -43,3 +43,21 @@ test("save and exit routes terminal sessions back through terminal persistence",
   assert.match(appSource, /window\.addEventListener\("online", flushPendingAssessmentAttempts\)/);
   assert.match(appSource, /flushAssessmentAttemptSyncQueue\(\{ teacherId, supabase \}\)/);
 });
+
+test("EL resume and final persistence use the session's immutable class ownership", () => {
+  const archiveSource = functionSource(
+    "archiveElBenchmarkSession",
+    "saveElBenchmarkPartialAndExit"
+  );
+  const resumeStart = appSource.indexOf("function resumeElBenchmarkAssessment");
+  const resumeEnd = appSource.indexOf("function discardElBenchmarkDraft", resumeStart);
+  const resumeSource = appSource.slice(resumeStart, resumeEnd);
+
+  assert.match(appSource, /resolveElBenchmarkSessionOwnership/);
+  assert.match(resumeSource, /getElBenchmarkOwnership\(elBenchmarkSession\)/);
+  assert.match(resumeSource, /blockElBenchmarkOwnershipChange/);
+  assert.match(archiveSource, /const ownership = getElBenchmarkOwnership\(nextSession\)/);
+  assert.match(archiveSource, /classId: ownership\.classId/);
+  assert.match(archiveSource, /teacherId: ownership\.teacherId/);
+  assert.doesNotMatch(archiveSource, /selectedClassId \|\| nextSession\.classId/);
+});

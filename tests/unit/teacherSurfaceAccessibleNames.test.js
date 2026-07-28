@@ -51,14 +51,17 @@ test("the sign-in pictures dialog says one thing to everyone, without design rat
   assert.doesNotMatch(students, /teacher-visible by design/);
 });
 
-test("every roster row button names the child it acts on", async () => {
+test("the compact roster controls name the student they act on", async () => {
   const students = await source("src/components/TeacherStudentsPage.jsx");
 
-  assert.match(students, /aria-label=\{`Reset sign-in pictures for \$\{row\.name\}`\}/);
   assert.match(students, /aria-label=\{`\$\{loginReady \? "Change" : "Set"\} sign-in pictures for \$\{row\.name\}`\}/);
-  assert.match(students, /aria-label=\{`\$\{visiblePasswords\[row\.id\] \? "Hide" : "Show"\} \$\{row\.name\}'s sign-in pictures`\}/);
   assert.match(students, /aria-label=\{`\$\{heatOpenId === row\.id \? "Hide" : "Show"\} \$\{row\.name\}'s sound map`\}/);
+  assert.match(students, /aria-label=\{`Assess \$\{row\.name\}`\}/);
   assert.match(students, /aria-label=\{`Open \$\{row\.name\}`\}/);
+  // Reset and reveal controls moved into the named student panel/settings
+  // instead of widening every roster row.
+  assert.match(students, /label=\{`Options for \$\{actionsStudent\.name\}`\}/);
+  assert.match(students, /Reset sign-in pictures/);
 });
 
 test("attention thresholds live in the tooltip, never on the today surface", async () => {
@@ -80,11 +83,32 @@ test("a missing class average gives the reason that actually applies", async () 
   assert.match(students, /rule\.minimumPolicyReadyLearners/);
   assert.match(students, /rule\.minimumPolicyReadyProportion/);
   assert.match(students, /rule\.maximumResponseImbalanceRatio/);
-  assert.match(students, /have done enough checks so far/);
+  assert.match(students, /have done enough assessments so far/);
   assert.match(students, /has answered far more often than the others/);
   assert.match(students, /missing the number of answers for at least one student/);
   assert.match(
     students,
     /classAverageHeldBackNote\(classAccuracySummary\.comparability\)/
   );
+});
+
+test("retry focus follows loading to either the restored page or another recovery action", async () => {
+  const [surface, recovery, css, stateMatrix] = await Promise.all([
+    source("src/components/teacher/ui/TeacherSurfaceState.jsx"),
+    source("src/components/teacher/ui/teacherSurfaceRecoveryFocus.js"),
+    source("src/App.css"),
+    source("docs/teacher/STATE_MATRIX.md")
+  ]);
+
+  assert.match(surface, /beginTeacherSurfaceRecoveryFocus\(\{/);
+  assert.match(surface, /sourceControl: event\.currentTarget/);
+  assert.match(surface, /data-teacher-state=\{state\}[\s\S]*?tabIndex="-1"/);
+  assert.match(recovery, /if \(state === "loading"\)/);
+  assert.match(recovery, /teacher-surface-state-actions button:not\(:disabled\)/);
+  assert.match(recovery, /pageHeading\(documentRef, sourceRoot\)/);
+  assert.match(recovery, /observer\.disconnect\(\)/);
+  assert.match(css, /\.teacher-surface-state:focus\s*\{[\s\S]*?outline:\s*3px/);
+  assert.match(stateMatrix, /focus returns to its recovery action/);
+  assert.match(stateMatrix, /focus[\s\S]*?moves to the restored page heading/);
+  assert.doesNotMatch(stateMatrix, /Retry leaves focus on the control/);
 });

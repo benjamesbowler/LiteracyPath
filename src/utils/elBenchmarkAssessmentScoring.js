@@ -658,7 +658,7 @@ function confirmedMicrophaseFor(session = {}) {
 
 function earlyPartialFollowUp(session = {}) {
   return confirmedMicrophaseFor(session) === "early_partial"
-    ? ["Teacher-confirmed Early Partial placement: administer the Letter Identification assessment to check letter-name and letter-sound instruction needs, as directed in the overview."]
+    ? ["Teacher-confirmed Early Partial placement: administer the Letter Identification assessment to review letter-name and letter-sound instruction needs, as directed in the overview."]
     : [];
 }
 

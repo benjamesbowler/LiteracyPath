@@ -14,7 +14,7 @@ function uniqueLearners(learners = []) {
     if (!id || byId.has(id)) continue;
     byId.set(id, {
       id,
-      name: String(learner?.name || "Learner").trim() || "Learner"
+      name: String(learner?.name || "Student").trim() || "Student"
     });
   }
   return [...byId.values()].sort((left, right) => left.name.localeCompare(right.name));

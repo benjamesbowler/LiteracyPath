@@ -1,4 +1,9 @@
-import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
+import {
+  LEARNING_CONCLUSION_SCOPES,
+  LEARNING_EVIDENCE_POLICY,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion
+} from "../policy/learningPolicy.js";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -9,9 +14,27 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 export const TEACHER_TODAY_POLICY = Object.freeze({
   minimumResponsesForAttention: LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
   attentionAccuracyBelow: LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum,
+  conclusionWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
   inactivityDueDays: 7,
   changeWindowDays: 7
 });
+
+export function allocateTeacherTodayUrgentPreviews({
+  attentionCount = 0,
+  dueCount = 0,
+  maximum = 3
+} = {}) {
+  const budget = Math.max(0, Number(maximum) || 0);
+  const attention = Math.min(
+    Math.max(0, Number(attentionCount) || 0),
+    budget
+  );
+  const due = Math.min(
+    Math.max(0, Number(dueCount) || 0),
+    Math.max(0, budget - attention)
+  );
+  return { attention, due, total: attention + due };
+}
 
 function plural(value, singular, pluralForm = `${singular}s`) {
   return `${value} ${value === 1 ? singular : pluralForm}`;
@@ -28,6 +51,79 @@ function inactivityDays(value, now) {
   return Math.max(0, Math.floor((now.getTime() - date.getTime()) / DAY_MS));
 }
 
+function normalizedSkill(value) {
+  return String(value || "").trim().toLocaleLowerCase();
+}
+
+function sourceConclusion(source, now) {
+  return evaluateLearningConclusion({
+    scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+    accuracy: source?.accuracy,
+    attempts: source?.answered,
+    skillDiversity: Number(source?.skillDiversity) || 1,
+    observedAt: source?.lastActive,
+    now
+  });
+}
+
+function overallConclusion(row, now) {
+  if (row?.learningConclusion) return row.learningConclusion;
+  return evaluateLearningConclusion({
+    accuracy: row?.accuracy,
+    attempts: row?.answered,
+    skillDiversity: Array.isArray(row?.evidenceSkills)
+      ? row.evidenceSkills.length
+      : 1,
+    observedAt: row?.lastActive,
+    now
+  });
+}
+
+function attentionEvidence(row, now) {
+  if ((row?.evidenceReadStatus || "complete") !== "complete") return null;
+  const currentSkill = normalizedSkill(row?.currentSkill);
+  const focusEvidence = row?.focusEvidence;
+  const focusSkill = normalizedSkill(
+    focusEvidence?.skill || focusEvidence?.skillName || focusEvidence?.currentSkill
+  );
+  const focusAligned = Boolean(
+    focusEvidence
+    && currentSkill
+    && focusSkill
+    && focusSkill === currentSkill
+  );
+
+  if (focusAligned) {
+    const conclusion = sourceConclusion(focusEvidence, now);
+    if (!conclusion.ready || conclusion.status.id !== LEARNING_STATUS_IDS.NEEDS_SUPPORT) {
+      return null;
+    }
+    return {
+      accuracy: conclusion.accuracy,
+      answered: conclusion.attempts,
+      focus: row.currentSkill,
+      evidence: `${plural(conclusion.attempts, "answer")} on ${row.currentSkill} · ${conclusion.accuracy}% accuracy`,
+      dependency: `Review ${row.currentSkill} before moving to the next skill.`,
+      confidence: conclusion.confidence.detail
+    };
+  }
+
+  // Older or mixed evidence can still justify a teacher review, but it cannot
+  // truthfully be attributed to the student's current focus.
+  const conclusion = overallConclusion(row, now);
+  if (!conclusion.ready || conclusion.status.id !== LEARNING_STATUS_IDS.NEEDS_SUPPORT) {
+    return null;
+  }
+  return {
+    accuracy: conclusion.accuracy,
+    answered: conclusion.attempts,
+    focus: "Review recent results",
+    evidence: `${plural(conclusion.attempts, "answer")} across saved results · ${conclusion.accuracy}% accuracy`,
+    dependency: "The lower results span more than one skill, so review them before choosing a teaching focus.",
+    confidence: conclusion.confidence.detail
+  };
+}
+
 export function buildTeacherTodayBriefing(
   rows = [],
   {
@@ -36,48 +132,54 @@ export function buildTeacherTodayBriefing(
   } = {}
 ) {
   const attention = rows
-    .filter(row =>
-      Number(row.answered) >= policy.minimumResponsesForAttention
-      && Number.isFinite(Number(row.accuracy))
-      && Number(row.accuracy) < policy.attentionAccuracyBelow
-    )
-    .sort((a, b) => Number(a.accuracy) - Number(b.accuracy))
-    .map(row => ({
-      id: row.id,
-      name: row.name,
-      accuracy: Number(row.accuracy),
-      answered: Number(row.answered),
-      focus: row.currentSkill || "Current focus",
-      evidence: `${plural(Number(row.answered), "answer")} · ${Number(row.accuracy)}% accuracy`,
-      policyBasis: `Shown after ${policy.minimumResponsesForAttention} answers below ${policy.attentionAccuracyBelow}%.`,
-      explanation: {
-        evidence: `${plural(Number(row.answered), "scored answer")} at ${Number(row.accuracy)}% accuracy.`,
-        dependency: `Review ${row.currentSkill || "the current focus"} before moving to the next skill.`,
-        confidence: `Based on at least ${policy.minimumResponsesForAttention} answers below ${policy.attentionAccuracyBelow}%.`,
-        unlock: "A quick review helps you choose focused practice and the next check."
-      }
-    }));
+    .map(row => ({ row, attention: attentionEvidence(row, now) }))
+    .filter(item => item.attention)
+    .sort((a, b) => a.attention.accuracy - b.attention.accuracy)
+    .map(({ row, attention: item }) => ({
+        id: row.id,
+        name: row.name,
+        accuracy: item.accuracy,
+        answered: item.answered,
+        focus: item.focus,
+        evidence: item.evidence,
+        policyBasis: `Shown after ${policy.minimumResponsesForAttention} current answers below ${policy.attentionAccuracyBelow}%.`,
+        explanation: {
+          evidence: item.evidence,
+          dependency: item.dependency,
+          confidence: item.confidence,
+          unlock: "A quick review helps you choose focused practice and the next assessment."
+        }
+      }));
 
-  const insufficientEvidence = rows.filter(row =>
-    Number(row.answered) > 0
-    && Number(row.answered) < policy.minimumResponsesForAttention
-    && Number.isFinite(Number(row.accuracy))
-    && Number(row.accuracy) < policy.attentionAccuracyBelow
-  );
+  const insufficientEvidence = rows.filter(row => {
+    if ((row?.evidenceReadStatus || "complete") !== "complete") return false;
+    const focusEvidence = row?.focusEvidence;
+    const focusAligned = focusEvidence
+      && normalizedSkill(focusEvidence.skill || focusEvidence.skillName || focusEvidence.currentSkill)
+        === normalizedSkill(row.currentSkill);
+    const conclusion = focusAligned
+      ? sourceConclusion(focusEvidence, now)
+      : overallConclusion(row, now);
+    return conclusion.attempts > 0
+      && !conclusion.confidence.sufficient
+      && Number.isFinite(conclusion.accuracy)
+      && conclusion.accuracy < policy.attentionAccuracyBelow;
+  });
 
   const due = rows
     .map(row => {
+      if ((row?.evidenceReadStatus || "complete") !== "complete") return null;
       if (Number(row.answered) === 0) {
         return {
           id: row.id,
           name: row.name,
-          title: "First check due",
+          title: "First assessment due",
           evidence: "No scored answers yet.",
           explanation: {
-            evidence: "No scored answers have been saved for this child.",
-            dependency: "A first check helps you choose the right starting skill.",
+          evidence: "No scored answers have been saved for this student.",
+            dependency: "A first assessment helps you choose the right starting skill.",
             confidence: "No learning level is guessed before the first result.",
-            unlock: "The first saved check gives you a starting point for later progress."
+            unlock: "The first saved assessment gives you a starting point for later progress."
           }
         };
       }
@@ -93,7 +195,7 @@ export function buildTeacherTodayBriefing(
             evidence: `The latest saved activity is ${plural(quietDays, "day")} old.`,
             dependency: `Review after ${policy.inactivityDueDays} days without activity.`,
             confidence: "This uses the activity date only and does not guess that learning has gone backwards.",
-            unlock: "A review shows whether practice, a check, or no change is right."
+            unlock: "A review shows whether practice, an assessment, or no change is right."
           }
         };
       }
@@ -118,9 +220,9 @@ export function buildTeacherTodayBriefing(
         name: row.name,
         summary: [
           plural(recentAnswers, "new answer"),
-          plural(recentMastered, "new mastered skill")
+          plural(recentMastered, "newly secured skill")
         ].join(" · "),
-        comparison: `Previous ${policy.changeWindowDays} days: ${plural(previousAnswers, "answer")} and ${plural(previousMastered, "mastered skill")}.`
+        comparison: `Previous ${policy.changeWindowDays} days: ${plural(previousAnswers, "answer")} and ${plural(previousMastered, "secure skill")}.`
       };
     });
 
@@ -128,7 +230,7 @@ export function buildTeacherTodayBriefing(
   // is one fact, not 25 rows. The UI collapses to a single line and one button.
   const allFirstCheckDue = rows.length > 0
     && due.length === rows.length
-    && due.every(row => row.title === "First check due");
+    && due.every(row => row.title === "First assessment due");
 
   return {
     attention,

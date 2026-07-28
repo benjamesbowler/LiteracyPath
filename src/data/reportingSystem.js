@@ -1,17 +1,26 @@
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
 import {
+  LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,
   LEARNING_POLICY_VERSION,
   LEARNING_STATUS_IDS,
+  evaluateClassComparability,
   evaluateLearningConclusion,
+  isLearningEvidenceRecent,
   rawLearningStatus
 } from "../policy/learningPolicy.js";
+import {
+  isHfwClozeFormat,
+  isHfwSentenceSpellFormat
+} from "./hfwAssessmentFormatConfig.js";
+import { isHfwSpellingQuestionCandidate } from "./isHfwSpellingQuestion.js";
+import { buildSkillsCheckReportModel } from "./studentReportingWorkspaceModel.js";
 
 const STATUS_LABELS = {
   on_track: "Secure",
   developing: "Developing",
   needs_support: "Needs support",
-  not_enough_evidence: "Not enough evidence",
+  not_enough_evidence: "Not enough results",
   not_started: "Not checked"
 };
 
@@ -34,6 +43,8 @@ const ITEM_TYPE_LABELS = {
   rhyming_family: "Rhyming family",
   short_vowel: "Short vowel",
   sight_word: "Sight word",
+  hfw_context_word: "High-frequency word in a sentence",
+  hfw_spelling_word: "High-frequency word spelling",
   phonics_pattern: "Phonics pattern",
   grammar_noun: "Noun",
   grammar_verb: "Verb",
@@ -95,6 +106,8 @@ const CLASS_REPORT_SKILL_ORDER = [
   "Long Vowels and Silent E",
   "High-Frequency Words 1-25",
   "High-Frequency Words 26-50",
+  "High-Frequency Words 51-75",
+  "High-Frequency Words 76-100",
   "High-Frequency Words 51-100",
   "Grammar and Language"
 ];
@@ -155,6 +168,12 @@ function clampPercent(value) {
   return Math.max(0, Math.min(100, Math.round(number)));
 }
 
+function finiteNumberOrNull(value) {
+  if (value === "" || value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
 function average(values = []) {
   const numeric = values.map(Number).filter(Number.isFinite);
   return numeric.length ? clampPercent(numeric.reduce((sum, value) => sum + value, 0) / numeric.length) : 0;
@@ -202,13 +221,60 @@ function getClassReportStatusLabel(statusId = "") {
   if (statusId === "mastered") return "Secure";
   if (statusId === "developing") return "Developing";
   if (statusId === "needs_support") return "Needs support";
-  if (statusId === "not_enough_evidence") return "Not enough evidence";
+  if (statusId === "not_enough_evidence") return "Not enough results";
   return "Not checked";
+}
+
+function classAnswerObservationRecords({
+  students = [],
+  assessmentHistory = [],
+  answerHistory = [],
+  now = new Date()
+} = {}) {
+  return students.flatMap(student => {
+    const studentId = getClassStudentId(student);
+    if (!studentId) return [];
+    const report = buildSkillsCheckReportModel({
+      student,
+      studentId,
+      assessmentHistory,
+      answerHistory,
+      now
+    });
+    return report.evidence
+      .filter(row => (
+        row.sourceRecordType === "legacy_answer_history"
+        && row.scorable !== false
+        && row.statusCandidate
+      ))
+      .map(row => {
+        const correct = row.statusCandidate === "secure";
+        const skillId = row.provenance?.skillId || "unclassified_skill";
+        return {
+          attemptId: row.evidenceId,
+          studentId,
+          assessmentType: "skill_checkpoint",
+          skillId,
+          skillName: row.provenance?.skillLabel || skillId,
+          completedAt: row.observedAt || "",
+          correctCount: Number(correct),
+          totalQuestions: 1,
+          accuracy: Number(correct) * 100,
+          passed: null,
+          administrationStatus: "legacy_projection",
+          questionRecords: [],
+          answerObservation: true,
+          incompleteAttemptIdentity: true,
+          legacyClassScopeFallback: true,
+          evidence: row
+        };
+      });
+  });
 }
 
 function getClassReportActivity(point = {}) {
   const label = String(point.label || point.skillName || "").toLowerCase();
-  if (/digraph|ch|sh|th/.test(label)) return "Multisensory ch/sh/th sort + tracing";
+  if (/digraph|\b(?:ch|sh|th)\b/.test(label)) return "Multisensory ch/sh/th sort + tracing";
   if (/blend|fl|pl|cl|bl|str/.test(label)) return "Letter tile building: fl, pl, cl, bl, str";
   if (/hfw|high-frequency|sight/.test(label)) return "Word wall rotation + sentence writing";
   if (/rhyme|rhym/.test(label)) return "Build rhyme families with picture cards";
@@ -240,19 +306,26 @@ export function getAccuracyStatus(
   accuracy = 0,
   hasData = true,
   attempts = hasData ? LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses : 0,
-  { observedAt = "", now = new Date() } = {}
+  {
+    observedAt = "",
+    now = new Date(),
+    skillDiversity = 0,
+    scope = LEARNING_CONCLUSION_SCOPES.GENERAL
+  } = {}
 ) {
   if (!hasData) {
     return {
       id: "not_started",
       label: STATUS_LABELS.not_started,
-      description: "No assessment evidence yet.",
+      description: "No assessment results yet.",
       policyVersion: LEARNING_POLICY_VERSION
     };
   }
   const conclusion = evaluateLearningConclusion({
+    scope,
     accuracy,
     attempts,
+    skillDiversity,
     observedAt,
     now
   });
@@ -260,7 +333,7 @@ export function getAccuracyStatus(
     return {
       id: "not_enough_evidence",
       label: STATUS_LABELS.not_enough_evidence,
-      description: conclusion.reason,
+      description: "There are not enough recent results for a fair judgement.",
       policyVersion: conclusion.policyVersion
     };
   }
@@ -268,7 +341,7 @@ export function getAccuracyStatus(
     return {
       id: "on_track",
       label: STATUS_LABELS.on_track,
-      description: "Checkpoint evidence is secure.",
+      description: "These assessment results are Secure.",
       policyVersion: conclusion.policyVersion
     };
   }
@@ -296,6 +369,8 @@ export function formatItemLabel(itemType = "", itemKey = "") {
   if (itemType === "rhyming_family") return key.startsWith("-") ? `${key} family` : `-${key} family`;
   if (itemType === "short_vowel") return `Short /${key.replace(/^short /, "").replace(/^short_/, "")}/`;
   if (itemType === "sight_word") return key;
+  if (itemType === "hfw_context_word") return `${key} · in a sentence`;
+  if (itemType === "hfw_spelling_word") return `${key} · spelling`;
   if (itemType === "phonics_pattern") return key;
   if (itemType === "grammar_noun") return `Noun: ${key}`;
   if (itemType === "grammar_verb") return `Verb: ${key}`;
@@ -348,7 +423,14 @@ function inferQuestionItem(record = {}, attempt = {}) {
   }
   if (skillId.startsWith("hfw") || skillName.includes("high-frequency") || skillName.includes("sight")) {
     const key = normalizeKey(record.targetWord || record.correctAnswer || record.itemKey);
-    return key ? { itemType: "sight_word", itemKey: key } : null;
+    const format = record.formatType || record.templateType || record.questionType || "";
+    const itemType = isHfwSentenceSpellFormat(format)
+      || isHfwSpellingQuestionCandidate({ ...record, skillId })
+      ? "hfw_spelling_word"
+      : isHfwClozeFormat(format)
+        ? "hfw_context_word"
+        : "sight_word";
+    return key ? { itemType, itemKey: key } : null;
   }
   if (skillId === "advanced_phonics_patterns" || skillName.includes("phonics") || itemType.includes("phonics")) {
     const key = normalizeKey(record.targetPattern || record.itemKey || record.correctAnswer);
@@ -365,20 +447,29 @@ function itemFromQuestion(question = {}) {
   return inferQuestionItem(question, question);
 }
 
-function getItemStatus(row = {}) {
+function getItemStatus(row = {}, now = new Date()) {
   const attempts = Number(row.attempts || 0);
-  const correct = Number(row.correct || 0);
-  const accuracy = attempts ? clampPercent((correct / attempts) * 100) : clampPercent(row.accuracy);
+  const correct = finiteNumberOrNull(row.correct);
+  const suppliedAccuracy = finiteNumberOrNull(row.accuracy);
+  const accuracy = attempts && correct !== null
+    ? clampPercent((correct / attempts) * 100)
+    : suppliedAccuracy === null
+      ? null
+      : clampPercent(suppliedAccuracy);
   if (!attempts) return "not_assessed";
   const conclusion = evaluateLearningConclusion({
+    scope: LEARNING_CONCLUSION_SCOPES.ITEM,
     accuracy,
     attempts,
     observedAt: row.lastAssessed || row.updatedAt || "",
+    now,
     minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
-    requireRecency: Boolean(row.lastAssessed || row.updatedAt)
+    skillDiversity: 1,
+    requireRecency: true,
+    allowUndated: false
   });
   if (!conclusion.ready) return "not_enough_evidence";
-  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE || row.mastered) return "mastered";
+  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) return "mastered";
   if (conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT) return "needs_support";
   return "developing";
 }
@@ -392,7 +483,11 @@ function scoreExamples(row = {}) {
   return Array.from(new Set(examples)).slice(0, 4);
 }
 
-export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = []) {
+export function normalizeItemMasteryRows(
+  itemMastery = {},
+  assessmentHistory = [],
+  { now = new Date() } = {}
+) {
   const rowMap = new Map();
   const addRow = row => {
     if (!row?.itemType || !row?.itemKey) return;
@@ -407,12 +502,30 @@ export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = [
       skillName: row.skillName || ITEM_TYPE_LABELS[itemType] || "Skill item",
       attempts: 0,
       correct: 0,
+      correctKnown: true,
+      accuracyWeightedTotal: 0,
+      accuracyKnownAttempts: 0,
       examples: new Set(),
       missedExamples: new Set(),
       lastAssessed: ""
     };
-    existing.attempts += Number(row.attempts || 0);
-    existing.correct += Number(row.correct || 0);
+    const rowAttempts = Math.max(0, finiteNumberOrNull(row.attempts) || 0);
+    const rowCorrect = finiteNumberOrNull(row.correct);
+    const rowAccuracy = finiteNumberOrNull(row.accuracy) ?? (
+      rowAttempts > 0 && rowCorrect !== null
+        ? (rowCorrect / rowAttempts) * 100
+        : null
+    );
+    existing.attempts += rowAttempts;
+    if (rowAttempts > 0 && rowCorrect === null) {
+      existing.correctKnown = false;
+    } else if (rowCorrect !== null) {
+      existing.correct += rowCorrect;
+    }
+    if (rowAttempts > 0 && rowAccuracy !== null) {
+      existing.accuracyWeightedTotal += rowAccuracy * rowAttempts;
+      existing.accuracyKnownAttempts += rowAttempts;
+    }
     existing.skillId = existing.skillId || row.skillId || "";
     existing.skillName = existing.skillName || row.skillName || ITEM_TYPE_LABELS[itemType] || "Skill item";
     (row.examples || row.exampleWords || []).forEach(value => existing.examples.add(String(value)));
@@ -421,32 +534,78 @@ export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = [
     rowMap.set(key, existing);
   };
 
-  Object.values(itemMastery || {}).forEach(addRow);
-
-  assessmentHistory.map(normalizeAssessmentAttempt).filter(attempt => !isDescriptiveElBenchmarkRecord(attempt)).forEach(attempt => {
+  const normalizedHistory = assessmentHistory
+    .map(normalizeAssessmentAttempt)
+    .filter(attempt => !isDescriptiveElBenchmarkRecord(attempt));
+  const historyItemKeys = new Set();
+  normalizedHistory.forEach(attempt => {
     attempt.questionRecords.forEach(question => {
+      if (question.isCorrect === null) return;
       const inferred = inferQuestionItem(question, attempt);
       if (!inferred) return;
-      const example = cleanWord(question.targetWord) || cleanWord(question.correctAnswer) || inferred.itemKey;
+      historyItemKeys.add(`${normalizeKey(inferred.itemType)}::${normalizeKey(inferred.itemKey)}`);
+    });
+  });
+  Object.values(itemMastery || {}).forEach(row => {
+    if (!row?.itemType || !row?.itemKey) return;
+    const key = `${normalizeKey(row.itemType)}::${normalizeKey(row.itemKey)}`;
+    if (!historyItemKeys.has(key)) addRow(row);
+  });
+
+  normalizedHistory.forEach(attempt => {
+    const itemRowsThisAttempt = new Map();
+    attempt.questionRecords.forEach(question => {
+      if (question.isCorrect === null) return;
+      const inferred = inferQuestionItem(question, attempt);
+      if (!inferred) return;
+      const key = `${normalizeKey(inferred.itemType)}::${normalizeKey(inferred.itemKey)}`;
+      const rows = itemRowsThisAttempt.get(key) || [];
+      rows.push({ question, inferred });
+      itemRowsThisAttempt.set(key, rows);
+    });
+    itemRowsThisAttempt.forEach(rows => {
+      const { inferred } = rows[0];
+      const examples = rows.map(({ question }) => (
+        cleanWord(question.targetWord)
+        || cleanWord(question.correctAnswer)
+        || inferred.itemKey
+      )).filter(Boolean);
+      // Multiple variants in one sitting are one independent attempt. They
+      // cannot satisfy the three-attempt gate by themselves.
+      const fullyCorrect = rows.every(
+        ({ question }) => question.responseStatus === "correct"
+      );
       addRow({
         itemType: inferred.itemType,
         itemKey: inferred.itemKey,
         skillId: attempt.skillId,
         skillName: attempt.skillName,
         attempts: 1,
-        correct: question.isCorrect ? 1 : 0,
-        examples: question.isCorrect && example ? [example] : [],
-        missedExamples: !question.isCorrect && example ? [example] : [],
-        lastAssessed: question.timestamp || attempt.completedAt
+        correct: fullyCorrect ? 1 : 0,
+        examples,
+        missedExamples: fullyCorrect ? [] : examples,
+        lastAssessed: rows
+          .map(({ question }) => question.timestamp)
+          .filter(Boolean)
+          .sort()
+          .at(-1) || attempt.completedAt
       });
     });
   });
 
   return Array.from(rowMap.values()).map(row => {
-    const accuracy = row.attempts ? clampPercent((row.correct / row.attempts) * 100) : 0;
-    const status = getItemStatus({ ...row, accuracy });
+    const correct = row.attempts > 0 && row.correctKnown ? row.correct : null;
+    const accuracy = row.attempts && row.accuracyKnownAttempts === row.attempts
+      ? clampPercent(row.accuracyWeightedTotal / row.attempts)
+      : null;
+    const status = getItemStatus({ ...row, correct, accuracy }, now);
+    const visibleRow = { ...row };
+    delete visibleRow.correctKnown;
+    delete visibleRow.accuracyWeightedTotal;
+    delete visibleRow.accuracyKnownAttempts;
     return {
-      ...row,
+      ...visibleRow,
+      correct,
       accuracy,
       status,
       statusLabel: status === "mastered"
@@ -456,7 +615,7 @@ export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = [
           : status === "needs_support"
             ? "Needs support"
             : status === "not_enough_evidence"
-              ? "Not enough evidence"
+              ? "Not enough results"
               : "Not checked",
       policyVersion: LEARNING_POLICY_VERSION,
       label: formatItemLabel(row.itemType, row.itemKey),
@@ -500,10 +659,39 @@ function teachingNoteForItem(row = {}) {
   if (row.itemType === "final_sound") return `Help the student listen to the end of each word to find the /${key}/ sound: ${examples}.`;
   if (row.itemType === "short_vowel") return `Focus on the short /${key}/ vowel sound. Compare pairs: ${examples}.`;
   if (row.itemType === "rhyming_family") return `Build the -${key.replace(/^-/, "")} family together: ${examples}. Ask the student to think of more words that rhyme.`;
-  if (row.itemType === "sight_word") return `Practise reading and spelling ${key} in context. Use it in the sentence: I can read ${key}.`;
+  if (row.itemType === "sight_word") return `Practise reading ${key} on its own, then in a sentence.`;
+  if (row.itemType === "hfw_context_word") return `Practise choosing ${key} to complete a short sentence, then read the full sentence together.`;
+  if (row.itemType === "hfw_spelling_word") return `Practise spelling ${key} from memory, then use it in a short sentence.`;
   if (row.itemType === "phonics_pattern") return `Practise the ${key} pattern using: ${examples}. Ask the student to tap out each sound.`;
   if (["grammar_verb", "grammar_noun", "grammar_adjective"].includes(row.itemType)) return `Use the word ${key} in a sentence together, then ask the student to make their own sentence.`;
   return `Review ${row.label || key} with a short model, guided try, and independent try.`;
+}
+
+function comparableAssessmentSignature(record = {}) {
+  const questionIds = (record.questionRecords || [])
+    .map(question => question.questionId)
+    .filter(Boolean)
+    .sort();
+  const formIdentity = [
+    record.formVersion,
+    record.contentVersion,
+    record.scoringVersion || record.scoringRuleVersion
+  ].filter(Boolean);
+  if (!formIdentity.length && !questionIds.length) return "";
+  return JSON.stringify({
+    assessmentType: record.assessmentType || record.assessmentId || "",
+    skillId: record.skillId || "",
+    formVersion: record.formVersion || "",
+    contentVersion: record.contentVersion || "",
+    scoringVersion: record.scoringVersion || record.scoringRuleVersion || "",
+    totalQuestions: Number(record.totalQuestions || 0),
+    questionIds
+  });
+}
+
+function areAssessmentRecordsComparable(left = {}, right = {}) {
+  const leftSignature = comparableAssessmentSignature(left);
+  return Boolean(leftSignature && leftSignature === comparableAssessmentSignature(right));
 }
 
 export function buildRecommendations({
@@ -514,7 +702,8 @@ export function buildRecommendations({
   mastery = {},
   coverageSnapshot = {},
   currentStageQuestions = [],
-  assessmentHistory = []
+  assessmentHistory = [],
+  now = new Date()
 } = {}) {
   const currentSkillId = currentStage?.id || "";
   const currentMastery = mastery?.[currentSkillId] || null;
@@ -557,27 +746,27 @@ export function buildRecommendations({
   ].filter((row, index, rows) => rows.findIndex(item => `${item.itemType}::${item.itemKey}` === `${row.itemType}::${row.itemKey}`) === index).slice(0, 5);
 
   let recommendedSkill = currentStage?.label || "First assessment";
-  let reason = "Begin with the current skill so the next data point is useful.";
+  let reason = "Begin with the current skill so the next result is useful.";
   if (!assessmentHistory.length && !itemRows.length) {
     recommendedSkill = skillTree[0]?.label || currentStage?.label || "First assessment";
-    reason = "No assessment data is saved yet.";
+    reason = "No assessment results are saved yet.";
   } else if (focusItems.length >= 2 && currentStage?.label) {
     reason = `Current skill has multiple items needing support: ${focusItems.slice(0, 2).map(row => row.label).join(", ")}.`;
   } else if (currentMastery && !currentMastery.mastered) {
-    reason = "The current checkpoint has been attempted but not passed yet.";
+    reason = "The current assessment is not Secure yet.";
   } else if (!currentMastery) {
-    reason = "The current checkpoint has not been attempted yet.";
+    reason = "The current skill has not been assessed yet.";
   } else if (
     coverage.total
     && coverage.mastered / coverage.total
       < LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum / 100
   ) {
-    reason = `The checkpoint is passed, but item coverage is still below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%.`;
+    reason = "The overall assessment is Secure, but some items still need more teaching.";
   } else if (currentMastery.mastered) {
     recommendedSkill = skillTree[currentSkillIndex + 1]?.label || currentStage?.label || "Maintain mastered skills";
     reason = skillTree[currentSkillIndex + 1]
-      ? "Current checkpoint and coverage are ready enough to move forward."
-      : "All listed checkpoints are complete; use review to maintain accuracy.";
+      ? "The current assessment and item results are ready enough to move forward."
+      : "All listed assessments are Secure; use review to maintain accuracy.";
   }
 
   const quickWins = developingRows
@@ -585,27 +774,32 @@ export function buildRecommendations({
     .filter(row => row.attempts >= LEARNING_EVIDENCE_POLICY.progression.minimumCorrectResponses)
     .filter(row => !focusItems.some(item => `${item.itemType}::${item.itemKey}` === `${row.itemType}::${row.itemKey}`))
     .slice(0, 3)
-    .map(row => `Almost there: ${row.label} (${row.correct}/${row.attempts} correct)`);
+    .map(row => `Almost there: ${row.label} (${row.correct} of ${row.attempts} correct)`);
   const normalizedHistory = assessmentHistory
     .map(normalizeAssessmentAttempt)
     .filter(record => !isDescriptiveElBenchmarkRecord(record))
     .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
   const sameSkillAttempts = currentSkillId ? normalizedHistory.filter(record => record.skillId === currentSkillId) : [];
   const latestAttempt = normalizedHistory.at(-1);
-  const latestCoverageCounts = sameSkillAttempts.slice(-3).map(record => {
+  const latestSameSkill = sameSkillAttempts.at(-1);
+  const comparableSameSkillAttempts = latestSameSkill
+    ? sameSkillAttempts.filter(record => areAssessmentRecordsComparable(record, latestSameSkill))
+    : [];
+  const comparablePair = comparableSameSkillAttempts.slice(-2);
+  const latestCoverageCounts = comparableSameSkillAttempts.slice(-3).map(record => {
     const coverageCount = Array.isArray(record.itemKeysCovered) ? record.itemKeysCovered.length : 0;
     return coverageCount || Object.keys(record.contentCoverage || {}).length;
   });
   const cautionFlags = [
     ...supportRows.filter(row => row.correct === 0 && row.attempts >= 3).map(row => `${row.label} has ${row.attempts} misses and no correct responses yet.`),
-    ...(sameSkillAttempts.length >= 2 && sameSkillAttempts.at(-1).accuracy - sameSkillAttempts.at(-2).accuracy < -20
-      ? [`Accuracy dropped ${Math.abs(sameSkillAttempts.at(-1).accuracy - sameSkillAttempts.at(-2).accuracy)}% since the last ${currentStage?.label || "skill"} session.`]
+    ...(comparablePair.length === 2 && comparablePair.at(-1).accuracy - comparablePair.at(-2).accuracy < -20
+      ? [`Accuracy dropped ${Math.abs(comparablePair.at(-1).accuracy - comparablePair.at(-2).accuracy)}% across two comparable ${currentStage?.label || "skill"} assessments.`]
       : []),
-    ...(latestAttempt?.completedAt && (Date.now() - new Date(latestAttempt.completedAt).getTime()) / 86400000 > 14
+    ...(latestAttempt?.completedAt && (new Date(now).getTime() - new Date(latestAttempt.completedAt).getTime()) / 86400000 > 14
       ? [`Student has not been assessed in more than 14 days.`]
       : []),
     ...(latestCoverageCounts.length === 3 && latestCoverageCounts.every(count => count === latestCoverageCounts[0])
-      ? [`Coverage has stayed at ${latestCoverageCounts[0]} item(s) for the last 3 sessions.`]
+      ? [`The same ${latestCoverageCounts[0]} ${latestCoverageCounts[0] === 1 ? "item has" : "items have"} been assessed in each of the last 3 sessions.`]
       : [])
   ].slice(0, 4);
 
@@ -616,7 +810,7 @@ export function buildRecommendations({
       ...row,
       teachingNote: teachingNoteForItem(row)
     })),
-    teachingNote: focusItems[0] ? teachingNoteForItem(focusItems[0]) : "Use one short checkpoint, then adjust from the result.",
+    teachingNote: focusItems[0] ? teachingNoteForItem(focusItems[0]) : "Use one short assessment, then adjust from the result.",
     quickWins,
     cautionFlags
   };
@@ -637,33 +831,89 @@ export function buildStudentReportModel({
   itemMastery = {},
   assessmentHistory = [],
   guidedReadingReportRows = [],
-  storyQuestSummary = {}
+  storyQuestSummary = {},
+  now = new Date()
 } = {}) {
-  const records = assessmentHistory
+  const allRecords = assessmentHistory
     .map(normalizeAssessmentAttempt)
     .filter(record => !isDescriptiveElBenchmarkRecord(record))
     .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
-  const answered = totalAnswered || records.reduce((sum, record) => sum + record.totalQuestions, 0);
+  const records = allRecords.filter(record => (
+    isLearningEvidenceRecent(record.completedAt, { now, allowUndated: false })
+  ));
+  const answered = records.reduce((sum, record) => sum + record.totalQuestions, 0);
   const correct = records.reduce((sum, record) => sum + record.correctCount, 0);
-  const effectiveAccuracy = answered ? clampPercent(accuracy || (correct / answered) * 100) : 0;
-  const itemRows = normalizeItemMasteryRows(itemMastery, records);
-  const latestAttempt = records.at(-1) || null;
-  const sameSkillAttempts = currentStage?.id ? records.filter(record => record.skillId === currentStage.id) : [];
-  const sameSkillDelta = sameSkillAttempts.length >= 2
-    ? clampPercent(sameSkillAttempts.at(-1).accuracy) - clampPercent(sameSkillAttempts.at(-2).accuracy)
+  const effectiveAccuracy = answered
+    ? clampPercent((correct / answered) * 100)
     : null;
-  const status = getAccuracyStatus(effectiveAccuracy, answered > 0, answered, {
-    observedAt: latestAttempt?.completedAt || ""
-  });
+  const lifetimeAnswered = totalAnswered || allRecords.reduce(
+    (sum, record) => sum + record.totalQuestions,
+    0
+  );
+  const lifetimeCorrect = allRecords.reduce((sum, record) => sum + record.correctCount, 0);
+  const lifetimeAccuracy = lifetimeAnswered
+    ? clampPercent(
+      allRecords.length ? (lifetimeCorrect / lifetimeAnswered) * 100 : accuracy
+    )
+    : null;
+  const itemRows = normalizeItemMasteryRows(itemMastery, records, { now });
+  const latestAttempt = records.at(-1) || null;
+  const latestLifetimeAttempt = allRecords.at(-1) || null;
+  const sameSkillAttempts = currentStage?.id ? records.filter(record => record.skillId === currentStage.id) : [];
+  const latestSameSkillAttempt = sameSkillAttempts.at(-1);
+  const comparableSameSkillAttempts = latestSameSkillAttempt
+    ? sameSkillAttempts.filter(record => areAssessmentRecordsComparable(record, latestSameSkillAttempt))
+    : [];
+  const comparableSameSkillPair = comparableSameSkillAttempts.slice(-2);
+  const sameSkillDelta = comparableSameSkillPair.length === 2
+    ? clampPercent(comparableSameSkillPair.at(-1).accuracy)
+      - clampPercent(comparableSameSkillPair.at(-2).accuracy)
+    : null;
+  const status = getAccuracyStatus(
+    (answered > 0 ? effectiveAccuracy : lifetimeAccuracy) ?? 0,
+    answered > 0 || lifetimeAnswered > 0,
+    answered > 0 ? answered : lifetimeAnswered,
+    {
+      observedAt: latestAttempt?.completedAt || latestLifetimeAttempt?.completedAt || "",
+      skillDiversity: new Set(
+        (answered > 0 ? records : allRecords)
+          .map(record => record.skillId || record.skillName)
+          .filter(Boolean)
+      ).size,
+      now
+    }
+  );
+  const currentEvidenceReady = answered > 0
+    && ["on_track", "developing", "needs_support"].includes(status.id);
+  const policyMastery = Object.fromEntries(skillTree.map(stage => {
+    const skillRecords = records.filter(
+      record => record.skillId === stage.id || record.skillName === stage.label
+    );
+    const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
+    const skillCorrect = skillRecords.reduce((sum, record) => sum + record.correctCount, 0);
+    const conclusion = evaluateLearningConclusion({
+      scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+      accuracy: total ? (skillCorrect / total) * 100 : null,
+      attempts: total,
+      skillDiversity: 1,
+      observedAt: skillRecords.at(-1)?.completedAt || "",
+      now
+    });
+    return [stage.id, {
+      ...(mastery?.[stage.id] || {}),
+      mastered: conclusion.ready && conclusion.status.id === LEARNING_STATUS_IDS.SECURE,
+      policyConclusion: conclusion
+    }];
+  }));
   const skillMapRows = skillTree.map((stage, index) => {
     const skillRecords = records.filter(record => record.skillId === stage.id || record.skillName === stage.label);
     const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
     const skillCorrect = skillRecords.reduce((sum, record) => sum + record.correctCount, 0);
-    const data = mastery?.[stage.id] || null;
+    const data = policyMastery?.[stage.id] || null;
     const coverage = coverageSnapshot?.[stage.id] || { mastered: 0, total: 0, unit: "items" };
     const skillAccuracy = total
       ? clampPercent((skillCorrect / total) * 100)
-      : 0;
+      : null;
     const coverageLevel1 = coverage.level1 || { mastered: coverage.mastered || 0, total: coverage.total || 0 };
     const coverageLevel2 = coverage.level2 || { mastered: 0, total: 0 };
     const skillItems = itemRows.filter(row => row.skillId === stage.id || row.skillName === stage.label);
@@ -677,7 +927,13 @@ export function buildStudentReportModel({
       index,
       attempts: skillRecords.length,
       accuracy: skillAccuracy,
-      status: data?.mastered ? "passed" : index === currentSkillIndex ? "current" : skillRecords.length ? "attempted" : index < currentSkillIndex ? "ready" : "not_started",
+      status: data?.mastered
+        ? "passed"
+        : index === currentSkillIndex
+          ? "current"
+          : skillRecords.length
+            ? "attempted"
+            : "not_started",
       checkpointScore: data?.lastTotal ? `${data.lastScore}/${data.lastTotal}` : "Not attempted",
       coverage,
       coverageLevel1,
@@ -693,7 +949,9 @@ export function buildStudentReportModel({
       itemGroups: {
         mastered: skillItems.filter(row => row.status === "mastered"),
         developing: skillItems.filter(row => row.status === "developing"),
-        needsSupport: skillItems.filter(row => row.status === "needs_support")
+        needsSupport: skillItems.filter(row => row.status === "needs_support"),
+        notEnoughEvidence: skillItems.filter(row => row.status === "not_enough_evidence"),
+        notAssessed: skillItems.filter(row => row.status === "not_assessed")
       }
     };
   });
@@ -703,25 +961,36 @@ export function buildStudentReportModel({
     currentStage,
     currentSkillIndex,
     skillTree,
-    mastery,
+    mastery: policyMastery,
     coverageSnapshot,
     currentStageQuestions,
-    assessmentHistory: records
+    assessmentHistory: records,
+    now
   });
 
   return {
     snapshot: {
       studentName: studentName || "Unnamed student",
       className: className || "Class not linked",
-      lastActive: formatReportDate(latestAttempt?.completedAt),
+      lastActive: formatReportDate(latestLifetimeAttempt?.completedAt),
       currentSkill: currentStage?.label || "No current skill",
       totalAnswered: answered,
       accuracy: effectiveAccuracy,
-      checkpoint: mastery?.[currentStage?.id]?.mastered ? "Passed" : mastery?.[currentStage?.id] ? "In progress" : "Not attempted",
+      currentEvidenceReady,
+      checkpoint: policyMastery?.[currentStage?.id]?.mastered
+        ? "Passed"
+        : records.some(record => record.skillId === currentStage?.id)
+          ? "In progress"
+          : "Not attempted",
       skillsPassed: skillMapRows.filter(row => row.status === "passed").length,
-      status
+      status,
+      lifetime: {
+        totalAnswered: lifetimeAnswered,
+        accuracy: lifetimeAccuracy,
+        latestAt: latestLifetimeAttempt?.completedAt || ""
+      }
     },
-    progressPoints: records.map(record => ({
+    progressPoints: allRecords.map(record => ({
       label: formatReportDate(record.completedAt),
       value: clampPercent(record.accuracy),
       skillName: record.skillName,
@@ -734,7 +1003,9 @@ export function buildStudentReportModel({
     itemGroups: {
       mastered: itemRows.filter(row => row.status === "mastered"),
       developing: itemRows.filter(row => row.status === "developing"),
-      needsSupport: itemRows.filter(row => row.status === "needs_support")
+      needsSupport: itemRows.filter(row => row.status === "needs_support"),
+      notEnoughEvidence: itemRows.filter(row => row.status === "not_enough_evidence"),
+      notAssessed: itemRows.filter(row => row.status === "not_assessed")
     },
     guidedReading: {
       bookCount: guidedReadingReportRows.length,
@@ -749,57 +1020,158 @@ export function buildStudentReportModel({
   };
 }
 
-export function buildClassReportModel({ students = [], classes = [], assessmentHistory = [], classId = "", teacherName = "" } = {}) {
+export function buildClassReportModel({
+  students = [],
+  classes = [],
+  assessmentHistory = [],
+  answerHistory = [],
+  classId = "",
+  teacherName = "",
+  now = new Date()
+} = {}) {
   const classStudents = students.filter(student => !classId || getClassId(student) === classId);
   const classStudentIds = new Set(classStudents.map(getClassStudentId).filter(Boolean));
-  const records = assessmentHistory
+  const canonicalRecords = assessmentHistory
     .map(normalizeAssessmentAttempt)
     .filter(record => !isDescriptiveElBenchmarkRecord(record))
-    .filter(record => {
-      if (!classId) return true;
-      if (record.classId === classId) return true;
-      return classStudentIds.has(record.studentId);
-    })
+    .flatMap(record => {
+      if (!classId) return [record];
+      // Recorded class ownership is provenance, not a hint. Moving a student
+      // must not move their historical class assessment rows.
+      if (record.classId) return record.classId === classId ? [record] : [];
+      // Only legacy rows that never stored a class may fall back to current
+      // roster membership, and that fallback stays explicit for provenance.
+      return classStudentIds.has(record.studentId)
+        ? [{ ...record, legacyClassScopeFallback: true }]
+        : [];
+    });
+  const answerObservationRecords = classAnswerObservationRecords({
+    students: classStudents,
+    assessmentHistory: canonicalRecords,
+    answerHistory,
+    now
+  });
+  // The caller has already applied the teacher's selected report period.
+  // Re-applying the fixed 90-day learning window here made "School year" and
+  // "All time" silently omit older records. Keep every selected-period row;
+  // getAccuracyStatus still uses the newest observation date to prevent old
+  // evidence from becoming a current Secure/Developing judgement.
+  const allRecords = [...canonicalRecords, ...answerObservationRecords]
     .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+  const records = allRecords;
   const studentsById = new Map(classStudents.map(student => [getClassStudentId(student), student]));
   const className = classId
-    ? getClassNameById(classes, classId, "Selected class")
+    ? getClassNameById(classes, classId, "No class selected")
     : "All classes";
-  const totalQuestions = records.reduce((sum, record) => sum + record.totalQuestions, 0);
-  const correctCount = records.reduce((sum, record) => sum + record.correctCount, 0);
   const latestAssessmentDate = records.map(record => record.completedAt).filter(Boolean).sort().at(-1) || "";
 
-  const skillNames = Array.from(new Set(records.map(record => record.skillName).filter(Boolean)))
-    .sort((a, b) => classReportSkillSortValue(a) - classReportSkillSortValue(b) || a.localeCompare(b));
+  const skillGroupsByCanonicalName = new Map();
+  records.forEach(record => {
+    if (!record.skillName) return;
+    const formatted = formatSkillForClassReport(record.skillName);
+    const current = skillGroupsByCanonicalName.get(formatted.canonical) || {
+      canonical: formatted.canonical,
+      label: formatted.label,
+      rawSkillNames: new Set()
+    };
+    current.rawSkillNames.add(record.skillName);
+    skillGroupsByCanonicalName.set(formatted.canonical, current);
+  });
+  const skillGroups = Array.from(skillGroupsByCanonicalName.values())
+    .map(group => ({
+      ...group,
+      rawSkillNames: Array.from(group.rawSkillNames).sort()
+    }))
+    .sort((a, b) => (
+      classReportSkillSortValue(a.canonical) - classReportSkillSortValue(b.canonical)
+      || a.canonical.localeCompare(b.canonical)
+    ));
 
   const studentRows = classStudents.map(student => {
     const studentId = getClassStudentId(student);
     const studentRecords = records.filter(record => record.studentId === studentId);
-    const total = studentRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
-    const correct = studentRecords.reduce((sum, record) => sum + record.correctCount, 0);
-    const accuracy = total ? clampPercent((correct / total) * 100) : 0;
-    const latest = studentRecords.at(-1) || null;
+    const verifiedRecords = studentRecords.filter(record => !record.answerObservation);
+    const answerRecords = studentRecords.filter(record => record.answerObservation);
+    const selectedPeriodTotalQuestions = studentRecords.reduce(
+      (sum, record) => sum + record.totalQuestions,
+      0
+    );
+    const selectedPeriodCorrectCount = studentRecords.reduce(
+      (sum, record) => sum + record.correctCount,
+      0
+    );
+    const selectedPeriodAccuracy = selectedPeriodTotalQuestions
+      ? clampPercent((selectedPeriodCorrectCount / selectedPeriodTotalQuestions) * 100)
+      : null;
+    // Verified attempts decide a learning status when present. Older per-answer
+    // rows have no assessment-sitting identity, so they can show truthful
+    // counts and accuracy but can never manufacture an independent-attempt
+    // judgement.
+    const decisionRecords = verifiedRecords.length ? verifiedRecords : answerRecords;
+    const total = decisionRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
+    const correct = decisionRecords.reduce((sum, record) => sum + record.correctCount, 0);
+    const accuracy = total ? clampPercent((correct / total) * 100) : null;
+    const latest = decisionRecords.at(-1) || null;
+    const status = !verifiedRecords.length && answerRecords.length
+      ? {
+        id: "not_enough_evidence",
+        label: STATUS_LABELS.not_enough_evidence,
+        description: "Saved answers are visible, but their assessment sittings are not recorded.",
+        policyVersion: LEARNING_POLICY_VERSION
+      }
+      : getAccuracyStatus(accuracy ?? 0, total > 0, total, {
+        observedAt: latest?.completedAt || "",
+        skillDiversity: new Set(
+          decisionRecords
+            .map(record => record.skillId || record.skillName)
+            .filter(Boolean)
+        ).size,
+        scope: LEARNING_CONCLUSION_SCOPES.GENERAL,
+        now
+      });
+    const supportSkills = skillGroups.flatMap(skillGroup => {
+      const skillRecords = studentRecords.filter(record => (
+        !record.answerObservation
+        && skillGroup.rawSkillNames.includes(record.skillName)
+      ));
+      const skillTotal = skillRecords.reduce(
+        (sum, record) => sum + record.totalQuestions,
+        0
+      );
+      const skillCorrect = skillRecords.reduce(
+        (sum, record) => sum + record.correctCount,
+        0
+      );
+      const skillStatus = getAccuracyStatus(
+        skillTotal ? (skillCorrect / skillTotal) * 100 : 0,
+        skillTotal > 0,
+        skillTotal,
+        {
+          observedAt: skillRecords.at(-1)?.completedAt || "",
+          skillDiversity: 1,
+          scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+          now
+        }
+      );
+      return skillStatus.id === "needs_support" ? [skillGroup.label] : [];
+    }).slice(0, 4);
     return {
       studentId,
       studentName: student.name || student.studentName || "Student",
       className: getClassNameById(classes, getClassId(student), student.className || ""),
-      attempts: studentRecords.length,
+      attempts: verifiedRecords.length,
+      savedAnswers: answerRecords.length,
       totalQuestions: total,
       correctCount: correct,
       accuracy,
-      status: getAccuracyStatus(accuracy, studentRecords.length > 0, total, {
-        observedAt: latest?.completedAt || ""
-      }),
+      selectedPeriodTotalQuestions,
+      selectedPeriodCorrectCount,
+      selectedPeriodAccuracy,
+      policyReady: ["on_track", "developing", "needs_support"].includes(status.id),
+      status,
       latestDate: latest?.completedAt || "",
       currentLevel: latest?.skillName || "No data yet",
-      supportSkills: Array.from(new Set(studentRecords
-        .filter(record => getAccuracyStatus(
-          record.accuracy,
-          record.totalQuestions > 0,
-          record.totalQuestions,
-          { observedAt: record.completedAt || "" }
-        ).id === "needs_support")
-        .map(record => record.skillName))).slice(0, 4),
+      supportSkills,
       policyVersion: LEARNING_POLICY_VERSION
     };
   }).sort((a, b) => {
@@ -811,7 +1183,7 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       not_started: 4
     };
     return (statusOrder[a.status.id] ?? 4) - (statusOrder[b.status.id] ?? 4) ||
-      a.accuracy - b.accuracy ||
+      (a.accuracy ?? Number.POSITIVE_INFINITY) - (b.accuracy ?? Number.POSITIVE_INFINITY) ||
       a.studentName.localeCompare(b.studentName);
   });
 
@@ -830,71 +1202,153 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       percent: classStudents.length ? clampPercent((rows.length / classStudents.length) * 100) : 0
     };
   });
+  const policyReadyStudentRows = studentRows.filter(row => row.policyReady);
+  const classComparability = evaluateClassComparability({
+    totalLearners: classStudents.length,
+    policyReadyLearners: policyReadyStudentRows.length,
+    responseCounts: policyReadyStudentRows.map(row => row.totalQuestions)
+  });
+  const learnerWeightedAccuracy = policyReadyStudentRows.length
+    ? average(policyReadyStudentRows.map(row => row.accuracy))
+    : null;
+  const policyReadyResponses = policyReadyStudentRows.reduce(
+    (sum, row) => sum + row.totalQuestions,
+    0
+  );
+  const policyReadyCorrect = policyReadyStudentRows.reduce(
+    (sum, row) => sum + row.correctCount,
+    0
+  );
+  const responseWeightedAccuracy = policyReadyResponses
+    ? clampPercent((policyReadyCorrect / policyReadyResponses) * 100)
+    : null;
 
-  const heatmap = skillNames.map(skillName => {
-    const formattedSkill = formatSkillForClassReport(skillName);
+  const heatmap = skillGroups.map(skillGroup => {
     const cells = studentRows.map(student => {
-      const skillRecords = records.filter(record => record.studentId === student.studentId && record.skillName === skillName);
-      const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
-      const correct = skillRecords.reduce((sum, record) => sum + record.correctCount, 0);
-      const accuracy = total ? clampPercent((correct / total) * 100) : 0;
-      const statusId = getClassReportStatusId(accuracy, total);
+      const skillRecords = records.filter(record => (
+        record.studentId === student.studentId
+        && skillGroup.rawSkillNames.includes(record.skillName)
+      ));
+      const verifiedSkillRecords = skillRecords.filter(record => !record.answerObservation);
+      const answerSkillRecords = skillRecords.filter(record => record.answerObservation);
+      const selectedPeriodScoredResponses = skillRecords.reduce(
+        (sum, record) => sum + record.totalQuestions,
+        0
+      );
+      const selectedPeriodCorrectResponses = skillRecords.reduce(
+        (sum, record) => sum + record.correctCount,
+        0
+      );
+      const selectedPeriodAccuracy = selectedPeriodScoredResponses
+        ? clampPercent(
+          (selectedPeriodCorrectResponses / selectedPeriodScoredResponses) * 100
+        )
+        : null;
+      const decisionSkillRecords = verifiedSkillRecords.length
+        ? verifiedSkillRecords
+        : answerSkillRecords;
+      const total = decisionSkillRecords.reduce(
+        (sum, record) => sum + record.totalQuestions,
+        0
+      );
+      const correct = decisionSkillRecords.reduce(
+        (sum, record) => sum + record.correctCount,
+        0
+      );
+      const accuracy = total ? clampPercent((correct / total) * 100) : null;
+      const hasUnverifiedAnswersOnly = !verifiedSkillRecords.length
+        && answerSkillRecords.length > 0;
+      const statusId = hasUnverifiedAnswersOnly
+        ? "not_enough_evidence"
+        : getClassReportStatusId(accuracy ?? 0, total);
+      const status = hasUnverifiedAnswersOnly
+        ? {
+          id: "not_enough_evidence",
+          label: STATUS_LABELS.not_enough_evidence,
+          description: "Saved answers are visible, but their assessment sittings are not recorded.",
+          policyVersion: LEARNING_POLICY_VERSION
+        }
+        : getAccuracyStatus(accuracy ?? 0, total > 0, total, {
+          observedAt: decisionSkillRecords.at(-1)?.completedAt || "",
+          skillDiversity: 1,
+          scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+          now
+        });
       return {
         studentId: student.studentId,
         studentName: student.studentName,
-        attempts: skillRecords.length,
+        attempts: verifiedSkillRecords.length,
+        savedAnswers: answerSkillRecords.length,
+        scoredResponses: total,
+        correctResponses: correct,
         accuracy,
+        selectedPeriodScoredResponses,
+        selectedPeriodCorrectResponses,
+        selectedPeriodAccuracy,
         statusId,
         statusLabel: getClassReportStatusLabel(statusId),
-        status: getAccuracyStatus(accuracy, skillRecords.length > 0, total, {
-          observedAt: skillRecords.at(-1)?.completedAt || ""
-        }),
+        policyReady: ["on_track", "developing", "needs_support"].includes(status.id),
+        status,
         policyVersion: LEARNING_POLICY_VERSION
       };
     });
-    const attemptedCells = cells.filter(cell => cell.attempts);
+    const attemptedCells = cells.filter(cell => cell.scoredResponses > 0);
+    const policyReadyCells = cells.filter(cell => cell.policyReady);
+    const comparability = evaluateClassComparability({
+      totalLearners: classStudents.length,
+      policyReadyLearners: policyReadyCells.length,
+      responseCounts: policyReadyCells.map(cell => cell.scoredResponses)
+    });
+    const readyResponseCount = policyReadyCells.reduce(
+      (sum, cell) => sum + cell.scoredResponses,
+      0
+    );
+    const readyCorrectCount = policyReadyCells.reduce(
+      (sum, cell) => sum + cell.correctResponses,
+      0
+    );
     return {
-      skillName,
-      displaySkillName: formattedSkill.label,
-      canonicalSkillName: formattedSkill.canonical,
-      skillArea: getSkillArea({ skillName }).label,
+      skillName: skillGroup.canonical,
+      displaySkillName: skillGroup.label,
+      canonicalSkillName: skillGroup.canonical,
+      rawSkillNames: skillGroup.rawSkillNames,
+      skillArea: getSkillArea({ skillName: skillGroup.canonical }).label,
       cells,
-      classAccuracy: attemptedCells.length ? average(attemptedCells.map(cell => cell.accuracy)) : 0,
+      comparability,
+      policyReadyLearnerCount: policyReadyCells.length,
+      attemptedLearnerCount: attemptedCells.length,
+      classAccuracy: comparability.comparable
+        ? average(policyReadyCells.map(cell => cell.accuracy))
+        : null,
+      learnerWeightedAccuracy: policyReadyCells.length
+        ? average(policyReadyCells.map(cell => cell.accuracy))
+        : null,
+      responseWeightedAccuracy: readyResponseCount
+        ? clampPercent((readyCorrectCount / readyResponseCount) * 100)
+        : null,
+      scoredResponses: readyResponseCount,
       masteredCount: cells.filter(cell => cell.statusId === "mastered").length,
       developingCount: cells.filter(cell => cell.statusId === "developing").length,
       needsSupportCount: cells.filter(cell => cell.statusId === "needs_support").length,
+      notEnoughEvidenceCount: cells.filter(
+        cell => cell.statusId === "not_enough_evidence"
+      ).length,
       notAssessedCount: cells.filter(cell => cell.statusId === "not_assessed").length
     };
   });
 
-  const growthAreas = heatmap.map(row => {
-    const skillRecords = records.filter(record => record.skillName === row.skillName);
-    const sorted = [...skillRecords].sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
-    const firstWindow = sorted.slice(0, Math.max(1, Math.ceil(sorted.length / 2)));
-    const latestWindow = sorted.slice(Math.max(0, sorted.length - firstWindow.length));
-    const firstAccuracy = firstWindow.length ? average(firstWindow.map(record => record.accuracy)) : 0;
-    const latestAccuracy = latestWindow.length ? average(latestWindow.map(record => record.accuracy)) : row.classAccuracy;
-    return {
-      skillName: row.displaySkillName,
-      canonicalSkillName: row.canonicalSkillName,
-      accuracy: row.classAccuracy,
-      delta: sorted.length >= 2 ? latestAccuracy - firstAccuracy : 0,
-      mastered: row.masteredCount,
-      developing: row.developingCount,
-      needsSupport: row.needsSupportCount
-    };
-  });
+  // A mixed list of attempts split in half is not longitudinal growth. Keep
+  // this empty until the report has comparable forms, stable cohorts and two
+  // policy-ready windows.
+  const growthAreas = [];
 
   const masteryRows = heatmap
     .filter(row => (
-      rawLearningStatus(row.classAccuracy) === LEARNING_STATUS_IDS.SECURE
-      || row.masteredCount >= Math.max(
-        1,
-        Math.ceil(
-          classStudents.length
-          * LEARNING_EVIDENCE_POLICY.progression.classMasteryProportion
-        )
-      )
+      row.comparability.comparable
+      && rawLearningStatus(row.classAccuracy) === LEARNING_STATUS_IDS.SECURE
+      && classStudents.length > 0
+      && row.masteredCount / classStudents.length
+        >= LEARNING_EVIDENCE_POLICY.progression.classMasteryProportion
     ))
     .sort((a, b) => b.classAccuracy - a.classAccuracy || b.masteredCount - a.masteredCount)
     .slice(0, 8)
@@ -909,10 +1363,14 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
 
   const focusRows = heatmap
     .filter(row => (
-      row.cells.some(cell => cell.attempts)
+      row.comparability.comparable
       && (
         rawLearningStatus(row.classAccuracy) === LEARNING_STATUS_IDS.NEEDS_SUPPORT
-        || row.needsSupportCount > 0
+        || (
+          classStudents.length > 0
+          && row.needsSupportCount / classStudents.length
+            >= LEARNING_EVIDENCE_POLICY.comparison.classFocusProportion
+        )
       )
     ))
     .sort((a, b) => b.needsSupportCount - a.needsSupportCount || a.classAccuracy - b.classAccuracy)
@@ -925,6 +1383,7 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
     }));
 
   const weakPoints = heatmap
+    .filter(row => row.comparability.comparable)
     .map(row => ({
       skillName: row.displaySkillName,
       studentCount: row.needsSupportCount,
@@ -941,43 +1400,56 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
 
   const itemRowsByStudent = new Map(classStudents.map(student => [
     getClassStudentId(student),
-    normalizeItemMasteryRows({}, records.filter(record => record.studentId === getClassStudentId(student)))
+    normalizeItemMasteryRows(
+      {},
+      records.filter(record => record.studentId === getClassStudentId(student)),
+      { now }
+    )
   ]));
-  const itemWeakMap = new Map();
-  itemRowsByStudent.forEach((rows, studentId) => {
-    const student = studentRows.find(row => row.studentId === studentId);
-    rows.filter(row => row.status === "needs_support").forEach(row => {
-      const key = `${row.itemType}::${row.itemKey}`;
-      const item = itemWeakMap.get(key) || {
-        itemType: row.itemType,
-        itemKey: row.itemKey,
-        label: row.label,
-        skillName: row.skillName,
-        affectedStudents: [],
-        totalAccuracy: 0,
-        attempts: 0,
-        examples: new Set()
-      };
-      item.affectedStudents.push(student?.studentName || "Student");
-      item.totalAccuracy += row.accuracy;
-      item.attempts += 1;
-      [...(row.missedExamples || []), ...(row.examples || [])].forEach(example => item.examples.add(example));
-      itemWeakMap.set(key, item);
-    });
-  });
-  const weakItems = Array.from(itemWeakMap.values())
-    .map(item => ({
-      ...item,
-      affectedCount: item.affectedStudents.length,
-      affectedPercent: classStudents.length ? clampPercent((item.affectedStudents.length / classStudents.length) * 100) : 0,
-      averageAccuracy: item.attempts ? clampPercent(item.totalAccuracy / item.attempts) : 0,
-      examples: Array.from(item.examples).slice(0, 6)
-    }))
-    .filter(item => (
-      classStudents.length
-      && item.affectedStudents.length / classStudents.length
-        >= LEARNING_EVIDENCE_POLICY.comparison.classFocusProportion
+  const itemKeys = new Set(
+    Array.from(itemRowsByStudent.values()).flatMap(rows => (
+      rows.map(row => `${row.itemType}::${row.itemKey}`)
     ))
+  );
+  const weakItems = Array.from(itemKeys).flatMap(key => {
+    const studentItemRows = studentRows.flatMap(student => {
+      const row = (itemRowsByStudent.get(student.studentId) || [])
+        .find(item => `${item.itemType}::${item.itemKey}` === key);
+      return row ? [{ student, row }] : [];
+    });
+    const policyReadyRows = studentItemRows.filter(({ row }) => (
+      ["mastered", "developing", "needs_support"].includes(row.status)
+    ));
+    const comparability = evaluateClassComparability({
+      totalLearners: classStudents.length,
+      policyReadyLearners: policyReadyRows.length,
+      responseCounts: policyReadyRows.map(({ row }) => row.attempts)
+    });
+    if (!comparability.comparable) return [];
+    const affected = policyReadyRows.filter(({ row }) => row.status === "needs_support");
+    if (
+      !classStudents.length
+      || affected.length / classStudents.length
+        < LEARNING_EVIDENCE_POLICY.comparison.classFocusProportion
+    ) return [];
+    const exampleSet = new Set(
+      affected.flatMap(({ row }) => [...(row.missedExamples || []), ...(row.examples || [])])
+    );
+    const representative = affected[0]?.row || policyReadyRows[0]?.row;
+    return [{
+      itemType: representative.itemType,
+      itemKey: representative.itemKey,
+      label: representative.label,
+      skillName: representative.skillName,
+      affectedStudents: affected.map(({ student }) => student.studentName),
+      affectedCount: affected.length,
+      affectedPercent: clampPercent((affected.length / classStudents.length) * 100),
+      averageAccuracy: average(policyReadyRows.map(({ row }) => row.accuracy)),
+      attempts: policyReadyRows.reduce((sum, { row }) => sum + row.attempts, 0),
+      examples: Array.from(exampleSet).slice(0, 6),
+      comparability
+    }];
+  })
     .sort((a, b) => b.affectedCount - a.affectedCount || a.averageAccuracy - b.averageAccuracy)
     .slice(0, 12);
 
@@ -992,7 +1464,9 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
       focus: focusLabel,
       skill: point.skillName || focusLabel,
       students: names,
-      reason: `${point.affectedCount || point.studentCount} student(s) below ${LEARNING_EVIDENCE_POLICY.accuracyPercent.developingMinimum}%.`,
+      reason: `${point.affectedCount || point.studentCount} ${
+        (point.affectedCount || point.studentCount) === 1 ? "student needs" : "students need"
+      } more teaching with ${focusLabel}.`,
       suggestedActivity: getClassReportActivity(point),
       style: CLASS_REPORT_GROUP_STYLES[index % CLASS_REPORT_GROUP_STYLES.length]
     };
@@ -1005,39 +1479,51 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
     map[display] = (map[display] || 0) + 1;
     return map;
   }, {});
-  const readingRows = studentRows.map(row => ({
-    studentId: row.studentId,
-    studentName: row.studentName,
-    level: "Not recorded",
-    reads: 0,
-    accuracy: null,
-    trend: "No guided reading record",
-    status: row.attempts ? row.status.id : "not_started",
-    note: "Guided reading records are not included in this report feed yet."
-  }));
-  const assessedStudentCount = studentRows.filter(row => row.attempts > 0).length;
-  const averageAccuracy = totalQuestions ? clampPercent((correctCount / totalQuestions) * 100) : 0;
+  // This feed contains checkpoint records, not Guided Reading records. Empty
+  // is truthful; one fabricated "Not recorded" row per learner was not.
+  const readingRows = [];
+  const assessedStudentCount = studentRows.filter(row => row.totalQuestions > 0).length;
+  const averageAccuracy = classComparability.comparable ? learnerWeightedAccuracy : null;
   const mostUrgentFocus = focusRows[0]?.skill || weakItems[0]?.skillName || weakPoints[0]?.skillName || "No class focus yet";
 
   return {
     classId,
     className,
     teacherName,
-    generatedAt: new Date().toISOString(),
+    generatedAt: new Date(now).toISOString(),
     provenanceEvidence: records,
+    historicalEvidence: allRecords,
+    provenance: {
+      legacyClassScopeFallbackCount: records.filter(
+        record => record.legacyClassScopeFallback
+      ).length,
+      answerRowsHaveNoHistoricalClassProvenance: answerObservationRecords.length > 0
+    },
+    comparability: classComparability,
     snapshot: {
       totalStudents: classStudents.length,
       assessedStudents: assessedStudentCount,
-      activeThisWeek: studentRows.filter(row => row.latestDate && (Date.now() - new Date(row.latestDate).getTime()) / 86400000 <= 7).length,
-      attempts: records.length,
+      activeThisWeek: studentRows.filter(row => (
+        row.latestDate
+        && (new Date(now).getTime() - new Date(row.latestDate).getTime()) / 86400000 <= 7
+      )).length,
+      attempts: records.filter(record => !record.answerObservation).length,
+      savedAnswers: records.filter(record => record.answerObservation).length,
       averageAccuracy,
+      learnerWeightedAccuracy,
+      responseWeightedAccuracy,
+      averageAccuracyReady: classComparability.comparable,
+      comparability: classComparability,
+      policyReadyStudents: policyReadyStudentRows.length,
       onTrack: studentRows.filter(row => row.status.id === "on_track").length,
       developing: studentRows.filter(row => row.status.id === "developing").length,
       needsSupport: studentRows.filter(row => row.status.id === "needs_support").length,
       avgReadingLevel: "Not recorded",
       avgReadingAccuracy: null,
       skillsAtClassMastery: masteryRows.length,
-      totalSkillsAssessed: heatmap.filter(row => row.cells.some(cell => cell.attempts)).length,
+      totalSkillsAssessed: heatmap.filter(
+        row => row.cells.some(cell => cell.scoredResponses > 0)
+      ).length,
       mostUrgentFocus,
       latestAssessmentDate,
       mostCommonCurrentSkill: Object.entries(currentSkillCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "No data yet",

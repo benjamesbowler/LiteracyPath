@@ -2,11 +2,16 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   readTeacherFunnelParams,
+  shouldWriteTeacherReportFunnelParams,
   writeTeacherFunnelParams
 } from "../appState/appViewHelpers.js";
 import { STUDENT_REPORT_VIEWS } from "./reports/studentReportUiUtils.js";
 import { TeacherFunnelStep } from "./TeacherFunnelStep.jsx";
+import { TeacherFunnelStudentPicker } from "./teacher/TeacherFunnelStudentPicker.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
+import { getClassListReadView } from "../appState/classListReadState.js";
+import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
+import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 
 // ── THE SAME SHAPE AS CHECKS ────────────────────────────────────────────────
 //
@@ -24,13 +29,21 @@ const WHOLE_CLASS = "class";
 // What each style answers, in one line. The labels come from the one list of
 // report styles so the funnel and the report page can never disagree.
 const STYLE_QUESTIONS = Object.freeze({
-  "whole-child": "What has this student secured, what is coming, what is not started?",
-  "skills-check": "How accurate has this student been, skill by skill?",
+  "whole-child": "A short summary of what is secure, developing, and not assessed yet.",
+  "skills-check": "How accurate has this student been in each skill assessment?",
   "guided-reading": "Which books has this student read, and what needed support?",
   hfw: "Which of the hundred most common words does this student know?",
   "other-learning": "What has this student done in the games and story worlds?",
-  "el-assessments": "What goes in the school file for the four formal checks?"
+  "el-assessments": "A standalone record of completed EL assessments for the school file."
 });
+
+const PRIMARY_REPORT_VIEW_IDS = Object.freeze([
+  "whole-child",
+  "skills-check",
+  "hfw",
+  "el-assessments"
+]);
+const REPORT_VIEW_IDS = new Set(STUDENT_REPORT_VIEWS.map(view => view.id));
 
 function studentDisplayRows(rows = [], fallback = []) {
   const source = rows.length ? rows : fallback;
@@ -41,16 +54,29 @@ function studentDisplayRows(rows = [], fallback = []) {
 
 export function TeacherReportsHubPage({
   classList = [],
+  classListReadState = null,
+  teacherId,
   selectedClassId = "",
   className = "",
   onSelectClass,
-  onOpenChecks,
+  onOpenClasses,
   studentRows = [],
+  classDashboardReadState = null,
   studentList = [],
+  studentListReadState = null,
   loadingClasses = false,
   loadingStudents = false,
+  onRetryClasses,
+  onRetryStudents,
+  onRetryClassDashboard,
+  classReportEvidenceReady = true,
+  classReportEvidenceLoading = false,
+  onRetryClassReportEvidence,
   selectedStudentId = "",
   selectedStudentName = "",
+  studentEvidenceReady = true,
+  studentEvidenceStatus = "complete",
+  onRetryStudentEvidence,
   onSelectStudent,
   onClearStudent,
   reportView = "",
@@ -69,36 +95,148 @@ export function TeacherReportsHubPage({
   });
   const [showing, setShowing] = useState(() => params.get("show") === "1");
   const [editingStep, setEditingStep] = useState(0);
+  const [studentSearch, setStudentSearch] = useState("");
+  const [studentPage, setStudentPage] = useState(1);
 
   const classHeadingRef = useRef(null);
   const whoHeadingRef = useRef(null);
   const styleHeadingRef = useRef(null);
+  const showButtonRef = useRef(null);
   const reportHeadingRef = useRef(null);
-  const unlockedStepRef = useRef(0);
+  const unlockedStepRef = useRef(null);
 
+  const classRead = getClassListReadView({
+    readState: classListReadState,
+    teacherId,
+    legacyLoading: loadingClasses
+  });
+  const visibleClassList = classRead.rowsVerified ? classList : [];
+  const rosterRead = getStudentRosterReadView({
+    readState: studentListReadState,
+    classId: selectedClassId,
+    legacyLoading: loadingStudents
+  });
+  const dashboardRead = getClassDashboardReadView({
+    readState: classDashboardReadState,
+    classId: selectedClassId
+  });
   const rows = useMemo(
-    () => studentDisplayRows(studentRows, studentList),
-    [studentRows, studentList]
+    () => {
+      const verifiedRosterRows = rosterRead.rowsBelongToClass ? studentList : [];
+      const verifiedDashboardRows = dashboardRead.rowsBelongToClass
+        ? studentRows.filter(row => (
+          !classDashboardReadState?.status
+          || String(row?.classId || "") === String(selectedClassId || "")
+        ))
+        : [];
+      return studentDisplayRows(
+        dashboardRead.complete ? verifiedDashboardRows : [],
+        verifiedRosterRows
+      );
+    },
+    [
+      classDashboardReadState?.status,
+      dashboardRead.complete,
+      dashboardRead.rowsBelongToClass,
+      rosterRead.rowsBelongToClass,
+      selectedClassId,
+      studentList,
+      studentRows
+    ]
   );
-  const hasClass = Boolean(selectedClassId);
-  // Same rule as the checks funnel: an empty class list only means "no classes"
-  // once the class request has finished. During a fresh sign-in it means the
-  // classes have not arrived yet.
-  const classesLoading = loadingClasses
-    || (classList.length === 0 && Boolean(selectedClassId));
+  const primaryReportViews = STUDENT_REPORT_VIEWS.filter(view => (
+    PRIMARY_REPORT_VIEW_IDS.includes(view.id)
+  ));
+  const additionalReportViews = STUDENT_REPORT_VIEWS.filter(view => (
+    !PRIMARY_REPORT_VIEW_IDS.includes(view.id)
+  ));
+  // Route hydration can briefly leave IDs from an earlier page in memory.
+  // Never treat an ID alone as a valid choice: the class and student must be in
+  // the lists the teacher currently owns before a report is allowed to render.
+  const hasClass = Boolean(
+    classRead.complete
+    &&
+    selectedClassId
+    && visibleClassList.some(row => row.id === selectedClassId)
+  );
+  const hasStudent = Boolean(
+    rosterRead.complete
+    &&
+    selectedStudentId
+    && rows.some(row => row.id === selectedStudentId)
+  );
+  const verifiedClassName = hasClass ? className : "";
   const wholeClass = who === WHOLE_CLASS;
-  const whoChosen = wholeClass || Boolean(selectedStudentId);
+  const whoChosen = (wholeClass && hasClass && rosterRead.complete)
+    || (hasClass && hasStudent);
   const styleChosen = wholeClass || Boolean(reportView);
-  const readyToShow = whoChosen && styleChosen;
+  const reportEvidenceReady = wholeClass
+    ? classReportEvidenceReady && dashboardRead.complete
+    : studentEvidenceReady;
+  const reportEvidenceLoading = wholeClass
+    ? classReportEvidenceLoading || dashboardRead.loading
+    : studentEvidenceStatus === "loading";
+  const readyToShow = hasClass
+    && whoChosen
+    && styleChosen
+    && reportEvidenceReady;
+  const reportChoiceComplete = hasClass && whoChosen && styleChosen;
+  const retryReportEvidence = wholeClass
+    ? onRetryClassReportEvidence || onRetryClassDashboard
+    : onRetryStudentEvidence;
   const currentStyle = STUDENT_REPORT_VIEWS.find(view => view.id === reportView) || null;
 
+  // Back, Forward, bookmarks and reloads are navigation inputs, not just URL
+  // decoration. Keep this mounted funnel's local "who/show" state and the
+  // parent report selection aligned with the address whenever history moves.
   useEffect(() => {
+    function restoreFromRoute(nextHash) {
+      const nextParams = readTeacherFunnelParams(nextHash);
+      const nextWho = nextParams.get("who") === WHOLE_CLASS
+        ? WHOLE_CLASS
+        : nextParams.get("learner") ? "student" : "";
+      const nextReport = nextParams.get("report") || "";
+      setWho(nextWho);
+      setShowing(nextParams.get("show") === "1");
+      setEditingStep(0);
+      setStudentSearch("");
+      setStudentPage(1);
+      onSelectReportView?.(REPORT_VIEW_IDS.has(nextReport) ? nextReport : "");
+    }
+
+    // `routeHash` is a deterministic initial-state input for SSR previews and
+    // unit tests. A live page reads the address directly and listens for real
+    // history events after mounting.
+    if (typeof routeHash === "string") return undefined;
+    const handleHistory = () => restoreFromRoute(window.location.hash);
+    window.addEventListener("hashchange", handleHistory);
+    window.addEventListener("popstate", handleHistory);
+    return () => {
+      window.removeEventListener("hashchange", handleHistory);
+      window.removeEventListener("popstate", handleHistory);
+    };
+  }, [onSelectReportView, routeHash]);
+
+  useEffect(() => {
+    if (!shouldWriteTeacherReportFunnelParams({
+      classReadComplete: classRead.complete,
+      rosterReadComplete: rosterRead.complete,
+      who
+    })) return;
     writeTeacherFunnelParams({
       who: wholeClass ? WHOLE_CLASS : "",
       report: wholeClass || !whoChosen ? "" : reportView,
       show: showing ? "1" : ""
     });
-  }, [reportView, showing, wholeClass, whoChosen]);
+  }, [
+    classRead.complete,
+    reportView,
+    rosterRead.complete,
+    showing,
+    wholeClass,
+    who,
+    whoChosen
+  ]);
 
   const openStep = editingStep
     || (!hasClass ? 1 : !whoChosen ? 2 : !styleChosen ? 3 : showing ? 0 : 4);
@@ -107,8 +245,17 @@ export function TeacherReportsHubPage({
     if (unlockedStepRef.current === openStep) return;
     const previous = unlockedStepRef.current;
     unlockedStepRef.current = openStep;
-    if (!previous) return;
-    const target = [reportHeadingRef, classHeadingRef, whoHeadingRef, styleHeadingRef, null][openStep]
+    // A normal first visit keeps the page heading as the entry point. A saved
+    // or reloaded open report is different: its chooser is hidden, so the
+    // visible report context heading must receive the initial route focus.
+    if (previous === null && openStep !== 0) return;
+    const target = [
+      reportHeadingRef,
+      classHeadingRef,
+      whoHeadingRef,
+      styleHeadingRef,
+      showButtonRef
+    ][openStep]
       || reportHeadingRef;
     target?.current?.focus({ preventScroll: true });
   }, [openStep]);
@@ -117,6 +264,8 @@ export function TeacherReportsHubPage({
     setWho("");
     setShowing(false);
     setEditingStep(0);
+    setStudentSearch("");
+    setStudentPage(1);
     onSelectReportView?.("");
     onSelectClass?.(nextClassId || null);
   }
@@ -133,39 +282,40 @@ export function TeacherReportsHubPage({
     setWho("student");
     setShowing(false);
     setEditingStep(0);
+    setStudentPage(1);
     onSelectReportView?.("");
     onSelectStudent?.(row.id, row.name);
   }
 
-  const classAnswer = hasClass ? (className || "Class chosen") : "";
-  const whoAnswer = wholeClass ? "Whole class" : selectedStudentName;
+  const classAnswer = hasClass ? (verifiedClassName || "Class chosen") : "";
+  const whoAnswer = wholeClass && hasClass
+    ? "Whole class"
+    : hasStudent ? selectedStudentName : "";
   const styleAnswer = wholeClass
     ? "Class summary"
     : currentStyle ? currentStyle.label : "";
+  // StudentReportShell owns the main landmark once an individual report is
+  // open. The funnel owns it in every other state, including class reports.
+  // This keeps exactly one, non-nested main landmark throughout the route.
+  const PageElement = showing && !wholeClass ? "div" : "main";
 
   return (
-    <div className="teacher-product-page teacher-funnel-page" data-teacher-funnel="reports">
+    <PageElement
+      className={`teacher-product-page teacher-funnel-page${showing ? " report-open" : ""}`}
+      data-teacher-funnel="reports"
+    >
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Reports</p>
           <h2>Open a report</h2>
           <p>
-            Three questions, top to bottom. Every answer stays on screen and can be changed;
-            changing one clears the answers below it.
+            Choose a class and who the report is for. Start with the short summary;
+            detailed reading and practice reports stay one tap away.
           </p>
         </div>
       </section>
 
-      {classesLoading ? (
-        <TeacherSurfaceState surface="progress" state="loading" />
-      ) : classList.length === 0 ? (
-        <TeacherSurfaceState
-          surface="progress"
-          state="empty"
-          onPrimaryAction={onOpenChecks}
-        />
-      ) : (
-        <div className="teacher-funnel">
+      <div className="teacher-funnel">
           <TeacherFunnelStep
             answer={classAnswer}
             help="Reports are always about one class at a time."
@@ -178,15 +328,38 @@ export function TeacherReportsHubPage({
             <label className="teacher-funnel-field">
               <span>Class</span>
               <select
+                disabled={!classRead.complete}
                 onChange={event => chooseClass(event.target.value)}
                 value={selectedClassId || ""}
               >
                 <option value="">Choose a class</option>
-                {classList.map(row => (
+                {visibleClassList.map(row => (
                   <option key={row.id} value={row.id}>{row.name}</option>
                 ))}
               </select>
             </label>
+            {classRead.loading ? (
+              <p className="teacher-funnel-step-help" role="status">Getting your classes…</p>
+            ) : classRead.failed ? (
+              <TeacherSurfaceState
+                compact
+                surface="progress"
+                state="partial"
+                detail={classRead.truncated
+                  ? "The full class list reached its safety limit. No missing class is being treated as absent."
+                  : "The class list could not be confirmed. Previously verified names are not being used as a complete list."}
+                onPrimaryAction={onRetryClasses}
+              />
+            ) : visibleClassList.length === 0 ? (
+              <div className="teacher-funnel-empty">
+                <p className="teacher-funnel-step-help">
+                  No classes are available yet. Create a class and add students first.
+                </p>
+                <button className="lp-button lp-button-secondary" onClick={onOpenClasses} type="button">
+                  Go to Students
+                </button>
+              </div>
+            ) : null}
           </TeacherFunnelStep>
 
           <TeacherFunnelStep
@@ -207,34 +380,75 @@ export function TeacherReportsHubPage({
                 <button
                   aria-pressed={wholeClass}
                   className="teacher-funnel-option teacher-funnel-option-wide"
+                  disabled={!rosterRead.complete}
                   onClick={chooseWholeClass}
                   type="button"
                 >
                   <strong>Whole class</strong>
-                  <span>Skill coverage across {className || "this class"}, who needs support, and a printable copy.</span>
+                  <span>Skill coverage across {verifiedClassName || "this class"}, who needs support, and a printable copy.</span>
                 </button>
               </li>
-              {loadingStudents ? (
+              {rosterRead.loading ? (
                 <li><p className="teacher-funnel-step-help">Getting the class list…</p></li>
+              ) : rosterRead.incomplete ? (
+                <li>
+                  <div className="teacher-funnel-empty" role="alert">
+                    <p className="teacher-funnel-step-help">
+                      {rosterRead.truncated
+                        ? "The full student list reached its safety limit. No student is being treated as absent."
+                        : "The student list could not be confirmed. No empty-class report is being offered."}
+                    </p>
+                    {onRetryStudents && (
+                      <button
+                        className="lp-button lp-button-secondary"
+                        onClick={() => onRetryStudents(selectedClassId)}
+                        type="button"
+                      >
+                        Try loading students again
+                      </button>
+                    )}
+                  </div>
+                </li>
               ) : rows.length === 0 ? (
                 <li>
                   <p className="teacher-funnel-step-help">
                     No students in this class yet. Add them under Students, then come back.
                   </p>
                 </li>
-              ) : rows.map(row => (
-                <li key={row.id}>
+              ) : (
+                <li className="teacher-funnel-student-picker">
+                  <TeacherFunnelStudentPicker
+                    onChoose={chooseStudent}
+                    onPageChange={setStudentPage}
+                    onSearchChange={value => {
+                      setStudentSearch(value);
+                      setStudentPage(1);
+                    }}
+                    page={studentPage}
+                    rows={rows}
+                    search={studentSearch}
+                    selectedStudentId={wholeClass ? "" : selectedStudentId}
+                  />
+                </li>
+              )}
+            </ul>
+            {rosterRead.complete && dashboardRead.failed && (
+              <div className="teacher-funnel-empty" role="alert">
+                <p className="teacher-funnel-step-help">
+                  Class progress summaries could not be confirmed. No previous class figure
+                  is being reused.
+                </p>
+                {onRetryClassDashboard && (
                   <button
-                    aria-pressed={!wholeClass && row.id === selectedStudentId}
-                    className="teacher-funnel-option"
-                    onClick={() => chooseStudent(row)}
+                    className="lp-button lp-button-secondary"
+                    onClick={() => onRetryClassDashboard(selectedClassId)}
                     type="button"
                   >
-                    <strong>{row.name}</strong>
+                    Try loading class progress again
                   </button>
-                </li>
-              ))}
-            </ul>
+                )}
+              </div>
+            )}
           </TeacherFunnelStep>
 
           <TeacherFunnelStep
@@ -260,8 +474,9 @@ export function TeacherReportsHubPage({
                 The class report has one form. Open it below.
               </p>
             ) : (
-              <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Kinds of report">
-                {STUDENT_REPORT_VIEWS.map(view => (
+              <div className="teacher-report-choice-groups">
+              <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Main reports">
+                {primaryReportViews.map(view => (
                   <li key={view.id}>
                     <button
                       aria-pressed={view.id === reportView}
@@ -279,6 +494,34 @@ export function TeacherReportsHubPage({
                   </li>
                 ))}
               </ul>
+              {additionalReportViews.length > 0 && (
+                <details
+                  className="teacher-report-more-views"
+                  open={additionalReportViews.some(view => view.id === reportView) || undefined}
+                >
+                  <summary>Reading and practice detail</summary>
+                  <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Detailed reports">
+                    {additionalReportViews.map(view => (
+                      <li key={view.id}>
+                        <button
+                          aria-pressed={view.id === reportView}
+                          className="teacher-funnel-option"
+                          onClick={() => {
+                            setShowing(false);
+                            setEditingStep(0);
+                            onSelectReportView?.(view.id);
+                          }}
+                          type="button"
+                        >
+                          <strong>{view.label}</strong>
+                          <span>{STYLE_QUESTIONS[view.id] || view.description}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )}
+              </div>
             )}
           </TeacherFunnelStep>
 
@@ -291,11 +534,24 @@ export function TeacherReportsHubPage({
               <button
                 className="lp-button lp-button-primary"
                 onClick={() => setShowing(true)}
+                ref={showButtonRef}
                 type="button"
               >
                 Show the report
               </button>
             </div>
+          )}
+
+          {reportChoiceComplete && !reportEvidenceReady && (
+            <TeacherSurfaceState
+              compact
+              surface="progress"
+              state={reportEvidenceLoading ? "loading" : "partial"}
+              detail={wholeClass
+                ? "The class report will open when the roster and every saved class result have been confirmed."
+                : `${selectedStudentName || "This student"}'s report will open when every saved result has been confirmed.`}
+              onPrimaryAction={reportEvidenceLoading ? undefined : retryReportEvidence}
+            />
           )}
 
           {readyToShow && showing && (
@@ -304,13 +560,23 @@ export function TeacherReportsHubPage({
               className="teacher-funnel-report"
             >
               <h3 id="teacher-funnel-report-title" ref={reportHeadingRef} tabIndex="-1">
-                {wholeClass ? `${className || "This class"} · class report` : `${selectedStudentName} · ${styleAnswer}`}
+                {wholeClass ? `${verifiedClassName || "This class"} · class report` : `${selectedStudentName} · ${styleAnswer}`}
               </h3>
-              {wholeClass ? renderClassReport?.() : renderStudentReport?.(reportView)}
+              {wholeClass
+                ? renderClassReport?.(() => {
+                    setShowing(false);
+                    setEditingStep(2);
+                  })
+                : renderStudentReport?.(reportView, () => {
+                    // The report is embedded in this funnel. "Back to reports"
+                    // must reopen the report choice in this section, not send
+                    // the teacher to a different navigation section.
+                    setShowing(false);
+                    setEditingStep(3);
+                  })}
             </section>
           )}
-        </div>
-      )}
-    </div>
+      </div>
+    </PageElement>
   );
 }

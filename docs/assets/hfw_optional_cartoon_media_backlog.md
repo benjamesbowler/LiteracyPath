@@ -1,6 +1,6 @@
-# Kimi Approved HFW Missing Cartoon Media Request
+# Optional HFW Cartoon Media Backlog
 
-Create only clean cartoon LiteracyPath-style images. No photorealism, embedded text, watermarks, logos, rainbow/babyish style, AI slop, extra hands/fingers/limbs, or distorted faces.
+These images are optional enhancements. Current HFW questions are valid with no image. If a scene is created later, use only clean cartoon LiteracyPath-style artwork: no photorealism, embedded text, watermarks, logos, rainbow/babyish style, low-quality artefacts, extra hands/fingers/limbs, or distorted faces.
 
 | Question ID | Skill | Target | Level | Sentence | Suggested Path | Prompt |
 |---|---|---|---:|---|---|---|

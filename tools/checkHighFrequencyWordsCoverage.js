@@ -1,36 +1,58 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
 import {
-  getQuestionChoices,
-  getSkillBankItems,
-  runtimeQuestionSignature
-} from "../src/content/skillMedia/skillAssetRegistry.js";
+  getAssessmentSkillGroup,
+  loadHfwAssessmentBank
+} from "../src/data/loadAssessmentSkillBank.js";
+import {
+  HFW_ALLOWED_FORMATS
+} from "../src/data/hfwRuntimeEligibility.js";
+import {
+  HFW_WORD_BANDS,
+  getHfwBandWords
+} from "../src/data/highFrequencyWordBands.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, "..");
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const reportPath = path.join(repoRoot, "docs", "validation", "high_frequency_words_coverage_audit.md");
 const roundLength = 15;
-const canonicalSkillId = "high_frequency_words";
-const acceptedTemplates = new Set([
-  "LISTEN_FIND_WORD",
-  "READ_FIND_WORD",
-  "COMPREHENSION",
-  "FILL_MISSING_WORD",
-  "MATCH_WORD_TO_AUDIO",
-  "SENTENCE_RECOGNITION",
-  "SPELL_SIGHT_WORD",
-  "UNKNOWN",
-  "cloze_choice",
-  "multiple_choice"
-]);
+const skillIds = Object.keys(HFW_WORD_BANDS);
 
-function write(filePath, content) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, content);
+function normalize(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 }
 
-function markdownTable(headers, rows) {
+function levelOf(question = {}) {
+  return Number(question.level || question.assessmentLevel || question.difficultyLevel || 1) >= 2 ? 2 : 1;
+}
+
+function formatOf(question = {}) {
+  return String(question.formatType || question.templateType || question.questionType || "UNKNOWN").toUpperCase();
+}
+
+function targetOf(question = {}) {
+  return normalize(question.targetWord || question.itemKey || question.correctAnswer || question.answer);
+}
+
+function choicesOf(question = {}) {
+  const raw = question.answerOptions?.length
+    ? question.answerOptions
+    : question.options?.length
+      ? question.options
+      : question.choices || [];
+  return raw.map(choice => normalize(
+    choice && typeof choice === "object"
+      ? choice.value || choice.word || choice.label || choice.text || choice.answer
+      : choice
+  )).filter(Boolean);
+}
+
+function table(headers, rows) {
   if (!rows.length) return "_None._";
   return [
     `| ${headers.join(" | ")} |`,
@@ -39,129 +61,164 @@ function markdownTable(headers, rows) {
   ].join("\n");
 }
 
-function normalize(value = "") {
-  return String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
-}
-
-function getTemplate(item) {
-  const raw = item.raw || {};
-  return raw.templateType || raw.formatType || raw.questionType || "UNKNOWN";
-}
-
-function buildRound(items) {
+function sampleRound(items = [], level = 1) {
   const selected = [];
   const usedTargets = new Set();
-  const shuffled = [...items].sort((a, b) => {
-    const levelDiff = Number(a.level || 1) - Number(b.level || 1);
-    if (levelDiff) return levelDiff;
-    return String(a.id).localeCompare(String(b.id));
-  });
-
-  for (const item of shuffled) {
-    if (selected.length >= roundLength) break;
-    if (usedTargets.has(item.target)) continue;
-    selected.push(item);
-    usedTargets.add(item.target);
+  for (const question of items.filter(item => levelOf(item) === level)) {
+    const target = targetOf(question);
+    if (!target || usedTargets.has(target)) continue;
+    usedTargets.add(target);
+    selected.push(question);
+    if (selected.length === roundLength) break;
   }
-
-  if (selected.length < roundLength) {
-    for (const item of shuffled) {
-      if (selected.length >= roundLength) break;
-      if (selected.some(existing => existing.id === item.id)) continue;
-      selected.push(item);
-    }
-  }
-
   return selected;
 }
 
-const allItems = getSkillBankItems();
-const hfwItems = allItems.filter(item => item.skillId === canonicalSkillId);
-const activeItems = hfwItems.filter(item => item.active !== false);
-const signatures = activeItems.map(item => item.signature || runtimeQuestionSignature(item.raw || item));
-const duplicateSignatures = [...new Set(signatures.filter((signature, index) => signature && signatures.indexOf(signature) !== index))];
-const uniqueTargets = [...new Set(activeItems.map(item => item.target || normalize(item.targetWord)).filter(Boolean))].sort();
-const byLevel = {};
-const byTemplate = {};
 const failures = [];
-const warnings = [];
-const invalidRows = [];
+const summaryRows = [];
+const perTargetRows = [];
+const sampleRows = [];
+let totalQuestions = 0;
+const totalTargets = new Set();
 
-activeItems.forEach(item => {
-  const template = getTemplate(item);
-  byLevel[item.level] = (byLevel[item.level] || 0) + 1;
-  byTemplate[template] = (byTemplate[template] || 0) + 1;
+for (const skillId of skillIds) {
+  const configuredWords = getHfwBandWords(skillId).map(normalize);
+  const configuredWordSet = new Set(configuredWords);
+  const questions = await loadHfwAssessmentBank(skillId);
+  const questionIds = questions.map(question => String(question.id || question.questionId || "")).filter(Boolean);
+  const targets = new Set(questions.map(targetOf).filter(Boolean));
+  const levelOne = questions.filter(question => levelOf(question) === 1);
+  const levelTwo = questions.filter(question => levelOf(question) === 2);
+  const levelOneRound = sampleRound(questions, 1);
+  const levelTwoRound = sampleRound(questions, 2);
+  const missingTargets = configuredWords.filter(word => !targets.has(word));
+  const outsideTargets = [...targets].filter(word => !configuredWordSet.has(word));
+  const missingByLevel = { 1: [], 2: [] };
 
-  const choices = getQuestionChoices(item.raw || {});
-  const correct = normalize(item.correctAnswer || item.raw?.correctAnswer || item.raw?.answer);
-  if (!correct) {
-    invalidRows.push([item.id, item.level, template, item.targetWord, "Missing correct answer."]);
+  totalQuestions += questions.length;
+  targets.forEach(target => totalTargets.add(target));
+
+  if (getAssessmentSkillGroup(skillId) !== "hfw") {
+    failures.push(`${skillId}: assessment routing is not the HFW group.`);
   }
-  if (choices.length && !choices.map(normalize).includes(correct)) {
-    invalidRows.push([item.id, item.level, template, item.targetWord, `Correct answer "${correct}" is not in visible options.`]);
+  if (configuredWords.length !== 25 || configuredWordSet.size !== 25) {
+    failures.push(`${skillId}: approved curriculum must contain 25 unique words, found ${configuredWordSet.size}.`);
   }
-  if (choices.length && new Set(choices.map(normalize)).size !== choices.length) {
-    invalidRows.push([item.id, item.level, template, item.targetWord, "Duplicate answer options."]);
+  if (missingTargets.length) {
+    failures.push(`${skillId}: live runtime has no question for ${missingTargets.join(", ")}.`);
   }
-  if (!acceptedTemplates.has(template)) {
-    warnings.push(`${item.id}: template ${template} is not in the preferred HFW template list; review if this is not a pure sight-word task.`);
+  if (outsideTargets.length) {
+    failures.push(`${skillId}: live runtime exposes words outside the approved band: ${outsideTargets.join(", ")}.`);
   }
-});
+  if (levelOneRound.length !== roundLength || levelTwoRound.length !== roundLength) {
+    failures.push(`${skillId}: cannot build a ${roundLength}-question round at both levels.`);
+  }
+  if (new Set(questionIds).size !== questionIds.length) {
+    failures.push(`${skillId}: live runtime contains duplicate question IDs.`);
+  }
 
-const sampleRound = buildRound(activeItems);
+  for (const word of configuredWords) {
+    const wordRows = questions.filter(question => targetOf(question) === word);
+    const levelOneCount = wordRows.filter(question => levelOf(question) === 1).length;
+    const levelTwoCount = wordRows.filter(question => levelOf(question) === 2).length;
+    if (!levelOneCount) missingByLevel[1].push(word);
+    if (!levelTwoCount) missingByLevel[2].push(word);
+    perTargetRows.push([skillId, word, levelOneCount, levelTwoCount, levelOneCount + levelTwoCount]);
+  }
 
-if (activeItems.length < 150) failures.push(`High Frequency Words has ${activeItems.length} active questions; expected at least 150.`);
-if (uniqueTargets.length < 45) failures.push(`High Frequency Words has ${uniqueTargets.length} unique target words; expected at least 45 for Pre-Primer/Primer coverage.`);
-if (sampleRound.length < roundLength) failures.push(`High Frequency Words can only build a ${sampleRound.length}-question round; expected ${roundLength}.`);
-if (duplicateSignatures.length) warnings.push(`Duplicate-equivalent HFW signatures detected: ${duplicateSignatures.length}. Runtime selector should canonicalize these.`);
-if (invalidRows.length) failures.push(`${invalidRows.length} active HFW questions have invalid answer structure.`);
+  for (const level of [1, 2]) {
+    if (missingByLevel[level].length) {
+      failures.push(`${skillId}: Level ${level} has no live question for ${missingByLevel[level].join(", ")}.`);
+    }
+  }
 
-const doc = `# High Frequency Words Coverage Audit
+  for (const question of questions) {
+    const id = question.id || question.questionId || "(missing id)";
+    const target = targetOf(question);
+    const answer = normalize(question.correctAnswer || question.answer);
+    const choices = choicesOf(question);
+    const format = formatOf(question);
+    if (!id || id === "(missing id)") failures.push(`${skillId}: a live question is missing its ID.`);
+    if (question.source !== "approved_hfw_workbook") failures.push(`${skillId}/${id}: source is not the approved HFW workbook.`);
+    if (!HFW_ALLOWED_FORMATS.has(format)) failures.push(`${skillId}/${id}: format ${format} is not HFW-safe.`);
+    if (!target || !configuredWordSet.has(target)) failures.push(`${skillId}/${id}: target "${target}" is not in the approved band.`);
+    if (answer !== target) failures.push(`${skillId}/${id}: answer "${answer}" does not match target "${target}".`);
+    if (levelOf(question) === 1) {
+      if (choices.length !== 4 || new Set(choices).size !== 4 || !choices.includes(answer)) {
+        failures.push(`${skillId}/${id}: Level 1 choices are not four unique options containing the answer.`);
+      }
+    }
+    if (question.audio || question.audioUrl || question.audioPath) {
+      failures.push(`${skillId}/${id}: no-audio HFW question exposes a playable audio path.`);
+    }
+  }
+
+  summaryRows.push([
+    skillId,
+    configuredWordSet.size,
+    questions.length,
+    targets.size,
+    levelOne.length,
+    levelTwo.length,
+    `${levelOneRound.length}/${roundLength}`,
+    `${levelTwoRound.length}/${roundLength}`,
+    missingTargets.length
+  ]);
+  for (const [level, rows] of [[1, levelOneRound], [2, levelTwoRound]]) {
+    sampleRows.push(...rows.map(question => [
+      skillId,
+      level,
+      question.id || question.questionId,
+      targetOf(question),
+      formatOf(question)
+    ]));
+  }
+}
+
+if (totalTargets.size !== 100) {
+  failures.push(`Live HFW runtime covers ${totalTargets.size}/100 unique approved words.`);
+}
+
+const report = `# High-Frequency Words Coverage Audit
 
 Generated: ${new Date().toISOString()}
 
+This audit reads the same published, eligibility-filtered HFW banks used by a live assessment. It does not count legacy or non-published question files.
+
 ## Summary
 
-- Canonical skill id: \`${canonicalSkillId}\`
-- Aliases accepted by the skill registry: \`sight_words\`, \`highFrequencyWords\`, \`hfw\`, \`hfw_1_25\`, \`hfw_26_50\`, \`hfw_51_100\`
-- Active HFW questions: ${activeItems.length}
-- Unique target words: ${uniqueTargets.length}
-- Sample round size: ${sampleRound.length}/${roundLength}
-- Duplicate-equivalent signatures: ${duplicateSignatures.length}
+- Approved bands: ${skillIds.length}
+- Approved words: ${Object.values(HFW_WORD_BANDS).flat().length}
+- Live eligible questions: ${totalQuestions}
+- Live unique targets: ${totalTargets.size}/100
 - Structural failures: ${failures.length}
-- Warnings: ${warnings.length}
 
-## Counts By Level
+${table(
+    ["Skill", "Approved words", "Live questions", "Live targets", "Level 1", "Level 2", "L1 round", "L2 round", "Missing targets"],
+    summaryRows
+  )}
 
-${markdownTable(["Level", "Active Questions"], Object.entries(byLevel).sort(([a], [b]) => Number(a) - Number(b)).map(([level, count]) => [level, count]))}
+## Coverage by target
 
-## Counts By Template
+${table(["Skill", "Word", "Level 1 questions", "Level 2 questions", "Total"], perTargetRows)}
 
-${markdownTable(["Template", "Active Questions"], Object.entries(byTemplate).sort(([a], [b]) => a.localeCompare(b)).map(([template, count]) => [template, count]))}
+## Deterministic sample rounds
 
-## Sample 15-Question Round
+${table(["Skill", "Level", "Question ID", "Target", "Format"], sampleRows)}
 
-${markdownTable(["Question ID", "Level", "Target Word", "Template"], sampleRound.map(item => [item.id, item.level, item.targetWord || item.target, getTemplate(item)]))}
+## Failures
 
-## Invalid Active Questions
-
-${markdownTable(["Question ID", "Level", "Template", "Target Word", "Issue"], invalidRows)}
-
-## Warnings
-
-${warnings.length ? warnings.map(warning => `- ${warning}`).join("\n") : "_None._"}
+${failures.length ? failures.map(failure => `- ${failure}`).join("\n") : "_None._"}
 `;
 
-write(path.join(rootDir, "docs", "validation", "high_frequency_words_coverage_audit.md"), doc);
-
-console.log(`High Frequency Words active questions: ${activeItems.length}`);
-console.log(`High Frequency Words unique targets: ${uniqueTargets.length}`);
-console.log(`Sample round size: ${sampleRound.length}/${roundLength}`);
-console.log("Wrote docs/validation/high_frequency_words_coverage_audit.md");
+fs.writeFileSync(reportPath, report);
+console.log(`High-Frequency Words live questions: ${totalQuestions}`);
+console.log(`High-Frequency Words live targets: ${totalTargets.size}/100`);
+console.log(`Wrote ${path.relative(repoRoot, reportPath)}`);
 
 if (failures.length) {
   failures.forEach(failure => console.error(`- ${failure}`));
   process.exit(1);
 }
 
-console.log("High Frequency Words coverage audit passed.");
+console.log("High-Frequency Words coverage audit passed.");

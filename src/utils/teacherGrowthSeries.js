@@ -13,38 +13,38 @@ const POLICY_MIN_ITEM_OBSERVATIONS =
 export const GROWTH_METRICS = Object.freeze([
   {
     id: "skill-acquisition",
-    label: "Skill acquisition",
-    shortLabel: "Acquisition",
+    label: "Skills learned",
+    shortLabel: "Skills learned",
     unit: "skills",
-    description: `Cumulative skills first demonstrated as Secure (${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}% or better) across at least ${POLICY_MIN_RESPONSES} scored responses.`
+    description: `Skills first shown as Secure after at least ${POLICY_MIN_RESPONSES} scored answers at ${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}% accuracy or better.`
   },
   {
     id: "retention",
     label: "Retention",
     shortLabel: "Retention",
     unit: "%",
-    description: "Accuracy when a previously acquired skill is checked again; monthly points average repeated checks."
+    description: "Accuracy when a Secure skill is assessed again. Each monthly point averages those later assessments."
   },
   {
     id: "fluency",
     label: "Fluency",
     shortLabel: "Fluency",
     unit: "WCPM",
-    description: "Saved words-correct-per-minute evidence from completed oral-reading-fluency checks."
+    description: "Saved words-correct-per-minute results from completed oral-reading-fluency assessments."
   },
   {
     id: "support-dependence",
-    label: "Support dependence",
-    shortLabel: "Support use",
+    label: "Answers with support",
+    shortLabel: "Support used",
     unit: "%",
-    description: `Share of responses explicitly recorded as supported; lower values mean less recorded support. A check contributes only once it has at least ${LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts} recorded observations, and monthly points weight each check by how many it recorded.`
+    description: `Share of answers recorded as supported. An assessment is included after at least ${LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts} recorded observations; monthly points give more weight to assessments with more answers.`
   },
   {
     id: "intervention-response",
     label: "Intervention response",
     shortLabel: "Interventions",
     unit: "response",
-    description: "Reviewed outcomes over time: ineffective 0, partial 50, effective 100."
+    description: "How reviewed support plans changed over time: ineffective, partly effective, or effective."
   }
 ]);
 
@@ -357,7 +357,7 @@ function decorateSeries(metric, points, domain) {
       y: 100 - (point.value / yMax) * 100
     })),
     yMax,
-    current: points.length ? formatValue(metric, points.at(-1).value, points.at(-1).detail) : "No evidence",
+    current: points.length ? formatValue(metric, points.at(-1).value, points.at(-1).detail) : "No results",
     change: points.length >= 2
       ? Math.round((points.at(-1).value - points[0].value) * 10) / 10
       : null

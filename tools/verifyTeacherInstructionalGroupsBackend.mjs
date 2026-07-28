@@ -247,7 +247,9 @@ async function main() {
   } finally {
     if (interventionId) {
       requireNoError(
-        await teacherA.from("teacher_interventions").delete().eq("id", interventionId),
+        await teacherA.rpc("teacher_delete_planned_intervention", {
+          p_intervention_id: interventionId
+        }),
         "Backend verifier intervention cleanup"
       );
     }

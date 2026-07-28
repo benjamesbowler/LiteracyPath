@@ -10,19 +10,24 @@ export const CLASS_TABLES = new Set([
   "classes",
   "pending_teacher_accounts",
   "schools",
-  "students"
+  "students",
+  "teacher_account_decision_events"
 ]);
 
 export const CLASS_RPCS = new Set([
+  "admin_set_teacher_account_status",
   "student_class_by_code",
   "student_login",
   "teacher_class_access_log",
   "teacher_class_access_summary",
   "teacher_create_demo_class",
+  "teacher_delete_empty_class",
   "teacher_regenerate_class_code",
   "teacher_set_class_code_expiry",
   "teacher_set_class_leaderboard_scope",
-  "teacher_set_student_archived"
+  "teacher_set_student_archived",
+  "teacher_set_student_symbol_password",
+  "teacher_transfer_student"
 ]);
 
 export function validateClassRow(row, label) {
@@ -36,6 +41,15 @@ export function validateClassRow(row, label) {
     symbol_password: ["array", "string"],
     approved: "boolean",
     ok: "boolean"
+    ,
+    account_id: "string",
+    teacher_user_id: "string",
+    previous_status: "string",
+    decision_status: "string",
+    reason: "string",
+    school_name: "string",
+    decided_by: "string",
+    decided_at: "string"
   }, label);
 }
 

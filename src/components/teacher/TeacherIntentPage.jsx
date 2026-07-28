@@ -1,4 +1,5 @@
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
+import { getClassListReadView } from "../../appState/classListReadState.js";
 import { TeacherSurfaceState } from "./ui/TeacherSurfaceState.jsx";
 import {
   TeacherPageHeader,
@@ -21,16 +22,16 @@ function buildIntentActions({ onOpenWorksheets, onOpenPresent }) {
       id: "worksheets",
       category: "Print",
       label: "Worksheets",
-      description: "Create printable practice directly from the curriculum sequence.",
-      requiresStudent: false,
+      description: "Choose a teaching cycle and create printable class practice.",
+      actionLabel: "Build a worksheet",
       onOpen: onOpenWorksheets
     },
     {
       id: "present",
       category: "Whole class",
       label: "Present",
-      description: "Open projector-ready teaching slides for the current cycle.",
-      requiresStudent: false,
+      description: "Choose a teaching cycle and open projector-ready class slides.",
+      actionLabel: "Open a presentation",
       onOpen: onOpenPresent
     }
   ];
@@ -40,21 +41,15 @@ export function TeacherIntentPage({
   intent,
   className = "",
   classList = [],
+  classListReadState = null,
+  teacherId,
   selectedClassId = "",
   loadingClasses = false,
+  onRetryClasses,
   onSelectClass,
-  progressRows = [],
-  selectedLearnerId = "",
-  studentName = "",
-  onSelectLearner,
-  onClearLearner,
   onOpenClasses,
   onOpenWorksheets,
-  onOpenPresent,
-  surfaceState = "",
-  surfaceStateDetail = "",
-  onSurfaceStatePrimary,
-  onSurfaceStateSecondary
+  onOpenPresent
 }) {
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
@@ -68,10 +63,17 @@ export function TeacherIntentPage({
   // while the class request is still running, so an established teacher was still told to
   // create their first class. loadingClasses is the real signal; the id check stays as a
   // fallback for the frame before the request starts.
-  const classesPending = loadingClasses
-    || (classList.length === 0 && Boolean(selectedClassId));
-  const hasClasses = classList.length > 0;
-  const hasStudents = progressRows.length > 0;
+  const classRead = getClassListReadView({
+    readState: classListReadState,
+    teacherId,
+    legacyLoading: loadingClasses
+  });
+  const visibleClassList = classRead.rowsVerified ? classList : [];
+  const classesPending = classRead.loading;
+  const hasClasses = classRead.complete && visibleClassList.length > 0;
+  const verifiedClassName = visibleClassList.some(row => row.id === selectedClassId)
+    ? className
+    : "";
   const actions = buildIntentActions({ onOpenWorksheets, onOpenPresent });
 
   return (
@@ -86,66 +88,38 @@ export function TeacherIntentPage({
       >
         <div className="teacher-dashboard-context" aria-label={INTENT_COPY.contextLabel}>
           <span>Current context</span>
-          <strong>{className || INTENT_COPY.chooseClass}</strong>
-          {/* Both pickers live here. Previously the class was a read-only label and the
-              student picker only appeared once class rows happened to be loaded — which
-              nothing on this route ever did, so every student-requiring action was a dead
-              button with no picker above it. */}
-          {onSelectClass && hasClasses && (
+          <strong>{verifiedClassName || INTENT_COPY.chooseClass}</strong>
+          {onSelectClass && visibleClassList.length > 0 && (
             <label className="teacher-context-class">
               <select
                 aria-label={INTENT_COPY.classFieldLabel}
+                disabled={!classRead.complete}
                 onChange={event => onSelectClass(event.target.value || null)}
                 value={selectedClassId || ""}
               >
                 <option value="">{INTENT_COPY.chooseClass}</option>
-                {classList.map(row => (
+                {visibleClassList.map(row => (
                   <option key={row.id} value={row.id}>{row.name}</option>
                 ))}
               </select>
             </label>
           )}
-          {onSelectLearner && hasStudents ? (
-            <label className="teacher-context-student">
-              <select
-                aria-label={INTENT_COPY.studentFieldLabel}
-                onChange={event => {
-                  const row = progressRows.find(item => String(item.id) === event.target.value);
-                  if (row) onSelectLearner(row.id, row.name);
-                }}
-                value={selectedLearnerId || ""}
-              >
-                <option value="">{INTENT_COPY.studentPlaceholder}</option>
-                {progressRows.map(row => (
-                  <option key={row.id} value={row.id}>{row.name}</option>
-                ))}
-              </select>
-            </label>
-          ) : (
-            <small>
-              {studentName ? INTENT_COPY.selectedStudent(studentName) : INTENT_COPY.noStudentSelected}
-            </small>
-          )}
-          {selectedLearnerId && onClearLearner && (
-            <button className="text-button" type="button" onClick={onClearLearner}>
-              {INTENT_COPY.clearStudent}
-            </button>
-          )}
+          <small>Whole-class tools</small>
         </div>
       </TeacherPageHeader>
 
-      {surfaceState ? (
-        <TeacherSurfaceState
-          surface={intent}
-          state={surfaceState}
-          detail={surfaceStateDetail}
-          onPrimaryAction={onSurfaceStatePrimary}
-          onSecondaryAction={onSurfaceStateSecondary}
-        />
-      ) : (
-        <>
+      <>
           {classesPending ? (
             <TeacherSurfaceState surface={intent} state="loading" />
+          ) : classRead.failed ? (
+            <TeacherSurfaceState
+              surface={intent}
+              state="partial"
+              detail={classRead.truncated
+                ? "The full class list reached its safety limit, so no missing class is being treated as absent."
+                : "The class list could not be confirmed. Previously verified class names remain visible, but tools are paused until the list reloads."}
+              onPrimaryAction={onRetryClasses}
+            />
           ) : !hasClasses ? (
             <section className="teacher-intent-empty" aria-label={INTENT_COPY.noClassesTitle}>
               <h2>{INTENT_COPY.noClassesTitle}</h2>
@@ -161,49 +135,30 @@ export function TeacherIntentPage({
               <h2>{INTENT_COPY.chooseClassTitle}</h2>
               <p>{INTENT_COPY.chooseClassBody}</p>
             </section>
-          ) : !hasStudents ? (
-            <section className="teacher-intent-empty" aria-label={INTENT_COPY.noStudentsTitle(className || INTENT_COPY.chooseClass)}>
-              <h2>{INTENT_COPY.noStudentsTitle(className || INTENT_COPY.chooseClass)}</h2>
-              <p>{INTENT_COPY.noStudentsBody}</p>
-              {onOpenClasses && (
-                <button className="lp-button lp-button-primary" type="button" onClick={onOpenClasses}>
-                  {INTENT_COPY.noStudentsAction}
-                </button>
-              )}
-            </section>
           ) : (
             <section className="teacher-intent-actions" aria-label={`${copy.eyebrow} tools`}>
               <p className="teacher-intent-class-summary">
-                {INTENT_COPY.classSummary(className, progressRows.length)}
+                {INTENT_COPY.classSummary(verifiedClassName)}
               </p>
-              {actions.map(action => {
-                const needsLearner = action.requiresStudent && !studentName;
-                return (
-                  <article className="teacher-action-card" key={action.id}>
-                    <div>
-                      <p className="panel-label">{action.category}</p>
-                      <h3>{action.label}</h3>
-                      <p>{action.description}</p>
-                      {needsLearner && (
-                        <small className="muted-text">Pick a student above to continue.</small>
-                      )}
-                    </div>
-                    <button
-                      className="lp-button lp-button-secondary"
-                      disabled={needsLearner}
-                      onClick={action.onOpen}
-                      type="button"
-                    >
-                      {action.actionLabel || "Open"}
-                    </button>
-                  </article>
-                );
-              })}
+              {actions.map(action => (
+                <article className="teacher-action-card" key={action.id}>
+                  <div>
+                    <p className="panel-label">{action.category}</p>
+                    <h3>{action.label}</h3>
+                    <p>{action.description}</p>
+                  </div>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    onClick={action.onOpen}
+                    type="button"
+                  >
+                    {action.actionLabel || "Open"}
+                  </button>
+                </article>
+              ))}
             </section>
           )}
-
-        </>
-      )}
+      </>
     </TeacherPageShell>
   );
 }

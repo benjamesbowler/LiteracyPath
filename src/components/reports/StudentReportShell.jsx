@@ -7,17 +7,26 @@ import {
 } from "./studentReportUiUtils.js";
 import { ActionFeedback } from "../ActionFeedback.jsx";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
+import { teacherReportText } from "./teacherReportCopy.jsx";
 
 const SHELL_COPY = TEACHER_COPY.reportShell;
+const PRIMARY_REPORT_IDS = new Set([
+  "whole-child",
+  "skills-check",
+  "hfw",
+  "el-assessments"
+]);
 
 export function StudentReportShell({
   activeView,
+  backLabel = "Back",
   buildViewHref = studentReportHash,
   children,
   className = "",
   exportDisabled = false,
   exportLabel = "Download spreadsheet data",
   feedback = null,
+  focusHeadingOnMount = false,
   generatedLabel = "",
   headingDescription = "",
   headingLabel = "",
@@ -25,9 +34,10 @@ export function StudentReportShell({
   onExport,
   onPrint,
   onStartAssessment,
+  printDisabled = false,
   provenanceRows = [],
   readHistoryView = readStudentReportHash,
-  startAssessmentLabel = "Start check",
+  startAssessmentLabel = "Start an assessment",
   onViewChange,
   statusMessage = "",
   studentName
@@ -35,6 +45,13 @@ export function StudentReportShell({
   const headingRef = useRef(null);
   const previousViewRef = useRef(activeView);
   const current = STUDENT_REPORT_VIEWS.find(view => view.id === activeView) || STUDENT_REPORT_VIEWS[0];
+  const primaryViews = STUDENT_REPORT_VIEWS.filter(view => PRIMARY_REPORT_IDS.has(view.id));
+  const additionalViews = STUDENT_REPORT_VIEWS.filter(view => !PRIMARY_REPORT_IDS.has(view.id));
+
+  useEffect(() => {
+    if (!focusHeadingOnMount) return;
+    headingRef.current?.focus({ preventScroll: true });
+  }, [focusHeadingOnMount]);
 
   useEffect(() => {
     if (previousViewRef.current === activeView) return;
@@ -69,14 +86,14 @@ export function StudentReportShell({
     <div className="lg-report-shell">
       <header className="lg-report-topbar screen-only">
         <div className="lg-report-topbar-copy">
-          <span className="lg-report-product-label">{SHELL_COPY.productLabel}</span>
+          <span className="lg-report-product-label">{teacherReportText(SHELL_COPY.productLabel)}</span>
           <strong>{studentName || SHELL_COPY.fallbackStudent}</strong>
           {className && <span>{className}</span>}
         </div>
         <div className="lg-report-actions" aria-label="Report actions">
           {onBack && (
             <button className="lg-report-button secondary" onClick={onBack} type="button">
-              Teacher dashboard
+              {backLabel}
             </button>
           )}
           {onStartAssessment && (
@@ -84,7 +101,12 @@ export function StudentReportShell({
               {startAssessmentLabel}
             </button>
           )}
-          <button className="lg-report-button secondary" onClick={onPrint || (() => window.print())} type="button">
+          <button
+            className="lg-report-button secondary"
+            disabled={printDisabled}
+            onClick={onPrint || (() => window.print())}
+            type="button"
+          >
             Print or save PDF
           </button>
           {onExport && (
@@ -102,26 +124,48 @@ export function StudentReportShell({
             <span>{SHELL_COPY.viewHelp}</span>
           </div>
           <div className="lg-report-nav-links">
-            {STUDENT_REPORT_VIEWS.map(view => (
+            {primaryViews.map(view => (
               <a
                 aria-current={view.id === activeView ? "page" : undefined}
                 href={buildViewHref(view.id) || studentReportHash(view.id)}
                 key={view.id}
                 onClick={event => {
                   event.preventDefault();
-                  selectView(view.id);
+                selectView(view.id);
                 }}
               >
-                <strong>{view.shortLabel}</strong>
-                <span>{view.description}</span>
+                <strong>{teacherReportText(view.shortLabel)}</strong>
+                <span>{teacherReportText(view.description)}</span>
               </a>
             ))}
           </div>
+          <details
+            className="lg-report-nav-more"
+            open={additionalViews.some(view => view.id === activeView) || undefined}
+          >
+            <summary>Reading and practice detail</summary>
+            <div>
+              {additionalViews.map(view => (
+                <a
+                  aria-current={view.id === activeView ? "page" : undefined}
+                  href={buildViewHref(view.id) || studentReportHash(view.id)}
+                  key={view.id}
+                  onClick={event => {
+                    event.preventDefault();
+                    selectView(view.id);
+                  }}
+                >
+                  <strong>{teacherReportText(view.shortLabel)}</strong>
+                  <span>{teacherReportText(view.description)}</span>
+                </a>
+              ))}
+            </div>
+          </details>
           <label className="lg-report-mobile-select">
             <span>{SHELL_COPY.viewLabel}</span>
             <select value={activeView} onChange={event => selectView(event.target.value)}>
               {STUDENT_REPORT_VIEWS.map(view => (
-                <option key={view.id} value={view.id}>{view.label}</option>
+                <option key={view.id} value={view.id}>{teacherReportText(view.label)}</option>
               ))}
             </select>
           </label>
@@ -131,8 +175,8 @@ export function StudentReportShell({
           <div className="lg-report-view-heading">
             <div>
               <p>{studentName || SHELL_COPY.fallbackStudent}</p>
-              <h1 ref={headingRef} tabIndex="-1">{headingLabel || current.label}</h1>
-              <span>{headingDescription || current.description}</span>
+              <h1 ref={headingRef} tabIndex="-1">{teacherReportText(headingLabel || current.label)}</h1>
+              <span>{teacherReportText(headingDescription || current.description)}</span>
             </div>
             {generatedLabel && <small>{generatedLabel}</small>}
           </div>
@@ -142,18 +186,24 @@ export function StudentReportShell({
           />
           {children}
           {provenanceRows.length > 0 && (
-            <section className="lg-report-provenance" aria-label="About this report">
-              <h2>{SHELL_COPY.aboutTitle}</h2>
-              <p>{SHELL_COPY.aboutBody}</p>
-              <dl>
-                {provenanceRows.map(row => (
-                  <div key={row.field}>
-                    <dt>{row.field}</dt>
-                    <dd>{row.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
+            <details
+              className="lg-report-provenance"
+              role="region"
+              aria-label="About this report"
+            >
+              <summary>{SHELL_COPY.aboutTitle}</summary>
+              <div>
+                <p>{teacherReportText(SHELL_COPY.aboutBody)}</p>
+                <dl>
+                  {provenanceRows.map(row => (
+                    <div key={row.field}>
+                      <dt>{row.field}</dt>
+                      <dd>{row.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </details>
           )}
         </main>
       </div>

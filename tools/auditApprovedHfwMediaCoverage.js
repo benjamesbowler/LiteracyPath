@@ -12,8 +12,8 @@ import { getQuestionImagePaths, repoRoot, writeFile } from "./phonicsRuntimeUtil
 
 const outMd = path.join(repoRoot, "docs/validation/approved_hfw_media_coverage_audit.md");
 const outJson = path.join(repoRoot, "docs/validation/approved_hfw_media_coverage_audit.json");
-const requestMd = path.join(repoRoot, "docs/assets/kimi_approved_hfw_missing_cartoon_media_request.md");
-const requestCsv = path.join(repoRoot, "docs/assets/kimi_approved_hfw_missing_cartoon_media_request.csv");
+const requestMd = path.join(repoRoot, "docs/assets/hfw_optional_cartoon_media_backlog.md");
+const requestCsv = path.join(repoRoot, "docs/assets/hfw_optional_cartoon_media_backlog.csv");
 
 const badPathPattern = /\b(?:photo|photoreal|photo-real|stock|watermark|logo|rainbow|realistic)\b/i;
 const allowedPolicies = new Set(["no_image", "verified_cartoon_sentence_scene", "verified_cartoon_target_scene"]);
@@ -120,8 +120,8 @@ const rows = hfwApprovedQuestionBank.map(approvedRow => {
 const bySkill = {};
 const byTarget = {};
 for (const row of rows) {
-  bySkill[row.skillId] ||= { total: 0, runtimeGenerated: 0, strictRuntimeRejected: 0, withVerifiedImage: 0, noImage: 0, failures: 0, needsKimi: 0 };
-  byTarget[`${row.skillId}:${row.targetWord}`] ||= { total: 0, runtimeGenerated: 0, strictRuntimeRejected: 0, withVerifiedImage: 0, noImage: 0, failures: 0, needsKimi: 0 };
+  bySkill[row.skillId] ||= { total: 0, runtimeGenerated: 0, strictRuntimeRejected: 0, withVerifiedImage: 0, noImage: 0, failures: 0, optionalCartoonBacklog: 0 };
+  byTarget[`${row.skillId}:${row.targetWord}`] ||= { total: 0, runtimeGenerated: 0, strictRuntimeRejected: 0, withVerifiedImage: 0, noImage: 0, failures: 0, optionalCartoonBacklog: 0 };
   for (const bucket of [bySkill[row.skillId], byTarget[`${row.skillId}:${row.targetWord}`]]) {
     bucket.total += 1;
     if (row.runtimeGenerated) bucket.runtimeGenerated += 1;
@@ -129,14 +129,18 @@ for (const row of rows) {
     if (row.imagePath && verifiedPolicies.has(row.imagePolicy)) bucket.withVerifiedImage += 1;
     if (row.runtimeGenerated && !row.imagePath && row.imagePolicy === "no_image") bucket.noImage += 1;
     if (row.status === "fail") bucket.failures += 1;
-    if (row.runtimeGenerated && row.cartoonImageNeeded && !row.imagePath) bucket.needsKimi += 1;
+    if (row.runtimeGenerated && row.cartoonImageNeeded && !row.imagePath) {
+      bucket.optionalCartoonBacklog += 1;
+    }
   }
 }
 
 const failureRows = rows.filter(row => row.status === "fail");
 const skippedRows = rows.filter(row => row.status === "skipped");
 const runtimeRows = rows.filter(row => row.runtimeGenerated);
-const kimiRows = rows.filter(row => row.runtimeGenerated && row.cartoonImageNeeded && !row.imagePath);
+const optionalCartoonRows = rows.filter(
+  row => row.runtimeGenerated && row.cartoonImageNeeded && !row.imagePath
+);
 const photorealRows = rows.filter(row => /photoreal|photo|realistic/i.test(`${row.styleType} ${row.imagePath} ${row.failureReason}`));
 const embeddedTextRows = rows.filter(row => /watermark|logo|embedded_text|text_in_image/i.test(`${row.imagePath} ${row.failureReason}`));
 const randomMismatchRows = rows.filter(row => /mismatch|unverified_image_role|unverified_image_policy|image_present_when_policy_no_image/i.test(row.failureReason));
@@ -148,7 +152,7 @@ const summaryRows = Object.entries(bySkill).map(([skillId, counts]) => [
   counts.strictRuntimeRejected,
   counts.withVerifiedImage,
   counts.noImage,
-  counts.needsKimi,
+  counts.optionalCartoonBacklog,
   counts.failures
 ]);
 
@@ -167,11 +171,11 @@ const markdown = [
   `- Rows with photorealistic image: ${photorealRows.length}`,
   `- Rows with embedded text/watermark/logo image: ${embeddedTextRows.length}`,
   `- Rows with random/mismatched/unverified image: ${randomMismatchRows.length}`,
-  `- Rows needing Kimi cartoon replacement images: ${kimiRows.length}`,
+  `- Optional future cartoon-scene backlog (current no-image policy remains valid): ${optionalCartoonRows.length}`,
   "",
   "## By Skill",
   "",
-  table(["Skill", "Approved Rows", "Runtime Rows", "Strict Rejects", "Verified Images", "No Image Valid", "Needs Kimi", "Failures"], summaryRows),
+  table(["Skill", "Approved Rows", "Runtime Rows", "Strict Rejects", "Verified Images", "No Image Valid", "Optional Cartoon Backlog", "Failures"], summaryRows),
   "",
   "## Failures",
   "",
@@ -189,13 +193,13 @@ const markdown = [
 ].join("\n");
 
 const requestLines = [
-  "# Kimi Approved HFW Missing Cartoon Media Request",
+  "# Optional HFW Cartoon Media Backlog",
   "",
-  "Create only clean cartoon LiteracyPath-style images. No photorealism, embedded text, watermarks, logos, rainbow/babyish style, AI slop, extra hands/fingers/limbs, or distorted faces.",
+  "These images are optional enhancements. Current HFW questions are valid with no image. If a scene is created later, use only clean cartoon LiteracyPath-style artwork: no photorealism, embedded text, watermarks, logos, rainbow/babyish style, low-quality artefacts, extra hands/fingers/limbs, or distorted faces.",
   "",
   "| Question ID | Skill | Target | Level | Sentence | Suggested Path | Prompt |",
   "|---|---|---|---:|---|---|---|",
-  ...kimiRows.map(row => {
+  ...optionalCartoonRows.map(row => {
     const suggestedPath = `/images/assessment/hfw/approved/${row.skillId}/${row.questionId.toLowerCase()}.webp`;
     return `| ${row.questionId} | ${row.skillId} | ${row.targetWord} | ${row.level} | ${escapeMarkdown(row.fullSentence)} | ${suggestedPath} | ${escapeMarkdown(row.imagePrompt)} |`;
   }),
@@ -204,7 +208,7 @@ const requestLines = [
 
 const csvRows = [
   ["questionId", "skillId", "targetWord", "level", "fullSentence", "suggestedPath", "imagePrompt"],
-  ...kimiRows.map(row => [
+  ...optionalCartoonRows.map(row => [
     row.questionId,
     row.skillId,
     row.targetWord,
@@ -225,7 +229,7 @@ writeFile(outJson, `${JSON.stringify({
   photorealisticImageRows: photorealRows.length,
   embeddedTextWatermarkLogoRows: embeddedTextRows.length,
   randomMismatchedImageRows: randomMismatchRows.length,
-  needsKimiCartoonImages: kimiRows.length,
+  optionalCartoonImageBacklog: optionalCartoonRows.length,
   bySkill,
   byTarget,
   rows
@@ -241,10 +245,10 @@ console.table(summaryRows.map(row => ({
   strictRejects: row[3],
   verifiedImages: row[4],
   noImageValid: row[5],
-  needsKimi: row[6],
+  optionalCartoonBacklog: row[6],
   failures: row[7]
 })));
-console.log(`Rows needing Kimi cartoon media: ${kimiRows.length}`);
+console.log(`Optional future cartoon-scene backlog: ${optionalCartoonRows.length}`);
 console.log(`Wrote ${path.relative(repoRoot, outMd)}`);
 console.log(`Wrote ${path.relative(repoRoot, requestMd)}`);
 

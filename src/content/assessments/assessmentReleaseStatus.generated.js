@@ -271,7 +271,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 149,
     "runtimeSelectableQuestions": 149,
     "releaseEligibleQuestions": 149,
-    "unapprovedAudioQuestions": 6,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -355,7 +355,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 144,
     "runtimeSelectableQuestions": 144,
     "releaseEligibleQuestions": 144,
-    "unapprovedAudioQuestions": 30,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {

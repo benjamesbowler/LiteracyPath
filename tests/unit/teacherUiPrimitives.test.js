@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import test from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -115,6 +116,36 @@ test("modal and non-modal teacher dialogs share one accessible wrapper", () => {
   assert.match(drawerHtml, /role="dialog" aria-modal="false" aria-label="Learner detail: Aarav"/);
 });
 
+test("compact non-modal student drawer leaves the teacher navigation rail reachable", () => {
+  const appCss = fs.readFileSync(
+    new URL("../../src/App.css", import.meta.url),
+    "utf8"
+  );
+  const designCss = fs.readFileSync(
+    new URL("../../src/styles/lg-design-system.css", import.meta.url),
+    "utf8"
+  );
+  const layerContractStart = appCss.indexOf("A TeacherDrawer is non-modal");
+  assert.notEqual(layerContractStart, -1);
+  const layerContract = appCss.slice(layerContractStart, layerContractStart + 500);
+  assert.match(layerContract, /z-index:\s*15/);
+
+  const hitAreaContractStart = appCss.indexOf("TeacherDrawer is deliberately non-modal");
+  assert.notEqual(hitAreaContractStart, -1);
+  const compactDrawerContract = appCss.slice(hitAreaContractStart, hitAreaContractStart + 700);
+  assert.match(
+    compactDrawerContract,
+    /inset:\s*0 0 0 var\(--lg-sidebar-width-collapsed\)/
+  );
+  assert.match(compactDrawerContract, /width:\s*auto/);
+  assert.doesNotMatch(compactDrawerContract, /width:\s*100vw/);
+
+  const sidebarStart = designCss.indexOf(".lg-sidebar {");
+  assert.notEqual(sidebarStart, -1);
+  const sidebarRule = designCss.slice(sidebarStart, sidebarStart + 500);
+  assert.match(sidebarRule, /z-index:\s*20/);
+});
+
 test("closed dialogs do not render protected or destructive content", () => {
   const html = renderToStaticMarkup(
     React.createElement(
@@ -150,11 +181,13 @@ test("lazy destructive dialogs retain exact confirmation content and disabled re
   assert.match(confirmHtml, /role="dialog" aria-modal="true" aria-labelledby="confirm-action-title"/);
   assert.match(confirmHtml, /<h2 id="confirm-action-title">Delete class\?<\/h2>/);
   assert.match(confirmHtml, />Delete class<\/button>/);
-  assert.match(resetHtml, /<h2 id="reset-progress-title">Reset check results<\/h2>/);
-  assert.match(resetHtml, /saved check results, scores and progress for Aarav/);
+  assert.match(resetHtml, /<h2 id="reset-progress-title">Reset practice progress<\/h2>/);
+  assert.match(resetHtml, /clears Aarav&#x27;s current skill and practice progress/);
+  assert.match(resetHtml, /Completed assessments and reports/);
+  assert.match(resetHtml, /Guided Reading and Story Quest progress stay in place/);
   assert.match(resetHtml, /data-autofocus="true"/);
   assert.match(
     resetHtml,
-    /<button(?=[^>]*class="reset-button")(?=[^>]*disabled="")[^>]*>Reset check results<\/button>/,
+    /<button(?=[^>]*class="reset-button")(?=[^>]*disabled="")[^>]*>Reset practice progress<\/button>/,
   );
 });

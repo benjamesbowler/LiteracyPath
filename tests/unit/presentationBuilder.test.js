@@ -6,6 +6,7 @@ import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { worldForCycle } from "../../src/utils/palWorlds.js";
 import {
   presentationCycleOptions,
+  presentationCycleDisplayTitle,
   presentationCycleSummary,
   buildCyclePresentation,
   PRESENTATION_DAYS
@@ -46,6 +47,24 @@ test("cycle options cover the numbered cycles and the assessment weeks", () => {
     assert.ok(opts.some(o => o.id === id && o.type === "assessment"), `${id} exposed in the picker`);
   }
   assert.ok(opts.every(o => o.id && o.title && o.label), "every option has id, title and label");
+  assert.deepEqual(
+    opts.filter(option => option.type === "assessment").map(option => option.label),
+    [
+      "Beginning of year assessment",
+      "Middle of year assessment",
+      "End of year assessment"
+    ]
+  );
+  assert.ok(opts.every(option => !/\b(?:BOY|MOY|EOY)\b/.test(option.label)));
+});
+
+test("assessment-week titles and slides never expose year-window abbreviations", () => {
+  for (const id of ["boy-assessment", "moy-assessment", "eoy-assessment"]) {
+    const cycle = elSkillsBlockCycles.find(row => row.id === id);
+    const { html, title } = buildCyclePresentation(id);
+    assert.match(presentationCycleDisplayTitle(cycle), /year assessment$/);
+    assert.doesNotMatch(`${title}\n${html}`, /\b(?:BOY|MOY|EOY)\b/);
+  }
 });
 
 test("a letter cycle deck has letter, writing, sight and poem slides", () => {
@@ -203,9 +222,9 @@ test("every cycle deck shows this cycle's guided-reading books with covers that 
 
 test("assessment weeks build routine decks", () => {
   const expectations = {
-    "boy-assessment": "NWEA MAP BOY",
-    "moy-assessment": "NWEA MAP MOY",
-    "eoy-assessment": "NWEA MAP EOY"
+    "boy-assessment": "NWEA MAP beginning of year",
+    "moy-assessment": "NWEA MAP middle of year",
+    "eoy-assessment": "NWEA MAP end of year"
   };
   for (const [id, routine] of Object.entries(expectations)) {
     const { html, slideCount, title } = buildCyclePresentation(id);

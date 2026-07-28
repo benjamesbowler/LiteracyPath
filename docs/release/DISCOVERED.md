@@ -382,3 +382,473 @@ Format: ID · severity · area(s) · evidence · fix spec · gate. Found 2026-07
 **Evidence:** the complete device matrix passed every overflow, control-size, focus and runtime assertion, but six reviewed screenshots still expected the older Story Quest title, story-word total and longer first-scene copy. The current compact story revision was therefore reported as a visual regression even though it reduced crowding and remained stable across repeated renders.
 **Fix:** compare the old and current renders at phone, tablet, Chromebook and projector sizes, confirm that only the intentional story content and resulting image fit changed, then regenerate only the six affected Story Quest baselines.
 **Gate:** all 12 device-matrix journeys pass with the reviewed current Story Quest route and fullscreen baselines while retaining zero horizontal overflow, visible focus and 44-pixel minimum controls.
+
+## D-076 · P0 · Area 4/7/10 — Reports could turn thin, repeated, or mixed evidence into a confident learning conclusion
+**Evidence:** one correct answer could become Secure; repeated variants from one sitting could count as independent attempts; a qualitative legacy mastery flag could acquire an invented score; current counts and status could use different date windows; and sentence choice, spelling, and isolated high-frequency-word reading could collapse into one result even though they measure different constructs. A stale formal result could also hide newer practice, while skill-name aliases produced duplicate class rows.
+**Fix:** make one reporting-evidence policy own current windows, independent-attempt identity, minimum evidence, construct identity, alias normalization, recency, and the distinction between accuracy and learning status. Keep HFW sentence choice, spelling, and isolated reading separate; never derive an exact count or percentage from a qualitative flag; and withhold class conclusions until coverage and balance are sufficient.
+**Gate:** `reportingEvidencePolicyIntegrity`, `simpleStudentReports`, whole-child evidence, formal class-report truth, and authenticated individual/class report journeys must all pass in the same integrated run. A one-answer, one-sitting, stale, mixed-construct, alias, or qualitative-only fixture must never render Secure or a fabricated percentage.
+
+## D-077 · P0 · Area 4/7/8/9/10 — Reset and deletion paths could destroy retained learning data, lose classmates' shared evidence, or report incomplete cleanup as complete
+**Evidence:** practice reset cleared learner profile, Guided Reading, Story Quest, and pending engagement data; permanent deletion removed whole shared observation/group-review rows containing the subject; direct authenticated table deletion bypassed request verification and audit; a database deletion could be called complete before browser caches were cleared; retries could duplicate answers or mastery; and active student sessions survived credential changes.
+**Fix:** make practice reset delete only derived practice state while retaining formal evidence and the named learner records; revoke student sessions on reset and credential change; redact the subject from shared rows while retaining classmates; add idempotency keys; block direct deletes; add a one-way deletion tombstone; and split privacy deletion into database deletion, verified local cleanup, then completion. Interrupted cleanup must resume without recreating deleted evidence.
+**Gate:** reset-propagation, learner-deletion migration, local-cleanup, insert-queue, immutable-evidence, `check:learner-data-rights`, `check:db-policies`, and `check:sync-chaos` must pass against one freshly rebuilt local database. The live journey must prove retained profile/reading/story data after reset, classmate preservation after deletion, revoked sessions, zero residual records, cleared browser stores, a surviving tombstone, and safe retry after interruption.
+
+## D-078 · P1 · Area 3/5/6/7/9/10 — The teacher product still made routine work compete with administration, privacy, and dense reports
+**Evidence:** Dashboard, Students, Assessments, Reports, Resources, and Settings each exposed long mixed-purpose pages; urgent work sat beside planning detail; a real roster required excessive scrolling; child details, privacy, archive, and settings stacked competing surfaces; reports led with technical density; and class/student/report selection could dead-end or lose context.
+**Fix:** keep the six plain teacher sections, but make each a short task-focused page. Put urgent actions first and collapse secondary planning detail; paginate the roster at ten students; open one focused student layer at a time; separate school, sign-in, privacy, and account settings; use matching class → student → choice funnels for Assessments and Reports; keep Resources class-aware; and make everyday reports lead with Overview, Skills, High-frequency words, and Essential Literacy while technical context stays collapsed. Formal EL remains the detailed standalone record.
+**Gate:** `teacherBusyWorkflow`, current teacher route/funnel contracts, `check:e2e-teacher`, `check:a11y-teacher`, and the authenticated roster device matrix must pass at laptop, tablet, and phone sizes. The final browser critic must complete every six-section workflow without a dead end, nested-scroll trap, lost context, raw jargon, or unnecessary full-page scroll.
+
+## D-079 · P0 · Area 4/6/7/9/10 — Partial or stale dashboard reads were converted into zeros and false learning activity
+**Evidence:** required dashboard queries caught errors and returned empty arrays, so a failed or truncated source could make established students appear at zero, not started, or safe to ignore. A late response for the previous class could overwrite the current class. Student creation and profile-update timestamps were also treated as learning activity, and incomplete evidence could still drive recommendations.
+**Fix:** track error and truncation per required source; preserve the last complete figures while naming missing sources; give newly discovered students identity only, never invented zero evidence; block conclusions and recommendations until required sources are complete; reject stale class responses; page every source; and derive activity only from real learning records.
+**Gate:** `classDashboardEvidence`, teacher loading-state, teacher class-model, Today briefing, complete-read, paging, and authenticated dashboard recovery contracts must pass. Simulated source failure, page ceiling, class switch, new student, profile rename, and retry-success cases must never create a zero, activity date, status, or recommendation that the evidence did not establish.
+
+## D-080 · P0 · Area 1/4/7/10 — The live HFW and grammar curriculum drifted from its approved constructs and release counts
+**Evidence:** four hand-maintained HFW bands disagreed with the approved 100-word source; runtime eligibility could select an option word instead of the declared target; HFW sentence tasks were incorrectly treated as requiring target-word audio and could regain audio during media enrichment; reporting merged sentence choice, spelling, and isolated reading; and the Nouns loader exposed only 30 questions instead of all 146 approved questions across both intended formats.
+**Fix:** derive all four bands from the approved workbook; require the declared target to belong to its exact canonical band; keep active HFW sentence tasks intentionally text-only; preserve required answer-tile audio for grammar; publish all approved Nouns formats; keep the 100-word report complete with unseen words grey; and treat optional cartoon scenes as a future backlog rather than missing release media.
+**Gate:** `check:hfw-coverage`, `check:hfw-runtime-smoke`, `check:hfw-distractor-ambiguity`, `check:audit:approved-hfw-media`, `check:curriculum-release-standard`, `check:assessment-skill-contracts`, and report construct tests must pass together. The gates must prove 100 of 100 HFW targets, 588 eligible HFW questions, zero unexpected HFW audio paths, and all 146 Nouns questions with both approved formats.
+
+## D-081 · P0 · Area 1/2/4/10 — The D-053 letter scorer still accepted the right points in the wrong formation
+**Evidence:** D-053 replaced painted-area coverage with path proximity, but the follow-up adversarial audit found that stroke direction and pedagogic stroke order were still not load-bearing. Reversed strokes, required strokes drawn in the wrong order, or all expected strokes concatenated into one continuous gesture could remain close enough to the guide to pass.
+**Fix:** score a trace as an ordered sequence of letter-specific strokes, not one unordered cloud of nearby points. Match submitted strokes to expected strokes in order, check start/end direction, reject concatenated multi-stroke shortcuts, and retain age-appropriate tolerance for ordinary wobble, device sampling, and one accidental lift.
+**Gate:** deterministic formation tests must pass correct and slightly noisy age-appropriate traces while rejecting reversed strokes, wrong stroke order, concatenated strokes, a different letter, box/fill scribbles, and incomplete traces. The real Letter Trace activity must then be reviewed in the browser on pointer and touch-sized viewports.
+
+## D-082 · P1 · Area 5/8/9/10 — The final database boundary broke signed-out teacher school-name autocomplete
+**Evidence:** the security-definer lockdown correctly revoked inherited `PUBLIC` execution, but the allow-list omitted the reviewed name-only `list_school_names()` RPC. Teacher signup therefore could not load school-name suggestions even though it exposes no school IDs, accounts, classes, students, or learning records.
+**Fix:** re-grant the exact name-only function to `anon` and `authenticated` in the final security boundary, keep every richer school/class/student operation denied, and retain response validation in the auth boundary.
+**Gate:** the source and live database-policy gates must prove anonymous callers can receive school names only, cannot read identifiers or related records, and cannot call any authenticated-only security-definer RPC. The signed-out browser signup journey must load autocomplete without console or raw database errors.
+
+## D-083 · P0 · Area 7/8/9/10 — Legacy EL cleanup could delete another teacher's same-name student evidence
+**Evidence:** legacy EL records without a learner UUID were matched by display name. Reset or deletion for one “Aaron” could therefore remove a second teacher's same-name legacy attempts or reports when the cleanup path did not require explicit teacher ownership.
+**Fix:** require the signed-in teacher ID for every legacy name fallback, match within that owner only, and fail closed when ownership is absent or ambiguous. UUID-based records remain the primary path.
+**Gate:** reset-propagation, legacy report isolation, learner-data-rights, and tenant-isolation database tests must prove that deleting or resetting Teacher A's same-name student cannot alter Teacher B's UUID or legacy evidence.
+
+## D-084 · P1 · Area 6/7/10 — The formal class report fabricated `null%`, a nonzero bar, and a reading classification without evidence
+**Evidence:** withheld accuracy interpolated as `null%`; a minimum-width progress rule drew a 4% bar when no percentage existed; the report printed a hard-coded Reading column containing `NR`; and empty Growth, Reading, Actions, and detail pages made an already dense report look complete despite absent source data.
+**Fix:** use one null-safe percentage formatter; render no bar without a real value; use the canonical five plain-language learning states; remove the fake Reading column; omit empty pages; combine priorities with actionable groups; keep technical report details available for print but collapsed on screen; and calculate page numbers from the pages that actually exist.
+**Gate:** formal class-report truth tests and the authenticated class-report browser/print journey must prove no `null%`, fake-width bar, `NR`, empty page, or unsupported reading classification is present, while genuine values and printable report details remain intact.
+
+## D-085 · P1 · Area 3/5/6/9/10 — Teacher forms and errors could lose input, leak backend prose, or rely on browser-native confirmation
+**Evidence:** a failed student-create request cleared the typed name; teacher sign-in did not use one complete form-submit path; assessment, worksheet, auth, and account-setup failures could expose raw backend messages; and progress reset relied on the browser's native confirm dialog instead of the product's keyboard/focus contract.
+**Fix:** clear form fields only after confirmed success; use semantic forms with required fields, Enter submission, and an explicit password visibility control; map backend errors to teacher actions while retaining codes only for diagnostics; use the shared in-product confirmation dialog; and preserve drafts/input after failure.
+**Gate:** auth-page, teacher error-message, roster-operation, EL assessment, busy-workflow, copy, and authenticated keyboard/accessibility contracts must pass. Failure fixtures must preserve input, reveal no SQL/RPC/schema/raw transport prose, and restore focus after cancellation.
+
+## D-086 · P1 · Area 4/6/7/10 — Today recommendations could blame the current skill for unrelated, stale, or repeated evidence
+**Evidence:** the current-focus label could sit beside accuracy calculated across other skills; stale low results could continue to create an urgent needs-support suggestion; repeated `mastered=true` rows for an already secure skill counted as newly secured; and a missing required source did not reliably pause recommendations.
+**Fix:** calculate current-focus evidence only from answers for that exact skill; require current, sufficient evidence before attention or next-step claims; count only the first secure transition for each distinct skill; show current and previous windows separately; and suppress the recommendation layer whenever any required dashboard source is incomplete.
+**Gate:** Today briefing, current-skill evidence, first-secure-transition, teacher class-model, and authenticated Dashboard contracts must pass with unrelated-skill, stale, duplicate-mastery, incomplete-source, and retry-success fixtures.
+
+## D-087 · P1 · Area 3/6/10 — Two primary teacher pages had no main landmark
+**Evidence:** the authenticated accessibility journey found that Assessments and the Reports landing surface rendered their page content without a `main` landmark. The individual report already owned its own `main`, so applying one wrapper indiscriminately would instead create invalid nested landmarks.
+**Fix:** give each standalone Assessments and Reports surface exactly one main landmark, while allowing the embedded individual-report shell to remain the sole main landmark on that route.
+**Gate:** the complete authenticated teacher accessibility journey must find exactly one usable main landmark on the Assessment funnel, Reports funnel, whole-class report, and individual report, with no serious or critical Axe finding.
+
+## D-088 · P0 · Area 4/6/7/9/10 — Assessment launch failed open when a student's saved results were incomplete
+**Evidence:** a student could be selected and an assessment started while the per-student progress/evidence read was still loading, failed, partial, or truncated. The chosen starting point could therefore be based on missing history and repeat content already completed by the student.
+**Fix:** make an explicitly complete student-evidence read a prerequisite for assessment choices and launch; show a bounded loading or retry state otherwise; and re-check completion inside every launch handler rather than trusting a previously rendered button.
+**Gate:** assessment-hub, busy-workflow, stale-read, and authenticated assessment journeys must prove loading/error/partial evidence cannot expose or start an assessment and that a successful retry restores the correct starting point.
+
+## D-089 · P0 · Area 4/7/10 — A single correct Skills observation could become Secure in the formal EL workbook
+**Evidence:** the Skills-to-EL reconciliation mapped a qualitative secure-looking aggregate directly to `Mastered`, even when the source contained only one correct response or several variants from one sitting. That bypassed the independent-attempt minimum used elsewhere.
+**Fix:** run Skills-derived EL cells through the canonical exact-item policy, count independent sittings rather than repeated observations, and use the shared status labels. One sitting remains Not enough results; Secure requires the full minimum and accuracy rule.
+**Gate:** EL export consistency tests must cover one correct observation, mixed observations, repeated variants in one sitting, and three qualifying sittings, and the real workbook must agree with the on-screen evidence policy.
+
+## D-090 · P0 · Area 5/6/9/10 — Class-to-student route hydration raced and could render an empty roster
+**Evidence:** direct report/assessment links and first sample-class creation could load the class successfully while the dependent student read still used stale class state. The database contained the students, but the teacher UI showed no student or lost the selected student context.
+**Fix:** sequence dependent class and student reads with the resolved class ID rather than a render-time closure, reject stale completions, and hydrate the requested student only after the matching roster read completes.
+**Gate:** direct report, Assessment EL, first sample-class, hard-refresh, and rapid class-switch journeys must retain the correct student and must never show a false empty roster when the database read succeeded.
+
+## D-091 · P0 · Area 4/7/9/10 — Official class exports could be generated from partial assessment history
+**Evidence:** global assessment-history hydration collapsed failed or truncated reads into the cached array and exposed print and EL Excel actions without a completeness state. An apparently official class record could therefore silently omit results.
+**Fix:** retain loading, complete, failed, and truncated state for global assessment history; allow cached rows to remain visibly available only as incomplete context; disable official class print/export until a complete read succeeds; and provide a focused retry.
+**Gate:** report/export state tests and authenticated failure/retry journeys must prove partial/error/truncated history cannot produce an official class print or workbook and that retry restores it without losing the teacher's selections.
+
+## D-092 · P0 · Area 4/6/7/10 — Current teacher conclusions used lifetime answers with only the newest timestamp
+**Evidence:** dashboard accuracy, answer count, skill diversity, and focus evidence aggregated the student's lifetime history, then passed the newest activity time into the 90-day policy. Old success or failure could therefore drive a current status and Today suggestion.
+**Fix:** retain lifetime activity totals for history displays, but calculate current answer count, correct count, accuracy, skill diversity, latest current observation, focus evidence, status, and recommendations from the canonical 90-day window only.
+**Gate:** class-dashboard, teacher-class-model, and Today tests must combine old and recent evidence and prove the lifetime total stays visible while every current conclusion uses only the current window.
+
+## D-093 · P0 · Area 4/6/9/10 — A missing dashboard row defaulted to a confident new-student zero
+**Evidence:** if the roster arrived before the dashboard, or the initial dashboard student read failed/truncated, the class model invented `0 answers`, `Not started`, and a complete evidence state for any student without a matching row. That was indistinguishable from a genuinely new student whose complete read proved no results.
+**Fix:** treat a missing dashboard row as incomplete/unknown; mark retained rows incomplete when the identity read fails; and render Not assessed at zero only when a completed dashboard read explicitly returns the student's zero-result row.
+**Gate:** roster-before-dashboard, initial error/truncation, class switch, retry, and genuine-new-student contracts must never turn absence of a row into absence of evidence.
+
+## D-094 · P0 · Area 4/7/10 — Formal EL status ignored the canonical 90-day evidence window
+**Evidence:** the formal report builder, saved summary, and Skills reconciliation explicitly disabled recency. Three correct attempts from years earlier could still render Secure as if they described the student's current attainment.
+**Fix:** apply the shared conclusion window and a supplied deterministic `now` to every current EL cell and summary; keep stale evidence available as historical context while the current status becomes Not enough current results.
+**Gate:** EL builder, persistence, screen, and workbook tests must contrast stale and recent qualifying evidence and prove stale records cannot create a current Secure conclusion.
+
+## D-095 · P0 · Area 1/4/7/10 — Advanced Phonics pooled unlike sound and reading constructs into a fabricated overall result
+**Evidence:** the formal EL builder added sound-identification and printed-pattern reading observations into one attempts/correct total. Two insufficient component results could combine into an apparently sufficient 4/4 overall Secure result.
+**Fix:** report sound and reading as separate constructs and never sum them as repeated evidence. If an overall row is retained for navigation, it may be ready only when every required component independently has enough evidence and meets its stated rule.
+**Gate:** Advanced Phonics tests must prove insufficient component results cannot combine into Secure and that exported labels, counts, and statuses remain component-specific.
+
+## D-096 · P1 · Area 4/6/7/10 — Report period controls printed a period the calculations did not use
+**Evidence:** teachers could select 30 days, 90 days, school year, or all time, but the report model silently re-filtered every record to 90 days while printing the selected period as provenance.
+**Fix:** use the selected period for descriptive totals and history, while calculating present-tense learning conclusions from a separately labelled canonical 90-day subset. Never label a 90-day calculation as all time or school year.
+**Gate:** period tests with both old and recent records must prove each descriptive total matches its label and every current status remains bound to the canonical window.
+
+## D-097 · P0 · Area 4/6/7/10 — Simple reports compared incompatible denominators and could say “Right every time” after errors
+**Evidence:** the sentence builder compared independent-attempt count with correct observation count. Three sittings containing nine observations and six correct could satisfy `correct >= attempts` and render “Right every time so far.” It also invented an across-days rule that the canonical policy does not require.
+**Fix:** render the canonical policy conclusion and reason from like-for-like counts; do not infer perfect accuracy, day diversity, or another-day requirements unless the stored fields and policy establish them.
+**Gate:** simple-report tests must cover multiple observations per sitting, mixed correctness, same-day independent attempts, stale evidence, and genuinely perfect evidence without producing contradictory prose.
+
+## D-098 · P1 · Area 3/5/6/9/10 — A failed sign-in-picture save looked successful
+**Evidence:** the save controller returned the same undefined value on failure and success, while the student modal always closed and cleared the selected pictures after awaiting it. A failed credential change therefore looked complete and discarded the teacher's work.
+**Fix:** return an explicit success result, keep the modal and selected pictures open on failure, show a short inline retry message, and lock duplicate submissions while the save is in flight.
+**Gate:** controller and roster-operation tests plus an authenticated failure/retry journey must prove failure preserves the draft and success alone closes the modal.
+
+## D-099 · P1 · Area 5/6/8/10 — Permanent-delete confirmation contradicted retained privacy audit data
+**Evidence:** the data-rights implementation correctly retains a minimal privacy-request reference, but the ordinary student delete confirmation promised “Nothing of theirs is kept.” That was legally and operationally false.
+**Fix:** use the same truthful retention statement at both deletion entry points: the student's active data and results are removed, while the minimum privacy-request record required to evidence the action is retained.
+**Gate:** copy contracts and the authenticated data-rights journey must show the same accurate retention message before deletion from either entry point and verify the retained minimal request record.
+
+## D-100 · P0 · Area 5/6/9/10 — A failed roster read became a genuine empty class
+**Evidence:** the student loader returned an empty array on error or truncation without exposing a read state. Because class changes deliberately clear the prior roster, Students then offered “Add your first student” and Today could issue no-review/no-due conclusions even though the roster was unknown rather than empty.
+**Fix:** carry loading, complete, and incomplete roster state for the selected class; show a focused retry state on error/truncation; and allow empty-class onboarding or Today conclusions only after a complete read explicitly returns zero students.
+**Gate:** initial roster error, class-switch error, truncation, stale completion, retry success, and genuine-empty authenticated journeys must never convert an incomplete roster into an empty class or recommendation.
+
+## D-101 · P1 · Area 3/5/6/9/10 — Accessibility-setting save failures were hidden behind the open modal
+**Evidence:** the accessibility dialog correctly stayed open when saving failed, but it had no local pending, success, or error state. The controller's only failure message rendered on the covered page behind the modal, so Save appeared to do nothing.
+**Fix:** show saving and inline retry feedback inside the dialog, retain the teacher's draft and focus on false/rejected/undefined saves, prevent duplicate submissions, and close only after an explicit successful result.
+**Gate:** dialog tests and an authenticated failure/retry journey must prove false, rejection, and undefined remain open with an alert, while strict success alone closes and refreshes the saved setting.
+
+## D-102 · P0 · Area 5/6/8/10 — Permanent deletion could skip typed confirmation when the roster summary showed zero
+**Evidence:** the ordinary deletion dialog required the teacher to type the student's name only when the roster summary contained saved answers or Sound Seekers stops. That summary does not include every formal report or legacy record, so a student with apparently zero roster activity could still have protected records deleted by one click.
+**Fix:** require the exact normalized display name for every permanent deletion, regardless of the visible activity summary, and describe the summary as partial context rather than proof that nothing is saved.
+**Gate:** roster-operation and authenticated deletion tests must cover zero roster answers with existing formal/legacy evidence and prove the destructive action remains disabled until the exact name is entered.
+
+## D-103 · P1 · Area 5/6/7/10 — “No practice” and “Not started” labels ignored saved non-answer activity
+**Evidence:** the live seeded roster showed Bao as “No practice yet” while the same row showed real saved activity five days earlier from Sound Seekers. The label was derived only from scored-answer count, so it made a broader claim than its source supported.
+**Fix:** label that measure precisely as “No scored answers,” use “Run first assessments” for the related teacher action, and reserve practice/activity language for sources that include all saved activity types.
+**Gate:** roster copy contracts and authenticated mixed-activity review must combine zero scored answers with saved Sound Seekers activity and never render a contradictory no-practice/no-activity claim.
+
+## D-104 · P1 · Area 4/6/7/10 — Overall accuracy sat beside a focus skill without saying it covered other skills
+**Evidence:** the live Aisha drawer showed “Initial Sounds” followed immediately by “Current accuracy 30%.” The 30% used all current answers, while Initial Sounds alone was 100%, so the layout invited a false skill-specific reading even though each figure was individually calculated correctly.
+**Fix:** visibly label the first figure “Current focus” and the second “Accuracy across skills,” while keeping the 90-day denominator in its definition.
+**Gate:** busy-workflow copy contracts and the authenticated mixed-skill drawer must show the two scopes explicitly and never imply that an overall percentage belongs to the adjacent focus skill.
+
+## D-105 · P0 · Area 5/6/9/10 — Same-section route changes could restore the previous student
+**Evidence:** while the real class request for a bare Reports or Assessments route was delayed, a newer student could render and then be replaced in state or URL by the older route restoration. Back and Forward during initial report restoration exposed the same synchronous gap before the lazy route parser installed its lock.
+**Fix:** install an exact-hash navigation lock synchronously, bind every hydration to the current account generation and complete route context, re-check that context after every awaited read, and retire superseded work before it can publish state or rewrite the URL.
+**Gate:** `teacher-route-races` must hold real Supabase responses and prove the newest learner wins in Reports and Assessments, Back stays on Dashboard, Back→Forward restores the exact report, and no late request from another account can publish.
+
+## D-106 · P0 · Area 4/5/6/9/10 — Standalone report tabs changed the screen without keeping controller state and URL together
+**Evidence:** the report shell changed its local view and pushed a new report URL, but a standalone report received no parent `onReportViewChange`. The app-level controller still held the previous view and could later mirror that stale view back into the URL or browser history.
+**Fix:** always publish standalone report-view changes to the parent controller while retaining the Reports-funnel override, so the visible report, controller state, saved profile, and URL move as one transaction.
+**Gate:** the owned direct-report journey must open Skills, survive refresh, change to Summary, update the exact report parameter, and return to Skills with browser Back on desktop and mobile.
+
+## D-107 · P1 · Area 3/5/6/10 — Completed report choices pushed results below the fold, and the class report had no way back
+**Evidence:** after a teacher made all three report choices, the heading and settled chooser cards remained above the result and consumed the laptop fold. Hiding them exposed a second problem: the whole-class result then had no explicit way back to change the choice.
+**Fix:** use a focused open-report layout that hides settled chooser content, starts the result at the top, retains one main landmark, and gives both individual and class reports an explicit Back action.
+**Gate:** teacher E2E must prove the first result heading is inside the viewport and the settled chooser is hidden; the class-report journey must show and exercise Back to reports; responsive and accessibility checks must retain one main landmark.
+
+## D-108 · P1 · Area 3/4/6/7/10 — Legacy EL reports exposed BOY, MOY, and EOY codes in screens and downloads
+**Evidence:** immutable reports saved before the copy migration retained labels such as `Grade 1 · BOY`. Current UI and export paths printed that stored label directly, leaking internal assessment-window abbreviations even though newly generated reports used teacher language.
+**Fix:** preserve the stored evidence while normalizing presentation through one helper that expands the three legacy codes in saved-report lists, success messages, admin views, workbook summaries, and export provenance.
+**Gate:** legacy-label units, authenticated report review, and a real persisted-report workbook round trip must show Beginning, Middle, or End of year and contain no standalone BOY/MOY/EOY token.
+
+## D-109 · P1 · Area 3/5/6/8/10 — Saved-report Delete looked like the primary Download action
+**Evidence:** a later important primary-button rule overrode the earlier danger selector, so destructive Delete used the same green treatment as Download.
+**Fix:** give the report danger action explicit danger border, pale background, and text overrides that remain distinct in normal, hover, focus, and disabled states.
+**Gate:** the source/style contract and authenticated computed-style journey must prove Download remains primary while Delete stays visibly destructive at desktop and mobile sizes.
+
+## D-110 · P0 · Area 5/8/9/10 — A late admin lookup from the previous account could grant privileged state to the next account
+**Evidence:** admin membership was resolved asynchronously across auth changes. Without a full identity and request-generation guard, a slow positive result for one user could complete after a non-admin user signed in and publish privileged UI into the new session.
+**Fix:** make the account lookup side-effect-free, clear privileged state at account change, and publish only when the request generation, checked identity, session identity, and current authenticated identity all still match.
+**Gate:** account-access units plus an authenticated race must hold the real positive `app_admins` response, switch to non-admin Teacher B, release the old response, and prove no transient Admin UI, state, route, class, learner, or saved-profile contamination.
+
+## D-111 · P1 · Area 3/5/6/9/10 — Settings subsection URLs were rewritten to the generic Settings page
+**Evidence:** the URL mirror compared valid subsection URLs such as School, Site, Privacy, and Account with a generic Settings fallback as different routes. An unrelated render could therefore replace a bookmarkable subsection URL and reload into the wrong page.
+**Fix:** canonicalize every valid Settings subsection to the same app-view identity while preserving its exact subsection hash; keep invalid nested paths rejectable and preserve the subsection during class changes and browser history.
+**Gate:** route units and authenticated Settings journeys must round-trip all four pages through render, reload, Back, Forward, and class changes.
+
+## D-112 · P0 · Area 5/6/9/10 — Failed class or roster confirmation consumed a valid deep link
+**Evidence:** a failed or truncated class/student read could be treated as a complete ownership denial. The requested learner was cleared and the Reports funnel rewrote the exact standalone report URL before a retry could succeed.
+**Fix:** represent failed or truncated ownership reads as incomplete rather than empty, let only complete arrays reject a route, preserve an exact retryable route lock, and stop funnel writers from mutating a standalone report path.
+**Gate:** unit and authenticated journeys must fail class and roster reads separately, retain the exact class/learner/report hash, retry into that report, avoid false empty/denial UI, and still reject a genuinely unowned route after a complete read.
+
+## D-113 · P1 · Area 3/5/6/10 — A disabled saved-report action had no visible disabled state
+**Evidence:** while the delete request was intentionally held, the saved-report Delete button was functionally disabled but kept opacity 1. The global disabled selector applied only below `.app`, while this teacher report surface sits outside that wrapper.
+**Fix:** add a scoped report-button disabled treatment without weakening its danger identity or changing the real disabled behavior.
+**Gate:** authenticated desktop/mobile computed-style evidence must hold the real delete request, prove the button becomes disabled and visibly dims, retain the report after an injected failure, and keep normal, hover, and keyboard-focus danger styling distinct from Download.
+
+## D-114 · P1 · Area 2/3/6/7/10 — Untouched Story Quests looked completed and the status badge failed contrast
+**Evidence:** the Story Quest library calculated the right text, but every badge used the same base class. The existing `not-started` and `in-progress` styles were never selected, so untouched quests inherited the green success treatment; the sage badge combination also measured only 2.37:1.
+**Fix:** attach an explicit `not-started`, `in-progress`, or `completed` class from the saved state and give each sage state an AA-compliant foreground/background pair without relying on colour alone.
+**Gate:** Story Quest state units and the desktop/mobile Axe route matrix must prove untouched quests are not success-styled, visible text names every state, and computed contrast is at least 4.5:1.
+
+## D-115 · P1 · Area 3/5/6/10 — The compact teacher rail exposed a low-contrast class label during mount
+**Evidence:** on compact teacher routes the selected-class label was already `aria-hidden`, but its opacity transition briefly painted the text at an intermediate low-contrast value. Axe therefore found a serious colour-contrast failure on every compact teacher preview, including the mobile student drawer.
+**Fix:** remove the opacity animation for the class label and make the collapsed state immediately non-visible as well as hidden from assistive technology.
+**Gate:** the primary-route inventory and desktop/mobile Axe matrix must cover every compact teacher route, the question guide, student drawer, student options, and assessment-discontinue panel with zero serious or critical findings.
+
+## D-116 · P1 · Area 2/6/9/10 — Story Quest preview progress fed back into an endless React update loop
+**Evidence:** the player published a progress snapshot, the parent merged it into a new `initialProgress` object, and the player treated that object identity as new input. Opening a teacher Story Quest preview therefore logged `Maximum update depth exceeded` even though the visible journey completed.
+**Fix:** derive the seed-word dependency from stable normalized content rather than the parent object's identity, so a semantically unchanged progress merge cannot retrigger the same snapshot indefinitely.
+**Gate:** the authenticated teacher-preview journey must open a real quest, retain read-only behavior and context, return to Students, and assert both page errors and console errors are empty.
+
+## D-117 · P2 · Area 2/3/9/10 — A teacher preview opened a 3D game with deprecated timing and shadow APIs
+**Evidence:** the full overlay matrix emitted Three.js runtime warnings for `THREE.Clock` and `PCFSoftShadowMap`; current Three.js already falls back from the latter, so the app paid warning and maintenance cost without receiving the requested mode.
+**Fix:** use the browser's animation-frame timestamp with an explicit pause reset instead of a deprecated Three.js clock, and use the supported PCF shadow mode at every quality tier.
+**Gate:** the 3D runtime contract must contain no deprecated timing/shadow API, and the complete standard/forced-colour overlay browser matrix must pass without those runtime warnings.
+
+## D-118 · P1 · Area 4/6/9/10 — Release previews targeted retired teacher components and control names
+**Evidence:** the learning-policy preview still mounted a component that had become a report picker, while class-summary and sparse-evidence tests asserted its retired analytics DOM. The accessibility inventory also tried to open controls renamed or replaced in the current product, so the release gate timed out before auditing the reachable modal.
+**Fix:** mount the current production Students/Class surface with deterministic sparse and mixed evidence, exercise its real drawer and class-summary interactions, and update the modal inventory to the current reachable assessment guide, student settings, and discontinue controls.
+**Gate:** the combined preview gate must prove sparse 1/1 evidence is withheld, both class averages and denominators remain truthful, all current modals are reachable, and the 52-test policy/Axe matrix passes.
+
+## D-119 · P0 · Area 5/8/9/10 — A late profile restore could pull Admin back to Today
+**Evidence:** one full learner-data-rights run opened the Admin dashboard and then unexpectedly returned to Today. A deterministic browser race reproduced it by suspending the real lazy teacher-route module, opening Admin, and releasing the older profile continuation. The fresh-login reset inside that continuation navigated to the saved default after the newer click.
+**Fix:** give every public page navigation a monotonically increasing revision, capture that revision when profile restoration is scheduled, and let both saved-view restoration and fresh-login reset publish a page only while they still own the same revision. Profile data can still finish hydrating without replacing a newer destination.
+**Gate:** revision-policy units plus a desktop/mobile authenticated race must hold the production route module, open Admin, release the old restoration, and prove Admin remains visible and Today never returns; the full learner-data-rights journey must remain stable under repetition.
+
+## D-120 · P0 · Area 5/6/9/10 — The Reports funnel URL did not own the visible report
+**Evidence:** the funnel wrote `report=` into a teacher Reports URL, but route parsing discarded it and the funnel only read its initial route once. A reload, bookmark, Back, or Forward operation could therefore leave the URL naming one report while the controller retained another previously selected report.
+**Fix:** parse a valid report only when the Reports route also owns a learner, hydrate or explicitly clear the controller's report view from that route, and make the funnel react to both hash and browser-history changes. Keep each report selection, route, saved controller state, and visible result synchronized.
+**Gate:** focused route units plus preview and authenticated production-controller journeys must select Skills and High-Frequency Words, reload, go Back and Forward, and prove the URL, chooser, controller, and visible report remain identical at every step.
+
+## D-121 · P1 · Area 3/5/6/10 — The final Reports choice stranded keyboard focus
+**Evidence:** after a keyboard user chose the final report type, the funnel attempted to focus a report heading that was not mounted until the report opened. Focus consequently remained in the choice grid even though the next required action was the newly enabled “Show the report” button.
+**Fix:** give the final action a stable focus target and move focus to it when the last choice unlocks the action. Do not open the report automatically or skip the teacher's explicit confirmation.
+**Gate:** the focused source contract and browser journey must complete the funnel without a pointer and assert that “Show the report” receives focus immediately after the final choice.
+
+## D-122 · P1 · Area 3/5/6/10 — Today sent an assessment shortcut to Children and could show six urgent pupils
+**Evidence:** “Assess a student” invoked the Children destination rather than Assessments. The two urgent sections also sliced themselves independently to three rows, so a page described as a short daily briefing could show three pupils needing attention plus three overdue pupils.
+**Fix:** route the assessment shortcut directly to Assessments and allocate one global three-pupil urgency budget, prioritising “needs attention” before filling any remaining places with overdue pupils.
+**Gate:** allocation units plus an authenticated Today journey must prove the combined urgent list never exceeds three and that the shortcut opens the Assessments chooser with the current class intact.
+
+## D-123 · P1 · Area 3/5/6/10 — Large-class assessment and report pickers created unbounded keyboard work
+**Evidence:** the assessment and report funnels rendered one button for every matching pupil. In a 30–40 pupil class, reaching the control after the roster meant tabbing through the entire class even though both pages already asked the teacher to make one quick selection.
+**Fix:** use one shared searchable pupil picker with eight results per page, a truthful result count, explicit Previous/Next controls, and a controlled current page that resets when the search or selected class changes.
+**Gate:** units and browser journeys must exercise both funnels with 40 pupils, prove no page exposes more than eight pupil buttons, retain search and selection, and keep the keyboard sequence bounded.
+
+## D-124 · P1 · Area 3/5/6/10 — A 100-pupil roster rendered a button for every page
+**Evidence:** Children pagination created its page controls with `Array.from(pageCount)`. At 100 or more pupils this added a long second roster of page buttons, made the footer wrap unpredictably, and turned a navigation aid into another scanning task.
+**Fix:** show a maximum seven-item pagination window containing the ends, the current-page neighbourhood, and non-interactive ellipses. Preserve direct access to the beginning and end without producing a control for every page.
+**Gate:** pagination units must cover the first, middle, and last pages, and a browser journey with 105 pupils must prove all 11 pages remain reachable while no more than seven pagination items are rendered.
+
+## D-125 · P1 · Area 3/5/6/10 — The teacher rail clipped destinations on a short landscape screen
+**Evidence:** the fixed teacher rail used hidden navigation overflow. At 667×320 the combined header, destinations, and account footer exceeded the available height, leaving lower destinations or sign-out outside the reachable viewport.
+**Fix:** make the navigation region independently scrollable, keep the account footer fixed and reachable, retain 44-pixel targets, and use compact short-landscape spacing without changing the normal desktop rail.
+**Gate:** the CSS contract plus an exact 667×320 browser journey must keyboard-focus every teacher destination and sign-out, automatically scroll each focused control into view, and report no unreachable rail action.
+
+## D-126 · P0 · Area 4/5/6/7/10 — “Print or save EL PDF” printed a report with no EL benchmark evidence
+**Evidence:** the whole-class EL button only invoked the browser print dialog while the print stylesheet exposed the generic class report. That generic model intentionally excludes descriptive EL benchmark attempts, and neither the chosen grade/time-of-year route nor its domain results reached the printable document. The Admin report path repeated the same mismatch.
+**Fix:** build a dedicated printable EL class record from the same route-scoped report model as the spreadsheet, including the exact grade/time of year, class, students, four EL domains, administration status, measures, placement provenance, dates, and interpretation rules. Mark the intended document for the print snapshot so general class printing and EL printing cannot select one another.
+**Gate:** component evidence must render route and student/domain values without fabricated zeroes; an authenticated desktop/mobile journey must capture the real print target, prove the selected EL document contains the seeded pupil and EL headings, and prove print CSS hides the generic class report.
+
+## D-127 · P0 · Area 5/8/9/10 — Pending, rejected, and disabled teachers retained database access to owned learning data
+**Evidence:** the account-status check existed in the interface, but the teacher-owned row policies generally checked only `teacher_id = auth.uid()`. A teacher whose account moved out of the approved state could therefore bypass the interface and continue reading or changing classes, learners, answers, mastery, reports, and related evidence through the authenticated table API. The authenticated privileged teacher RPCs were a second bypass because their owner context did not evaluate row policies.
+**Fix:** make one stable account-access predicate require the teacher role and both approval fields to be approved, with an explicit application-administrator exemption, and apply it to every equivalent teacher-owned policy. Inventory every callable privileged `teacher_*` RPC and inject the same fail-closed assertion before argument validation, reads, or writes; migration must stop on inventory drift. Keep the bounded learner-token functions independent so changing a teacher account does not corrupt an already-issued child session.
+**Gate:** a clean database reconstruction and SQL/API actor exercise must move the same teacher through pending, rejected, disabled, and approved states; prove core learning-table reads, inserts, and updates are blocked outside approved; invoke all 23 callable privileged teacher RPCs in every blocked state and require the exact account-boundary denial; prove approved access returns; and prove the learner-token persistence path still works.
+
+## D-128 · P0 · Area 5/7/8/9/10 — Permanent deletion could report browser cleanup without clearing the live learner identity
+**Evidence:** the deletion flow removed a subset of cached history, but it did not prove removal of the exact live profile, guided-reading draft, manual-assessment draft, session, queue, report, and attempt records. A caller-supplied success boolean could also complete the database request without a subject-bound account of what the browser had actually checked.
+**Fix:** define the complete learner-evidence store set, remove or redact every matching identity and evidence field, delete malformed records rather than preserving unverifiable content, read the stores back, and fail closed on storage or removal errors. Send the server a fresh, learner-bound proof naming the exact checked stores and residual count; record it as client-reported cleanup rather than claiming the server verified browser storage.
+**Gate:** exact-key, corrupt-record, and failed-removal units must prove cleanup behavior; an empty or mismatched proof must leave the database request open; the exact proof must complete only after database deletion; and the destructive browser journey must use the real cleanup result rather than a fabricated callback.
+
+## D-129 · P0 · Area 5/7/8/10 — Learner deletion left empty interventions and identifying text in shared plans
+**Evidence:** removing the learner ID from every intervention could retain a meaningless plan with no learners. When classmates shared a plan, the target learner's name or UUID could remain in the owner, group, focus, activity, or outcome text even after the relational ID was removed.
+**Fix:** delete singleton interventions, retain shared interventions for the remaining classmates, redact the deleted learner's display name and UUID from every free-text field, report separate deleted/redacted counts, and make the residual database check reject any affected shared text that still contains either identity.
+**Gate:** a database test must create singleton and shared interventions containing both identifiers, prove the singleton is gone, prove the shared plan still names only the classmate, prove all five text fields are clean, and prove the outcome counts distinguish deletion from redaction.
+
+## D-130 · P0 · Area 4/6/7/10 — Repeated answers from one sitting could be reported as Secure
+**Evidence:** the legacy reporting fallback treated raw answer count as independent attempts, and class/roster summaries trusted aggregate mastery rows without requiring immutable sitting evidence. Four responses from one activity could therefore satisfy a repetition threshold and appear as secure learning.
+**Fix:** use distinct recorded sessions for legacy independence, treat missing session identity as insufficient evidence, and require completed or partial immutable attempts from at least three separate sittings, at least eight scored responses, and at least 85% accuracy before a class or learner summary can say Secure.
+**Gate:** reporting-workspace, summary, class-dashboard, roster, and simple-report units must prove same-sitting repetition never becomes Secure, missing immutable history remains insufficient, and genuinely independent evidence still crosses the named threshold.
+
+## D-131 · P0 · Area 5/8/9/10 — Later account-loading awaits could publish after the signed-in identity changed
+**Evidence:** the first administrator lookup was generation-bound, but a later administrator-profile fetch, pending-account write, or final publication could still finish after sign-out or an account switch. That continuation could attach the prior identity's privileged or approval state to the new session.
+**Fix:** bind every asynchronous account-access stage to one request sequence, expected user ID, and current authentication identity, and revalidate again immediately before publishing the final account state. Stale work may finish but must have no visible side effect.
+**Gate:** deterministic held-promise tests must switch identity during the later administrator-profile and pending-account stages, then prove neither stale result is published; the final authenticated race must repeat the identity change against the production controller.
+
+## D-137 · P1 · Area 2/3/9/10 — Paused 3D practice kept advancing animation time and held input
+**Evidence:** the animation loop advanced its elapsed-time clock before checking the paused state. A key or touch held when the practice paused also remained active, so resuming could jump an animation phase or continue steering/boosting without a new student action.
+**Fix:** use an explicit pausable frame timer that freezes elapsed time, discards all paused frames, and gives the first resumed frame a zero delta. Clear every held keyboard and pointer value on pause, resume, and onboarding dismissal, and ignore new movement input while paused.
+**Gate:** executable timing and input-neutralization tests must advance multiple paused frames, prove elapsed time is unchanged, prove the first resumed delta is zero, and prove all held controls return to neutral; the full overlay runtime must remain console-clean.
+
+## D-132 · P0 · Area 3/5/6/9/10 — Settings treated unknown class and student data as settled
+**Evidence:** Settings could render empty or actionable class, student, privacy, and sign-in-code controls while the current class/profile/roster read was still loading, failed, or truncated. A busy teacher could mistake unknown data for “nothing saved” and start an action against an unverified scope.
+**Fix:** gate every class- and student-scoped Settings action on explicit complete, current-owner read state; show specific loading, incomplete, safety-limit, and retry states; and keep protected controls unavailable until the current scope is verified.
+**Gate:** Settings truth units and authenticated desktop/mobile journeys must cover loading, error, truncation, profile loading, retry, and real empty data without false empty or actionable UI.
+
+## D-133 · P0 · Area 3/5/6/9/10 — A successful class-code rotation could hide the new code after a failed refresh
+**Evidence:** rotating a class code succeeded on the server, then a best-effort class reload could fail and leave the screen showing the old list or no usable code. Retrying the mutation risked rotating again because the successful new value was not retained as authoritative.
+**Fix:** validate and retain the mutation result immediately, show the new code in an isolated copyable confirmation card, label a failed follow-up reload separately, and make retry refresh the class rather than rotate again.
+**Gate:** held-response unit/browser journeys must prove one rotation produces one retained new code through a failed reload and that the refresh retry never calls the rotation operation again.
+
+## D-134 · P0 · Area 3/5/6/8/9/10 — Completed deletion could leave a stale student actionable
+**Evidence:** after a confirmed permanent deletion, Settings waited for a roster refresh before removing the student locally. If that refresh failed, the deleted student and actions could remain visible, making a completed destructive action look uncertain and inviting invalid follow-up actions.
+**Fix:** remove and disable the student in the current local scope as soon as deletion completion is verified, then describe a refresh failure as a separate display-refresh problem with a targeted retry.
+**Gate:** deletion/refresh tests must prove the student disappears immediately, no stale action remains enabled, and failed refresh copy says deletion completed while offering only a roster reload.
+
+## D-135 · P0 · Area 5/6/9/10 — Late Settings responses could publish under a different class
+**Evidence:** class-code, privacy-history, and related Settings reads/mutations were not all keyed to the class that started them. A held response from Class A could finish after the teacher selected Class B and publish A's status, data, or busy state under B.
+**Fix:** bind request generation, result data, feedback, and busy state to the originating class and suppress every completion that no longer owns the current class.
+**Gate:** an authenticated held-response journey must switch A to B before releasing A and prove no A code, history, status, or disabled state appears under B.
+
+## D-136 · P1 · Area 3/6/8/10 — Settings and privacy copy exposed stale navigation names and backend language
+**Evidence:** teacher-facing Settings and learner-data-rights messages still used retired route names and implementation terms such as cloud-table or synchronization wording, increasing cognitive load in already sensitive workflows.
+**Fix:** use the current Students, Assessments, Reports, and Settings names and describe saved, failed, and retained information in ordinary teacher language while keeping legal deletion meaning precise.
+**Gate:** rendered-copy contracts and authenticated Settings/privacy journeys must reject the retired terms and preserve clear success, failure, retry, and retention meaning.
+
+## D-138 · P1 · Area 3/5/6/10 — School administration and technical app checks shared one sprawling dashboard
+**Evidence:** ordinary school tasks, content QA, release checks, media tools, calibration, map editing, reports, privacy, and account management appeared in one dense navigation and scrolling surface. Technical activity detail also appeared in the default school overview.
+**Fix:** split Admin into explicit School administration and App checks areas, show only school pages by default, move technical health and content tools behind App checks, use one selected page at a time, and provide a compact mobile page selector.
+**Gate:** authenticated desktop/mobile journeys must prove the default area contains only school administration, technical controls appear only after choosing App checks, and every section remains reachable.
+
+## D-139 · P1 · Area 3/5/9/10 — Reported-question review ignored browser history and direct URLs
+**Evidence:** opening the question-review subpage changed only component state. Back and Forward could not reliably leave or restore it, and refreshing/directly opening the route did not own the visible page.
+**Fix:** give the page `/admin/question-flags`, synchronize component state from `popstate`, push a marked in-app entry when opening, and distinguish closing an in-app entry from closing a directly loaded page.
+**Gate:** navigation units and an authenticated journey must open, Back, Forward, reload, and close the page while URL and visible content stay identical.
+
+## D-140 · P0 · Area 5/6/9/10 — A 40-cell teacher state fixture was reported as production behaviour
+**Evidence:** the release ledger claimed five surfaces across eight loading/error/recovery states, but production only selected a subset. Several pages exposed an unused generic override prop, while Offline, Conflict, Retry success, and other cells existed only in the fixture and tests.
+**Fix:** remove the state-injection props, catalog only the eleven combinations selected by concrete current read-state branches, document states the app does not claim, and make the release checker reject invented combinations.
+**Gate:** the runtime-state gate must render all eleven real combinations, verify their exact production branches and mounts, reject unsupported combinations, and confirm no generic state override remains.
+
+## D-141 · P0 · Area 3/4/6/7/10 — Everyday class reporting remained a second intensive formal report
+**Evidence:** the class report put dense reporting tools and a multi-page generic packet in the normal teacher workflow even though formal detail belongs in the standalone EL record. Missing accuracy could also be coerced through `Number(null)` and displayed as a confident 0%.
+**Fix:** lead with one quick class view, no more than three teaching priorities and three suggested groups; collapse formal EL/history/download tools; make the everyday printout a single planning page; keep the detailed EL document separate; and treat absent accuracy as “Not enough results.”
+**Gate:** report units and authenticated print journeys must prove one concise generic page, a separate route-scoped three-page EL record, period-correct evidence, bounded screen content, and no invented zero or invalid percentage.
+
+## D-142 · P1 · Area 5/8/9/10 — Assessment question reports were saved only on one browser
+**Evidence:** the assessment “Report image” and “Report question” controls wrote a local-browser record. An administrator using another device or browser could not see it, a cleared browser lost it, and a local success message did not prove that the school had received anything.
+**Fix:** store reports in a private cloud table through one idempotent RPC that accepts either an approved owning teacher or a current student-session token. Return only a bounded acknowledgement to the reporter; rebuild and bound the review snapshot on the server; reject remote image URLs and unapproved fields; allow only app administrators to page through, review, or delete reports; and make reviewer identity and review time server-owned. Retain only a visible count of legacy device-only reports so they are not misrepresented as uploaded.
+**Gate:** question-report store units, the fresh-database `assessment_question_reports.sql` actor/ownership/sanitisation proof, and a two-browser authenticated journey must prove that a teacher or valid student can send once, another administrator session can load and review the same report, disabled/foreign/anonymous callers cannot cross the boundary, direct writes and reviewer spoofing fail, and a failed cloud save never says “sent.”
+
+## D-143 · P1 · Area 3/5/9/10 — The Reported questions page was not a complete cold-load or mobile Admin route
+**Evidence:** the first history fix lived inside the already-mounted Admin dashboard. A direct or reloaded `/admin/question-flags` URL could restore the teacher’s previous page before Admin mounted, the compact Admin selector did not expose Reported questions, and leaving through the teacher rail could retain the Admin pathname beside a different visible page.
+**Fix:** make the exact pathname own the parent Admin view after administrator identity is confirmed; initialize and synchronize the subpage from that pathname; preserve Back and Forward; include Reported questions in the compact Admin picker; and clear the Admin pathname and marked history state whenever the teacher leaves for another main section.
+**Gate:** navigation units plus authenticated desktop and 390-pixel journeys must cold-open, reload, Back, Forward, close, select from the compact picker, and leave via the main teacher rail while the pathname and visible page remain identical at every step.
+
+## D-144 · P0 · Area 5/6/9/10 — A failed saved-school lookup could become an editable blank school
+**Evidence:** account/profile readiness was used as a proxy for the separate school-name read. A missing row, rejected request, or stale account result could therefore expose an empty School name field and Save action, making unknown saved data look like an intentional blank value.
+**Fix:** give the school-name read its own teacher- and school-scoped idle, loading, complete, and error state. Query the exact saved school record, treat a missing name as an error rather than empty data, hide the field and Save action until a complete current-owner read succeeds, and provide a retry that restores the verified value.
+**Gate:** school-profile units and Settings loading/error/retry browser journeys must prove that failure or a missing row cannot render an editable blank, a different teacher’s completion cannot publish, and only a complete matching read enables School name and Save.
+
+## D-145 · P1 · Area 3/5/6/10 — Retry replaced the focused control and left keyboard users on the document body
+**Evidence:** a teacher could activate Try again, after which React replaced that button with a loading state and later replaced loading with either another error or the recovered page. Browser focus remained on a detached node and fell back to the document body, so the teacher received no reliable indication of whether the retry was running, failed again, or succeeded.
+**Fix:** start a bounded recovery-focus watcher when a real retry action is activated. Move focus to the live loading state while the request runs; on repeated failure focus the new enabled recovery action; on success focus the restored page heading; scope the watcher to the replaced state region and disconnect it after resolution or timeout.
+**Gate:** recovery-focus units and an authenticated failed-retry/loading/success roster journey must prove the active element follows all three states, every programmatic target has a visible three-pixel focus treatment, and no replaced retry leaves focus on `<body>`.
+
+## D-146 · P1 · Area 3/5/6/10 — An opened report received focus on a clipped or visually silent heading
+**Evidence:** the Reports funnel moved focus after opening a result, but its context heading had been visually clipped or suppressed and its focus outline removed. The result therefore changed substantially without a visible keyboard focus destination; a cold or reloaded report could also leave focus outside the opened result.
+**Fix:** retain the report-context heading as a compact visible heading, make it programmatically focusable, give it an explicit three-pixel outline, and focus it after Show the report as well as after an owned report cold load or reload.
+**Gate:** the authenticated report journey must prove click, direct URL, and reload all focus the visible context heading, computed focus style is a solid three-pixel outline, the report’s first result remains inside the laptop viewport, and the settled chooser remains hidden without removing the result’s context.
+
+## D-147 · P1 · Area 3/5/6/10 — Report disclosures reset after teachers opened, closed, or expanded their contents
+**Evidence:** Overview disclosures were driven directly from their initial `defaultOpen` value. React therefore reapplied the default during later report renders, so a teacher’s open/closed choice could be lost when showing more rows or when adjacent report state changed.
+**Fix:** use `defaultOpen` only to initialize independent local disclosure state, bind each `<details>` element to that state, and update it from the native toggle event. Keep row expansion state separate so Show all/Fewer cannot reopen a group the teacher closed or close a group they opened.
+**Gate:** report-experience units plus an interactive report journey must open and close multiple groups independently, expand and reduce rows inside either group, and prove every disclosure retains the teacher’s choice across those rerenders.
+
+## D-148 · P1 · Area 5/6/9/10 — Sign-in summary and sign-in history shared one failure state
+**Evidence:** the 24-hour class sign-in summary and the privacy-minimal event history were separate reads but reused shared busy/error state. A summary failure could clear, hide, or strand a successful history result, while opening history could make the summary look as though it were loading again.
+**Fix:** retain independent class-scoped read objects for summary and history, each with its own idle/loading/complete/error data. Retry only the failed source, preserve a successful sibling result, reject stale class results, and render each source’s feedback in its own region.
+**Gate:** Settings units and browser journeys must combine summary failure with successful history and history failure with successful summary, then switch classes and retry, proving that one source never clears, relabels, or blocks the other.
+
+## D-149 · P1 · Area 3/5/6/8/10 — Reported-question review controls claimed actions the system had not taken
+**Evidence:** review filters used tab-like styling without matching tab semantics, error feedback could be announced as a neutral status, and action/export wording exposed internal decision tokens or implied that a live question or image had been replaced or deleted. The implementation only records an administrator’s review decision and can delete the report itself.
+**Fix:** expose the filters as an ordinary labelled button group with `aria-pressed`; announce failures as alerts; use plain labels such as “Record question problem” and “Record no change needed”; translate stored decision tokens before display/export; and make report deletion explicitly state that the assessment question and image remain unchanged.
+**Gate:** review-note/store units and an authenticated keyboard/browser journey must prove truthful accessible filter state, plain decision labels, alert semantics on failure, server-saved review ownership, and a two-step Delete report flow that never claims to alter live assessment content.
+
+## D-150 · P1 · Area 2/3/6/7/10 — Formal EL screens and exports exposed routing-system terminology to teachers
+**Evidence:** the formal EL panel, assessment runner, individual report, PDF, and workbook could display implementation terms including route, microphase, candidate microphase, decoding band, and route judgment. Those labels describe internal sequencing rather than the assessment decision a teacher needs to understand or record.
+**Fix:** present the selection as grade and time of year, the runner sequence as the assessment plan, placement as a starting/suggested/teacher-confirmed reading stage, and the outcome as a next-step decision. Apply the same translation to legacy presentation and every visible workbook cell without changing immutable assessment evidence.
+**Gate:** formal-EL language, report, export-copy, legacy-label, and browser contracts must find the teacher terms across the panel, runner, finished report, PDF and Excel workbook and no system-facing route or microphase token.
+
+## D-151 · P1 · Area 3/5/6/10 — Archived students formed an unbounded list at the bottom of Students
+**Evidence:** the active roster was paginated, but every archived student for the class rendered in one disclosure. A school with years of departures therefore regained the same scrolling and keyboard burden the active-roster redesign removed, with no way to find one former student quickly.
+**Fix:** filter archived students to the selected class, sort them by display name, add a case-insensitive search, show at most ten matching rows per page, use the shared bounded pagination window, clamp stale pages, reset search/page on class changes, and announce truthful matching counts and empty-search results.
+**Gate:** archived-roster units and a 25-student browser fixture must prove ten/five row pages, search and clear-search behavior, class isolation, page clamping/reset, current-page semantics, bounded controls, and a live matching-count announcement.
+
+## D-152 · P1 · Area 5/8/9/10 — Archiving a student did not reliably revoke child access
+**Evidence:** the normal archive action and the retention-policy fallback could leave a live student session usable. An archived learner could therefore sign in again or continue submitting assessment-question reports even though the teacher-facing roster treated the account as inactive.
+**Fix:** make every archive path revoke all current learner sessions atomically, reject archived learners at class lookup, sign-in, token validation, learning-write, and question-report boundaries, and keep reactivation an explicit teacher-owned action rather than a side effect.
+**Gate:** fresh-database archive/session SQL plus authenticated teacher/child browser journeys must prove that both archive paths invalidate an existing session, prevent a fresh sign-in and question report, preserve active classmates, and allow access only after an explicit teacher reactivation.
+
+## D-153 · P1 · Area 5/7/8/10 — Question reports were omitted from learner export and deletion
+**Evidence:** `assessment_question_reports` could contain a learner identifier and saved question snapshot, but learner export did not include those records and permanent deletion did not remove or explicitly retain them. The foreign key's `SET NULL` behaviour could hide the residual row from the post-delete learner check without removing the learner-linked content.
+**Fix:** include the learner's own question reports in the private export, delete them during permanent learner deletion, and verify both direct identifiers and subject-bearing snapshots are absent before reporting zero residual records.
+**Gate:** learner-data-rights units and transactional SQL must create learner question reports, prove they appear only in that learner's export, delete the learner, and fail unless the reports and every subject-bearing residual are gone.
+
+## D-154 · P1 · Area 5/7/8/10 — Shared planning and observation records could retain deleted learner details
+**Evidence:** shared observations, group reviews, and intervention records could retain a deleted learner's display name or UUID inside free text, arrays, or JSON even after the direct target relationship was removed. A direct-column residual count therefore understated the privacy residue.
+**Fix:** treat every supported structured and free-text learner reference as part of deletion, remove singleton records, rebuild shared records for remaining learners, redact exact subject identifiers/names without damaging classmates' evidence, and fail closed if a post-delete scan finds a residual.
+**Gate:** a fresh-database deletion exercise must cover singleton and shared observation, review, and intervention shapes, preserve unrelated classmates, and prove the deleted learner's UUID and normalized display name are absent from all retained payloads.
+
+## D-155 · P1 · Area 4/6/7/10 — Transferred students lost former-class evidence from formal reports
+**Evidence:** lifetime totals could count attempts from a student's former class while the formal report rows and heatmap queried only the current class. The same report could therefore claim more evidence than it showed and omit legitimate assessment history after a school-owned transfer.
+**Fix:** scope formal student evidence by student ownership and assessment time rather than only the current class, label former-class context where useful, keep current-class roster access rules intact, and make all totals, rows, heatmaps, exports, and provenance count the same eligible attempts.
+**Gate:** transfer SQL, report-builder units, and an authenticated transfer/report journey must prove that owned pre-transfer attempts remain visible and reconciled, foreign-school evidence remains inaccessible, and every displayed total equals its underlying rows.
+
+## D-156 · P1 · Area 5/8/9/10 — Anonymous error ingestion could bypass throttling by rotating one fingerprint
+**Evidence:** the anonymous monitoring endpoint limited one caller-supplied or easily rotated fingerprint at a time. A client could cycle that value and create an unbounded error stream even though each individual key appeared below its limit.
+**Fix:** apply server-derived layered limits across short-lived caller, device/network bucket, and global ingestion windows; bound payload size and vocabulary; retain privacy-preserving hashes only; and return a generic acknowledgement without exposing monitoring state.
+**Gate:** error-monitoring SQL and browser/API checks must prove per-key rotation cannot exceed the broader bucket, oversized or malformed payloads fail, normal bounded reports succeed, and no raw network address, token, class code, or learner detail is retained.
+
+## D-157 · P1 · Area 5/8/9/10 — Rolling-release fallback restored retired insecure child-login RPCs
+**Evidence:** when the secure device-aware student RPC overload was missing, the client retried the old class-code or student-login signature. A frontend deployed ahead of its database could therefore bypass the device, network, and class-code throttles introduced by the secure migration.
+**Fix:** fail closed when either secure overload is unavailable, show the existing child-safe recovery state, never call the retired anonymous signatures, and require the backend migration to complete before child access resumes.
+**Gate:** compatibility units and the class-access security verifier must prove exactly one device-aware call, a `migration-required` failure on `PGRST202`, no retired call shape in source or runtime, and unchanged handling of ordinary permission/network errors.
+
+## D-158 · P2 · Area 5/8/9/10 — One valid student session could flood the question-report queue
+**Evidence:** question-report submission validated the learner token and idempotency key but had no durable per-session or per-learner quota. A valid child session could submit unlimited unique reports and overwhelm the administrator review queue.
+**Fix:** enforce bounded server-owned rolling quotas per learner session, learner, and school, preserve idempotent retries, return one plain retry-later response, and keep administrator review/delete activity outside the student quota.
+**Gate:** transactional question-report SQL must prove duplicate retries remain one record, unique reports stop at each configured boundary, another active learner retains a fair allowance, archived/expired sessions fail, and direct table writes remain blocked.
+
+## D-159 · P2 · Area 5/7/8/10 — Learner exports could disclose classmates through shared records
+**Evidence:** shared intervention labels, notes, reviews, or saved snapshots could include other learners' names or identifiers when exported for one child. Returning the complete shared payload would satisfy record inclusion while violating the classmates' privacy.
+**Fix:** project shared records into a subject-only export view, retain only the requested learner's role and evidence, replace group context with non-identifying counts where necessary, and exclude or redact peer labels, names, UUIDs, and snapshots.
+**Gate:** learner-export SQL must seed mixed shared records and prove the subject receives all entitled evidence while no classmate name, UUID, login picture, note, or answer snapshot appears in the exported payload.
+
+## D-160 · P2 · Area 5/8/9/10 — Unapproved accounts could create unlimited schools
+**Evidence:** `find_or_create_school` was reachable before an account became approved and could create a new school on repeated calls. Pending, rejected, or disabled users could therefore mutate tenant data despite the broader teacher-account restrictions.
+**Fix:** require an approved teacher or administrator for school creation and matching, keep signup requests separate from tenant mutation, normalize and de-duplicate names server-side, and rate-limit any public discovery path without revealing private school records.
+**Gate:** four-account-state SQL must prove only approved teachers and administrators can create or select a school, non-approved calls create no rows, repeated approved calls are idempotent, and one school cannot enumerate another school's private data.
+
+## D-161 · P2 · Area 5/8/9/10 — Account approval audit identity and time were client-controlled
+**Evidence:** the approval workflow accepted reviewer identity or review timestamps from a client-visible mutation path. A pending user or compromised client could falsify who approved an account or when the decision was made even if the final status transition was otherwise restricted.
+**Fix:** move every approval/rejection/disable transition behind an administrator-only RPC, derive actor identity and timestamp from the authenticated database context, reject direct writes to audit-owned fields, and preserve an append-only decision trail.
+**Gate:** account-status SQL must prove pending and ordinary teacher actors cannot change status or audit metadata, administrator decisions record the real actor/server time, forged payload fields are ignored or rejected, and prior decisions cannot be rewritten.
+
+## D-162 · P1 · Area 4/6/7/9/10 — Incomplete report reads rendered confident empty teaching claims
+**Evidence:** failed, partial, or not-yet-complete report sources could flow through zero-valued defaults and render statements such as no exposure, no correct answers, or nothing yet learned. Those are teaching conclusions, not safe representations of unavailable evidence.
+**Fix:** make source completeness load-bearing for every report calculation, suppress the report body until required reads are complete, show a compact unavailable/retry state, and never convert missing counts or accuracy into zero.
+**Gate:** report-model units and authenticated held/failing-read journeys must prove loading, error, partial, empty-complete, and populated-complete states remain distinct and only the two complete states can render teaching conclusions or exports.
+
+## D-163 · P1 · Area 4/5/6/9/10 — A support plan could be saved with no students
+**Evidence:** the support planner allowed its final learner selection to be removed and the database accepted an empty target array. The resulting plan appeared valid but could not guide or evidence support for any child.
+**Fix:** require at least one active student in the selected class in both the interface and database function, disable Save with a plain explanation when the selection is empty, and reject archived, duplicate, foreign-class, or foreign-school targets server-side.
+**Gate:** planner units, intervention SQL, and an authenticated browser journey must prove zero targets cannot save, valid targets can, stale/foreign targets fail without a false success, and the saved plan contains exactly the current visible selection.
+
+## D-164 · P1 · Area 3/4/5/6/9/10 — Planned support did not reliably return to Today for follow-through
+**Evidence:** the plan → teach → note → review loop could exclude work scheduled for today, while delivered or recorded entries without a next date disappeared from the teacher's action list. Collapsed details made the lifecycle still harder to recover during a busy day.
+**Fix:** define explicit due-today, overdue, delivered-needs-note, recorded-needs-review, and completed states; surface the next required action on Today; keep the relevant item expanded when opened from Today; and require or derive a truthful next date whenever work remains.
+**Gate:** intervention-state units and a multi-day authenticated browser journey must move one plan through every lifecycle state and prove the correct action appears once on Today, survives reload, records ownership/time, and disappears only after the work is genuinely complete.
+
+## D-165 · P2 · Area 3/5/6/9/10 — Changing class could carry the old learner into the support planner
+**Evidence:** if the planner remained open while the teacher changed class, its local learner selection could survive and show or submit a student from the previous class under the new class context.
+**Fix:** key planner draft state to the selected class, clear or rehydrate targets on every class change, validate every visible and submitted learner against the current roster, and announce the reset without silently discarding a saved server record.
+**Gate:** an authenticated class-switch journey must open a draft for Class A, switch to Class B before saving, prove no A learner remains visible or submitted, and then save a valid B-only plan.
+
+## D-166 · P2 · Area 3/5/6/9/10 — Saving “Never” expiry displayed the previous date
+**Evidence:** the server correctly returned an explicit `null` expiry for “Never”, but client reconciliation used nullish fallback and restored the old date. The saved setting and the visible setting therefore disagreed until a later full refresh.
+**Fix:** distinguish an explicit saved `null` from an absent response field, publish the server-owned setting immediately, and retain the old value only when the save itself fails.
+**Gate:** settings-model units and an authenticated save/reload journey must move from a dated expiry to Never and back, prove visible/server parity after each response, and preserve the prior choice on failure without claiming success.
+
+## D-167 · P2 · Area 3/6/10 — Signup called the email address a “Sign-in name”
+**Evidence:** the registration form labelled the account email as a “Sign-in name” even though teachers subsequently authenticate with their email address. The wording introduced an unnecessary invented credential during an already unfamiliar approval flow.
+**Fix:** label the field and all supporting/error copy as “Email address”, retain standard email autocomplete and validation semantics, and explain approval in ordinary school language without business or system terminology.
+**Gate:** auth-copy units and the signed-out registration journey must expose one correctly labelled email field, no “Sign-in name” wording, working validation, and the same email-based sign-in explanation after submission.
+
+## D-168 · P2 · Area 3/5/6/9/10 — Planned support could not be edited, rescheduled, cancelled, or removed
+**Evidence:** once a support record was created, a teacher could add progress but could not correct its focus, learners, owner, schedule, or mistaken creation. The only practical workaround was to leave misleading work in the active lifecycle.
+**Fix:** provide explicit Edit, Reschedule, Cancel, and Delete draft actions with role/ownership checks, preserve immutable delivery/review evidence, require a reason for cancelling delivered work, and keep every change in a plain audit history.
+**Gate:** intervention SQL, units, and authenticated keyboard journeys must cover draft edit/reschedule/delete, delivered cancellation with reason, denied foreign-school changes, accurate Today resurfacing, and immutable historical events.
+
+## D-169 · P0 · Area 5/8/9/10 — The configured hosted database was behind the audited application schema
+**Evidence:** the configured hosted Supabase project exposed only 27 of 35 required application RPCs. Eight teacher transfer, deletion, login-picture, progress-reset, assessment-report, and empty-class operations existed in the clean local schema but not in the deployed database, so the hosted app could fail even while local tests passed.
+**Fix:** link the exact hosted project through an authorized deployment identity, compare its migration ledger with the repository, back up and dry-run the pending set, apply every reviewed migration in order, and verify the live function, privilege, RLS, and browser contracts against that same project.
+**Gate:** the hosted `check:live-database` inventory must pass every current required RPC and signature, the live policy verifier must pass all actor/account/tenant boundaries, and authenticated hosted teacher journeys must exercise the previously missing operations without fallback or console/network error.

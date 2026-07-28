@@ -47,7 +47,7 @@ function seededHighVolumeAttempt(index) {
   };
 }
 
-test("the seeded 520-item Skills Check export keeps every summary, attempt, and question row", () => {
+test("the seeded 520-item skills assessment export keeps every summary, attempt, and question row", () => {
   const assessmentHistory = Array.from(
     { length: HIGH_VOLUME_COUNT },
     (_, index) => seededHighVolumeAttempt(index)
@@ -63,7 +63,7 @@ test("the seeded 520-item Skills Check export keeps every summary, attempt, and 
   const rows = buildStudentWorkspaceCsvRows("skills-check", workspace);
   const skillSummaries = rows.filter(row => row["Row type"] === "Skill summary");
   const itemSummaries = rows.filter(row => row["Row type"] === "Item summary");
-  const attempts = rows.filter(row => row["Row type"] === "Check attempt");
+  const attempts = rows.filter(row => row["Row type"] === "Assessment attempt");
   const questions = rows.filter(row => row["Row type"] === "Question result");
 
   assert.equal(skillSummaries.length, 3);

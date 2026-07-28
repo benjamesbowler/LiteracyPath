@@ -92,7 +92,7 @@ function statusLabel(status) {
   if (status === "mastered") return "Secure";
   if (status === "developing") return "Developing";
   if (status === "needs_support") return "Needs Support";
-  if (status === "not_enough_evidence") return "Not enough evidence";
+  if (status === "not_enough_evidence") return "Not enough results";
   return "Not checked";
 }
 

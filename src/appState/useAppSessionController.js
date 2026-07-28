@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps -- Context values preserve App's original effect contracts during staged controller extraction. */
-import { useEffect, useEffectEvent, useLayoutEffect, useState } from "react";
+import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
 import {
   loadCompatibleDashboardStudents,
   loadCompatibleTeacherClasses,
@@ -7,35 +7,98 @@ import {
 } from "../data/classApiCompatibility.js";
 import { TEACHER_COPY } from "../copy/teacherCopy.js";
 import {
+  deleteRosterStudent,
   normalizeRosterStudentName,
   updateRosterStudentName
 } from "../data/teacherRosterOperations.js";
 import { selectAllRows } from "../data/pagedSelect.js";
+import {
+  teacherAuthErrorMessage,
+  teacherMutationErrorMessage
+} from "./teacherErrorMessages.js";
+import {
+  awaitCurrentAccountAccessStage,
+  resolveCurrentAdminStatusCheck
+} from "./accountAccessCheck.js";
+import {
+  buildCurrentSkillEvidence,
+  buildIncompleteClassDashboardRows,
+  countFirstSecureTransitions,
+  currentAnswerEvidence,
+  incompleteClassDashboardSources,
+  verifiedSecureSkillIds
+} from "./classDashboardEvidence.js";
+import { resolveSequencedRows } from "./sequencedRead.js";
+import {
+  beginStudentRosterRead,
+  completeStudentRosterRead,
+  failStudentRosterRead,
+  resetStudentRosterRead
+} from "./studentRosterReadState.js";
+import {
+  beginClassListRead,
+  completeClassListRead,
+  createClassListReadState,
+  failClassListRead,
+  resetClassListRead
+} from "./classListReadState.js";
+import {
+  beginClassDashboardRead,
+  completeClassDashboardRead,
+  createClassDashboardReadState,
+  failClassDashboardRead,
+  resetClassDashboardRead
+} from "./classDashboardReadState.js";
+import { PRACTICE_RESET_RETAINED_AREAS } from "../utils/progressSync.js";
+import { loadTeacherSchoolName } from "../data/teacherSchoolProfile.js";
+import { shouldApplyRestoredAppView } from "./appViewHelpers.js";
+import { createInternalTeacherUsername } from "./teacherSignupIdentity.js";
+import {
+  adminPathForSection,
+  adminQaExitUrl,
+  adminQaHistoryState,
+  adminRouteForPath,
+  isAdminRoutePath,
+  withoutAdminQaHistoryState
+} from "./adminQaNavigation.js";
+
+async function settleTeacherRead(source, read, fallback) {
+  try {
+    return await read();
+  } catch (error) {
+    console.error(`${source} read rejected:`, error);
+    return {
+      ...fallback,
+      error
+    };
+  }
+}
 
 export function useAppSessionController(context) {
   const {
     accountAccessCheckInFlightRef, accountAccessCheckSeqRef, accountAccessCheckUserIdRef, adminStatusError,
     adminStudents, answerHistory, answerHistoryRef, answerInFlightRef,
-    APP_VIEWS, appView, assessmentActiveRef, assessmentMode,
+    APP_VIEWS, appView, appViewNavigationRevisionRef, assessmentActiveRef, assessmentMode,
     authBootCompletedRef, authDisplayName, authEmail, authPassword,
-    authReady, authSchoolName, authUsername, buildQuestMasteryReport,
-    clearLocalElAssessmentDataForStudent, clearLocalProgressForStudent, clearProgressSyncSession,
-    configureProgressSync, correctAnswered, currentSkillIndex, deleteSavedClassElAssessmentReportsForStudent,
+    authReady, authSchoolName, buildQuestMasteryReport,
+    chooseNewestManualAssessmentEntries, clearAndVerifyLocalProgressForStudent, clearLocalElAssessmentDataForStudent,
+    clearProgressSyncSession,
+    configureProgressSync, correctAnswered, currentSkillIndex,
     elBenchmarkAssessmentHash, elBenchmarkSession, findQuestionForAnswerRecord, freshAuthActionRef,
     freshLoginResetPendingRef, getAdminSetupMessage, getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature,
     getGuidedReadingStorageKeyForSession, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
     hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
-    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isSameTeacherRoute, isStudentAllowedView,
+    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isSameTeacherRoute, isStudentAllowedView,
     isSupabaseConfigured, itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
-    letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft,
+    letterAssessment, letterIndex, loadElBenchmarkDraft, loadManualAssessmentDrafts,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
     mergeAssessmentAttemptRecords, newClassName, normalizeItemMasteryRow, patternAssessment,
-    patternAttempt, patternIndex, pickQuestion, profileLoaded,
-    queueProgressSave, rawSetAppView, RESET_AREA, resetInitialSoundRoundQueue,
-    restoreElBenchmarkSessionFromHash, roundAnswers, roundItemKeys, roundItemKeysRef,
-    roundQuestionIds, roundQuestionIdsRef, saveElBenchmarkDraft, saveStudentAccessibilitySettings,
+    patternAttempt, patternIndex, pickQuestion, profileLoaded, profileLoadedTeacherIdRef,
+    queueProgressSave, rawSetAppView, resetInitialSoundRoundQueue,
+    restoreElBenchmarkSessionFromHash, restoreManualAssessmentDraftsFromHistory, roundAnswers, roundItemKeys, roundItemKeysRef,
+    roundQuestionIds, roundQuestionIdsRef, saveElBenchmarkDraft, saveManualAssessmentDrafts, saveStudentAccessibilitySettings,
     saveStudentReducedChoiceMode, selectedClassId, sessionMode, setAdminClasses,
     setAdminConfirm, setAdminLoading, setAdminPendingAccounts, setAdminPendingAccountsWarning,
     setAdminSchools, setAdminStatusError, setAdminStudents, setAdminTeachers,
@@ -50,9 +113,10 @@ export function useAppSessionController(context) {
     setNewClassName, setPatternAssessment, setPatternAttempt, setPatternIndex,
     setProfileLoaded, setResetProgressDialogOpen, setResettingProgress, setRoundAnswers,
     setRoundItemKeys, setRoundQuestionIds, setSelectedClassId, setSelectedStudentEvidenceReadState,
-    setSelectedStudentEvidenceReady, setSessionMode, setStudentList, setStudentPreviewStatus,
+    setSelectedStudentEvidenceReady, setSessionMode, setStudentList, setStudentListReadState, setStudentPreviewStatus,
     setStudentReportView, setStudentSession, setStudentSessionId, setStudentSessionName,
     setTeacherAccountRecord, setTeacherAccountStatus, setTeacherGroupId, setTeacherSchoolName,
+    setTeacherSchoolNameReadState,
     setTeacherStudentContext, setTeacherUser, setTotalAnswered, setUsedByStage,
     skillTree, STUDENT_SESSION_STORAGE_KEY, studentId, studentName,
     studentPreview, studentReportView, studentSession, supabase,
@@ -69,6 +133,49 @@ export function useAppSessionController(context) {
   // so rather than telling an established teacher to make their first class.
   // Starts true because every approved teacher's session loads classes.
   const [loadingClasses, setLoadingClasses] = useState(true);
+  const [classListReadState, setClassListReadState] = useState(
+    createClassListReadState
+  );
+  const [classDashboardReadState, setClassDashboardReadState] = useState(
+    createClassDashboardReadState
+  );
+  const [teacherSchoolNameReadRevision, setTeacherSchoolNameReadRevision] = useState(0);
+  const [teacherProfileRouteRevision, setTeacherProfileRouteRevision] = useState(0);
+  const [retryableTeacherRoute, setRetryableTeacherRoute] = useState(null);
+  const [teacherRouteHydrationRevision, setTeacherRouteHydrationRevision] = useState(0);
+  const adminDashboardLoadSequenceRef = useRef(0);
+  const authIdentityGenerationRef = useRef(0);
+  const classDashboardLoadSequenceRef = useRef(0);
+  const classListLoadSequenceRef = useRef(0);
+  const controllerMountedRef = useRef(true);
+  const profileRestoreSequenceRef = useRef(0);
+  const retryableTeacherRouteRef = useRef(null);
+  const sessionModeRef = useRef(sessionMode);
+  const studentListLoadSequenceRef = useRef(0);
+  const studentProgressLoadSequenceRef = useRef(0);
+  const teacherRouteHydrationTokensRef = useRef(new Set());
+  sessionModeRef.current = sessionMode;
+
+  useEffect(() => {
+    controllerMountedRef.current = true;
+    const retirePageReads = () => {
+      controllerMountedRef.current = false;
+      profileRestoreSequenceRef.current += 1;
+      adminDashboardLoadSequenceRef.current += 1;
+      classDashboardLoadSequenceRef.current += 1;
+      classListLoadSequenceRef.current += 1;
+      studentListLoadSequenceRef.current += 1;
+      studentProgressLoadSequenceRef.current += 1;
+      teacherRouteHydrationTokensRef.current.clear();
+    };
+    window.addEventListener("pagehide", retirePageReads);
+    window.addEventListener("beforeunload", retirePageReads);
+    return () => {
+      retirePageReads();
+      window.removeEventListener("pagehide", retirePageReads);
+      window.removeEventListener("beforeunload", retirePageReads);
+    };
+  }, []);
 
   function applyStudentSession(session) {
     if (!session?.token || !session?.studentId) return;
@@ -181,14 +288,15 @@ export function useAppSessionController(context) {
   useEffect(() => {
     function handlePreviewWriteBlocked(event) {
       if (!studentPreview || event.detail?.studentId !== studentPreview.studentId) return;
-      setStudentPreviewStatus("Preview activity was blocked and was not saved to the learner record.");
+      setStudentPreviewStatus("Preview activity was blocked and was not saved to the student's record.");
     }
     window.addEventListener("lp-preview-write-blocked", handlePreviewWriteBlocked);
     return () => window.removeEventListener("lp-preview-write-blocked", handlePreviewWriteBlocked);
   }, [studentPreview]);
 
   function getGuidedReadingStorageKey(selectedStudentId = studentId) {
-    // TODO(guided-reading-persistence): Move these records into Supabase once a stable table/schema is approved.
+    // The device cache gives instant/offline access; queueProgressSave mirrors
+    // each record into the student_progress cloud table.
     return getGuidedReadingStorageKeyForSession({ teacherId, studentId: selectedStudentId });
   }
 
@@ -213,20 +321,37 @@ export function useAppSessionController(context) {
         [bookId]: record
       };
       const key = getGuidedReadingStorageKey(studentId);
-      if (key) localStorage.setItem(key, JSON.stringify(next));
+      if (key) {
+        try {
+          localStorage.setItem(key, JSON.stringify(next));
+        } catch (error) {
+          console.warn("Could not save the guided reading record on this device.", error);
+        }
+      }
       queueProgressSave("guided_reading", bookId, { v: 1, ...record }, { scopeKey: studentId });
       return next;
     });
   }
 
   function clearTeacherState() {
+    adminDashboardLoadSequenceRef.current += 1;
+    classDashboardLoadSequenceRef.current += 1;
+    classListLoadSequenceRef.current += 1;
+    studentListLoadSequenceRef.current += 1;
+    studentProgressLoadSequenceRef.current += 1;
+    retryableTeacherRouteRef.current = null;
+    setRetryableTeacherRoute(null);
     setStudentSessionName("");
     setStudentSessionId(null);
     setTeacherStudentContext({ studentId: null, studentName: "" });
     setTeacherGroupId("all");
     setStudentList([]);
     setArchivedStudentList([]);
+    setStudentListReadState(resetStudentRosterRead());
     setClassList([]);
+    setClassListReadState(resetClassListRead());
+    setClassDashboardReadState(resetClassDashboardRead());
+    setLoadingClasses(false);
     setSelectedClassId(null);
     setNewClassName("");
     setClassDashboard([]);
@@ -242,6 +367,13 @@ export function useAppSessionController(context) {
     setFeedback(null);
     setAssessmentTransitioning(false);
     setMessage("");
+    setTeacherSchoolName("");
+    setTeacherSchoolNameReadState({
+      status: "idle",
+      teacherId: "",
+      schoolId: "",
+      error: null
+    });
     setAdminTeachers([]);
     setAdminClasses([]);
     setAdminStudents([]);
@@ -259,6 +391,7 @@ export function useAppSessionController(context) {
     setPatternAttempt(0);
     setElBenchmarkSession(null);
     setAnswerHistory([]);
+    answerHistoryRef.current = [];
     setAssessmentHistory([]);
     setGuidedReadingRecords({});
     setItemMastery({});
@@ -271,11 +404,11 @@ export function useAppSessionController(context) {
     answerInFlightRef.current = false;
   }
 
-  function resetSelectedStudentOnLogin() {
+  function resetSelectedStudentOnLogin({ navigate = true } = {}) {
     setTeacherStudentContext({ studentId: null, studentName: "" });
     setTeacherGroupId("all");
     setNameSaved(false);
-    setAppView(APP_VIEWS.SELECT);
+    if (navigate) setAppView(APP_VIEWS.SELECT);
     setRoundAnswers([]);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
@@ -307,6 +440,50 @@ export function useAppSessionController(context) {
     }
   }
 
+  function publishRetryableTeacherRoute(nextRoute) {
+    retryableTeacherRouteRef.current = nextRoute;
+    setRetryableTeacherRoute(nextRoute);
+  }
+
+  function hasCurrentRetryableTeacherRoute() {
+    const pending = retryableTeacherRouteRef.current;
+    return Boolean(
+      controllerMountedRef.current
+      && pending
+      && pending.hash === window.location.hash
+      && pending.teacherId === lastAuthUserIdRef.current
+      && pending.identityGeneration === authIdentityGenerationRef.current
+    );
+  }
+
+  function hasCurrentTeacherRouteHydration() {
+    return controllerMountedRef.current && [...teacherRouteHydrationTokensRef.current].some(token => (
+      token.hash === window.location.hash
+      && token.teacherId === lastAuthUserIdRef.current
+      && token.identityGeneration === authIdentityGenerationRef.current
+    ));
+  }
+
+  function scheduleRetryableTeacherRoute(retryStage) {
+    const pending = retryableTeacherRouteRef.current;
+    if (
+      !pending
+      || pending.retryStage !== retryStage
+      || pending.retrying
+      || !hasCurrentRetryableTeacherRoute()
+    ) return;
+
+    const retrying = { ...pending, retrying: true };
+    publishRetryableTeacherRoute(retrying);
+    window.setTimeout(() => {
+      if (
+        retryableTeacherRouteRef.current !== retrying
+        || !hasCurrentRetryableTeacherRoute()
+      ) return;
+      void hydrateTeacherRouteContext(retrying.route);
+    }, 0);
+  }
+
   useEffect(() => {
     let isMounted = true;
 
@@ -316,8 +493,22 @@ export function useAppSessionController(context) {
       const nextUser = session?.user || null;
       const nextUserId = nextUser?.id || null;
       const previousUserId = lastAuthUserIdRef.current;
+      const identityChanged = nextUserId !== previousUserId;
       const isBackgroundSameUserRefresh =
         Boolean(nextUserId && nextUserId === previousUserId && authBootCompletedRef.current);
+
+      if (identityChanged) {
+        // Every asynchronous profile, route, roster and report read belongs to
+        // the auth identity that started it. Invalidate that whole generation
+        // before publishing the next identity so a late teacher-A response
+        // cannot repopulate teacher-B's screen.
+        authIdentityGenerationRef.current += 1;
+        profileRestoreSequenceRef.current += 1;
+        teacherRouteHydrationTokensRef.current.clear();
+        if (previousUserId || !nextUserId) {
+          clearTeacherState();
+        }
+      }
 
       if (event === "SIGNED_IN" && nextUserId && freshAuthActionRef.current) {
         freshLoginResetPendingRef.current = true;
@@ -328,6 +519,9 @@ export function useAppSessionController(context) {
 
       if (!nextUserId || event === "SIGNED_OUT") {
         lastAuthUserIdRef.current = null;
+        profileLoadedTeacherIdRef.current = null;
+        setIsAdmin(false);
+        setAdminStatusError(null);
         setTeacherUser(null);
         setTeacherAccountRecord(null);
         setTeacherAccountStatus("signed_out");
@@ -341,7 +535,12 @@ export function useAppSessionController(context) {
       if (!isBackgroundSameUserRefresh) {
         // A new/restored auth identity must hydrate its own route and profile
         // before the generic post-auth Today fallback is allowed to navigate.
+        // It must also lose the previous identity's privileged state before
+        // any asynchronous access check for this identity can complete.
+        setIsAdmin(false);
+        setAdminStatusError(null);
         setProfileLoaded(false);
+        profileLoadedTeacherIdRef.current = null;
         setTeacherAccountRecord(null);
         setTeacherAccountStatus("checking");
       } else if (import.meta.env.DEV) {
@@ -385,6 +584,7 @@ export function useAppSessionController(context) {
 
   useEffect(() => {
     if (!teacherId) {
+      profileLoadedTeacherIdRef.current = null;
       setIsAdmin(false);
       setAdminStatusError(null);
       setTeacherAccountStatus("signed_out");
@@ -396,6 +596,7 @@ export function useAppSessionController(context) {
     // actually been restored. On a hard reload the previous approved state
     // could otherwise make SELECT look ready for one render, replacing the
     // incoming Classes/Progress hash before restoration had parsed it.
+    profileLoadedTeacherIdRef.current = null;
     setProfileLoaded(false);
     refreshTeacherAccountAccess(teacherId);
   }, [teacherId]);
@@ -406,9 +607,74 @@ export function useAppSessionController(context) {
     }
   }, [isAdmin, appView]);
 
-  const restoreTeacherProfile = useEffectEvent(async () => {
+  // Every Admin section uses a real pathname so reloads, bookmarks and shared
+  // URLs keep their meaning. Once the signed-in identity is positively
+  // confirmed as an app admin, any canonical Admin pathname owns the parent
+  // Admin view; otherwise a fresh tab could restore Today and never mount the
+  // page that parses it.
+  useEffect(() => {
+    if (
+      !isAdmin
+      || sessionMode === "student"
+      || typeof window === "undefined"
+      || !adminRouteForPath(window.location.pathname)
+    ) {
+      return;
+    }
+    if (appView !== APP_VIEWS.ADMIN_DASHBOARD) {
+      setAppView(APP_VIEWS.ADMIN_DASHBOARD);
+    }
+  }, [isAdmin, sessionMode, appView]);
+
+  // Keep an explicit Admin URL through session bootstrap. Startup state
+  // changes are not navigation away from that URL. Once access has finished,
+  // remove the privileged pathname for a non-admin so the address bar cannot
+  // claim that an inaccessible admin page is open.
+  useEffect(() => {
+    if (
+      !teacherId
+      || isAdmin
+      || sessionMode === "student"
+      || ["checking", "signed_out"].includes(teacherAccountStatus)
+      || typeof window === "undefined"
+      || !isAdminRoutePath(window.location.pathname)
+    ) {
+      return;
+    }
+    window.history.replaceState(
+      withoutAdminQaHistoryState(window.history.state),
+      "",
+      adminQaExitUrl(window.location.hash)
+    );
+  }, [isAdmin, sessionMode, teacherAccountStatus, teacherId]);
+
+  const restoreTeacherProfile = useEffectEvent(async scheduledNavigationRevision => {
     if (!authReady) return;
 
+    const restoreSequence = profileRestoreSequenceRef.current + 1;
+    profileRestoreSequenceRef.current = restoreSequence;
+    const restoreNavigationRevision = Number.isInteger(scheduledNavigationRevision)
+      ? scheduledNavigationRevision
+      : appViewNavigationRevisionRef.current;
+    const restoreIdentityGeneration = authIdentityGenerationRef.current;
+    const restoreTeacherId = teacherId || "";
+    const restoreProfileStorageKey = profileStorageKey || "";
+    const isRestoreCurrent = () => (
+      controllerMountedRef.current
+      && profileRestoreSequenceRef.current === restoreSequence
+      && authIdentityGenerationRef.current === restoreIdentityGeneration
+      && (lastAuthUserIdRef.current || "") === restoreTeacherId
+    );
+    const applyRestoredAppView = restoredAppView => {
+      if (shouldApplyRestoredAppView({
+        currentNavigationRevision: appViewNavigationRevisionRef.current,
+        restoreNavigationRevision
+      })) {
+        rawSetAppView(restoredAppView);
+      }
+    };
+
+    profileLoadedTeacherIdRef.current = null;
     setProfileLoaded(false);
 
     if (sessionMode === "student") {
@@ -416,7 +682,7 @@ export function useAppSessionController(context) {
       return;
     }
 
-    if (!teacherId || !profileStorageKey) {
+    if (!restoreTeacherId || !restoreProfileStorageKey) {
       clearTeacherState();
       setProfileLoaded(true);
       return;
@@ -430,10 +696,14 @@ export function useAppSessionController(context) {
     }
 
     const { parse } = await loadTeacherRouteRuntime();
+    if (!isRestoreCurrent()) return;
     const teacherRoute = parse(window.location.hash);
-    loadClasses();
+    // Route hydration owns its class read. Starting a second, unawaited read
+    // here made two valid restorations supersede one another; the older caller
+    // then received an artificial empty list and rejected an owned deep link.
+    if (!teacherRoute) loadClasses();
 
-    const saved = localStorage.getItem(profileStorageKey);
+    const saved = localStorage.getItem(restoreProfileStorageKey);
 
     if (saved) {
       try {
@@ -446,7 +716,8 @@ export function useAppSessionController(context) {
         const isFreshLoginRestore = freshLoginResetPendingRef.current;
         if (isFreshLoginRestore) {
           freshLoginResetPendingRef.current = false;
-          resetSelectedStudentOnLogin();
+          resetSelectedStudentOnLogin({ navigate: false });
+          applyRestoredAppView(APP_VIEWS.SELECT);
           setSelectedClassId(null);
           setAssessmentMode("mastery");
           setCurrentSkillIndex(0);
@@ -466,9 +737,12 @@ export function useAppSessionController(context) {
           setItemMastery({});
           if (teacherRoute) {
             await hydrateTeacherRouteContext(teacherRoute);
+            if (!isRestoreCurrent()) return;
           } else {
             loadStudents();
           }
+          if (!isRestoreCurrent()) return;
+          profileLoadedTeacherIdRef.current = restoreTeacherId;
           setProfileLoaded(true);
           return;
         }
@@ -487,16 +761,30 @@ export function useAppSessionController(context) {
         const restoredStudentName = restoredStudentId && restoredStudentId === savedStudentId
           ? data.teacherStudentName || data.studentName || ""
           : "";
+        const savedManualDrafts = restoredStudentId
+          ? loadManualAssessmentDrafts({
+              teacherId: restoreTeacherId,
+              studentId: restoredStudentId
+            })
+          : null;
+        const useLegacyManualDraft = Boolean(
+          restoredStudentId
+          && restoredStudentId === savedStudentId
+          && !savedManualDrafts?.found
+        );
         const legacyElBenchmarkSession =
           restoredStudentId && data.elBenchmarkSession?.studentId === restoredStudentId
             ? data.elBenchmarkSession
             : null;
         let restoredElBenchmarkSession = restoredStudentId
-          ? loadElBenchmarkDraft({ teacherId, studentId: restoredStudentId }) || legacyElBenchmarkSession
+          ? loadElBenchmarkDraft({
+              teacherId: restoreTeacherId,
+              studentId: restoredStudentId
+            }) || legacyElBenchmarkSession
           : null;
         if (legacyElBenchmarkSession && restoredElBenchmarkSession === legacyElBenchmarkSession) {
           saveElBenchmarkDraft({
-            teacherId,
+            teacherId: restoreTeacherId,
             studentId: restoredStudentId,
             session: legacyElBenchmarkSession
           });
@@ -507,12 +795,16 @@ export function useAppSessionController(context) {
           studentId: restoredStudentId
         });
         if (hashRestoredSession) restoredElBenchmarkSession = hashRestoredSession;
-        const requestedRestoredAppView = getRestoredAppView({
-          restoredStudentId,
-          storedAppView: hashRestoredSession
-            ? APP_VIEWS.EL_BENCHMARK
-            : teacherRoute?.appView || data.appView
-        });
+        // A parsed URL is a current navigation request, not an old saved view.
+        // In particular, FINISHED is redirected to the Reports chooser when it
+        // comes from legacy profile storage, but a current
+        // #teacher/reports/report deep link must remain the standalone report.
+        const requestedRestoredAppView = hashRestoredSession
+          ? APP_VIEWS.EL_BENCHMARK
+          : teacherRoute?.appView || getRestoredAppView({
+              restoredStudentId,
+              storedAppView: data.appView
+            });
         const restoredAppView = requestedRestoredAppView === APP_VIEWS.EL_BENCHMARK && !restoredElBenchmarkSession
           ? APP_VIEWS.ASSESSMENTS
           : requestedRestoredAppView;
@@ -529,7 +821,7 @@ export function useAppSessionController(context) {
         // Profile restoration is state hydration, not visible navigation.
         // Apply it synchronously so a view-transition callback cannot lose a
         // race to the post-auth "open Today" fallback.
-        rawSetAppView(restoredAppView);
+        applyRestoredAppView(restoredAppView);
         setCurrentSkillIndex(restoredSkillIndex);
         // Restore the round's repeat-guard memory alongside its answers: the
         // in-round dedupe and coverage scoring index these arrays against
@@ -549,13 +841,22 @@ export function useAppSessionController(context) {
         setMastery(data.mastery || {});
         setTotalAnswered(data.totalAnswered || 0);
         setCorrectAnswered(data.correctAnswered || 0);
-        // Formal assessment state is student-scoped. Old profile payloads did
-        // not carry a session owner, so only restore their letter/pattern
-        // drafts when a student is actually selected.
-        setLetterIndex(restoredStudentId ? data.letterIndex || 0 : 0);
-        setLetterAssessment(restoredStudentId && Array.isArray(data.letterAssessment) ? data.letterAssessment : []);
-        setPatternIndex(restoredStudentId ? data.patternIndex || 0 : 0);
-        setPatternAssessment(restoredStudentId && Array.isArray(data.patternAssessment) ? data.patternAssessment : []);
+        // Formal assessment drafts are stored per student. The profile fields
+        // below are only a one-release migration fallback for existing devices;
+        // they are accepted solely when the profile's saved student is the
+        // student being restored.
+        setLetterIndex(savedManualDrafts?.found
+          ? savedManualDrafts.letterIndex
+          : useLegacyManualDraft ? data.letterIndex || 0 : 0);
+        setLetterAssessment(savedManualDrafts?.found
+          ? savedManualDrafts.letterAssessment
+          : useLegacyManualDraft && Array.isArray(data.letterAssessment) ? data.letterAssessment : []);
+        setPatternIndex(savedManualDrafts?.found
+          ? savedManualDrafts.patternIndex
+          : useLegacyManualDraft ? data.patternIndex || 0 : 0);
+        setPatternAssessment(savedManualDrafts?.found
+          ? savedManualDrafts.patternAssessment
+          : useLegacyManualDraft && Array.isArray(data.patternAssessment) ? data.patternAssessment : []);
         setPatternAttempt(restoredStudentId ? data.patternAttempt || 0 : 0);
         setElBenchmarkSession(restoredElBenchmarkSession);
         const restoredAnswerHistory = restoredStudentId && Array.isArray(data.answerHistory) ? data.answerHistory : [];
@@ -569,6 +870,7 @@ export function useAppSessionController(context) {
 
         if (teacherRoute) {
           await hydrateTeacherRouteContext(teacherRoute);
+          if (!isRestoreCurrent()) return;
         } else {
           loadStudents(restoredClassId);
           loadClassDashboard(restoredClassId);
@@ -579,46 +881,137 @@ export function useAppSessionController(context) {
           assessmentActiveRef.current = true;
           setAssessmentTransitioning(true);
           setTimeout(() => {
+            if (!isRestoreCurrent()) return;
             pickQuestion(data.assessmentMode || "mastery", restoredSkillIndex);
           }, 0);
         }
       } catch (error) {
+        if (!isRestoreCurrent()) return;
         console.warn("Could not restore saved reading profile.", error);
-        localStorage.removeItem(profileStorageKey);
+        localStorage.removeItem(restoreProfileStorageKey);
         loadStudents();
       }
     } else {
       freshLoginResetPendingRef.current = false;
-      resetSelectedStudentOnLogin();
+      resetSelectedStudentOnLogin({ navigate: false });
+      applyRestoredAppView(APP_VIEWS.SELECT);
       if (teacherRoute) {
         await hydrateTeacherRouteContext(teacherRoute);
+        if (!isRestoreCurrent()) return;
       } else {
         loadStudents();
       }
     }
 
+    if (!isRestoreCurrent()) return;
+    profileLoadedTeacherIdRef.current = restoreTeacherId;
     setProfileLoaded(true);
   });
 
   useEffect(() => {
-    restoreTeacherProfile();
-  }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin, sessionMode, setAppView]);
+    // Restoration updates several coordinated pieces of React state. Schedule
+    // it after the effect has subscribed so those updates do not cascade
+    // synchronously inside the effect body.
+    const scheduledNavigationRevision = appViewNavigationRevisionRef.current;
+    const timeoutId = window.setTimeout(() => {
+      void restoreTeacherProfile(scheduledNavigationRevision);
+    }, 0);
+    return () => {
+      window.clearTimeout(timeoutId);
+      // Dependency changes and a pre-load Back/Forward navigation both retire
+      // the async restoration that belonged to the previous snapshot.
+      profileRestoreSequenceRef.current += 1;
+    };
+  }, [
+    authReady,
+    teacherId,
+    profileStorageKey,
+    teacherAccountStatus,
+    isAdmin,
+    sessionMode,
+    setAppView,
+    teacherProfileRouteRevision
+  ]);
 
-  const restoreTeacherRouteFromHistory = useEffectEvent(async () => {
-    const { parse } = await loadTeacherRouteRuntime();
-    const route = parse(window.location.hash);
-    if (route) void hydrateTeacherRouteContext(route);
+  const restoreTeacherRouteFromHistory = useEffectEvent(async navigationLock => {
+    const historyTeacherId = teacherId || "";
+    const historyIdentityGeneration = authIdentityGenerationRef.current;
+    const historyHash = navigationLock?.hash || window.location.hash;
+    try {
+      const { parse } = await loadTeacherRouteRuntime();
+      if (
+        !historyTeacherId
+        || !controllerMountedRef.current
+        || lastAuthUserIdRef.current !== historyTeacherId
+        || authIdentityGenerationRef.current !== historyIdentityGeneration
+        || profileLoadedTeacherIdRef.current !== historyTeacherId
+        || window.location.hash !== historyHash
+      ) return;
+      const route = parse(historyHash);
+      if (route) await hydrateTeacherRouteContext(route);
+    } finally {
+      // The hash listener installs this lock synchronously, before the lazily
+      // loaded route parser has resolved. Without it, a render of the old
+      // class/student can replace the newly entered address in that gap. Once
+      // parsing has either handed ownership to a hydration lock or rejected
+      // the address, this exact provisional lock is no longer needed.
+      if (retryableTeacherRouteRef.current === navigationLock) {
+        publishRetryableTeacherRoute(null);
+      }
+    }
   });
 
   useEffect(() => {
-    if (!profileLoaded || sessionMode === "student" || !teacherId) return undefined;
-    const handleHashChange = () => restoreTeacherRouteFromHistory();
+    if (sessionMode === "student" || !teacherId) return undefined;
+    const handleHashChange = () => {
+      const navigationLock = {
+        hash: window.location.hash,
+        identityGeneration: authIdentityGenerationRef.current,
+        retryStage: "history",
+        retrying: true,
+        route: null,
+        teacherId
+      };
+      teacherRouteHydrationTokensRef.current.clear();
+      // Publish the new address guard before any state update can render. The
+      // previous implementation cleared the old guard and only installed the
+      // replacement after a dynamic import, giving URL mirroring one frame in
+      // which to put the stale class or learner back into the address bar.
+      publishRetryableTeacherRoute(navigationLock);
+      if (!profileLoaded || profileLoadedTeacherIdRef.current !== teacherId) {
+        // The history event happened while cloud/profile restoration was still
+        // awaiting reads. Invalidate that stale work and restart from the URL
+        // the teacher actually navigated to.
+        profileRestoreSequenceRef.current += 1;
+        setTeacherProfileRouteRevision(revision => revision + 1);
+        return;
+      }
+      void restoreTeacherRouteFromHistory(navigationLock);
+    };
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, [profileLoaded, sessionMode, teacherId]);
 
   useEffect(() => {
-    if (!profileLoaded || !profileStorageKey || sessionMode === "student") return;
+    if (
+      !profileLoaded
+      || profileLoadedTeacherIdRef.current !== teacherId
+      || hasCurrentTeacherRouteHydration()
+      || hasCurrentRetryableTeacherRoute()
+      || !profileStorageKey
+      || sessionMode === "student"
+    ) return;
+
+    if (studentId) {
+      saveManualAssessmentDrafts({
+        teacherId,
+        studentId,
+        letterIndex,
+        letterAssessment,
+        patternIndex,
+        patternAssessment
+      });
+    }
 
     localStorage.setItem(
       profileStorageKey,
@@ -670,15 +1063,27 @@ export function useAppSessionController(context) {
     patternAttempt,
     answerHistory,
     itemMastery,
-    profileStorageKey
+    profileStorageKey,
+    retryableTeacherRoute,
+    teacherRouteHydrationRevision
   ]);
 
   useLayoutEffect(() => {
-    if (!profileLoaded || sessionMode === "student" || !teacherId) return;
+    // `profileLoaded` can still describe the signed-out render for one commit
+    // while a stored auth session is being attached. Never let that stale
+    // boolean mirror SELECT as #teacher/dashboard over an incoming deep link.
+    if (
+      !profileLoaded
+      || profileLoadedTeacherIdRef.current !== teacherId
+      || hasCurrentTeacherRouteHydration()
+      || hasCurrentRetryableTeacherRoute()
+      || sessionMode === "student"
+      || !teacherId
+    ) return;
 
     const nextHash = appView === APP_VIEWS.EL_BENCHMARK
       ? elBenchmarkAssessmentHash({
-          classId: selectedClassId,
+          classId: elBenchmarkSession?.classId || selectedClassId,
           learnerId: studentId,
           session: elBenchmarkSession
         })
@@ -704,12 +1109,14 @@ export function useAppSessionController(context) {
     appView,
     elBenchmarkSession,
     profileLoaded,
+    retryableTeacherRoute,
     selectedClassId,
     sessionMode,
     studentId,
     studentReportView,
     teacherGroupId,
-    teacherId
+    teacherId,
+    teacherRouteHydrationRevision
   ]);
 
   // Benchmark drafts are stored independently for each learner. A teacher can
@@ -718,6 +1125,7 @@ export function useAppSessionController(context) {
   useEffect(() => {
     if (
       !profileLoaded ||
+      profileLoadedTeacherIdRef.current !== teacherId ||
       sessionMode !== "teacher" ||
       !teacherId ||
       !studentId ||
@@ -730,32 +1138,14 @@ export function useAppSessionController(context) {
 
   async function checkAdminStatus(userId = teacherId) {
     if (!userId) {
-      setIsAdmin(false);
-      setAdminStatusError(null);
-      return false;
+      return { data: null, error: null };
     }
 
-    const { data, error } = await supabase
+    return supabase
       .table("app_admins")
       .select("id, user_id, email")
       .eq("user_id", userId)
       .maybeSingle();
-
-    if (error) {
-      logAdminSupabaseError("Admin status check failed.", error, {
-        table: "app_admins",
-        userId,
-        userEmail: teacherUser?.email
-      });
-      setAdminStatusError({ table: "app_admins", error });
-      setIsAdmin(false);
-      return false;
-    }
-
-    const nextIsAdmin = Boolean(data?.user_id);
-    setAdminStatusError(null);
-    setIsAdmin(nextIsAdmin);
-    return nextIsAdmin;
   }
 
   function normalizeApprovalStatus(record, fallback = "pending") {
@@ -775,8 +1165,6 @@ export function useAppSessionController(context) {
       metadata.display_name ||
       metadata.name ||
       username;
-    const now = new Date().toISOString();
-
     return {
       user_id: userId,
       email,
@@ -786,9 +1174,7 @@ export function useAppSessionController(context) {
       role: "pending",
       status: "pending",
       approval_status: "pending",
-      school_id: overrides.school_id || metadata.school_id || null,
-      created_at: overrides.created_at || now,
-      requested_at: overrides.requested_at || now
+      school_id: overrides.school_id || metadata.school_id || null
     };
   }
 
@@ -804,9 +1190,27 @@ export function useAppSessionController(context) {
       .maybeSingle();
   }
 
-  async function applyTeacherAccountStatusResult(userId, email, result = {}) {
+  async function applyTeacherAccountStatusResult(
+    userId,
+    email,
+    result = {},
+    accessCheck = null
+  ) {
+    const stillCurrent = () => (
+      !accessCheck
+      || resolveCurrentAdminStatusCheck({
+        checkSequence: accessCheck.checkSequence,
+        checkedUserId: accessCheck.checkedUserId,
+        activeSequence: accountAccessCheckSeqRef.current,
+        activeCheckUserId: accountAccessCheckUserIdRef.current,
+        authenticatedUserId: lastAuthUserIdRef.current
+      }).current
+    );
+    if (!stillCurrent()) return "stale";
+
     const { data, error } = result;
     if (error) {
+      if (!stillCurrent()) return "stale";
       if (!isApprovalSchemaError(error)) {
         console.warn("Teacher account status check failed.", error);
       }
@@ -822,11 +1226,35 @@ export function useAppSessionController(context) {
 
     if (!data) {
       const pendingRecord = buildPendingAccountRecord(userId, email);
-      const { data: insertedRecord, error: insertError } = await supabase
-        .table("pending_teacher_accounts")
-        .upsert(pendingRecord, { onConflict: "user_id" })
-        .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-        .maybeSingle();
+      const pendingStage = accessCheck
+        ? await awaitCurrentAccountAccessStage({
+            checkSequence: accessCheck.checkSequence,
+            checkedUserId: accessCheck.checkedUserId,
+            read: () => supabase
+              .table("pending_teacher_accounts")
+              .upsert(pendingRecord, { onConflict: "user_id" })
+              .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+              .maybeSingle(),
+            getActiveIdentity: () => ({
+              activeSequence: accountAccessCheckSeqRef.current,
+              activeCheckUserId: accountAccessCheckUserIdRef.current,
+              authenticatedUserId: lastAuthUserIdRef.current
+            })
+          })
+        : {
+            current: true,
+            result: await supabase
+              .table("pending_teacher_accounts")
+              .upsert(pendingRecord, { onConflict: "user_id" })
+              .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+              .maybeSingle()
+          };
+      if (!pendingStage.current) return "stale";
+      const {
+        data: insertedRecord,
+        error: insertError
+      } = pendingStage.result || {};
+      if (!stillCurrent()) return "stale";
 
       if (!insertError) {
         const nextRecord = insertedRecord || pendingRecord;
@@ -849,13 +1277,31 @@ export function useAppSessionController(context) {
       return "approval_setup_required";
     }
 
+    if (!stillCurrent()) return "stale";
     const nextStatus = normalizeApprovalStatus(data);
     setTeacherAccountStatus(nextStatus);
     setTeacherAccountRecord(data);
     return nextStatus;
   }
 
-  async function loadTeacherAccountStatus(userId = teacherId, email = teacherUser?.email, adminAccess = isAdmin) {
+  async function loadTeacherAccountStatus(
+    userId = teacherId,
+    email = teacherUser?.email,
+    adminAccess = isAdmin,
+    accessCheck = null
+  ) {
+    const stillCurrent = () => (
+      !accessCheck
+      || resolveCurrentAdminStatusCheck({
+        checkSequence: accessCheck.checkSequence,
+        checkedUserId: accessCheck.checkedUserId,
+        activeSequence: accountAccessCheckSeqRef.current,
+        activeCheckUserId: accountAccessCheckUserIdRef.current,
+        authenticatedUserId: lastAuthUserIdRef.current
+      }).current
+    );
+    if (!stillCurrent()) return "stale";
+
     if (!userId) {
       setTeacherAccountStatus("signed_out");
       setTeacherAccountRecord(null);
@@ -868,11 +1314,28 @@ export function useAppSessionController(context) {
       // (otherwise it always shows "Not set" even though child login works).
       let adminSchoolId = null;
       try {
-        const { data: adminRecord } = await fetchTeacherAccountRecord(userId);
+        const adminProfileStage = accessCheck
+          ? await awaitCurrentAccountAccessStage({
+              checkSequence: accessCheck.checkSequence,
+              checkedUserId: accessCheck.checkedUserId,
+              read: () => fetchTeacherAccountRecord(userId),
+              getActiveIdentity: () => ({
+                activeSequence: accountAccessCheckSeqRef.current,
+                activeCheckUserId: accountAccessCheckUserIdRef.current,
+                authenticatedUserId: lastAuthUserIdRef.current
+              })
+            })
+          : {
+              current: true,
+              result: await fetchTeacherAccountRecord(userId)
+            };
+        if (!adminProfileStage.current) return "stale";
+        const { data: adminRecord } = adminProfileStage.result || {};
         adminSchoolId = adminRecord?.school_id || null;
       } catch {
         // School lookup is best-effort; never block admin access on it.
       }
+      if (!stillCurrent()) return "stale";
       setTeacherAccountStatus("approved");
       setTeacherAccountRecord({
         user_id: userId,
@@ -886,7 +1349,28 @@ export function useAppSessionController(context) {
       return "approved";
     }
 
-    return applyTeacherAccountStatusResult(userId, email, await fetchTeacherAccountRecord(userId));
+    const accountStage = accessCheck
+      ? await awaitCurrentAccountAccessStage({
+          checkSequence: accessCheck.checkSequence,
+          checkedUserId: accessCheck.checkedUserId,
+          read: () => fetchTeacherAccountRecord(userId),
+          getActiveIdentity: () => ({
+            activeSequence: accountAccessCheckSeqRef.current,
+            activeCheckUserId: accountAccessCheckUserIdRef.current,
+            authenticatedUserId: lastAuthUserIdRef.current
+          })
+        })
+      : {
+          current: true,
+          result: await fetchTeacherAccountRecord(userId)
+        };
+    if (!accountStage.current) return "stale";
+    return applyTeacherAccountStatusResult(
+      userId,
+      email,
+      accountStage.result,
+      accessCheck
+    );
   }
 
   async function initializeTeacherAccountAccess(userId = teacherId) {
@@ -917,23 +1401,73 @@ export function useAppSessionController(context) {
       if (import.meta.env.DEV) {
         console.debug("Account access check started.", { userId, checkSeq });
       }
-      const [adminAccess, accountResult] = await Promise.all([
+      const [adminResult, accountResult] = await Promise.all([
         withAccountCheckTimeout(checkAdminStatus(userId), "Admin status check"),
         withAccountCheckTimeout(fetchTeacherAccountRecord(userId), "Teacher account status check")
       ]);
-      if (accountAccessCheckSeqRef.current !== checkSeq) return;
+      const adminCheck = resolveCurrentAdminStatusCheck({
+        checkSequence: checkSeq,
+        checkedUserId: userId,
+        activeSequence: accountAccessCheckSeqRef.current,
+        activeCheckUserId: accountAccessCheckUserIdRef.current,
+        authenticatedUserId: lastAuthUserIdRef.current,
+        data: adminResult?.data,
+        error: adminResult?.error
+      });
+      if (!adminCheck.current) return;
 
-      if (adminAccess) {
-        await loadTeacherAccountStatus(userId, teacherUser?.email, true);
+      if (adminCheck.error) {
+        logAdminSupabaseError("Admin status check failed.", adminCheck.error, {
+          table: "app_admins",
+          userId,
+          userEmail: teacherUser?.email
+        });
+        setAdminStatusError({ table: "app_admins", error: adminCheck.error });
+        setIsAdmin(false);
       } else {
-        await applyTeacherAccountStatusResult(userId, teacherUser?.email, accountResult);
+        setAdminStatusError(null);
+        setIsAdmin(adminCheck.isAdmin);
       }
 
+      const accessCheck = {
+        checkSequence: checkSeq,
+        checkedUserId: userId
+      };
+      const accountPublicationStage = await awaitCurrentAccountAccessStage({
+        checkSequence: checkSeq,
+        checkedUserId: userId,
+        read: () => adminCheck.isAdmin
+          ? loadTeacherAccountStatus(
+              userId,
+              teacherUser?.email,
+              true,
+              accessCheck
+            )
+          : applyTeacherAccountStatusResult(
+              userId,
+              teacherUser?.email,
+              accountResult,
+              accessCheck
+            ),
+        getActiveIdentity: () => ({
+          activeSequence: accountAccessCheckSeqRef.current,
+          activeCheckUserId: accountAccessCheckUserIdRef.current,
+          authenticatedUserId: lastAuthUserIdRef.current
+        })
+      });
+      if (!accountPublicationStage.current) return;
       if (import.meta.env.DEV) {
         console.debug("Account access check completed.", { userId, checkSeq });
       }
     } catch (error) {
-      if (accountAccessCheckSeqRef.current !== checkSeq) return;
+      const failedCheckIsCurrent = resolveCurrentAdminStatusCheck({
+        checkSequence: checkSeq,
+        checkedUserId: userId,
+        activeSequence: accountAccessCheckSeqRef.current,
+        activeCheckUserId: accountAccessCheckUserIdRef.current,
+        authenticatedUserId: lastAuthUserIdRef.current
+      }).current;
+      if (!failedCheckIsCurrent) return;
 
       console.warn("Teacher account access check failed.", error);
       if (isInvalidRefreshTokenError(error)) {
@@ -1000,31 +1534,68 @@ export function useAppSessionController(context) {
   }
 
   async function loadAdminDashboard() {
+    const loadSequence = ++adminDashboardLoadSequenceRef.current;
+
     if (!isAdmin) {
+      setAdminLoading(false);
       setMessage("You are signed in, but this account is not authorized as an app admin.");
-      return;
+      return { ok: false, reason: "admin_required" };
     }
 
     setAdminLoading(true);
 
     const [classesResult, studentsResult, answersResult, pendingAccountsResult, schoolsResult] = await Promise.all([
-      supabase.table("classes").select("id, name, teacher_id, school_id, created_at").order("created_at", { ascending: false }),
-      supabase.table("students").select("id, name, class_id, teacher_id, symbol_password, created_at").order("created_at", { ascending: false }),
-      supabase.table("answers").select("teacher_id"),
-      supabase
+      selectAllRows(() =>
+        supabase.table("classes").select("id, name, teacher_id, school_id, created_at").order("created_at", { ascending: false })
+      ),
+      selectAllRows(() =>
+        supabase.table("students").select("id, name, class_id, teacher_id, symbol_password, created_at").order("created_at", { ascending: false })
+      ),
+      selectAllRows(() =>
+        supabase.table("answers").select("teacher_id")
+      ),
+      selectAllRows(() => supabase
         .table("pending_teacher_accounts")
         .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-        .order("created_at", { ascending: false }),
-      supabase.table("schools").select("id, name, created_at").order("name", { ascending: true })
+        .order("created_at", { ascending: false })
+      ),
+      selectAllRows(() =>
+        supabase.table("schools").select("id, name, created_at").order("name", { ascending: true })
+      )
     ]);
+
+    if (loadSequence !== adminDashboardLoadSequenceRef.current) {
+      return { ok: false, stale: true };
+    }
 
     setAdminLoading(false);
 
-    const pendingAccountsError = pendingAccountsResult.error || null;
+    const completeReadError = (result, label) => (
+      result.error || (result.truncated
+        ? new Error(`${label} reached the configured complete-read ceiling.`)
+        : null)
+    );
+    const pendingAccountsError = completeReadError(
+      pendingAccountsResult,
+      "Pending teacher accounts"
+    );
+    const schoolsError = completeReadError(schoolsResult, "Schools");
     const dashboardErrors = [
-      { table: "classes", error: classesResult.error },
-      { table: "students", error: studentsResult.error },
-      { table: "answers", error: answersResult.error }
+      {
+        table: "classes",
+        error: completeReadError(classesResult, "Classes"),
+        truncated: classesResult.truncated
+      },
+      {
+        table: "students",
+        error: completeReadError(studentsResult, "Students"),
+        truncated: studentsResult.truncated
+      },
+      {
+        table: "answers",
+        error: completeReadError(answersResult, "Answers"),
+        truncated: answersResult.truncated
+      }
     ].filter(result => result.error);
 
     if (pendingAccountsError) {
@@ -1042,8 +1613,18 @@ export function useAppSessionController(context) {
         userId: teacherId,
         userEmail: teacherUser?.email
       });
-      setMessage(getAdminSetupMessage(firstError.error, firstError.table));
+      setMessage(firstError.truncated
+        ? "The admin totals are larger than this page can verify safely. No partial totals are being shown."
+        : getAdminSetupMessage(firstError.error, firstError.table));
       return;
+    }
+
+    if (schoolsError) {
+      logAdminSupabaseError("Admin schools load failed.", schoolsError, {
+        table: "schools",
+        userId: teacherId,
+        userEmail: teacherUser?.email
+      });
     }
 
     const classes = classesResult.data || [];
@@ -1069,11 +1650,17 @@ export function useAppSessionController(context) {
     setAdminClasses(classRows);
     setAdminStudents(studentRows);
     setAdminTeachers(buildTeacherRows(classes, students, answers));
-    setAdminSchools(schoolsResult.error ? [] : schoolsResult.data || []);
-    setAdminPendingAccounts(pendingAccountsError ? [] : pendingAccountsResult.data || []);
-    setAdminPendingAccountsWarning(pendingAccountsError
-      ? "Pending teacher accounts could not be loaded. This does not affect content coverage or student data."
-      : "");
+    if (!schoolsError) setAdminSchools(schoolsResult.data || []);
+    if (!pendingAccountsError) setAdminPendingAccounts(pendingAccountsResult.data || []);
+    setAdminPendingAccountsWarning([
+      pendingAccountsError
+        ? "Pending teacher accounts could not be loaded. The previous list has been kept."
+        : "",
+      schoolsError
+        ? "Schools could not be loaded. The previous list has been kept."
+        : ""
+    ].filter(Boolean).join(" "));
+    return { ok: true };
   }
 
   function openAdminDashboard() {
@@ -1091,20 +1678,25 @@ export function useAppSessionController(context) {
       return;
     }
 
+    if (typeof window !== "undefined") {
+      const overviewPath = adminPathForSection("overview");
+      if (window.location.pathname !== overviewPath) {
+        const nextState = adminQaHistoryState(
+          withoutAdminQaHistoryState(window.history.state),
+          "overview"
+        );
+        window.history.pushState(nextState, "", overviewPath);
+        // pushState does not emit popstate. Dispatch one so an already-mounted
+        // Admin page (including Reported questions) updates immediately.
+        window.dispatchEvent(
+          typeof PopStateEvent === "function"
+            ? new PopStateEvent("popstate", { state: nextState })
+            : new Event("popstate")
+        );
+      }
+    }
     setAppView(APP_VIEWS.ADMIN_DASHBOARD);
     loadAdminDashboard();
-  }
-
-  async function deleteOptionalTableRows(tableName, columnName, values) {
-    if (!values || values.length === 0) return null;
-
-    const { error } = await supabase
-      .table(tableName)
-      .delete()
-      .in(columnName, values);
-
-    if (error && !isMissingTableError(error, tableName)) return error;
-    return null;
   }
 
   function adminDeleteStudent(selectedStudentId, selectedStudentName = "this student") {
@@ -1113,72 +1705,37 @@ export function useAppSessionController(context) {
   }
 
   async function executeAdminDeleteStudent(selectedStudentId, selectedStudentName = "this student") {
-    if (!isAdmin || !selectedStudentId) return;
+    if (!isAdmin || !selectedStudentId) return false;
 
-    const ids = [selectedStudentId];
-    const errors = [];
     const studentOwnerId = adminStudents.find(row => row.id === selectedStudentId)?.teacher_id || "";
-    const assessmentOwnerIds = [...new Set([studentOwnerId, teacherId].filter(Boolean))];
-
-    // Whole-class report rows have no relational student_id, so the ordinary
-    // child-row deletion below cannot find them. Remove snapshots containing
-    // this learner while the ownership row still exists and can be resolved.
     try {
-      for (const assessmentTeacherId of assessmentOwnerIds) {
-        await deleteSavedClassElAssessmentReportsForStudent({
-          teacherId: assessmentTeacherId,
-          studentId: selectedStudentId,
-          studentName: selectedStudentName,
-          supabase
-        });
-      }
-    } catch (error) {
-      console.error("Admin delete student report cleanup error:", error);
-      setMessage("Could not delete the student's saved whole-class assessment reports.");
-      return;
-    }
-
-    for (const [tableName, columnName] of [
-      ["answers", "student_id"],
-      ["mastery", "student_id"],
-      ["item_mastery", "student_id"],
-      ["assessment_sessions", "student_id"],
-      ["assessment_attempts", "student_id"],
-      ["el_assessment_reports", "student_id"]
-    ]) {
-      const error = await deleteOptionalTableRows(tableName, columnName, ids);
-      if (error) errors.push(error);
-    }
-
-    const { error: studentError } = await supabase
-      .table("students")
-      .delete()
-      .eq("id", selectedStudentId);
-
-    if (studentError) errors.push(studentError);
-
-    if (errors.length > 0) {
-      console.error("Admin delete student error:", errors[0]);
-      setMessage("Could not delete student from admin dashboard.");
-      return;
-    }
-
-    let localCleanupFailed = false;
-    try {
-      await clearLocalElAssessmentDataForStudent({
-        teacherId: studentOwnerId || teacherId,
+      await deleteRosterStudent({
+        supabase,
         studentId: selectedStudentId,
-        studentName: selectedStudentName
+        studentName: selectedStudentName,
+        accountId: studentOwnerId || teacherId,
+        cleanup: async () => {
+          const progressCleanup =
+            await clearAndVerifyLocalProgressForStudent(selectedStudentId);
+          const evidenceCleanup = await clearLocalElAssessmentDataForStudent({
+            teacherId: studentOwnerId || teacherId,
+            studentId: selectedStudentId,
+            studentName: selectedStudentName
+          });
+          return { progressCleanup, evidenceCleanup };
+        }
       });
     } catch (error) {
-      localCleanupFailed = true;
-      console.warn("Deleted student, but local EL assessment cache cleanup failed.", error);
+      console.error("Admin verified learner deletion failed:", error);
+      setMessage(error?.databaseDeleted
+        ? `Deleted ${selectedStudentName} from the cloud, but this browser has not finished clearing its cached copy. Try the deletion again to finish the open privacy request.`
+        : "Could not delete the student through the verified privacy workflow. Nothing was changed.");
+      return false;
     }
 
     await loadAdminDashboard();
-    setMessage(localCleanupFailed
-      ? `Deleted ${selectedStudentName}, but this browser could not clear all cached assessment evidence. Refresh and retry while browser storage is available.`
-      : `Deleted ${selectedStudentName}.`);
+    setMessage(`Deleted ${selectedStudentName}.`);
+    return true;
   }
 
   async function adminSetTeacherSchool(teacherUserId, schoolName) {
@@ -1218,7 +1775,7 @@ export function useAppSessionController(context) {
   }
 
   async function executeAdminDeleteClass(classId, className = "this class") {
-    if (!isAdmin || !classId) return;
+    if (!isAdmin || !classId) return false;
 
     const { data: students, error: lookupError } = await supabase
       .table("students")
@@ -1228,135 +1785,85 @@ export function useAppSessionController(context) {
     if (lookupError) {
       console.error("Admin class student lookup error:", lookupError);
       setMessage("Could not delete class from admin dashboard.");
-      return;
+      return false;
     }
 
-    const studentIds = (students || []).map(row => row.id);
-    const errors = [];
-
-    try {
-      for (const student of students || []) {
-        await deleteSavedClassElAssessmentReportsForStudent({
-          teacherId: student.teacher_id || teacherId,
-          studentId: student.id,
-          studentName: student.name || "",
-          supabase
-        });
-      }
-    } catch (error) {
-      console.error("Admin delete class report cleanup error:", error);
-      setMessage("Could not delete the class's saved whole-class assessment reports.");
-      return;
+    if (students?.length) {
+      setMessage(`Could not delete ${className}. Delete or transfer each student through the verified privacy workflow first; their records were not changed.`);
+      return false;
     }
 
-    if (studentIds.length > 0) {
-      for (const [tableName, columnName] of [
-        ["answers", "student_id"],
-        ["mastery", "student_id"],
-        ["item_mastery", "student_id"],
-        ["assessment_sessions", "student_id"],
-        ["assessment_attempts", "student_id"],
-        ["el_assessment_reports", "student_id"]
-      ]) {
-        const error = await deleteOptionalTableRows(tableName, columnName, studentIds);
-        if (error) errors.push(error);
-      }
-    }
-
-    const { error: studentsError } = await supabase
-      .table("students")
-      .delete()
-      .eq("class_id", classId);
-
-    if (studentsError) errors.push(studentsError);
-
-    const { error: classError } = await supabase
-      .table("classes")
-      .delete()
-      .eq("id", classId);
-
-    if (classError) errors.push(classError);
-
-    if (errors.length > 0) {
-      console.error("Admin delete class error:", errors[0]);
-      setMessage("Could not delete class from admin dashboard.");
-      return;
-    }
-
-    let localCleanupFailed = false;
-    for (const student of students || []) {
-      try {
-        await clearLocalElAssessmentDataForStudent({
-          teacherId: student.teacher_id || teacherId,
-          studentId: student.id,
-          studentName: student.name || ""
-        });
-      } catch (error) {
-        localCleanupFailed = true;
-        console.warn("Deleted class, but local EL assessment cache cleanup failed.", error);
-      }
+    const { data, error } = await supabase.call("teacher_delete_empty_class", {
+      p_class_id: classId
+    });
+    if (error || data?.ok !== true) {
+      console.error("Admin delete empty class error:", error || data);
+      setMessage(`Could not delete ${className}. Nothing was changed.`);
+      return false;
     }
 
     await loadAdminDashboard();
-    setMessage(localCleanupFailed
-      ? `Deleted ${className}, but this browser could not clear all cached assessment evidence. Refresh and retry while browser storage is available.`
-      : `Deleted ${className}.`);
+    setMessage(`Deleted ${className}.`);
+    return true;
   }
 
-  async function updateTeacherAccountStatus(accountId, status) {
-    if (!isAdmin || !accountId) return;
-
-    const now = new Date().toISOString();
-    const nextRole = status === "approved" ? "teacher" : "pending";
-    const statusUpdate = {
-      status,
-      approval_status: status,
-      role: nextRole,
-      reviewed_at: now,
-      reviewed_by: teacherId
-    };
-
-    if (status === "approved") {
-      statusUpdate.approved_at = now;
-      statusUpdate.approved_by = teacherId;
-      statusUpdate.rejected_at = null;
-      statusUpdate.rejected_by = null;
-      statusUpdate.rejection_reason = null;
+  async function updateTeacherAccountStatus(accountId, status, reason = "") {
+    if (!isAdmin || !accountId) {
+      return {
+        ok: false,
+        errorMessage: "This account decision is not available."
+      };
     }
 
-    if (status === "rejected") {
-      statusUpdate.rejected_at = now;
-      statusUpdate.rejected_by = teacherId;
-      statusUpdate.approved_at = null;
-      statusUpdate.approved_by = null;
-    }
+    const normalizedStatus = String(status || "").trim().toLowerCase();
+    const normalizedReason = String(reason || "").trim();
 
-    const { data, error } = await supabase
-      .table("pending_teacher_accounts")
-      .update(statusUpdate)
-      .eq("id", accountId)
-      .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-      .maybeSingle();
+    const { data, error } = await supabase.call(
+      "admin_set_teacher_account_status",
+      {
+        p_account_id: accountId,
+        p_status: normalizedStatus,
+        p_rejection_reason: normalizedStatus === "approved"
+          ? null
+          : normalizedReason
+      }
+    );
 
     if (error) {
       console.error("Teacher account status update failed.", error);
       setMessage("Could not update teacher account status.");
-      return;
+      return {
+        ok: false,
+        errorMessage: "The decision was not saved. Check the account and try again."
+      };
+    }
+
+    const updatedAccount = Array.isArray(data) ? data[0] : data;
+    if (!updatedAccount?.id) {
+      console.error("Teacher account status update returned no account row.");
+      setMessage("Could not confirm that teacher account change. Reload and try again.");
+      return {
+        ok: false,
+        errorMessage: "The change could not be confirmed. Reload the requests and try again."
+      };
     }
 
     setAdminPendingAccounts(previousAccounts =>
       previousAccounts.map(account =>
         account.id === accountId
-          ? { ...account, ...statusUpdate, ...(data || {}) }
+          ? { ...account, ...updatedAccount }
           : account
       )
     );
-    setMessage(`Teacher account marked ${status}.`);
+    setMessage(`Teacher account ${normalizedStatus}.`);
+    return {
+      ok: true,
+      account: updatedAccount
+    };
   }
 
   async function signUpTeacher() {
     const email = authEmail.trim();
-    const username = authUsername.trim().toLowerCase();
     const displayName = authDisplayName.trim();
     const schoolName = authSchoolName.trim();
     if (!email || !authPassword) {
@@ -1367,42 +1874,45 @@ export function useAppSessionController(context) {
       setAuthMessage("Enter your school.");
       return;
     }
-    if (!username) {
-      setAuthMessage("Choose a username for the account request.");
-      return;
-    }
-    if (!/^[a-z0-9_-]{3,30}$/.test(username)) {
-      setAuthMessage("Username must be 3-30 characters using only letters, numbers, underscores, or hyphens.");
-      return;
-    }
-
     setAuthLoading(true);
     setAuthMessage("");
     freshAuthActionRef.current = true;
 
-    const { data, error } = await supabase.auth.signUp({
+    const visibleDisplayName = displayName || email.split("@")[0] || "Teacher";
+    const requestSignup = username => supabase.auth.signUp({
       email,
       password: authPassword,
       options: {
         data: {
           account_status: "pending",
           username,
-          display_name: displayName,
+          display_name: visibleDisplayName,
           school_name: schoolName
         }
       }
     });
+    let username = createInternalTeacherUsername(email);
+    let { data, error } = await requestSignup(username);
+
+    // The internal handle is deliberately invisible to teachers. A very rare
+    // collision therefore retries with a fresh suffix instead of asking them
+    // to invent and remember a second identity that is not used for sign-in.
+    if (/username_unavailable/i.test(error?.message || "")) {
+      username = createInternalTeacherUsername(email);
+      ({ data, error } = await requestSignup(username));
+    }
 
     setAuthLoading(false);
 
     if (error) {
       freshAuthActionRef.current = false;
+      console.error("Teacher account request failed.", error);
       setAuthMessage(
         /username_unavailable/i.test(error?.message || "")
-          ? "That username is already taken. Choose another username."
+          ? "We couldn't create a unique internal account record. Please submit the request again."
           : isDuplicateAuthSignupError(error)
           ? "This email already has an account request or account. Please wait for approval or contact an administrator."
-          : error.message
+          : teacherAuthErrorMessage(error, "signup")
       );
       return;
     }
@@ -1417,7 +1927,7 @@ export function useAppSessionController(context) {
     if (newUserId) {
       const pendingRecord = buildPendingAccountRecord(newUserId, email, {
         username,
-        display_name: displayName || username
+        display_name: visibleDisplayName
       });
       const { data: pendingAccount, error: notificationError } = await supabase
         .table("pending_teacher_accounts")
@@ -1458,7 +1968,8 @@ export function useAppSessionController(context) {
 
     if (error) {
       freshAuthActionRef.current = false;
-      setAuthMessage(error.message);
+      console.error("Teacher sign-in failed.", error);
+      setAuthMessage(teacherAuthErrorMessage(error, "login"));
       return;
     }
 
@@ -1489,7 +2000,8 @@ export function useAppSessionController(context) {
     setAuthLoading(false);
     if (error) {
       freshAuthActionRef.current = false;
-      setAuthMessage(error.message);
+      console.error("Demo teacher sign-in failed.", error);
+      setAuthMessage(teacherAuthErrorMessage(error, "demo_login"));
       return;
     }
     setAuthPassword("");
@@ -1498,22 +2010,93 @@ export function useAppSessionController(context) {
 
   useEffect(() => {
     let cancelled = false;
-    const schoolId = teacherAccountRecord?.school_id;
-    const namePromise = schoolId
-      ? supabase
-          .table("schools")
-          .select("name")
-          .eq("id", schoolId)
-          .maybeSingle()
-          .then(({ data }) => data?.name || "")
-      : Promise.resolve("");
-    namePromise.then(name => {
-      if (!cancelled) setTeacherSchoolName(name);
+    const readTeacherId = String(teacherId || "");
+    const accountTeacherId = String(teacherAccountRecord?.user_id || "");
+    const accountReady = (
+      teacherAccountStatus === "approved"
+      && accountTeacherId === readTeacherId
+    );
+    const schoolId = accountReady
+      ? String(teacherAccountRecord?.school_id || "")
+      : "";
+
+    setTeacherSchoolName("");
+
+    if (!readTeacherId) {
+      setTeacherSchoolNameReadState({
+        status: "idle",
+        teacherId: "",
+        schoolId: "",
+        error: null
+      });
+      return undefined;
+    }
+
+    if (!accountReady) {
+      setTeacherSchoolNameReadState({
+        status: "loading",
+        teacherId: readTeacherId,
+        schoolId: "",
+        error: null
+      });
+      return undefined;
+    }
+
+    if (!schoolId) {
+      setTeacherSchoolNameReadState({
+        status: "complete",
+        teacherId: readTeacherId,
+        schoolId: "",
+        error: null
+      });
+      return undefined;
+    }
+
+    setTeacherSchoolNameReadState({
+      status: "loading",
+      teacherId: readTeacherId,
+      schoolId,
+      error: null
     });
+
+    void loadTeacherSchoolName({
+      client: supabase,
+      schoolId
+    }).then(result => {
+      if (cancelled) return;
+      if (result.error) {
+        console.error("Teacher school name load failed.", result.error);
+        setTeacherSchoolNameReadState({
+          status: "error",
+          teacherId: readTeacherId,
+          schoolId,
+          error: result.error
+        });
+        return;
+      }
+      setTeacherSchoolName(result.data);
+      setTeacherSchoolNameReadState({
+        status: "complete",
+        teacherId: readTeacherId,
+        schoolId,
+        error: null
+      });
+    });
+
     return () => {
       cancelled = true;
     };
-  }, [teacherAccountRecord?.school_id]);
+  }, [
+    teacherAccountRecord?.school_id,
+    teacherAccountRecord?.user_id,
+    teacherAccountStatus,
+    teacherId,
+    teacherSchoolNameReadRevision
+  ]);
+
+  function retryTeacherSchoolName() {
+    setTeacherSchoolNameReadRevision(revision => revision + 1);
+  }
 
   async function saveTeacherSchool(overrideName) {
     const schoolName = (typeof overrideName === "string" ? overrideName : authSchoolName).trim();
@@ -1523,31 +2106,49 @@ export function useAppSessionController(context) {
     }
 
     setAuthLoading(true);
-    // Security-definer RPC: persists the school on the teacher's account row
-    // (RLS blocks direct updates once approved) and stamps all their classes.
-    const { data: savedRows, error } = await supabase.call("teacher_set_school", { p_school_name: schoolName });
-    const saved = savedRows?.[0] || null;
-
-    setAuthLoading(false);
-
-    if (error || !saved?.school_id) {
-      console.error("Save school failed:", error);
-      const missingFunction = error?.code === "PGRST202" || /teacher_set_school/.test(error?.message || "");
-      setAuthMessage(
-        missingFunction
-          ? "The database needs the latest update before schools can be saved. Apply the teacher_set_school migration."
-          : "Could not save that school yet."
+    try {
+      // Security-definer RPC: persists the school on the teacher's account row
+      // (RLS blocks direct updates once approved) and stamps all their classes.
+      const { data: savedRows, error } = await supabase.call(
+        "teacher_set_school",
+        { p_school_name: schoolName }
       );
-      setMessage("Could not save that school yet.");
-      return false;
-    }
+      const saved = savedRows?.[0] || null;
 
-    setTeacherAccountRecord(previous => ({ ...(previous || teacherAccountRecord || {}), school_id: saved.school_id }));
-    setTeacherSchoolName(saved.school_name || schoolName);
-    setAuthMessage("");
-    setMessage(`School saved: ${saved.school_name || schoolName}`);
-    await loadClasses();
-    return true;
+      if (error || !saved?.school_id) {
+        console.error("Save school failed:", error);
+        const safeMessage = teacherMutationErrorMessage(error, "save_school");
+        setAuthMessage(safeMessage);
+        setMessage(safeMessage);
+        return false;
+      }
+
+      setTeacherAccountRecord(previous => ({ ...(previous || teacherAccountRecord || {}), school_id: saved.school_id }));
+      setTeacherSchoolName(saved.school_name || schoolName);
+      setTeacherSchoolNameReadState({
+        status: "complete",
+        teacherId: String(teacherId),
+        schoolId: String(saved.school_id),
+        error: null
+      });
+      setAuthMessage("");
+      setMessage(`School saved: ${saved.school_name || schoolName}`);
+      try {
+        await loadClasses();
+      } catch (refreshError) {
+        console.error("Refresh after school save failed:", refreshError);
+        setMessage(`School saved: ${saved.school_name || schoolName}. Reload the page if your classes do not update yet.`);
+      }
+      return true;
+    } catch (error) {
+      console.error("Save school failed:", error);
+      const safeMessage = teacherMutationErrorMessage(error, "save_school");
+      setAuthMessage(safeMessage);
+      setMessage(safeMessage);
+      return false;
+    } finally {
+      setAuthLoading(false);
+    }
   }
 
   async function requestPasswordReset() {
@@ -1571,7 +2172,8 @@ export function useAppSessionController(context) {
     setAuthLoading(false);
 
     if (error) {
-      setAuthMessage(error.message);
+      console.error("Teacher password reset email failed.", error);
+      setAuthMessage(teacherAuthErrorMessage(error, "password_reset_email"));
       return;
     }
 
@@ -1595,7 +2197,8 @@ export function useAppSessionController(context) {
     setAuthLoading(false);
 
     if (error) {
-      setAuthMessage(error.message);
+      console.error("Teacher password update failed.", error);
+      setAuthMessage(teacherAuthErrorMessage(error, "password_update"));
       return;
     }
 
@@ -1609,76 +2212,159 @@ export function useAppSessionController(context) {
     await supabase.auth.signOut();
     clearTeacherState();
     setAuthPassword("");
-    setAuthMessage("Logged out.");
+    setAuthMessage("Signed out.");
   }
 
   async function loadClasses() {
-    if (!teacherId) {
+    const loadSequence = ++classListLoadSequenceRef.current;
+    const loadTeacherId = teacherId || "";
+    const loadIdentityGeneration = authIdentityGenerationRef.current;
+    const isCurrentLoad = () => (
+      controllerMountedRef.current
+      && loadSequence === classListLoadSequenceRef.current
+      && authIdentityGenerationRef.current === loadIdentityGeneration
+      && lastAuthUserIdRef.current === loadTeacherId
+    );
+
+    if (!loadTeacherId) {
       setClassList([]);
       setLoadingClasses(false);
+      setClassListReadState(resetClassListRead());
       return [];
     }
 
     setLoadingClasses(true);
+    setClassListReadState(previous => beginClassListRead(previous, loadTeacherId));
 
-    const { data, error, compatibility } = await loadCompatibleTeacherClasses({
-      client: supabase,
-      teacherId
-    });
-
-    if (error) {
+    let result;
+    try {
+      result = await loadCompatibleTeacherClasses({
+        client: supabase,
+        teacherId: loadTeacherId
+      });
+    } catch (error) {
+      if (!isCurrentLoad()) return null;
       console.error("Load classes error:", error);
       setMessage(TEACHER_COPY.errors.classesLoad);
       setLoadingClasses(false);
-      return [];
+      setClassListReadState(previous => failClassListRead(previous, loadTeacherId, "error"));
+      return null;
+    }
+    const { data, error, truncated, compatibility } = result;
+
+    const completedRead = resolveSequencedRows({
+      sequence: loadSequence,
+      currentSequence: classListLoadSequenceRef.current,
+      data
+    });
+    // A superseded reader must not commit UI state, but its successfully read
+    // rows remain truthful for the caller's ownership check. Returning []
+    // here made an owned route indistinguishable from a denied route.
+    if (!completedRead.current || !isCurrentLoad()) {
+      return error || truncated || !completedRead.valid
+        ? null
+        : completedRead.rows;
+    }
+
+    if (error || truncated || !completedRead.valid) {
+      console.error("Load classes error:", error || new Error("The class list read was incomplete."));
+      setMessage(TEACHER_COPY.errors.classesLoad);
+      setLoadingClasses(false);
+      setClassListReadState(previous => failClassListRead(
+        previous,
+        loadTeacherId,
+        truncated ? "truncated" : "error"
+      ));
+      return null;
     }
 
     if (compatibility === "legacy") {
       console.info("Classes loaded through the rolling-release schema boundary.");
     }
-    setClassList(data || []);
+    setClassList(completedRead.rows);
     setLoadingClasses(false);
-    return data || [];
+    setClassListReadState(previous => completeClassListRead(previous, loadTeacherId));
+    scheduleRetryableTeacherRoute("classes");
+    return completedRead.rows;
   }
 
   async function regenerateClassCode(classId = selectedClassId) {
     if (!classId) return { ok: false, error: "missing-class" };
     const { data, error } = await supabase.call("teacher_regenerate_class_code", { p_class_id: classId });
-    if (error || !data?.ok) {
-      console.error("Regenerate class code error:", error || data?.error);
+    const regeneratedCode = String(data?.access_code || "").trim();
+    if (error || !data?.ok || !/^[A-Z0-9]{6}$/.test(regeneratedCode)) {
+      const regenerationError = error || data?.error || "invalid-class-code-response";
+      console.error("Regenerate class code error:", regenerationError);
       setMessage("Could not make a new class code.");
-      return { ok: false, error: error || data?.error || "unknown" };
+      return { ok: false, error: regenerationError };
     }
-    await loadClasses();
-    return { ok: true, accessCode: data.access_code };
+    const refreshedClasses = await loadClasses();
+    return {
+      ok: true,
+      accessCode: regeneratedCode,
+      refreshComplete: Array.isArray(refreshedClasses)
+    };
   }
 
   async function createClass() {
-    const clean = newClassName.trim();
-    if (!clean) return;
+    const clean = String(newClassName || "").trim().replace(/\s+/g, " ");
+    if (!clean) return false;
+    if (clean.length > 120) {
+      setMessage("Class names must be 120 characters or fewer.");
+      return false;
+    }
 
     if (!teacherId) {
       setMessage("Please sign in first.");
-      return;
+      return false;
     }
 
-    const { data, error } = await supabase
-      .table("classes")
-      .insert({ name: clean, teacher_id: teacherId, school_id: teacherAccountRecord?.school_id || null })
-      .select()
-      .single();
+    let createdClass;
+    try {
+      const { data, error } = await supabase
+        .table("classes")
+        .insert({ name: clean, teacher_id: teacherId, school_id: teacherAccountRecord?.school_id || null })
+        .select()
+        .single();
 
-    if (error) {
+      if (error || !data?.id) {
+        console.error("Create class error:", error);
+        setMessage("We couldn't create that class. Nothing is lost — try again.");
+        return false;
+      }
+      createdClass = data;
+    } catch (error) {
       console.error("Create class error:", error);
       setMessage("We couldn't create that class. Nothing is lost — try again.");
-      return;
+      return false;
     }
 
     setNewClassName("");
-    setSelectedClassId(data.id);
-    await loadClasses();
-    await loadStudents(data.id);
-    setMessage(`Class created: ${clean}`);
+    // The selected class changes immediately, so its result rows must change in
+    // the same turn. Keeping the previous class dashboard until the first
+    // network response made those learners briefly actionable under the new
+    // class heading.
+    setClassDashboard([]);
+    setClassDashboardReadState(resetClassDashboardRead());
+    setSelectedClassId(createdClass.id);
+    try {
+      const [classesResult, studentsResult, dashboardResult] = await Promise.all([
+        loadClasses(),
+        loadStudents(createdClass.id),
+        loadClassDashboard(createdClass.id)
+      ]);
+      setMessage(
+        Array.isArray(classesResult)
+          && Array.isArray(studentsResult)
+          && dashboardResult?.ok === true
+          ? `Class created: ${clean}`
+          : `${clean} was created. The latest class details could not reload, so use the retry shown on this page before creating it again.`
+      );
+    } catch (error) {
+      console.error("Refresh after class creation error:", error);
+      setMessage(`${clean} was created. The latest class details could not reload, so use the retry shown on this page before creating it again.`);
+    }
+    return true;
   }
 
   async function createDemoClass() {
@@ -1695,102 +2381,292 @@ export function useAppSessionController(context) {
       return false;
     }
 
+    setClassDashboard([]);
+    setClassDashboardReadState(resetClassDashboardRead());
     setSelectedClassId(classId);
     setTeacherGroupId("all");
     setTeacherStudentContext({ studentId: null, studentName: "" });
     setNameSaved(false);
-    await loadClasses();
-    await loadStudents(classId);
-    await loadClassDashboard(classId);
-    setMessage("Sample class created. It has sign-in pictures but no saved check results.");
+    let refreshIncomplete;
+    try {
+      const [classesResult, studentsResult, dashboardResult] = await Promise.all([
+        loadClasses(),
+        loadStudents(classId),
+        loadClassDashboard(classId)
+      ]);
+      refreshIncomplete = !Array.isArray(classesResult)
+        || !Array.isArray(studentsResult)
+        || dashboardResult?.ok !== true;
+    } catch (refreshError) {
+      console.error("Refresh after sample class creation failed:", refreshError);
+      refreshIncomplete = true;
+    }
+    setMessage(refreshIncomplete
+      ? "Sample class created. The latest class details could not reload, so use the retry shown on this page before adding anything else."
+      : "Sample class created. It has sign-in pictures but no saved assessment results.");
     return true;
   }
 
   async function loadStudents(classId = selectedClassId) {
-    if (!teacherId || !classId) {
+    const loadSequence = ++studentListLoadSequenceRef.current;
+    const loadTeacherId = teacherId || "";
+    const loadIdentityGeneration = authIdentityGenerationRef.current;
+    const isCurrentLoad = () => (
+      controllerMountedRef.current
+      && loadSequence === studentListLoadSequenceRef.current
+      && authIdentityGenerationRef.current === loadIdentityGeneration
+      && lastAuthUserIdRef.current === loadTeacherId
+    );
+
+    if (!loadTeacherId || !classId) {
       setStudentList([]);
       setArchivedStudentList([]);
       setLoadingStudents(false);
+      setStudentListReadState(resetStudentRosterRead());
       return [];
     }
 
     setLoadingStudents(true);
+    setStudentListReadState(previous => beginStudentRosterRead(previous, classId));
 
-    const { data, error } = await loadCompatibleTeacherStudents({
-      client: supabase,
-      teacherId,
-      classId
-    });
-
-    if (error) {
+    let result;
+    try {
+      result = await loadCompatibleTeacherStudents({
+        client: supabase,
+        teacherId: loadTeacherId,
+        classId
+      });
+    } catch (error) {
+      if (!isCurrentLoad()) return null;
       console.error("Load students error:", error);
       setMessage(TEACHER_COPY.errors.childrenLoad);
       setLoadingStudents(false);
-      return [];
+      setStudentListReadState(previous => failStudentRosterRead(
+        previous,
+        classId,
+        "unavailable"
+      ));
+      return null;
+    }
+    const { data, error, truncated } = result;
+
+    const completedRead = resolveSequencedRows({
+      sequence: loadSequence,
+      currentSequence: studentListLoadSequenceRef.current,
+      data
+    });
+    if (!completedRead.current || !isCurrentLoad()) {
+      return error || truncated || !completedRead.valid
+        ? null
+        : completedRead.rows;
     }
 
-    setStudentList((data || []).filter(row => !row.archived_at));
-    setArchivedStudentList((data || []).filter(row => Boolean(row.archived_at)));
+    if (error || truncated || !completedRead.valid) {
+      console.error("Load students error:", error || new Error("The student list read was incomplete."));
+      setMessage(TEACHER_COPY.errors.childrenLoad);
+      setLoadingStudents(false);
+      setStudentListReadState(previous => failStudentRosterRead(
+        previous,
+        classId,
+        truncated ? "truncated" : "unavailable"
+      ));
+      return null;
+    }
+
+    setStudentList(completedRead.rows.filter(row => !row.archived_at));
+    setArchivedStudentList(completedRead.rows.filter(row => Boolean(row.archived_at)));
     setLoadingStudents(false);
-    return data || [];
+    setStudentListReadState(previous => completeStudentRosterRead(previous, classId));
+    scheduleRetryableTeacherRoute("students");
+    return completedRead.rows;
   }
 
   async function hydrateTeacherRouteContext(route) {
-    const routeRuntime = await loadTeacherRouteRuntime();
-    return routeRuntime.hydrate([
+    const hydrationTeacherId = teacherId || "";
+    const hydrationIdentityGeneration = authIdentityGenerationRef.current;
+    const hydrationSessionMode = sessionMode;
+    const hydrationToken = {
+      hash: window.location.hash,
+      identityGeneration: hydrationIdentityGeneration,
+      teacherId: hydrationTeacherId
+    };
+    // Lock the exact requested address before the first cloud read. A class
+    // result can commit one render before a later roster failure is known; if
+    // the route is protected only after that failure, the normal app mirror
+    // can consume the learner/report fields in that intermediate render.
+    const hydrationRouteLock = {
+      hash: hydrationToken.hash,
+      identityGeneration: hydrationIdentityGeneration,
+      retryStage: "hydrating",
+      retrying: true,
       route,
-      teacherId,
-      sessionMode,
-      loadClasses,
-      loadStudents,
-      loadClassDashboard,
-      loadStudentProgress,
-      [
-        () => {
-        setStudentList([]);
-        setArchivedStudentList([]);
-        setClassDashboard([]);
-        },
-        setSelectedClassId,
-        setTeacherGroupId,
-        setMessage,
-        setNameSaved,
-        setStudentReportView,
-        (nextStudentId, nextStudentName) => {
-          setTeacherStudentContext({
-            studentId: nextStudentId,
-            studentName: nextStudentName
-          });
-        },
-        rawSetAppView
-      ]
-    ]);
+      teacherId: hydrationTeacherId
+    };
+    teacherRouteHydrationTokensRef.current.add(hydrationToken);
+    publishRetryableTeacherRoute(hydrationRouteLock);
+    try {
+      const routeRuntime = await loadTeacherRouteRuntime();
+      const isRouteCurrent = () => {
+        const current = routeRuntime.parse(window.location.hash);
+        return Boolean(
+          controllerMountedRef.current
+          && hydrationTeacherId
+          && lastAuthUserIdRef.current === hydrationTeacherId
+          && authIdentityGenerationRef.current === hydrationIdentityGeneration
+          && sessionModeRef.current === hydrationSessionMode
+          && hydrationSessionMode !== "student"
+          && current
+          && current.appView === route.appView
+          && String(current.classId || "") === String(route.classId || "")
+          && String(current.groupId || "all") === String(route.groupId || "all")
+          && String(current.learnerId || "") === String(route.learnerId || "")
+          && String(current.reportView || "") === String(route.reportView || "")
+        );
+      };
+      if (!isRouteCurrent()) return false;
+      return await routeRuntime.hydrate([
+        route,
+        hydrationTeacherId,
+        hydrationSessionMode,
+        loadClasses,
+        loadStudents,
+        loadClassDashboard,
+        loadStudentProgress,
+        [
+          () => {
+            setStudentList([]);
+            setArchivedStudentList([]);
+            setClassDashboard([]);
+          },
+          setSelectedClassId,
+          setTeacherGroupId,
+          setMessage,
+          setNameSaved,
+          setStudentReportView,
+          (nextStudentId, nextStudentName) => {
+            setTeacherStudentContext({
+              studentId: nextStudentId,
+              studentName: nextStudentName
+            });
+          },
+          rawSetAppView,
+          isRouteCurrent,
+          pending => {
+            if (pending) {
+              if (!isRouteCurrent()) return;
+              publishRetryableTeacherRoute({
+                ...pending,
+                hash: window.location.hash,
+                identityGeneration: hydrationIdentityGeneration,
+                retrying: false,
+                teacherId: hydrationTeacherId
+              });
+              return;
+            }
+            if (
+              !retryableTeacherRouteRef.current
+              || (
+                retryableTeacherRouteRef.current.teacherId === hydrationTeacherId
+                && retryableTeacherRouteRef.current.identityGeneration === hydrationIdentityGeneration
+              )
+            ) {
+              publishRetryableTeacherRoute(null);
+            }
+          }
+        ],
+        selectedClassId
+      ]);
+    } finally {
+      const wasCurrentGeneration = teacherRouteHydrationTokensRef.current.delete(hydrationToken);
+      if (retryableTeacherRouteRef.current === hydrationRouteLock) {
+        publishRetryableTeacherRoute(null);
+      }
+      // The final destination can equal the current app view (for example,
+      // Back from one student report to another). Force one post-transaction
+      // render so URL/profile effects that correctly paused above can commit
+      // the now-consistent class, student, report, and view together.
+      if (wasCurrentGeneration) {
+        setTeacherRouteHydrationRevision(revision => revision + 1);
+      }
+    }
   }
 
   async function loadClassDashboard(classId = selectedClassId) {
-    if (!teacherId) {
+    const loadSequence = ++classDashboardLoadSequenceRef.current;
+    const loadTeacherId = teacherId || "";
+    const loadIdentityGeneration = authIdentityGenerationRef.current;
+    const isCurrentLoad = () => (
+      controllerMountedRef.current
+      && loadSequence === classDashboardLoadSequenceRef.current
+      && authIdentityGenerationRef.current === loadIdentityGeneration
+      && lastAuthUserIdRef.current === loadTeacherId
+    );
+
+    if (!loadTeacherId) {
       setMessage("Please sign in first.");
-      return;
+      setClassDashboardReadState(resetClassDashboardRead());
+      return { ok: false, reason: "signed_out" };
     }
 
     if (!classId) {
       setMessage("Select a class first.");
-      return;
+      setClassDashboardReadState(resetClassDashboardRead());
+      return { ok: false, reason: "class_required" };
     }
 
+    setClassDashboardReadState(previous => beginClassDashboardRead(previous, classId));
+
+    let dashboardStudentsResult;
+    try {
+      dashboardStudentsResult = await loadCompatibleDashboardStudents({
+        client: supabase,
+        teacherId: loadTeacherId,
+        classId
+      });
+    } catch (error) {
+      if (!isCurrentLoad()) {
+        return { ok: false, stale: true };
+      }
+      console.error("Dashboard students error:", error);
+      setClassDashboard(previousRows =>
+        buildIncompleteClassDashboardRows(previousRows, previousRows, ["students"])
+      );
+      setClassDashboardReadState(previous => failClassDashboardRead(
+        previous,
+        classId,
+        "error"
+      ));
+      setMessage(TEACHER_COPY.errors.pageLoad);
+      return { ok: false, reason: "students_unavailable" };
+    }
     const {
       data: students,
-      error: studentsError
-    } = await loadCompatibleDashboardStudents({
-      client: supabase,
-      teacherId,
-      classId
-    });
+      error: studentsError,
+      truncated: studentsTruncated
+    } = dashboardStudentsResult;
 
-    if (studentsError) {
-      console.error("Dashboard students error:", studentsError);
+    if (!isCurrentLoad()) {
+      return { ok: false, stale: true };
+    }
+
+    if (studentsError || studentsTruncated) {
+      console.error(
+        "Dashboard students error:",
+        studentsError || new Error("The dashboard student list read was incomplete.")
+      );
+      setClassDashboard(previousRows =>
+        buildIncompleteClassDashboardRows(previousRows, previousRows, ["students"])
+      );
+      setClassDashboardReadState(previous => failClassDashboardRead(
+        previous,
+        classId,
+        studentsTruncated ? "truncated" : "error"
+      ));
       setMessage(TEACHER_COPY.errors.pageLoad);
-      return;
+      return {
+        ok: false,
+        reason: studentsTruncated ? "students_incomplete" : "students_unavailable"
+      };
     }
 
     const studentIds =
@@ -1798,76 +2674,151 @@ export function useAppSessionController(context) {
 
     if (studentIds.length === 0) {
       setClassDashboard([]);
-      return;
+      setClassDashboardReadState(previous => completeClassDashboardRead(previous, classId));
+      return { ok: true, rows: [] };
     }
 
     // Paged, not plain. Both of these feed every figure on the dashboard, and
     // both were ordered oldest-first with no range, so PostgREST's 1000-row cap
     // silently handed back the oldest page and the newest work vanished from
     // the teacher's screen without any error.
-    const {
-      data: answers,
-      error: answersError,
-      truncated: answersTruncated
-    } = await selectAllRows(() => supabase
-      .table("answers")
-      .select("student_id, skill, is_correct, answered_at")
-      .eq("teacher_id", teacherId)
-      .in("student_id", studentIds)
-      .order("answered_at", { ascending: true }));
+    const answersResult = await settleTeacherRead(
+      "Dashboard answers",
+      () => selectAllRows(() => supabase
+        .table("answers")
+        .select("id, client_event_id, student_id, skill, stage, diagnostic_target, question, chosen_answer, correct_answer, is_correct, answered_at")
+        .eq("teacher_id", loadTeacherId)
+        .in("student_id", studentIds)
+        .order("answered_at", { ascending: true })),
+      { data: [], truncated: false }
+    );
 
-    if (answersError) {
-      console.error("Dashboard answers error:", answersError);
-    }
-    if (answersTruncated) {
-      console.error("Dashboard answers exceeded the paging ceiling; figures are partial.");
+    if (!isCurrentLoad()) {
+      return { ok: false, stale: true };
     }
 
-    const { data: masteryRows, error: masteryError } = await selectAllRows(() => supabase
-      .table("mastery")
-      .select("*")
-      .eq("teacher_id", teacherId)
-      .in("student_id", studentIds)
-      .order("updated_at", { ascending: true }));
+    const masteryResult = await settleTeacherRead(
+      "Dashboard mastery",
+      () => selectAllRows(() => supabase
+        .table("mastery")
+        .select("*")
+        .eq("teacher_id", loadTeacherId)
+        .in("student_id", studentIds)
+        .order("updated_at", { ascending: true })),
+      { data: [], truncated: false }
+    );
 
-    if (masteryError) {
-      console.error("Dashboard mastery error:", masteryError);
+    if (!isCurrentLoad()) {
+      return { ok: false, stale: true };
     }
 
-    const { data: soundSeekerRows, error: soundSeekerError } = await selectAllRows(() => supabase
-      .table("student_progress")
-      .select("student_id, payload, updated_at")
-      .eq("area", "phonics_quest")
-      .eq("key", "__all__")
-      .in("student_id", studentIds));
+    const assessmentAttemptsResult = await settleTeacherRead(
+      "Dashboard assessment sittings",
+      () => selectAllRows(() => supabase
+        .table("assessment_attempts")
+        .select("attempt_id, student_id, skill_id, completed_at, total_questions, correct_count, administration_status")
+        .eq("teacher_id", loadTeacherId)
+        .in("student_id", studentIds.map(String))
+        .order("completed_at", { ascending: true })),
+      { data: [], truncated: false }
+    );
 
-    if (soundSeekerError) {
-      console.error("Dashboard Sound Seekers progress error:", soundSeekerError);
+    if (!isCurrentLoad()) {
+      return { ok: false, stale: true };
     }
 
+    const soundSeekersResult = await settleTeacherRead(
+      "Dashboard Sound Seekers",
+      () => selectAllRows(() => supabase
+        .table("student_progress")
+        .select("student_id, payload, updated_at")
+        .eq("area", "phonics_quest")
+        .eq("key", "__all__")
+        .in("student_id", studentIds)),
+      { data: [], truncated: false }
+    );
+
+    if (!isCurrentLoad()) {
+      return { ok: false, stale: true };
+    }
+
+    const profilesResult = await settleTeacherRead(
+      "Dashboard profiles",
+      () => selectAllRows(() => supabase
+        .table("student_progress")
+        .select("student_id, payload")
+        .eq("area", "profile")
+        .eq("key", "__all__")
+        .in("student_id", studentIds)),
+      { data: [], truncated: false }
+    );
+
+    if (!isCurrentLoad()) {
+      return { ok: false, stale: true };
+    }
+
+    const missingSources = incompleteClassDashboardSources({
+      answers: answersResult,
+      mastery: masteryResult,
+      assessmentAttempts: assessmentAttemptsResult,
+      soundSeekers: soundSeekersResult,
+      profiles: profilesResult
+    });
+
+    if (missingSources.length > 0) {
+      Object.entries({
+        answers: answersResult,
+        mastery: masteryResult,
+        assessmentAttempts: assessmentAttemptsResult,
+        soundSeekers: soundSeekersResult,
+        profiles: profilesResult
+      }).forEach(([source, result]) => {
+        if (result?.error) {
+          console.error(`Dashboard ${source} error:`, result.error);
+        }
+        if (result?.truncated) {
+          console.error(`Dashboard ${source} exceeded the paging ceiling.`);
+        }
+      });
+      setClassDashboard(previousRows =>
+        buildIncompleteClassDashboardRows(students || [], previousRows, missingSources)
+      );
+      const sourceReadTruncated = [
+        answersResult,
+        masteryResult,
+        assessmentAttemptsResult,
+        soundSeekersResult,
+        profilesResult
+      ].some(result => result?.truncated);
+      setClassDashboardReadState(previous => failClassDashboardRead(
+        previous,
+        classId,
+        sourceReadTruncated ? "truncated" : "error"
+      ));
+      setMessage(
+        "Some saved results could not be loaded. Earlier figures remain on screen, but suggestions are paused. Check your connection and try again."
+      );
+      return { ok: false, incomplete: true, missingSources };
+    }
+
+    const answers = answersResult.data || [];
+    const masteryRows = masteryResult.data || [];
+    const assessmentAttemptRows = assessmentAttemptsResult.data || [];
+    const soundSeekerRows = soundSeekersResult.data || [];
+    const profileRows = profilesResult.data || [];
     const soundSeekersByStudent = new Map(
-      (soundSeekerRows || []).map(row => [row.student_id, {
+      soundSeekerRows.map(row => [row.student_id, {
         ...buildQuestMasteryReport(row.payload || {}),
         syncedAt: row.updated_at || ""
       }])
     );
-    const { data: profileRows, error: profileError } = await selectAllRows(() => supabase
-      .table("student_progress")
-      .select("student_id, payload")
-      .eq("area", "profile")
-      .eq("key", "__all__")
-      .in("student_id", studentIds));
-
-    if (profileError) {
-      console.error("Dashboard student profile settings error:", profileError);
-    }
-
     const profilesByStudent = new Map(
-      (profileRows || []).map(row => [row.student_id, row.payload || {}])
+      profileRows.map(row => [row.student_id, row.payload || {}])
     );
 
     const changeWindowMs = 7 * 24 * 60 * 60 * 1000;
     const changeWindowEnd = Date.now();
+    const conclusionNow = new Date(changeWindowEnd);
     const changeWindowStart = changeWindowEnd - changeWindowMs;
     const previousWindowStart = changeWindowStart - changeWindowMs;
     const inWindow = (value, start, end) => {
@@ -1878,12 +2829,12 @@ export function useAppSessionController(context) {
     const rows =
       (students || []).map(student => {
         const studentAnswers =
-          (answers || []).filter(a =>
+          answers.filter(a =>
             a.student_id === student.id
           );
 
         const studentMastery =
-          (masteryRows || []).filter(m =>
+          masteryRows.filter(m =>
             m.student_id === student.id
           );
 
@@ -1892,6 +2843,9 @@ export function useAppSessionController(context) {
         const evidenceSkills = [...new Set(
           studentAnswers.map(row => String(row.skill || "").trim()).filter(Boolean)
         )];
+        const currentEvidence = currentAnswerEvidence(studentAnswers, {
+          now: conclusionNow
+        });
 
         const accuracy =
           studentAnswers.length === 0
@@ -1900,6 +2854,12 @@ export function useAppSessionController(context) {
 
         const mastered =
           studentMastery.filter(m => m.mastered);
+        const verifiedSecureIds = verifiedSecureSkillIds(
+          studentMastery,
+          assessmentAttemptRows,
+          student.id,
+          { now: conclusionNow }
+        );
         const recentAnswers = studentAnswers.filter(row =>
           inWindow(row.answered_at, changeWindowStart, changeWindowEnd)
         ).length;
@@ -1915,14 +2875,20 @@ export function useAppSessionController(context) {
         const distinctMasteredSkills = rows => new Set(
           rows.map(row => row.skill_id).filter(Boolean)
         );
-        const recentMastered = distinctMasteredSkills(mastered.filter(row =>
-          inWindow(row.updated_at, changeWindowStart, changeWindowEnd)
-        )).size;
-        const previousMastered = distinctMasteredSkills(mastered.filter(row =>
-          inWindow(row.updated_at, previousWindowStart, changeWindowStart)
-        )).size;
+        const recentMastered = countFirstSecureTransitions(
+          studentMastery.filter(row => verifiedSecureIds.has(row.skill_id)),
+          changeWindowStart,
+          changeWindowEnd
+        );
+        const previousMastered = countFirstSecureTransitions(
+          studentMastery.filter(row => verifiedSecureIds.has(row.skill_id)),
+          previousWindowStart,
+          changeWindowStart
+        );
 
-        const masteredIds = distinctMasteredSkills(mastered);
+        const masteredIds = distinctMasteredSkills(
+          mastered.filter(row => verifiedSecureIds.has(row.skill_id))
+        );
 
         const attemptsBySkillId = new Map(
           studentMastery.map(m => [m.skill_id, Number(m.attempts) || 0])
@@ -1951,12 +2917,38 @@ export function useAppSessionController(context) {
         return {
           id: student.id,
           name: student.name,
+          classId: student.class_id || classId,
           answered: studentAnswers.length,
           correct,
           accuracy,
           evidenceSkills,
+          // Keep the complete, teacher-owned answer rows available to the
+          // class report. The report reconciles these against immutable
+          // assessment attempts one response at a time; dashboard aggregates
+          // alone cannot prove which rows are duplicate archive copies.
+          answerHistory: studentAnswers.map(answer => ({
+            id: answer.id,
+            answerEventId: answer.client_event_id || "",
+            studentId: answer.student_id,
+            skill: answer.skill,
+            stage: answer.stage,
+            diagnosticTarget: answer.diagnostic_target,
+            question: answer.question,
+            chosen: answer.chosen_answer,
+            correct: answer.correct_answer,
+            isCorrect: answer.is_correct,
+            answeredAt: answer.answered_at
+          })),
+          currentAnswered: currentEvidence.answered,
+          currentCorrect: currentEvidence.correct,
+          currentAccuracy: currentEvidence.accuracy,
+          currentEvidenceSkills: currentEvidence.evidenceSkills,
+          currentLastActive: currentEvidence.lastActive,
           masteredCount: masteredIds.size,
           currentSkill: firstUnmastered?.label || "Completed",
+          focusEvidence: buildCurrentSkillEvidence(studentAnswers, firstUnmastered, {
+            now: conclusionNow
+          }),
           lastActive,
           recentAnswers,
           previousAnswers,
@@ -1964,11 +2956,18 @@ export function useAppSessionController(context) {
           previousMastered,
           soundSeekers,
           reducedChoiceMode: Boolean(studentProfile.reducedChoiceMode),
-          accessibilitySettings: learnerAccessibilityFromProfile(studentProfile)
+          accessibilitySettings: learnerAccessibilityFromProfile(studentProfile),
+          evidenceReadStatus: "complete",
+          evidenceMissingSources: []
         };
       });
 
+    if (!isCurrentLoad()) {
+      return { ok: false, stale: true };
+    }
     setClassDashboard(rows);
+    setClassDashboardReadState(previous => completeClassDashboardRead(previous, classId));
+    return { ok: true, rows };
   }
 
   // PRACTICE-ASSIGN — the teacher picks sounds on a child's heat map; the
@@ -2000,7 +2999,13 @@ export function useAppSessionController(context) {
       setMessage("Could not save the practice assignment.");
       return false;
     }
-    await loadClassDashboard(selectedClassId);
+    setMessage("Practice assignment saved.");
+    try {
+      await loadClassDashboard(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after practice assignment failed:", refreshError);
+      setMessage("Practice assignment saved. Reload the page if the updated assignment does not appear yet.");
+    }
     return true;
   }
 
@@ -2021,13 +3026,20 @@ export function useAppSessionController(context) {
     });
     if (!result.ok) {
       console.error("Save reduced-choice mode error:", result.error);
-      setMessage("Could not save that learner's navigation setting.");
+      setMessage("Could not save that student's navigation setting.");
       return false;
     }
-    await loadClassDashboard(selectedClassId);
     setMessage(enabled
-      ? "Reduced choices are on for this learner."
-      : "All navigation choices are on for this learner.");
+      ? "Reduced choices are on for this student."
+      : "All navigation choices are on for this student.");
+    try {
+      await loadClassDashboard(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after reduced-choice save failed:", refreshError);
+      setMessage(enabled
+        ? "Reduced choices were saved. Reload the page if the change does not appear yet."
+        : "All navigation choices were saved. Reload the page if the change does not appear yet.");
+    }
     return true;
   }
 
@@ -2040,39 +3052,41 @@ export function useAppSessionController(context) {
     });
     if (!result.ok) {
       console.error("Save learner accessibility settings error:", result.error);
-      setMessage("Could not save that learner's accessibility settings.");
+      setMessage("Could not save that student's accessibility settings.");
       return false;
     }
-    await loadClassDashboard(selectedClassId);
-    setMessage("Learner accessibility settings saved.");
+    setMessage("Student accessibility settings saved.");
+    try {
+      await loadClassDashboard(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after accessibility save failed:", refreshError);
+      setMessage("Student accessibility settings saved. Reload the page if the change does not appear yet.");
+    }
     return true;
   }
 
   async function updateStudentSymbolPassword(studentRowId, sequence, selectedStudentName = "student") {
-    if (!teacherId || !studentRowId || !/^[1-9]{3}$/.test(sequence)) return;
-    // No teacher_id filter here: RLS already restricts writes to the
-    // student's own teacher or an app admin. Filtering by teacher_id made
-    // admin edits silently update zero rows while still reporting success.
-    const { data, error } = await supabase
-      .table("students")
-      .update({
-        symbol_password: sequence,
-        password_set_at: new Date().toISOString(),
-        password_updated_by: teacherId,
-        failed_login_count: 0,
-        last_failed_login_at: null
-      })
-      .eq("id", studentRowId)
-      .select("id");
+    if (!teacherId || !studentRowId || !/^[1-9]{3}$/.test(sequence)) return false;
+    const { data, error } = await supabase.call("teacher_set_student_symbol_password", {
+      p_student_id: studentRowId,
+      p_sequence: sequence,
+      p_set_at: new Date().toISOString()
+    });
 
-    if (error || !data?.length) {
+    if (error || data?.ok !== true) {
       console.error("Could not update student symbol password.", error);
       setMessage("We couldn't change those sign-in pictures. Check your access and try again.");
-      return;
+      return false;
     }
 
-    await loadStudents(selectedClassId);
     setMessage(`Sign-in pictures updated for ${selectedStudentName}.`);
+    try {
+      await loadStudents(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after sign-in picture save failed:", refreshError);
+      setMessage(`Sign-in pictures updated for ${selectedStudentName}. Reload the page if the change does not appear yet.`);
+    }
+    return true;
   }
 
   // Bulk sign-in setup. One write per student but a single roster reload and a
@@ -2091,18 +3105,12 @@ export function useAppSessionController(context) {
         failed += 1;
         continue;
       }
-      const { data, error } = await supabase
-        .table("students")
-        .update({
-          symbol_password: sequence,
-          password_set_at: setAt,
-          password_updated_by: teacherId,
-          failed_login_count: 0,
-          last_failed_login_at: null
-        })
-        .eq("id", studentRowId)
-        .select("id");
-      if (error || !data?.length) {
+      const { data, error } = await supabase.call("teacher_set_student_symbol_password", {
+        p_student_id: studentRowId,
+        p_sequence: sequence,
+        p_set_at: setAt
+      });
+      if (error || data?.ok !== true) {
         console.error("Could not set student symbol password in bulk.", error);
         failed += 1;
       } else {
@@ -2111,10 +3119,16 @@ export function useAppSessionController(context) {
       }
     }
 
-    await loadStudents(selectedClassId);
-    setMessage(failed
-      ? `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}. ${failed} could not be saved — those children are not on the cards. Try again for them.`
-      : `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}.`);
+    const savedMessage = failed
+      ? `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}. ${failed} could not be saved — those students are not on the cards. Try again for them.`
+      : `Sign-in pictures made for ${saved} student${saved === 1 ? "" : "s"}.`;
+    setMessage(savedMessage);
+    try {
+      await loadStudents(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after bulk sign-in picture save failed:", refreshError);
+      setMessage(`${savedMessage} Reload the page if the roster does not update yet.`);
+    }
     // savedIds is what makes the printed cards trustworthy: the caller must
     // build the preview from rows that were actually written, never from the
     // sequences it generated locally. A partial failure used to print pictures
@@ -2135,8 +3149,8 @@ export function useAppSessionController(context) {
       console.error("Could not update student display name.", error);
       // Never surface error.message here — it is raw database text.
       const reason = /duplicate|unique/i.test(error?.message || "")
-        ? `A child named "${normalizedName}" already exists in this class.`
-        : "We couldn't save that child's information. Nothing has changed.";
+        ? `A student named "${normalizedName}" already exists in this class.`
+        : "We couldn't save that student's information. Nothing has changed.";
       setMessage(reason);
       return false;
     }
@@ -2147,36 +3161,40 @@ export function useAppSessionController(context) {
         studentName: normalizedName
       });
     }
-    await loadStudents(selectedClassId);
-    await loadClassDashboard(selectedClassId);
     setMessage(`${normalizedName}'s information saved.`);
+    try {
+      await loadStudents(selectedClassId);
+      await loadClassDashboard(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after student information save failed:", refreshError);
+      setMessage(`${normalizedName}'s information was saved. Reload the page if the change does not appear yet.`);
+    }
     return true;
   }
 
   async function resetStudentSymbolPassword(studentRowId, selectedStudentName = "student") {
-    if (!teacherId || !studentRowId) return;
-    if (!window.confirm(`Reset ${selectedStudentName}'s sign-in pictures? They cannot sign in until a teacher sets new pictures.`)) return;
+    if (!teacherId || !studentRowId) return false;
 
-    const { data, error } = await supabase
-      .table("students")
-      .update({
-        symbol_password: null,
-        password_set_at: null,
-        password_updated_by: teacherId,
-        failed_login_count: 0,
-        last_failed_login_at: null
-      })
-      .eq("id", studentRowId)
-      .select("id");
+    const { data, error } = await supabase.call("teacher_set_student_symbol_password", {
+      p_student_id: studentRowId,
+      p_sequence: null,
+      p_set_at: new Date().toISOString()
+    });
 
-    if (error || !data?.length) {
+    if (error || data?.ok !== true) {
       console.error("Could not reset student symbol password.", error);
       setMessage("We couldn't reset those sign-in pictures. Check your access and try again.");
-      return;
+      return false;
     }
 
-    await loadStudents(selectedClassId);
     setMessage(`Sign-in pictures reset for ${selectedStudentName}. Set new pictures before their next sign-in.`);
+    try {
+      await loadStudents(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after sign-in picture reset failed:", refreshError);
+      setMessage(`Sign-in pictures were reset for ${selectedStudentName}. Reload the page if the roster does not update yet.`);
+    }
+    return true;
   }
 
   function resetCurrentStudentLocalProgress({ clearFormalAssessments = false } = {}) {
@@ -2213,101 +3231,68 @@ export function useAppSessionController(context) {
     }
   }
 
-  async function resetSelectedStudentLocalAssessmentArchives(
-    selectedStudentId = studentId,
-    selectedStudentName = studentName
-  ) {
-    if (!selectedStudentId) return;
-    await clearLocalElAssessmentDataForStudent({
-      teacherId,
-      studentId: selectedStudentId,
-      studentName: selectedStudentName
-    });
-    setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
-  }
-
-  async function deleteStudentProgressRows(tableName, selectedStudentId) {
-    const { error } = await supabase
-      .table(tableName)
-      .delete()
-      .eq("student_id", selectedStudentId);
-
-    if (error && !isMissingTableError(error, tableName)) return error;
-    return null;
-  }
-
   async function resetSelectedStudentProgress() {
     if (!teacherId || !studentId) {
       setMessage("Select a student before resetting progress.");
-      return;
+      return false;
     }
 
     setResettingProgress(true);
-
-    const errors = [];
-
-    // A whole-class snapshot is owned by the teacher/class and therefore has
-    // no relational student_id for the generic deletion loop to match.
+    const requestedAt = new Date().toISOString();
+    let data;
+    let error;
     try {
-      await deleteSavedClassElAssessmentReportsForStudent({
-        teacherId,
-        studentId,
-        studentName,
-        supabase
-      });
-    } catch (error) {
+      ({ data, error } = await supabase.call("teacher_reset_student_progress", {
+        p_student_id: studentId,
+        p_reset_at: requestedAt
+      }));
+    } catch (requestError) {
       setResettingProgress(false);
-      console.error("Reset student whole-class report cleanup error:", error);
-      setMessage("Could not reset this student's saved whole-class assessment reports.");
-      return;
+      console.error("Reset student progress error:", requestError);
+      setMessage("We could not reset this student's practice progress. Nothing was changed. Check the connection and try again.");
+      return false;
     }
 
-    for (const tableName of [
-      "answers",
-      "mastery",
-      "item_mastery",
-      "assessment_attempts",
-      "el_assessment_reports",
-      "student_progress"
-    ]) {
-      const error = await deleteStudentProgressRows(tableName, studentId);
-      if (error) errors.push(error);
+    if (error || data?.ok === false) {
+      setResettingProgress(false);
+      console.error("Reset student progress error:", error || data);
+      setMessage("We could not reset this student's practice progress. Nothing was changed. Check the connection and try again.");
+      return false;
     }
 
+    // Completed assessment evidence is historical and immutable. Reset only
+    // derived mastery/current-session state and gamified practice progress.
+    answerInFlightRef.current = false;
+    roundItemKeysRef.current = [];
+    roundQuestionIdsRef.current = [];
+    resetInitialSoundRoundQueue();
+    initialSoundRoundMetaRef.current = null;
+    setCurrentSkillIndex(0);
+    setRoundAnswers([]);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
+    setUsedByStage({});
+    setMastery({});
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setCheckpointDecision(null);
+    setDiagnosticFollowUp(false);
+    setAssessmentMode("mastery");
+    setItemMastery({});
+    setItemSessionSeen({});
+    let localCleanupFailed = false;
+    try {
+      await clearAndVerifyLocalProgressForStudent(studentId, {
+        allowFutureWritesAfterCleanup: true,
+        preserveEngagement: true,
+        preserveProfile: true,
+        preserveAreas: PRACTICE_RESET_RETAINED_AREAS
+      });
+    } catch (cleanupError) {
+      localCleanupFailed = true;
+      console.warn("Practice reset completed in the cloud, but local cleanup is incomplete.", cleanupError);
+    }
     setResettingProgress(false);
-
-    if (errors.length > 0) {
-      console.error("Reset student progress error:", errors[0]);
-      setMessage("Could not reset this student's progress.");
-      return;
-    }
-
-    resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
-    let resetWarning = "";
-    try {
-      await resetSelectedStudentLocalAssessmentArchives(studentId, studentName);
-    } catch (error) {
-      console.warn("Cloud progress was reset, but local EL assessment cache cleanup failed.", error);
-      resetWarning = "Progress was reset in the cloud, but this browser could not clear all cached assessment evidence. Refresh and retry while browser storage is available.";
-    }
-    // Clear the gamified progress too (EL Quest, learn games, phonics, cvc,
-    // story quests, guided reading, daily mission, profile) locally + queue, so
-    // the now-deleted cloud rows can't forward-merge straight back on next load.
-    clearLocalProgressForStudent(studentId);
-    // Leave a cloud "tombstone" so OTHER devices (shared iPads) also wipe their
-    // local copy on next hydrate, instead of re-pushing old progress. Best-effort.
-    try {
-      await supabase.table("student_progress").upsert({
-        student_id: studentId,
-        area: RESET_AREA,
-        key: RESET_AREA,
-        payload: { at: new Date().toISOString() },
-        updated_at: new Date().toISOString()
-      }, { onConflict: "student_id,area,key" });
-    } catch (tombstoneError) {
-      console.warn("Could not write reset tombstone (other devices may not auto-clear).", tombstoneError);
-      resetWarning = "Progress was reset on this device, but the reset could not sync to the cloud - other devices may still show old progress. Please retry the reset while online.";
-    }
     if (import.meta.env.DEV) {
       console.debug("[assessment-reset] Reset all progress for selected student", {
         studentId,
@@ -2316,10 +3301,21 @@ export function useAppSessionController(context) {
     }
     setResetProgressDialogOpen(false);
     setAppView(APP_VIEWS.TEACHER_CLASSES);
-    setMessage(resetWarning || `Progress reset for ${studentName || "student"}.`);
+    setMessage(localCleanupFailed
+      ? `Practice progress was reset for ${studentName || "student"} in the cloud, but this browser could not verify its local cleanup. Reload this browser before the student practises again. Completed assessments were kept.`
+      : `Practice progress reset for ${studentName || "student"}. Completed assessments and formal assessment records were kept.`);
 
-    await loadStudents(selectedClassId);
-    await loadClassDashboard(selectedClassId);
+    try {
+      await loadStudents(selectedClassId);
+      await loadClassDashboard(selectedClassId);
+    } catch (refreshError) {
+      console.error("Refresh after practice reset failed:", refreshError);
+      setMessage(
+        `Practice progress reset for ${studentName || "student"}. Completed assessments were kept. `
+        + "Reload the page if the roster does not update yet."
+      );
+    }
+    return true;
   }
 
 
@@ -2328,6 +3324,35 @@ export function useAppSessionController(context) {
     selectedStudentName,
     { navigate = true, classId = selectedClassId } = {}
   ) {
+    const loadSequence = studentProgressLoadSequenceRef.current + 1;
+    studentProgressLoadSequenceRef.current = loadSequence;
+    const loadTeacherId = teacherId || "";
+    const loadIdentityGeneration = authIdentityGenerationRef.current;
+    const isCurrentLoad = () => (
+      controllerMountedRef.current
+      && studentProgressLoadSequenceRef.current === loadSequence
+      && authIdentityGenerationRef.current === loadIdentityGeneration
+      && lastAuthUserIdRef.current === loadTeacherId
+    );
+    if (!loadTeacherId || !isCurrentLoad()) return { cancelled: true };
+    // Save the previous student's local draft before the selected-student
+    // state changes. React's profile effect runs later; relying on it allowed
+    // the reset below to overwrite one student's unfinished assessment with
+    // another student's empty state.
+    if (studentId) {
+      saveManualAssessmentDrafts({
+        teacherId: loadTeacherId,
+        studentId,
+        letterIndex,
+        letterAssessment,
+        patternIndex,
+        patternAssessment
+      });
+    }
+    const selectedManualDrafts = loadManualAssessmentDrafts({
+      teacherId: loadTeacherId,
+      studentId: selectedStudentId
+    });
     setTeacherStudentContext({
       studentId: selectedStudentId,
       studentName: selectedStudentName
@@ -2342,13 +3367,13 @@ export function useAppSessionController(context) {
     answerInFlightRef.current = false;
     if (elBenchmarkSession?.studentId) {
       saveElBenchmarkDraft({
-        teacherId,
+        teacherId: loadTeacherId,
         studentId: elBenchmarkSession.studentId,
         session: elBenchmarkSession
       });
     }
     const restoredElBenchmarkSession = loadElBenchmarkDraft({
-      teacherId,
+      teacherId: loadTeacherId,
       studentId: selectedStudentId
     });
     // Synchronously hard-reset every piece of in-flight assessment state
@@ -2368,10 +3393,10 @@ export function useAppSessionController(context) {
     setItemMastery({});
     setAnswerHistory([]);
     answerHistoryRef.current = [];
-    setLetterIndex(0);
-    setLetterAssessment([]);
-    setPatternIndex(0);
-    setPatternAssessment([]);
+    setLetterIndex(selectedManualDrafts.letterIndex);
+    setLetterAssessment(selectedManualDrafts.letterAssessment);
+    setPatternIndex(selectedManualDrafts.patternIndex);
+    setPatternAssessment(selectedManualDrafts.patternAssessment);
     setPatternAttempt(0);
     setElBenchmarkSession(restoredElBenchmarkSession);
     const progressSyncSession = {
@@ -2379,35 +3404,155 @@ export function useAppSessionController(context) {
       studentId: selectedStudentId,
       studentName: selectedStudentName,
       classId,
-      teacherId
+      teacherId: loadTeacherId
     };
     configureProgressSync(progressSyncSession);
-    void hydrateCloudProgress(progressSyncSession).catch(error => {
-      console.warn("Could not hydrate teacher-selected cloud progress.", error);
-    });
+    const progressHydrationPromise = hydrateCloudProgress(progressSyncSession)
+      .then(rows => ({ rows, error: null }))
+      .catch(error => {
+        console.warn("Could not hydrate teacher-selected cloud progress.", error);
+        return { rows: [], error };
+      });
     if (navigate) setAppView(APP_VIEWS.TEACHER_CLASSES);
     setCheckpointDecision(null);
-    const selectedAttemptHistoryPromise = hydrateAssessmentAttempts({
-      teacherId,
-      studentId: selectedStudentId,
-      supabase: isSupabaseConfigured ? supabase : null
-    });
+    const selectedAttemptHistoryPromise = settleTeacherRead(
+      "Student assessment archive",
+      () => hydrateAssessmentAttempts({
+        teacherId: loadTeacherId,
+        studentId: selectedStudentId,
+        supabase: isSupabaseConfigured ? supabase : null,
+        returnStatus: true
+      }),
+      { records: [], complete: false }
+    );
 
-    const { data: answerRows, error: answerError } = await supabase
-      .table("answers")
-      .select("*")
-      .eq("teacher_id", teacherId)
-      .eq("student_id", selectedStudentId)
-      .order("answered_at", { ascending: true });
+    const [
+      answerResult,
+      itemMasteryResult,
+      masteryResult,
+      attemptResult,
+      progressHydrationResult
+    ] = await Promise.all([
+      settleTeacherRead(
+        "Student answers",
+        () => selectAllRows(() => supabase
+          .table("answers")
+          .select("*")
+          .eq("teacher_id", loadTeacherId)
+          .eq("student_id", selectedStudentId)
+          .order("answered_at", { ascending: true })),
+        { data: [], truncated: false }
+      ),
+      settleTeacherRead(
+        "Student item summaries",
+        () => selectAllRows(() => supabase
+          .table("item_mastery")
+          .select("*")
+          .eq("teacher_id", loadTeacherId)
+          .eq("student_id", selectedStudentId)
+          .order("updated_at", { ascending: true })),
+        { data: [], truncated: false }
+      ),
+      settleTeacherRead(
+        "Student skill summaries",
+        () => selectAllRows(() => supabase
+          .table("mastery")
+          .select("*")
+          .eq("teacher_id", loadTeacherId)
+          .eq("student_id", selectedStudentId)
+          .order("updated_at", { ascending: true })),
+        { data: [], truncated: false }
+      ),
+      selectedAttemptHistoryPromise,
+      progressHydrationPromise
+    ]);
 
-    if (answerError) {
-      console.error("Load answers error:", answerError);
+    if (!isCurrentLoad()) return { cancelled: true };
+
+    const answerRows = answerResult.data || [];
+    const answerError = answerResult.error || (answerResult.truncated
+      ? new Error("The answer history reached the configured read limit.")
+      : null);
+    const itemMasteryRows = itemMasteryResult.data || [];
+    const itemMasteryError = itemMasteryResult.error || (itemMasteryResult.truncated
+      ? new Error("The item summary reached the configured read limit.")
+      : null);
+    const masteryRows = masteryResult.data || [];
+    const masteryError = masteryResult.error || (masteryResult.truncated
+      ? new Error("The skill summary reached the configured read limit.")
+      : null);
+    const archivedAttemptsForStudent = attemptResult.records || [];
+    const attemptError = attemptResult.complete ? null : (
+      attemptResult.error || new Error("The assessment archive could not be read completely.")
+    );
+    const studentProgressRows = progressHydrationResult.rows || [];
+    const studentProgressError = progressHydrationResult.error || null;
+
+    // A partial manual assessment is also an archived assessment record. Use
+    // that record to restore the draft on another device, while preferring a
+    // newer local draft that may contain answers not archived yet. A newer
+    // completed record suppresses an older local partial so finished work
+    // cannot reopen.
+    if (!attemptError) {
+      const archivedManualDrafts = restoreManualAssessmentDraftsFromHistory({
+        assessmentHistory: archivedAttemptsForStudent,
+        studentId: selectedStudentId
+      });
+      const recoveredLetterAssessment = chooseNewestManualAssessmentEntries(
+        selectedManualDrafts.letterAssessment,
+        archivedManualDrafts.letterAssessment,
+        {
+          archivedStatus: archivedManualDrafts.letterLatestStatus,
+          archivedAt: archivedManualDrafts.letterLatestAt
+        }
+      );
+      const recoveredPatternAssessment = chooseNewestManualAssessmentEntries(
+        selectedManualDrafts.patternAssessment,
+        archivedManualDrafts.patternAssessment,
+        {
+          archivedStatus: archivedManualDrafts.patternLatestStatus,
+          archivedAt: archivedManualDrafts.patternLatestAt
+        }
+      );
+      const recoveredLetterIndex = recoveredLetterAssessment === selectedManualDrafts.letterAssessment
+        ? selectedManualDrafts.letterIndex
+        : recoveredLetterAssessment.length;
+      const recoveredPatternIndex = recoveredPatternAssessment === selectedManualDrafts.patternAssessment
+        ? selectedManualDrafts.patternIndex
+        : recoveredPatternAssessment.length;
+      setLetterIndex(recoveredLetterIndex);
+      setLetterAssessment(recoveredLetterAssessment);
+      setPatternIndex(recoveredPatternIndex);
+      setPatternAssessment(recoveredPatternAssessment);
+      saveManualAssessmentDrafts({
+        teacherId: loadTeacherId,
+        studentId: selectedStudentId,
+        letterIndex: recoveredLetterIndex,
+        letterAssessment: recoveredLetterAssessment,
+        patternIndex: recoveredPatternIndex,
+        patternAssessment: recoveredPatternAssessment
+      });
+    }
+
+    if (answerError) console.error("Load answers error:", answerError);
+    if (itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError)) {
+      console.error("Load item mastery error:", itemMasteryError);
+    }
+    if (masteryError) console.error("Load mastery error:", masteryError);
+    if (attemptError) console.error("Load assessment archive error:", attemptError);
+    if (studentProgressError) {
+      console.error("Load student progress error:", studentProgressError);
     }
 
     const rebuiltHistory =
       (answerRows || []).map(row => {
         const baseRecord = {
+          answerId: row.id || "",
+          answerEventId: row.client_event_id || "",
+          studentId: row.student_id || selectedStudentId,
+          teacherId: row.teacher_id || loadTeacherId,
           date: row.answered_at,
+          timestamp: row.answered_at,
           skill: row.skill,
           stage: row.stage,
           diagnosticTarget: row.diagnostic_target,
@@ -2430,28 +3575,34 @@ export function useAppSessionController(context) {
           promptAnswerSignature: getAnswerRecordPromptAnswerSignature(baseRecord),
           optionSetSignature: matchedQuestion ? getRepeatOptionSetSignature(matchedQuestion) : "",
           targetWord: matchedQuestion ? getQuestionTargetWord(matchedQuestion) : "",
+          targetLetter: matchedQuestion?.targetLetter || matchedQuestion?.letter || "",
+          targetSound: matchedQuestion?.targetSound
+            || matchedQuestion?.finalSound
+            || matchedQuestion?.initialSound
+            || "",
+          targetPattern: matchedQuestion?.targetPattern
+            || matchedQuestion?.pattern
+            || matchedQuestion?.rimeFamily
+            || "",
           skillId: matchedQuestion?.skillId || "",
           itemType: matchedMetadata?.itemType || "",
           itemKey: matchedMetadata?.itemKey || "",
-          itemLevel: matchedQuestion?.level || ""
+          itemLevel: matchedQuestion?.level || "",
+          templateType: matchedQuestion?.templateType
+            || matchedQuestion?.formatType
+            || matchedQuestion?.questionType
+            || ""
         };
       });
 
+    answerHistoryRef.current = rebuiltHistory;
     setAnswerHistory(rebuiltHistory);
     setTotalAnswered(rebuiltHistory.length);
     setCorrectAnswered(rebuiltHistory.filter(x => x.isCorrect).length);
 
-    const { data: itemMasteryRows, error: itemMasteryError } = await supabase
-      .table("item_mastery")
-      .select("*")
-      .eq("teacher_id", teacherId)
-      .eq("student_id", selectedStudentId)
-      .order("updated_at", { ascending: true });
-
-    if (itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError)) {
-      console.error("Load item mastery error:", itemMasteryError);
-    }
-
+    // Cloud progress has now been merged into the student-scoped device cache.
+    // Reading before that merge made Guided Reading disappear on a new device
+    // until the teacher reloaded the whole app.
     setGuidedReadingRecords(loadGuidedReadingRecords(selectedStudentId));
 
     const rebuiltItemMastery = {};
@@ -2461,7 +3612,6 @@ export function useAppSessionController(context) {
       rebuiltItemMastery[key] = normalizeItemMasteryRow(row);
     });
 
-    const archivedAttemptsForStudent = await selectedAttemptHistoryPromise;
     const masteryFromAttempts = archivedAttemptsForStudent.reduce(
       (rows, attempt) => mergeAssessmentAttemptIntoItemMastery(rows, attempt),
       {}
@@ -2471,29 +3621,65 @@ export function useAppSessionController(context) {
       previous,
       archivedAttemptsForStudent
     ));
-    setItemMastery({
-      ...masteryFromAttempts,
-      ...rebuiltItemMastery
-    });
-    setItemSessionSeen({});
-
-    const { data: masteryRows, error: masteryError } = await supabase
-      .table("mastery")
-      .select("*")
-      .eq("teacher_id", teacherId)
-      .eq("student_id", selectedStudentId)
-      .order("updated_at", { ascending: true });
-
-    if (masteryError) {
-      console.error("Load mastery error:", masteryError);
+    const recoveredItemMastery = { ...rebuiltItemMastery };
+    for (const [key, archivedRow] of Object.entries(masteryFromAttempts)) {
+      const cloudRow = recoveredItemMastery[key];
+      if (!cloudRow) {
+        recoveredItemMastery[key] = archivedRow;
+        continue;
+      }
+      // item_mastery is a rebuildable summary and can lag when its upsert
+      // failed after the immutable attempt was safely archived. Reconcile
+      // monotonically so a stale summary cannot erase proved evidence. `max`
+      // avoids double-counting the same formal answers present in both stores.
+      recoveredItemMastery[key] = {
+        ...archivedRow,
+        ...cloudRow,
+        attempts: Math.max(
+          Number(archivedRow.attempts || 0),
+          Number(cloudRow.attempts || 0)
+        ),
+        correct: Math.max(
+          Number(archivedRow.correct || 0),
+          Number(cloudRow.correct || 0)
+        ),
+        sessionsSeen: Math.max(
+          Number(archivedRow.sessionsSeen || 0),
+          Number(cloudRow.sessionsSeen || 0)
+        ),
+        mastered: Boolean(archivedRow.mastered || cloudRow.mastered),
+        examples: Array.from(new Set([
+          ...(archivedRow.examples || []),
+          ...(cloudRow.examples || [])
+        ])).slice(0, 8),
+        missedExamples: Array.from(new Set([
+          ...(archivedRow.missedExamples || []),
+          ...(cloudRow.missedExamples || [])
+        ])).slice(0, 8)
+      };
     }
+    setItemMastery(recoveredItemMastery);
+    setItemSessionSeen({});
 
     const rebuiltMastery = {};
 
     (masteryRows || []).forEach(row => {
+      const archivedCheckCount = archivedAttemptsForStudent.filter(attempt => (
+        attempt.skillId === row.skill_id
+        && ["completed", "mastered", "evidence_recorded"].includes(
+          String(attempt.administrationStatus || attempt.status || "")
+        )
+      )).length;
+      const checkCount = Math.max(
+        Number(row.attempts || 0),
+        archivedCheckCount
+      );
       rebuiltMastery[row.skill_id] = {
-        attempts: row.attempts || 1,
-        mastered: row.mastered || false,
+        attempts: checkCount,
+        // A single sitting can record strong evidence, but it cannot establish
+        // secure mastery. This also corrects legacy one-round summary rows at
+        // read time without rewriting their underlying completed evidence.
+        mastered: Boolean(row.mastered && checkCount >= 2),
         lastScore: row.last_score,
         lastTotal: row.last_total
       };
@@ -2524,31 +3710,66 @@ export function useAppSessionController(context) {
     // 2026-07-27: was "Loaded {name}." — developer phrasing, and it sat pinned at the
     // top of the page through the whole Assessments funnel, shifting the layout on
     // arrival. Say what it means to a teacher, in their words.
-    setMessage(`${selectedStudentName}’s saved results are ready.`);
+    const sourceErrors = [
+      ["answers", answerError],
+      ["assessmentAttempts", attemptError],
+      ["itemMastery", itemMasteryError],
+      ["skillMastery", masteryError],
+      ["studentProgress", studentProgressError]
+    ].filter(([, error]) => Boolean(error));
+    const successfulSourceCount = 5 - sourceErrors.length;
+    const readSyncStatus = sourceErrors.length === 0
+      ? "complete"
+      : successfulSourceCount > 0
+        ? "partial"
+        : "error";
+    setMessage(sourceErrors.length
+      ? `${selectedStudentName}’s saved results are only partly available. Missing information is not being counted as zero. Retry before making a formal decision.`
+      : `${selectedStudentName}’s saved results are ready.`);
     const evidenceReadCompletedAt = new Date().toISOString();
+    const sourceStatus = (error, rowCount) => (
+      error
+        ? rowCount > 0 ? "partial" : "unavailable"
+        : "complete"
+    );
     setSelectedStudentEvidenceReadState({
       completedAt: evidenceReadCompletedAt,
-      syncStatus: "complete",
+      syncStatus: readSyncStatus,
       sources: {
+        answers: {
+          lastSyncedAt: answerError ? "" : evidenceReadCompletedAt,
+          syncStatus: sourceStatus(answerError, answerRows.length)
+        },
         assessmentAttempts: {
-          lastSyncedAt: evidenceReadCompletedAt,
-          syncStatus: "complete"
+          lastSyncedAt: attemptError ? "" : evidenceReadCompletedAt,
+          syncStatus: sourceStatus(attemptError, archivedAttemptsForStudent.length)
         },
         itemMastery: {
-          lastSyncedAt: evidenceReadCompletedAt,
-          syncStatus: "complete"
+          lastSyncedAt: itemMasteryError ? "" : evidenceReadCompletedAt,
+          syncStatus: sourceStatus(itemMasteryError, itemMasteryRows.length)
         },
         skillMastery: {
-          lastSyncedAt: evidenceReadCompletedAt,
-          syncStatus: "complete"
+          lastSyncedAt: masteryError ? "" : evidenceReadCompletedAt,
+          syncStatus: sourceStatus(masteryError, masteryRows.length)
+        },
+        studentProgress: {
+          lastSyncedAt: studentProgressError ? "" : evidenceReadCompletedAt,
+          syncStatus: sourceStatus(studentProgressError, studentProgressRows.length)
         }
       }
     });
-    setSelectedStudentEvidenceReady(true);
+    // Formal report/export actions must stay closed unless every required
+    // source was read completely. Partial rows may be shown with a warning,
+    // but they are never a safe basis for a formal decision.
+    setSelectedStudentEvidenceReady(readSyncStatus === "complete");
     // Handed back so a caller can start a check at the right level in the same
     // turn: reading currentSkillIndex from state here would still be the
     // previous student's.
-    return { skillIndex: firstUnmastered === -1 ? skillTree.length - 1 : firstUnmastered };
+    return {
+      skillIndex: firstUnmastered === -1 ? skillTree.length - 1 : firstUnmastered,
+      syncStatus: readSyncStatus,
+      missingSources: sourceErrors.map(([source]) => source)
+    };
   }
 
 
@@ -2556,8 +3777,12 @@ export function useAppSessionController(context) {
   // 2026-07-27: it used to return undefined either way, so the roster form could not
   // tell success from failure and cleared the typed name even when the save failed.
   async function createStudentForSelectedClass(name, { navigate = true } = {}) {
-    const clean = String(name || "").trim();
+    const clean = normalizeRosterStudentName(name);
     if (!clean) return false;
+    if (clean.length > 80) {
+      setMessage("Display names must be 80 characters or fewer.");
+      return false;
+    }
 
     if (!teacherId) {
       setMessage("Please log in first.");
@@ -2569,11 +3794,12 @@ export function useAppSessionController(context) {
       return false;
     }
 
+    const targetClassId = selectedClassId;
     const { data, error } = await supabase
       .table("students")
       .insert({
         name: clean,
-        class_id: selectedClassId,
+        class_id: targetClassId,
         teacher_id: teacherId
       })
       .select()
@@ -2581,12 +3807,7 @@ export function useAppSessionController(context) {
 
     if (error) {
       console.error("Supabase student save error:", error);
-      const reason = /duplicate|unique/i.test(error.message || "")
-        ? `A student named "${clean}" already exists in this class.`
-        : error.message
-          ? `Could not create student: ${error.message}`
-          : "Could not create student. Please try again.";
-      setMessage(reason);
+      setMessage(teacherMutationErrorMessage(error, "create_student", clean));
       return false;
     }
 
@@ -2598,10 +3819,27 @@ export function useAppSessionController(context) {
     setGuidedReadingRecords({});
     setNameSaved(true);
     setCurrentSkillIndex(0);
+    setStudentList(previous => (
+      previous.some(row => row.id === data.id)
+        ? previous
+        : [...previous, data]
+    ));
     if (navigate) setAppView(APP_VIEWS.TEACHER_CLASSES);
-    await loadStudents(selectedClassId);
-    await loadClassDashboard(selectedClassId);
-    setMessage(`Student created and selected: ${data.name || clean}`);
+    let refreshIncomplete;
+    try {
+      const [studentsResult, dashboardResult] = await Promise.all([
+        loadStudents(targetClassId),
+        loadClassDashboard(targetClassId)
+      ]);
+      refreshIncomplete = !Array.isArray(studentsResult)
+        || dashboardResult?.ok !== true;
+    } catch (refreshError) {
+      console.error("Refresh after student creation failed:", refreshError);
+      refreshIncomplete = true;
+    }
+    setMessage(refreshIncomplete
+      ? `${data.name || clean} was added and selected. The latest class list could not reload, so use the retry shown on this page before adding them again.`
+      : `Student created and selected: ${data.name || clean}`);
     return true;
   }
 
@@ -2612,10 +3850,11 @@ export function useAppSessionController(context) {
     completePasswordReset, createClass, createDemoClass, createStudentForSelectedClass,
     demoTeacherEnabled, executeAdminDeleteClass, executeAdminDeleteStudent, exitToTeacherEntry,
     isTeacherAccountApproved, loadAdminDashboard, loadClassDashboard, loadClasses,
-    loadingClasses,
+    classDashboardReadState, classListReadState, loadingClasses,
     loadStudentProgress, loadStudents, logInDemoTeacher, logInTeacher,
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
+    retryTeacherSchoolName,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
   };

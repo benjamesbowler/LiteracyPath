@@ -33,7 +33,16 @@ export async function selectAllRows(buildQuery, { pageSize = 1000, maxRows = 200
       return { data: page, error: null, truncated: page.length >= pageSize };
     }
     const result = await query.range(from, from + pageSize - 1);
-    if (result?.error) return { data: [], error: result.error, truncated: false };
+    if (result?.error) {
+      // Keep pages already proved readable, but mark the read partial. Callers
+      // can show the available evidence with an explicit warning instead of
+      // replacing a learner's real history with a misleading zero.
+      return {
+        data: rows,
+        error: result.error,
+        truncated: rows.length > 0
+      };
+    }
     const page = Array.isArray(result?.data) ? result.data : [];
     rows.push(...page);
     // A short page is the only proof there is nothing after it.

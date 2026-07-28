@@ -54,6 +54,12 @@ function validateRpcData(name, data) {
     const validated = validateClassRpcData(name, data);
     if (validated !== null) return validated;
   }
+  if (
+    name === "report_assessment_question"
+    || name === "admin_review_assessment_question_report"
+  ) {
+    return validateRows(data, `rpc.${name}`, validateReportRow);
+  }
   return validateRows(data, `rpc.${name}`, (row, label) => {
     assertPlainRecord(row, label);
     assertOptionalFields(row, {

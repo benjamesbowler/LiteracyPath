@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { preloadMediaSet } from "../utils/preloadMedia.js";
+import { buildStoryQuestResumeHistory } from "../utils/storyQuestProgress.js";
 import "./StoryQuestPlayer.css";
 
 function StoryQuestImage({ src, title }) {
@@ -37,7 +38,15 @@ function getStoryQuestPageAudioUrl(page) {
   return page.audioUrl || "";
 }
 
-export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit, onProgress }) {
+export function StoryQuestPlayer({
+  quest,
+  initialPageId = "",
+  initialProgress = {},
+  onComplete,
+  onExit,
+  onProgress,
+  previewMode = false
+}) {
   const pageById = useMemo(() => {
     return new Map((quest?.pages || []).map(page => [page.id, page]));
   }, [quest]);
@@ -46,9 +55,14 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     initialPageId && pageById.has(initialPageId)
       ? initialPageId
       : quest?.startPageId || quest?.pages?.[0]?.id || "", [initialPageId, pageById, quest]);
+  const getInitialHistory = useCallback(() => buildStoryQuestResumeHistory({
+    currentPageId: getStartPageId(),
+    progress: initialProgress,
+    validPageIds: Array.from(pageById.keys())
+  }), [getStartPageId, initialProgress, pageById]);
 
   const [currentPageId, setCurrentPageId] = useState(getStartPageId);
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState(getInitialHistory);
   const [audioAvailable, setAudioAvailable] = useState(false);
   const [audioChecking, setAudioChecking] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -61,16 +75,26 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
   const currentAudioUrl = getStoryQuestPageAudioUrl(currentPage);
   const currentSceneNumber = history.length + 1;
   const visitedPageIds = useMemo(() => new Set([...history, currentPageId].filter(Boolean)), [currentPageId, history]);
+  const initialWordSignature = (Array.isArray(initialProgress?.wordsFound)
+    ? initialProgress.wordsFound
+    : [])
+    .map(word => String(word || "").trim().toLowerCase())
+    .filter(Boolean)
+    .sort()
+    .join("\u0000");
   const foundWords = useMemo(() => {
     const targetWords = new Set((quest?.targetWords || []).map(word => word.toLowerCase()));
     return Array.from(new Set(
-      (quest?.pages || [])
-        .filter(page => visitedPageIds.has(page.id))
-        .flatMap(page => page.skillTags || [])
+      [
+        ...(initialWordSignature ? initialWordSignature.split("\u0000") : []),
+        ...(quest?.pages || [])
+          .filter(page => visitedPageIds.has(page.id))
+          .flatMap(page => page.skillTags || [])
+      ]
         .map(tag => String(tag).toLowerCase())
         .filter(tag => targetWords.has(tag))
     ));
-  }, [quest, visitedPageIds]);
+  }, [initialWordSignature, quest, visitedPageIds]);
   const targetWordTotal = quest?.targetWords?.length || 0;
   const wordProgressPercent = targetWordTotal ? (foundWords.length / targetWordTotal) * 100 : 0;
   const currentPageWords = (currentPage?.skillTags || [])
@@ -84,12 +108,6 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     wordsFound: foundWords,
     wordsFoundCount: foundWords.length
   }), [currentPageId, foundWords, quest?.targetWords, visitedPageIds]);
-
-  useEffect(() => {
-    setCurrentPageId(getStartPageId());
-    setHistory([]);
-    setIsComplete(false);
-  }, [getStartPageId]);
 
   useEffect(() => {
     if (!currentPageId || isComplete) return;
@@ -271,7 +289,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
   if (!quest || !currentPage) {
     return (
       <section className="story-quest-player card">
-        <h2>Story Quest</h2>
+        <h1>Story Quest</h1>
         <p>This story is not available yet.</p>
         {onExit && (
           <button className="lp-button lp-button-secondary" onClick={onExit} type="button">
@@ -286,24 +304,28 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     return (
       <section
         aria-label={`${quest.title} complete`}
-        className={["story-quest-player story-quest-reader story-quest-reader-complete card", isFullscreen ? "fullscreen" : ""].filter(Boolean).join(" ")}
+        className={[
+          "story-quest-player story-quest-reader story-quest-reader-complete card",
+          previewMode ? "story-quest-preview-reader" : "",
+          isFullscreen ? "fullscreen" : ""
+        ].filter(Boolean).join(" ")}
         ref={playerRef}
       >
         <header className="story-quest-header">
           <div>
-            <span className="story-quest-kicker">Reading Adventure</span>
-            <h2>{quest.title}</h2>
+            <span className="story-quest-kicker">{previewMode ? "Teacher preview" : "Reading adventure"}</span>
+            <h1>{quest.title}</h1>
             <p>Adventure complete</p>
+            {previewMode && (
+              <span className="story-quest-preview-badge" role="status">
+                Student progress is not saved
+              </span>
+            )}
           </div>
           <div className="story-quest-header-actions">
             <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-              {isFullscreen ? "Exit Full" : "Full Screen"}
+              {isFullscreen ? "Exit full screen" : "Full screen"}
             </button>
-            {onExit && (
-              <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
-                Back to Quests
-              </button>
-            )}
           </div>
         </header>
 
@@ -327,28 +349,37 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
 
   return (
     <section
-      className={["story-quest-player story-quest-reader card", isFullscreen ? "fullscreen" : ""].filter(Boolean).join(" ")}
+      className={[
+        "story-quest-player story-quest-reader card",
+        previewMode ? "story-quest-preview-reader" : "",
+        isFullscreen ? "fullscreen" : ""
+      ].filter(Boolean).join(" ")}
       ref={playerRef}
       aria-label={`${quest.title} Story Quest`}
     >
       <header className="story-quest-header">
         <div>
-          <span className="story-quest-kicker">{quest.adventureType || "Read"}</span>
-          <h2>{quest.title}</h2>
+          <span className="story-quest-kicker">{previewMode ? "Teacher preview" : quest.adventureType || "Read"}</span>
+          <h1>{quest.title}</h1>
+          {previewMode && (
+            <span className="story-quest-preview-badge" role="status">
+              Student progress is not saved
+            </span>
+          )}
         </div>
         <div className="story-quest-header-actions">
           <button className="lp-button lp-button-secondary" disabled={history.length === 0} onClick={goBack} type="button">
-            Previous
+            Previous scene
           </button>
           <button className="lp-button lp-button-secondary" onClick={restart} type="button">
-            Restart
+            Restart story
           </button>
           <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-            {isFullscreen ? "Exit Full" : "Full Screen"}
+            {isFullscreen ? "Exit full screen" : "Full screen"}
           </button>
           {onExit && (
             <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
-              Back to Quests
+              Back to Story Quests
             </button>
           )}
         </div>
@@ -356,11 +387,12 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
 
       <div
         className="story-quest-progress"
-        aria-label={`Scene ${currentSceneNumber} on this route. ${foundWords.length} of ${targetWordTotal} target words found.`}
+        aria-label={`Scene ${currentSceneNumber} on this route. ${foundWords.length} of ${targetWordTotal} story words seen.`}
+        role="status"
       >
         <div className="story-quest-progress-top">
           <span>Scene {currentSceneNumber}</span>
-          <span>{foundWords.length}/{targetWordTotal} story words</span>
+          <span>{foundWords.length}/{targetWordTotal} story words seen</span>
         </div>
         <div className="story-quest-progress-bar">
           <span style={{ width: `${wordProgressPercent}%` }} />
@@ -392,7 +424,15 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
           type="button"
         >
           {audioChecking && <span className="audio-loading-dot" aria-hidden="true" />}
-          {audioChecking ? "Loading Audio" : isAudioPlaying ? "Playing" : audioAvailable ? "Replay Audio" : "Audio Coming Soon"}
+          {audioChecking
+            ? "Checking audio"
+            : isAudioPlaying
+              ? "Playing audio"
+              : audioAvailable
+                ? "Replay audio"
+                : currentAudioUrl
+                  ? "Audio unavailable"
+                  : "No audio for this scene"}
         </button>
         <AnimatePresence mode="wait">
           <motion.div
@@ -411,8 +451,8 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
         </AnimatePresence>
       </div>
 
-      <div className="story-quest-word-panel" aria-label="Story words found">
-        <span>{foundWords.length}/{quest.targetWords.length} story words found</span>
+      <div className="story-quest-word-panel" aria-label="Story words seen">
+        <span>{foundWords.length}/{targetWordTotal} story words seen</span>
         <div>
           {(quest.targetWords || []).map(word => {
             const normalizedWord = word.toLowerCase();

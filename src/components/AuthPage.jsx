@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 
 export function AuthPage({
@@ -7,8 +8,6 @@ export function AuthPage({
   setAuthEmail,
   authPassword,
   setAuthPassword,
-  authUsername,
-  setAuthUsername,
   authDisplayName,
   setAuthDisplayName,
   authSchoolName,
@@ -22,9 +21,18 @@ export function AuthPage({
   demoTeacherEnabled = false,
   logInDemoTeacher
 }) {
+  const [showPassword, setShowPassword] = useState(false);
   const isForgotPassword = authMode === "forgotPassword";
   const isResetPassword = authMode === "resetPassword";
   const isSignup = authMode === "signup";
+  const submitCurrentMode = event => {
+    event.preventDefault();
+    if (authLoading) return;
+    if (isForgotPassword) requestPasswordReset();
+    else if (isResetPassword) completePasswordReset();
+    else if (isSignup) signUpTeacher();
+    else logInTeacher();
+  };
 
   return (
     <div className="card page-card page-stack auth-card" aria-busy={authLoading}>
@@ -37,125 +45,111 @@ export function AuthPage({
               ? "Enter your email and we will send a password reset link."
               : isSignup
                 ? "Create an account request for your school. Approval is required before access opens."
-                : "Open your classes, checks, reports and reading records."}
+                : "Open your classes, assessments, reports and reading records."}
         </p>
       </div>
 
-      {!isResetPassword && (
-        <label className="auth-field">
-          <strong>Email</strong>
-          <input
-            autoComplete="email"
-            inputMode="email"
-            value={authEmail}
-            placeholder="teacher@example.com"
-            onChange={event => setAuthEmail(event.target.value)}
-            type="email"
-          />
-        </label>
-      )}
-
-      {isSignup && (
-        <>
+      <form className="auth-form" onSubmit={submitCurrentMode}>
+        {!isResetPassword && (
           <label className="auth-field">
-            <strong>Username</strong>
+            <strong>Email address</strong>
             <input
-              autoComplete="username"
-              value={authUsername}
-              placeholder="teacher name"
-              onChange={event => setAuthUsername(event.target.value)}
-              type="text"
+              autoComplete="email"
+              inputMode="email"
+              value={authEmail}
+              placeholder="teacher@example.com"
+              onChange={event => setAuthEmail(event.target.value)}
+              required
+              type="email"
             />
           </label>
-          <label className="auth-field">
-            <strong>Display name <span className="muted-text">(optional)</span></strong>
-            <input
-              autoComplete="name"
-              value={authDisplayName}
-              placeholder="Ms. Rivera"
-              onChange={event => setAuthDisplayName(event.target.value)}
-              type="text"
-            />
-          </label>
-          <label className="auth-field">
-            <strong>School</strong>
-            <SchoolNameInput
-              autoComplete="organization"
-              value={authSchoolName}
-              placeholder="Choose your school or type a new one"
-              onChange={setAuthSchoolName}
-            />
-            <span className="muted-text auth-field-hint">If your school is already listed, pick it - don't retype it.</span>
-          </label>
-        </>
-      )}
+        )}
 
-      {!isForgotPassword && (
-        <label className="auth-field">
-          <strong>{isResetPassword ? "New Password" : "Password"}</strong>
-          <input
-            autoComplete={isResetPassword || isSignup ? "new-password" : "current-password"}
-            value={authPassword}
-            placeholder={isResetPassword ? "New password" : "Password"}
-            onChange={event => setAuthPassword(event.target.value)}
-            onKeyDown={event => {
-              if (event.key === "Enter") {
-                if (isResetPassword) completePasswordReset();
-                else if (isSignup) signUpTeacher();
-                else logInTeacher();
-              }
-            }}
-            type="password"
-          />
-        </label>
-      )}
-
-      <div className="button-row auth-actions">
-        {isForgotPassword ? (
+        {isSignup && (
           <>
-            <button className="main-button" disabled={authLoading} onClick={requestPasswordReset} type="button">
-              Send reset email
-            </button>
-            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
-              Back to sign-in
-            </button>
-          </>
-        ) : isResetPassword ? (
-          <>
-            <button className="main-button" disabled={authLoading} onClick={completePasswordReset} type="button">
-              Update password
-            </button>
-            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
-              Cancel
-            </button>
-          </>
-        ) : isSignup ? (
-          <>
-            <button className="main-button" disabled={authLoading} onClick={signUpTeacher} type="button">
-              Submit request
-            </button>
-            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
-              Back to sign-in
-            </button>
-          </>
-        ) : (
-          <>
-            <button className="main-button" disabled={authLoading} onClick={logInTeacher} type="button">
-              Log in
-            </button>
-
-            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("signup")} type="button">
-              Create account
-            </button>
-
-            {demoTeacherEnabled && (
-              <button className="report-button" disabled={authLoading} onClick={logInDemoTeacher} type="button">
-                Demo teacher (preview)
-              </button>
-            )}
+            <label className="auth-field">
+              <strong>Name shown in LiteracyPath <span className="muted-text">(optional)</span></strong>
+              <input
+                autoComplete="name"
+                value={authDisplayName}
+                placeholder="Ms. Rivera"
+                onChange={event => setAuthDisplayName(event.target.value)}
+                type="text"
+              />
+            </label>
+            <label className="auth-field">
+              <strong>School</strong>
+              <SchoolNameInput
+                autoComplete="organization"
+                value={authSchoolName}
+                placeholder="Choose your school or type a new one"
+                onChange={setAuthSchoolName}
+              />
+              <span className="muted-text auth-field-hint">Choose an existing school from the list when you can.</span>
+            </label>
           </>
         )}
-      </div>
+
+        {!isForgotPassword && (
+          <div className="auth-field">
+            <label htmlFor="teacher-auth-password">
+              <strong>{isResetPassword ? "New password" : "Password"}</strong>
+            </label>
+            <div className="auth-password-control">
+              <input
+                id="teacher-auth-password"
+                autoComplete={isResetPassword || isSignup ? "new-password" : "current-password"}
+                value={authPassword}
+                placeholder={isResetPassword ? "New password" : "Password"}
+                onChange={event => setAuthPassword(event.target.value)}
+                required
+                type={showPassword ? "text" : "password"}
+              />
+              <button
+                aria-pressed={showPassword}
+                className="auth-password-toggle"
+                disabled={authLoading}
+                onClick={() => setShowPassword(current => !current)}
+                type="button"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div className="button-row auth-actions">
+          <button className="main-button" disabled={authLoading} type="submit">
+            {isForgotPassword
+              ? "Send reset email"
+              : isResetPassword
+                ? "Update password"
+                : isSignup
+                  ? "Submit request"
+                  : "Sign in"}
+          </button>
+
+          {(isForgotPassword || isResetPassword || isSignup) && (
+            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
+              {isResetPassword ? "Cancel" : "Back to sign-in"}
+            </button>
+          )}
+
+          {!isForgotPassword && !isResetPassword && !isSignup && (
+            <>
+              <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("signup")} type="button">
+                Create account
+              </button>
+
+              {demoTeacherEnabled && (
+                <button className="report-button" disabled={authLoading} onClick={logInDemoTeacher} type="button">
+                  Demo teacher (preview)
+                </button>
+              )}
+            </>
+          )}
+        </div>
+      </form>
 
       {!isForgotPassword && !isResetPassword && !isSignup && (
         <button className="auth-reset-link" disabled={authLoading} onClick={() => setAuthMode("forgotPassword")} type="button">

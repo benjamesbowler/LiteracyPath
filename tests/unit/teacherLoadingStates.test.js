@@ -19,6 +19,7 @@ import { createServer } from "vite";
 let TeacherAssessmentsPage;
 let TeacherIntentPage;
 let TeacherReportsHubPage;
+let TeacherStudentsPage;
 let TeacherTodayPage;
 let InterventionLoop;
 let TeacherActivitySyncHealth;
@@ -42,6 +43,9 @@ test.before(async () => {
   TeacherTodayPage = (await vite.ssrLoadModule(
     "/src/components/TeacherTodayPage.jsx"
   )).TeacherTodayPage;
+  TeacherStudentsPage = (await vite.ssrLoadModule(
+    "/src/components/TeacherStudentsPage.jsx"
+  )).TeacherStudentsPage;
   InterventionLoop = (await vite.ssrLoadModule(
     "/src/components/teacher/InterventionLoop.jsx"
   )).InterventionLoop;
@@ -76,7 +80,7 @@ test("the checks funnel waits instead of telling a teacher to make their first c
   assert.match(settled, /Make your class first/);
 });
 
-test("the reports funnel waits instead of reporting no classes", () => {
+test("the reports funnel always keeps its class and student recovery steps available", () => {
   const loading = renderToStaticMarkup(React.createElement(TeacherReportsHubPage, {
     classList: [],
     selectedClassId: "",
@@ -85,8 +89,10 @@ test("the reports funnel waits instead of reporting no classes", () => {
     renderStudentReport: () => null,
     renderClassReport: () => null
   }));
-  assert.match(loading, /data-teacher-surface="progress"/);
-  assert.match(loading, /data-teacher-state="loading"/);
+  assert.match(loading, /Choose a class/);
+  assert.match(loading, /Getting your classes/);
+  assert.match(loading, /Whole class, or one student/);
+  assert.doesNotMatch(loading, /No progress results yet/);
 
   const settled = renderToStaticMarkup(React.createElement(TeacherReportsHubPage, {
     classList: [],
@@ -96,7 +102,10 @@ test("the reports funnel waits instead of reporting no classes", () => {
     renderStudentReport: () => null,
     renderClassReport: () => null
   }));
-  assert.match(settled, /data-teacher-state="empty"/);
+  assert.match(settled, /Choose a class/);
+  assert.match(settled, /No classes are available yet/);
+  assert.match(settled, /Go to Students/);
+  assert.doesNotMatch(settled, /No progress results yet/);
 });
 
 test("the resources page uses the same loading signal as the two funnels", () => {
@@ -116,6 +125,121 @@ test("the resources page uses the same loading signal as the two funnels", () =>
     loadingClasses: false
   }));
   assert.doesNotMatch(settled, /data-teacher-state="loading"/);
+});
+
+test("every teacher entry surface treats a failed class read as retryable, never empty", () => {
+  const failedRead = {
+    status: "error",
+    teacherId: "teacher-a",
+    lastCompleteTeacherId: "",
+    attempt: 1
+  };
+  const common = {
+    classList: [],
+    classListReadState: failedRead,
+    teacherId: "teacher-a",
+    selectedClassId: "class-from-link"
+  };
+  const pages = [
+    {
+      name: "Today",
+      html: renderToStaticMarkup(React.createElement(TeacherTodayPage, {
+        ...common,
+        loadClasses: () => {}
+      }))
+    },
+    {
+      name: "Students",
+      html: renderToStaticMarkup(React.createElement(TeacherStudentsPage, {
+        ...common,
+        loadClasses: () => {},
+        newClassName: "",
+        skillTree: []
+      }))
+    },
+    {
+      name: "Assessments",
+      html: renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+        ...common,
+        onRetryClasses: () => {},
+        routeHash: "#teacher/checks?class=class-from-link"
+      }))
+    },
+    {
+      name: "Reports",
+      html: renderToStaticMarkup(React.createElement(TeacherReportsHubPage, {
+        ...common,
+        onRetryClasses: () => {},
+        renderStudentReport: () => null,
+        renderClassReport: () => null,
+        routeHash: "#teacher/reports?class=class-from-link"
+      }))
+    },
+    {
+      name: "Resources",
+      html: renderToStaticMarkup(React.createElement(TeacherIntentPage, {
+        ...common,
+        intent: "resources",
+        onRetryClasses: () => {}
+      }))
+    }
+  ];
+
+  pages.forEach(({ name, html }) => {
+    assert.match(html, /data-teacher-state="partial"/, `${name} must show an incomplete read`);
+    assert.match(html, /class list could not be (?:confirmed|loaded)/i, `${name} must explain the failed class read`);
+    assert.match(html, /Try loading again/, `${name} must provide a real retry`);
+    assert.doesNotMatch(html, /Make your class first|No classes yet|No classes are available yet/, `${name} must not invent an empty account`);
+    assert.doesNotMatch(html, /You can assess now|Use available resources|Review available results/, `${name} must stay fail-closed`);
+  });
+});
+
+test("a safety-limit class read is labelled as incomplete on every class entry surface", () => {
+  const truncatedRead = {
+    status: "truncated",
+    teacherId: "teacher-a",
+    lastCompleteTeacherId: "",
+    attempt: 1
+  };
+  const common = {
+    classList: [],
+    classListReadState: truncatedRead,
+    teacherId: "teacher-a",
+    selectedClassId: "class-from-link"
+  };
+  const pages = [
+    renderToStaticMarkup(React.createElement(TeacherTodayPage, {
+      ...common,
+      loadClasses: () => {}
+    })),
+    renderToStaticMarkup(React.createElement(TeacherStudentsPage, {
+      ...common,
+      loadClasses: () => {},
+      newClassName: "",
+      skillTree: []
+    })),
+    renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+      ...common,
+      onRetryClasses: () => {}
+    })),
+    renderToStaticMarkup(React.createElement(TeacherReportsHubPage, {
+      ...common,
+      onRetryClasses: () => {},
+      renderStudentReport: () => null,
+      renderClassReport: () => null
+    })),
+    renderToStaticMarkup(React.createElement(TeacherIntentPage, {
+      ...common,
+      intent: "resources",
+      onRetryClasses: () => {}
+    }))
+  ];
+
+  pages.forEach(html => {
+    assert.match(html, /safety limit/i);
+    assert.match(html, /Try loading again/);
+    assert.doesNotMatch(html, /Make your class first|No classes yet|No classes are available yet/);
+  });
 });
 
 test("Today shows the loading state rather than a briefing full of zeros", () => {
@@ -144,6 +268,280 @@ test("Today shows the loading state rather than a briefing full of zeros", () =>
   }));
   assert.doesNotMatch(settled, /data-teacher-state="loading"/);
   assert.match(settled, /No student needs a review/);
+});
+
+test("an initial roster error gives Today a retry instead of an empty-class conclusion", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherTodayPage, {
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    selectedClassId: "class-a",
+    studentList: [],
+    classDashboard: [],
+    studentListReadState: {
+      status: "incomplete",
+      classId: "class-a",
+      lastCompleteClassId: "",
+      reason: "unavailable"
+    }
+  }));
+
+  assert.match(html, /data-teacher-state="partial"/);
+  assert.match(html, /The student list could not be confirmed/);
+  assert.match(html, /Try loading again/);
+  assert.doesNotMatch(html, /0 students/);
+  assert.doesNotMatch(html, /No student needs a review/);
+  assert.doesNotMatch(html, /Add your students/);
+});
+
+test("a failed class switch never displays the previous class roster or first-student setup", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherStudentsPage, {
+    classList: [{ id: "class-b", name: "Audit Class B", access_code: "5678" }],
+    selectedClassId: "class-b",
+    studentList: [{
+      id: "student-a",
+      name: "Aaron",
+      class_id: "class-a",
+      symbol_password: "123"
+    }],
+    studentListReadState: {
+      status: "incomplete",
+      classId: "class-b",
+      lastCompleteClassId: "class-a",
+      reason: "unavailable"
+    },
+    newClassName: "",
+    skillTree: []
+  }));
+
+  assert.match(html, /data-teacher-state="partial"/);
+  assert.match(html, /The student list could not be confirmed/);
+  assert.match(html, /Try loading again/);
+  assert.doesNotMatch(html, /Aaron/);
+  assert.doesNotMatch(html, /Add your first student to Audit Class B/);
+});
+
+test("a truncated roster read is labelled as incomplete and remains retryable", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherStudentsPage, {
+    classList: [{ id: "class-a", name: "Audit Class A", access_code: "1234" }],
+    selectedClassId: "class-a",
+    studentList: [],
+    studentListReadState: {
+      status: "incomplete",
+      classId: "class-a",
+      lastCompleteClassId: "",
+      reason: "truncated"
+    },
+    newClassName: "",
+    skillTree: []
+  }));
+
+  assert.match(html, /read reached its safety limit/);
+  assert.match(html, /Try loading again/);
+  assert.doesNotMatch(html, /Add your first student to Audit Class A/);
+});
+
+test("checks and reports never call a failed or truncated roster an empty class", () => {
+  for (const status of ["error", "truncated"]) {
+    const common = {
+      classList: [{ id: "class-a", name: "Audit Class A" }],
+      classListReadState: {
+        status: "complete",
+        teacherId: "teacher-a",
+        lastCompleteTeacherId: "teacher-a"
+      },
+      teacherId: "teacher-a",
+      selectedClassId: "class-a",
+      className: "Audit Class A",
+      studentList: [],
+      studentListReadState: {
+        status,
+        classId: "class-a",
+        lastCompleteClassId: "",
+        reason: status === "truncated" ? "truncated" : "unavailable"
+      },
+      onRetryStudents: () => {}
+    };
+    const checks = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+      ...common
+    }));
+    const reports = renderToStaticMarkup(React.createElement(TeacherReportsHubPage, {
+      ...common,
+      renderStudentReport: () => null,
+      renderClassReport: () => null
+    }));
+
+    for (const html of [checks, reports]) {
+      assert.match(html, /Try loading students again/);
+      assert.doesNotMatch(html, /No students in this class yet/);
+      assert.match(
+        html,
+        status === "truncated" ? /safety limit/ : /could not be confirmed/
+      );
+    }
+  }
+});
+
+test("a failed class-dashboard switch never exposes the previous class learner", () => {
+  const common = {
+    classList: [{ id: "class-b", name: "Audit Class B" }],
+    classListReadState: {
+      status: "complete",
+      teacherId: "teacher-a",
+      lastCompleteTeacherId: "teacher-a"
+    },
+    teacherId: "teacher-a",
+    selectedClassId: "class-b",
+    className: "Audit Class B",
+    studentList: [{
+      id: "student-b",
+      name: "Bella",
+      class_id: "class-b",
+      symbol_password: "123"
+    }],
+    studentListReadState: {
+      status: "complete",
+      classId: "class-b",
+      lastCompleteClassId: "class-b"
+    },
+    studentRows: [{
+      id: "student-a",
+      name: "Aaron",
+      classId: "class-a",
+      evidenceReadStatus: "complete"
+    }],
+    classDashboard: [{
+      id: "student-a",
+      name: "Aaron",
+      classId: "class-a",
+      evidenceReadStatus: "complete"
+    }],
+    classDashboardReadState: {
+      status: "error",
+      classId: "class-b",
+      lastCompleteClassId: "class-a",
+      reason: "unavailable"
+    },
+    onRetryClassDashboard: () => {},
+    loadClassDashboard: () => {}
+  };
+  const checks = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, common));
+  const reports = renderToStaticMarkup(React.createElement(TeacherReportsHubPage, {
+    ...common,
+    renderStudentReport: () => null,
+    renderClassReport: () => null
+  }));
+  const students = renderToStaticMarkup(React.createElement(TeacherStudentsPage, {
+    ...common,
+    newClassName: "",
+    skillTree: []
+  }));
+
+  for (const html of [checks, reports, students]) {
+    assert.match(html, /Bella/);
+    assert.doesNotMatch(html, /Aaron/);
+    assert.match(html, /class progress|Class results|saved results/i);
+  }
+  assert.match(checks, /Try loading class progress again/);
+  assert.match(reports, /Try loading class progress again/);
+  assert.match(students, /Try loading again/);
+});
+
+test("a stale class id settles on a chooser instead of an endless loading state", () => {
+  const common = {
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    classListReadState: {
+      status: "complete",
+      teacherId: "teacher-a",
+      lastCompleteTeacherId: "teacher-a"
+    },
+    teacherId: "teacher-a",
+    selectedClassId: "deleted-class",
+    className: "",
+    studentListReadState: {
+      status: "complete",
+      classId: "deleted-class",
+      lastCompleteClassId: "deleted-class"
+    },
+    classDashboardReadState: {
+      status: "complete",
+      classId: "deleted-class",
+      lastCompleteClassId: "deleted-class"
+    }
+  };
+  const students = renderToStaticMarkup(React.createElement(TeacherStudentsPage, {
+    ...common,
+    newClassName: "",
+    skillTree: []
+  }));
+  const today = renderToStaticMarkup(React.createElement(TeacherTodayPage, common));
+
+  assert.match(students, /Choose a class/);
+  assert.doesNotMatch(students, /data-teacher-state="loading"/);
+  assert.doesNotMatch(students, /No classes yet/);
+  assert.match(today, /Choose class/);
+  assert.doesNotMatch(today, /data-teacher-state="loading"/);
+  assert.doesNotMatch(today, /No classes yet/);
+});
+
+test("an incomplete result read pauses Today instead of making a recommendation", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherTodayPage, {
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    selectedClassId: "class-a",
+    studentList: [{ id: "student-a", name: "Aaron" }],
+    classDashboard: [{
+      id: "student-a",
+      answered: 12,
+      correct: 3,
+      accuracy: 25,
+      masteredCount: 4,
+      currentSkill: "Initial sounds",
+      evidenceReadStatus: "incomplete",
+      evidenceMissingSources: ["student_answers"]
+    }],
+    loadingStudents: false,
+    loadClassDashboard: () => {}
+  }));
+
+  assert.match(html, /data-teacher-state="partial"/);
+  assert.match(html, /Some class information could not be loaded/);
+  assert.match(html, /Today&#x27;s suggestions are paused|Today&apos;s suggestions are paused/);
+  assert.match(html, /Try loading again/);
+  assert.doesNotMatch(html, /Today&#x27;s class briefing|Today's class briefing/);
+  assert.doesNotMatch(html, /Aaron[\s\S]*needs more practice/);
+});
+
+test("Students keeps roster controls available but hides incomplete learning figures", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherStudentsPage, {
+    classList: [{ id: "class-a", name: "Audit Class A", access_code: "1234" }],
+    selectedClassId: "class-a",
+    studentList: [{
+      id: "student-a",
+      name: "Aaron",
+      symbol_password: "123"
+    }],
+    classDashboard: [{
+      id: "student-a",
+      answered: 12,
+      correct: 3,
+      accuracy: 25,
+      masteredCount: 4,
+      currentSkill: "Initial sounds",
+      lastActive: "2026-07-27T08:00:00.000Z",
+      evidenceReadStatus: "incomplete",
+      evidenceMissingSources: ["student_answers"]
+    }],
+    loadingStudents: false,
+    loadClassDashboard: () => {},
+    newClassName: "",
+    skillTree: Array.from({ length: 30 }, (_unused, index) => ({ id: `skill-${index}` }))
+  }));
+
+  assert.match(html, /data-teacher-state="partial"/);
+  assert.match(html, /names and sign-in can still be managed/);
+  assert.match(html, /Aaron/);
+  assert.match(html, /Some results could not load/);
+  assert.match(html, /Results unavailable/);
+  assert.match(html, /Set pictures|Change/);
+  assert.doesNotMatch(html, /Recognise Aaron&#x27;s progress|Reteach Initial sounds/);
 });
 
 test("the intervention panel does not claim an empty plan list before it has read one", () => {

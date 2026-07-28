@@ -246,7 +246,7 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "teacher-ia",
-    label: "Five-intention teacher information architecture",
+    label: "Six-section teacher information architecture",
     command: ["npm", "run", "check:teacher-ia"],
     areas: [5, 6, 10]
   },

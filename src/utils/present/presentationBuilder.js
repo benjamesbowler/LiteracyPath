@@ -110,6 +110,25 @@ function normalizeDay(day) {
   throw new Error(`Unknown presentation day: ${day}`);
 }
 
+const ASSESSMENT_WEEK_TITLES = Object.freeze({
+  "boy-assessment": "Beginning of year assessment",
+  "moy-assessment": "Middle of year assessment",
+  "eoy-assessment": "End of year assessment"
+});
+
+function presentationDisplayText(value = "") {
+  return String(value || "")
+    .replace(/\bBOY\b/g, "beginning of year")
+    .replace(/\bMOY\b/g, "middle of year")
+    .replace(/\bEOY\b/g, "end of year");
+}
+
+export function presentationCycleDisplayTitle(cycle = {}) {
+  return ASSESSMENT_WEEK_TITLES[cycle.id]
+    || presentationDisplayText(cycle.title)
+    || (cycle.cycleNumber ? `Cycle ${cycle.cycleNumber}` : "Selected cycle");
+}
+
 export function presentationCycleOptions() {
   return elSkillsBlockCycles
     .filter(c => c.cycleNumber || c.type === "assessment")
@@ -122,7 +141,7 @@ export function presentationCycleOptions() {
         type: c.type || "cycle",
         label: c.cycleNumber
           ? (rest ? `Cycle ${c.cycleNumber}: ${rest}` : `Cycle ${c.cycleNumber}`)
-          : c.title
+          : presentationCycleDisplayTitle(c)
       };
     });
 }
@@ -367,8 +386,9 @@ function cycleHeading(cycle) {
   const letters = (cycle.focusLetters || []).map(c => c.grapheme).filter(Boolean);
   // Long lists ("ng and ang and ing and...") read badly - fall back to title.
   if (!isFluencyCycle(cycle) && letters.length && letters.length <= 3) return letters.join(" and ");
-  if (cycle.title && cycle.title !== `Cycle ${cycle.cycleNumber}`) {
-    return cycle.title.replace(/^Cycle \d+:\s*/, "");
+  const displayTitle = presentationCycleDisplayTitle(cycle);
+  if (displayTitle && displayTitle !== `Cycle ${cycle.cycleNumber}`) {
+    return displayTitle.replace(/^Cycle \d+:\s*/, "");
   }
   if (!isFluencyCycle(cycle) && letters.length) return `${letters[0]} families`;
   return humanizePhase(cycle.phase);
@@ -505,11 +525,13 @@ function booksSlide(cycle, world) {
 
 // Assessment weeks: a simple deck listing the week's routines.
 function routinesSlide(cycle, world) {
-  const items = (cycle.routines || []).map(r => `<li>${esc(r)}</li>`).join("");
+  const items = (cycle.routines || [])
+    .map(r => `<li>${esc(presentationDisplayText(r))}</li>`)
+    .join("");
   if (!items) return "";
   return slide(world, `
     <p class="p-kicker">This week</p>
-    <h2 class="p-goal">${esc(cycle.title)}</h2>
+    <h2 class="p-goal">${esc(presentationCycleDisplayTitle(cycle))}</h2>
     <ul class="p-routines">${items}</ul>`, { cls: "p-routines-slide", char: "point" });
 }
 
@@ -776,7 +798,9 @@ function endSlide(cycle, world) {
 export function presentationCycleSummary(cycleId) {
   const cycle = getPresentationCycle(cycleId);
   if (!cycle) return "";
-  const parts = [cycle.cycleNumber ? `Cycle ${cycle.cycleNumber}` : cycle.title];
+  const parts = [
+    cycle.cycleNumber ? `Cycle ${cycle.cycleNumber}` : presentationCycleDisplayTitle(cycle)
+  ];
   const letters = (cycle.focusLetters || []).map(c => c.grapheme).filter(Boolean);
   if (!isFluencyCycle(cycle) && letters.length && letters.length <= 5) parts.push(letters.join(" "));
   const hfw = cycle.highFrequencyWords || [];
@@ -896,7 +920,9 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
 
   const slides = assembleSlides(cycle, world, dayKey);
 
-  const baseTitle = cycle.cycleNumber ? `Cycle ${cycle.cycleNumber} - ${cycleHeading(cycle)}` : cycle.title;
+  const baseTitle = cycle.cycleNumber
+    ? `Cycle ${cycle.cycleNumber} - ${cycleHeading(cycle)}`
+    : presentationCycleDisplayTitle(cycle);
   const title = dayKey ? `${baseTitle} - ${DAY_LABELS[dayKey]}` : baseTitle;
   // The deck opens as a blob: document, which has an opaque base URL — a relative
   // src would not resolve. Absolute same-origin URL keeps it inside `script-src 'self'`.
@@ -1051,4 +1077,3 @@ const DECK_CSS = `
     .slide.active, .p-letter, .p-pal-corner, .p-pal-hero { animation: none; }
   }
 `;
-

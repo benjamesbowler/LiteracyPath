@@ -1,13 +1,14 @@
 .lg-report-shell {
+  container-name: student-report-shell;
+  container-type: inline-size;
   min-height: 100dvh;
   background: var(--lp-color-background);
   color: var(--lp-color-text);
 }
 .lg-report-topbar {
-  position: sticky;
-  top: 0;
+  position: static;
   z-index: 20;
-  min-height: 72px;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,8 +84,8 @@
 .lg-report-button:focus-visible,
 .lg-report-nav a:focus-visible,
 .lg-report-mobile-select select:focus-visible,
-.lg-report-main h1:focus-visible,
-.lg-report-main summary:focus-visible {
+.lg-report-main summary:focus-visible,
+.lg-report-main h1:focus {
   outline: 3px solid color-mix(in srgb, var(--lp-color-primary) 35%, transparent);
   outline-offset: 2px;
 }
@@ -106,26 +107,33 @@
 }
 
 .lg-report-workspace {
-  width: min(100%, 1500px);
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: clamp(20px, 3vw, 42px);
-  padding: clamp(20px, 3vw, 40px);
+  gap: 14px;
+  padding: clamp(14px, 2vw, 24px);
 }
 
 .lg-report-nav {
-  position: sticky;
-  top: 104px;
+  position: static;
   display: grid;
-  gap: 16px;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-surface-subtle);
 }
 
 .lg-report-nav-intro {
-  display: grid;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 16px;
   gap: 3px;
-  padding: 0 4px;
+  padding: 0 2px;
 }
 
 .lg-report-nav-intro strong {
@@ -139,16 +147,19 @@
 
 .lg-report-nav-links {
   display: grid;
-  gap: 6px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .lg-report-nav a {
   display: grid;
-  gap: 4px;
-  min-height: 58px;
-  padding: 12px 13px;
-  border: 1px solid transparent;
-  border-radius: var(--lp-radius-lg);
+  align-content: center;
+  gap: 2px;
+  min-height: 48px;
+  padding: 9px 11px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-md);
+  background: var(--lp-color-surface);
   color: var(--lp-color-text);
   text-decoration: none;
 }
@@ -166,8 +177,33 @@
 
 .lg-report-nav a span {
   color: var(--lp-color-text-muted);
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.35;
+}
+
+.lg-report-nav-more {
+  overflow: clip;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-md);
+  background: var(--lp-color-surface);
+}
+
+.lg-report-nav-more > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 8px 11px;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lg-report-nav-more > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0 8px 8px;
 }
 
 .lg-report-mobile-select {
@@ -177,8 +213,8 @@
 .lg-report-main {
   min-width: 0;
   display: grid;
-  gap: 22px;
-  padding: clamp(22px, 3vw, 42px);
+  gap: 18px;
+  padding: clamp(18px, 2.6vw, 32px);
   border: 1px solid var(--lp-color-border);
   border-radius: var(--lp-radius-card);
   background: var(--lp-color-surface);
@@ -233,23 +269,37 @@
 }
 
 .lg-report-provenance {
-  display: grid;
-  gap: 12px;
+  overflow: clip;
   margin-top: 12px;
-  padding-top: 22px;
-  border-top: 2px solid var(--lp-color-border);
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
 }
 
-.lg-report-provenance h2,
 .lg-report-provenance p,
 .lg-report-provenance dl,
 .lg-report-provenance dd {
   margin: 0;
 }
 
-.lg-report-provenance h2 {
+.lg-report-provenance > summary {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 9px 13px;
   color: var(--lp-color-text-strong);
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lg-report-provenance[open] > summary {
+  border-bottom: 1px solid var(--lp-color-border);
+}
+
+.lg-report-provenance > div {
+  display: grid;
+  gap: 12px;
+  padding: 13px;
 }
 
 .lg-report-provenance p {
@@ -1179,6 +1229,28 @@
   to { background-position: -200% 0; }
 }
 
+/* The report sits beside the teacher sidebar, so viewport media queries do not
+   describe the width the report actually has. At a 1280px laptop viewport the
+   report can have only about 1080px: keeping four actions beside the learner
+   identity squeezed even a short name into two-character lines. Stack from the
+   report's own available width instead. */
+@container student-report-shell (max-width: 1180px) {
+  .lg-report-topbar {
+    display: grid;
+    align-items: start;
+  }
+
+  .lg-report-topbar-copy,
+  .lg-report-actions {
+    width: 100%;
+  }
+
+  .lg-report-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 1050px) {
   .lg-report-audience-picker {
     grid-template-columns: 1fr;
@@ -1204,8 +1276,8 @@
     flex-wrap: wrap;
   }
 
-  .lg-report-workspace {
-    grid-template-columns: 210px minmax(0, 1fr);
+  .lg-report-nav-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1241,7 +1313,8 @@
   }
 
   .lg-report-nav-intro,
-  .lg-report-nav-links {
+  .lg-report-nav-links,
+  .lg-report-nav-more {
     display: none;
   }
 
@@ -1360,9 +1433,9 @@
 }
 
 @media print {
-  @page {
-    size: auto;
-    margin: 14mm;
+  @page teacher-report {
+    size: letter portrait;
+    margin: 0.45in;
   }
 
   .lg-report-shell,
@@ -1376,6 +1449,10 @@
     border: 0;
     background: #fff;
     box-shadow: none;
+  }
+
+  .lg-report-shell {
+    page: teacher-report;
   }
 
   .lg-report-nav,

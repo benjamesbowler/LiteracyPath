@@ -1,13 +1,24 @@
 import { expect, test } from "@playwright/test";
+import { randomUUID } from "node:crypto";
+import { openAdminSection } from "./adminNavigation.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
 const AUDIT_TEACHER_A_ID = "10000000-0000-4000-8000-000000000001";
-const RIGHTS_LEARNER_ID = "40000000-0000-4000-8000-000000000099";
 const RIGHTS_LEARNER_NAME = "Rights Gate Reader";
-const RIGHTS_ANSWER_ID = "49000000-0000-4000-8000-000000000099";
-const RIGHTS_ATTEMPT_ID = "audit-data-rights-attempt";
-const RIGHTS_REPORT_ID = "audit-data-rights-report";
+
+function createRightsLearnerIds() {
+  const suffix = randomUUID();
+  return {
+    studentId: randomUUID(),
+    studentName: `${RIGHTS_LEARNER_NAME} ${suffix.slice(0, 6)}`,
+    classId: AUDIT_CLASS_A_ID,
+    teacherId: AUDIT_TEACHER_A_ID,
+    answerId: randomUUID(),
+    attemptId: `audit-data-rights-attempt-${suffix}`,
+    reportId: `audit-data-rights-report-${suffix}`
+  };
+}
 
 async function logIn(page, email) {
   if (!teacherPassword) {
@@ -21,7 +32,7 @@ async function logIn(page, email) {
   }).click();
   await page.getByRole("textbox", { name: "Email" }).fill(email);
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });
@@ -40,26 +51,9 @@ async function chooseVerifiedSchoolRequest(dialog) {
     .selectOption("authorised_school_official");
 }
 
-async function seedRightsLearner(page) {
+async function seedRightsLearner(page, ids) {
   return page.evaluate(async ids => {
     const { supabase } = await import("/src/supabaseClient.js");
-    const failures = [];
-    for (const operation of [
-      () => supabase.table("assessment_attempts")
-        .delete()
-        .eq("student_id", ids.studentId),
-      () => supabase.table("el_assessment_reports")
-        .delete()
-        .eq("student_id", ids.studentId),
-      () => supabase.table("students")
-        .delete()
-        .eq("id", ids.studentId)
-    ]) {
-      const { error } = await operation();
-      if (error) failures.push(error.message);
-    }
-    if (failures.length) throw new Error(failures.join("; "));
-
     const { error: studentError } = await supabase.table("students").insert({
       id: ids.studentId,
       class_id: ids.classId,
@@ -126,15 +120,7 @@ async function seedRightsLearner(page) {
     });
     if (reportError) throw new Error(reportError.message);
     return { seeded: true };
-  }, {
-    studentId: RIGHTS_LEARNER_ID,
-    studentName: RIGHTS_LEARNER_NAME,
-    classId: AUDIT_CLASS_A_ID,
-    teacherId: AUDIT_TEACHER_A_ID,
-    answerId: RIGHTS_ANSWER_ID,
-    attemptId: RIGHTS_ATTEMPT_ID,
-    reportId: RIGHTS_REPORT_ID
-  });
+  }, ids);
 }
 
 async function openClassRoster(page) {
@@ -142,10 +128,6 @@ async function openClassRoster(page) {
     .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
-  const rosterAdmin = page.locator(".teacher-roster-admin");
-  if (!await rosterAdmin.evaluate(element => element.open)) {
-    await rosterAdmin.locator(":scope > summary").click();
-  }
   return page.locator(".teacher-roster-table");
 }
 
@@ -157,20 +139,20 @@ test("A8.8 admin can produce a tracked, verified learner access export", async (
   await page.getByRole("button", { name: "Admin", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Admin Dashboard", exact: true }))
     .toBeVisible();
-  await page.getByRole("tab", { name: /Students 26/ }).click();
+  await openAdminSection(page, "school", "students");
 
   const learnerRow = page.getByRole("row").filter({ hasText: "Aarav" });
   await learnerRow.getByRole("button", { name: "Export or delete data" }).click();
   const dialog = page.getByRole("dialog", { name: "Data choices for Aarav" });
   await expect(dialog.getByRole("region", {
-    name: "Data-rights request history"
+    name: "Privacy request history"
   })).not.toContainText("unavailable");
   await chooseVerifiedSchoolRequest(dialog);
 
-  await expect(dialog.getByRole("button", { name: "Download child data" }))
+  await expect(dialog.getByRole("button", { name: "Download student data" }))
     .toBeEnabled();
   const downloadPromise = page.waitForEvent("download");
-  await dialog.getByRole("button", { name: "Download child data" }).click();
+  await dialog.getByRole("button", { name: "Download student data" }).click();
   const exported = await readDownloadJson(await downloadPromise);
   expect(exported.schemaVersion).toBe(1);
   expect(exported.learner.displayName).toBe("Aarav");
@@ -179,65 +161,71 @@ test("A8.8 admin can produce a tracked, verified learner access export", async (
   expect(exported.request.status).toBe("completed");
   expect(exported.request.subjectRef).toMatch(/^[0-9a-f]{64}$/);
   await expect(dialog.getByRole("region", {
-    name: "Data-rights request history"
-  })).toContainText("Access export");
+    name: "Privacy request history"
+  })).toContainText("Data download");
 });
 
 test("A8.8 verified deletion removes seeded learner UI and evidence but keeps its audit tombstone", async ({
   page
 }) => {
   test.setTimeout(120_000);
+  const rightsLearner = createRightsLearnerIds();
   await logIn(page, "audit-teacher-a@literacypath.invalid");
-  await expect(await seedRightsLearner(page)).toEqual({ seeded: true });
+  await expect(await seedRightsLearner(page, rightsLearner)).toEqual({ seeded: true });
   await page.reload();
   await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });
 
   const roster = await openClassRoster(page);
-  const learnerRow = roster.getByRole("row").filter({ hasText: RIGHTS_LEARNER_NAME });
+  await page.getByRole("searchbox", { name: "Search students" })
+    .fill(rightsLearner.studentName);
+  const learnerRow = roster.getByRole("row").filter({ hasText: rightsLearner.studentName });
   await expect(learnerRow).toBeVisible();
   await learnerRow.getByRole("button", {
-    name: `More options for ${RIGHTS_LEARNER_NAME}`,
+    name: `Open ${rightsLearner.studentName}`,
     exact: true
   }).click();
-  await page.getByRole("dialog", { name: `Options for ${RIGHTS_LEARNER_NAME}` })
+  await page.getByRole("dialog", { name: `Student details: ${rightsLearner.studentName}` })
+    .getByRole("button", { name: "Student settings", exact: true })
+    .click();
+  await page.getByRole("dialog", { name: `Options for ${rightsLearner.studentName}` })
     .getByRole("button", { name: "Privacy and data rights", exact: true })
     .click();
   const dialog = page.getByRole("dialog", {
-    name: `Data choices for ${RIGHTS_LEARNER_NAME}`
+    name: `Data choices for ${rightsLearner.studentName}`
   });
   await expect(dialog.getByRole("region", {
-    name: "Data-rights request history"
+    name: "Privacy request history"
   })).not.toContainText("unavailable");
   await chooseVerifiedSchoolRequest(dialog);
 
-  await expect(dialog.getByRole("button", { name: "Download child data" }))
+  await expect(dialog.getByRole("button", { name: "Download student data" }))
     .toBeEnabled();
   const exportPromise = page.waitForEvent("download");
-  await dialog.getByRole("button", { name: "Download child data" }).click();
+  await dialog.getByRole("button", { name: "Download student data" }).click();
   const beforeDeletion = await readDownloadJson(await exportPromise);
   expect(beforeDeletion.answers).toHaveLength(1);
   expect(beforeDeletion.assessmentAttempts).toHaveLength(1);
   expect(beforeDeletion.individualReports).toHaveLength(1);
-  expect(beforeDeletion.assessmentAttempts[0].attempt_id).toBe(RIGHTS_ATTEMPT_ID);
-  expect(beforeDeletion.individualReports[0].report_id).toBe(RIGHTS_REPORT_ID);
+  expect(beforeDeletion.assessmentAttempts[0].attempt_id).toBe(rightsLearner.attemptId);
+  expect(beforeDeletion.individualReports[0].report_id).toBe(rightsLearner.reportId);
 
-  await dialog.getByRole("button", { name: "Check deletion request" }).click();
+  await dialog.getByRole("button", { name: "Review deletion request" }).click();
   const deletionSection = dialog.getByText("Delete permanently").locator("..");
   const requestId = await deletionSection.locator("p strong").first().textContent();
   expect(requestId).toMatch(/^[0-9a-f]{8}-[0-9a-f-]{27}$/i);
   await dialog.getByLabel("Exact confirmation").fill("DELETE LEARNER DATA");
-  await dialog.getByRole("button", { name: "Delete all child data" }).click();
+  await dialog.getByRole("button", { name: "Delete all student data" }).click();
 
   await expect(page.getByRole("dialog", {
-    name: `Data choices for ${RIGHTS_LEARNER_NAME}`
+    name: `Data choices for ${rightsLearner.studentName}`
   })).toHaveCount(0);
-  await expect(roster.getByRole("row").filter({ hasText: RIGHTS_LEARNER_NAME }))
+  await expect(roster.getByRole("row").filter({ hasText: rightsLearner.studentName }))
     .toHaveCount(0);
-  await expect(page.locator(".teacher-dashboard-message")).toContainText(
-    `${RIGHTS_LEARNER_NAME}'s data was deleted`
-  );
+  await expect(page.locator(".teacher-dashboard-message").filter({
+    hasText: "deleted permanently"
+  })).toContainText(rightsLearner.studentName);
 
   const proof = await page.evaluate(async ({ studentId, deletionRequestId }) => {
     const { supabase } = await import("/src/supabaseClient.js");
@@ -269,7 +257,7 @@ test("A8.8 verified deletion removes seeded learner UI and evidence but keeps it
       exportRetryError: exportRetry.error?.message || ""
     };
   }, {
-    studentId: RIGHTS_LEARNER_ID,
+    studentId: rightsLearner.studentId,
     deletionRequestId: requestId
   });
 

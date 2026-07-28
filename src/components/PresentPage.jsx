@@ -1,10 +1,11 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   presentationCycleOptions,
   getPresentationCycle,
   buildCyclePresentation,
   openCyclePresentation,
   presentationCycleSummary,
+  presentationCycleDisplayTitle,
   PRESENTATION_DAYS
 } from "../utils/present/presentationBuilder.js";
 import "../styles/worksheets.css";
@@ -21,8 +22,16 @@ function lastPresentedCycle(options) {
   return "";
 }
 
-export function PresentPage() {
+export function PresentPage({ className = "", onBack }) {
   const cycleOptions = useMemo(() => presentationCycleOptions(), []);
+  const teachingCycles = useMemo(
+    () => cycleOptions.filter(option => option.type !== "assessment"),
+    [cycleOptions]
+  );
+  const assessmentWeeks = useMemo(
+    () => cycleOptions.filter(option => option.type === "assessment"),
+    [cycleOptions]
+  );
   const [cycleId, setCycleId] = useState(() =>
     lastPresentedCycle(cycleOptions) ||
     cycleOptions.find(opt => opt.cycleNumber)?.id ||
@@ -60,10 +69,37 @@ export function PresentPage() {
     setFallbackUrl(url);
   }
 
+  useEffect(() => () => {
+    if (!fallbackRef.current) return;
+    try {
+      URL.revokeObjectURL(fallbackRef.current);
+    } catch {
+      // The browser already released it.
+    }
+  }, []);
+
+  function chooseCycle(nextCycleId) {
+    setCycleId(nextCycleId);
+    setNote("");
+    replaceFallbackUrl("");
+  }
+
+  function chooseDay(nextDay) {
+    setDay(nextDay);
+    setNote("");
+    replaceFallbackUrl("");
+  }
+
   function handlePresent() {
     setNote("");
     replaceFallbackUrl("");
-    const result = openCyclePresentation(cycleId, { day: effectiveDay });
+    let result;
+    try {
+      result = openCyclePresentation(cycleId, { day: effectiveDay });
+    } catch {
+      setNote("We couldn't open that presentation. Your choice is still here. Try again.");
+      return;
+    }
     try {
       window.localStorage.setItem(LAST_PRESENTED_KEY, cycleId);
     } catch {
@@ -76,26 +112,41 @@ export function PresentPage() {
   }
 
   return (
-    <div className="ws-page">
+    <main className="ws-page" data-teacher-route="present">
+      <nav className="ws-route-nav" aria-label="Presentation navigation">
+        <button type="button" className="ws-back-link" onClick={onBack}>
+          ← Back to Resources
+        </button>
+      </nav>
       <header className="ws-page-head">
         <h1>Present a cycle</h1>
-        <p>A full-screen slideshow for the projector — letter sounds, writing, blending, sight words, sound games, the poem and this cycle's books. Pick a cycle (and a day, if you want just that day's teaching) and press Present. Use the arrow keys (or the on-screen arrows) to move through it; press <b>F</b> for full screen and <b>Esc</b> to leave.</p>
+        <p>Choose a teaching cycle and open its projector-ready slides.</p>
+        {className && <span className="ws-context">Class: {className}</span>}
       </header>
 
       <section className="ws-builder" aria-label="Presentation options">
-        <label className="ws-field" style={{ gridColumn: "1 / -1" }}>
+        <label className="ws-field ws-field-wide">
           <span>Cycle</span>
-          <select value={cycleId} onChange={e => setCycleId(e.target.value)}>
-            {cycleOptions.map(opt => (
-              <option key={opt.id} value={opt.id}>{opt.label}</option>
-            ))}
+          <select value={cycleId} onChange={e => chooseCycle(e.target.value)}>
+            <optgroup label="Teaching cycles">
+              {teachingCycles.map(opt => (
+                <option key={opt.id} value={opt.id}>{opt.label}</option>
+              ))}
+            </optgroup>
+            {assessmentWeeks.length > 0 && (
+              <optgroup label="Assessment weeks">
+                {assessmentWeeks.map(opt => (
+                  <option key={opt.id} value={opt.id}>{opt.label}</option>
+                ))}
+              </optgroup>
+            )}
           </select>
         </label>
 
         {!isAssessment && (
-          <label className="ws-field" style={{ gridColumn: "1 / -1" }}>
+          <label className="ws-field ws-field-wide">
             <span>Day</span>
-            <select value={day} onChange={e => setDay(e.target.value)}>
+            <select value={day} onChange={e => chooseDay(e.target.value)}>
               {PRESENTATION_DAYS.map(opt => (
                 <option key={opt.value || "whole"} value={opt.value}>{opt.label}</option>
               ))}
@@ -104,15 +155,19 @@ export function PresentPage() {
         )}
 
         {summary && (
-          <p className="ws-blurb">
-            {summary}
-            {slideCount ? ` · ${slideCount} slides` : ""}
-          </p>
+          <div className="ws-selection-summary" aria-live="polite">
+            <strong>{presentationCycleDisplayTitle(cycle)}</strong>
+            <span>{effectiveDay
+              ? PRESENTATION_DAYS.find(option => option.value === effectiveDay)?.label
+              : "Whole cycle"}</span>
+            {slideCount ? <span>{slideCount} slides</span> : null}
+            <p>{summary}</p>
+          </div>
         )}
 
         <p className="ws-blurb">
           {isAssessment
-            ? "This is a check week. The slides show this week's short check routines."
+            ? "This is an assessment week. The slides show this week's short assessment routines."
             : isFluency
               ? "This is a fluency cycle (25–27): the deck covers sight words, pattern power, word chains and the poem — no new letters."
               : "The deck covers each focus letter's sound + writing, blending, the cycle's sight words, sound games (change / take away / join words), the poem and this cycle's guided-reading books."}
@@ -123,6 +178,10 @@ export function PresentPage() {
             Present full screen
           </button>
         </div>
+        <details className="ws-present-help">
+          <summary>Projector and keyboard help</summary>
+          <p>Use the arrow keys or on-screen arrows to move. Press F for full screen and Esc to leave.</p>
+        </details>
         {note && (
           <p className="ws-note" role="status">
             {note}
@@ -137,6 +196,6 @@ export function PresentPage() {
           </p>
         )}
       </section>
-    </div>
+    </main>
   );
 }

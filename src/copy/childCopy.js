@@ -28,5 +28,22 @@ export const CHILD_COPY = Object.freeze({
     tryAgain: "Follow the grey letter.",
     clear: "Start again",
     watch: "Watch again"
+  }),
+  guidedReading: Object.freeze({
+    loadingPage: "Loading page",
+    stopReading: "Stop reading",
+    readPage: "Read page",
+    loadingBook: "Loading book",
+    stopBook: "Stop book",
+    readWholeBook: "Read whole book",
+    lineFocus: "Line focus",
+    fullScreen: "Full screen",
+    exitFullScreen: "Exit",
+    backToLibrary: "Back to library",
+    readingMode: "Reading mode",
+    markingMode: "Marking mode",
+    previousPage: "Previous page",
+    nextPage: "Next page",
+    finishBook: "Finish book"
   })
 });

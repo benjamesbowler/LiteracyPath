@@ -46,6 +46,17 @@ export function worksheetCycleOptions() {
     .map(c => ({ id: c.id, cycleNumber: c.cycleNumber, title: c.title }));
 }
 
+export function worksheetCycleLabel(cycle = {}) {
+  const number = Number(cycle.cycleNumber);
+  const prefix = Number.isFinite(number) && number > 0 ? `Cycle ${number}` : "Cycle";
+  const title = String(cycle.title || "").trim();
+  if (!title) return prefix;
+  const withoutRepeatedPrefix = title
+    .replace(new RegExp(`^${prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*[:—-]?\\s*`, "i"), "")
+    .trim();
+  return withoutRepeatedPrefix ? `${prefix}: ${withoutRepeatedPrefix}` : prefix;
+}
+
 // ── Curriculum-aware content selectors (all deterministic) ───────────────────
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const CVC_POOL = [

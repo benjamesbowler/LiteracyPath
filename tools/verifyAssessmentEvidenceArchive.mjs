@@ -1,10 +1,12 @@
 import process from "node:process";
+import { spawn } from "node:child_process";
 import { createClient } from "@supabase/supabase-js";
 import {
   archiveAssessmentEvidence,
   compactAssessmentAttemptForStorage,
   normalizeAssessmentAttempt
 } from "../src/data/assessmentHistoryStore.js";
+import { isApprovedAuditDatabaseUrl } from "./seedAuditSchool.mjs";
 
 const TEACHER_A = {
   email: "audit-teacher-a@literacypath.invalid",
@@ -15,6 +17,11 @@ const TEACHER_B = {
   email: "audit-teacher-b@literacypath.invalid"
 };
 const ATTEMPT_ID = "audit-immutable-evidence-replay";
+const AUDIT_ATTEMPT_IDS = Object.freeze([
+  ATTEMPT_ID,
+  `${ATTEMPT_ID}-mismatch`,
+  `${ATTEMPT_ID}-capture`
+]);
 
 function clientFor(apiUrl, anonKey) {
   return createClient(apiUrl, anonKey, {
@@ -35,13 +42,45 @@ function requireCondition(condition, label) {
   if (!condition) throw new Error(label);
 }
 
+async function removeAuditAttempts(databaseUrl) {
+  const approval = isApprovedAuditDatabaseUrl(databaseUrl);
+  if (!approval.approved) throw new Error(approval.reason);
+  const quotedIds = AUDIT_ATTEMPT_IDS
+    .map(value => `'${value.replaceAll("'", "''")}'`)
+    .join(", ");
+  const query = `delete from public.assessment_attempts where attempt_id in (${quotedIds});`;
+  await new Promise((resolve, reject) => {
+    const child = spawn("psql", [
+      databaseUrl,
+      "-X",
+      "--no-psqlrc",
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-c",
+      query
+    ], {
+      stdio: ["ignore", "pipe", "pipe"]
+    });
+    let output = "";
+    child.stdout.on("data", chunk => { output += chunk.toString(); });
+    child.stderr.on("data", chunk => { output += chunk.toString(); });
+    child.on("error", reject);
+    child.on("close", code => {
+      if (code === 0) resolve();
+      else reject(new Error(`Immutable evidence verifier database cleanup failed: ${output.trim()}`));
+    });
+  });
+}
+
 async function main() {
   const apiUrl = process.env.LP_AUDIT_SUPABASE_URL;
   const anonKey = process.env.LP_AUDIT_SUPABASE_ANON_KEY;
+  const databaseUrl = process.env.LP_AUDIT_DATABASE_URL;
   const password = process.env.LP_AUDIT_TEACHER_PASSWORD;
-  if (!apiUrl || !anonKey || !password) {
+  if (!apiUrl || !anonKey || !databaseUrl || !password) {
     throw new Error(
-      "LP_AUDIT_SUPABASE_URL, LP_AUDIT_SUPABASE_ANON_KEY, and LP_AUDIT_TEACHER_PASSWORD are required."
+      "LP_AUDIT_SUPABASE_URL, LP_AUDIT_SUPABASE_ANON_KEY, "
+      + "LP_AUDIT_DATABASE_URL, and LP_AUDIT_TEACHER_PASSWORD are required."
     );
   }
 
@@ -121,7 +160,7 @@ async function main() {
   };
 
   try {
-    await teacherA.from("assessment_attempts").delete().eq("attempt_id", ATTEMPT_ID);
+    await removeAuditAttempts(databaseUrl);
     const inserted = requireNoError(
       await teacherA.from("assessment_attempts").insert(row).select(
         "attempt_id,assessment_version,content_version,policy_version,raw_evidence,payload"
@@ -138,6 +177,13 @@ async function main() {
         && inserted.data.raw_evidence.result.questionRecords.length
           === inserted.data.payload.questionRecords.length,
       "Stored result and immutable replay envelope diverged"
+    );
+    const directDelete = await teacherA.from("assessment_attempts")
+      .delete()
+      .eq("attempt_id", ATTEMPT_ID);
+    requireCondition(
+      Boolean(directDelete.error),
+      "A teacher bypassed immutable evidence retention with a direct delete"
     );
     requireNoError(
       await teacherA.from("assessment_attempts").upsert(row, {
@@ -206,16 +252,7 @@ async function main() {
       "The database accepted an archive capture time detached from completion"
     );
   } finally {
-    requireNoError(
-      await teacherA.from("assessment_attempts")
-        .delete()
-        .in("attempt_id", [
-          ATTEMPT_ID,
-          `${ATTEMPT_ID}-mismatch`,
-          `${ATTEMPT_ID}-capture`
-        ]),
-      "Immutable evidence verifier cleanup"
-    );
+    await removeAuditAttempts(databaseUrl);
     await Promise.all([teacherA.auth.signOut(), teacherB.auth.signOut()]);
   }
 

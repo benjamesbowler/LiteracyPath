@@ -29,7 +29,7 @@ export function ElPrerequisiteReview({
   message = "",
   onCancel,
   onConfirm,
-  startLabel = "Begin the check"
+  startLabel = "Begin the assessment"
 }) {
   const [reasonId, setReasonId] = useState("");
   const [otherReason, setOtherReason] = useState("");
@@ -48,7 +48,7 @@ export function ElPrerequisiteReview({
       tabIndex="-1"
     >
       <div>
-        <p className="panel-label">Sequence check</p>
+        <p className="panel-label">Sequence review</p>
         <h3 id="el-prerequisite-review-title">One quick question before you start</h3>
         <p>{message}</p>
       </div>

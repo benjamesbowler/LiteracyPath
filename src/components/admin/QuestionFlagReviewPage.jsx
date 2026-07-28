@@ -1,10 +1,17 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
-  clearQuestionFlags,
-  deleteQuestionFlag,
-  readQuestionFlags,
-  updateQuestionFlagAction
+  deleteQuestionReport,
+  loadQuestionReports,
+  readLegacyDeviceOnlyQuestionReportCount,
+  recordQuestionReportDecision
 } from "../../data/questionFlagStore.js";
+import {
+  buildQuestionReviewNotes,
+  questionReportDecisionLabel,
+  questionReportTypeLabel
+} from "../../data/questionReviewNotes.js";
+
+const REPORTS_PER_PAGE = 12;
 
 function downloadTextFile(filename, content, type = "text/plain") {
   const blob = new Blob([content], { type });
@@ -16,48 +23,18 @@ function downloadTextFile(filename, content, type = "text/plain") {
   URL.revokeObjectURL(url);
 }
 
-function flagTypeLabel(flagType = "") {
-  return flagType === "question" ? "Question flagged" : "Image flagged";
-}
-
-function buildReplacementReport(flags = []) {
-  const rows = flags.filter(flag => flag.action);
-  return [
-    "# Question Flag Replacement Report",
-    "",
-    `Generated: ${new Date().toISOString()}`,
-    "",
-    rows.length ? rows.map(flag => [
-      `## ${flag.action === "delete_question_replace" ? "Question replacement" : "Image replacement"}: ${flag.questionId || flag.id}`,
-      "",
-      `- Skill: ${flag.skillName || flag.skillId || "Unknown"}`,
-      `- Flag type: ${flag.flagType}`,
-      `- Prompt: ${flag.prompt || flag.questionText || ""}`,
-      `- Sentence/context: ${flag.sentence || ""}`,
-      `- Target: ${flag.targetWord || ""}`,
-      `- Correct answer: ${flag.correctAnswer || ""}`,
-      `- Choices: ${(flag.answerChoices || []).map(choice => choice.label || choice.value).filter(Boolean).join(", ") || "none"}`,
-      `- Images: ${(flag.images || []).map(image => `${image.label}: ${image.path}`).join(" | ") || "none"}`,
-      `- Requested action: ${flag.action}`,
-      `- Notes: ${flag.actionNotes || ""}`,
-      ""
-    ].join("\n")).join("\n") : "No replacement actions have been marked yet.",
-    ""
-  ].join("\n");
-}
-
 function FlaggedQuestionPreview({ flag }) {
   return (
     <div className="flagged-question-preview">
       <div className="question-line assessment-prompt">
-        <h2>{flag.prompt || flag.questionText || "Question text missing"}</h2>
+        <h2>{flag.prompt || flag.questionText || "Question text was not recorded"}</h2>
       </div>
       {flag.sentence && <p className="flagged-question-sentence">{flag.sentence}</p>}
       {flag.images?.length > 0 && (
         <div className="flagged-question-images">
           {flag.images.map(image => (
             <figure key={`${flag.id}-${image.path}`}>
-              <img src={image.path} alt={image.label || "Flagged image"} />
+              <img src={image.path} alt={image.label || "Reported assessment image"} />
               <figcaption>{image.label}</figcaption>
             </figure>
           ))}
@@ -66,7 +43,10 @@ function FlaggedQuestionPreview({ flag }) {
       {flag.answerChoices?.length > 0 && (
         <div className="flagged-question-choices">
           {flag.answerChoices.map(choice => (
-            <article className={choice.value === flag.correctAnswer || choice.label === flag.correctAnswer ? "correct" : ""} key={`${flag.id}-${choice.value || choice.label}`}>
+            <article
+              className={choice.value === flag.correctAnswer || choice.label === flag.correctAnswer ? "correct" : ""}
+              key={`${flag.id}-${choice.value || choice.label}`}
+            >
               {choice.image && <img src={choice.image} alt={choice.label || choice.value} />}
               <strong>{choice.label || choice.value}</strong>
             </article>
@@ -77,95 +57,341 @@ function FlaggedQuestionPreview({ flag }) {
   );
 }
 
-export function QuestionFlagReviewPage({ onBack }) {
-  const [flags, setFlags] = useState(() => readQuestionFlags());
+export function QuestionFlagReviewPage({ onBack, supabase = null }) {
+  const [flags, setFlags] = useState([]);
   const [filter, setFilter] = useState("open");
-  const visibleFlags = useMemo(() => flags.filter(flag => {
-    if (filter === "all") return true;
-    if (filter === "image") return flag.flagType === "image";
-    if (filter === "question") return flag.flagType === "question";
-    return !flag.action;
-  }), [filter, flags]);
+  const [search, setSearch] = useState("");
+  const [reportPage, setReportPage] = useState(1);
+  const [loadState, setLoadState] = useState({ status: "loading", message: "" });
+  const [busyId, setBusyId] = useState("");
+  const [notice, setNotice] = useState({ message: "", tone: "success" });
+  const [pendingDeleteId, setPendingDeleteId] = useState("");
+  const [legacyDeviceOnlyCount] = useState(readLegacyDeviceOnlyQuestionReportCount);
 
-  function mark(flag, action) {
-    const notes = action === "delete_question_replace"
-      ? "Delete this question from runtime and create a replacement."
-      : "Delete this image from runtime and create a replacement.";
-    setFlags(updateQuestionFlagAction(flag.id, action, notes));
+  async function loadReports() {
+    setLoadState({ status: "loading", message: "" });
+    try {
+      const reports = await loadQuestionReports({ supabase });
+      setFlags(reports);
+      setLoadState({ status: "complete", message: "" });
+    } catch (error) {
+      setLoadState({
+        status: "error",
+        message: error?.message || "Reported questions could not be loaded. Nothing has been treated as missing."
+      });
+    }
   }
 
-  function remove(flag) {
-    setFlags(deleteQuestionFlag(flag.id));
+  useEffect(() => {
+    let active = true;
+    loadQuestionReports({ supabase })
+      .then(reports => {
+        if (!active) return;
+        setFlags(reports);
+        setLoadState({ status: "complete", message: "" });
+      })
+      .catch(error => {
+        if (!active) return;
+        setLoadState({
+          status: "error",
+          message: error?.message || "Reported questions could not be loaded. Nothing has been treated as missing."
+        });
+      });
+    return () => {
+      active = false;
+    };
+  }, [supabase]);
+
+  const visibleFlags = useMemo(() => {
+    const searchTerm = search.trim().toLocaleLowerCase();
+    return flags.filter(flag => {
+      const filterMatches = filter === "all"
+        || (filter === "image" && flag.flagType === "image")
+        || (filter === "question" && flag.flagType === "question")
+        || (filter === "open" && flag.status === "open");
+      if (!filterMatches) return false;
+      if (!searchTerm) return true;
+      return [
+        flag.prompt,
+        flag.questionText,
+        flag.questionId,
+        flag.skillName,
+        flag.skillId,
+        flag.targetWord
+      ].some(value => String(value || "").toLocaleLowerCase().includes(searchTerm));
+    });
+  }, [filter, flags, search]);
+
+  const pageCount = Math.max(1, Math.ceil(visibleFlags.length / REPORTS_PER_PAGE));
+  const currentPage = Math.min(reportPage, pageCount);
+  const pagedFlags = visibleFlags.slice(
+    (currentPage - 1) * REPORTS_PER_PAGE,
+    currentPage * REPORTS_PER_PAGE
+  );
+
+  async function mark(flag, decision) {
+    setBusyId(flag.id);
+    setNotice({ message: "", tone: "success" });
+    try {
+      const updated = await recordQuestionReportDecision({
+        supabase,
+        reportId: flag.id,
+        decision,
+        notes: questionReportDecisionLabel(decision)
+      });
+      setFlags(current => current.map(item => item.id === flag.id ? updated : item));
+      setNotice({
+        message: `Review saved: ${questionReportDecisionLabel(decision)}.`,
+        tone: "success"
+      });
+    } catch (error) {
+      setNotice({
+        message: error?.message || "The review decision was not saved. The report is still open.",
+        tone: "error"
+      });
+    } finally {
+      setBusyId("");
+    }
   }
 
-  function clearAll() {
-    setFlags(clearQuestionFlags());
+  async function remove(flag) {
+    setBusyId(flag.id);
+    setNotice({ message: "", tone: "success" });
+    try {
+      await deleteQuestionReport({ supabase, reportId: flag.id });
+      setFlags(current => current.filter(item => item.id !== flag.id));
+      setPendingDeleteId("");
+      setNotice({
+        message: "The report was deleted. The assessment question and image were not changed.",
+        tone: "success"
+      });
+    } catch (error) {
+      setNotice({
+        message: error?.message || "The report was not deleted.",
+        tone: "error"
+      });
+    } finally {
+      setBusyId("");
+    }
   }
 
-  function exportReport() {
-    downloadTextFile("literacypath-question-flag-replacement-report.md", buildReplacementReport(flags), "text/markdown");
+  function exportNotes() {
+    downloadTextFile(
+      "literacy-guide-reported-question-review.md",
+      buildQuestionReviewNotes(flags),
+      "text/markdown"
+    );
   }
+
+  const emptyMessage = flags.length === 0
+    ? "No question reports have been sent yet."
+    : search.trim()
+      ? "No reports match that search."
+      : filter === "open"
+        ? "There are no open reports."
+        : "No reports match this filter.";
 
   return (
     <main className="admin-dashboard page-stack question-flag-review-page">
       <section className="card page-stack">
         <div className="admin-header">
           <div>
-            <h2>Question Flags Review</h2>
+            <h2>Reported questions</h2>
             <p className="muted-text">
-              Review the exact question context users flagged, then mark image or question replacements for the report.
+              Review reports sent during an assessment and record what needs checking.
+              This page does not remove or replace live questions or images.
             </p>
           </div>
           <div className="button-row admin-controls">
-            <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
-            <button className="report-button" disabled={!flags.some(flag => flag.action)} onClick={exportReport} type="button">Export replacement report</button>
-            <button className="report-button danger" disabled={flags.length === 0} onClick={clearAll} type="button">Clear all flags</button>
+            <button className="report-button" onClick={onBack} type="button">Back to admin</button>
+            <button
+              className="report-button"
+              disabled={!flags.some(flag => flag.decision)}
+              onClick={exportNotes}
+              type="button"
+            >
+              Download review notes
+            </button>
           </div>
         </div>
+        {legacyDeviceOnlyCount > 0 && (
+          <p className="teacher-surface-warning" role="status">
+            {legacyDeviceOnlyCount} older {legacyDeviceOnlyCount === 1 ? "report is" : "reports are"} saved only
+            on this device. They were not sent to the school database and are not included below.
+          </p>
+        )}
+        {notice.message && (
+          <p
+            className={notice.tone === "error" ? "teacher-surface-warning" : "message"}
+            role={notice.tone === "error" ? "alert" : "status"}
+          >
+            {notice.message}
+          </p>
+        )}
       </section>
 
-      <section className="report-panel page-stack">
-        <div className="media-qa-status-tabs" role="tablist" aria-label="Question flag filters">
+      <section className="report-panel page-stack" aria-busy={loadState.status === "loading"}>
+        <div
+          className="media-qa-status-tabs"
+          role="group"
+          aria-label="Filter reported questions"
+        >
           {[
             ["open", "Open"],
-            ["image", "Image"],
-            ["question", "Question"],
+            ["image", "Image reports"],
+            ["question", "Question reports"],
             ["all", "All"]
           ].map(([value, label]) => (
-            <button className={filter === value ? "active" : ""} key={value} onClick={() => setFilter(value)} type="button">
+            <button
+              aria-pressed={filter === value}
+              className={filter === value ? "active" : ""}
+              key={value}
+              onClick={() => {
+                setFilter(value);
+                setReportPage(1);
+              }}
+              type="button"
+            >
               {label}
             </button>
           ))}
         </div>
-        <p className="muted-text">Showing {visibleFlags.length} of {flags.length} flagged items.</p>
+        <label className="question-report-search">
+          <span>Search reports</span>
+          <input
+            onChange={event => {
+              setSearch(event.target.value);
+              setReportPage(1);
+            }}
+            placeholder="Question, skill or word"
+            type="search"
+            value={search}
+          />
+        </label>
+        {loadState.status === "loading" ? (
+          <p className="muted-text" role="status">Loading reported questions…</p>
+        ) : loadState.status === "error" ? (
+          <div className="teacher-surface-warning" role="alert">
+            <p>{loadState.message}</p>
+            <button className="report-button" onClick={loadReports} type="button">Try again</button>
+          </div>
+        ) : (
+          <p className="muted-text">
+            Found {visibleFlags.length} of {flags.length} {flags.length === 1 ? "report" : "reports"}.
+            {visibleFlags.length > 0 ? ` Showing ${pagedFlags.length} on this page.` : ""}
+          </p>
+        )}
       </section>
 
-      <section className="question-flag-review-list">
-        {visibleFlags.length === 0 ? (
-          <div className="teacher-chart-empty">No flagged questions yet.</div>
-        ) : visibleFlags.map(flag => (
-          <article className="question-flag-review-card" key={flag.id}>
-            <header>
-              <span>{flagTypeLabel(flag.flagType)}</span>
-              <strong>{flag.skillName || flag.skillId || "Unknown skill"}</strong>
-              <small>{flag.questionId || "No question ID"} · {flag.createdAt ? new Date(flag.createdAt).toLocaleString() : ""}</small>
-            </header>
-            <FlaggedQuestionPreview flag={flag} />
-            {flag.action && <p className="message">Marked: {flag.action}</p>}
-            <div className="button-row">
-              <button className="report-button danger" onClick={() => mark(flag, "delete_image_replace")} type="button">
-                Delete image + replace
+      {loadState.status === "complete" && (
+        <section className="question-flag-review-list" aria-label="Reported assessment questions">
+          {visibleFlags.length === 0 ? (
+            <div className="teacher-chart-empty">{emptyMessage}</div>
+          ) : pagedFlags.map(flag => {
+            const rowBusy = busyId === flag.id;
+            const confirmingDelete = pendingDeleteId === flag.id;
+            return (
+              <article
+                className="question-flag-review-card"
+                data-question-report-id={flag.id}
+                key={flag.id}
+              >
+                <header>
+                  <span>{questionReportTypeLabel(flag.flagType)}</span>
+                  <strong>{flag.skillName || flag.skillId || "Skill not recorded"}</strong>
+                  <small>
+                    {flag.questionId || "Question reference not recorded"}
+                    {flag.createdAt ? ` · ${new Date(flag.createdAt).toLocaleString()}` : ""}
+                  </small>
+                </header>
+                <FlaggedQuestionPreview flag={flag} />
+                <p className="message">
+                  Review: {questionReportDecisionLabel(flag.decision)}
+                </p>
+                <div className="button-row">
+                  <button
+                    className="report-button"
+                    disabled={rowBusy}
+                    onClick={() => mark(flag, "image_needs_checking")}
+                    type="button"
+                  >
+                    Record image problem
+                  </button>
+                  <button
+                    className="report-button"
+                    disabled={rowBusy}
+                    onClick={() => mark(flag, "question_needs_checking")}
+                    type="button"
+                  >
+                    Record question problem
+                  </button>
+                  <button
+                    className="report-button"
+                    disabled={rowBusy}
+                    onClick={() => mark(flag, "no_change_needed")}
+                    type="button"
+                  >
+                    Record no change needed
+                  </button>
+                </div>
+                {confirmingDelete ? (
+                  <div className="teacher-surface-warning question-report-delete-confirmation">
+                    <p>Delete this report? The assessment question and image will stay unchanged.</p>
+                    <div className="button-row">
+                      <button
+                        className="report-button danger"
+                        disabled={rowBusy}
+                        onClick={() => remove(flag)}
+                        type="button"
+                      >
+                        Confirm delete report
+                      </button>
+                      <button
+                        className="report-button"
+                        disabled={rowBusy}
+                        onClick={() => setPendingDeleteId("")}
+                        type="button"
+                      >
+                        Keep report
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <button
+                    className="text-button"
+                    disabled={rowBusy}
+                    onClick={() => setPendingDeleteId(flag.id)}
+                    type="button"
+                  >
+                    Delete report
+                  </button>
+                )}
+              </article>
+            );
+          })}
+          {visibleFlags.length > REPORTS_PER_PAGE && (
+            <nav className="question-report-pagination" aria-label="Reported question pages">
+              <button
+                className="report-button"
+                disabled={currentPage === 1}
+                onClick={() => setReportPage(page => Math.max(1, page - 1))}
+                type="button"
+              >
+                Previous
               </button>
-              <button className="report-button danger" onClick={() => mark(flag, "delete_question_replace")} type="button">
-                Delete question + replace
+              <span>Page {currentPage} of {pageCount}</span>
+              <button
+                className="report-button"
+                disabled={currentPage === pageCount}
+                onClick={() => setReportPage(page => Math.min(pageCount, page + 1))}
+                type="button"
+              >
+                Next
               </button>
-              <button className="report-button" onClick={() => remove(flag)} type="button">
-                Remove from review
-              </button>
-            </div>
-          </article>
-        ))}
-      </section>
+            </nav>
+          )}
+        </section>
+      )}
     </main>
   );
 }

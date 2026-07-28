@@ -16,6 +16,7 @@ import {
   REPORTING_EVIDENCE_KINDS,
   REPORTING_STATUS_IDS
 } from "../../src/data/reportingEvidenceModel.js";
+import { buildSimpleOverview } from "../../src/data/simpleStudentReports.js";
 
 const student = { id: "student-1", name: "Ada", classId: "class-1" };
 
@@ -128,7 +129,37 @@ test("Skills Check uses canonical questions and suppresses their itemMastery pro
   assert.equal(model.provenance.suppressedItemMasteryConceptCount, 1);
   assert.equal(model.summary.legacyFallbackItems, 1);
   assert.equal(model.items.find(row => row.concept.key === "m").statusCandidate, REPORTING_STATUS_IDS.SECURE);
-  assert.equal(model.items.find(row => row.concept.key === "s").statusCandidate, REPORTING_STATUS_IDS.NEEDS_TEACHING);
+  assert.equal(model.items.find(row => row.concept.key === "s").statusCandidate, REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+});
+
+test("same-sitting item fallback stays insufficient in the workspace and Finished Report model", () => {
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    itemMastery: {
+      "initial_sound::a": {
+        itemType: "initial_sound",
+        itemKey: "a",
+        skillId: "initial_sounds",
+        attempts: 4,
+        correct: 4,
+        accuracy: 100,
+        sessionsSeen: 1,
+        mastered: true,
+        lastAssessed: "2026-07-27T09:00:00.000Z"
+      }
+    },
+    now: new Date("2026-07-28T00:00:00.000Z")
+  });
+  const initialA = model.wholeChild.concepts.find(row => (
+    row.construct === "initial_sound" && row.key === "a"
+  ));
+  const overview = buildSimpleOverview(model, student.name);
+
+  assert.equal(initialA.status.id, REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+  assert.equal(initialA.evidenceBasis.observations, 4);
+  assert.equal(initialA.evidenceBasis.independentAttempts, 1);
+  assert.equal(overview.mastered.length, 0);
+  assert.equal(overview.notEnoughYet.length, 1);
 });
 
 test("EL Assessments 1 and 2 prefer completed history and only use legacy state as fallback", () => {
@@ -207,6 +238,68 @@ test("EL Assessments 1 and 2 prefer completed history and only use legacy state 
   );
   assert.equal(Array.isArray(model.advancedPhonicsMatrix), true);
   assert.equal(model.provenance.completedHistoryIsCanonical, true);
+});
+
+test("a saved partial manual assessment remains visible after reload without replacing a completed baseline", () => {
+  const partialLetter = attempt({
+    attemptId: "letter-partial",
+    assessmentType: "el_letter_assessment",
+    skillId: "el_letter_assessment",
+    skillName: "EL Letter Name and Sound",
+    administrationStatus: "partial",
+    status: "partial",
+    plannedQuestionCount: 104,
+    totalQuestions: 1,
+    correctCount: 1,
+    questionRecords: [{
+      questionId: "partial-letter-a-name",
+      targetLetter: "A",
+      itemKey: "a",
+      itemType: "letter_name",
+      templateType: "letter_name",
+      responseStatus: "correct",
+      isCorrect: true,
+      timestamp: "2026-07-20T10:01:00.000Z"
+    }]
+  });
+
+  const partialOnly = buildElAssessmentReportModel({
+    student,
+    assessmentHistory: [partialLetter],
+    letterAssessment: [],
+    patternAssessment: []
+  });
+
+  assert.equal(partialOnly.assessments[0].source, "partial_history");
+  assert.equal(partialOnly.assessments[0].administrationStatus, "partial");
+  assert.equal(partialOnly.assessments[0].latestAttempt.attemptId, "letter-partial");
+  assert.equal(
+    partialOnly.knowledgeEvidence.some(row => row.concept.construct === "letter_name"),
+    true
+  );
+  assert.equal(
+    partialOnly.letterMatrix.find(row => row.letter === "a").uppercaseName.status,
+    "not_enough_evidence"
+  );
+
+  const completedLetter = attempt({
+    ...partialLetter,
+    attemptId: "letter-completed",
+    administrationStatus: "completed",
+    status: "completed",
+    completedAt: "2026-07-19T10:05:00.000Z",
+    updatedAt: "2026-07-19T10:05:00.000Z"
+  });
+  const withBaseline = buildElAssessmentReportModel({
+    student,
+    assessmentHistory: [partialLetter, completedLetter],
+    letterAssessment: [],
+    patternAssessment: []
+  });
+
+  assert.equal(withBaseline.assessments[0].source, "completed_history");
+  assert.equal(withBaseline.assessments[0].latestAttempt.attemptId, "letter-completed");
+  assert.equal(withBaseline.assessments[0].attempts.length, 2);
 });
 
 test("Guided Reading keeps connected-text word marks distinct from learned words", () => {
@@ -398,6 +491,511 @@ test("Skills Check exposes legacy skill summary rows when canonical attempts are
   assert.equal(model.summary.legacyFallbackItems, 1);
 });
 
+test("saved answer rows remain visible in teacher reports without inventing independent sittings", () => {
+  const answerHistory = Array.from({ length: 20 }, (_, index) => {
+    const sequence = index % 3;
+    const skill = sequence === 0
+      ? "Initial Sounds"
+      : sequence === 1
+        ? "Final Sounds"
+        : "CVC Short Vowels";
+    const diagnosticTarget = sequence === 0 ? "/m/" : sequence === 1 ? "/t/" : "short a";
+    const isCorrect = sequence === 0;
+    return {
+      answerId: `answer-${index + 1}`,
+      studentId: student.id,
+      skill,
+      stage: skill,
+      diagnosticTarget,
+      question: `Saved question ${index + 1}`,
+      chosen: isCorrect ? "correct" : "incorrect",
+      correct: "correct",
+      isCorrect,
+      timestamp: new Date(Date.UTC(2026, 6, 22, 4 + index)).toISOString()
+    };
+  });
+
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    answerHistory,
+    letterAssessment: [{
+      letter: "m",
+      type: "lowercase",
+      knowsName: true,
+      knowsSound: false,
+      updatedAt: "2026-03-25T10:00:00.000Z"
+    }],
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+
+  const initialM = model.wholeChild.concepts.find(row => (
+    row.construct === "initial_sound" && row.key === "m"
+  ));
+  const finalT = model.wholeChild.concepts.find(row => (
+    row.construct === "final_sound" && row.key === "t"
+  ));
+  const shortA = model.wholeChild.concepts.find(row => (
+    row.construct === "short_vowel" && row.key === "a"
+  ));
+
+  assert.ok(initialM);
+  assert.ok(finalT);
+  assert.ok(shortA);
+  assert.deepEqual(
+    {
+      observations: initialM.evidenceBasis.observations,
+      correct: initialM.evidenceBasis.correct,
+      independentAttempts: initialM.evidenceBasis.independentAttempts,
+      status: initialM.status.id
+    },
+    {
+      observations: 7,
+      correct: 7,
+      independentAttempts: 1,
+      status: REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+    }
+  );
+  assert.deepEqual(
+    {
+      observations: finalT.evidenceBasis.observations,
+      correct: finalT.evidenceBasis.correct,
+      independentAttempts: finalT.evidenceBasis.independentAttempts,
+      status: finalT.status.id
+    },
+    {
+      observations: 7,
+      correct: 0,
+      independentAttempts: 1,
+      status: REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+    }
+  );
+  assert.deepEqual(
+    {
+      label: shortA.label,
+      observations: shortA.evidenceBasis.observations,
+      correct: shortA.evidenceBasis.correct,
+      independentAttempts: shortA.evidenceBasis.independentAttempts,
+      status: shortA.status.id
+    },
+    {
+      label: "Short vowel “a”",
+      observations: 6,
+      correct: 0,
+      independentAttempts: 1,
+      status: REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+    }
+  );
+
+  assert.equal(model.skillsCheck.summary.skillsChecked, 3);
+  assert.equal(model.skillsCheck.summary.currentItems, 3);
+  assert.equal(model.skillsCheck.provenance.answerHistoryRowsRead, 20);
+  assert.equal(model.skillsCheck.provenance.answerHistoryRowsUsed, 20);
+  assert.equal(model.skillsCheck.provenance.answerHistoryAttemptIdentityComplete, false);
+  assert.equal(
+    model.provenance.sourceReads.find(row => row.store === "answers")?.recordCount,
+    20
+  );
+  assert.ok(model.skillsCheck.items.every(row => (
+    row.statusCandidate === REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+    && row.details.incompleteAttemptIdentity === true
+  )));
+  assert.equal(
+    model.wholeChild.concepts.some(row => row.label.includes("Saved question")),
+    false
+  );
+});
+
+test("canonical question evidence suppresses matching legacy answer rows", () => {
+  const archivedAttempt = attempt({
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      answerEventId: "shared-answer-event"
+    }]
+  });
+  const model = buildSkillsCheckReportModel({
+    student,
+    assessmentHistory: [archivedAttempt],
+    answerHistory: [{
+      answerId: "legacy-copy",
+      answerEventId: "shared-answer-event",
+      studentId: student.id,
+      skill: "Initial Sounds",
+      diagnosticTarget: "/m/",
+      isCorrect: true,
+      timestamp: "2026-07-20T10:01:00.000Z"
+    }],
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+
+  assert.equal(model.provenance.answerHistoryRowsRead, 1);
+  assert.equal(model.provenance.answerHistoryRowsUsed, 0);
+  assert.equal(model.provenance.answerHistoryRowsSuppressedByCanonicalAttempts, 1);
+  assert.equal(
+    model.evidence.filter(row => row.sourceRecordType === "legacy_answer_history").length,
+    0
+  );
+  assert.equal(model.items[0].details.observations, 1);
+});
+
+test("one archived question suppresses only its answer copy and preserves unmatched same-concept rows", () => {
+  const archivedAttempt = attempt({
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      answerEventId: "answer-1",
+      prompt: "Which picture starts with /m/?",
+      selectedAnswer: "moon",
+      correctAnswer: "moon"
+    }]
+  });
+  const answerHistory = Array.from({ length: 7 }, (_, index) => ({
+    answerEventId: `answer-${index + 1}`,
+    studentId: student.id,
+    skill: "Initial Sounds",
+    diagnosticTarget: "/m/",
+    question: index === 0 ? "Which picture starts with /m/?" : `Another /m/ item ${index + 1}`,
+    chosen: "moon",
+    correct: "moon",
+    isCorrect: true,
+    timestamp: new Date(Date.UTC(2026, 6, 20, 10, 1 + index)).toISOString()
+  }));
+  const model = buildSkillsCheckReportModel({
+    student,
+    assessmentHistory: [archivedAttempt],
+    answerHistory,
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const initialM = model.items.find(row => row.concept.key === "m");
+
+  assert.equal(model.provenance.answerHistoryRowsUsed, 6);
+  assert.equal(model.provenance.answerHistoryRowsSuppressedByCanonicalAttempts, 1);
+  assert.equal(initialM.details.observations, 1);
+  assert.equal(initialM.details.correct, 1);
+  assert.equal(initialM.details.independentAttempts, 1);
+  const supplemental = model.knowledgeEvidence.find(row => (
+    row.sourceRecordType === "legacy_answer_history" && row.concept.key === "m"
+  ));
+  assert.equal(supplemental.details.observations, 6);
+  assert.equal(supplemental.details.correct, 6);
+  assert.equal(supplemental.details.independentAttempts, 1);
+  assert.equal(supplemental.statusCandidate, REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+});
+
+test("three archived questions and their answer-table copies count exactly once", () => {
+  const attempts = [1, 2, 3].map(number => attempt({
+    attemptId: `attempt-${number}`,
+    completedAt: `2026-07-2${number}T10:05:00.000Z`,
+    updatedAt: `2026-07-2${number}T10:05:00.000Z`,
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      answerEventId: `event-${number}`,
+      timestamp: `2026-07-2${number}T10:01:00.000Z`
+    }]
+  }));
+  const answerHistory = [1, 2, 3].map(number => ({
+    answerEventId: `event-${number}`,
+    studentId: student.id,
+    skill: "Initial Sounds",
+    diagnosticTarget: "/m/",
+    isCorrect: true,
+    timestamp: `2026-07-2${number}T10:01:01.000Z`
+  }));
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    assessmentHistory: attempts,
+    answerHistory,
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const initialM = model.wholeChild.concepts.find(row => (
+    row.construct === "initial_sound" && row.key === "m"
+  ));
+
+  assert.equal(model.skillsCheck.provenance.answerHistoryRowsUsed, 0);
+  assert.equal(model.skillsCheck.provenance.answerHistoryRowsSuppressedByCanonicalAttempts, 3);
+  assert.equal(initialM.evidenceBasis.observations, 3);
+  assert.equal(initialM.evidenceBasis.independentAttempts, 3);
+  assert.equal(initialM.status.id, REPORTING_STATUS_IDS.SECURE);
+});
+
+test("unknown-session rows cannot overpower three verified assessments", () => {
+  const attempts = [1, 2, 3].map(number => attempt({
+    attemptId: `verified-miss-${number}`,
+    completedAt: `2026-07-2${number}T10:05:00.000Z`,
+    updatedAt: `2026-07-2${number}T10:05:00.000Z`,
+    correctCount: 0,
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      questionId: `verified-miss-question-${number}`,
+      responseStatus: "incorrect",
+      isCorrect: false,
+      timestamp: `2026-07-2${number}T10:01:00.000Z`
+    }]
+  }));
+  const answerHistory = Array.from({ length: 100 }, (_, index) => ({
+    answerId: `unlinked-correct-${index}`,
+    studentId: student.id,
+    skill: "Initial Sounds",
+    diagnosticTarget: "/m/",
+    isCorrect: true,
+    timestamp: new Date(Date.UTC(2026, 6, 22, 12, index)).toISOString()
+  }));
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    assessmentHistory: attempts,
+    answerHistory,
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const initialM = model.wholeChild.concepts.find(row => (
+    row.construct === "initial_sound" && row.key === "m"
+  ));
+
+  assert.equal(initialM.evidenceBasis.observations, 3);
+  assert.equal(initialM.evidenceBasis.independentAttempts, 3);
+  assert.equal(initialM.status.id, REPORTING_STATUS_IDS.NEEDS_TEACHING);
+  assert.equal(initialM.lifetimeEvidenceBasis.observations, 103);
+  assert.equal(initialM.lifetimeEvidenceBasis.correct, 100);
+});
+
+test("supplemental answer history cannot erase a verified Secure conclusion", () => {
+  const attempts = [1, 2, 3].map(number => attempt({
+    attemptId: `verified-pass-${number}`,
+    completedAt: `2026-07-2${number}T10:05:00.000Z`,
+    updatedAt: `2026-07-2${number}T10:05:00.000Z`,
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      questionId: `verified-pass-question-${number}`,
+      timestamp: `2026-07-2${number}T10:01:00.000Z`
+    }]
+  }));
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    assessmentHistory: attempts,
+    answerHistory: [{
+      answerId: "unlinked-miss",
+      studentId: student.id,
+      skill: "Initial Sounds",
+      diagnosticTarget: "/m/",
+      isCorrect: false,
+      timestamp: "2026-07-22T12:00:00.000Z"
+    }],
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const initialM = model.wholeChild.concepts.find(row => (
+    row.construct === "initial_sound" && row.key === "m"
+  ));
+
+  assert.equal(initialM.evidenceBasis.observations, 3);
+  assert.equal(initialM.evidenceBasis.correct, 3);
+  assert.equal(initialM.status.id, REPORTING_STATUS_IDS.SECURE);
+  assert.equal(initialM.lifetimeEvidenceBasis.observations, 4);
+  assert.equal(initialM.lifetimeEvidenceBasis.correct, 3);
+});
+
+test("legacy fingerprint matching tolerates save clock drift but preserves a later repeat", () => {
+  const archivedAttempt = attempt({
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      prompt: "Which picture begins with /m/?",
+      selectedAnswer: "moon",
+      correctAnswer: "moon",
+      timestamp: "2026-07-20T10:01:00.000Z"
+    }]
+  });
+  const model = buildSkillsCheckReportModel({
+    student,
+    assessmentHistory: [archivedAttempt],
+    answerHistory: [
+      {
+        answerId: "clock-drift-copy",
+        studentId: student.id,
+        skill: "Initial Sounds",
+        diagnosticTarget: "/m/",
+        question: "Which picture begins with /m/?",
+        chosen: "moon",
+        correct: "moon",
+        isCorrect: true,
+        timestamp: "2026-07-20T10:01:01.000Z"
+      },
+      {
+        answerId: "later-real-repeat",
+        studentId: student.id,
+        skill: "Initial Sounds",
+        diagnosticTarget: "/m/",
+        question: "Which picture begins with /m/?",
+        chosen: "moon",
+        correct: "moon",
+        isCorrect: true,
+        timestamp: "2026-07-22T10:01:01.000Z"
+      }
+    ],
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+
+  assert.equal(model.provenance.answerHistoryRowsSuppressedByCanonicalAttempts, 1);
+  assert.equal(model.provenance.answerHistoryRowsUsed, 1);
+  assert.equal(model.items[0].details.observations, 1);
+  assert.equal(
+    model.knowledgeEvidence.find(row => row.sourceRecordType === "legacy_answer_history")
+      ?.details?.observations,
+    1
+  );
+});
+
+test("unknown-session answer aliases cannot manufacture independent attempts or Secure", () => {
+  const aliases = ["initial_sounds", "initial-sound", "Initial Sounds Check"];
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    answerHistory: aliases.map((skillId, index) => ({
+      answerId: `alias-${index}`,
+      studentId: student.id,
+      skillId,
+      skill: "Initial Sounds",
+      itemType: "initial_sound",
+      itemKey: "m",
+      isCorrect: true,
+      timestamp: `2026-07-2${index + 1}T10:00:00.000Z`
+    })),
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const initialM = model.wholeChild.concepts.find(row => (
+    row.construct === "initial_sound" && row.key === "m"
+  ));
+
+  assert.equal(initialM.evidenceBasis.observations, 3);
+  assert.equal(initialM.evidenceBasis.independentAttempts, 1);
+  assert.equal(initialM.status.id, REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+});
+
+test("unclassified saved answers report a skill overview rather than an answer choice as a learned item", () => {
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    answerHistory: [1, 2].map(number => ({
+      answerId: `key-detail-${number}`,
+      studentId: student.id,
+      skill: "Key Details",
+      question: `Different comprehension question ${number}`,
+      chosen: "Yes",
+      correct: "Yes",
+      isCorrect: true,
+      timestamp: `2026-07-2${number}T10:00:00.000Z`
+    })),
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const checked = model.wholeChild.concepts.filter(row => row.evidenceBasis.observations > 0);
+
+  assert.equal(checked.length, 1);
+  assert.equal(checked[0].construct, "skill_overview");
+  assert.equal(checked[0].key, "key_details");
+  assert.equal(checked[0].label, "Key Details");
+  assert.equal(checked[0].evidenceBasis.observations, 2);
+  assert.equal(model.wholeChild.concepts.some(row => row.label === "Yes"), false);
+});
+
+test("answer aggregates keep current and lifetime counts and their real date range separate", () => {
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    answerHistory: [
+      {
+        answerId: "old-m",
+        studentId: student.id,
+        skill: "Initial Sounds",
+        diagnosticTarget: "/m/",
+        isCorrect: true,
+        timestamp: "2025-07-01T10:00:00.000Z"
+      },
+      {
+        answerId: "current-m",
+        studentId: student.id,
+        skill: "Initial Sounds",
+        diagnosticTarget: "/m/",
+        isCorrect: false,
+        timestamp: "2026-07-22T10:00:00.000Z"
+      }
+    ],
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const initialM = model.wholeChild.concepts.find(row => (
+    row.construct === "initial_sound" && row.key === "m"
+  ));
+
+  assert.deepEqual(
+    {
+      observations: initialM.evidenceBasis.observations,
+      correct: initialM.evidenceBasis.correct,
+      windowStart: initialM.evidenceBasis.windowStart,
+      windowEnd: initialM.evidenceBasis.windowEnd
+    },
+    {
+      observations: 1,
+      correct: 0,
+      windowStart: "2026-07-22T10:00:00.000Z",
+      windowEnd: "2026-07-22T10:00:00.000Z"
+    }
+  );
+  assert.deepEqual(
+    {
+      observations: initialM.lifetimeEvidenceBasis.observations,
+      correct: initialM.lifetimeEvidenceBasis.correct,
+      windowStart: initialM.lifetimeEvidenceBasis.windowStart,
+      windowEnd: initialM.lifetimeEvidenceBasis.windowEnd
+    },
+    {
+      observations: 2,
+      correct: 1,
+      windowStart: "2025-07-01T10:00:00.000Z",
+      windowEnd: "2026-07-22T10:00:00.000Z"
+    }
+  );
+});
+
+test("an unmatched HFW answer stays neutral while known cloze and spelling formats remain separate", () => {
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    answerHistory: [
+      {
+        answerId: "unknown-hfw",
+        studentId: student.id,
+        skill: "High-Frequency Words",
+        itemType: "sight_word",
+        itemKey: "the",
+        isCorrect: true,
+        timestamp: "2026-07-22T10:00:00.000Z"
+      },
+      {
+        answerId: "cloze-hfw",
+        studentId: student.id,
+        skill: "High-Frequency Words",
+        itemType: "sight_word",
+        itemKey: "and",
+        templateType: "hfw_sentence_cloze",
+        isCorrect: true,
+        timestamp: "2026-07-22T10:01:00.000Z"
+      },
+      {
+        answerId: "spell-hfw",
+        studentId: student.id,
+        skill: "High-Frequency Words",
+        itemType: "sight_word",
+        itemKey: "said",
+        templateType: "hfw_sentence_spell",
+        isCorrect: true,
+        timestamp: "2026-07-22T10:02:00.000Z"
+      }
+    ],
+    now: new Date("2026-07-27T00:00:00.000Z")
+  });
+  const checked = model.wholeChild.concepts.filter(row => row.evidenceBasis.observations > 0);
+
+  assert.ok(checked.some(row => (
+    row.construct === "skill_overview" && row.key === "high_frequency_words"
+  )));
+  assert.ok(checked.some(row => row.construct === "word_in_context" && row.key === "and"));
+  assert.ok(checked.some(row => row.construct === "word_spelling" && row.key === "said"));
+  assert.equal(
+    checked.some(row => row.construct === "isolated_word_reading" && row.key === "the"),
+    false
+  );
+});
+
 test("source models enforce strict assessment boundaries", () => {
   const skill = attempt({ attemptId: "skill-only" });
   const diagnostic = attempt({ attemptId: "diagnostic", assessmentType: "diagnostic" });
@@ -443,7 +1041,8 @@ test("Whole Child uses strength precedence, reports direct conflicts, and treats
     concept,
     statusCandidate: REPORTING_STATUS_IDS.SECURE,
     outcome: "correct",
-    observedAt: "2026-07-20T10:00:00.000Z"
+    observedAt: "2026-07-20T10:00:00.000Z",
+    details: { observations: 3, independentAttempts: 3, correct: 3, accuracy: 100 }
   });
   const practiceNeeds = createReportingEvidence({
     evidenceId: "practice-needs",
@@ -456,7 +1055,8 @@ test("Whole Child uses strength precedence, reports direct conflicts, and treats
     concept,
     statusCandidate: REPORTING_STATUS_IDS.NEEDS_TEACHING,
     outcome: "reteach",
-    observedAt: "2026-07-21T10:00:00.000Z"
+    observedAt: "2026-07-21T10:00:00.000Z",
+    details: { observations: 3, independentAttempts: 3, correct: 0, accuracy: 0 }
   });
   const formalWins = buildWholeChildKnowledgeModel({
     student,
@@ -475,7 +1075,8 @@ test("Whole Child uses strength precedence, reports direct conflicts, and treats
     concept,
     statusCandidate: REPORTING_STATUS_IDS.NEEDS_TEACHING,
     outcome: "incorrect",
-    observedAt: "2026-07-21T10:00:00.000Z"
+    observedAt: "2026-07-21T10:00:00.000Z",
+    details: { observations: 3, independentAttempts: 3, correct: 0, accuracy: 0 }
   });
   const missingConcept = createReportingConcept({
     domain: "phonics",
@@ -516,7 +1117,8 @@ test("Whole Child does not keep an obsolete direct conflict forever", () => {
     evidenceKind: REPORTING_EVIDENCE_KINDS.FORMAL,
     concept,
     statusCandidate: REPORTING_STATUS_IDS.SECURE,
-    observedAt: "2025-01-01T00:00:00.000Z"
+    observedAt: "2025-01-01T00:00:00.000Z",
+    details: { observations: 3, independentAttempts: 3, correct: 3, accuracy: 100 }
   });
   const currentNeeds = createReportingEvidence({
     evidenceId: "current-needs",
@@ -528,7 +1130,8 @@ test("Whole Child does not keep an obsolete direct conflict forever", () => {
     evidenceKind: REPORTING_EVIDENCE_KINDS.TEACHER_OBSERVATION,
     concept,
     statusCandidate: REPORTING_STATUS_IDS.NEEDS_TEACHING,
-    observedAt: "2026-07-21T00:00:00.000Z"
+    observedAt: "2026-07-21T00:00:00.000Z",
+    details: { observations: 3, independentAttempts: 3, correct: 0, accuracy: 0 }
   });
   const model = buildWholeChildKnowledgeModel({ student, evidence: [oldSecure, currentNeeds] });
 
@@ -548,7 +1151,9 @@ test("practice-only success can never create Secure", () => {
     evidenceKind: REPORTING_EVIDENCE_KINDS.PRACTICE,
     concept: { domain: "phonics", construct: "grapheme_sound", key: "ai", label: "Sound for ai" },
     statusCandidate: REPORTING_STATUS_IDS.SECURE,
-    outcome: "mastered_in_game"
+    outcome: "mastered_in_game",
+    observedAt: "2026-07-21T00:00:00.000Z",
+    details: { observations: 3, independentAttempts: 3, correct: 3, accuracy: 100 }
   });
   const model = buildWholeChildKnowledgeModel({ student, evidence: [practice] });
 
@@ -629,7 +1234,7 @@ test("prebuilt raw practice evidence cannot bypass normalization or create Secur
     }]
   });
 
-  assert.equal(model.concepts[0].status.id, REPORTING_STATUS_IDS.DEVELOPING);
+  assert.equal(model.concepts[0].status.id, REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
   assert.equal(model.evidence[0].statusCandidate, REPORTING_STATUS_IDS.DEVELOPING);
   assert.equal(model.evidence[0].strength, 1);
   assert.equal(model.evidence[0].practiceOnly, true);
@@ -731,10 +1336,13 @@ test("EL 1 and 2 keep the latest terminal result current when a newer attempt is
   const letter = model.elAssessments.assessments[0];
 
   assert.equal(letter.latestAttempt.attemptId, "completed-letter");
-  assert.equal(letter.resultLabel, "Not enough evidence");
+  assert.equal(letter.resultLabel, "Not enough results");
   assert.deepEqual(letter.attempts.map(row => row.attemptId), ["partial-letter", "completed-letter"]);
   assert.equal(model.elAssessments.knowledgeEvidence[0].sourceRecordId, "completed-letter");
-  assert.equal(model.wholeChild.concepts.find(row => row.key === "m").status.id, REPORTING_STATUS_IDS.SECURE);
+  assert.equal(
+    model.wholeChild.concepts.find(row => row.key === "m").status.id,
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+  );
 });
 
 test("EL 3 to 6 cards and evidence obey the selected benchmark grade and window", () => {
@@ -788,7 +1396,7 @@ test("EL 3 to 6 cards and evidence obey the selected benchmark grade and window"
   assert.deepEqual(model.descriptiveEvidence.map(row => row.sourceRecordId), ["pa-grade-1-moy"]);
 });
 
-test("Skills Check current status, score and item judgment come from the newest terminal attempt", () => {
+test("Skills Check card uses the newest terminal attempt while item evidence keeps current independent attempts", () => {
   const makeCheckpoint = ({ attemptId, completedAt, responseStatus, passed }) => attempt({
     attemptId,
     completedAt,
@@ -835,7 +1443,10 @@ test("Skills Check current status, score and item judgment come from the newest 
   assert.equal(failedSkill.history.length, 2);
   assert.equal(failedItem.statusCandidate, REPORTING_STATUS_IDS.NEEDS_TEACHING);
   assert.equal(failedItem.provenance.currentAttemptId, "latest-fail");
-  assert.equal(failedLatest.wholeChild.concepts.find(row => row.key === "m").status.id, REPORTING_STATUS_IDS.NEEDS_TEACHING);
+  assert.equal(
+    failedLatest.wholeChild.concepts.find(row => row.key === "m").status.id,
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+  );
 
   const latestPass = makeCheckpoint({
     attemptId: "latest-pass",
@@ -851,8 +1462,14 @@ test("Skills Check current status, score and item judgment come from the newest 
     passedLatest.skillsCheck.skills[0].currentStatus.id,
     REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
   );
-  assert.equal(passedLatest.skillsCheck.items[0].statusCandidate, REPORTING_STATUS_IDS.SECURE);
-  assert.equal(passedLatest.wholeChild.concepts.find(row => row.key === "m").status.id, REPORTING_STATUS_IDS.SECURE);
+  assert.equal(
+    passedLatest.skillsCheck.items[0].statusCandidate,
+    REPORTING_STATUS_IDS.NEEDS_TEACHING
+  );
+  assert.equal(
+    passedLatest.wholeChild.concepts.find(row => row.key === "m").status.id,
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+  );
 });
 
 test("Whole Child exposes checked EL 3 to 6 summaries without adding mastery concepts", () => {
@@ -995,7 +1612,12 @@ test("Whole Child priorities are deterministic and ordered by need, evidence str
     evidenceKind: kind,
     concept: { domain: "phonics", construct: "grapheme_sound", key, label: `Sound for ${key}` },
     statusCandidate: status,
-    observedAt
+    observedAt,
+    details: status === REPORTING_STATUS_IDS.DEVELOPING
+      ? { observations: 4, independentAttempts: 4, correct: 3, accuracy: 75 }
+      : status === REPORTING_STATUS_IDS.SECURE
+        ? { observations: 3, independentAttempts: 3, correct: 3, accuracy: 100 }
+        : { observations: 3, independentAttempts: 3, correct: 0, accuracy: 0 }
   });
   const model = buildWholeChildKnowledgeModel({
     student,
@@ -1047,7 +1669,7 @@ test("Whole Child priorities are deterministic and ordered by need, evidence str
   assert.deepEqual(model.nextSteps.map(row => row.statusLabel), [
     "Needs support",
     "Needs support",
-    "Mixed evidence",
+    "Results differ",
     "Developing"
   ]);
 });

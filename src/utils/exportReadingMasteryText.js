@@ -52,9 +52,9 @@ function summarizeSkill(stage, answerHistory, mastery, currentStage) {
   const correct = records.filter(record => record.isCorrect).length;
   const summary = summarizeTargets(records);
   let note = `${stage.label}: ${correct} of ${records.length} correct. `;
-  if (data?.mastered) note += "Status: check passed. ";
+  if (data?.mastered) note += "Status: assessment passed. ";
   else if (stage.id === currentStage.id) note += "Status: current working skill. ";
-  else note += "Status: tried, check not yet passed. ";
+  else note += "Status: tried, assessment not yet passed. ";
   note += `\nSecure: ${summary.secure.length ? summary.secure.join(", ") : "No secure subskills recorded yet."}`;
   note += `\nDeveloping: ${summary.developing.length ? summary.developing.join(", ") : "No developing subskills recorded yet."}`;
   note += `\nNeeds practice: ${summary.needsPractice.length ? summary.needsPractice.join(", ") : "No specific needs recorded yet."}`;
@@ -80,7 +80,7 @@ export function buildReadingMasteryTextReport({
   studentName = "",
   totalAnswered = 0
 } = {}) {
-  const learnerName = studentName || "Unnamed child";
+  const learnerName = studentName || "Unnamed student";
   const generatedDate = generatedAt instanceof Date ? generatedAt : new Date(generatedAt);
   const provenanceText = exportProvenanceTextBlock(buildPresetExportProvenanceRows("reading-text", {
     className,
@@ -93,7 +93,7 @@ export function buildReadingMasteryTextReport({
   return `
 Reading Mastery Report
 
-Child: ${learnerName}
+Student: ${learnerName}
 Date: ${generatedDate.toISOString().slice(0, 10)}
 
 ${provenanceText}
@@ -124,9 +124,9 @@ Question results
 
 ${answerHistory.map((item, index) => `${index + 1}. Skill: ${item.stage}
 Question: ${buildQuestionExportText(item)}
-Child answered: ${formatExportValue(item.chosen)}
+Student answered: ${formatExportValue(item.chosen)}
 Correct answer: ${formatExportValue(item.correct)}
-Result: ${item.isCorrect ? "Correct" : "Incorrect"}`).join("\n\n")}
+Result: ${item.isCorrect ? "Correct" : "Needs another look"}`).join("\n\n")}
 
 Metric Definitions
 
@@ -137,7 +137,7 @@ ${buildMetricDefinitionsText()}
 export function exportReadingMasteryText(options = {}) {
   const generatedAt = options.generatedAt instanceof Date ? options.generatedAt : new Date(options.generatedAt);
   const reportText = buildReadingMasteryTextReport({ ...options, generatedAt });
-  const safeName = (options.studentName || "Unnamed child")
+  const safeName = (options.studentName || "Unnamed student")
     .replace(/[^a-z0-9]/gi, "_")
     .toLowerCase();
   const blob = new Blob([reportText], { type: "text/plain" });

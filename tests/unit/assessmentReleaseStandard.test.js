@@ -6,6 +6,7 @@ import {
   assessmentReleaseStandard,
   buildAssessmentReleaseBalanceReport,
   evaluateAssessmentSkillReleaseSummary,
+  getAssessmentReleaseMediaRequirement,
   getAssessmentQuestionAccessibilityIssues,
   selectAssessmentReleaseQuestions
 } from "../../src/content/releaseStandard.js";
@@ -107,6 +108,20 @@ test("accessibility rejects unlabeled choices but accepts constructed sound orde
     }, { skillId: "cvc_short_vowels" }),
     []
   );
+});
+
+test("explicit no-audio HFW sentence speech is not treated as a missing audio asset", () => {
+  const requirement = getAssessmentReleaseMediaRequirement("hfw_1_25", {
+    formatType: "HFW_SENTENCE_SPELL_L2P1_04",
+    prompt: "Listen to the sentence. Spell the missing word.",
+    sentenceAudio: "The small bird sat quietly.",
+    disableAudio: true,
+    noAudio: true
+  }, {
+    template: "HFW_SENTENCE_SPELL_L2P1_04"
+  });
+
+  assert.equal(requirement.requiresAudio, false);
 });
 
 test("generated publication status covers the canonical skill set and version", () => {

@@ -10,7 +10,7 @@ import {
  * student-home recommendations all live here. Reporting and presentation code
  * may ask this module for a conclusion; it must not recreate these rules.
  */
-export const LEARNING_POLICY_VERSION = "2026.07.24-a4.3";
+export const LEARNING_POLICY_VERSION = "2026.07.28-a4.3b";
 export const STUDENT_HOME_RECOMMENDATION_POLICY_VERSION = "2026.07.24";
 
 export const LEARNING_STATUS_IDS = Object.freeze({
@@ -19,6 +19,12 @@ export const LEARNING_STATUS_IDS = Object.freeze({
   NEEDS_SUPPORT: "needs_support",
   NOT_ENOUGH_EVIDENCE: "not_enough_evidence",
   NOT_CHECKED: "not_checked"
+});
+
+export const LEARNING_CONCLUSION_SCOPES = Object.freeze({
+  GENERAL: "general",
+  SKILL: "skill",
+  ITEM: "item"
 });
 
 export const LEARNING_STATUS_LABELS = Object.freeze({
@@ -39,6 +45,7 @@ export const LEARNING_EVIDENCE_POLICY = Object.freeze({
   }),
   minimumEvidence: Object.freeze({
     learnerScoredResponses: 8,
+    learnerSkillDiversity: 2,
     exactItemIndependentAttempts: 3
   }),
   recency: Object.freeze({
@@ -63,6 +70,25 @@ export const LEARNING_EVIDENCE_POLICY = Object.freeze({
 });
 
 const DAY_MS = 24 * 60 * 60 * 1000;
+
+function evidenceRequirementsForScope(scope) {
+  if (scope === LEARNING_CONCLUSION_SCOPES.SKILL) {
+    return {
+      minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
+      minimumSkillDiversity: 1
+    };
+  }
+  if (scope === LEARNING_CONCLUSION_SCOPES.ITEM) {
+    return {
+      minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
+      minimumSkillDiversity: 1
+    };
+  }
+  return {
+    minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
+    minimumSkillDiversity: LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerSkillDiversity
+  };
+}
 
 function finitePolicyNumber(value) {
   if (value === "" || value === null || value === undefined) return null;
@@ -101,15 +127,32 @@ export function isLearningEvidenceRecent(
 export function learningConfidence({
   attempts = 0,
   skillDiversity = 0,
-  minimumAttempts = LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses
+  minimumAttempts = LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
+  minimumSkillDiversity = LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerSkillDiversity
 } = {}) {
   const normalizedAttempts = Math.max(0, finitePolicyNumber(attempts) || 0);
   const normalizedDiversity = Math.max(0, finitePolicyNumber(skillDiversity) || 0);
+  const requiredDiversity = Math.max(
+    1,
+    finitePolicyNumber(minimumSkillDiversity)
+      || LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerSkillDiversity
+  );
   if (normalizedAttempts < minimumAttempts) {
     return {
       id: "not-enough-evidence",
       label: LEARNING_STATUS_LABELS[LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE],
       detail: `${normalizedAttempts} of ${minimumAttempts} required attempts`,
+      sufficient: false,
+      policyVersion: LEARNING_POLICY_VERSION
+    };
+  }
+  if (normalizedDiversity < requiredDiversity) {
+    return {
+      id: "limited-diversity",
+      label: normalizedDiversity === 1
+        ? "Results cover one skill"
+        : "Results do not identify enough skills",
+      detail: `${normalizedDiversity} of ${requiredDiversity} required skills`,
       sufficient: false,
       policyVersion: LEARNING_POLICY_VERSION
     };
@@ -136,9 +179,9 @@ export function learningConfidence({
     };
   }
   return {
-    id: "limited-diversity",
-    label: "Limited diversity",
-    detail: `${normalizedAttempts} scored answers across ${normalizedDiversity} recorded skills`,
+    id: "single-skill",
+    label: "Enough results for this skill",
+    detail: `${normalizedAttempts} scored answers across ${normalizedDiversity} recorded skill`,
     sufficient: true,
     policyVersion: LEARNING_POLICY_VERSION
   };
@@ -157,21 +200,32 @@ export function rawLearningStatus(accuracy) {
 }
 
 export function evaluateLearningConclusion({
+  scope = LEARNING_CONCLUSION_SCOPES.GENERAL,
   accuracy = null,
   attempts = 0,
   skillDiversity = 0,
   observedAt = "",
   now = new Date(),
-  minimumAttempts = LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
+  minimumAttempts = null,
+  minimumSkillDiversity = null,
   requireRecency = true,
   allowUndated = false
 } = {}) {
+  if (!Object.values(LEARNING_CONCLUSION_SCOPES).includes(scope)) {
+    throw new Error(`Unknown learning conclusion scope: ${scope}`);
+  }
+  const requirements = evidenceRequirementsForScope(scope);
+  const requiredAttempts = finitePolicyNumber(minimumAttempts)
+    ?? requirements.minimumAttempts;
+  const requiredSkillDiversity = finitePolicyNumber(minimumSkillDiversity)
+    ?? requirements.minimumSkillDiversity;
   const normalizedAccuracy = normalizeAccuracyPercent(accuracy);
   const normalizedAttempts = Math.max(0, finitePolicyNumber(attempts) || 0);
   const confidence = learningConfidence({
     attempts: normalizedAttempts,
     skillDiversity,
-    minimumAttempts
+    minimumAttempts: requiredAttempts,
+    minimumSkillDiversity: requiredSkillDiversity
   });
   const recent = !requireRecency || isLearningEvidenceRecent(observedAt, { now, allowUndated });
   const hasScoredEvidence = normalizedAttempts > 0 && normalizedAccuracy !== null;
@@ -185,13 +239,15 @@ export function evaluateLearningConclusion({
   return {
     policyId: LEARNING_EVIDENCE_POLICY.id,
     policyVersion: LEARNING_POLICY_VERSION,
+    scope,
     status: {
       id: statusId,
       label: LEARNING_STATUS_LABELS[statusId]
     },
     accuracy: normalizedAccuracy,
     attempts: normalizedAttempts,
-    minimumAttempts,
+    minimumAttempts: requiredAttempts,
+    minimumSkillDiversity: requiredSkillDiversity,
     observedAt: observedAt || "",
     recent,
     confidence,
@@ -226,17 +282,17 @@ export function evaluateClassComparability({
 
   if (ready < LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners) {
     reasons.push(
-      `${ready} of ${LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners} children have enough results`
+      `${ready} of ${LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyLearners} students have enough results`
     );
   }
   if (readyProportion < LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyProportion) {
     reasons.push(
-      `${Math.round(readyProportion * 100)}% of children have enough results; `
+      `${Math.round(readyProportion * 100)}% of students have enough results; `
       + `${Math.round(LEARNING_EVIDENCE_POLICY.comparison.minimumPolicyReadyProportion * 100)}% required`
     );
   }
   if (counts.length !== ready) {
-    reasons.push("one or more children has no scored-answer count");
+    reasons.push("one or more students has no scored-answer count");
   }
   if (
     responseImbalanceRatio !== null
@@ -274,6 +330,7 @@ export function meetsLearningProgressionRule({
   allowUndated = false
 } = {}) {
   const conclusion = evaluateLearningConclusion({
+    scope: LEARNING_CONCLUSION_SCOPES.ITEM,
     accuracy,
     attempts,
     skillDiversity: 1,

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   WORKSHEET_TYPES,
   worksheetCycleOptions,
+  worksheetCycleLabel,
   getWorksheetCycle,
   availableWorksheetTypes,
   buildWorksheetDocument,
@@ -12,14 +13,25 @@ import {
   saveWorksheetRecipe,
   deleteWorksheetRecipe
 } from "../utils/worksheets/worksheetBank.js";
-import { printPracticePack, packStopOptions } from "../utils/worksheets/practicePack.js";
+import { ActionFeedback } from "./ActionFeedback.jsx";
 import "../styles/worksheets.css";
 
 const TYPE_LABEL = Object.fromEntries(WORKSHEET_TYPES.map(t => [t.id, t.label]));
 
 const LAST_CYCLE_KEY = "lp-worksheets-last-cycle";
 
-export function WorksheetGeneratorPage() {
+function describeWorksheetBankLoadError(error) {
+  const detail = `${error?.code || ""} ${error?.message || ""}`.toLowerCase();
+  if (/(failed to fetch|network|offline|timeout|load failed)/.test(detail)) {
+    return "We couldn't reach your saved worksheet bank. Check your connection and try again. You can still build and print a new worksheet.";
+  }
+  if (/(permission|policy|jwt|authori[sz]|401|403)/.test(detail)) {
+    return "Your teacher session could not open the saved worksheet bank. Try again, then sign in again if it still fails. You can still build and print a new worksheet.";
+  }
+  return "Your saved worksheet bank could not be loaded. Try again. You can still build and print a new worksheet.";
+}
+
+export function WorksheetGeneratorPage({ className = "", onBack }) {
   const cycleOptions = useMemo(() => worksheetCycleOptions(), []);
   const [cycleId, setCycleId] = useState(() => {
     // Default to the cycle the teacher used last time.
@@ -32,17 +44,13 @@ export function WorksheetGeneratorPage() {
   const [type, setType] = useState("");
   const [pages, setPages] = useState(2);
   const [bank, setBank] = useState([]);
+  const [bankReadState, setBankReadState] = useState({
+    status: "loading",
+    message: ""
+  });
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState("");
-
-  // Sound practice pack (per child) — the Sound Seekers home pack, built by
-  // hand here. Each child's Sound map on the class dashboard prints the same
-  // pack pre-filled from that child's own evidence.
-  const packStops = useMemo(() => packStopOptions(), []);
-  const [packName, setPackName] = useState("");
-  const [packTargets, setPackTargets] = useState("");
-  const [packStop, setPackStop] = useState(packStops[packStops.length - 1]?.index || 1);
-  const [packNote, setPackNote] = useState("");
+  const [deleteCandidate, setDeleteCandidate] = useState("");
 
   const cycle = useMemo(() => getWorksheetCycle(cycleId), [cycleId]);
   const availableTypes = useMemo(() => availableWorksheetTypes(cycle), [cycle]);
@@ -52,16 +60,35 @@ export function WorksheetGeneratorPage() {
   const effectiveType = availableTypes.includes(type) ? type : (availableTypes[0] || "");
 
   async function refreshBank() {
-    const { rows } = await listWorksheetRecipes();
+    setBankReadState({ status: "loading", message: "" });
+    const { rows, error } = await listWorksheetRecipes();
+    if (error) {
+      setBankReadState({
+        status: "error",
+        message: describeWorksheetBankLoadError(error)
+      });
+      return false;
+    }
     setBank(rows);
+    setBankReadState({ status: "complete", message: "" });
+    return true;
   }
 
   // Load the saved bank once on mount.
   useEffect(() => {
     let alive = true;
     (async () => {
-      const { rows } = await listWorksheetRecipes();
-      if (alive) setBank(rows);
+      const { rows, error } = await listWorksheetRecipes();
+      if (!alive) return;
+      if (error) {
+        setBankReadState({
+          status: "error",
+          message: describeWorksheetBankLoadError(error)
+        });
+        return;
+      }
+      setBank(rows);
+      setBankReadState({ status: "complete", message: "" });
     })();
     return () => { alive = false; };
   }, []);
@@ -77,8 +104,8 @@ export function WorksheetGeneratorPage() {
     try {
       const ok = printWorksheet(recipe);
       if (!ok) setNote("Please allow pop-ups for this site so the worksheet can open.");
-    } catch (error) {
-      setNote(error.message || "Could not generate that worksheet.");
+    } catch {
+      setNote("We couldn't open that worksheet. Nothing was saved or changed. Try again.");
     }
   }
 
@@ -91,45 +118,66 @@ export function WorksheetGeneratorPage() {
       if (error) {
         setNote("Saved worksheets need you to be signed in as a teacher. (Could not save right now.)");
       } else {
-        await refreshBank();
-        setNote("Saved to your worksheet bank.");
+        const refreshed = await refreshBank();
+        setNote(refreshed
+          ? "Saved to your worksheet bank."
+          : "Saved, but the worksheet bank could not be refreshed. Reload the page to see it.");
       }
-    } catch (error) {
-      setNote(error.message || "Could not save that worksheet.");
+    } catch {
+      setNote("We couldn't save that worksheet. Your choices are still here. Try again.");
     } finally {
       setBusy(false);
     }
   }
 
   async function handleDelete(id) {
-    await deleteWorksheetRecipe(id);
-    await refreshBank();
-  }
-
-  function handlePackPrint() {
+    if (busy) return;
+    setBusy(true);
+    setNote("");
     try {
-      const result = printPracticePack({
-        name: packName,
-        targets: packTargets.split(","),
-        stopIndex: packStop
-      });
-      if (!result) {
-        setPackNote("Please allow pop-ups for this site so the pack can open.");
+      const { error } = await deleteWorksheetRecipe(id);
+      if (error) {
+        setNote("We couldn't remove that saved worksheet. Nothing was changed. Try again.");
         return;
       }
-      setPackNote(result.skipped.length
-        ? `Pack opened. Skipped (too few decodable words at this stop): ${result.skipped.join(", ")}`
-        : "Pack opened in a new window.");
-    } catch (error) {
-      setPackNote(error.message || "Could not build that pack.");
+      const refreshed = await refreshBank();
+      setDeleteCandidate("");
+      setNote(refreshed
+        ? "Saved worksheet removed."
+        : "The worksheet was removed, but the bank could not be refreshed. Reload the page.");
+    } catch {
+      setNote("We couldn't remove that saved worksheet. Nothing was changed. Try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function openSavedWorksheet(item) {
+    try {
+      const opened = printWorksheet({
+        cycleId: item.cycle_id,
+        type: item.type,
+        pages: item.pages
+      });
+      setNote(opened
+        ? ""
+        : "Please allow pop-ups for this site so the worksheet can open.");
+    } catch {
+      setNote("We couldn't open that worksheet. Nothing was changed. Try again.");
     }
   }
 
   return (
-    <div className="ws-page">
+    <main className="ws-page" data-teacher-route="worksheets">
+      <nav className="ws-route-nav" aria-label="Worksheet navigation">
+        <button type="button" className="ws-back-link" onClick={onBack}>
+          ← Back to Resources
+        </button>
+      </nav>
       <header className="ws-page-head">
         <h1>Worksheet generator</h1>
-        <p>Build printable worksheets straight from a cycle's curriculum — or a per-child sound practice pack from Sound Seekers. Choose your options, then download a PDF.</p>
+        <p>Choose the teaching cycle and the practice you need. We will open a print preview.</p>
+        {className && <span className="ws-context">Class: {className}</span>}
       </header>
 
       <section className="ws-builder" aria-label="Worksheet options">
@@ -137,7 +185,7 @@ export function WorksheetGeneratorPage() {
           <span>Cycle</span>
           <select value={cycleId} onChange={e => rememberCycle(e.target.value)}>
             {cycleOptions.map(opt => (
-              <option key={opt.id} value={opt.id}>Cycle {opt.cycleNumber} — {opt.title}</option>
+              <option key={opt.id} value={opt.id}>{worksheetCycleLabel(opt)}</option>
             ))}
           </select>
         </label>
@@ -161,10 +209,17 @@ export function WorksheetGeneratorPage() {
         </label>
 
         <p className="ws-blurb">{WORKSHEET_TYPES.find(t => t.id === effectiveType)?.blurb}</p>
+        <p className="ws-selection-summary" aria-live="polite">
+          <strong>{worksheetCycleLabel(cycle)}</strong>
+          {" · "}
+          {TYPE_LABEL[effectiveType] || "Choose a worksheet"}
+          {" · "}
+          {pages} page{pages === 1 ? "" : "s"}
+        </p>
 
         <div className="ws-actions">
           <button type="button" className="ws-primary" onClick={handleGenerate} disabled={!effectiveType}>
-            Generate &amp; download PDF
+            Open print preview
           </button>
           <button type="button" className="ws-ghost" onClick={handleSave} disabled={!effectiveType || busy}>
             Save to bank
@@ -173,58 +228,25 @@ export function WorksheetGeneratorPage() {
         {note && <p className="ws-note" role="status">{note}</p>}
       </section>
 
-      <section className="ws-builder" aria-label="Sound practice pack">
-        <h2 className="ws-subhead">Sound practice pack (per child)</h2>
-
-        <label className="ws-field">
-          <span>Child&rsquo;s first name</span>
-          <input
-            type="text"
-            value={packName}
-            maxLength={40}
-            placeholder="Sam"
-            onChange={e => setPackName(e.target.value)}
-          />
-        </label>
-
-        <label className="ws-field">
-          <span>Sounds, weakest first</span>
-          <input
-            type="text"
-            value={packTargets}
-            placeholder="sh, ch, e, ll, st"
-            onChange={e => setPackTargets(e.target.value)}
-          />
-        </label>
-
-        <label className="ws-field">
-          <span>Taught up to</span>
-          <select value={packStop} onChange={e => setPackStop(Number(e.target.value))}>
-            {packStops.map(stop => (
-              <option key={stop.index} value={stop.index}>Stop {stop.index} — {stop.name}</option>
-            ))}
-          </select>
-        </label>
-
-        <p className="ws-blurb">
-          Two pages: a five-minute daily routine for the adult, and a large-type word page for the child.
-          Every word is fully decodable at the chosen stop. Tip: each child&rsquo;s Sound map on the class
-          dashboard prints this pack pre-filled from their own evidence.
-        </p>
-
-        <div className="ws-actions">
-          <button type="button" className="ws-primary" onClick={handlePackPrint} disabled={!packName.trim() || !packTargets.trim()}>
-            Print practice pack
-          </button>
-        </div>
-        {packNote && <p className="ws-note" role="status">{packNote}</p>}
-      </section>
-
       <section className="ws-bank" aria-label="Saved worksheets">
         <h2>Your worksheet bank</h2>
-        {bank.length === 0 ? (
+        {bankReadState.status === "loading" && (
+          <p className="ws-bank-loading" role="status">Loading saved worksheets…</p>
+        )}
+        {bankReadState.status === "error" && (
+          <ActionFeedback
+            className="ws-bank-feedback"
+            feedback={{
+              kind: "error",
+              message: bankReadState.message,
+              actionLabel: "Try again",
+              onAction: refreshBank
+            }}
+          />
+        )}
+        {bankReadState.status === "complete" && bank.length === 0 ? (
           <p className="ws-empty">No saved worksheets yet. Build one above and press “Save to bank”.</p>
-        ) : (
+        ) : bankReadState.status === "complete" ? (
           <ul className="ws-bank-list">
             {bank.map(item => (
               <li key={item.id}>
@@ -233,18 +255,35 @@ export function WorksheetGeneratorPage() {
                   <span>{item.pages} page{item.pages === 1 ? "" : "s"}</span>
                 </div>
                 <div className="ws-bank-actions">
-                  <button type="button" className="ws-ghost" onClick={() => printWorksheet({ cycleId: item.cycle_id, type: item.type, pages: item.pages })}>
-                    Download
+                  <button type="button" className="ws-ghost" onClick={() => openSavedWorksheet(item)}>
+                    Open
                   </button>
-                  <button type="button" className="ws-danger" onClick={() => handleDelete(item.id)} aria-label={`Delete ${item.title}`}>
-                    Remove
-                  </button>
+                  {deleteCandidate === item.id ? (
+                    <>
+                      <button type="button" className="ws-danger" disabled={busy} onClick={() => handleDelete(item.id)}>
+                        Confirm remove
+                      </button>
+                      <button type="button" className="ws-ghost" disabled={busy} onClick={() => setDeleteCandidate("")}>
+                        Keep
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      className="ws-danger"
+                      disabled={busy}
+                      onClick={() => setDeleteCandidate(item.id)}
+                      aria-label={`Remove ${item.title || "saved worksheet"}`}
+                    >
+                      Remove
+                    </button>
+                  )}
                 </div>
               </li>
             ))}
           </ul>
-        )}
+        ) : null}
       </section>
-    </div>
+    </main>
   );
 }

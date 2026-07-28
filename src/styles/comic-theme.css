@@ -665,7 +665,7 @@
   line-height: 0.95;
 }
 /* Section headings ("Level A Adventures") pick up the display face */
-.student-mode-app .story-quest-learn-page .learn-story-level-header h3 {
+.student-mode-app .story-quest-learn-page .learn-story-level-header h2 {
   font-family: var(--comic-display);
   font-style: italic;
   text-transform: uppercase;
@@ -1154,12 +1154,13 @@
 .student-mode-app .story-quest-stars .on { color: var(--comic-star); -webkit-text-stroke: 1.5px var(--comic-ink); }
 .student-mode-app .story-quest-stars .off { color: #fff; -webkit-text-stroke: 1.5px var(--comic-ink); }
 .student-mode-app .story-quest-status {
-  display: inline-block; width: fit-content; background: var(--comic-success); color:#fff;
+  display: inline-block; width: fit-content; background: var(--comic-success); color: var(--comic-ink) !important;
   border: 2px solid var(--comic-ink); border-radius: 6px; box-shadow: 2px 2px 0 var(--comic-ink);
   padding: 2px 8px 3px; font-weight: 900; font-size: 0.7rem; text-transform: uppercase;
 }
-.student-mode-app .story-quest-status.not-started { background: var(--comic-yellow); color: var(--comic-ink); }
-.student-mode-app .story-quest-status.completed { background: var(--comic-green); }
+.student-mode-app .story-quest-status.not-started { background: var(--comic-yellow); color: var(--comic-ink) !important; }
+.student-mode-app .story-quest-status.completed { background: var(--comic-green); color: var(--comic-ink) !important; }
+.student-mode-app.lp-skin-sage .story-quest-status:not(.not-started) { color: #fff !important; }
 
 @media (max-width: 860px) {
   .student-mode-app .story-quest-learn-page .story-quest-body { flex-direction: column; }

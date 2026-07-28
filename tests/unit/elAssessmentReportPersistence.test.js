@@ -2,19 +2,25 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  blockAndWaitForElAssessmentReportOperations,
   buildClassElAssessmentReportData,
   buildStudentElAssessmentReportData,
   compactElAssessmentReportForStorage,
   deleteSavedClassElAssessmentReportsForStudent,
   deleteSavedElAssessmentReport,
   deleteSavedElAssessmentReportsForStudent,
+  filterSavedElAssessmentReportsForClassRoster,
   getSavedClassElAssessmentReportsForStudent,
   getSavedElAssessmentReports,
   hydrateElAssessmentReports,
+  redactSavedClassElAssessmentReportsForStudent,
   savedClassElAssessmentReportContainsStudent,
   saveElAssessmentReport
 } from "../../src/data/elAssessmentReportStore.js";
-import { createClassElAssessmentWorkbook } from "../../src/utils/exportElAssessmentExcel.js";
+import {
+  buildElExportProvenanceRows,
+  createClassElAssessmentWorkbook
+} from "../../src/utils/exportElAssessmentExcel.js";
 
 function worksheetRows(sheet) {
   const headers = sheet.getRow(1).values.slice(1).map(String);
@@ -56,6 +62,25 @@ function createSupabaseReportMock(initialRows = []) {
   };
   return {
     state,
+    call(name, payload) {
+      assert.equal(name, "teacher_delete_saved_assessment_report");
+      if (state.rejectDelete) {
+        return Promise.resolve({
+          data: null,
+          error: new Error("cloud delete rejected")
+        });
+      }
+      const before = state.rows.length;
+      state.rows = state.rows.filter(row => row.report_id !== payload.p_report_id);
+      return Promise.resolve({
+        data: before === state.rows.length
+          ? null
+          : { ok: true, reportId: payload.p_report_id },
+        error: before === state.rows.length
+          ? new Error("report not found")
+          : null
+      });
+    },
     table(table) {
       assert.equal(table, "el_assessment_reports");
       return {
@@ -146,6 +171,160 @@ function reportFixture(overrides = {}) {
     ...overrides
   };
 }
+
+test("saved EL report actions are isolated to the selected class and its current roster", () => {
+  const reports = [
+    reportFixture({
+      reportId: "class-a-report",
+      reportType: "whole_class",
+      classId: "class-a",
+      studentId: ""
+    }),
+    reportFixture({
+      reportId: "student-a-report",
+      reportType: "individual",
+      classId: "class-a",
+      studentId: "student-a"
+    }),
+    reportFixture({
+      reportId: "student-left-report",
+      reportType: "individual",
+      classId: "class-a",
+      studentId: "student-left"
+    }),
+    reportFixture({
+      reportId: "class-b-report",
+      reportType: "whole_class",
+      classId: "class-b",
+      studentId: ""
+    }),
+    reportFixture({
+      reportId: "student-b-report",
+      reportType: "individual",
+      classId: "class-b",
+      studentId: "student-b"
+    }),
+    reportFixture({
+      reportId: "legacy-name-only",
+      reportType: "individual",
+      classId: "class-a",
+      studentId: "",
+      studentName: "Ada"
+    })
+  ];
+  const classAVisible = filterSavedElAssessmentReportsForClassRoster(reports, {
+    classId: "class-a",
+    students: [
+      { id: "student-a", class_id: "class-a" },
+      { id: "student-b", class_id: "class-b" }
+    ]
+  });
+
+  assert.deepEqual(
+    new Set(classAVisible.map(report => report.reportId)),
+    new Set(["class-a-report", "student-a-report"])
+  );
+  assert.equal(
+    classAVisible.some(report => report.reportId === "class-b-report"),
+    false,
+    "Class B exports must never expose download/delete actions in Class A"
+  );
+  assert.equal(
+    classAVisible.some(report => report.reportId === "student-left-report"),
+    false,
+    "individual reports require current stable-ID roster membership"
+  );
+});
+
+test("the chosen class-report date period is retained in EL export provenance", () => {
+  const report = buildClassElAssessmentReportData({
+    assessmentHistory: [],
+    students: [],
+    classes: [{ id: "class-a", name: "Class A" }],
+    classId: "class-a",
+    teacherId: "teacher-1",
+    reportPeriod: {
+      key: "last30",
+      label: "Last 30 days"
+    },
+    now: new Date("2026-07-28T09:00:00.000Z")
+  });
+  assert.deepEqual(report.selectedDatePeriod, {
+    key: "last30",
+    label: "Last 30 days",
+    start: "",
+    end: ""
+  });
+  const filters = buildElExportProvenanceRows(report, "whole_class")
+    .find(row => row.field === "Filters")?.value || "";
+  assert.match(filters, /Class report date period: Last 30 days/);
+});
+
+test("learner deletion waits for stale report hydration and blocks local report resurrection", async () => {
+  globalThis.localStorage = createLocalStorage();
+  let finishPage;
+  const staleReport = reportFixture({
+    reportId: "privacy-stale-report",
+    teacherId: "teacher-privacy",
+    studentId: "student-privacy"
+  });
+  const builder = {
+    eq() {
+      return builder;
+    },
+    order() {
+      return builder;
+    },
+    range() {
+      return new Promise(resolve => {
+        finishPage = resolve;
+      });
+    }
+  };
+  const client = {
+    table() {
+      return {
+        select() {
+          return builder;
+        }
+      };
+    }
+  };
+
+  const hydration = hydrateElAssessmentReports({
+    teacherId: "teacher-privacy",
+    supabase: client
+  });
+  await new Promise(resolve => setImmediate(resolve));
+  const blocked = blockAndWaitForElAssessmentReportOperations({
+    teacherId: "teacher-privacy",
+    studentId: "student-privacy",
+    studentName: "Ada"
+  });
+  finishPage({
+    data: [{
+      report_id: staleReport.reportId,
+      report_type: staleReport.reportType,
+      class_id: staleReport.classId,
+      student_id: staleReport.studentId,
+      teacher_id: staleReport.teacherId,
+      generated_at: staleReport.generatedAt,
+      file_name: staleReport.fileName,
+      schema_version: staleReport.schemaVersion,
+      payload: staleReport
+    }],
+    error: null
+  });
+  await Promise.all([hydration, blocked]);
+
+  assert.equal(getSavedElAssessmentReports({ teacherId: "teacher-privacy" }).length, 0);
+  const rejected = await saveElAssessmentReport(staleReport, {
+    teacherId: "teacher-privacy",
+    supabase: client
+  });
+  assert.equal(rejected.durable, false);
+  assert.equal(rejected.localError.code, "LP_LEARNER_WRITE_BLOCKED");
+});
 
 test("EL report data and persisted history never retain Guided Reading payloads", () => {
   const report = buildStudentElAssessmentReportData({
@@ -458,6 +637,49 @@ test("class reports containing a reset student can be identified and deleted loc
   assert.deepEqual(result.deletedReportIds, ["class-with-target"]);
   assert.deepEqual(result.reports.map(report => report.reportId), ["class-without-target"]);
   assert.deepEqual(supabase.state.rows.map(row => row.report_id), ["class-without-target"]);
+});
+
+test("learner deletion redacts a shared local report instead of deleting classmates", async t => {
+  const priorStorage = globalThis.localStorage;
+  globalThis.localStorage = createLocalStorage();
+  t.after(() => {
+    if (priorStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = priorStorage;
+  });
+  const targetReport = reportFixture({
+    reportId: "class-with-target",
+    reportType: "whole_class",
+    studentId: "",
+    studentName: "",
+    studentRows: [
+      { studentId: "student-target", studentName: "Ada", accuracy: 90 },
+      { studentId: "student-2", studentName: "Leo", accuracy: 70 }
+    ],
+    summary: {
+      byStudentId: {
+        "student-target": { accuracy: 90 },
+        "student-2": { accuracy: 70 }
+      }
+    }
+  });
+  await saveElAssessmentReport(targetReport, { teacherId: "teacher-1" });
+
+  const result = redactSavedClassElAssessmentReportsForStudent({
+    teacherId: "teacher-1",
+    studentId: "student-target",
+    studentName: "Ada"
+  });
+  const retained = result.reports.find(report => report.reportId === "class-with-target");
+
+  assert.deepEqual(result.redactedReportIds, ["class-with-target"]);
+  assert.ok(retained, "the shared report must remain");
+  assert.deepEqual(retained.studentRows, [
+    { studentId: "student-2", studentName: "Leo", accuracy: 70 }
+  ]);
+  assert.deepEqual(retained.summary.byStudentId, {
+    "student-2": { accuracy: 70 }
+  });
+  assert.doesNotMatch(JSON.stringify(retained), /student-target/);
 });
 
 test("a realistic 25-student, 100-attempt class report compacts below the bounded local quota", async t => {

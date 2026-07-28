@@ -33,6 +33,16 @@ Customer Data.
   scoped security-definer functions.
 - Learner entry uses a class code, picture credential, expiring scoped token,
   throttling, and generic failures.
+- Archiving a learner revokes every active learner session at the database
+  table boundary. Archived learners cannot obtain a new login or submit a
+  question report; restoring a learner permits a fresh login but never revives
+  an old token.
+- Teacher-account approval decisions run through one administrator RPC.
+  Reviewer identity and decision times come from the authenticated database
+  session and database clock, not from browser fields.
+- School-directory creation is restricted to approved teachers and
+  administrators and is bounded per account; the private signup trigger retains
+  its own validated onboarding path.
 - Class codes can expire or be regenerated; anomaly events are privacy-minimal.
 - Leaderboards derive scope on the server and return deterministic pseudonyms
   rather than learner, class, or school identifiers.
@@ -56,9 +66,12 @@ Customer Data.
 - Formal assessment evidence is versioned, replayable, and immutable after
   completion.
 - Operational errors use bounded schemas, release identity, sampling,
-  fingerprinting, flood control, 30-day server expiry, and a redacted local
-  fallback. Names, answers, arbitrary messages, full URLs, tokens, and account,
-  school, class, or learner IDs are excluded.
+  fingerprinting, atomic caller/network/global flood control, 30-day server
+  expiry, and a redacted local fallback. Names, answers, arbitrary messages,
+  full URLs, tokens, and account, school, class, or learner IDs are excluded.
+- Student question reports retain idempotent retries but use per-session,
+  per-learner, and school-wide hourly limits so one device, repeated sessions,
+  or a whole-school flood cannot overwhelm the private review queue.
 - Access-security events use one-way fingerprints and generic event types
   rather than raw class codes, passwords, device IDs, network addresses, or
   child names.

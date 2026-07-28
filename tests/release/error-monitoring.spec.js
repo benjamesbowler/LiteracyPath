@@ -32,7 +32,7 @@ test("A8.6 deliberate redacted error reaches the release-tagged admin monitor", 
   await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
   await page.getByRole("textbox", { name: "Email" }).fill("audit-admin@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });

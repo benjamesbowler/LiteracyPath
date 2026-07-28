@@ -4,7 +4,11 @@ import {
 } from "./classApiCompatibility.js";
 import {
   LEARNER_DELETION_CONFIRMATION,
+  buildLearnerLocalCleanupProof,
+  completeLearnerDeletion,
   deleteLearnerData,
+  findPendingLearnerDeletion,
+  loadLearnerDeletionStatus,
   prepareLearnerDeletion
 } from "./learnerDataRights.js";
 
@@ -103,6 +107,20 @@ export function describeRosterOperationError(error, {
   if (error.code === "LP_ROSTER_NO_ROWS" || error.code === "P0002" || error.code === "PGRST116") {
     return `${failed} ${name} was not found in this class, so nothing was changed. Someone may have already changed the roster on another device. Reload the page to see who is in the class now.`;
   }
+  if (
+    operation === "transfer"
+    && (error.code === "LP_INVALID_TRANSFER_TARGET" || error.code === "22023")
+  ) {
+    return `${failed} Choose a different class from this account and try again. Nothing was changed.`;
+  }
+  if (
+    error.code === "LP_LOCAL_CLEANUP_REQUIRED"
+    || error.code === "LP_LOCAL_CLEANUP_INCOMPLETE"
+    || error.code === "LP_DELETION_MARKER_CLEANUP_FAILED"
+    || error.databaseDeleted
+  ) {
+    return `The saved records for ${name} were removed, but this browser has not finished clearing its local copy. Keep this browser open and choose “Finish cleanup” or delete ${name} again. The privacy request will stay open until that check succeeds.`;
+  }
   // Deliberately no raw database prose. A teacher cannot act on "Could not find
   // the function public.teacher_prepare_learner_deletion(p_requester_role,
   // p_student_id, p_verification_method) in the schema cache" — that sentence
@@ -123,15 +141,77 @@ export function normalizeRosterStudentName(value) {
   return String(value || "").trim().replace(/\s+/g, " ");
 }
 
+function invalidRosterInputError(message, code = "LP_INVALID_ROSTER_IMPORT") {
+  return {
+    data: null,
+    error: { code, message }
+  };
+}
+
+/**
+ * Review a pasted or uploaded roster without silently changing the batch.
+ * Archived names are kept separate from active duplicates so the teacher is
+ * directed to restore the existing learner rather than creating a second row.
+ */
+export function reviewRosterImportNames(
+  names,
+  { activeRows = [], archivedRows = [] } = {}
+) {
+  const keyFor = value => normalizeRosterStudentName(value).toLowerCase();
+  const activeNames = new Set(activeRows.map(row => keyFor(row?.name)).filter(Boolean));
+  const archivedNames = new Set(archivedRows.map(row => keyFor(row?.name)).filter(Boolean));
+  const seenNames = new Set();
+  const accepted = [];
+  const skipped = [];
+
+  for (const rawName of Array.isArray(names) ? names : []) {
+    const name = normalizeRosterStudentName(rawName);
+    if (!name) continue;
+    const key = keyFor(name);
+    if (name.length > 80) {
+      skipped.push({ name, reason: "Display names must be 80 characters or fewer" });
+    } else if (activeNames.has(key)) {
+      skipped.push({ name, reason: "Already in this class" });
+    } else if (archivedNames.has(key)) {
+      skipped.push({ name, reason: "Already archived — restore this student instead" });
+    } else if (seenNames.has(key)) {
+      skipped.push({ name, reason: "Repeated in this import" });
+    } else {
+      seenNames.add(key);
+      accepted.push(name);
+    }
+  }
+
+  return {
+    total: accepted.length + skipped.length,
+    accepted,
+    skipped
+  };
+}
+
 export async function insertRosterStudents({
   supabase,
   names,
   classId,
   teacherId
 }) {
+  if (!classId || !teacherId) {
+    return invalidRosterInputError("Choose a class before importing students.");
+  }
+  if (!Array.isArray(names) || names.length === 0 || names.length > 40) {
+    return invalidRosterInputError("Import between 1 and 40 students at a time.");
+  }
+  const normalizedNames = names.map(normalizeRosterStudentName);
+  if (normalizedNames.some(name => !name || name.length > 80)) {
+    return invalidRosterInputError("Every display name must be between 1 and 80 characters.");
+  }
+  const normalizedKeys = normalizedNames.map(name => name.toLowerCase());
+  if (new Set(normalizedKeys).size !== normalizedKeys.length) {
+    return invalidRosterInputError("The import contains repeated display names.");
+  }
   return supabase
     .table("students")
-    .insert(names.map(name => ({
+    .insert(normalizedNames.map(name => ({
       name,
       class_id: classId,
       teacher_id: teacherId
@@ -141,11 +221,10 @@ export async function insertRosterStudents({
 /**
  * Archive or restore one student.
  *
- * The owned RPC is the real boundary. The direct-table retry exists only for a
- * frontend-first rolling release where PostgREST cannot see the function yet;
- * a database old enough to lack the archive column is reported as an explicit,
- * named failure instead of an empty success, because "zero rows updated" and
- * "it worked" used to be indistinguishable to the caller.
+ * The owned RPC is the only archive boundary. A frontend-first rolling release
+ * must fail closed when that RPC is unavailable: a direct table update cannot
+ * prove that every learner session was revoked, so it must never be treated as
+ * a safe archive.
  */
 export async function setRosterStudentArchived({
   supabase,
@@ -161,23 +240,14 @@ export async function setRosterStudentArchived({
   });
   if (!missingArchiveRpc(rpcResult.error)) return settle(rpcResult, verb);
 
-  const direct = await supabase
-    .table("students")
-    .update({ archived_at: archived ? new Date().toISOString() : null })
-    .eq("id", studentId)
-    .eq("class_id", classId)
-    .select("id");
-  if (isLegacyStudentSchemaError(direct.error)) {
-    return {
-      data: null,
-      error: {
-        code: "LP_ARCHIVE_UNSUPPORTED",
-        message: "This database has neither the archive function nor the archive column.",
-        cause: direct.error
-      }
-    };
-  }
-  return settle(direct, verb);
+  return {
+    data: null,
+    error: {
+      code: "LP_ARCHIVE_UNSUPPORTED",
+      message: "The verified archive function is not available. No roster row or learner session was changed.",
+      cause: rpcResult.error
+    }
+  };
 }
 
 /**
@@ -188,19 +258,113 @@ export async function setRosterStudentArchived({
  *
  * Throws on failure; pass the thrown error to describeRosterOperationError.
  */
-export async function deleteRosterStudent({ supabase, studentId }) {
-  const prepared = await prepareLearnerDeletion({
-    client: supabase,
+export async function deleteRosterStudent({
+  supabase,
+  studentId,
+  studentName = "",
+  accountId = "",
+  cleanup,
+  storage
+}) {
+  if (typeof cleanup !== "function") {
+    const error = new Error(
+      "A verified local cleanup step is required before permanent deletion can be completed."
+    );
+    error.code = "LP_LOCAL_CLEANUP_REQUIRED";
+    throw error;
+  }
+
+  let prepared = findPendingLearnerDeletion({
+    accountId,
     studentId,
-    requesterRole: ROSTER_DELETION_REQUESTER_ROLE,
-    verificationMethod: ROSTER_DELETION_VERIFICATION_METHOD
+    storage
   });
-  return deleteLearnerData({
-    client: supabase,
-    studentId,
-    preparedRequest: prepared,
-    confirmation: LEARNER_DELETION_CONFIRMATION
-  });
+  let databaseResult = null;
+
+  if (prepared) {
+    try {
+      const status = await loadLearnerDeletionStatus({
+        client: supabase,
+        preparedRequest: prepared
+      });
+      if (status.databaseDeleted || status.status === "completed") {
+        databaseResult = status;
+      } else if (prepared.phase === "database_deleted") {
+        const error = new Error(
+          "The browser and database disagree about the deletion phase. The request was left open."
+        );
+        error.code = "LP_DELETION_STATUS_CONFLICT";
+        throw error;
+      }
+    } catch (error) {
+      // A durable database-deleted marker means the destructive phase already
+      // returned successfully. If its status probe is temporarily offline, it
+      // remains safe to repeat local cleanup and the idempotent completion RPC.
+      // A merely prepared marker is not enough evidence to retry deletion.
+      if (prepared.phase !== "database_deleted" && prepared.phase !== "completed") {
+        throw error;
+      }
+    }
+  } else {
+    prepared = await prepareLearnerDeletion({
+      client: supabase,
+      studentId,
+      requesterRole: ROSTER_DELETION_REQUESTER_ROLE,
+      verificationMethod: ROSTER_DELETION_VERIFICATION_METHOD
+    });
+  }
+
+  if (!databaseResult) {
+    databaseResult = await deleteLearnerData({
+      client: supabase,
+      studentId,
+      preparedRequest: prepared,
+      confirmation: LEARNER_DELETION_CONFIRMATION,
+      studentName,
+      accountId,
+      storage
+    });
+  }
+
+  let localCleanupProof;
+  try {
+    const cleanupResult = await cleanup({
+      studentId,
+      studentName,
+      preparedRequest: prepared,
+      databaseResult
+    });
+    localCleanupProof = buildLearnerLocalCleanupProof({
+      preparedRequest: prepared,
+      studentId,
+      progressCleanup: cleanupResult?.progressCleanup,
+      evidenceCleanup: cleanupResult?.evidenceCleanup
+    });
+  } catch (source) {
+    const error = source instanceof Error
+      ? source
+      : new Error("The browser-local learner cleanup did not finish.");
+    if (!error.code) error.code = "LP_LOCAL_CLEANUP_INCOMPLETE";
+    error.databaseDeleted = true;
+    error.preparedRequest = prepared;
+    throw error;
+  }
+
+  try {
+    return await completeLearnerDeletion({
+      client: supabase,
+      preparedRequest: prepared,
+      localCleanupProof,
+      storage
+    });
+  } catch (source) {
+    const error = source instanceof Error
+      ? source
+      : new Error("The verified deletion request could not be completed.");
+    error.databaseDeleted = true;
+    error.preparedRequest = prepared;
+    throw error;
+  }
 }
 
 /**
@@ -254,10 +418,24 @@ export async function transferRosterStudent({
   sourceClassId,
   targetClassId
 }) {
-  return supabase
-    .table("students")
-    .update({ class_id: targetClassId })
-    .eq("id", studentId)
-    .eq("class_id", sourceClassId)
-    .select("id");
+  if (
+    !studentId
+    || !sourceClassId
+    || !targetClassId
+    || sourceClassId === targetClassId
+  ) {
+    return {
+      data: null,
+      error: {
+        code: "LP_INVALID_TRANSFER_TARGET",
+        message: "Choose a different destination class."
+      }
+    };
+  }
+  const result = await supabase.call("teacher_transfer_student", {
+    p_student_id: studentId,
+    p_source_class_id: sourceClassId,
+    p_target_class_id: targetClassId
+  });
+  return settle(result, "transfer");
 }

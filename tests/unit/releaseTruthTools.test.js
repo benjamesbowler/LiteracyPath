@@ -222,7 +222,7 @@ test("teacher E2E gate joins the authenticated golden path, full assessment, sta
   assert.match(script, /--workers=1/);
   assert.match(teacherJourney, /audit-teacher-a/);
   assert.match(teacherJourney, /audit-teacher-b/);
-  assert.match(teacherJourney, /Check attempt/);
+  assert.match(teacherJourney, /Assessment attempt/);
   assert.match(teacherJourney, /Question result/);
   assert.match(teacherJourney, /cannot discover or deep-link/);
 });

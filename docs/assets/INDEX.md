@@ -1,6 +1,6 @@
 # Media & asset archive — index
 
-101 files, 745,424 words. This is the single largest thing in the repo.
+101 files, 745,441 words. This is the single largest thing in the repo.
 
 **What this folder is.** Production paperwork for media: briefs sent to the media
 generator, inventories of what came back, and coverage audits checking that every
@@ -44,7 +44,7 @@ ever made, and what was it asked to be?"
 | [initial_sounds_500_asset_import_audit](initial_sounds_500_asset_import_audit.md) | 3,234 | Initial Sounds 500 Asset Import Audit |
 | [initial_sounds_target_word_quality_audit](initial_sounds_target_word_quality_audit.md) | 1,120 | Initial Sounds Target Word Quality Audit |
 | [initial_sounds_word_inventory](initial_sounds_word_inventory.md) | 8,482 | Initial Sounds Word Inventory |
-| [kimi_approved_hfw_missing_cartoon_media_request](kimi_approved_hfw_missing_cartoon_media_request.md) | 42,385 | Kimi Approved HFW Missing Cartoon Media Request |
+| [hfw_optional_cartoon_media_backlog](hfw_optional_cartoon_media_backlog.md) | 42,402 | Optional HFW cartoon-scene backlog; current questions are valid without images |
 | [kimi_assets2_import_report](kimi_assets2_import_report.md) | 5,412 | Kimi Asset Pack 2 Import Report |
 | [kimi_assets3_import_report](kimi_assets3_import_report.md) | 5,249 | Kimi Asset Pack 3 Import Report |
 | [kimi_assets4_import_report](kimi_assets4_import_report.md) | 4,073 | Kimi Asset Pack 4 Import Report |

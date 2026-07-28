@@ -33,8 +33,9 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   Object.freeze({
     id: "teacher-question-guide",
     url: "/preview/teacher-a11y.html?surface=classes",
-    openControl: "What each check measures",
-    dialogName: "What each check measures"
+    openSummary: "Groups and assessment guide",
+    openControl: "What each assessment measures",
+    dialogName: "What each assessment measures"
   }),
   Object.freeze({
     id: "teacher-learner-drawer",
@@ -43,15 +44,15 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   }),
   Object.freeze({
     id: "teacher-child-options",
-    url: "/preview/teacher-a11y.html?surface=classes",
-    openControl: "More options for Aarav",
+    url: "/preview/teacher-a11y.html?surface=classes&learner=1",
+    openControl: "Student settings",
     dialogName: "Options for Aarav"
   }),
   Object.freeze({
     id: "teacher-assessment-discontinue",
     url: "/preview/teacher-a11y.html?surface=assessment",
     openSummary: "More options",
-    openControl: "Stop check early",
+    openControl: "Stop assessment early",
     dialogName: "Discontinue and save",
     regionRole: true
   }),

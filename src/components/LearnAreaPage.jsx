@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
-import { loadStoryQuestProgress, saveStoryQuestProgress } from "../utils/storyQuestProgress.js";
+import {
+  isStoryQuestTeacherPreviewScope,
+  loadStoryQuestProgress,
+  mergeStoryQuestProgressRow,
+  saveStoryQuestProgress
+} from "../utils/storyQuestProgress.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
 
 const STORY_QUEST_LEVELS = [
@@ -38,10 +43,13 @@ function resolveStoryQuestLevel(quest = {}) {
 }
 
 export function LearnAreaPage({ progressScopeKey = "default" }) {
+  const teacherPreview = isStoryQuestTeacherPreviewScope(progressScopeKey);
   const [activeQuestId, setActiveQuestId] = useState("");
   const [selectedQuestId, setSelectedQuestId] = useState("");
   const [selectedLevelKey, setSelectedLevelKey] = useState("A");
-  const [questProgress, setQuestProgress] = useState(() => loadStoryQuestProgress(progressScopeKey));
+  const [questProgress, setQuestProgress] = useState(() => (
+    teacherPreview ? {} : loadStoryQuestProgress(progressScopeKey)
+  ));
   const activeQuest = storyQuests.find(quest => quest.id === activeQuestId) || null;
   const questGroups = STORY_QUEST_LEVELS.map(level => ({
     ...level,
@@ -86,6 +94,10 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     activeQuest && !activeQuestProgress.completed && activeQuestProgress.lastPageId
       ? activeQuestProgress.lastPageId
       : "";
+  const activeQuestInitialProgress =
+    activeQuest && !activeQuestProgress.completed
+      ? activeQuestProgress
+      : {};
 
   useLayoutEffect(() => {
     if (!activeQuestId || typeof window === "undefined") return;
@@ -93,18 +105,14 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
   }, [activeQuestId]);
 
   useEffect(() => {
+    if (teacherPreview) return;
     saveStoryQuestProgress(progressScopeKey, questProgress);
-  }, [progressScopeKey, questProgress]);
+  }, [progressScopeKey, questProgress, teacherPreview]);
 
   const updateQuestProgress = useCallback((questId, patch) => {
     setQuestProgress(previous => ({
       ...previous,
-      [questId]: {
-        ...(previous[questId] || {}),
-        ...patch,
-        opened: true,
-        updatedAt: new Date().toISOString()
-      }
+      [questId]: mergeStoryQuestProgressRow(previous[questId], patch)
     }));
   }, []);
 
@@ -149,10 +157,13 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     return (
       <main className="learn-area-page story-quest-learn-page story-quest-active-page" aria-label="Story Quests">
         <StoryQuestPlayer
+          key={activeQuest.id}
           initialPageId={activeQuestInitialPageId}
+          initialProgress={activeQuestInitialProgress}
           onComplete={handleQuestComplete}
           onExit={handleQuestExit}
           onProgress={handleQuestProgress}
+          previewMode={teacherPreview}
           quest={activeQuest}
         />
       </main>
@@ -166,6 +177,15 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
       data-child-surface="story-quests"
     >
       <section className="learn-story-quest-library card">
+        {teacherPreview && (
+          <aside className="story-quest-preview-notice" role="note">
+            <strong>Teacher preview</strong>
+            <span>
+              This is a clean practice preview. Your choices reset when you return to teacher
+              tools and never change the student's saved progress.
+            </span>
+          </aside>
+        )}
         <div className="story-quest-header-row">
           <div className="learn-story-quest-copy">
             <span className="story-quest-kicker">Read · Discover · Adventure</span>
@@ -174,10 +194,14 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
               <img src="/images/comic/story-quests-logo.webp" alt="" />
             </h1>
             <p data-child-instruction="">Read a story. Choose what happens next.</p>
-            <div className="story-quest-library-stats" aria-label="Story Quest progress" data-child-progress="">
+            <div
+              className="story-quest-library-stats"
+              aria-label={teacherPreview ? "Temporary preview activity" : "Story Quest progress"}
+              data-child-progress=""
+            >
               <span><strong>{questSummary.completed}</strong> complete</span>
               <span><strong>{questSummary.inProgress}</strong> in progress</span>
-              <span><strong>{questSummary.foundWords} of {questSummary.targetWords}</strong> words found</span>
+              <span><strong>{questSummary.foundWords} of {questSummary.targetWords}</strong> story words seen</span>
             </div>
             {primaryQuest && (
               <button
@@ -188,7 +212,9 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                 data-child-emphasis="primary"
                 data-child-emphasis-cue=""
               >
-                {primaryQuestStarted ? "Continue" : "Start"} {primaryQuest.title}
+                {teacherPreview && !primaryQuestStarted
+                  ? `Preview ${primaryQuest.title}`
+                  : `${primaryQuestStarted ? "Continue" : "Start"} ${primaryQuest.title}`}
               </button>
             )}
           </div>
@@ -235,7 +261,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
             <section className="learn-story-level-section" id={`story-quest-level-${level.key}`} key={level.key}>
               <div className="learn-story-level-header">
                 <div>
-                  <h3>{level.heading}</h3>
+                  <h2>{level.heading}</h2>
                   <p>{level.subheading}</p>
                 </div>
                 <span>{level.quests.length} quest{level.quests.length === 1 ? "" : "s"}</span>
@@ -243,16 +269,29 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
               <div className="learn-story-level-grid">
                 {level.quests.map(quest => {
+                  const progress = questProgress[quest.id] || {};
+                  const status = progress.completed
+                    ? "Completed"
+                    : progress.opened
+                      ? "In progress"
+                      : "Not started";
+                  const statusClass = progress.completed
+                    ? "completed"
+                    : progress.opened
+                      ? "in-progress"
+                      : "not-started";
+                  const seenCount = Array.isArray(progress.wordsFound)
+                    ? new Set(progress.wordsFound.map(word => String(word).toLowerCase())).size
+                    : 0;
                   return (
-                    <article
+                    <button
+                      aria-label={`${teacherPreview ? "Preview" : status} ${quest.title}`}
                       className={selectedQuestId === quest.id ? "learn-story-quest-card selected" : "learn-story-quest-card"}
                       key={quest.id}
-                      role="button"
-                      tabIndex={0}
                       onClick={() => startQuest(quest.id)}
-                      onKeyDown={event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); startQuest(quest.id); } }}
                       onFocus={() => setSelectedQuestId(quest.id)}
                       onMouseEnter={() => setSelectedQuestId(quest.id)}
+                      type="button"
                     >
                       <img
                         alt={`${quest.title} cover`}
@@ -263,8 +302,16 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                       />
                       <div className="learn-story-quest-card-copy">
                         <h3>{quest.title}</h3>
+                        <span className={`story-quest-status ${statusClass}`}>
+                          {teacherPreview && status === "Not started" ? "Ready to preview" : status}
+                        </span>
+                        {(progress.opened || progress.completed) && (
+                          <span className="story-quest-card-progress">
+                            {seenCount} of {quest.targetWords?.length || 0} story words seen
+                          </span>
+                        )}
                       </div>
-                    </article>
+                    </button>
                   );
                 })}
               </div>

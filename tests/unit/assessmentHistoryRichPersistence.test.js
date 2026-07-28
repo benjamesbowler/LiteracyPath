@@ -4,6 +4,8 @@ import test from "node:test";
 import {
   ASSESSMENT_ADMINISTRATION_STATUSES,
   ASSESSMENT_RESPONSE_STATUSES,
+  buildAssessmentAttemptRecord,
+  clearAndVerifyAssessmentAttemptsForStudent,
   compactAssessmentAttemptForStorage,
   deleteAssessmentAttemptsForStudent,
   extractMasteryFromAssessmentAttempt,
@@ -11,6 +13,7 @@ import {
   hydrateAssessmentAttempts,
   loadAssessmentAttemptSyncQueue,
   loadAssessmentAttempts,
+  mergeAssessmentAttemptIntoItemMastery,
   mergeAssessmentAttemptRecords,
   normalizeAssessmentAttempt,
   saveAssessmentAttempt,
@@ -74,6 +77,43 @@ test("legacy binary attempts retain their historical scoring semantics", () => {
     [ASSESSMENT_RESPONSE_STATUSES.CORRECT, ASSESSMENT_RESPONSE_STATUSES.INCORRECT]
   );
   assert.deepEqual(normalized.questionRecords.map(item => item.isCorrect), [true, false]);
+});
+
+test("answer event identity survives attempt building, normalization and compact storage", () => {
+  const built = buildAssessmentAttemptRecord({
+    studentId: "student-1",
+    studentName: "Ada",
+    classId: "class-1",
+    teacherId: "teacher-1",
+    stage: { id: "initial_sounds", label: "Initial Sounds" },
+    checkpoint: {
+      checkpointId: "checkpoint-1",
+      skillId: "initial_sounds",
+      skillName: "Initial Sounds",
+      pathStatus: { level: 1, phase: 1 }
+    },
+    questionRecords: [{
+      answerEventId: "answer-event-stable-1",
+      questionId: "initial-m-1",
+      question: "Which picture begins with /m/?",
+      chosen: "moon",
+      correct: "moon",
+      isCorrect: true,
+      itemType: "initial_sound",
+      itemKey: "m",
+      skillId: "initial_sounds",
+      timestamp: "2026-07-22T10:00:00.000Z"
+    }]
+  });
+  const normalized = normalizeAssessmentAttempt(built);
+  const compact = compactAssessmentAttemptForStorage(normalized);
+  const rehydrated = normalizeAssessmentAttempt(JSON.parse(JSON.stringify(compact)));
+
+  assert.equal(built.questionRecords[0].answerEventId, "answer-event-stable-1");
+  assert.equal(normalized.questionRecords[0].answerEventId, "answer-event-stable-1");
+  assert.equal(normalized.questionRecords[0].metadata.answerEventId, "answer-event-stable-1");
+  assert.equal(rehydrated.questionRecords[0].answerEventId, "answer-event-stable-1");
+  assert.equal(rehydrated.questionRecords[0].metadata.answerEventId, "answer-event-stable-1");
 });
 
 test("rich attempts round-trip exact evidence and distinguish every administration state", () => {
@@ -317,6 +357,42 @@ test("mastery ignores unadministered states but keeps a skipped item as an obser
     correct: 0,
     accuracy: 0
   });
+});
+
+test("one accurate administration records evidence but cannot establish item mastery", () => {
+  const questions = Array.from({ length: 4 }, (_, index) => ({
+    questionId: `short-a-${index + 1}`,
+    itemKey: "short_a",
+    itemType: "decoding_pattern",
+    responseStatus: "correct"
+  }));
+  const firstAttempt = baseAttempt({
+    attemptId: "attempt-session-1",
+    assessmentType: "skill_checkpoint",
+    questionRecords: questions
+  });
+  const afterFirst = mergeAssessmentAttemptIntoItemMastery({}, firstAttempt);
+  const firstRow = afterFirst["decoding_pattern::short_a"];
+
+  assert.equal(firstRow.attempts, 4);
+  assert.equal(firstRow.sessionsSeen, 1);
+  assert.equal(firstRow.mastered, false);
+
+  const secondAttempt = baseAttempt({
+    attemptId: "attempt-session-2",
+    assessmentType: "skill_checkpoint",
+    completedAt: "2026-07-22T01:05:00.000Z",
+    questionRecords: questions.map(question => ({
+      ...question,
+      questionId: `${question.questionId}-second`
+    }))
+  });
+  const afterSecond = mergeAssessmentAttemptIntoItemMastery(afterFirst, secondAttempt);
+  const secondRow = afterSecond["decoding_pattern::short_a"];
+
+  assert.equal(secondRow.attempts, 8);
+  assert.equal(secondRow.sessionsSeen, 2);
+  assert.equal(secondRow.mastered, true);
 });
 
 test("an attempt marked not administered never turns planned items into failures", () => {
@@ -806,6 +882,64 @@ test("student attempt deletion uses stable IDs and only falls back to names for 
   });
   assert.deepEqual(remaining.map(record => record.attemptId), ["different-ada"]);
   assert.equal(remaining[0].studentId, "student-other");
+});
+
+test("learner deletion waits for an in-flight attempt save and prevents queue resurrection", async () => {
+  globalThis.localStorage = makeStorage();
+  let finishCloudWrite;
+  const client = {
+    table() {
+      return {
+        select() {
+          return {
+            eq() {
+              return {
+                async maybeSingle() {
+                  return { data: null, error: null };
+                }
+              };
+            }
+          };
+        },
+        upsert() {
+          return new Promise(resolve => {
+            finishCloudWrite = resolve;
+          });
+        }
+      };
+    }
+  };
+  const attempt = baseAttempt({
+    attemptId: "privacy-in-flight",
+    teacherId: "teacher-privacy",
+    studentId: "student-privacy"
+  });
+
+  const savePromise = saveAssessmentAttempt(attempt, {
+    teacherId: "teacher-privacy",
+    supabase: client
+  });
+  await new Promise(resolve => setImmediate(resolve));
+  const cleanupPromise = clearAndVerifyAssessmentAttemptsForStudent({
+    teacherId: "teacher-privacy",
+    studentId: "student-privacy",
+    studentName: "Ada"
+  });
+  finishCloudWrite({ data: null, error: new Error("learner deleted") });
+  await Promise.all([savePromise, cleanupPromise]);
+
+  assert.equal(loadAssessmentAttempts({ teacherId: "teacher-privacy" }).length, 0);
+  assert.equal(loadAssessmentAttemptSyncQueue({ teacherId: "teacher-privacy" }).length, 0);
+
+  const blocked = await saveAssessmentAttempt({
+    ...attempt,
+    attemptId: "privacy-after-delete"
+  }, {
+    teacherId: "teacher-privacy",
+    supabase: client
+  });
+  assert.equal(blocked.durable, false);
+  assert.equal(blocked.localError.code, "LP_LEARNER_WRITE_BLOCKED");
 });
 
 test("local persistence retains more than one class benchmark cycle", () => {

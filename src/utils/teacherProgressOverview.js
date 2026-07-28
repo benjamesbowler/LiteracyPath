@@ -1,4 +1,5 @@
 import {
+  LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,
   LEARNING_POLICY_VERSION,
   LEARNING_STATUS_IDS,
@@ -145,6 +146,7 @@ function evidenceBasisFor({
   recency,
   itemEvidence,
   minimum = PROGRESS_MIN_RESPONSES,
+  minimumSkillDiversity = LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerSkillDiversity,
   confidenceOverride = null
 }) {
   const diversity = skills.length;
@@ -152,7 +154,8 @@ function evidenceBasisFor({
   const confidence = confidenceOverride || learningConfidence({
     attempts,
     skillDiversity: diversity,
-    minimumAttempts: minimum
+    minimumAttempts: minimum,
+    minimumSkillDiversity
   });
   return {
     policyVersion: LEARNING_POLICY_VERSION,
@@ -162,12 +165,12 @@ function evidenceBasisFor({
     confidence,
     support,
     attemptsLabel: `${attempts} scored response${attempts === 1 ? "" : "s"}`,
-    diversityLabel: `${diversity} check skill${diversity === 1 ? "" : "s"}`,
+    diversityLabel: `${diversity} assessed skill${diversity === 1 ? "" : "s"}`,
     recencyLabel: formatEvidenceRecency(recency),
     confidenceLabel: `${confidence.label} · ${confidence.detail}`,
     supportUseLabel: support.recorded
       ? `${support.supported} supported of ${support.recorded} recorded Sound Seekers encounters`
-      : "Not captured in scored checks",
+      : "Not captured in scored assessments",
     ready: attempts >= minimum
   };
 }
@@ -200,15 +203,18 @@ function itemEvidenceFor(row, now) {
         skills: [evidence.label],
         recency: evidence.updatedAt,
         itemEvidence: [evidence],
-        minimum: PROGRESS_ITEM_MIN_ATTEMPTS
+        minimum: PROGRESS_ITEM_MIN_ATTEMPTS,
+        minimumSkillDiversity: 1
       });
       evidence.conclusion = evaluateLearningConclusion({
+        scope: LEARNING_CONCLUSION_SCOPES.ITEM,
         accuracy: evidence.accuracy,
         attempts: evidence.independentSeen,
         skillDiversity: 1,
         observedAt: evidence.updatedAt,
         now,
-        minimumAttempts: PROGRESS_ITEM_MIN_ATTEMPTS
+        minimumAttempts: PROGRESS_ITEM_MIN_ATTEMPTS,
+        minimumSkillDiversity: 1
       });
       evidence.evidence.ready = evidence.conclusion.ready;
       evidence.policyReady = evidence.conclusion.ready;

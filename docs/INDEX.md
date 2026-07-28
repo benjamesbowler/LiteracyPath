@@ -1,7 +1,7 @@
 # LiteracyPath docs — index
 
-458 markdown files, 1,657,874 words, all written between 2026-06-05 and today. That is
-roughly 6,600 printed pages. Nobody can read it end to end, including the agents that
+465 markdown files, 1,686,741 words, all written between 2026-06-05 and today. That is
+roughly 6,750 printed pages. Nobody can read it end to end, including the agents that
 wrote most of it. This page exists so you never have to.
 
 **The one rule that keeps this useful:** a doc is either a *standard* (says how things
@@ -50,7 +50,7 @@ file to overrule one.
 
 **What the teacher sees**
 
-- [APP_COPY_STANDARD_2026-07-25](APP_COPY_STANDARD_2026-07-25.md) — plain words, everywhere. Enforced by `tools/checkAppCopy.js`.
+- [APP_COPY_STANDARD_2026-07-25](APP_COPY_STANDARD_2026-07-25.md) — plain words everywhere; teacher surfaces use student/assessment. Enforced by `tools/checkAppCopy.js`.
 - [teacher/UI_PRIMITIVES](teacher/UI_PRIMITIVES.md) — the components teacher screens are built from
 - [teacher/STATE_MATRIX](teacher/STATE_MATRIX.md) — every teacher surface in every state
 - [teacher/PARITY_MATRIX](teacher/PARITY_MATRIX.md) — capabilities that must survive any refactor
@@ -102,19 +102,22 @@ file to overrule one.
 
 ## Where things stand
 
-**Release status, measured 2026-07-27** — from [release/TRACEABILITY](release/TRACEABILITY.md),
+**Release status, measured 2026-07-28** — from [release/TRACEABILITY](release/TRACEABILITY.md),
 not from memory:
 
 | | Count |
 | --- | ---: |
-| Planned items (A1.1 – A10.10) | 100 — **91 DONE**, 6 EXTERNAL-READY, 3 IN-PROGRESS |
-| Discovered items (D-###) | 75 — **75 DONE** |
-| **Total** | **175 rows, 166 closed, 9 open** |
+| Planned items (A1.1 – A10.10) | 100 — **90 DONE**, 6 EXTERNAL-READY, 4 IN-PROGRESS |
+| Discovered items (D-###) | 151 — **75 DONE**, 76 IN-PROGRESS |
+| **Total** | **251 rows, 165 closed, 86 open** |
 
-Open: `A6.1` (audit-school seed in CI), `A10.1` (whole-product CI release job), `A10.4`
-(bundle budgets) are IN-PROGRESS. `A1.10`, `A4.10`, `A8.2`, `A8.10`, `A10.8`, `A10.10`
-are EXTERNAL-READY — built and waiting on outside review, which is **not** the same as
-closed.
+Open: `A6.1` (audit-school seed in CI), `A6.9` (production-reachable teacher state
+matrix), `A10.1` (whole-product CI release job), and `A10.4` (bundle budgets) are
+IN-PROGRESS. `A1.10`, `A4.10`, `A8.2`, `A8.10`, `A10.8`, `A10.10` are
+EXTERNAL-READY — built and waiting on outside review, which is **not** the same as
+closed. D-076 through D-151 are IN-PROGRESS in the current teacher remediation:
+their focused implementations exist, but final integrated, fresh-database,
+authenticated browser, and adversarial evidence is still pending.
 
 The critique's measured findings really are fixed: `check:assessment-runtime-variation`
 cited **876 failures** and now reports **0**; `check:skill-progression` cited **55
@@ -141,6 +144,7 @@ Newest first. These are records — they describe a moment, and the moments accu
 
 | Date | Record | What happened |
 | --- | --- | --- |
+| 2026-07-27 | [TEACHER_SIDE_REMEDIATION_2026-07-27](TEACHER_SIDE_REMEDIATION_2026-07-27.md) | Follow-up teacher critic opened D-076–D-086 and implemented reporting-truth, lifecycle, busy-teacher UX, curriculum, trace-formation, and safety fixes; final integrated/live closure remains pending |
 | 2026-07-27 | [TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27](TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27.md) | Learner deletion restored (the migration had never been applied); 20 teacher-side defects closed across data integrity, metric truth, UX and the Supabase boundary; 8 items left open needing a decision |
 | 2026-07-27 | [TEACHER_FUNNELS_2026-07-27](TEACHER_FUNNELS_2026-07-27.md) | Assessments and Reports rebuilt as two matching funnels; Present images fixed; student delete added |
 | 2026-07-26 | [TEACHER_AREA_OVERHAUL_2026-07-26](TEACHER_AREA_OVERHAUL_2026-07-26.md) | Teacher area split and rebuilt; presentation fixed; mastery reporting unified |
@@ -168,7 +172,7 @@ they show the reasoning, not because they describe the app.
 
 - **Sound Seekers:** [audit 07-14](SOUND_SEEKERS_AUDIT_2026-07-14.md) → [upgrade plan 07-15](SOUND_SEEKERS_CRITIQUE_AND_UPGRADE_PLAN_2026-07-15.md) → [10/10 critique 07-17](SOUND_SEEKERS_10_OUT_OF_10_CRITIQUE_2026-07-17.md) → **[complete audit 07-20](SOUND_SEEKERS_COMPLETE_AUDIT_2026-07-20.md)**
 - **Whole app:** [audit & roadmap 07-10](APP_AUDIT_AND_ROADMAP_2026-07-10.md) → **[full critique 07-23](FULL_APP_CRITIQUE_2026-07-23.md)**
-- **Teacher side:** [audit 07-10](TEACHER_SIDE_AUDIT_2026-07-10.md) → [dashboard redesign audit](implementation/teacher_dashboard_redesign_audit.md) → **[overhaul 07-26](TEACHER_AREA_OVERHAUL_2026-07-26.md)**
+- **Teacher side:** [audit 07-10](TEACHER_SIDE_AUDIT_2026-07-10.md) → [dashboard redesign audit](implementation/teacher_dashboard_redesign_audit.md) → [overhaul 07-26](TEACHER_AREA_OVERHAUL_2026-07-26.md) → [funnels 07-27](TEACHER_FUNNELS_2026-07-27.md) → [audit and fixes 07-27](TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27.md) → **[current remediation 07-27](TEACHER_SIDE_REMEDIATION_2026-07-27.md)**
 - **Child side:** [design audit 07-08](KIDS_SIDE_DESIGN_AUDIT_2026-07-08.md) → [fix handoff 07-08](KIDS_SIDE_AUDIT_FIXES_2026-07-08.md) → **[design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md)**
 - **Sound Seekers build specs:** [quest design plan 07-11](QUEST_DESIGN_PLAN_2026-07-11.md) · [slice 1 spec 07-11](QUEST_SLICE_1_SPEC_2026-07-11.md) · [slice loop](SOUND_SEEKERS_SLICE_LOOP.md) · [push 2](SOUND_SEEKERS_PUSH_2.md) → **[release bible](SOUND_SEEKERS_RELEASE_BIBLE.md)**
 
@@ -176,12 +180,12 @@ they show the reasoning, not because they describe the app.
 
 ## Archives
 
-Three folders hold 244 of the 458 files and 1.2 million of the 1.66 million words. They
+Three folders hold 244 of the 465 files and 1.2 million of the 1.67 million words. They
 are receipts of work already done. Each has its own index.
 
 | Folder | Files | Words | What it is |
 | --- | ---: | ---: | --- |
-| [assets/](assets/INDEX.md) | 101 | 745,424 | Media briefs, inventories and coverage audits |
+| [assets/](assets/INDEX.md) | 101 | 745,441 | Media briefs, inventories and coverage audits |
 | [validation/](validation/INDEX.md) | 98 | 221,575 | Point-in-time audit reports, superseded by the gates in `tools/` |
 | [guided-reading/](guided-reading/INDEX.md) | 45 | 230,934 | Book systems (current) plus per-batch import audits (historical) |
 
@@ -202,7 +206,7 @@ findings, not current truth. The exception is
 Four habits, and this stops rotting:
 
 1. **New decision → edit the standard.** Do not write a new dated file that quietly
-   contradicts an old one. That is how you get 458 files.
+   contradicts an old one. That is how you get 465 files.
 2. **New dated record → add one row** to *Where things stand*, and if it retires
    something, add the chain to *Superseded*.
 3. **Finished a piece of work → move its brief.** Media requests and agent prompts
@@ -339,7 +343,7 @@ Subfolders have their own indexes, linked above.
 | --- | ---: | --- |
 | [3D_ASSET_LIBRARY](3D_ASSET_LIBRARY.md) | 744 | LiteracyPath 3D asset library |
 | [APP_AUDIT_AND_ROADMAP_2026-07-10](APP_AUDIT_AND_ROADMAP_2026-07-10.md) | 2,462 | Literacy Guide — Full App Audit & Roadmap (2026-07-10) |
-| [APP_COPY_STANDARD_2026-07-25](APP_COPY_STANDARD_2026-07-25.md) | 2,000 | App-Wide Copy Standard — plain words, everywhere |
+| [APP_COPY_STANDARD_2026-07-25](APP_COPY_STANDARD_2026-07-25.md) | 2,041 | App-Wide Copy Standard — plain words, everywhere |
 | [ART_REQUEST_arcade_game_icons_2026-07-06](ART_REQUEST_arcade_game_icons_2026-07-06.md) | 337 | Art Request — Arcade Game Icons (2026-07-06) |
 | [AUDIO_AUDIT](AUDIO_AUDIT.md) | 440 | Full App Audio Audit — 10 June 2026 |
 | [AUDIT_ALIGNMENT](AUDIT_ALIGNMENT.md) | 255 | Alignment & Typography Audit |
@@ -427,7 +431,10 @@ Subfolders have their own indexes, linked above.
 | [STORY_QUEST_REWRITE_2026-07-26](STORY_QUEST_REWRITE_2026-07-26.md) | 6,498 | Story Quest rewrite — 2026-07-26 |
 | [STUDENT_UI_CONSISTENCY_AUDIT](STUDENT_UI_CONSISTENCY_AUDIT.md) | 1,693 | Student UI — Style & Layout Consistency Audit |
 | [TEACHER_AREA_OVERHAUL_2026-07-26](TEACHER_AREA_OVERHAUL_2026-07-26.md) | 670 | Teacher area overhaul — 2026-07-26 |
+| [TEACHER_FUNNELS_2026-07-27](TEACHER_FUNNELS_2026-07-27.md) | 994 | Assessments and Reports funnels — 2026-07-27 |
+| [TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27](TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27.md) | 1,419 | Teacher-side audit and fixes — 2026-07-27 |
 | [TEACHER_SIDE_AUDIT_2026-07-10](TEACHER_SIDE_AUDIT_2026-07-10.md) | 1,507 | Teacher Side — Deep-Dive Audit (2026-07-10) |
+| [TEACHER_SIDE_REMEDIATION_2026-07-27](TEACHER_SIDE_REMEDIATION_2026-07-27.md) | 2,328 | Teacher-side remediation — 2026-07-27 |
 | [TEACH_YOUR_MONSTER_TO_READ_RESEARCH_AND_BUILD_PLAN_2026-07-11](TEACH_YOUR_MONSTER_TO_READ_RESEARCH_AND_BUILD_PLAN_2026-07-11.md) | 7,477 | Teach Your Monster to Read: research, mechanics, art style, and a LiteracyPath b |
 | [TEN_OUT_OF_TEN_PLAN_2026-07-23](TEN_OUT_OF_TEN_PLAN_2026-07-23.md) | 5,639 | TEN OUT OF TEN — The Plan |
 | [VOICE_UNIFICATION_PLAN](VOICE_UNIFICATION_PLAN.md) | 433 | Voice Unification Plan |

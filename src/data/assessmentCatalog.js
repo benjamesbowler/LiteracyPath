@@ -121,7 +121,7 @@ function benchmarkEntry(source) {
 export const ASSESSMENT_CATALOG = Object.freeze([
   Object.freeze({
     id: "skills-check",
-    label: "Skills check",
+    label: "Skills assessment",
     description: "Tells you which reading skill the student has secured and which one to teach next.",
     estimatedMinutes: 5,
     administration: "The student answers on screen. You can sit alongside or let them work on their own.",
@@ -143,22 +143,24 @@ export const ASSESSMENT_CATALOG = Object.freeze([
     startPoint: Object.freeze({
       kind: ASSESSMENT_START_POINT_KINDS.NONE,
       fields: Object.freeze([]),
-      label: "Nothing to choose",
-      help: "This one always runs through the full set of letters, so there is no starting point to pick."
+      label: "Ready to begin",
+      help: "This assessment covers the full set of letters.",
+      summary: "Full set of letters"
     })
   }),
   Object.freeze({
     id: "phonics-patterns",
     label: "Phonics patterns",
-    description: "Tells you which of the harder letter patterns the student already reads and spells.",
+    description: "Tells you which of the harder letter patterns the student recognises and sounds out.",
     estimatedMinutes: 10,
-    administration: "You show each pattern with an example word and tap what the student did. It adds detail; it does not replace the other checks.",
+    administration: "You show each pattern with an example word and tap what the student did. It adds detail; it does not replace the other assessments.",
     starter: ASSESSMENT_STARTERS.PHONICS_PATTERN_CHECK,
     startPoint: Object.freeze({
       kind: ASSESSMENT_START_POINT_KINDS.NONE,
       fields: Object.freeze([]),
-      label: "Nothing to choose",
-      help: "This one always runs through the full set of patterns, so there is no starting point to pick."
+      label: "Ready to begin",
+      help: "This assessment covers the full set of phonics patterns.",
+      summary: "Full set of phonics patterns"
     })
   }),
   ...EL_BENCHMARK_CATALOG.map(benchmarkEntry)
@@ -283,7 +285,7 @@ export function describeStartPointSelection(entry, selection = {}) {
       return [grade, time, band].filter(Boolean).join(" · ");
     }
     default:
-      return "Starts at the beginning";
+      return entry.startPoint.summary || "Full set";
   }
 }
 

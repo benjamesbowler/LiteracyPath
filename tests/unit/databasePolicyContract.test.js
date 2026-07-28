@@ -5,6 +5,7 @@ import test from "node:test";
 import {
   ANON_SECURITY_DEFINER_RPCS,
   AUTHENTICATED_SECURITY_DEFINER_RPCS,
+  TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
   auditSecurityBoundarySource,
   auditSecurityDefinerCatalog
 } from "../../tools/databasePolicyContract.mjs";
@@ -29,20 +30,64 @@ function validCatalog() {
   return exposed;
 }
 
-test("security boundary migration is last and grants only the explicit RPC surface", () => {
+test("security boundary grants only the explicit RPC surface and guards every teacher RPC", () => {
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 8);
-  assert.equal(report.authenticatedRpcCount, 37);
+  assert.equal(report.anonymousRpcCount, 10);
+  assert.equal(report.authenticatedRpcCount, 47);
   assert.equal(report.legacyRpcCount, 8);
+  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 23);
+});
+
+test("security boundary rejects a teacher RPC missing from the account-status inventory", () => {
+  const teacherAccountSource = fs.readFileSync(
+    new URL(
+      "../../supabase/migrations/20260728100000_teacher_account_status_rls.sql",
+      import.meta.url
+    ),
+    "utf8"
+  ).replace(
+    "'teacher_class_access_summary(uuid)',",
+    "'teacher_class_access_summary_missing(uuid)',"
+  );
+  const report = auditSecurityBoundarySource({ teacherAccountSource });
+  assert.match(
+    report.failures.join("\n"),
+    /teacher RPC is absent from the account-status guard: teacher_class_access_summary\(uuid\)/
+  );
 });
 
 test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 8);
-  assert.equal(report.authenticatedRpcCount, 37);
+  assert.equal(report.anonymousRpcCount, 10);
+  assert.equal(report.authenticatedRpcCount, 47);
   assert.equal(report.privateHelperCount, 2);
+});
+
+test("signed-out school autocomplete is the only added anonymous teacher-signup RPC", () => {
+  const boundary = fs.readFileSync(
+    new URL("../../supabase/migrations/20260728125000_security_definer_boundary.sql", import.meta.url),
+    "utf8"
+  );
+  const schoolInput = fs.readFileSync(
+    new URL("../../src/components/SchoolNameInput.jsx", import.meta.url),
+    "utf8"
+  );
+  assert.equal(ANON_SECURITY_DEFINER_RPCS.includes("list_school_names()"), true);
+  assert.equal(
+    ANON_SECURITY_DEFINER_RPCS.filter(signature => (
+      signature.includes("school")
+      || signature.startsWith("teacher_")
+      || signature.startsWith("admin_")
+    )).join(","),
+    "list_school_names()"
+  );
+  assert.match(
+    boundary,
+    /grant execute on function public\.list_school_names\(\)\s+to anon, authenticated/i
+  );
+  assert.match(schoolInput, /\.call\("list_school_names"\)/);
 });
 
 test("catalog audit rejects inherited PUBLIC execution", () => {

@@ -221,7 +221,7 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
 
     await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees");
     const readerControls = page.getByRole("group", { name: "Reader view controls" });
-    await readerControls.getByRole("button", { name: "Full Screen", exact: true }).click();
+    await readerControls.getByRole("button", { name: "Full screen", exact: true }).click();
     await expectFullscreenHistory(page, ["enter"], `${profile.id} reader enter`);
     const reader = page.locator(".guided-reader-shell");
     await expect(reader).toHaveClass(/fullscreen/);
@@ -263,7 +263,7 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
     await page.locator('[data-child-surface="story-quests"] [data-child-primary]').click();
     const story = page.locator(".story-quest-reader");
     await expect(story).toBeVisible();
-    await story.getByRole("button", { name: "Full Screen", exact: true }).click();
+    await story.getByRole("button", { name: "Full screen", exact: true }).click();
     await expectFullscreenHistory(page, ["enter"], `${profile.id} story enter`);
     await expect(story).toHaveClass(/fullscreen/);
     await expectNoHorizontalOverflow(page, `${profile.id} fullscreen story`);
@@ -274,7 +274,7 @@ for (const profileId of STUDENT_FULLSCREEN_DEVICE_IDS) {
       fullPage: false,
       maxDiffPixelRatio: 0.01
     });
-    await story.getByRole("button", { name: "Exit Full", exact: true }).click({ force: true });
+    await story.getByRole("button", { name: "Exit full screen", exact: true }).click({ force: true });
     await expectFullscreenHistory(page, ["enter", "exit"], `${profile.id} story exit`);
     expect(errors, `${profile.id} fullscreen flows have no runtime errors`).toEqual([]);
   });

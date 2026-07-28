@@ -117,7 +117,7 @@ test("D-004: Whole Child reconciles related sound evidence and exports an honest
     && ["letter_sound", "grapheme_sound"].includes(row.construct)
   ));
   assert.equal(related.length, 2);
-  assert.ok(related.every(row => row.reconciliationNote?.startsWith("Triangulated related evidence")));
+  assert.ok(related.every(row => row.reconciliationNote?.startsWith("Related results were reviewed together")));
   assert.ok(related.every(row => row.triangulationKey === "grapheme_sound::c"));
 
   const rows = buildStudentWorkspaceCsvRows("whole-child", workspace, {
@@ -130,7 +130,7 @@ test("D-004: Whole Child reconciles related sound evidence and exports an honest
     || row["Knowledge or skill"] === "Sound for c"
   ));
   assert.equal(relatedRows.length, 2);
-  assert.ok(relatedRows.every(row => row["Reconciliation note"].includes("displayed status follows the published evidence precedence")));
+  assert.ok(relatedRows.every(row => row["Reconciliation note"].includes("status uses the most useful current source")));
   assert.ok(statusRows.every(row => Number.isFinite(Number(row.Attempts))));
   assert.ok(summaryRows.every(row => Number.isFinite(Number(row.Observations))));
   assert.ok(summaryRows.every(row => Number.isFinite(Number(row["Answers counted"]))));
@@ -141,8 +141,8 @@ test("D-004: Whole Child reconciles related sound evidence and exports an honest
     "Developing",
     "Needs more practice",
     "Needs support",
-    "Not enough evidence",
-    "Mixed evidence",
+    "Not enough results",
+    "Results differ",
     "Not checked"
   ].includes(row.Status)));
 });
@@ -197,18 +197,18 @@ test("D-004: phonological-awareness coverage uses phonemes and exposes unobserve
 
   const unseen = initialSounds.find(row => row.key === "z");
   assert.equal(unseen.status.id, REPORTING_STATUS_IDS.NOT_CHECKED);
-  assert.equal(unseen.coverageLabel, "Not seen in available evidence");
+  assert.equal(unseen.coverageLabel, "Not checked");
   assert.deepEqual(unseen.evidenceBasis, {
     observations: 0,
     correct: null,
     total: 0,
     accuracy: null,
     attemptCount: 0,
+    independentAttempts: 0,
     attemptIds: [],
     sourceCount: 0,
     windowStart: "",
-    windowEnd: "",
-    decisiveObservations: 0
+    windowEnd: ""
   });
   assert.ok(workspace.wholeChild.byDomain.some(domain => (
     domain.id === "encoding" && domain.noData && domain.items.length === 0

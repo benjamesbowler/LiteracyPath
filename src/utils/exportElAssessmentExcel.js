@@ -23,9 +23,14 @@ import {
   REPORT_PROVENANCE_SHEET_NAME
 } from "./exportProvenance.js";
 import {
+  evaluateLearningConclusion,
+  isLearningEvidenceRecent,
+  LEARNING_CONCLUSION_SCOPES,
+  LEARNING_EVIDENCE_POLICY,
   LEARNING_STATUS_IDS,
   rawLearningStatus
 } from "../policy/learningPolicy.js";
+import { displayBenchmarkScopeLabel } from "../data/elBenchmarkReportScope.js";
 
 // EL workbooks are intentionally limited to Assessments 1-6. Other learning
 // areas have their own reports and must not leak into these exports.
@@ -101,12 +106,56 @@ export function filterElAssessmentHistory(assessmentHistory = []) {
     .filter(record => Boolean(getElAssessmentTypeId(record)));
 }
 
-function formalStatusFromReportingStatus(status = "") {
-  const normalized = String(status || "").trim().toLowerCase();
-  if (normalized === "secure") return { status: "mastered", statusLabel: "Mastered" };
-  if (normalized === "developing") return { status: "developing", statusLabel: "Developing" };
-  if (normalized === "needs_teaching") return { status: "needs_support", statusLabel: "Needs Support" };
-  return { status: "not_assessed", statusLabel: "Not assessed" };
+function formalStatusFromSkillsAggregate(
+  aggregate = {},
+  rawDetails = [],
+  now = new Date()
+) {
+  const attempts = Number(aggregate.details?.observations || 0);
+  const correct = Number(aggregate.details?.correct || 0);
+  if (!Number.isFinite(attempts) || attempts <= 0) {
+    return Number(aggregate.details?.lifetimeObservations || 0) > 0
+      ? { status: "not_enough_evidence", statusLabel: "Not enough results" }
+      : { status: "not_assessed", statusLabel: "Not checked" };
+  }
+  const accuracy = Number.isFinite(Number(aggregate.details?.accuracy))
+    ? Number(aggregate.details.accuracy)
+    : Math.round((correct / attempts) * 100);
+  const independentAttemptIds = new Set(
+    [
+      ...rawDetails.map(row => row?.provenance?.attemptId || row?.sourceRecordId || ""),
+      ...(Array.isArray(aggregate.provenance?.sourceRecordIds)
+        ? aggregate.provenance.sourceRecordIds
+        : [])
+    ].filter(Boolean)
+  );
+  const independentAttempts = independentAttemptIds.size
+    || Number(aggregate.details?.independentAttempts || 0)
+    || 1;
+  const conclusion = evaluateLearningConclusion({
+    scope: LEARNING_CONCLUSION_SCOPES.ITEM,
+    accuracy,
+    attempts: independentAttempts,
+    observedAt: aggregate.observedAt || rawDetails
+      .map(row => row?.observedAt)
+      .filter(Boolean)
+      .sort()
+      .at(-1) || "",
+    now,
+    minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
+    skillDiversity: 1,
+    requireRecency: true
+  });
+  if (!conclusion.ready) {
+    return { status: "not_enough_evidence", statusLabel: "Not enough results" };
+  }
+  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) {
+    return { status: "mastered", statusLabel: "Secure" };
+  }
+  if (conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING) {
+    return { status: "developing", statusLabel: "Developing" };
+  }
+  return { status: "needs_support", statusLabel: "Needs support" };
 }
 
 function skillsCheckLetterCellKey(concept = {}) {
@@ -116,10 +165,11 @@ function skillsCheckLetterCellKey(concept = {}) {
   return `${letterCase}${mode}`;
 }
 
-function skillsCheckDetail(raw = {}, aggregate = {}) {
+function skillsCheckDetail(raw = {}, aggregate = {}, now = new Date()) {
   const status = raw.statusCandidate || aggregate.statusCandidate || "";
+  const date = raw.observedAt || aggregate.observedAt || "";
   return {
-    sourceLabel: "Skills Check",
+    sourceLabel: "Skills assessment",
     sourceStore: "assessment_attempts",
     attemptId: raw.provenance?.attemptId || raw.sourceRecordId || aggregate.details?.currentAttemptId || "",
     questionId: raw.provenance?.questionId || "",
@@ -134,16 +184,25 @@ function skillsCheckDetail(raw = {}, aggregate = {}) {
     contentVersion: raw.provenance?.contentVersion || "",
     scoringVersion: raw.provenance?.scoringVersion || "",
     responseSchemaVersion: raw.provenance?.schemaVersion ?? "",
-    date: raw.observedAt || aggregate.observedAt || ""
+    date,
+    withinCurrentWindow: isLearningEvidenceRecent(date, { now })
   };
 }
 
-function mergeSkillsCheckLettersIntoFormalAssessment(formalAssessments = {}, skillsCheck = {}) {
+function mergeSkillsCheckLettersIntoFormalAssessment(
+  formalAssessments = {},
+  skillsCheck = {},
+  now = new Date()
+) {
   const rawById = new Map((skillsCheck.evidence || []).map(row => [row.evidenceId, row]));
   const aggregateRows = (skillsCheck.knowledgeEvidence || []).filter(row => (
     row?.concept?.domain === "alphabet_knowledge" &&
     ["letter_name", "letter_sound"].includes(row?.concept?.construct) &&
-    row.statusCandidate
+    (
+      row.statusCandidate ||
+      Number(row.details?.observations || 0) > 0 ||
+      Number(row.details?.lifetimeObservations || 0) > 0
+    )
   ));
   if (!aggregateRows.length) return formalAssessments;
 
@@ -154,28 +213,61 @@ function mergeSkillsCheckLettersIntoFormalAssessment(formalAssessments = {}, ski
     const cellKey = skillsCheckLetterCellKey(aggregate.concept);
     const row = byLetter.get(letter);
     if (!row || !cellKey || Number(row[cellKey]?.evidenceCount || 0) > 0) return;
-    const contributingIds = aggregate.details?.contributingEvidenceIds || [];
-    const rawDetails = contributingIds.map(id => rawById.get(id)).filter(Boolean);
+    const currentContributingIds = aggregate.details?.contributingEvidenceIds || [];
+    const lifetimeContributingIds = aggregate.details?.lifetimeContributingEvidenceIds || [];
+    const currentRawDetails = currentContributingIds
+      .map(id => rawById.get(id))
+      .filter(Boolean);
+    const selectedPeriodRawDetails = (
+      lifetimeContributingIds.length
+        ? lifetimeContributingIds
+        : currentContributingIds
+    ).map(id => rawById.get(id)).filter(Boolean);
+    const rawDetails = selectedPeriodRawDetails.length
+      ? selectedPeriodRawDetails
+      : currentRawDetails;
     const details = (rawDetails.length ? rawDetails : [aggregate])
-      .map(raw => skillsCheckDetail(raw, aggregate));
-    const attempts = Number(aggregate.details?.observations || details.length || 0);
+      .map(raw => skillsCheckDetail(raw, aggregate, now));
+    const attempts = Number(aggregate.details?.observations ?? details.length ?? 0);
     const correct = Number(aggregate.details?.correct || 0);
-    const normalizedStatus = formalStatusFromReportingStatus(aggregate.statusCandidate);
+    const normalizedStatus = formalStatusFromSkillsAggregate(
+      aggregate,
+      currentRawDetails,
+      now
+    );
+    const selectedPeriodAttempts = Number(
+      aggregate.details?.lifetimeObservations ?? attempts
+    );
+    const selectedPeriodCorrect = Number(
+      aggregate.details?.lifetimeCorrect ?? correct
+    );
     row[cellKey] = {
       ...row[cellKey],
       ...normalizedStatus,
       evidenceCount: details.length,
-      unscoredCount: Math.max(0, details.length - attempts),
+      currentEvidenceCount: currentRawDetails.length,
+      staleEvidenceCount: Math.max(0, details.length - currentRawDetails.length),
+      unscoredCount: Math.max(0, currentRawDetails.length - attempts),
+      selectedPeriodUnscoredCount: Math.max(0, details.length - selectedPeriodAttempts),
       attempts,
+      selectedPeriodAttempts,
       correct,
+      selectedPeriodCorrect,
       incorrect: Math.max(0, attempts - correct),
       accuracy: aggregate.details?.accuracy ?? (attempts ? Math.round((correct / attempts) * 100) : null),
-      lastAssessed: formatDate(aggregate.observedAt),
+      lastAssessed: formatDate(
+        details.map(detail => detail.date).filter(Boolean).sort().at(-1) ||
+        aggregate.observedAt
+      ),
+      lastCurrentAssessed: formatDate(aggregate.observedAt),
       details,
-      evidenceSources: ["Skills Check"],
+      evidenceSources: ["Skills assessment"],
       reconciledFromSkillSpine: true
     };
-    row.lastAssessed = [row.lastAssessed, formatDate(aggregate.observedAt)].filter(Boolean).sort().at(-1) || "";
+    row.lastAssessed = [row.lastAssessed, row[cellKey].lastAssessed]
+      .filter(Boolean)
+      .sort()
+      .at(-1) || "";
     reconciledCellCount += 1;
   });
 
@@ -183,10 +275,10 @@ function mergeSkillsCheckLettersIntoFormalAssessment(formalAssessments = {}, ski
     ...formalAssessments,
     individualLetterMatrix: Array.from(byLetter.values()),
     reconciledSkillSpine: {
-      source: "Skills Check",
+      source: "Skills assessment",
       letterConceptCount: aggregateRows.length,
       reconciledCellCount,
-      precedence: "EL Assessment 1 evidence is used when present; otherwise the canonical Skills Check concept supplies the same current skill-spine status."
+      precedence: "EL Assessment 1 results are used when present; otherwise the canonical Skills assessment concept supplies the same current skill-spine status."
     }
   };
 }
@@ -233,11 +325,11 @@ function addRowsOrEmpty(sheet, rows, mapper) {
 }
 
 function cellSummary(cell = {}) {
-  return `${cell.statusLabel || "Not assessed"}${cell.attempts ? ` (${cell.correct}/${cell.attempts})` : ""}`;
+  return `${cell.statusLabel || "Not checked"}${cell.attempts ? ` (${cell.correct}/${cell.attempts})` : ""}`;
 }
 
 function cellCountSummary(group = {}) {
-  return `M:${group.mastered || 0} D:${group.developing || 0} S:${group.needs_support || 0} U:${group.unscored_evidence || 0} NA:${group.not_assessed || 0}`;
+  return `M:${group.mastered || 0} D:${group.developing || 0} S:${group.needs_support || 0} U:${group.unscored_evidence || 0} NA:${group.not_assessed || 0} NE:${group.not_enough_evidence || 0}`;
 }
 
 function parsePercent(value) {
@@ -550,6 +642,7 @@ function studentLetterEvidence(report = {}) {
   return rows.reduce((summary, row) => {
     LETTER_CELL_KEYS.forEach(key => {
       summary.evidenceCount += Number(row?.[key]?.evidenceCount || row?.[key]?.details?.length || 0);
+      summary.staleEvidenceCount += Number(row?.[key]?.staleEvidenceCount || 0);
       summary.unscoredCount += Number(row?.[key]?.unscoredCount || 0);
       summary.attempts += Number(row?.[key]?.attempts || 0);
       summary.correct += Number(row?.[key]?.correct || 0);
@@ -557,20 +650,35 @@ function studentLetterEvidence(report = {}) {
     const date = formatDate(row.lastAssessed);
     if (date > summary.latestDate) summary.latestDate = date;
     return summary;
-  }, { evidenceCount: 0, unscoredCount: 0, attempts: 0, correct: 0, latestDate: "" });
+  }, {
+    evidenceCount: 0,
+    staleEvidenceCount: 0,
+    unscoredCount: 0,
+    attempts: 0,
+    correct: 0,
+    latestDate: ""
+  });
 }
 
 function studentAdvancedEvidence(report = {}) {
   const rows = report.formalAssessments?.individualAdvancedPhonicsMatrix || [];
   return rows.reduce((summary, row) => {
     summary.evidenceCount += Number(row.evidenceCount || row.details?.length || 0);
+    summary.staleEvidenceCount += Number(row.staleEvidenceCount || 0);
     summary.unscoredCount += Number(row.unscoredCount || 0);
     summary.attempts += Number(row.attempts || 0);
     summary.correct += Number(row.correct || 0);
     const date = formatDate(row.lastAssessed);
     if (date > summary.latestDate) summary.latestDate = date;
     return summary;
-  }, { evidenceCount: 0, unscoredCount: 0, attempts: 0, correct: 0, latestDate: "" });
+  }, {
+    evidenceCount: 0,
+    staleEvidenceCount: 0,
+    unscoredCount: 0,
+    attempts: 0,
+    correct: 0,
+    latestDate: ""
+  });
 }
 
 export function getStudentElReportEvidenceCount(report = {}) {
@@ -583,9 +691,9 @@ export function getStudentElReportEvidenceCount(report = {}) {
 }
 
 function benchmarkProfileSummary(profile = {}) {
-  if (!profile.hasSavedEvidence) return "No saved evidence";
+  if (!profile.hasSavedEvidence) return "No saved results";
   const metrics = profile.metrics || {};
-  const status = profile.administrationStatusLabel || humanizeKey(profile.administrationStatus) || "Evidence recorded";
+  const status = profile.administrationStatusLabel || humanizeKey(profile.administrationStatus) || "Results recorded";
   if (profile.domainKey === "phonologicalAwareness") {
     return `${status}; ${percentageText(metrics.accuracyRate)} accuracy; ${numericValue(metrics.strandsObserved) || 0} strand(s) observed`;
   }
@@ -606,25 +714,32 @@ function buildStudentElSummaryRows(report = {}) {
   const savedAssessmentCount = Number(letter.evidenceCount > 0) + Number(advanced.evidenceCount > 0) +
     profiles.filter(profile => profile.hasSavedEvidence).length;
   const evidenceSummary = (evidence, noun) => {
-    if (!evidence.evidenceCount) return "No saved evidence";
+    if (!evidence.evidenceCount) return "No saved results";
     const scored = evidence.attempts
-      ? `${evidence.correct}/${evidence.attempts} correct ${noun}`
-      : "No scored responses; no result inferred";
-    const unscored = evidence.unscoredCount ? `; ${evidence.unscoredCount} unscored evidence item(s)` : "";
+      ? `${evidence.correct} of ${evidence.attempts} correct ${noun}`
+      : evidence.staleEvidenceCount
+        ? `Saved results are outside the latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays}-day status window`
+        : "No scored responses; no result inferred";
+    const unscored = evidence.unscoredCount ? `; ${evidence.unscoredCount} unscored item(s)` : "";
     return `${scored}${unscored}${evidence.latestDate ? `; latest ${evidence.latestDate}` : ""}`;
   };
   const sourceReads = Array.isArray(report.evidenceSourceReads) ? report.evidenceSourceReads : [];
   const sourceSummary = sourceReads.length
     ? sourceReads.map(source => `${source.store}: ${source.recordCount} row(s)`).join("; ")
-    : "No evidence-store read metadata";
+    : "No result-source details";
   const latestSync = sourceReads.map(source => source.lastSyncedAt).filter(Boolean).sort().at(-1) || "";
   const contextRows = [
     ["Student Name", report.studentName || "Unknown Student"],
     ["Class Name", report.className || "Unknown Class"],
     ["Report Date", formatDate(report.generatedAt)],
     ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
-    ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
+    ["EL Benchmark Scope", displayBenchmarkScopeLabel(report.benchmarkScope, "No grade and time of year selected")],
     ["EL Assessment Date Range", getElReportDateRange(report)],
+    [
+      "Current status window",
+      report.reportingPeriods?.currentConclusions?.label ||
+        `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`
+    ],
     ["Evidence Stores Read", sourceSummary],
     ["Evidence Read / Sync Completed", latestSync ? formatExportDateTime(latestSync) : "Sync time unavailable"]
   ];
@@ -632,19 +747,19 @@ function buildStudentElSummaryRows(report = {}) {
     return [
       [
         "Nothing to report",
-        `Nothing to report for ${report.studentName || "this student"} — no saved EL or reconciled Skills Check evidence. Run or save an assessment first.`
+        `Nothing to report for ${report.studentName || "this student"} — no saved EL or reconciled Skills assessment results. Run or save an assessment first.`
       ],
       ...contextRows,
       [
         "How To Read This Workbook",
-        "No assessment result rows are included because no evidence was saved. Provenance and definitions remain available for audit."
+        "No assessment result rows are included because no results were saved. Source details and definitions remain available."
       ]
     ];
   }
 
   return [
     ...contextRows.slice(0, 6),
-    ["Assessments With Saved Evidence", `${savedAssessmentCount}/6`],
+    ["Assessments With Saved Evidence", `${savedAssessmentCount} of 6`],
     ...contextRows.slice(6),
     ["Assessment 1 — Letter Names & Sounds", evidenceSummary(letter, "letter/name/sound response(s)")],
     ["Assessment 2 — Advanced Phonics Patterns", evidenceSummary(advanced, "pattern response(s)")],
@@ -652,7 +767,7 @@ function buildStudentElSummaryRows(report = {}) {
     ["Assessment 4 — Encoding & Spelling", benchmarkProfileSummary(profileByDomain.get("encoding"))],
     ["Assessment 5 — Decoding & Automaticity", benchmarkProfileSummary(profileByDomain.get("decoding"))],
     ["Assessment 6 — Oral Reading Fluency", benchmarkProfileSummary(profileByDomain.get("oralReadingFluency"))],
-    ["How To Read This Workbook", "Use the named assessment sheets for evidence details. Benchmark results are descriptive and do not apply an invented mastery cut score."]
+    ["How To Read This Workbook", "Use the named assessment sheets for result details. Benchmark results are descriptive and do not apply an invented mastery cut score."]
   ];
 }
 
@@ -715,7 +830,7 @@ function classBenchmarkSummary(summary = {}) {
   const total = Number(summary.totalStudents || 0);
   const saved = Number(summary.studentsWithSavedEvidence || 0);
   const metrics = summary.metrics || {};
-  const evidence = `${saved}/${total} student(s) with saved evidence`;
+  const evidence = `${saved} of ${total} student(s) with saved results`;
   if (summary.domainKey === "phonologicalAwareness") {
     return `${evidence}; ${percentageText(metrics.averageAccuracyRate)} class average accuracy`;
   }
@@ -734,24 +849,24 @@ function buildClassElSummaryRows(report = {}) {
   const totalStudents = classBenchmarkMatrixRows(report).length || report.summary?.totalStudents || report.studentRows?.length || 0;
   const summaryFor = domain => {
     const summary = summaryByDomain.get(domain);
-    return summary ? classBenchmarkSummary(summary) : `0/${totalStudents} student(s) with saved evidence`;
+    return summary ? classBenchmarkSummary(summary) : `0 of ${totalStudents} student(s) with saved results`;
   };
   const letterEvidence = classLetterEvidenceSummary(report);
   const advancedEvidence = classAdvancedEvidenceSummary(report);
   const evidenceSummary = (evidence, noun) => [
     `${evidence.scored} scored ${noun}`,
-    evidence.unscored ? `${evidence.unscored} unscored evidence item(s)` : ""
+    evidence.unscored ? `${evidence.unscored} unscored item(s)` : ""
   ].filter(Boolean).join("; ");
 
   return [
     ["Class Name", report.className || "Unknown Class"],
     ["Report Date", formatDate(report.generatedAt)],
     ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
-    ["EL Benchmark Scope", report.benchmarkScope?.label || "No benchmark route selected"],
+    ["EL Benchmark Scope", displayBenchmarkScopeLabel(report.benchmarkScope, "No grade and time of year selected")],
     ["EL Assessment Date Range", getElReportDateRange(report)],
     ["Students In Report", totalStudents],
     ["Assessment 1 — Letter Names & Sounds", evidenceSummary(letterEvidence, "letter/name/sound response(s)")],
-    ["Assessment 2 — Advanced Phonics Patterns", evidenceSummary(advancedEvidence, "student-pattern check(s)")],
+    ["Assessment 2 — Advanced Phonics Patterns", evidenceSummary(advancedEvidence, "student-pattern assessment(s)")],
     ["Assessment 3 — Phonological Awareness", summaryFor("phonologicalAwareness")],
     ["Assessment 4 — Encoding & Spelling", summaryFor("encoding")],
     ["Assessment 5 — Decoding & Automaticity", summaryFor("decoding")],
@@ -835,10 +950,10 @@ function addStudentBenchmarkProfileSheet(workbook, report = {}) {
 
   const profiles = benchmarkProfileRows(report);
   if (!profiles.length) {
-    addPlaceholderRow(sheet, "Domain", "No benchmark profile evidence is available.", {
+    addPlaceholderRow(sheet, "Domain", "No benchmark profile results are available.", {
       "Saved evidence": "No",
-      "Administration status": "No saved evidence",
-      "Interpretation": "Descriptive evidence only; no cut score is applied."
+      "Administration status": "No saved results",
+      "Interpretation": "Descriptive results only; no cut score is applied."
     });
   } else {
     profiles.forEach(profile => {
@@ -873,7 +988,7 @@ function addStudentBenchmarkProfileSheet(workbook, report = {}) {
         "Assessment validation issues": evidenceText(profile.validationIssues),
         "Recommendations": evidenceText(profile.recommendations),
         "Observations": evidenceText(profile.observations),
-        "Interpretation": profile.interpretation || "Descriptive evidence only; no cut score is applied."
+        "Interpretation": profile.interpretation || "Descriptive results only; no cut score is applied."
       });
     });
   }
@@ -976,8 +1091,8 @@ function addStudentPaDetailSheet(workbook, report = {}) {
     });
   });
   if (!rowCount) {
-    addPlaceholderRow(sheet, "Attempt ID", "No phonological-awareness evidence is available.", {
-      "Administration status": "No saved evidence"
+    addPlaceholderRow(sheet, "Attempt ID", "No phonological-awareness results are available.", {
+      "Administration status": "No saved results"
     });
   }
   formatPercentageColumns(sheet, ["Strand accuracy"]);
@@ -1079,8 +1194,8 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
     });
   });
   if (!rowCount) {
-    addPlaceholderRow(sheet, "Attempt ID", "No encoding evidence is available.", {
-      "Administration status": "No saved evidence"
+    addPlaceholderRow(sheet, "Attempt ID", "No encoding results are available.", {
+      "Administration status": "No saved results"
     });
   }
   formatPercentageColumns(sheet, percentageHeaders);
@@ -1222,8 +1337,8 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
     });
   });
   if (!rowCount) {
-    addPlaceholderRow(sheet, "Attempt ID", "No decoding evidence is available.", {
-      "Administration status": "No saved evidence"
+    addPlaceholderRow(sheet, "Attempt ID", "No decoding results are available.", {
+      "Administration status": "No saved results"
     });
   }
   formatPercentageColumns(sheet, percentageHeaders);
@@ -1299,8 +1414,8 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
 
   const details = benchmarkDetailRows(report).filter(detail => detail.domainKey === "oralReadingFluency");
   if (!details.length) {
-    addPlaceholderRow(sheet, "Attempt ID", "No oral-reading-fluency evidence is available.", {
-      "Administration status": "No saved evidence"
+    addPlaceholderRow(sheet, "Attempt ID", "No oral-reading-fluency results are available.", {
+      "Administration status": "No saved results"
     });
   } else {
     details.forEach(detail => {
@@ -1365,7 +1480,7 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
           "Other prosody ratings": detail.performanceSuppressed ? "" : evidenceText(otherProsody),
           "Stop reason": detail.stopEvidence?.passageId === passage.passageId ? detail.stopEvidence.reason || "Stopped at this passage" : "",
           "Accommodations": evidenceText(detail.accommodations),
-          "Interpretation": detail.interpretation || "Descriptive evidence only; no cut score is applied."
+          "Interpretation": detail.interpretation || "Descriptive results only; no cut score is applied."
         });
       });
     });
@@ -1492,7 +1607,7 @@ function formatPaStrandSummaries(strands = []) {
   return strands.map(strand => {
     const rate = numericValue(strand.accuracyRate);
     const accuracy = rate === "" ? "not calculated" : `${rate}%`;
-    return `${strand.strandLabel || humanizeKey(strand.strand)}: ${accuracy}; ${strand.studentsObserved || 0} student(s); ${strand.correctCount || 0}/${strand.administeredCount || 0} items`;
+    return `${strand.strandLabel || humanizeKey(strand.strand)}: ${accuracy}; ${strand.studentsObserved || 0} student(s); ${strand.correctCount || 0} of ${strand.administeredCount || 0} items`;
   }).join("\n");
 }
 
@@ -1557,7 +1672,7 @@ function addClassBenchmarkDomainSummarySheet(workbook, report = {}) {
   const summaries = classBenchmarkDomainSummaryRows(report);
   if (!summaries.length) {
     addPlaceholderRow(sheet, "Domain", "No class benchmark summaries are available.", {
-      "Interpretation": "Descriptive evidence only; no cut score is applied."
+      "Interpretation": "Descriptive results only; no cut score is applied."
     });
   } else {
     summaries.forEach(summary => {
@@ -1597,7 +1712,7 @@ function addClassBenchmarkDomainSummarySheet(workbook, report = {}) {
         "Fluency average prosody": summary.domainKey === "oralReadingFluency" ? numericValue(metrics.averageProsody) : "",
         "Candidate placements": formatPlacementRows(summary.candidatePlacements),
         "Confirmed placements": formatPlacementRows(summary.confirmedPlacements),
-        "Interpretation": summary.interpretation || "Descriptive evidence only; no cut score is applied."
+        "Interpretation": summary.interpretation || "Descriptive results only; no cut score is applied."
       });
     });
   }
@@ -1816,7 +1931,7 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
           ? [
               detail.stopEvidence?.stopCycleAnchorLabel || detail.stopEvidence?.stopCycleAnchor,
               evidenceText(detail.stopEvidence?.stopBand)
-            ].filter(Boolean).join(" / ")
+            ].filter(Boolean).join(" · ")
           : "",
         "Stop reason": detail.domainKey === "decoding" ? detail.stopEvidence?.reason || "" : "",
         "Candidate placement": reportableCandidatePlacementText(detail.candidatePlacement),
@@ -1825,14 +1940,14 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
         "Error tags": evidenceText(item?.errorTags),
         "Validation issues": evidenceText(item?.validationIssues),
         "Feature tags": evidenceText(item?.featureTags),
-        "Interpretation": detail.interpretation || "Descriptive evidence only; no cut score is applied."
+        "Interpretation": detail.interpretation || "Descriptive results only; no cut score is applied."
       });
     });
   });
   if (!rowCount) {
-    addPlaceholderRow(sheet, "Student", "No class benchmark evidence details are available.", {
-      "Administration status": "No saved evidence",
-      "Interpretation": "Descriptive evidence only; no cut score is applied."
+    addPlaceholderRow(sheet, "Student", "No class benchmark result details are available.", {
+      "Administration status": "No saved results",
+      "Interpretation": "Descriptive results only; no cut score is applied."
     });
   }
   formatPercentageColumns(sheet, percentageHeaders);
@@ -1873,7 +1988,7 @@ async function downloadWorkbook(workbook, fileName) {
 }
 
 const INTERNAL_EXPORT_COLUMN = /\b(?:attempt id|assessment id|item id|question id|item key|source record id|response schema|provenance|app version|assessment version|form version|content version|policy version|scoring version|scoring rule version|administration interface)\b/i;
-const INTERNAL_EXPORT_ROW = /^(?:app version\(s\)|check version\(s\)|content version\(s\)|scoring version\(s\)|policy version\(s\)|child id|learner id|student id)$/i;
+const INTERNAL_EXPORT_ROW = /^(?:app version\(s\)|(?:assessment|check) version\(s\)|content version\(s\)|scoring version\(s\)|policy version\(s\)|child id|learner id|student id)$/i;
 
 function teacherExportCopy(value) {
   const original = String(value ?? "");
@@ -1890,13 +2005,56 @@ function teacherExportCopy(value) {
   if (statusLabels[statusKey]) return statusLabels[statusKey];
 
   const mapped = original
+    .replace(/\bEL Benchmark Scope\b/gi, "EL grade and time of year")
+    .replace(/\bNo benchmark route selected\b/gi, "No grade and time of year selected")
+    .replace(/\bFluency route judgment usable\b/gi, "Fluency next-step decision available")
+    .replace(/\bFluency route decision\b/gi, "Fluency next-step decision")
+    .replace(/\bRoute judgment usable\b/gi, "Next-step decision available")
+    .replace(/\bRoute decision\b/gi, "Next-step decision")
+    .replace(/\bBenchmark Evidence Detail\b/gi, "Benchmark result detail")
+    .replace(/\bEvidence Stores Read\b/gi, "Result sources read")
+    .replace(/\bEvidence Read\s*\/\s*Sync Completed\b/gi, "Results loaded and synced")
+    .replace(/\bAssessments With Saved Evidence\b/gi, "Assessments with saved results")
+    .replace(/\bCorrect Evidence\b/gi, "Marked correct")
+    .replace(/\bEvidence Status\b/gi, "Result status")
+    .replace(/\bPatterns With Mastery Evidence\b/gi, "Patterns shown as Secure")
+    .replace(/\bLatest Evidence Date\b/gi, "Latest result date")
+    .replace(/\bStopped\s*\/\s*Discontinued Students\b/gi, "Students stopped or discontinued")
+    .replace(/\bStrand\s*\/\s*Band\b/gi, "Strand or word group")
+    .replace(/\bTarget\s*\/\s*Prompt\b/gi, "Target or prompt")
+    .replace(/\bStop Cycle Anchor\s*\/\s*Band\b/gi, "Stop cycle anchor or word group")
+    .replace(/\bReading\s*\/\s*Recognition Result\b/gi, "Reading or recognition result")
+    .replace(/\bDetails\s*\/\s*Notes\b/gi, "Details and notes")
+    .replace(/\bAssessment Validation Issues\b/gi, "Assessment review notes")
+    .replace(/\bValidation Issues\b/gi, "Review notes")
+    .replace(/\bResponse Capture\b/gi, "Recorded response details")
+    .replace(/\bNot-scorable Reason\b/gi, "Why it could not be scored")
+    .replace(/\bNot-scorable Note\b/gi, "Scoring note")
+    .replace(/\bScoring Code\b/gi, "Result code")
+    .replace(/\bError Tags\b/gi, "Error patterns")
+    .replace(/\bFeature Tags\b/gi, "Skill details")
+    .replace(/\bMicrophase\b/gi, "Reading stage")
+    .replace(/\bletter\/name\/sound\b/gi, "letter name or sound")
+    .replace(/\bstudent-pattern\b/gi, "student pattern")
+    .replace(
+      /\bM:(\d+)\s+D:(\d+)\s+S:(\d+)\s+U:(\d+)\s+NA:(\d+)\s+NE:(\d+)\b/g,
+      "Secure: $1 · Developing: $2 · Needs support: $3 · Unscored: $4 · Not checked: $5 · Not enough results: $6"
+    )
+    .replace(
+      /\bM:(\d+)\s+D:(\d+)\s+S:(\d+)\s+U:(\d+)\s+NA:(\d+)\b/g,
+      "Secure: $1 · Developing: $2 · Needs support: $3 · Unscored: $4 · Not checked: $5"
+    )
     .replace(/\bBOY\b/g, "Beginning of year")
     .replace(/\bMOY\b/g, "Middle of year")
     .replace(/\bEOY\b/g, "End of year")
-    .replace(/\bAssessments\b/g, "Checks")
-    .replace(/\bAssessment\b/g, "Check")
-    .replace(/\bassessments\b/g, "checks")
-    .replace(/\bassessment\b/g, "check")
+    .replace(/\bChecks\b/g, "Assessments")
+    .replace(/\bCheck\b/g, "Assessment")
+    .replace(/\bchecks\b/g, "assessments")
+    .replace(/\bcheck\b/g, "assessment")
+    .replace(/\bChildren\b/g, "Students")
+    .replace(/\bChild\b/g, "Student")
+    .replace(/\bchildren\b/g, "students")
+    .replace(/\bchild\b/g, "student")
     .replace(/\bEvidence\b/g, "Results")
     .replace(/\bevidence\b/g, "results")
     .replace(/\bLearners\b/g, "Students")
@@ -1915,9 +2073,10 @@ function teacherExportCopy(value) {
     .replace(/\bcumulative\b/g, "all saved")
     .replace(/\bBaseline\b/g, "Starting point")
     .replace(/\bbaseline\b/g, "starting point")
-    .replace(/\bAdministration\b/g, "Check")
-    .replace(/\badministration\b/g, "check")
-    .replace(/\bNot assessed\b/g, "Not checked")
+    .replace(/\bAdministration\b/g, "Assessment")
+    .replace(/\badministration\b/g, "assessment")
+    .replace(/\bNot assessed(?: yet)?\b/g, "Not checked")
+    .replace(/\bNot checked yet\b/g, "Not checked")
     .replace(/\bIncorrect\b/g, "Needs another look")
     .replace(/(\d+)\s*\/\s*(\d+)/g, "$1 of $2");
 
@@ -1960,19 +2119,27 @@ export function applyTeacherFacingWorkbookCopy(workbook) {
 }
 
 function elEvidenceWindow(report = {}) {
-  const start = report.dateRange?.start || "";
-  const end = report.dateRange?.end || "";
+  const start = report.reportingPeriods?.descriptiveResults?.start || report.dateRange?.start || "";
+  const end = report.reportingPeriods?.descriptiveResults?.end || report.dateRange?.end || "";
   if (start && end) return start === end ? start : `${start} to ${end}`;
   return report.assessmentWindow || "";
 }
 
-function buildElExportProvenanceRows(report = {}, reportType = report.reportType) {
+export function buildElExportProvenanceRows(report = {}, reportType = report.reportType) {
   const isIndividual = reportType === "individual";
   const learnerCount = isIndividual ? 1 : (
     report.summary?.totalStudents || report.studentRows?.length || null
   );
+  const descriptivePeriod = report.reportingPeriods?.descriptiveResults || {};
+  const currentPeriod = report.reportingPeriods?.currentConclusions || {};
+  const descriptiveDates = [descriptivePeriod.start, descriptivePeriod.end]
+    .filter(Boolean)
+    .join(" to ");
+  const currentDates = [currentPeriod.start, currentPeriod.end]
+    .filter(Boolean)
+    .join(" to ");
   return buildExportProvenanceRows({
-    reportTitle: isIndividual ? "Child EL check report" : "Class EL check report",
+    reportTitle: isIndividual ? "Student EL assessment report" : "Class EL assessment report",
     schoolName: report.schoolName,
     className: report.className,
     learnerName: isIndividual ? report.studentName : "",
@@ -1981,8 +2148,21 @@ function buildElExportProvenanceRows(report = {}, reportType = report.reportType
     generatedAt: report.generatedAt,
     timeZone: report.timeZone,
     filters: {
-      "EL check period": report.benchmarkScope?.label || "No check period selected",
-      "Time of year": report.assessmentWindow || "All included results",
+      ...(report.selectedDatePeriod?.label
+        ? { "Class report date period": report.selectedDatePeriod.label }
+        : {}),
+      "EL assessment period": displayBenchmarkScopeLabel(
+        report.benchmarkScope,
+        "No assessment period selected"
+      ),
+      "Descriptive results included": [
+        descriptivePeriod.label || report.assessmentWindow || "All included results",
+        descriptiveDates
+      ].filter(Boolean).join(" — "),
+      "Current status window": [
+        currentPeriod.label || `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`,
+        currentDates
+      ].filter(Boolean).join(" — "),
       ...(Array.isArray(report.evidenceSourceReads)
         ? {
             "Saved result sources": report.evidenceSourceReads
@@ -1999,7 +2179,11 @@ function buildElExportProvenanceRows(report = {}, reportType = report.reportType
     evidenceWindow: elEvidenceWindow(report),
     evidenceSource: report.sourceSnapshot?.records || [],
     versionSummary: report.exportVersionSummary,
-    definitions: `Definitions are included in the ${METRIC_DEFINITIONS_SHEET_NAME} sheet.`
+    definitions: [
+      `Definitions are included in the ${METRIC_DEFINITIONS_SHEET_NAME} sheet.`,
+      `Secure, Developing and Needs support use results from the latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
+      "The selected EL benchmark period remains descriptive and does not use a pass mark."
+    ].join(" ")
   });
 }
 
@@ -2081,10 +2265,10 @@ export async function createStudentElAssessmentWorkbook(report, { teacherFacing 
     ].join("; ")
   } : {
     "Letter pair": "No Letter Name/Sound records yet",
-    "Uppercase name result": "Not assessed",
-    "Uppercase sound result": "Not assessed",
-    "Lowercase name result": "Not assessed",
-    "Lowercase sound result": "Not assessed",
+    "Uppercase name result": "Not checked",
+    "Uppercase sound result": "Not checked",
+    "Lowercase name result": "Not checked",
+    "Lowercase sound result": "Not checked",
     "Uppercase name attempts": 0,
     "Uppercase sound attempts": 0,
     "Lowercase name attempts": 0,
@@ -2133,15 +2317,15 @@ export async function createStudentElAssessmentWorkbook(report, { teacherFacing 
     "Evidence provenance": formalEvidenceList(row.details)
   } : {
     "Pattern": "No Advanced Phonics Patterns records yet",
-    "Reading / recognition result": "Not assessed",
-    "Sound result": "Not assessed",
+    "Reading / recognition result": "Not checked",
+    "Sound result": "Not checked",
     "Evidence items": 0,
     "Unscored evidence items": 0,
     "Attempts": 0,
     "Correct": 0,
     "Incorrect": 0,
     "Accuracy": "",
-    "Status": "Not assessed",
+    "Status": "Not checked",
     "Example words": "",
     "Last assessed": "",
     "Evidence provenance": ""
@@ -2239,40 +2423,51 @@ export async function createClassElAssessmentWorkbook(report, { teacherFacing = 
     "Pattern",
     "Students with evidence",
     "Attempted students",
+    "Not enough result students",
     "Unscored evidence students",
     "Mastered students",
     "Developing students",
     "Needs support students",
-    "Not assessed students",
+    "Not checked students",
     "Mastery percentage",
     "Students needing support",
+    "Students with not enough results",
     "Students with unscored evidence",
     "Evidence provenance"
-  ], ["Students needing support", "Students with unscored evidence", "Evidence provenance"]);
+  ], [
+    "Students needing support",
+    "Students with not enough results",
+    "Students with unscored evidence",
+    "Evidence provenance"
+  ]);
   addRowsOrEmpty(classAdvancedMatrixSheet, report.formalAssessments?.classAdvancedPhonicsMatrix || [], row => row ? {
     "Pattern": row.pattern,
     "Students with evidence": row.evidenceStudents || 0,
     "Attempted students": row.attemptedStudents,
+    "Not enough result students": row.notEnoughResultsStudents || 0,
     "Unscored evidence students": row.unscoredEvidenceStudents || 0,
     "Mastered students": row.masteredStudents,
     "Developing students": row.developingStudents,
     "Needs support students": row.needsSupportStudents,
-    "Not assessed students": row.notAssessedStudents,
+    "Not checked students": row.notAssessedStudents,
     "Mastery percentage": row.masteryPercentage == null ? "" : `${row.masteryPercentage}%`,
     "Students needing support": list(row.studentsNeedingSupport),
+    "Students with not enough results": list(row.studentsWithNotEnoughResults),
     "Students with unscored evidence": list(row.studentsWithUnscoredEvidence),
     "Evidence provenance": formalEvidenceList(decodeClassEvidenceRows(report, row.evidenceRows), { includeStudent: true })
   } : {
     "Pattern": "No Advanced Phonics Patterns records yet",
     "Students with evidence": 0,
     "Attempted students": 0,
+    "Not enough result students": 0,
     "Unscored evidence students": 0,
     "Mastered students": 0,
     "Developing students": 0,
     "Needs support students": 0,
-    "Not assessed students": 0,
+    "Not checked students": 0,
     "Mastery percentage": "",
     "Students needing support": "",
+    "Students with not enough results": "",
     "Students with unscored evidence": "",
     "Evidence provenance": ""
   });
@@ -2374,7 +2569,8 @@ export function buildStudentElAssessmentExportReport(options = {}) {
     cloudAssessmentHistory: options.cloudAssessmentHistory,
     itemMastery: options.itemMastery,
     skillMasterySummary: options.skillMasterySummary,
-    evidenceReadState: options.evidenceReadState
+    evidenceReadState: options.evidenceReadState,
+    now: options.now
   });
   const report = buildStudentElAssessmentReportData({
     ...options,
@@ -2391,7 +2587,8 @@ export function buildStudentElAssessmentExportReport(options = {}) {
     assessmentHistory,
     benchmarkScope: report.benchmarkScope,
     benchmarkGrade: options.benchmarkGrade,
-    benchmarkWindow: options.benchmarkWindow
+    benchmarkWindow: options.benchmarkWindow,
+    now: options.now || report.generatedAt
   });
   return {
     ...report,
@@ -2399,7 +2596,8 @@ export function buildStudentElAssessmentExportReport(options = {}) {
     evidenceReadCompletedAt: evidenceRead.completedAt,
     formalAssessments: mergeSkillsCheckLettersIntoFormalAssessment(
       formalAssessments,
-      evidenceRead.skillsCheck
+      evidenceRead.skillsCheck,
+      options.now || report.generatedAt
     ),
     benchmarkProfile: formalAssessments.individualBenchmarkProfile || [],
     benchmarkDetails: formalAssessments.individualBenchmarkDetails || []
@@ -2418,7 +2616,8 @@ export function buildClassElAssessmentExportReport(options = {}) {
     classId: options.classId || "",
     benchmarkScope: report.benchmarkScope,
     benchmarkGrade: options.benchmarkGrade,
-    benchmarkWindow: options.benchmarkWindow
+    benchmarkWindow: options.benchmarkWindow,
+    now: options.now || report.generatedAt
   });
   return {
     ...report,

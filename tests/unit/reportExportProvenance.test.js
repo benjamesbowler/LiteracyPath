@@ -34,16 +34,16 @@ const VERSIONED_EVIDENCE = [{
 }];
 
 const EXPECTED_PROVENANCE = [
-  ["Report", "Student Skills Check"],
+  ["Report", "Student skills assessment"],
   ["School / organisation", "Harbour Primary"],
   ["Class", "Class 2B"],
-  ["Child", "Aarav"],
+  ["Student", "Aarav"],
   ["Generated at", GENERATED_AT],
   ["Time zone", TIME_ZONE],
-  ["Filters", "Report view: skills-check; Period: Last 90 days"],
+  ["Filters", "Report view: Skills assessment; Period: Last 90 days"],
   ["Results period", "2026-07-20T09:30:00.000Z"],
   ["App version(s)", "app-2026.07.23"],
-  ["Check version(s)", "assessment-v4, form-v3"],
+  ["Assessment version(s)", "assessment-v4, form-v3"],
   ["Content version(s)", "content-v8"],
   ["Scoring version(s)", "admin-v2, policy-v6, scoring-v5"],
   ["Definitions", "Metric definition rows are included in this file."],
@@ -65,7 +65,7 @@ function worksheetProvenanceEntries(workbook) {
 
 test("canonical report provenance is a fixed, complete semantic snapshot", () => {
   const rows = buildExportProvenanceRows({
-    reportTitle: "Student Skills Check",
+    reportTitle: "Student skills assessment",
     schoolName: "Harbour Primary",
     className: "Class 2B",
     learnerName: "Aarav",
@@ -74,7 +74,7 @@ test("canonical report provenance is a fixed, complete semantic snapshot", () =>
     generatedAt: GENERATED_AT,
     timeZone: TIME_ZONE,
     filters: {
-      "Report view": "skills-check",
+      "Report view": "Skills assessment",
       Period: "Last 90 days"
     },
     evidenceSource: VERSIONED_EVIDENCE,
@@ -120,7 +120,7 @@ test("student CSV provenance survives row export and RFC-style CSV escaping", ()
     }
   };
   const rows = buildStudentWorkspaceCsvRows("skills-check", workspace, {
-    reportTitle: "Student Skills Check",
+    reportTitle: "Student skills assessment",
     schoolName: "Harbour Primary",
     className: "Class 2B",
     learnerName: "Aarav",
@@ -143,7 +143,7 @@ test("student CSV provenance survives row export and RFC-style CSV escaping", ()
     provenance.map(row => ({ field: row.Field, value: row.Value }))
   );
   assert.match(preamble, /^"Section","Field","Value"/);
-  assert.match(preamble, /"About this report","Filters","Report view: Skills check; Period: Last 90 days"/);
+  assert.match(preamble, /"About this report","Filters","Report view: Skills assessment; Period: Last 90 days"/);
   assert.match(preamble, new RegExp(REPORT_PRIVACY_CLASSIFICATION));
 });
 
@@ -239,7 +239,7 @@ test("student and class EL Excel snapshots contain the canonical provenance bloc
     assert.equal(entries.get("Generated at"), GENERATED_AT);
     assert.equal(entries.get("Time zone"), TIME_ZONE);
     assert.equal(entries.get("App version(s)"), "app-2026.07.23");
-    assert.equal(entries.get("Check version(s)"), "assessment-v4, form-v3");
+    assert.equal(entries.get("Assessment version(s)"), "assessment-v4, form-v3");
     assert.equal(entries.get("Content version(s)"), "content-v8");
     assert.equal(entries.get("Scoring version(s)"), "admin-v2, policy-v6, scoring-v5");
     assert.equal(entries.get("Privacy classification"), REPORT_PRIVACY_CLASSIFICATION);

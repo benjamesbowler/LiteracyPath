@@ -87,11 +87,21 @@ test("finished report renders a visible saved-route selector with the newest rou
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, finishedReportProps(assessmentHistory)));
 
-  assert.match(html, /Check period:\s*<strong>Grade 1 · End of year<\/strong>/);
+  assert.match(html, /Assessment period:\s*<strong>Grade 1 · End of year<\/strong>/);
   assert.match(html, /aria-label="Grade and time of year"/);
   assert.match(html, /Grade 1 · End of year \(1 attempt\) - most recent/);
   assert.match(html, /Grade 1 · Middle of year \(1 attempt\)/);
   assert.match(html, />Download this report<\/button>/);
+  assert.doesNotMatch(
+    html,
+    />[^<]*\b(?:child|children|check|checks)\b[^<]*</i,
+    "visible report text must use student and assessment language"
+  );
+  assert.doesNotMatch(
+    html,
+    /aria-label="[^"]*\b(?:child|children|check|checks)\b[^"]*"/i,
+    "report accessibility labels must use student and assessment language"
+  );
 });
 
 test("Assessment 1 item details come from the latest completed attempt, not live partial state", async t => {
@@ -131,12 +141,12 @@ test("Assessment 1 item details come from the latest completed attempt, not live
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, props));
 
-  assert.match(html, /View answers from the latest checks/);
+  assert.match(html, /View answers from the latest assessments/);
   assert.match(html, /✓ (?:Lowercase )?A: letter name/);
   assert.doesNotMatch(html, /Z: letter name/);
 });
 
-test("Overview keeps descriptive EL checks separate from learning-status totals", async t => {
+test("Overview keeps descriptive EL assessments separate from learning-status totals", async t => {
   const vite = await createServer({
     appType: "custom",
     logLevel: "silent",
@@ -169,11 +179,10 @@ test("Overview keeps descriptive EL checks separate from learning-status totals"
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, props));
 
-  assert.match(html, /Descriptive EL check results/);
+  assert.match(html, /Descriptive EL assessment results/);
   assert.match(html, /Phonological and Phonemic Awareness/);
-  assert.match(html, /These checks are reported separately/);
-  // Renamed 2026-07-26: the reporting ladder now says "Practising", not "Developing".
-  assert.match(html, /do not change the Mastered, Practising, or Yet to learn totals/);
+  assert.match(html, /These assessments are reported separately/);
+  assert.match(html, /do not change the Secure, Developing, or Not checked totals/);
   assert.match(html, />Download knowledge data</);
 });
 
@@ -300,7 +309,7 @@ test("finished report exposes expandable semantic answer details for every bench
   assert.match(html, /<caption>Decoding and Automaticity answer details \(1 question\)<\/caption>/);
   assert.match(html, /<caption>Oral Reading Fluency answer details \(1 question\)<\/caption>/);
   assert.match(html, /<th scope="col">Exact response or transcription<\/th>/);
-  assert.match(html, /<th scope="col">Check notes<\/th>/);
+  assert.match(html, /<th scope="col">Assessment notes<\/th>/);
   assert.match(html, /<th scope="col">Why it was not scored<\/th>/);
   assert.match(html, /<th scope="col">Teacher note<\/th>/);
   assert.match(html, /<th data-label="Item" scope="row">/);
@@ -313,7 +322,7 @@ test("finished report exposes expandable semantic answer details for every bench
   assert.match(html, /<strong>Self-correction:<\/strong> Yes/);
   assert.match(html, /<strong>Self-corrections:<\/strong> 2/);
   assert.match(html, /data-label="What to review">Vowel Team Confusion<\/td>/);
-  assert.match(html, /data-label="Check notes">Response Transcription Required<\/td>/);
+  assert.match(html, /data-label="Assessment notes">Response Transcription Required<\/td>/);
   // Renamed 2026-07-26: teacher-facing copy says "student", not "child".
   assert.match(html, /data-label="Why it was not scored">Student Unwell<\/td>/);
   assert.match(html, /data-label="Teacher note">The student reported a headache\.<\/td>/);
@@ -326,10 +335,10 @@ test("finished report exposes expandable semantic answer details for every bench
   assert.match(html, /<dt>Override applied<\/dt><dd>Yes<\/dd>/);
   assert.match(html, /<dt>Override rationale<\/dt><dd>Recent classroom spelling results support this route\.<\/dd>/);
   assert.match(html, /<h4>Recommended follow-up<\/h4>/);
-  assert.match(html, /Administer the Letter Identification check before planning the next route\./);
+  assert.match(html, /Administer the Letter Identification assessment before planning the next route\./);
   assert.match(html, /<h4>Recorded observations<\/h4>/);
   assert.match(html, /Teacher-confirmed route override retained for review\./);
-  assert.match(html, /<h4>Check notes<\/h4>/);
+  assert.match(html, /<h4>Assessment notes<\/h4>/);
   assert.match(html, /Route Confirmation Required/);
   assert.doesNotMatch(html, /version provenance|benchmark-form-v1|benchmark-content-v1|benchmark-scoring-v1|benchmark-rule-v1/);
   assert.match(html, /<dt>Oral-task accuracy<\/dt>/, "aggregate benchmark metrics must remain visible");
@@ -369,7 +378,7 @@ test("finished report never coerces missing fluency evidence to zero", async t =
   assert.match(html, /<dt>Word accuracy<\/dt><dd>.*data-metric-figure="accuracy".*Not scored.*<\/dd>/);
   assert.match(html, /aria-label="How accuracy is worked out"/);
   assert.match(html, /<dt>Prosody \(optional\)<\/dt><dd>Not scored<\/dd>/);
-  assert.match(html, /<strong>Performance figures:<\/strong> Not scored for this check/);
+  assert.match(html, /<strong>Performance figures:<\/strong> Not scored for this assessment/);
   assert.doesNotMatch(html, /<strong>Errors:<\/strong>/, "globally unscored fluency must not expose performance counts");
   assert.doesNotMatch(html, /<strong>Accuracy:<\/strong>/, "globally unscored fluency must not expose a performance rate");
 });
@@ -382,7 +391,7 @@ test("finished report item evidence source keeps native disclosure and table sem
   assert.match(source, /<details className="student-report-benchmark-details">/);
   assert.match(source, /<caption>/);
   assert.match(source, /<th scope="col">Exact response or transcription<\/th>/);
-  assert.match(source, /<th scope="col">Check notes<\/th>/);
+  assert.match(source, /<th scope="col">Assessment notes<\/th>/);
   assert.match(source, /<th scope="col">Why it was not scored<\/th>/);
   assert.match(source, /<th scope="col">Teacher note<\/th>/);
   assert.match(source, /<th data-label="Item" scope="row">/);

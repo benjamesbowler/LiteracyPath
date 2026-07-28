@@ -21,6 +21,7 @@ test("learning policy publishes one versioned threshold and evidence contract", 
     intensiveSupportMaximum: 50
   });
   assert.equal(LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses, 8);
+  assert.equal(LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerSkillDiversity, 2);
   assert.equal(LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts, 3);
   assert.equal(LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays, 90);
   assert.deepEqual(LEARNING_EVIDENCE_POLICY.comparison, {
@@ -54,6 +55,28 @@ test("a perfect sparse sample cannot create an accuracy conclusion", () => {
   assert.equal(conclusion.status.label, "Not enough results");
   assert.equal(conclusion.policyVersion, LEARNING_POLICY_VERSION);
   assert.equal(conclusion.confidence.policyVersion, LEARNING_POLICY_VERSION);
+});
+
+test("many answers from one skill cannot create a general learner conclusion", () => {
+  const conclusion = evaluateLearningConclusion({
+    accuracy: 100,
+    attempts: 20,
+    skillDiversity: 1,
+    observedAt: "2026-07-23T12:00:00.000Z",
+    now: NOW
+  });
+
+  assert.equal(conclusion.ready, false);
+  assert.equal(conclusion.status.id, LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+  assert.equal(conclusion.confidence.id, "limited-diversity");
+  assert.equal(conclusion.confidence.sufficient, false);
+  assert.match(conclusion.reason, /1 of 2 required skills/);
+});
+
+test("no saved result uses the teacher-facing Not checked label", () => {
+  const conclusion = evaluateLearningConclusion();
+  assert.equal(conclusion.status.id, LEARNING_STATUS_IDS.NOT_CHECKED);
+  assert.equal(conclusion.status.label, "Not checked");
 });
 
 test("reteach conclusions require sufficient, recent evidence", () => {
@@ -100,7 +123,7 @@ test("class comparability requires enough ready learners, coverage, and balanced
   assert.equal(comparable.comparable, true);
   assert.equal(comparable.policyVersion, LEARNING_POLICY_VERSION);
   assert.equal(weakCoverage.comparable, false);
-  assert.match(weakCoverage.reason, /50% of children have enough results; 70% required/);
+  assert.match(weakCoverage.reason, /50% of students have enough results; 70% required/);
   assert.equal(imbalanced.comparable, false);
   assert.match(imbalanced.reason, /5:1 response imbalance; 4:1 maximum/);
 });

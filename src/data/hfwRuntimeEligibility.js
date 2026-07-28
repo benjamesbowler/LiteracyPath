@@ -3,6 +3,7 @@ import {
   getAudioPreferenceStatus
 } from "./audioPreferenceManifest.js";
 import {
+  ALL_HFW_WORD_SET,
   getHfwBandSet,
   isHighFrequencyWordSkill,
   normalizeHfwSkillId
@@ -30,8 +31,6 @@ import {
   hfwApprovedQuestionContentKeys,
   hfwApprovedQuestionIds,
   hfwApprovedQuestionTextKeys,
-  hfwApprovedWordSet,
-  hfwApprovedWordSetsBySkill,
   hfwApprovedRowsByQuestionId
 } from "./generated/hfwEligibilityKeys.generated.js";
 import {
@@ -242,7 +241,6 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
 
   const issues = [];
   const bandSet = getHfwBandSet(bandId);
-  const approvedBandSet = hfwApprovedWordSetsBySkill[bandId] || new Set();
   const format = getFormat(question);
   const itemType = String(question.itemType || question.type || "").toLowerCase();
   const promptText = getPromptText(question);
@@ -251,9 +249,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   const optionWords = getOptionWords(question);
   const optionValues = getOptionValues(question);
   const primaryWord =
-    questionWords.find(word => approvedBandSet.has(word)) ||
+    normalizeWord(question.targetWord || question.itemKey || question.correctAnswer || question.answer || "") ||
     questionWords.find(word => bandSet?.has(word)) ||
-    normalizeWord(question.targetWord || question.correctAnswer || question.answer || "") ||
+    questionWords.find(word => ALL_HFW_WORD_SET.has(word)) ||
     questionWords[0] ||
     "";
   const declaredQuestionBand = normalizeHfwSkillId(getQuestionSkillText(question));
@@ -292,16 +290,16 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   if (itemType && itemType !== "sight_word") issues.push(`itemType is ${itemType}, not sight_word`);
   if (!primaryWord) {
     issues.push("missing target HFW word");
-  } else if (!approvedBandSet.has(primaryWord) && !bandSet?.has(primaryWord)) {
-    issues.push(`target word "${primaryWord}" is outside approved ${bandId}`);
+  } else if (!bandSet?.has(primaryWord)) {
+    issues.push(`target word "${primaryWord}" is outside canonical ${bandId}`);
   }
   if (!isSentenceSpellQuestion && format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
     issues.push(`HFW live questions require exactly 4 answer options, found ${optionValues.length}`);
   }
   if (isHfwDirectRecognitionFormat(format) || isHfwClozeFormat(format)) {
-    const nonHfwOptions = optionWords.filter(word => !hfwApprovedWordSet.has(word));
+    const nonHfwOptions = optionWords.filter(word => !ALL_HFW_WORD_SET.has(word));
     if (nonHfwOptions.length) {
-      issues.push(`answer options outside approved HFW bank: ${[...new Set(nonHfwOptions)].join(", ")}`);
+      issues.push(`answer options outside the canonical HFW list: ${[...new Set(nonHfwOptions)].join(", ")}`);
     }
   }
 

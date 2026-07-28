@@ -1,7 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { printPracticePack } from "../utils/worksheets/practicePack.js";
 import { classHeatSummary } from "../utils/questReport.js";
-import { buildTeacherTodayBriefing } from "../utils/teacherTodayBriefing.js";
+import {
+  allocateTeacherTodayUrgentPreviews,
+  buildTeacherTodayBriefing
+} from "../utils/teacherTodayBriefing.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
@@ -19,15 +22,18 @@ import {
 } from "./teacher/teacherClassModel.js";
 import { supabase } from "../supabaseClient.js";
 import { TEACHER_COPY, countPhrase } from "../copy/teacherCopy.js";
+import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
+import { getClassListReadView } from "../appState/classListReadState.js";
+import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 import logoUrl from "../assets/logo.svg";
 
-const TODAY_ZONE_PREVIEW = 4;
+const TODAY_ZONE_PREVIEW = 3;
 
-// A zone used to print its total and then show only the first four rows with no
+// A zone used to print its total and then show only its preview rows with no
 // hint that the rest existed. The count and the list now always agree.
-function TodayZoneList({ rows, children }) {
+function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
   const [expanded, setExpanded] = useState(false);
-  const visibleRows = expanded ? rows : rows.slice(0, TODAY_ZONE_PREVIEW);
+  const visibleRows = expanded ? rows : rows.slice(0, previewLimit);
   const hiddenCount = rows.length - visibleRows.length;
   return (
     <>
@@ -48,17 +54,25 @@ function TodayZoneList({ rows, children }) {
   rows,
   onLoadStudent,
   onPlanIntervention,
-  onOpenClasses,
+  onOpenAssessments,
   onStartCheck,
   onOpenProgress
 }) {
   const briefing = useMemo(() => buildTeacherTodayBriefing(rows), [rows]);
   const policy = briefing.policy;
+  const urgentPreviews = allocateTeacherTodayUrgentPreviews({
+    attentionCount: briefing.attention.length,
+    dueCount: briefing.due.length,
+    maximum: TODAY_ZONE_PREVIEW
+  });
 
   const attentionZone = (
     <>
       {briefing.attention.length ? (
-        <TodayZoneList rows={briefing.attention}>
+        <TodayZoneList
+          previewLimit={urgentPreviews.attention}
+          rows={briefing.attention}
+        >
           {row => (
             <li key={row.id}>
               <div>
@@ -76,7 +90,7 @@ function TodayZoneList({ rows, children }) {
                   type="button"
                   onClick={() => onStartCheck?.(row)}
                 >
-                  Check
+                  Assess
                 </button>
                 <button
                   className="text-button"
@@ -104,7 +118,6 @@ function TodayZoneList({ rows, children }) {
           {countPhrase(briefing.insufficientEvidenceCount, "student has", "students have")} too few answers for a fair suggestion yet.
         </p>
       )}
-      <ClassHeatPanel rows={rows} />
     </>
   );
 
@@ -114,18 +127,18 @@ function TodayZoneList({ rows, children }) {
     <div className="teacher-today-first-day">
       <p>
         {countPhrase(briefing.due.length, "student is", "students are")} waiting on a
-        first check. Nothing is saved yet, so there is nothing to review.
+        first assessment. Nothing is saved yet, so there is nothing to review.
       </p>
       <button
         className="lp-button lp-button-primary teacher-start-check"
         type="button"
         onClick={() => onStartCheck?.(briefing.due[0])}
       >
-        Do the first check
+        Do the first assessment
       </button>
     </div>
   ) : briefing.due.length ? (
-    <TodayZoneList rows={briefing.due}>
+    <TodayZoneList previewLimit={urgentPreviews.due} rows={briefing.due}>
       {row => (
         <li key={row.id}>
           <div>
@@ -143,7 +156,7 @@ function TodayZoneList({ rows, children }) {
               type="button"
               onClick={() => onStartCheck?.(row)}
             >
-              Check
+              Assess
             </button>
             <button
               className="text-button"
@@ -158,7 +171,7 @@ function TodayZoneList({ rows, children }) {
     </TodayZoneList>
   ) : (
     <p className="teacher-today-empty">
-      No student is due for a check after {policy.inactivityDueDays} days without activity.
+      No student is due for an assessment after {policy.inactivityDueDays} days without activity.
     </p>
   );
 
@@ -176,13 +189,14 @@ function TodayZoneList({ rows, children }) {
     </TodayZoneList>
   ) : (
     <p className="teacher-today-empty">
-      No new answers or mastered skills in the last {policy.changeWindowDays} days.
+      No new answers or newly secured skills in the last {policy.changeWindowDays} days.
     </p>
   );
 
-  // Zones with something in them come first; an empty zone should never push a
-  // full one below the fold. Ties keep the original reading order.
-  const zones = [
+  // Urgency has a stable reading order. A teacher should never have to relearn
+  // where the due list moved because a different card happened to have a
+  // larger count today.
+  const priorityZones = [
     {
       id: "attention",
       title: "Who needs attention",
@@ -196,15 +210,8 @@ function TodayZoneList({ rows, children }) {
       label: "What's due",
       count: briefing.due.length,
       body: dueZone
-    },
-    {
-      id: "changed",
-      title: "What changed",
-      label: "What changed",
-      count: briefing.changed.length,
-      body: changedZone
     }
-  ].sort((left, right) => right.count - left.count);
+  ];
 
   return (
     <section
@@ -214,26 +221,35 @@ function TodayZoneList({ rows, children }) {
     >
       <header className="teacher-today-briefing-head">
         <div>
-          <p className="panel-label">Today&apos;s results</p>
-          <h3>
-            What needs your attention today
+          <p className="panel-label">Today&apos;s briefing</p>
+          <div className="teacher-today-heading-row">
+            <h3>Start with these students</h3>
             <MetricDefinition
               metricId="accuracy"
               label="Needs attention today"
               counts={`Students who have answered at least ${policy.minimumResponsesForAttention} times and are getting fewer than ${policy.attentionAccuracyBelow}% of those answers right.`}
-              timeWindow="All saved answers for this class."
+              timeWindow={`Current results from the last ${policy.conclusionWindowDays} days.`}
               excludes="Students with fewer saved answers than that, and anything the app did not score."
             />
-          </h3>
+          </div>
+          <p>Up to three urgent actions are shown first. Open a section only when you need more.</p>
         </div>
-        <p>
-          Suggestions use saved answers, never guesses. A student appears here once
-          they have answered enough times for the result to be fair.
-        </p>
+        <div className="teacher-today-direct-actions" aria-label="Today shortcuts">
+          <button
+            className="lp-button lp-button-primary"
+            type="button"
+            onClick={() => onOpenAssessments?.()}
+          >
+            Assess a student
+          </button>
+          <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
+            Open reports
+          </button>
+        </div>
       </header>
 
-      <div className="teacher-today-grid">
-        {zones.map(zone => (
+      <div className="teacher-today-grid teacher-today-priority-grid">
+        {priorityZones.map(zone => (
           <section
             className={`teacher-today-zone ${zone.id}`}
             aria-label={zone.label}
@@ -246,26 +262,19 @@ function TodayZoneList({ rows, children }) {
             {zone.body}
           </section>
         ))}
-
-        <section className="teacher-today-zone actions" aria-label="Direct actions">
-          <div className="teacher-today-zone-head">
-            <span>Direct actions</span>
-          </div>
-          <div className="teacher-today-direct-actions">
-            <button
-              className="lp-button lp-button-primary"
-              type="button"
-              onClick={() => onOpenClasses?.()}
-            >
-              Check a student
-            </button>
-            <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
-              Review progress
-            </button>
-          </div>
-          <p>Each action keeps the current class in context.</p>
-        </section>
       </div>
+
+      <details className="teacher-today-more">
+        <summary>
+          <span>Recent changes</span>
+          <strong>{briefing.changed.length}</strong>
+        </summary>
+        <section className="teacher-today-zone changed" aria-label="What changed">
+          {changedZone}
+        </section>
+      </details>
+
+      <ClassHeatPanel rows={rows} />
     </section>
   );
 }// THE CLASS SOUND MAP (REVIEW.md, Educator #7). One row of tiles for the
@@ -274,10 +283,10 @@ function TodayZoneList({ rows, children }) {
 // one-click group practice sheet printed at the LOWEST member's curriculum
 // stop, so every word on it is decodable for every student in the group.
 function ClassHeatPanel({ rows }) {
-  // Open by default: this panel moved from three disclosures deep inside
-  // "Manage students" onto the Dashboard, where it is meant to be read, not
-  // hunted for. Its heat, grouping and print logic are unchanged.
-  const [open, setOpen] = useState(true);
+  // This is useful planning detail, but it is not a daily urgent action. Keep
+  // it one tap away so the briefing remains readable without removing the
+  // grouping and print tools.
+  const [open, setOpen] = useState(false);
   const [note, setNote] = useState("");
   const summary = useMemo(
     () => classHeatSummary(rows
@@ -305,7 +314,8 @@ function ClassHeatPanel({ rows }) {
       });
       setNote(result ? "" : "Please allow pop-ups for this site so the pack can open.");
     } catch (error) {
-      setNote(error.message || "Could not build that group pack.");
+      console.error("Could not build the class group practice pack.", error);
+      setNote("We couldn't build this group pack. Nothing was printed. Try again.");
     }
   }
 
@@ -335,7 +345,7 @@ function ClassHeatPanel({ rows }) {
   return (
     <div className="quest-heat-panel class-heat-panel">
       <div className="quest-heat-head">
-        <strong>Class sound map</strong>
+        <strong>Class sound map and small groups</strong>
         <MetricDefinition
           metricId="accuracy"
           label="Sound status"
@@ -393,35 +403,77 @@ function ClassHeatPanel({ rows }) {
 // archiving - lives on the Students page. This page decides; that page does.
 export function TeacherTodayPage({
   classList = [],
+  classListReadState = null,
+  loadingClasses = false,
+  loadClasses,
   selectedClassId,
   setSelectedClassId,
   setStudentList,
   studentList = [],
+  studentListReadState = null,
   loadingStudents = false,
   loadStudents,
   loadClassDashboard,
   classDashboard = [],
+  classDashboardReadState = null,
   onLoadStudent,
   onStartCheck,
+  onOpenAssessments,
   onOpenClasses,
   onOpenProgress,
   createDemoClass,
   teacherId,
   schoolName = "",
   hasSchool = false,
-  message,
-  surfaceState = "",
-  surfaceStateDetail = "",
-  onSurfaceStatePrimary,
-  onSurfaceStateSecondary
+  message
 }) {
   const [creatingDemo, setCreatingDemo] = useState(false);
+  const [demoError, setDemoError] = useState("");
   const [interventionRecommendation, setInterventionRecommendation] = useState(null);
+  const [supportFollowUpOpen, setSupportFollowUpOpen] = useState(false);
+  const [supportQueueState, setSupportQueueState] = useState({
+    count: 0,
+    loading: true,
+    unavailable: false
+  });
+  const supportPlannerHeadingRef = useRef(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
+  const loadClassesRef = useRef(loadClasses);
 
-  const selectedClass = classList.find(row => row.id === selectedClassId) || null;
-  const studentRows = useTeacherStudentRows({ studentList, classDashboard });
+  const classRead = getClassListReadView({
+    readState: classListReadState,
+    teacherId,
+    legacyLoading: loadingClasses
+  });
+  const visibleClassList = classRead.rowsVerified ? classList : [];
+  const knownSelectedClass = visibleClassList.find(row => row.id === selectedClassId) || null;
+  const selectedClass = classRead.complete ? knownSelectedClass : null;
+  const rosterRead = getStudentRosterReadView({
+    readState: studentListReadState,
+    classId: selectedClassId,
+    legacyLoading: loadingStudents
+  });
+  const dashboardRead = getClassDashboardReadView({
+    readState: classDashboardReadState,
+    classId: selectedClassId
+  });
+  const dashboardRowsForClass = dashboardRead.rowsBelongToClass
+    ? classDashboard.filter(row => (
+      !classDashboardReadState?.status
+      || String(row?.classId || "") === String(selectedClassId || "")
+    ))
+    : [];
+  const studentRows = useTeacherStudentRows({
+    studentList: rosterRead.rowsBelongToClass ? studentList : [],
+    classDashboard: rosterRead.complete && dashboardRead.complete
+      ? dashboardRowsForClass
+      : []
+  });
+  const incompleteEvidenceRows = studentRows.filter(
+    row => row.evidenceReadStatus !== "complete"
+  );
+  const hasIncompleteEvidence = incompleteEvidenceRows.length > 0;
   const {
     hasSetupClass,
     setupSteps,
@@ -429,19 +481,36 @@ export function TeacherTodayPage({
     setupComplete,
     setupEverComplete,
     studentsMissingSignIn
-  } = useTeacherSetupState({ selectedClass, selectedClassId, studentRows, classCount: classList.length });
-  const className = selectedClass?.name || "No class selected";
+  } = useTeacherSetupState({
+    selectedClass,
+    selectedClassId,
+    studentRows,
+    classCount: classRead.complete ? visibleClassList.length : 0
+  });
+  const className = knownSelectedClass?.name || "No class selected";
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
     loadClassDashboardRef.current = loadClassDashboard;
-  }, [loadStudents, loadClassDashboard]);
+    loadClassesRef.current = loadClasses;
+  }, [loadStudents, loadClassDashboard, loadClasses]);
 
   useEffect(() => {
     if (!selectedClassId) return;
+    if (classListReadState?.status && classListReadState.status !== "complete") return;
     loadStudentsRef.current?.(selectedClassId);
     loadClassDashboardRef.current?.(selectedClassId);
-  }, [selectedClassId]);
+  }, [classListReadState?.status, selectedClassId]);
+
+  const handleSupportQueueChange = useCallback(nextState => {
+    const count = Number(nextState?.count || 0);
+    setSupportQueueState({
+      count,
+      loading: Boolean(nextState?.loading),
+      unavailable: Boolean(nextState?.unavailable)
+    });
+    if (count > 0) setSupportFollowUpOpen(true);
+  }, []);
 
   // Changing class empties the student list on the spot and the refetch lands a
   // moment later. Everything the briefing says in that gap - "no student needs a
@@ -449,6 +518,10 @@ export function TeacherTodayPage({
   // not read yet, so the briefing waits behind the loading state instead.
   function handleClassChange(event) {
     const nextClassId = event.target.value || null;
+    if (nextClassId === selectedClassId) return;
+    setInterventionRecommendation(null);
+    setSupportFollowUpOpen(false);
+    setSupportQueueState({ count: 0, loading: true, unavailable: false });
     setSelectedClassId?.(nextClassId);
     setStudentList?.([]);
   }
@@ -457,7 +530,7 @@ export function TeacherTodayPage({
   // the teacher there AND says which control to open. The checklist stays on
   // both pages, so following it never makes the map disappear.
   async function handleSetupContinue(stepId) {
-    if (stepId === "check") {
+    if (stepId === "assessment") {
       const learner = studentRows[0];
       if (!learner) return;
       await onStartCheck?.(learner);
@@ -469,9 +542,16 @@ export function TeacherTodayPage({
   async function handleCreateDemo() {
     if (creatingDemo) return;
     setCreatingDemo(true);
+    setDemoError("");
     try {
       const created = await createDemoClass?.();
-      if (created) onOpenClasses?.();
+      if (created) {
+        onOpenClasses?.();
+      } else {
+        setDemoError("We couldn't create the sample class. Nothing was added. Try again.");
+      }
+    } catch {
+      setDemoError("We couldn't create the sample class. Nothing was added. Try again.");
     } finally {
       setCreatingDemo(false);
     }
@@ -491,8 +571,8 @@ export function TeacherTodayPage({
           </div>
         )}
         title={TEACHER_COPY.today.title}
-        description={selectedClass
-          ? TEACHER_COPY.today.descriptionWithClass(selectedClass.name)
+        description={knownSelectedClass
+          ? TEACHER_COPY.today.descriptionWithClass(knownSelectedClass.name)
           : TEACHER_COPY.today.descriptionWithoutClass}
       >
         <div
@@ -502,26 +582,32 @@ export function TeacherTodayPage({
           <span>School</span>
           <strong>{hasSchool ? schoolName : "Not set"}</strong>
           <small>
-            {selectedClass
-              ? TEACHER_COPY.classes.childCount(studentRows.length)
+            {knownSelectedClass
+              ? !classRead.complete
+                ? "Class list needs reloading"
+                : rosterRead.complete && dashboardRead.complete
+                ? TEACHER_COPY.classes.childCount(studentRows.length)
+                : rosterRead.incomplete
+                  ? "Student list needs reloading"
+                  : dashboardRead.failed
+                    ? "Class progress needs reloading"
+                    : "Loading class…"
               : className}
           </small>
         </div>
       </TeacherPageHeader>
 
       <ActionFeedback className="teacher-dashboard-message" message={message} />
+      <ActionFeedback
+        className="teacher-dashboard-message"
+        kind="error"
+        message={demoError}
+      />
 
-      {surfaceState ? (
-        <TeacherSurfaceState
-          surface="today"
-          state={surfaceState}
-          detail={surfaceStateDetail}
-          onPrimaryAction={onSurfaceStatePrimary}
-          onSecondaryAction={onSurfaceStateSecondary}
-        />
-      ) : (
       <>
-      {showSetupChecklist && (
+      {classRead.complete
+        && (!selectedClass || (rosterRead.complete && dashboardRead.complete))
+        && showSetupChecklist && (
         <TeacherSetupChecklist
           hasClass={hasSetupClass}
           steps={setupSteps}
@@ -531,7 +617,7 @@ export function TeacherTodayPage({
         />
       )}
 
-      {selectedClass && (setupComplete || setupEverComplete) && studentsMissingSignIn.length > 0 && (
+      {selectedClass && rosterRead.complete && (setupComplete || setupEverComplete) && studentsMissingSignIn.length > 0 && (
         <section className="teacher-setup-signin-gap" aria-label={TEACHER_COPY.setup.signInGapTitle(studentsMissingSignIn.length)}>
           <div>
             <strong>{TEACHER_COPY.setup.signInGapTitle(studentsMissingSignIn.length)}</strong>
@@ -554,9 +640,13 @@ export function TeacherTodayPage({
         <div className="teacher-dashboard-control-group">
           <label className="teacher-dashboard-control">
             <span>Current class</span>
-            <select value={selectedClassId || ""} onChange={handleClassChange}>
+            <select
+              value={selectedClassId || ""}
+              disabled={!classRead.complete}
+              onChange={handleClassChange}
+            >
               <option value="">Choose class</option>
-              {classList.map(cls => (
+              {visibleClassList.map(cls => (
                 <option key={cls.id} value={cls.id}>
                   {cls.name}
                 </option>
@@ -566,28 +656,112 @@ export function TeacherTodayPage({
         </div>
       </section>
 
-      {selectedClass && loadingStudents && (
+      {classRead.loading && (
         <TeacherSurfaceState surface="today" state="loading" />
       )}
 
-      {selectedClass && !loadingStudents && (
+      {classRead.failed && (
+        <TeacherSurfaceState
+          surface="today"
+          state="partial"
+          detail={classRead.truncated
+            ? "The full class list reached its safety limit. No missing class is being treated as absent."
+            : "The class list could not be confirmed. No class or student is being treated as missing."}
+          onPrimaryAction={() => loadClassesRef.current?.()}
+        />
+      )}
+
+      {classRead.complete && selectedClass && rosterRead.loading && (
+        <TeacherSurfaceState surface="today" state="loading" />
+      )}
+
+      {classRead.complete && selectedClass && rosterRead.incomplete && (
+        <TeacherSurfaceState
+          surface="today"
+          state="partial"
+          detail={rosterRead.reason === "truncated"
+            ? "The student list was larger than the complete read could safely confirm. No missing student is being counted as absent."
+            : "The student list could not be confirmed. No empty-class or teaching conclusion is being shown."}
+          onPrimaryAction={() => {
+            loadStudentsRef.current?.(selectedClassId);
+            loadClassDashboardRef.current?.(selectedClassId);
+          }}
+        />
+      )}
+
+      {classRead.complete && selectedClass && rosterRead.complete && dashboardRead.loading && (
+        <TeacherSurfaceState surface="today" state="loading" />
+      )}
+
+      {classRead.complete && selectedClass && rosterRead.complete && dashboardRead.failed && (
+        <TeacherSurfaceState
+          surface="today"
+          state="partial"
+          detail={dashboardRead.truncated
+            ? "The full set of class results reached its safety limit. No missing result is being counted as zero."
+            : "Class results could not be confirmed. No earlier class figure is being reused for today's suggestions."}
+          onPrimaryAction={() => loadClassDashboardRef.current?.(selectedClassId)}
+        />
+      )}
+
+      {selectedClass && rosterRead.complete && dashboardRead.complete && hasIncompleteEvidence && (
+        <TeacherSurfaceState
+          compact
+          surface="today"
+          state="partial"
+          detail={`${countPhrase(incompleteEvidenceRows.length, "student has", "students have")} results that need loading again.`}
+          onPrimaryAction={() => loadClassDashboardRef.current?.(selectedClassId)}
+        />
+      )}
+
+      {selectedClass && rosterRead.complete && dashboardRead.complete && !hasIncompleteEvidence && (
         <TodayBriefing
           rows={studentRows}
           onLoadStudent={onLoadStudent}
           onStartCheck={onStartCheck}
-          onPlanIntervention={row => setInterventionRecommendation({
-            id: row.id,
-            name: row.name,
-            focus: row.focus
-          })}
-          onOpenClasses={onOpenClasses}
+          onPlanIntervention={row => {
+            setInterventionRecommendation({
+              id: row.id,
+              name: row.name,
+              focus: row.focus
+            });
+            setSupportFollowUpOpen(true);
+            window.requestAnimationFrame(() => {
+              supportPlannerHeadingRef.current?.scrollIntoView?.({
+                behavior: "smooth",
+                block: "start"
+              });
+              supportPlannerHeadingRef.current?.focus?.();
+            });
+          }}
+          onOpenAssessments={onOpenAssessments}
           onOpenProgress={onOpenProgress}
         />
       )}
 
-      {selectedClass && (
-        <details className="teacher-dashboard-secondary">
-          <summary>Intervention follow-up</summary>
+      {selectedClass && rosterRead.complete && dashboardRead.complete && (
+        <details
+          className="teacher-dashboard-secondary"
+          open={supportFollowUpOpen || supportQueueState.loading}
+          onToggle={event => {
+            // Keep the section visible while its saved plans are being checked.
+            // Otherwise a reload can briefly collapse the only place that tells
+            // a teacher whether dated follow-up work has returned to Today.
+            if (!supportQueueState.loading) {
+              setSupportFollowUpOpen(event.currentTarget.open);
+            }
+          }}
+        >
+          <summary>
+            Support follow-up
+            {supportQueueState.loading
+              ? " · checking"
+              : supportQueueState.unavailable
+                ? " · needs reloading"
+                : supportQueueState.count > 0
+                  ? ` · ${supportQueueState.count} to do`
+                  : ""}
+          </summary>
           <InterventionLoop
             key={`${teacherId || "teacher"}:${selectedClass.id}`}
             supabase={supabase}
@@ -597,11 +771,12 @@ export function TeacherTodayPage({
             rows={studentRows}
             recommendation={interventionRecommendation}
             onRecommendationConsumed={() => setInterventionRecommendation(null)}
+            onTodayQueueChange={handleSupportQueueChange}
+            headingRef={supportPlannerHeadingRef}
           />
         </details>
       )}
       </>
-      )}
     </TeacherPageShell>
   );
 }

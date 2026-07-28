@@ -63,7 +63,11 @@ test("mastery summaries include every item without a silent top-N cap", () => {
         itemKey: `word-${String(index + 1).padStart(2, "0")}`,
         itemType: "sight_word",
         mastered: true,
-        correct: 3
+        attempts: 3,
+        correct: 3,
+        sessionsSeen: 3,
+        accuracy: 100,
+        lastAssessed: "2026-07-23T09:00:00.000Z"
       }
     ])
   );
@@ -84,4 +88,61 @@ test("mastery summaries include every item without a silent top-N cap", () => {
   assert.match(summary.displayText, /word-01/);
   assert.match(summary.displayText, /word-14/);
   assert.doesNotMatch(summary.displayText, /more$/);
+});
+
+test("one correct answer cannot enter a mastery summary", () => {
+  const [summary] = buildSkillMasterySummaryRows({
+    itemMastery: {
+      sparse: {
+        itemKey: "the",
+        itemType: "sight_word",
+        mastered: true,
+        attempts: 1,
+        correct: 1,
+        sessionsSeen: 1,
+        accuracy: 100,
+        lastAssessed: "2026-07-23T09:00:00.000Z"
+      }
+    },
+    skillTree: [{ id: "high_frequency_words_1", label: "High Frequency Words 1" }],
+    configuredCoverageTotals: {
+      high_frequency_words_1: { unit: "words" }
+    },
+    getSkillIdForMasteryRow: () => "high_frequency_words_1",
+    formatMasteryItemLabel: row => row.itemKey,
+    getRepresentativeWordsForItem: () => [],
+    normalizeItemKey: value => String(value || "").trim().toLowerCase()
+  });
+
+  assert.equal(summary.masteredCount, 0);
+  assert.deepEqual(summary.groups, []);
+});
+
+test("four repeated observations from one sitting cannot enter roster summaries", () => {
+  const [summary] = buildSkillMasterySummaryRows({
+    itemMastery: {
+      repeated: {
+        itemKey: "a",
+        itemType: "initial_sound",
+        mastered: true,
+        attempts: 4,
+        correct: 4,
+        sessionsSeen: 1,
+        accuracy: 100,
+        lastAssessed: "2026-07-27T09:00:00.000Z"
+      }
+    },
+    skillTree: [{ id: "initial_sounds", label: "Initial Sounds" }],
+    configuredCoverageTotals: {
+      initial_sounds: { unit: "sounds" }
+    },
+    getSkillIdForMasteryRow: () => "initial_sounds",
+    formatMasteryItemLabel: row => row.itemKey,
+    getRepresentativeWordsForItem: () => [],
+    normalizeItemKey: value => String(value || "").trim().toLowerCase(),
+    now: new Date("2026-07-28T00:00:00.000Z")
+  });
+
+  assert.equal(summary.masteredCount, 0);
+  assert.deepEqual(summary.groups, []);
 });

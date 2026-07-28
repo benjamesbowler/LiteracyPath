@@ -32,6 +32,7 @@ import {
   EL_BENCHMARK_IDS,
   getElBenchmarkPlan
 } from "../../src/data/elBenchmarkAssessments.js";
+import { displayBenchmarkScopeLabel } from "../../src/data/elBenchmarkReportScope.js";
 
 const student = { id: "student-1", name: "Ada", classId: "class-1" };
 const classmate = { id: "student-2", name: "Leo", classId: "class-1" };
@@ -50,6 +51,25 @@ const common = {
   startedAt: "2026-07-21T01:00:00.000Z",
   completedAt: "2026-07-21T01:10:00.000Z"
 };
+
+test("legacy saved assessment periods are always presented in teacher language", () => {
+  assert.equal(
+    displayBenchmarkScopeLabel({ label: "Grade 1 · BOY" }),
+    "Grade 1 · Beginning of year"
+  );
+  assert.equal(
+    displayBenchmarkScopeLabel({ grade: "2", benchmarkWindow: "MOY", label: "Grade 2 · MOY" }),
+    "Grade 2 · Middle of year"
+  );
+  assert.equal(
+    displayBenchmarkScopeLabel({ label: "Kindergarten · EOY" }),
+    "Kindergarten · End of year"
+  );
+  assert.equal(
+    displayBenchmarkScopeLabel({}, "No assessment period selected"),
+    "No assessment period selected"
+  );
+});
 
 const assessmentHistory = [
   {
@@ -326,7 +346,7 @@ test("generic EL benchmark category records resolve and export by their specific
   );
   const scope = resolveElBenchmarkReportScope({ records: [genericCategoryAttempt] });
   assert.equal(scope.availableRoutes.length, 1);
-  assert.equal(scope.availableRoutes[0].label, "Grade 1 · BOY");
+  assert.equal(scope.availableRoutes[0].label, "Grade 1 · Beginning of year");
 
   const report = buildClassElAssessmentExportReport({
     assessmentHistory: [genericCategoryAttempt],
@@ -335,7 +355,7 @@ test("generic EL benchmark category records resolve and export by their specific
     classId: student.classId
   });
   assert.equal(report.summary.totalAssessments, 1);
-  assert.equal(report.benchmarkScope.label, "Grade 1 · BOY");
+  assert.equal(report.benchmarkScope.label, "Grade 1 · Beginning of year");
 });
 
 function worksheetRows(sheet) {
@@ -363,6 +383,49 @@ async function serializeAndReload(workbook) {
   await reloaded.xlsx.load(buffer);
   return reloaded;
 }
+
+test("a legacy persisted BOY scope exports teacher language in the workbook and its source details", async () => {
+  const currentReport = buildClassElAssessmentReportData({
+    assessmentHistory,
+    students: [student, classmate],
+    classes: [{ id: student.classId, name: "Class One" }],
+    classId: student.classId,
+    teacherId: "teacher-1",
+    benchmarkScope: { grade: "1", benchmarkWindow: "BOY" }
+  });
+  const legacyPersistedReport = compactElAssessmentReportForStorage({
+    ...currentReport,
+    benchmarkScope: {
+      ...currentReport.benchmarkScope,
+      label: "Grade 1 · BOY"
+    }
+  });
+  assert.equal(
+    legacyPersistedReport.benchmarkScope.label,
+    "Grade 1 · BOY",
+    "the fixture must preserve the legacy label before the export boundary"
+  );
+
+  const workbook = await serializeAndReload(
+    await createClassElAssessmentWorkbook(legacyPersistedReport, { teacherFacing: true })
+  );
+  const summaryRows = worksheetRows(workbook.getWorksheet("Class Summary"));
+  assert.equal(
+    summaryRows.find(row => row.Field === "EL grade and time of year")?.Value,
+    "Grade 1 · Beginning of year"
+  );
+
+  const sourceDetailRows = worksheetRows(workbook.getWorksheet("About this report"));
+  const filters = String(sourceDetailRows.find(row => row.Field === "Filters")?.Value || "");
+  assert.match(filters, /EL assessment period: Grade 1 · Beginning of year/);
+
+  const exportedText = workbookText(
+    workbook,
+    workbook.worksheets.map(sheet => sheet.name)
+  );
+  assert.match(exportedText, /Grade 1 · Beginning of year/);
+  assert.doesNotMatch(exportedText, /\b(?:BOY|MOY|EOY)\b/);
+});
 
 test("individual benchmark reporting preserves domain-specific evidence without mastery labels", () => {
   const report = buildIndividualElFormalAssessmentReport({ student, assessmentHistory });
@@ -467,21 +530,21 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
 
   const individual = buildIndividualElFormalAssessmentReport({ student, assessmentHistory: history });
   const letterA = individual.individualLetterMatrix.find(row => row.letter === "a");
-  assert.equal(letterA.uppercaseName.statusLabel, "Not enough evidence");
-  assert.equal(letterA.uppercaseSound.statusLabel, "Unscored evidence");
+  assert.equal(letterA.uppercaseName.statusLabel, "Not enough results");
+  assert.equal(letterA.uppercaseSound.statusLabel, "Unscored results");
   assert.equal(letterA.uppercaseSound.attempts, 0);
   assert.equal(letterA.uppercaseSound.incorrect, 0);
   assert.equal(letterA.uppercaseSound.accuracy, null);
   assert.equal(letterA.uppercaseSound.details[0].isCorrect, null);
-  assert.equal(letterA.lowercaseName.statusLabel, "Unscored evidence");
-  assert.equal(letterA.lowercaseSound.statusLabel, "Unscored evidence");
+  assert.equal(letterA.lowercaseName.statusLabel, "Unscored results");
+  assert.equal(letterA.lowercaseSound.statusLabel, "Unscored results");
   assert.equal(letterA.uppercaseSound.details[0].attemptId, "letter-provenance-attempt");
   assert.equal(letterA.uppercaseSound.details[0].formVersion, provenance.formVersion);
   assert.equal(letterA.uppercaseSound.details[0].responseSchemaVersion, 7);
 
   ["sh", "ch", "th"].forEach(pattern => {
     const row = individual.individualAdvancedPhonicsMatrix.find(item => item.pattern === pattern);
-    assert.equal(row.statusLabel, "Unscored evidence");
+    assert.equal(row.statusLabel, "Unscored results");
     assert.equal(row.attempts, 0);
     assert.equal(row.incorrect, 0);
     assert.equal(row.accuracy, null);
@@ -511,7 +574,7 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
   const studentWorkbook = await createStudentElAssessmentWorkbook(studentReport);
   const letterRows = worksheetRows(studentWorkbook.getWorksheet("Letter Names & Sounds"));
   const exportedA = letterRows.find(row => row["Letter pair"] === "A/a");
-  assert.equal(exportedA["Uppercase sound result"], "Unscored evidence");
+  assert.equal(exportedA["Uppercase sound result"], "Unscored results");
   assert.equal(exportedA["Uppercase sound attempts"], 0);
   assert.match(exportedA["Uppercase sound evidence provenance"], /letter-provenance-attempt/);
   assert.match(exportedA["Uppercase sound evidence provenance"], /a12-form-v3/);
@@ -520,7 +583,7 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
 
   const advancedRows = worksheetRows(studentWorkbook.getWorksheet("Advanced Phonics Patterns"));
   const exportedSh = advancedRows.find(row => row.Pattern === "sh");
-  assert.equal(exportedSh.Status, "Unscored evidence");
+  assert.equal(exportedSh.Status, "Unscored results");
   assert.equal(exportedSh.Accuracy, "");
   assert.match(exportedSh["Evidence provenance"], /advanced-provenance-attempt/);
   assert.match(exportedSh["Evidence provenance"], /Result: Not scored/);
@@ -877,15 +940,15 @@ test("generic report comparisons exclude provisional benchmark changes", () => {
     summary: { averageAccuracy: 60, masteredSkillCount: 0, focusSkills: ["Initial Sounds"] },
     skillRows: [
       { skillName: "Initial Sounds", accuracy: 50, masteryStatus: "Needs Support" },
-      { skillName: "EL Decoding", accuracy: 20, isProvisionalBenchmark: true, masteryStatus: "Evidence Recorded" }
+      { skillName: "EL Decoding", accuracy: 20, isProvisionalBenchmark: true, masteryStatus: "Assessment completed" }
     ]
   };
   const current = {
     summary: { averageAccuracy: 70, masteredSkillCount: 0, focusSkills: ["Initial Sounds"] },
     skillRows: [
       { skillName: "Initial Sounds", accuracy: 70, masteryStatus: "Developing" },
-      { skillName: "EL Decoding", accuracy: 90, isProvisionalBenchmark: true, masteryStatus: "Evidence Recorded" },
-      { skillName: "EL Encoding", accuracy: 10, isProvisionalBenchmark: true, masteryStatus: "Partial Evidence" }
+      { skillName: "EL Decoding", accuracy: 90, isProvisionalBenchmark: true, masteryStatus: "Assessment completed" },
+      { skillName: "EL Encoding", accuracy: 10, isProvisionalBenchmark: true, masteryStatus: "Partly completed" }
     ]
   };
   const comparison = compareElAssessmentReports(current, previous);
@@ -922,7 +985,7 @@ test("benchmark reporting resolves one grade/window route instead of taking late
     assessmentHistory: mixedHistory
   });
   assert.equal(latestRouteReport.benchmarkScope.source, "latest_benchmark_attempt");
-  assert.equal(latestRouteReport.benchmarkScope.label, "Grade 1 · EOY");
+  assert.equal(latestRouteReport.benchmarkScope.label, "Grade 1 · End of year");
   assert.equal(latestRouteReport.benchmarkScope.matchingAttemptCount, 1);
   assert.deepEqual(
     latestRouteReport.individualBenchmarkDetails.map(row => row.attemptId),
@@ -942,7 +1005,7 @@ test("benchmark reporting resolves one grade/window route instead of taking late
     benchmarkWindow: "moy"
   });
   assert.equal(moyReport.benchmarkScope.source, "explicit");
-  assert.equal(moyReport.benchmarkScope.label, "Grade 1 · MOY");
+  assert.equal(moyReport.benchmarkScope.label, "Grade 1 · Middle of year");
   assert.equal(moyReport.individualBenchmarkDetails.length, 4);
   assert.ok(moyReport.individualBenchmarkDetails.every(row => row.benchmarkWindow === "MOY"));
   assert.equal(
@@ -1022,7 +1085,7 @@ test("class report store and workbook keep mixed-window evidence out of scoped a
     benchmarkScope: { grade: "1", benchmarkWindow: "EOY" }
   });
 
-  assert.equal(report.benchmarkScope.label, "Grade 1 · EOY");
+  assert.equal(report.benchmarkScope.label, "Grade 1 · End of year");
   assert.equal(report.benchmarkScope.matchingAttemptCount, 2);
   assert.deepEqual(report.benchmarkDetails.map(row => row.attemptId).sort(), [
     "encoding-ada-eoy",
@@ -1043,7 +1106,7 @@ test("class report store and workbook keep mixed-window evidence out of scoped a
 
   const workbook = await serializeAndReload(await createClassElAssessmentWorkbook(report));
   const summaryRows = worksheetRows(workbook.getWorksheet("Class Summary"));
-  assert.equal(summaryRows.find(row => row.Field === "EL Benchmark Scope").Value, "Grade 1 · EOY");
+  assert.equal(summaryRows.find(row => row.Field === "EL Benchmark Scope").Value, "Grade 1 · End of year");
   const domainRows = worksheetRows(workbook.getWorksheet("Benchmark Domain Summary"));
   const exportedEncoding = domainRows.find(row => row["Assessment ID"] === EL_BENCHMARK_ASSESSMENT_IDS.ENCODING);
   assert.equal(exportedEncoding.Grade, "1");

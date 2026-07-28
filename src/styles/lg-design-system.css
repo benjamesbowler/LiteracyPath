@@ -285,14 +285,14 @@ body {
 }
 
 @media (max-width: 820px) {
-  /* Phones: collapse the sidebar to icons so content gets the width. */
-  .lg-sidebar {
-    width: var(--lg-sidebar-width-collapsed);
-  }
-
-  .lg-sidebar .lg-sb-name {
-    opacity: 0;
-    width: 0;
+  /* The component owns the logical state at this width. When expanded, the
+     rail becomes an overlay so a phone never leaves the page with 175px of
+     unusable content beside it. */
+  .lg-sidebar.mobile-expanded {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(var(--lg-sidebar-width-open), calc(100vw - 24px));
+    box-shadow: 14px 0 30px rgba(15, 23, 42, 0.28);
   }
 }
 
@@ -366,11 +366,12 @@ body {
   white-space: nowrap;
   overflow: hidden;
   opacity: 1;
-  transition: opacity 0.15s ease, height 0.22s ease, padding 0.22s ease;
+  transition: height 0.22s ease, padding 0.22s ease;
 }
 
 .lg-sidebar.collapsed .lg-sb-class {
   opacity: 0;
+  visibility: hidden;
   height: 0;
   padding-top: 0;
   padding-bottom: 0;
@@ -383,7 +384,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
 }
 
 .lg-sb-item {
@@ -404,7 +408,7 @@ body {
   white-space: nowrap;
   position: relative;
   transition: background 0.12s, color 0.12s;
-  min-height: 0 !important;
+  min-height: 44px !important;
 }
 
 .lg-sb-item-icon {
@@ -465,35 +469,6 @@ body {
   margin-top: 2px;
 }
 
-/* Leaving an open check is a decision, so the rail asks before it navigates. */
-.lg-sb-leave-check {
-  display: grid;
-  gap: 6px;
-  margin: 4px 2px 8px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.08);
-  color: #E2E8F0;
-  font-size: 12px;
-}
-
-.lg-sb-leave-check strong {
-  color: #ffffff;
-  font-size: 13px;
-}
-
-.lg-sb-leave-check p {
-  margin: 0;
-  line-height: 1.35;
-}
-
-.lg-sb-leave-check .lp-button {
-  width: 100%;
-  padding: 6px 8px;
-  font-size: 12px;
-}
-
 /* Tooltip — shown in collapsed state on hover */
 .lg-sb-tooltip {
   display: none;
@@ -523,7 +498,8 @@ body {
   border-right-color: #1E293B;
 }
 
-.lg-sidebar.collapsed .lg-sb-item:hover .lg-sb-tooltip {
+.lg-sidebar.collapsed .lg-sb-item:hover .lg-sb-tooltip,
+.lg-sidebar.collapsed .lg-sb-item:focus-visible .lg-sb-tooltip {
   display: block;
 }
 
@@ -532,6 +508,38 @@ body {
   padding: 8px 6px;
   border-top: 0.5px solid rgba(255, 255, 255, 0.08);
   flex-shrink: 0;
+}
+
+/* A 667×320 classroom device has enough width for the teacher shell but very
+   little height. Keep the account action fixed and let the section list scroll,
+   so every destination remains keyboard- and pointer-reachable. */
+@media (max-height: 420px) and (orientation: landscape) {
+  .lg-sb-top {
+    padding: 4px 6px;
+  }
+
+  .lg-sb-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .lg-sb-toggle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .lg-sb-class {
+    padding-top: 5px;
+    padding-bottom: 4px;
+  }
+
+  .lg-sb-nav {
+    padding-block: 2px;
+  }
+
+  .lg-sb-footer {
+    padding-block: 4px;
+  }
 }
 
 /* ─── 5. Top bar (replaces sticky .top-nav inside sidebar layout) ────────────── */

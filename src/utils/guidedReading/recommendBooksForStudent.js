@@ -1,7 +1,27 @@
 import { enrichGuidedReadingBook } from "./phonicsPageAnalyzer.js";
 
+const GUIDED_READING_LEVELS = ["A", "B", "C", "D", "E", "F"];
+
 function normalizeNeed(value = "") {
   return String(value || "").toLowerCase().replace(/_/g, "-");
+}
+
+function canonicalNeed(value = "") {
+  const need = normalizeNeed(value);
+  if (!need || need === "other") return "";
+  if (need.includes("initial-sound")) return "initial-sounds";
+  if (need.includes("final-sound") || need.includes("ending-sound")) return "final-sounds";
+  if (need.includes("rhy")) return "rhyming";
+  if (need.includes("short-vowel") || need.includes("cvc")) return "cvc-short-vowels";
+  if (need.includes("high-frequency") || need.includes("sight") || /^hfw(?:-|$)/u.test(need)) {
+    return "high-frequency-words";
+  }
+  if (need.includes("digraph")) return "digraphs";
+  if (need.includes("blend")) return "blends";
+  if (need.includes("silent-e") || need.includes("long-vowel")) return "long-vowels";
+  if (need.includes("vowel-team")) return "vowel-teams";
+  if (need.includes("r-controlled") || need.includes("bossy-r")) return "r-controlled-vowels";
+  return "";
 }
 
 function collectStudentNeeds(studentProgress = {}) {
@@ -12,12 +32,13 @@ function collectStudentNeeds(studentProgress = {}) {
     studentProgress.currentSkillId,
     studentProgress.currentMicrophase,
     studentProgress.microphase
-  ].map(normalizeNeed).filter(Boolean);
+  ].map(canonicalNeed).filter(Boolean);
 
   const masteryEntries = Object.entries(studentProgress.mastery || {});
   const weakMastery = masteryEntries
     .filter(([, value]) => value && value.mastered === false)
-    .map(([key]) => normalizeNeed(key));
+    .map(([key]) => canonicalNeed(key))
+    .filter(Boolean);
 
   return [...new Set([...explicit, ...weakMastery])];
 }
@@ -31,40 +52,117 @@ function needMatchesBook(need, book) {
     ...(book.decodableFocus || [])
   ].map(normalizeNeed);
 
-  if (need.includes("short-o")) return haystack.some(item => item.includes("short-o") || item.includes("short-vowel:o"));
-  if (need.includes("short-a")) return haystack.some(item => item.includes("short-a") || item.includes("short-vowel:a"));
-  if (need.includes("short-e")) return haystack.some(item => item.includes("short-e") || item.includes("short-vowel:e"));
-  if (need.includes("short-i")) return haystack.some(item => item.includes("short-i") || item.includes("short-vowel:i"));
-  if (need.includes("short-u")) return haystack.some(item => item.includes("short-u") || item.includes("short-vowel:u"));
-  if (need.includes("final") || need.includes("ending")) return haystack.some(item => item.includes("final"));
-  if (need.includes("digraph")) return haystack.some(item => item.includes("digraph"));
-  if (need.includes("blend")) return haystack.some(item => item.includes("blend"));
-  if (need.includes("cvc")) return haystack.some(item => item.includes("cvc") || item.includes("short-vowel"));
-  if (need.includes("high-frequency") || need.includes("sight")) return haystack.some(item => item.includes("high-frequency"));
-  return haystack.some(item => item.includes(need) || need.includes(item));
+  if (need === "initial-sounds" || need === "final-sounds" || need === "rhyming") {
+    return book.level === "A";
+  }
+  if (need === "cvc-short-vowels") {
+    return haystack.some(item => item === "cvc" || item.includes("short-vowel") || /^short-[aeiou]$/u.test(item));
+  }
+  if (need === "high-frequency-words") {
+    return book.recommendedMicrophase === "high-frequency-fluency"
+      || (book.highFrequencyWords || []).length >= (book.decodableWords || []).length;
+  }
+  if (need === "digraphs") return haystack.some(item => item.includes("digraph"));
+  if (need === "blends") return haystack.some(item => item.includes("blend"));
+  if (need === "long-vowels") {
+    return haystack.some(item => item.includes("silent-e") || item.includes("long-vowel"));
+  }
+  if (need === "vowel-teams") return haystack.some(item => item.includes("vowel-team"));
+  if (need === "r-controlled-vowels") {
+    return haystack.some(item => item.includes("r-controlled") || item.includes("bossy-r"));
+  }
+  return false;
+}
+
+function recordIsComplete(book, record = {}) {
+  const totalPages = book.pages?.length || Number(record.totalPages || 0);
+  const completedPages = Math.max(
+    Number(record.completedPages || 0),
+    Object.keys(record.pages || {}).length
+  );
+  return Boolean(record.completed || record.completedAt || (totalPages > 0 && completedPages >= totalPages));
+}
+
+function recordHasStarted(record = {}) {
+  return Boolean(
+    record.completed
+    || record.completedAt
+    || record.firstReadAt
+    || record.lastReadAt
+    || record.updatedAt
+    || Number(record.completedPages || 0) > 0
+    || Object.keys(record.pages || {}).length > 0
+  );
+}
+
+function recordDateValue(record = {}) {
+  const value = Date.parse(
+    record.lastReadAt
+    || record.completedAt
+    || record.updatedAt
+    || record.firstReadAt
+    || ""
+  );
+  return Number.isFinite(value) ? value : 0;
+}
+
+function resolveReadingLevel(enrichedBooks, studentProgress, readingHistory) {
+  const explicitLevel = String(
+    studentProgress.guidedReadingLevel
+    || studentProgress.readingLevel
+    || ""
+  ).toUpperCase();
+  if (GUIDED_READING_LEVELS.includes(explicitLevel)) {
+    return { level: explicitLevel, source: "teacher-set" };
+  }
+
+  const savedReading = enrichedBooks
+    .map(book => ({ book, record: readingHistory[book.id] || {} }))
+    .filter(({ record }) => recordHasStarted(record))
+    .sort((a, b) => (
+      recordDateValue(b.record) - recordDateValue(a.record)
+      || Number(recordIsComplete(b.book, b.record)) - Number(recordIsComplete(a.book, a.record))
+    ))[0];
+
+  if (savedReading?.book?.level && GUIDED_READING_LEVELS.includes(savedReading.book.level)) {
+    return { level: savedReading.book.level, source: "saved-reading" };
+  }
+
+  return { level: "A", source: "starting-level" };
+}
+
+function historyReason(book, history) {
+  if (recordIsComplete(book, history)) return "Ready to reread for fluency";
+  if (recordHasStarted(history)) return "Continue a book already started";
+  return "Not read yet";
 }
 
 export function recommendBooksForStudent({ books = [], studentProgress = {}, readingHistory = {} } = {}) {
   const needs = collectStudentNeeds(studentProgress);
-  const enriched = books.map(enrichGuidedReadingBook);
-  return enriched
-    .filter(book => book.active !== false || book.reviewMode)
+  const enriched = books
+    .map(enrichGuidedReadingBook)
+    .filter(book => book.active !== false && (!book.qaStatus || book.qaStatus === "approved"));
+  const readingLevel = resolveReadingLevel(enriched, studentProgress, readingHistory);
+  const sameLevelBooks = enriched.filter(book => book.level === readingLevel.level);
+  const candidates = sameLevelBooks.length >= 5 ? sameLevelBooks : enriched;
+
+  return candidates
     .map(book => {
       const history = readingHistory[book.id] || {};
       const needMatches = needs.filter(need => needMatchesBook(need, book));
-      const statusPenalty = book.qaStatus && !["approved", "needs_image_alignment_review"].includes(book.qaStatus) ? -25 : 0;
-      const unreadBonus = history.completed ? 0 : 12;
+      const unreadBonus = recordIsComplete(book, history) ? 0 : recordHasStarted(history) ? 16 : 12;
       const patternScore = needMatches.length * 20;
       const decodableScore = Math.min(20, Math.round((book.decodablePercentage || 0) / 5));
-      const score = patternScore + decodableScore + unreadBonus + statusPenalty;
+      const score = patternScore + decodableScore + unreadBonus;
       return {
         book,
         score,
+        matchedNeeds: needMatches,
+        readingLevel: readingLevel.level,
+        readingLevelSource: readingLevel.source,
         reasons: [
-          ...needMatches.map(need => `matches ${need}`),
-          unreadBonus ? "not completed yet" : "available for reread",
-          `${book.decodablePercentage || 0}% decodable/HFW words`,
-          book.qaStatus && book.qaStatus !== "approved" ? `QA status: ${book.qaStatus}` : "QA approved"
+          historyReason(book, history),
+          `${book.decodablePercentage || 0}% of words are decodable or high-frequency words`
         ]
       };
     })

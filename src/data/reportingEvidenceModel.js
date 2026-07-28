@@ -6,8 +6,12 @@
  * then pass their records to the report builders.
  */
 import {
+  LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,
-  LEARNING_POLICY_VERSION
+  LEARNING_POLICY_VERSION,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion,
+  isLearningEvidenceRecent
 } from "../policy/learningPolicy.js";
 
 export const REPORTING_STATUS_IDS = Object.freeze({
@@ -23,8 +27,8 @@ export const REPORTING_STATUS_LABELS = Object.freeze({
   [REPORTING_STATUS_IDS.SECURE]: "Secure",
   [REPORTING_STATUS_IDS.DEVELOPING]: "Developing",
   [REPORTING_STATUS_IDS.NEEDS_TEACHING]: "Needs support",
-  [REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: "Not enough evidence",
-  [REPORTING_STATUS_IDS.MIXED_EVIDENCE]: "Mixed evidence",
+  [REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE]: "Not enough results",
+  [REPORTING_STATUS_IDS.MIXED_EVIDENCE]: "Results differ",
   [REPORTING_STATUS_IDS.NOT_CHECKED]: "Not checked"
 });
 
@@ -295,78 +299,27 @@ function normalizeExpectedConcept(value = {}) {
   };
 }
 
-function latestPerSource(evidence = []) {
-  const bySource = new Map();
-  evidence.forEach(row => {
-    const sourceKey = `${row.sourceArea}::${row.sourceRecordType || row.evidenceKind}`;
-    const current = bySource.get(sourceKey);
-    if (!current || finiteTimestamp(row.observedAt) >= finiteTimestamp(current.observedAt)) {
-      bySource.set(sourceKey, row);
-    }
-  });
-  return Array.from(bySource.values());
-}
-
-function resolveDecisiveStatus(decisive = []) {
-  if (!decisive.length) return REPORTING_STATUS_IDS.NOT_CHECKED;
-  const statuses = new Set(decisive.map(row => row.statusCandidate).filter(Boolean));
-  if (
-    statuses.has(REPORTING_STATUS_IDS.SECURE) &&
-    statuses.has(REPORTING_STATUS_IDS.NEEDS_TEACHING)
-  ) {
-    return REPORTING_STATUS_IDS.MIXED_EVIDENCE;
-  }
-  if (statuses.has(REPORTING_STATUS_IDS.NEEDS_TEACHING)) {
-    return REPORTING_STATUS_IDS.NEEDS_TEACHING;
-  }
-  if (statuses.has(REPORTING_STATUS_IDS.DEVELOPING)) {
-    return REPORTING_STATUS_IDS.DEVELOPING;
-  }
-  if (statuses.has(REPORTING_STATUS_IDS.SECURE)) {
-    return decisive.every(row => row.practiceOnly)
-      ? REPORTING_STATUS_IDS.DEVELOPING
-      : REPORTING_STATUS_IDS.SECURE;
-  }
-  return REPORTING_STATUS_IDS.NOT_CHECKED;
-}
-
-function keepCurrentConflictWindow(
-  evidence = [],
-  conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays
-) {
-  const days = Number(conflictWindowDays);
-  if (!Number.isFinite(days) || days < 0) return evidence;
-  const newestTimestamp = evidence.reduce((newest, row) => (
-    Math.max(newest, finiteTimestamp(row.observedAt))
-  ), 0);
-  if (!newestTimestamp) return evidence;
-  const cutoff = newestTimestamp - days * 24 * 60 * 60 * 1000;
-  // Undated direct evidence cannot be proved stale, so retain it and expose
-  // its missing date in the disclosure rather than silently discarding it.
-  return evidence.filter(row => {
-    const timestamp = finiteTimestamp(row.observedAt);
-    return !timestamp || timestamp >= cutoff;
-  });
-}
-
 function statusExplanation(statusId, decisive = []) {
   const sourceNames = [...new Set(decisive.map(row => row.sourceLabel).filter(Boolean))];
-  const sources = sourceNames.length ? sourceNames.join(" and ") : "available evidence";
+  const sources = sourceNames.length ? sourceNames.join(" and ") : "the available results";
   if (statusId === REPORTING_STATUS_IDS.MIXED_EVIDENCE) {
-    return `The strongest included evidence from ${sources} does not yet agree.`;
+    return `The most useful current results from ${sources} do not yet agree.`;
   }
   if (statusId === REPORTING_STATUS_IDS.SECURE) {
-    return `The strongest direct evidence from ${sources} indicates secure performance.`;
+    return `The current results from ${sources} show Secure performance.`;
   }
   if (statusId === REPORTING_STATUS_IDS.DEVELOPING) {
     return decisive.length && decisive.every(row => row.practiceOnly)
-      ? `Practice evidence from ${sources} shows progress; a direct check is still needed.`
-      : `The strongest evidence from ${sources} shows emerging but not yet secure performance.`;
+      ? `Practice results from ${sources} show progress; a teacher-led assessment is still needed.`
+      : `The current results from ${sources} show progress, but are not Secure yet.`;
   }
   if (statusId === REPORTING_STATUS_IDS.NEEDS_TEACHING) {
-    return `The strongest direct evidence from ${sources} indicates that teaching support is needed.`;
+    return `The current results from ${sources} show that teaching support is needed.`;
   }
-  return "No scorable knowledge evidence has been recorded.";
+  if (statusId === REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE) {
+    return "There are not enough recent results to make this judgement.";
+  }
+  return "No scored results have been recorded.";
 }
 
 function finiteMetric(value) {
@@ -375,58 +328,227 @@ function finiteMetric(value) {
   return Number.isFinite(number) ? number : null;
 }
 
-function evidenceObservationCount(row = {}) {
+function evidenceObservationCount(row = {}, { lifetime = false } = {}) {
   const details = row.details || {};
+  if (lifetime) {
+    const lifetimeObservations = finiteMetric(details.lifetimeObservations);
+    if (lifetimeObservations !== null) return lifetimeObservations;
+  }
   return finiteMetric(details.observations)
     ?? finiteMetric(details.independentSeen)
     ?? finiteMetric(details.attempts)
     ?? (row.scorable && row.knowledgeEligible && row.statusCandidate ? 1 : 0);
 }
 
-function evidenceCorrectCount(row = {}, observations = 0) {
+function evidenceCorrectCount(row = {}, { lifetime = false } = {}) {
   const details = row.details || {};
+  if (lifetime) {
+    const lifetimeCorrect = finiteMetric(details.lifetimeCorrect);
+    if (lifetimeCorrect !== null) return lifetimeCorrect;
+  }
   const exact = finiteMetric(details.correct);
   if (exact !== null) return exact;
-  const accuracy = finiteMetric(details.accuracy);
-  if (accuracy !== null && observations > 0) return observations * (accuracy / 100);
-  if (row.statusCandidate === REPORTING_STATUS_IDS.SECURE) return observations;
-  if (row.statusCandidate === REPORTING_STATUS_IDS.NEEDS_TEACHING) return 0;
   return null;
 }
 
-function wholeChildEvidenceBasis(conceptEvidence = [], decisive = []) {
+function evidenceAccuracy(row = {}, observations = 0, { lifetime = false } = {}) {
+  const details = row.details || {};
+  if (lifetime) {
+    const lifetimeAccuracy = finiteMetric(details.lifetimeAccuracy);
+    if (lifetimeAccuracy !== null) return Math.max(0, Math.min(100, lifetimeAccuracy));
+  }
+  const accuracy = finiteMetric(details.accuracy);
+  if (accuracy !== null) return Math.max(0, Math.min(100, accuracy));
+  const correct = finiteMetric(details.correct);
+  if (correct !== null && observations > 0) {
+    return Math.max(0, Math.min(100, (correct / observations) * 100));
+  }
+  return null;
+}
+
+function evidenceAttemptKey(row = {}) {
+  return String(
+    row.provenance?.attemptId
+    || row.details?.currentAttemptId
+    || row.sourceRecordId
+    || row.evidenceId
+    || ""
+  );
+}
+
+function explicitIndependentAttemptCount(row = {}, { lifetime = false } = {}) {
+  const details = row.details || {};
+  if (lifetime) {
+    const lifetimeAttempts = finiteMetric(details.lifetimeIndependentAttempts);
+    if (lifetimeAttempts !== null) return lifetimeAttempts;
+  }
+  return finiteMetric(details.independentAttempts)
+    ?? finiteMetric(details.independentSeen)
+    ?? (
+      row.evidenceKind === REPORTING_EVIDENCE_KINDS.LEGACY_PROJECTION
+        ? finiteMetric(details.attempts)
+        : null
+    );
+}
+
+function wholeChildEvidenceBasis(conceptEvidence = [], { lifetime = false } = {}) {
   const scored = conceptEvidence.filter(row => (
     row.scorable && row.knowledgeEligible && row.statusCandidate
   ));
-  const observations = scored.reduce((total, row) => total + evidenceObservationCount(row), 0);
+  const observations = scored.reduce(
+    (total, row) => total + evidenceObservationCount(row, { lifetime }),
+    0
+  );
   const correctValues = scored.map(row => {
-    const rowObservations = evidenceObservationCount(row);
-    return evidenceCorrectCount(row, rowObservations);
+    return evidenceCorrectCount(row, { lifetime });
   });
   const hasCompleteCorrectCount = scored.length > 0 && correctValues.every(value => value !== null);
   const correct = hasCompleteCorrectCount
     ? correctValues.reduce((total, value) => total + value, 0)
     : null;
+  const weightedAccuracyRows = scored.map(row => ({
+    observations: evidenceObservationCount(row, { lifetime }),
+    accuracy: evidenceAccuracy(
+      row,
+      evidenceObservationCount(row, { lifetime }),
+      { lifetime }
+    )
+  })).filter(row => row.observations > 0 && row.accuracy !== null);
+  const weightedAccuracyObservations = weightedAccuracyRows.reduce(
+    (total, row) => total + row.observations,
+    0
+  );
+  const accuracy = weightedAccuracyObservations > 0
+    ? weightedAccuracyRows.reduce(
+      (total, row) => total + row.accuracy * row.observations,
+      0
+    ) / weightedAccuracyObservations
+    : null;
   const dates = scored
-    .map(row => row.observedAt)
+    .flatMap(row => {
+      const details = row.details || {};
+      if (lifetime) {
+        return [
+          details.lifetimeWindowStart,
+          details.lifetimeWindowEnd,
+          row.observedAt
+        ];
+      }
+      return [details.windowStart, details.windowEnd, row.observedAt];
+    })
     .filter(value => finiteTimestamp(value))
     .map(value => new Date(value).toISOString())
     .sort();
-  const attemptIds = [...new Set(scored.map(row => row.sourceRecordId).filter(Boolean))];
+  const attemptIds = [...new Set(scored.map(evidenceAttemptKey).filter(Boolean))];
+  const attemptsByKey = new Map();
+  scored.forEach(row => {
+    const key = evidenceAttemptKey(row);
+    if (!key) return;
+    const explicit = explicitIndependentAttemptCount(row, { lifetime });
+    attemptsByKey.set(key, Math.max(
+      attemptsByKey.get(key) || 0,
+      explicit === null ? 1 : Math.max(0, explicit)
+    ));
+  });
+  const independentAttempts = Array.from(attemptsByKey.values())
+    .reduce((total, count) => total + count, 0);
   return {
     observations,
-    correct: correct === null ? null : Number(correct.toFixed(2)),
+    correct: correct === null ? null : correct,
     total: observations,
-    accuracy: correct === null || !observations
-      ? null
-      : Number(((correct / observations) * 100).toFixed(1)),
+    accuracy: accuracy === null ? null : Number(accuracy.toFixed(1)),
     attemptCount: attemptIds.length,
+    independentAttempts,
     attemptIds,
     sourceCount: new Set(scored.map(row => row.sourceArea).filter(Boolean)).size,
     windowStart: dates[0] || "",
-    windowEnd: dates.at(-1) || "",
-    decisiveObservations: decisive.reduce((total, row) => total + evidenceObservationCount(row), 0)
+    windowEnd: dates.at(-1) || ""
   };
+}
+
+function reportingStatusIdForLearningStatus(statusId = "") {
+  if (statusId === LEARNING_STATUS_IDS.NEEDS_SUPPORT) {
+    return REPORTING_STATUS_IDS.NEEDS_TEACHING;
+  }
+  if (statusId === LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE) {
+    return REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE;
+  }
+  if (statusId === LEARNING_STATUS_IDS.NOT_CHECKED) {
+    return REPORTING_STATUS_IDS.NOT_CHECKED;
+  }
+  return statusId;
+}
+
+function minimumAttemptsForConcept(concept = {}) {
+  return concept.construct === "skill_overview"
+    ? LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses
+    : LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts;
+}
+
+function conclusionForEvidence(concept = {}, evidence = [], now = new Date()) {
+  const basis = wholeChildEvidenceBasis(evidence);
+  const usesResponseCount = concept.construct === "skill_overview";
+  const attempts = usesResponseCount ? basis.observations : basis.independentAttempts;
+  const conclusion = evaluateLearningConclusion({
+    scope: concept.construct === "skill_overview"
+      ? LEARNING_CONCLUSION_SCOPES.SKILL
+      : LEARNING_CONCLUSION_SCOPES.ITEM,
+    accuracy: basis.accuracy,
+    attempts,
+    skillDiversity: 1,
+    observedAt: basis.windowEnd,
+    now,
+    minimumAttempts: minimumAttemptsForConcept(concept),
+    requireRecency: true,
+    allowUndated: false
+  });
+  let statusId = reportingStatusIdForLearningStatus(conclusion.status.id);
+  if (evidence.length && statusId === REPORTING_STATUS_IDS.NOT_CHECKED) {
+    statusId = REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE;
+    conclusion.status = {
+      id: LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+      label: "Not enough results"
+    };
+    conclusion.ready = false;
+    conclusion.reason = "The saved results do not include enough information to calculate accuracy.";
+  }
+  if (evidence.some(row => (
+    row.details?.incompleteAttemptIdentity === true
+    || row.provenance?.incompleteAttemptIdentity === true
+  ))) {
+    statusId = REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE;
+    conclusion.status = {
+      id: LEARNING_STATUS_IDS.NOT_ENOUGH_EVIDENCE,
+      label: "Not enough results"
+    };
+    conclusion.ready = false;
+    conclusion.reason = "The saved answers do not identify separate assessment sittings, so they cannot establish a learning judgement yet.";
+  }
+  if (
+    conclusion.ready
+    && evidence.length
+    && evidence.every(row => row.practiceOnly)
+    && statusId === REPORTING_STATUS_IDS.SECURE
+  ) {
+    statusId = REPORTING_STATUS_IDS.DEVELOPING;
+  }
+  return { basis, conclusion, statusId };
+}
+
+function hasPolicyReadySourceConflict(concept = {}, evidence = [], now = new Date()) {
+  const bySource = new Map();
+  evidence.forEach(row => {
+    const key = `${row.sourceArea}::${row.sourceRecordType || row.evidenceKind}`;
+    const rows = bySource.get(key) || [];
+    rows.push(row);
+    bySource.set(key, rows);
+  });
+  const sourceStatuses = Array.from(bySource.values())
+    .map(rows => ({ rows, result: conclusionForEvidence(concept, rows, now) }))
+    .filter(({ rows, result }) => result.conclusion.ready && !rows.every(row => row.practiceOnly))
+    .map(({ result }) => result.statusId);
+  return sourceStatuses.includes(REPORTING_STATUS_IDS.SECURE)
+    && sourceStatuses.includes(REPORTING_STATUS_IDS.NEEDS_TEACHING);
 }
 
 function triangulationKey(concept = {}) {
@@ -440,7 +562,7 @@ function triangulationKey(concept = {}) {
 }
 
 function datedSourceSummary(item = {}) {
-  const source = item.sourceChips?.map(row => row.label).filter(Boolean).join(", ") || "available evidence";
+  const source = item.sourceChips?.map(row => row.label).filter(Boolean).join(", ") || "available results";
   const timestamp = finiteTimestamp(item.latestAt);
   const date = timestamp ? new Date(timestamp).toISOString() : "undated";
   return `${item.label}: ${item.status.label} (${source}; ${date})`;
@@ -451,7 +573,8 @@ function datedSourceSummary(item = {}) {
  *
  * Rules:
  * - only knowledge-eligible, scorable evidence can decide a status;
- * - the strongest evidence tier wins (formal/teacher > legacy > practice);
+ * - current evidence wins over stale evidence, then the strongest current
+ *   evidence tier wins (formal/teacher > legacy > practice);
  * - practice-only evidence is capped at Developing;
  * - opposing direct evidence is retained as Mixed evidence, never averaged;
  * - exposure and missing evidence resolve to Not checked.
@@ -459,7 +582,7 @@ function datedSourceSummary(item = {}) {
 export function resolveWholeChildConcepts({
   evidence = [],
   expectedConcepts = [],
-  conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays
+  now = new Date()
 } = {}) {
   const dedupedEvidence = dedupeReportingEvidence(evidence);
   const concepts = new Map();
@@ -484,13 +607,38 @@ export function resolveWholeChildConcepts({
       row.statusCandidate &&
       row.statusCandidate !== REPORTING_STATUS_IDS.NOT_CHECKED
     ));
-    const sourceLatest = latestPerSource(eligible);
-    const strongest = sourceLatest.reduce((maximum, row) => Math.max(maximum, Number(row.strength || 0)), -1);
+    const currentEligible = eligible.filter(row => (
+      isLearningEvidenceRecent(row.observedAt, {
+        now,
+        maximumAgeDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
+        allowUndated: false
+      })
+    ));
+    // Recency is decided before source strength. A stale formal check must not
+    // hide newer practice evidence; it remains visible in the lifetime basis.
+    const decisionPool = currentEligible.length ? currentEligible : eligible;
+    const strongest = decisionPool.reduce((maximum, row) => (
+      Math.max(maximum, Number(row.strength || 0))
+    ), -1);
     const strongestEvidence = strongest < 0
       ? []
-      : sourceLatest.filter(row => Number(row.strength || 0) === strongest);
-    const decisive = keepCurrentConflictWindow(strongestEvidence, conflictWindowDays);
-    const statusId = resolveDecisiveStatus(decisive);
+      : decisionPool.filter(row => Number(row.strength || 0) === strongest);
+    const currentStrongestEvidence = currentEligible.length
+      ? strongestEvidence
+      : [];
+    // When every row is stale or undated, retain the strongest rows only so
+    // the policy can explain why the conclusion is not current. When current
+    // evidence exists, stale rows never influence the displayed counts or
+    // status.
+    const decisive = currentStrongestEvidence.length
+      ? currentStrongestEvidence
+      : strongestEvidence;
+    const decision = conclusionForEvidence(concept, decisive, now);
+    const sourceConflict = currentStrongestEvidence.length > 0
+      && hasPolicyReadySourceConflict(concept, currentStrongestEvidence, now);
+    const statusId = sourceConflict
+      ? REPORTING_STATUS_IDS.MIXED_EVIDENCE
+      : decision.statusId;
     const decisiveStrength = decisive.reduce((maximum, row) => (
       Math.max(maximum, Number(row.strength || 0))
     ), -1);
@@ -530,10 +678,20 @@ export function resolveWholeChildConcepts({
       decisiveStrength: Math.max(0, decisiveStrength),
       decisiveLatestAt,
       practiceOnlyDecision: Boolean(decisive.length && decisive.every(row => row.practiceOnly)),
-      confidence: strongest >= 3 ? "Direct evidence" : strongest === 2 ? "Legacy evidence" : strongest === 1 ? "Practice evidence" : "No scored evidence",
+      confidence: decisiveStrength >= 3 ? "Direct results" : decisiveStrength === 2 ? "Older saved results" : decisiveStrength === 1 ? "Practice results" : "No scored results",
       explanation: statusExplanation(statusId, decisive),
-      coverageLabel: conceptEvidence.length ? "Seen in available evidence" : "Not seen in available evidence",
-      evidenceBasis: wholeChildEvidenceBasis(conceptEvidence, decisive),
+      coverageLabel: !eligible.length
+        ? conceptEvidence.length
+          ? "Seen, but not checked"
+          : "Not checked"
+        : statusId === REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+          ? "Checked, but not enough recent results"
+          : "Checked",
+      evidenceBasis: decision.basis,
+      currentEvidenceBasis: wholeChildEvidenceBasis(currentStrongestEvidence),
+      lifetimeEvidenceBasis: wholeChildEvidenceBasis(eligible, { lifetime: true }),
+      policyConclusion: decision.conclusion,
+      policyReady: Boolean(decision.conclusion.ready),
       sourceChips,
       decisiveEvidenceIds: decisive.map(row => row.evidenceId),
       evidence: conceptEvidence
@@ -554,7 +712,7 @@ export function resolveWholeChildConcepts({
     if (!shouldExplain) return;
     const summary = group.map(datedSourceSummary).join("; ");
     group.forEach(item => {
-      item.reconciliationNote = `Triangulated related evidence without averaging source strength: ${summary}. The displayed status follows the published evidence precedence.`;
+      item.reconciliationNote = `Related results were reviewed together without blending unlike sources: ${summary}. The status uses the most useful current source.`;
       item.triangulationKey = triangulationKey(item);
     });
   });

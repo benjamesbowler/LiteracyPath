@@ -74,6 +74,28 @@ export function readEngagementQueue(storage, studentId = "") {
     ));
 }
 
+export function clearEngagementDataForStudent(storage, studentId) {
+  const scopedStudentId = String(studentId || "").trim();
+  if (!storage || !scopedStudentId) return { events: 0, health: false };
+  let events = 0;
+  for (const record of readEngagementQueue(storage, scopedStudentId)) {
+    try {
+      storage.removeItem(record.key);
+      events += 1;
+    } catch {
+      // The caller verifies residual local data separately.
+    }
+  }
+  let health = false;
+  try {
+    storage.removeItem(`${ENGAGEMENT_HEALTH_PREFIX}${scopedStudentId}`);
+    health = true;
+  } catch {
+    // Best effort; the caller can report a local-cleanup failure.
+  }
+  return { events, health };
+}
+
 export function enqueueEngagementEvent(
   storage,
   {

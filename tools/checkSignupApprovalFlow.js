@@ -19,44 +19,58 @@ function check(label, passed, detail = "") {
   checks.push({ label, passed, detail });
 }
 
-const app = read("src/App.jsx");
-const appPages = read("src/components/AppPages.jsx");
+const controller = read("src/appState/useAppSessionController.js");
+const authPage = read("src/components/AuthPage.jsx");
+const appSurface = read("src/components/AppSurface.jsx");
 const admin = read("src/components/AdminDashboardPage.jsx");
+const integrityMigration = read(
+  "supabase/migrations/20260728120000_security_integrity_hardening.sql"
+);
+const decisionFunction = controller.slice(
+  controller.indexOf("async function updateTeacherAccountStatus"),
+  controller.indexOf("async function signUpTeacher")
+);
 
 check(
-  "Signup form collects username",
-  /authUsername/.test(appPages) && /Username/.test(appPages),
-  "AuthPage must render and pass username state."
+  "Signup derives its internal username without burdening the teacher",
+  !/authUsername|Account name/.test(authPage)
+    && /createInternalTeacherUsername\(email\)/.test(controller),
+  "Teachers sign in with email; the controller must create the unique internal handle."
 );
 
 check(
   "Signup form supports display name",
-  /authDisplayName/.test(appPages) && /Display name/.test(appPages),
+  /authDisplayName/.test(authPage) && /Name shown in LiteracyPath/.test(authPage),
   "Display name should be optional but stored when provided."
 );
 
 check(
   "Signup stores pending approval status",
-  /approval_status:\s*"pending"/.test(app) && /role:\s*"pending"/.test(app),
+  /approval_status:\s*"pending"/.test(controller)
+    && /role:\s*"pending"/.test(controller),
   "New signup/profile rows must be pending by default."
 );
 
 check(
   "App approval gate rejects session-only access",
-  /function isTeacherAccountApproved\(\)\s*{[^}]*teacherAccountStatus === "approved"/s.test(app) &&
-    !/legacy_approved/.test(app),
+  /function isTeacherAccountApproved\(\)\s*{[^}]*teacherAccountStatus === "approved"/s
+    .test(controller)
+    && !/legacy_approved/.test(controller),
   "No code path should treat legacy/no-profile users as approved."
 );
 
 check(
   "Missing approval schema blocks access",
-  /approval_setup_required/.test(app),
+  /approval_setup_required/.test(controller)
+    && /Account setup needs attention/.test(appSurface),
   "Missing table/RLS/schema errors should not fall through to app access."
 );
 
 check(
   "Pending and rejected screens exist",
-  /Account Waiting For Approval/.test(app) && /Account Not Approved/.test(app),
+  /Account awaiting approval/.test(appSurface)
+    && /Account request rejected/.test(appSurface)
+    && /Account disabled/.test(appSurface),
   "Users need clear pending/rejected states."
 );
 
@@ -68,15 +82,30 @@ check(
 
 check(
   "Admin can approve and reject",
-  /updateTeacherAccountStatus\?\.\(account\.id,\s*"approved"\)/.test(admin) &&
-    /updateTeacherAccountStatus\?\.\(account\.id,\s*"rejected"\)/.test(admin),
-  "Signup requests need Approve and Reject actions."
+  /openTeacherAccountDecision\(account,\s*"approved"\)/.test(admin)
+    && /openTeacherAccountDecision\(account,\s*"rejected"\)/.test(admin)
+    && /Confirm/.test(admin)
+    && /accountDecisionReason/.test(admin),
+  "Signup requests need confirmed Approve and reasoned Reject actions."
 );
 
 check(
-  "Approve/reject writes audit fields",
-  /approved_at/.test(app) && /approved_by/.test(app) && /rejected_at/.test(app) && /rejected_by/.test(app),
-  "Approval decisions should store timestamps and reviewer ids."
+  "Approve/reject uses the server-owned decision RPC",
+  /supabase\.call\(\s*"admin_set_teacher_account_status"/.test(decisionFunction)
+    && !/\.table\("pending_teacher_accounts"\)[\s\S]*\.update\(/.test(decisionFunction)
+    && !/new Date\(\)|reviewed_at|reviewed_by|approved_at|approved_by/
+      .test(decisionFunction),
+  "The browser must not supply approval timestamps or reviewer identities."
+);
+
+check(
+  "Decision audit fields are derived by the database",
+  /create or replace function public\.admin_set_teacher_account_status/
+    .test(integrityMigration)
+    && /reviewed_at = now\(\)/.test(integrityMigration)
+    && /reviewed_by = auth\.uid\(\)/.test(integrityMigration)
+    && /enforce_teacher_account_audit_integrity/.test(integrityMigration),
+  "The decision RPC and trigger must own audit provenance."
 );
 
 check(
@@ -93,8 +122,9 @@ check(
 
 check(
   "Supabase migration exists",
-  exists("supabase/migrations/20260529000000_signup_approval_profiles.sql"),
-  "Migration should create/extend the approval table."
+  exists("supabase/migrations/20260529000000_signup_approval_profiles.sql")
+    && exists("supabase/migrations/20260728120000_security_integrity_hardening.sql"),
+  "Migrations should create the approval table and its final decision boundary."
 );
 
 const failed = checks.filter(item => !item.passed);

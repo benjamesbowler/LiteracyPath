@@ -10,7 +10,7 @@ async function logIn(page) {
   await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
   await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
     timeout: 20_000
   });
@@ -21,31 +21,23 @@ async function openAmaraAssessmentHub(page) {
     .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
-  const rosterAdmin = page.locator(".teacher-roster-admin");
-  if (!await rosterAdmin.evaluate(element => element.open)) {
-    await rosterAdmin.locator(":scope > summary").click();
-  }
   const amaraRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Amara" });
-  await amaraRow.getByRole("button", { name: "Open student", exact: true }).click();
-  await page.getByRole("region", { name: "Student details: Amara" })
-    .getByRole("button", { name: "Check Amara", exact: true })
+  await amaraRow.getByRole("button", { name: "Open Amara", exact: true }).click();
+  await expect(page.getByRole("dialog", { name: "Student details: Amara" })).toBeVisible();
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Assessments", exact: true })
     .click();
-  await page.getByRole("article")
-    .filter({ hasText: "EL formal check" })
-    .getByRole("button", { name: "Open EL check", exact: true })
-    .click();
-  // 2026-07-27: the EL hub is gone. Starting one of these is step 3 and step 4
-  // of the one Checks funnel, which asks for the class and the student itself -
-  // so the roster shortcut lands on the funnel with both already answered.
-  await expect(page.getByRole("heading", { name: "Start a check", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Choose a check", exact: true })).toBeVisible();
+  // Opening the student establishes the class and student context. Assessments
+  // then opens the single funnel with those first two answers already filled.
+  await expect(page.getByRole("heading", { name: "Start an assessment", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose an assessment", exact: true })).toBeVisible();
 }
 
 async function startEncoding(page) {
   // Step 3: which check. Step 4: grade and time of year. Then Begin.
   await page.getByRole("button", { name: /^Spelling/ }).click();
-  await page.getByLabel("Grade", { exact: true }).selectOption("K");
-  await page.getByLabel("Time of year", { exact: true }).selectOption("BOY");
+  await expect(page.getByRole("combobox", { name: "Grade", exact: true })).toHaveValue("K");
+  await expect(page.getByRole("combobox", { name: "Time of year", exact: true })).toHaveValue("BOY");
   await page.getByRole("button", { name: "Begin Spelling", exact: true }).click();
   // Starting somewhere the child's own results do not point at still needs a
   // recorded reason before it will run.
@@ -96,9 +88,9 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   await acceptPlacement(page);
 
   await page.locator(".el-benchmark-topbar")
-    .getByRole("button", { name: "Finish check", exact: true })
+    .getByRole("button", { name: "Finish assessment", exact: true })
     .click();
-  let finishReview = page.getByRole("dialog", { name: "Check the tally before finishing" });
+  let finishReview = page.getByRole("dialog", { name: "Review the tally before finishing" });
   await expect(finishReview).toContainText("8 scored · 0 skipped");
   await finishReview.getByRole("button", { name: "Change final answer", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Item 8 of 8", exact: true })).toBeVisible();
@@ -106,14 +98,14 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
 
   await acceptPlacement(page);
   await page.locator(".el-benchmark-topbar")
-    .getByRole("button", { name: "Finish check", exact: true })
+    .getByRole("button", { name: "Finish assessment", exact: true })
     .click();
-  finishReview = page.getByRole("dialog", { name: "Check the tally before finishing" });
+  finishReview = page.getByRole("dialog", { name: "Review the tally before finishing" });
   await expect(finishReview).toContainText("8 scored · 0 skipped");
   await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
 
-  await expect(page.getByRole("heading", { name: "Start a check", exact: true }))
+  await expect(page.getByRole("heading", { name: "Start an assessment", exact: true }))
     .toBeVisible({ timeout: 20_000 });
-  await expect(page).toHaveURL(/#teacher\/(?:checks|assess)\?/);
+  await expect(page).toHaveURL(/#teacher\/assessments\?/);
   await expect(page).not.toHaveURL(/el-benchmark/);
 });

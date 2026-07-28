@@ -62,6 +62,14 @@ function normalizeBenchmarkWindow(value = "") {
   return String(value || "").trim().toUpperCase();
 }
 
+export function benchmarkWindowLabel(value = "") {
+  const window = normalizeBenchmarkWindow(value);
+  if (window === "BOY") return "Beginning of year";
+  if (window === "MOY") return "Middle of year";
+  if (window === "EOY") return "End of year";
+  return String(value || "").trim() || "Assessment period not recorded";
+}
+
 export function getElBenchmarkAssessmentId(record = {}) {
   const assessmentType = normalizeCompact(record.assessmentType);
   if (assessmentType && BENCHMARK_DOMAIN_BY_ID.has(assessmentType)) return assessmentType;
@@ -108,7 +116,31 @@ export function benchmarkScopeLabel({ grade = "", benchmarkWindow = "" } = {}) {
   const gradeLabel = grade
     ? grade === "K" ? "Kindergarten" : `Grade ${grade}`
     : "Grade not recorded";
-  return `${gradeLabel} · ${benchmarkWindow || "Window not recorded"}`;
+  return `${gradeLabel} · ${benchmarkWindowLabel(benchmarkWindow)}`;
+}
+
+export function displayBenchmarkScopeLabel(
+  scope = {},
+  fallback = "Grade and time of year not recorded"
+) {
+  const grade = normalizeBenchmarkGrade(scope.grade || scope.gradePath || "");
+  const benchmarkWindow = normalizeBenchmarkWindow(
+    scope.benchmarkWindow || scope.window || ""
+  );
+  if (grade || benchmarkWindow) {
+    return benchmarkScopeLabel({ grade, benchmarkWindow });
+  }
+
+  const storedLabel = String(scope.label || "").trim();
+  if (!storedLabel) return fallback;
+  // Reports saved before the plain-language copy migration can still contain
+  // the internal BOY/MOY/EOY abbreviations. They are immutable evidence, but
+  // their presentation is not: expand those tokens whenever an old snapshot
+  // is shown or downloaded.
+  return storedLabel
+    .replace(/\bBOY\b/g, benchmarkWindowLabel("BOY"))
+    .replace(/\bMOY\b/g, benchmarkWindowLabel("MOY"))
+    .replace(/\bEOY\b/g, benchmarkWindowLabel("EOY"));
 }
 
 export function benchmarkRecordMatchesScope(record = {}, scope = {}) {

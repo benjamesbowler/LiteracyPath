@@ -1,3 +1,5 @@
+import { meetsLearningProgressionRule } from "../policy/learningPolicy.js";
+
 export function buildSkillMasterySummaryRows({
   itemMastery,
   skillTree,
@@ -5,10 +7,32 @@ export function buildSkillMasterySummaryRows({
   getSkillIdForMasteryRow,
   formatMasteryItemLabel,
   getRepresentativeWordsForItem,
-  normalizeItemKey
+  normalizeItemKey,
+  now = new Date()
 }) {
   const masteredRows = Object.values(itemMastery || {})
-    .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0));
+    .filter(row => {
+      if (!row?.itemKey || !row?.itemType) return false;
+      const attempts = Number(row.attempts || 0);
+      const correct = Number(row.correct || 0);
+      const sessionsSeen = Math.min(
+        attempts,
+        Math.max(0, Number(row.sessionsSeen ?? row.sessions_seen) || 0)
+      );
+      const accuracy = Number.isFinite(Number(row.accuracy))
+        ? Number(row.accuracy)
+        : attempts > 0
+          ? (correct / attempts) * 100
+          : null;
+      return meetsLearningProgressionRule({
+        accuracy,
+        attempts: sessionsSeen,
+        correct,
+        observedAt: row.lastAssessed || row.updatedAt || "",
+        now,
+        allowUndated: false
+      }).progresses;
+    });
   const rowsByStage = new Map();
 
   masteredRows.forEach(row => {

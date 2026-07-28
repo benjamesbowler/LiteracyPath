@@ -35,12 +35,11 @@ test.beforeEach(async ({ page }) => {
 test("A3.4 teacher settings persist and every learner effect is active", async ({ page }) => {
   await page.goto("/preview/teacher-a11y.html?surface=classes");
 
-  const rosterAdmin = page.locator(".teacher-roster-admin");
-  if (!await rosterAdmin.evaluate(element => element.open)) {
-    await rosterAdmin.locator(":scope > summary").click();
-  }
   const learnerRow = page.locator("tr").filter({ hasText: "Aarav" }).first();
-  await learnerRow.getByRole("button", { name: "More options for Aarav", exact: true }).click();
+  await learnerRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
+  await page.getByRole("dialog", { name: "Student details: Aarav" })
+    .getByRole("button", { name: "Student settings", exact: true })
+    .click();
   await page.getByRole("dialog", { name: "Options for Aarav" })
     .getByRole("button", { name: "Accessibility settings", exact: true })
     .click();
@@ -81,12 +80,11 @@ test("A3.4 teacher settings persist and every learner effect is active", async (
   });
 
   await page.reload();
-  const reloadedRosterAdmin = page.locator(".teacher-roster-admin");
-  if (!await reloadedRosterAdmin.evaluate(element => element.open)) {
-    await reloadedRosterAdmin.locator(":scope > summary").click();
-  }
   const reloadedRow = page.locator("tr").filter({ hasText: "Aarav" }).first();
-  await reloadedRow.getByRole("button", { name: "More options for Aarav", exact: true }).click();
+  await reloadedRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
+  await page.getByRole("dialog", { name: "Student details: Aarav" })
+    .getByRole("button", { name: "Student settings", exact: true })
+    .click();
   await page.getByRole("dialog", { name: "Options for Aarav" })
     .getByRole("button", { name: "Accessibility settings", exact: true })
     .click();

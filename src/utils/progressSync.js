@@ -1,7 +1,7 @@
 import { supabase } from "../supabaseClient.js";
+import { selectAllRows } from "../data/pagedSelect.js";
 import { computeHydratedValue, sanitizeCloudProgressPayload } from "./progressMerge.js";
 import { localProgressStorageKey, localProgressKeysForStudent, RESET_AREA, shouldApplyReset } from "./progressKeys.js";
-import { clearLocalElAssessmentDataForStudent } from "./elAssessmentReset.js";
 import {
   clearProgressQueueForStudent,
   enqueueProgressQueueEntry,
@@ -13,9 +13,12 @@ import {
 } from "./progressQueue.js";
 import {
   buildEngagementHealthSnapshot,
+  clearEngagementDataForStudent,
+  ENGAGEMENT_HEALTH_PREFIX,
   engagementRetryDelay,
   enqueueEngagementEvent,
   flushEngagementQueue,
+  readEngagementQueue,
   updateEngagementHealth
 } from "./engagementQueue.js";
 
@@ -25,6 +28,11 @@ const RESET_APPLIED_PREFIX = "lp-reset-applied:";
 
 const CLOUD_ROW_STORAGE_KEY = "lp-cloud-progress-rows-v1";
 const SAVE_DEBOUNCE_MS = 1800;
+export const PRACTICE_RESET_RETAINED_AREAS = Object.freeze([
+  "profile",
+  "guided_reading",
+  "story_quests"
+]);
 
 let activeSession = null;
 const pendingTimers = new Map();
@@ -35,6 +43,8 @@ let engagementFlushTimer = null;
 const engagementInFlightFlushes = new Map();
 const volatileEngagementEvents = new Map();
 const volatileEngagementHealth = new Map();
+const blockedStudentWrites = new Set();
+const blockedPracticeStudentWrites = new Map();
 
 function isBrowser() {
   return typeof window !== "undefined";
@@ -68,25 +78,273 @@ function writeJson(key, value) {
   }
 }
 
+function operationStorage(providedStorage) {
+  if (providedStorage) return providedStorage;
+  return engagementStorage();
+}
+
+function preservedProgressAreas({ preserveProfile = false, preserveAreas = [] } = {}) {
+  const areas = new Set(
+    (Array.isArray(preserveAreas) ? preserveAreas : [])
+      .map(area => String(area || "").trim())
+      .filter(Boolean)
+  );
+  if (preserveProfile) areas.add("profile");
+  return areas;
+}
+
+function isPreservedProgressArea(area, retainedAreas) {
+  return retainedAreas.has(String(area || ""));
+}
+
+function isPreservedProgressIdentity(identity, studentId, retainedAreas) {
+  return [...retainedAreas].some(area =>
+    String(identity).startsWith(`${studentId}:${area}:`)
+  );
+}
+
+function isProgressWriteBlocked(studentId, area) {
+  const scopedStudentId = String(studentId || "");
+  const retainedAreas = blockedPracticeStudentWrites.get(scopedStudentId);
+  return blockedStudentWrites.has(scopedStudentId)
+    || (
+      retainedAreas
+      && !isPreservedProgressArea(area, retainedAreas)
+    );
+}
+
+export function inspectLocalProgressForStudent(studentId, {
+  preserveEngagement = false,
+  preserveProfile = false,
+  preserveAreas = [],
+  storage
+} = {}) {
+  const scopedStudentId = String(studentId || "").trim();
+  const localStorage = operationStorage(storage);
+  const retainedAreas = preservedProgressAreas({ preserveProfile, preserveAreas });
+  if (!scopedStudentId || !localStorage) {
+    return {
+      storageAvailable: false,
+      residualCount: scopedStudentId ? 1 : 0,
+      residuals: scopedStudentId ? ["storage_unavailable"] : []
+    };
+  }
+
+  const residuals = [];
+  try {
+    const retainedStorageKeys = new Set(
+      [...retainedAreas]
+        .map(area => localProgressStorageKey(area, scopedStudentId))
+        .filter(Boolean)
+    );
+    for (const key of localProgressKeysForStudent(scopedStudentId)) {
+      if (retainedStorageKeys.has(key)) continue;
+      if (localStorage.getItem(key) !== null) residuals.push(`progress:${key}`);
+    }
+    for (const record of readProgressQueueRecords(localStorage)) {
+      if (
+        String(record.entry.studentId) === scopedStudentId
+        && !isPreservedProgressArea(record.entry.area, retainedAreas)
+      ) {
+        residuals.push(`progress_queue:${record.storageKey}`);
+      }
+    }
+    if (!preserveEngagement) {
+      for (const record of readEngagementQueue(localStorage, scopedStudentId)) {
+        residuals.push(`engagement_queue:${record.key}`);
+      }
+      if (localStorage.getItem(`${ENGAGEMENT_HEALTH_PREFIX}${scopedStudentId}`) !== null) {
+        residuals.push("engagement_health");
+      }
+    }
+    const cachedRows = JSON.parse(localStorage.getItem(CLOUD_ROW_STORAGE_KEY) || "{}");
+    if (cachedRows && Object.prototype.hasOwnProperty.call(cachedRows, scopedStudentId)) {
+      const studentRows = cachedRows[scopedStudentId];
+      const hasResidualRows = retainedAreas.size === 0
+        || !Array.isArray(studentRows)
+        || studentRows.some(row => !isPreservedProgressArea(row?.area, retainedAreas));
+      if (hasResidualRows) residuals.push("cloud_row_cache");
+    }
+  } catch {
+    return {
+      storageAvailable: false,
+      residualCount: 1,
+      residuals: ["storage_unavailable"]
+    };
+  }
+
+  for (const entry of volatileEntries.values()) {
+    if (
+      String(entry.studentId) === scopedStudentId
+      && !isPreservedProgressArea(entry.area, retainedAreas)
+    ) {
+      residuals.push("volatile_progress");
+    }
+  }
+  if (!preserveEngagement) {
+    for (const entry of volatileEngagementEvents.values()) {
+      if (String(entry.studentId) === scopedStudentId) residuals.push("volatile_engagement");
+    }
+    if (volatileEngagementHealth.has(scopedStudentId)) {
+      residuals.push("volatile_engagement_health");
+    }
+  }
+
+  return {
+    storageAvailable: true,
+    residualCount: residuals.length,
+    residuals
+  };
+}
+
 // Wipe ALL local progress for a student: the area stores, this student's cached
-// cloud rows, and any of their not-yet-flushed queued writes. Used by the
-// teacher "reset progress" action so a reset can't sync straight back.
-export function clearLocalProgressForStudent(studentId) {
-  if (!isBrowser() || !studentId) return;
+// cloud rows, and any of their not-yet-flushed queued writes. Deletion callers
+// can also block future writes, closing the in-flight retry race after the
+// database has removed the learner.
+export function clearLocalProgressForStudent(studentId, {
+  blockFutureWrites = false,
+  preserveEngagement = false,
+  preserveProfile = false,
+  preserveAreas = [],
+  storage
+} = {}) {
+  const scopedStudentId = String(studentId || "").trim();
+  const localStorage = operationStorage(storage);
+  const retainedAreas = preservedProgressAreas({ preserveProfile, preserveAreas });
+  if (!scopedStudentId || !localStorage) {
+    return inspectLocalProgressForStudent(scopedStudentId, { storage: localStorage });
+  }
+  if (blockFutureWrites) blockedStudentWrites.add(scopedStudentId);
+  const retainedStorageKeys = new Set(
+    [...retainedAreas]
+      .map(area => localProgressStorageKey(area, scopedStudentId))
+      .filter(Boolean)
+  );
   for (const key of localProgressKeysForStudent(studentId)) {
-    try { window.localStorage.removeItem(key); } catch { /* best effort */ }
+    if (retainedStorageKeys.has(key)) continue;
+    try { localStorage.removeItem(key); } catch { /* verified below */ }
   }
   // Drop this student's queued writes so they don't re-push deleted progress.
-  try { clearProgressQueueForStudent(window.localStorage, studentId); } catch { /* best effort */ }
+  try {
+    if (retainedAreas.size > 0) {
+      const records = readProgressQueueRecords(localStorage).filter(record => (
+        String(record.entry.studentId) === scopedStudentId
+        && !isPreservedProgressArea(record.entry.area, retainedAreas)
+      ));
+      removeProgressQueueRecords(localStorage, records);
+    } else {
+      clearProgressQueueForStudent(localStorage, scopedStudentId);
+    }
+  } catch { /* verified below */ }
   for (const [identity, entry] of volatileEntries) {
-    if (entry.studentId === studentId) volatileEntries.delete(identity);
+    if (
+      String(entry.studentId) === scopedStudentId
+      && !isPreservedProgressArea(entry.area, retainedAreas)
+    ) {
+      volatileEntries.delete(identity);
+    }
+  }
+  if (!preserveEngagement) {
+    try {
+      clearEngagementDataForStudent(localStorage, scopedStudentId);
+    } catch {
+      // Verified below.
+    }
+    for (const [id, entry] of volatileEngagementEvents) {
+      if (String(entry.studentId) === scopedStudentId) volatileEngagementEvents.delete(id);
+    }
+    volatileEngagementHealth.delete(scopedStudentId);
+  }
+  for (const [identity, timer] of pendingTimers) {
+    if (!identity.startsWith(`${scopedStudentId}:`)) continue;
+    if (isPreservedProgressIdentity(identity, scopedStudentId, retainedAreas)) continue;
+    if (isBrowser()) window.clearTimeout?.(timer);
+    pendingTimers.delete(identity);
+  }
+  if (activeSession?.studentId === scopedStudentId && blockFutureWrites) {
+    activeSession = null;
   }
   // Drop their cached cloud rows.
   try {
-    const cache = readJson(CLOUD_ROW_STORAGE_KEY, {});
-    delete cache[studentId];
-    writeJson(CLOUD_ROW_STORAGE_KEY, cache);
-  } catch { /* best effort */ }
+    const cache = JSON.parse(localStorage.getItem(CLOUD_ROW_STORAGE_KEY) || "{}");
+    if (retainedAreas.size > 0 && Array.isArray(cache[scopedStudentId])) {
+      const retainedRows = cache[scopedStudentId].filter(row => (
+        isPreservedProgressArea(row?.area, retainedAreas)
+      ));
+      if (retainedRows.length) cache[scopedStudentId] = retainedRows;
+      else delete cache[scopedStudentId];
+    } else {
+      delete cache[scopedStudentId];
+    }
+    localStorage.setItem(CLOUD_ROW_STORAGE_KEY, JSON.stringify(cache));
+  } catch { /* verified below */ }
+  return inspectLocalProgressForStudent(scopedStudentId, {
+    preserveEngagement,
+    preserveProfile,
+    preserveAreas,
+    storage: localStorage
+  });
+}
+
+export async function clearAndVerifyLocalProgressForStudent(studentId, {
+  allowFutureWritesAfterCleanup = false,
+  preserveEngagement = false,
+  preserveProfile = false,
+  preserveAreas = [],
+  storage
+} = {}) {
+  const scopedStudentId = String(studentId || "").trim();
+  const localStorage = operationStorage(storage);
+  const retainedAreas = preservedProgressAreas({ preserveProfile, preserveAreas });
+  const practiceOnly = preserveEngagement || retainedAreas.size > 0;
+  if (practiceOnly) {
+    blockedPracticeStudentWrites.set(scopedStudentId, retainedAreas);
+  }
+  clearLocalProgressForStudent(scopedStudentId, {
+    blockFutureWrites: !practiceOnly,
+    preserveEngagement,
+    preserveProfile,
+    preserveAreas,
+    storage: localStorage
+  });
+
+  // A request that was already on the wire can finish after the first clear
+  // and recreate a retry entry in its catch path. Wait for those bounded
+  // requests, then clear and inspect once more before privacy completion.
+  const pending = [
+    ...[...inFlightFlushes.entries()]
+      .filter(([identity]) => (
+        identity.startsWith(`${scopedStudentId}:`)
+        && !isPreservedProgressIdentity(identity, scopedStudentId, retainedAreas)
+      ))
+      .map(([, task]) => task),
+    ...[...engagementInFlightFlushes.entries()]
+      .filter(([identity]) => (
+        !preserveEngagement
+        && String(identity) === scopedStudentId
+      ))
+      .map(([, task]) => task)
+  ];
+  if (pending.length) await Promise.allSettled(pending);
+
+  const verification = clearLocalProgressForStudent(scopedStudentId, {
+    blockFutureWrites: !practiceOnly,
+    preserveEngagement,
+    preserveProfile,
+    preserveAreas,
+    storage: localStorage
+  });
+  if (!verification.storageAvailable || verification.residualCount > 0) {
+    const error = new Error("This browser could not verify that the learner's cached progress was removed.");
+    error.code = "LP_LOCAL_CLEANUP_INCOMPLETE";
+    error.residuals = verification.residuals;
+    throw error;
+  }
+  if (allowFutureWritesAfterCleanup) {
+    if (practiceOnly) blockedPracticeStudentWrites.delete(scopedStudentId);
+    else blockedStudentWrites.delete(scopedStudentId);
+  }
+  return verification;
 }
 
 function cacheCloudRows(studentId, rows = []) {
@@ -181,6 +439,11 @@ async function saveCloudProgress(entry) {
 }
 
 async function flushEntry(entry, records, volatileRevision = null) {
+  if (isProgressWriteBlocked(entry?.studentId, entry?.area)) {
+    removeProgressQueueRecords(window.localStorage, records);
+    volatileEntries.delete(progressEntryIdentity(entry));
+    return { ok: false, needsRecovery: false };
+  }
   if (typeof navigator !== "undefined" && navigator.onLine === false) {
     const queued = enqueueWrite(entry, { deferred: true });
     emitProgressSyncState(queued.stored ? "deferred" : "storage-failed", queued.entry);
@@ -198,6 +461,11 @@ async function flushEntry(entry, records, volatileRevision = null) {
     }
     return { ok: true, needsRecovery: Boolean(entry.needsRecovery) };
   } catch {
+    if (isProgressWriteBlocked(entry?.studentId, entry?.area)) {
+      removeProgressQueueRecords(window.localStorage, records);
+      volatileEntries.delete(progressEntryIdentity(entry));
+      return { ok: false, needsRecovery: false };
+    }
     const queued = enqueueWrite(entry, { deferred: true });
     emitProgressSyncState(queued.stored ? "deferred" : "storage-failed", queued.entry);
     return { ok: false, needsRecovery: true };
@@ -206,6 +474,13 @@ async function flushEntry(entry, records, volatileRevision = null) {
 
 async function flushQueuedKey(identity, session = activeSession) {
   if (!session?.studentId) return false;
+  if (blockedStudentWrites.has(String(session.studentId))) {
+    const records = readProgressQueueRecords(window.localStorage)
+      .filter(record => progressEntryIdentity(record.entry) === identity);
+    removeProgressQueueRecords(window.localStorage, records);
+    volatileEntries.delete(identity);
+    return false;
+  }
   if (inFlightFlushes.has(identity)) return inFlightFlushes.get(identity);
 
   const task = (async () => {
@@ -255,6 +530,7 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
     return false;
   }
   if (!activeSession?.studentId || activeSession.studentId !== scopeKey) return;
+  if (isProgressWriteBlocked(activeSession.studentId, area)) return false;
   const entry = {
     mode: activeSession.mode || "teacher",
     token: activeSession.token || "",
@@ -277,6 +553,12 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
 
 export async function flushQueuedProgressWrites(session = activeSession) {
   if (!session?.studentId) return;
+  if (blockedStudentWrites.has(String(session.studentId))) {
+    clearLocalProgressForStudent(session.studentId, {
+      blockFutureWrites: true
+    });
+    return;
+  }
   const own = readProgressQueueRecords(window.localStorage)
     .filter(record => record.entry.studentId === session.studentId);
   const identities = [...new Set([
@@ -298,12 +580,15 @@ export async function fetchStudentCloudProgress(session) {
     return data || [];
   }
 
-  const { data, error } = await supabase
+  const result = await selectAllRows(() => supabase
     .table("student_progress")
     .select("area, key, payload, updated_at")
-    .eq("student_id", session.studentId);
-  if (error) throw error;
-  return data || [];
+    .eq("student_id", session.studentId));
+  if (result.error) throw result.error;
+  if (result.truncated) {
+    throw new Error("Student progress exceeded the configured complete-read ceiling.");
+  }
+  return result.data || [];
 }
 
 // If a teacher reset this student more recently than this device has applied,
@@ -323,12 +608,11 @@ async function applyResetTombstone(session, rows) {
   let appliedAt = "";
   try { appliedAt = window.localStorage.getItem(markerKey) || ""; } catch { /* ignore */ }
   if (shouldApplyReset(cloudResetAt, appliedAt)) {
-    clearLocalProgressForStudent(studentId);
-    await clearLocalElAssessmentDataForStudent({
-      teacherId: session.teacherId || "",
-      studentId,
-      studentName: session.studentName || "",
-      storage: window.localStorage
+    await clearAndVerifyLocalProgressForStudent(studentId, {
+      allowFutureWritesAfterCleanup: true,
+      preserveEngagement: true,
+      preserveProfile: true,
+      preserveAreas: PRACTICE_RESET_RETAINED_AREAS
     });
     try { window.localStorage.setItem(markerKey, cloudResetAt); } catch { /* ignore */ }
     return true;
@@ -445,6 +729,10 @@ async function performEngagementFlush(
   if (!isBrowser() || !session?.studentId || session.mode !== "student" || !session.token) {
     return null;
   }
+  if (blockedStudentWrites.has(String(session.studentId))) {
+    clearEngagementDataForStudent(engagementStorage(), session.studentId);
+    return null;
+  }
   const durable = await flushEngagementQueue({
     storage: engagementStorage(),
     studentId: session.studentId,
@@ -532,6 +820,10 @@ export async function flushQueuedEngagementEvents(
   if (!isBrowser() || !session?.studentId || session.mode !== "student" || !session.token) {
     return null;
   }
+  if (blockedStudentWrites.has(String(session.studentId))) {
+    clearEngagementDataForStudent(engagementStorage(), session.studentId);
+    return null;
+  }
   const identity = session.studentId;
   const current = engagementInFlightFlushes.get(identity);
   if (current) {
@@ -557,6 +849,7 @@ export function logStudentActivity(area, itemId = null, event = "done", payload 
   if (!isBrowser()) return;
   const session = activeSession;
   if (!session || session.mode !== "student" || !session.token) return;
+  if (blockedStudentWrites.has(String(session.studentId))) return false;
   try {
     const storage = engagementStorage();
     const queued = enqueueEngagementEvent(storage, {

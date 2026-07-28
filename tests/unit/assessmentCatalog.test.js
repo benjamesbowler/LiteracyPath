@@ -71,6 +71,15 @@ test("every start-point descriptor is satisfiable from its own defaults", () => 
   }
 });
 
+test("fixed full-set assessments have one useful ready state", () => {
+  for (const id of ["letter-names-and-sounds", "phonics-patterns"]) {
+    const entry = getAssessmentCatalogEntry(id);
+    assert.equal(entry.startPoint.label, "Ready to begin");
+    assert.match(entry.startPoint.help, /^This assessment covers the full set of /);
+    assert.match(describeStartPointSelection(entry), /^Full set of /);
+  }
+});
+
 test("a start point stays satisfiable for every grade and time of year it claims to support", () => {
   for (const entry of ASSESSMENT_CATALOG) {
     if (entry.startPoint.kind === ASSESSMENT_START_POINT_KINDS.NONE) continue;

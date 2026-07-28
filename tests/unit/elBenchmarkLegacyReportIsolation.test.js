@@ -45,11 +45,18 @@ test("descriptive benchmark evidence is excluded from the legacy student mastery
     assessmentHistory: [benchmarkOnlyAttempt]
   });
   assert.equal(report.snapshot.totalAnswered, 0);
-  assert.equal(report.snapshot.accuracy, 0);
+  assert.equal(report.snapshot.accuracy, null);
+  assert.equal(report.snapshot.currentEvidenceReady, false);
   assert.equal(report.snapshot.status.id, "not_started");
   assert.deepEqual(report.progressPoints, []);
   assert.deepEqual(report.weeklyAccuracy, []);
-  assert.deepEqual(report.itemGroups, { mastered: [], developing: [], needsSupport: [] });
+  assert.deepEqual(report.itemGroups, {
+    mastered: [],
+    developing: [],
+    needsSupport: [],
+    notEnoughEvidence: [],
+    notAssessed: []
+  });
 });
 
 test("descriptive benchmark evidence is excluded from legacy class thresholds and groups", () => {
@@ -63,7 +70,8 @@ test("descriptive benchmark evidence is excluded from legacy class thresholds an
 
   assert.equal(report.snapshot.assessedStudents, 0);
   assert.equal(report.snapshot.attempts, 0);
-  assert.equal(report.snapshot.averageAccuracy, 0);
+  assert.equal(report.snapshot.averageAccuracy, null);
+  assert.equal(report.snapshot.averageAccuracyReady, false);
   assert.equal(report.snapshot.needsSupport, 0);
   assert.equal(report.snapshot.totalSkillsAssessed, 0);
   assert.deepEqual(report.heatmap, []);

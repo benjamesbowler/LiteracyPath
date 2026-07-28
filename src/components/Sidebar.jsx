@@ -1,7 +1,6 @@
-import { useState, useEffect, useId, useRef } from "react";
+import { useState, useEffect } from "react";
 import logomarkUrl from "../assets/logo.svg";
 import { APP_VIEWS } from "../appState/appViews.js";
-import { isFocusedAssessmentView } from "../appState/appViewHelpers.js";
 
 const STORAGE_KEY = "lg_sidebar_collapsed";
 
@@ -160,25 +159,12 @@ export function Sidebar({
       return false;
     }
   });
-  // A check that is open on screen is unfinished work. Navigation used to fire
-  // straight away, so one stray click ended the check with nothing said. The
-  // teacher is asked once, and can always carry on leaving.
-  const [pendingItem, setPendingItem] = useState(null);
-  const leaveCheckTitleId = useId();
-  const leaveCheckBodyId = useId();
-  const stayButtonRef = useRef(null);
-  const checkInProgress = isFocusedAssessmentView(appView);
-
-  // Derived, not stored: once the check is over the question is moot, so the
-  // prompt disappears on its own rather than needing to be cleaned up.
-  const leaveCheckItem = checkInProgress ? pendingItem : null;
-  // A question worth asking is worth being able to read: the rail opens itself
-  // while the prompt is up, without changing the teacher's saved preference.
-  const railCollapsed = collapsed && !leaveCheckItem;
-
-  useEffect(() => {
-    if (leaveCheckItem) stayButtonRef.current?.focus();
-  }, [leaveCheckItem]);
+  const [compactViewport, setCompactViewport] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(false);
+  const railCollapsed = (
+    collapsed
+    || (compactViewport && !mobileExpanded)
+  );
 
   useEffect(() => {
     try {
@@ -188,13 +174,31 @@ export function Sidebar({
     }
   }, [collapsed]);
 
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return undefined;
+    const query = window.matchMedia("(max-width: 820px)");
+    const updateViewport = () => {
+      setCompactViewport(query.matches);
+      if (!query.matches) setMobileExpanded(false);
+    };
+    updateViewport();
+    query.addEventListener?.("change", updateViewport);
+    return () => query.removeEventListener?.("change", updateViewport);
+  }, []);
+
+  function toggleSidebar() {
+    if (compactViewport) {
+      setMobileExpanded(value => !value);
+      return;
+    }
+    setCollapsed(value => !value);
+  }
+
   function handleNavClick(item) {
     if (item.requiresStudent && !nameSaved) return null;
-    if (checkInProgress) {
-      setPendingItem(item);
-      return null;
-    }
-    return navigateToItem(item);
+    const result = navigateToItem(item);
+    if (compactViewport) setMobileExpanded(false);
+    return result;
   }
 
   function navigateToItem(item) {
@@ -222,7 +226,7 @@ export function Sidebar({
 
   return (
     <aside
-      className={`lg-sidebar${railCollapsed ? " collapsed" : ""}`}
+      className={`lg-sidebar${railCollapsed ? " collapsed" : ""}${compactViewport && !railCollapsed ? " mobile-expanded" : ""}`}
       aria-label="Main navigation"
     >
       {/* ── Logo + toggle ── */}
@@ -237,7 +241,7 @@ export function Sidebar({
         </div>
         <button
           className="lg-sb-toggle"
-          onClick={() => setCollapsed(c => !c)}
+          onClick={toggleSidebar}
           aria-label={railCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           aria-expanded={!railCollapsed}
         >
@@ -252,42 +256,6 @@ export function Sidebar({
 
       {/* ── Nav items ── */}
       <nav className="lg-sb-nav" aria-label="App sections">
-        {leaveCheckItem && (
-          <div
-            className="lg-sb-leave-check"
-            role="alertdialog"
-            aria-labelledby={leaveCheckTitleId}
-            aria-describedby={leaveCheckBodyId}
-            onKeyDown={event => {
-              if (event.key === "Escape") setPendingItem(null);
-            }}
-          >
-            <strong id={leaveCheckTitleId}>Leave this check?</strong>
-            <p id={leaveCheckBodyId}>
-              This check is still open. Going to {leaveCheckItem.label} now ends it,
-              and anything not already saved is lost.
-            </p>
-            <button
-              className="lp-button lp-button-secondary"
-              onClick={() => setPendingItem(null)}
-              ref={stayButtonRef}
-              type="button"
-            >
-              Stay on the check
-            </button>
-            <button
-              className="lp-button lp-button-primary"
-              onClick={() => {
-                const item = leaveCheckItem;
-                setPendingItem(null);
-                navigateToItem(item);
-              }}
-              type="button"
-            >
-              Leave and go to {leaveCheckItem.label}
-            </button>
-          </div>
-        )}
         <div data-testid="teacher-primary-nav" role="group" aria-label="Teacher primary">
           {TEACHER_INTENT_NAV_ITEMS.map(item => (
             <div key={item.id} className="lg-sb-intent">

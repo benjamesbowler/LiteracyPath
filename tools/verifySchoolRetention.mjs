@@ -68,7 +68,7 @@ assert.match(service, /confirmation !== PROPAGATION_CONFIRMATION/);
 
 assert.match(adminDashboard, /SchoolRetentionPolicyPanel/);
 assert.match(adminDashboard, /handleRetentionLearnersDeleted/);
-assert.match(adminDashboard, /clearLocalProgressForStudent/);
+assert.match(adminDashboard, /clearAndVerifyLocalProgressForStudent/);
 assert.match(adminDashboard, /clearLocalElAssessmentDataForStudent/);
 assert.match(adminDashboard, /Open policy/);
 assert.match(panel, /Preview next run/);

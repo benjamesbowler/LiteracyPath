@@ -3,7 +3,7 @@ import { Suspense, useCallback, useEffect, useEffectEvent, useMemo, useRef, useS
 import { flushSync } from "react-dom";
 import { useReducedMotion } from "framer-motion";
 import "./App.css";
-import { DEBUG_ASSESSMENT_COVERAGE, buildCoverageSnapshot, buildQuestionBankCoverage, calculateWeaknessSnapshot, debugAssessmentCoverage, dedupeQuestionsByRuntimeSignature, downloadBlob, findQuestionForAnswerRecord, formatExportDateForFilename, formatReportDate, getAdminSetupMessage, getQuestionTargetWord, getRuntimeQuestionSignature, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isApprovalSchemaError, isDuplicateAuthSignupError, isInitialSoundsStage, isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, letterAssessmentOrder, logAdminSupabaseError, normalizeItemKey, normalizeRuntimeSkillId, prepareRuntimeQuestionBank, safeExportFilename, setRuntimeQuestionCache, startupQuestions } from "./appState/assessmentRuntime.js";
+import { DEBUG_ASSESSMENT_COVERAGE, buildCoverageSnapshot, calculateWeaknessSnapshot, debugAssessmentCoverage, dedupeQuestionsByRuntimeSignature, downloadBlob, findQuestionForAnswerRecord, formatExportDateForFilename, formatReportDate, getAdminSetupMessage, getQuestionTargetWord, getRuntimeQuestionSignature, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isApprovalSchemaError, isDuplicateAuthSignupError, isInitialSoundsStage, isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, letterAssessmentOrder, logAdminSupabaseError, normalizeItemKey, normalizeRuntimeSkillId, prepareRuntimeQuestionBank, safeExportFilename, setRuntimeQuestionCache, startupQuestions } from "./appState/assessmentRuntime.js";
 import { useAppSessionController } from "./appState/useAppSessionController.js";
 import { STUDENT_SESSION_STORAGE_KEY, addWorkbookExportProvenance, createExcelWorkbook, loadAssessmentMediaPickerModule, loadAssessmentSkillBankLoaderModule, loadElBenchmarkEngineModule, loadFinishedReportPageModule, loadGuidedReadingBooksModule, loadTeacherRouteRuntime, pushRouteHash, teacherReportHash } from "./appState/appRuntimeServices.js";
 import { supabase, isSupabaseConfigured } from "./supabaseClient";
@@ -14,23 +14,54 @@ import { saveStudentAccessibilitySettings, saveStudentReducedChoiceMode } from "
 import { applyLearnerAccessibilityToDocument, learnerAccessibilityFromProfile } from "./accessibility/learnerAccessibility.js";
 import { loadStudentProfile } from "./utils/studentProfile.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
-import { curriculumReleaseBoard } from "./content/assessments/curriculumReleaseBoard.generated.js";
 import { isHighFrequencyWordSkill } from "./data/highFrequencyWordBands";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepeatOptionSetSignature } from "./questionRepeatGuards";
-import { deleteAssessmentAttemptsForStudent, flushAssessmentAttemptSyncQueue, hydrateAssessmentAttempts, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
-import { deleteSavedClassElAssessmentReportsForStudent } from "./data/elAssessmentReportStore.js";
+import { ASSESSMENT_RESPONSE_STATUSES, flushAssessmentAttemptSyncQueue, hydrateAssessmentAttempts, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
 import { APP_VIEWS } from "./appState/appViews.js";
-import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isSameTeacherRoute, isStudentAllowedView, restoreElBenchmarkSessionFromHash, teacherIntentHash } from "./appState/appViewHelpers.js";
-import { deleteElBenchmarkDraft, loadElBenchmarkDraft, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
+import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isSameTeacherRoute, isStudentAllowedView, restoreElBenchmarkSessionFromHash, shouldOpenDefaultTeacherRoute, teacherIntentHash } from "./appState/appViewHelpers.js";
+import { deleteElBenchmarkDraft, loadElBenchmarkDraft, resolveElBenchmarkSessionOwnership, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
 import { calculateAccuracy, calculateRoundCorrect } from "./appState/assessmentSessionHelpers.js";
 import { preloadQuestionMedia } from "./utils/preloadQuestionMedia.js";
 import { DYNAMIC_IMPORT_ERROR_EVENT, importWithRetry } from "./utils/lazyWithRetry.js";
-import { clearProgressSyncSession, configureProgressSync, hydrateCloudProgress, queueProgressSave, clearLocalProgressForStudent, RESET_AREA } from "./utils/progressSync.js";
-import { clearLocalElAssessmentDataForStudent } from "./utils/elAssessmentReset.js";
-import { startInsertQueueFlusher } from "./utils/insertQueue.js";
+import { clearAndVerifyLocalProgressForStudent, clearProgressSyncSession, configureProgressSync, hydrateCloudProgress, queueProgressSave } from "./utils/progressSync.js";
+import { configureInsertQueueAccount, startInsertQueueFlusher } from "./utils/insertQueue.js";
+import { resumePendingLearnerDeletions } from "./data/learnerDataRights.js";
 import { createAssessmentRoundController } from "./appState/assessmentRoundController.js";
 import { AppSurface } from "./appState/appRuntimeSurfaces.jsx";
+import { createStudentRosterReadState } from "./appState/studentRosterReadState.js";
+import {
+  createManualAssessmentAttemptSession,
+  chooseNewestManualAssessmentEntries,
+  loadManualAssessmentDrafts,
+  manualAssessmentAdministrationStatus,
+  manualAssessmentEntryOwnership,
+  replaceManualAssessmentEntry,
+  restoreManualAssessmentAttemptSession,
+  restoreManualAssessmentDraftsFromHistory,
+  runSingleFlight,
+  saveManualAssessmentDrafts
+} from "./appState/manualAssessmentFlow.js";
+import {
+  adminQaExitUrl,
+  isAdminRoutePath,
+  withoutAdminQaHistoryState
+} from "./appState/adminQaNavigation.js";
+
+const STUDENT_PREVIEW_VIEWS = new Set([
+  APP_VIEWS.STUDENT_HOME,
+  APP_VIEWS.GUIDED_READING,
+  APP_VIEWS.LEARN,
+  APP_VIEWS.PHONICS_LEARN,
+  APP_VIEWS.SKILLS_BLOCK_QUEST,
+  APP_VIEWS.PHONICS_QUEST,
+  APP_VIEWS.STUDENT_REWARDS
+]);
+
+async function clearLocalElAssessmentDataForStudent(options) {
+  const resetModule = await importWithRetry(() => import("./utils/elAssessmentReset.js"));
+  return resetModule.clearLocalElAssessmentDataForStudent(options);
+}
 
 export default function App() {
   const [studentSessionName, setStudentSessionName] = useState("");
@@ -73,11 +104,17 @@ export default function App() {
   const [studentList, setStudentList] = useState([]);
   const [archivedStudentList, setArchivedStudentList] = useState([]);
   const [loadingStudents, setLoadingStudents] = useState(false);
+  const [studentListReadState, setStudentListReadState] = useState(
+    createStudentRosterReadState
+  );
   const [classList, setClassList] = useState([]);
   const [selectedClassId, setSelectedClassId] = useState(null);
   const [newClassName, setNewClassName] = useState("");
   const [classDashboard, setClassDashboard] = useState([]);
   const [appView, rawSetAppView] = useState(APP_VIEWS.SELECT);
+  const activeAppViewRef = useRef(appView);
+  activeAppViewRef.current = appView;
+  const appViewNavigationRevisionRef = useRef(0);
   const [studentPreview, setStudentPreview] = useState(null);
   const [studentPreviewStatus, setStudentPreviewStatus] = useState("");
   const [studentReportView, setStudentReportView] = useState("whole-child");
@@ -94,6 +131,22 @@ export default function App() {
   // who ask for reduced motion — get exactly the instant swap they get today:
   // the wrapper is pure progressive enhancement around the raw setter.
   const setAppView = useCallback(next => {
+    if (
+      typeof window !== "undefined"
+      && activeAppViewRef.current === APP_VIEWS.ADMIN_DASHBOARD
+      && next !== APP_VIEWS.ADMIN_DASHBOARD
+      && isAdminRoutePath(window.location.pathname)
+    ) {
+      window.history.replaceState(
+        withoutAdminQaHistoryState(window.history.state),
+        "",
+        adminQaExitUrl(window.location.hash)
+      );
+    }
+    // A profile restore uses rawSetAppView directly. Every navigation through
+    // this public setter is therefore a newer user/system intent that an
+    // already-running restore must never replace when it eventually resolves.
+    appViewNavigationRevisionRef.current += 1;
     if (
       typeof document !== "undefined"
       && typeof document.startViewTransition === "function"
@@ -156,6 +209,12 @@ export default function App() {
   const [teacherAccountStatus, setTeacherAccountStatus] = useState("signed_out");
   const [teacherAccountRecord, setTeacherAccountRecord] = useState(null);
   const [teacherSchoolName, setTeacherSchoolName] = useState("");
+  const [teacherSchoolNameReadState, setTeacherSchoolNameReadState] = useState({
+    status: "idle",
+    teacherId: "",
+    schoolId: "",
+    error: null
+  });
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminStatusError, setAdminStatusError] = useState(null);
   const [adminTeachers, setAdminTeachers] = useState([]);
@@ -203,6 +262,14 @@ export default function App() {
   const elBenchmarkStartPendingRef = useRef(false);
   const [answerHistory, setAnswerHistory] = useState([]);
   const [assessmentHistory, setAssessmentHistory] = useState([]);
+  const [assessmentHistoryReadState, setAssessmentHistoryReadState] = useState({
+    status: "idle",
+    source: "none",
+    complete: false,
+    truncated: false,
+    error: null
+  });
+  const [assessmentHistoryHydrationRevision, setAssessmentHistoryHydrationRevision] = useState(0);
   const [guidedReadingRecords, setGuidedReadingRecords] = useState({});
   const [guidedInitialBookId, setGuidedInitialBookId] = useState("");
   const [itemMastery, setItemMastery] = useState({});
@@ -215,10 +282,16 @@ export default function App() {
   const [adminConfirm, setAdminConfirm] = useState(null);
   const [adminConfirmBusy, setAdminConfirmBusy] = useState(false);
   const [resettingProgress, setResettingProgress] = useState(false);
-  const assessmentResetAtByStudentRef = useRef(new Map());
   const answerInFlightRef = useRef(false);
   const letterAssessmentArchivedRef = useRef(false);
   const patternAssessmentArchivedRef = useRef(false);
+  // Manual checks can be retried after a storage/network failure. Keep one
+  // stable attempt id for the life of the check so a retry updates the same
+  // archive row instead of creating a duplicate completed assessment.
+  const letterAssessmentAttemptRef = useRef(null);
+  const patternAssessmentAttemptRef = useRef(null);
+  const letterAssessmentSaveInFlightRef = useRef(null);
+  const patternAssessmentSaveInFlightRef = useRef(null);
   // Guards auto-advance setTimeout callbacks from firing after endAssessment is called.
   const assessmentActiveRef = useRef(false);
   const answerHistoryRef = useRef(answerHistory);
@@ -245,9 +318,11 @@ export default function App() {
   const freshAuthActionRef = useRef(false);
   const freshLoginResetPendingRef = useRef(false);
   const authBootCompletedRef = useRef(false);
+  const profileLoadedTeacherIdRef = useRef(null);
   const accountAccessCheckInFlightRef = useRef(false);
   const accountAccessCheckUserIdRef = useRef(null);
   const accountAccessCheckSeqRef = useRef(0);
+  const pendingDeletionResumeRef = useRef(new Map());
   const isLearnView = appView === APP_VIEWS.LEARN || appView === APP_VIEWS.PHONICS_LEARN;
   const isStudentSurfaceView = isLearnView || appView === APP_VIEWS.STUDENT_REWARDS;
 
@@ -388,6 +463,99 @@ export default function App() {
 
   const teacherId =
     teacherUser?.id || null;
+
+  useEffect(() => {
+    // Retry evidence only for the account that is currently authenticated.
+    // Logging out clears the active scope without deleting its durable queue;
+    // the same teacher can safely resume it on their next sign-in.
+    configureInsertQueueAccount(teacherId || "");
+  }, [teacherId]);
+
+  useEffect(() => {
+    if (!studentPreview) return;
+    if (sessionMode === "student") {
+      setStudentPreview(null);
+      setStudentPreviewStatus("");
+      return;
+    }
+    if (STUDENT_PREVIEW_VIEWS.has(appView)) return;
+
+    // The teacher sidebar remains available during a child-surface preview.
+    // If it is used instead of the yellow Return button, leave preview mode
+    // without overriding the destination they chose. Otherwise the hidden
+    // preview session would keep blocking later teacher-owned progress writes.
+    if (teacherId) {
+      configureProgressSync({
+        mode: "teacher",
+        studentId: studentPreview.studentId,
+        studentName: studentPreview.studentName,
+        classId: studentPreview.classId,
+        teacherId
+      });
+    } else {
+      clearProgressSyncSession();
+    }
+    setStudentPreview(null);
+    setStudentPreviewStatus("");
+  }, [appView, sessionMode, studentPreview, teacherId]);
+
+  useEffect(() => {
+    if (!authReady || !teacherId || typeof window === "undefined") return undefined;
+    let deletionStorage = null;
+    try {
+      deletionStorage = window.localStorage;
+    } catch {
+      return undefined;
+    }
+
+    const resume = () => {
+      if (pendingDeletionResumeRef.current.has(teacherId)) return;
+      const task = resumePendingLearnerDeletions({
+        client: supabase,
+        accountId: teacherId,
+        storage: deletionStorage,
+        cleanup: async record => {
+          const progressCleanup = await clearAndVerifyLocalProgressForStudent(record.studentId, {
+            storage: deletionStorage
+          });
+          const evidenceCleanup = await clearLocalElAssessmentDataForStudent({
+            teacherId: record.accountId || teacherId,
+            studentId: record.studentId,
+            studentName: record.studentName,
+            storage: deletionStorage
+          });
+          return { progressCleanup, evidenceCleanup };
+        }
+      }).then(results => {
+        const completedIds = new Set(
+          results
+            .filter(result => result.status === "completed")
+            .map(result => String(result.studentId))
+        );
+        if (completedIds.size) {
+          setStudentList(previous => previous.filter(
+            student => !completedIds.has(String(student.id))
+          ));
+          setArchivedStudentList(previous => previous.filter(
+            student => !completedIds.has(String(student.id))
+          ));
+        }
+        const failed = results.filter(result => result.status === "error");
+        if (failed.length) {
+          console.warn("Some interrupted learner deletions still need local cleanup.", failed);
+        }
+      }).catch(error => {
+        console.warn("Interrupted learner deletion recovery could not run.", error);
+      }).finally(() => {
+        pendingDeletionResumeRef.current.delete(teacherId);
+      });
+      pendingDeletionResumeRef.current.set(teacherId, task);
+    };
+
+    resume();
+    window.addEventListener("online", resume);
+    return () => window.removeEventListener("online", resume);
+  }, [authReady, teacherId]);
 
   async function getRuntimeQuestionValidationOptions(skillId = "") {
     if (!isHighFrequencyWordSkill(skillId)) return {};
@@ -530,45 +698,68 @@ export default function App() {
   useEffect(() => {
     if (!teacherId) {
       setAssessmentHistory([]);
+      setAssessmentHistoryReadState({
+        status: "idle",
+        source: "none",
+        complete: false,
+        truncated: false,
+        error: null
+      });
       return undefined;
     }
 
     let cancelled = false;
-    setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
+    const localRecords = loadAssessmentAttempts({ teacherId });
+    const cloudExpected = isSupabaseConfigured && teacherId !== "local";
+    setAssessmentHistory(localRecords);
+    setAssessmentHistoryReadState({
+      status: cloudExpected ? "loading" : "complete",
+      source: "local",
+      complete: !cloudExpected,
+      truncated: false,
+      error: null
+    });
     void hydrateAssessmentAttempts({
       teacherId,
-      supabase: isSupabaseConfigured ? supabase : null
-    }).then(hydratedRecords => {
+      supabase: cloudExpected ? supabase : null,
+      returnStatus: true
+    }).then(result => {
       if (cancelled) return;
-      const resetCutoffs = assessmentResetAtByStudentRef.current;
-      const currentRecords = hydratedRecords.filter(record => {
-        const resetAt = resetCutoffs.get(String(record?.studentId || ""));
-        if (!resetAt) return true;
-        const recordTime = new Date(
-          record.updatedAt || record.completedAt || record.startedAt || ""
-        ).getTime();
-        return Number.isFinite(recordTime) && recordTime > new Date(resetAt).getTime();
-      });
-      // A cloud history read may have started before another device wrote the
-      // tombstone. Remove any pre-reset rows that this stale response briefly
-      // merged back into the teacher-level browser cache before exposing it.
-      for (const [resetStudentId, resetAt] of resetCutoffs) {
-        deleteAssessmentAttemptsForStudent({
-          teacherId,
-          studentId: resetStudentId,
-          resetAtOrBefore: resetAt
-        });
-      }
       // Use the complete cloud/local merge returned for this live session.
       // Reloading localStorage here could collapse a large class to the
       // quota-fallback cache even though the cloud query succeeded.
-      setAssessmentHistory(currentRecords);
+      setAssessmentHistory(result.records);
+      setAssessmentHistoryReadState({
+        status: result.error
+          ? "error"
+          : result.complete && !result.truncated
+            ? "complete"
+            : "partial",
+        source: result.source,
+        complete: result.complete === true && result.truncated !== true && !result.error,
+        truncated: result.truncated === true,
+        error: result.error || null
+      });
+    }).catch(error => {
+      if (cancelled) return;
+      setAssessmentHistoryReadState({
+        status: "error",
+        source: "local-fallback",
+        complete: false,
+        truncated: false,
+        error
+      });
     });
 
     return () => {
       cancelled = true;
     };
-  }, [teacherId]);
+  }, [assessmentHistoryHydrationRevision, teacherId]);
+
+  function retryAssessmentHistoryHydration() {
+    if (!teacherId) return;
+    setAssessmentHistoryHydrationRevision(revision => revision + 1);
+  }
 
   useEffect(() => {
     if (!teacherId || teacherId === "local" || !isSupabaseConfigured || typeof window === "undefined") {
@@ -596,28 +787,23 @@ export default function App() {
         ? String(event.detail?.studentId || "")
         : "";
       if (!resetStudentId) return;
-      const resetAt = event.detail?.rows?.find(row => row.area === RESET_AREA)?.payload?.at || "";
-      if (resetAt) assessmentResetAtByStudentRef.current.set(resetStudentId, resetAt);
-
-      setAssessmentHistory(previous => previous.filter(record => (
-        String(record?.studentId || "") !== resetStudentId
-      )));
-      setElBenchmarkSession(previous => (
-        previous?.studentId === resetStudentId ? null : previous
-      ));
 
       if (String(studentId || "") === resetStudentId) {
-        setElBenchmarkDraftSaveFailed(false);
-        if (appView === APP_VIEWS.EL_BENCHMARK) {
-          setAppView(APP_VIEWS.ASSESSMENTS);
-        }
-        setMessage("This student's progress was reset on another device. Local assessment drafts and reports were cleared.");
+        setMastery({});
+        setItemMastery({});
+        setItemSessionSeen({});
+        setRoundAnswers([]);
+        setRoundItemKeys([]);
+        setRoundQuestionIds([]);
+        setCurrentQuestion(null);
+        setFeedback(null);
+        setMessage("This student's practice progress was reset on another device. Completed assessments and formal assessment records were kept.");
       }
     }
 
     window.addEventListener("lp-progress-hydrated", handleRemoteProgressHydration);
     return () => window.removeEventListener("lp-progress-hydrated", handleRemoteProgressHydration);
-  }, [appView, studentId, setAppView]);
+  }, [studentId]);
 
   useEffect(() => {
     roundItemKeysRef.current = roundItemKeys;
@@ -639,7 +825,7 @@ export default function App() {
     answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions,
     getItemMasteryStateKey, getQuestionItemKey, handleAssessmentEvidenceImageError, normalizeItemMasteryRow,
     persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue,
-    shouldShowImage, speakText, updateItemMastery,
+    shouldShowImage, speakText,
   } = createAssessmentRoundController({
     allQuestionsRef, answerHistory, answerHistoryRef, answerInFlightRef,
     assessmentActiveRef, assessmentMediaPickerRef, assessmentMediaUsageRef, assessmentMode,
@@ -662,21 +848,23 @@ export default function App() {
     completePasswordReset, createClass, createDemoClass, createStudentForSelectedClass,
     demoTeacherEnabled, executeAdminDeleteClass, executeAdminDeleteStudent, exitToTeacherEntry,
     isTeacherAccountApproved, loadAdminDashboard, loadClassDashboard, loadClasses,
-    loadingClasses,
+    classDashboardReadState, classListReadState, loadingClasses,
     loadStudentProgress, loadStudents, logInDemoTeacher, logInTeacher,
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
+    retryTeacherSchoolName,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
     assignMissingSymbolPasswords,
   } = useAppSessionController({
     accountAccessCheckInFlightRef, accountAccessCheckSeqRef, accountAccessCheckUserIdRef, adminStatusError,
     adminStudents, answerHistory, answerHistoryRef, answerInFlightRef,
-    APP_VIEWS, appView, assessmentActiveRef, assessmentMode,
+    APP_VIEWS, appView, appViewNavigationRevisionRef, assessmentActiveRef, assessmentMode,
     authBootCompletedRef, authDisplayName, authEmail, authPassword,
     authReady, authSchoolName, authUsername, buildQuestMasteryReport,
-    clearLocalElAssessmentDataForStudent, clearLocalProgressForStudent, clearProgressSyncSession,
-    configureProgressSync, correctAnswered, currentSkillIndex, deleteSavedClassElAssessmentReportsForStudent,
+    chooseNewestManualAssessmentEntries, clearAndVerifyLocalProgressForStudent, clearLocalElAssessmentDataForStudent,
+    clearProgressSyncSession,
+    configureProgressSync, correctAnswered, currentSkillIndex,
     elBenchmarkAssessmentHash, elBenchmarkSession, findQuestionForAnswerRecord, freshAuthActionRef,
     freshLoginResetPendingRef, getAdminSetupMessage, getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature,
     getGuidedReadingStorageKeyForSession, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
@@ -685,13 +873,13 @@ export default function App() {
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
     isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isSameTeacherRoute, isStudentAllowedView,
     isSupabaseConfigured, itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
-    letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft,
+    letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft, loadManualAssessmentDrafts,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
     mergeAssessmentAttemptRecords, newClassName, normalizeItemMasteryRow, patternAssessment,
-    patternAttempt, patternIndex, pickQuestion, profileLoaded,
-    queueProgressSave, rawSetAppView, RESET_AREA, resetInitialSoundRoundQueue,
-    restoreElBenchmarkSessionFromHash, roundAnswers, roundItemKeys, roundItemKeysRef,
-    roundQuestionIds, roundQuestionIdsRef, saveElBenchmarkDraft, saveStudentAccessibilitySettings,
+    patternAttempt, patternIndex, pickQuestion, profileLoaded, profileLoadedTeacherIdRef,
+    queueProgressSave, rawSetAppView, resetInitialSoundRoundQueue,
+    restoreElBenchmarkSessionFromHash, restoreManualAssessmentDraftsFromHistory, roundAnswers, roundItemKeys, roundItemKeysRef,
+    roundQuestionIds, roundQuestionIdsRef, saveElBenchmarkDraft, saveManualAssessmentDrafts, saveStudentAccessibilitySettings,
     saveStudentReducedChoiceMode, selectedClassId, sessionMode, setAdminClasses,
     setAdminConfirm, setAdminLoading, setAdminPendingAccounts, setAdminPendingAccountsWarning,
     setAdminSchools, setAdminStatusError, setAdminStudents, setAdminTeachers,
@@ -706,9 +894,10 @@ export default function App() {
     setNewClassName, setPatternAssessment, setPatternAttempt, setPatternIndex,
     setProfileLoaded, setResetProgressDialogOpen, setResettingProgress, setRoundAnswers,
     setRoundItemKeys, setRoundQuestionIds, setSelectedClassId, setSelectedStudentEvidenceReadState,
-    setSelectedStudentEvidenceReady, setSessionMode, setStudentList, setStudentPreviewStatus,
+    setSelectedStudentEvidenceReady, setSessionMode, setStudentList, setStudentListReadState, setStudentPreviewStatus,
     setStudentReportView, setStudentSession, setStudentSessionId, setStudentSessionName,
     setTeacherAccountRecord, setTeacherAccountStatus, setTeacherGroupId, setTeacherSchoolName,
+    setTeacherSchoolNameReadState,
     setTeacherStudentContext, setTeacherUser, setTotalAnswered, setUsedByStage,
     skillTree, STUDENT_SESSION_STORAGE_KEY, studentId, studentName,
     studentPreview, studentReportView, studentSession, supabase,
@@ -728,8 +917,40 @@ export default function App() {
     exampleWord: item.examples[(patternAttempt + index) % item.examples.length]
   }));
 
+  function ensureTeacherAssessmentEvidenceReady(verifiedSyncStatus = "") {
+    if (sessionMode === "student") return true;
+    if (verifiedSyncStatus === "complete") return true;
+    const ready = Boolean(
+      studentId
+      && selectedStudentEvidenceReady
+      && selectedStudentEvidenceReadState?.syncStatus === "complete"
+    );
+    if (!ready) {
+      setMessage(
+        "This student's saved results are not fully available. Nothing has been counted as zero. Try again before starting an assessment."
+      );
+    }
+    return ready;
+  }
+
   async function startElBenchmarkAssessment(assessmentId, options = {}) {
     if (!studentId) return;
+    const selectedStudentRow = studentList.find(
+      row => String(row.id || "") === String(studentId)
+    );
+    const selectedStudentClassId = String(
+      selectedStudentRow?.classId || selectedStudentRow?.class_id || selectedClassId || ""
+    );
+    if (
+      !selectedClassId
+      || !teacherId
+      || !selectedStudentRow
+      || selectedStudentClassId !== String(selectedClassId)
+    ) {
+      setMessage("Choose the student's class again before starting this assessment.");
+      return;
+    }
+    if (!ensureTeacherAssessmentEvidenceReady()) return;
     if (elBenchmarkStartPendingRef.current) return;
     if (elBenchmarkSession?.studentId === studentId) {
       setMessage("Resume or discard the saved EL benchmark draft before starting another one.");
@@ -769,23 +990,74 @@ export default function App() {
       setAppView(APP_VIEWS.EL_BENCHMARK);
     } catch (error) {
       console.warn("Could not start the EL benchmark assessment.", error);
-      setMessage(error instanceof Error ? error.message : "This assessment route could not be started.");
+      setMessage(
+        "We couldn't prepare this assessment. Saved results have not changed. Return to Assessments and try again."
+      );
     } finally {
       elBenchmarkStartPendingRef.current = false;
     }
   }
 
+  function getElBenchmarkOwnership(nextSession = elBenchmarkSession) {
+    return resolveElBenchmarkSessionOwnership({
+      session: nextSession,
+      activeSession: elBenchmarkSession,
+      currentTeacherId: teacherId,
+      currentStudentId: studentId,
+      selectedClassId
+    });
+  }
+
+  function getElBenchmarkOwnershipMessage(ownership) {
+    const originalClassName = classList.find(
+      row => String(row.id || "") === String(ownership?.classId || "")
+    )?.name;
+    if (ownership?.reason === "session_ownership_changed") {
+      return "This unfinished assessment's learner or class details no longer match the assessment that was started. Nothing was saved. Return to Assessments and reopen the original draft.";
+    }
+    if (ownership?.reason === "missing_session_ownership") {
+      return "This older unfinished assessment does not contain enough class ownership information to save safely. Nothing was changed. Clear the draft and start a new assessment from the correct class.";
+    }
+    return `This unfinished assessment belongs to ${originalClassName || "a different class or student"}. Nothing was saved. Select that class and student before carrying on.`;
+  }
+
+  function blockElBenchmarkOwnershipChange(ownership) {
+    const ownershipMessage = getElBenchmarkOwnershipMessage(ownership);
+    setMessage(ownershipMessage);
+    if (appView === APP_VIEWS.EL_BENCHMARK) setAppView(APP_VIEWS.ASSESSMENTS);
+    return {
+      blocked: true,
+      ownership,
+      message: ownershipMessage
+    };
+  }
+
   function updateElBenchmarkSession(nextSession) {
-    if (!nextSession || nextSession.studentId !== studentId) return;
-    const draftSaved = saveElBenchmarkDraft({ teacherId, studentId, session: nextSession });
+    const ownership = getElBenchmarkOwnership(nextSession);
+    if (!ownership.ok) {
+      blockElBenchmarkOwnershipChange(ownership);
+      return;
+    }
+    const ownedSession = {
+      ...nextSession,
+      sessionId: ownership.sessionId,
+      studentId: ownership.studentId,
+      classId: ownership.classId,
+      teacherId: ownership.teacherId
+    };
+    const draftSaved = saveElBenchmarkDraft({
+      teacherId: ownership.teacherId,
+      studentId: ownership.studentId,
+      session: ownedSession
+    });
     setElBenchmarkDraftSaveFailed(!draftSaved);
-    setElBenchmarkSession(nextSession);
+    setElBenchmarkSession(ownedSession);
   }
 
   function resumeElBenchmarkAssessment() {
-    if (!elBenchmarkSession || elBenchmarkSession.studentId !== studentId) {
-      setElBenchmarkSession(null);
-      setMessage("That saved benchmark did not belong to the selected student.");
+    const ownership = getElBenchmarkOwnership(elBenchmarkSession);
+    if (!ownership.ok) {
+      blockElBenchmarkOwnershipChange(ownership);
       return;
     }
     setMessage("");
@@ -793,29 +1065,49 @@ export default function App() {
   }
 
   function discardElBenchmarkDraft() {
-    deleteElBenchmarkDraft({ teacherId, studentId });
+    const ownership = getElBenchmarkOwnership(elBenchmarkSession);
+    if (!ownership.ok) {
+      blockElBenchmarkOwnershipChange(ownership);
+      return false;
+    }
+    const deleted = deleteElBenchmarkDraft({
+      teacherId: ownership.teacherId,
+      studentId: ownership.studentId
+    });
+    if (!deleted) {
+      setMessage(
+        "We couldn't clear the unfinished assessment from this device. It is still available, so no work was lost. Check browser storage and try again."
+      );
+      return false;
+    }
     setElBenchmarkDraftSaveFailed(false);
     setElBenchmarkSession(null);
     setMessage("");
     if (appView === APP_VIEWS.EL_BENCHMARK) setAppView(APP_VIEWS.ASSESSMENTS);
+    return true;
   }
 
   async function archiveElBenchmarkSession(nextSession) {
-    if (!nextSession || nextSession.studentId !== studentId) return null;
+    const ownership = getElBenchmarkOwnership(nextSession);
+    if (!ownership.ok) return blockElBenchmarkOwnershipChange(ownership);
     const { buildElBenchmarkAttempt } = await loadElBenchmarkEngineModule();
     const administrationStatus = nextSession.administrationStatus || nextSession.status || "partial";
     const snapshotAt = nextSession.completedAt || nextSession.discontinuedAt || nextSession.savedAt || new Date().toISOString();
     const attempt = buildElBenchmarkAttempt({
       ...nextSession,
+      sessionId: ownership.sessionId,
+      studentId: ownership.studentId,
+      classId: ownership.classId,
+      teacherId: ownership.teacherId,
       status: administrationStatus,
       administrationStatus,
       completedAt: snapshotAt,
       updatedAt: nextSession.updatedAt || snapshotAt
     }, {
-      studentId,
-      studentName,
-      classId: selectedClassId || nextSession.classId || "",
-      teacherId: teacherId || nextSession.teacherId || "",
+      studentId: ownership.studentId,
+      studentName: elBenchmarkSession?.studentName || nextSession.studentName || "Student",
+      classId: ownership.classId,
+      teacherId: ownership.teacherId,
       startedAt: nextSession.startedAt || snapshotAt,
       completedAt: snapshotAt
     });
@@ -827,22 +1119,46 @@ export default function App() {
     const terminalStatus = nextSession?.administrationStatus || nextSession?.status || "";
     if (terminalStatus === "completed") return finishElBenchmarkAssessment(nextSession);
     if (terminalStatus === "discontinued") return discontinueElBenchmarkAssessment(nextSession);
+    const ownership = getElBenchmarkOwnership(nextSession);
+    if (!ownership.ok) {
+      const blocked = blockElBenchmarkOwnershipChange(ownership);
+      return {
+        ok: false,
+        durable: false,
+        ...blocked
+      };
+    }
     const partialSession = {
       ...nextSession,
+      sessionId: ownership.sessionId,
+      studentId: ownership.studentId,
+      classId: ownership.classId,
+      teacherId: ownership.teacherId,
       status: "partial",
       administrationStatus: "partial"
     };
-    const draftSaved = saveElBenchmarkDraft({ teacherId, studentId, session: partialSession });
+    const draftSaved = saveElBenchmarkDraft({
+      teacherId: ownership.teacherId,
+      studentId: ownership.studentId,
+      session: partialSession
+    });
     setElBenchmarkDraftSaveFailed(!draftSaved);
     setElBenchmarkSession(partialSession);
     const archiveResult = await archiveElBenchmarkSession(partialSession);
+    if (archiveResult?.blocked) {
+      return {
+        ok: false,
+        durable: false,
+        ...archiveResult
+      };
+    }
     if (!draftSaved && !archiveResult) {
-      setMessage("This evidence could not be saved on this device or to the secure archive. Keep this screen open and try Save partial & exit again.");
+      setMessage("These results could not be saved on this device or to the secure archive. Nothing has been lost. Keep this screen open and select Save partial & exit again.");
       return;
     }
     setMessage(draftSaved
-      ? "Partial benchmark evidence saved. You can resume this draft from the assessment hub."
-      : "Partial evidence was archived, but this device could not keep a resumable draft.");
+      ? "Partial assessment results saved. You can resume this draft from the assessment hub."
+      : "Partial results were archived, but this device could not keep a resumable draft.");
     setAppView(APP_VIEWS.ASSESSMENTS);
   }
 
@@ -853,6 +1169,13 @@ export default function App() {
       administrationStatus: "completed"
     };
     const archiveResult = await archiveElBenchmarkSession(completedSession);
+    if (archiveResult?.blocked) {
+      return {
+        ok: false,
+        durable: false,
+        ...archiveResult
+      };
+    }
     if (!archiveResult) {
       const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: completedSession });
       setElBenchmarkDraftSaveFailed(!recoverySaved);
@@ -901,11 +1224,18 @@ export default function App() {
       administrationStatus: "discontinued"
     };
     const archiveResult = await archiveElBenchmarkSession(discontinuedSession);
+    if (archiveResult?.blocked) {
+      return {
+        ok: false,
+        durable: false,
+        ...archiveResult
+      };
+    }
     if (!archiveResult) {
       const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: discontinuedSession });
       setElBenchmarkDraftSaveFailed(!recoverySaved);
       setElBenchmarkSession(discontinuedSession);
-      const failureMessage = "The discontinued assessment could not be saved on this device or in the secure archive. The evidence is still on this screen; try saving it again.";
+      const failureMessage = "The discontinued assessment could not be saved on this device or in the secure archive. Nothing has been lost: the results are still on this screen. Try saving again.";
       setMessage(failureMessage);
       return {
         ok: false,
@@ -925,10 +1255,10 @@ export default function App() {
     setElBenchmarkDraftSaveFailed(false);
     setElBenchmarkSession(null);
     const successMessage = syncPending
-      ? "Discontinued evidence saved on this device without counting unadministered items as incorrect. Cloud sync is pending."
+      ? "Discontinued assessment results saved on this device. Unadministered items were not counted as incorrect. Cloud sync is pending."
       : cloudCopyUnavailable
-        ? "Discontinued evidence saved on this device, but a cloud copy could not be queued. Keep this device's data and retry from a reliable connection."
-        : "Discontinued evidence saved without counting unadministered items as incorrect.";
+        ? "Discontinued assessment results saved on this device, but a cloud copy could not be queued. Keep this device's data and retry from a reliable connection."
+        : "Discontinued assessment results saved. Unadministered items were not counted as incorrect.";
     setMessage(successMessage);
     setAppView(APP_VIEWS.ASSESSMENTS);
     return {
@@ -948,31 +1278,178 @@ export default function App() {
   }
 
   function startAdvancedPhonicsAssessment() {
+    if (!ensureTeacherAssessmentEvidenceReady()) return;
+    if (patternAssessment.length > 0 && patternIndex < patternItems.length) {
+      ensureManualAssessmentAttempt(
+        patternAssessmentAttemptRef,
+        "advanced_phonics_patterns",
+        patternAssessment
+      );
+      patternAssessmentArchivedRef.current = false;
+      setMessage(`Resuming ${studentName || "this student's"} unfinished phonics pattern assessment.`);
+      setAppView(APP_VIEWS.ADVANCED_PHONICS);
+      return;
+    }
     setPatternIndex(0);
     setPatternAssessment([]);
     setPatternAttempt(attempt => attempt + 1);
     patternAssessmentArchivedRef.current = false;
+    beginManualAssessmentAttempt(patternAssessmentAttemptRef, "advanced_phonics_patterns");
     setAppView(APP_VIEWS.ADVANCED_PHONICS);
   }
 
   function startLetterAssessment() {
+    if (!ensureTeacherAssessmentEvidenceReady()) return;
+    if (letterAssessment.length > 0 && letterIndex < letterItems.length) {
+      ensureManualAssessmentAttempt(
+        letterAssessmentAttemptRef,
+        "el_letter_assessment",
+        letterAssessment
+      );
+      letterAssessmentArchivedRef.current = false;
+      setMessage(`Resuming ${studentName || "this student's"} unfinished letter assessment.`);
+      setAppView(APP_VIEWS.LETTERS);
+      return;
+    }
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    letterAssessmentArchivedRef.current = false;
+    beginManualAssessmentAttempt(letterAssessmentAttemptRef, "el_letter_assessment");
     setAppView(APP_VIEWS.LETTERS);
   }
 
-  function archivePatternAssessment(nextAssessment) {
-    if (!studentId || nextAssessment.length < patternItems.length || patternAssessmentArchivedRef.current) return;
-    patternAssessmentArchivedRef.current = true;
+  function normalizeManualAssessmentOutcome(value) {
+    if (value === true || value === ASSESSMENT_RESPONSE_STATUSES.CORRECT) {
+      return ASSESSMENT_RESPONSE_STATUSES.CORRECT;
+    }
+    if (value === false || value === ASSESSMENT_RESPONSE_STATUSES.INCORRECT) {
+      return ASSESSMENT_RESPONSE_STATUSES.INCORRECT;
+    }
+    return ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED;
+  }
+
+  function manualOutcomeIsCorrect(value) {
+    return normalizeManualAssessmentOutcome(value) === ASSESSMENT_RESPONSE_STATUSES.CORRECT;
+  }
+
+  function manualOutcomeWasScored(value) {
+    return [
+      ASSESSMENT_RESPONSE_STATUSES.CORRECT,
+      ASSESSMENT_RESPONSE_STATUSES.INCORRECT
+    ].includes(normalizeManualAssessmentOutcome(value));
+  }
+
+  function beginManualAssessmentAttempt(attemptRef, assessmentType) {
+    const session = createManualAssessmentAttemptSession({
+      assessmentType,
+      studentId
+    });
+    attemptRef.current = session;
+    return session;
+  }
+
+  function ensureManualAssessmentAttempt(attemptRef, assessmentType, savedEntries = []) {
+    const current = attemptRef.current;
+    if (
+      current?.assessmentType === assessmentType
+      && current?.studentId === studentId
+      && current?.attemptId
+    ) {
+      return current;
+    }
+    const savedSession = restoreManualAssessmentAttemptSession({
+      assessmentType,
+      studentId,
+      savedEntries
+    });
+    if (savedSession) {
+      attemptRef.current = savedSession;
+      return savedSession;
+    }
+    return beginManualAssessmentAttempt(attemptRef, assessmentType);
+  }
+
+  async function runManualAssessmentSave(saveRef, operation) {
+    // Return the same promise to every caller while a save is in flight. This
+    // is a controller-level lock (not just a disabled button), so a rapid
+    // double click cannot write twice or advance past the next item.
+    return runSingleFlight(saveRef, operation);
+  }
+
+  function buildPatternAssessmentEntry(current, soundOutcome, wordOutcome) {
+    const attemptSession = ensureManualAssessmentAttempt(
+      patternAssessmentAttemptRef,
+      "advanced_phonics_patterns",
+      patternAssessment
+    );
+    return {
+      pattern: current.pattern,
+      exampleWord: current.exampleWord,
+      soundOutcome: normalizeManualAssessmentOutcome(soundOutcome),
+      wordOutcome: normalizeManualAssessmentOutcome(wordOutcome),
+      soundCorrect: manualOutcomeIsCorrect(soundOutcome),
+      wordCorrect: manualOutcomeIsCorrect(wordOutcome),
+      ...manualAssessmentEntryOwnership(attemptSession)
+    };
+  }
+
+  function buildLetterAssessmentEntry(current, nameOutcome, soundOutcome) {
+    const attemptSession = ensureManualAssessmentAttempt(
+      letterAssessmentAttemptRef,
+      "el_letter_assessment",
+      letterAssessment
+    );
+    return {
+      letter: current.display,
+      type: current.type,
+      nameOutcome: normalizeManualAssessmentOutcome(nameOutcome),
+      soundOutcome: normalizeManualAssessmentOutcome(soundOutcome),
+      knowsName: manualOutcomeIsCorrect(nameOutcome),
+      knowsSound: manualOutcomeIsCorrect(soundOutcome),
+      ...manualAssessmentEntryOwnership(attemptSession)
+    };
+  }
+
+  async function archivePatternAssessment(nextAssessment, { allowPartial = false } = {}) {
+    if (!studentId) return { durable: false };
+    if (!nextAssessment.length) return { durable: true, skipped: true };
+    if (!allowPartial && nextAssessment.length < patternItems.length) {
+      return { durable: true, skipped: true };
+    }
+    if (patternAssessmentArchivedRef.current) {
+      return {
+        durable: true,
+        administrationStatus: manualAssessmentAdministrationStatus(
+          nextAssessment.length,
+          patternItems.length
+        )
+      };
+    }
+    const attemptSession = ensureManualAssessmentAttempt(
+      patternAssessmentAttemptRef,
+      "advanced_phonics_patterns",
+      nextAssessment
+    );
     const completedAt = new Date().toISOString();
     const patternStats = nextAssessment.map(item => {
-      const correct = Number(Boolean(item.soundCorrect)) + Number(Boolean(item.wordCorrect));
+      const outcomes = [item.soundOutcome, item.wordOutcome]
+        .map(normalizeManualAssessmentOutcome);
+      const attempts = outcomes.filter(outcome => outcome !== ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED).length;
+      const correct = outcomes.filter(outcome => outcome === ASSESSMENT_RESPONSE_STATUSES.CORRECT).length;
       return {
         pattern: item.pattern,
         exampleWord: item.exampleWord,
-        attempts: 2,
+        attempts,
         correct,
-        incorrect: 2 - correct,
-        accuracy: Math.round((correct / 2) * 100),
-        status: correct === 2 ? "mastered" : correct / 2 >= 0.6 ? "developing" : "needs_support"
+        incorrect: attempts - correct,
+        accuracy: attempts ? Math.round((correct / attempts) * 100) : null,
+        status: attempts === 0
+          ? "not_checked"
+          : attempts < 2
+            ? "not_enough_evidence"
+            : correct === 2
+              ? "developing"
+              : "needs_support"
       };
     });
     const questionRecords = nextAssessment.flatMap((item, index) => ([
@@ -985,8 +1462,9 @@ export default function App() {
         itemKey: normalizeItemKey(item.pattern),
         itemType: "phonics_pattern",
         correctAnswer: item.pattern,
-        selectedAnswer: item.soundCorrect ? item.pattern : "not_yet",
-        isCorrect: Boolean(item.soundCorrect),
+        selectedAnswer: manualOutcomeIsCorrect(item.soundOutcome) ? item.pattern : "",
+        isCorrect: manualOutcomeIsCorrect(item.soundOutcome),
+        responseStatus: normalizeManualAssessmentOutcome(item.soundOutcome),
         skillId: "advanced_phonics_patterns",
         templateType: "phonics_pattern_sound",
         level: 2,
@@ -1002,8 +1480,9 @@ export default function App() {
         itemKey: normalizeItemKey(item.pattern),
         itemType: "phonics_pattern",
         correctAnswer: item.exampleWord,
-        selectedAnswer: item.wordCorrect ? item.exampleWord : "not_yet",
-        isCorrect: Boolean(item.wordCorrect),
+        selectedAnswer: manualOutcomeIsCorrect(item.wordOutcome) ? item.exampleWord : "",
+        isCorrect: manualOutcomeIsCorrect(item.wordOutcome),
+        responseStatus: normalizeManualAssessmentOutcome(item.wordOutcome),
         skillId: "advanced_phonics_patterns",
         templateType: "phonics_pattern_word",
         level: 2,
@@ -1012,9 +1491,18 @@ export default function App() {
       }
     ]));
 
-    const correctCount = questionRecords.filter(record => record.isCorrect).length;
-    persistCompletedAssessmentAttempt({
-      id: `advanced_phonics_patterns_${studentId}_${Date.parse(completedAt)}`,
+    const scoredRecords = questionRecords.filter(record => manualOutcomeWasScored(record.responseStatus));
+    const correctCount = scoredRecords.filter(record => record.isCorrect).length;
+    // Lifecycle and coverage are separate. Reaching every planned pattern
+    // completes the administration even when the teacher explicitly records
+    // "Not checked" for one subtask; those missing observations stay visible
+    // in the counts and must not be turned into incorrect answers.
+    const administrationStatus = manualAssessmentAdministrationStatus(
+      nextAssessment.length,
+      patternItems.length
+    );
+    const persistence = await persistCompletedAssessmentAttempt({
+      attemptId: attemptSession.attemptId,
       studentId,
       studentName,
       classId: selectedClassId,
@@ -1024,14 +1512,16 @@ export default function App() {
       skillName: "Advanced Phonics Patterns",
       skillLevel: 2,
       skillPhase: 1,
-      startedAt: questionRecords[0]?.timestamp || completedAt,
+      startedAt: attemptSession.startedAt,
       completedAt,
-      totalQuestions: questionRecords.length,
+      totalQuestions: scoredRecords.length,
+      plannedQuestionCount: patternItems.length * 2,
       correctCount,
-      incorrectCount: questionRecords.length - correctCount,
-      passed: correctCount >= Math.ceil(questionRecords.length * 0.8),
-      status: correctCount >= Math.ceil(questionRecords.length * 0.8) ? "mastered" : "needs_retry",
-      masteredItems: patternStats.filter(row => row.status === "mastered").map(row => row.pattern),
+      incorrectCount: scoredRecords.length - correctCount,
+      passed: false,
+      status: administrationStatus,
+      administrationStatus,
+      masteredItems: [],
       developingItems: patternStats.filter(row => row.status === "developing").map(row => row.pattern),
       needsSupportItems: patternStats.filter(row => row.status === "needs_support").map(row => row.pattern),
       patternStats,
@@ -1049,43 +1539,46 @@ export default function App() {
       })),
       questionRecords
     }, { mergeIntoMastery: true });
+    if (persistence) patternAssessmentArchivedRef.current = true;
+    return {
+      durable: Boolean(persistence),
+      administrationStatus
+    };
   }
 
-  function recordPatternResult(soundCorrect, wordCorrect) {
-    const current =
-      patternItems[patternIndex];
+  async function recordPatternResult(soundOutcome, wordOutcome) {
+    return runManualAssessmentSave(patternAssessmentSaveInFlightRef, async () => {
+      const current =
+        patternItems[patternIndex];
+      if (!current) return false;
 
-    updateItemMastery(
-      {
-        itemKey: current.pattern,
-        itemType: "phonics_pattern"
-      },
-      soundCorrect
-    );
-
-    updateItemMastery(
-      {
-        itemKey: current.exampleWord,
-        itemType: "phonics_pattern_word"
-      },
-      wordCorrect
-    );
-
-    // Keep persistence outside the React state updater. React may replay an
-    // updater in development; a network write inside it can archive twice.
-    const nextAssessment = [
-      ...patternAssessment,
-      {
-        pattern: current.pattern,
-        exampleWord: current.exampleWord,
-        soundCorrect,
-        wordCorrect
+      // Keep persistence outside the React state updater. React may replay an
+      // updater in development; a network write inside it can archive twice.
+      const nextAssessment = replaceManualAssessmentEntry(
+        patternAssessment,
+        patternIndex,
+        buildPatternAssessmentEntry(current, soundOutcome, wordOutcome)
+      );
+      const isFinalItem = nextAssessment.length >= patternItems.length;
+      if (isFinalItem) {
+        // Archive the completed assessment before moving the UI to the summary.
+        // If the save fails, the teacher's current choices stay on screen and a
+        // retry uses the same attempt id and replaces this item rather than
+        // appending it twice.
+        const archiveResult = await archivePatternAssessment(nextAssessment);
+        if (!archiveResult.durable) {
+          setMessage("This assessment could not be saved on this device or to the cloud, so it was not marked complete. Your choices are still here. Try again.");
+          return false;
+        }
       }
-    ];
-    setPatternAssessment(nextAssessment);
-    archivePatternAssessment(nextAssessment);
 
-    setPatternIndex(prev => prev + 1);
+      // Non-final choices remain a student-scoped local draft. They do not
+      // increment current mastery here; the aggregate is derived exactly once
+      // from the stable archived attempt at Finish/Save & exit.
+      setPatternAssessment(nextAssessment);
+      setPatternIndex(prev => prev + 1);
+      return true;
+    });
   }
 
   function resetPatternAssessment() {
@@ -1093,52 +1586,62 @@ export default function App() {
     setPatternAssessment([]);
     setPatternAttempt(attempt => attempt + 1);
     patternAssessmentArchivedRef.current = false;
+    beginManualAssessmentAttempt(patternAssessmentAttemptRef, "advanced_phonics_patterns");
   }
 
-  function recordLetterResult(knowsName, knowsSound) {
-    const current =
-      letterItems[letterIndex];
+  async function recordLetterResult(nameOutcome, soundOutcome) {
+    return runManualAssessmentSave(letterAssessmentSaveInFlightRef, async () => {
+      const current =
+        letterItems[letterIndex];
+      if (!current) return false;
 
-    updateItemMastery(
-      {
-        itemKey: current.display,
-        itemType: "letter_name"
-      },
-      knowsName
-    );
-
-    updateItemMastery(
-      {
-        itemKey: current.display,
-        itemType: "letter_sound"
-      },
-      knowsSound
-    );
-
-    const nextAssessment = [
-      ...letterAssessment,
-      {
-        letter: current.display,
-        type: current.type,
-        knowsName,
-        knowsSound
+      const nextAssessment = replaceManualAssessmentEntry(
+        letterAssessment,
+        letterIndex,
+        buildLetterAssessmentEntry(current, nameOutcome, soundOutcome)
+      );
+      const isFinalItem = nextAssessment.length >= letterItems.length;
+      if (isFinalItem) {
+        const archiveResult = await archiveLetterAssessment(nextAssessment);
+        if (!archiveResult.durable) {
+          setMessage("This assessment could not be saved on this device or to the cloud, so it was not marked complete. Your choices are still here. Try again.");
+          return false;
+        }
       }
-    ];
-    setLetterAssessment(nextAssessment);
-    archiveLetterAssessment(nextAssessment);
 
-    setLetterIndex(prev => prev + 1);
+      setLetterAssessment(nextAssessment);
+      setLetterIndex(prev => prev + 1);
+      return true;
+    });
   }
 
   function resetLetterAssessment() {
     setLetterIndex(0);
     setLetterAssessment([]);
     letterAssessmentArchivedRef.current = false;
+    beginManualAssessmentAttempt(letterAssessmentAttemptRef, "el_letter_assessment");
   }
 
-  function archiveLetterAssessment(nextAssessment) {
-    if (!studentId || nextAssessment.length < letterItems.length || letterAssessmentArchivedRef.current) return;
-    letterAssessmentArchivedRef.current = true;
+  async function archiveLetterAssessment(nextAssessment, { allowPartial = false } = {}) {
+    if (!studentId) return { durable: false };
+    if (!nextAssessment.length) return { durable: true, skipped: true };
+    if (!allowPartial && nextAssessment.length < letterItems.length) {
+      return { durable: true, skipped: true };
+    }
+    if (letterAssessmentArchivedRef.current) {
+      return {
+        durable: true,
+        administrationStatus: manualAssessmentAdministrationStatus(
+          nextAssessment.length,
+          letterItems.length
+        )
+      };
+    }
+    const attemptSession = ensureManualAssessmentAttempt(
+      letterAssessmentAttemptRef,
+      "el_letter_assessment",
+      nextAssessment
+    );
     const completedAt = new Date().toISOString();
     const questionRecords = nextAssessment.flatMap((item, index) => {
       const letter = normalizeItemKey(item.letter);
@@ -1150,8 +1653,9 @@ export default function App() {
           itemKey: letter,
           itemType: "letter_name",
           correctAnswer: item.letter,
-          selectedAnswer: item.knowsName ? item.letter : "not_yet",
-          isCorrect: Boolean(item.knowsName),
+          selectedAnswer: manualOutcomeIsCorrect(item.nameOutcome) ? item.letter : "",
+          isCorrect: manualOutcomeIsCorrect(item.nameOutcome),
+          responseStatus: normalizeManualAssessmentOutcome(item.nameOutcome),
           skillId: "el_letter_assessment",
           templateType: "letter_name",
           level: 1,
@@ -1166,8 +1670,9 @@ export default function App() {
           itemKey: letter,
           itemType: "letter_sound",
           correctAnswer: letter,
-          selectedAnswer: item.knowsSound ? letter : "not_yet",
-          isCorrect: Boolean(item.knowsSound),
+          selectedAnswer: manualOutcomeIsCorrect(item.soundOutcome) ? letter : "",
+          isCorrect: manualOutcomeIsCorrect(item.soundOutcome),
+          responseStatus: normalizeManualAssessmentOutcome(item.soundOutcome),
           skillId: "el_letter_assessment",
           templateType: "letter_sound",
           level: 1,
@@ -1176,9 +1681,15 @@ export default function App() {
         }
       ];
     });
-    const correctCount = questionRecords.filter(record => record.isCorrect).length;
+    const scoredRecords = questionRecords.filter(record => manualOutcomeWasScored(record.responseStatus));
+    const correctCount = scoredRecords.filter(record => record.isCorrect).length;
 
-    persistCompletedAssessmentAttempt({
+    const administrationStatus = manualAssessmentAdministrationStatus(
+      nextAssessment.length,
+      letterItems.length
+    );
+    const persistence = await persistCompletedAssessmentAttempt({
+      attemptId: attemptSession.attemptId,
       studentId,
       studentName,
       classId: selectedClassId,
@@ -1188,13 +1699,104 @@ export default function App() {
       skillName: "EL Letter Name and Sound",
       skillLevel: 1,
       skillPhase: 1,
-      startedAt: questionRecords[0]?.timestamp || completedAt,
+      startedAt: attemptSession.startedAt,
       completedAt,
-      totalQuestions: questionRecords.length,
+      totalQuestions: scoredRecords.length,
+      plannedQuestionCount: letterItems.length * 2,
       correctCount,
-      passed: correctCount >= Math.ceil(questionRecords.length * 0.8),
-      status: correctCount >= Math.ceil(questionRecords.length * 0.8) ? "mastered" : "needs_retry",
+      passed: false,
+      status: administrationStatus,
+      administrationStatus,
       questionRecords
+    }, { mergeIntoMastery: true });
+    if (persistence) letterAssessmentArchivedRef.current = true;
+    return {
+      durable: Boolean(persistence),
+      administrationStatus
+    };
+  }
+
+  function returnToAssessmentHub(nextMessage) {
+    const nextHash = teacherIntentHash({
+      appView: APP_VIEWS.ASSESSMENTS,
+      classId: selectedClassId,
+      groupId: teacherGroupId,
+      learnerId: studentId
+    });
+    if (nextHash) pushRouteHash(nextHash);
+    setMessage(nextMessage);
+    setAppView(APP_VIEWS.ASSESSMENTS);
+  }
+
+  async function savePatternAssessmentPartialAndExit(soundOutcome = "", wordOutcome = "") {
+    return runManualAssessmentSave(patternAssessmentSaveInFlightRef, async () => {
+      const hasCurrentChoice = Boolean(soundOutcome || wordOutcome);
+      const current = patternItems[patternIndex];
+      const nextAssessment = hasCurrentChoice && current
+        ? replaceManualAssessmentEntry(
+            patternAssessment,
+            patternIndex,
+            buildPatternAssessmentEntry(current, soundOutcome, wordOutcome)
+          )
+        : patternAssessment.slice(0, patternIndex);
+
+      if (!nextAssessment.length) {
+        returnToAssessmentHub("Assessment closed. No results were entered or saved.");
+        return true;
+      }
+
+      const archiveResult = await archivePatternAssessment(nextAssessment, { allowPartial: true });
+      if (!archiveResult.durable) {
+        setMessage("The assessment could not be saved. Your choices are still here. Keep this page open and try again.");
+        return false;
+      }
+
+      setPatternAssessment(nextAssessment);
+      if (hasCurrentChoice && current) {
+        setPatternIndex(previous => previous + 1);
+      }
+      returnToAssessmentHub(
+        archiveResult.administrationStatus === "completed"
+          ? `Phonics pattern assessment completed and saved for ${studentName || "this student"}.`
+          : `Unfinished phonics pattern assessment saved for ${studentName || "this student"}. You can resume it from Assessments.`
+      );
+      return true;
+    });
+  }
+
+  async function saveLetterAssessmentPartialAndExit(nameOutcome = "", soundOutcome = "") {
+    return runManualAssessmentSave(letterAssessmentSaveInFlightRef, async () => {
+      const hasCurrentChoice = Boolean(nameOutcome || soundOutcome);
+      const current = letterItems[letterIndex];
+      const nextAssessment = hasCurrentChoice && current
+        ? replaceManualAssessmentEntry(
+            letterAssessment,
+            letterIndex,
+            buildLetterAssessmentEntry(current, nameOutcome, soundOutcome)
+          )
+        : letterAssessment.slice(0, letterIndex);
+
+      if (!nextAssessment.length) {
+        returnToAssessmentHub("Assessment closed. No results were entered or saved.");
+        return true;
+      }
+
+      const archiveResult = await archiveLetterAssessment(nextAssessment, { allowPartial: true });
+      if (!archiveResult.durable) {
+        setMessage("The assessment could not be saved. Your choices are still here. Keep this page open and try again.");
+        return false;
+      }
+
+      setLetterAssessment(nextAssessment);
+      if (hasCurrentChoice && current) {
+        setLetterIndex(previous => previous + 1);
+      }
+      returnToAssessmentHub(
+        archiveResult.administrationStatus === "completed"
+          ? `Letter name and sound assessment completed and saved for ${studentName || "this student"}.`
+          : `Unfinished letter name and sound assessment saved for ${studentName || "this student"}. You can resume it from Assessments.`
+      );
+      return true;
     });
   }
 
@@ -1889,7 +2491,8 @@ export default function App() {
   }
 
 
-  async function startAssessment(stageIndex = currentSkillIndex) {
+  async function startAssessment(stageIndex = currentSkillIndex, options = {}) {
+    if (!ensureTeacherAssessmentEvidenceReady(options?.verifiedEvidenceSyncStatus)) return;
     answerInFlightRef.current = false;
     resetFailedAssessmentMedia();
     const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
@@ -1961,6 +2564,7 @@ export default function App() {
   }
 
   async function startTargetedReview() {
+    if (!ensureTeacherAssessmentEvidenceReady()) return;
     answerInFlightRef.current = false;
     resetFailedAssessmentMedia();
     assessmentActiveRef.current = true;
@@ -2046,7 +2650,7 @@ export default function App() {
       studentId,
       studentName
     });
-    setStudentPreviewStatus("Preview mode is read-only. Activity will not be saved to this learner.");
+    setStudentPreviewStatus("Preview mode is read-only. Activity will not be saved to this student.");
     configureProgressSync({
       mode: "preview",
       studentId,
@@ -2230,19 +2834,20 @@ export default function App() {
     }, answerHistory),
   [itemMastery, studentId, answerHistory]);
 
-  const questionBankCoverage = useMemo(() =>
-    buildQuestionBankCoverage(allQuestions, curriculumReleaseBoard.rows),
-  [allQuestions]);
-
   const showSkillsQuestPrototype = typeof window !== "undefined"
     && new URLSearchParams(window.location.search).has("skillsQuest");
 
   const latestTeacherAccountIsApproved = useEffectEvent(isTeacherAccountApproved);
 
   useEffect(() => {
-    if (!authReady || !teacherUser || !profileLoaded) return;
-    if (!latestTeacherAccountIsApproved()) return;
-    if (appView === APP_VIEWS.SELECT) {
+    if (shouldOpenDefaultTeacherRoute({
+      appView,
+      authReady,
+      isApproved: latestTeacherAccountIsApproved(),
+      profileLoaded,
+      profileLoadedTeacherId: profileLoadedTeacherIdRef.current,
+      teacherUserId: teacherUser?.id
+    })) {
       setAppView(APP_VIEWS.TEACHER_DASHBOARD);
     }
   }, [appView, authReady, profileLoaded, teacherAccountStatus, teacherUser, isAdmin, setAppView]);
@@ -2279,11 +2884,11 @@ export default function App() {
         surface={{
       PASS_SCORE, ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,
       adminDeleteStudent, adminLoading, adminPendingAccounts, adminPendingAccountsWarning, adminSchools, adminSetTeacherSchool,
-      adminStudents, adminTeachers, allQuestions, allowPassageAudio, answerQuestion, appView,
-      applyStudentSession, archivedStudentList, assessmentFullscreen, assessmentHistory, assessmentMode, assessmentTransitioning,
+      adminStudents, adminTeachers, allQuestions, allowPassageAudio, answerHistory, answerQuestion, appView,
+      applyStudentSession, archivedStudentList, assessmentFullscreen, assessmentHistory, assessmentHistoryReadState, assessmentMode, assessmentTransitioning,
       assignQuestPractice, authDisplayName, authEmail, authLoading, authMessage, authMode,
       authPassword, authReady, authReconnecting, authSchoolName, authUsername,
-      checkpointDecision, chunkLoadFailure, classDashboard, classList,
+      checkpointDecision, chunkLoadFailure, classDashboard, classDashboardReadState, classList, classListReadState,
       clearQuestPractice, completePasswordReset, continueCheckpointSkill, correctAnswered, coverageSnapshot, createClass,
       createDemoClass, createStudentForSelectedClass, currentQuestion, currentSkillIndex, currentStage, currentStageQuestions,
       demoTeacherEnabled, diagnosticFollowUp, discardElBenchmarkDraft, discontinueElBenchmarkAssessment, elBenchmarkDraftSaveFailed, elBenchmarkSession,
@@ -2292,15 +2897,16 @@ export default function App() {
       finishElBenchmarkAssessment, guidedInitialBookId, guidedReadingRecords, handleAssessmentEvidenceImageError,
       isAdmin, isStudentSurfaceView, isTeacherAccountApproved, itemMastery,
       keepPracticingSkill, learnFullscreen, learnerAccessibility, letterAssessment, letterIndex,
-      letterItems, loadAdminDashboard, loadClassDashboard, loadStudentProgress, loadStudents, loadingClasses, loadingStudents,
+      letterItems, loadAdminDashboard, loadClassDashboard, loadClasses, loadStudentProgress, loadStudents, loadingClasses, loadingStudents,
       logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
       message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
       openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
-      prefersReducedMotion, profileLoaded, questionBankCoverage, recordLetterResult, recordPatternResult,
-      regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, resetLetterAssessment,
+      prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult,
+      regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
       resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
-      resumeElBenchmarkAssessment, retryCheckpointSkill, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
+      resumeElBenchmarkAssessment, retryCheckpointSkill, retryTeacherSchoolName, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
       returnFromCheck, reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,
+      saveLetterAssessmentPartialAndExit, savePatternAssessmentPartialAndExit,
       selectedStudentEvidenceReadState, selectedStudentEvidenceReady, sessionMode, setAdminConfirm, setAdminConfirmBusy, setAllowPassageAudio,
       setAppView, setArchivedStudentList, setAuthDisplayName, setAuthEmail, setAuthMode, setAuthPassword,
       setAuthSchoolName, setAuthUsername, setClassDashboard, setCurrentQuestion, setCurrentSkillIndex, setEntryMode,
@@ -2309,9 +2915,9 @@ export default function App() {
       setStudentReducedChoiceMode, setStudentReportView, setTeacherGroupId, setTeacherStudentContext,
       shouldShowImage, showConfetti, showSkillsQuestPrototype, signUpTeacher, speakText,
       startAdvancedPhonicsAssessment, startAssessment, startElBenchmarkAssessment, startLetterAssessment, startTargetedReview, studentArcadeOpen,
-      studentId, studentList, studentName, studentPreview, studentPreviewStatus, studentReportView,
-      studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
-      teacherId, teacherSchoolName, teacherUser, toggleAssessmentFullscreen,
+      studentId, studentList, studentListReadState, studentName, studentPreview, studentPreviewStatus, studentReportView,
+      studentSession, studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
+      teacherId, teacherSchoolName, teacherSchoolNameReadState, teacherUser, toggleAssessmentFullscreen,
       totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
       assignMissingSymbolPasswords
         }}

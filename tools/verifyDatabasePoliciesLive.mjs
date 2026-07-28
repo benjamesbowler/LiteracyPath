@@ -9,6 +9,7 @@ import { createClient } from "@supabase/supabase-js";
 
 import {
   AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
+  TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
   auditSecurityDefinerCatalog
 } from "./databasePolicyContract.mjs";
 import { isApprovedAuditDatabaseUrl } from "./seedAuditSchool.mjs";
@@ -19,6 +20,7 @@ const EXPECTED = Object.freeze({
   schoolId: "20000000-0000-4000-8000-000000000001",
   schoolName: "[AUDIT ONLY] LiteracyPath Seed School",
   teacherA: {
+    userId: "10000000-0000-4000-8000-000000000001",
     email: "audit-teacher-a@literacypath.invalid",
     classId: "30000000-0000-4000-8000-000000000001",
     studentId: "40000000-0000-4000-8000-000000000001"
@@ -29,6 +31,7 @@ const EXPECTED = Object.freeze({
     studentId: "40000000-0000-4000-8000-000000000014"
   },
   adminEmail: "audit-admin@literacypath.invalid",
+  adminUserId: "12000000-0000-4000-8000-000000000001",
   studentPassword: "111"
 });
 
@@ -39,27 +42,36 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "admin_preview_school_retention(uuid)": { p_school_id: EXPECTED.schoolId },
   "admin_purge_expired_error_events()": {},
   "admin_recent_error_events(integer)": { p_limit: 1 },
+  "admin_review_assessment_question_report(uuid, text, text)": {
+    p_report_id: "00000000-0000-0000-0000-000000000000",
+    p_decision: "no_change_needed",
+    p_notes: "Anonymous access probe"
+  },
   "admin_run_school_retention(uuid, text)": {
     p_school_id: EXPECTED.schoolId,
     p_confirmation: "DO NOT RUN"
   },
   "admin_save_school_retention_policy(uuid, integer, integer, text, integer, integer, integer)": {
     p_school_id: EXPECTED.schoolId,
-    p_inactive_archive_days: 365,
-    p_delete_after_archive_days: 365,
-    p_year_end_month_day: "07-31",
-    p_year_end_delete_after_days: 365,
-    p_provider_delete_target_days: 30,
-    p_backup_delete_target_days: 90
+    p_inactive_after_days: 365,
+    p_archived_delete_after_days: 365,
+    p_end_of_year_action: "archive",
+    p_academic_year_end_month: 7,
+    p_provider_expiry_days: 30,
+    p_backup_expiry_days: 90
+  },
+  "admin_set_teacher_account_status(uuid, text, text)": {
+    p_account_id: "00000000-0000-0000-0000-000000000000",
+    p_status: "approved",
+    p_rejection_reason: null
   },
   "admin_verify_deletion_propagation(uuid, text, text)": {
-    p_record_id: "00000000-0000-0000-0000-000000000000",
+    p_request_id: "00000000-0000-0000-0000-000000000000",
     p_evidence_reference: "none",
     p_confirmation: "DO NOT VERIFY"
   },
   "find_or_create_school(text)": { p_name: "Audit forbidden school" },
   "is_app_admin(uuid)": { check_user_id: EXPECTED.teacherA.studentId },
-  "list_school_names()": {},
   "set_app_config(text, jsonb)": { p_key: "audit-forbidden", p_value: {} },
   "teacher_assign_instructional_group_follow_up(uuid, text, text, date)": {
     p_group_id: "00000000-0000-0000-0000-000000000000",
@@ -70,31 +82,46 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_class_access_log(uuid, integer)": { p_class_id: EXPECTED.teacherA.classId, p_limit: 1 },
   "teacher_class_access_summary(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_create_insight_intervention(text, uuid, jsonb, uuid[], text[], text, text, date)": {
-    p_insight_type: "group",
+    p_action_type: "plan_small_group",
     p_class_id: EXPECTED.teacherA.classId,
     p_insight: {},
     p_student_ids: [],
-    p_target_keys: [],
+    p_targets: [],
     p_owner_label: "Audit",
     p_activity: "Audit",
     p_planned_for: "2026-07-25"
   },
-  "teacher_delete_learner_data(uuid, uuid, text, text)": {
+  "teacher_complete_learner_deletion(uuid, text, jsonb)": {
+    p_request_id: "00000000-0000-0000-0000-000000000000",
+    p_subject_ref: "0".repeat(64),
+    p_cleanup_proof: {}
+  },
+  "teacher_delete_empty_class(uuid)": {
+    p_class_id: EXPECTED.teacherA.classId
+  },
+  "teacher_delete_learner_data_staged(uuid, uuid, text, text)": {
     p_student_id: EXPECTED.teacherA.studentId,
     p_request_id: "00000000-0000-0000-0000-000000000000",
-    p_verification_note: "Audit",
+    p_subject_ref: "0".repeat(64),
     p_confirmation: "DO NOT DELETE"
+  },
+  "teacher_delete_saved_assessment_report(text)": {
+    p_report_id: "audit-forbidden"
   },
   "teacher_export_learner_data(uuid, text, text)": {
     p_student_id: EXPECTED.teacherA.studentId,
-    p_verification_note: "Audit",
-    p_request_reference: "audit"
+    p_requester_role: "school",
+    p_verification_method: "authorised_school_official"
+  },
+  "teacher_get_learner_deletion_status(uuid, text)": {
+    p_request_id: "00000000-0000-0000-0000-000000000000",
+    p_subject_ref: "0".repeat(64)
   },
   "teacher_list_learner_data_rights(uuid)": { p_student_id: EXPECTED.teacherA.studentId },
   "teacher_prepare_learner_deletion(uuid, text, text)": {
     p_student_id: EXPECTED.teacherA.studentId,
-    p_verification_note: "Audit",
-    p_request_reference: "audit"
+    p_requester_role: "school",
+    p_verification_method: "authorised_school_official"
   },
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)": {
     p_class_id: EXPECTED.teacherA.classId,
@@ -102,21 +129,25 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_student_ids: [],
     p_note: "Audit",
     p_owner_label: "Audit",
-    p_activity: "Audit",
-    p_planned_for: "2026-07-25"
+    p_follow_up_activity: "Audit",
+    p_follow_up_on: "2026-07-25"
   },
   "teacher_regenerate_class_code(uuid)": { p_class_id: EXPECTED.teacherA.classId },
+  "teacher_reset_student_progress(uuid, timestamp with time zone)": {
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_reset_at: "2026-07-27T00:00:00.000Z"
+  },
   "teacher_review_instructional_group(uuid, uuid[], jsonb)": {
     p_group_id: "00000000-0000-0000-0000-000000000000",
     p_student_ids: [],
-    p_evidence: {}
+    p_evidence_snapshot: {}
   },
   "teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)": {
     p_class_id: EXPECTED.teacherA.classId,
     p_name: "Audit",
     p_criteria: {},
     p_student_ids: [],
-    p_evidence: {}
+    p_evidence_snapshot: {}
   },
   "teacher_set_class_code_expiry(uuid, timestamp with time zone)": {
     p_class_id: EXPECTED.teacherA.classId,
@@ -130,6 +161,18 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_student_id: EXPECTED.teacherA.studentId,
     p_class_id: EXPECTED.teacherA.classId,
     p_archived: true
+  },
+  "teacher_transfer_student(uuid, uuid, uuid)": {
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_source_class_id: EXPECTED.teacherA.classId,
+    // Same source and destination is rejected before any write. This live
+    // policy probe checks exposure without moving the seeded student.
+    p_target_class_id: EXPECTED.teacherA.classId
+  },
+  "teacher_set_student_symbol_password(uuid, text, timestamp with time zone)": {
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_sequence: "123",
+    p_set_at: "2026-07-27T00:00:00.000Z"
   },
   "teacher_set_school(text)": { p_school_name: EXPECTED.schoolName }
 });
@@ -294,6 +337,7 @@ async function verifyAnonymousBoundary(anonymous) {
     "mastery",
     "item_mastery",
     "assessment_attempts",
+    "assessment_question_reports",
     "el_assessment_reports",
     "teacher_interventions",
     "teacher_instructional_groups",
@@ -316,6 +360,24 @@ async function verifyAnonymousBoundary(anonymous) {
     const result = await anonymous.rpc(rpcName(signature), args);
     assert(result.error, `anonymous caller reached authenticated-only ${signature}`);
   }
+
+  const schoolNames = requireData(
+    await anonymous.rpc("list_school_names"),
+    "signed-out school autocomplete"
+  );
+  assert(Array.isArray(schoolNames), "signed-out school autocomplete did not return a list");
+  assert(
+    schoolNames.every(row => (
+      row
+      && typeof row.name === "string"
+      && Object.keys(row).length === 1
+    )),
+    "signed-out school autocomplete returned more than school names"
+  );
+  assert(
+    schoolNames.some(row => row.name === EXPECTED.schoolName),
+    "signed-out school autocomplete did not return the seeded school"
+  );
 
   for (const [name, args] of [
     ["student_list_schools", {}],
@@ -447,14 +509,14 @@ async function verifyCodeExpiryAndRotation({ anonymous, teacherB, databaseUrl })
 }
 
 async function verifyDeletesAndTenantScope({ teacherA, teacherB }) {
-  const crossDelete = requireData(
-    await teacherA.from("students")
-      .delete()
-      .eq("id", EXPECTED.teacherB.studentId)
-      .select("id"),
-    "cross-tenant learner delete"
+  const crossDelete = await teacherA.from("students")
+    .delete()
+    .eq("id", EXPECTED.teacherB.studentId)
+    .select("id");
+  assert(
+    crossDelete.error,
+    "teacher A reached the direct learner-delete path for teacher B's learner"
   );
-  assert.equal(crossDelete.length, 0, "teacher A deleted teacher B's learner");
   const stillPresent = requireData(
     await teacherB.from("students")
       .select("id")
@@ -474,12 +536,74 @@ async function verifyDeletesAndTenantScope({ teacherA, teacherB }) {
     }),
     "owned learner insert"
   );
-  const ownedDelete = requireData(
-    await teacherA.from("students").delete().eq("id", temporaryId).select("id"),
-    "owned learner delete"
+  const ownedDelete = await teacherA.from("students")
+    .delete()
+    .eq("id", temporaryId)
+    .select("id");
+  assert(
+    ownedDelete.error,
+    "a teacher bypassed the verified privacy workflow with a direct learner delete"
   );
-  assert.deepEqual(ownedDelete.map(row => row.id), [temporaryId]);
-  return { crossTenantDeleteRejected: true, ownedDeleteAllowed: true };
+
+  const prepared = requireData(
+    await teacherA.rpc("teacher_prepare_learner_deletion", {
+      p_student_id: temporaryId,
+      p_requester_role: "school",
+      p_verification_method: "authorised_school_official"
+    }),
+    "prepare verified learner deletion"
+  );
+  const staged = requireData(
+    await teacherA.rpc("teacher_delete_learner_data_staged", {
+      p_request_id: prepared.requestId,
+      p_student_id: temporaryId,
+      p_subject_ref: prepared.subjectRef,
+      p_confirmation: prepared.confirmationPhrase
+    }),
+    "run verified learner deletion"
+  );
+  assert.equal(staged.status, "awaiting_local_cleanup");
+  const completed = requireData(
+    await teacherA.rpc("teacher_complete_learner_deletion", {
+      p_request_id: prepared.requestId,
+      p_subject_ref: prepared.subjectRef,
+      p_cleanup_proof: {
+        schemaVersion: 1,
+        subjectRef: prepared.subjectRef,
+        studentId: temporaryId,
+        checkedAt: new Date().toISOString(),
+        storageAvailable: true,
+        residualCount: 0,
+        storesChecked: [
+          "assessment_attempts",
+          "assessment_write_queue",
+          "el_benchmark_drafts",
+          "el_reports",
+          "guided_reading_assessment",
+          "manual_assessment_drafts",
+          "progress",
+          "student_session",
+          "teacher_profile"
+        ]
+      }
+    }),
+    "complete verified learner deletion"
+  );
+  assert.equal(completed.status, "completed");
+
+  const removed = requireData(
+    await teacherA.from("students")
+      .select("id")
+      .eq("id", temporaryId)
+      .maybeSingle(),
+    "learner after verified deletion"
+  );
+  assert.equal(removed, null, "verified learner deletion left the learner row behind");
+  return {
+    crossTenantDeleteRejected: true,
+    directOwnedDeleteRejected: true,
+    verifiedDeletionAllowed: true
+  };
 }
 
 async function verifyAdminBoundary({ teacherA, admin }) {
@@ -520,10 +644,175 @@ async function verifyAdminBoundary({ teacherA, admin }) {
     }),
     "administrator retention policy"
   );
+  const teacherAccount = requireData(
+    await admin.from("pending_teacher_accounts")
+      .select("id")
+      .eq("user_id", EXPECTED.teacherA.userId)
+      .single(),
+    "teacher account decision target"
+  );
+  const directDecision = await admin.from("pending_teacher_accounts")
+    .update({
+      reviewed_at: "2001-01-01T00:00:00.000Z",
+      reviewed_by: EXPECTED.teacherA.userId
+    })
+    .eq("id", teacherAccount.id)
+    .select("id");
+  assert(
+    directDecision.error,
+    "administrator bypassed the server-owned teacher-account decision RPC"
+  );
+  const decidedAccount = requireData(
+    await admin.rpc("admin_set_teacher_account_status", {
+      p_account_id: teacherAccount.id,
+      p_status: "approved",
+      p_rejection_reason: null
+    }),
+    "server-owned teacher-account decision"
+  );
+  assert.equal(decidedAccount?.[0]?.status, "approved");
+  assert.equal(decidedAccount?.[0]?.reviewed_by, EXPECTED.adminUserId);
   return {
     teacherRejected: true,
     adminAccepted: true,
-    directSchoolWriteRejected: true
+    directSchoolWriteRejected: true,
+    directAccountDecisionRejected: true,
+    serverAccountDecisionAccepted: true
+  };
+}
+
+async function setAuditTeacherAccountState(
+  databaseUrl,
+  { status, approvalStatus }
+) {
+  return runPsqlJson(
+    databaseUrl,
+    `with changed as (`
+      + `update public.pending_teacher_accounts `
+      + `set status = '${status}', approval_status = '${approvalStatus}' `
+      + `where user_id = '${EXPECTED.teacherA.userId}'::uuid `
+      + `returning user_id`
+      + `) select json_build_object('changed', (select count(*) from changed));`
+  );
+}
+
+async function verifyTeacherAccountStatusBoundary({ teacherA, databaseUrl }) {
+  const originalClass = requireData(
+    await teacherA.from("classes")
+      .select("id, name")
+      .eq("id", EXPECTED.teacherA.classId)
+      .single(),
+    "approved teacher class before status boundary"
+  );
+  const blockedStates = [
+    { status: "pending", approvalStatus: "pending" },
+    { status: "rejected", approvalStatus: "rejected" },
+    { status: "disabled", approvalStatus: "approved" }
+  ];
+  const guardedRpcCount = TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length;
+
+  try {
+    const approvedUpdate = requireData(
+      await teacherA.from("classes")
+        .update({ name: originalClass.name })
+        .eq("id", EXPECTED.teacherA.classId)
+        .select("id"),
+      "approved teacher update"
+    );
+    assert.equal(approvedUpdate.length, 1, "approved teacher could not update an owned class");
+
+    for (const state of blockedStates) {
+      const changed = await setAuditTeacherAccountState(databaseUrl, state);
+      assert.equal(changed.changed, 1, `could not set audit account to ${state.status}`);
+
+      const reads = await Promise.all([
+        teacherA.from("classes").select("id").eq("teacher_id", EXPECTED.teacherA.userId),
+        teacherA.from("students").select("id").eq("teacher_id", EXPECTED.teacherA.userId),
+        teacherA.from("answers").select("id").eq("teacher_id", EXPECTED.teacherA.userId),
+        teacherA.from("mastery").select("id").eq("teacher_id", EXPECTED.teacherA.userId),
+        teacherA.from("item_mastery").select("id").eq("teacher_id", EXPECTED.teacherA.userId)
+      ]);
+      reads.forEach((result, index) => {
+        assert.equal(
+          result.error,
+          null,
+          `${state.status} account read ${index + 1} returned an unexpected API error`
+        );
+        assert.deepEqual(
+          result.data,
+          [],
+          `${state.status} account could still read owned learning data`
+        );
+      });
+
+      const forbiddenInsert = await teacherA.from("classes").insert({
+        id: randomUUID(),
+        teacher_id: EXPECTED.teacherA.userId,
+        name: `Status boundary ${state.status}`
+      });
+      assert(
+        forbiddenInsert.error,
+        `${state.status} account inserted an owned class through the API`
+      );
+
+      const forbiddenUpdate = await teacherA.from("classes")
+        .update({ name: `Blocked ${state.status} update` })
+        .eq("id", EXPECTED.teacherA.classId)
+        .select("id");
+      assert.equal(
+        forbiddenUpdate.error,
+        null,
+        `${state.status} account update returned an unexpected API error`
+      );
+      assert.deepEqual(
+        forbiddenUpdate.data,
+        [],
+        `${state.status} account updated an owned class through the API`
+      );
+
+      for (const signature of TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS) {
+        const result = await teacherA.rpc(
+          rpcName(signature),
+          AUTH_ONLY_PROBE_ARGS[signature]
+        );
+        assert(
+          result.error,
+          `${state.status} account reached guarded teacher RPC ${signature}`
+        );
+        assert.equal(
+          result.error.code,
+          "42501",
+          `${state.status} account reached ${signature} before the approval guard: `
+            + `${result.error.code || "unknown"} ${result.error.message || ""}`
+        );
+        assert.match(
+          result.error.message || "",
+          /approved teacher account/i,
+          `${state.status} account received a non-boundary error from ${signature}`
+        );
+      }
+    }
+  } finally {
+    await setAuditTeacherAccountState(databaseUrl, {
+      status: "approved",
+      approvalStatus: "approved"
+    });
+  }
+
+  const restoredClass = requireData(
+    await teacherA.from("classes")
+      .select("id")
+      .eq("id", EXPECTED.teacherA.classId)
+      .single(),
+    "restored approved teacher class"
+  );
+  assert.equal(restoredClass.id, EXPECTED.teacherA.classId);
+  return {
+    pendingRejected: true,
+    rejectedRejected: true,
+    disabledRejected: true,
+    approvedRestored: true,
+    guardedRpcCount
   };
 }
 
@@ -560,6 +849,10 @@ export async function verifyDatabasePoliciesLive({
   try {
     const isolation = await verifyAuditSchoolLive({ apiUrl, anonKey, password });
     await verifyAnonymousBoundary(anonymous);
+    const teacherAccountStatus = await verifyTeacherAccountStatusBoundary({
+      teacherA,
+      databaseUrl
+    });
     const codeLifecycle = await verifyCodeExpiryAndRotation({
       anonymous,
       teacherB,
@@ -575,6 +868,7 @@ export async function verifyDatabasePoliciesLive({
       authenticatedRpcs: functionReport.authenticatedRpcCount,
       rlsTables: catalog.tables?.length || 0,
       isolation,
+      teacherAccountStatus,
       codeLifecycle,
       deletes,
       adminBoundary,

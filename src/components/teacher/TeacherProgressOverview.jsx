@@ -86,7 +86,7 @@ export function TeacherProgressOverview({
         </label>
         <p>
           {selectedClassId
-            ? `${className || "Selected class"} · ${countPhrase(rows.length, "student", "students")}`
+            ? `${className || "No class selected"} · ${countPhrase(rows.length, "student", "students")}`
             : "Choose a class, then open one student's report."}
         </p>
         {onOpenClassReport && (

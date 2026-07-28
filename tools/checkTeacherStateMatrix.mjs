@@ -13,12 +13,12 @@ const read = relativePath =>
   fs.readFileSync(path.join(root, relativePath), "utf8");
 
 const documentSource = read("docs/teacher/STATE_MATRIX.md");
-const dashboardSource = [
-  read("src/components/TeacherTodayPage.jsx"),
-  read("src/components/TeacherStudentsPage.jsx"),
-  read("src/components/teacher/TeacherClassParts.jsx")
-].join("\n");
-const intentSource = read("src/components/teacher/TeacherIntentPage.jsx");
+const todaySource = read("src/components/TeacherTodayPage.jsx");
+const classesSource = read("src/components/TeacherStudentsPage.jsx");
+const assessmentsSource = read("src/components/TeacherAssessmentsPage.jsx");
+const reportsSource = read("src/components/TeacherReportsHubPage.jsx");
+const resourcesSource = read("src/components/teacher/TeacherIntentPage.jsx");
+const appSurfaceSource = read("src/components/AppSurface.jsx");
 const stylesSource = read("src/App.css");
 const teacherTokensSource = read(
   "src/components/teacher/ui/teacherTokens.css"
@@ -28,44 +28,74 @@ const componentSource = read(
 );
 const fixtureSource = read("tests/fixtures/teacher-state-matrix.jsx");
 
-assert.equal(TEACHER_SURFACE_IDS.length, 5, "Expected five teacher surfaces.");
-assert.equal(TEACHER_SURFACE_STATE_IDS.length, 8, "Expected eight state types.");
+assert.deepEqual(
+  TEACHER_SURFACE_IDS,
+  ["today", "classes", "assess", "progress", "resources"]
+);
+assert.deepEqual(TEACHER_SURFACE_STATE_IDS, ["loading", "empty", "partial"]);
 assert.equal(
   TEACHER_SURFACE_STATE_FIXTURES.length,
-  40,
-  "Expected all 40 surface-state fixtures."
+  11,
+  "Only eleven production-reachable combinations should be claimed."
 );
 
 for (const fixture of TEACHER_SURFACE_STATE_FIXTURES) {
   assert.ok(
     documentSource.includes(`\`${fixture.id}\``),
-    `State-matrix document is missing ${fixture.id}.`
+    `Runtime-state document is missing ${fixture.id}.`
   );
 }
 
 for (const requiredHeading of [
-  "Runtime signal contract",
+  "Runtime signals actually wired",
+  "States not claimed",
   "Assistive-technology contract",
-  "Fixture and release contract",
-  "State transition rules"
+  "Production evidence contract"
 ]) {
   assert.ok(
     documentSource.includes(requiredHeading),
-    `State-matrix document is missing ${requiredHeading}.`
+    `Runtime-state document is missing ${requiredHeading}.`
   );
 }
 
+for (const source of [
+  todaySource,
+  classesSource,
+  assessmentsSource,
+  reportsSource,
+  resourcesSource
+]) {
+  assert.ok(
+    source.includes("TeacherSurfaceState"),
+    "Every catalogued teacher page must use the shared state component."
+  );
+  assert.ok(
+    !source.includes("surfaceState ="),
+    "Production pages must not expose a test-only state-injection prop."
+  );
+}
+
+assert.ok(todaySource.includes('surface="today"'));
+assert.ok(todaySource.includes('state="loading"'));
+assert.ok(todaySource.includes('state="partial"'));
+assert.ok(classesSource.includes('surface="classes"'));
+assert.ok(classesSource.includes('state="empty"'));
+assert.ok(assessmentsSource.includes('surface="assess"'));
+assert.ok(assessmentsSource.includes('state="loading"'));
+assert.ok(assessmentsSource.includes('state="empty"'));
+assert.ok(assessmentsSource.includes('state="partial"'));
+assert.ok(reportsSource.includes('surface="progress"'));
+assert.ok(reportsSource.includes('state="partial"'));
+assert.ok(resourcesSource.includes('surface={intent}'));
+assert.ok(resourcesSource.includes('state="loading"'));
+assert.ok(resourcesSource.includes('state="partial"'));
 assert.ok(
-  dashboardSource.includes('from "./teacher/ui/TeacherSurfaceState.jsx"'),
-  "Today and Classes must adopt the shared teacher state primitive."
-);
-assert.ok(
-  intentSource.includes('from "./ui/TeacherSurfaceState.jsx"'),
-  "Assess, Progress, and Plan/Resources must adopt the shared teacher state primitive."
+  appSurfaceSource.includes('intent="resources"'),
+  "The catalogued Resources intent must be mounted by the product."
 );
 assert.ok(
   componentSource.includes("TeacherSurfaceStateFixtureSheet"),
-  "The storybook-style fixture sheet must remain exported."
+  "The visual fixture sheet must remain exported."
 );
 assert.ok(
   componentSource.includes("aria-busy={content.busy || undefined}"),
@@ -73,17 +103,17 @@ assert.ok(
 );
 assert.ok(
   teacherTokensSource.includes("--teacher-ui-target-min: 44px"),
-  "Teacher state recovery actions must retain a 44px minimum target token."
+  "Recovery actions must retain a 44px minimum target token."
 );
 assert.ok(
   stylesSource.includes("min-height: var(--teacher-ui-target-min) !important"),
-  "Teacher state recovery actions must retain a 44px minimum target."
+  "Recovery actions must retain a 44px minimum target."
 );
 assert.ok(
   fixtureSource.includes("TeacherSurfaceStateFixtureSheet"),
-  "The browser-renderable fixture must use the production fixture sheet."
+  "The browser fixture must use the production component."
 );
 
 console.log(
-  "Teacher state matrix: 5 surfaces × 8 states, 40 documented fixtures, both teacher page families adopted."
+  "Teacher runtime states: eleven production-reachable combinations documented and wired; invented fixture-only states rejected."
 );
