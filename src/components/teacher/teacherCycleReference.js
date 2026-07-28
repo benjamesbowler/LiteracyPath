@@ -1,14 +1,16 @@
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
+import { cycleOptionLabel } from "../../utils/cycleTitles.js";
 
 // The teaching cycles the context bar can point at - a teacher-set reference
 // (never automated; Benjamin's 2026-07-28 decision). Derived once from the
-// curriculum catalog; the display label turns "Cycle 6: X" into "Cycle 6 · X".
+// curriculum catalog. Every label names what the cycle covers ("Cycle 2 · Tt
+// and Ss"), because the data titles only a handful of them.
 const TEACHING_CYCLES = elSkillsBlockCycles
   .filter(cycle => cycle.cycleNumber)
   .map(cycle => ({
     id: cycle.id,
     cycleNumber: cycle.cycleNumber,
-    label: String(cycle.title || `Cycle ${cycle.cycleNumber}`).replace(/^Cycle (\d+):\s*/, "Cycle $1 · ")
+    label: cycleOptionLabel(cycle)
   }));
 
 export function teacherCycleOptions() {

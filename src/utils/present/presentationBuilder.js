@@ -35,10 +35,17 @@ import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
 import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
+import {
+  cycleOptionLabel,
+  cycleTopic,
+  humanizePhase,
+  isFluencyCycle,
+  presentationCycleDisplayTitle,
+  presentationDisplayText
+} from "../cycleTitles.js";
 
-function isFluencyCycle(cycle) {
-  return (cycle?.cycleNumber || 0) >= 25;
-}
+// Re-exported so the Present surfaces keep importing cycle naming from one place.
+export { presentationCycleDisplayTitle };
 
 // Book covers for the "Our books this cycle" slide, looked up from the real
 // guided-reading library so the deck never invents a path.
@@ -143,40 +150,16 @@ function normalizeDay(day) {
   throw new Error(`Unknown presentation day: ${day}`);
 }
 
-const ASSESSMENT_WEEK_TITLES = Object.freeze({
-  "boy-assessment": "Beginning of year assessment",
-  "moy-assessment": "Middle of year assessment",
-  "eoy-assessment": "End of year assessment"
-});
-
-function presentationDisplayText(value = "") {
-  return String(value || "")
-    .replace(/\bBOY\b/g, "beginning of year")
-    .replace(/\bMOY\b/g, "middle of year")
-    .replace(/\bEOY\b/g, "end of year");
-}
-
-export function presentationCycleDisplayTitle(cycle = {}) {
-  return ASSESSMENT_WEEK_TITLES[cycle.id]
-    || presentationDisplayText(cycle.title)
-    || (cycle.cycleNumber ? `Cycle ${cycle.cycleNumber}` : "Selected cycle");
-}
-
 export function presentationCycleOptions() {
   return elSkillsBlockCycles
     .filter(c => c.cycleNumber || c.type === "assessment")
-    .map(c => {
-      const rest = String(c.title || "").replace(/^Cycle \d+:?\s*/, "").trim();
-      return {
-        id: c.id,
-        cycleNumber: c.cycleNumber || null,
-        title: c.title,
-        type: c.type || "cycle",
-        label: c.cycleNumber
-          ? (rest ? `Cycle ${c.cycleNumber}: ${rest}` : `Cycle ${c.cycleNumber}`)
-          : presentationCycleDisplayTitle(c)
-      };
-    });
+    .map(c => ({
+      id: c.id,
+      cycleNumber: c.cycleNumber || null,
+      title: c.title,
+      type: c.type || "cycle",
+      label: cycleOptionLabel(c)
+    }));
 }
 
 export function getPresentationCycle(cycleId) {
@@ -410,46 +393,10 @@ function timerDial(seconds = 60) {
   </div>`;
 }
 
-const PHASE_LABELS = {
-  "early-letter-sound": "Letter sounds · Early",
-  "letter-sound-expansion": "Letter sounds · Expansion",
-  "letter-sound-completion": "Letter sounds · Completion",
-  "cvc-onset": "CVC words · First sounds",
-  "cvc-rime": "CVC words · Endings",
-  "microphase-wrap-up": "Review and wrap-up",
-  digraphs: "Digraphs",
-  patterns: "Patterns",
-  "pattern-power": "Pattern power",
-  baseline: "Baseline assessment",
-  benchmark: "Benchmark assessment",
-  "review-extension": "Review and extension",
-  celebration: "Celebration",
-  "skills-block": "Skills block"
-};
-
-function humanizePhase(phase) {
-  const key = String(phase || "").toLowerCase();
-  if (PHASE_LABELS[key]) return PHASE_LABELS[key];
-  const text = key.replace(/-/g, " ").trim();
-  return text ? text[0].toUpperCase() + text.slice(1) : "Review time";
-}
-
-function cycleHeading(cycle) {
-  const letters = (cycle.focusLetters || []).map(c => c.grapheme).filter(Boolean);
-  if (!isFluencyCycle(cycle) && letters.length && letters.length <= 3) return letters.join(" and ");
-  const displayTitle = presentationCycleDisplayTitle(cycle);
-  if (displayTitle && displayTitle !== `Cycle ${cycle.cycleNumber}`) {
-    return displayTitle.replace(/^Cycle \d+:\s*/, "");
-  }
-  if (!isFluencyCycle(cycle) && letters.length) return `${letters[0]} families`;
-  return humanizePhase(cycle.phase);
-}
-
-// The rail label the teacher sees on every slide.
+// The rail label the teacher sees on every slide - the same label the cycle
+// pickers show, so a teacher recognises the deck they chose.
 function railTitle(cycle) {
-  return cycle.cycleNumber
-    ? `Cycle ${cycle.cycleNumber} · ${cycleHeading(cycle)}`
-    : presentationCycleDisplayTitle(cycle);
+  return cycleOptionLabel(cycle);
 }
 
 // The cover promises what the lesson contains, as one line of plain English.
@@ -475,7 +422,7 @@ function titleSlide(cycle, world, dayLabel = "") {
   return slide(world, `
     <div class="p-cover-text">
       <p class="p-kicker">${esc(kickerParts.join(" · "))}</p>
-      <h1 class="p-title">${esc(cycleHeading(cycle))}</h1>
+      <h1 class="p-title">${esc(cycleTopic(cycle))}</h1>
       <p class="p-phase">${esc(humanizePhase(cycle.phase))}</p>
       <p class="p-blurb">${esc(coverBlurb(cycle))}</p>
       <p class="p-hint">Press the right arrow key or click to begin</p>
@@ -1034,7 +981,7 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
   const slides = assembleSlides(cycle, world, dayKey);
 
   const baseTitle = cycle.cycleNumber
-    ? `Cycle ${cycle.cycleNumber} - ${cycleHeading(cycle)}`
+    ? `Cycle ${cycle.cycleNumber} - ${cycleTopic(cycle)}`
     : presentationCycleDisplayTitle(cycle);
   const title = dayKey ? `${baseTitle} - ${DAY_LABELS[dayKey]}` : baseTitle;
   const deckScriptUrl = `${typeof window === "undefined" ? "" : window.location.origin}/present/deck.js`;
