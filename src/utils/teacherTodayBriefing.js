@@ -19,6 +19,11 @@ export const TEACHER_TODAY_POLICY = Object.freeze({
   changeWindowDays: 7
 });
 
+// 2026-07-28, teacher-area redesign v2: the two urgent lists preview
+// INDEPENDENTLY — attention shows up to `maximum` rows and due shows up to
+// `maximum` rows ("3 shown of N"), per the approved Dashboard design. They no
+// longer share one three-row budget that let a full attention list push every
+// due row out of sight.
 export function allocateTeacherTodayUrgentPreviews({
   attentionCount = 0,
   dueCount = 0,
@@ -31,7 +36,7 @@ export function allocateTeacherTodayUrgentPreviews({
   );
   const due = Math.min(
     Math.max(0, Number(dueCount) || 0),
-    Math.max(0, budget - attention)
+    budget
   );
   return { attention, due, total: attention + due };
 }

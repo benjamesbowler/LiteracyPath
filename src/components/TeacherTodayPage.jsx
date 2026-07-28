@@ -5,29 +5,44 @@ import {
   allocateTeacherTodayUrgentPreviews,
   buildTeacherTodayBriefing
 } from "../utils/teacherTodayBriefing.js";
+import {
+  PROGRESS_MIN_RESPONSES,
+  buildClassAccuracySummary
+} from "../utils/teacherProgressOverview.js";
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import { InterventionLoop } from "./teacher/InterventionLoop.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
 import { MetricDefinition } from "./MetricDefinition.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import {
-  TeacherChart,
   TeacherPageHeader,
   TeacherPageShell
 } from "./teacher/ui/TeacherPrimitives.jsx";
 import { TeacherSetupChecklist } from "./teacher/TeacherClassParts.jsx";
 import {
+  formatLastActive,
+  latestMetricUpdate,
   useTeacherSetupState,
   useTeacherStudentRows
 } from "./teacher/teacherClassModel.js";
 import { supabase } from "../supabaseClient.js";
-import { TEACHER_COPY, countPhrase } from "../copy/teacherCopy.js";
+import { TEACHER_COPY, countPhrase, progressPhrase } from "../copy/teacherCopy.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
-import logoUrl from "../assets/logo.svg";
 
 const TODAY_ZONE_PREVIEW = 3;
+
+// "Today · Tuesday 28 July" — the header kicker names the day the briefing
+// describes, in the reader's own timezone.
+function todayKicker(now = new Date()) {
+  return `Today · ${now.toLocaleDateString("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+  })}`;
+}
 
 // A zone used to print its total and then show only its preview rows with no
 // hint that the rest existed. The count and the list now always agree.
@@ -50,11 +65,112 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
       )}
     </>
   );
-}function TodayBriefing({
+}
+
+function TodayMetric({ info = null, label, note = "", value }) {
+  const valueText = String(value);
+  return (
+    <div className="teacher-today-metric">
+      <span className="teacher-today-metric-label">
+        {label}
+        {info}
+      </span>
+      <strong
+        className={`teacher-today-metric-value${valueText.length > 12 ? " is-text" : ""}`}
+      >
+        {value}
+      </strong>
+      {note ? <small>{note}</small> : null}
+    </div>
+  );
+}
+
+// THE FIVE-METRIC STRIP (teacher-area redesign v2). The same figures, the same
+// tooltip definitions and the same fairness rule as the Students-page class
+// overview, computed from the exact rows that feed today's briefing.
+// "Not enough results yet" is a first-class state — never 0%.
+function TodayMetrics({ rows }) {
+  const total = rows.length;
+  const loginReadyCount = rows.filter(row => row.symbol_password).length;
+  const startedCount = rows.filter(row => Number(row.answered) > 0).length;
+  const activeTodayCount = rows.filter(
+    row => formatLastActive(row.lastActive) === "Today"
+  ).length;
+  const missingSignInCount = total - loginReadyCount;
+  const accuracySummary = useMemo(
+    () => buildClassAccuracySummary(rows.map(row => ({
+      ...row,
+      answered: row.currentAnswered,
+      correct: row.currentCorrect,
+      accuracy: row.currentAccuracy,
+      conclusion: row.learningConclusion
+    }))),
+    [rows]
+  );
+  const updatedAt = latestMetricUpdate(rows.map(row => row.currentLastActive));
+  const classDenominator = `${countPhrase(total, "student", "students")} in this class.`;
+
+  return (
+    <section
+      className="teacher-today-metrics"
+      aria-label={TEACHER_COPY.metrics.summaryAriaLabel}
+      data-teacher-priority="class-pulse"
+    >
+      <TodayMetric label={TEACHER_COPY.metrics.students} value={total} />
+      <TodayMetric
+        label={TEACHER_COPY.metrics.readyToSignIn}
+        note={missingSignInCount > 0
+          ? TEACHER_COPY.setup.signInGapTitle(missingSignInCount)
+          : ""}
+        value={progressPhrase(loginReadyCount, total)}
+      />
+      <TodayMetric
+        info={(
+          <MetricDefinition
+            metricId="started"
+            denominator={classDenominator}
+            updatedAt={updatedAt}
+          />
+        )}
+        label={TEACHER_COPY.metrics.havePlayed}
+        value={progressPhrase(startedCount, total)}
+      />
+      <TodayMetric
+        info={(
+          <MetricDefinition
+            metricId="active"
+            denominator={classDenominator}
+            updatedAt={updatedAt}
+          />
+        )}
+        label={TEACHER_COPY.metrics.playedToday}
+        value={progressPhrase(activeTodayCount, total)}
+      />
+      <TodayMetric
+        info={(
+          <MetricDefinition
+            metricId="accuracy"
+            denominator={`${countPhrase(accuracySummary.policyReadyLearnerCount, "student", "students")} with at least ${PROGRESS_MIN_RESPONSES} scored answers each.`}
+            dateRange={`Scored answers from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
+            updatedAt={updatedAt}
+          />
+        )}
+        label={TEACHER_COPY.metrics.classAccuracy}
+        note={accuracySummary.headlineAccuracy === null
+          ? ""
+          : TEACHER_COPY.metrics.equalChildren}
+        value={accuracySummary.headlineAccuracy === null
+          ? TEACHER_COPY.metrics.notEnough
+          : `${accuracySummary.headlineAccuracy}%`}
+      />
+    </section>
+  );
+}
+
+function TodayBriefing({
   rows,
   onLoadStudent,
-  onPlanIntervention,
-  onOpenAssessments,
+  onOpenClasses,
   onStartCheck,
   onOpenProgress
 }) {
@@ -76,8 +192,13 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
           {row => (
             <li key={row.id}>
               <div>
-                <strong>{row.name}</strong>
-                <span>{row.focus}</span>
+                <div className="teacher-today-row-title">
+                  <strong>{row.name}</strong>
+                  <span className="teacher-today-pill is-support">
+                    {TEACHER_COPY.reports.needsTeachingTitle}
+                  </span>
+                </div>
+                <span className="teacher-today-row-focus">{row.focus}</span>
                 <small>{row.evidence}</small>
                 <TeacherRecommendationExplanation
                   explanation={row.explanation}
@@ -88,23 +209,18 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
                 <button
                   className="lp-button lp-button-primary teacher-start-check"
                   type="button"
+                  aria-label={`Assess ${row.name}`}
                   onClick={() => onStartCheck?.(row)}
                 >
                   Assess
                 </button>
                 <button
-                  className="text-button"
+                  className="lp-button teacher-today-ghost"
                   type="button"
+                  aria-label={`Open ${row.name}`}
                   onClick={() => onLoadStudent?.(row.id, row.name)}
                 >
-                  Review
-                </button>
-                <button
-                  className="text-button"
-                  type="button"
-                  onClick={() => onPlanIntervention?.(row)}
-                >
-                  Plan support
+                  Open student
                 </button>
               </div>
             </li>
@@ -138,37 +254,52 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
       </button>
     </div>
   ) : briefing.due.length ? (
-    <TodayZoneList previewLimit={urgentPreviews.due} rows={briefing.due}>
-      {row => (
-        <li key={row.id}>
-          <div>
-            <strong>{row.name}</strong>
-            <span>{row.title}</span>
-            <small>{row.evidence}</small>
-            <TeacherRecommendationExplanation
-              explanation={row.explanation}
-              surface="teacher-today"
-            />
-          </div>
-          <div className="teacher-today-row-actions">
-            <button
-              className="lp-button lp-button-primary teacher-start-check"
-              type="button"
-              onClick={() => onStartCheck?.(row)}
-            >
-              Assess
-            </button>
-            <button
-              className="text-button"
-              type="button"
-              onClick={() => onLoadStudent?.(row.id, row.name)}
-            >
-              Open {row.name}
-            </button>
-          </div>
-        </li>
+    <>
+      <ul>
+        {briefing.due.slice(0, urgentPreviews.due).map(row => (
+          <li key={row.id}>
+            <div>
+              <div className="teacher-today-row-title">
+                <strong>{row.name}</strong>
+                <span className="teacher-today-pill">{row.title}</span>
+              </div>
+              <small>{row.evidence}</small>
+              <TeacherRecommendationExplanation
+                explanation={row.explanation}
+                surface="teacher-today"
+              />
+            </div>
+            <div className="teacher-today-row-actions">
+              <button
+                className="lp-button lp-button-secondary teacher-start-check"
+                type="button"
+                aria-label={`Assess ${row.name}`}
+                onClick={() => onStartCheck?.(row)}
+              >
+                Assess
+              </button>
+              <button
+                className="lp-button teacher-today-ghost"
+                type="button"
+                aria-label={`Open ${row.name}`}
+                onClick={() => onLoadStudent?.(row.id, row.name)}
+              >
+                Open student
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {briefing.due.length > urgentPreviews.due && (
+        <button
+          className="teacher-today-zone-footer"
+          type="button"
+          onClick={() => onOpenClasses?.()}
+        >
+          {TEACHER_COPY.common.showAll(briefing.due.length)}
+        </button>
       )}
-    </TodayZoneList>
+    </>
   ) : (
     <p className="teacher-today-empty">
       No student is due for an assessment after {policy.inactivityDueDays} days without activity.
@@ -202,13 +333,23 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
       title: "Who needs attention",
       label: "Who needs attention",
       count: briefing.attention.length,
+      info: (
+        <MetricDefinition
+          metricId="accuracy"
+          label="Needs attention today"
+          counts={`Students who have answered at least ${policy.minimumResponsesForAttention} times and are getting fewer than ${policy.attentionAccuracyBelow}% of those answers right.`}
+          timeWindow={`Current results from the last ${policy.conclusionWindowDays} days.`}
+          excludes="Students with fewer saved answers than that, and anything the app did not score."
+        />
+      ),
       body: attentionZone
     },
     {
       id: "due",
-      title: "What\u2019s due",
+      title: "What’s due",
       label: "What's due",
       count: briefing.due.length,
+      info: null,
       body: dueZone
     }
   ];
@@ -219,34 +360,7 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
       aria-label="Today's class briefing"
       data-teacher-priority="today-actions"
     >
-      <header className="teacher-today-briefing-head">
-        <div>
-          <p className="panel-label">Today&apos;s briefing</p>
-          <div className="teacher-today-heading-row">
-            <h3>Start with these students</h3>
-            <MetricDefinition
-              metricId="accuracy"
-              label="Needs attention today"
-              counts={`Students who have answered at least ${policy.minimumResponsesForAttention} times and are getting fewer than ${policy.attentionAccuracyBelow}% of those answers right.`}
-              timeWindow={`Current results from the last ${policy.conclusionWindowDays} days.`}
-              excludes="Students with fewer saved answers than that, and anything the app did not score."
-            />
-          </div>
-          <p>Up to three urgent actions are shown first. Open a section only when you need more.</p>
-        </div>
-        <div className="teacher-today-direct-actions" aria-label="Today shortcuts">
-          <button
-            className="lp-button lp-button-primary"
-            type="button"
-            onClick={() => onOpenAssessments?.()}
-          >
-            Assess a student
-          </button>
-          <button className="lp-button lp-button-secondary" type="button" onClick={onOpenProgress}>
-            Open reports
-          </button>
-        </div>
-      </header>
+      <TodayMetrics rows={rows} />
 
       <div className="teacher-today-grid teacher-today-priority-grid">
         {priorityZones.map(zone => (
@@ -256,13 +370,18 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
             key={zone.id}
           >
             <div className="teacher-today-zone-head">
-              <span>{zone.title}</span>
+              <span className="teacher-today-zone-title">
+                {zone.title}
+                {zone.info}
+              </span>
               <strong>{zone.count}</strong>
             </div>
             {zone.body}
           </section>
         ))}
       </div>
+
+      <ClassHeatPanel rows={rows} onOpenReports={onOpenProgress} />
 
       <details className="teacher-today-more">
         <summary>
@@ -273,20 +392,24 @@ function TodayZoneList({ rows, children, previewLimit = TODAY_ZONE_PREVIEW }) {
           {changedZone}
         </section>
       </details>
-
-      <ClassHeatPanel rows={rows} />
     </section>
   );
-}// THE CLASS SOUND MAP (REVIEW.md, Educator #7). One row of tiles for the
-// whole class — coloured by how many students still need each sound — plus
-// concrete grouping hints: "sh — Sam, Maya, Leo need re-teaching" with a
-// one-click group practice sheet printed at the LOWEST member's curriculum
-// stop, so every word on it is decodable for every student in the group.
-function ClassHeatPanel({ rows }) {
-  // This is useful planning detail, but it is not a daily urgent action. Keep
-  // it one tap away so the briefing remains readable without removing the
-  // grouping and print tools.
-  const [open, setOpen] = useState(false);
+}
+
+// THE CLASS SOUND MAP (teacher-area redesign v2). One heat tile per sound for
+// the whole class — coloured by how many students still need it, with "not met
+// yet" kept separate from a low score — plus concrete grouping hints:
+// "sh — Sam, Maya, Leo need re-teaching" with a one-click group practice sheet
+// printed at the LOWEST member's curriculum stop, so every word on it is
+// decodable for every student in the group.
+const SOUND_TILE_STATUS_WORDS = Object.freeze({
+  "is-got-it": "got it",
+  "is-almost": "almost there",
+  "is-reteach": "needs re-teaching",
+  "is-unseen": "not met yet"
+});
+
+function ClassHeatPanel({ rows, onOpenReports }) {
   const [note, setNote] = useState("");
   const summary = useMemo(
     () => classHeatSummary(rows
@@ -295,7 +418,8 @@ function ClassHeatPanel({ rows }) {
     [rows]
   );
 
-  // One student is a heat map (their own panel below); a class view needs two.
+  // One student is a heat map (their own panel on Students); a class view
+  // needs two.
   if (summary.studentsWithEvidence < 2) return null;
 
   function severityClass(tile) {
@@ -323,10 +447,10 @@ function ClassHeatPanel({ rows }) {
     ? `${summary.groups.length} sound${summary.groups.length === 1 ? "" : "s"} could use a small group`
     : "no sound needs a group right now";
 
-  // The tiles are a picture: colour was the only thing carrying each sound's
-  // status, and the counts behind it sat in a `title` a tablet never shows. The
-  // picture's description now names every sound under its status word, and the ⓘ
-  // beside the heading explains the statuses on tap.
+  // The tiles are a picture: colour alone must never carry a sound's status.
+  // Every tile speaks its own status and counts through its accessible name,
+  // the grid opens with a one-sentence overview naming every sound under its
+  // status word, and the ⓘ beside the heading explains the statuses on tap.
   const soundStatusSentence = [
     ["is-reteach", "Needs re-teaching"],
     ["is-almost", "Almost there"],
@@ -342,73 +466,95 @@ function ClassHeatPanel({ rows }) {
     .filter(Boolean)
     .join(" ");
 
+  const groupById = new Map(summary.groups.map(group => [group.id, group]));
+
+  function tileNote(tile) {
+    if (!tile.met) return "not met yet";
+    const group = groupById.get(tile.id);
+    if (group) {
+      const shown = group.students.slice(0, 3);
+      const extra = group.count - shown.length;
+      return extra > 0 ? `${shown.join(", ")} +${extra}` : shown.join(", ");
+    }
+    return tile.reteach === 1 ? "needs re-teaching" : "need re-teaching";
+  }
+
   return (
-    <div className="quest-heat-panel class-heat-panel">
-      <div className="quest-heat-head">
-        <strong>Class sound map and small groups</strong>
-        <MetricDefinition
-          metricId="accuracy"
-          label="Sound status"
-          counts="Each tile is one sound, with its status across the class: got it, almost there, needs re-teaching, or not met yet. Status comes from correct answers out of scored answers for that sound."
-          timeWindow="All saved Sound Seekers play for this class."
-          excludes="Sounds the class has not met yet — those show as not met, not as a low score."
-        />
-        <span className="muted-text">
-          {countPhrase(summary.studentsWithEvidence, "student", "students")} with results · {groupSummary}
-        </span>
-        <button className="text-button" type="button" aria-expanded={open} onClick={() => setOpen(value => !value)}>
-          {open ? "Hide" : "Show"}
-        </button>
+    <section className="teacher-sound-map" aria-label="Class sound map">
+      <div className="teacher-sound-map-head">
+        <div>
+          <span className="teacher-sound-map-title">
+            <strong>Class sound map and small groups</strong>
+            <MetricDefinition
+              metricId="accuracy"
+              label="Sound status"
+              counts="Each tile is one sound, with its status across the class: got it, almost there, needs re-teaching, or not met yet. Status comes from correct answers out of scored answers for that sound."
+              timeWindow="All saved Sound Seekers play for this class."
+              excludes="Sounds the class has not met yet — those show as not met, not as a low score."
+            />
+          </span>
+          <p className="teacher-sound-map-summary">
+            {countPhrase(summary.studentsWithEvidence, "student", "students")} with results · {groupSummary}
+          </p>
+        </div>
       </div>
-      {open && (
-        <>
-          <TeacherChart
-            className="quest-heat-grid"
-            label={`Class sound map. ${soundStatusSentence} ${summary.groups.length
-              ? summary.groups.map(group => `${group.label}: ${countPhrase(group.count, "student", "students")} need re-teaching`).join(". ")
-              : "No sound currently needs a re-teaching group."}`}
-          >
-            {summary.tiles.map(tile => (
-              <span
-                key={tile.id}
-                aria-hidden="true"
-                className={`quest-heat-tile ${severityClass(tile)}`}
-                title={`${tile.label} · ${tile.stopName} · ${tile.gotIt} got it · ${tile.almost} almost · ${tile.reteach} need re-teaching · ${tile.unseen} not met yet`}
-              >
-                {tile.label}
+      <div
+        className="teacher-sound-map-grid"
+        role="group"
+        aria-label={`Class sound map. ${soundStatusSentence} ${summary.groups.length
+          ? summary.groups.map(group => `${group.label}: ${countPhrase(group.count, "student", "students")} need re-teaching`).join(". ")
+          : "No sound currently needs a re-teaching group."}`}
+      >
+        {summary.tiles.map(tile => {
+          const severity = severityClass(tile);
+          return (
+            <button
+              key={tile.id}
+              type="button"
+              className={`teacher-sound-tile ${severity}`}
+              aria-label={`${tile.label} · ${SOUND_TILE_STATUS_WORDS[severity]} · ${tile.gotIt} got it · ${tile.almost} almost there · ${tile.reteach} need re-teaching · ${tile.unseen} not met yet. Opens class results.`}
+              onClick={() => onOpenReports?.()}
+            >
+              <span aria-hidden="true" className="teacher-sound-tile-label">{tile.label}</span>
+              <span aria-hidden="true" className="teacher-sound-tile-count">
+                {tile.met ? tile.reteach : "—"}
               </span>
-            ))}
-          </TeacherChart>
-          {summary.groups.length > 0 && (
-            <ul className="class-heat-groups">
-              {summary.groups.map(group => (
-                <li key={group.id}>
-                  <strong>{group.label}</strong> — {group.students.join(", ")}
-                  <button className="text-button" type="button" onClick={() => printGroupPack(group)}>
-                    Print group pack
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          {note && <p className="muted-text quest-heat-note" role="status">{note}</p>}
-        </>
+              <span aria-hidden="true" className="teacher-sound-tile-note">{tileNote(tile)}</span>
+            </button>
+          );
+        })}
+      </div>
+      {summary.groups.length > 0 && (
+        <ul className="class-heat-groups">
+          {summary.groups.map(group => (
+            <li key={group.id}>
+              <strong>{group.label}</strong> — {group.students.join(", ")}
+              <button className="text-button" type="button" onClick={() => printGroupPack(group)}>
+                Print group pack
+              </button>
+            </li>
+          ))}
+        </ul>
       )}
-    </div>
+      {note && <p className="muted-text quest-heat-note" role="status">{note}</p>}
+    </section>
   );
 }
 // TODAY. One question: what should I do next with this class?
 //
-// Everything that manages the class - the roster, imports, sign-in cards,
-// archiving - lives on the Students page. This page decides; that page does.
+// The shared context bar above this page owns the class, school, teaching
+// cycle and the global Present / Assess-a-student actions, so nothing here
+// duplicates them. Changing class happens through that bar's Change link
+// (Settings), which navigates away and remounts this page — no class-scoped
+// state can survive into another class's view. Everything that manages the
+// class — the roster, imports, sign-in cards, archiving — lives on the
+// Students page. This page decides; that page does.
 export function TeacherTodayPage({
   classList = [],
   classListReadState = null,
   loadingClasses = false,
   loadClasses,
   selectedClassId,
-  setSelectedClassId,
-  setStudentList,
   studentList = [],
   studentListReadState = null,
   loadingStudents = false,
@@ -418,18 +564,14 @@ export function TeacherTodayPage({
   classDashboardReadState = null,
   onLoadStudent,
   onStartCheck,
-  onOpenAssessments,
   onOpenClasses,
   onOpenProgress,
   createDemoClass,
   teacherId,
-  schoolName = "",
-  hasSchool = false,
   message
 }) {
   const [creatingDemo, setCreatingDemo] = useState(false);
   const [demoError, setDemoError] = useState("");
-  const [interventionRecommendation, setInterventionRecommendation] = useState(null);
   const [supportFollowUpOpen, setSupportFollowUpOpen] = useState(false);
   const [supportQueueState, setSupportQueueState] = useState({
     count: 0,
@@ -487,7 +629,6 @@ export function TeacherTodayPage({
     studentRows,
     classCount: classRead.complete ? visibleClassList.length : 0
   });
-  const className = knownSelectedClass?.name || "No class selected";
 
   useEffect(() => {
     loadStudentsRef.current = loadStudents;
@@ -511,20 +652,6 @@ export function TeacherTodayPage({
     });
     if (count > 0) setSupportFollowUpOpen(true);
   }, []);
-
-  // Changing class empties the student list on the spot and the refetch lands a
-  // moment later. Everything the briefing says in that gap - "no student needs a
-  // review", every zone count - would be a confident zero for a class we have
-  // not read yet, so the briefing waits behind the loading state instead.
-  function handleClassChange(event) {
-    const nextClassId = event.target.value || null;
-    if (nextClassId === selectedClassId) return;
-    setInterventionRecommendation(null);
-    setSupportFollowUpOpen(false);
-    setSupportQueueState({ count: 0, loading: true, unavailable: false });
-    setSelectedClassId?.(nextClassId);
-    setStudentList?.([]);
-  }
 
   // Every step except the last is done on the Students page, so Continue takes
   // the teacher there AND says which control to open. The checklist stays on
@@ -564,38 +691,12 @@ export function TeacherTodayPage({
     >
       <TeacherPageHeader
         className="teacher-dashboard-hero"
-        brand={(
-          <div className="teacher-page-brand">
-            <img src={logoUrl} alt="" />
-            <p className="panel-label">{TEACHER_COPY.today.label}</p>
-          </div>
-        )}
+        eyebrow={todayKicker()}
         title={TEACHER_COPY.today.title}
         description={knownSelectedClass
-          ? TEACHER_COPY.today.descriptionWithClass(knownSelectedClass.name)
+          ? TEACHER_COPY.today.description
           : TEACHER_COPY.today.descriptionWithoutClass}
-      >
-        <div
-          className="teacher-dashboard-context"
-          aria-label={TEACHER_COPY.classes.contextLabel}
-        >
-          <span>School</span>
-          <strong>{hasSchool ? schoolName : "Not set"}</strong>
-          <small>
-            {knownSelectedClass
-              ? !classRead.complete
-                ? "Class list needs reloading"
-                : rosterRead.complete && dashboardRead.complete
-                ? TEACHER_COPY.classes.childCount(studentRows.length)
-                : rosterRead.incomplete
-                  ? "Student list needs reloading"
-                  : dashboardRead.failed
-                    ? "Class progress needs reloading"
-                    : "Loading class…"
-              : className}
-          </small>
-        </div>
-      </TeacherPageHeader>
+      />
 
       <ActionFeedback className="teacher-dashboard-message" message={message} />
       <ActionFeedback
@@ -632,29 +733,6 @@ export function TeacherTodayPage({
           </button>
         </section>
       )}
-
-      <section
-        className="teacher-dashboard-controls teacher-today-class-control"
-        aria-label="Today class"
-      >
-        <div className="teacher-dashboard-control-group">
-          <label className="teacher-dashboard-control">
-            <span>Current class</span>
-            <select
-              value={selectedClassId || ""}
-              disabled={!classRead.complete}
-              onChange={handleClassChange}
-            >
-              <option value="">Choose class</option>
-              {visibleClassList.map(cls => (
-                <option key={cls.id} value={cls.id}>
-                  {cls.name}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-      </section>
 
       {classRead.loading && (
         <TeacherSurfaceState surface="today" state="loading" />
@@ -719,22 +797,7 @@ export function TeacherTodayPage({
           rows={studentRows}
           onLoadStudent={onLoadStudent}
           onStartCheck={onStartCheck}
-          onPlanIntervention={row => {
-            setInterventionRecommendation({
-              id: row.id,
-              name: row.name,
-              focus: row.focus
-            });
-            setSupportFollowUpOpen(true);
-            window.requestAnimationFrame(() => {
-              supportPlannerHeadingRef.current?.scrollIntoView?.({
-                behavior: "smooth",
-                block: "start"
-              });
-              supportPlannerHeadingRef.current?.focus?.();
-            });
-          }}
-          onOpenAssessments={onOpenAssessments}
+          onOpenClasses={onOpenClasses}
           onOpenProgress={onOpenProgress}
         />
       )}
@@ -769,8 +832,6 @@ export function TeacherTodayPage({
             classId={selectedClass.id}
             className={selectedClass.name}
             rows={studentRows}
-            recommendation={interventionRecommendation}
-            onRecommendationConsumed={() => setInterventionRecommendation(null)}
             onTodayQueueChange={handleSupportQueueChange}
             headingRef={supportPlannerHeadingRef}
           />

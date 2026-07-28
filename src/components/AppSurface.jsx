@@ -969,15 +969,6 @@ export function AppSurface({ surface }) {
               loadingClasses={loadingClasses}
               loadClasses={loadClasses}
               selectedClassId={selectedClassId}
-              setSelectedClassId={nextClassId => {
-                setClassDashboard([]);
-                setSelectedClassId(nextClassId);
-                setTeacherGroupId("all");
-                setTeacherStudentContext({ studentId: null, studentName: "" });
-                setNameSaved(false);
-              }}
-              setStudentList={setStudentList}
-              setArchivedStudentList={setArchivedStudentList}
               studentList={studentList}
               studentListReadState={studentListReadState}
               loadingStudents={loadingStudents}
@@ -992,13 +983,10 @@ export function AppSurface({ surface }) {
                 await loadPromise;
               }}
               onStartCheck={startCheckForStudent}
-              onOpenAssessments={() => goToTeacherIntent(APP_VIEWS.ASSESSMENTS)}
               onOpenClasses={openStudentsPage}
               onOpenProgress={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
               createDemoClass={createDemoClass}
               teacherId={teacherId}
-              schoolName={teacherSchoolName}
-              hasSchool={hasTeacherSchool}
               message={message}
             />
           </Suspense>

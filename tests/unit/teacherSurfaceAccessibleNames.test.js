@@ -35,10 +35,16 @@ test("sound map status is spoken, not only coloured, and its definition opens on
   assert.doesNotMatch(students, /metricDefinitionText/);
   assert.match(students, /<MetricDefinition\s+metricId="accuracy"\s+label="Sound status"/);
 
-  // Class map: the picture's description names each sound under its status, and
-  // the same ⓘ carries the explanation.
+  // Class map (v2 Dashboard): every heat tile is a button that speaks its own
+  // status and counts, the grid opens with a one-sentence overview naming each
+  // sound under its status word, and the same ⓘ carries the explanation.
   assert.match(today, /const soundStatusSentence = \[/);
   assert.match(today, /label=\{`Class sound map\. \$\{soundStatusSentence\}/);
+  assert.match(
+    today,
+    /aria-label=\{`\$\{tile\.label\} · \$\{SOUND_TILE_STATUS_WORDS\[severity\]\} · \$\{tile\.gotIt\} got it/
+  );
+  assert.match(today, /SOUND_TILE_STATUS_WORDS = Object\.freeze\(\{/);
   assert.match(today, /<MetricDefinition\s+metricId="accuracy"\s+label="Sound status"/);
 });
 

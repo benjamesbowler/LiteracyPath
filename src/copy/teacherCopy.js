@@ -74,11 +74,8 @@ export const TEACHER_COPY = Object.freeze({
     showFewer: "Show fewer"
   }),
   today: Object.freeze({
-    label: "Today",
-    title: "Today",
-    descriptionWithClass: className => (
-      `See what ${className} needs today and choose the next action.`
-    ),
+    title: "Start with these students",
+    description: "Two urgent lists, capped at three names each. Everything else is one click away.",
     descriptionWithoutClass: "Choose a class to see today's next actions."
   }),
   classes: Object.freeze({

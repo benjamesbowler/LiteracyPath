@@ -18,10 +18,10 @@ test("Today keeps urgent work visible and only opens support while checking or a
   assert.ok(attentionAt > -1 && dueAt > attentionAt);
   assert.match(today, /teacher-today-priority-grid/);
   assert.match(today, /<details className="teacher-today-more">/);
-  assert.match(today, /<ClassHeatPanel rows=\{rows\} \/>/);
-  assert.match(today, /const \[open, setOpen\] = useState\(false\);/);
+  // v2 Dashboard: the sound map is an always-visible card below the two urgent
+  // lists (no Show/Hide latch), and its tiles open the class results view.
+  assert.match(today, /<ClassHeatPanel rows=\{rows\} onOpenReports=\{onOpenProgress\} \/>/);
   assert.match(today, /setSupportFollowUpOpen\(true\);/);
-  assert.match(today, /supportPlannerHeadingRef\.current\?\.focus\?\.\(\);/);
   assert.match(today, /open=\{supportFollowUpOpen \|\| supportQueueState\.loading\}/);
   assert.match(today, /if \(!supportQueueState\.loading\) \{\s*setSupportFollowUpOpen/);
   assert.match(today, /headingRef=\{supportPlannerHeadingRef\}/);
@@ -525,13 +525,12 @@ test("support plans cannot keep an empty or previous-class draft", async () => {
     source("src/components/teacher/InterventionLoop.jsx")
   ]);
 
-  const classChange = today.slice(
-    today.indexOf("function handleClassChange"),
-    today.indexOf("async function handleSetupContinue")
-  );
-  assert.match(classChange, /setInterventionRecommendation\(null\)/);
-  assert.match(classChange, /setSupportFollowUpOpen\(false\)/);
-  assert.match(classChange, /setSupportQueueState\(\{ count: 0, loading: true, unavailable: false \}\)/);
+  // v2 Dashboard: the page no longer owns a class picker (the shared context
+  // bar does, and its Change link navigates away, unmounting this page), so a
+  // support draft cannot survive into another class's view — the support
+  // panel remounts keyed by the selected class.
+  assert.doesNotMatch(today, /handleClassChange|<select/);
+  assert.match(today, /key=\{`\$\{teacherId \|\| "teacher"\}:\$\{selectedClass\.id\}`\}/);
   assert.match(support, /availableStudentIds\.has\(String\(id\)\)/);
   assert.match(support, /draft\.studentIds\.length === 0/);
   assert.match(support, /Choose at least one student before saving this support plan/);

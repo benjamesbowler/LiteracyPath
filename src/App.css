@@ -3292,60 +3292,129 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   background: #ffffff;
 }
 
-.teacher-dashboard-controls.teacher-today-class-control,
-.lg-app-shell .teacher-dashboard-page .teacher-dashboard-controls.teacher-today-class-control {
-  grid-template-columns: minmax(220px, 420px);
-  width: min(100%, 420px);
+/* ── TEACHER DASHBOARD (teacher-area redesign v2, phase 2) ─────────────────
+   The Dashboard is a plain column of white cards on the app background:
+   header, five-metric strip, the two capped urgent lists, the class sound
+   map, then collapsed recent changes. Class, school, teaching cycle and the
+   global Present / Assess-a-student actions live in the shared context bar
+   ABOVE this page — never inside it. */
+
+.teacher-product-page.teacher-today-page {
+  padding: 24px;
+  gap: 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--lp-color-background);
+  box-shadow: none;
+}
+
+.teacher-today-page .teacher-page-header,
+.lg-app-shell .teacher-today-page .teacher-page-header {
   padding: 0;
   border: 0;
-  background: transparent;
+  border-radius: 0;
+  /* lg-design-system paints .teacher-page-header white with !important; the
+     v2 Dashboard header sits directly on the page background. */
+  background: transparent !important;
+  box-shadow: none;
+}
+
+.teacher-today-page .teacher-dashboard-hero {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.teacher-today-page .teacher-page-header > div:only-child {
+  flex: 1;
+  text-align: left;
+}
+
+.teacher-today-page .teacher-page-header .panel-label {
+  margin: 0 0 4px;
+  color: var(--lp-color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.teacher-today-page .teacher-page-header h2 {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.teacher-today-page .teacher-page-header p:not(.panel-label) {
+  margin-top: 6px;
+  max-width: 60ch;
+}
+
+.teacher-today-page :focus-visible {
+  outline: 2px solid var(--lp-color-primary);
+  outline-offset: 2px;
 }
 
 .teacher-today-briefing {
   display: grid;
+  gap: 18px;
+}
+
+/* The five-metric strip. */
+.teacher-today-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 14px;
-  padding: 18px;
-  border: 1px solid var(--lp-color-border-subtle);
-  border-radius: 12px;
+}
+
+.teacher-today-metric {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
   background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
 }
 
-.teacher-today-briefing-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.teacher-today-briefing-head h3 {
-  margin: 3px 0 0;
-  color: var(--lp-color-text-strong);
-  font-size: 22px;
-}
-
-.teacher-today-heading-row {
-  display: flex;
+.teacher-today-metric-label {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  color: var(--lp-color-text-subtle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.teacher-today-briefing-head > p {
-  max-width: 520px;
-  margin: 0;
+.teacher-today-metric-value {
+  color: var(--lp-color-text-strong);
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.teacher-today-metric-value.is-text {
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.teacher-today-metric > small {
   color: var(--lp-color-text-muted);
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
+/* The two capped urgent lists. */
 .teacher-today-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-/* Attention hosts the class sound map, which needs the full width. */
-.teacher-today-grid .teacher-today-zone.attention {
-  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: 16px;
 }
 
 .teacher-today-show-all {
@@ -3356,57 +3425,83 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   display: grid;
   gap: 12px;
   justify-items: start;
+  padding: 14px 18px;
+}
+
+.teacher-today-first-day p {
+  margin: 0;
+  color: var(--lp-color-text);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .teacher-today-zone {
   min-width: 0;
-  display: grid;
-  align-content: start;
-  gap: 10px;
-  padding: 14px;
-  border: 1px solid var(--lp-color-border-subtle);
-  border-top: 4px solid var(--lp-color-primary);
-  border-radius: 10px;
-  background: var(--lp-color-surface-subtle);
-}
-
-.teacher-today-zone.attention {
-  border-top-color: var(--lp-color-warning);
-}
-
-.teacher-today-zone.changed {
-  border-top-color: var(--lp-color-success);
-}
-
-.teacher-today-zone.actions {
-  border-top-color: var(--lp-color-primary-strong);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+  overflow: hidden;
 }
 
 .teacher-today-zone-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
 }
 
-.teacher-today-zone-head span {
-  color: var(--lp-color-text-strong);
-  font-size: 15px;
-  font-weight: 850;
+.teacher-today-zone.attention > .teacher-today-zone-head {
+  background: var(--lp-color-danger-soft);
 }
 
-.teacher-today-zone-head strong {
-  min-width: 28px;
-  padding: 4px 8px;
+.teacher-today-zone.due > .teacher-today-zone-head {
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-today-zone-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-today-zone.attention .teacher-today-zone-title {
+  color: var(--lp-color-danger);
+}
+
+.teacher-today-zone.due .teacher-today-zone-title {
+  color: var(--lp-color-primary-strong);
+}
+
+.teacher-today-zone-head > strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 24px;
+  padding: 0 8px;
   border-radius: var(--lp-radius-pill);
-  background: #ffffff;
-  color: var(--lp-color-text-strong);
-  text-align: center;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-today-zone.attention > .teacher-today-zone-head > strong {
+  background: var(--lp-color-danger);
+}
+
+.teacher-today-zone.due > .teacher-today-zone-head > strong {
+  background: var(--lp-color-primary);
 }
 
 .teacher-today-zone ul {
   display: grid;
-  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -3414,71 +3509,246 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
 
 .teacher-today-zone li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  padding-top: 8px;
-  border-top: 1px solid var(--lp-color-border-subtle);
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
 }
 
-.teacher-today-zone li > div {
+.teacher-today-zone li > div:first-child {
   min-width: 0;
   display: grid;
-  gap: 2px;
+  gap: 3px;
+  justify-items: start;
 }
 
-.teacher-today-zone li strong,
-.teacher-today-zone li span,
-.teacher-today-zone li small {
-  display: block;
+.teacher-today-row-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.teacher-today-zone li strong {
+.teacher-today-row-title strong,
+.teacher-today-zone.changed li strong {
   color: var(--lp-color-text-strong);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-.teacher-today-zone li span {
+.teacher-today-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.teacher-today-pill.is-support {
+  border-color: transparent;
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+  font-weight: 700;
+}
+
+.teacher-today-row-focus {
   color: var(--lp-color-text);
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.teacher-today-zone li small,
-.teacher-today-zone > p {
+.teacher-today-zone li small {
   color: var(--lp-color-text-muted);
   font-size: 12px;
   line-height: 1.45;
 }
 
-.teacher-today-zone .text-button {
-  flex: 0 0 auto;
+.teacher-today-zone.changed li span {
+  color: var(--lp-color-text);
+  font-size: 13px;
 }
 
 .teacher-today-zone li > .teacher-today-row-actions {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
   flex: 0 0 auto;
-  gap: 8px;
+  gap: 6px;
 }
 
-.teacher-today-empty,
-.teacher-today-evidence-note,
-.teacher-today-zone.actions > p {
+.teacher-today-row-actions .lp-button {
+  min-height: 40px !important;
+  padding: 5px 14px !important;
+  font-size: 13px !important;
+  white-space: nowrap;
+}
+
+.lp-button.teacher-today-ghost {
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--lp-color-primary) !important;
+  box-shadow: none;
+}
+
+.lp-button.teacher-today-ghost:hover:not(:disabled) {
+  background: var(--lp-color-primary-soft) !important;
+}
+
+.teacher-today-empty {
   margin: 0;
+  padding: 14px 18px;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .teacher-today-evidence-note {
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: rgba(180, 83, 9, 0.08);
+  margin: 0;
+  margin-top: auto;
+  padding: 11px 18px;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
-.teacher-today-direct-actions {
+.teacher-today-zone-footer,
+.teacher-today-zone .teacher-today-show-all {
+  margin-top: auto;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-primary);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  justify-self: stretch;
+}
+
+.teacher-today-zone-footer:hover,
+.teacher-today-zone .teacher-today-show-all:hover {
+  background: var(--lp-color-primary-soft);
+}
+
+/* The class sound map card. */
+.teacher-sound-map {
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+  overflow: hidden;
+}
+
+.teacher-sound-map-head {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   flex-wrap: wrap;
-  gap: 8px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
 }
 
-.teacher-today-direct-actions .lp-button {
-  min-height: 40px;
+.teacher-sound-map-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-sound-map-summary {
+  margin: 3px 0 0;
+  color: var(--lp-color-text-muted);
+  font-size: 12.5px;
+}
+
+.teacher-sound-map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  padding: 14px 18px;
+}
+
+.teacher-sound-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 84px;
+  padding: 11px 13px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-subtle);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.12s ease;
+}
+
+.teacher-sound-tile:hover {
+  box-shadow: var(--lp-shadow-card);
+}
+
+/* Heat states. The three border hexes are the sound map's deliberate extras
+   from the design handoff; every other colour is a token. "Not met yet" is a
+   distinct state, never a low score. */
+.teacher-sound-tile.is-got-it {
+  border-color: #bbf7d0;
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+}
+
+.teacher-sound-tile.is-almost {
+  border-color: #fde68a;
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-warning);
+}
+
+.teacher-sound-tile.is-reteach {
+  border-color: #fecaca;
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+}
+
+.teacher-sound-tile-label {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.teacher-sound-tile-count {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.teacher-sound-tile-note {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.teacher-sound-map .class-heat-groups {
+  margin: 0;
+  padding: 0 18px 14px;
+}
+
+.teacher-sound-map .quest-heat-note {
+  margin: 0;
+  padding: 0 18px 14px;
 }
 
 .teacher-intervention-loop {
@@ -4378,16 +4648,6 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   }
 
   .teacher-roster-add {
-    grid-template-columns: 1fr;
-  }
-
-  .teacher-today-briefing-head {
-    align-items: start;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .teacher-today-grid {
     grid-template-columns: 1fr;
   }
 
@@ -23990,25 +24250,14 @@ body {
   grid-column: auto;
 }
 
-.teacher-today-briefing-head > div:first-child {
-  min-width: 0;
-  display: grid;
-  gap: 4px;
-}
-
-.teacher-today-briefing-head > div:first-child > p {
-  max-width: 64ch;
-  margin: 0;
-  color: var(--lp-color-text-muted);
-  font-size: 13px;
-  line-height: 1.45;
-}
-
+/* Recent changes: a collapsed card in the same chrome as the rest of the
+   Dashboard (teacher-area redesign v2). */
 .teacher-today-more {
   overflow: clip;
-  border: 1px solid var(--lp-color-border-subtle);
-  border-radius: 10px;
-  background: var(--lp-color-surface-subtle);
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
 }
 
 .teacher-today-more > summary,
@@ -24025,11 +24274,25 @@ body {
   cursor: pointer;
 }
 
+.teacher-today-more > summary {
+  padding: 13px 18px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .teacher-today-more > summary strong {
-  min-width: 28px;
-  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--lp-color-border);
   border-radius: var(--lp-radius-pill);
-  background: #fff;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -24042,18 +24305,7 @@ body {
   border: 0;
   border-radius: 0;
   background: transparent;
-}
-
-.teacher-today-briefing > .class-heat-panel {
-  margin: 0;
-}
-
-.teacher-today-briefing > .class-heat-panel .quest-heat-head {
-  min-height: 44px;
-}
-
-.teacher-today-briefing > .class-heat-panel .text-button {
-  flex: 0 0 auto;
+  box-shadow: none;
 }
 
 .teacher-students-page .teacher-dashboard-roster {

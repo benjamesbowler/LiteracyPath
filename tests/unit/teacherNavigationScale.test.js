@@ -91,14 +91,18 @@ test("the report funnel hands focus to Show the report after the final choice", 
   assert.match(source, /ref=\{showButtonRef\}/);
 });
 
-test("Today allocates one three-action preview budget across both urgent sections", () => {
+// v2 Dashboard: the two urgent lists preview independently — attention shows
+// up to three rows and due shows "3 of N" with the rest one click away. They
+// no longer share a single three-row budget that could push every due row out
+// of sight behind a full attention list.
+test("Today previews up to three rows in each urgent section independently", () => {
   assert.deepEqual(
     allocateTeacherTodayUrgentPreviews({
       attentionCount: 8,
       dueCount: 9,
       maximum: 3
     }),
-    { attention: 3, due: 0, total: 3 }
+    { attention: 3, due: 3, total: 6 }
   );
   assert.deepEqual(
     allocateTeacherTodayUrgentPreviews({
@@ -106,7 +110,7 @@ test("Today allocates one three-action preview budget across both urgent section
       dueCount: 9,
       maximum: 3
     }),
-    { attention: 1, due: 2, total: 3 }
+    { attention: 1, due: 3, total: 4 }
   );
 
   const today = readFileSync(
@@ -117,10 +121,12 @@ test("Today allocates one three-action preview budget across both urgent section
     new URL("../../src/components/AppSurface.jsx", import.meta.url),
     "utf8"
   );
-  assert.match(today, /onClick=\{\(\) => onOpenAssessments\?\.\(\)\}/);
+  // Assessing stays one tap away: every urgent row carries Assess, and the
+  // global entry lives in the shared context bar above the page.
+  assert.match(today, /onClick=\{\(\) => onStartCheck\?\.\(row\)\}/);
   assert.match(
     surface,
-    /onOpenAssessments=\{\(\) => goToTeacherIntent\(APP_VIEWS\.ASSESSMENTS\)\}/
+    /onAssess=\{\(\) => goToTeacherIntent\(APP_VIEWS\.ASSESSMENTS\)\}/
   );
 });
 

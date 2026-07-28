@@ -259,8 +259,11 @@ test("Today shows the loading state rather than a briefing full of zeros", () =>
   assert.match(loading, /aria-busy="true"/);
   assert.doesNotMatch(loading, /No student needs a review/);
   assert.doesNotMatch(loading, /Today&#x27;s class briefing|Today's class briefing/);
-  // The class picker survives the loading state, so the teacher keeps context.
-  assert.match(loading, /Audit Class A/);
+  // v2 Dashboard: the class name lives in the shared context bar above the
+  // page, so the page itself must not invent zeros while loading — the header
+  // still frames the briefing without claiming any figures.
+  assert.match(loading, /Start with these students/);
+  assert.doesNotMatch(loading, /0 of 0/);
 
   const settled = renderToStaticMarkup(React.createElement(TeacherTodayPage, {
     ...shared,
@@ -477,7 +480,9 @@ test("a stale class id settles on a chooser instead of an endless loading state"
   assert.match(students, /Choose a class/);
   assert.doesNotMatch(students, /data-teacher-state="loading"/);
   assert.doesNotMatch(students, /No classes yet/);
-  assert.match(today, /Choose class/);
+  // v2 Dashboard: no in-page class picker; the header sends the teacher to
+  // choose a class (via the context bar's Change link) instead of spinning.
+  assert.match(today, /Choose a class to see today/);
   assert.doesNotMatch(today, /data-teacher-state="loading"/);
   assert.doesNotMatch(today, /No classes yet/);
 });
