@@ -1,6 +1,12 @@
 -- Preserve every administrator account decision and stop an ordinary teacher
 -- from moving an entire class roster by editing a field labelled "School name".
 
+begin;
+
+-- Keep account writes from racing the legacy snapshot backfill. Reads may
+-- continue while the event table and replacement RPCs are committed together.
+lock table public.pending_teacher_accounts in share row exclusive mode;
+
 create table if not exists public.teacher_account_decision_events (
   id uuid primary key default gen_random_uuid(),
   account_id uuid not null,
@@ -14,11 +20,31 @@ create table if not exists public.teacher_account_decision_events (
   decided_at timestamptz not null default clock_timestamp(),
   created_at timestamptz not null default clock_timestamp(),
   constraint teacher_account_decision_events_previous_status_check
-    check (previous_status in ('pending', 'approved', 'rejected', 'disabled')),
+    check (
+      previous_status in (
+        'unknown',
+        'pending',
+        'approved',
+        'rejected',
+        'disabled'
+      )
+    ),
   constraint teacher_account_decision_events_decision_status_check
     check (decision_status in ('approved', 'rejected', 'disabled')),
-  constraint teacher_account_decision_events_reason_length_check
-    check (reason is null or char_length(reason) between 5 and 500)
+  constraint teacher_account_decision_events_reason_status_check
+    check (
+      (
+        decision_status = 'approved'
+        and reason is null
+      )
+      or
+      (
+        decision_status in ('rejected', 'disabled')
+        and reason is not null
+        and reason = btrim(reason)
+        and char_length(reason) between 5 and 500
+      )
+    )
 );
 
 create index if not exists teacher_account_decision_events_account_time_idx
@@ -87,15 +113,27 @@ insert into public.teacher_account_decision_events (
 select
   account.id,
   account.user_id,
-  'pending',
+  -- The summary-only legacy row does not preserve the earlier status.
+  'unknown',
   lower(coalesce(nullif(account.approval_status, ''), account.status)),
   case
     when lower(coalesce(nullif(account.approval_status, ''), account.status))
       in ('rejected', 'disabled')
-    then coalesce(
-      nullif(btrim(coalesce(account.rejection_reason, '')), ''),
-      'Legacy decision; no reason was recorded.'
-    )
+    then case
+      when nullif(btrim(coalesce(account.rejection_reason, '')), '') is null
+        then 'Legacy decision; no reason was recorded.'
+      when char_length(btrim(account.rejection_reason)) between 5 and 500
+        then btrim(account.rejection_reason)
+      when char_length(btrim(account.rejection_reason)) < 5
+        then left(
+          'Legacy reason: ' || btrim(account.rejection_reason),
+          500
+        )
+      else left(
+        'Legacy reason (truncated): ' || btrim(account.rejection_reason),
+        500
+      )
+    end
     else null
   end,
   account.school_id,
@@ -119,6 +157,11 @@ from public.pending_teacher_accounts account
 left join public.schools school on school.id = account.school_id
 where lower(coalesce(nullif(account.approval_status, ''), account.status))
     in ('approved', 'rejected', 'disabled')
+  and not exists (
+    select 1
+    from public.teacher_account_decision_events existing
+    where existing.account_id = account.id
+  )
 on conflict (account_id, decision_status, decided_at) do nothing;
 
 create or replace function public.admin_set_teacher_account_status(
@@ -318,6 +361,12 @@ begin
   where account.user_id = v_user
   for update;
 
+  -- A same-school no-op is still an authenticated tenant lookup. Rejected,
+  -- disabled and pending teachers must fail before any school details return.
+  if not v_is_admin then
+    perform public.assert_current_actor_teacher_access();
+  end if;
+
   if found and v_account.school_id is not null and not v_is_admin then
     select school.id, school.name
     into v_id, v_name
@@ -341,7 +390,6 @@ begin
   end if;
 
   if not v_is_admin then
-    perform public.assert_current_actor_teacher_access();
     if v_account.id is null or v_account.school_id is not null then
       raise exception using
         errcode = '42501',
@@ -419,3 +467,5 @@ grant execute on function public.teacher_set_school(text)
   to authenticated;
 
 notify pgrst, 'reload schema';
+
+commit;

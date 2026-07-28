@@ -289,10 +289,16 @@ begin
   end if;
 
   if tg_op = 'UPDATE' and new.status = 'cancelled' and (
-    old.status not in ('planned', 'delivered')
-    or new.cancelled_at is null
+    new.cancelled_at is null
     or char_length(btrim(coalesce(new.cancel_reason, ''))) not between 1 and 500
-    or new.cancelled_from_status <> old.status
+    or new.cancelled_from_status not in ('planned', 'delivered')
+    or (
+      old.status <> 'cancelled'
+      and (
+        old.status not in ('planned', 'delivered')
+        or new.cancelled_from_status <> old.status
+      )
+    )
   ) then
     raise exception 'Cancelling support requires its server time, reason, and previous state';
   end if;

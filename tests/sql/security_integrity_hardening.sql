@@ -47,20 +47,21 @@ values (
   'integrity-admin@example.invalid'
 );
 
+insert into public.schools (id, name)
+values (
+  'b0200000-0000-4000-8000-000000000001',
+  'Integrity Audit School'
+);
+
 -- Database-owner setup is deliberately allowed for migrations and the
 -- deterministic audit seed. SET ROLE browser simulations below must not inherit
 -- this path even though session_user remains the test database owner.
 update public.pending_teacher_accounts
 set role = 'teacher',
     status = 'approved',
-    approval_status = 'approved'
+    approval_status = 'approved',
+    school_id = 'b0200000-0000-4000-8000-000000000001'
 where user_id = 'b0100000-0000-4000-8000-000000000001';
-
-insert into public.schools (id, name)
-values (
-  'b0200000-0000-4000-8000-000000000001',
-  'Integrity Audit School'
-);
 
 insert into public.classes (
   id,

@@ -12,6 +12,7 @@ import {
   TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
   auditSecurityDefinerCatalog
 } from "./databasePolicyContract.mjs";
+import { auditHostedSchemaDriftCatalog } from "./hostedSchemaDriftContract.mjs";
 import { isApprovedAuditDatabaseUrl } from "./seedAuditSchool.mjs";
 import { verifyAuditSchoolLive } from "./verifyAuditSchoolLive.mjs";
 import { verifyLeaderboardPrivacyLive } from "./verifyLeaderboardPrivacyLive.mjs";
@@ -35,7 +36,7 @@ const EXPECTED = Object.freeze({
   studentPassword: "111"
 });
 
-const AUTH_ONLY_PROBE_ARGS = Object.freeze({
+export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "admin_error_monitor_summary()": {},
   "admin_get_school_retention_policy(uuid)": { p_school_id: EXPECTED.schoolId },
   "admin_list_deletion_propagation(uuid)": { p_school_id: EXPECTED.schoolId },
@@ -91,6 +92,24 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_activity: "Audit",
     p_planned_for: "2026-07-25"
   },
+  "teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date)": {
+    p_parent_intervention_id: "00000000-0000-0000-0000-000000000000",
+    p_owner_label: "Audit",
+    p_group_label: "Audit",
+    p_student_ids: [],
+    p_focus: "Audit",
+    p_activity: "Audit",
+    p_planned_for: "2026-07-25"
+  },
+  "teacher_create_intervention_plan(uuid, text, text, uuid[], text, text, date)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_owner_label: "Audit",
+    p_group_label: "Audit",
+    p_student_ids: [],
+    p_focus: "Audit",
+    p_activity: "Audit",
+    p_planned_for: "2026-07-25"
+  },
   "teacher_complete_learner_deletion(uuid, text, jsonb)": {
     p_request_id: "00000000-0000-0000-0000-000000000000",
     p_subject_ref: "0".repeat(64),
@@ -105,6 +124,9 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_subject_ref: "0".repeat(64),
     p_confirmation: "DO NOT DELETE"
   },
+  "teacher_delete_planned_intervention(uuid)": {
+    p_intervention_id: "00000000-0000-0000-0000-000000000000"
+  },
   "teacher_delete_saved_assessment_report(text)": {
     p_report_id: "audit-forbidden"
   },
@@ -118,6 +140,9 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_subject_ref: "0".repeat(64)
   },
   "teacher_list_learner_data_rights(uuid)": { p_student_id: EXPECTED.teacherA.studentId },
+  "teacher_mark_intervention_delivered(uuid)": {
+    p_intervention_id: "00000000-0000-0000-0000-000000000000"
+  },
   "teacher_prepare_learner_deletion(uuid, text, text)": {
     p_student_id: EXPECTED.teacherA.studentId,
     p_requester_role: "school",
@@ -132,6 +157,11 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_follow_up_activity: "Audit",
     p_follow_up_on: "2026-07-25"
   },
+  "teacher_record_intervention_outcome(uuid, text, text)": {
+    p_intervention_id: "00000000-0000-0000-0000-000000000000",
+    p_outcome: "effective",
+    p_outcome_note: "Anonymous access probe"
+  },
   "teacher_regenerate_class_code(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_reset_student_progress(uuid, timestamp with time zone)": {
     p_student_id: EXPECTED.teacherA.studentId,
@@ -142,12 +172,20 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_student_ids: [],
     p_evidence_snapshot: {}
   },
+  "teacher_review_intervention(uuid, date)": {
+    p_intervention_id: "00000000-0000-0000-0000-000000000000",
+    p_next_review_on: "2026-07-25"
+  },
   "teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)": {
     p_class_id: EXPECTED.teacherA.classId,
     p_name: "Audit",
     p_criteria: {},
     p_student_ids: [],
     p_evidence_snapshot: {}
+  },
+  "teacher_cancel_intervention(uuid, text)": {
+    p_intervention_id: "00000000-0000-0000-0000-000000000000",
+    p_reason: "Anonymous access probe"
   },
   "teacher_set_class_code_expiry(uuid, timestamp with time zone)": {
     p_class_id: EXPECTED.teacherA.classId,
@@ -174,10 +212,19 @@ const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_sequence: "123",
     p_set_at: "2026-07-27T00:00:00.000Z"
   },
-  "teacher_set_school(text)": { p_school_name: EXPECTED.schoolName }
+  "teacher_set_school(text)": { p_school_name: EXPECTED.schoolName },
+  "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)": {
+    p_intervention_id: "00000000-0000-0000-0000-000000000000",
+    p_owner_label: "Audit",
+    p_group_label: "Audit",
+    p_student_ids: [],
+    p_focus: "Audit",
+    p_activity: "Audit",
+    p_planned_for: "2026-07-25"
+  }
 });
 
-const CATALOG_QUERY = String.raw`
+export const CATALOG_QUERY = String.raw`
 select json_build_object(
   'functions',
   coalesce((
@@ -203,6 +250,28 @@ select json_build_object(
         and procedure.prosecdef
     ) function_row
   ), '[]'::json),
+  'all_functions',
+  coalesce((
+    select json_agg(function_row order by function_row.signature)
+    from (
+      select
+        procedure.proname || '(' || oidvectortypes(procedure.proargtypes) || ')' as signature,
+        exists (
+          select 1
+          from aclexplode(coalesce(
+            procedure.proacl,
+            acldefault('f', procedure.proowner)
+          )) privilege
+          where privilege.grantee = 0
+            and privilege.privilege_type = 'EXECUTE'
+        ) as public_execute,
+        has_function_privilege('anon', procedure.oid, 'EXECUTE') as anon_execute,
+        has_function_privilege('authenticated', procedure.oid, 'EXECUTE') as authenticated_execute
+      from pg_proc procedure
+      join pg_namespace namespace on namespace.oid = procedure.pronamespace
+      where namespace.nspname = 'public'
+    ) function_row
+  ), '[]'::json),
   'tables',
   coalesce((
     select json_agg(table_row order by table_row.table_name)
@@ -213,12 +282,58 @@ select json_build_object(
         has_table_privilege('anon', class.oid, 'SELECT') as anon_select,
         has_table_privilege('anon', class.oid, 'INSERT') as anon_insert,
         has_table_privilege('anon', class.oid, 'UPDATE') as anon_update,
-        has_table_privilege('anon', class.oid, 'DELETE') as anon_delete
+        has_table_privilege('anon', class.oid, 'DELETE') as anon_delete,
+        has_table_privilege('anon', class.oid, 'TRUNCATE') as anon_truncate,
+        has_table_privilege('anon', class.oid, 'REFERENCES') as anon_references,
+        has_table_privilege('anon', class.oid, 'TRIGGER') as anon_trigger,
+        has_table_privilege('anon', class.oid, 'MAINTAIN') as anon_maintain,
+        has_table_privilege('authenticated', class.oid, 'SELECT') as authenticated_select,
+        has_table_privilege('authenticated', class.oid, 'INSERT') as authenticated_insert,
+        has_table_privilege('authenticated', class.oid, 'UPDATE') as authenticated_update,
+        has_table_privilege('authenticated', class.oid, 'DELETE') as authenticated_delete,
+        has_table_privilege('authenticated', class.oid, 'TRUNCATE') as authenticated_truncate,
+        has_table_privilege('authenticated', class.oid, 'REFERENCES') as authenticated_references,
+        has_table_privilege('authenticated', class.oid, 'TRIGGER') as authenticated_trigger,
+        has_table_privilege('authenticated', class.oid, 'MAINTAIN') as authenticated_maintain
       from pg_class class
       join pg_namespace namespace on namespace.oid = class.relnamespace
       where namespace.nspname = 'public'
         and class.relkind in ('r', 'p')
     ) table_row
+  ), '[]'::json),
+  'policies',
+  coalesce((
+    select json_agg(
+      json_build_object(
+        'table_name', policy.tablename,
+        'policy_name', policy.policyname,
+        'permissive', policy.permissive,
+        'roles', policy.roles,
+        'command', policy.cmd
+      )
+      order by policy.tablename, policy.policyname
+    )
+    from pg_policies policy
+    where policy.schemaname = 'public'
+  ), '[]'::json),
+  'sequences',
+  coalesce((
+    select json_agg(sequence_row order by sequence_row.sequence_name)
+    from (
+      select
+        class.relname as sequence_name,
+        has_sequence_privilege('anon', class.oid, 'SELECT') as anon_select,
+        has_sequence_privilege('anon', class.oid, 'USAGE') as anon_usage,
+        has_sequence_privilege('anon', class.oid, 'UPDATE') as anon_update,
+        has_sequence_privilege('authenticated', class.oid, 'SELECT') as authenticated_select,
+        has_sequence_privilege('authenticated', class.oid, 'USAGE') as authenticated_usage,
+        has_sequence_privilege('authenticated', class.oid, 'UPDATE') as authenticated_update
+      from pg_class class
+      join pg_namespace namespace on namespace.oid = class.relnamespace
+      where namespace.nspname = 'public'
+        and class.relkind = 'S'
+        and class.relname = 'data_rights_audit_events_id_seq'
+    ) sequence_row
   ), '[]'::json)
 );`;
 
@@ -313,7 +428,11 @@ function verifyTableCatalog(rows) {
     const anonymousPrivileges = [
       row.anon_insert && "INSERT",
       row.anon_update && "UPDATE",
-      row.anon_delete && "DELETE"
+      row.anon_delete && "DELETE",
+      row.anon_truncate && "TRUNCATE",
+      row.anon_references && "REFERENCES",
+      row.anon_trigger && "TRIGGER",
+      row.anon_maintain && "MAINTAIN"
     ].filter(Boolean);
     if (anonymousPrivileges.length) {
       failures.push(`${row.table_name}: anon has ${anonymousPrivileges.join("/")}`);
@@ -834,7 +953,17 @@ export async function verifyDatabasePoliciesLive({
   const catalog = await runPsqlJson(databaseUrl, CATALOG_QUERY);
   const functionReport = auditSecurityDefinerCatalog(catalog.functions || []);
   const tableFailures = verifyTableCatalog(catalog.tables || []);
-  const catalogFailures = [...functionReport.failures, ...tableFailures];
+  const hostedDriftReport = auditHostedSchemaDriftCatalog({
+    tables: catalog.tables || [],
+    policies: catalog.policies || [],
+    allFunctions: catalog.all_functions || [],
+    sequences: catalog.sequences || []
+  });
+  const catalogFailures = [
+    ...functionReport.failures,
+    ...tableFailures,
+    ...hostedDriftReport.failures
+  ];
   if (catalogFailures.length) {
     throw new Error(`Live database catalogue failed:\n- ${catalogFailures.join("\n- ")}`);
   }
@@ -867,6 +996,9 @@ export async function verifyDatabasePoliciesLive({
       anonymousRpcs: functionReport.anonymousRpcCount,
       authenticatedRpcs: functionReport.authenticatedRpcCount,
       rlsTables: catalog.tables?.length || 0,
+      historicalHostedPoliciesRemoved: hostedDriftReport.historicalPolicyCount,
+      retainedHostedTablesLocked: hostedDriftReport.retainedHostedTablesPresent,
+      exactAuthenticatedTableGrants: hostedDriftReport.exactGrantTableCount,
       isolation,
       teacherAccountStatus,
       codeLifecycle,

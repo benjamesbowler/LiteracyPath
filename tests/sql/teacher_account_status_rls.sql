@@ -48,28 +48,36 @@ as $$
 declare
   v_expected constant text[] := array[
     'teacher_assign_instructional_group_follow_up(uuid,text,text,date)',
+    'teacher_cancel_intervention(uuid,text)',
     'teacher_class_access_log(uuid,integer)',
     'teacher_class_access_summary(uuid)',
     'teacher_complete_learner_deletion(uuid,text,jsonb)',
     'teacher_create_insight_intervention(text,uuid,jsonb,uuid[],text[],text,text,date)',
+    'teacher_create_intervention_follow_up(uuid,text,text,uuid[],text,text,date)',
+    'teacher_create_intervention_plan(uuid,text,text,uuid[],text,text,date)',
     'teacher_delete_empty_class(uuid)',
     'teacher_delete_learner_data_staged(uuid,uuid,text,text)',
+    'teacher_delete_planned_intervention(uuid)',
     'teacher_delete_saved_assessment_report(text)',
     'teacher_export_learner_data(uuid,text,text)',
     'teacher_get_learner_deletion_status(uuid,text)',
     'teacher_list_learner_data_rights(uuid)',
+    'teacher_mark_intervention_delivered(uuid)',
     'teacher_prepare_learner_deletion(uuid,text,text)',
     'teacher_record_insight_observation(uuid,jsonb,uuid[],text,text,text,date)',
+    'teacher_record_intervention_outcome(uuid,text,text)',
     'teacher_regenerate_class_code(uuid)',
     'teacher_reset_student_progress(uuid,timestamp with time zone)',
     'teacher_review_instructional_group(uuid,uuid[],jsonb)',
+    'teacher_review_intervention(uuid,date)',
     'teacher_save_instructional_group(uuid,text,jsonb,uuid[],jsonb)',
     'teacher_set_class_code_expiry(uuid,timestamp with time zone)',
     'teacher_set_class_leaderboard_scope(uuid,text)',
     'teacher_set_school(text)',
     'teacher_set_student_archived(uuid,uuid,boolean)',
     'teacher_set_student_symbol_password(uuid,text,timestamp with time zone)',
-    'teacher_transfer_student(uuid,uuid,uuid)'
+    'teacher_transfer_student(uuid,uuid,uuid)',
+    'teacher_update_planned_intervention(uuid,text,text,uuid[],text,text,date)'
   ];
   v_actual text[];
   v_rpc record;

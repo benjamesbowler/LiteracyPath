@@ -5,10 +5,14 @@ import test from "node:test";
 import {
   ANON_SECURITY_DEFINER_RPCS,
   AUTHENTICATED_SECURITY_DEFINER_RPCS,
+  AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
   TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
   auditSecurityBoundarySource,
   auditSecurityDefinerCatalog
 } from "../../tools/databasePolicyContract.mjs";
+import {
+  AUTH_ONLY_PROBE_ARGS
+} from "../../tools/verifyDatabasePoliciesLive.mjs";
 
 function row(signature, { anon = false, authenticated = false, publicRole = false } = {}) {
   return {
@@ -27,6 +31,8 @@ function validCatalog() {
   }));
   exposed.push(row("student_from_token(text)"));
   exposed.push(row("create_pending_teacher_account_for_new_user()"));
+  exposed.push(row("capture_teacher_intervention_event()"));
+  exposed.push(row("reject_teacher_account_decision_event_mutation()"));
   return exposed;
 }
 
@@ -34,15 +40,22 @@ test("security boundary grants only the explicit RPC surface and guards every te
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
   assert.equal(report.anonymousRpcCount, 10);
-  assert.equal(report.authenticatedRpcCount, 47);
+  assert.equal(report.authenticatedRpcCount, 55);
   assert.equal(report.legacyRpcCount, 8);
-  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 23);
+  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 31);
+});
+
+test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
+  assert.deepEqual(
+    Object.keys(AUTH_ONLY_PROBE_ARGS).sort(),
+    [...AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS].sort()
+  );
 });
 
 test("security boundary rejects a teacher RPC missing from the account-status inventory", () => {
   const teacherAccountSource = fs.readFileSync(
     new URL(
-      "../../supabase/migrations/20260728100000_teacher_account_status_rls.sql",
+      "../../supabase/migrations/20260728128000_security_definer_boundary.sql",
       import.meta.url
     ),
     "utf8"
@@ -61,13 +74,13 @@ test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
   assert.equal(report.anonymousRpcCount, 10);
-  assert.equal(report.authenticatedRpcCount, 47);
-  assert.equal(report.privateHelperCount, 2);
+  assert.equal(report.authenticatedRpcCount, 55);
+  assert.equal(report.privateHelperCount, 4);
 });
 
 test("signed-out school autocomplete is the only added anonymous teacher-signup RPC", () => {
   const boundary = fs.readFileSync(
-    new URL("../../supabase/migrations/20260728125000_security_definer_boundary.sql", import.meta.url),
+    new URL("../../supabase/migrations/20260728128000_security_definer_boundary.sql", import.meta.url),
     "utf8"
   );
   const schoolInput = fs.readFileSync(
@@ -88,6 +101,47 @@ test("signed-out school autocomplete is the only added anonymous teacher-signup 
     /grant execute on function public\.list_school_names\(\)\s+to anon, authenticated/i
   );
   assert.match(schoolInput, /\.call\("list_school_names"\)/);
+});
+
+test("final boundary keeps support and account-decision evidence read-only", () => {
+  const boundary = fs.readFileSync(
+    new URL("../../supabase/migrations/20260728128000_security_definer_boundary.sql", import.meta.url),
+    "utf8"
+  );
+  assert.match(
+    boundary,
+    /revoke all on table public\.teacher_intervention_events[\s\S]*grant select on table public\.teacher_intervention_events[\s\S]*to authenticated/i
+  );
+  assert.match(
+    boundary,
+    /revoke all on table public\.teacher_interventions[\s\S]*from public, anon, authenticated[\s\S]*grant select on table public\.teacher_interventions[\s\S]*to authenticated/i
+  );
+  assert.match(
+    boundary,
+    /revoke all on table public\.teacher_account_decision_events[\s\S]*grant select on table public\.teacher_account_decision_events[\s\S]*to authenticated/i
+  );
+});
+
+test("final boundary exposes each reviewed support lifecycle RPC only to authenticated actors", () => {
+  const boundary = fs.readFileSync(
+    new URL("../../supabase/migrations/20260728128000_security_definer_boundary.sql", import.meta.url),
+    "utf8"
+  );
+  for (const signature of [
+    "teacher_create_intervention_plan",
+    "teacher_update_planned_intervention",
+    "teacher_delete_planned_intervention",
+    "teacher_mark_intervention_delivered",
+    "teacher_record_intervention_outcome",
+    "teacher_review_intervention",
+    "teacher_cancel_intervention",
+    "teacher_create_intervention_follow_up"
+  ]) {
+    assert.match(
+      boundary,
+      new RegExp(`grant execute on function public\\.${signature}\\([\\s\\S]*?\\)\\s+to authenticated`, "i")
+    );
+  }
 });
 
 test("catalog audit rejects inherited PUBLIC execution", () => {

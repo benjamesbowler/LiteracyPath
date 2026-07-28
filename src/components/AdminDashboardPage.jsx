@@ -2960,7 +2960,11 @@ export function AdminDashboardPage({
                           <td data-label="Teacher account">{accountLabel}</td>
                           <td data-label="Decision">
                             <strong>{event.decision_status}</strong>
-                            <small>Previously {event.previous_status}</small>
+                            <small>
+                              {event.previous_status === "unknown"
+                                ? "Earlier status unavailable"
+                                : `Previously ${event.previous_status}`}
+                            </small>
                           </td>
                           <td data-label="Reason">
                             {event.reason || (

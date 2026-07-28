@@ -40,8 +40,7 @@ export function validateClassRow(row, label) {
     leaderboard_scope: "string",
     symbol_password: ["array", "string"],
     approved: "boolean",
-    ok: "boolean"
-    ,
+    ok: "boolean",
     account_id: "string",
     teacher_user_id: "string",
     previous_status: "string",

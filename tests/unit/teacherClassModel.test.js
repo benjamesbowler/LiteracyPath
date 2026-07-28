@@ -108,7 +108,8 @@ test("current conclusions use the 90-day summary while lifetime activity stays v
   assert.equal(row.accuracy, 97);
   assert.equal(row.learningConclusion.attempts, 8);
   assert.equal(row.learningConclusion.accuracy, 25);
-  assert.equal(row.learningConclusion.status.label, "Needs support");
+  assert.equal(row.learningConclusion.status.label, "Not enough results");
+  assert.match(row.learningConclusion.reason, /required skills/i);
 });
 
 test("an incomplete dashboard read cannot become a learning conclusion", () => {
