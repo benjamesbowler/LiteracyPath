@@ -2,6 +2,8 @@ import { Suspense, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import logoUrl from "../assets/logo.svg";
+import { TeacherContextBar } from "./teacher/TeacherContextBar.jsx";
+import { teacherCycleOptions } from "./teacher/teacherCycleReference.js";
 import { supabase, isSupabaseConfigured } from "../supabaseClient.js";
 import { skillTree } from "../skillTree.js";
 import {
@@ -114,6 +116,26 @@ export function AppSurface({ surface }) {
   // picks it up once, opens the right control, then clears it.
   const [setupFocus, setSetupFocus] = useState("");
   const [adminConfirmError, setAdminConfirmError] = useState("");
+  // The context bar's teaching cycle - a teacher-set reference (never
+  // automated; Benjamin's 2026-07-28 decision), remembered across sessions
+  // and fed to Present mode as its default cycle.
+  const [teacherCycleId, setTeacherCycleId] = useState(() => {
+    try {
+      const stored = window.localStorage.getItem("lp-teacher-cycle");
+      if (stored && teacherCycleOptions().some(option => option.id === stored)) return stored;
+    } catch {
+      // localStorage unavailable - fall through to the first cycle.
+    }
+    return teacherCycleOptions()[0]?.id || "";
+  });
+  function changeTeacherCycle(nextCycleId) {
+    setTeacherCycleId(nextCycleId);
+    try {
+      window.localStorage.setItem("lp-teacher-cycle", nextCycleId);
+    } catch {
+      // localStorage unavailable - the in-session choice still applies.
+    }
+  }
 
   function selectedClassStudent(studentOrId) {
     const requestedId = typeof studentOrId === "object"
@@ -764,6 +786,18 @@ export function AppSurface({ surface }) {
         </Suspense>
       )}
       <div className="lg-content-area">
+      {!isFocusedShell && !isStudentMode && (
+        <TeacherContextBar
+          className={getSelectedClassName(classList, selectedClassId)}
+          schoolName={teacherSchoolName || ""}
+          studentCount={classList.find(row => row.id === selectedClassId)?.studentCount ?? null}
+          cycleId={teacherCycleId}
+          onChangeCycle={changeTeacherCycle}
+          onChangeClass={() => goToTeacherIntent(APP_VIEWS.TEACHER_SETTINGS)}
+          onPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
+          onAssess={() => goToTeacherIntent(APP_VIEWS.ASSESSMENTS)}
+        />
+      )}
       <div className={appShellClassName}>
       {!isSupabaseConfigured && !isStudentMode && (
         <div className="supabase-config-banner" role="alert">
@@ -1373,6 +1407,7 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading Present mode..." />}>
             <PresentPage
               className={getSelectedClassName(classList, selectedClassId)}
+              currentCycleId={teacherCycleId}
               onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             />
           </Suspense>

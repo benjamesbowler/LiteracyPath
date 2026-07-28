@@ -34,11 +34,13 @@ bar belongs at the top of `lg-content-area` for teacher views only).
 Files: `Sidebar.jsx` (already has the right order/footer; needs class chip + Dashboard
 badge + v2 visuals), new `teacher/TeacherContextBar.jsx`, `App.css` /
 `lg-design-system.css`, `AppSurface.jsx`.
-⚠ Data gap: **no class-level "current cycle" exists in the model** (verified 2026-07-28
-during the Present work — nothing in class state carries a cycle). The bar's cycle slot
-needs a real derivation (decide: teacher-set field on the class vs derived from class
-progress) — decide before building the bar, since Dashboard's sound map and the
-Assessments suggestion block want the same value.
+✔ RESOLVED + SHIPPED (2026-07-28, same day): Benjamin chose a **teacher-set reference,
+never automated** — the bar carries a cycle `<select>` with small previous/next
+stepper buttons, remembered in localStorage (`lp-teacher-cycle`) and fed to
+PresentPage's `currentCycleId`. `TeacherContextBar.jsx` + `teacherCycleReference.js`
++ `teacher-context-bar.css`, mounted in AppSurface for non-focused teacher views.
+Still open in phase 1: the v2 sidebar class chip + Dashboard badge (sidebar is
+already #0F172A), and screenshot QA of the bar inside an authed teacher session.
 
 Phase 2 — **Dashboard** (`TeacherTodayPage.jsx`): header, 5-metric strip (keep the
 existing "fair average" tooltip wording), the two capped lists (attention 3 max / due
