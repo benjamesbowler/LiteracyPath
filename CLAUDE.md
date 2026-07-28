@@ -39,10 +39,13 @@ Rules:
 
 ## Pushing
 
-Agents cannot push (no credentials in their sandboxes). After every committed
-edit batch, END the handover with the exact push command for Benjamin:
-
-    git push origin <branch>
-
-A local post-commit hook prints the same reminder. Never leave a session
-without surfacing unpushed work.
+Agents SHOULD push a committed batch themselves when the push token is present
+(policy changed 2026-07-28 at Benjamin's request). The mechanism, the safety
+rules, and the no-token fallback live in **`AGENTS.md` → "Pushing — agents push
+when the token is present"**: in short, read `LP_GITHUB_PUSH_TOKEN` from the
+gitignored `.env.local`, push from the session's clone chained on green checks,
+never from the device VM, never force, never exposing the token; with no token
+reachable, commit locally and END the handover with the exact push command for
+Benjamin (`git push origin <branch>`). A local post-commit hook prints the same
+reminder. Never leave a session without either pushing or surfacing unpushed
+work.

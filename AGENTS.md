@@ -126,3 +126,39 @@ Prompt rules (learned the hard way):
   Square **640×640**.
 - Art direction: realistic cartoon; fantasy / sci-fi / nature only; no rainbow motifs; no faces on
   inanimate objects; not babyish.
+
+## Pushing — agents push when the token is present
+
+Policy (changed 2026-07-28 at Benjamin's request; supersedes "agents cannot push"):
+agents SHOULD push a committed batch themselves when a push path exists. The gate
+from the manual still applies — push only chained on green checks, never bare.
+
+The one working push path is a repo-scoped token in `.env.local` (gitignored):
+
+    LP_GITHUB_PUSH_TOKEN=<fine-grained GitHub PAT, LiteracyPath only, Contents: read and write>
+
+How to push with it, without the secret ever appearing in a transcript or log —
+load it into the shell, then let the shell expand it at run time:
+
+    set -a; . ./.env.local; set +a
+    npm run test:unit && npm run lint && npm run build && \
+      git push "https://x-access-token:${LP_GITHUB_PUSH_TOKEN}@github.com/benjamesbowler/LiteracyPath.git" HEAD:main
+
+Rules that keep this safe:
+
+- **Where to push from.** Cloud sessions push from their own clone (stage
+  `.env.local` from the connected folder to read the token). NEVER attempt to
+  push (or fetch) from the device VM — it has no network access.
+- **One authority.** When an agent pushes from a clone, the REMOTE becomes the
+  authoritative history: do not also commit the same change separately on the
+  Mac. End the handover with the sync command for Benjamin instead:
+  `git pull --ff-only origin main`.
+- **No divergence.** If origin moved since the clone, rebase the batch onto
+  `origin/main` and re-run the checks before pushing. Never force-push.
+- **Never** paste the token's value into a command line, a file that is
+  committed, remote config (`git remote set-url` with the token embedded), or
+  the conversation.
+- **Fallback unchanged.** No token reachable → commit locally and END the
+  handover with the exact push command for Benjamin (`git push origin <branch>`).
+  A local post-commit hook prints the same reminder. Never leave a session
+  without either pushing or surfacing unpushed work.
