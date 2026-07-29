@@ -53,6 +53,17 @@ export const CLOSED_SET_FORMATS = new Set([
   "LONG_VOWEL_TEAM_COMPLETE", "PLURAL_TEXT_CHOICE"
 ]);
 
+// Chance a pure guesser answers an item correctly. Choice formats: 1/N.
+// Tile-arrange formats (PUT_SOUNDS_IN_ORDER): one ordering out of tiles!.
+export function guessProbability(item) {
+  if (Array.isArray(item.soundTiles) && item.soundTiles.length >= 2) {
+    let permutations = 1;
+    for (let i = 2; i <= item.soundTiles.length; i++) permutations *= i;
+    return 1 / permutations;
+  }
+  return item.choices?.length ? 1 / item.choices.length : 0.1;
+}
+
 export function optionSetSignature(item) {
   return (item.choices || []).map(c => norm(c.text ?? c)).sort().join("|");
 }
@@ -120,6 +131,8 @@ export function expandItem(raw, blueprint, imageResolver) {
     crossPatternGroup: raw.cross || undefined,
     nonGating: Boolean(raw.nonGating),
     retentionOnly: Boolean(raw.retention),
+    scannerExpected: Boolean(raw.scannerExpected),
+    soundTiles: raw.soundTiles,
     targetWord,
     // Which media the AUTHOR declared. The runtime loader strips any
     // enrichment-added target media beyond this, so unapproved manifest paths
@@ -187,8 +200,11 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
     const keyCount = item.choices.filter(c => norm(c) === norm(item.answer)).length;
     if (!item.answer) push("L-SCHEMA", item.id, "no key marked");
     if (item.choices.length && keyCount !== 1) push("L-SCHEMA", item.id, `answer appears ${keyCount}x in choices`);
-    if (item.choices.length && item.choices.length !== 4 && !["HFW_LETTER_BUILD"].includes(item.formatType)) {
+    if (item.choices.length && item.choices.length !== 4 && !["HFW_LETTER_BUILD", "PUT_SOUNDS_IN_ORDER"].includes(item.formatType)) {
       push("L-SCHEMA", item.id, `expected 4 choices, got ${item.choices.length}`);
+    }
+    if (item.formatType === "PUT_SOUNDS_IN_ORDER" && (!Array.isArray(item.soundTiles) || item.soundTiles.length < 2)) {
+      push("L-SCHEMA", item.id, "tile format needs soundTiles (>=2)");
     }
     const allUnits = new Set([
       ...(blueprint.unitsByLevel?.[1] || []),
@@ -314,13 +330,17 @@ export function composeSitting(bank, { level, seen, sittingSize, unitEvidence })
   const byNeed = [...pool].sort((a, b) => (unitEvidence.get(a.itemKey) || 0) - (unitEvidence.get(b.itemKey) || 0));
   const chosen = [];
   const usedUnits = new Map();
+  // Spread-first: with many units (cap 1), stacking a unit twice in one sitting
+  // wastes an attempt — its session-count only rises once per day, so the unit
+  // still needs another sitting anyway. Strict cap keeps every slot advancing a
+  // unit's day-spread; the top-up below relaxes it only when slots would starve.
+  const unitCount_ = new Set(pool.map(p => p.itemKey)).size;
+  const cap = Math.max(1, Math.ceil(sittingSize / Math.max(1, unitCount_)));
   for (const item of byNeed) {
     if (chosen.length >= sittingSize) break;
-    const unitCount = usedUnits.get(item.itemKey) || 0;
-    const cap = Math.max(1, Math.ceil(sittingSize / Math.max(1, (new Set(pool.map(p => p.itemKey))).size)));
-    if (unitCount >= cap + 1) continue;
+    if ((usedUnits.get(item.itemKey) || 0) >= cap) continue;
     chosen.push(item);
-    usedUnits.set(item.itemKey, unitCount + 1);
+    usedUnits.set(item.itemKey, (usedUnits.get(item.itemKey) || 0) + 1);
   }
   // top up if caps starved the sitting
   for (const item of byNeed) {
@@ -396,6 +416,9 @@ export async function simulate(bank, blueprint, { policy, answerFn, maxSittings 
 export function scannerAnswer(item) {
   const choices = item.choices || [];
   if (!choices.length) return null;
+  // Tile-arrange items display the answer's own phonemes scrambled — there is
+  // no printed option set to surface-match, so the oracle has nothing to scan.
+  if (Array.isArray(item.soundTiles) && item.soundTiles.length) return null;
 
   if (item.passage) {
     // Verbatim-dominance test: fires when one option clearly out-quotes the

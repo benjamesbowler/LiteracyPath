@@ -15,9 +15,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import {
-  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR,
+  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR, V3_SOURCE,
   expandBank, lintBank, simulate, scannerAnswer, writeGeneratedBank, loadLexicon,
-  norm
+  optionSetSignature, promptAnswerSignature, norm, guessProbability
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
@@ -69,7 +69,7 @@ for (const file of authoringFiles) {
     let guessPasses = 0;
     const GUESS_TRIALS = 300;
     for (let t = 0; t < GUESS_TRIALS; t++) {
-      const guess = await simulate(items, blueprint, { policy, answerFn: item => item.choices.length ? Math.random() < 1 / item.choices.length : Math.random() < 0.1, maxSittings: 6 });
+      const guess = await simulate(items, blueprint, { policy, answerFn: item => Math.random() < guessProbability(item), maxSittings: 6 });
       if (["level_1_passed", "level_2_passed", "secure"].includes(guess.final.status)) guessPasses++;
     }
     detail.sims.guess = { trials: GUESS_TRIALS, passes: guessPasses };
