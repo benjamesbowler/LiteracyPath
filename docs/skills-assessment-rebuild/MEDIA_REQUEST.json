@@ -1,7 +1,23 @@
 {
- "generatedAt": "2026-07-29T15:09:28.894Z",
+ "generatedAt": "2026-07-29T15:20:54.886Z",
  "spec": "Every prompt/instruction, sentence, passage, and choice word needs recorded human audio (child-friendly UK/neutral voice, natural pace, no isolated phonemes). Every image slot needs a clean flat-style illustration matching /images/assessment house style, no embedded text, answer-neutral.",
  "skills": [
+  {
+   "skillId": "cause_effect",
+   "items": 64,
+   "instructionLines": 64,
+   "wordRecordings": 0,
+   "imageSlots": 0,
+   "missingImages": 0
+  },
+  {
+   "skillId": "context_clues",
+   "items": 64,
+   "instructionLines": 64,
+   "wordRecordings": 64,
+   "imageSlots": 0,
+   "missingImages": 0
+  },
   {
    "skillId": "digraphs",
    "items": 60,
@@ -36,6 +52,1241 @@
   }
  ],
  "instructionAudio": [
+  {
+   "text": "What happened BECAUSE the nights were so cold?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "All week the nights were freezing cold. By Saturday, the park pond wore a lid of grey ice. The ducks stood on top of it, looking puzzled, and slid about on flat orange feet.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened because the seeds spilled on the path?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Zack tipped the seed packet too fast. Seeds sprayed all over the path instead of the flower bed. Within a minute, six pigeons landed and began pecking up every last one.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened after Gran oiled the hinge?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Gran put three drops of oil on the door hinge. She swung the door back and forth to work the oil in. After that, the door opened without its awful screech, and the baby could nap in peace.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened because the plant had no water?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Nobody watered the classroom plant over half term. When the children came back, its leaves hung down like tired flags, and the soil in the pot was hard and pale.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did the hot car do to the crayons?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad left the crayon box on the back seat of the car on the hottest day of summer. When Mina opened the door after lunch, the crayons had melted together into one rainbow lump.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened because Leah rubbed the balloon?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Leah rubbed the balloon on her jumper ten times. Then she held it just above her head. Her hair rose up toward the balloon in thin strands, as if it wanted to follow it around the room.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened because of the deep snow?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Snow fell all night without stopping. By morning it lay deeper than Papa's boots. The radio read a list of closed schools, and Amini's school was third on the list.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened because the lid was off?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Omar forgot to press the lid onto the popcorn pot. When the corn began to pop, it leapt from the pot like tiny white fireworks, bouncing off the counter and skittering across the kitchen floor.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "WHY did the kettle whistle?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The kettle began to whistle, high and loud. Auntie hurried in from the garden, still holding her trowel, and lifted it off the heat. The whistling faded to a sigh.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How did Bruno know someone was coming?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Bruno barked before anyone knocked. Two seconds later, the doorbell rang, and the delivery man stood on the step. Bruno's ears had heard the gate creak long before any human did.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the rocket drawing disappear?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Hana's chalk drawing of a rocket covered the whole path. That night, rain fell for hours. In the morning only a faint pink cloud remained where the rocket had been.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why was the ice cream dripping?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "By the end of the walk, Milly was carrying her ice cream cone at a slant, licking fast. Sweet white drips raced down her fingers and dotted the pavement behind her like a trail.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Finn's voice come back to him?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "In the tunnel under the railway, Finn shouted 'HELLO!' His own voice bounced straight back at him, twice. He grinned and tried a bark, a whoop, and a tiny polite cough.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the bike get rusty?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mo's bike had spent the whole winter outside under no cover. In spring, the chain was stiff and the handlebars wore freckles of orange rust that had not been there before.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the castle turn into a smooth hill?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "At the beach, Rosa built her sandcastle close to the shining wet sand. She worked on it all afternoon. By teatime, the sea had crept up the beach, and her castle softened into a smooth little hill.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did one pair of curtains go pale?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "All the curtains in the front room used to be deep blue. The pair by the big sunny window are now pale, almost grey, while the pair in the shady corner still look brand new.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Choose the sentence that says it best.",
+   "kind": "instruction",
+   "usedBy": 10
+  },
+  {
+   "text": "The moth circled the porch light for the tenth time. Round and round it went, tapping the warm glass, ignoring the whole dark garden behind it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Pia's shoes had fitted at the start of summer. Now her toes pressed the ends, and by home time her feet ached. Mum measured her feet and laughed: a whole size bigger.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Nobody wrapped the bread after breakfast. It sat on the board all day and all night. By morning the slices were hard at the edges and curled up like little rooftops.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The little ramp was set up on the rug. Kip let go of the marble at the top. It rolled faster and faster, shot off the end, and did not stop until it clicked against the skirting board.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "It rained hard all morning. When it stopped, the path through the grass was dotted with worms, dozens of them, stretched out on the wet stones.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Ivy laughed first, at nothing much at all. Then her brother caught it, then Dad, then even Grandma behind her newspaper. Soon the whole room was laughing and nobody could say why.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The candle flame stood tall and still until Dad opened the hallway door. Then it bent sideways, flickered wildly, and almost went out before the door clicked shut again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Warm milk, a dim lamp, one last story. Halfway through the second page, Suki's eyes closed all by themselves, and Papa tiptoed out with the book still open in his hand.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened RIGHT BEFORE the flour spilled?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A wasp smelled the open jam jar on the windowsill. It flew in through the kitchen window. Startled, Uncle Josh jumped back from the counter, knocked the flour bag with his elbow, and a white cloud settled slowly over the clean dishes.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the rosemary tip over?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The night frost cracked the old clay pot on the balcony. Soil trickled out of the crack all week. With half its soil gone, the rosemary plant tipped over in the next strong wind, and the falling pot startled the pigeons off the rail.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened RIGHT BEFORE the mark appeared on the ceiling?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dee left the bath tap running while she answered the phone. The call was long. Water crept over the edge of the bath, found the gap by the pipe, and by the time Dee hung up, a brown ring was spreading on the kitchen ceiling below.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did so many balls land in the tomatoes?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The football pitch flooded on Friday, so Saturday's match moved to the school yard. The yard's hard ground made the ball bounce twice as high, and twice-as-high bounces sailed over the fence, which is how Mr Njoku's tomatoes met seven footballs in one afternoon.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened RIGHT BEFORE the pea bags froze together?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Someone propped the freezer door open with a yoghurt pot during the party. Overnight the ice cream softened to milkshake. In the morning, the melting tub dripped through the shelf onto the peas, gluing the bags together in one frosty block.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why was Priya nearly late?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The lift was crowded, and somebody's rucksack pressed every button at once. The lift began stopping at every single floor. All the stopping made Priya late to the dentist upstairs, and her name was called just as she burst out of the lift doors, breathing hard.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the string wrap around the flagpole?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A strong gust snapped the kite's thin tail. Without its tail, the kite began spinning instead of gliding. The spinning wound the string around the flagpole three times, and that is where the kite stayed, rattling like a trapped bird, until the caretaker fetched his ladder.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened RIGHT BEFORE Amir washed the mirror properly?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The bathroom mirror steamed up during Amir's hot shower. He wiped it with a towel, which left fine fluff all over the glass. When the mirror dried, the fluff showed worse than the steam had, so he washed the mirror properly, which is how one hot shower led to cleaning the whole bathroom.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason the fair did well?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The school fair made more money than ever this year. The weather was warm and dry, so crowds stayed all afternoon. The new baking stall sold out twice. And because the fair fell on payday weekend, purses were a little fuller than usual.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason Rui overslept?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Rui slept through his alarm for three reasons. He had stayed up late finishing his comic. His phone had died in the night, so the alarm never rang. And the thick new curtains kept his room as dark as a cave long past sunrise.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a cause of the cactus dying?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The cactus on the windowsill turned soft and brown. Grandpa had watered it every single day, though a cactus wants water rarely. The pot had no hole, so the water sat around its roots. And the cold glass at night chilled it again and again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason the cold spread?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Half the class had colds by Friday. All week the rain had kept everyone crowded indoors at break. The window monitor was away, so no one aired the stuffy room. And two children had come in sniffing on Monday instead of resting at home.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a cause of the snap?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The old rope swing finally snapped on Sunday. Years of rain and sun had chewed at the fibres. The knot rubbed the same branch groove every swing. And that afternoon, for the first time, two riders had squeezed on together.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason for the long queue?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The bakery queue stretched round the corner on Saturday. A food show had filmed there on Tuesday, and clips were everywhere. The rival bakery across town was shut for repairs. And Saturday was the first day of the famous plum tarts.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason the ring went unheard?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Nobody heard the phone ring at lunch. The blender was roaring through a smoothie. The radio was on for the cricket. And the phone itself was buried somewhere under the sofa cushions, ringing into the springs.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason the rowing was hard?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The little boat was hard to row home. The tide had turned against them. The wind blew straight off the shore into their faces. And the afternoon's happy swimming had left both rowers with arms like wet spaghetti.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What REALLY made children and cat end up together?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Wherever the school cat sat, children gathered. New visitors sometimes thought the children attracted the cat. The dinner ladies knew better: the cat chose the sunniest spot first, and the children simply followed him to it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What does the passage suggest REALLY made Jo fast?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "On sports day, Jo wore her lucky red socks and won three races. 'The socks make me fast,' she told everyone. Her coach smiled and pointed at the training chart on the wall: every square of the last two months was ticked.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What REALLY brought the food?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Every time the floorboard by the kitchen creaked, Biscuit the dog appeared, and moments later food hit his bowl. A visitor might think the creak fed the dog. In truth, Dad stepping on that board meant Dad was fetching the dog food tin from that exact cupboard.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What does the passage say about the noise?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The louder the crowd sang, the harder the band played. And the harder the band played, the louder the crowd sang. By the last song, no one could say who was driving whom — the whole hall had become one big engine of noise.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why do umbrellas and rain arrive together?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Umbrellas do not bring the rain, Gran says, though on our street it can look that way: the moment umbrellas bloom along the pavement, down it comes. Of course, everyone opens them because the first drops have already begun to fall.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What REALLY explains Tam's four o'clock hunger?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Whenever the ice-cream van's tune started, Tam's tummy rumbled. Tam decided the tune made him hungry. Mum laughed: the van always came at four o'clock — exactly the hour a boy who skipped his lunchtime peas gets hungry anyway.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which explanation does the passage support?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The rooster crowed, and the sun came up. It happened every single morning, in that order. The farmer liked to joke that his rooster raised the sun. The vet put it differently: the first grey light wakes the rooster, and the crowing follows.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What is the right way round, according to the poster?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Firefighters arrive at big fires, and small fires have no firefighters at all. Looking only at that, you might decide firefighters make fires bigger. Ana's project poster explained it the right way round: the bigger the fire already is, the more firefighters get sent to it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened because the can was shaken?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Joss shook the fizzy drink can all the way home, just to hear it slosh. When Dad opened it at the table, a hissing fountain leapt out and rained on the tablecloth.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did the long cold do to the torch?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The torch had sat in the freezing shed all winter. When Ben clicked it on for the camp-out, the beam glowed dull orange for a minute and then gave up completely.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why was Auntie Bel sneezing?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Auntie Bel sneezed six times before she even said hello. Her eyes were pink and watery. On her lap, completely comfortable, sat the neighbour's fluffy white cat.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the strawberries grow fur?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The strawberries were forgotten at the back of the fridge for two weeks. When Val found the box, a soft grey fur had crept over every berry.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The plug chain had slipped off its hook into the water. Nobody noticed while the bath emptied itself, glug by glug, until only a cold puddle was left around Otto's toes.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Nia's birthday balloon slipped out of her hand indoors. It sailed straight up and bumped softly against the ceiling, where it stayed all week, just out of reach of the broom.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened because the seagull swooped?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A seagull spotted Pia's chip bag the moment she sat on the sea wall. It swooped once, low and bold, and a heartbeat later the biggest chip was travelling down the beach at wing-speed.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the trolley squeak?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The trolley sang a squeaky song all round the supermarket — eee-aww, eee-aww. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck right around it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What started the whole chain?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Marta's hiccups started when she gulped her fizzy lemonade too fast. The hiccups made her giggle. The giggling shook more bubbles loose, which brought more hiccups, and soon she had to put the glass down until both the giggles and the hiccups wore themselves out.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the door need painting twice?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The paint tin was left open overnight. By morning a skin had formed across the top. When Dad stirred the skin in, little rubbery flecks spread through the paint, and every stroke he brushed onto the door left tiny lumps, so the whole door had to be sanded and painted again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason the washing dried slowly?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The washing took all day to dry. The morning was misty and damp. The line hung in the shadiest corner of the yard. And Mum had wrung nothing out, pegging everything up still dripping.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a cause of the escape?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The school hamster escaped in the night. His cage door had a weak latch that never quite clicked. The caretaker had moved the cage next to the shelf, making a perfect bridge. And carrot night meant the door had been opened one extra time.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What REALLY links ice cream and sunburn?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Ice-cream sales and sunburn both jump in July. One silly newspaper joked that ice cream causes sunburn. Class 4 worked out the truth for their science wall: hot sunny weather causes BOTH — more cones eaten, more skin burned.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What REALLY explains the lights and the yawns?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Grandad noticed that the streetlights always came on just as he yawned his first evening yawn. 'My yawns switch them on,' he liked to say. Actually both had the same cause: the sky growing dark — dark enough for lights, late enough for yawns.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the group walk in a loop?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The magnet in Theo's pocket sat right next to his compass on the hike. The needle swung to point at the magnet instead of north. Trusting the needle, the group turned left at the fork, and the left path took them in a long loop back to their own starting stile.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these was NOT a reason the candles kept going out?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The candles on the cake would not stay lit. The back door stood open to the garden. The ceiling fan spun on full. And two excited cousins were bouncing on the bench, puffing with laughter right at candle height.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"drowsy\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "By eight o'clock Tara was drowsy — so sleepy that her eyes kept sliding shut in the middle of her favourite programme.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"fragile\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The vase was fragile, which means it could break very easily, so Mum carried it across the room with two careful hands.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"sturdy\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Our new tent is sturdy — strongly made and hard to knock over. Even the wild wind on the hilltop could not flatten it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"murmur\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A murmur is a soft, low sound of voices. From the top of the stairs, Lila could hear the murmur of the grown-ups talking downstairs.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"jagged\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The path was covered in jagged stones — sharp, pointy ones with rough edges — so everyone kept their shoes on all the way to the waterfall.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"hollow\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Hollow means empty inside. The old log by the fence was hollow, and a whole family of mice had moved into the space within it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"chilly\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The lane was chilly that morning — cold enough to make your fingers ache — so Pip pulled his sleeves down over his hands.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"mend\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "To mend something is to fix it. Grandpa mended the torn net with a needle and green string, and by tea time it was good as new.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"feast\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The picnic was a real feast: sandwiches, sausage rolls, two kinds of cake, a bowl of cherries, and a jug of cold lemonade that never seemed to empty.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"clutter\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Milo's desk was full of clutter — old wrappers, dried-up pens, a single glove, broken crayons, and three notes from last term he never took home.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"enormous\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Enormous things filled the museum hall: a whale skeleton longer than a bus, a boulder taller than Dad, and a footprint big enough for Nia to sit inside.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"gleaming\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Everything about the morning was gleaming: the polished trumpet, the wet road after rain, the foil stars on the classroom window, and Dad's freshly washed car.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"timid\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Timid creatures live in the hedge: the mouse that bolts at a footstep, the wren that hides deep in the leaves, and the rabbit that thumps once and vanishes down its hole.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"swift\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Swift things flashed past the window all journey: racing motorbikes, a hawk stooping after a sparrow, and express trains that were gone almost before you saw them.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"ancient\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Ancient things filled Great-Uncle Ho's shelf: a coin worn smooth by a thousand years of thumbs, a map of countries that no longer exist, and a cracked pot older than the town itself.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"soggy\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "All the soggy things went by the radiator: Ken's socks after the puddle, the towel from swimming, and the newspaper that had spent the night on the wet step.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"gobbled\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The hungry puppy did not chew politely. He gobbled his whole dinner in four huge mouthfuls and then licked the empty bowl across the floor.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"glided\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The swans glided across the lake. Their bodies slid along smooth as paper boats, without one splash, while their feet paddled secretly below.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"scampered\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The squirrel scampered along the fence — quick light steps, a leap, more quick steps — and was up the oak tree before Milo could point.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"pleaded\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "'Please, please, PLEASE can we keep him?' Sol pleaded, hands pressed together, following Mum from room to room with enormous hopeful eyes.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"trembled\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Thunder boomed, and Pepper the cat trembled under the bed — her whole small body shaking like a leaf in the wind until the storm rolled away.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"grumbled\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Grandpa grumbled all the way up the hill — a low, cross mutter about his knees, the weather, and whoever had invented hills in the first place.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"drifted\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "One by one the soap bubbles drifted over the wall — floating wherever the breeze carried them, in no hurry to be anywhere at all.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"gazed\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Baby Yara gazed at the mobile above her cot — eyes wide, mouth open, watching the slow silver fish go round and round for a whole quiet hour.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"dazzling\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The fireworks were dazzling. The display was so bright that people shielded their eyes, and so brilliant that even the streetlights seemed dim afterwards.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"weary\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "After the mountain walk, the hikers were weary. Exhausted, worn out, done in — they dropped their packs at the hut door and nobody spoke for ten minutes.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"commotion\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A strange commotion filled the yard — such an uproar, such a racket of clanging and squawking, that three teachers hurried out to see what the fuss could be.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"drenched\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Caught in the downpour without a coat, Priya arrived drenched — soaked to the skin, wet through, dripping a little lake onto the doormat.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"nibbled\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The mouse nibbled the cheese — tiny bite after tiny bite, nothing like the dog, who would have swallowed it whole in one gulp.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"spotless\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The baker kept his kitchen spotless. Not a crumb on the counters, not a smudge on the steel — so perfectly clean that the health inspector once asked for his secret.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"soared\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The kestrel soared over the cliff — rising higher and higher on the warm air, climbing without a single wing-beat until it was only a speck.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"bitter\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The soup was bitter — sharp and sour on the tongue, nothing like the sweet tomato soup from the tin — and Jonah's whole face folded up at the first spoonful.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"bashful\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Unlike her sister, who charged into every new place shouting hello, Faye was bashful, hanging back by the door until someone gently waved her in.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"rickety\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The new bridge stood firm in any storm, but the old rope bridge was rickety — it wobbled and creaked at every single step, and two planks were missing.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"bare\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "While the town square buzzed all evening, the side streets were bare — no stalls, no lanterns, not a single person — as if the party had gathered every soul into one place.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"nippy\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Everyone expected the head teacher's office to be warm, but it was nippy in there — so much so that she kept a blanket on her chair while the corridor outside stayed toasty.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"brisk\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad walks at a stroll on Sundays, but on school mornings his pace is brisk — quick enough that Ida has to trot every few steps just to stay level.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"mutter\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The twins could not have sounded more different: Ade spoke up clearly for the whole hall to hear, while Bola preferred to mutter, so that only her own collar caught the words.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"lively\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "By day the harbour was lively, but at midnight it fell still: not one engine, not one voice, only rope against mast and the slow breathing of the sea.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"dim\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Instead of the sharp midday light, the lamp gave only a dim glow — so faint that Noor had to hold her book almost against the bulb to read at all.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"vanish\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "When the magician clapped, the coin seemed to vanish. One moment it flashed between his fingers; the next his hands were empty, and the children searched the stage floor for a coin that simply was not there.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"slumber\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The bear's winter slumber lasted for months. Snow piled over the den mouth, storms came and went, and still nothing inside stirred until the first warm week of spring.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"scent\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "One whiff of the scent drifting from the kitchen told Omar everything: cinnamon, warm sugar, a promise of apples. His homework could wait.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"repaid\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The path was steep and the day was hot, but the view from the top repaid every step: the whole valley lay below them like a green map, and nobody regretted the climb.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"peered\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dev peered through the keyhole, then through the gap under the door, then through the frosted glass — anything for a glimpse of the birthday preparations he was strictly banned from seeing.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"bobbed\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The old rowing boat bobbed by the jetty — up with each small wave, down again after it, gentle as a cork, never drifting from its rope.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"patched\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Roz patched the knee of her jeans with a square of star-print cloth. The hole disappeared under the stars, the stitches held through every playtime, and the jeans lasted the whole year after all.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"dashed\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "At the first drops, everyone dashed for the bandstand — coats over heads, pushchairs bumping, ice creams abandoned — and reached its roof just as the sky truly opened.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"snug\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Snug means warm, comfortable and safe. Inside her blanket nest with a book and the rain outside, Mia felt perfectly snug.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"faint\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A faint sound is one so quiet you can barely hear it. From two gardens away came the faint tinkle of a wind chime.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"gigantic\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Gigantic things filled Theo's dinosaur book: legs like tree trunks, teeth as long as rulers, and one footprint that could have held his whole paddling pool.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"delicate\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Everything delicate went on the top shelf: the paper lanterns, Gran's thin china cups, the sugar swan from the wedding, and the model ship made of matchsticks.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"grumpy\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "All through dinner Uncle Ray was grumpy — he frowned at the peas, sighed at the weather, and answered every question with a single flat word.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"darted\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The lizard darted across the hot stone path — there one blink, gone the next — and vanished under the rosemary bush before anyone could crouch for a look.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"elderly\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Elderly means old, especially for a person. The elderly man at number nine has lived on our street longer than every other neighbour put together.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"jumble\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The junk drawer was a jumble: rubber bands round old keys, a torch tangled in string, batteries mixed with buttons, and somewhere underneath, the missing bicycle bell.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"famished\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The stray kitten was famished — starving, truly hollow-bellied — and it emptied the saucer of food before Ella had even stood back up.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"baffled\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The riddle baffled the whole family. It puzzled Dad, confused Gran, and stumped even Priya, who does the crossword in pen.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"placid\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Most days the sea slapped the rocks in fury, but this morning it was placid — flat, quiet water without one white wave from the beach to the buoy.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"cunning\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The first clue was simple enough for anyone, but the last was so cunning that even the puzzle club's champion chewed her pencil over it until the bell.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"cumbersome\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The parcel was so cumbersome that Jai had to carry it with both arms wrapped right around, walking sideways through doorways and resting at every corner.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"rancid\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "One sniff of the milk made Asha wince and hold the bottle at arm's length. It had turned rancid days ago, somewhere at the warm back of the van.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"loyal\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Loyal to the end, the old sheepdog shadowed Farmer Bell everywhere — faithful through rain, market days, and even trips to the vet.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In this passage, what does \"beamed\" mean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The classroom fell silent as the results were read, and when her name came last — first place — Zainab beamed, a smile so wide it seemed to light the room.",
+   "kind": "passage",
+   "usedBy": 1
+  },
   {
    "text": "Chair. Which one starts with the same sound as chair?",
    "kind": "instruction",
@@ -1528,6 +2779,262 @@
   }
  ],
  "wordAudio": [
+  {
+   "word": "drowsy",
+   "usedBy": 1
+  },
+  {
+   "word": "fragile",
+   "usedBy": 1
+  },
+  {
+   "word": "sturdy",
+   "usedBy": 1
+  },
+  {
+   "word": "murmur",
+   "usedBy": 1
+  },
+  {
+   "word": "jagged",
+   "usedBy": 1
+  },
+  {
+   "word": "hollow",
+   "usedBy": 1
+  },
+  {
+   "word": "chilly",
+   "usedBy": 1
+  },
+  {
+   "word": "mend",
+   "usedBy": 1
+  },
+  {
+   "word": "feast",
+   "usedBy": 1
+  },
+  {
+   "word": "clutter",
+   "usedBy": 1
+  },
+  {
+   "word": "enormous",
+   "usedBy": 1
+  },
+  {
+   "word": "gleaming",
+   "usedBy": 1
+  },
+  {
+   "word": "timid",
+   "usedBy": 1
+  },
+  {
+   "word": "swift",
+   "usedBy": 1
+  },
+  {
+   "word": "ancient",
+   "usedBy": 1
+  },
+  {
+   "word": "soggy",
+   "usedBy": 1
+  },
+  {
+   "word": "gobbled",
+   "usedBy": 1
+  },
+  {
+   "word": "glided",
+   "usedBy": 1
+  },
+  {
+   "word": "scampered",
+   "usedBy": 1
+  },
+  {
+   "word": "pleaded",
+   "usedBy": 1
+  },
+  {
+   "word": "trembled",
+   "usedBy": 1
+  },
+  {
+   "word": "grumbled",
+   "usedBy": 1
+  },
+  {
+   "word": "drifted",
+   "usedBy": 1
+  },
+  {
+   "word": "gazed",
+   "usedBy": 1
+  },
+  {
+   "word": "dazzling",
+   "usedBy": 1
+  },
+  {
+   "word": "weary",
+   "usedBy": 1
+  },
+  {
+   "word": "commotion",
+   "usedBy": 1
+  },
+  {
+   "word": "drenched",
+   "usedBy": 1
+  },
+  {
+   "word": "nibbled",
+   "usedBy": 1
+  },
+  {
+   "word": "spotless",
+   "usedBy": 1
+  },
+  {
+   "word": "soared",
+   "usedBy": 1
+  },
+  {
+   "word": "bitter",
+   "usedBy": 1
+  },
+  {
+   "word": "bashful",
+   "usedBy": 1
+  },
+  {
+   "word": "rickety",
+   "usedBy": 1
+  },
+  {
+   "word": "bare",
+   "usedBy": 1
+  },
+  {
+   "word": "nippy",
+   "usedBy": 1
+  },
+  {
+   "word": "brisk",
+   "usedBy": 1
+  },
+  {
+   "word": "mutter",
+   "usedBy": 1
+  },
+  {
+   "word": "lively",
+   "usedBy": 1
+  },
+  {
+   "word": "dim",
+   "usedBy": 1
+  },
+  {
+   "word": "vanish",
+   "usedBy": 1
+  },
+  {
+   "word": "slumber",
+   "usedBy": 1
+  },
+  {
+   "word": "scent",
+   "usedBy": 1
+  },
+  {
+   "word": "repaid",
+   "usedBy": 1
+  },
+  {
+   "word": "peered",
+   "usedBy": 1
+  },
+  {
+   "word": "bobbed",
+   "usedBy": 1
+  },
+  {
+   "word": "patched",
+   "usedBy": 1
+  },
+  {
+   "word": "dashed",
+   "usedBy": 1
+  },
+  {
+   "word": "snug",
+   "usedBy": 1
+  },
+  {
+   "word": "faint",
+   "usedBy": 1
+  },
+  {
+   "word": "gigantic",
+   "usedBy": 1
+  },
+  {
+   "word": "delicate",
+   "usedBy": 1
+  },
+  {
+   "word": "grumpy",
+   "usedBy": 1
+  },
+  {
+   "word": "darted",
+   "usedBy": 1
+  },
+  {
+   "word": "elderly",
+   "usedBy": 1
+  },
+  {
+   "word": "jumble",
+   "usedBy": 1
+  },
+  {
+   "word": "famished",
+   "usedBy": 1
+  },
+  {
+   "word": "baffled",
+   "usedBy": 1
+  },
+  {
+   "word": "placid",
+   "usedBy": 1
+  },
+  {
+   "word": "cunning",
+   "usedBy": 1
+  },
+  {
+   "word": "cumbersome",
+   "usedBy": 1
+  },
+  {
+   "word": "rancid",
+   "usedBy": 1
+  },
+  {
+   "word": "loyal",
+   "usedBy": 1
+  },
+  {
+   "word": "beamed",
+   "usedBy": 1
+  },
   {
    "word": "cheese",
    "usedBy": 4

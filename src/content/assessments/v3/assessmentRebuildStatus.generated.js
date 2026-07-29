@@ -19,7 +19,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:09:28.890Z",
+  "generatedAt": "2026-07-29T15:20:54.882Z",
   "commit": "06531805"
  },
  "long_vowels_silent_e": {
@@ -40,7 +40,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:09:28.891Z",
+  "generatedAt": "2026-07-29T15:20:54.882Z",
   "commit": "06531805"
  },
  "inference": {
@@ -61,7 +61,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:09:28.891Z",
+  "generatedAt": "2026-07-29T15:20:54.882Z",
   "commit": "06531805"
  },
  "main_idea": {
@@ -82,7 +82,49 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:09:28.891Z",
+  "generatedAt": "2026-07-29T15:20:54.882Z",
+  "commit": "06531805"
+ },
+ "cause_effect": {
+  "skillId": "cause_effect",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 24,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T15:20:54.881Z",
+  "commit": "06531805"
+ },
+ "context_clues": {
+  "skillId": "context_clues",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 24,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T15:20:54.882Z",
   "commit": "06531805"
  }
 };
