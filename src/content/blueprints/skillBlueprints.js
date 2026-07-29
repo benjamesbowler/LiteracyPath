@@ -116,7 +116,10 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       1: ["ENDING_SOUND", "FINAL_SOUND_PAIR_SELECT", "ENDING_SOUND_WORD_MATCH"],
       2: ["ENDING_SOUND", "FINAL_SOUND_PAIR_SELECT"]
     },
-    variantsPerUnit: { 1: 3, 2: 3 },
+    // 4 variants (not 3): D-small demands 4 attempts on 2+ distinct items with
+    // no repeats inside the pass budget — 3-item pools force a repeat (the same
+    // arithmetic that sized digraphs at 4). Doc updated in the same change.
+    variantsPerUnit: { 1: 4, 2: 4 },
     passBudgetSittings: 4
   }),
   bp("rhyming", {

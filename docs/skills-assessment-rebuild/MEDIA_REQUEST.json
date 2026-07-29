@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-07-29T22:19:55.007Z",
+ "generatedAt": "2026-07-29T23:02:59.722Z",
  "spec": "Every prompt/instruction, sentence, passage, and choice word needs recorded human audio (child-friendly UK/neutral voice, natural pace, no isolated phonemes). Every image slot needs a clean flat-style illustration matching /images/assessment house style, no embedded text, answer-neutral.",
  "skills": [
   {
@@ -27,11 +27,27 @@
    "missingImages": 0
   },
   {
+   "skillId": "final_sounds",
+   "items": 82,
+   "instructionLines": 82,
+   "wordRecordings": 410,
+   "imageSlots": 94,
+   "missingImages": 0
+  },
+  {
    "skillId": "inference",
    "items": 64,
    "instructionLines": 64,
    "wordRecordings": 34,
    "imageSlots": 0,
+   "missingImages": 0
+  },
+  {
+   "skillId": "initial_sounds",
+   "items": 160,
+   "instructionLines": 160,
+   "wordRecordings": 800,
+   "imageSlots": 278,
    "missingImages": 0
   },
   {
@@ -1585,6 +1601,416 @@
    "usedBy": 1
   },
   {
+   "text": "web. web ends with a sound. Which ending finishes the word web?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "web. Which one ends with the same sound as web?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tub. Which word ends with the same sound as tub?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tub. tub ends with a sound. Which ending finishes the word tub?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bread. bread ends with a sound. Which ending finishes the word bread?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bread. Which one ends with the same sound as bread?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "road. Which word ends with the same sound as road?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "road. road ends with a sound. Which ending finishes the word road?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "flag. flag ends with a sound. Which ending finishes the word flag?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "frog. Which one ends with the same sound as frog?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "flag. Which word ends with the same sound as flag?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "frog. frog ends with a sound. Which ending finishes the word frog?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "wheel. wheel ends with a sound. Which ending finishes the word wheel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "wheel. Which one ends with the same sound as wheel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "wheel. Which word ends with the same sound as wheel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "whirlpool. whirlpool ends with a sound. Which ending finishes the word whirlpool?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "drum. drum ends with a sound. Which ending finishes the word drum?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "drum. Which one ends with the same sound as drum?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jam. Which word ends with the same sound as jam?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jam. jam ends with a sound. Which ending finishes the word jam?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ten. ten ends with a sound. Which ending finishes the word ten?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "pin. Which one ends with the same sound as pin?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hen. Which word ends with the same sound as hen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "fin. fin ends with a sound. Which ending finishes the word fin?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sheep. sheep ends with a sound. Which ending finishes the word sheep?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "cap. Which one ends with the same sound as cap?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mop. Which word ends with the same sound as mop?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sleep. sleep ends with a sound. Which ending finishes the word sleep?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "net. net ends with a sound. Which ending finishes the word net?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hat. Which one ends with the same sound as hat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "goat. Which word ends with the same sound as goat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "boat. boat ends with a sound. Which ending finishes the word boat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "fish. fish ends with a sound. Which ending finishes the word fish?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "wish. Which one ends with the same sound as wish?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "brush. brush ends with a sound. Which ending finishes the word brush?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "splash. splash ends with a sound. Which ending finishes the word splash?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "moth. moth ends with a sound. Which ending finishes the word moth?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bath. Which one ends with the same sound as bath?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bath. bath ends with a sound. Which ending finishes the word bath?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "cloth. cloth ends with a sound. Which ending finishes the word cloth?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bell. bell ends with a sound. Which ending finishes the word bell?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "shell. Which word ends like shell?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hill. hill ends with a sound. Which ending finishes the word hill?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "small. small ends with a sound. Which ending finishes the word small?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ring. ring ends with a sound. Which ending finishes the word ring?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "song. Which one ends with the same sound as song?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "king. king ends with a sound. Which ending finishes the word king?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "swing. swing ends with a sound. Which ending finishes the word swing?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hand. hand ends with a sound. Which ending finishes the word hand?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hand. Which word ends like hand?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "pond. pond ends with a sound. Which ending finishes the word pond?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "wind. wind ends with a sound. Which ending finishes the word wind?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "drink. drink ends with a sound. Which ending finishes the word drink?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tank. Which word ends like tank?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "trunk. trunk ends with a sound. Which ending finishes the word trunk?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "blink. blink ends with a sound. Which ending finishes the word blink?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "nest. nest ends with a sound. Which ending finishes the word nest?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "list. Which one ends with the same sound as list?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "vest. vest ends with a sound. Which ending finishes the word vest?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "list. list ends with a sound. Which ending finishes the word list?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "desk. desk ends with a sound. Which ending finishes the word desk?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "desk. Which word ends like desk?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mask. mask ends with a sound. Which ending finishes the word mask?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tusk. tusk ends with a sound. Which ending finishes the word tusk?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "gift. gift ends with a sound. Which ending finishes the word gift?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "raft. Which word ends like raft?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "left. left ends with a sound. Which ending finishes the word left?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "raft. raft ends with a sound. Which ending finishes the word raft?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "melt. melt ends with a sound. Which ending finishes the word melt?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "belt. Which word ends like belt?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "salt. salt ends with a sound. Which ending finishes the word salt?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "felt. felt ends with a sound. Which ending finishes the word felt?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "web. Which word ends with the same sound as web?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mud. Which word ends with the same sound as mud?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "gum. gum ends with a sound. Which ending finishes the word gum?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mat. mat ends with a sound. Which ending finishes the word mat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ten. Which one ends with the same sound as ten?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "dish. dish ends with a sound. Which ending finishes the word dish?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sting. sting ends with a sound. Which ending finishes the word sting?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "twist. twist ends with a sound. Which ending finishes the word twist?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "melt. Which word ends like melt?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "think. think ends with a sound. Which ending finishes the word think?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
    "text": "How does Sami most likely feel?",
    "kind": "instruction",
    "usedBy": 1
@@ -2162,6 +2588,801 @@
   {
    "text": "Every plant on the windowsill leaned the same way, like dancers frozen mid-bow. The cactus alone stood up straight. Gran turned each pot half a circle, and by the next week, the leaners were bowing toward the window all over again.",
    "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "apple. Which letter makes the first sound in apple?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ant. Which letter makes the first sound in ant?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ant. Which one starts with the same sound as ant?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "astronaut. Which letter makes the first sound in astronaut?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "alligator. Which letter makes the first sound in alligator?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "apple. Which one starts with the same sound as apple?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "boat. Which letter makes the first sound in boat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bike. Which letter makes the first sound in bike?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "boat. Which one starts with the same sound as boat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "banana. Which letter makes the first sound in banana?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "butterfly. Which letter makes the first sound in butterfly?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bread. Which one starts with the same sound as bread?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "corn. Which letter makes the first sound in corn?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "cap. Which letter makes the first sound in cap?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "cake. Which one starts with the same sound as cake?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "caterpillar. Which letter makes the first sound in caterpillar?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "camera. Which letter makes the first sound in camera?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "cap. Which one starts with the same sound as cap?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "dog. Which letter makes the first sound in dog?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "duck. Which letter makes the first sound in duck?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "dog. Which one starts with the same sound as dog?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "dinosaur. Which letter makes the first sound in dinosaur?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "dolphin. Which letter makes the first sound in dolphin?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "drum. Which one starts with the same sound as drum?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "egg. Which letter makes the first sound in egg?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "envelope. Which letter makes the first sound in envelope?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "egg. Which one starts with the same sound as egg?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "elephant. Which letter makes the first sound in elephant?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "elbow. Which letter makes the first sound in elbow?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "envelope. Which one starts with the same sound as envelope?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "fan. Which letter makes the first sound in fan?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "fox. Which letter makes the first sound in fox?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "fish. Which one starts with the same sound as fish?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "feather. Which letter makes the first sound in feather?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "flamingo. Which letter makes the first sound in flamingo?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "fan. Which one starts with the same sound as fan?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "goat. Which letter makes the first sound in goat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "gate. Which letter makes the first sound in gate?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "goat. Which one starts with the same sound as goat?",
+   "kind": "instruction",
+   "usedBy": 2
+  },
+  {
+   "text": "guitar. Which letter makes the first sound in guitar?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "gorilla. Which letter makes the first sound in gorilla?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "gate. Which one starts with the same sound as gate?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hat. Which letter makes the first sound in hat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hen. Which letter makes the first sound in hen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hat. Which one starts with the same sound as hat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "helicopter. Which letter makes the first sound in helicopter?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hedgehog. Which letter makes the first sound in hedgehog?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "hen. Which one starts with the same sound as hen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "igloo. Which letter makes the first sound in igloo?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ink. Which letter makes the first sound in ink?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ink. Which one starts with the same sound as ink?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "insect. Which letter makes the first sound in insect?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "instrument. Which letter makes the first sound in instrument?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "igloo. Which one starts with the same sound as igloo?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jet. Which letter makes the first sound in jet?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jam. Which letter makes the first sound in jam?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jug. Which one starts with the same sound as jug?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jacket. Which letter makes the first sound in jacket?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jellyfish. Which letter makes the first sound in jellyfish?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "jet. Which one starts with the same sound as jet?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "kite. Which letter makes the first sound in kite?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "king. Which letter makes the first sound in king?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "kite. Which one starts with the same sound as kite?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "kangaroo. Which letter makes the first sound in kangaroo?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "kettle. Which letter makes the first sound in kettle?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "king. Which one starts with the same sound as king?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "lamp. Which letter makes the first sound in lamp?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "leg. Which letter makes the first sound in leg?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "lamp. Which one starts with the same sound as lamp?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "lemon. Which letter makes the first sound in lemon?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "lion. Which letter makes the first sound in lion?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "lion. Which one starts with the same sound as lion?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "map. Which letter makes the first sound in map?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mug. Which letter makes the first sound in mug?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "moon. Which one starts with the same sound as moon?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mountain. Which letter makes the first sound in mountain?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "microphone. Which letter makes the first sound in microphone?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mug. Which one starts with the same sound as mug?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "net. Which letter makes the first sound in net?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "nose. Which letter makes the first sound in nose?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "net. Which one starts with the same sound as net?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "necklace. Which letter makes the first sound in necklace?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "newspaper. Which letter makes the first sound in newspaper?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "nut. Which one starts with the same sound as nut?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ox. Which letter makes the first sound in ox?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "octopus. Which letter makes the first sound in octopus?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ox. Which one starts with the same sound as ox?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "otter. Which letter makes the first sound in otter?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "olive. Which letter makes the first sound in olive?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "octopus. Which one starts with the same sound as octopus?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "pig. Which letter makes the first sound in pig?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "pen. Which letter makes the first sound in pen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "pig. Which one starts with the same sound as pig?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "penguin. Which letter makes the first sound in penguin?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "pumpkin. Which letter makes the first sound in pumpkin?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "pen. Which one starts with the same sound as pen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "queen. Which letter makes the first sound in queen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "quilt. Which letter makes the first sound in quilt?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "queen. Which one starts with the same sound as queen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "question. Which letter makes the first sound in question?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "quarter. Which letter makes the first sound in quarter?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "question. Which one starts with the same sound as question?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "rug. Which letter makes the first sound in rug?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ring. Which letter makes the first sound in ring?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ring. Which one starts with the same sound as ring?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "rainbow. Which letter makes the first sound in rainbow?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "rocket. Which letter makes the first sound in rocket?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "rug. Which one starts with the same sound as rug?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sun. Which letter makes the first sound in sun?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sock. Which letter makes the first sound in sock?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sun. Which one starts with the same sound as sun?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sunflower. Which letter makes the first sound in sunflower?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sandwich. Which letter makes the first sound in sandwich?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sock. Which one starts with the same sound as sock?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tent. Which letter makes the first sound in tent?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "toe. Which letter makes the first sound in toe?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tent. Which one starts with the same sound as tent?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tiger. Which letter makes the first sound in tiger?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tomato. Which letter makes the first sound in tomato?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "tooth. Which one starts with the same sound as tooth?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "umbrella. Which letter makes the first sound in umbrella?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "uncle. Which letter makes the first sound in uncle?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "umbrella. Which one starts with the same sound as umbrella?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "umpire. Which letter makes the first sound in umpire?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "understand. Which letter makes the first sound in understand?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "uncle. Which one starts with the same sound as uncle?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "van. Which letter makes the first sound in van?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "vet. Which letter makes the first sound in vet?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "van. Which one starts with the same sound as van?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "volcano. Which letter makes the first sound in volcano?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "vulture. Which letter makes the first sound in vulture?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "vet. Which one starts with the same sound as vet?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "web. Which letter makes the first sound in web?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "worm. Which letter makes the first sound in worm?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "web. Which one starts with the same sound as web?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "watermelon. Which letter makes the first sound in watermelon?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "window. Which letter makes the first sound in window?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "wasp. Which one starts with the same sound as wasp?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "yak. Which letter makes the first sound in yak?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "yarn. Which letter makes the first sound in yarn?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "yak. Which one starts with the same sound as yak?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "yoghurt. Which letter makes the first sound in yoghurt?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "yawn. Which letter makes the first sound in yawn?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "yarn. Which one starts with the same sound as yarn?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "zip. Which letter makes the first sound in zip?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "zoo. Which letter makes the first sound in zoo?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "zip. Which one starts with the same sound as zip?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "zebra. Which letter makes the first sound in zebra?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "zigzag. Which letter makes the first sound in zigzag?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "zoo. Which one starts with the same sound as zoo?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "ambulance. Which letter makes the first sound in ambulance?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "engine. Which letter makes the first sound in engine?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "mat. Which letter makes the first sound in mat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "sandcastle. Which letter makes the first sound in sandcastle?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "table. Which letter makes the first sound in table?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "bike. Which one starts with the same sound as bike?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "nose. Which one starts with the same sound as nose?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "rose. Which one starts with the same sound as rose?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "wheel. Which one starts with the same sound as wheel?",
+   "kind": "instruction",
    "usedBy": 1
   },
   {
@@ -5351,7 +6572,7 @@
   },
   {
    "word": "sock",
-   "usedBy": 6
+   "usedBy": 14
   },
   {
    "word": "chip",
@@ -5359,27 +6580,27 @@
   },
   {
    "word": "wheel",
-   "usedBy": 5
+   "usedBy": 17
   },
   {
    "word": "shell",
-   "usedBy": 6
+   "usedBy": 8
   },
   {
    "word": "cake",
-   "usedBy": 3
+   "usedBy": 6
   },
   {
    "word": "ch",
-   "usedBy": 31
+   "usedBy": 35
   },
   {
    "word": "sh",
-   "usedBy": 36
+   "usedBy": 41
   },
   {
    "word": "th",
-   "usedBy": 34
+   "usedBy": 41
   },
   {
    "word": "wh",
@@ -5399,7 +6620,7 @@
   },
   {
    "word": "ck",
-   "usedBy": 17
+   "usedBy": 20
   },
   {
    "word": "bench",
@@ -5411,23 +6632,23 @@
   },
   {
    "word": "moth",
-   "usedBy": 6
+   "usedBy": 9
   },
   {
    "word": "whisk",
-   "usedBy": 5
+   "usedBy": 6
   },
   {
    "word": "tooth",
-   "usedBy": 4
+   "usedBy": 5
   },
   {
    "word": "rock",
-   "usedBy": 3
+   "usedBy": 6
   },
   {
    "word": "ship",
-   "usedBy": 3
+   "usedBy": 4
   },
   {
    "word": "chick",
@@ -5439,7 +6660,7 @@
   },
   {
    "word": "sun",
-   "usedBy": 1
+   "usedBy": 6
   },
   {
    "word": "shoe",
@@ -5451,11 +6672,11 @@
   },
   {
    "word": "fish",
-   "usedBy": 2
+   "usedBy": 8
   },
   {
    "word": "brush",
-   "usedBy": 2
+   "usedBy": 3
   },
   {
    "word": "lock",
@@ -5463,7 +6684,7 @@
   },
   {
    "word": "dish",
-   "usedBy": 3
+   "usedBy": 10
   },
   {
    "word": "three",
@@ -5479,15 +6700,15 @@
   },
   {
    "word": "bath",
-   "usedBy": 2
+   "usedBy": 4
   },
   {
    "word": "sheep",
-   "usedBy": 3
+   "usedBy": 5
   },
   {
    "word": "wasp",
-   "usedBy": 1
+   "usedBy": 7
   },
   {
    "word": "whistle",
@@ -5503,7 +6724,7 @@
   },
   {
    "word": "whirlpool",
-   "usedBy": 1
+   "usedBy": 2
   },
   {
    "word": "shark",
@@ -5523,15 +6744,15 @@
   },
   {
    "word": "phone",
-   "usedBy": 2
+   "usedBy": 3
   },
   {
    "word": "dolphin",
-   "usedBy": 1
+   "usedBy": 2
   },
   {
    "word": "elephant",
-   "usedBy": 1
+   "usedBy": 6
   },
   {
    "word": "graph",
@@ -5539,7 +6760,7 @@
   },
   {
    "word": "duck",
-   "usedBy": 1
+   "usedBy": 9
   },
   {
    "word": "brick",
@@ -5571,10 +6792,474 @@
   },
   {
    "word": "microphone",
-   "usedBy": 1
+   "usedBy": 2
   },
   {
    "word": "truck",
+   "usedBy": 1
+  },
+  {
+   "word": "b",
+   "usedBy": 27
+  },
+  {
+   "word": "p",
+   "usedBy": 19
+  },
+  {
+   "word": "w",
+   "usedBy": 26
+  },
+  {
+   "word": "v",
+   "usedBy": 20
+  },
+  {
+   "word": "web",
+   "usedBy": 13
+  },
+  {
+   "word": "crab",
+   "usedBy": 3
+  },
+  {
+   "word": "cap",
+   "usedBy": 9
+  },
+  {
+   "word": "bike",
+   "usedBy": 8
+  },
+  {
+   "word": "road",
+   "usedBy": 5
+  },
+  {
+   "word": "bat",
+   "usedBy": 3
+  },
+  {
+   "word": "mud",
+   "usedBy": 7
+  },
+  {
+   "word": "tub",
+   "usedBy": 7
+  },
+  {
+   "word": "t",
+   "usedBy": 42
+  },
+  {
+   "word": "m",
+   "usedBy": 26
+  },
+  {
+   "word": "d",
+   "usedBy": 30
+  },
+  {
+   "word": "g",
+   "usedBy": 31
+  },
+  {
+   "word": "bread",
+   "usedBy": 5
+  },
+  {
+   "word": "boat",
+   "usedBy": 12
+  },
+  {
+   "word": "dog",
+   "usedBy": 6
+  },
+  {
+   "word": "leaf",
+   "usedBy": 4
+  },
+  {
+   "word": "nut",
+   "usedBy": 5
+  },
+  {
+   "word": "dig",
+   "usedBy": 3
+  },
+  {
+   "word": "f",
+   "usedBy": 29
+  },
+  {
+   "word": "c",
+   "usedBy": 17
+  },
+  {
+   "word": "q",
+   "usedBy": 12
+  },
+  {
+   "word": "flag",
+   "usedBy": 3
+  },
+  {
+   "word": "goat",
+   "usedBy": 9
+  },
+  {
+   "word": "frog",
+   "usedBy": 2
+  },
+  {
+   "word": "gum",
+   "usedBy": 4
+  },
+  {
+   "word": "k",
+   "usedBy": 14
+  },
+  {
+   "word": "j",
+   "usedBy": 8
+  },
+  {
+   "word": "l",
+   "usedBy": 24
+  },
+  {
+   "word": "r",
+   "usedBy": 25
+  },
+  {
+   "word": "i",
+   "usedBy": 17
+  },
+  {
+   "word": "deer",
+   "usedBy": 2
+  },
+  {
+   "word": "lamp",
+   "usedBy": 3
+  },
+  {
+   "word": "pool",
+   "usedBy": 1
+  },
+  {
+   "word": "door",
+   "usedBy": 1
+  },
+  {
+   "word": "moon",
+   "usedBy": 7
+  },
+  {
+   "word": "n",
+   "usedBy": 48
+  },
+  {
+   "word": "drum",
+   "usedBy": 9
+  },
+  {
+   "word": "jam",
+   "usedBy": 8
+  },
+  {
+   "word": "pin",
+   "usedBy": 8
+  },
+  {
+   "word": "map",
+   "usedBy": 8
+  },
+  {
+   "word": "hen",
+   "usedBy": 8
+  },
+  {
+   "word": "ram",
+   "usedBy": 2
+  },
+  {
+   "word": "jar",
+   "usedBy": 1
+  },
+  {
+   "word": "mat",
+   "usedBy": 4
+  },
+  {
+   "word": "u",
+   "usedBy": 17
+  },
+  {
+   "word": "ten",
+   "usedBy": 5
+  },
+  {
+   "word": "hand",
+   "usedBy": 4
+  },
+  {
+   "word": "net",
+   "usedBy": 10
+  },
+  {
+   "word": "run",
+   "usedBy": 2
+  },
+  {
+   "word": "ham",
+   "usedBy": 2
+  },
+  {
+   "word": "fin",
+   "usedBy": 4
+  },
+  {
+   "word": "mop",
+   "usedBy": 4
+  },
+  {
+   "word": "pig",
+   "usedBy": 7
+  },
+  {
+   "word": "nap",
+   "usedBy": 3
+  },
+  {
+   "word": "sleep",
+   "usedBy": 1
+  },
+  {
+   "word": "toe",
+   "usedBy": 7
+  },
+  {
+   "word": "hat",
+   "usedBy": 8
+  },
+  {
+   "word": "wet",
+   "usedBy": 2
+  },
+  {
+   "word": "bed",
+   "usedBy": 3
+  },
+  {
+   "word": "s",
+   "usedBy": 19
+  },
+  {
+   "word": "glass",
+   "usedBy": 2
+  },
+  {
+   "word": "wish",
+   "usedBy": 1
+  },
+  {
+   "word": "splash",
+   "usedBy": 1
+  },
+  {
+   "word": "ft",
+   "usedBy": 8
+  },
+  {
+   "word": "cloth",
+   "usedBy": 1
+  },
+  {
+   "word": "ll",
+   "usedBy": 3
+  },
+  {
+   "word": "le",
+   "usedBy": 3
+  },
+  {
+   "word": "bell",
+   "usedBy": 6
+  },
+  {
+   "word": "hill",
+   "usedBy": 2
+  },
+  {
+   "word": "shed",
+   "usedBy": 1
+  },
+  {
+   "word": "melt",
+   "usedBy": 4
+  },
+  {
+   "word": "h",
+   "usedBy": 13
+  },
+  {
+   "word": "small",
+   "usedBy": 1
+  },
+  {
+   "word": "ng",
+   "usedBy": 8
+  },
+  {
+   "word": "nk",
+   "usedBy": 7
+  },
+  {
+   "word": "ring",
+   "usedBy": 7
+  },
+  {
+   "word": "song",
+   "usedBy": 1
+  },
+  {
+   "word": "king",
+   "usedBy": 6
+  },
+  {
+   "word": "swing",
+   "usedBy": 1
+  },
+  {
+   "word": "nd",
+   "usedBy": 5
+  },
+  {
+   "word": "nt",
+   "usedBy": 8
+  },
+  {
+   "word": "pond",
+   "usedBy": 2
+  },
+  {
+   "word": "pot",
+   "usedBy": 2
+  },
+  {
+   "word": "wind",
+   "usedBy": 1
+  },
+  {
+   "word": "drink",
+   "usedBy": 2
+  },
+  {
+   "word": "tap",
+   "usedBy": 4
+  },
+  {
+   "word": "tank",
+   "usedBy": 1
+  },
+  {
+   "word": "trunk",
+   "usedBy": 1
+  },
+  {
+   "word": "blink",
+   "usedBy": 1
+  },
+  {
+   "word": "st",
+   "usedBy": 7
+  },
+  {
+   "word": "sk",
+   "usedBy": 11
+  },
+  {
+   "word": "ss",
+   "usedBy": 3
+  },
+  {
+   "word": "nest",
+   "usedBy": 5
+  },
+  {
+   "word": "desk",
+   "usedBy": 3
+  },
+  {
+   "word": "vet",
+   "usedBy": 9
+  },
+  {
+   "word": "list",
+   "usedBy": 2
+  },
+  {
+   "word": "vest",
+   "usedBy": 2
+  },
+  {
+   "word": "mask",
+   "usedBy": 4
+  },
+  {
+   "word": "tusk",
+   "usedBy": 1
+  },
+  {
+   "word": "gift",
+   "usedBy": 3
+  },
+  {
+   "word": "rat",
+   "usedBy": 2
+  },
+  {
+   "word": "raft",
+   "usedBy": 2
+  },
+  {
+   "word": "mp",
+   "usedBy": 1
+  },
+  {
+   "word": "left",
+   "usedBy": 1
+  },
+  {
+   "word": "lt",
+   "usedBy": 3
+  },
+  {
+   "word": "belt",
+   "usedBy": 1
+  },
+  {
+   "word": "salt",
+   "usedBy": 2
+  },
+  {
+   "word": "felt",
+   "usedBy": 1
+  },
+  {
+   "word": "rug",
+   "usedBy": 5
+  },
+  {
+   "word": "sting",
+   "usedBy": 1
+  },
+  {
+   "word": "twist",
+   "usedBy": 1
+  },
+  {
+   "word": "think",
    "usedBy": 1
   },
   {
@@ -5670,6 +7355,406 @@
    "usedBy": 1
   },
   {
+   "word": "a",
+   "usedBy": 11
+  },
+  {
+   "word": "e",
+   "usedBy": 19
+  },
+  {
+   "word": "o",
+   "usedBy": 25
+  },
+  {
+   "word": "apple",
+   "usedBy": 7
+  },
+  {
+   "word": "ant",
+   "usedBy": 6
+  },
+  {
+   "word": "egg",
+   "usedBy": 6
+  },
+  {
+   "word": "igloo",
+   "usedBy": 6
+  },
+  {
+   "word": "ox",
+   "usedBy": 6
+  },
+  {
+   "word": "astronaut",
+   "usedBy": 1
+  },
+  {
+   "word": "alligator",
+   "usedBy": 1
+  },
+  {
+   "word": "insect",
+   "usedBy": 3
+  },
+  {
+   "word": "umbrella",
+   "usedBy": 5
+  },
+  {
+   "word": "banana",
+   "usedBy": 1
+  },
+  {
+   "word": "y",
+   "usedBy": 11
+  },
+  {
+   "word": "butterfly",
+   "usedBy": 1
+  },
+  {
+   "word": "pen",
+   "usedBy": 7
+  },
+  {
+   "word": "corn",
+   "usedBy": 3
+  },
+  {
+   "word": "caterpillar",
+   "usedBy": 1
+  },
+  {
+   "word": "camera",
+   "usedBy": 1
+  },
+  {
+   "word": "cone",
+   "usedBy": 3
+  },
+  {
+   "word": "gate",
+   "usedBy": 7
+  },
+  {
+   "word": "tent",
+   "usedBy": 5
+  },
+  {
+   "word": "bone",
+   "usedBy": 2
+  },
+  {
+   "word": "dinosaur",
+   "usedBy": 1
+  },
+  {
+   "word": "tie",
+   "usedBy": 3
+  },
+  {
+   "word": "envelope",
+   "usedBy": 3
+  },
+  {
+   "word": "ink",
+   "usedBy": 4
+  },
+  {
+   "word": "octopus",
+   "usedBy": 5
+  },
+  {
+   "word": "elbow",
+   "usedBy": 1
+  },
+  {
+   "word": "uncle",
+   "usedBy": 5
+  },
+  {
+   "word": "fan",
+   "usedBy": 8
+  },
+  {
+   "word": "x",
+   "usedBy": 2
+  },
+  {
+   "word": "fox",
+   "usedBy": 1
+  },
+  {
+   "word": "van",
+   "usedBy": 7
+  },
+  {
+   "word": "feather",
+   "usedBy": 1
+  },
+  {
+   "word": "flamingo",
+   "usedBy": 1
+  },
+  {
+   "word": "vase",
+   "usedBy": 2
+  },
+  {
+   "word": "farm",
+   "usedBy": 2
+  },
+  {
+   "word": "guitar",
+   "usedBy": 1
+  },
+  {
+   "word": "gorilla",
+   "usedBy": 1
+  },
+  {
+   "word": "key",
+   "usedBy": 4
+  },
+  {
+   "word": "helicopter",
+   "usedBy": 1
+  },
+  {
+   "word": "hedgehog",
+   "usedBy": 1
+  },
+  {
+   "word": "instrument",
+   "usedBy": 1
+  },
+  {
+   "word": "jet",
+   "usedBy": 4
+  },
+  {
+   "word": "yarn",
+   "usedBy": 5
+  },
+  {
+   "word": "mug",
+   "usedBy": 4
+  },
+  {
+   "word": "jug",
+   "usedBy": 1
+  },
+  {
+   "word": "jacket",
+   "usedBy": 1
+  },
+  {
+   "word": "jellyfish",
+   "usedBy": 1
+  },
+  {
+   "word": "yak",
+   "usedBy": 4
+  },
+  {
+   "word": "kite",
+   "usedBy": 6
+  },
+  {
+   "word": "kangaroo",
+   "usedBy": 1
+  },
+  {
+   "word": "kettle",
+   "usedBy": 1
+  },
+  {
+   "word": "leg",
+   "usedBy": 2
+  },
+  {
+   "word": "lion",
+   "usedBy": 3
+  },
+  {
+   "word": "lemon",
+   "usedBy": 1
+  },
+  {
+   "word": "rose",
+   "usedBy": 4
+  },
+  {
+   "word": "spoon",
+   "usedBy": 1
+  },
+  {
+   "word": "mountain",
+   "usedBy": 1
+  },
+  {
+   "word": "nose",
+   "usedBy": 5
+  },
+  {
+   "word": "z",
+   "usedBy": 10
+  },
+  {
+   "word": "necklace",
+   "usedBy": 1
+  },
+  {
+   "word": "newspaper",
+   "usedBy": 1
+  },
+  {
+   "word": "otter",
+   "usedBy": 1
+  },
+  {
+   "word": "olive",
+   "usedBy": 1
+  },
+  {
+   "word": "penguin",
+   "usedBy": 1
+  },
+  {
+   "word": "pumpkin",
+   "usedBy": 1
+  },
+  {
+   "word": "queen",
+   "usedBy": 2
+  },
+  {
+   "word": "quilt",
+   "usedBy": 2
+  },
+  {
+   "word": "crown",
+   "usedBy": 1
+  },
+  {
+   "word": "question",
+   "usedBy": 2
+  },
+  {
+   "word": "quarter",
+   "usedBy": 1
+  },
+  {
+   "word": "quiz",
+   "usedBy": 2
+  },
+  {
+   "word": "rainbow",
+   "usedBy": 1
+  },
+  {
+   "word": "rocket",
+   "usedBy": 1
+  },
+  {
+   "word": "zip",
+   "usedBy": 4
+  },
+  {
+   "word": "sunflower",
+   "usedBy": 1
+  },
+  {
+   "word": "sandwich",
+   "usedBy": 1
+  },
+  {
+   "word": "zoo",
+   "usedBy": 4
+  },
+  {
+   "word": "zebra",
+   "usedBy": 3
+  },
+  {
+   "word": "tiger",
+   "usedBy": 1
+  },
+  {
+   "word": "tomato",
+   "usedBy": 1
+  },
+  {
+   "word": "umpire",
+   "usedBy": 1
+  },
+  {
+   "word": "understand",
+   "usedBy": 1
+  },
+  {
+   "word": "under",
+   "usedBy": 1
+  },
+  {
+   "word": "man",
+   "usedBy": 2
+  },
+  {
+   "word": "volcano",
+   "usedBy": 1
+  },
+  {
+   "word": "vulture",
+   "usedBy": 1
+  },
+  {
+   "word": "worm",
+   "usedBy": 2
+  },
+  {
+   "word": "watermelon",
+   "usedBy": 1
+  },
+  {
+   "word": "window",
+   "usedBy": 1
+  },
+  {
+   "word": "yoghurt",
+   "usedBy": 1
+  },
+  {
+   "word": "yawn",
+   "usedBy": 1
+  },
+  {
+   "word": "star",
+   "usedBy": 1
+  },
+  {
+   "word": "zigzag",
+   "usedBy": 1
+  },
+  {
+   "word": "ambulance",
+   "usedBy": 1
+  },
+  {
+   "word": "engine",
+   "usedBy": 1
+  },
+  {
+   "word": "sandcastle",
+   "usedBy": 1
+  },
+  {
+   "word": "table",
+   "usedBy": 1
+  },
+  {
    "word": "Friday",
    "usedBy": 1
   },
@@ -5762,10 +7847,6 @@
    "usedBy": 2
   },
   {
-   "word": "ten",
-   "usedBy": 3
-  },
-  {
    "word": "seven",
    "usedBy": 1
   },
@@ -5798,20 +7879,12 @@
    "usedBy": 1
   },
   {
-   "word": "gate",
-   "usedBy": 2
-  },
-  {
    "word": "snake",
    "usedBy": 1
   },
   {
    "word": "cape",
    "usedBy": 1
-  },
-  {
-   "word": "cap",
-   "usedBy": 2
   },
   {
    "word": "cope",
@@ -5826,10 +7899,6 @@
    "usedBy": 2
   },
   {
-   "word": "tap",
-   "usedBy": 3
-  },
-  {
    "word": "tip",
    "usedBy": 2
   },
@@ -5842,20 +7911,12 @@
    "usedBy": 1
   },
   {
-   "word": "man",
-   "usedBy": 1
-  },
-  {
    "word": "mine",
    "usedBy": 1
   },
   {
    "word": "men",
    "usedBy": 1
-  },
-  {
-   "word": "kite",
-   "usedBy": 3
   },
   {
    "word": "smile",
@@ -5878,16 +7939,8 @@
    "usedBy": 2
   },
   {
-   "word": "pin",
-   "usedBy": 1
-  },
-  {
    "word": "pane",
    "usedBy": 2
-  },
-  {
-   "word": "pen",
-   "usedBy": 3
   },
   {
    "word": "ride",
@@ -5906,16 +7959,8 @@
    "usedBy": 5
   },
   {
-   "word": "bone",
-   "usedBy": 1
-  },
-  {
    "word": "rope",
    "usedBy": 3
-  },
-  {
-   "word": "rose",
-   "usedBy": 1
   },
   {
    "word": "hope",
@@ -5940,14 +7985,6 @@
   {
    "word": "not",
    "usedBy": 2
-  },
-  {
-   "word": "net",
-   "usedBy": 1
-  },
-  {
-   "word": "nut",
-   "usedBy": 1
   },
   {
    "word": "robe",
@@ -5994,10 +8031,6 @@
    "usedBy": 1
   },
   {
-   "word": "tub",
-   "usedBy": 3
-  },
-  {
    "word": "theme",
    "usedBy": 1
   },
@@ -6015,10 +8048,6 @@
   },
   {
    "word": "gas",
-   "usedBy": 1
-  },
-  {
-   "word": "bed",
    "usedBy": 1
   },
   {
@@ -6040,10 +8069,6 @@
   {
    "word": "made",
    "usedBy": 1
-  },
-  {
-   "word": "mud",
-   "usedBy": 2
   },
   {
    "word": "dam",
@@ -6074,19 +8099,7 @@
    "usedBy": 1
   },
   {
-   "word": "bell",
-   "usedBy": 1
-  },
-  {
-   "word": "boat",
-   "usedBy": 1
-  },
-  {
    "word": "bite",
-   "usedBy": 1
-  },
-  {
-   "word": "bat",
    "usedBy": 1
   },
   {
@@ -6110,24 +8123,12 @@
    "usedBy": 2
   },
   {
-   "word": "hat",
-   "usedBy": 3
-  },
-  {
    "word": "stone",
    "usedBy": 1
   },
   {
    "word": "rain",
    "usedBy": 1
-  },
-  {
-   "word": "hen",
-   "usedBy": 1
-  },
-  {
-   "word": "cone",
-   "usedBy": 2
   },
   {
    "word": "coat",
@@ -6170,27 +8171,11 @@
    "usedBy": 1
   },
   {
-   "word": "leg",
-   "usedBy": 1
-  },
-  {
    "word": "log",
    "usedBy": 1
   },
   {
-   "word": "bike",
-   "usedBy": 1
-  },
-  {
    "word": "fine",
-   "usedBy": 1
-  },
-  {
-   "word": "fin",
-   "usedBy": 1
-  },
-  {
-   "word": "fan",
    "usedBy": 1
   },
   {
@@ -6226,31 +8211,11 @@
    "usedBy": 2
   },
   {
-   "word": "nose",
-   "usedBy": 1
-  },
-  {
-   "word": "nap",
-   "usedBy": 1
-  },
-  {
-   "word": "road",
-   "usedBy": 1
-  },
-  {
    "word": "hug",
    "usedBy": 1
   },
   {
    "word": "hog",
-   "usedBy": 1
-  },
-  {
-   "word": "tent",
-   "usedBy": 1
-  },
-  {
-   "word": "tie",
    "usedBy": 1
   },
   {
@@ -6329,7 +8294,7 @@
    "word": "sock",
    "alt": "sock",
    "exists": true,
-   "usedBy": 4
+   "usedBy": 11
   },
   {
    "word": "chip",
@@ -6341,19 +8306,19 @@
    "word": "wheel",
    "alt": "wheel",
    "exists": true,
-   "usedBy": 5
+   "usedBy": 14
   },
   {
    "word": "shell",
    "alt": "shell",
    "exists": true,
-   "usedBy": 6
+   "usedBy": 7
   },
   {
    "word": "cake",
    "alt": "cake",
    "exists": true,
-   "usedBy": 2
+   "usedBy": 4
   },
   {
    "word": "chain",
@@ -6383,13 +8348,13 @@
    "word": "moth",
    "alt": "moth",
    "exists": true,
-   "usedBy": 6
+   "usedBy": 8
   },
   {
    "word": "whisk",
    "alt": "whisk",
    "exists": true,
-   "usedBy": 5
+   "usedBy": 6
   },
   {
    "word": "tooth",
@@ -6401,13 +8366,13 @@
    "word": "rock",
    "alt": "rock",
    "exists": true,
-   "usedBy": 2
+   "usedBy": 3
   },
   {
    "word": "ship",
    "alt": "ship",
    "exists": true,
-   "usedBy": 3
+   "usedBy": 4
   },
   {
    "word": "chick",
@@ -6425,7 +8390,7 @@
    "word": "sun",
    "alt": "sun",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 4
   },
   {
    "word": "shoe",
@@ -6443,13 +8408,13 @@
    "word": "fish",
    "alt": "fish",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 6
   },
   {
    "word": "brush",
    "alt": "brush",
    "exists": true,
-   "usedBy": 2
+   "usedBy": 3
   },
   {
    "word": "lock",
@@ -6461,7 +8426,7 @@
    "word": "dish",
    "alt": "dish",
    "exists": true,
-   "usedBy": 3
+   "usedBy": 9
   },
   {
    "word": "three",
@@ -6485,19 +8450,19 @@
    "word": "bath",
    "alt": "bath",
    "exists": true,
-   "usedBy": 2
+   "usedBy": 3
   },
   {
    "word": "sheep",
    "alt": "sheep",
    "exists": true,
-   "usedBy": 3
+   "usedBy": 5
   },
   {
    "word": "wasp",
    "alt": "wasp",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 6
   },
   {
    "word": "whistle",
@@ -6521,7 +8486,7 @@
    "word": "whirlpool",
    "alt": "whirlpool",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 2
   },
   {
    "word": "shark",
@@ -6551,19 +8516,19 @@
    "word": "phone",
    "alt": "phone",
    "exists": true,
-   "usedBy": 2
+   "usedBy": 3
   },
   {
    "word": "dolphin",
    "alt": "dolphin",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 2
   },
   {
    "word": "elephant",
    "alt": "elephant",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 6
   },
   {
    "word": "graph",
@@ -6575,7 +8540,7 @@
    "word": "duck",
    "alt": "duck",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 7
   },
   {
    "word": "brick",
@@ -6623,7 +8588,7 @@
    "word": "microphone",
    "alt": "microphone",
    "exists": true,
-   "usedBy": 1
+   "usedBy": 2
   },
   {
    "word": "truck",
@@ -6632,20 +8597,596 @@
    "usedBy": 1
   },
   {
+   "word": "web",
+   "alt": "web",
+   "exists": true,
+   "usedBy": 10
+  },
+  {
+   "word": "crab",
+   "alt": "crab",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "cap",
+   "alt": "cap",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "bike",
+   "alt": "bike",
+   "exists": true,
+   "usedBy": 7
+  },
+  {
+   "word": "road",
+   "alt": "road",
+   "exists": true,
+   "usedBy": 4
+  },
+  {
+   "word": "tub",
+   "alt": "tub",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "bread",
+   "alt": "bread",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "boat",
+   "alt": "boat",
+   "exists": true,
+   "usedBy": 9
+  },
+  {
+   "word": "dog",
+   "alt": "dog",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "leaf",
+   "alt": "leaf",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "flag",
+   "alt": "flag",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "goat",
+   "alt": "goat",
+   "exists": true,
+   "usedBy": 7
+  },
+  {
+   "word": "frog",
+   "alt": "frog",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "deer",
+   "alt": "deer",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "lamp",
+   "alt": "lamp",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "drum",
+   "alt": "drum",
+   "exists": true,
+   "usedBy": 6
+  },
+  {
+   "word": "jam",
+   "alt": "jam",
+   "exists": true,
+   "usedBy": 8
+  },
+  {
+   "word": "pin",
+   "alt": "pin",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "map",
+   "alt": "map",
+   "exists": true,
+   "usedBy": 7
+  },
+  {
+   "word": "hen",
+   "alt": "hen",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "ten",
+   "alt": "ten",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "hand",
+   "alt": "hand",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "net",
+   "alt": "net",
+   "exists": true,
+   "usedBy": 7
+  },
+  {
+   "word": "fin",
+   "alt": "fin",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "mop",
+   "alt": "mop",
+   "exists": true,
+   "usedBy": 4
+  },
+  {
+   "word": "pig",
+   "alt": "pig",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "toe",
+   "alt": "toe",
+   "exists": true,
+   "usedBy": 6
+  },
+  {
+   "word": "glass",
+   "alt": "glass",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "splash",
+   "alt": "splash",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "cloth",
+   "alt": "cloth",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "bell",
+   "alt": "bell",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "ring",
+   "alt": "ring",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "king",
+   "alt": "king",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "nest",
+   "alt": "nest",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "desk",
+   "alt": "desk",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "vet",
+   "alt": "vet",
+   "exists": true,
+   "usedBy": 8
+  },
+  {
+   "word": "vest",
+   "alt": "vest",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "gift",
+   "alt": "gift",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "mud",
+   "alt": "mud",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "gum",
+   "alt": "gum",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "mat",
+   "alt": "mat",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "apple",
+   "alt": "apple",
+   "exists": true,
+   "usedBy": 6
+  },
+  {
+   "word": "ant",
+   "alt": "ant",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "egg",
+   "alt": "egg",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "igloo",
+   "alt": "igloo",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "ox",
+   "alt": "ox",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "insect",
+   "alt": "insect",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "umbrella",
+   "alt": "umbrella",
+   "exists": true,
+   "usedBy": 4
+  },
+  {
+   "word": "pen",
+   "alt": "pen",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "pot",
+   "alt": "pot",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "corn",
+   "alt": "corn",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "moon",
+   "alt": "moon",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "cone",
+   "alt": "cone",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
    "word": "gate",
    "alt": "gate",
+   "exists": true,
+   "usedBy": 5
+  },
+  {
+   "word": "tent",
+   "alt": "tent",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "bone",
+   "alt": "bone",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "tie",
+   "alt": "tie",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "envelope",
+   "alt": "envelope",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "ink",
+   "alt": "ink",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "octopus",
+   "alt": "octopus",
+   "exists": true,
+   "usedBy": 4
+  },
+  {
+   "word": "uncle",
+   "alt": "uncle",
+   "exists": true,
+   "usedBy": 4
+  },
+  {
+   "word": "fan",
+   "alt": "fan",
+   "exists": true,
+   "usedBy": 6
+  },
+  {
+   "word": "fox",
+   "alt": "fox",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "van",
+   "alt": "van",
+   "exists": true,
+   "usedBy": 6
+  },
+  {
+   "word": "vase",
+   "alt": "vase",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "farm",
+   "alt": "farm",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "key",
+   "alt": "key",
+   "exists": true,
+   "usedBy": 4
+  },
+  {
+   "word": "hat",
+   "alt": "hat",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "rat",
+   "alt": "rat",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "ham",
+   "alt": "ham",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "jet",
+   "alt": "jet",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "yarn",
+   "alt": "yarn",
+   "exists": true,
+   "usedBy": 4
+  },
+  {
+   "word": "mug",
+   "alt": "mug",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "yak",
+   "alt": "yak",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "kite",
+   "alt": "kite",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "leg",
+   "alt": "leg",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "lion",
+   "alt": "lion",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "rug",
+   "alt": "rug",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "rose",
+   "alt": "rose",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "spoon",
+   "alt": "spoon",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "nose",
+   "alt": "nose",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "nut",
+   "alt": "nut",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "dig",
+   "alt": "dig",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "queen",
+   "alt": "queen",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "quilt",
+   "alt": "quilt",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "crown",
+   "alt": "crown",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "quiz",
+   "alt": "quiz",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "zip",
+   "alt": "zip",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "run",
+   "alt": "run",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "zoo",
+   "alt": "zoo",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "zebra",
+   "alt": "zebra",
+   "exists": true,
+   "usedBy": 3
+  },
+  {
+   "word": "tiger",
+   "alt": "tiger",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "under",
+   "alt": "under",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "man",
+   "alt": "man",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "worm",
+   "alt": "worm",
+   "exists": true,
+   "usedBy": 2
+  },
+  {
+   "word": "star",
+   "alt": "star",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "nap",
+   "alt": "nap",
+   "exists": true,
+   "usedBy": 1
+  },
+  {
+   "word": "ram",
+   "alt": "ram",
    "exists": true,
    "usedBy": 1
   },
   {
    "word": "snake",
    "alt": "snake",
-   "exists": true,
-   "usedBy": 1
-  },
-  {
-   "word": "kite",
-   "alt": "kite",
    "exists": true,
    "usedBy": 1
   },
@@ -6662,20 +9203,8 @@
    "usedBy": 1
   },
   {
-   "word": "bone",
-   "alt": "bone",
-   "exists": true,
-   "usedBy": 1
-  },
-  {
    "word": "rope",
    "alt": "rope",
-   "exists": true,
-   "usedBy": 1
-  },
-  {
-   "word": "rose",
-   "alt": "rose",
    "exists": true,
    "usedBy": 1
   },
@@ -6746,12 +9275,6 @@
    "usedBy": 1
   },
   {
-   "word": "cone",
-   "alt": "cone",
-   "exists": true,
-   "usedBy": 1
-  },
-  {
    "word": "note",
    "alt": "note",
    "exists": true,
@@ -6772,12 +9295,6 @@
   {
    "word": "lake",
    "alt": "lake",
-   "exists": true,
-   "usedBy": 1
-  },
-  {
-   "word": "bike",
-   "alt": "bike",
    "exists": true,
    "usedBy": 1
   },

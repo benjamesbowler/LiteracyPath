@@ -41,7 +41,7 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 
 **Formats.** Text tier: `ENDING_SOUND` (word+image → 4 letter/pattern choices), `FINAL_SOUND_PAIR_SELECT` (which picture ends like ⟨anchor⟩), `ENDING_SOUND_WORD_MATCH` (L1 only). Each unit's 3 form-variants must span ≥2 of these (this is what makes the §3.1 two-format requirement reachable — currently 14/26 units are single-format).
 
-**Bank.** L1: 8 × 3 = 24 + R 16. L2: 10 × 3 = 30 + R 16. Total ≤ 86. **Current published is 366 — prune ~75%**, keeping the best lint-passing items (final-sound bank quality is decent; volume is the problem, plus the configured-vs-published scope mismatch the audit flagged: published keys must exactly match the 8+10 inventories, nothing else).
+**Bank.** L1: 8 × 4 = 32 + R. L2: 10 × 4 = 40 + R. Total ≤ 86. (4 variants per unit, not 3: D-small requires 4 attempts over 2+ distinct items with zero repeats in the pass budget — a 3-item pool forces a repeat; same arithmetic that sized digraphs at 4.) **Current published is 366 — prune ~75%**, keeping the best lint-passing items (final-sound bank quality is decent; volume is the problem, plus the configured-vs-published scope mismatch the audit flagged: published keys must exactly match the 8+10 inventories, nothing else).
 
 **Distractors.** `D-POSITION` (the word's INITIAL sound — mandatory in every item; it is THE misconception), `D-RIME-NEAR` (final sound of a rhyming neighbor), `D-VOWEL`-adjacent final (d/t, g/k voicing pairs) at L2.
 
