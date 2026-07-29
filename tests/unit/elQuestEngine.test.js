@@ -28,6 +28,47 @@ test("graphemeAudioPath never returns a blocklisted clip; resolves when unblocke
   }
 });
 
+test("graphemeAudioPath prefers human-approved Leda pattern clips", () => {
+  assert.equal(
+    graphemeAudioPath("br"),
+    "/audio/production/en-US/pattern/br-as-in-brush-992accb225.mp3"
+  );
+  assert.equal(
+    graphemeAudioPath("wh"),
+    "/audio/production/en-US/pattern/wh-as-in-whale-bd42fc5b7d.mp3"
+  );
+  assert.equal(
+    graphemeAudioPath("bl"),
+    "/audio/production/en-US/pattern/bl-as-in-blue-878a108fa9.mp3"
+  );
+  assert.equal(
+    graphemeAudioPath("gr"),
+    "/audio/production/en-US/pattern/gr-as-in-grass-79b0ca790e.mp3"
+  );
+  assert.equal(
+    graphemeAudioPath("st"),
+    "/audio/production/en-US/pattern/st-as-in-stop-ff57ce59ae.mp3"
+  );
+  assert.equal(
+    graphemeAudioPath("scr"),
+    "/audio/production/en-US/pattern/scr-as-in-scrap-22b62acf29.mp3"
+  );
+  assert.equal(
+    graphemeAudioPath("sw"),
+    "/audio/production/en-US/pattern/sw-as-in-swing-7880c0db2e.mp3"
+  );
+  assert.notEqual(
+    graphemeAudioPath("ew"),
+    "/audio/production/en-US/pattern/ew-as-in-few-a41a73446f.mp3",
+    "the /juː/ few pronunciation must not replace the /uː/ grew pronunciation"
+  );
+  assert.notEqual(
+    graphemeAudioPath("or"),
+    "/audio/production/en-US/pattern/or-as-in-word-f1c092d4d8.mp3",
+    "the /ɝ/ word pronunciation must not replace the /ɔr/ fork pronunciation"
+  );
+});
+
 test("starsForAccuracy applies the 3/2/1/0 thresholds", () => {
   assert.equal(starsForAccuracy(10, 10, 0), 3); // perfect, no wrongs
   assert.equal(starsForAccuracy(10, 10, 1), 2); // all right but had a wrong attempt

@@ -4,6 +4,7 @@ import { kimiVocabulary500AudioPreferences } from "./kimiVocabulary500AudioPrefe
 import { kimiHighQualityMediaStyleAudioTasks } from "./generated/kimiHighQualityMediaStyleManifest.generated.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
+import { approvedPhonicsPatternAudio } from "./approvedPhonicsPatternAudio.js";
 
 function normalizeAudioPreferenceKey(value) {
   return String(value || "")
@@ -359,6 +360,24 @@ export const audioPreferenceManifest = Object.fromEntries([
         fallbackPath: cleanHumanGraphemeAudioPath(item.group, item.file),
         source: "Kimi Agent Clean Child Audio Prompts",
         notes: "Approved clean lower-skill grapheme or sound option audio."
+      })
+    ];
+  }),
+  ...approvedPhonicsPatternAudio.map(item => {
+    const key = normalizeAudioPreferenceKey(
+      ["pattern", item.pattern, item.anchor].filter(Boolean).join(":")
+    );
+    return [
+      key,
+      approvedPreference({
+        key,
+        word: item.anchor
+          ? `${item.pattern} as in ${item.anchor}`
+          : item.pattern,
+        category: "phonics_patterns",
+        fallbackPath: item.audioPath,
+        source: "Google Cloud Text-to-Speech Chirp 3 HD Leda",
+        notes: `Approved by human listening review on 2026-07-29 (${item.clipId}).`
       })
     ];
   }),
