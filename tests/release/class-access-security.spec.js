@@ -42,9 +42,9 @@ test("A8.3 teacher sees a privacy-minimal access log, alert, and optional expiry
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Settings", exact: true })
     .click();
-  await page.getByRole("button", { name: "Class sign-in", exact: true }).click();
+  await page.getByRole("button", { name: "Manage classes", exact: true }).click();
   await expect(page.getByRole("heading", {
-    name: "Code expiry and leaderboard",
+    name: "Classes and groups",
     exact: true
   })).toBeVisible();
   const panel = page.locator(".teacher-site-settings");
@@ -75,10 +75,10 @@ test("A8.3 teacher sees a privacy-minimal access log, alert, and optional expiry
   await expect(expiry.locator("option:checked")).not.toContainText("Stops working on");
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Settings", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible({
     timeout: 20_000
   });
-  await page.getByRole("button", { name: "Class sign-in", exact: true }).click();
+  await page.getByRole("button", { name: "Manage classes", exact: true }).click();
   const refreshedPanel = page.locator(".teacher-site-settings");
   await refreshedPanel.locator("select").first().selectOption({ label: "Audit Class A" });
   const refreshedExpiry = refreshedPanel.getByRole("combobox", {

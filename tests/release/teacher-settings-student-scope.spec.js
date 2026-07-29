@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("teacher privacy controls never carry students across a class switch", async ({ page }) => {
   await page.goto("/preview/teacher-a11y.html?surface=settings");
-  await page.getByRole("button", { name: "Student privacy", exact: true }).click();
+  await page.getByRole("button", { name: "Open data rights", exact: true }).click();
 
   const main = page.getByRole("main");
   const classSelect = main.getByRole("combobox", { name: "Class", exact: true });

@@ -5,11 +5,16 @@ const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
 const PREVIEW_CLASS_A_ID = "00000000-0000-4000-8000-0000000000a1";
 const PREVIEW_CLASS_B_ID = "00000000-0000-4000-8000-0000000000b2";
 
+// Teacher-area redesign v2: Settings opens on a grid of doorway cards and each
+// card opens the section that already existed. The sections keep their
+// bookmarkable URLs; what changed is that you reach them from a card rather
+// than from a permanent left-hand rail, so a section change is now two history
+// entries (back to the overview, then into the next section).
 const SETTINGS_SECTIONS = [
-  { id: "school", button: "School information", heading: "School name" },
-  { id: "site", button: "Class sign-in", heading: "Code expiry and leaderboard" },
-  { id: "privacy", button: "Student privacy", heading: "Download or delete student data" },
-  { id: "account", button: "Teacher account", heading: "Teacher account" }
+  { id: "school", card: "Open school information", heading: "School name" },
+  { id: "site", card: "Manage classes", heading: "Classes and groups" },
+  { id: "privacy", card: "Open data rights", heading: "Download or delete student data" },
+  { id: "account", card: "Open teacher account", heading: "Teacher account" }
 ];
 
 async function logIn(page) {
@@ -36,6 +41,7 @@ function recordBrowserErrors(page) {
   return errors;
 }
 
+// An empty section means the card overview, whose address is the bare route.
 async function expectSettingsRoute(page, section, classId) {
   await expect.poll(() => {
     const hash = new URL(page.url()).hash;
@@ -45,7 +51,7 @@ async function expectSettingsRoute(page, section, classId) {
       classId: new URLSearchParams(query).get("class") || ""
     };
   }).toEqual({
-    path: `teacher/settings/${section}`,
+    path: section ? `teacher/settings/${section}` : "teacher/settings",
     classId
   });
 }
@@ -58,9 +64,38 @@ async function expectSettingsSection(page, section) {
     exact: true
   })).toBeVisible({ timeout: 20_000 });
   await expect(shell.getByRole("button", {
-    name: expected.button,
+    name: "Back to settings",
     exact: true
-  })).toHaveAttribute("aria-current", "page");
+  })).toBeVisible();
+}
+
+async function expectSettingsOverview(page) {
+  const shell = page.locator('main[data-teacher-intent="settings"]');
+  await expect(shell.getByRole("heading", {
+    name: "Class and account",
+    exact: true
+  })).toBeVisible({ timeout: 20_000 });
+  for (const section of SETTINGS_SECTIONS) {
+    await expect(shell.getByRole("button", {
+      name: section.card,
+      exact: true
+    })).toBeVisible();
+  }
+}
+
+async function openSettingsCard(page, section) {
+  const expected = SETTINGS_SECTIONS.find(item => item.id === section);
+  await page.locator('main[data-teacher-intent="settings"]').getByRole("button", {
+    name: expected.card,
+    exact: true
+  }).click();
+}
+
+async function backToSettings(page) {
+  await page.locator('main[data-teacher-intent="settings"]').getByRole("button", {
+    name: "Back to settings",
+    exact: true
+  }).click();
 }
 
 test("all Settings subsection URLs survive rendering, reload, Back, and Forward", async ({
@@ -81,28 +116,34 @@ test("all Settings subsection URLs survive rendering, reload, Back, and Forward"
     await expectSettingsRoute(page, section.id, AUDIT_CLASS_A_ID);
   }
 
-  await page.goto(
-    `/#teacher/settings/school?class=${AUDIT_CLASS_A_ID}`
-  );
-  await expectSettingsSection(page, "school");
-  for (const section of SETTINGS_SECTIONS.slice(1)) {
-    await page.getByRole("button", {
-      name: section.button,
-      exact: true
-    }).click();
+  await page.goto(`/#teacher/settings?class=${AUDIT_CLASS_A_ID}`);
+  await expectSettingsOverview(page);
+  await expectSettingsRoute(page, "", AUDIT_CLASS_A_ID);
+
+  for (const section of SETTINGS_SECTIONS) {
+    await openSettingsCard(page, section.id);
     await expectSettingsSection(page, section.id);
     await expectSettingsRoute(page, section.id, AUDIT_CLASS_A_ID);
+    await backToSettings(page);
+    await expectSettingsOverview(page);
+    await expectSettingsRoute(page, "", AUDIT_CLASS_A_ID);
   }
 
-  for (const section of [...SETTINGS_SECTIONS].reverse().slice(1)) {
+  for (const section of [...SETTINGS_SECTIONS].reverse()) {
     await page.goBack();
     await expectSettingsSection(page, section.id);
     await expectSettingsRoute(page, section.id, AUDIT_CLASS_A_ID);
+    await page.goBack();
+    await expectSettingsOverview(page);
+    await expectSettingsRoute(page, "", AUDIT_CLASS_A_ID);
   }
-  for (const section of SETTINGS_SECTIONS.slice(1)) {
+  for (const section of SETTINGS_SECTIONS) {
     await page.goForward();
     await expectSettingsSection(page, section.id);
     await expectSettingsRoute(page, section.id, AUDIT_CLASS_A_ID);
+    await page.goForward();
+    await expectSettingsOverview(page);
+    await expectSettingsRoute(page, "", AUDIT_CLASS_A_ID);
   }
   expect(browserErrors).toEqual([]);
 });
@@ -126,10 +167,11 @@ test("class changes keep the active Settings subsection and history context", as
   await expectSettingsRoute(page, "site", PREVIEW_CLASS_B_ID);
   await expectSettingsSection(page, "site");
 
-  await settings.getByRole("button", {
-    name: "Student privacy",
-    exact: true
-  }).click();
+  await backToSettings(page);
+  await expectSettingsOverview(page);
+  await expectSettingsRoute(page, "", PREVIEW_CLASS_B_ID);
+
+  await openSettingsCard(page, "privacy");
   await expectSettingsSection(page, "privacy");
   await expectSettingsRoute(page, "privacy", PREVIEW_CLASS_B_ID);
 
@@ -146,8 +188,14 @@ test("class changes keep the active Settings subsection and history context", as
   await expectSettingsSection(page, "privacy");
   await expectSettingsRoute(page, "privacy", PREVIEW_CLASS_B_ID);
   await page.goBack();
+  await expectSettingsOverview(page);
+  await expectSettingsRoute(page, "", PREVIEW_CLASS_B_ID);
+  await page.goBack();
   await expectSettingsSection(page, "site");
   await expectSettingsRoute(page, "site", PREVIEW_CLASS_B_ID);
+  await page.goForward();
+  await expectSettingsOverview(page);
+  await expectSettingsRoute(page, "", PREVIEW_CLASS_B_ID);
   await page.goForward();
   await expectSettingsSection(page, "privacy");
   await expectSettingsRoute(page, "privacy", PREVIEW_CLASS_B_ID);

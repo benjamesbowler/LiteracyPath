@@ -1156,6 +1156,7 @@ export function AppSurface({ surface }) {
               onRetrySchoolName={retryTeacherSchoolName}
               onRegenerateClassCode={regenerateClassCode}
               onReloadStudents={loadStudents}
+              onOpenStudents={openStudentsPage}
               teacherEmail={teacherUser.email}
               profileLoaded={profileLoaded}
               onSignOut={logOutTeacher}

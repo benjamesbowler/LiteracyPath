@@ -99,10 +99,10 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   }
 
   await primaryNav.getByRole("button", { name: "Settings", exact: true }).click();
-  const siteSettings = page.getByRole("button", { name: "Class sign-in", exact: true });
+  const siteSettings = page.getByRole("button", { name: "Manage classes", exact: true });
   await activateWithKeyboard(siteSettings);
   await expect(page.getByRole("heading", {
-    name: "Code expiry and leaderboard",
+    name: "Classes and groups",
     exact: true
   })).toBeVisible();
   await expectNoSeriousOrCritical(page, "Class sign-in");

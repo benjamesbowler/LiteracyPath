@@ -157,9 +157,18 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
   await expect(page.getByRole("heading", { name: "Choose a teaching resource", exact: true })).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Settings", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Settings", exact: true })).toBeVisible();
-  for (const section of ["School information", "Class sign-in", "Student privacy", "Teacher account"]) {
-    await expect(page.getByRole("button", { name: section, exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible();
+  // v2 Settings is a grid of doorway cards; every section the rail used to list
+  // is still one click away, now behind the card that opens it.
+  for (const card of [
+    "Manage classes",
+    "Manage sign-in",
+    "Open accessibility",
+    "Open data rights",
+    "Open school information",
+    "Open teacher account"
+  ]) {
+    await expect(page.getByRole("button", { name: card, exact: true })).toBeVisible();
   }
   expect(pageErrors).toEqual([]);
   expect(consoleErrors).toEqual([]);
@@ -425,9 +434,9 @@ test("@teacher-class-code @teacher-login-card-print keeps class entry controls i
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Settings", exact: true })
     .click();
-  await page.getByRole("button", { name: "Class sign-in", exact: true }).click();
+  await page.getByRole("button", { name: "Manage classes", exact: true }).click();
 
-  await expect(page.getByRole("heading", { name: "Code expiry and leaderboard", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Classes and groups", exact: true })).toBeVisible();
   const codeValue = page.locator(".teacher-settings-code");
   const originalCode = (await codeValue.textContent())?.trim();
   expect(originalCode).toMatch(/^[A-Z0-9]{6}$/);

@@ -6987,47 +6987,169 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   text-align: left;
 }
 
-.teacher-settings-layout {
-  display: grid;
-  grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
-  min-height: 480px;
-  overflow: hidden;
-  border: 1px solid var(--lp-color-border-subtle);
-  border-radius: 16px;
-  background: var(--lp-color-surface);
+/* ── Settings (teacher redesign v2, phase 6) ──────────────────────────────
+   A grid of doorway cards over the sections that already existed. The old
+   left-hand section rail is gone; the card is the entry point and the section
+   it opens is the same panel it always was. */
+.teacher-product-page.teacher-settings-page {
+  padding: 24px;
+  gap: 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--lp-color-background);
+  box-shadow: none;
 }
 
-.teacher-settings-nav {
+.teacher-settings-page .teacher-page-header,
+.lg-app-shell .teacher-settings-page .teacher-page-header {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  /* lg-design-system paints .teacher-page-header white with !important; the v2
+     settings header sits directly on the page background. */
+  background: transparent !important;
+  box-shadow: none;
+}
+
+/* App.css centres the first child of every .teacher-page-header; this one is a
+   left-aligned title block. */
+.teacher-settings-page .teacher-page-header > div:first-child {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.teacher-settings-page .teacher-page-header .panel-label {
+  margin: 0 0 4px;
+  color: var(--lp-color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.teacher-settings-page .teacher-page-header h2 {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.teacher-settings-page .teacher-page-header p:not(.panel-label) {
+  margin-top: 6px;
+  max-width: 62ch;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+}
+
+/* The global :focus-visible ring is a 3px shadow; the design asks for a 2px
+   outline, so the page states it for everything inside it. */
+.teacher-settings-page :focus-visible {
+  outline: 2px solid var(--lp-color-primary);
+  outline-offset: 2px;
+}
+
+.teacher-settings-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-settings-tile {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 14px;
-  border-right: 1px solid var(--lp-color-border-subtle);
-  background: var(--lp-color-surface-subtle);
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
 }
 
-.teacher-settings-nav button {
-  min-height: 46px;
-  padding: 10px 12px;
-  border: 0;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--lp-color-text);
-  font: inherit;
-  font-weight: 750;
-  text-align: left;
-  cursor: pointer;
+.teacher-settings-tile h3,
+.teacher-settings-tile h4 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-.teacher-settings-nav button:hover,
-.teacher-settings-nav button.active {
-  background: var(--lp-color-primary-soft);
-  color: var(--lp-color-primary-strong);
+.teacher-settings-tile p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* .lp-button forces a 40px floor with !important; the design asks for 44px
+   touch targets, which is why this one is stated the same way. margin-top:auto
+   keeps the actions on one line across cards whose bodies wrap differently. */
+.teacher-settings-tile .lp-button {
+  align-self: flex-start;
+  margin-top: auto;
+  min-height: 44px !important;
+}
+
+.teacher-settings-more {
+  display: grid;
+  gap: 12px;
+}
+
+.teacher-settings-more-title {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-settings-detail {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.teacher-settings-back {
+  min-height: 44px !important;
 }
 
 .teacher-settings-panel {
-  width: min(100%, 760px);
-  padding: clamp(20px, 4vw, 40px);
+  width: 100%;
+  max-width: 860px;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-settings-subhead {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-settings-handoff {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-settings-handoff p {
+  flex: 1 1 240px;
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
 }
 
 .teacher-settings-panel h2,
@@ -8061,23 +8183,20 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     grid-template-columns: 1fr;
   }
 
-  .teacher-settings-layout {
-    grid-template-columns: 1fr;
+  .teacher-product-page.teacher-settings-page {
+    padding: 16px;
   }
 
-  .teacher-settings-nav {
-    flex-direction: row;
-    overflow-x: auto;
-    border-right: 0;
-    border-bottom: 1px solid var(--lp-color-border-subtle);
-  }
-
-  .teacher-settings-nav button {
-    flex: 0 0 auto;
+  .teacher-settings-detail {
+    justify-items: stretch;
   }
 
   .teacher-settings-panel {
-    padding: 18px;
+    padding: 14px;
+  }
+
+  .teacher-settings-handoff .lp-button {
+    flex: 1 1 100%;
   }
 
   .teacher-settings-card {

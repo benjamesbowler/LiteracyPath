@@ -710,6 +710,7 @@ function Settings() {
         };
       }}
       onReloadStudents={reloadSettingsStudents}
+      onOpenStudents={noop}
       teacherEmail="audit-teacher-a@literacypath.invalid"
       profileLoaded={params.get("settingsProfile") !== "loading"}
       onSignOut={noop}
