@@ -31,6 +31,10 @@ import './styles/kids-glass.css'
 // glass surface, radius and animation still comes from kids-glass.css. Loads
 // after it so a screen rule can refine a system class, never replace one.
 import './styles/kids-home.css'
+// The Sound Trail and the Adventure Map (phase C). One file because they are
+// the same idea twice — a path of stops over an illustration — and the marker
+// machinery is shared rather than written out once per screen.
+import './styles/kids-trail.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'

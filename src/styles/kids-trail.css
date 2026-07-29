@@ -1,0 +1,528 @@
+/* KIDS TRAIL — the Sound Trail and the Adventure Map (phase C of the
+ * 2026-07-29 redesign).
+ *
+ * Binding spec: mockups/design-handoff-kids-side/README.md, "### 2. Sound Trail
+ * (Sound Seekers)" and "### 3. Adventure Map". Every radius, size, colour and
+ * coordinate below is copied from it or from the tokens kids-glass.css
+ * publishes — none is invented.
+ *
+ * ONE FILE FOR TWO SCREENS, ON PURPOSE. They are the same idea twice: a path of
+ * stops painted over an illustration, with a row of state cards under it. The
+ * node machinery (.kg-node, .kg-node-label, .kg-node-path) is written once here
+ * and skinned per screen, which is also why src/policy/childTrailPolicy.js
+ * builds both scenes with one set of helpers. A second copy of a marker recipe
+ * is how two screens that should feel identical start drifting.
+ *
+ * THIS FILE OWNS LAYOUT AND THE MARKER SKINS ONLY. Every frosted surface,
+ * scrim, type step, control and animation comes from kids-glass.css — take a
+ * class, never re-declare a recipe. Nothing new was needed at system level for
+ * phase C.
+ *
+ * WHY EVERY RULE CARRIES `.kg-stage`. App.css styles every `.app button` at
+ * (0,1,1), which out-specifies a bare `.kg-*` class at (0,1,0) and would win.
+ * kids-glass.css records the measurements; the prefix is load-bearing, not
+ * decoration. Same reason kids-home.css carries it.
+ *
+ * ROWS ARE FIXED, COLUMNS BREATHE. The canvas is 834 design px tall on every
+ * device and 1024-1560 wide (src/utils/kidsStage.js), so both screens budget
+ * their height as a constant — that is what makes "these screens never scroll"
+ * a checkable claim — while every horizontal track here is a fraction. Nothing
+ * in this file may assume 1194px of width.
+ */
+
+/* ── The shared node scene ───────────────────────────────────────────────────
+ * A percentage-positioned marker over artwork. The dashes are drawn by an SVG
+ * polyline sharing the same coordinate list the markers use (childTrailPolicy
+ * emits both), because a second hard-coded copy is how a dot ends up off the
+ * line.
+ */
+.kg-stage .kg-node-scene {
+  position: relative;
+  min-height: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  /* A deep-green ground under the art, not decoration: if the plate fails to
+     load the <img> hides itself, and white ink over a bare scrim would then sit
+     on the pale ambient gradient. The contrast guarantee survives no art. */
+  background: linear-gradient(120deg, #2E4B3E, #3E776B);
+  box-shadow: 0 22px 44px -24px rgba(20, 45, 38, 0.6);
+}
+
+.kg-stage .kg-node-scene-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* The interesting half of a wide plate is its middle band; a scene this wide
+     is a crop of it, so bias the crop away from the sky. */
+  object-position: center 58%;
+}
+
+/* Everything placed on the plate sits above .kg-scrim's ::after. */
+.kg-stage .kg-node-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.kg-stage .kg-node-path {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-linecap: round;
+}
+
+/* The marker. The drop is a `filter`, never `box-shadow`: .kg-halo animates
+   box-shadow, so a marker that carried its depth there would lose it for the
+   whole pulse and get it back only under reduced motion. */
+.kg-stage .kg-node {
+  position: absolute;
+  left: var(--kg-node-x);
+  top: var(--kg-node-y);
+  width: var(--kg-node-size);
+  height: var(--kg-node-size);
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  filter: drop-shadow(0 8px 14px rgba(20, 45, 38, 0.5));
+  font-family: var(--kg-font-display);
+  font-weight: 700;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+.kg-stage button.kg-node {
+  cursor: pointer;
+}
+
+.kg-stage .kg-node[aria-disabled="true"] {
+  cursor: default;
+}
+
+.kg-stage .kg-node--done {
+  background: rgba(111, 179, 95, 0.9);
+}
+
+.kg-stage .kg-node--next {
+  --kg-self-border: rgba(255, 255, 255, 0.9);
+  background: rgba(var(--kg-accent-rgb), 0.94);
+  border-color: rgba(255, 255, 255, 0.9);
+  color: var(--kg-ink-on-accent);
+}
+
+.kg-stage .kg-node--locked {
+  background: rgba(18, 44, 38, 0.55);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.kg-stage .kg-node--camp {
+  background: var(--kg-terracotta-soft);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+/* A label rides under its marker, half the marker plus 11px down — the spec's
+   own offset, passed in as --kg-node-drop so one rule serves every size. It is
+   tier-3 dark glass because it is white text on an illustration. */
+.kg-stage .kg-node-label {
+  position: absolute;
+  left: var(--kg-node-x);
+  top: calc(var(--kg-node-y) + var(--kg-node-drop, 30px));
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 5px 13px;
+  border-radius: var(--kg-radius-pill);
+  font-family: var(--kg-font-body);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* A marker in the first or last few percent would have its label clipped by the
+   scene's own overflow once the canvas is at the narrow end of its 1024-1560
+   range. Those labels pull back inside instead of centring. */
+.kg-stage .kg-node-label[data-anchor="start"] {
+  transform: translateX(-25%);
+}
+
+.kg-stage .kg-node-label[data-anchor="end"] {
+  transform: translateX(-75%);
+}
+
+/* THE SPRITE PAIR, and the reason it exists. kgBob animates `transform`, which
+   silently overwrites a centring transform and drops the companion in the wrong
+   place. .kg-sprite (kids-glass.css) centres with NEGATIVE MARGINS and carries
+   no transform of its own; .kg-bob goes on the inner <img>. Never merge them.
+   The wrapper is placed so the sprite's feet land just above the marker. */
+.kg-stage .kg-node-sprite {
+  left: var(--kg-node-x);
+  top: calc(var(--kg-node-y) - var(--kg-node-lift, 32px));
+  z-index: 2;
+}
+
+.kg-stage .kg-node-sprite img {
+  height: var(--kg-sprite-size, 80px);
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.45));
+}
+
+/* THE TRAIL PLATE IS ZOOMED PAST ITS OWN FRAME, and that is a fact about the
+   art, not a preference. The character-free backdrops (backdrops/activity-bg-*)
+   are painted as a WINDOW: a bookshelf and sill frame the left and right
+   eighth, with the landscape in the middle. That framing is right for the Home
+   hero's narrow band and wrong for a 2.7:1 trail scene, where both shelves land
+   inside the picture and the trail appears to run through a bookshop. Widening
+   the plate to 146% and pulling it left by 23% shows the middle ~68% of the
+   source — the landscape — and crops the frame off both ends. All three world
+   backdrops share the composition, so one crop serves them all. (The Dino plate
+   frames widest, at roughly 17-86% of its width, which is what sets 146%.)
+
+   The clean plate is still the right SOURCE: this screen stands the child's
+   beastie on it, and the populated panorama already has two pals walking the
+   path. Placed pal + clean plate, or populated plate alone — never both. */
+.kg-stage .kg-trail-scene .kg-node-scene-art {
+  left: -23%;
+  width: 146%;
+  object-position: center 55%;
+}
+
+/* ── Screen: the Sound Trail ─────────────────────────────────────────────── */
+.kg-stage .kg-trail {
+  display: grid;
+  gap: var(--kg-space-13);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.kg-stage .kg-trail-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--kg-space-20);
+}
+
+.kg-stage .kg-trail-headline {
+  margin: 2px 0 0;
+  font-size: 16.5px;
+  color: var(--kg-ink-muted);
+}
+
+/* The beastie the child is growing, from the Hollow. Display only — a pill, not
+   a button — and it names the growth STAGE rather than a stage number: the
+   child UI caps its numeric systems at stars and coins, and a third counter in
+   a header is how that cap erodes. */
+.kg-stage .kg-trail-beastie {
+  height: var(--kg-hit);
+  padding: 0 16px 0 var(--kg-space-13);
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--kg-ink);
+}
+
+.kg-stage .kg-trail-beastie img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* THE WIDE COLUMN IS THE CHIPS, NOT THE PANEL — the one place this row leaves
+   the prototype's proportions (it puts 1.35fr on the left). The row's height is
+   whatever the taller panel needs, and the taller panel is always the chips: at
+   1.35fr/1fr the chip area was narrow enough to need three rows of 44px, which
+   cost the artwork ~50px, while the left panel sat with a third of its height
+   empty. Flipping it to 1fr/1.25fr fits eighteen chips in two rows at every
+   width from 1024 to 1560, and hands the height back to the scene. Same
+   elements, same tiers — only the split moved. */
+.kg-stage .kg-trail-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: var(--kg-space-14);
+  align-items: stretch;
+}
+
+/* THE PANEL IS A ROW, NOT A STACK, and that is the one place this screen leaves
+   the prototype's arrangement. Stacked (eyebrow / name / line / buttons) the
+   60px actions sat in a 660px panel with 440px of nothing to their right, and
+   the empty band pushed the scene 60px shorter. Side by side, the same elements
+   fill the panel and the artwork gets the height back. */
+.kg-stage .kg-trail-next {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--kg-space-16);
+  padding: 15px 20px 17px;
+  border-radius: 26px;
+}
+
+.kg-stage .kg-trail-next-name {
+  margin: 3px 0 0;
+  font-size: 26px;
+}
+
+.kg-stage .kg-trail-next-line {
+  margin: 3px 0 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--kg-ink-muted);
+}
+
+.kg-stage .kg-trail-next-line strong {
+  font-family: var(--kg-font-display);
+  font-weight: 700;
+  color: var(--kg-ink);
+}
+
+.kg-stage .kg-trail-next-actions {
+  display: flex;
+  gap: var(--kg-space-11);
+}
+
+/* The spec's 60px Go and 60px speaker — above the 44px floor, and the only
+   tier-three action on this screen. */
+.kg-stage .kg-trail-go {
+  height: 60px;
+  padding: 0 26px 0 18px;
+  border-radius: var(--kg-radius-card);
+  font-size: 24px;
+}
+
+.kg-stage .kg-trail-hear {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--kg-radius-card);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.kg-stage .kg-trail-sounds {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--kg-space-9);
+  padding: var(--kg-space-13) 18px 15px;
+  border-radius: 26px;
+}
+
+.kg-stage .kg-trail-sounds-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.kg-stage .kg-trail-sounds-title {
+  font-size: 19px;
+}
+
+.kg-stage .kg-trail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--kg-space-7);
+  min-height: 0;
+}
+
+/* Display chips, not controls — but they keep the 44px floor anyway, because a
+   five-year-old will tap them and a target that is too small to hit is still
+   too small to read. */
+.kg-stage .kg-trail-chip {
+  display: grid;
+  place-items: center;
+  min-width: var(--kg-hit);
+  height: var(--kg-hit);
+  padding: 0 var(--kg-space-9);
+  border-radius: var(--kg-radius-market);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  font-family: var(--kg-font-display);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Three tones, the spec's: mastered green, the current focus in accent glass
+   with its static ring, and everything else pale. "Owned but still being
+   learnt" and "taught at the next stop" are both pale — they differ only in
+   ink, because the child owns one and does not yet own the other, and that is
+   a smaller distinction than mastered/not. */
+.kg-stage .kg-trail-chip--mastered {
+  background: rgba(111, 179, 95, 0.82);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #FFFFFF;
+  box-shadow: 0 8px 16px -12px rgba(30, 60, 50, 0.5);
+}
+
+.kg-stage .kg-trail-chip--owned {
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--kg-ink-mid);
+}
+
+.kg-stage .kg-trail-chip--focus {
+  background: linear-gradient(
+    150deg,
+    rgba(var(--kg-accent-rgb), 0.94),
+    rgba(var(--kg-accent-rgb), 0.72)
+  );
+  border-color: rgba(255, 255, 255, 0.8);
+  color: var(--kg-ink-on-accent);
+  box-shadow: 0 0 0 3px rgba(var(--kg-accent-rgb), 0.2);
+}
+
+.kg-stage .kg-trail-chip--ahead {
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--kg-ink-disabled);
+}
+
+/* ── Screen: the Adventure Map ───────────────────────────────────────────── */
+.kg-stage .kg-map {
+  display: grid;
+  gap: var(--kg-space-13);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.kg-stage .kg-map-headline {
+  margin: 2px 0 0;
+  font-size: 16.5px;
+  color: var(--kg-ink-muted);
+}
+
+/* THE SCRIM IS NOT OPTIONAL HERE. meadow-map-wide.webp is a bright, high-key
+   plate and every overlay on it is white — the spec names this screen
+   explicitly when it says a panel over artwork gets the dark scrim. Without it
+   the white numerals sit on pale hay and the only fix left is a text-shadow,
+   which this system does not have. */
+.kg-stage .kg-map-scene {
+  box-shadow: 0 22px 44px -24px rgba(20, 45, 38, 0.55);
+}
+
+.kg-stage .kg-map-badge {
+  position: absolute;
+  left: var(--kg-space-16);
+  top: var(--kg-space-16);
+  z-index: 2;
+  height: 40px;
+  padding: 0 15px;
+  gap: var(--kg-space-9);
+  font-size: 14.5px;
+  font-weight: 800;
+}
+
+.kg-stage .kg-map-badge img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.kg-stage .kg-map-cards {
+  display: grid;
+  grid-template-columns: repeat(var(--kg-map-card-count, 4), minmax(0, 1fr));
+  gap: var(--kg-space-14);
+}
+
+.kg-stage .kg-map-card {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: var(--kg-space-13) 15px 15px;
+  border-radius: 22px;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.kg-stage .kg-map-card[aria-disabled="true"] {
+  cursor: default;
+}
+
+.kg-stage .kg-map-card-chip {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--kg-radius-market);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(111, 179, 95, 0.85);
+  font-family: var(--kg-font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.kg-stage .kg-map-card-text {
+  min-width: 0;
+  display: grid;
+  gap: 0;
+}
+
+.kg-stage .kg-map-card-text strong {
+  font-family: var(--kg-font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #2E4B3E;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kg-stage .kg-map-card-text small {
+  font-family: var(--kg-font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--kg-ink-muted);
+}
+
+/* The stop the child is on. Tinted rather than loud: the marker on the map is
+   the tier-three call to action, and two amber shouts on one screen is the
+   competition the redesign removed. */
+.kg-stage .kg-map-card--next {
+  --kg-self-border: rgba(var(--kg-accent-rgb), 0.55);
+  background: rgba(255, 250, 236, 0.62);
+  border-color: rgba(var(--kg-accent-rgb), 0.55);
+}
+
+.kg-stage .kg-map-card--next .kg-map-card-chip {
+  background: linear-gradient(
+    150deg,
+    rgba(var(--kg-accent-rgb), 0.94),
+    rgba(var(--kg-accent-rgb), 0.72)
+  );
+  color: var(--kg-ink-on-accent);
+}
+
+.kg-stage .kg-map-card--next .kg-map-card-text strong {
+  color: var(--kg-ink);
+}
+
+.kg-stage .kg-map-card--next .kg-map-card-text small {
+  color: var(--kg-ink-amber);
+}
+
+.kg-stage .kg-map-card--locked {
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.kg-stage .kg-map-card--locked .kg-map-card-chip {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--kg-ink-disabled-soft);
+}
+
+.kg-stage .kg-map-card--locked .kg-map-card-text strong {
+  color: var(--kg-ink-disabled);
+}
+
+.kg-stage .kg-map-card--locked .kg-map-card-text small {
+  color: var(--kg-ink-disabled-soft);
+}
+
+/* ── A read that failed ──────────────────────────────────────────────────────
+ * A storage error is not a child who has done nothing. Both screens keep their
+ * artwork and their way onward, and say what actually happened instead of
+ * drawing an empty trail as if it were the truth.
+ */
+.kg-stage .kg-trail-unread {
+  color: var(--kg-ink-muted);
+}

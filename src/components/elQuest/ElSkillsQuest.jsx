@@ -494,7 +494,15 @@ function SpeedRound({ round, onResult, onHint }) {
   );
 }
 
-export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "default" }) {
+// initialCycleId: the stop the child tapped on the Adventure Map screen, so the
+// mode opens THERE instead of showing a second map of the same journey. It is a
+// seed for the same state openCycle() sets, not a new mode - leave it empty and
+// this component behaves exactly as it did before (its own map first).
+export function ElSkillsQuest({
+  studentName = "Reader",
+  progressScopeKey = "default",
+  initialCycleId = ""
+}) {
   const playableCycles = useMemo(
     () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber),
     []
@@ -504,7 +512,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
     playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0)) || playableCycles[0]
   ), [playableCycles, progress]);
 
-  const [activeCycleId, setActiveCycleId] = useState(null);
+  const [activeCycleId, setActiveCycleId] = useState(initialCycleId || null);
   const [stationId, setStationId] = useState(null);
   const [rounds, setRounds] = useState([]);
   const [roundIndex, setRoundIndex] = useState(0);

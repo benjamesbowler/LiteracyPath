@@ -577,16 +577,9 @@
 }
 
 /* Speech feedback for the two speaker buttons. Announced, never drawn. */
-.kg-stage .kg-home-speech {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
+/* The spoken-status line moved into kids-glass.css as .kg-speech in phase C —
+   every screen has a speaker button, so the rule belongs to the system rather
+   than to Home. */
 
 @media (hover: hover) and (pointer: fine) {
   .kg-stage .kg-home-door:not([aria-disabled="true"]):hover {

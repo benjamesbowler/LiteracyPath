@@ -28,15 +28,24 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
     primaryCue: "Play next",
     treatment: "The next unplayed game keeps full-colour art and a double highlight; other covers are visually quieter."
   }),
+  // 2026-07-29, phase C: both of these routes gained a redesigned front door,
+  // so the cue each one is reviewed against moved with the screen. On the
+  // Adventure Map the named action is the current stop's card ("Your pal is
+  // here"); the amber marker above it is the same destination drawn on the
+  // plate, and it is the only thing on the screen that moves. On the Sound
+  // Trail it is the accent Go. The old cues described the surfaces these two
+  // front doors now open onto — the Skills Quest's own map ("Go next") and
+  // Sound Seekers' creature hatch ("Hatch my creature") — which a child no
+  // longer lands on first.
   Object.freeze({
     id: "adventure-map",
-    primaryCue: "Go next",
-    treatment: "The current stop alone keeps the persistent sign, double ring, avatar, and go-next badge."
+    primaryCue: "Your pal is here",
+    treatment: "The current stop's card is the one named action; only its marker on the map pulses, and it leads to the same stop."
   }),
   Object.freeze({
     id: "sound-seekers",
-    primaryCue: "Hatch my creature",
-    treatment: "The full-width hatch action remains the strongest colour and scale after creature choices."
+    primaryCue: "Go",
+    treatment: "The accent Go beside the next stop is the only tier-three control; the trail markers and sound chips are read-only."
   }),
   Object.freeze({
     id: "story-quests",

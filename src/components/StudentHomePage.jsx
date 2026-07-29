@@ -868,7 +868,7 @@ export function StudentHomePage({
           </div>
         </section>
 
-        <span className="kg-home-speech" role="status" aria-live="polite">{speechStatus}</span>
+        <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>
 
       {overlays}

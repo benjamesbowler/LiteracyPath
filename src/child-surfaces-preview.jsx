@@ -15,13 +15,16 @@ import "./styles/sage-form.css";
 // is a preview of a different page.
 import "./styles/kids-glass.css";
 import "./styles/kids-home.css";
+import "./styles/kids-trail.css";
 import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
 import { HollowPage } from "./components/HollowPage.jsx";
 import { LearnAreaPage } from "./components/LearnAreaPage.jsx";
 import { PhonicsLearnPage } from "./components/PhonicsLearnPage.jsx";
 import QuestRoot from "./components/quest/QuestRoot.jsx";
+import { StudentAdventureMapPage } from "./components/StudentAdventureMapPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
+import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
@@ -95,16 +98,37 @@ function Surface() {
       return <PhonicsLearnPage initialIsland="letters" progressScopeKey={PREVIEW_SCOPE} />;
     case "arcade":
       return <PhonicsLearnPage initialIsland="games" progressScopeKey={PREVIEW_SCOPE} />;
+    // Both of these are the phase-C front doors now, which is what a child
+    // actually lands on; the mode each one launches is handed in exactly as the
+    // router hands it in, so the preview and the app agree.
     case "adventure-map":
-      return <ElSkillsQuest studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} />;
+      return (
+        <StudentAdventureMapPage
+          studentName="Aaron"
+          progressScopeKey={PREVIEW_SCOPE}
+          renderQuest={({ cycleId }) => (
+            <ElSkillsQuest
+              studentName="Aaron"
+              progressScopeKey={PREVIEW_SCOPE}
+              initialCycleId={cycleId}
+            />
+          )}
+        />
+      );
     case "sound-seekers":
       return (
-        <QuestRoot
-          disableAdaptiveQuality
-          isSoundEnabled={false}
-          onExit={() => markDestination("student-home")}
-          previewForce2d
+        <StudentSoundTrailPage
+          studentName="Aaron"
           progressScopeKey={PREVIEW_SCOPE}
+          renderQuest={({ onExit }) => (
+            <QuestRoot
+              disableAdaptiveQuality
+              isSoundEnabled={false}
+              onExit={onExit}
+              previewForce2d
+              progressScopeKey={PREVIEW_SCOPE}
+            />
+          )}
         />
       );
     case "story-quests":

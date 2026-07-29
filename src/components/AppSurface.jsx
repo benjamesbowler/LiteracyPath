@@ -18,9 +18,11 @@ import {
 } from "./AppPages.jsx";
 import { ErrorBoundary } from "./ErrorBoundary.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
+import { StudentAdventureMapPage } from "./StudentAdventureMapPage.jsx";
 import { StudentEntryPage } from "./StudentEntryPage.jsx";
 import { StudentHomePage } from "./StudentHomePage.jsx";
 import { StudentLoginFlow } from "./StudentLoginFlow.jsx";
+import { StudentSoundTrailPage } from "./StudentSoundTrailPage.jsx";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { RouteLoadingFallback as LazyPageFallback } from "./RouteLoadingFallback.jsx";
 import {
@@ -923,31 +925,61 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
+      {/* THE ADVENTURE MAP. The redesigned map screen is the front door of this
+          route (phase C); the Skills Quest itself opens on top of it at the stop
+          the child tapped, and keeps its own full map, lands, pan and stations.
+          The mode's own wrapper is unchanged - withStudentRail with the scroll
+          hatch - so nothing about how it renders moved. */}
       {appView === APP_VIEWS.SKILLS_BLOCK_QUEST && nameSaved && (
         <PageBoundary resetKey={`skills-block-quest-${studentId}`}>
-          {withStudentRail("map", (
-            <Suspense fallback={<LazyPageFallback label="Loading Skills Quest..." />}>
-              <ElSkillsQuest
-                studentName={studentName || "Reader"}
-                progressScopeKey={studentId || studentName || "default"}
-                onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.TEACHER_CLASSES)}
-              />
-            </Suspense>
-          ))}
+          <StudentAdventureMapPage
+            studentName={studentName}
+            progressScopeKey={studentId || studentName || "default"}
+            onNavigate={goToStudentTab}
+            onHome={goStudentHome}
+            onGrownUps={goStudentHome}
+            renderQuest={({ cycleId }) => withStudentRail("map", (
+              <Suspense fallback={<LazyPageFallback label="Loading Skills Quest..." />}>
+                <ElSkillsQuest
+                  studentName={studentName || "Reader"}
+                  progressScopeKey={studentId || studentName || "default"}
+                  initialCycleId={cycleId}
+                  onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.TEACHER_CLASSES)}
+                />
+              </Suspense>
+            ))}
+          />
         </PageBoundary>
       )}
 
-      {/* Sound Seekers. Lazy: it is a whole mode, and a student who never opens it
-          should not pay for it on first load. */}
+      {/* THE SOUND TRAIL. Same shape: the redesigned trail screen is the front
+          door and Go launches Sound Seekers, which is unchanged - it still
+          portals full-screen and owns the Den, the creature, the chapter map and
+          the Trading Post. Lazy, because a student who never opens it should not
+          pay for a whole mode on first load. */}
       {appView === APP_VIEWS.PHONICS_QUEST && nameSaved && (
         <PageBoundary resetKey={`phonics-quest-${studentId}`}>
-          <Suspense fallback={<LazyPageFallback label="Loading Sound Seekers..." />}>
-            <QuestRoot
-              progressScopeKey={studentId || studentName || "default"}
-              accessibilitySettings={learnerAccessibility}
-              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.TEACHER_CLASSES)}
-            />
-          </Suspense>
+          <StudentSoundTrailPage
+            studentName={studentName}
+            progressScopeKey={studentId || studentName || "default"}
+            onNavigate={goToStudentTab}
+            onHome={goStudentHome}
+            onGrownUps={goStudentHome}
+            renderQuest={({ onExit }) => (
+              <Suspense fallback={<LazyPageFallback label="Loading Sound Seekers..." />}>
+                <QuestRoot
+                  progressScopeKey={studentId || studentName || "default"}
+                  accessibilitySettings={learnerAccessibility}
+                  // Leaving the mode returns to the trail the child left from,
+                  // not to Home: the Home tab is one tap away on the bar and the
+                  // trail is the screen that says what happens next.
+                  onExit={isStudentMode
+                    ? onExit
+                    : () => setAppView(APP_VIEWS.TEACHER_CLASSES)}
+                />
+              </Suspense>
+            )}
+          />
         </PageBoundary>
       )}
 

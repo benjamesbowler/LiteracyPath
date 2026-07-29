@@ -732,6 +732,23 @@
   font-weight: 800;
 }
 
+/* THE SPOKEN-STATUS LINE. Every child screen has a speaker button, and a
+   pre-reader who taps one needs to know it worked — but the confirmation is for
+   a screen reader, not for the picture. Visually hidden, never display:none:
+   a hidden live region is not announced. Phase B invented this per-screen
+   (.kg-home-speech); it lives here now so phases C-F take the class instead of
+   copying the rule. */
+.kg-stage .kg-speech {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* Inline SVG icons: currentColor, 1.9 stroke, round caps and joins. No icon
    library — every icon in the child area is a path in studentRailPolicy.js. */
 .kg-stage .kg-icon {
