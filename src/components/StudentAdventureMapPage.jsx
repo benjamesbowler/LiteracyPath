@@ -22,12 +22,26 @@
 // (the spec says so). The land, the part, the place names, which stop is next
 // and every star count are read from the child's own progress, and a read that
 // FAILED says so rather than drawing a map with nothing done on it.
+//
+// AND SO IS EVERY POSITION. The stops are NOT laid out by this screen. They are
+// the nine admin-placed coordinates in src/data/mapStops.js, read through
+// wideMapPointsFor() with the live override loadWideMapOverride() fetches —
+// byte for byte the read ElSkillsQuest does — so a click-to-place edit in the
+// Map Stops editor moves the marker on both surfaces at once. The mock's
+// seven-point arc is gone: it was invented, and it stood the Farm Gate in the
+// middle of a carrot patch.
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
-import { WIDE_WORLDS, WORLD_LANDMARKS_WIDE } from "../data/mapStops.js";
+import {
+  WIDE_WORLDS,
+  WORLD_LANDMARKS_WIDE,
+  getCachedWideOverride,
+  loadWideMapOverride,
+  wideMapPointsFor
+} from "../data/mapStops.js";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 import { PAL_WORLDS } from "../utils/palWorlds.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
@@ -41,11 +55,37 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
+// WHERE THE PILL GOES IS DECIDED BY THE ADMIN'S COORDINATE — never the reverse.
+// A stop is never nudged to make its label fit; the label moves.
+//
+// Under the marker is the spec's placement and stays the default, but it only
+// works while there is room under the marker for it. The pill is 27px tall and
+// rides 44px down, so it needs its stop above ~82% of the plate on the SHORTEST
+// plate this canvas produces (440px, at a 1024 design width). Eight of the
+// twenty-seven placed stops are painted lower than that — the Sheep Pen at
+// 88.9%, Pond Trail at 89.1% — and for those the pill goes BESIDE the marker,
+// on whichever side has the room, centred on it.
+//
+// Beside, and not above, because above is where the pal stands. And beside
+// rather than simply pinned inside the plate: pinning is what the first attempt
+// did, and it slid the pill up onto the very numeral it names.
+const LABEL_SIDE_BAND = 82;
+
+function labelPlace(x, y) {
+  if (y < LABEL_SIDE_BAND) return "below";
+  return x >= 50 ? "left" : "right";
+}
+
 // A label centred on a marker near the edge of the scene would be clipped by
 // the panel's own overflow at the narrow end of the 1024-1560 canvas range, so
 // the first and last few percent pull their label back inside instead.
+//
+// "edge" is the extra band this screen needs and the Sound Trail does not: the
+// admin has placed Forest Edge at 97% of the plate, where even the `end` pull
+// left the pill hanging past the rounded corner.
 function labelAnchor(x) {
   if (x <= 12) return "start";
+  if (x >= 95) return "edge";
   if (x >= 88) return "end";
   return "center";
 }
@@ -97,6 +137,18 @@ export function StudentAdventureMapPage({
   const [openCycleId, setOpenCycleId] = useState("");
   const [speechStatus, setSpeechStatus] = useState("");
 
+  // THE ADMIN'S STOP POSITIONS, LOADED THE WAY THE MODE LOADS THEM. The cached
+  // copy paints on the first frame; the fetch refreshes it and falls back to
+  // that same cache offline. Identical to ElSkillsQuest's read, deliberately:
+  // one click-to-place edit has to move the marker on both screens or the front
+  // door starts lying about where the child is going.
+  const [wideOverride, setWideOverride] = useState(getCachedWideOverride);
+  useEffect(() => {
+    let alive = true;
+    loadWideMapOverride().then(ov => { if (alive) setWideOverride(ov); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
   const read = useMemo(() => readMapProgress(progressScopeKey), [progressScopeKey]);
 
   const starsFor = cycleId => Number(read.cycles?.[cycleId]?.stars) || 0;
@@ -113,12 +165,28 @@ export function StudentAdventureMapPage({
   const landmarks = WORLD_LANDMARKS_WIDE[part.id] || [];
   const mapArt = WIDE_WORLDS.find(world => world.id === part.id)?.image || "";
   const emblem = PAL_WORLDS[part.id]?.emblem || "";
+  // Nine [x, y] pairs, in stop order, as percentages OF THE PLATE ABOVE — which
+  // is why the plate is drawn whole and untransformed (see .kg-map-scene in
+  // kids-trail.css). Crop it and every marker slides off its landmark.
+  const mapPoints = wideMapPointsFor(part.id, wideOverride);
 
-  // Not memoised on purpose: the whole build walks nine cycles and seven
+  // Not memoised on purpose: the whole build walks nine cycles and nine
   // points, and every input (the cycle list, the landmark names, the closure
   // over the read) is a fresh value each render, so a useMemo here would cost a
   // dependency array and cache nothing.
-  const scene = buildAdventureMapScene({ cycles: worldCycles, starsFor, landmarks });
+  const scene = buildAdventureMapScene({
+    cycles: worldCycles,
+    starsFor,
+    landmarks,
+    points: mapPoints
+  });
+
+  // The pal stands on a MARKER, not on a fact: scene.next is the child's next
+  // stop whether or not the admin has placed a coordinate for it, and a stop
+  // with no coordinate has no marker to stand on.
+  const placedNext = scene.next
+    ? scene.stops.find(stop => stop.id === scene.next.id)
+    : null;
 
   // The world's own pose art, not the child's companion tile: companion images
   // have no alpha channel (measured — 1024x1024, opaque), so one standing on the
@@ -258,9 +326,13 @@ export function StudentAdventureMapPage({
                 style={{
                   "--kg-node-x": `${stop.x}%`,
                   "--kg-node-y": `${stop.y}%`,
-                  "--kg-node-drop": "44px"
+                  "--kg-node-drop": "44px",
+                  // The marker's own size, so a pill placed BESIDE one clears
+                  // the circle rather than a guessed radius.
+                  "--kg-node-size": `${stop.size}px`
                 }}
                 data-anchor={labelAnchor(stop.x)}
+                data-place={labelPlace(stop.x, stop.y)}
                 aria-hidden="true"
               >
                 {stop.label}
@@ -269,14 +341,23 @@ export function StudentAdventureMapPage({
 
             {/* Wrapper positions, inner <img> animates — kgBob writes
                 `transform` and would otherwise overwrite a centring one. */}
-            {scene.next && scene.stops.some(stop => stop.id === scene.next.id) && (
+            {placedNext && (
               <span
                 className="kg-sprite kg-node-sprite"
                 style={{
-                  "--kg-node-x": `${scene.stops.find(stop => stop.id === scene.next.id).x}%`,
-                  "--kg-node-y": `${scene.stops.find(stop => stop.id === scene.next.id).y}%`,
+                  "--kg-node-x": `${placedNext.x}%`,
+                  "--kg-node-y": `${placedNext.y}%`,
                   "--kg-node-lift": "34px",
-                  "--kg-sprite-size": "74px"
+                  // 58px, not the mock's 74. THE PAL MAY NOT SWALLOW A STOP.
+                  // Meadow's route stacks the Carrot Patch (12.3/63.3) directly
+                  // over the Farm Gate (12.6/85.8) — 22.5% of the plate, 107
+                  // design px — and 34px of lift plus 74px of opaque pal
+                  // reached 108, which hid the second marker completely on the
+                  // view every new child opens first. Three other stops stack
+                  // the same way (Meadow 5 and 7, Moonwood 8). At 58 the pal
+                  // clears its own marker and overlaps only the bottom rim of
+                  // the one above, never its numeral.
+                  "--kg-sprite-size": "58px"
                 }}
                 aria-hidden="true"
               >

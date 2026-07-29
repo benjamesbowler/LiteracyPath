@@ -147,7 +147,16 @@
 
 /* A marker in the first or last few percent would have its label clipped by the
    scene's own overflow once the canvas is at the narrow end of its 1024-1560
-   range. Those labels pull back inside instead of centring. */
+   range. Those labels pull back inside instead of centring.
+
+   "edge" IS A THIRD BAND, NOT A HARDER "end". The Adventure Map's coordinates
+   are the admin's and they reach further out than a designer's would — Forest
+   Edge sits at 97% of the plate, where a quarter of the pill still hung 3.4px
+   past the rounded corner (measured). Pulling `end` itself to 90% fixes that
+   stop and BREAKS the Sound Trail, whose last node is at 91%: its camp pill
+   went from grazing the neighbouring marker by 5.7px to covering it by 28.6px
+   (both measured). So the extra pull gets its own band, and only a stop past
+   95% asks for it. */
 .kg-stage .kg-node-label[data-anchor="start"] {
   transform: translateX(-25%);
 }
@@ -155,6 +164,51 @@
 .kg-stage .kg-node-label[data-anchor="end"] {
   transform: translateX(-75%);
 }
+
+.kg-stage .kg-node-label[data-anchor="edge"] {
+  transform: translateX(-90%);
+}
+
+/* BESIDE THE MARKER, FOR THE STOPS PAINTED TOO LOW TO HAVE A PILL UNDER THEM.
+   Chosen in the screen (labelPlace), because only the screen knows the stop's
+   real coordinate; the side is the one with room, and the pill is centred on
+   the marker.
+
+   A SIDE PILL HUGS ITS OWN MARKER AND RIDES LEVEL WITH THE TOP OF IT — clear of
+   the circle by 8px, lifted by one marker radius, and padded tighter than a
+   pill hanging in the open space below one. All three because sideways is the
+   crowded direction: a pill under a marker has the whole width of the plate to
+   grow into, while one beside it has only the gap to the next stop, and the
+   admin's placements do get close. Toadstool Path and Pond Trail are 21.8% of
+   the plate apart with Pond Trail set 3.1% lower, and a centred pill at the
+   standard padding reached 17px over the second marker's rim (measured); the
+   lift is what clears it, because the crowding on these low stops always comes
+   from a neighbour set lower still. Lifting is safe in a way that dropping is
+   not: the pal stands directly above the marker but is only 58px wide, so it is
+   already behind the pill's 8px gap.
+
+   These must stay AFTER the [data-anchor] rules: same specificity, and the
+   sideways placement is the one that has to win. */
+.kg-stage .kg-node-label[data-place="right"],
+.kg-stage .kg-node-label[data-place="left"] {
+  top: var(--kg-node-y);
+  padding: 5px 10px;
+}
+
+.kg-stage .kg-node-label[data-place="right"] {
+  transform: translate(
+    calc(var(--kg-node-size, 46px) / 2 + 8px),
+    calc(-50% - var(--kg-node-size, 46px) / 2)
+  );
+}
+
+.kg-stage .kg-node-label[data-place="left"] {
+  transform: translate(
+    calc(-100% - var(--kg-node-size, 46px) / 2 - 8px),
+    calc(-50% - var(--kg-node-size, 46px) / 2)
+  );
+}
+
 
 /* THE SPRITE PAIR, and the reason it exists. kgBob animates `transform`, which
    silently overwrites a centring transform and drops the companion in the wrong
@@ -392,9 +446,41 @@
    plate and every overlay on it is white — the spec names this screen
    explicitly when it says a panel over artwork gets the dark scrim. Without it
    the white numerals sit on pale hay and the only fix left is a text-shadow,
-   which this system does not have. */
+   which this system does not have.
+
+   AND THE PLATE IS SHOWN WHOLE, AT ITS OWN ASPECT RATIO — the single most
+   load-bearing rule on this screen. Every stop is placed as a PERCENTAGE OF
+   THIS PLATE (src/data/mapStops.js, put there with the click-to-place editor),
+   so `object-fit: cover` — which the shared .kg-node-scene-art rule uses, and
+   which this screen used to inherit — silently slid every marker off its
+   landmark: it cropped the top 14.6% and the bottom 10.7% away and then
+   stretched what was left, which is how the Farm Gate ended up in a carrot
+   patch. Nothing here may zoom, crop, offset or letterbox the ART.
+
+   So the SCENE takes the plate's shape instead: 2752x1536 is fixed by the
+   artwork, the height fills the row, and the width follows the ratio. Measured
+   on the fixed 834px canvas the row is 478 design px, so the plate is always
+   478 x 856.5 and the space the canvas has spare at wider stages shows as an
+   even gutter each side of the map card (104px at 1024, 145px at 1194, 328px at
+   the 1560 cap) rather than as a crop. max-width is only a guard: it would need
+   the row to pass 545px tall — 67px more than any layout here gives it — before
+   it could bind. */
 .kg-stage .kg-map-scene {
+  justify-self: center;
+  align-self: center;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: 2752 / 1536;
   box-shadow: 0 22px 44px -24px rgba(20, 45, 38, 0.55);
+}
+
+/* The scene box is now exactly the plate's shape, so `contain` fills it edge to
+   edge and cannot crop. It is the honest declaration of the two facts above:
+   whole plate, no offset. */
+.kg-stage .kg-map-scene .kg-node-scene-art {
+  object-fit: contain;
+  object-position: center;
 }
 
 .kg-stage .kg-map-badge {

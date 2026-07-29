@@ -159,13 +159,22 @@ export function buildSoundChips({ owned = [], mastered = [], focus = [], limit =
 
 // ── The Adventure Map ───────────────────────────────────────────────────────
 //
-// Seven stops on a dotted polyline, over the same wide map art the mode itself
-// uses, plus four stop cards below.
-export const MAP_STOP_POINTS = Object.freeze([
-  Object.freeze([11, 64]), Object.freeze([24, 44]), Object.freeze([37, 68]),
-  Object.freeze([50, 46]), Object.freeze([64, 70]), Object.freeze([77, 44]),
-  Object.freeze([89, 64])
-]);
+// A land's NINE stops on a dotted polyline, over the same wide map art the mode
+// itself uses, plus four stop cards below.
+//
+// THE COORDINATES ARE NOT DESIGN, AND THIS MODULE DOES NOT OWN THEM. They are
+// the admin-placed landmark positions in src/data/mapStops.js
+// (DEFAULT_WIDE_MAP_POINTS, nine per world, put there with the click-to-place
+// editor and overridable live from it), and they are percentages OF THAT PLATE:
+// stop 3 is "the Duck Pond" only because 21.2/48.2 is where the pond is
+// painted. So `points` is a parameter, passed in by the screen after it has
+// applied the admin override with wideMapPointsFor() — the same read
+// ElSkillsQuest does — and one click-to-place edit moves both surfaces
+// together. There is deliberately no default list: a mock's invented arc used
+// to sit here and it drew the Farm Gate in the middle of a carrot patch.
+//
+// The land's nine cycles, the nine landmark names and the nine points are one
+// list three times over; they are paired by index and never windowed.
 
 export const MAP_STOP_SIZES = Object.freeze({ done: 46, next: 64, locked: 46 });
 
@@ -194,12 +203,15 @@ export function adventureMapPartFor(cycleNumber) {
  *                 [{ id, cycleNumber }]
  * @param starsFor (cycleId) => stars earned, 0-3
  * @param landmarks the painted place names for those cycles, same order
+ * @param points   the admin-placed [x, y] percentage pairs for those cycles,
+ *                 same order — wideMapPointsFor(worldId, override) from
+ *                 src/data/mapStops.js. No list, no markers.
  */
 export function buildAdventureMapScene({
   cycles = [],
   starsFor = () => 0,
   landmarks = [],
-  points = MAP_STOP_POINTS,
+  points = [],
   sizes = MAP_STOP_SIZES,
   cardCount = MAP_CARD_COUNT
 } = {}) {
@@ -221,13 +233,17 @@ export function buildAdventureMapScene({
     return "locked";
   };
 
-  const span = points.length;
-  const start = clamp(nextPosition - Math.floor(span / 2), 0, Math.max(0, list.length - span));
+  // EVERY STOP IN THE LAND, PAIRED BY INDEX — no sliding window. Nine cycles,
+  // nine painted landmarks, nine placed coordinates: stop N is drawn at
+  // points[N] because that is where landmarks[N] is painted, so a window that
+  // slid the list would put the child's stop on someone else's landmark. A
+  // cycle with no coordinate is left off the plate rather than given an
+  // invented one.
   const stops = [];
-  for (let offset = 0; offset < span; offset += 1) {
-    const item = list[start + offset];
-    if (!item) break;
-    const [x, y] = points[offset];
+  for (const item of list) {
+    const point = points[item.position];
+    if (!Array.isArray(point) || point.length < 2) continue;
+    const [x, y] = point;
     const state = stateFor(item);
     stops.push({
       ...item,

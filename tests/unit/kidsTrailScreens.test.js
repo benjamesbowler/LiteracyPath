@@ -25,7 +25,7 @@ import test from "node:test";
 
 import {
   ADVENTURE_MAP_PARTS,
-  MAP_STOP_POINTS,
+  MAP_STOP_SIZES,
   TRAIL_NODE_POINTS,
   TRAIL_NODE_SIZES,
   adventureMapPartFor,
@@ -44,6 +44,10 @@ const mapSource = readFileSync("src/components/StudentAdventureMapPage.jsx", "ut
 const cssSource = readFileSync("src/styles/kids-trail.css", "utf8");
 const css = cssSource.replace(/\/\*[\s\S]*?\*\//g, "");
 const questSource = readFileSync("src/components/elQuest/ElSkillsQuest.jsx", "utf8");
+// Read as TEXT, never imported: mapStops.js pulls in supabaseClient.js, which
+// reads import.meta.env and cannot be evaluated under `node --test`. That is the
+// same constraint that keeps the landmark names out of childTrailPolicy.js.
+const mapStopsSource = readFileSync("src/data/mapStops.js", "utf8");
 
 // Comments explain the rules and legitimately name what was removed, so scans
 // for forbidden content run against the code with comments stripped.
@@ -164,21 +168,30 @@ const LANDMARKS = [
   "Farm Gate", "Carrot Patch", "Duck Pond", "Apple Orchard",
   "Wildflower Field", "Sheep Pen", "Strawberry Field", "Haystacks", "The Big Barn"
 ];
+// Benjamin's own Meadow Farm placements, click-to-placed with the Map Stops
+// editor and copied here from DEFAULT_WIDE_MAP_POINTS. A fixture, not a source
+// of truth: the screen passes the real list (admin override applied) in, and
+// "the map is drawn on the admin's placements" below checks it still matches.
+const POINTS = [
+  [12.6, 85.8], [12.3, 63.3], [21.2, 48.2], [40.5, 43.6], [65.2, 67.2],
+  [92.6, 88.9], [81.5, 60.6], [64.2, 43.6], [81.2, 37.6]
+];
 
 test("the map's stops, cards and states are read from real star counts", () => {
   const stars = { "cycle-1": 3, "cycle-2": 2, "cycle-3": 3 };
   const scene = buildAdventureMapScene({
     cycles: CYCLES,
     starsFor: id => stars[id] || 0,
-    landmarks: LANDMARKS
+    landmarks: LANDMARKS,
+    points: POINTS
   });
 
-  assert.equal(scene.stops.length, MAP_STOP_POINTS.length);
+  assert.equal(scene.stops.length, 9, "a land has nine cycles and all nine are drawn");
   assert.equal(scene.next.id, "cycle-4");
   assert.equal(scene.next.name, "Apple Orchard");
   assert.deepEqual(
     scene.stops.map(stop => stop.state),
-    ["done", "done", "done", "next", "locked", "locked", "locked"]
+    ["done", "done", "done", "next", "locked", "locked", "locked", "locked", "locked"]
   );
   // Only the stop the child is on carries a label on the plate.
   assert.deepEqual(scene.stops.filter(stop => stop.label).map(stop => stop.label), ["Apple Orchard"]);
@@ -192,20 +205,115 @@ test("the map's stops, cards and states are read from real star counts", () => {
   assert.equal(scene.polyline, scene.stops.map(stop => `${stop.x},${stop.y}`).join(" "));
 });
 
+// STOP N IS DRAWN WHERE LANDMARK N IS PAINTED. The pairing is by index and
+// nothing may re-order or window it: slide the list by one and the child's stop
+// is announced as "Duck Pond" while the marker sits in a carrot patch.
+test("every stop is drawn on its own landmark's coordinate, in order", () => {
+  const scene = buildAdventureMapScene({
+    cycles: CYCLES,
+    starsFor: () => 0,
+    landmarks: LANDMARKS,
+    points: POINTS
+  });
+  assert.deepEqual(
+    scene.stops.map(stop => [stop.name, stop.x, stop.y]),
+    LANDMARKS.map((name, index) => [name, POINTS[index][0], POINTS[index][1]])
+  );
+  // ...and the dotted line is walked through those same points, in that order,
+  // rather than from a second copy that could drift off the markers.
+  assert.equal(scene.polyline, POINTS.map(([x, y]) => `${x},${y}`).join(" "));
+});
+
+// A coordinate is a fact about the artwork, and this module has none. Handed no
+// points, the scene draws no markers rather than inventing an arc — which is
+// exactly what the removed MAP_STOP_POINTS default did.
+test("the map never invents a coordinate it was not given", () => {
+  const none = buildAdventureMapScene({ cycles: CYCLES, starsFor: () => 0, landmarks: LANDMARKS });
+  assert.equal(none.stops.length, 0);
+  assert.equal(none.polyline, "");
+  // The cards below the plate are named progress, not placement, so they still
+  // work with no coordinates at all.
+  assert.equal(none.cards.length, 4);
+  assert.equal(none.next.id, "cycle-1");
+
+  const short = buildAdventureMapScene({
+    cycles: CYCLES,
+    starsFor: () => 0,
+    landmarks: LANDMARKS,
+    points: POINTS.slice(0, 4)
+  });
+  assert.deepEqual(short.stops.map(stop => stop.id), ["cycle-1", "cycle-2", "cycle-3", "cycle-4"]);
+});
+
 test("the map never runs off either end of the land", () => {
-  const atStart = buildAdventureMapScene({ cycles: CYCLES, starsFor: () => 0, landmarks: LANDMARKS });
-  assert.equal(atStart.stops.length, MAP_STOP_POINTS.length);
+  // The stops no longer slide: every stop of the land is on the plate wherever
+  // the child stands, because each one is pinned to its own landmark.
+  const atStart = buildAdventureMapScene({
+    cycles: CYCLES, starsFor: () => 0, landmarks: LANDMARKS, points: POINTS
+  });
+  assert.equal(atStart.stops.length, 9);
   assert.equal(atStart.cards.length, 4);
   assert.equal(atStart.cards[0].id, "cycle-1");
 
   const atEnd = buildAdventureMapScene({
     cycles: CYCLES,
     starsFor: id => (id === "cycle-9" ? 0 : 3),
-    landmarks: LANDMARKS
+    landmarks: LANDMARKS,
+    points: POINTS
   });
-  assert.equal(atEnd.stops.length, MAP_STOP_POINTS.length);
+  assert.equal(atEnd.stops.length, 9);
   assert.equal(atEnd.stops.at(-1).id, "cycle-9");
+  // The four CARDS are the part that still has to clamp at both ends.
+  assert.equal(atEnd.cards.length, 4);
   assert.equal(atEnd.cards.at(-1).id, "cycle-9");
+});
+
+// THE COORDINATES ARE THE PRODUCT OWNER'S, NOT A DESIGNER'S. Benjamin placed
+// all twenty-seven with the click-to-place Map Stops editor, and the front door
+// has to read them through the SAME override plumbing the Skills Quest uses —
+// otherwise an admin drags a stop onto the barn and only one of the two screens
+// follows, which is worse than neither following.
+test("the map is drawn on the admin's placements, override and all", () => {
+  // Parsed as text rather than imported, so quoting the keys is enough to make
+  // these two literals JSON. Anything else in the file would fail loudly here.
+  const literal = name => {
+    const start = mapStopsSource.indexOf(`export const ${name} = {`);
+    assert.ok(start >= 0, `${name} is gone from src/data/mapStops.js`);
+    const open = mapStopsSource.indexOf("{", start);
+    const end = mapStopsSource.indexOf("\n};", open);
+    assert.ok(end > open, `${name} is no longer a plain object literal`);
+    return JSON.parse(mapStopsSource.slice(open, end + 2).replace(/(\w+):/g, '"$1":'));
+  };
+  const points = literal("DEFAULT_WIDE_MAP_POINTS");
+  const names = literal("WORLD_LANDMARKS_WIDE");
+
+  for (const world of ["meadow", "dino", "moonwood"]) {
+    assert.equal(points[world].length, 9, `${world} must keep nine placed stops`);
+    assert.equal(names[world].length, 9, `${world} must keep nine landmark names`);
+    for (const [x, y] of points[world]) {
+      for (const n of [x, y]) assert.ok(typeof n === "number" && n >= 0 && n <= 100, `${world}: ${n}`);
+    }
+    assert.equal(new Set(names[world]).size, 9, `${world} names a place twice`);
+  }
+
+  // The screen reads the override exactly the way the mode does: cache first so
+  // the first frame is placed, then the fetch, then back to that cache offline.
+  for (const [name, code] of [["Adventure Map", mapCode], ["Skills Quest", strip(questSource)]]) {
+    assert.match(code, /useState\(getCachedWideOverride\)/, name);
+    assert.match(code, /loadWideMapOverride\(\)\.then\(ov => \{ if \(alive\) setWideOverride\(ov\); \}\)/, name);
+    assert.match(code, /wideMapPointsFor\(/, name);
+  }
+  assert.match(mapCode, /wideMapPointsFor\(part\.id, wideOverride\)/);
+
+  // ...and the policy module keeps no map coordinates of its own to fall back
+  // to. The Sound Trail's list is design and stays; a second Adventure Map list
+  // would silently win whenever the screen forgot to pass the real one.
+  const policyCode = strip(readFileSync("src/policy/childTrailPolicy.js", "utf8"));
+  assert.deepEqual(
+    policyCode.match(/[A-Z_]+_POINTS\b(?=\s*=)/g),
+    ["TRAIL_NODE_POINTS"],
+    "the Adventure Map must own no coordinates; they live in src/data/mapStops.js"
+  );
 });
 
 test("a finished land still points somewhere rather than nowhere", () => {
@@ -305,9 +413,14 @@ test("both scenes carry a scrim, and the trail stands its pal on a clean plate",
 
 test("only stars and coins are countable on either screen", () => {
   for (const [name, code] of [["Sound Trail", trailCode], ["Adventure Map", mapCode]]) {
-    // `points=` is the SVG polyline attribute, not a score.
+    // Two exemptions, both for the word "points" as CODE rather than as copy:
+    // `points=` is the SVG polyline attribute, and `points: <identifier>` is the
+    // Adventure Map handing the admin's coordinates to the scene builder. A
+    // score would have to reach the child through a rendered value — `{points}`,
+    // or a "Points: 42" label whose colon is followed by a digit or a brace —
+    // and both of those still trip this scan.
     const hit = code.match(
-      /(?<![.\w-])(streak|flame|gems?|xp|points?|combo|berries|high ?score|level up)\b(?!\s*=)/i
+      /(?<![.\w-])(streak|flame|gems?|xp|points?|combo|berries|high ?score|level up)\b(?!\s*=)(?!\s*:\s*[A-Za-z_$])/i
     );
     assert.equal(hit, null, `${name} surfaced "${hit?.[0]}"; the cap is stars and coins`);
   }
@@ -361,11 +474,42 @@ test("nothing a child taps is under the 44px floor", () => {
   assert.match(css, /\.kg-trail-hear\s*\{[^}]*width:\s*60px/);
   assert.match(css, /\.kg-trail-chip\s*\{[^}]*min-width:\s*var\(--kg-hit\)/);
   assert.match(css, /\.kg-trail-chip\s*\{[^}]*height:\s*var\(--kg-hit\)/);
-  assert.equal(MAP_STOP_POINTS.length, 7);
-  for (const size of [46, 64]) assert.ok(size >= 44);
+  // Every state a map marker can be in, not a hand-copied pair: a fourth state
+  // added at 40px would otherwise ship unnoticed.
+  for (const [state, size] of Object.entries(MAP_STOP_SIZES)) {
+    assert.ok(size >= 44, `a ${state} map marker is ${size}px, under the 44px floor`);
+  }
   // A locked marker is the one small circle on the trail, and it is not a
   // control: the trail's markers are spans, never buttons.
   assert.equal(/<button[^>]*kg-node/.test(trailCode), false);
+});
+
+test("a label on a low stop goes beside its marker, never on top of it", () => {
+  // The admin's placements run down to 89.1% of the plate, where a pill dropped
+  // under the marker leaves the artwork. Pinning it to the plate's bottom edge
+  // was the first attempt and it landed on the very numeral it names, so those
+  // stops put the pill BESIDE the marker instead. A point is never moved to
+  // make a label fit; only the label moves.
+  assert.match(mapCode, /const LABEL_SIDE_BAND = 82/);
+  assert.match(mapCode, /data-place=\{labelPlace\(stop\.x, stop\.y\)\}/);
+  for (const side of ["left", "right"]) {
+    assert.match(css, new RegExp(`\\.kg-node-label\\[data-place="${side}"\\]`), side);
+  }
+  assert.equal(
+    /\.kg-node-label\s*\{[^}]*min\(/.test(css),
+    false,
+    "a pill pinned to the plate edge slides onto its own marker; place it beside instead"
+  );
+
+  // The start/end pulls are SHARED with the Sound Trail, whose last node sits at
+  // 91%. Strengthening `end` itself so it would reach Forest Edge at 97% took
+  // the trail's camp pill from a 5.7px graze of its neighbour to a 28.6px cover
+  // of it (measured), so the extra pull is a THIRD band that only the map asks
+  // for. Anything that edits these two numbers is editing both screens.
+  assert.match(css, /\[data-anchor="start"\]\s*\{\s*transform:\s*translateX\(-25%\)/);
+  assert.match(css, /\[data-anchor="end"\]\s*\{\s*transform:\s*translateX\(-75%\)/);
+  assert.match(css, /\[data-anchor="edge"\]\s*\{\s*transform:\s*translateX\(-90%\)/);
+  assert.equal(/"edge"/.test(trailCode), false, "the edge band is the Adventure Map's alone");
 });
 
 test("the screens never assume 1194px of canvas width", () => {
