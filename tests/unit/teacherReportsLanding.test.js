@@ -1,10 +1,15 @@
-// Rewritten 2026-07-27.
+// Rewritten 2026-07-29 for the approved teacher-area redesign (phase 5).
 //
-// The class report is no longer a route. It is what the Reports funnel shows
-// when the answer to "whole class, or one student?" is the whole class, so the
-// class picker has gone because the funnel already asked that question. Once
-// an open report hides the settled funnel, the report keeps one explicit Back
-// action so the teacher can change that choice without browser navigation.
+// The class report screen is now the v2 Reports design: an export header, a
+// five-way status split over students, one skills table where answer accuracy
+// and class learning status are SEPARATE columns, and the EL-benchmark caveat
+// as a footer strip. The three things this file has always been for are
+// unchanged and still pinned below:
+//
+//   1. the class report is the whole-class answer inside the Reports funnel,
+//      not a second destination with its own class picker;
+//   2. it keeps its own assessment period and its own export actions;
+//   3. unconfirmed evidence hides figures instead of printing zeros.
 //
 // Previous note, still true about what this file is NOT testing:
 //
@@ -61,6 +66,49 @@ const HISTORY = [{
   status: "needs_support"
 }];
 
+// Two students, two skills, enough recent scored answers on each skill for the
+// class comparability check to pass. This is the only fixture shape that can
+// produce a real class percentage, so it is the one that proves accuracy and
+// learning status are reported as two different things.
+const COMPARABLE_STUDENTS = [
+  { id: "student-1", name: "Ada", classId: "class-a" },
+  { id: "student-2", name: "Bo", classId: "class-a" }
+];
+
+function comparableHistory() {
+  const completedAt = new Date().toISOString();
+  return COMPARABLE_STUDENTS.flatMap((student, index) => ([
+    {
+      attemptId: `initial-${index}`,
+      studentId: student.id,
+      studentName: student.name,
+      classId: "class-a",
+      assessmentType: "skill_checkpoint",
+      skillId: "initial_sounds",
+      skillName: "Initial Sounds",
+      completedAt,
+      totalQuestions: 10,
+      correctCount: 9,
+      passed: true,
+      status: "on_track"
+    },
+    {
+      attemptId: `digraphs-${index}`,
+      studentId: student.id,
+      studentName: student.name,
+      classId: "class-a",
+      assessmentType: "skill_checkpoint",
+      skillId: "digraphs",
+      skillName: "Digraphs",
+      completedAt,
+      totalQuestions: 10,
+      correctCount: 3,
+      passed: false,
+      status: "needs_support"
+    }
+  ]));
+}
+
 test("the class report is the whole-class answer inside the Reports funnel", () => {
   const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
     allAssessmentHistory: HISTORY,
@@ -71,7 +119,8 @@ test("the class report is the whole-class answer inside the Reports funnel", () 
     teacherName: "Ms Bell"
   }));
 
-  assert.match(html, /<h2>Class report<\/h2>/);
+  // The heading names the class the report is about, the way the design does.
+  assert.match(html, /<h2>Audit Class A report<\/h2>/);
   // It points back to the funnel rather than at a page somewhere else.
   assert.match(html, /Use Back to reports to choose one student instead/);
   // The questions the funnel already asked must not be asked twice.
@@ -82,7 +131,7 @@ test("the class report is the whole-class answer inside the Reports funnel", () 
   assert.doesNotMatch(html, /Results available/);
 });
 
-test("the class report keeps its own assessment period and print action", () => {
+test("the class report keeps its own assessment period and export actions", () => {
   const currentHistory = HISTORY.map(record => ({
     ...record,
     attemptId: "current-checkpoint",
@@ -99,10 +148,114 @@ test("the class report keeps its own assessment period and print action", () => 
   assert.match(html, /Audit Class A/);
   assert.match(html, /Class assessment period/);
   assert.match(html, /<option value="last90"[^>]*>Last 90 days<\/option>/);
-  assert.match(html, /Answers in period<\/dt><dd>8<\/dd>/);
-  assert.match(html, />Print or save PDF<\/button>/);
+  // The selected period still drives the figures: eight saved answers in the
+  // window show up as this skill's answer count.
+  assert.match(html, /<td>8<\/td>/);
+  assert.match(html, />Export spreadsheet<\/button>/);
+  assert.match(html, />Export PDF<\/button>/);
   assert.match(html, /<details class="class-report-formal-tools">/);
   assert.doesNotMatch(html, /class-report-formal-tools screen-only/);
+});
+
+test("the five-way status split names every state and never invents a sixth", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
+    allAssessmentHistory: comparableHistory(),
+    classList: CLASS_LIST,
+    selectedClassId: "class-a",
+    students: COMPARABLE_STUDENTS,
+    teacherName: "Ms Bell"
+  }));
+
+  const labels = [...html.matchAll(
+    /<span class="teacher-class-report-split-label">([^<]+)<\/span>/g
+  )].map(match => match[1]);
+  assert.deepEqual(labels, [
+    "Needs support",
+    "Developing",
+    "Secure",
+    "Not enough results",
+    "Not checked"
+  ]);
+  // Insufficient data is its own named state with its own note, never a score.
+  assert.match(html, /Some answers, but not enough for a judgement\./);
+  assert.match(html, /These students have not been assessed yet\./);
+  assert.match(html, /students have saved answers\. Every student appears in exactly one group\./);
+});
+
+test("accuracy and class learning status stay in separate columns", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
+    allAssessmentHistory: comparableHistory(),
+    classList: CLASS_LIST,
+    selectedClassId: "class-a",
+    students: COMPARABLE_STUDENTS,
+    teacherName: "Ms Bell"
+  }));
+
+  assert.match(html, /<th scope="col">Accuracy<\/th><th scope="col">Class status<\/th>/);
+  // 9 of 10 for both students is a secure class judgement; 3 of 10 is not.
+  assert.match(
+    html,
+    /<th scope="row">Initial Sounds<\/th><td>2 of 2<\/td><td>20<\/td><td class="teacher-class-report-accuracy">90%<\/td><td><span class="teacher-class-report-pill secure">Secure<\/span>/
+  );
+  assert.match(
+    html,
+    /<th scope="row">Digraphs<\/th><td>2 of 2<\/td><td>20<\/td><td class="teacher-class-report-accuracy">30%<\/td><td><span class="teacher-class-report-pill needs-support">Needs support<\/span>/
+  );
+  // The caveat that keeps EL benchmarks out of these totals rides the table.
+  assert.match(
+    html,
+    /EL benchmark assessments are reported separately\. They do not change the Secure, Developing or Not checked totals\./
+  );
+});
+
+test("a skill with too little evidence shows an em dash, never nought per cent", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
+    allAssessmentHistory: HISTORY.map(record => ({
+      ...record,
+      completedAt: new Date().toISOString()
+    })),
+    classList: CLASS_LIST,
+    selectedClassId: "class-a",
+    students: STUDENTS,
+    teacherName: "Ms Bell"
+  }));
+
+  assert.match(
+    html,
+    /<td class="teacher-class-report-accuracy"><span aria-hidden="true">—<\/span><small>No class accuracy figure yet\.<\/small><\/td>/
+  );
+  assert.match(html, /<span class="teacher-class-report-pill not-enough">Not enough results<\/span>/);
+  assert.doesNotMatch(html, /teacher-class-report-accuracy">0%/);
+});
+
+test("a sound-map skill filter narrows the table and offers the way back", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
+    allAssessmentHistory: comparableHistory(),
+    classList: CLASS_LIST,
+    selectedClassId: "class-a",
+    skillFilter: "Digraphs",
+    students: COMPARABLE_STUDENTS,
+    teacherName: "Ms Bell"
+  }));
+
+  assert.match(html, /Showing Digraphs/);
+  assert.match(html, />Show all skills<\/button>/);
+  assert.match(html, /<th scope="row">Digraphs<\/th>/);
+  assert.doesNotMatch(html, /<th scope="row">Initial Sounds<\/th>/);
+});
+
+test("an unmatched skill filter says so rather than quietly showing everything", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherReportsPage, {
+    allAssessmentHistory: comparableHistory(),
+    classList: CLASS_LIST,
+    selectedClassId: "class-a",
+    skillFilter: "Vowel teams",
+    students: COMPARABLE_STUDENTS,
+    teacherName: "Ms Bell"
+  }));
+
+  assert.match(html, /No saved class results for Vowel teams yet\./);
+  assert.doesNotMatch(html, /<th scope="row">Digraphs<\/th>/);
 });
 
 test("the class report degrades to a named empty state when the teacher has no classes", () => {
@@ -113,8 +266,7 @@ test("the class report degrades to a named empty state when the teacher has no c
     teacherName: "Ms Bell"
   }));
 
-  assert.match(html, /<h2>Class report<\/h2>/);
-  assert.match(html, /No classes yet/);
+  assert.match(html, /<h2>No classes yet<\/h2>/);
 });
 
 test("incomplete class evidence suppresses zero figures while exports stay locked", () => {
@@ -150,8 +302,11 @@ test("incomplete class evidence suppresses zero figures while exports stay locke
 
   assert.match(html, /Some report information could not be loaded/);
   assert.match(html, /Try loading the class report again/);
-  assert.match(html, /Print or save PDF<\/button>/);
-  assert.match(html, /<button[^>]*disabled=""[^>]*>Print or save PDF<\/button>/);
-  assert.doesNotMatch(html, /Answers in period<\/dt>/);
-  assert.doesNotMatch(html, /No shared class priority is ready yet/);
+  assert.match(html, /<button[^>]*disabled=""[^>]*>Export PDF<\/button>/);
+  assert.match(html, /<button[^>]*disabled=""[^>]*>Export spreadsheet<\/button>/);
+  // A failed read must never look like an assessed class with nothing in it:
+  // no split counts, no skills table, no reconciliation sentence.
+  assert.doesNotMatch(html, /teacher-class-report-split/);
+  assert.doesNotMatch(html, /teacher-class-report-skills/);
+  assert.doesNotMatch(html, /students have saved answers/);
 });

@@ -83,6 +83,11 @@ export function TeacherReportsHubPage({
   onSelectReportView,
   renderStudentReport,
   renderClassReport,
+  // A Dashboard sound-map tile opens Reports scoped to one skill. The tile
+  // sends no skill today (TeacherTodayPage calls `onOpenReports()` with no
+  // argument), so this is the receiving end waiting for it: when a skill does
+  // arrive the funnel opens straight onto the class report, narrowed to it.
+  soundMapSkillFilter = "",
   // The hash this funnel was opened with. Left undefined the page reads the
   // live URL; tests and previews pass one in so a mid-funnel state can be set
   // up the same way a reload would produce it.
@@ -90,10 +95,12 @@ export function TeacherReportsHubPage({
 }) {
   const params = readTeacherFunnelParams(routeHash);
   const [who, setWho] = useState(() => {
-    if (params.get("who") === WHOLE_CLASS) return WHOLE_CLASS;
+    if (soundMapSkillFilter || params.get("who") === WHOLE_CLASS) return WHOLE_CLASS;
     return params.get("learner") ? "student" : "";
   });
-  const [showing, setShowing] = useState(() => params.get("show") === "1");
+  const [showing, setShowing] = useState(
+    () => Boolean(soundMapSkillFilter) || params.get("show") === "1"
+  );
   const [editingStep, setEditingStep] = useState(0);
   const [studentSearch, setStudentSearch] = useState("");
   const [studentPage, setStudentPage] = useState(1);
@@ -566,7 +573,7 @@ export function TeacherReportsHubPage({
                 ? renderClassReport?.(() => {
                     setShowing(false);
                     setEditingStep(2);
-                  })
+                  }, { skillFilter: soundMapSkillFilter })
                 : renderStudentReport?.(reportView, () => {
                     // The report is embedded in this funnel. "Back to reports"
                     // must reopen the report choice in this section, not send

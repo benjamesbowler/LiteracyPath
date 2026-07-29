@@ -217,6 +217,27 @@ function getClassReportStatusId(accuracy = 0, attempts = 0) {
   return status === LEARNING_STATUS_IDS.NEEDS_SUPPORT ? "needs_support" : "not_assessed";
 }
 
+// The class status of ONE skill, for the Reports skills table. It is the same
+// policy the class mastery and focus lists already use — a class-level accuracy
+// only becomes a Secure/Developing/Needs support judgement once the class
+// comparability check passes. Everything short of that keeps its own name:
+// "Not checked" when no student has a scored answer for the skill, and
+// "Not enough results" when there are answers but not enough to judge. Neither
+// is ever expressed as 0%.
+function classReportSkillStatusId({
+  attemptedLearnerCount = 0,
+  comparable = false,
+  classAccuracy = null
+} = {}) {
+  if (!attemptedLearnerCount) return "not_assessed";
+  if (!comparable || classAccuracy === null) return "not_enough_evidence";
+  const status = rawLearningStatus(classAccuracy);
+  if (status === LEARNING_STATUS_IDS.SECURE) return "mastered";
+  if (status === LEARNING_STATUS_IDS.DEVELOPING) return "developing";
+  if (status === LEARNING_STATUS_IDS.NEEDS_SUPPORT) return "needs_support";
+  return "not_enough_evidence";
+}
+
 function getClassReportStatusLabel(statusId = "") {
   if (statusId === "mastered") return "Secure";
   if (statusId === "developing") return "Developing";
@@ -1307,6 +1328,22 @@ export function buildClassReportModel({
       (sum, cell) => sum + cell.correctResponses,
       0
     );
+    // Every scored answer for this skill, not only the ones inside a
+    // policy-ready cell. `scoredResponses` below is deliberately the
+    // judgement-bearing subset; the skills table reports the whole count so
+    // "Answers" and "Students assessed" describe the same evidence.
+    const totalScoredResponses = cells.reduce(
+      (sum, cell) => sum + cell.scoredResponses,
+      0
+    );
+    const classAccuracy = comparability.comparable
+      ? average(policyReadyCells.map(cell => cell.accuracy))
+      : null;
+    const classStatusId = classReportSkillStatusId({
+      attemptedLearnerCount: attemptedCells.length,
+      comparable: comparability.comparable,
+      classAccuracy
+    });
     return {
       skillName: skillGroup.canonical,
       displaySkillName: skillGroup.label,
@@ -1317,9 +1354,10 @@ export function buildClassReportModel({
       comparability,
       policyReadyLearnerCount: policyReadyCells.length,
       attemptedLearnerCount: attemptedCells.length,
-      classAccuracy: comparability.comparable
-        ? average(policyReadyCells.map(cell => cell.accuracy))
-        : null,
+      classAccuracy,
+      classStatusId,
+      classStatusLabel: getClassReportStatusLabel(classStatusId),
+      totalScoredResponses,
       learnerWeightedAccuracy: policyReadyCells.length
         ? average(policyReadyCells.map(cell => cell.accuracy))
         : null,

@@ -12139,103 +12139,304 @@ select:focus {
   flex: 0 1 auto;
 }
 
-.class-report-screen-summary {
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 16px;
-  display: grid;
+/* ── Reports · class report (teacher redesign v2) ──────────────────────────
+   The screen the Reports funnel shows once "whole class" is the answer: a
+   five-card status split over students, then one skills table where answer
+   accuracy and class learning status stay in separate columns. */
+.teacher-product-page.teacher-class-report-page {
   gap: 18px;
-  padding: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-.class-report-screen-summary > header {
-  align-items: start;
-  display: grid;
-  gap: 18px;
-  grid-template-columns: minmax(0, 1fr) auto;
+.teacher-class-report-page .teacher-page-header,
+.lg-app-shell .teacher-class-report-page .teacher-page-header {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  /* lg-design-system paints .teacher-page-header white with !important; the
+     v2 report header sits directly on the page background. */
+  background: transparent !important;
+  box-shadow: none;
 }
 
-.class-report-screen-summary h3,
-.class-report-screen-summary h4,
-.class-report-screen-summary p {
-  margin: 0;
+/* App.css centres the first child of every .teacher-page-header. The v2 report
+   header is a left-aligned title block with its actions pushed to the right. */
+.teacher-class-report-page .teacher-page-header {
+  align-items: flex-end;
+  flex-wrap: wrap;
 }
 
-.class-report-screen-summary h3 {
-  color: #10213a;
-  font-size: clamp(24px, 3vw, 34px);
+/* The title block does not grow into the slack: space-between already pushes
+   the actions right, and letting the title expand squeezed Export PDF onto a
+   second line. Below the width where both fit, the header wraps. */
+.teacher-class-report-page .teacher-page-header > div:first-child {
+  flex: 0 1 auto;
+  min-width: min(100%, 320px);
+  text-align: left;
 }
 
-.class-report-screen-summary header p:last-child {
-  color: #52637a;
-  margin-top: 6px;
+.teacher-class-report-page .class-report-header-actions {
+  flex: 0 0 auto;
 }
 
-.class-report-screen-facts {
-  display: grid;
-  gap: 8px;
-  grid-template-columns: repeat(4, minmax(100px, 1fr));
-  margin: 0;
+/* Wide enough for the whole action row, so it stays one row; the header wraps
+   before the buttons do. Narrower than this the actions wrap inside their own
+   block instead, which is what keeps small screens free of sideways scroll. */
+@media (min-width: 1024px) {
+  .teacher-class-report-page .class-report-header-actions {
+    flex-wrap: nowrap;
+  }
 }
 
-.class-report-screen-facts div {
-  background: #f4f8f7;
-  border: 1px solid #d7e4e1;
-  border-radius: 10px;
-  padding: 10px 12px;
-}
-
-.class-report-screen-facts dt {
-  color: #52637a;
+.teacher-class-report-page .teacher-page-header .panel-label {
+  margin: 0 0 4px;
+  color: var(--lp-color-primary);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
-.class-report-screen-facts dd {
-  color: #10213a;
-  font-size: 18px;
-  font-weight: 900;
-  margin: 4px 0 0;
+.teacher-class-report-page .teacher-page-header h2 {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
-.class-report-next-grid {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.teacher-class-report-page .teacher-page-header p:not(.panel-label) {
+  margin-top: 6px;
+  max-width: 60ch;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
 }
 
-.class-report-next-grid > section {
-  background: #f8fafc;
-  border: 1px solid #dbe3ec;
-  border-radius: 12px;
-  display: grid;
-  gap: 10px;
-  padding: 14px;
+/* The global .lp-button rule sets min-height 40px with !important. Header
+   actions are not in-row secondary controls, so they take the 44px target the
+   design asks for and have to say !important to get it. */
+.teacher-class-report-page .class-report-header-actions .lp-button {
+  min-height: 44px !important;
+  white-space: nowrap;
 }
 
-.class-report-next-grid ol,
-.class-report-next-grid ul {
+.teacher-class-report-page :focus-visible {
+  outline: 2px solid var(--lp-color-primary);
+  outline-offset: 2px;
+}
+
+/* The five-way split. "Not enough results" and "Not checked" are white cards,
+   not a colour of failure, because neither is a low score. */
+.teacher-class-report-split {
   display: grid;
-  gap: 8px;
-  list-style-position: inside;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.teacher-class-report-split-card {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-class-report-split-card.needs_support {
+  border-color: #FECACA;
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+}
+
+.teacher-class-report-split-card.developing {
+  border-color: #FDE68A;
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-warning);
+}
+
+.teacher-class-report-split-card.on_track {
+  border-color: #BBF7D0;
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+}
+
+.teacher-class-report-split-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.teacher-class-report-split-count {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.teacher-class-report-split-note {
   margin: 0;
-  padding: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.85;
+  text-wrap: pretty;
 }
 
-.class-report-next-grid li {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 9px;
-  display: grid;
-  gap: 3px;
-  padding: 10px;
+.teacher-class-report-reconcile {
+  color: var(--lp-color-text-muted);
 }
 
-.class-report-next-grid li span,
-.class-report-next-grid li p {
-  color: #52637a;
+/* The skills table. Below 640px it scrolls sideways rather than compressing. */
+.teacher-class-report-skills {
+  min-width: 0;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+  overflow: hidden;
+}
+
+.teacher-class-report-skills-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
+}
+
+.teacher-class-report-skills-head strong {
+  color: var(--lp-color-text-strong);
   font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-class-report-skills-head span {
+  color: var(--lp-color-text-subtle);
+  font-size: 12px;
+}
+
+.teacher-class-report-skills-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.teacher-class-report-skills-filter .lp-button {
+  min-height: 40px;
+}
+
+.teacher-class-report-skills-empty {
+  margin: 0;
+  padding: 18px;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-class-report-skills-scroll {
+  overflow-x: auto;
+}
+
+.teacher-class-report-skills-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.teacher-class-report-skills-table thead tr {
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-class-report-skills-table th,
+.teacher-class-report-skills-table td {
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.teacher-class-report-skills-table thead th {
+  padding: 10px 18px;
+  color: var(--lp-color-text-subtle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.teacher-class-report-skills-table tbody th {
+  color: var(--lp-color-text);
+  font-weight: 600;
+}
+
+.teacher-class-report-skills-table tbody td {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-class-report-skills-table td.teacher-class-report-accuracy {
+  color: var(--lp-color-text-strong);
+  font-weight: 700;
+}
+
+.teacher-class-report-skills-table td.teacher-class-report-accuracy small {
+  display: block;
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.teacher-class-report-pill {
+  display: inline-block;
+  border-radius: var(--lp-radius-pill);
+  padding: 3px 10px;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.teacher-class-report-pill.needs-support {
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+}
+
+.teacher-class-report-pill.developing {
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-warning);
+}
+
+.teacher-class-report-pill.secure {
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+}
+
+.teacher-class-report-skills-footer {
+  margin: 0;
+  padding: 12px 18px;
+  border-top: 1px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  text-wrap: pretty;
 }
 
 .class-report-formal-tools {

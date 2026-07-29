@@ -169,12 +169,14 @@ test(
   }
 );
 
+// The v2 class report reports answers per skill rather than as one class
+// total, so the selected period's answer count is the sum of the skills
+// table's Answers column.
 async function answersInSelectedPeriod(page) {
-  const fact = page.locator(".class-report-screen-facts > div")
-    .filter({ hasText: "Answers in period" });
-  await expect(fact).toBeVisible();
-  const value = await fact.locator("dd").innerText();
-  const total = Number(value.trim());
+  const table = page.locator(".teacher-class-report-skills-table");
+  await expect(table).toBeVisible();
+  const total = await table.evaluate(element => [...element.querySelectorAll("tbody tr")]
+    .reduce((sum, row) => sum + Number(row.querySelectorAll("td")[1]?.innerText.trim() || 0), 0));
   expect(Number.isFinite(total), "the selected-period answer count should be numeric").toBe(true);
   return total;
 }

@@ -116,6 +116,10 @@ export function AppSurface({ surface }) {
   // picks it up once, opens the right control, then clears it.
   const [setupFocus, setSetupFocus] = useState("");
   const [adminConfirmError, setAdminConfirmError] = useState("");
+  // A Dashboard sound-map tile opens Reports scoped to one skill. The tile
+  // does not name a skill yet, so this stays empty and Reports opens unfiltered
+  // until it does.
+  const [soundMapSkillFilter, setSoundMapSkillFilter] = useState("");
   // The context bar's teaching cycle - a teacher-set reference (never
   // automated; Benjamin's 2026-07-28 decision), remembered across sessions
   // and fed to Present mode as its default cycle.
@@ -987,7 +991,10 @@ export function AppSurface({ surface }) {
               }}
               onStartCheck={startCheckForStudent}
               onOpenClasses={openStudentsPage}
-              onOpenProgress={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
+              onOpenProgress={skillName => {
+                setSoundMapSkillFilter(typeof skillName === "string" ? skillName : "");
+                goToTeacherIntent(APP_VIEWS.REPORTS);
+              }}
               createDemoClass={createDemoClass}
               teacherId={teacherId}
               message={message}
@@ -1346,6 +1353,7 @@ export function AppSurface({ surface }) {
               onRetryStudentEvidence={() => loadSelectedClassStudent(studentId, studentName)}
               onSelectStudent={loadSelectedClassStudent}
               onClearStudent={clearSelectedLearner}
+              soundMapSkillFilter={soundMapSkillFilter}
               reportView={studentReportView}
               onSelectReportView={setStudentReportView}
               renderStudentReport={(reportView, onBack) => renderStudentReport(reportView, {
@@ -1353,7 +1361,7 @@ export function AppSurface({ surface }) {
                 onReportViewChange: setStudentReportView,
                 onBack
               })}
-              renderClassReport={onBack => (
+              renderClassReport={(onBack, classReportOptions = {}) => (
                 <TeacherReportsPage
                   allAssessmentHistory={assessmentHistory}
                   allAnswerHistory={classDashboard.flatMap(
@@ -1395,6 +1403,7 @@ export function AppSurface({ surface }) {
                   onRetryStudents={loadStudents}
                   onBack={onBack}
                   selectedClassId={selectedClassId}
+                  skillFilter={classReportOptions.skillFilter || ""}
                   studentListReadState={studentListReadState}
                   students={studentList}
                   teacherName={teacherUser?.email || ""}

@@ -36,7 +36,12 @@ import {
   getAssessmentMainImageLabel
 } from "../policy/assessmentMediaEvidence.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
-import { countPhrase, progressPhrase } from "../copy/teacherCopy.js";
+import { countPhrase, progressPhrase, TEACHER_COPY } from "../copy/teacherCopy.js";
+import { exportAssessmentAttemptsCsv } from "../data/assessmentHistoryStore.js";
+import {
+  buildExportProvenanceRows,
+  exportProvenanceCsvPreamble
+} from "../utils/exportProvenance.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import {
   printTeacherDocument,
@@ -1266,98 +1271,151 @@ function filterRowsForClassReportPeriod(rows = [], dateRange = "last90") {
   });
 }
 
-function ClassReportScreenSummary({ model }) {
-  const priorities = Array.isArray(model?.focusRows) ? model.focusRows.slice(0, 3) : [];
-  const groups = Array.isArray(model?.groups) ? model.groups.slice(0, 3) : [];
-  const totalStudents = Number(model?.snapshot?.totalStudents || 0);
-  const readyStudents = Number(model?.snapshot?.policyReadyStudents || 0);
-  const answersInPeriod = (Array.isArray(model?.studentRows) ? model.studentRows : [])
-    .reduce(
-      (total, student) => total + Number(student?.selectedPeriodTotalQuestions || 0),
-      0
-    );
-  const classAccuracyValue = model?.snapshot?.averageAccuracy;
-  const classAccuracy = classAccuracyValue !== null
-    && classAccuracyValue !== undefined
-    && classAccuracyValue !== ""
-    && Number.isFinite(Number(classAccuracyValue))
-    ? `${Math.round(Number(model.snapshot.averageAccuracy))}%`
-    : "Not enough results";
+// ── THE CLASS REPORT ON SCREEN ──────────────────────────────────────────────
+//
+// Two facts, kept apart on purpose. The split counts STUDENTS by learning
+// status; the table below counts SKILLS and shows answer accuracy in its own
+// column beside the class status. A percentage is never used as a status and a
+// missing percentage is never printed as 0% — "Not enough results" and
+// "Not checked" are their own named states in both places.
 
+const CLASS_SPLIT_ORDER = Object.freeze([
+  "needs_support",
+  "developing",
+  "on_track",
+  "not_enough_evidence",
+  "not_started"
+]);
+
+const CLASS_SKILL_STATUS_TONE = Object.freeze({
+  needs_support: "needs-support",
+  developing: "developing",
+  mastered: "secure",
+  not_enough_evidence: "not-enough",
+  not_assessed: "not-checked"
+});
+
+function classAccuracyLabel(value) {
+  const numeric = Number(value);
+  return value !== null && value !== undefined && value !== "" && Number.isFinite(numeric)
+    ? `${Math.round(numeric)}%`
+    : "";
+}
+
+function ClassReportStatusSplit({ model }) {
+  const distribution = Array.isArray(model?.snapshot?.statusDistribution)
+    ? model.snapshot.statusDistribution
+    : [];
+  const byId = new Map(distribution.map(row => [row.statusId, row]));
+  const cards = CLASS_SPLIT_ORDER
+    .map(statusId => byId.get(statusId))
+    .filter(Boolean);
+  if (!cards.length) return null;
   return (
-    <section className="class-report-screen-summary" aria-labelledby="class-report-next-title">
-      <header>
-        <div>
-          <p className="panel-label">Quick class view</p>
-          <h3 id="class-report-next-title">What to teach next</h3>
-          <p>Start here. Open the formal tools only when you need a saved or printed record.</p>
-        </div>
-        <dl className="class-report-screen-facts">
-          <div>
-            <dt>Students</dt>
-            <dd>{totalStudents}</dd>
-          </div>
-          <div>
-            <dt>Enough results</dt>
-            <dd>{readyStudents} of {totalStudents}</dd>
-          </div>
-          <div>
-            <dt>Class accuracy</dt>
-            <dd>{classAccuracy}</dd>
-          </div>
-          <div>
-            <dt>Answers in period</dt>
-            <dd>{answersInPeriod}</dd>
-          </div>
-        </dl>
-      </header>
+    <section className="teacher-class-report-split" aria-label="Class status split">
+      {cards.map(card => (
+        <article
+          className={`teacher-class-report-split-card ${card.statusId}`}
+          key={card.statusId}
+        >
+          <span className="teacher-class-report-split-label">{card.label}</span>
+          <strong className="teacher-class-report-split-count">{card.count}</strong>
+          <p className="teacher-class-report-split-note">
+            {TEACHER_COPY.reports.classStatusNotes[card.statusId]}
+          </p>
+        </article>
+      ))}
+    </section>
+  );
+}
 
-      <div className="class-report-next-grid">
-        <section aria-label="Class teaching priorities">
-          <h4>Class priorities</h4>
-          {priorities.length ? (
-            <ol>
-              {priorities.map(priority => (
-                <li key={priority.skill}>
-                  <strong>{priority.skill}</strong>
-                  <span>
-                    {priority.classAccuracy !== null
-                      && priority.classAccuracy !== undefined
-                      && priority.classAccuracy !== ""
-                      && Number.isFinite(Number(priority.classAccuracy))
-                      ? `${Math.round(Number(priority.classAccuracy))}% across the class`
-                      : "More results are needed"}
-                  </span>
-                  {priority.suggestedAction && <p>{priority.suggestedAction}</p>}
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p className="teacher-empty-state">
-              No shared class priority is ready yet. Add more assessment results before making a class-wide judgement.
-            </p>
-          )}
-        </section>
-
-        <section aria-label="Suggested teaching groups">
-          <h4>Suggested groups</h4>
-          {groups.length ? (
-            <ul>
-              {groups.map((group, index) => (
-                <li key={`${group.focus}-${index}`}>
-                  <strong>{group.focus}</strong>
-                  <span>{group.students?.join(", ") || "No students listed"}</span>
-                  {group.suggestedActivity && <p>{group.suggestedActivity}</p>}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="teacher-empty-state">
-              No group is suggested yet. Individual student reports remain available.
-            </p>
-          )}
-        </section>
+function ClassReportSkillsTable({ model, skillFilter = "", onClearSkillFilter }) {
+  const rows = Array.isArray(model?.heatmap) ? model.heatmap : [];
+  const totalStudents = Number(model?.snapshot?.totalStudents || 0);
+  const filter = String(skillFilter || "").trim().toLowerCase();
+  const visibleRows = filter
+    ? rows.filter(row => (
+      String(row.displaySkillName || "").toLowerCase() === filter
+      || String(row.canonicalSkillName || "").toLowerCase() === filter
+      || (row.rawSkillNames || []).some(name => String(name).toLowerCase() === filter)
+    ))
+    : rows;
+  return (
+    <section className="teacher-class-report-skills" aria-label="Skills with saved results">
+      <div className="teacher-class-report-skills-head">
+        <strong>{TEACHER_COPY.reports.skillsWithResults}</strong>
+        <span>{TEACHER_COPY.reports.accuracySeparateNote}</span>
       </div>
+      {skillFilter && (
+        <div className="teacher-class-report-skills-filter">
+          <span>Showing {skillFilter}</span>
+          <button
+            className="lp-button lp-button-secondary"
+            onClick={onClearSkillFilter}
+            type="button"
+          >
+            Show all skills
+          </button>
+        </div>
+      )}
+      {visibleRows.length === 0 ? (
+        <p className="teacher-class-report-skills-empty">
+          {skillFilter
+            ? `No saved class results for ${skillFilter} yet.`
+            : `${TEACHER_COPY.reports.noSavedResults}. Complete an assessment to fill this table.`}
+        </p>
+      ) : (
+        <div className="teacher-class-report-skills-scroll">
+          <table className="teacher-class-report-skills-table">
+            <thead>
+              <tr>
+                <th scope="col">Skill</th>
+                <th scope="col">Students assessed</th>
+                <th scope="col">Answers</th>
+                <th scope="col">Accuracy</th>
+                <th scope="col">Class status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleRows.map(row => {
+                const accuracy = classAccuracyLabel(row.classAccuracy);
+                return (
+                  <tr key={row.canonicalSkillName || row.displaySkillName}>
+                    <th scope="row">{row.displaySkillName}</th>
+                    <td>
+                      {TEACHER_COPY.reports.classSkillsAssessed(
+                        row.attemptedLearnerCount,
+                        totalStudents
+                      )}
+                    </td>
+                    <td>{row.totalScoredResponses}</td>
+                    <td className="teacher-class-report-accuracy">
+                      {accuracy || (
+                        <>
+                          <span aria-hidden="true">—</span>
+                          <small>{TEACHER_COPY.reports.classAccuracyUnavailable}</small>
+                        </>
+                      )}
+                    </td>
+                    <td>
+                      <span
+                        className={`teacher-class-report-pill ${
+                          CLASS_SKILL_STATUS_TONE[row.classStatusId] || "not-checked"
+                        }`}
+                      >
+                        {row.classStatusLabel}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+      <p className="teacher-class-report-skills-footer">
+        {TEACHER_COPY.reports.elBenchmarkFooter}
+      </p>
     </section>
   );
 }
@@ -1384,6 +1442,9 @@ export function TeacherReportsPage({
   onRetryStudents,
   onBack,
   selectedClassId = "",
+  // A sound-map tile on the Dashboard opens this report scoped to one skill.
+  // Nothing narrows unless a filter actually arrives.
+  skillFilter = "",
   studentListReadState = null,
   students = [],
   teacherName = "",
@@ -1391,6 +1452,7 @@ export function TeacherReportsPage({
   supabase = null
 }) {
   const [dateRange, setDateRange] = useState("last90");
+  const [activeSkillFilter, setActiveSkillFilter] = useState(skillFilter);
   const rosterRead = getStudentRosterReadView({
     readState: studentListReadState,
     classId: selectedClassId,
@@ -1455,15 +1517,49 @@ export function TeacherReportsPage({
       "Assessment period": selectedDatePeriod.label
     }
   }), [classReportingModel, selectedDatePeriod.label]);
-  const getClassOptionLabel = cls => cls.name || cls.className || cls.class_name || "Class";
+  const reportTitle = classList.length === 0
+    ? "No classes yet"
+    : `${classReportingModel.className || "Class"} report`;
+
+  function exportClassSpreadsheet() {
+    if (!reportSourcesReady || typeof window === "undefined") return;
+    const provenanceRows = buildExportProvenanceRows({
+      reportTitle: "Class report",
+      className: classReportingModel.className,
+      learnerCount: Number(classReportingModel.snapshot?.totalStudents || 0),
+      filters: `Class assessment period: ${selectedDatePeriod.label}`,
+      evidenceSource: classAssessmentHistory,
+      definitions: "Each data row is one saved assessment attempt inside the selected class assessment period."
+    });
+    const csv = [
+      exportProvenanceCsvPreamble(provenanceRows),
+      "",
+      exportAssessmentAttemptsCsv(classAssessmentHistory)
+    ].join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "class-report.csv";
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
 
   return (
-    <div className="teacher-product-page">
+    <div className="teacher-product-page teacher-class-report-page">
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Reports</p>
-          <h2>Class report</h2>
+          <h2>{reportTitle}</h2>
           <p>The whole class in one place. Use Back to reports to choose one student instead.</p>
+          {reportSourcesReady && (
+            <p className="teacher-class-report-reconcile">
+              {TEACHER_COPY.reports.classSplitReconcile(
+                Number(classReportingModel.snapshot?.assessedStudents || 0),
+                Number(classReportingModel.snapshot?.totalStudents || 0)
+              )}
+            </p>
+          )}
         </div>
         <div className="class-report-header-actions">
           {onBack && (
@@ -1488,6 +1584,25 @@ export function TeacherReportsPage({
               </small>
             )}
           </label>
+          <button
+            className="lp-button lp-button-secondary"
+            disabled={!reportSourcesReady}
+            onClick={exportClassSpreadsheet}
+            type="button"
+          >
+            Export spreadsheet
+          </button>
+          <button
+            className="lp-button lp-button-primary"
+            disabled={!reportSourcesReady}
+            onClick={() => printTeacherDocument(
+              TEACHER_PRINT_TARGETS.CLASS,
+              () => window.print()
+            )}
+            type="button"
+          >
+            Export PDF
+          </button>
         </div>
       </section>
 
@@ -1506,21 +1621,16 @@ export function TeacherReportsPage({
             }
           />
         )}
-        {reportSourcesReady && <ClassReportScreenSummary model={classReportingModel} />}
-        <div className="class-report-print-actions class-report-view-controls screen-only">
-          <p className="panel-label">{classList.length === 0 ? "No classes yet" : getClassOptionLabel(classList.find(cls => cls.id === effectiveSelectedClassId) || {})}</p>
-          <button
-            className="lp-button lp-button-primary"
-            disabled={!reportSourcesReady}
-            onClick={() => printTeacherDocument(
-              TEACHER_PRINT_TARGETS.CLASS,
-              () => window.print()
-            )}
-            type="button"
-          >
-            Print or save PDF
-          </button>
-        </div>
+        {reportSourcesReady && (
+          <>
+            <ClassReportStatusSplit model={classReportingModel} />
+            <ClassReportSkillsTable
+              model={classReportingModel}
+              onClearSkillFilter={() => setActiveSkillFilter("")}
+              skillFilter={activeSkillFilter}
+            />
+          </>
+        )}
         <details className="class-report-formal-tools">
           <summary>
             <span>

@@ -210,7 +210,24 @@ export const TEACHER_COPY = Object.freeze({
     skillsWithResults: "Skills with saved results",
     skillsNotSeen: "Skills not checked yet",
     hfwWithResults: "High-frequency words with saved results",
-    hfwNotSeen: "High-frequency words not checked yet"
+    hfwNotSeen: "High-frequency words not checked yet",
+    // ── Class report (Reports › whole class) ──────────────────────────────
+    // The five-way split on the class report counts STUDENTS, so its notes
+    // name students rather than reusing the single-student wording above.
+    classSplitReconcile: (assessed, total) => (
+      `${assessed} of ${total} students have saved answers. Every student appears in exactly one group.`
+    ),
+    classStatusNotes: Object.freeze({
+      needs_support: "Review these first and assess again after giving support.",
+      developing: "Making progress but not secure yet.",
+      on_track: "Enough saved results support a secure judgement.",
+      not_enough_evidence: "Some answers, but not enough for a judgement.",
+      not_started: "These students have not been assessed yet."
+    }),
+    accuracySeparateNote: "Accuracy and learning status are shown separately.",
+    classAccuracyUnavailable: "No class accuracy figure yet.",
+    classSkillsAssessed: (assessed, total) => `${assessed} of ${total}`,
+    elBenchmarkFooter: "EL benchmark assessments are reported separately. They do not change the Secure, Developing or Not checked totals."
   }),
   formalEl: Object.freeze({
     choosePeriodIntro: "Choose one grade and time of year before creating a class PDF or spreadsheet.",

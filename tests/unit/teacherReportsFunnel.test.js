@@ -35,7 +35,11 @@ function render(routeHash, extra = {}) {
     ...BASE,
     routeHash,
     renderStudentReport: view => React.createElement("p", null, `student report: ${view}`),
-    renderClassReport: () => React.createElement("p", null, "class report"),
+    renderClassReport: (onBack, options = {}) => React.createElement(
+      "p",
+      null,
+      `class report${options.skillFilter ? ` filtered to ${options.skillFilter}` : ""}`
+    ),
     ...extra
   }));
 }
@@ -69,6 +73,23 @@ test("choosing the whole class leads to the class report on the same page", () =
   assert.match(html, />Whole class<\/p>|Whole class<\/p>/);
   assert.match(html, /<p class="teacher-funnel-step-answer">Class summary<\/p>/);
   assert.match(html, /class report<\/p>/);
+});
+
+// A Dashboard sound-map tile is meant to land on this report already narrowed
+// to the sound it was about. TeacherTodayPage does not name a skill yet, so
+// what is pinned here is the receiving end: a filter that does arrive opens the
+// class report straight away and reaches the report itself.
+test("a sound-map skill filter opens the class report already narrowed", () => {
+  const html = render("#teacher/reports?class=class-a", {
+    soundMapSkillFilter: "Digraphs"
+  });
+  assert.match(html, /class report filtered to Digraphs<\/p>/);
+});
+
+test("no skill filter leaves the funnel exactly where it was", () => {
+  const html = render("#teacher/reports?class=class-a");
+  assert.doesNotMatch(html, /class report/);
+  assert.match(html, /<strong>Whole class<\/strong>/);
 });
 
 test("step 3 lists every report style with the question it answers", () => {
