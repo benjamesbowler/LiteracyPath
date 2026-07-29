@@ -37,7 +37,9 @@ const V3_BANK_IMPORTS = {
   cause_effect: () => import("./banks/cause_effect.v3.generated.js"),
   context_clues: () => import("./banks/context_clues.v3.generated.js"),
   theme_higher_comprehension: () => import("./banks/theme_higher_comprehension.v3.generated.js"),
-  sequencing: () => import("./banks/sequencing.v3.generated.js")
+  sequencing: () => import("./banks/sequencing.v3.generated.js"),
+  key_details: () => import("./banks/key_details.v3.generated.js"),
+  sentence_comprehension: () => import("./banks/sentence_comprehension.v3.generated.js")
 };
 
 const HARD_GATES = ["G1_structure", "G2_originality", "G3_answer_integrity", "G4_mastery_logic", "G5_no_repeats"];

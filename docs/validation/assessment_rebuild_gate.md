@@ -1,4 +1,4 @@
-# Assessment rebuild gate — 2026-07-29T15:40:02.539Z @ 06531805
+# Assessment rebuild gate — 2026-07-29T22:19:55.002Z @ 06531805
 
 | Skill | Ready | G1 | G2 | G3 | G4 | G5 | Items | Sittings to Secure |
 |---|---|---|---|---|---|---|---|---|
@@ -6,8 +6,10 @@
 | context_clues | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 6 |
 | digraphs | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 60 | 5 |
 | inference | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 6 |
+| key_details | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 71 | 6 |
 | long_vowels_silent_e | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 68 | 5 |
 | main_idea | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 6 |
+| sentence_comprehension | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 72 | 6 |
 | sequencing | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 6 |
 | theme_higher_comprehension | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 6 |
 

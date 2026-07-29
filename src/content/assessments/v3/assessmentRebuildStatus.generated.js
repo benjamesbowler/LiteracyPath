@@ -19,7 +19,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.997Z",
   "commit": "06531805"
  },
  "long_vowels_silent_e": {
@@ -40,7 +40,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.997Z",
   "commit": "06531805"
  },
  "inference": {
@@ -61,7 +61,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.997Z",
   "commit": "06531805"
  },
  "main_idea": {
@@ -82,7 +82,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.997Z",
   "commit": "06531805"
  },
  "cause_effect": {
@@ -103,7 +103,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.992Z",
   "commit": "06531805"
  },
  "context_clues": {
@@ -124,7 +124,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.997Z",
   "commit": "06531805"
  },
  "sequencing": {
@@ -145,7 +145,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.997Z",
   "commit": "06531805"
  },
  "theme_higher_comprehension": {
@@ -166,7 +166,49 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "generatedAt": "2026-07-29T22:19:54.997Z",
+  "commit": "06531805"
+ },
+ "key_details": {
+  "skillId": "key_details",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 71,
+   "level1": 32,
+   "level2": 24,
+   "retention": 15
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T22:19:54.997Z",
+  "commit": "06531805"
+ },
+ "sentence_comprehension": {
+  "skillId": "sentence_comprehension",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 72,
+   "level1": 32,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T22:19:54.997Z",
   "commit": "06531805"
  }
 };
