@@ -10,6 +10,7 @@ import { createAssessmentRoundDuplicateProfile, getAssessmentRoundDuplicateFlags
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation";
 import { buildFinalSoundAvailableWordMap, evaluateFinalSoundLevelOneMasteryDepth, finalSoundLevelOneTargets, getFinalSoundTargetFromEvidence } from "../data/finalSoundMasteryDepth";
 import { getQuestionFormatMetadata, isMasteryEligible } from "../questionFormatFramework";
+import { getBlueprintUnitRuleByItem } from "../content/blueprints/skillBlueprints.js";
 import { buildInitialSoundsProgressFromAnswerHistory, getInitialSoundRoundPlan } from "../content/initialSounds/initialSoundSelector";
 import { INITIAL_SOUND_LETTERS } from "../content/initialSounds/initialSoundWordBank";
 import { getAnswerRecordPromptAnswerSignature, getRepeatOptionSetSignature } from "../questionRepeatGuards";
@@ -1066,9 +1067,21 @@ export function createAssessmentRoundController(context) {
       crossPatternExposure: Boolean(previous?.crossPatternExposure || formatMetadata.crossPatternGroup || formatMetadata.formatType === "CPS")
     };
     const eligibility = isMasteryEligible(evidence, metadata.itemType, metadata.itemKey);
-    const baseMastered = attempts >= 4 && correct >= 3 && isCorrect && sessionsSeen >= 2;
+    // v3 blueprints tune the numeric evidence rule per construct (large
+    // inventories need 2 solid proofs per unit, small ones need 3+); units that
+    // are not covered by a blueprint keep the legacy 4/3/2 rule.
+    const unitRule = getBlueprintUnitRuleByItem(metadata.itemType, metadata.itemKey);
+    const attemptsMin = unitRule?.attemptsMin ?? 4;
+    const correctMin = unitRule?.correctMin ?? 3;
+    const sessionsMin = unitRule?.sessionsMin ?? 2;
+    const baseMastered = attempts >= attemptsMin && correct >= correctMin && isCorrect && sessionsSeen >= sessionsMin;
     const isAssessmentEvidence = (source.source || "assessment") === "assessment";
-    const mastered = Boolean(previous?.mastered || (isAssessmentEvidence && baseMastered && eligibility.eligible));
+    // v3 honesty rule (MASTERY_SYSTEM.md §3): mastery is never sticky — the
+    // most recent answer being wrong always clears the mastered flag, so a
+    // failed retake can no longer hide behind an old success.
+    const mastered = isCorrect
+      ? Boolean(previous?.mastered || (isAssessmentEvidence && baseMastered && eligibility.eligible))
+      : false;
     const stageIndex = getStageIndex(source);
     const stage = skillTree[stageIndex];
 

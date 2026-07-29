@@ -1,6 +1,11 @@
 /* eslint-disable no-control-regex -- filenames reject control characters explicitly. */
 import { skillTree } from "../skillTree.js";
 import { normalize } from "../utils/assessmentRoundBuilder.js";
+import { skillBlueprints } from "../content/blueprints/skillBlueprints.js";
+import {
+  listV3PublishedSkillIds,
+  RUNTIME_SKILL_ID_BY_ASSESSMENT_ID
+} from "../data/v3/v3Registry.js";
 import {
   coverageExpectations,
   finalSoundLevelOneAllowedItemKeys,
@@ -1257,7 +1262,29 @@ export function prepareRuntimeQuestionBank(questions = [], options = {}) {
 export const startupQuestions = [];
 export let runtimeQuestionCache = startupQuestions;
 
-export const configuredCoverageTotals = coverageExpectations;
+// v3 rebuild skills override their coverage contract with the blueprint's
+// evidence units (docs/skills-assessment-rebuild/MASTERY_SYSTEM.md). Legacy
+// skills keep the legacy expectations untouched — the merge happens here, at
+// the single point the runtime reads coverage from, so legacy audits that
+// import coverageExpectations directly keep auditing legacy banks coherently.
+export const configuredCoverageTotals = (() => {
+  const merged = { ...coverageExpectations };
+  for (const assessmentSkillId of listV3PublishedSkillIds()) {
+    const blueprint = skillBlueprints[assessmentSkillId];
+    if (!blueprint) continue;
+    const runtimeSkillId = RUNTIME_SKILL_ID_BY_ASSESSMENT_ID[assessmentSkillId] || assessmentSkillId;
+    merged[runtimeSkillId] = {
+      itemType: blueprint.itemType,
+      itemKeys: [...new Set([...(blueprint.unitsByLevel?.[1] || []), ...(blueprint.unitsByLevel?.[2] || [])])],
+      levels: { 1: blueprint.unitsByLevel?.[1] || [], 2: blueprint.unitsByLevel?.[2] || [] },
+      phases: blueprint.phaseUnitsByLevel,
+      total: (blueprint.unitsByLevel?.[1] || []).length,
+      unit: coverageExpectations[runtimeSkillId]?.unit || "items",
+      v3: true
+    };
+  }
+  return merged;
+})();
 
 export function getConfiguredPhaseItemKeys(stage, level, phase) {
   const configured = configuredCoverageTotals[stage?.id];

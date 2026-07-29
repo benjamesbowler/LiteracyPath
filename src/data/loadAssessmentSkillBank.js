@@ -14,6 +14,7 @@ import {
   getRuntimeSourceIssues,
   sourceFileByBankName
 } from "./sourceOfTruthRegistry.js";
+import { importV3Bank, isV3PublishedSkill } from "./v3/v3Registry.js";
 
 const ASSESSMENT_SKILL_GROUPS = [
   {
@@ -622,6 +623,31 @@ export function getAssessmentSkillPublicationStatus(skillId = "") {
 }
 
 export async function loadAssessmentSkillBank(skillId) {
+  const normalizedV3SkillId = normalizeSkillId(skillId);
+  // v3 rebuild path: gate-proven banks replace the legacy exposure contract
+  // per skill (docs/skills-assessment-rebuild/PLAN.md — per-skill cutover).
+  if (isV3PublishedSkill(normalizedV3SkillId)) {
+    const cacheKey = `v3:${normalizedV3SkillId}`;
+    if (!skillBankCache.has(cacheKey)) {
+      skillBankCache.set(cacheKey, importV3Bank(normalizedV3SkillId).then(bank =>
+        normalizeQuestionBank(`v3_${normalizedV3SkillId}`, bank)
+          .filter(question => !question.retentionOnly)
+          .map(question => {
+            // Media is authored explicitly in v3 banks; enrichment may add
+            // audio, but a target image the author never declared is stripped
+            // so unapproved manifest paths cannot attach themselves.
+            if (question.v3AuthoredMedia && !question.v3AuthoredMedia.target) {
+              const { imagePath, imageUrl, targetImage, targetImagePath, image, ...rest } = question;
+              return rest;
+            }
+            return question;
+          })
+          .filter(question => getRuntimeSourceIssues(question).length === 0)
+      ));
+    }
+    return skillBankCache.get(cacheKey);
+  }
+
   const publicationStatus = getAssessmentSkillPublicationStatus(skillId);
   if (!publicationStatus.releaseReady) return [];
   const candidates = await loadAssessmentSkillBankCandidates(skillId);

@@ -166,7 +166,10 @@ export const sourceFileByBankName = {
   assessmentQaReplacementQuestions: "src/data/assessmentQaReplacementQuestions.js",
   highQualityComprehensionReplacementQuestions: "src/data/highQualityComprehensionReplacements.js",
   fixSentenceQuestions: "src/data/fixSentenceQuestions.js",
-  templateComprehensionAdvanced: "src/data/templateComprehensionAdvanced.js"
+  templateComprehensionAdvanced: "src/data/templateComprehensionAdvanced.js",
+  // Skills Assessment Rebuild v3 — generated from tools/assessmentRebuild/authoring/*
+  v3_long_vowels_silent_e: "src/data/v3/banks/long_vowels_silent_e.v3.generated.js",
+  v3_digraphs: "src/data/v3/banks/digraphs.v3.generated.js"
 };
 
 export const activeRuntimeSourceFiles = new Set(

@@ -54,15 +54,17 @@ test("HFW contracts use the generated word bands enforced by runtime eligibility
 });
 
 test("published digraph and vowel-team regression items contain no blocked effective media", async () => {
-  const cases = [
-    ["digraphs", "digraphs_l1_38_wh_white"],
-    ["vowel_teams", "vowel_teams_l2_variety_06_igh_light"]
-  ];
-
-  for (const [skillId, questionId] of cases) {
-    const question = (await loadAssessmentSkillBank(skillId))
-      .find(item => item.id === questionId);
-    assert.ok(question, `${skillId}:${questionId}`);
-    assert.equal(isQuestionBlockedByMediaQa(question), false, `${skillId}:${questionId}`);
+  // Digraphs ships the v3 rebuild bank (per-skill cutover), so the guarantee is
+  // asserted over EVERY published digraph item instead of one legacy id.
+  const digraphQuestions = await loadAssessmentSkillBank("digraphs");
+  assert.ok(digraphQuestions.length >= 40, "digraphs published bank present");
+  for (const question of digraphQuestions) {
+    assert.equal(isQuestionBlockedByMediaQa(question), false, `digraphs:${question.id}`);
   }
+
+  // vowel_teams is still on the legacy bank until its rebuild wave lands.
+  const vowelTeamQuestion = (await loadAssessmentSkillBank("vowel_teams"))
+    .find(item => item.id === "vowel_teams_l2_variety_06_igh_light");
+  assert.ok(vowelTeamQuestion, "vowel_teams:vowel_teams_l2_variety_06_igh_light");
+  assert.equal(isQuestionBlockedByMediaQa(vowelTeamQuestion), false, "vowel_teams legacy regression item");
 });
