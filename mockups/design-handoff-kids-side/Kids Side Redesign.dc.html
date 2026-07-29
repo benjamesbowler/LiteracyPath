@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #E9EFE8; display: grid; place-items: start center; }
+  a { color: #2E4B3E; }
+  a:hover { color: #3E776B; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes haloPulse { 0% { box-shadow: 0 0 0 0 rgba(242,179,61,.5), 0 6px 18px -6px rgba(30,60,50,.28); } 100% { box-shadow: 0 0 0 22px rgba(242,179,61,0), 0 6px 18px -6px rgba(30,60,50,.28); } }
+  @keyframes popIn { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</helmet>
+
+<div style="width: 1194px; height: 834px; position: relative; overflow: hidden; background: #F7F4EC; color: #16302A; font-family: Nunito, system-ui, sans-serif; display: flex; flex-direction: column; isolation: isolate;">
+
+  <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; background: radial-gradient(680px 500px at 12% -6%, rgba(143,205,180,.55), transparent 62%), radial-gradient(720px 520px at 96% 8%, rgba(255,214,150,.5), transparent 64%), radial-gradient(760px 620px at 62% 108%, rgba(163,203,232,.46), transparent 62%), linear-gradient(170deg, #FBF7EF, #EFF3EA);"></div>
+
+  <header style="position: relative; z-index: 5; flex: 0 0 auto; height: 78px; display: flex; align-items: center; gap: 12px; padding: 0 22px; background: rgba(255,255,255,.5); backdrop-filter: blur(26px) saturate(1.5); -webkit-backdrop-filter: blur(26px) saturate(1.5); border-bottom: 1px solid rgba(255,255,255,.7); box-shadow: 0 1px 24px -10px rgba(30,60,50,.28);">
+    <button type="button" onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 11px; background: none; border: 0; padding: 2px; cursor: pointer; font-family: inherit;">
+      <span style="width: 54px; height: 54px; border-radius: 50%; background: rgba(255,255,255,.72); border: 1px solid rgba(255,255,255,.9); box-shadow: 0 6px 16px -8px rgba(30,60,50,.4), inset 0 1px 1px rgba(255,255,255,.9); display: grid; place-items: center; overflow: hidden;">
+        <img src="{{ palImage }}" alt="" style="width: 48px; height: 48px; object-fit: contain;" />
+      </span>
+      <span style="display: grid; gap: 0; text-align: left;">
+        <strong style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 21px; font-weight: 700; line-height: 1.15;">Aaron</strong>
+        <span style="font-size: 13px; font-weight: 700; color: #5C6E66;">{{ palLine }}</span>
+      </span>
+    </button>
+
+    <span style="flex: 1;"></span>
+
+    <span style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 18px 0 13px; border-radius: 999px; background: rgba(255,255,255,.56); border: 1px solid rgba(255,255,255,.85); box-shadow: 0 8px 20px -12px rgba(30,60,50,.4), inset 0 1px 1px rgba(255,255,255,.9);">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z" fill="#F2B33D"></path></svg>
+      <span style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 23px; font-weight: 700; line-height: 1;">{{ stars }}</span>
+      <span style="font-size: 11.5px; font-weight: 800; color: #8A7038; letter-spacing: .05em; text-transform: uppercase;">stars</span>
+    </span>
+
+    <button type="button" onClick="{{ goHollow }}" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 18px 0 13px; border-radius: 999px; background: rgba(255,255,255,.56); border: 1px solid rgba(255,255,255,.85); box-shadow: 0 8px 20px -12px rgba(30,60,50,.4), inset 0 1px 1px rgba(255,255,255,.9); cursor: pointer; font-family: inherit;">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#F0A93C"></circle><circle cx="12" cy="12" r="6.6" fill="#FFCE5C"></circle></svg>
+      <span style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 23px; font-weight: 700; line-height: 1;">{{ coins }}</span>
+      <span style="font-size: 11.5px; font-weight: 800; color: #A05B3E; letter-spacing: .05em; text-transform: uppercase;">to spend</span>
+    </button>
+
+    <button type="button" aria-label="Grown-ups" style="width: 48px; height: 48px; border-radius: 16px; background: rgba(255,255,255,.44); border: 1px solid rgba(255,255,255,.8); display: grid; place-items: center; cursor: pointer;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5C6E66" stroke-width="1.9" stroke-linecap="round" style="width: 22px; height: 22px;"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4.5 20c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5"></path></svg>
+    </button>
+  </header>
+
+  <main style="position: relative; z-index: 2; flex: 1; min-height: 0; overflow: hidden;">
+
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <div style="height: 100%; box-sizing: border-box; padding: 16px 24px; display: grid; gap: 13px; grid-template-rows: {{ homeRows }};">
+
+        <section style="position: relative; border-radius: 30px; overflow: hidden; box-shadow: 0 22px 44px -22px rgba(20,45,38,.55);">
+          <img src="assets/pals/meadow-panorama.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(18,44,38,.72) 0%, rgba(18,44,38,.34) 52%, rgba(18,44,38,0) 100%);"></div>
+          <div style="position: relative; height: 100%; box-sizing: border-box; display: grid; grid-template-columns: minmax(0,1fr) 250px; align-items: center; gap: 16px; padding: 18px 22px;">
+            <div style="min-width: 0;">
+              <span style="display: inline-flex; align-items: center; gap: 8px; padding: 5px 14px; border-radius: 999px; background: rgba(255,255,255,.24); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.42); color: #FFFFFF; font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;">Carry on where you stopped</span>
+              <h1 style="margin: 10px 0 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 44px; line-height: 1.02; font-weight: 700; color: #FFFFFF; text-wrap: pretty;">The Sound Trail</h1>
+              <p style="margin: 4px 0 0; font-size: 18px; font-weight: 700; color: rgba(255,255,255,.86);">Stop 12 — the Windy Bridge</p>
+              <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+                <button type="button" onClick="{{ goSounds }}" style="display: inline-flex; align-items: center; gap: 12px; height: 66px; padding: 0 30px 0 22px; border: 1px solid rgba(255,255,255,.6); border-radius: 22px; background: {{ accentGlass }}; backdrop-filter: blur(16px) saturate(1.6); -webkit-backdrop-filter: blur(16px) saturate(1.6); box-shadow: 0 14px 32px -14px rgba(20,45,38,.7), inset 0 1px 2px rgba(255,255,255,.7); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 27px; font-weight: 700; color: #1B2E12;">
+                  <svg viewBox="0 0 24 24" style="width: 30px; height: 30px;" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="#1B2E12"></path></svg>
+                  Play
+                </button>
+                <button type="button" aria-label="Hear this" style="width: 66px; height: 66px; border: 1px solid rgba(255,255,255,.55); border-radius: 22px; background: rgba(255,255,255,.26); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: inset 0 1px 2px rgba(255,255,255,.6); display: grid; place-items: center; cursor: pointer;">
+                  <svg viewBox="0 0 24 24" style="width: 30px; height: 30px;" aria-hidden="true"><path d="M5 9.5v5h3.6l4.4 3.4V6.1L8.6 9.5H5Z" fill="#FFFFFF"></path><path d="M16.4 9a4.6 4.6 0 0 1 0 6M19.2 6.2a8.6 8.6 0 0 1 0 11.6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path></svg>
+                </button>
+              </div>
+            </div>
+            <img src="assets/pals/meadow-point.webp" alt="" style="width: 250px; height: 196px; object-fit: contain; justify-self: end; animation: bob 3.4s ease-in-out infinite;" />
+          </div>
+        </section>
+
+        <sc-if value="{{ showStops }}" hint-placeholder-val="{{ true }}">
+          <section style="padding: 13px 22px 15px; border-radius: 26px; background: rgba(255,255,255,.52); backdrop-filter: blur(26px) saturate(1.5); -webkit-backdrop-filter: blur(26px) saturate(1.5); border: 1px solid rgba(255,255,255,.8); box-shadow: 0 16px 34px -22px rgba(30,60,50,.5), inset 0 1px 1px rgba(255,255,255,.9);">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+              <h2 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 22px; font-weight: 700;">Today's three stops</h2>
+              <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 800; color: #3E776B;">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z" fill="#F2B33D"></path></svg>
+                6 stars waiting
+              </span>
+            </div>
+            <div style="position: relative; margin-top: 10px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr));">
+              <span style="position: absolute; left: 17%; right: 17%; top: 32px; height: 4px; border-radius: 99px; background: repeating-linear-gradient(90deg, rgba(62,119,107,.3) 0 10px, transparent 10px 22px);"></span>
+              <sc-for list="{{ stops }}" as="stop" hint-placeholder-count="3">
+                <div style="position: relative; display: grid; grid-template-columns: 64px minmax(0,1fr); align-items: center; gap: 12px; justify-self: center; padding: 0 8px;">
+                  <span style="width: 64px; height: 64px; border-radius: 50%; background: {{ stop.fill }}; border: 1px solid {{ stop.ring }}; box-shadow: {{ stop.glow }}; display: grid; place-items: center; overflow: hidden; position: relative;">
+                    <img src="{{ stop.art }}" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: {{ stop.artOpacity }};" />
+                    <span style="position: absolute; inset: 0; display: grid; place-items: center; background: {{ stop.veil }}; color: #FFFFFF; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 25px; font-weight: 700;">{{ stop.glyph }}</span>
+                  </span>
+                  <span style="display: grid; gap: 0;">
+                    <strong style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 18.5px; font-weight: 700; line-height: 1.15; color: {{ stop.textColor }};">{{ stop.label }}</strong>
+                    <small style="font-size: 13px; font-weight: 700; color: #5C6E66;">{{ stop.state }}</small>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </sc-if>
+
+        <section style="min-height: 0; display: grid; grid-template-rows: auto minmax(0,1fr); gap: 9px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <h2 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 22px; font-weight: 700;">Or go anywhere you like</h2>
+            <button type="button" aria-label="Hear this" style="width: 44px; min-width: 44px; height: 44px; min-height: 44px; border-radius: 14px; border: 1px solid rgba(255,255,255,.8); background: rgba(255,255,255,.5); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: grid; place-items: center; cursor: pointer;">
+              <svg viewBox="0 0 24 24" style="width: 22px; height: 22px;" aria-hidden="true"><path d="M5 9.5v5h3.6l4.4 3.4V6.1L8.6 9.5H5Z" fill="#5C6E66"></path><path d="M16.4 9a4.6 4.6 0 0 1 0 6" fill="none" stroke="#5C6E66" stroke-width="2" stroke-linecap="round"></path></svg>
+            </button>
+          </div>
+          <div style="min-height: 0; display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 13px;">
+            <sc-for list="{{ doors }}" as="door" hint-placeholder-count="6">
+              <button type="button" onClick="{{ door.go }}" style="min-height: 0; padding: 0; border: 1px solid rgba(255,255,255,.82); border-radius: 24px; background: rgba(255,255,255,.5); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); box-shadow: 0 18px 34px -24px rgba(30,60,50,.6), inset 0 1px 1px rgba(255,255,255,.9); overflow: hidden; cursor: pointer; font-family: inherit; text-align: left; display: grid; grid-template-rows: minmax(0,1fr) auto;">
+                <span style="min-height: 0; display: block; position: relative; background: {{ door.tint }};">
+                  <img src="{{ door.art }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+                  <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 40%);"></span>
+                </span>
+                <span style="display: flex; align-items: center; gap: 9px; padding: 10px 11px 11px;">
+                  <span style="width: 32px; height: 32px; flex: 0 0 32px; border-radius: 11px; background: {{ door.tint }}; border: 1px solid rgba(255,255,255,.8); display: grid; place-items: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#20423A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width: 19px; height: 19px;"><path d="{{ door.icon }}"></path></svg>
+                  </span>
+                  <span style="min-width: 0; display: grid; gap: 0;">
+                    <strong style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 17px; font-weight: 700; line-height: 1.12;">{{ door.title }}</strong>
+                    <small style="display: {{ noteDisplay }}; font-size: 12px; font-weight: 700; color: #5C6E66;">{{ door.note }}</small>
+                  </span>
+                </span>
+              </button>
+            </sc-for>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isSounds }}" hint-placeholder-val="{{ false }}">
+      <div style="height: 100%; box-sizing: border-box; padding: 14px 24px; display: grid; gap: 13px; grid-template-rows: auto minmax(0,1fr) auto;">
+        <div style="display: flex; align-items: end; justify-content: space-between; gap: 20px;">
+          <div>
+            <h1 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 33px; font-weight: 700;">The Sound Trail</h1>
+            <p style="margin: 2px 0 0; font-size: 16.5px; font-weight: 700; color: #5C6E66;">You are 12 stops in. Two more to reach the Lantern Camp.</p>
+          </div>
+          <span style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,.55); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,.85); font-size: 14.5px; font-weight: 800;">
+            <img src="assets/hollow/beastie-ember-fox-s2.webp" alt="" style="width: 30px; height: 30px; object-fit: contain;" />
+            Ember Fox · stage 2
+          </span>
+        </div>
+
+        <section style="min-height: 0; position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 22px 44px -24px rgba(20,45,38,.6);">
+          <img src="assets/pals/meadow-panorama.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,44,38,.34), rgba(18,44,38,.5));"></div>
+          <div style="position: absolute; inset: 0;">{{ trail }}</div>
+        </section>
+
+        <div style="display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); gap: 14px;">
+          <section style="padding: 15px 20px 17px; border-radius: 26px; background: rgba(255,255,255,.54); backdrop-filter: blur(26px) saturate(1.5); -webkit-backdrop-filter: blur(26px) saturate(1.5); border: 1px solid rgba(255,255,255,.8); box-shadow: 0 16px 34px -24px rgba(30,60,50,.5), inset 0 1px 1px rgba(255,255,255,.9);">
+            <span style="font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: #A05B3E;">Next stop</span>
+            <h2 style="margin: 3px 0 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 26px; font-weight: 700;">The Windy Bridge</h2>
+            <p style="margin: 3px 0 0; font-size: 15.5px; font-weight: 600; color: #5C6E66;">Listen for <strong>sh</strong> and <strong>ch</strong>. Catch the right plank before the wind does.</p>
+            <div style="display: flex; gap: 11px; margin-top: 13px;">
+              <button type="button" onClick="{{ toggleCelebrate }}" style="display: inline-flex; align-items: center; gap: 11px; height: 60px; padding: 0 26px 0 18px; border: 1px solid rgba(255,255,255,.7); border-radius: 20px; background: {{ accentGlass }}; backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); box-shadow: 0 14px 28px -16px rgba(30,60,50,.6), inset 0 1px 2px rgba(255,255,255,.8); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 24px; font-weight: 700; color: #1B2E12;">
+                <svg viewBox="0 0 24 24" style="width: 26px; height: 26px;" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="#1B2E12"></path></svg>
+                Go
+              </button>
+              <button type="button" aria-label="Hear this" style="width: 60px; height: 60px; border: 1px solid rgba(255,255,255,.85); border-radius: 20px; background: rgba(255,255,255,.6); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: grid; place-items: center; cursor: pointer;">
+                <svg viewBox="0 0 24 24" style="width: 27px; height: 27px;" aria-hidden="true"><path d="M5 9.5v5h3.6l4.4 3.4V6.1L8.6 9.5H5Z" fill="#20423A"></path><path d="M16.4 9a4.6 4.6 0 0 1 0 6" fill="none" stroke="#20423A" stroke-width="2" stroke-linecap="round"></path></svg>
+              </button>
+            </div>
+          </section>
+
+          <section style="padding: 13px 18px 15px; border-radius: 26px; background: rgba(255,255,255,.4); backdrop-filter: blur(22px) saturate(1.3); -webkit-backdrop-filter: blur(22px) saturate(1.3); border: 1px solid rgba(255,255,255,.72);">
+            <h3 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 19px; font-weight: 700;">Sounds you own</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px;">
+              <sc-for list="{{ sounds }}" as="s" hint-placeholder-count="12">
+                <span style="min-width: 44px; height: 44px; padding: 0 9px; border-radius: 14px; border: 1px solid {{ s.border }}; background: {{ s.bg }}; color: {{ s.color }}; box-shadow: {{ s.glow }}; display: grid; place-items: center; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 20px; font-weight: 700;">{{ s.text }}</span>
+              </sc-for>
+            </div>
+          </section>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMap }}" hint-placeholder-val="{{ false }}">
+      <div style="height: 100%; box-sizing: border-box; padding: 14px 24px; display: grid; gap: 13px; grid-template-rows: auto minmax(0,1fr) auto;">
+        <div>
+          <h1 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 33px; font-weight: 700;">Adventure Map</h1>
+          <p style="margin: 2px 0 0; font-size: 16.5px; font-weight: 700; color: #5C6E66;">Walk the Meadow. Your pal is waiting at the Apple Orchard.</p>
+        </div>
+
+        <section style="min-height: 0; position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 22px 44px -24px rgba(20,45,38,.55);">
+          <img src="assets/pals/meadow-map-wide.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,44,38,.34), rgba(18,44,38,.5));"></div>
+          <div style="position: absolute; inset: 0;">{{ mapStops }}</div>
+          <span style="position: absolute; left: 16px; top: 16px; display: inline-flex; align-items: center; gap: 9px; padding: 8px 15px; border-radius: 999px; background: rgba(18,44,38,.5); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border: 1px solid rgba(255,255,255,.42); color: #FFFFFF; font-size: 14.5px; font-weight: 800;">
+            <img src="assets/pals/meadow-emblem.webp" alt="" style="width: 24px; height: 24px; object-fit: contain;" />
+            Meadow — part 1 of 3
+          </span>
+        </section>
+
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px;">
+          <sc-for list="{{ mapCards }}" as="c" hint-placeholder-count="4">
+            <button type="button" style="padding: 13px 15px 15px; border: 1px solid {{ c.border }}; border-radius: 22px; background: {{ c.bg }}; backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); box-shadow: 0 14px 30px -22px rgba(30,60,50,.55), inset 0 1px 1px rgba(255,255,255,.9); cursor: pointer; font-family: inherit; text-align: left; display: grid; grid-template-columns: 42px minmax(0,1fr); align-items: center; gap: 12px;">
+              <span style="width: 42px; height: 42px; border-radius: 14px; background: {{ c.chip }}; border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 20px; font-weight: 700; color: {{ c.chipInk }};">{{ c.n }}</span>
+              <span style="min-width: 0; display: grid; gap: 0;">
+                <strong style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 18px; font-weight: 700; line-height: 1.15; color: {{ c.ink }};">{{ c.title }}</strong>
+                <small style="font-size: 13px; font-weight: 700; color: {{ c.sub }};">{{ c.state }}</small>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isBooks }}" hint-placeholder-val="{{ false }}">
+      <div style="height: 100%; box-sizing: border-box; padding: 14px 24px; display: grid; gap: 13px; grid-template-rows: auto auto minmax(0,1fr);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <h1 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 33px; font-weight: 700;">Books</h1>
+          <span style="flex: 1;"></span>
+          <button type="button" onClick="{{ goStories }}" style="display: inline-flex; align-items: center; gap: 9px; height: 50px; padding: 0 20px; border: 1px solid rgba(255,255,255,.85); border-radius: 18px; background: rgba(255,255,255,.56); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 12px 26px -20px rgba(30,60,50,.5); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 19px; font-weight: 700; color: #20423A;">
+            Story Quests
+            <svg viewBox="0 0 24 24" fill="none" stroke="#20423A" stroke-width="2.2" stroke-linecap="round" style="width: 18px; height: 18px;"><path d="M9 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+
+        <section style="display: grid; grid-template-columns: 190px minmax(0,1fr); gap: 20px; align-items: center; padding: 14px 20px; border-radius: 28px; background: rgba(255,255,255,.52); backdrop-filter: blur(26px) saturate(1.5); -webkit-backdrop-filter: blur(26px) saturate(1.5); border: 1px solid rgba(255,255,255,.8); box-shadow: 0 18px 36px -26px rgba(30,60,50,.55), inset 0 1px 1px rgba(255,255,255,.9);">
+          <img src="assets/books/a28.png" alt="" style="width: 190px; height: 130px; object-fit: cover; border-radius: 16px; border: 1px solid rgba(255,255,255,.9); box-shadow: 0 14px 28px -18px rgba(30,60,50,.55);" />
+          <div>
+            <span style="font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: #A05B3E;">You stopped here</span>
+            <h2 style="margin: 3px 0 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 28px; font-weight: 700;">The Rain Cycle</h2>
+            <div style="display: flex; align-items: center; gap: 12px; margin-top: 7px;">
+              <span style="width: 250px; height: 10px; border-radius: 99px; background: rgba(62,119,107,.16); border: 1px solid rgba(255,255,255,.7); overflow: hidden;">
+                <i style="display: block; width: 42%; height: 100%; background: linear-gradient(90deg, #6FB35F, #4E9A6E); border-radius: 99px;"></i>
+              </span>
+              <small style="font-size: 14.5px; font-weight: 800; color: #5C6E66;">Page 5 of 12</small>
+            </div>
+            <div style="display: flex; gap: 11px; margin-top: 12px;">
+              <button type="button" style="display: inline-flex; align-items: center; gap: 11px; height: 58px; padding: 0 24px 0 17px; border: 1px solid rgba(255,255,255,.7); border-radius: 20px; background: {{ accentGlass }}; backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); box-shadow: 0 14px 28px -16px rgba(30,60,50,.6), inset 0 1px 2px rgba(255,255,255,.8); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 22px; font-weight: 700; color: #1B2E12;">
+                <svg viewBox="0 0 24 24" style="width: 24px; height: 24px;" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="#1B2E12"></path></svg>
+                Keep reading
+              </button>
+              <button type="button" aria-label="Read it to me" style="width: 58px; height: 58px; border: 1px solid rgba(255,255,255,.85); border-radius: 20px; background: rgba(255,255,255,.6); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: grid; place-items: center; cursor: pointer;">
+                <svg viewBox="0 0 24 24" style="width: 26px; height: 26px;" aria-hidden="true"><path d="M5 9.5v5h3.6l4.4 3.4V6.1L8.6 9.5H5Z" fill="#20423A"></path><path d="M16.4 9a4.6 4.6 0 0 1 0 6" fill="none" stroke="#20423A" stroke-width="2" stroke-linecap="round"></path></svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div style="min-height: 0; display: grid; grid-template-rows: repeat(2, minmax(0,1fr)); gap: 12px;">
+          <sc-for list="{{ shelves }}" as="shelf" hint-placeholder-count="2">
+            <section style="min-height: 0; display: grid; grid-template-rows: auto minmax(0,1fr); gap: 7px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 22px; height: 22px; border-radius: 8px; background: {{ shelf.tint }}; border: 1px solid rgba(255,255,255,.8);"></span>
+                <h2 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 20px; font-weight: 700;">{{ shelf.title }}</h2>
+                <small style="font-size: 13.5px; font-weight: 700; color: #5C6E66;">{{ shelf.note }}</small>
+              </div>
+              <div style="min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px;">
+                <sc-for list="{{ shelf.books }}" as="b" hint-placeholder-count="4">
+                  <button type="button" style="min-height: 0; padding: 0; border: 1px solid rgba(255,255,255,.82); border-radius: 20px; background: rgba(255,255,255,.5); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); box-shadow: 0 14px 30px -24px rgba(30,60,50,.55), inset 0 1px 1px rgba(255,255,255,.9); overflow: hidden; cursor: pointer; font-family: inherit; text-align: left; display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 10px;">
+                    <span style="min-width: 0; display: flex; align-items: center; gap: 11px; padding: 8px 0 8px 9px;">
+                      <img src="{{ b.cover }}" alt="" style="width: 66px; height: 50px; flex: 0 0 66px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,.9); box-shadow: 0 8px 16px -10px rgba(30,60,50,.5);" />
+                      <strong style="min-width: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 16px; font-weight: 700; line-height: 1.15;">{{ b.title }}</strong>
+                    </span>
+                    <span style="display: inline-flex; align-items: center; gap: 3px; padding: 4px 11px 4px 8px; margin-right: 9px; border-radius: 999px; background: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.85); font-size: 12.5px; font-weight: 800; flex: 0 0 auto;">
+                      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z" fill="{{ b.starFill }}"></path></svg>
+                      {{ b.starLabel }}
+                    </span>
+                  </button>
+                </sc-for>
+              </div>
+            </section>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isStories }}" hint-placeholder-val="{{ false }}">
+      <div style="height: 100%; box-sizing: border-box; padding: 14px 24px; display: grid; gap: 13px; grid-template-rows: auto minmax(0,1fr);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button type="button" onClick="{{ goBooks }}" aria-label="Back to Books" style="width: 50px; height: 50px; border: 1px solid rgba(255,255,255,.85); border-radius: 17px; background: rgba(255,255,255,.56); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); display: grid; place-items: center; cursor: pointer;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#20423A" stroke-width="2.4" stroke-linecap="round" style="width: 22px; height: 22px;"><path d="M15 6l-6 6 6 6"></path></svg>
+          </button>
+          <h1 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 33px; font-weight: 700;">Story Quests</h1>
+          <span style="padding: 6px 15px; border-radius: 999px; background: rgba(255,241,232,.7); border: 1px solid rgba(255,255,255,.85); font-size: 14.5px; font-weight: 800; color: #A05B3E;">You choose what happens</span>
+        </div>
+
+        <div style="min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); grid-template-rows: repeat(2, minmax(0,1fr)); gap: 15px;">
+          <sc-for list="{{ storyCards }}" as="s" hint-placeholder-count="6">
+            <button type="button" style="min-height: 0; padding: 0; border: 1px solid rgba(255,255,255,.82); border-radius: 24px; background: rgba(255,255,255,.5); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); box-shadow: 0 18px 34px -26px rgba(30,60,50,.55), inset 0 1px 1px rgba(255,255,255,.9); overflow: hidden; cursor: pointer; font-family: inherit; text-align: left; display: grid; grid-template-rows: minmax(0,1fr) auto;">
+              <span style="min-height: 0; display: block; position: relative; background: #BFE3D8;">
+                <img src="{{ s.art }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+                <span style="position: absolute; left: 10px; bottom: 10px; padding: 5px 13px; border-radius: 999px; background: {{ s.badgeBg }}; backdrop-filter: blur(14px) saturate(1.5); -webkit-backdrop-filter: blur(14px) saturate(1.5); border: 1px solid rgba(255,255,255,.7); font-size: 12.5px; font-weight: 800; color: {{ s.badgeInk }};">{{ s.badge }}</span>
+              </span>
+              <span style="display: block; padding: 11px 14px 13px;">
+                <strong style="display: block; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 19px; font-weight: 700; line-height: 1.12;">{{ s.title }}</strong>
+                <small style="display: block; margin-top: 2px; font-size: 13.5px; font-weight: 700; color: #5C6E66;">{{ s.note }}</small>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isGames }}" hint-placeholder-val="{{ false }}">
+      <div style="height: 100%; box-sizing: border-box; padding: 14px 24px; display: grid; gap: 13px; grid-template-rows: auto auto minmax(0,1fr);">
+        <div style="display: flex; align-items: end; gap: 16px;">
+          <div>
+            <h1 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 33px; font-weight: 700;">Arcade</h1>
+            <p style="margin: 2px 0 0; font-size: 16.5px; font-weight: 700; color: #5C6E66;">Twelve games. Every one of them earns stars.</p>
+          </div>
+          <span style="flex: 1;"></span>
+          <div style="display: flex; gap: 5px; padding: 5px; border-radius: 18px; background: rgba(255,255,255,.5); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border: 1px solid rgba(255,255,255,.82);">
+            <sc-for list="{{ worlds }}" as="w" hint-placeholder-count="3">
+              <button type="button" onClick="{{ w.go }}" style="display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 16px; border: 1px solid {{ w.border }}; border-radius: 14px; background: {{ w.bg }}; color: {{ w.ink }}; box-shadow: {{ w.glow }}; cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 17.5px; font-weight: 700;">
+                <span style="width: 13px; height: 13px; border-radius: 50%; background: {{ w.dot }};"></span>
+                {{ w.label }}
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <section style="display: grid; grid-template-columns: 200px minmax(0,1fr); gap: 20px; align-items: center; padding: 14px 20px; border-radius: 28px; background: linear-gradient(120deg, rgba(46,75,62,.9), rgba(62,119,107,.78)); border: 1px solid rgba(255,255,255,.28); box-shadow: 0 20px 40px -26px rgba(20,45,38,.7);">
+          <img src="assets/games/rhyme-pop.webp" alt="" style="width: 200px; height: 122px; object-fit: cover; border-radius: 16px; border: 1px solid rgba(255,255,255,.4); box-shadow: 0 14px 28px -16px rgba(0,0,0,.5);" />
+          <div>
+            <span style="font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: #F5C979;">{{ palPickLine }}</span>
+            <h2 style="margin: 3px 0 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 27px; font-weight: 700; color: #FFFFFF;">Rhyme Pop</h2>
+            <p style="margin: 2px 0 0; font-size: 15.5px; font-weight: 700; color: rgba(255,255,255,.82);">Pop the balloon that rhymes. Good for the <strong>sh</strong> sounds you just learned.</p>
+            <div style="display: flex; gap: 11px; margin-top: 11px;">
+              <button type="button" style="display: inline-flex; align-items: center; gap: 11px; height: 54px; padding: 0 24px 0 17px; border: 1px solid rgba(255,255,255,.6); border-radius: 18px; background: {{ accentGlass }}; backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); box-shadow: 0 14px 28px -14px rgba(0,0,0,.55), inset 0 1px 2px rgba(255,255,255,.7); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 22px; font-weight: 700; color: #1B2E12;">
+                <svg viewBox="0 0 24 24" style="width: 24px; height: 24px;" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="#1B2E12"></path></svg>
+                Play
+              </button>
+              <span style="display: inline-flex; align-items: center; gap: 8px; height: 54px; padding: 0 18px; border-radius: 18px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); font-size: 15.5px; font-weight: 800; color: #FFFFFF;">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z" fill="#F2B33D"></path></svg>
+                2 of 3 stars
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <div style="min-height: 0; display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); grid-template-rows: repeat(2, minmax(0,1fr)); gap: 13px;">
+          <sc-for list="{{ games }}" as="g" hint-placeholder-count="12">
+            <button type="button" style="min-height: 0; padding: 0; border: 1px solid rgba(255,255,255,.82); border-radius: 20px; background: rgba(255,255,255,.5); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); box-shadow: 0 14px 30px -24px rgba(30,60,50,.55), inset 0 1px 1px rgba(255,255,255,.9); overflow: hidden; cursor: pointer; font-family: inherit; text-align: left; display: grid; grid-template-rows: minmax(0,1fr) auto;">
+              <span style="min-height: 0; display: block; position: relative; background: #BFE3D8;">
+                <img src="{{ g.art }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+              </span>
+              <span style="display: grid; gap: 1px; padding: 8px 10px 9px;">
+                <strong style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 15.5px; font-weight: 700; line-height: 1.1;">{{ g.title }}</strong>
+                <span style="display: inline-flex; gap: 2px;">{{ g.starRow }}</span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isHollow }}" hint-placeholder-val="{{ false }}">
+      <div style="height: 100%; box-sizing: border-box; padding: 14px 24px; display: grid; gap: 13px; grid-template-rows: auto minmax(0,1fr) auto;">
+        <div>
+          <h1 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 33px; font-weight: 700;">My Hollow</h1>
+          <p style="margin: 2px 0 0; font-size: 16.5px; font-weight: 700; color: #5C6E66;">Your place. Spend coins here to make it yours.</p>
+        </div>
+
+        <section style="min-height: 0; position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 22px 44px -24px rgba(20,45,38,.6);">
+          <img src="assets/hollow/interior.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0;">{{ hollowItems }}</div>
+          <button type="button" style="position: absolute; right: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 9px; height: 52px; padding: 0 20px; border: 1px solid rgba(255,255,255,.55); border-radius: 18px; background: rgba(255,255,255,.28); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); box-shadow: inset 0 1px 2px rgba(255,255,255,.6); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 19px; font-weight: 700; color: #FFFFFF;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round" style="width: 20px; height: 20px;"><path d="M7 8h10l-3-3M17 16H7l3 3"></path></svg>
+            Move things
+          </button>
+        </section>
+
+        <section>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/hollow/market-merchant.webp" alt="" style="width: 46px; height: 46px; object-fit: contain;" />
+            <div>
+              <h2 style="margin: 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 22px; font-weight: 700;">The Market</h2>
+              <small style="font-size: 13.5px; font-weight: 700; color: #5C6E66;">Four new things today</small>
+            </div>
+          </div>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px;">
+            <sc-for list="{{ market }}" as="m" hint-placeholder-count="4">
+              <div style="padding: 10px 13px 12px; border: 1px solid rgba(255,255,255,.82); border-radius: 22px; background: rgba(255,255,255,.5); backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); box-shadow: 0 14px 30px -24px rgba(30,60,50,.55), inset 0 1px 1px rgba(255,255,255,.9); display: grid; grid-template-columns: 70px minmax(0,1fr); align-items: center; gap: 12px;">
+                <img src="{{ m.art }}" alt="" style="width: 70px; height: 70px; object-fit: contain;" />
+                <span style="min-width: 0; display: grid; gap: 7px;">
+                  <strong style="font-family: 'Baloo 2', Nunito, sans-serif; font-size: 17.5px; font-weight: 700; line-height: 1.12;">{{ m.title }}</strong>
+                  <button type="button" style="display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; border: 1px solid {{ m.btnBorder }}; border-radius: 15px; background: {{ m.btnBg }}; color: {{ m.btnInk }}; box-shadow: {{ m.btnGlow }}; cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 18px; font-weight: 700;">
+                    <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#F0A93C"></circle><circle cx="12" cy="12" r="6.6" fill="#FFCE5C"></circle></svg>
+                    {{ m.price }}
+                  </button>
+                </span>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </div>
+    </sc-if>
+  </main>
+
+  <nav aria-label="Where to go" style="position: relative; z-index: 5; flex: 0 0 auto; height: 92px; display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px; align-items: center; padding: 0 20px; background: rgba(255,255,255,.5); backdrop-filter: blur(28px) saturate(1.5); -webkit-backdrop-filter: blur(28px) saturate(1.5); border-top: 1px solid rgba(255,255,255,.75); box-shadow: 0 -1px 28px -12px rgba(30,60,50,.32);">
+    <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="5">
+      <button type="button" onClick="{{ tab.go }}" aria-current="{{ tab.current }}" style="height: 68px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 1px solid {{ tab.border }}; border-radius: 20px; background: {{ tab.bg }}; color: {{ tab.ink }}; box-shadow: {{ tab.shadow }}; cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 27px; height: 27px;"><path d="{{ tab.icon }}"></path></svg>
+        <span style="font-size: 16.5px; font-weight: 700;">{{ tab.label }}</span>
+      </button>
+    </sc-for>
+  </nav>
+
+  <sc-if value="{{ celebrating }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-label="Well done" style="position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; background: rgba(22,48,42,.42); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+      <div style="position: relative; width: 580px; padding: 24px 32px 28px; border-radius: 34px; background: rgba(255,255,255,.62); backdrop-filter: blur(34px) saturate(1.6); -webkit-backdrop-filter: blur(34px) saturate(1.6); border: 1px solid rgba(255,255,255,.85); box-shadow: 0 34px 70px -30px rgba(20,45,38,.7), inset 0 1px 2px rgba(255,255,255,.95); text-align: center; animation: popIn .34s cubic-bezier(.3,1.4,.6,1) both;">
+        <div style="position: absolute; inset: 0; overflow: hidden; border-radius: 33px; pointer-events: none;">{{ confetti }}</div>
+        <img src="assets/phinny/celebrating.png" alt="" style="position: relative; width: 152px; height: 152px; object-fit: contain; animation: bob 2.4s ease-in-out infinite;" />
+        <h2 style="position: relative; margin: 2px 0 0; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 40px; line-height: 1.05; font-weight: 700;">You did it!</h2>
+        <p style="position: relative; margin: 4px 0 0; font-size: 18px; font-weight: 700; color: #5C6E66;">The Windy Bridge is crossed.</p>
+
+        <div style="position: relative; display: flex; justify-content: center; gap: 12px; margin-top: 16px;">
+          <span style="display: inline-flex; align-items: center; gap: 9px; padding: 10px 20px; border-radius: 18px; background: rgba(255,246,222,.8); border: 1px solid rgba(255,255,255,.9); font-family: 'Baloo 2', Nunito, sans-serif; font-size: 23px; font-weight: 700;">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z" fill="#F2B33D"></path></svg>
+            +2 stars
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 9px; padding: 10px 20px; border-radius: 18px; background: rgba(255,239,228,.8); border: 1px solid rgba(255,255,255,.9); font-family: 'Baloo 2', Nunito, sans-serif; font-size: 23px; font-weight: 700;">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#F0A93C"></circle><circle cx="12" cy="12" r="6.6" fill="#FFCE5C"></circle></svg>
+            +8 coins
+          </span>
+        </div>
+
+        <div style="position: relative; display: flex; justify-content: center; gap: 12px; margin-top: 20px;">
+          <button type="button" onClick="{{ closeCelebrate }}" style="display: inline-flex; align-items: center; gap: 11px; height: 64px; padding: 0 28px 0 20px; border: 1px solid rgba(255,255,255,.75); border-radius: 22px; background: {{ accentGlass }}; backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); box-shadow: 0 16px 30px -16px rgba(30,60,50,.6), inset 0 1px 2px rgba(255,255,255,.8); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 25px; font-weight: 700; color: #1B2E12;">
+            <svg viewBox="0 0 24 24" style="width: 26px; height: 26px;" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="#1B2E12"></path></svg>
+            Next stop
+          </button>
+          <button type="button" onClick="{{ spendNow }}" style="display: inline-flex; align-items: center; gap: 11px; height: 64px; padding: 0 24px; border: 1px solid rgba(255,255,255,.9); border-radius: 22px; background: rgba(255,255,255,.62); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); cursor: pointer; font-family: 'Baloo 2', Nunito, sans-serif; font-size: 22px; font-weight: 700; color: #20423A;">
+            Spend my coins
+          </button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1194,&quot;height&quot;:834},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;sounds&quot;,&quot;map&quot;,&quot;books&quot;,&quot;stories&quot;,&quot;games&quot;,&quot;hollow&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;},&quot;companion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Pip&quot;,&quot;Muddy&quot;,&quot;Chompy&quot;],&quot;default&quot;:&quot;Pip&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Child&quot;},&quot;doorLabels&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Words and icons&quot;,&quot;Icons only&quot;],&quot;default&quot;:&quot;Words and icons&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Child&quot;},&quot;showDailyStops&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Flow&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#F2B33D&quot;,&quot;#E2725B&quot;,&quot;#8EC9E8&quot;,&quot;#5FA052&quot;],&quot;default&quot;:&quot;#F2B33D&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look&quot;}}">
+const ICONS = {
+  home: "M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z",
+  sound: "M11 5 6 9H3v6h3l5 4zM16 9a4 4 0 0 1 0 6M18.6 6a8 8 0 0 1 0 12",
+  map: "M9 4 3 7v13l6-3 6 3 6-3V4l-6 3z M9 4v13 M15 7v13",
+  book: "M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z M8 3v18",
+  story: "m12 4 2 4.2 4.6.6-3.4 3.2.9 4.6L12 14.4l-4.1 2.2.9-4.6L5.4 8.8 10 8.2Z",
+  arcade: "M3 8h18v9H3z M7 12h2M17 12h.01M8 11v2",
+  hollow: "M4 11 12 4l8 7v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z",
+  letters: "M5 19V6a2 2 0 0 1 2-2h10M7 19h11M9 15h6M9 11h6"
+};
+
+const PALS = {
+  Pip: { image: "assets/companions/pip.webp", name: "Pip" },
+  Muddy: { image: "assets/companions/muddy.webp", name: "Muddy" },
+  Chompy: { image: "assets/companions/chompy.webp", name: "Chompy" }
+};
+
+const STAR_D = "M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z";
+
+function hexToRgba(hex, alpha) {
+  const h = String(hex || "#F2B33D").replace("#", "");
+  const n = parseInt(h.length === 3 ? h.split("").map(c => c + c).join("") : h, 16);
+  return "rgba(" + ((n >> 16) & 255) + "," + ((n >> 8) & 255) + "," + (n & 255) + "," + alpha + ")";
+}
+
+class Component extends DCLogic {
+  state = { screen: "home", world: "meadow", celebrating: false };
+
+  componentDidMount() {
+    const start = this.props.startScreen;
+    if (start && start !== "home") this.setState({ screen: start });
+  }
+
+  go(screen) {
+    return () => this.setState({ screen, celebrating: false });
+  }
+
+  starRow(earned) {
+    return React.createElement("span", { style: { display: "inline-flex", gap: 2 } },
+      [0, 1, 2].map(i => React.createElement("svg", { viewBox: "0 0 24 24", width: 14, height: 14, key: i },
+        React.createElement("path", { d: STAR_D, fill: i < earned ? "#F2B33D" : "rgba(62,119,107,.2)" }))));
+  }
+
+  trailScene() {
+    const accent = this.props.accent || "#F2B33D";
+    const nodes = [
+      { x: 6, y: 68, s: "done" }, { x: 15, y: 52, s: "done" }, { x: 24, y: 66, s: "done" },
+      { x: 33, y: 46, s: "done" }, { x: 42, y: 60, s: "done" },
+      { x: 51, y: 42, s: "next", label: "Windy Bridge" },
+      { x: 61, y: 58, s: "locked" }, { x: 70, y: 40, s: "locked" },
+      { x: 80, y: 54, s: "camp", label: "Lantern Camp" }, { x: 91, y: 38, s: "locked" }
+    ];
+    const skin = {
+      done: { bg: "rgba(111,179,95,.9)", ring: "rgba(255,255,255,.8)", size: 38, glow: "0 8px 18px -8px rgba(20,45,38,.6)" },
+      next: { bg: hexToRgba(accent, 0.92), ring: "rgba(255,255,255,.9)", size: 58, glow: "0 0 0 0 rgba(242,179,61,.5), 0 6px 18px -6px rgba(30,60,50,.28)" },
+      locked: { bg: "rgba(18,44,38,.5)", ring: "rgba(255,255,255,.6)", size: 34, glow: "none" },
+      camp: { bg: "rgba(226,114,91,.9)", ring: "rgba(255,255,255,.85)", size: 46, glow: "0 8px 18px -8px rgba(20,45,38,.6)" }
+    };
+    const kids = [React.createElement("svg", {
+      key: "path", viewBox: "0 0 100 100", preserveAspectRatio: "none",
+      style: { position: "absolute", inset: 0, width: "100%", height: "100%" }
+    }, React.createElement("polyline", {
+      points: nodes.map(n => n.x + "," + n.y).join(" "),
+      fill: "none", stroke: "rgba(255,255,255,.72)", strokeWidth: 2.5,
+      strokeLinecap: "round", strokeDasharray: "4 6", vectorEffect: "non-scaling-stroke"
+    }))];
+    nodes.forEach((n, i) => {
+      const k = skin[n.s];
+      kids.push(React.createElement("span", {
+        key: "n" + i,
+        style: {
+          position: "absolute", left: n.x + "%", top: n.y + "%", transform: "translate(-50%,-50%)",
+          width: k.size, height: k.size, borderRadius: "50%", background: k.bg,
+          border: "1px solid " + k.ring, backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)", display: "grid", placeItems: "center",
+          boxShadow: k.glow,
+          animation: n.s === "next" ? "haloPulse 2s ease-out infinite" : "none",
+          color: "#FFFFFF", font: "700 " + (n.s === "camp" ? 22 : 17) + "px 'Baloo 2', Nunito, sans-serif"
+        }
+      }, n.s === "done" ? "\u2713" : n.s === "camp" ? "\u2605" : ""));
+      if (n.label) {
+        kids.push(React.createElement("span", {
+          key: "l" + i,
+          style: {
+            position: "absolute", left: n.x + "%",
+            top: "calc(" + n.y + "% + " + (k.size / 2 + 11) + "px)",
+            transform: "translateX(-50%)", whiteSpace: "nowrap", padding: "5px 13px",
+            borderRadius: 999, background: "rgba(18,44,38,.72)",
+            backdropFilter: "blur(16px) saturate(1.4)", WebkitBackdropFilter: "blur(16px) saturate(1.4)",
+            border: "1px solid rgba(255,255,255,.45)", font: "800 13px Nunito, sans-serif",
+            color: "#FFFFFF"
+          }
+        }, n.label));
+      }
+    });
+    kids.push(React.createElement("span", {
+      key: "creature",
+      style: {
+        position: "absolute", left: "51%", top: "calc(42% - 32px)", width: 80, height: 80,
+        marginLeft: -40, marginTop: -80, display: "block", pointerEvents: "none"
+      }
+    }, React.createElement("img", {
+      src: "assets/hollow/beastie-ember-fox-s2.webp", alt: "",
+      style: {
+        width: "100%", height: "100%", objectFit: "contain", display: "block",
+        animation: "bob 3s ease-in-out infinite", filter: "drop-shadow(0 8px 12px rgba(0,0,0,.45))"
+      }
+    })));
+    return React.createElement(React.Fragment, null, kids);
+  }
+
+  mapScene() {
+    const accent = this.props.accent || "#F2B33D";
+    const stops = [
+      { x: 11, y: 64, s: "done" }, { x: 24, y: 44, s: "done" }, { x: 37, y: 68, s: "done" },
+      { x: 50, y: 46, s: "next", label: "Apple Orchard" },
+      { x: 64, y: 70, s: "locked" }, { x: 77, y: 44, s: "locked" }, { x: 89, y: 64, s: "locked" }
+    ];
+    const kids = [React.createElement("svg", {
+      key: "p", viewBox: "0 0 100 100", preserveAspectRatio: "none",
+      style: { position: "absolute", inset: 0, width: "100%", height: "100%" }
+    }, React.createElement("polyline", {
+      points: stops.map(s => s.x + "," + s.y).join(" "),
+      fill: "none", stroke: "rgba(255,255,255,.8)", strokeWidth: 6,
+      strokeLinecap: "round", strokeDasharray: "1 12", vectorEffect: "non-scaling-stroke"
+    }))];
+    stops.forEach((st, i) => {
+      const done = st.s === "done", next = st.s === "next";
+      kids.push(React.createElement("span", {
+        key: "s" + i,
+        style: {
+          position: "absolute", left: st.x + "%", top: st.y + "%", transform: "translate(-50%,-50%)",
+          width: next ? 64 : 46, height: next ? 64 : 46, borderRadius: "50%",
+          background: done ? "rgba(111,179,95,.92)" : next ? hexToRgba(accent, 0.96) : "rgba(18,44,38,.55)",
+          border: "1px solid rgba(255,255,255,.7)",
+          backdropFilter: "blur(12px) saturate(1.4)", WebkitBackdropFilter: "blur(12px) saturate(1.4)",
+          display: "grid", placeItems: "center",
+          boxShadow: next
+            ? "0 0 0 0 rgba(242,179,61,.5), 0 10px 22px -10px rgba(20,45,38,.6)"
+            : "0 10px 22px -12px rgba(20,45,38,.55)",
+          animation: next ? "haloPulse 2.2s ease-out infinite" : "none",
+          color: next ? "#1B2E12" : "#FFFFFF",
+          font: "700 " + (next ? 26 : 19) + "px 'Baloo 2', Nunito, sans-serif"
+        }
+      }, done ? "\u2713" : String(i + 1)));
+      if (st.label) {
+        kids.push(React.createElement("span", {
+          key: "sl" + i,
+          style: {
+            position: "absolute", left: st.x + "%", top: "calc(" + st.y + "% + 44px)",
+            transform: "translateX(-50%)", whiteSpace: "nowrap", padding: "6px 15px",
+            borderRadius: 999, background: "rgba(18,44,38,.62)",
+            backdropFilter: "blur(18px) saturate(1.4)", WebkitBackdropFilter: "blur(18px) saturate(1.4)",
+            border: "1px solid rgba(255,255,255,.45)", font: "800 15px Nunito, sans-serif",
+            color: "#FFFFFF"
+          }
+        }, st.label));
+      }
+    });
+    const pal = PALS[this.props.companion] || PALS.Pip;
+    kids.push(React.createElement("span", {
+      key: "pal",
+      style: {
+        position: "absolute", left: "50%", top: "calc(46% - 34px)", width: 74, height: 74,
+        marginLeft: -37, marginTop: -74, display: "block", pointerEvents: "none"
+      }
+    }, React.createElement("img", {
+      src: pal.image, alt: "",
+      style: {
+        width: "100%", height: "100%", objectFit: "contain", display: "block",
+        animation: "bob 3.2s ease-in-out infinite", filter: "drop-shadow(0 8px 12px rgba(0,0,0,.4))"
+      }
+    })));
+    return React.createElement(React.Fragment, null, kids);
+  }
+
+  hollowScene() {
+    const items = [
+      { src: "assets/hollow/hollow-story-shelf.webp", x: 14, y: 42, w: 146 },
+      { src: "assets/hollow/hollow-mushroom-stool.webp", x: 34, y: 70, w: 104 },
+      { src: "assets/hollow/hollow-glow-jar.webp", x: 60, y: 32, w: 84 },
+      { src: "assets/hollow/hollow-star-banner.webp", x: 79, y: 20, w: 134 },
+      { src: "assets/hollow/beastie-star-owl-s2.webp", x: 51, y: 60, w: 116 },
+      { src: "assets/hollow/egg-gold.webp", x: 71, y: 72, w: 72 }
+    ];
+    const kids = items.map((it, i) => React.createElement("img", {
+      key: i, src: it.src, alt: "",
+      style: {
+        position: "absolute", left: it.x + "%", top: it.y + "%",
+        width: it.w, transform: "translate(-50%,-50%)", objectFit: "contain",
+        filter: "drop-shadow(0 10px 14px rgba(0,0,0,.4))",
+        animation: i === 4 ? "bob 3.6s ease-in-out infinite" : "none"
+      }
+    }));
+    kids.push(React.createElement("span", {
+      key: "empty",
+      style: {
+        position: "absolute", left: "16%", top: "78%", transform: "translate(-50%,-50%)",
+        width: 100, height: 84, borderRadius: 20,
+        background: "rgba(255,255,255,.16)", backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)", border: "1px dashed rgba(255,255,255,.7)",
+        display: "grid", placeItems: "center", color: "rgba(255,255,255,.95)",
+        font: "800 13px Nunito, sans-serif", textAlign: "center", padding: 8,
+        boxSizing: "border-box", textShadow: "0 1px 5px rgba(20,45,38,.5)"
+      }
+    }, "empty spot"));
+    return React.createElement(React.Fragment, null, kids);
+  }
+
+  confetti() {
+    const colors = ["#F2B33D", "#6FB35F", "#E2725B", "#8EC9E8", "#BFE3D8"];
+    const bits = [];
+    for (let i = 0; i < 30; i++) {
+      bits.push(React.createElement("span", {
+        key: i,
+        style: {
+          position: "absolute", left: ((i * 47) % 100) + "%", top: ((i * 31) % 90) + "%",
+          width: i % 3 === 0 ? 7 : 11, height: i % 3 === 0 ? 11 : 7,
+          background: colors[i % colors.length], borderRadius: 3,
+          transform: "rotate(" + ((i * 37) % 180) + "deg)", opacity: 0.45
+        }
+      }));
+    }
+    return React.createElement(React.Fragment, null, bits);
+  }
+
+  renderVals() {
+    const screen = this.state.screen;
+    const accent = this.props.accent || "#F2B33D";
+    const accentGlass = "linear-gradient(150deg, " + hexToRgba(accent, 0.94) + ", " + hexToRgba(accent, 0.72) + ")";
+    const pal = PALS[this.props.companion] || PALS.Pip;
+    const showStops = this.props.showDailyStops !== false;
+    const iconsOnly = this.props.doorLabels === "Icons only";
+
+    const tabDefs = [
+      { id: "home", label: "Home", icon: ICONS.home },
+      { id: "sounds", label: "Sounds", icon: ICONS.sound },
+      { id: "books", label: "Books", icon: ICONS.book },
+      { id: "games", label: "Games", icon: ICONS.arcade },
+      { id: "hollow", label: "Hollow", icon: ICONS.hollow }
+    ];
+    const activeTab = screen === "stories" ? "books" : screen === "map" ? "sounds" : screen;
+    const tabs = tabDefs.map(t => {
+      const on = activeTab === t.id;
+      return {
+        ...t,
+        go: this.go(t.id),
+        current: on ? "page" : undefined,
+        bg: on ? "linear-gradient(150deg, rgba(46,75,62,.94), rgba(62,119,107,.86))" : "rgba(255,255,255,.42)",
+        ink: on ? "#FFFFFF" : "#2B4A40",
+        border: on ? "rgba(255,255,255,.4)" : "rgba(255,255,255,.8)",
+        shadow: on
+          ? "0 14px 26px -14px rgba(20,45,38,.6), inset 0 1px 2px rgba(255,255,255,.4)"
+          : "inset 0 1px 1px rgba(255,255,255,.9)"
+      };
+    });
+
+    const doors = [
+      { title: "Adventure Map", note: "Win stars", art: "assets/home/adventure-map.webp", tint: "rgba(191,227,216,.7)", icon: ICONS.map, go: this.go("map") },
+      { title: "Books", note: "Real books", art: "assets/home/reading-library.webp", tint: "rgba(255,246,222,.75)", icon: ICONS.book, go: this.go("books") },
+      { title: "Story Quests", note: "You choose", art: "assets/home/story-quests.webp", tint: "rgba(255,239,228,.75)", icon: ICONS.story, go: this.go("stories") },
+      { title: "Arcade", note: "12 games", art: "assets/home/arcade.webp", tint: "rgba(232,227,245,.75)", icon: ICONS.arcade, go: this.go("games") },
+      { title: "Letters", note: "Sounds & writing", art: "assets/home/phonics.webp", tint: "rgba(241,247,240,.8)", icon: ICONS.letters, go: this.go("sounds") },
+      { title: "My Hollow", note: "Make it yours", art: "assets/home/my-hollow.webp", tint: "rgba(255,239,228,.75)", icon: ICONS.hollow, go: this.go("hollow") }
+    ];
+
+    const stops = [
+      {
+        label: "Adventure Map", state: "Done", art: "assets/home/adventure-map.webp",
+        ring: "rgba(255,255,255,.9)", fill: "rgba(111,179,95,.9)", artOpacity: 0.3,
+        veil: "rgba(111,179,95,.55)", glyph: "\u2713", textColor: "#2E4B3E",
+        glow: "0 10px 20px -12px rgba(30,60,50,.5)"
+      },
+      {
+        label: "Read a book", state: "Up next", art: "assets/home/reading-library.webp",
+        ring: hexToRgba(accent, 0.9), fill: "rgba(255,255,255,.6)", artOpacity: 1,
+        veil: "transparent", glyph: "", textColor: "#16302A",
+        glow: "0 0 0 4px " + hexToRgba(accent, 0.22) + ", 0 10px 20px -12px rgba(30,60,50,.5)"
+      },
+      {
+        label: "Play a game", state: "After that", art: "assets/home/arcade.webp",
+        ring: "rgba(255,255,255,.8)", fill: "rgba(255,255,255,.5)", artOpacity: 0.42,
+        veil: "rgba(255,255,255,.3)", glyph: "", textColor: "#5C6E66", glow: "none"
+      }
+    ];
+
+    const ownedSounds = ["s", "a", "t", "p", "i", "n", "m", "d", "g", "o", "c", "k", "ck", "e", "u", "r"];
+    const sounds = ownedSounds.map((t, i) => i < 13
+      ? { text: t, bg: "rgba(111,179,95,.82)", border: "rgba(255,255,255,.7)", color: "#FFFFFF", glow: "0 8px 16px -12px rgba(30,60,50,.5)" }
+      : { text: t, bg: "rgba(255,255,255,.42)", border: "rgba(255,255,255,.75)", color: "#8FA396", glow: "none" });
+    sounds.push({ text: "sh", bg: accentGlass, border: "rgba(255,255,255,.8)", color: "#1B2E12", glow: "0 0 0 3px " + hexToRgba(accent, 0.2) });
+    sounds.push({ text: "ch", bg: "rgba(255,255,255,.42)", border: "rgba(255,255,255,.75)", color: "#8FA396", glow: "none" });
+
+    const mapCards = [
+      { n: "\u2713", title: "Duck Pond", state: "3 of 3 stars", bg: "rgba(255,255,255,.5)", border: "rgba(255,255,255,.82)", chip: "rgba(111,179,95,.85)", chipInk: "#FFFFFF", ink: "#2E4B3E", sub: "#5C6E66" },
+      { n: "\u2713", title: "Windy Hill", state: "2 of 3 stars", bg: "rgba(255,255,255,.5)", border: "rgba(255,255,255,.82)", chip: "rgba(111,179,95,.85)", chipInk: "#FFFFFF", ink: "#2E4B3E", sub: "#5C6E66" },
+      { n: "4", title: "Apple Orchard", state: "Your pal is here", bg: "rgba(255,250,236,.62)", border: hexToRgba(accent, 0.55), chip: accentGlass, chipInk: "#1B2E12", ink: "#16302A", sub: "#8A7038" },
+      { n: "5", title: "Old Barn", state: "Locked", bg: "rgba(255,255,255,.34)", border: "rgba(255,255,255,.7)", chip: "rgba(255,255,255,.55)", chipInk: "#A8B3AC", ink: "#8FA396", sub: "#A8B3AC" }
+    ];
+
+    const shelves = [
+      {
+        title: "Just right for you", note: "Level A", tint: "rgba(111,179,95,.85)",
+        books: [
+          { title: "The Rain Cycle", cover: "assets/books/a28.png", starLabel: "1", starFill: "#F2B33D" },
+          { title: "Explore Our World", cover: "assets/books/a26.png", starLabel: "0", starFill: "rgba(62,119,107,.2)" },
+          { title: "Tree Homes", cover: "assets/books/a29.png", starLabel: "0", starFill: "rgba(62,119,107,.2)" },
+          { title: "A Seed Grows", cover: "assets/books/b31.png", starLabel: "0", starFill: "rgba(62,119,107,.2)" }
+        ]
+      },
+      {
+        title: "Read it again", note: "Books you finished", tint: "rgba(142,201,232,.9)",
+        books: [
+          { title: "Day and Night", cover: "assets/books/a27.png", starLabel: "3", starFill: "#F2B33D" },
+          { title: "Busy Bees", cover: "assets/books/b32.png", starLabel: "3", starFill: "#F2B33D" },
+          { title: "Sunlight and Shadows", cover: "assets/books/b33.png", starLabel: "2", starFill: "#F2B33D" },
+          { title: "Be a Book Buddy", cover: "assets/books/a30.png", starLabel: "3", starFill: "#F2B33D" }
+        ]
+      }
+    ];
+
+    const storyCards = [
+      { title: "Muddy and Splashy Make a Mess", note: "You are on page 3", art: "assets/stories/muddy-splashy.webp", badge: "Carry on", badgeBg: accentGlass, badgeInk: "#1B2E12" },
+      { title: "Splashy Finds a Puddle", note: "4 endings", art: "assets/stories/muddy-splashy-2.webp", badge: "New", badgeBg: "rgba(191,227,216,.8)", badgeInk: "#20423A" },
+      { title: "Tiny and Brave Go on an Adventure", note: "3 endings", art: "assets/stories/brave-tiny.webp", badge: "New", badgeBg: "rgba(191,227,216,.8)", badgeInk: "#20423A" },
+      { title: "Bouncy and Speedy Have a Race", note: "Finished \u2713", art: "assets/stories/bouncy-speedy.webp", badge: "Done", badgeBg: "rgba(255,255,255,.62)", badgeInk: "#5C6E66" },
+      { title: "Chompy's Big Lunch", note: "Dino Pals", art: "assets/stories/chompy-lunch.webp", badge: "Next world", badgeBg: "rgba(245,231,208,.85)", badgeInk: "#7A5320" },
+      { title: "Sunny's Rainy Day", note: "Dino Pals", art: "assets/stories/sunny-rainy.webp", badge: "Next world", badgeBg: "rgba(245,231,208,.85)", badgeInk: "#7A5320" }
+    ];
+
+    const worlds = [
+      { id: "meadow", label: "Meadow", dot: "#6FB35F" },
+      { id: "dino", label: "Dino", dot: "#D98841" },
+      { id: "moonwood", label: "Moonwood", dot: "#5E4D9C" }
+    ].map(w => {
+      const on = this.state.world === w.id;
+      return {
+        ...w,
+        go: () => this.setState({ world: w.id }),
+        bg: on ? "linear-gradient(150deg, rgba(46,75,62,.94), rgba(62,119,107,.86))" : "transparent",
+        ink: on ? "#FFFFFF" : "#2B4A40",
+        border: on ? "rgba(255,255,255,.35)" : "transparent",
+        glow: on ? "0 10px 20px -12px rgba(20,45,38,.55)" : "none"
+      };
+    });
+
+    const gameList = [
+      ["Rhyme Pop", "assets/games/rhyme-pop.webp", 2],
+      ["Pop the Word", "assets/games/pop-the-word.webp", 3],
+      ["Rocket Run", "assets/games/rocket-run.webp", 1],
+      ["Letter Leap", "assets/games/letter-leap.webp", 3],
+      ["Word Bridge", "assets/games/word-bridge.webp", 0],
+      ["Sound Safari", "assets/games/sound-safari.webp", 2],
+      ["Sound Beat", "assets/games/sound-beat.webp", 0],
+      ["Reel Read", "assets/games/reel-read.webp", 1],
+      ["Sentence Express", "assets/games/sentence-express.webp", 0],
+      ["Letter Garden", "assets/games/letter-garden.webp", 3],
+      ["Word Hopscotch", "assets/games/word-hopscotch.webp", 2],
+      ["CVC Train", "assets/games/cvc-train.webp", 0]
+    ];
+    const games = gameList.map(g => ({ title: g[0], art: g[1], starRow: this.starRow(g[2]) }));
+
+    const buyable = { btnBg: accentGlass, btnInk: "#1B2E12", btnBorder: "rgba(255,255,255,.8)", btnGlow: "0 10px 20px -12px rgba(30,60,50,.5), inset 0 1px 2px rgba(255,255,255,.75)" };
+    const locked = { btnBg: "rgba(255,255,255,.4)", btnInk: "#A8B3AC", btnBorder: "rgba(255,255,255,.7)", btnGlow: "none" };
+    const market = [
+      { title: "Meadow Crown", price: 30, art: "assets/hollow/gear-meadow-crown.webp", ...buyable },
+      { title: "Leaf Cloak", price: 45, art: "assets/hollow/gear-leaf-cloak.webp", ...buyable },
+      { title: "Trail Boots", price: 25, art: "assets/hollow/gear-trail-boots.webp", ...buyable },
+      { title: "Wizard Hat", price: 120, art: "assets/hollow/gear-wizard-hat.webp", ...locked }
+    ];
+
+    return {
+      accent,
+      accentGlass,
+      palImage: pal.image,
+      palLine: "with " + pal.name,
+      palPickLine: pal.name + " picked this for you",
+      stars: 42,
+      coins: 96,
+      isHome: screen === "home",
+      isSounds: screen === "sounds",
+      isMap: screen === "map",
+      isBooks: screen === "books",
+      isStories: screen === "stories",
+      isGames: screen === "games",
+      isHollow: screen === "hollow",
+      homeRows: showStops ? "232px auto minmax(0,1fr)" : "300px minmax(0,1fr)",
+      showStops,
+      noteDisplay: iconsOnly ? "none" : "block",
+      goHome: this.go("home"),
+      goSounds: this.go("sounds"),
+      goBooks: this.go("books"),
+      goStories: this.go("stories"),
+      goHollow: this.go("hollow"),
+      tabs, doors, stops, sounds, mapCards, shelves, storyCards, worlds, games, market,
+      trail: this.trailScene(),
+      mapStops: this.mapScene(),
+      hollowItems: this.hollowScene(),
+      confetti: this.confetti(),
+      celebrating: this.state.celebrating,
+      toggleCelebrate: () => this.setState({ celebrating: true }),
+      closeCelebrate: () => this.setState({ celebrating: false, screen: "sounds" }),
+      spendNow: () => this.setState({ celebrating: false, screen: "hollow" })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

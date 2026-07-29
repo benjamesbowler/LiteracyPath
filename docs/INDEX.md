@@ -144,6 +144,7 @@ Newest first. These are records — they describe a moment, and the moments accu
 
 | Date | Record | What happened |
 | --- | --- | --- |
+| 2026-07-29 | [KIDS_REDESIGN_PLAN_2026-07-29](KIDS_REDESIGN_PLAN_2026-07-29.md) | Kids-side redesign accepted (7 screens, liquid glass, rail→bottom tabs, fixed 1194×834 stage); prototype in `mockups/design-handoff-kids-side/`; six-phase plan |
 | 2026-07-28 | [LANDING_REDESIGN_2026-07-28](LANDING_REDESIGN_2026-07-28.md) | Signed-out entry rebuilt as the full marketing landing page; mock's placeholder stats corrected to data-derived truth; two CSS mechanisms recorded (block-container `place-items`, fixed `minmax` track) |
 | 2026-07-28 | [TEACHER_REDESIGN_V2_PLAN_2026-07-28](TEACHER_REDESIGN_V2_PLAN_2026-07-28.md) | Teacher-area v2 redesign accepted; prototype committed to `mockups/design-handoff-teacher-area/`; six-phase build plan with file map, test-impact list and the current-cycle data gap |
 | 2026-07-28 | [PRESENT_REDESIGN_2026-07-28](PRESENT_REDESIGN_2026-07-28.md) | Present mode redesigned: fixed 1920×1080 stage, section rail, organic theme, live srcdoc preview, reveal/timer warm-ups; two handoff defects fixed (orphaned timer dial, stage centering) |
