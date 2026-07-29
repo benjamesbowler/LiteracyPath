@@ -74,13 +74,19 @@ async function installAssessmentHistoryTailFailure(page) {
   };
 }
 
+// 2026-07-29: the v2 Assessments screen has no class picker of its own - the
+// class is chosen once on Students and carried by the shared context bar - and
+// the student is one scoped select on the page itself.
 async function chooseAaravForAssessment(page) {
+  await page.getByTestId("teacher-primary-nav")
+    .getByRole("button", { name: "Students", exact: true })
+    .click();
+  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Assessments", exact: true })
     .click();
-  await page.getByRole("combobox", { name: "Class", exact: true })
-    .selectOption({ label: "Audit Class A" });
-  await page.getByRole("button", { name: "Aarav", exact: true }).click();
+  await page.locator(".teacher-assess-panel-student select")
+    .selectOption({ label: "Aarav" });
 }
 
 test("@assessment-history-completeness @teacher-assessment-hub blocks a formal launch until the full student history retry succeeds", async ({
@@ -97,8 +103,11 @@ test("@assessment-history-completeness @teacher-assessment-hub blocks a formal l
   await expect(evidenceState).toContainText(
     "We couldn't load all of Aarav’s saved results. Nothing is being counted as zero."
   );
-  await expect(page.getByRole("heading", { name: "EL assessments", exact: true })).toHaveCount(0);
-  await expect(page.getByRole("button", { name: /^Spelling/ })).toHaveCount(0);
+  // 2026-07-29: the v2 screen lists the whole catalog as cards with one Start
+  // each, so the EL assessments are absent as headings and as Start controls
+  // while the read is incomplete.
+  await expect(page.getByRole("heading", { name: "Spelling", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /^Start /})).toHaveCount(0);
   await expect(page.getByRole("button", { name: /^Begin / })).toHaveCount(0);
   await expect(page).not.toHaveURL(/el-benchmark/);
 
@@ -107,8 +116,8 @@ test("@assessment-history-completeness @teacher-assessment-hub blocks a formal l
 
   await expect.poll(() => historyRead.allowedTailReads).toBeGreaterThan(0);
   await expect(evidenceState).toHaveCount(0);
-  await expect(page.getByRole("heading", { name: "EL assessments", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: /^Spelling/ }).click();
+  await expect(page.getByRole("heading", { name: "Spelling", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Start Spelling", exact: true }).click();
   const beginSpelling = page.getByRole("button", { name: "Begin Spelling", exact: true });
   await expect(beginSpelling).toBeEnabled();
   await beginSpelling.click();

@@ -9,6 +9,9 @@
   --lp-color-primary: #0C6B65;
   --lp-color-primary-strong: #084E4A;
   --lp-color-primary-soft: #E3F4F2;
+  /* The border that goes with primary-soft fills. Named in the teacher redesign
+     handoff as an existing token; it was only ever written as a literal. */
+  --lp-color-primary-mid: #C0E6E3;
   --lp-color-accent-warm: #d68a11;
   --lp-color-accent-warm-soft: #fff7e8;
   --lp-color-success: #15803D;
@@ -25024,38 +25027,11 @@ body {
   min-height: 40px;
 }
 
-.teacher-assessment-groups,
 .teacher-report-choice-groups {
   display: grid;
   gap: 16px;
 }
 
-.teacher-assessment-group {
-  display: grid;
-  gap: 10px;
-}
-
-.teacher-assessment-group > header {
-  display: grid;
-  gap: 3px;
-}
-
-.teacher-assessment-group h4,
-.teacher-assessment-group p {
-  margin: 0;
-}
-
-.teacher-assessment-group h4 {
-  color: var(--lp-color-text-strong);
-  font-size: 15px;
-}
-
-.teacher-assessment-group p {
-  color: var(--lp-color-text-muted);
-  font-size: 13px;
-}
-
-.teacher-assessment-groups .teacher-funnel-cards,
 .teacher-report-choice-groups > .teacher-funnel-cards,
 .teacher-report-more-views .teacher-funnel-cards {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -25315,4 +25291,489 @@ body {
   .teacher-students-secondary > summary > small {
     text-align: left;
   }
+}
+
+/* ── Assessments · v2 (teacher-area redesign, phase 4) ─────────────────────
+   Student, assessment, run it. The class is not asked for here - the shared
+   context bar above the page already carries it. The step strip is a readout
+   of state derived on every render, never a stored step counter. */
+.teacher-product-page.teacher-assess-page {
+  padding: 24px;
+  gap: 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--lp-color-background);
+  box-shadow: none;
+}
+
+.teacher-assess-page .teacher-page-header,
+.lg-app-shell .teacher-assess-page .teacher-page-header {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  /* lg-design-system paints .teacher-page-header white with !important; the v2
+     assessments header sits directly on the page background. */
+  background: transparent !important;
+  box-shadow: none;
+}
+
+/* App.css centres the first child of every .teacher-page-header; this one is a
+   left-aligned title block. */
+.teacher-assess-page .teacher-page-header > div:first-child {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.teacher-assess-page .teacher-page-header .panel-label {
+  margin: 0 0 4px;
+  color: var(--lp-color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.teacher-assess-page .teacher-page-header h2 {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.teacher-assess-page .teacher-page-header p:not(.panel-label) {
+  margin-top: 6px;
+  max-width: 62ch;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+}
+
+/* The global :focus-visible ring is a 3px shadow; the design asks for a 2px
+   outline, so the page states it for everything inside it. */
+.teacher-assess-page :focus-visible {
+  outline: 2px solid var(--lp-color-primary);
+  outline-offset: 2px;
+}
+
+/* ── 1-2-3 step strip ──────────────────────────────────────────────────── */
+.teacher-assess-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-assess-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+}
+
+.teacher-assess-step[data-state="active"] {
+  border-color: var(--lp-color-primary-mid);
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-assess-step[data-waiting-far="true"] {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-assess-step-dot {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-background);
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* A step that is live, or one already answered, carries the solid teal dot. */
+.teacher-assess-step[data-state="active"] .teacher-assess-step-dot,
+.teacher-assess-step[data-state="done"] .teacher-assess-step-dot {
+  background: var(--lp-color-primary);
+  color: var(--lp-color-surface);
+}
+
+.teacher-assess-step-text {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.teacher-assess-step-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.teacher-assess-step-detail {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ── the two panels ────────────────────────────────────────────────────── */
+.teacher-assess-panels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.teacher-assess-panel {
+  overflow: hidden;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+/* Below roughly 1040px these two stop sharing a row and stack, because
+   1 1 300px + 1 1 480px + an 18px gap no longer fit. */
+.teacher-assess-panel-student {
+  flex: 1 1 300px;
+  min-width: min(300px, 100%);
+  max-width: 360px;
+}
+
+.teacher-assess-panel-checks {
+  flex: 1 1 480px;
+  min-width: min(420px, 100%);
+}
+
+.teacher-assess-panel-start {
+  width: 100%;
+}
+
+/* The design's stated stack point. Flex wrapping alone reaches it around 1000px
+   in this shell, whose chrome is ~56px narrower than the prototype's, so the
+   breakpoint is stated instead of left to arithmetic. The student panel keeps
+   its 360px cap once stacked, exactly as the prototype does. */
+@media (max-width: 1040px) {
+  .teacher-assess-panel-student,
+  .teacher-assess-panel-checks {
+    flex-basis: 100%;
+  }
+}
+
+.teacher-assess-panel-head {
+  margin: 0;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-strong);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.teacher-assess-panel-head:focus-visible {
+  outline: 2px solid var(--lp-color-primary);
+  outline-offset: -2px;
+}
+
+.teacher-assess-panel-body {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.teacher-assess-panel-foot {
+  margin: 0;
+  padding: 11px 16px;
+  border-top: 1px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-assess-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* The base `select` rule sets height 48, radius 14 and a stray margin. This
+   screen wants the design's 44px target, 6px radius and no margin, so it says
+   so rather than inheriting three values it did not ask for. */
+.teacher-assess-field select {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: var(--teacher-ui-target-min, 44px);
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: var(--lp-radius-md);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+  font-size: 14px;
+}
+
+.teacher-assess-field small {
+  color: var(--lp-color-text-subtle);
+  font-weight: 500;
+}
+
+/* The start panel is full width, but a field inside it is not a full-width
+   control - a 30-option skill select stretched to 1200px is unreadable. */
+.teacher-assess-panel-start .teacher-assess-field {
+  max-width: 360px;
+}
+
+.teacher-assess-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.teacher-assess-field-row .teacher-assess-field {
+  flex: 1 1 200px;
+}
+
+.teacher-assess-note {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  text-wrap: pretty;
+}
+
+.teacher-assess-chosen {
+  margin: 0;
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.teacher-assess-blocked {
+  margin: 0;
+  color: var(--lp-color-warning);
+  font-size: 13px;
+}
+
+/* The suggestion, and the evidence that produced it. */
+.teacher-assess-suggestion {
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+  border-radius: var(--lp-radius-md);
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-assess-suggestion p {
+  margin: 0;
+}
+
+.teacher-assess-suggestion-label {
+  color: var(--lp-color-primary-strong);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.teacher-assess-suggestion-title {
+  color: var(--lp-color-text-strong);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.teacher-assess-suggestion-evidence {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-assess-recovery,
+.teacher-assess-draft {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-md);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-assess-recovery p,
+.teacher-assess-draft p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-assess-draft strong {
+  display: block;
+  color: var(--lp-color-text-strong);
+  font-size: 13.5px;
+}
+
+.teacher-assess-draft small {
+  display: block;
+  margin-top: 3px;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-assess-no-class {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  padding: 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-assess-no-class p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+}
+
+/* ── the assessment cards ──────────────────────────────────────────────── */
+.teacher-assess-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-assess-cards > li {
+  display: flex;
+  min-width: 0;
+}
+
+.teacher-assess-card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.teacher-assess-card:hover,
+.teacher-assess-card:focus-within {
+  border-color: var(--lp-color-primary);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-assess-card[data-chosen="true"] {
+  border-color: var(--lp-color-primary);
+  box-shadow: inset 0 0 0 1px var(--lp-color-primary);
+}
+
+.teacher-assess-card-kind {
+  color: var(--lp-color-text-subtle);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.teacher-assess-card[data-kind="suggested"] .teacher-assess-card-kind {
+  color: var(--lp-color-primary);
+}
+
+.teacher-assess-card[data-kind="phonics"] .teacher-assess-card-kind {
+  color: var(--lg-domain-phonics);
+}
+
+.teacher-assess-card[data-kind="curriculum"] .teacher-assess-card-kind {
+  color: var(--lg-domain-grammar);
+}
+
+.teacher-assess-card[data-kind="benchmark"] .teacher-assess-card-kind {
+  color: var(--lp-color-warning);
+}
+
+.teacher-assess-card h4 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.teacher-assess-card p {
+  flex: 1;
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  text-wrap: pretty;
+}
+
+.teacher-assess-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.teacher-assess-card-foot small {
+  color: var(--lp-color-text-subtle);
+  font-size: 12px;
+}
+
+/* SPECIFICITY: `.app button` is (0,1,1) and sets min-height/padding/font, so a
+   single class loses to it. These rules are scoped under the page class to win.
+   Start is a secondary in-row action, so it keeps the 40px target the design
+   allows there; every other button on the page takes the 44px minimum. */
+.teacher-assess-page .teacher-assess-card-start {
+  flex: 0 0 auto;
+  min-height: 40px !important;
+  padding: 0 14px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.teacher-assess-page .teacher-assess-card-start:hover:not(:disabled) {
+  border-color: var(--lp-color-primary) !important;
+  background: var(--lp-color-surface-subtle) !important;
+}
+
+.teacher-assess-page .teacher-assess-panel-body .lp-button:not(.teacher-assess-card-start),
+.teacher-assess-page .teacher-assess-no-class .lp-button {
+  min-height: 44px !important;
+}
+
+.teacher-assess-begin {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+/* The EL provenance note is a footer strip on this page, in the same chrome as
+   the accuracy-vs-status caveat rather than the older hub's rounded card. */
+.teacher-assess-page .el-assessment-validity-note {
+  margin: 0;
+  padding: 11px 16px;
+  border-color: var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-subtle);
+  font-size: 12px;
+  line-height: 1.5;
 }

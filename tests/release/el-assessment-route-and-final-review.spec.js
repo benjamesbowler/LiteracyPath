@@ -28,14 +28,14 @@ async function openAmaraAssessmentHub(page) {
     .getByRole("button", { name: "Assessments", exact: true })
     .click();
   // Opening the student establishes the class and student context. Assessments
-  // then opens the single funnel with those first two answers already filled.
-  await expect(page.getByRole("heading", { name: "Start an assessment", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Choose an assessment", exact: true })).toBeVisible();
+  // then opens already scoped to them, on the assessment question.
+  await expect(page.getByRole("heading", { name: "Assess a student", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "2 · Assessment", exact: true })).toBeVisible();
 }
 
 async function startEncoding(page) {
-  // Step 3: which check. Step 4: grade and time of year. Then Begin.
-  await page.getByRole("button", { name: /^Spelling/ }).click();
+  // Panel 2: which assessment. Panel 3: grade and time of year. Then Begin.
+  await page.getByRole("button", { name: "Start Spelling", exact: true }).click();
   await expect(page.getByRole("combobox", { name: "Grade", exact: true })).toHaveValue("K");
   await expect(page.getByRole("combobox", { name: "Time of year", exact: true })).toHaveValue("BOY");
   await page.getByRole("button", { name: "Begin Spelling", exact: true }).click();
@@ -104,7 +104,7 @@ test("@el-assessment-route-resume @el-assessment-final-review restores the item 
   await expect(finishReview).toContainText("8 scored · 0 skipped");
   await finishReview.getByRole("button", { name: "Confirm and finish", exact: true }).click();
 
-  await expect(page.getByRole("heading", { name: "Start an assessment", exact: true }))
+  await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))
     .toBeVisible({ timeout: 20_000 });
   await expect(page).toHaveURL(/#teacher\/assessments\?/);
   await expect(page).not.toHaveURL(/el-benchmark/);

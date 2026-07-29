@@ -1174,7 +1174,6 @@ export function AppSurface({ surface }) {
               teacherId={teacherId}
               selectedClassId={selectedClassId}
               className={getSelectedClassName(classList, selectedClassId)}
-              onSelectClass={selectTeacherClass}
               onOpenClasses={openStudentsPage}
               studentRows={classDashboard}
               classDashboardReadState={classDashboardReadState}
@@ -1188,7 +1187,6 @@ export function AppSurface({ surface }) {
               selectedStudentId={nameSaved ? studentId : ""}
               selectedStudentName={nameSaved ? studentName : ""}
               onSelectStudent={loadSelectedClassStudent}
-              onClearStudent={clearSelectedLearner}
               studentEvidenceReady={selectedStudentEvidenceReady}
               studentEvidenceReadState={selectedStudentEvidenceReadState}
               onRetryStudentEvidence={() => (

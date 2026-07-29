@@ -13,32 +13,80 @@ import {
   listAssessmentCatalog,
   listSkillStartPoints
 } from "../data/assessmentCatalog.js";
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
   readTeacherFunnelParams,
   writeTeacherFunnelParams
 } from "../appState/appViewHelpers.js";
 import { useElBenchmarkStartPoint } from "./assessment/elBenchmarkStartPoint.js";
 import { ElPrerequisiteReview } from "./assessment/ELAssessmentsPage.jsx";
-import { TeacherFunnelStep } from "./TeacherFunnelStep.jsx";
 import { ConfirmActionDialog } from "./teacher/TeacherAdminDialogs.jsx";
-import { TeacherFunnelStudentPicker } from "./teacher/TeacherFunnelStudentPicker.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 
-// ── ONE PAGE, ONE PATH ──────────────────────────────────────────────────────
+// ── ONE PAGE, THREE STEPS ───────────────────────────────────────────────────
 //
-// Class, student, check, starting point, Begin. Every answer stays on screen
-// and stays changeable; changing an earlier one clears the ones below it,
-// because a starting point chosen for one student means nothing for the next.
+// Student, assessment, run it. The class is not asked for here: the shared
+// teacher context bar above this page already says which class every tool is
+// scoped to, so a second class picker only invited the two to disagree.
 //
-// Every answer also lives in the URL. That is the single biggest fix for
-// "convoluted": the old hub had no address at all, so a reload half-way through
-// dropped the teacher back on the student list with nothing chosen.
+// The step number is DERIVED on every render (`assessmentStep` below) and never
+// stored. A stored step is a second source of truth for something the answers
+// already say, and it goes stale the moment a student is chosen from another
+// screen.
+//
+// Changing the student here does NOT navigate. That is the whole point of the
+// screen: `onSelectStudent` loads the newly chosen student in place, the panels
+// re-scope around them, and the teacher stays put. Anything below the student -
+// the chosen assessment, its starting point - is cleared, because a starting
+// point picked for one student means nothing for the next.
+//
+// Every answer also lives in the URL, so a reload lands exactly here rather
+// than back on the student list.
 
 const CATALOG = listAssessmentCatalog();
 const SKILL_START_POINTS = listSkillStartPoints();
+const EVIDENCE_WINDOW_DAYS = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays;
+
+// The one assessment the app can aim at a named student's own next skill is the
+// one it can suggest. Found by its start point rather than by id, so the
+// suggestion follows the catalog instead of a copy of it.
+const SUGGESTED_ENTRY = CATALOG.find(
+  row => row.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL
+) || null;
+
+const ASSESSMENT_KIND_LABELS = Object.freeze({
+  suggested: "Suggested",
+  curriculum: "Curriculum",
+  phonics: "Phonics",
+  benchmark: "Benchmark"
+});
+
+function assessmentKind(entry, suggested = false) {
+  if (suggested) return "suggested";
+  if (entry.starter === ASSESSMENT_STARTERS.EL_BENCHMARK) return "benchmark";
+  if (entry.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL) return "curriculum";
+  return "phonics";
+}
+
+/** The short "what it costs you" line under each card. Never a score. */
+function assessmentMeta(entry) {
+  const minutes = formatEstimatedMinutes(entry);
+  switch (entry.startPoint.kind) {
+    case ASSESSMENT_START_POINT_KINDS.SKILL:
+      return `${minutes} · Starts on the next skill`;
+    case ASSESSMENT_START_POINT_KINDS.NONE:
+      return `${minutes} · ${entry.startPoint.summary || "Full set"}`;
+    default:
+      return `${minutes} · Grade and time of year needed`;
+  }
+}
+
+function comparableSkillName(value = "") {
+  return String(value || "").trim().toLocaleLowerCase().replace(/[^a-z0-9]+/g, "");
+}
 
 function studentDisplayRows(rows = [], fallback = []) {
   const source = rows.length ? rows : fallback;
@@ -53,7 +101,6 @@ export function TeacherAssessmentsPage({
   teacherId,
   selectedClassId = "",
   className = "",
-  onSelectClass,
   onOpenClasses,
   studentRows = [],
   classDashboardReadState = null,
@@ -67,7 +114,6 @@ export function TeacherAssessmentsPage({
   selectedStudentId = "",
   selectedStudentName = "",
   onSelectStudent,
-  onClearStudent,
   studentEvidenceReady = true,
   studentEvidenceReadState = { syncStatus: "complete" },
   onRetryStudentEvidence,
@@ -82,9 +128,9 @@ export function TeacherAssessmentsPage({
   onStartLetterCheck,
   onStartPhonicsPatternCheck,
   onStartBenchmark,
-  // The hash this funnel was opened with. Left undefined the page reads the
-  // live URL; tests and previews pass one in so a mid-funnel state can be set
-  // up the same way a reload would produce it.
+  // The hash this page was opened with. Left undefined the page reads the live
+  // URL; tests and previews pass one in so a mid-flow state can be set up the
+  // same way a reload would produce it.
   routeHash = undefined
 }) {
   const params = readTeacherFunnelParams(routeHash);
@@ -106,18 +152,13 @@ export function TeacherAssessmentsPage({
       : null;
   });
   const [awaitingReason, setAwaitingReason] = useState(false);
-  const [editingStep, setEditingStep] = useState(0);
-  const [studentSearch, setStudentSearch] = useState("");
-  const [studentPage, setStudentPage] = useState(1);
   const [discardDraftConfirmOpen, setDiscardDraftConfirmOpen] = useState(false);
   const [discardDraftBusy, setDiscardDraftBusy] = useState(false);
   const [discardDraftError, setDiscardDraftError] = useState("");
 
-  const classHeadingRef = useRef(null);
-  const studentHeadingRef = useRef(null);
-  const checkHeadingRef = useRef(null);
-  const startPointHeadingRef = useRef(null);
-  const unlockedStepRef = useRef(0);
+  const assessmentHeadingRef = useRef(null);
+  const startHeadingRef = useRef(null);
+  const reachedStepRef = useRef(0);
 
   const classRead = getClassListReadView({
     readState: classListReadState,
@@ -191,7 +232,7 @@ export function TeacherAssessmentsPage({
   });
 
   // The skills check opens on the skill this student is actually working on. That
-  // number arrives with the student, so it cannot be read until step 2 is done.
+  // number arrives with the student, so it cannot be read until step 1 is done.
   const effectiveSkillIndex = skillIndex ?? Math.min(
     Math.max(0, Number(firstUnsecuredSkillIndex) || 0),
     SKILL_START_POINTS.length - 1
@@ -239,6 +280,43 @@ export function TeacherAssessmentsPage({
     draft => draft.starter === entry?.starter
   ) || null;
 
+  // ── THE SUGGESTION ────────────────────────────────────────────────────────
+  // Not a new recommendation engine: the skills check already opens on the
+  // student's first skill that is not yet secure, and that is the suggestion.
+  // The evidence line is the class dashboard's own count for that same skill,
+  // shown only when it was read in full and it really is the same skill. When
+  // it was not, the block says what the suggestion is based on instead of
+  // printing a number nothing proves.
+  const suggestedSkill = SKILL_START_POINTS[effectiveSkillIndex] || null;
+  const selectedRow = rows.find(row => row.id === selectedStudentId) || null;
+  const focusEvidence = selectedRow?.focusEvidence || null;
+  const suggestionEvidenceVerified = Boolean(
+    dashboardRead.complete
+    && selectedRow
+    && selectedRow.evidenceReadStatus !== "incomplete"
+    && focusEvidence
+    && suggestedSkill
+    && comparableSkillName(focusEvidence.skill) === comparableSkillName(suggestedSkill.label)
+    && Number(focusEvidence.answered) > 0
+  );
+  const suggestionEvidence = suggestionEvidenceVerified
+    ? `${focusEvidence.correct} of ${focusEvidence.answered} answers correct in the last ${EVIDENCE_WINDOW_DAYS} days.`
+    : "This is the first skill this student has not secured yet.";
+  const suggestedFirstName = String(selectedStudentName || "").trim().split(/\s+/)[0] || "";
+
+  // `assessmentStep` is derived on every render and never stored: step 2 once a
+  // student exists, step 3 once an assessment is chosen.
+  const assessmentStep = !hasStudent ? 1 : !entry ? 2 : 3;
+  const steps = [
+    {
+      number: 1,
+      title: "Choose the student",
+      detail: className ? `Scoped to ${className}` : "Scoped to this class"
+    },
+    { number: 2, title: "Choose the assessment", detail: "Suggested one is first" },
+    { number: 3, title: "Run it and save", detail: "Result lands in Reports" }
+  ];
+
   // Keep the URL honest on every answer, so a refresh lands exactly here.
   useEffect(() => {
     writeTeacherFunnelParams({
@@ -252,42 +330,31 @@ export function TeacherAssessmentsPage({
     });
   }, [band, bandChosenByTeacher, checkId, entry, grade, needsBand, skillIndex, timeOfYear]);
 
-  const openStep = editingStep || (
-    !hasClass ? 1 : !hasStudent ? 2 : !studentEvidenceAvailable || !entry ? 3 : 4
-  );
-
-  // Focus the heading of a step as it unlocks. Without this a teacher using a
-  // keyboard answers step 2 and is left at the bottom of a list with no idea
-  // that a new question appeared above the fold.
+  // Move focus to the panel that just became the live one. Without this a
+  // teacher using a keyboard answers step 1 and is left in a select with no
+  // idea that the assessment cards beside it are now the question.
   useEffect(() => {
-    if (unlockedStepRef.current === openStep) return;
-    const previous = unlockedStepRef.current;
-    unlockedStepRef.current = openStep;
+    if (reachedStepRef.current === assessmentStep) return;
+    const previous = reachedStepRef.current;
+    reachedStepRef.current = assessmentStep;
     if (!previous) return;
-    const target = [null, classHeadingRef, studentHeadingRef, checkHeadingRef, startPointHeadingRef][openStep];
+    const target = [null, null, assessmentHeadingRef, startHeadingRef][assessmentStep];
     target?.current?.focus({ preventScroll: true });
-  }, [openStep]);
+  }, [assessmentStep]);
 
-  function chooseClass(nextClassId) {
+  function chooseStudent(nextStudentId) {
+    const row = rows.find(item => item.id === nextStudentId);
+    // A value that names nobody changes nothing at all. Clearing the answers
+    // below without changing the student would leave the select showing one
+    // thing and the page scoped to another.
+    if (!row) return;
     setCheckId("");
     setSkillIndex(null);
     setBand("");
     setBandChosenByTeacher(false);
     setAwaitingReason(false);
-    setEditingStep(0);
-    setStudentSearch("");
-    setStudentPage(1);
-    onSelectClass?.(nextClassId || null);
-  }
-
-  function chooseStudent(row) {
-    setCheckId("");
-    setSkillIndex(null);
-    setBand("");
-    setBandChosenByTeacher(false);
-    setAwaitingReason(false);
-    setEditingStep(0);
-    setStudentPage(1);
+    // No navigation, on purpose. The selected student is shared across the
+    // teacher area, and loading them here re-scopes this page in place.
     onSelectStudent?.(row.id, row.name);
   }
 
@@ -297,7 +364,6 @@ export function TeacherAssessmentsPage({
     setBand("");
     setBandChosenByTeacher(false);
     setAwaitingReason(false);
-    setEditingStep(0);
   }
 
   function begin(reasonText = "") {
@@ -351,8 +417,6 @@ export function TeacherAssessmentsPage({
     }
   }
 
-  const classAnswer = hasClass ? (className || "Class chosen") : "";
-  const studentAnswer = hasStudent ? selectedStudentName : "";
   const checkAnswer = entry && studentEvidenceAvailable
     ? selectedManualDraft
       ? `${entry.label} · ${selectedManualDraft.completedItems} of ${selectedManualDraft.plannedItems} saved`
@@ -361,17 +425,20 @@ export function TeacherAssessmentsPage({
   const startPointAnswer = entry && startPointReady && studentEvidenceAvailable
     ? describeStartPointSelection(entry, selection)
     : "";
+  const orderedCatalog = SUGGESTED_ENTRY
+    ? [SUGGESTED_ENTRY, ...CATALOG.filter(row => row.id !== SUGGESTED_ENTRY.id)]
+    : CATALOG;
 
   return (
     <>
-    <main className="teacher-product-page teacher-funnel-page" data-teacher-funnel="checks">
+    <main className="teacher-product-page teacher-assess-page" data-teacher-funnel="checks">
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Assessments</p>
-          <h2>Start an assessment</h2>
+          <h2>Assess a student</h2>
           <p>
-            Choose a class, student and assessment. Your choices stay visible, so you can
-            review the details before you begin.
+            Three steps, always in the same order. The student stays selected from
+            wherever you came in.
           </p>
         </div>
       </section>
@@ -394,337 +461,367 @@ export function TeacherAssessmentsPage({
           detail="Make a class and add your students, then come back to start an assessment."
           onPrimaryAction={onOpenClasses}
         />
+      ) : !hasClass ? (
+        <div className="teacher-assess-no-class" role="status">
+          <p>
+            An assessment is saved against one class. Choose the class in the bar at the
+            top of this page, then come back to start an assessment.
+          </p>
+          {onOpenClasses && (
+            <button className="lp-button lp-button-secondary" onClick={onOpenClasses} type="button">
+              Go to your classes
+            </button>
+          )}
+        </div>
       ) : (
-        <div className="teacher-funnel">
-          <TeacherFunnelStep
-            answer={classAnswer}
-            help="An assessment is saved against one class at a time."
-            number={1}
-            onChange={() => setEditingStep(1)}
-            open={openStep === 1}
-            ref={classHeadingRef}
-            title="Choose a class"
-          >
-            <label className="teacher-funnel-field">
-              <span>Class</span>
-              <select
-                onChange={event => chooseClass(event.target.value)}
-                value={selectedClassId || ""}
-              >
-                <option value="">Choose a class</option>
-                {visibleClassList.map(row => (
-                  <option key={row.id} value={row.id}>{row.name}</option>
-                ))}
-              </select>
-            </label>
-          </TeacherFunnelStep>
-
-          <TeacherFunnelStep
-            answer={studentAnswer}
-            help="One student at a time. The assessment opens where their saved results say to start."
-            lockedReason={hasClass ? "" : "Choose a class first."}
-            number={2}
-            onChange={() => {
-              setEditingStep(2);
-              onClearStudent?.();
-            }}
-            open={openStep === 2}
-            ref={studentHeadingRef}
-            title="Choose a student"
-          >
-            {rosterRead.loading ? (
-              <p className="teacher-funnel-step-help">Getting the class list…</p>
-            ) : rosterRead.incomplete ? (
-              <div className="teacher-funnel-empty" role="alert">
-                <p className="teacher-funnel-step-help">
-                  {rosterRead.truncated
-                    ? "The full student list reached its safety limit. No student is being treated as absent."
-                    : "The student list could not be confirmed. No empty-class conclusion is being shown."}
-                </p>
-                {onRetryStudents && (
-                  <button
-                    className="lp-button lp-button-secondary"
-                    onClick={() => onRetryStudents(selectedClassId)}
-                    type="button"
-                  >
-                    Try loading students again
-                  </button>
-                )}
-              </div>
-            ) : rows.length === 0 ? (
-              <p className="teacher-funnel-step-help">
-                No students in this class yet. Add them under Students, then come back.
-              </p>
-            ) : (
-              <TeacherFunnelStudentPicker
-                onChoose={chooseStudent}
-                onPageChange={setStudentPage}
-                onSearchChange={value => {
-                  setStudentSearch(value);
-                  setStudentPage(1);
-                }}
-                page={studentPage}
-                rows={rows}
-                search={studentSearch}
-                selectedStudentId={selectedStudentId}
-              />
-            )}
-            {rosterRead.complete && dashboardRead.failed && (
-              <div className="teacher-funnel-empty" role="alert">
-                <p className="teacher-funnel-step-help">
-                  Class progress summaries could not be confirmed. Student names are current,
-                  but no earlier class figure is being reused.
-                </p>
-                {onRetryClassDashboard && (
-                  <button
-                    className="lp-button lp-button-secondary"
-                    onClick={() => onRetryClassDashboard(selectedClassId)}
-                    type="button"
-                  >
-                    Try loading class progress again
-                  </button>
-                )}
-              </div>
-            )}
-          </TeacherFunnelStep>
-
-          <TeacherFunnelStep
-            answer={checkAnswer}
-            help={studentEvidenceAvailable
-              ? "Pick by what you want to find out."
-              : "Saved results must finish loading before an assessment can start."}
-            lockedReason={hasStudent ? "" : "Choose a student first."}
-            number={3}
-            onChange={() => setEditingStep(3)}
-            open={openStep === 3}
-            ref={checkHeadingRef}
-            title="Choose an assessment"
-          >
-            {!studentEvidenceAvailable ? (
-              <div
-                aria-busy={evidenceLoading ? "true" : "false"}
-                className="teacher-funnel-evidence-state"
-                role={evidenceLoading ? "status" : "alert"}
-              >
-                <p>
-                  {evidenceLoading
-                    ? `Getting ${selectedStudentName || "this student"}’s saved results…`
-                    : `We couldn't load all of ${selectedStudentName || "this student"}’s saved results. Nothing is being counted as zero. Try again before starting an assessment.`}
-                </p>
-                {!evidenceLoading && (
-                  <button
-                    className="lp-button lp-button-secondary"
-                    onClick={onRetryStudentEvidence}
-                    type="button"
-                  >
-                    Try again
-                  </button>
-                )}
-              </div>
-            ) : (
-              <>
-            {elBenchmarkDraft && (
-              <div className="teacher-funnel-draft" role="status">
-                <div>
-                  <strong>{selectedStudentName} has an unfinished assessment saved on this device.</strong>
-                  <small>Finish or clear it before starting one of the four spoken-sound, spelling, word reading or reading fluency assessments.</small>
-                </div>
-                <div className="teacher-action-list">
-                  <button className="lp-button lp-button-primary" onClick={onResumeDraft} type="button">
-                    Carry on with it
-                  </button>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    onClick={() => {
-                      setDiscardDraftError("");
-                      setDiscardDraftConfirmOpen(true);
-                    }}
-                    type="button"
-                  >
-                    Clear saved draft…
-                  </button>
-                </div>
-              </div>
-            )}
-            {manualDrafts.map(draft => (
-              <div
-                className="teacher-funnel-draft"
-                key={draft.starter}
-                role="status"
-              >
-                <div>
-                  <strong>
-                    {selectedStudentName} has an unfinished {draft.label}.
-                  </strong>
-                  <small>
-                    {draft.completedItems} of {draft.plannedItems} {draft.itemLabel} saved.
-                    {" "}
-                    Carrying on uses the same assessment record.
-                  </small>
-                </div>
-                <div className="teacher-action-list">
-                  <button
-                    className="lp-button lp-button-primary"
-                    onClick={draft.onResume}
-                    type="button"
-                  >
-                    Resume {draft.label}
-                  </button>
-                </div>
-              </div>
-            ))}
-            <div className="teacher-assessment-groups">
-              {[
-                {
-                  id: "quick",
-                  title: "Everyday assessments",
-                  help: "Use these to decide what to teach or practise next.",
-                  rows: CATALOG.filter(row => row.starter !== ASSESSMENT_STARTERS.EL_BENCHMARK)
-                },
-                {
-                  id: "el",
-                  title: "EL assessments",
-                  help: "Use these when you need a standalone assessment record for the school file.",
-                  rows: CATALOG.filter(row => row.starter === ASSESSMENT_STARTERS.EL_BENCHMARK)
-                }
-              ].map(group => (
-                <section className="teacher-assessment-group" key={group.id}>
-                  <header>
-                    <h4>{group.title}</h4>
-                    <p>{group.help}</p>
-                  </header>
-                  <ul
-                    className="teacher-funnel-options teacher-funnel-cards"
-                    aria-label={group.title}
-                  >
-                    {group.rows.map(row => (
-                      <li key={row.id}>
-                        <button
-                          aria-pressed={row.id === checkId}
-                          className="teacher-funnel-option"
-                          onClick={() => chooseCheck(row.id)}
-                          type="button"
-                        >
-                          <strong>{row.label}</strong>
-                          <span>{row.description}</span>
-                          <small>{formatEstimatedMinutes(row)} · {row.administration}</small>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-              </>
-            )}
-          </TeacherFunnelStep>
-
-          <TeacherFunnelStep
-            help={entry?.startPoint.help || ""}
-            lockedReason={!studentEvidenceAvailable
-              ? "Wait for the student's saved results before choosing a starting point."
-              : entry ? "" : "Choose an assessment first."}
-            number={4}
-            open={openStep === 4}
-            ref={startPointHeadingRef}
-            title={entry?.startPoint.label || "Choose a starting point"}
-          >
-            {entry?.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL && (
-              <label className="teacher-funnel-field">
-                <span>Skill this assessment starts on</span>
-                <select
-                  onChange={event => setSkillIndex(Number(event.target.value))}
-                  value={String(effectiveSkillIndex)}
+        <>
+          <ol className="teacher-assess-steps" aria-label="How an assessment is started">
+            {steps.map(step => {
+              const state = step.number < assessmentStep
+                ? "done"
+                : step.number === assessmentStep ? "active" : "waiting";
+              return (
+                <li
+                  aria-current={state === "active" ? "step" : undefined}
+                  className="teacher-assess-step"
+                  data-assess-step={step.number}
+                  data-state={state}
+                  data-waiting-far={state === "waiting" && step.number > assessmentStep + 1
+                    ? "true"
+                    : undefined}
+                  key={step.number}
                 >
-                  {SKILL_START_POINTS.map(option => (
-                    <option key={option.value} value={option.value}>{option.label}</option>
-                  ))}
-                </select>
-              </label>
-            )}
+                  <span aria-hidden="true" className="teacher-assess-step-dot">{step.number}</span>
+                  <span className="teacher-assess-step-text">
+                    <span className="teacher-assess-step-title">{step.title}</span>
+                    <span className="teacher-assess-step-detail">{step.detail}</span>
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
 
-            {entry?.startPoint.fields.includes("grade") && (
-              <div className="teacher-funnel-field-row">
-                <label className="teacher-funnel-field">
-                  <span>Grade</span>
-                  <select onChange={event => setGrade(event.target.value)} value={grade}>
-                    {ASSESSMENT_GRADE_OPTIONS.map(option => (
-                      <option key={option.value} value={option.value}>{option.label}</option>
+          <div className="teacher-assess-panels">
+            <section className="teacher-assess-panel teacher-assess-panel-student">
+              <h3 className="teacher-assess-panel-head">1 · Student</h3>
+              <div className="teacher-assess-panel-body">
+                {rosterRead.loading ? (
+                  <p className="teacher-assess-note">Getting the class list…</p>
+                ) : rosterRead.incomplete ? (
+                  <div className="teacher-assess-recovery" role="alert">
+                    <p>
+                      {rosterRead.truncated
+                        ? "The full student list reached its safety limit. No student is being treated as absent."
+                        : "The student list could not be confirmed. No empty-class conclusion is being shown."}
+                    </p>
+                    {onRetryStudents && (
+                      <button
+                        className="lp-button lp-button-secondary"
+                        onClick={() => onRetryStudents(selectedClassId)}
+                        type="button"
+                      >
+                        Try loading students again
+                      </button>
+                    )}
+                  </div>
+                ) : rows.length === 0 ? (
+                  <p className="teacher-assess-note">
+                    No students in this class yet. Add them under Students, then come back.
+                  </p>
+                ) : (
+                  <>
+                    <label className="teacher-assess-field">
+                      <span>{className ? `Student in ${className}` : "Student in this class"}</span>
+                      <select
+                        onChange={event => chooseStudent(event.target.value)}
+                        value={hasStudent ? selectedStudentId : ""}
+                      >
+                        {/* Once a student is chosen they stay chosen; the
+                            placeholder stops being an answer so the select can
+                            never show one thing while the page is scoped to
+                            another. */}
+                        <option disabled={hasStudent} value="">Choose a student</option>
+                        {rows.map(row => (
+                          <option key={row.id} value={row.id}>{row.name}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <p className="teacher-assess-note">
+                      Changing student here does not leave the page.
+                      {className ? ` You stay in ${className}.` : ""}
+                    </p>
+                    {studentEvidenceAvailable && SUGGESTED_ENTRY && suggestedSkill && (
+                      <div className="teacher-assess-suggestion">
+                        <p className="teacher-assess-suggestion-label">
+                          {suggestedFirstName
+                            ? `Suggested for ${suggestedFirstName}`
+                            : "Suggested next"}
+                        </p>
+                        <p className="teacher-assess-suggestion-title">
+                          {suggestedSkill.label} — {SUGGESTED_ENTRY.label}
+                        </p>
+                        <p className="teacher-assess-suggestion-evidence">{suggestionEvidence}</p>
+                      </div>
+                    )}
+                  </>
+                )}
+                {rosterRead.complete && dashboardRead.failed && (
+                  <div className="teacher-assess-recovery" role="alert">
+                    <p>
+                      Class progress summaries could not be confirmed. Student names are current,
+                      but no earlier class figure is being reused.
+                    </p>
+                    {onRetryClassDashboard && (
+                      <button
+                        className="lp-button lp-button-secondary"
+                        onClick={() => onRetryClassDashboard(selectedClassId)}
+                        type="button"
+                      >
+                        Try loading class progress again
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            </section>
+
+            <section className="teacher-assess-panel teacher-assess-panel-checks">
+              <h3
+                className="teacher-assess-panel-head"
+                ref={assessmentHeadingRef}
+                tabIndex={-1}
+              >
+                2 · Assessment
+              </h3>
+              <div className="teacher-assess-panel-body">
+                {!hasStudent ? (
+                  <p className="teacher-assess-note">Choose a student first.</p>
+                ) : !studentEvidenceAvailable ? (
+                  <div
+                    aria-busy={evidenceLoading ? "true" : "false"}
+                    className="teacher-funnel-evidence-state teacher-assess-recovery"
+                    role={evidenceLoading ? "status" : "alert"}
+                  >
+                    <p>
+                      {evidenceLoading
+                        ? `Getting ${selectedStudentName || "this student"}’s saved results…`
+                        : `We couldn't load all of ${selectedStudentName || "this student"}’s saved results. Nothing is being counted as zero. Try again before starting an assessment.`}
+                    </p>
+                    {!evidenceLoading && (
+                      <button
+                        className="lp-button lp-button-secondary"
+                        onClick={onRetryStudentEvidence}
+                        type="button"
+                      >
+                        Try again
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <>
+                    {elBenchmarkDraft && (
+                      <div className="teacher-assess-draft" role="status">
+                        <div>
+                          <strong>{selectedStudentName} has an unfinished assessment saved on this device.</strong>
+                          <small>Finish or clear it before starting one of the four spoken-sound, spelling, word reading or reading fluency assessments.</small>
+                        </div>
+                        <div className="teacher-action-list">
+                          <button className="lp-button lp-button-primary" onClick={onResumeDraft} type="button">
+                            Carry on with it
+                          </button>
+                          <button
+                            className="lp-button lp-button-secondary"
+                            onClick={() => {
+                              setDiscardDraftError("");
+                              setDiscardDraftConfirmOpen(true);
+                            }}
+                            type="button"
+                          >
+                            Clear saved draft…
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                    {manualDrafts.map(draft => (
+                      <div className="teacher-assess-draft" key={draft.starter} role="status">
+                        <div>
+                          <strong>
+                            {selectedStudentName} has an unfinished {draft.label}.
+                          </strong>
+                          <small>
+                            {draft.completedItems} of {draft.plannedItems} {draft.itemLabel} saved.
+                            {" "}
+                            Carrying on uses the same assessment record.
+                          </small>
+                        </div>
+                        <div className="teacher-action-list">
+                          <button
+                            className="lp-button lp-button-primary"
+                            onClick={draft.onResume}
+                            type="button"
+                          >
+                            Resume {draft.label}
+                          </button>
+                        </div>
+                      </div>
                     ))}
-                  </select>
-                </label>
-                <label className="teacher-funnel-field">
-                  <span>Time of year</span>
-                  <select onChange={event => setTimeOfYear(event.target.value)} value={timeOfYear}>
-                    {ASSESSMENT_TIME_OF_YEAR_OPTIONS.map(option => (
-                      <option key={option.value} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
-                </label>
-                {needsBand && (
-                  <label className="teacher-funnel-field">
-                    <span>Word group it starts on</span>
+                    <ul className="teacher-assess-cards" aria-label="Assessments you can start">
+                      {orderedCatalog.map(row => {
+                        const suggested = row.id === SUGGESTED_ENTRY?.id;
+                        const kind = assessmentKind(row, suggested);
+                        return (
+                          <li key={row.id}>
+                            <article
+                              className="teacher-assess-card"
+                              data-chosen={row.id === checkId ? "true" : undefined}
+                              data-kind={kind}
+                            >
+                              <span className="teacher-assess-card-kind">
+                                {ASSESSMENT_KIND_LABELS[kind]}
+                              </span>
+                              <h4>{row.label}</h4>
+                              <p>{row.description}</p>
+                              <div className="teacher-assess-card-foot">
+                                <small>{assessmentMeta(row)}</small>
+                                <button
+                                  aria-label={`Start ${row.label}`}
+                                  aria-pressed={row.id === checkId}
+                                  className="lp-button lp-button-secondary teacher-assess-card-start"
+                                  onClick={() => chooseCheck(row.id)}
+                                  type="button"
+                                >
+                                  Start
+                                </button>
+                              </div>
+                            </article>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </>
+                )}
+              </div>
+              <p className="teacher-assess-panel-foot">
+                Answer accuracy and learning status are saved separately. A high percentage
+                alone does not prove that learning is secure.
+              </p>
+            </section>
+          </div>
+
+          {entry && studentEvidenceAvailable && (
+            <section className="teacher-assess-panel teacher-assess-panel-start">
+              <h3
+                className="teacher-assess-panel-head"
+                ref={startHeadingRef}
+                tabIndex={-1}
+              >
+                3 · {entry.startPoint.label}
+              </h3>
+              <div className="teacher-assess-panel-body">
+                <p className="teacher-assess-chosen">{checkAnswer}</p>
+                <p className="teacher-assess-note">{entry.administration}</p>
+                {entry.startPoint.help && (
+                  <p className="teacher-assess-note">{entry.startPoint.help}</p>
+                )}
+
+                {entry.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL && (
+                  <label className="teacher-assess-field">
+                    <span>Skill this assessment starts on</span>
                     <select
-                      onChange={event => {
-                        setBand(event.target.value);
-                        setBandChosenByTeacher(true);
-                      }}
-                      value={effectiveBand}
+                      onChange={event => setSkillIndex(Number(event.target.value))}
+                      value={String(effectiveSkillIndex)}
                     >
-                      {elStartPoint.bandOptions.map(option => (
-                        <option key={option.id} value={option.id}>{option.label}</option>
+                      {SKILL_START_POINTS.map(option => (
+                        <option key={option.value} value={option.value}>{option.label}</option>
                       ))}
                     </select>
-                    <small>{elStartPoint.bandNote}</small>
                   </label>
                 )}
-              </div>
-            )}
 
-            {entry?.starter === ASSESSMENT_STARTERS.EL_BENCHMARK && (
-              <p className="teacher-funnel-step-help">
-                The completed result is saved to this student&apos;s standalone EL report.
-              </p>
-            )}
+                {entry.startPoint.fields.includes("grade") && (
+                  <div className="teacher-assess-field-row">
+                    <label className="teacher-assess-field">
+                      <span>Grade</span>
+                      <select onChange={event => setGrade(event.target.value)} value={grade}>
+                        {ASSESSMENT_GRADE_OPTIONS.map(option => (
+                          <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <label className="teacher-assess-field">
+                      <span>Time of year</span>
+                      <select onChange={event => setTimeOfYear(event.target.value)} value={timeOfYear}>
+                        {ASSESSMENT_TIME_OF_YEAR_OPTIONS.map(option => (
+                          <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                      </select>
+                    </label>
+                    {needsBand && (
+                      <label className="teacher-assess-field">
+                        <span>Word group it starts on</span>
+                        <select
+                          onChange={event => {
+                            setBand(event.target.value);
+                            setBandChosenByTeacher(true);
+                          }}
+                          value={effectiveBand}
+                        >
+                          {elStartPoint.bandOptions.map(option => (
+                            <option key={option.id} value={option.id}>{option.label}</option>
+                          ))}
+                        </select>
+                        <small>{elStartPoint.bandNote}</small>
+                      </label>
+                    )}
+                  </div>
+                )}
 
-            {awaitingReason ? (
-              <ElPrerequisiteReview
-                message={elStartPoint.prerequisite.message}
-                onCancel={() => setAwaitingReason(false)}
-                onConfirm={begin}
-                startLabel={`Begin ${entry?.label || "the assessment"}`}
-              />
-            ) : (
-              <div className="teacher-funnel-begin">
-                {startPointAnswer && (
-                  <p className="teacher-funnel-step-answer">
-                    {entry?.startPoint.kind === ASSESSMENT_START_POINT_KINDS.NONE
-                      ? startPointAnswer
-                      : `Starting at: ${startPointAnswer}`}
+                {entry.starter === ASSESSMENT_STARTERS.EL_BENCHMARK && (
+                  <p className="teacher-assess-note">
+                    The completed result is saved to this student&apos;s standalone EL report.
                   </p>
                 )}
-                {draftBlocksStart && (
-                  <p className="teacher-funnel-step-locked">
-                    Finish or clear the saved unfinished assessment in step 3 first.
-                  </p>
+
+                {awaitingReason ? (
+                  <ElPrerequisiteReview
+                    message={elStartPoint.prerequisite.message}
+                    onCancel={() => setAwaitingReason(false)}
+                    onConfirm={begin}
+                    startLabel={`Begin ${entry.label}`}
+                  />
+                ) : (
+                  <div className="teacher-assess-begin">
+                    {startPointAnswer && (
+                      <p className="teacher-assess-chosen">
+                        {entry.startPoint.kind === ASSESSMENT_START_POINT_KINDS.NONE
+                          ? startPointAnswer
+                          : `Starting at: ${startPointAnswer}`}
+                      </p>
+                    )}
+                    {draftBlocksStart && (
+                      <p className="teacher-assess-blocked">
+                        Finish or clear the saved unfinished assessment in step 2 first.
+                      </p>
+                    )}
+                    {elStartPoint.needsRecordedReason && !draftBlocksStart && (
+                      <p className="teacher-assess-blocked">
+                        This start is not the one this student&apos;s saved results point at, so you will be
+                        asked to say why.
+                      </p>
+                    )}
+                    <button
+                      className="lp-button lp-button-primary"
+                      disabled={!studentEvidenceAvailable || !startPointReady || draftBlocksStart}
+                      onClick={requestBegin}
+                      type="button"
+                    >
+                      {selectedManualDraft ? "Resume" : "Begin"} {entry.label}
+                    </button>
+                  </div>
                 )}
-                {elStartPoint.needsRecordedReason && !draftBlocksStart && (
-                  <p className="teacher-funnel-step-locked">
-                    This start is not the one this student&apos;s saved results point at, so you will be
-                    asked to say why.
-                  </p>
-                )}
-                <button
-                  className="lp-button lp-button-primary"
-                  disabled={!studentEvidenceAvailable || !startPointReady || draftBlocksStart}
-                  onClick={requestBegin}
-                  type="button"
-                >
-                  {selectedManualDraft ? "Resume" : "Begin"} {entry?.label || "the assessment"}
-                </button>
               </div>
-            )}
-          </TeacherFunnelStep>
+            </section>
+          )}
 
           <p className="el-assessment-validity-note">
             The four spoken-sound, spelling, word reading and reading fluency assessments are original
@@ -732,7 +829,7 @@ export function TeacherAssessmentsPage({
             not official EL Education forms, nationally normed scores, or diagnostic tests for a
             disability.
           </p>
-        </div>
+        </>
       )}
     </main>
     <ConfirmActionDialog

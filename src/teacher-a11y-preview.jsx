@@ -399,18 +399,20 @@ function Intent({ intent }) {
 // teacher-reports. Both used to render nothing useful here - "assess" fell
 // through to Today because the intent behind it had been dead for months.
 function Checks() {
+  // The selected student is real state here, not a constant: the whole point of
+  // the v2 Assessments screen is that changing it re-scopes the page in place
+  // instead of navigating, and a frozen prop could not show that.
+  const [selected, setSelected] = useState(() => ({ id: studentId, name: "Aarav" }));
   return (
     <TeacherAssessmentsPage
       classList={classList}
       selectedClassId={classId}
       className="Audit Class A"
-      onSelectClass={asyncNoop}
       studentRows={previewProgressRows}
       studentList={previewStudents}
-      selectedStudentId={studentId}
-      selectedStudentName="Aarav"
-      onSelectStudent={asyncNoop}
-      onClearStudent={noop}
+      selectedStudentId={selected.id}
+      selectedStudentName={selected.name}
+      onSelectStudent={(id, name) => setSelected({ id, name })}
       firstUnsecuredSkillIndex={3}
       assessmentHistory={assessmentHistory}
       onStartSkillCheck={noop}

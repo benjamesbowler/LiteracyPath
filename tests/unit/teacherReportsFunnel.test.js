@@ -199,7 +199,7 @@ test("earlier answers stay visible and changeable, later steps say why they wait
   assert.match(html, /Choose the whole class or one student first\./);
 });
 
-test("both funnels use the same step component, so the pattern is learned once", () => {
+test("both chooser pages keep their answers addressable and their focus honest", () => {
   const checks = readFileSync(
     new URL("../../src/components/TeacherAssessmentsPage.jsx", import.meta.url),
     "utf8"
@@ -208,8 +208,12 @@ test("both funnels use the same step component, so the pattern is learned once",
     new URL("../../src/components/TeacherReportsHubPage.jsx", import.meta.url),
     "utf8"
   );
+  // 2026-07-29: Assessments is the v2 two-panel screen and no longer stacks
+  // numbered TeacherFunnelStep cards; Reports still does, so the component and
+  // its shared styling stay. What both must keep is the behaviour underneath.
+  assert.match(reports, /import \{ TeacherFunnelStep \} from ".\/TeacherFunnelStep.jsx"/);
+  assert.doesNotMatch(checks, /TeacherFunnelStep/);
   for (const source of [checks, reports]) {
-    assert.match(source, /import \{ TeacherFunnelStep \} from ".\/TeacherFunnelStep.jsx"/);
     // Every answer goes into the URL, so a refresh mid-flow keeps its place.
     assert.match(source, /writeTeacherFunnelParams\(\{/);
     // A step that unlocks takes focus, or a keyboard user never learns it did.

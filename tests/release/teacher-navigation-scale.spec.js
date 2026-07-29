@@ -107,39 +107,58 @@ test("authenticated Reports funnel keeps its visible report, URL and browser his
   await expect(page).toHaveURL(/report=hfw.*show=1|show=1.*report=hfw/);
 });
 
-for (const surface of ["assess", "progress"]) {
-  test(`${surface} student chooser bounds a 40-pupil class to eight keyboard choices`, async ({
-    page
-  }) => {
-    await page.goto(
-      `/preview/teacher-a11y.html?surface=${surface}&students=40`
-      + `#teacher/${surface === "assess" ? "assessments" : "reports"}?class=${CLASS_ID}`
-      + `&learner=${STUDENT_ID}`
-    );
-    const studentStep = page.locator(".teacher-funnel-step[data-step='2']");
-    const change = studentStep.getByRole("button", { name: "Change", exact: true });
-    if (await change.count()) await change.click();
+test("the report student chooser bounds a 40-pupil class to eight keyboard choices", async ({
+  page
+}) => {
+  await page.goto(
+    `/preview/teacher-a11y.html?surface=progress&students=40`
+    + `#teacher/reports?class=${CLASS_ID}&learner=${STUDENT_ID}`
+  );
+  const studentStep = page.locator(".teacher-funnel-step[data-step='2']");
+  const change = studentStep.getByRole("button", { name: "Change", exact: true });
+  if (await change.count()) await change.click();
 
-    const picker = studentStep.locator(".teacher-funnel-student-picker-panel");
-    const search = picker.getByRole("searchbox", { name: "Find a student" });
-    const studentButtons = picker.getByRole("list", {
-      name: "Students in this class"
-    }).getByRole("button");
-    await expect(studentButtons).toHaveCount(8);
-    await expect(picker).toContainText("Showing 1–8 of 40 students");
+  const picker = studentStep.locator(".teacher-funnel-student-picker-panel");
+  const search = picker.getByRole("searchbox", { name: "Find a student" });
+  const studentButtons = picker.getByRole("list", {
+    name: "Students in this class"
+  }).getByRole("button");
+  await expect(studentButtons).toHaveCount(8);
+  await expect(picker).toContainText("Showing 1–8 of 40 students");
 
-    await search.focus();
-    for (let index = 0; index < 9; index += 1) await page.keyboard.press("Tab");
-    await expect(picker.getByRole("button", { name: "Next", exact: true })).toBeFocused();
+  await search.focus();
+  for (let index = 0; index < 9; index += 1) await page.keyboard.press("Tab");
+  await expect(picker.getByRole("button", { name: "Next", exact: true })).toBeFocused();
 
-    await picker.getByRole("button", { name: "Next", exact: true }).click();
-    await expect(picker).toContainText("Page 2 of 5");
-    await expect(studentButtons.first()).toHaveText("Learner 009");
-    await search.fill("Learner 040");
-    await expect(studentButtons).toHaveCount(1);
-    await expect(studentButtons.first()).toHaveText("Learner 040");
-  });
-}
+  await picker.getByRole("button", { name: "Next", exact: true }).click();
+  await expect(picker).toContainText("Page 2 of 5");
+  await expect(studentButtons.first()).toHaveText("Learner 009");
+  await search.fill("Learner 040");
+  await expect(studentButtons).toHaveCount(1);
+  await expect(studentButtons.first()).toHaveText("Learner 040");
+});
+
+// 2026-07-29: the v2 Assessments screen scopes ONE select to the class instead
+// of a paged picker, so a 40-pupil class is one control away from any student
+// and reaching the last one costs no paging at all.
+test("the assessment student chooser reaches any of 40 pupils in one control", async ({
+  page
+}) => {
+  await page.goto(
+    `/preview/teacher-a11y.html?surface=assess&students=40`
+    + `#teacher/assessments?class=${CLASS_ID}&learner=${STUDENT_ID}`
+  );
+  const select = page.locator(".teacher-assess-panel-student select");
+  await expect(select).toBeVisible();
+  await expect(select.locator("option")).toHaveCount(41);
+  await expect(select).toHaveCSS("min-height", "44px");
+  await select.selectOption({ label: "Learner 040" });
+  await expect(select.locator("option:checked")).toHaveText("Learner 040");
+  // Changing the student stays on this page.
+  await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))
+    .toBeVisible();
+  await expect(page.locator('[data-teacher-funnel="checks"]')).toBeVisible();
+});
 
 test("a 105-pupil roster uses a compact page window with ellipses", async ({ page }) => {
   test.setTimeout(60_000);
@@ -270,7 +289,7 @@ test("Today shows at most three urgent rows and Assess a student opens Assessmen
 
   await page.getByRole("button", { name: "Assess a student", exact: true }).click();
   await expect(page.getByRole("heading", {
-    name: "Start an assessment",
+    name: "Assess a student",
     exact: true
   })).toBeVisible();
   await expect(page).toHaveURL(/#teacher\/assessments/);

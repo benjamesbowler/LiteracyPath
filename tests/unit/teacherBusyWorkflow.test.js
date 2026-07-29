@@ -806,7 +806,7 @@ test("the assessment and report funnels expose a main page landmark", async () =
     source("src/components/TeacherAssessmentsPage.jsx"),
     source("src/components/TeacherReportsHubPage.jsx")
   ]);
-  assert.match(assessments, /<main className="teacher-product-page teacher-funnel-page"/);
+  assert.match(assessments, /<main className="teacher-product-page teacher-assess-page"/);
   assert.match(reports, /const PageElement = showing && !wholeClass \? "div" : "main";/);
   assert.match(
     reports,

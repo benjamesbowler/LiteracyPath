@@ -85,7 +85,7 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   await expect(page.locator("body")).not.toBeFocused();
 
   const intentionChecks = [
-    ["Assessments", "Start an assessment"],
+    ["Assessments", "Assess a student"],
     ["Reports", "Open a report"],
     ["Resources", "Choose a teaching resource"],
     ["Settings", "Settings"]

@@ -19,6 +19,15 @@ import { EL_BENCHMARK_IDS } from "../../src/data/elBenchmarkAssessments.js";
 let TeacherAssessmentsPage;
 let vite;
 
+const FUNNEL_SOURCE = readFileSync(
+  new URL("../../src/components/TeacherAssessmentsPage.jsx", import.meta.url),
+  "utf8"
+);
+const SURFACE_SOURCE = readFileSync(
+  new URL("../../src/components/AppSurface.jsx", import.meta.url),
+  "utf8"
+);
+
 const COMMON = { benchmarkWindow: "MOY", gradePath: "1", studentId: "student-1" };
 
 const HISTORY = [
@@ -84,17 +93,24 @@ test.after(async () => {
   await vite?.close();
 });
 
-test("the funnel is one page: class, student, assessment, starting point, Begin", () => {
+// Rewritten again 2026-07-29 for the v2 Assessments screen. The class question
+// is gone from this page - the shared teacher context bar above it is the only
+// class picker now - and the three remaining steps are DERIVED on every render
+// rather than stored, so the strip is asserted through its data-state.
+test("the page is three derived steps: student, assessment, run it", () => {
   const html = renderFunnel("#teacher/assessments?class=class-a&learner=student-1");
   for (const step of [
-    "Choose a class",
-    "Choose a student",
-    "Choose an assessment"
+    "Choose the student",
+    "Choose the assessment",
+    "Run it and save"
   ]) {
     assert.match(html, new RegExp(`>${step}<`), `step "${step}" is missing`);
   }
-  // Step 3 offers every startable check from the one catalog, not a hand-built grid.
-  for (const label of [
+  // The class picker belongs to the context bar, not to this page.
+  assert.doesNotMatch(html, />Choose a class</);
+  // Panel 2 offers every startable check from the one catalog, not a hand-built
+  // grid, and the suggested one comes first.
+  const labels = [
     "Skills assessment",
     "Letter names and sounds",
     "Phonics patterns",
@@ -102,39 +118,147 @@ test("the funnel is one page: class, student, assessment, starting point, Begin"
     "Spelling",
     "Word reading",
     "Reading fluency"
-  ]) {
-    assert.match(html, new RegExp(`<strong>${label}</strong>`), `${label} is missing from step 3`);
+  ];
+  for (const label of labels) {
+    assert.match(html, new RegExp(`<h4>${label}</h4>`), `${label} is missing from the cards`);
   }
-  // Steps below the current one are visible and say why they are waiting,
-  // rather than disappearing.
-  assert.match(html, /Choose an assessment first\./);
-  assert.match(html, /Everyday assessments/);
-  assert.match(html, /EL assessments/);
+  assert.equal((html.match(/<article class="teacher-assess-card/g) || []).length, labels.length);
+  assert.ok(
+    html.indexOf("<h4>Skills assessment</h4>") < html.indexOf("<h4>Letter names and sounds</h4>"),
+    "the suggested assessment is not first"
+  );
   assert.match(html, /harder letter patterns the student recognises and sounds out/);
   assert.doesNotMatch(html, /harder letter patterns the student already reads and spells/);
+  // The accuracy-vs-status caveat closes the assessment panel.
+  assert.match(
+    html,
+    /Answer accuracy and learning status are saved separately\. A high percentage alone does not prove that learning is secure\./
+  );
 });
 
-test("a teacher can search a long class list before choosing a student", () => {
-  const html = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+test("the step strip is derived from the answers, never stored", () => {
+  const noStudent = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
     classList: [{ id: "class-a", name: "Audit Class A" }],
     className: "Audit Class A",
     selectedClassId: "class-a",
     studentRows: [{ id: "student-1", name: "Ada" }, { id: "student-2", name: "Bo" }],
     routeHash: "#teacher/assessments?class=class-a"
   }));
-  assert.match(html, /Find a student/);
-  assert.match(html, /type="search"/);
-  assert.match(html, /<strong>Ada<\/strong>/);
+  const withStudent = renderFunnel("#teacher/assessments?class=class-a&learner=student-1");
+  const withCheck = renderFunnel(
+    "#teacher/assessments?class=class-a&learner=student-1&check=letter-names-and-sounds"
+  );
+
+  const stateOf = (html, step) => html
+    .match(new RegExp(`data-assess-step="${step}" data-state="([a-z]+)"`))?.[1];
+
+  assert.deepEqual([1, 2, 3].map(step => stateOf(noStudent, step)),
+    ["active", "waiting", "waiting"]);
+  assert.deepEqual([1, 2, 3].map(step => stateOf(withStudent, step)),
+    ["done", "active", "waiting"]);
+  assert.deepEqual([1, 2, 3].map(step => stateOf(withCheck, step)),
+    ["done", "done", "active"]);
+  // Step 3 is muted only while it is more than one step away, exactly as the
+  // approved design draws it.
+  assert.match(noStudent, /data-assess-step="3" data-state="waiting" data-waiting-far="true"/);
+  assert.doesNotMatch(withStudent, /data-waiting-far/);
+
+  // Nothing stores a step: the page has no step state and no step setter.
+  assert.doesNotMatch(FUNNEL_SOURCE, /useState\([^)]*\)[^;]*(?:Step|step)\b\s*\]/);
+  assert.match(FUNNEL_SOURCE, /const assessmentStep = !hasStudent \? 1 : !entry \? 2 : 3;/);
+});
+
+test("changing the student re-scopes the page instead of navigating away", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    className: "Audit Class A",
+    selectedClassId: "class-a",
+    studentRows: [{ id: "student-1", name: "Ada" }, { id: "student-2", name: "Bo" }],
+    selectedStudentId: "student-1",
+    selectedStudentName: "Ada",
+    routeHash: "#teacher/assessments?class=class-a&learner=student-1"
+  }));
+  // One scoped select naming the class, every student in it, and the promise
+  // printed next to it.
+  assert.match(html, /<span>Student in Audit Class A<\/span>/);
+  assert.match(html, /<option value="student-1" selected="">Ada<\/option>/);
+  assert.match(html, /<option value="student-2">Bo<\/option>/);
+  assert.match(html, /Changing student here does not leave the page\. You stay in Audit Class A\./);
+
+  // The only thing the select does is load the student in place. Nothing on
+  // this page sets a view, and the surface hands it the non-navigating loader.
+  assert.match(FUNNEL_SOURCE, /onChange=\{event => chooseStudent\(event\.target\.value\)\}/);
+  assert.match(FUNNEL_SOURCE, /function chooseStudent\([\s\S]*?onSelectStudent\?\.\(row\.id, row\.name\);\s*\}/);
+  assert.doesNotMatch(FUNNEL_SOURCE, /setAppView|goToTeacherIntent|APP_VIEWS|location\.assign/);
+  assert.match(
+    SURFACE_SOURCE,
+    /<TeacherAssessmentsPage[\s\S]*?onSelectStudent=\{loadSelectedClassStudent\}/
+  );
+  assert.match(
+    SURFACE_SOURCE,
+    /async function loadSelectedClassStudent[\s\S]*?loadStudentProgress\(student\.id, student\.name \|\| name, \{ navigate: false \}\)/
+  );
 });
 
 test("a fixed full-set assessment does not repeat an empty start-point message", () => {
   const html = renderFunnel(
     "#teacher/assessments?class=class-a&learner=student-1&check=letter-names-and-sounds"
   );
-  assert.match(html, />Ready to begin</);
+  assert.match(html, /3 · Ready to begin</);
   assert.match(html, /This assessment covers the full set of letters\./);
   assert.match(html, />Full set of letters</);
   assert.doesNotMatch(html, /Nothing to choose|nothing to choose|Starts at the beginning/);
+  // How the assessment is given moved out of the card and next to Begin, where
+  // the teacher is about to give it.
+  assert.match(html, /You show each letter and tap whether the name and the sound were right\./);
+});
+
+test("the suggestion names the real next skill and only claims evidence it read", () => {
+  const base = {
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    className: "Audit Class A",
+    selectedClassId: "class-a",
+    selectedStudentId: "student-1",
+    selectedStudentName: "Ada Smith",
+    firstUnsecuredSkillIndex: 3,
+    routeHash: "#teacher/assessments?class=class-a&learner=student-1"
+  };
+  const withEvidence = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+    ...base,
+    studentRows: [{
+      id: "student-1",
+      name: "Ada",
+      evidenceReadStatus: "complete",
+      focusEvidence: {
+        skill: "CVC and Short Vowels",
+        answered: 18,
+        correct: 7,
+        accuracy: 39
+      }
+    }]
+  }));
+  assert.match(withEvidence, /Suggested for Ada/);
+  assert.match(withEvidence, /CVC and Short Vowels — Skills assessment/);
+  assert.match(withEvidence, /7 of 18 answers correct in the last 90 days\./);
+
+  // An unconfirmed read never becomes a number. It says what the suggestion is
+  // based on instead.
+  const withoutEvidence = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+    ...base,
+    studentRows: [{
+      id: "student-1",
+      name: "Ada",
+      evidenceReadStatus: "incomplete",
+      focusEvidence: {
+        skill: "CVC and Short Vowels",
+        answered: 18,
+        correct: 7
+      }
+    }]
+  }));
+  assert.match(withoutEvidence, /This is the first skill this student has not secured yet\./);
+  assert.doesNotMatch(withoutEvidence, /7 of 18 answers correct/);
+  assert.doesNotMatch(withoutEvidence, /0%/);
 });
 
 test("the starting band comes from completed results, never from a newer partial one", () => {

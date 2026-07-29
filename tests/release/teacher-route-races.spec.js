@@ -316,6 +316,16 @@ async function expectFunnelContext(page, {
   await expect(shell).toHaveAttribute("data-teacher-class-id", classId);
   await expect(shell).toHaveAttribute("data-teacher-learner-id", learnerId);
   const funnelPage = page.locator(`[data-teacher-funnel="${funnel}"]`);
+  if (funnel === "checks") {
+    // 2026-07-29: the v2 Assessments screen takes its class from the shared
+    // context bar and scopes one student select to it, so the class and the
+    // student are read from the select's label and its chosen option.
+    const studentPanel = funnelPage.locator(".teacher-assess-panel-student");
+    await expect(studentPanel).toContainText(`Student in ${className}`);
+    await expect(studentPanel.locator("select")).toHaveValue(learnerId);
+    await expect(studentPanel.locator("select option:checked")).toHaveText(learnerName);
+    return;
+  }
   await expect(funnelPage.locator(".teacher-funnel-step[data-step='1']")).toContainText(className);
   await expect(funnelPage.locator(".teacher-funnel-step[data-step='2']")).toContainText(learnerName);
 }
@@ -328,7 +338,7 @@ for (const section of [
   },
   {
     funnel: "checks",
-    heading: "Start an assessment",
+    heading: "Assess a student",
     path: "teacher/assessments"
   }
 ]) {
@@ -523,7 +533,7 @@ test("@teacher-account-route-race a delayed teacher-A route result cannot repopu
     await expect(shell).toHaveAttribute("data-teacher-class-id", AUDIT_CLASS_B_ID);
     await expect(shell).toHaveAttribute("data-teacher-learner-id", MATEO_ID);
     await expect(page.getByRole("heading", { name: "Skills", exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Start an assessment", exact: true }))
+    await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))
       .toHaveCount(0);
     await expect(page.getByRole("region", { name: "About this report" })).toContainText(
       "Audit Class B"

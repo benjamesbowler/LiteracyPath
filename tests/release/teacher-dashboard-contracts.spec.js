@@ -116,12 +116,17 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
     roster.getByRole("button", { name: /^Assess / }).first()
   ).toBeVisible();
 
-  // Both funnels are one page with the same numbered steps.
+  // 2026-07-29: Assessments is the v2 three-step screen (student, assessment,
+  // run it) with the class carried by the shared context bar; Reports is still
+  // the numbered funnel.
   await primaryNav.getByRole("button", { name: "Assessments", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Start an assessment", exact: true })).toBeVisible();
-  for (const step of ["Choose a class", "Choose a student", "Choose an assessment"]) {
-    await expect(page.getByRole("heading", { name: step, exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Assess a student", exact: true })).toBeVisible();
+  const assessSteps = page.locator(".teacher-assess-step");
+  await expect(assessSteps).toHaveCount(3);
+  for (const step of ["Choose the student", "Choose the assessment", "Run it and save"]) {
+    await expect(assessSteps.filter({ hasText: step })).toHaveCount(1);
   }
+  await expect(page.getByRole("heading", { name: "Choose a class", exact: true })).toHaveCount(0);
 
   await primaryNav.getByRole("button", { name: "Reports", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
@@ -167,11 +172,13 @@ test("@teacher-reports-route-recovery preserves valid context and recovers from 
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const primaryNav = page.getByTestId("teacher-primary-nav");
 
+  // 2026-07-29: the class comes from the shared context bar, so it is chosen on
+  // Students; Assessments then scopes its own student select to it.
+  await primaryNav.getByRole("button", { name: "Students", exact: true }).click();
+  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   await primaryNav.getByRole("button", { name: "Assessments", exact: true }).click();
-  await page.getByRole("combobox", { name: "Class", exact: true })
-    .selectOption({ label: "Audit Class A" });
-  await page.getByRole("button", { name: "Aarav", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Choose an assessment", exact: true })).toBeVisible();
+  await page.locator(".teacher-assess-panel-student select").selectOption({ label: "Aarav" });
+  await expect(page.getByRole("heading", { name: "2 · Assessment", exact: true })).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Reports", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
@@ -708,9 +715,9 @@ test("@question-report-cloud sends once, appears in another browser, and records
   const roster = await selectAuditClass(page);
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
   await aaravRow.getByRole("button", { name: "Assess Aarav", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Start an assessment", exact: true }))
+  await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))
     .toBeVisible();
-  await page.getByRole("button", { name: /^Skills assessment/ }).click();
+  await page.getByRole("button", { name: "Start Skills assessment", exact: true }).click();
   await page.getByRole("button", { name: "Begin Skills assessment", exact: true }).click();
 
   const questionCard = page.locator("[data-assessment-question-id]").first();
