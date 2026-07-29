@@ -49,15 +49,24 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
     source("src/appState/useAppSessionController.js")
   ]);
 
+  // v2 Students: the five design columns — student (with sign-in state and the
+  // select box), current focus, accuracy, learning status, last active — are
+  // FIXED, so the column picker can no longer hide the sign-in state or the
+  // student's own name. It only adds the two detail columns.
+  assert.match(students, /const DEFAULT_ROSTER_COLUMNS = \[\];/);
+  assert.match(students, /const ROSTER_FIXED_COLUMN_COUNT = 5;/);
   assert.match(
     students,
-    /const DEFAULT_ROSTER_COLUMNS = \["focus", "login", "last-active"\];/
+    /const ROSTER_COLUMN_OPTIONS = \[\s*\{ id: "progress", label: "Progress" \},\s*\{ id: "sound-seekers", label: "Sound Seekers" \}\s*\];/
   );
+  // The student panel is a region beside the roster, not a stacked drawer, so a
+  // dialog opened from it is the only layer AND the selection survives it.
   assert.match(
     students,
-    /function openStudentActions\(student\) \{\s*setStudentActionError\(""\);\s*closeStudentPanelBefore/,
+    /function openStudentActions\(student\) \{\s*setStudentActionError\(""\);\s*keepStudentPanelDuring/,
   );
-  assert.match(students, /onClearStudent\?\.\(\);\s*action\(\);/);
+  assert.match(students, /function keepStudentPanelDuring\(action\) \{\s*action\(\);\s*\}/);
+  assert.doesNotMatch(students, /<TeacherDrawer/);
   assert.match(students, /Student settings/);
   assert.match(students, /<details className="teacher-student-panel-more">/);
   assert.match(students, /const ROSTER_PAGE_SIZE = 10;/);
@@ -66,19 +75,18 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   for (const group of ["Student details", "Learning support", "Class and records"]) {
     assert.match(students, new RegExp(group));
   }
-  assert.doesNotMatch(
-    students.slice(
-      students.indexOf('<div className="teacher-row-actions">'),
-      students.indexOf("</tr>", students.indexOf('<div className="teacher-row-actions">'))
-    ),
-    />More</
-  );
+  // A roster row is now the selector and nothing else: every action for a
+  // student is in the panel the row fills, so no row carries buttons at all.
+  assert.doesNotMatch(students, /<div className="teacher-row-actions">/);
+  assert.match(students, /className="teacher-roster-name teacher-open-student"/);
   assert.doesNotMatch(students, /Re-engage quiet readers|low attainment|highest current total/);
   assert.doesNotMatch(students, /No practice yet|<option value="not-started">Not started/);
   assert.match(students, /No scored answers yet/);
   assert.match(students, /Run first assessments/);
   assert.match(students, /<strong>Current focus:<\/strong>/);
-  assert.match(students, /<th scope="col">Current focus<\/th>/);
+  // The roster is a grid, so every table part states its role explicitly:
+  // changing a table element's display drops the implicit one.
+  assert.match(students, /<th scope="col" role="columnheader">Current focus<\/th>/);
   assert.match(students, /data-label="Current focus"/);
   assert.match(students, /label="Accuracy across skills"/);
   assert.match(students, /Choose three pictures in order\./);
@@ -329,10 +337,26 @@ test("the first-student setup action waits for a truthful roster read, not for a
 });
 
 test("quiet-student suggestions use the seven-day policy instead of a formatted label", async () => {
-  const students = await source("src/components/TeacherStudentsPage.jsx");
+  const [students, model] = await Promise.all([
+    source("src/components/TeacherStudentsPage.jsx"),
+    source("src/components/teacher/teacherClassModel.js")
+  ]);
 
   assert.match(students, /activityIsAtLeastDaysOld\(\s*row\.lastActive,\s*TEACHER_TODAY_POLICY\.inactivityDueDays/);
   assert.doesNotMatch(students, /formatLastActive\(row\.lastActive\)\.includes\("days ago"\)/);
+  // No roster filter may compare a FORMATTED label any more: the label only
+  // says "N days ago" for the first week, so a label-matching filter dropped
+  // exactly the quiet children Today's briefing still listed. Both surfaces
+  // now count days from the same saved timestamp.
+  assert.doesNotMatch(students, /formatLastActive\([^)]*\) === "Today"/);
+  assert.match(students, /activityIsFromToday\(row\.lastActive\)/);
+  assert.match(students, /rosterMatchesStatusFilter\(row, rosterStatusFilter\)/);
+  assert.match(students, /<option value="no-recent-activity">/);
+  assert.match(model, /export const ROSTER_INACTIVE_DAYS = TEACHER_TODAY_POLICY\.inactivityDueDays;/);
+  assert.match(
+    model,
+    /ROSTER_STATUS_FILTERS\.NO_RECENT_ACTIVITY[\s\S]*?activityIsAtLeastDaysOld\(row\.lastActive, days, now\)/
+  );
 });
 
 test("failed sign-in-picture saves keep the editor open and preserve the chosen pictures", async () => {

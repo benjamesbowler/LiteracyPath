@@ -545,7 +545,13 @@ test("Students keeps roster controls available but hides incomplete learning fig
   assert.match(html, /Aaron/);
   assert.match(html, /Some results could not load/);
   assert.match(html, /Results unavailable/);
-  assert.match(html, /Set pictures|Change/);
+  // v2 Students: the roster row stays selectable and the class-list tools stay
+  // open, so a teacher can still manage names and sign-in while the learning
+  // figures are withheld. The per-student sign-in editor moved into the panel
+  // that a row fills.
+  assert.match(html, /teacher-roster-name teacher-open-student/);
+  assert.match(html, /Add students and set up sign-in/);
+  assert.match(html, /Sign-in ready/);
   assert.doesNotMatch(html, /Recognise Aaron&#x27;s progress|Reteach Initial sounds/);
 });
 

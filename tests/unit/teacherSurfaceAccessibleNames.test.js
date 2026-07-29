@@ -60,10 +60,16 @@ test("the sign-in pictures dialog says one thing to everyone, without design rat
 test("the compact roster controls name the student they act on", async () => {
   const students = await source("src/components/TeacherStudentsPage.jsx");
 
-  assert.match(students, /aria-label=\{`\$\{loginReady \? "Change" : "Set"\} sign-in pictures for \$\{row\.name\}`\}/);
-  assert.match(students, /aria-label=\{`\$\{heatOpenId === row\.id \? "Hide" : "Show"\} \$\{row\.name\}'s sound map`\}/);
-  assert.match(students, /aria-label=\{`Assess \$\{row\.name\}`\}/);
-  assert.match(students, /aria-label=\{`Open \$\{row\.name\}`\}/);
+  // v2 Students: a roster row is the selector, so the controls that used to sit
+  // in every row now name the ONE student the panel is showing.
+  assert.match(students, /aria-label=\{`\$\{selectedStudentRow\.symbol_password \? "Change" : "Set"\} sign-in pictures for \$\{selectedStudentRow\.name\}`\}/);
+  assert.match(students, /aria-label=\{`\$\{heatOpenId === selectedStudentRow\.id \? "Hide" : "Show"\} \$\{selectedStudentRow\.name\}'s sound map`\}/);
+  assert.match(students, /aria-label=\{`Assess \$\{selectedStudentRow\.name\}`\}/);
+  assert.match(students, /aria-label=\{`Select \$\{row\.name\}`\}/);
+  // The row button is not given an aria-label: its own contents (name, sign-in
+  // state) are the accessible name, so nothing in the row is hidden from a
+  // screen reader by a shorter label.
+  assert.doesNotMatch(students, /aria-label=\{`Open \$\{row\.name\}`\}/);
   // Reset and reveal controls moved into the named student panel/settings
   // instead of widening every roster row.
   assert.match(students, /label=\{`Options for \$\{actionsStudent\.name\}`\}/);

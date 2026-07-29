@@ -6,20 +6,51 @@
 // of the roster they both depend on lives here once, so the two pages can never
 // disagree about who needs attention or whether setup is finished.
 import { useEffect, useMemo } from "react";
-import { LEARNING_STATUS_IDS, evaluateLearningConclusion } from "../../policy/learningPolicy.js";
+import {
+  LEARNING_CONCLUSION_SCOPES,
+  LEARNING_STATUS_IDS,
+  evaluateLearningConclusion
+} from "../../policy/learningPolicy.js";
 import { normalizeLearnerAccessibilitySettings } from "../../accessibility/learnerAccessibility.js";
+import { TEACHER_TODAY_POLICY } from "../../utils/teacherTodayBriefing.js";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 
-export function formatLastActive(value) {
+// Derived, never re-typed: the roster's quiet-student filter and Today's
+// "progress review due" list must count the same number of days.
+export const ROSTER_INACTIVE_DAYS = TEACHER_TODAY_POLICY.inactivityDueDays;
+
+// ONE numeric reading of "how long ago was this?".
+//
+// The roster label and the roster filters used to be two separate readings of
+// the same timestamp: the filters compared the FORMATTED label, and
+// formatLastActive only says "N days ago" for the first week. A child last seen
+// three weeks ago formats as a plain date, so a label-matching filter dropped
+// exactly the quiet children it was meant to surface — while Today's briefing,
+// which subtracts timestamps, still listed them. Both surfaces now count days
+// from the same timestamp, so they cannot disagree again.
+export function activityDaysAgo(value, now = new Date()) {
+  const date = value ? new Date(value) : null;
+  const current = now instanceof Date ? now : new Date(now);
+  if (!date || !Number.isFinite(date.getTime()) || !Number.isFinite(current.getTime())) {
+    return null;
+  }
+  const startOfNow = new Date(current.getFullYear(), current.getMonth(), current.getDate());
+  const startOfDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  return Math.round((startOfNow - startOfDate) / 86400000);
+}
+
+export function activityIsFromToday(value, now = new Date()) {
+  const days = activityDaysAgo(value, now);
+  return days !== null && days <= 0;
+}
+
+export function formatLastActive(value, now = new Date()) {
   if (!value) return "No activity yet";
   const date = new Date(value);
   if (!Number.isFinite(date.getTime())) return String(value);
 
-  const today = new Date();
-  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const startOfDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  const diffDays = Math.round((startOfToday - startOfDate) / 86400000);
-
+  const diffDays = activityDaysAgo(value, now);
+  if (diffDays === null) return String(value);
   if (diffDays <= 0) return "Today";
   if (diffDays === 1) return "Yesterday";
   if (diffDays < 7) return `${diffDays} days ago`;
@@ -45,6 +76,109 @@ export function accuracyConclusion(row) {
 export function needsSupportConclusion(row) {
   return row?.learningConclusion?.ready
     && row.learningConclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT;
+}
+
+// The roster's status filter, as a pure function, so the quiet-student rule can
+// be proved against a real timestamp instead of a rendered label.
+export const ROSTER_STATUS_FILTERS = Object.freeze({
+  ALL: "all",
+  SIGN_IN_MISSING: "login-missing",
+  NO_SCORED_ANSWERS: "not-started",
+  NEEDS_ATTENTION: "needs-attention",
+  NO_RECENT_ACTIVITY: "no-recent-activity"
+});
+
+export function rosterMatchesStatusFilter(row, filterId, { now = new Date(), inactiveDays } = {}) {
+  if (!row || !filterId || filterId === ROSTER_STATUS_FILTERS.ALL) return true;
+  if (filterId === ROSTER_STATUS_FILTERS.SIGN_IN_MISSING) return !row.symbol_password;
+  if (filterId === ROSTER_STATUS_FILTERS.NO_SCORED_ANSWERS) {
+    return row.evidenceReadStatus === "complete" && row.answered === 0;
+  }
+  if (filterId === ROSTER_STATUS_FILTERS.NEEDS_ATTENTION) return needsSupportConclusion(row);
+  if (filterId === ROSTER_STATUS_FILTERS.NO_RECENT_ACTIVITY) {
+    if (row.evidenceReadStatus !== "complete") return false;
+    const days = Number.isFinite(Number(inactiveDays))
+      ? Number(inactiveDays)
+      : ROSTER_INACTIVE_DAYS;
+    return activityIsAtLeastDaysOld(row.lastActive, days, now);
+  }
+  return true;
+}
+
+// One skill, one row: group a student's saved answers by the skill they were
+// answering, so the student panel can show accuracy and learning status as two
+// separate facts. A skill with too few answers keeps its own honest status and
+// never becomes a low percentage.
+export function buildStudentSkillEvidence(answerHistory = [], { now = new Date() } = {}) {
+  const answers = Array.isArray(answerHistory) ? answerHistory : [];
+  const bySkill = new Map();
+  answers.forEach(answer => {
+    const skill = String(answer?.skill || "").trim();
+    if (!skill) return;
+    const entry = bySkill.get(skill)
+      || { skill, answered: 0, correct: 0, lastActive: null };
+    entry.answered += 1;
+    if (answer?.isCorrect) entry.correct += 1;
+    const answeredAt = answer?.answeredAt || "";
+    if (answeredAt && (!entry.lastActive || answeredAt > entry.lastActive)) {
+      entry.lastActive = answeredAt;
+    }
+    bySkill.set(skill, entry);
+  });
+  return [...bySkill.values()]
+    .sort((left, right) => (
+      String(right.lastActive || "").localeCompare(String(left.lastActive || ""))
+      || left.skill.localeCompare(right.skill)
+    ))
+    .map(entry => concludeSkillRow(entry, now));
+}
+
+function concludeSkillRow(entry, now) {
+  const accuracy = entry.answered > 0
+    ? Math.round((entry.correct / entry.answered) * 100)
+    : null;
+  return {
+    ...entry,
+    accuracy,
+    conclusion: evaluateLearningConclusion({
+      scope: LEARNING_CONCLUSION_SCOPES.SKILL,
+      accuracy,
+      attempts: entry.answered,
+      skillDiversity: 1,
+      observedAt: entry.lastActive,
+      now
+    })
+  };
+}
+
+// Some reads deliver the current skill's saved answers without the full answer
+// list behind them. One true row beats claiming a student has answered nothing.
+export function buildStudentPanelSkillRows(
+  { answerHistory = [], focusEvidence = null } = {},
+  { now = new Date() } = {}
+) {
+  const rows = buildStudentSkillEvidence(answerHistory, { now });
+  if (rows.length) return rows;
+  const skill = String(focusEvidence?.skill || "").trim();
+  const answered = Number(focusEvidence?.answered) || 0;
+  if (!skill || answered <= 0) return rows;
+  return [concludeSkillRow({
+    skill,
+    answered,
+    correct: Number(focusEvidence?.correct) || 0,
+    lastActive: focusEvidence?.lastActive || null
+  }, now)];
+}
+
+export function summariseSkillStatuses(skillRows = []) {
+  const counts = { secure: 0, developing: 0, needsSupport: 0 };
+  skillRows.forEach(row => {
+    if (!row?.conclusion?.ready) return;
+    if (row.conclusion.status.id === LEARNING_STATUS_IDS.SECURE) counts.secure += 1;
+    else if (row.conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING) counts.developing += 1;
+    else if (row.conclusion.status.id === LEARNING_STATUS_IDS.NEEDS_SUPPORT) counts.needsSupport += 1;
+  });
+  return counts;
 }
 
 export function latestMetricUpdate(values = []) {

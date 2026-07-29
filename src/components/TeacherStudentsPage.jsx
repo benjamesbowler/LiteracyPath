@@ -33,26 +33,27 @@ import {
   TeacherPageHeader,
   TeacherPageShell
 } from "./teacher/ui/TeacherPrimitives.jsx";
-import {
-  TeacherDrawer,
-  TeacherModal
-} from "./teacher/ui/TeacherDialog.jsx";
+import { TeacherModal } from "./teacher/ui/TeacherDialog.jsx";
 import {
   LearnerAccessibilityDialog,
   QuestionTypeGuideDialog,
   RosterMetric,
-  StudentInitial,
   TeacherSetupChecklist
 } from "./teacher/TeacherClassParts.jsx";
 import { getTeacherPaginationWindow } from "./teacher/teacherPagination.js";
 import { getTeacherArchivedRosterView } from "./teacher/teacherArchivedRoster.js";
 import {
+  ROSTER_INACTIVE_DAYS,
   accuracyConclusion,
   activityIsAtLeastDaysOld,
+  activityIsFromToday,
+  buildStudentPanelSkillRows,
   formatLastActive,
   getProgressPercent,
   latestMetricUpdate,
   needsSupportConclusion,
+  rosterMatchesStatusFilter,
+  summariseSkillStatuses,
   useTeacherSetupState,
   useTeacherStudentRows
 } from "./teacher/teacherClassModel.js";
@@ -69,20 +70,19 @@ import { getClassListReadView } from "../appState/classListReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
 import logoUrl from "../assets/logo.svg";
 
+// The five roster columns of the approved design — student, current focus,
+// accuracy, learning status, last active — are FIXED and can no longer be
+// switched off. That is the fix for the fault this picker used to carry: the
+// sign-in state and the control that sets a child's pictures were hideable, so
+// a brand-new class could be made unusable from a checkbox. Sign-in now rides
+// permanently under the student's name, and the picker only ADDS the two
+// detail columns the design leaves out.
 const ROSTER_COLUMN_OPTIONS = [
-  { id: "focus", label: "Current focus" },
   { id: "progress", label: "Progress" },
-  { id: "sound-seekers", label: "Sound Seekers" },
-  { id: "login", label: "Sign-in" },
-  { id: "last-active", label: "Last active" }
+  { id: "sound-seekers", label: "Sound Seekers" }
 ];
-// "login" (the Sign-in column) is back in the defaults: it carries the only
-// per-student control that lets a class sign in at all, so hiding it behind the
-// column picker made a brand-new class unusable.
-// The default roster answers the four questions teachers use during a lesson:
-// who, current focus, can they sign in, and when were they last active.
-// Detailed progress stays in the student panel instead of widening every row.
-const DEFAULT_ROSTER_COLUMNS = ["focus", "login", "last-active"];
+const DEFAULT_ROSTER_COLUMNS = [];
+const ROSTER_FIXED_COLUMN_COUNT = 5;
 const ROSTER_PAGE_SIZE = 10;
 
 function loadVisibleRosterColumns(teacherId) {
@@ -118,6 +118,13 @@ function classAverageHeldBackNote(comparability = {}) {
     return "One student has answered far more often than the others, so a class average would mostly describe that student. It appears once the class has answered more evenly.";
   }
   return "We are still missing the number of answers for at least one student, so a class average would not be fair yet. It appears once every student's answers have saved.";
+}
+
+// "Assess Amara" reads better than "Assess Amara N." on a 340px panel button.
+// The button's accessible name keeps the full display name, so the visible text
+// stays a substring of it.
+function studentFirstName(name = "") {
+  return String(name).trim().split(/\s+/)[0] || String(name).trim();
 }
 
 function formatLoginCardPassword(sequence) {
@@ -364,6 +371,35 @@ const SOUND_STATUS_WORDS = Object.freeze({
   unseen: "not met yet"
 });
 
+// Print the home practice pack straight from this student's saved sounds: the
+// sounds the teacher tapped, or the weakest five when nothing is tapped, with
+// every word decodable at the furthest stop the student has reached. The
+// student panel's "Print practice pack" and the sound map's own button are the
+// same action, so the failure sentences are written once.
+function printStudentPracticePack({ report, studentName, targets = [] }) {
+  const packTargets = targets.length
+    ? targets
+    : (report?.weakest || []).map(row => row.target);
+  const stop = packStopIndex(report);
+  if (!packTargets.length || !stop) {
+    return "Nothing needs extra practice right now — tap sounds to build a custom pack.";
+  }
+  try {
+    const result = printPracticePack({
+      name: studentName,
+      targets: packTargets,
+      stopIndex: stop
+    });
+    if (!result) return "Please allow pop-ups for this site so the pack can open.";
+    return result.skipped.length
+      ? `Skipped (too few decodable words yet): ${result.skipped.map(packTargetLabel).join(", ")}`
+      : "";
+  } catch (error) {
+    console.error("Could not build the student's practice pack.", error);
+    return "We couldn't build this practice pack. Nothing was printed. Try again.";
+  }
+}
+
 function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
   const [selected, setSelected] = useState([]);
   const [busy, setBusy] = useState(false);
@@ -435,29 +471,8 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
     }
   }
 
-  // Print the home practice pack straight from this student's evidence: the
-  // sounds the teacher tapped, or the weakest five when nothing is tapped,
-  // with every word decodable at the furthest stop the student has reached.
   function printPack() {
-    const targets = selected.length ? selected : (report?.weakest || []).map(row => row.target);
-    const stop = packStopIndex(report);
-    if (!targets.length || !stop) {
-      setPackNote("Nothing needs extra practice right now — tap sounds to build a custom pack.");
-      return;
-    }
-    try {
-      const result = printPracticePack({ name: studentName, targets, stopIndex: stop });
-      if (!result) {
-        setPackNote("Please allow pop-ups for this site so the pack can open.");
-        return;
-      }
-      setPackNote(result.skipped.length
-        ? `Skipped (too few decodable words yet): ${result.skipped.map(packTargetLabel).join(", ")}`
-        : "");
-    } catch (error) {
-      console.error("Could not build the student's practice pack.", error);
-      setPackNote("We couldn't build this practice pack. Nothing was printed. Try again.");
-    }
+    setPackNote(printStudentPracticePack({ report, studentName, targets: selected }));
   }
 
   if (!tiles.length) return <p className="muted-text">No sound map yet — the trail builds one from the first session.</p>;
@@ -622,6 +637,7 @@ export function TeacherStudentsPage({
   const [signInPictureError, setSignInPictureError] = useState("");
   const [savingSignInPictures, setSavingSignInPictures] = useState(false);
   const [heatOpenId, setHeatOpenId] = useState(null);
+  const [panelPackNote, setPanelPackNote] = useState("");
   const [showQuestionGuide, setShowQuestionGuide] = useState(false);
   const [questionGuideSearch, setQuestionGuideSearch] = useState("");
   const [classToolsOpen, setClassToolsOpen] = useState(false);
@@ -640,6 +656,7 @@ export function TeacherStudentsPage({
   selectedClassIdRef.current = selectedClassId;
   const newClassInputRef = useRef(null);
   const newStudentInputRef = useRef(null);
+  const rosterImportRef = useRef(null);
   function focusNewClassInput() {
     setClassToolsOpen(true);
     window.requestAnimationFrame(() => {
@@ -652,6 +669,17 @@ export function TeacherStudentsPage({
     window.requestAnimationFrame(() => {
       newStudentInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
       newStudentInputRef.current?.focus?.();
+    });
+  }
+  // The header's "Import a class list" is a shortcut to the roster tools, not a
+  // second implementation of them: it opens the same panel and moves focus to it.
+  function openRosterImport() {
+    setRosterAdminOpen(true);
+    setShowRosterImport(true);
+    setRosterImportPreview(null);
+    window.requestAnimationFrame(() => {
+      rosterImportRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
+      rosterImportRef.current?.focus?.();
     });
   }
   function openStudentProfile(student) {
@@ -697,13 +725,17 @@ export function TeacherStudentsPage({
       setSavingSignInPictures(false);
     }
   }
-  function closeStudentPanelBefore(action) {
-    onClearStudent?.();
+  // The student panel used to be a non-modal drawer, so a dialog opened from it
+  // had to close it first — two stacked layers is not a thing a teacher can
+  // read. The panel is now an ordinary region beside the roster, so a dialog is
+  // the only layer and the selection SURVIVES it: closing the dialog returns to
+  // the same student, which is the whole promise of this screen.
+  function keepStudentPanelDuring(action) {
     action();
   }
   function openStudentActions(student) {
     setStudentActionError("");
-    closeStudentPanelBefore(() => setActionsStudent(student));
+    keepStudentPanelDuring(() => setActionsStudent(student));
   }
   async function saveStudentProfile(event) {
     event.preventDefault();
@@ -800,12 +832,21 @@ export function TeacherStudentsPage({
     readState: classDashboardReadState,
     classId: selectedClassId
   });
-  const dashboardRowsForClass = dashboardRead.rowsBelongToClass
-    ? classDashboard.filter(row => (
-      !classDashboardReadState?.status
-      || String(row?.classId || "") === String(selectedClassId || "")
-    ))
-    : [];
+  const dashboardRowsBelongToClass = dashboardRead.rowsBelongToClass;
+  const dashboardRowsForClass = useMemo(
+    () => (dashboardRowsBelongToClass
+      ? classDashboard.filter(row => (
+        !classDashboardReadState?.status
+        || String(row?.classId || "") === String(selectedClassId || "")
+      ))
+      : []),
+    [
+      classDashboard,
+      classDashboardReadState?.status,
+      dashboardRowsBelongToClass,
+      selectedClassId
+    ]
+  );
   const studentRows = useTeacherStudentRows({
     studentList: rosterRead.rowsBelongToClass ? studentList : [],
     classDashboard: rosterRead.complete ? dashboardRowsForClass : []
@@ -845,7 +886,7 @@ export function TeacherStudentsPage({
       studentIds: studentRows
         .filter(row =>
           row.evidenceReadStatus === "complete"
-          && formatLastActive(row.lastActive) === "Today"
+          && activityIsFromToday(row.lastActive)
         )
         .map(row => row.id)
     }
@@ -854,6 +895,33 @@ export function TeacherStudentsPage({
   const selectedStudentRow = studentRows.find(row => row.id === selectedStudentId) || null;
   const selectedStudentResultsAvailable =
     selectedStudentRow?.evidenceReadStatus === "complete";
+  // ── The student panel's own reading of one student ────────────────────────
+  // Skill rows come from that student's saved answers grouped by the skill they
+  // were answering, so accuracy and learning status stay two separate facts and
+  // a skill with too few answers is never rendered as a low score.
+  const selectedDashboardRow = useMemo(
+    () => dashboardRowsForClass.find(row => row.id === selectedStudentId) || null,
+    [dashboardRowsForClass, selectedStudentId]
+  );
+  const selectedSkillEvidence = useMemo(
+    () => (selectedStudentResultsAvailable
+      ? buildStudentPanelSkillRows(selectedDashboardRow || {})
+      : []),
+    [selectedDashboardRow, selectedStudentResultsAvailable]
+  );
+  const selectedSkillCounts = useMemo(
+    () => summariseSkillStatuses(selectedSkillEvidence),
+    [selectedSkillEvidence]
+  );
+  const selectedStudentSummary = !selectedStudentRow
+    ? ""
+    : !selectedStudentResultsAvailable
+      ? "Some saved results could not be loaded, so no summary is shown."
+      : selectedStudentRow.currentAnswered === 0
+        ? "No scored answers yet. A first assessment gives you a starting point."
+        : selectedStudentRow.learningConclusion?.ready
+          ? `Working on ${selectedStudentRow.currentSkill}. ${countPhrase(selectedStudentRow.currentAnswered, "saved answer")} in the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`
+          : `${countPhrase(selectedStudentRow.currentAnswered, "saved answer")} so far. Too few for a learning judgement.`;
   // ── Action cards: turn roster data into one-click next steps ──────────────
   const actionCards = useMemo(() => {
     const cards = [];
@@ -949,16 +1017,7 @@ export function TeacherStudentsPage({
   const normalizedRosterSearch = rosterSearch.trim().toLowerCase();
   const visibleStudentRows = groupedStudentRows
     .filter(row => !normalizedRosterSearch || row.name.toLowerCase().includes(normalizedRosterSearch))
-    .filter(row => {
-      if (rosterStatusFilter === "login-missing") return !row.symbol_password;
-      if (rosterStatusFilter === "not-started") {
-        return row.evidenceReadStatus === "complete" && row.answered === 0;
-      }
-      if (rosterStatusFilter === "needs-attention") {
-        return needsSupportConclusion(row);
-      }
-      return true;
-    })
+    .filter(row => rosterMatchesStatusFilter(row, rosterStatusFilter))
     .sort((left, right) => {
       if (rosterSort === "progress") {
         return right.masteredCount - left.masteredCount || left.name.localeCompare(right.name);
@@ -985,7 +1044,20 @@ export function TeacherStudentsPage({
   );
   const selectedPageCount = rosterPageRows.filter(row => selectedRosterIds.includes(row.id)).length;
   const enabledRosterColumns = new Set(visibleRosterColumns);
-  const rosterColumnCount = 3 + visibleRosterColumns.length;
+  // The roster grid keeps the approved five-column frame and appends one track
+  // per optional detail column, so the default view is the design exactly.
+  const rosterGridTemplate = [
+    "minmax(150px, 1.4fr)",
+    "minmax(140px, 1fr)",
+    "minmax(70px, 0.7fr)",
+    "minmax(130px, 0.9fr)",
+    "minmax(90px, 0.8fr)",
+    ...visibleRosterColumns.map(() => "minmax(140px, 1fr)")
+  ].join(" ");
+  const rosterGridStyle = {
+    "--teacher-roster-grid-template": rosterGridTemplate,
+    "--teacher-roster-grid-min-width": `${620 + visibleRosterColumns.length * 150}px`
+  };
 
   // The roster summary is not a complete inventory of every record linked to a
   // student (for example, a formal assessment report may exist without a
@@ -1014,7 +1086,7 @@ export function TeacherStudentsPage({
   const startedCount = completeEvidenceRows.filter(row => row.answered > 0).length;
   const loginReadyCount = studentRows.filter(row => row.symbol_password).length;
   const activeTodayCount = completeEvidenceRows.filter(
-    row => formatLastActive(row.lastActive) === "Today"
+    row => activityIsFromToday(row.lastActive)
   ).length;
   const classAccuracySummary = useMemo(
     () => buildClassAccuracySummary(completeEvidenceRows.map(row => ({
@@ -1030,6 +1102,14 @@ export function TeacherStudentsPage({
     completeEvidenceRows.map(row => row.currentLastActive)
   );
   const className = knownSelectedClass?.name || "No class selected";
+  // "Willow Class — 28 students". The count is only ever spoken when the roster
+  // read actually completed: a class whose students failed to load is named
+  // without a number rather than described as empty.
+  const rosterTitle = knownSelectedClass
+    ? (classRead.complete && rosterRead.complete
+      ? `${knownSelectedClass.name} — ${TEACHER_COPY.classes.childCount(studentRows.length)}`
+      : knownSelectedClass.name)
+    : TEACHER_COPY.classes.title;
   const {
     hasSetupClass,
     setupSteps,
@@ -1773,36 +1853,46 @@ export function TeacherStudentsPage({
     >
       <TeacherPageHeader
         className="teacher-dashboard-hero"
-        brand={(
-          <div className="teacher-page-brand">
-            <img src={logoUrl} alt="" />
-            <p className="panel-label">{TEACHER_COPY.classes.label}</p>
-          </div>
-        )}
-        title={TEACHER_COPY.classes.title}
+        eyebrow={TEACHER_COPY.classes.label}
+        title={rosterTitle}
         description={knownSelectedClass
-          ? TEACHER_COPY.classes.descriptionWithClass(knownSelectedClass.name)
+          ? "Pick a student on the left; everything you can do for them is on the right."
           : TEACHER_COPY.classes.descriptionWithoutClass}
       >
-        <div
-          className="teacher-dashboard-context"
-          aria-label={TEACHER_COPY.classes.contextLabel}
-        >
-          <span>School</span>
-          <strong>{hasSchool ? schoolName : "Not set"}</strong>
-          <small>
-            {knownSelectedClass
-              ? !classRead.complete
-                ? "Class list needs reloading"
-                : rosterRead.complete
-                ? TEACHER_COPY.classes.childCount(studentRows.length)
-                : rosterRead.incomplete
-                  ? "Student list needs reloading"
-                  : "Loading students…"
-              : className}
-          </small>
+        <div className="teacher-students-header-actions">
+          <button
+            className="lp-button lp-button-secondary"
+            type="button"
+            disabled={!selectedClass || !rosterRead.complete}
+            onClick={openRosterImport}
+          >
+            {TEACHER_COPY.roster.importTitle}
+          </button>
+          <button
+            className="lp-button lp-button-secondary"
+            type="button"
+            disabled={!studentRows.some(row => row.symbol_password)}
+            onClick={() => openLoginCardPreview(studentRows)}
+          >
+            Print sign-in cards
+          </button>
+          <button
+            className="lp-button lp-button-primary"
+            type="button"
+            disabled={!selectedClass || !rosterRead.complete}
+            onClick={focusNewStudentInput}
+          >
+            {TEACHER_COPY.roster.add}
+          </button>
         </div>
       </TeacherPageHeader>
+
+      {/* School and class identity now live in the shared context bar above every
+          teacher screen, so this page states only what is not up there: the
+          class-list read state, which the bar cannot show. */}
+      {knownSelectedClass && !classRead.complete && (
+        <p className="teacher-students-read-note" role="status">Class list needs reloading</p>
+      )}
 
       <ActionFeedback className="teacher-dashboard-message" message={message} />
       <ActionFeedback className="teacher-dashboard-message" feedback={rosterOperationStatus} />
@@ -1820,73 +1910,6 @@ export function TeacherStudentsPage({
           creatingDemo={creatingDemo}
         />
       )}
-
-      <section
-        className="teacher-dashboard-controls"
-        aria-label="Class controls"
-      >
-        <div className="teacher-dashboard-control-group">
-          <label className="teacher-dashboard-control">
-            <span>Current class</span>
-            <select
-              value={selectedClassId || ""}
-              disabled={
-                !classRead.complete
-                || addingStudent
-                || importingRoster
-                || creatingClass
-                || assigningSignIn
-                || operationBusy
-                || restoringStudentIds.length > 0
-              }
-              onChange={handleClassChange}
-            >
-              <option value="">Choose class</option>
-              {visibleClassList.map(cls => (
-                <option key={cls.id} value={cls.id}>
-                  {cls.name}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-
-        {classRead.complete && <details
-          className="teacher-class-tools"
-          open={classToolsOpen}
-          onToggle={event => setClassToolsOpen(event.currentTarget.open)}
-        >
-          <summary>{visibleClassList.length ? "Create another class" : "Create a class"}</summary>
-          <div className="teacher-dashboard-create teacher-dashboard-control-group">
-            <label className="teacher-dashboard-control">
-              <span>Class name</span>
-              <input
-                ref={newClassInputRef}
-                autoComplete="off"
-                disabled={creatingClass}
-                maxLength={120}
-                value={newClassName}
-                placeholder="For example, Willow Class"
-                onChange={event => {
-                  setNewClassName?.(event.target.value);
-                  setDuplicateClassConfirm("");
-                }}
-                onKeyDown={event => {
-                  if (event.key === "Enter" && !event.repeat) handleCreateClass();
-                }}
-              />
-            </label>
-            <button
-              className="lp-button lp-button-primary"
-              disabled={creatingClass || !newClassName.trim()}
-              onClick={handleCreateClass}
-              type="button"
-            >
-              {creatingClass ? "Creating…" : "Create class"}
-            </button>
-          </div>
-        </details>}
-      </section>
 
       {selectedClass && rosterRead.complete && dashboardRead.loading && (
         <TeacherSurfaceState
@@ -1918,15 +1941,994 @@ export function TeacherStudentsPage({
         />
       )}
 
-      {selectedClass && (
-        <details className="teacher-dashboard-secondary">
-          <summary>{TEACHER_COPY.sync.label}</summary>
-          <TeacherActivitySyncHealth
-            supabase={supabase}
-            classId={selectedClass.id}
-            className={selectedClass.name}
-            seedRows={activitySyncHealthSeedRows}
+      {rosterRead.complete && effectiveRosterFilterIds && (
+        <div className="teacher-roster-filter-chip">
+          <span>
+            {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} students
+          </span>
+          <button
+            className="text-button"
+            type="button"
+            onClick={() => {
+              setRosterFilterIds(null);
+              setRosterPage(1);
+              onSelectGroup?.("all");
+            }}
+          >
+            Show all
+          </button>
+        </div>
+      )}
+
+      {/* THE FILTER ROW. Search, the four class filters as pills, and the
+          result count — the design's whole filter surface. Sort, the two extra
+          columns and the sign-in / quiet-student filters keep their home one
+          disclosure below, so nothing that existed became unreachable. */}
+      {selectedClass && rosterRead.complete && studentRows.length > 0 && (
+        <>
+        <TeacherFilterBar
+          className="teacher-roster-tools teacher-students-filter-row"
+          label="Search and filter students"
+        >
+          <label className="teacher-students-search">
+            <span>Search students</span>
+            <input
+              type="search"
+              value={rosterSearch}
+              onChange={event => {
+                setRosterSearch(event.target.value);
+                setRosterPage(1);
+              }}
+              placeholder="Search display names"
+            />
+          </label>
+          <div
+            className="teacher-students-filter-pills"
+            role="group"
+            aria-label={TEACHER_COPY.groups.ariaLabel}
+          >
+            {rosterGroups.map(group => (
+              <button
+                key={group.id}
+                className={`teacher-students-filter-pill${group.id === selectedRosterGroup.id ? " is-active" : ""}`}
+                type="button"
+                aria-pressed={group.id === selectedRosterGroup.id}
+                onClick={() => {
+                  setRosterFilterIds(null);
+                  setRosterPage(1);
+                  onSelectGroup?.(group.id);
+                }}
+              >
+                {group.label}
+                <span aria-hidden="true"> {group.studentIds.length}</span>
+              </button>
+            ))}
+          </div>
+          <p role="status" className="teacher-students-result-count">
+            {visibleStudentRows.length
+              ? `Showing ${rosterPageStart + 1}–${Math.min(rosterPageStart + ROSTER_PAGE_SIZE, visibleStudentRows.length)} of ${visibleStudentRows.length} matching students`
+              : `No matches in ${countPhrase(studentRows.length, "student")}`}
+          </p>
+        </TeacherFilterBar>
+        <details className="teacher-roster-column-picker">
+          <summary>More filters and columns · {visibleRosterColumns.length + ROSTER_FIXED_COLUMN_COUNT} columns shown</summary>
+          <div className="teacher-roster-more-filters">
+            <label className="teacher-dashboard-control">
+              <span>Filter</span>
+              <select
+                value={rosterStatusFilter}
+                onChange={event => {
+                  setRosterStatusFilter(event.target.value);
+                  setRosterPage(1);
+                }}
+              >
+                <option value="all">{TEACHER_COPY.roster.activeFilter}</option>
+                <option value="login-missing">{TEACHER_COPY.roster.signInMissingFilter}</option>
+                <option value="not-started">No scored answers</option>
+                <option value="needs-attention">Needs attention</option>
+                {/* Numeric, from the same saved timestamp Today counts, so a
+                    child last seen three weeks ago is in this list. */}
+                <option value="no-recent-activity">
+                  {`No activity in ${ROSTER_INACTIVE_DAYS} days`}
+                </option>
+              </select>
+            </label>
+            <label className="teacher-dashboard-control">
+              <span>Sort</span>
+              <select
+                value={rosterSort}
+                onChange={event => {
+                  setRosterSort(event.target.value);
+                  setRosterPage(1);
+                }}
+              >
+                <option value="name">Display name</option>
+                <option value="last-active">Last active</option>
+                <option value="focus">Current focus</option>
+                <option value="progress">Progress</option>
+              </select>
+            </label>
+          </div>
+          <fieldset>
+            <legend>Extra columns</legend>
+            {ROSTER_COLUMN_OPTIONS.map(option => (
+              <label key={option.id}>
+                <input
+                  type="checkbox"
+                  checked={enabledRosterColumns.has(option.id)}
+                  onChange={() => toggleRosterColumn(option.id)}
+                />
+                <span>{option.label}</span>
+              </label>
+            ))}
+          </fieldset>
+          <p>Student, current focus, accuracy, status and last active always stay visible. Column choices are saved on this device.</p>
+          <button
+            className="text-button"
+            type="button"
+            onClick={() => saveVisibleRosterColumns(DEFAULT_ROSTER_COLUMNS)}
+          >
+            Restore scannable defaults
+          </button>
+        </details>
+        </>
+      )}
+      <div className="teacher-students-layout">
+      <section className="teacher-dashboard-roster teacher-students-roster" aria-label={TEACHER_COPY.roster.panelLabel}>
+        {classRead.loading ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="loading"
           />
+        ) : classRead.failed ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="partial"
+            detail={classRead.truncated
+              ? "The full class list reached its safety limit. No missing class is being treated as absent."
+              : "The class list could not be confirmed. Previously verified class names remain in the chooser, but class changes are paused until retry succeeds."}
+            onPrimaryAction={() => loadClassesRef.current?.()}
+          />
+        ) : !selectedClass ? (
+          visibleClassList.length > 0 ? (
+            <div className="report-empty-state teacher-onboard-empty">
+              <strong>Choose a class</strong>
+              <p>Select a class above to manage its students.</p>
+            </div>
+          ) : (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="empty"
+            onPrimaryAction={focusNewClassInput}
+          />
+          )
+        ) : rosterRead.loading ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="loading"
+          />
+        ) : rosterRead.incomplete ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="partial"
+            detail={rosterRead.reason === "truncated"
+              ? "The complete student list could not be confirmed because the read reached its safety limit. No missing student is being counted as absent."
+              : "The student list could not be confirmed. An empty class has not been assumed, and no roster changes are available until retry succeeds."}
+            onPrimaryAction={() => {
+              loadStudentsRef.current?.(selectedClassId);
+              loadClassDashboardRef.current?.(selectedClassId);
+            }}
+          />
+        ) : !rosterRead.complete ? (
+          <TeacherSurfaceState
+            compact
+            surface="classes"
+            state="loading"
+          />
+        ) : studentRows.length === 0 ? (
+          <div className="report-empty-state teacher-onboard-empty">
+            <strong>{TEACHER_COPY.roster.firstTitle(selectedClass.name)}</strong>
+            <p>{TEACHER_COPY.roster.firstBody}</p>
+            <button className="lp-button lp-button-primary" type="button" onClick={focusNewStudentInput}>
+              {TEACHER_COPY.roster.firstAction}
+            </button>
+          </div>
+        ) : visibleStudentRows.length === 0 ? (
+          <div className="report-empty-state teacher-roster-empty-filter">
+            <strong>No students match these filters</strong>
+            <p>Clear the search and filters to return to the whole class.</p>
+            <button
+              className="lp-button lp-button-secondary"
+              type="button"
+              onClick={() => {
+                setRosterSearch("");
+                setRosterStatusFilter("all");
+                setRosterFilterIds(null);
+                setRosterPage(1);
+                onSelectGroup?.("all");
+              }}
+            >
+              Clear filters
+            </button>
+          </div>
+        ) : (
+          <>
+          <TeacherDataTable
+            className="dashboard-table teacher-roster-table teacher-roster-grid"
+            label={`${selectedClass.name} students`}
+          >
+              <thead role="rowgroup">
+                <tr role="row" style={rosterGridStyle}>
+                  <th scope="col" role="columnheader">
+                    <span className="teacher-roster-head-student">
+                      <input
+                        aria-label="Select all students on this page"
+                        type="checkbox"
+                        checked={rosterPageRows.length > 0 && selectedPageCount === rosterPageRows.length}
+                        onChange={event => {
+                          const visibleIds = rosterPageRows.map(row => row.id);
+                          setSelectedRosterIds(previous => event.target.checked
+                            ? [...new Set([...previous, ...visibleIds])]
+                            : previous.filter(id => !visibleIds.includes(id)));
+                        }}
+                      />
+                      <span>Student</span>
+                    </span>
+                  </th>
+                  <th scope="col" role="columnheader">Current focus</th>
+                  <th scope="col" role="columnheader">Accuracy</th>
+                  <th scope="col" role="columnheader">Status</th>
+                  <th scope="col" role="columnheader">Last active</th>
+                  {enabledRosterColumns.has("progress") && <th scope="col" role="columnheader">Progress</th>}
+                  {enabledRosterColumns.has("sound-seekers") && <th scope="col" role="columnheader">Sound Seekers</th>}
+                </tr>
+              </thead>
+              <tbody role="rowgroup">
+                {rosterPageRows.map(row => {
+                  const resultsAvailable = row.evidenceReadStatus === "complete";
+                  const progressPercent = resultsAvailable
+                    ? getProgressPercent(row, skillTotal)
+                    : 0;
+                  const loginReady = Boolean(row.symbol_password);
+                  const selected = selectedStudentId === row.id;
+                  return (
+                  <Fragment key={row.id}>
+                  <tr
+                    role="row"
+                    style={rosterGridStyle}
+                    className={`${loginReady ? "login-ready" : "login-missing"}${resultsAvailable ? "" : " results-incomplete"}${selected ? " is-selected" : ""}`}
+                    data-results-status={resultsAvailable ? "complete" : "incomplete"}
+                    data-selected={selected ? "true" : undefined}
+                    onClick={event => {
+                      // Clicking anywhere in the row selects the student, but a
+                      // real control inside it keeps its own job.
+                      if (event.target.closest("button, input, a, label, select, textarea, summary")) return;
+                      onLoadStudent?.(row.id, row.name);
+                    }}
+                  >
+                    <td data-label="Display name" role="cell">
+                      <span className="teacher-student-cell">
+                        <input
+                          aria-label={`Select ${row.name}`}
+                          type="checkbox"
+                          checked={selectedRosterIds.includes(row.id)}
+                          onChange={event => setSelectedRosterIds(previous => event.target.checked
+                            ? [...new Set([...previous, row.id])]
+                            : previous.filter(id => id !== row.id))}
+                        />
+                        <button
+                          className="teacher-roster-name teacher-open-student"
+                          type="button"
+                          aria-pressed={selected}
+                          onClick={() => onLoadStudent?.(row.id, row.name)}
+                        >
+                          <strong>{row.name}</strong>
+                          <small>{loginReady ? "Sign-in ready" : "Pictures missing"}</small>
+                          {resultsAvailable ? null : <small>Some results could not load</small>}
+                        </button>
+                      </span>
+                    </td>
+                    <td data-label="Current focus" role="cell">
+                      {resultsAvailable ? (
+                        <span className="teacher-focus-pill">
+                          <MetricFigure metricId="current-skill" updatedAt={row.lastActive}>
+                            {row.currentSkill}
+                          </MetricFigure>
+                        </span>
+                      ) : <span className="muted-text">Results unavailable</span>}
+                    </td>
+                    {/* Accuracy and learning status are deliberately two columns.
+                        A student with too few saved answers shows an em dash here
+                        and their real state in the pill — never 0%. */}
+                    <td data-label="Accuracy" role="cell" className="teacher-roster-accuracy">
+                      {resultsAvailable ? (
+                        row.learningConclusion?.ready ? (
+                          <MetricFigure
+                            denominator={`${countPhrase(row.currentAnswered, "scored answer")} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
+                            dateRange={`The last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
+                            metricId="accuracy"
+                            updatedAt={row.currentLastActive}
+                          >
+                            {`${row.learningConclusion.accuracy}%`}
+                          </MetricFigure>
+                        ) : <span aria-label="No accuracy yet">—</span>
+                      ) : <span className="muted-text">Results unavailable</span>}
+                    </td>
+                    <td data-label="Status" role="cell">
+                      <span className={`teacher-status-pill is-${row.learningConclusion?.status?.id || "not_checked"}`}>
+                        {resultsAvailable
+                          ? accuracyConclusion({ ...row, learningConclusion: { ...row.learningConclusion, ready: false } })
+                          : "Results unavailable"}
+                      </span>
+                    </td>
+                    <td data-label="Last active" role="cell" className="teacher-roster-last-active">
+                      {resultsAvailable
+                        ? formatLastActive(row.lastActive)
+                        : "Results unavailable"}
+                    </td>
+                    {enabledRosterColumns.has("progress") && <td data-label="Progress" role="cell">
+                      {resultsAvailable ? <div className="teacher-progress-cell">
+                        <div className="teacher-progress-line">
+                          <strong>
+                            <MetricFigure
+                              denominator={`${skillTotal} curriculum skills.`}
+                              metricId="mastered"
+                              updatedAt={row.lastActive}
+                            >
+                              {row.answered
+                                ? `${progressPhrase(row.masteredCount, skillTotal)} secure`
+                                : "No scored answers"}
+                            </MetricFigure>
+                          </strong>
+                        </div>
+                        <div className="teacher-progress-track" aria-hidden="true">
+                          <span style={{ width: `${progressPercent}%` }} />
+                        </div>
+                      </div> : <span className="muted-text">Results unavailable</span>}
+                    </td>}
+                    {enabledRosterColumns.has("sound-seekers") && <td data-label="Sound Seekers" role="cell">
+                      {!resultsAvailable
+                        ? <span className="muted-text">Results unavailable</span>
+                        : row.soundSeekers?.sessions || row.soundSeekers?.stopsCompleted > 0 ? (
+                        <div className="teacher-quest-cell">
+                          <strong>
+                            <MetricFigure
+                              metricId="trails"
+                              updatedAt={row.soundSeekers.syncedAt || row.lastActive}
+                            >
+                              {progressPhrase(row.soundSeekers.stopsCompleted, 40)} trails
+                            </MetricFigure>
+                          </strong>
+                          <span>{row.soundSeekers.stonesLit} sounds lit · {row.soundSeekers.timeOnTask}</span>
+                          <small>{row.soundSeekers.currentFocus?.length ? `Needs re-teaching: ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
+                        </div>
+                      ) : <span className="muted-text">Not started</span>}
+                    </td>}
+                  </tr>
+                  </Fragment>
+                  );
+                })}
+              </tbody>
+          </TeacherDataTable>
+          {/* The archived count closes the roster card, exactly where the design
+              puts it; the list itself opens below. */}
+          {archivedRowsForSelectedClass.length > 0 && (
+            <p className="teacher-roster-archived-strip">
+              {TEACHER_COPY.roster.archivedSummary(archivedRowsForSelectedClass.length)}
+              <span aria-hidden="true"> · </span>
+              results kept, sign-in revoked
+            </p>
+          )}
+          {rosterPageCount > 1 && (
+            <nav className="teacher-roster-pagination" aria-label="Student roster pages">
+              <p>
+                Page {currentRosterPage} of {rosterPageCount}
+                <span aria-hidden="true"> · </span>
+                {rosterPageStart + 1}–{Math.min(rosterPageStart + ROSTER_PAGE_SIZE, visibleStudentRows.length)} of {visibleStudentRows.length}
+              </p>
+              <div>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  disabled={currentRosterPage === 1}
+                  onClick={() => setRosterPage(Math.max(1, currentRosterPage - 1))}
+                >
+                  Previous
+                </button>
+                {rosterPaginationItems.map(item => (
+                  typeof item === "number" ? (
+                    <button
+                      className={item === currentRosterPage ? "is-current" : ""}
+                      type="button"
+                      aria-label={`Page ${item}`}
+                      aria-current={item === currentRosterPage ? "page" : undefined}
+                      onClick={() => setRosterPage(item)}
+                      key={item}
+                    >
+                      {item}
+                    </button>
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="teacher-roster-pagination-ellipsis"
+                      key={item}
+                    >
+                      …
+                    </span>
+                  )
+                ))}
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  disabled={currentRosterPage === rosterPageCount}
+                  onClick={() => setRosterPage(Math.min(rosterPageCount, currentRosterPage + 1))}
+                >
+                  Next
+                </button>
+              </div>
+            </nav>
+          )}
+          </>
+        )}
+      </section>
+
+      {/* THE STUDENT PANEL (teacher-area redesign v2, phase 3).
+          Not a drawer any more: an ordinary region beside the roster, so
+          choosing a row swaps its contents with no navigation, no focus move
+          and no scroll jump. Everything you can do to one student opens from
+          here — the four Do-next actions, the sound map, the settings dialog
+          and the three footer links. */}
+      <aside
+        className="teacher-student-panel"
+        role="region"
+        aria-label={selectedStudentRow
+          ? `Student details: ${selectedStudentRow.name}`
+          : "Student panel"}
+        data-teacher-learner-id={selectedStudentRow?.id}
+      >
+        {!selectedStudentRow ? (
+          <div className="teacher-student-panel-empty">
+            <p className="panel-label">Student panel</p>
+            <h3>Pick a student</h3>
+            <p>
+              {selectedClass && rosterRead.complete && studentRows.length > 0
+                ? "Choose a name in the list to see their results and everything you can do for them."
+                : "Their results and the actions for them appear here."}
+            </p>
+          </div>
+        ) : (
+          <>
+            <header className="teacher-student-panel-header">
+              <p className="panel-label">Student panel</p>
+              <h3>{selectedStudentRow.name}</h3>
+              <p className="teacher-student-panel-summary">{selectedStudentSummary}</p>
+              <p className="teacher-student-panel-focus">
+                <strong>Current focus:</strong>{" "}
+                {selectedStudentResultsAvailable ? (
+                  <MetricFigure
+                    metricId="current-skill"
+                    updatedAt={selectedStudentRow.lastActive}
+                  >
+                    {selectedStudentRow.currentSkill}
+                  </MetricFigure>
+                ) : "Results unavailable"}
+              </p>
+              <button className="text-button" type="button" onClick={onClearStudent}>
+                Close student details
+              </button>
+            </header>
+
+            <div
+              className="teacher-student-panel-tiles"
+              role="group"
+              aria-label={`${selectedStudentRow.name} skill status counts`}
+            >
+              <div className="teacher-student-panel-tile is-secure">
+                <span>Secure</span>
+                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.secure : "—"}</strong>
+              </div>
+              <div className="teacher-student-panel-tile is-developing">
+                <span>Developing</span>
+                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.developing : "—"}</strong>
+              </div>
+              <div className="teacher-student-panel-tile is-needs">
+                <span>Needs support</span>
+                <strong>{selectedStudentResultsAvailable ? selectedSkillCounts.needsSupport : "—"}</strong>
+              </div>
+            </div>
+
+            <section className="teacher-student-panel-section">
+              <p className="panel-label">Do next</p>
+              <div className="teacher-learner-drawer-actions">
+                <button
+                  className="lp-button lp-button-primary teacher-start-check"
+                  type="button"
+                  aria-label={`Assess ${selectedStudentRow.name}`}
+                  onClick={() => onStartCheck?.(selectedStudentRow)}
+                >
+                  Assess {studentFirstName(selectedStudentRow.name)}
+                </button>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => onOpenGuidedReading?.(selectedStudentRow)}
+                >
+                  Open guided reading — Level C
+                </button>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => onOpenReport?.(selectedStudentRow)}
+                >
+                  Open report
+                </button>
+                <button
+                  className="lp-button teacher-panel-ghost"
+                  type="button"
+                  onClick={() => setPanelPackNote(printStudentPracticePack({
+                    report: selectedStudentRow.soundSeekers,
+                    studentName: selectedStudentRow.name
+                  }))}
+                >
+                  Print practice pack
+                </button>
+              </div>
+              {panelPackNote && (
+                <p className="muted-text teacher-student-panel-note" role="status">{panelPackNote}</p>
+              )}
+            </section>
+
+            <section className="teacher-student-panel-section teacher-student-panel-skills">
+              <p className="panel-label">Latest results</p>
+              {selectedSkillEvidence.length > 0 ? (
+                <ul aria-label={`${selectedStudentRow.name} results by skill`}>
+                  {selectedSkillEvidence.slice(0, 4).map(skill => (
+                    <li key={skill.skill}>
+                      <span className="teacher-student-panel-skill">{skill.skill}</span>
+                      {/* Accuracy and learning status stay separate. Too few
+                          answers shows the raw count, never a percentage. */}
+                      <span className="teacher-student-panel-skill-accuracy">
+                        {skill.conclusion.ready
+                          ? `${skill.accuracy}%`
+                          : skill.answered > 0
+                            ? `${skill.correct} of ${skill.answered}`
+                            : "—"}
+                      </span>
+                      <span className={`teacher-status-pill is-${skill.conclusion.status.id}`}>
+                        {skill.conclusion.status.label}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="muted-text">
+                  {/* A student with saved answers but no per-skill split is not a
+                      student with no answers. The two are said differently. */}
+                  {!selectedStudentResultsAvailable
+                    ? "Results unavailable"
+                    : selectedStudentRow.answered > 0
+                      ? "Results for each skill are not available yet."
+                      : "No scored answers yet."}
+                </p>
+              )}
+            </section>
+
+            <details className="teacher-student-panel-more">
+              <summary>More for {selectedStudentRow.name}</summary>
+              <div>
+                <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} results summary`}>
+                  <RosterMetric
+                    definitionId="accuracy"
+                    definitionOptions={{
+                      denominator: `${countPhrase(selectedStudentRow.currentAnswered, "scored answer")} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
+                      dateRange: `The last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
+                      updatedAt: selectedStudentRow.currentLastActive
+                    }}
+                    label="Accuracy across skills"
+                    value={selectedStudentResultsAvailable
+                      ? accuracyConclusion(selectedStudentRow)
+                      : "Results unavailable"}
+                  />
+                  <RosterMetric
+                    definitionId="mastered"
+                    definitionOptions={{
+                      denominator: `${skillTotal} curriculum skills.`,
+                      updatedAt: selectedStudentRow.lastActive
+                    }}
+                    label="Skills secured"
+                    value={selectedStudentResultsAvailable
+                      ? progressPhrase(selectedStudentRow.masteredCount, skillTotal)
+                      : "Results unavailable"}
+                  />
+                  <RosterMetric
+                    definitionId="active"
+                    definitionOptions={{
+                      denominator: "This student's saved answers and Sound Seekers play.",
+                      dateRange: "Most recent saved activity across all time.",
+                      updatedAt: selectedStudentRow.lastActive
+                    }}
+                    label="Last active"
+                    value={selectedStudentResultsAvailable
+                      ? formatLastActive(selectedStudentRow.lastActive)
+                      : "Results unavailable"}
+                  />
+                </div>
+                <dl className="teacher-learner-drawer-details">
+                  <div>
+                    <dt>Sign-in</dt>
+                    <dd>
+                      <span>{selectedStudentRow.symbol_password ? "Pictures ready" : "Pictures need setting"}</span>
+                      {selectedStudentRow.symbol_password && (
+                        <>
+                          <SymbolSequence
+                            sequence={selectedStudentRow.symbol_password}
+                            hidden={!visiblePasswords[selectedStudentRow.id]}
+                            size={20}
+                          />
+                          <button
+                            className="text-button"
+                            type="button"
+                            onClick={() => setVisiblePasswords(previous => ({
+                              ...previous,
+                              [selectedStudentRow.id]: !previous[selectedStudentRow.id]
+                            }))}
+                          >
+                            {visiblePasswords[selectedStudentRow.id] ? "Hide pictures" : "Show pictures"}
+                          </button>
+                        </>
+                      )}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Sound Seekers</dt>
+                    <dd>
+                      {!selectedStudentResultsAvailable
+                        ? "Results unavailable"
+                        : selectedStudentRow.soundSeekers?.sessions || selectedStudentRow.soundSeekers?.stopsCompleted > 0
+                        ? (
+                          <MetricFigure
+                            metricId="trails"
+                            updatedAt={selectedStudentRow.soundSeekers.syncedAt || selectedStudentRow.lastActive}
+                          >
+                            {progressPhrase(selectedStudentRow.soundSeekers.stopsCompleted, 40)} trails · {selectedStudentRow.soundSeekers.stonesLit} sounds lit
+                          </MetricFigure>
+                        )
+                        : "Not started"}
+                    </dd>
+                  </div>
+                </dl>
+                <div className="teacher-student-panel-tools">
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    onClick={() => onOpenStoryQuests?.(selectedStudentRow)}
+                  >
+                    Preview Story Quests
+                  </button>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    type="button"
+                    aria-haspopup="dialog"
+                    onClick={() => openStudentActions(selectedStudentRow)}
+                  >
+                    Student settings
+                  </button>
+                </div>
+                {selectedStudentResultsAvailable && selectedStudentRow.soundSeekers && (
+                  <div className="teacher-student-panel-heat">
+                    <button
+                      className="text-button"
+                      type="button"
+                      aria-expanded={heatOpenId === selectedStudentRow.id}
+                      aria-label={`${heatOpenId === selectedStudentRow.id ? "Hide" : "Show"} ${selectedStudentRow.name}'s sound map`}
+                      onClick={() => setHeatOpenId(current => (
+                        current === selectedStudentRow.id ? null : selectedStudentRow.id
+                      ))}
+                    >
+                      {heatOpenId === selectedStudentRow.id
+                        ? "Hide sound map"
+                        : selectedStudentRow.soundSeekers.assignment
+                          ? "Sound map · practice assigned"
+                          : "Sound map"}
+                    </button>
+                    {heatOpenId === selectedStudentRow.id && (
+                      <QuestHeatPanel
+                        report={selectedStudentRow.soundSeekers}
+                        studentName={selectedStudentRow.name}
+                        onAssign={targets => assignQuestPractice?.(selectedStudentRow.id, targets)}
+                        onClear={() => clearQuestPractice?.(selectedStudentRow.id)}
+                      />
+                    )}
+                  </div>
+                )}
+              </div>
+            </details>
+
+            <div className="teacher-student-panel-footer">
+              <button
+                className="text-button"
+                type="button"
+                aria-label={`${selectedStudentRow.symbol_password ? "Change" : "Set"} sign-in pictures for ${selectedStudentRow.name}`}
+                onClick={() => openSignInPictureEditor(selectedStudentRow)}
+              >
+                Sign-in pictures
+              </button>
+              {visibleClassList.length > 1 && (
+                <button
+                  className="text-button"
+                  type="button"
+                  aria-haspopup="dialog"
+                  onClick={() => openRosterOperation("transfer", selectedStudentRow)}
+                >
+                  Move class
+                </button>
+              )}
+              <button
+                className="text-button teacher-student-panel-archive"
+                type="button"
+                aria-haspopup="dialog"
+                onClick={() => openRosterOperation("archive", selectedStudentRow)}
+              >
+                Archive
+              </button>
+            </div>
+          </>
+        )}
+      </aside>
+      </div>
+
+        {selectedClass && rosterRead.complete && (
+        <details
+          className="teacher-roster-admin"
+          data-teacher-priority="roster-admin"
+          open={rosterAdminOpen}
+          onToggle={event => setRosterAdminOpen(event.currentTarget.open)}
+        >
+          <summary>
+            <span>
+              <strong>{TEACHER_COPY.roster.manageTitle}</strong>
+              <small>{TEACHER_COPY.roster.manageBody}</small>
+            </span>
+            <span>Optional setup</span>
+          </summary>
+          <div className="teacher-roster-admin-content">
+          <div className="teacher-roster-actionbar">
+            <div className="teacher-roster-add">
+              <label className="teacher-dashboard-control">
+                <span>{TEACHER_COPY.roster.displayName}</span>
+                <input
+                  ref={newStudentInputRef}
+                  autoComplete="off"
+                  disabled={addingStudent}
+                  maxLength={80}
+                  value={newStudentName}
+                  placeholder={TEACHER_COPY.roster.displayNamePlaceholder}
+                  onChange={event => {
+                    setNewStudentName(event.target.value);
+                    setDuplicateNameConfirm("");
+                  }}
+                  onKeyDown={event => {
+                    if (event.key === "Enter") handleCreateStudent();
+                  }}
+                />
+              </label>
+              <button
+                className="lp-button lp-button-primary"
+                disabled={addingStudent || !newStudentName.trim()}
+                onClick={handleCreateStudent}
+                type="button"
+              >
+                {addingStudent ? "Adding…" : TEACHER_COPY.roster.add}
+              </button>
+            </div>
+            <div className="teacher-roster-actions">
+              <button
+                className="lp-button lp-button-secondary"
+                onClick={() => {
+                  setShowRosterImport(current => !current);
+                  setRosterImportPreview(null);
+                }}
+                type="button"
+                aria-expanded={showRosterImport}
+              >
+                {showRosterImport ? "Close import" : "Import class list"}
+              </button>
+              {studentsMissingSignIn.length > 0 && (
+                <button
+                  className="lp-button lp-button-primary"
+                  type="button"
+                  disabled={assigningSignIn}
+                  onClick={giveEveryoneSignInPictures}
+                >
+                  {assigningSignIn
+                    ? "Making pictures..."
+                    : `${TEACHER_COPY.setup.signInGapAction} (${studentsMissingSignIn.length})`}
+                </button>
+              )}
+              <details className="teacher-roster-more-tools">
+                <summary>More tools</summary>
+                <div>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    disabled={!selectedRosterIds.length}
+                    onClick={() => openLoginCardPreview(studentRows.filter(row => selectedRosterIds.includes(row.id)))}
+                    type="button"
+                  >
+                    Preview selected cards ({selectedRosterIds.length})
+                  </button>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    disabled={!studentRows.some(row => row.symbol_password)}
+                    onClick={() => openLoginCardPreview(studentRows)}
+                    type="button"
+                  >
+                    Preview all cards
+                  </button>
+                  <button className="lp-button lp-button-secondary" onClick={startStudentLogin} type="button">
+                    {TEACHER_COPY.roster.childPreview}
+                  </button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          {showRosterImport && (
+          <section
+            className="teacher-roster-import"
+            aria-label="Import students&apos;s names"
+            ref={rosterImportRef}
+            tabIndex={-1}
+          >
+            <div>
+              <strong>{TEACHER_COPY.roster.importTitle}</strong>
+              <p>{TEACHER_COPY.roster.importBody}</p>
+              <label className="lp-button lp-button-secondary teacher-csv-file-button">
+                <span>Choose CSV file</span>
+                <input accept=".csv,text/csv" onChange={handleCsvFile} type="file" />
+              </label>
+            </div>
+            <label>
+              <span>{TEACHER_COPY.roster.namesLabel}</span>
+              <textarea
+                value={rosterImportText}
+                onChange={event => {
+                  setRosterImportText(event.target.value);
+                  setRosterImportPreview(null);
+                }}
+                placeholder={"Ava\nBen\nChen"}
+                rows={5}
+              />
+            </label>
+            <div className="teacher-roster-import-actions">
+              {!rosterImportPreview ? (
+                <button
+                  className="lp-button lp-button-primary"
+                  type="button"
+                  disabled={!rosterImportText.trim()}
+                  onClick={() => reviewRosterImport(parseCsvNames(rosterImportText))}
+                >
+                  Review import
+                </button>
+              ) : (
+                <>
+                  <p role="status">
+                    <strong>{rosterImportPreview.accepted.length} ready</strong>
+                    {" · "}
+                    {rosterImportPreview.skipped.length} skipped
+                  </p>
+                  {rosterImportPreview.skipped.length > 0 && (
+                    <ul aria-label="Students not included in this import">
+                      {rosterImportPreview.skipped.map((row, index) => (
+                        <li key={`${row.name}-${index}`}>{row.name}: {row.reason}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <button
+                    className="lp-button lp-button-primary"
+                    type="button"
+                    disabled={!rosterImportPreview.accepted.length || importingRoster}
+                    onClick={handleImportStudents}
+                  >
+                    {importingRoster
+                      ? "Importing..."
+                      : `Import ${countPhrase(rosterImportPreview.accepted.length, "student", "students")}`}
+                  </button>
+                </>
+              )}
+            </div>
+          </section>
+          )}
+          <p className="teacher-roster-privacy-note">{TEACHER_COPY.roster.privacy}</p>
+          </div>
+        </details>
+        )}
+
+      {/* Everything the roster screen also has to carry lives below the
+          two columns: the class list tools, the class-level figures, the
+          group filters and assessment guide, and the suggestions that
+          filter the roster above. */}
+      {selectedClass && rosterRead.complete && dashboardRead.complete && (
+        <details className="teacher-students-secondary teacher-students-groups">
+          <summary>
+            <span>Groups and assessment guide</span>
+            <small>Filter the roster or review what each assessment measures</small>
+          </summary>
+          <section className="teacher-roster-groups" aria-label={TEACHER_COPY.groups.ariaLabel}>
+            <div>
+              <p className="panel-label">{TEACHER_COPY.groups.label}</p>
+              <strong>{TEACHER_COPY.groups.description}</strong>
+            </div>
+            <div className="teacher-roster-group-buttons">
+              {rosterGroups.map(group => (
+                <button
+                  key={group.id}
+                  className={group.id === selectedRosterGroup.id ? "is-active" : ""}
+                  type="button"
+                  aria-pressed={group.id === selectedRosterGroup.id}
+                  onClick={() => {
+                    setRosterFilterIds(null);
+                    setRosterPage(1);
+                    onSelectGroup?.(group.id);
+                  }}
+                >
+                  <span>{group.label}</span>
+                  <strong>{group.studentIds.length}</strong>
+                </button>
+              ))}
+            </div>
+            <button
+              className="lp-button lp-button-secondary teacher-question-guide-button"
+              type="button"
+              onClick={openQuestionGuide}
+            >
+              {TEACHER_COPY.help.checkGuide}
+            </button>
+          </section>
+        </details>
+      )}
+
+      {selectedClass && rosterRead.complete && dashboardRead.complete && actionCards.length > 0 && (
+        <details className="teacher-students-secondary teacher-students-suggestions">
+          <summary>
+            <span>Suggested next steps</span>
+            <small>{countPhrase(actionCards.length, "suggestion")}</small>
+          </summary>
+          <section className="teacher-action-cards" aria-label="Suggested next steps">
+            {actionCards.map(card => (
+              <article
+                key={card.id}
+                className={`teacher-action-card ${card.tone}`}
+                data-teacher-recommendation={card.id}
+              >
+                <div className="teacher-action-card-copy">
+                  <strong>{card.title}</strong>
+                  <p>{card.detail}</p>
+                  <TeacherRecommendationExplanation
+                    explanation={card.explanation}
+                    surface="teacher-dashboard-next-steps"
+                  />
+                </div>
+                <button
+                  className="lp-button lp-button-secondary"
+                  type="button"
+                  onClick={() => {
+                    if (card.onClick) card.onClick();
+                    else if (card.studentIds) {
+                      setRosterFilterIds(card.studentIds);
+                      setRosterPage(1);
+                    }
+                  }}
+                >
+                  {card.action}
+                </button>
+              </article>
+            ))}
+          </section>
         </details>
       )}
 
@@ -2031,845 +3033,95 @@ export function TeacherStudentsPage({
         </details>
       )}
 
-      {selectedClass && rosterRead.complete && dashboardRead.complete && (
-        <details className="teacher-students-secondary teacher-students-groups">
-          <summary>
-            <span>Groups and assessment guide</span>
-            <small>Filter the roster or review what each assessment measures</small>
-          </summary>
-          <section className="teacher-roster-groups" aria-label={TEACHER_COPY.groups.ariaLabel}>
-            <div>
-              <p className="panel-label">{TEACHER_COPY.groups.label}</p>
-              <strong>{TEACHER_COPY.groups.description}</strong>
-            </div>
-            <div className="teacher-roster-group-buttons">
-              {rosterGroups.map(group => (
-                <button
-                  key={group.id}
-                  className={group.id === selectedRosterGroup.id ? "is-active" : ""}
-                  type="button"
-                  aria-pressed={group.id === selectedRosterGroup.id}
-                  onClick={() => {
-                    setRosterFilterIds(null);
-                    setRosterPage(1);
-                    onSelectGroup?.(group.id);
-                  }}
-                >
-                  <span>{group.label}</span>
-                  <strong>{group.studentIds.length}</strong>
-                </button>
-              ))}
-            </div>
-            <button
-              className="lp-button lp-button-secondary teacher-question-guide-button"
-              type="button"
-              onClick={openQuestionGuide}
+      {selectedClass && (
+        <details className="teacher-dashboard-secondary">
+          <summary>{TEACHER_COPY.sync.label}</summary>
+          <TeacherActivitySyncHealth
+            supabase={supabase}
+            classId={selectedClass.id}
+            className={selectedClass.name}
+            seedRows={activitySyncHealthSeedRows}
+          />
+        </details>
+      )}
+
+      {/* The context bar above every teacher screen states the current class and
+          its "Change" link, so the page no longer leads with a class picker.
+          Switching and creating a class stay reachable here, one disclosure
+          down, because a teacher who lands on Students with nothing selected
+          must be able to fix that without leaving the screen. */}
+      <details className="teacher-students-secondary teacher-students-class-tools">
+        <summary>
+          <span>Class and school</span>
+          <small>{hasSchool ? schoolName : "School not set"} · {className}</small>
+        </summary>
+      <section
+        className="teacher-dashboard-controls"
+        aria-label="Class controls"
+      >
+        <div className="teacher-dashboard-control-group">
+          <label className="teacher-dashboard-control">
+            <span>Current class</span>
+            <select
+              value={selectedClassId || ""}
+              disabled={
+                !classRead.complete
+                || addingStudent
+                || importingRoster
+                || creatingClass
+                || assigningSignIn
+                || operationBusy
+                || restoringStudentIds.length > 0
+              }
+              onChange={handleClassChange}
             >
-              {TEACHER_COPY.help.checkGuide}
-            </button>
-          </section>
-        </details>
-      )}
-
-      {selectedClass && rosterRead.complete && selectedStudentRow && (
-        <TeacherDrawer
-          label={`Student details: ${selectedStudentRow.name}`}
-          onClose={onClearStudent}
-        >
-          <aside
-            className="teacher-learner-drawer"
-            role="region"
-            aria-label={`Student details: ${selectedStudentRow.name}`}
-            data-teacher-learner-id={selectedStudentRow.id}
-          >
-            <header>
-              <div>
-                <p className="teacher-context-trail">
-                  Students <span aria-hidden="true">/</span> {selectedClass.name}
-                  <span aria-hidden="true">/</span> {selectedRosterGroup.label}
-                  <span aria-hidden="true">/</span> {selectedStudentRow.name}
-                </p>
-                <h3>{selectedStudentRow.name}</h3>
-                <p>
-                  <strong>Current focus:</strong>{" "}
-                  {selectedStudentResultsAvailable ? (
-                    <MetricFigure
-                      metricId="current-skill"
-                      updatedAt={selectedStudentRow.lastActive}
-                    >
-                      {selectedStudentRow.currentSkill}
-                    </MetricFigure>
-                  ) : "Results unavailable"}
-                </p>
-              </div>
-              <button className="text-button" data-autofocus type="button" onClick={onClearStudent}>
-                Close student details
-              </button>
-            </header>
-            <div className="teacher-learner-drawer-metrics" aria-label={`${selectedStudentRow.name} results summary`}>
-              <RosterMetric
-                definitionId="accuracy"
-                definitionOptions={{
-                  denominator: `${countPhrase(selectedStudentRow.currentAnswered, "scored answer")} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
-                  dateRange: `The last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`,
-                  updatedAt: selectedStudentRow.currentLastActive
-                }}
-                label="Accuracy across skills"
-                value={selectedStudentResultsAvailable
-                  ? accuracyConclusion(selectedStudentRow)
-                  : "Results unavailable"}
-              />
-              <RosterMetric
-                definitionId="mastered"
-                definitionOptions={{
-                  denominator: `${skillTotal} curriculum skills.`,
-                  updatedAt: selectedStudentRow.lastActive
-                }}
-                label="Skills secured"
-                value={selectedStudentResultsAvailable
-                  ? progressPhrase(selectedStudentRow.masteredCount, skillTotal)
-                  : "Results unavailable"}
-              />
-              <RosterMetric
-                definitionId="active"
-                definitionOptions={{
-                  denominator: "This student's saved answers and Sound Seekers play.",
-                  dateRange: "Most recent saved activity across all time.",
-                  updatedAt: selectedStudentRow.lastActive
-                }}
-                label="Last active"
-                value={selectedStudentResultsAvailable
-                  ? formatLastActive(selectedStudentRow.lastActive)
-                  : "Results unavailable"}
-              />
-            </div>
-            <dl className="teacher-learner-drawer-details">
-              <div>
-                <dt>Sign-in</dt>
-                <dd>
-                  <span>{selectedStudentRow.symbol_password ? "Pictures ready" : "Pictures need setting"}</span>
-                  {selectedStudentRow.symbol_password && (
-                    <>
-                      <SymbolSequence
-                        sequence={selectedStudentRow.symbol_password}
-                        hidden={!visiblePasswords[selectedStudentRow.id]}
-                        size={20}
-                      />
-                      <button
-                        className="text-button"
-                        type="button"
-                        onClick={() => setVisiblePasswords(previous => ({
-                          ...previous,
-                          [selectedStudentRow.id]: !previous[selectedStudentRow.id]
-                        }))}
-                      >
-                        {visiblePasswords[selectedStudentRow.id] ? "Hide pictures" : "Show pictures"}
-                      </button>
-                    </>
-                  )}
-                </dd>
-              </div>
-              <div>
-                <dt>Sound Seekers</dt>
-                <dd>
-                  {!selectedStudentResultsAvailable
-                    ? "Results unavailable"
-                    : selectedStudentRow.soundSeekers?.sessions || selectedStudentRow.soundSeekers?.stopsCompleted > 0
-                    ? (
-                      <MetricFigure
-                        metricId="trails"
-                        updatedAt={selectedStudentRow.soundSeekers.syncedAt || selectedStudentRow.lastActive}
-                      >
-                        {progressPhrase(selectedStudentRow.soundSeekers.stopsCompleted, 40)} trails · {selectedStudentRow.soundSeekers.stonesLit} sounds lit
-                      </MetricFigure>
-                    )
-                    : "Not started"}
-                </dd>
-              </div>
-            </dl>
-            {/* THE STUDENT PANEL. Everything you can do to one student is here,
-                including the teaching tools that used to be stranded on the
-                Resources page behind a second student picker. */}
-            <div className="teacher-learner-drawer-actions">
-              <button
-                className="lp-button lp-button-primary teacher-start-check"
-                type="button"
-                onClick={() => onStartCheck?.(selectedStudentRow)}
-              >
-                Assess {selectedStudentRow.name}
-              </button>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                onClick={() => onOpenReport?.(selectedStudentRow)}
-              >
-                Open report
-              </button>
-              <details className="teacher-student-panel-more">
-                <summary>Learning tools</summary>
-                <div>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    type="button"
-                    onClick={() => onOpenGuidedReading?.(selectedStudentRow)}
-                  >
-                    Guided reading
-                  </button>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    type="button"
-                    onClick={() => onOpenStoryQuests?.(selectedStudentRow)}
-                  >
-                    Preview Story Quests
-                  </button>
-                </div>
-              </details>
-              <button
-                className="lp-button lp-button-secondary"
-                type="button"
-                aria-haspopup="dialog"
-                onClick={() => openStudentActions(selectedStudentRow)}
-              >
-                Student settings
-              </button>
-            </div>
-          </aside>
-        </TeacherDrawer>
-      )}
-
-      {selectedClass && rosterRead.complete && dashboardRead.complete && actionCards.length > 0 && (
-        <details className="teacher-students-secondary teacher-students-suggestions">
-          <summary>
-            <span>Suggested next steps</span>
-            <small>{countPhrase(actionCards.length, "suggestion")}</small>
-          </summary>
-          <section className="teacher-action-cards" aria-label="Suggested next steps">
-            {actionCards.map(card => (
-              <article
-                key={card.id}
-                className={`teacher-action-card ${card.tone}`}
-                data-teacher-recommendation={card.id}
-              >
-                <div className="teacher-action-card-copy">
-                  <strong>{card.title}</strong>
-                  <p>{card.detail}</p>
-                  <TeacherRecommendationExplanation
-                    explanation={card.explanation}
-                    surface="teacher-dashboard-next-steps"
-                  />
-                </div>
-                <button
-                  className="lp-button lp-button-secondary"
-                  type="button"
-                  onClick={() => {
-                    if (card.onClick) card.onClick();
-                    else if (card.studentIds) {
-                      setRosterFilterIds(card.studentIds);
-                      setRosterPage(1);
-                    }
-                  }}
-                >
-                  {card.action}
-                </button>
-              </article>
-            ))}
-          </section>
-        </details>
-      )}
-
-      {rosterRead.complete && effectiveRosterFilterIds && (
-        <div className="teacher-roster-filter-chip">
-          <span>
-            {rosterFilterIds ? "Suggested group" : selectedRosterGroup.label}: showing {visibleStudentRows.length} of {studentRows.length} students
-          </span>
-          <button
-            className="text-button"
-            type="button"
-            onClick={() => {
-              setRosterFilterIds(null);
-              setRosterPage(1);
-              onSelectGroup?.("all");
-            }}
-          >
-            Show all
-          </button>
+              <option value="">Choose class</option>
+              {visibleClassList.map(cls => (
+                <option key={cls.id} value={cls.id}>
+                  {cls.name}
+                </option>
+              ))}
+            </select>
+          </label>
         </div>
-      )}
 
-      <section className="teacher-dashboard-roster" aria-label={TEACHER_COPY.roster.panelLabel}>
-        {selectedClass && rosterRead.complete && (
-        <details
-          className="teacher-roster-admin"
-          data-teacher-priority="roster-admin"
-          open={rosterAdminOpen}
-          onToggle={event => setRosterAdminOpen(event.currentTarget.open)}
+        {classRead.complete && <details
+          className="teacher-class-tools"
+          open={classToolsOpen}
+          onToggle={event => setClassToolsOpen(event.currentTarget.open)}
         >
-          <summary>
-            <span>
-              <strong>{TEACHER_COPY.roster.manageTitle}</strong>
-              <small>{TEACHER_COPY.roster.manageBody}</small>
-            </span>
-            <span>Optional setup</span>
-          </summary>
-          <div className="teacher-roster-admin-content">
-          <div className="teacher-roster-actionbar">
-            <div className="teacher-roster-add">
-              <label className="teacher-dashboard-control">
-                <span>{TEACHER_COPY.roster.displayName}</span>
-                <input
-                  ref={newStudentInputRef}
-                  autoComplete="off"
-                  disabled={addingStudent}
-                  maxLength={80}
-                  value={newStudentName}
-                  placeholder={TEACHER_COPY.roster.displayNamePlaceholder}
-                  onChange={event => {
-                    setNewStudentName(event.target.value);
-                    setDuplicateNameConfirm("");
-                  }}
-                  onKeyDown={event => {
-                    if (event.key === "Enter") handleCreateStudent();
-                  }}
-                />
-              </label>
-              <button
-                className="lp-button lp-button-primary"
-                disabled={addingStudent || !newStudentName.trim()}
-                onClick={handleCreateStudent}
-                type="button"
-              >
-                {addingStudent ? "Adding…" : TEACHER_COPY.roster.add}
-              </button>
-            </div>
-            <div className="teacher-roster-actions">
-              <button
-                className="lp-button lp-button-secondary"
-                onClick={() => {
-                  setShowRosterImport(current => !current);
-                  setRosterImportPreview(null);
-                }}
-                type="button"
-                aria-expanded={showRosterImport}
-              >
-                {showRosterImport ? "Close import" : "Import class list"}
-              </button>
-              {studentsMissingSignIn.length > 0 && (
-                <button
-                  className="lp-button lp-button-primary"
-                  type="button"
-                  disabled={assigningSignIn}
-                  onClick={giveEveryoneSignInPictures}
-                >
-                  {assigningSignIn
-                    ? "Making pictures..."
-                    : `${TEACHER_COPY.setup.signInGapAction} (${studentsMissingSignIn.length})`}
-                </button>
-              )}
-              <details className="teacher-roster-more-tools">
-                <summary>More tools</summary>
-                <div>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    disabled={!selectedRosterIds.length}
-                    onClick={() => openLoginCardPreview(studentRows.filter(row => selectedRosterIds.includes(row.id)))}
-                    type="button"
-                  >
-                    Preview selected cards ({selectedRosterIds.length})
-                  </button>
-                  <button
-                    className="lp-button lp-button-secondary"
-                    disabled={!studentRows.some(row => row.symbol_password)}
-                    onClick={() => openLoginCardPreview(studentRows)}
-                    type="button"
-                  >
-                    Preview all cards
-                  </button>
-                  <button className="lp-button lp-button-secondary" onClick={startStudentLogin} type="button">
-                    {TEACHER_COPY.roster.childPreview}
-                  </button>
-                </div>
-              </details>
-            </div>
-          </div>
-
-          {showRosterImport && (
-          <section className="teacher-roster-import" aria-label="Import students&apos;s names">
-            <div>
-              <strong>{TEACHER_COPY.roster.importTitle}</strong>
-              <p>{TEACHER_COPY.roster.importBody}</p>
-              <label className="lp-button lp-button-secondary teacher-csv-file-button">
-                <span>Choose CSV file</span>
-                <input accept=".csv,text/csv" onChange={handleCsvFile} type="file" />
-              </label>
-            </div>
-            <label>
-              <span>{TEACHER_COPY.roster.namesLabel}</span>
-              <textarea
-                value={rosterImportText}
+          <summary>{visibleClassList.length ? "Create another class" : "Create a class"}</summary>
+          <div className="teacher-dashboard-create teacher-dashboard-control-group">
+            <label className="teacher-dashboard-control">
+              <span>Class name</span>
+              <input
+                ref={newClassInputRef}
+                autoComplete="off"
+                disabled={creatingClass}
+                maxLength={120}
+                value={newClassName}
+                placeholder="For example, Willow Class"
                 onChange={event => {
-                  setRosterImportText(event.target.value);
-                  setRosterImportPreview(null);
+                  setNewClassName?.(event.target.value);
+                  setDuplicateClassConfirm("");
                 }}
-                placeholder={"Ava\nBen\nChen"}
-                rows={5}
+                onKeyDown={event => {
+                  if (event.key === "Enter" && !event.repeat) handleCreateClass();
+                }}
               />
             </label>
-            <div className="teacher-roster-import-actions">
-              {!rosterImportPreview ? (
-                <button
-                  className="lp-button lp-button-primary"
-                  type="button"
-                  disabled={!rosterImportText.trim()}
-                  onClick={() => reviewRosterImport(parseCsvNames(rosterImportText))}
-                >
-                  Review import
-                </button>
-              ) : (
-                <>
-                  <p role="status">
-                    <strong>{rosterImportPreview.accepted.length} ready</strong>
-                    {" · "}
-                    {rosterImportPreview.skipped.length} skipped
-                  </p>
-                  {rosterImportPreview.skipped.length > 0 && (
-                    <ul aria-label="Students not included in this import">
-                      {rosterImportPreview.skipped.map((row, index) => (
-                        <li key={`${row.name}-${index}`}>{row.name}: {row.reason}</li>
-                      ))}
-                    </ul>
-                  )}
-                  <button
-                    className="lp-button lp-button-primary"
-                    type="button"
-                    disabled={!rosterImportPreview.accepted.length || importingRoster}
-                    onClick={handleImportStudents}
-                  >
-                    {importingRoster
-                      ? "Importing..."
-                      : `Import ${countPhrase(rosterImportPreview.accepted.length, "student", "students")}`}
-                  </button>
-                </>
-              )}
-            </div>
-          </section>
-          )}
-          <p className="teacher-roster-privacy-note">{TEACHER_COPY.roster.privacy}</p>
-          </div>
-        </details>
-        )}
-
-        {selectedClass && rosterRead.complete && studentRows.length > 0 && (
-          <>
-            <TeacherFilterBar
-              className="teacher-roster-tools"
-              label="Search, sort, and filter students"
-            >
-              <label>
-                <span>Search students</span>
-                <input
-                  type="search"
-                  value={rosterSearch}
-                  onChange={event => {
-                    setRosterSearch(event.target.value);
-                    setRosterPage(1);
-                  }}
-                  placeholder="Search display names"
-                />
-              </label>
-              <label>
-                <span>Filter</span>
-                <select
-                  value={rosterStatusFilter}
-                  onChange={event => {
-                    setRosterStatusFilter(event.target.value);
-                    setRosterPage(1);
-                  }}
-                >
-                  <option value="all">{TEACHER_COPY.roster.activeFilter}</option>
-                  <option value="login-missing">{TEACHER_COPY.roster.signInMissingFilter}</option>
-                  <option value="not-started">No scored answers</option>
-                  <option value="needs-attention">Needs attention</option>
-                </select>
-              </label>
-              <label>
-                <span>Sort</span>
-                <select
-                  value={rosterSort}
-                  onChange={event => {
-                    setRosterSort(event.target.value);
-                    setRosterPage(1);
-                  }}
-                >
-                  <option value="name">Display name</option>
-                  <option value="last-active">Last active</option>
-                  <option value="focus">Current focus</option>
-                  <option value="progress">Progress</option>
-                </select>
-              </label>
-              <p role="status">
-                {visibleStudentRows.length
-                  ? `Showing ${rosterPageStart + 1}–${Math.min(rosterPageStart + ROSTER_PAGE_SIZE, visibleStudentRows.length)} of ${visibleStudentRows.length} matching students`
-                  : `No matches in ${countPhrase(studentRows.length, "student")}`}
-              </p>
-            </TeacherFilterBar>
-            <details className="teacher-roster-column-picker">
-              <summary>Choose columns · {visibleRosterColumns.length + 2} shown</summary>
-              <fieldset>
-                <legend>Optional columns</legend>
-                {ROSTER_COLUMN_OPTIONS.map(option => (
-                  <label key={option.id}>
-                    <input
-                      type="checkbox"
-                      checked={enabledRosterColumns.has(option.id)}
-                      onChange={() => toggleRosterColumn(option.id)}
-                    />
-                    <span>{option.label}</span>
-                  </label>
-                ))}
-              </fieldset>
-              <p>Display name and Actions always stay visible. Column choices are saved on this device.</p>
-              <button
-                className="text-button"
-                type="button"
-                onClick={() => saveVisibleRosterColumns(DEFAULT_ROSTER_COLUMNS)}
-              >
-                Restore scannable defaults
-              </button>
-            </details>
-          </>
-        )}
-
-        {classRead.loading ? (
-          <TeacherSurfaceState
-            compact
-            surface="classes"
-            state="loading"
-          />
-        ) : classRead.failed ? (
-          <TeacherSurfaceState
-            compact
-            surface="classes"
-            state="partial"
-            detail={classRead.truncated
-              ? "The full class list reached its safety limit. No missing class is being treated as absent."
-              : "The class list could not be confirmed. Previously verified class names remain in the chooser, but class changes are paused until retry succeeds."}
-            onPrimaryAction={() => loadClassesRef.current?.()}
-          />
-        ) : !selectedClass ? (
-          visibleClassList.length > 0 ? (
-            <div className="report-empty-state teacher-onboard-empty">
-              <strong>Choose a class</strong>
-              <p>Select a class above to manage its students.</p>
-            </div>
-          ) : (
-          <TeacherSurfaceState
-            compact
-            surface="classes"
-            state="empty"
-            onPrimaryAction={focusNewClassInput}
-          />
-          )
-        ) : rosterRead.loading ? (
-          <TeacherSurfaceState
-            compact
-            surface="classes"
-            state="loading"
-          />
-        ) : rosterRead.incomplete ? (
-          <TeacherSurfaceState
-            compact
-            surface="classes"
-            state="partial"
-            detail={rosterRead.reason === "truncated"
-              ? "The complete student list could not be confirmed because the read reached its safety limit. No missing student is being counted as absent."
-              : "The student list could not be confirmed. An empty class has not been assumed, and no roster changes are available until retry succeeds."}
-            onPrimaryAction={() => {
-              loadStudentsRef.current?.(selectedClassId);
-              loadClassDashboardRef.current?.(selectedClassId);
-            }}
-          />
-        ) : !rosterRead.complete ? (
-          <TeacherSurfaceState
-            compact
-            surface="classes"
-            state="loading"
-          />
-        ) : studentRows.length === 0 ? (
-          <div className="report-empty-state teacher-onboard-empty">
-            <strong>{TEACHER_COPY.roster.firstTitle(selectedClass.name)}</strong>
-            <p>{TEACHER_COPY.roster.firstBody}</p>
-            <button className="lp-button lp-button-primary" type="button" onClick={focusNewStudentInput}>
-              {TEACHER_COPY.roster.firstAction}
-            </button>
-          </div>
-        ) : visibleStudentRows.length === 0 ? (
-          <div className="report-empty-state teacher-roster-empty-filter">
-            <strong>No students match these filters</strong>
-            <p>Clear the search and filters to return to the whole class.</p>
             <button
-              className="lp-button lp-button-secondary"
+              className="lp-button lp-button-primary"
+              disabled={creatingClass || !newClassName.trim()}
+              onClick={handleCreateClass}
               type="button"
-              onClick={() => {
-                setRosterSearch("");
-                setRosterStatusFilter("all");
-                setRosterFilterIds(null);
-                setRosterPage(1);
-                onSelectGroup?.("all");
-              }}
             >
-              Clear filters
+              {creatingClass ? "Creating…" : "Create class"}
             </button>
           </div>
-        ) : (
-          <>
-          <TeacherDataTable
-            className="dashboard-table teacher-roster-table"
-            label={`${selectedClass.name} students`}
-          >
-              <thead>
-                <tr>
-                  <th scope="col" aria-label="Select students">
-                    <input
-                      aria-label="Select all students on this page"
-                      type="checkbox"
-                      checked={rosterPageRows.length > 0 && selectedPageCount === rosterPageRows.length}
-                      onChange={event => {
-                        const visibleIds = rosterPageRows.map(row => row.id);
-                        setSelectedRosterIds(previous => event.target.checked
-                          ? [...new Set([...previous, ...visibleIds])]
-                          : previous.filter(id => !visibleIds.includes(id)));
-                      }}
-                    />
-                  </th>
-                  <th scope="col">Display name</th>
-                  {enabledRosterColumns.has("focus") && <th scope="col">Current focus</th>}
-                  {enabledRosterColumns.has("progress") && <th scope="col">Progress</th>}
-                  {enabledRosterColumns.has("sound-seekers") && <th scope="col">Sound Seekers</th>}
-                  {enabledRosterColumns.has("login") && <th scope="col">Sign-in</th>}
-                  {enabledRosterColumns.has("last-active") && <th scope="col">Last active</th>}
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rosterPageRows.map(row => {
-                  const resultsAvailable = row.evidenceReadStatus === "complete";
-                  const progressPercent = resultsAvailable
-                    ? getProgressPercent(row, skillTotal)
-                    : 0;
-                  const loginReady = Boolean(row.symbol_password);
-                  return (
-                  <Fragment key={row.id}>
-                  <tr
-                    className={`${loginReady ? "login-ready" : "login-missing"}${resultsAvailable ? "" : " results-incomplete"}`}
-                    data-results-status={resultsAvailable ? "complete" : "incomplete"}
-                  >
-                    <td data-label="Select">
-                      <input
-                        aria-label={`Select ${row.name}`}
-                        type="checkbox"
-                        checked={selectedRosterIds.includes(row.id)}
-                        onChange={event => setSelectedRosterIds(previous => event.target.checked
-                          ? [...new Set([...previous, row.id])]
-                          : previous.filter(id => id !== row.id))}
-                      />
-                    </td>
-                    <td data-label="Display name">
-                      <div className="teacher-student-cell">
-                        <StudentInitial name={row.name} />
-                        <div>
-                          <strong>{row.name}</strong>
-                          <span>
-                            {resultsAvailable
-                              ? row.answered
-                                ? `${row.answered} answer${row.answered === 1 ? "" : "s"}`
-                                : "No scored answers yet"
-                              : "Some results could not load"}
-                          </span>
-                        </div>
-                      </div>
-                    </td>
-                    {enabledRosterColumns.has("focus") && <td data-label="Current focus">
-                      {resultsAvailable ? (
-                        <span className="teacher-focus-pill">
-                          <MetricFigure metricId="current-skill" updatedAt={row.lastActive}>
-                            {row.currentSkill}
-                          </MetricFigure>
-                        </span>
-                      ) : <span className="muted-text">Results unavailable</span>}
-                    </td>}
-                    {enabledRosterColumns.has("progress") && <td data-label="Progress">
-                      {resultsAvailable ? <div className="teacher-progress-cell">
-                        <div className="teacher-progress-line">
-                          <strong>
-                            <MetricFigure
-                              denominator={`${skillTotal} curriculum skills.`}
-                              metricId="mastered"
-                              updatedAt={row.lastActive}
-                            >
-                              {row.answered
-                                ? `${progressPhrase(row.masteredCount, skillTotal)} secure`
-                                : "No scored answers"}
-                            </MetricFigure>
-                          </strong>
-                          {row.answered ? (
-                            <MetricFigure
-                              denominator={`${countPhrase(row.currentAnswered, "scored answer")} from the last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
-                              dateRange={`The last ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days.`}
-                              metricId="accuracy"
-                              updatedAt={row.currentLastActive}
-                            >
-                              {accuracyConclusion(row)}
-                            </MetricFigure>
-                          ) : null}
-                        </div>
-                        <div className="teacher-progress-track" aria-hidden="true">
-                          <span style={{ width: `${progressPercent}%` }} />
-                        </div>
-                      </div> : <span className="muted-text">Results unavailable</span>}
-                    </td>}
-                    {enabledRosterColumns.has("sound-seekers") && <td data-label="Sound Seekers">
-                      {!resultsAvailable
-                        ? <span className="muted-text">Results unavailable</span>
-                        : row.soundSeekers?.sessions || row.soundSeekers?.stopsCompleted > 0 ? (
-                        <div className="teacher-quest-cell">
-                          <strong>
-                            <MetricFigure
-                              metricId="trails"
-                              updatedAt={row.soundSeekers.syncedAt || row.lastActive}
-                            >
-                              {progressPhrase(row.soundSeekers.stopsCompleted, 40)} trails
-                            </MetricFigure>
-                          </strong>
-                          <span>{row.soundSeekers.stonesLit} sounds lit · {row.soundSeekers.timeOnTask}</span>
-                          <small>{row.soundSeekers.currentFocus?.length ? `Needs re-teaching: ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
-                          <button
-                            className="text-button"
-                            type="button"
-                            aria-expanded={heatOpenId === row.id}
-                            aria-label={`${heatOpenId === row.id ? "Hide" : "Show"} ${row.name}'s sound map`}
-                            onClick={() => setHeatOpenId(current => (current === row.id ? null : row.id))}
-                          >
-                            {heatOpenId === row.id ? "Hide sound map" : row.soundSeekers.assignment ? "Sound map · practice assigned" : "Sound map"}
-                          </button>
-                        </div>
-                      ) : <span className="muted-text">Not started</span>}
-                    </td>}
-                    {enabledRosterColumns.has("login") && <td data-label="Sign-in">
-                      <div className="teacher-login-cell">
-                        <span className={loginReady ? "teacher-login-status ready" : "teacher-login-status missing"}>
-                          {loginReady ? "Ready" : "Needs pictures"}
-                        </span>
-                        <div className="teacher-login-actions">
-                          <button
-                            className="text-button"
-                            aria-label={`${loginReady ? "Change" : "Set"} sign-in pictures for ${row.name}`}
-                            onClick={() => {
-                              openSignInPictureEditor(row);
-                            }}
-                            type="button"
-                          >
-                            {loginReady ? "Change" : "Set pictures"}
-                          </button>
-                        </div>
-                      </div>
-                    </td>}
-                    {enabledRosterColumns.has("last-active") && (
-                      <td data-label="Last active">
-                        {resultsAvailable
-                          ? formatLastActive(row.lastActive)
-                          : "Results unavailable"}
-                      </td>
-                    )}
-                    <td data-label="Actions">
-                      <div className="teacher-row-actions">
-                        <button
-                          className="lp-button lp-button-primary teacher-start-check"
-                          onClick={() => onStartCheck?.(row)}
-                          type="button"
-                          aria-label={`Assess ${row.name}`}
-                        >
-                          Assess
-                        </button>
-                        <button
-                          className="lp-button lp-button-secondary teacher-open-student"
-                          aria-label={`Open ${row.name}`}
-                          onClick={() => onLoadStudent?.(row.id, row.name)}
-                          type="button"
-                        >
-                          Open
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  {resultsAvailable && heatOpenId === row.id && row.soundSeekers && (
-                    <tr className="teacher-heat-row">
-                      <td colSpan={rosterColumnCount}>
-                        <QuestHeatPanel
-                          report={row.soundSeekers}
-                          studentName={row.name}
-                          onAssign={targets => assignQuestPractice?.(row.id, targets)}
-                          onClear={() => clearQuestPractice?.(row.id)}
-                        />
-                      </td>
-                    </tr>
-                  )}
-                  </Fragment>
-                  );
-                })}
-              </tbody>
-          </TeacherDataTable>
-          {rosterPageCount > 1 && (
-            <nav className="teacher-roster-pagination" aria-label="Student roster pages">
-              <p>
-                Page {currentRosterPage} of {rosterPageCount}
-                <span aria-hidden="true"> · </span>
-                {rosterPageStart + 1}–{Math.min(rosterPageStart + ROSTER_PAGE_SIZE, visibleStudentRows.length)} of {visibleStudentRows.length}
-              </p>
-              <div>
-                <button
-                  className="lp-button lp-button-secondary"
-                  type="button"
-                  disabled={currentRosterPage === 1}
-                  onClick={() => setRosterPage(Math.max(1, currentRosterPage - 1))}
-                >
-                  Previous
-                </button>
-                {rosterPaginationItems.map(item => (
-                  typeof item === "number" ? (
-                    <button
-                      className={item === currentRosterPage ? "is-current" : ""}
-                      type="button"
-                      aria-label={`Page ${item}`}
-                      aria-current={item === currentRosterPage ? "page" : undefined}
-                      onClick={() => setRosterPage(item)}
-                      key={item}
-                    >
-                      {item}
-                    </button>
-                  ) : (
-                    <span
-                      aria-hidden="true"
-                      className="teacher-roster-pagination-ellipsis"
-                      key={item}
-                    >
-                      …
-                    </span>
-                  )
-                ))}
-                <button
-                  className="lp-button lp-button-secondary"
-                  type="button"
-                  disabled={currentRosterPage === rosterPageCount}
-                  onClick={() => setRosterPage(Math.min(rosterPageCount, currentRosterPage + 1))}
-                >
-                  Next
-                </button>
-              </div>
-            </nav>
-          )}
-          </>
-        )}
+        </details>}
       </section>
+      </details>
 
       {selectedClass && rosterRead.complete && archivedRowsForSelectedClass.length > 0 && (
         <section className="teacher-archived-roster" aria-label="Archived students">

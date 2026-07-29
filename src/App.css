@@ -1120,15 +1120,17 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   margin-bottom: 12px;
 }
 
-.teacher-dashboard-page .teacher-roster-admin {
+/* Both teacher class pages now state their own section order in the DOM, so the
+   flex-order shuffle that used to move the roster tools around is gone. */
+.teacher-dashboard-page:not(.teacher-students-page) .teacher-roster-admin {
   order: 1;
 }
 
-.teacher-dashboard-page .teacher-dashboard-secondary,
-.teacher-dashboard-page .teacher-roster-metrics,
-.teacher-dashboard-page .teacher-roster-groups,
-.teacher-dashboard-page .teacher-action-cards,
-.teacher-dashboard-page .teacher-roster-filter-chip {
+.teacher-dashboard-page:not(.teacher-students-page) .teacher-dashboard-secondary,
+.teacher-dashboard-page:not(.teacher-students-page) .teacher-roster-metrics,
+.teacher-dashboard-page:not(.teacher-students-page) .teacher-roster-groups,
+.teacher-dashboard-page:not(.teacher-students-page) .teacher-action-cards,
+.teacher-dashboard-page:not(.teacher-students-page) .teacher-roster-filter-chip {
   order: 2;
 }
 
@@ -8059,17 +8061,17 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     white-space: normal;
   }
 
-  .teacher-dashboard-roster .table-scroll {
+  .teacher-dashboard-roster:not(.teacher-students-roster) .table-scroll {
     overflow: visible;
   }
 
-  .teacher-roster-table {
+  .teacher-roster-table:not(.teacher-roster-grid) {
     display: block;
     min-width: 0;
     border: 0;
   }
 
-  .teacher-roster-table thead {
+  .teacher-roster-table:not(.teacher-roster-grid) thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -8079,13 +8081,13 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     white-space: nowrap;
   }
 
-  .teacher-roster-table tbody {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) {
     position: relative;
     min-width: 0;
     display: grid;
@@ -8098,7 +8100,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     background: var(--lp-color-surface);
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td {
     width: auto;
     min-width: 0;
     display: grid;
@@ -8111,7 +8113,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     text-align: left;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td::before {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td::before {
     content: attr(data-label);
     color: var(--lp-color-text-muted);
     font-size: 11px;
@@ -8120,7 +8122,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     text-transform: uppercase;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:first-child {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td:first-child {
     position: absolute;
     z-index: 1;
     top: 16px;
@@ -8134,7 +8136,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     border: 0;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:first-child::before {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td:first-child::before {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -8143,39 +8145,39 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     clip-path: inset(50%);
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"] {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"] {
     grid-template-columns: 1fr;
     padding-right: 52px;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"]::before {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"]::before {
     display: none;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:last-child {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td:last-child {
     border-bottom: 0;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Sign-in"] {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Sign-in"] {
     min-width: 0;
   }
 
-  .teacher-students-page .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Focus"] {
+  .teacher-students-page .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Focus"] {
     width: 100%;
     grid-template-columns: 82px minmax(0, 1fr);
   }
 
-  .teacher-roster-table .teacher-row-actions {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-row-actions {
     align-items: stretch;
     flex-direction: row;
   }
 
-  .teacher-roster-table .teacher-row-actions > * {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-row-actions > * {
     width: auto;
     flex: 1 1 0;
   }
 
-  .teacher-roster-table .teacher-open-student {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-open-student {
     min-height: 44px !important;
   }
 
@@ -8237,12 +8239,12 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
     grid-column: 1 / -1;
   }
 
-  .teacher-roster-table .teacher-heat-row {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-heat-row {
     display: block;
     grid-column: 1 / -1;
   }
 
-  .teacher-roster-table .teacher-heat-row > td {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-heat-row > td {
     display: block;
     width: 100%;
   }
@@ -24837,25 +24839,9 @@ body {
   box-shadow: none;
 }
 
-.teacher-students-page .teacher-dashboard-roster {
-  order: 1;
-}
-
-.teacher-students-page .teacher-roster-filter-chip {
-  order: 2;
-}
-
-.teacher-students-page .teacher-archived-roster {
-  order: 2;
-}
-
-.teacher-students-page .teacher-students-secondary {
-  order: 3;
-}
-
-.teacher-students-page .teacher-dashboard-secondary {
-  order: 4;
-}
+/* The v2 Students screen orders its own sections in the DOM (roster and student
+   panel side by side, everything the design leaves out below them), so the
+   flex-order shuffle that used to reorder them here is gone. */
 
 .teacher-class-tools,
 .teacher-students-secondary {
@@ -25210,17 +25196,17 @@ body {
 }
 
 @media (max-width: 1100px) {
-  .teacher-dashboard-roster .table-scroll {
+  .teacher-dashboard-roster:not(.teacher-students-roster) .table-scroll {
     overflow: visible;
   }
 
-  .teacher-roster-table {
+  .teacher-roster-table:not(.teacher-roster-grid) {
     display: block;
     min-width: 0;
     border: 0;
   }
 
-  .teacher-roster-table thead {
+  .teacher-roster-table:not(.teacher-roster-grid) thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -25230,13 +25216,13 @@ body {
     white-space: nowrap;
   }
 
-  .teacher-roster-table tbody {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) {
     position: relative;
     min-width: 0;
     display: grid;
@@ -25249,7 +25235,7 @@ body {
     background: var(--lp-color-surface);
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td {
     width: auto;
     min-width: 0;
     display: grid;
@@ -25262,7 +25248,7 @@ body {
     text-align: left;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td::before {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td::before {
     content: attr(data-label);
     color: var(--lp-color-text-muted);
     font-size: 11px;
@@ -25271,7 +25257,7 @@ body {
     text-transform: uppercase;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:first-child {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td:first-child {
     position: absolute;
     z-index: 1;
     top: 16px;
@@ -25285,7 +25271,7 @@ body {
     border: 0;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:first-child::before {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td:first-child::before {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -25294,46 +25280,46 @@ body {
     clip-path: inset(50%);
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"] {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"] {
     grid-template-columns: 1fr;
     padding-right: 52px;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"]::before {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Display name"]::before {
     display: none;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td:last-child {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td:last-child {
     width: auto;
     border-bottom: 0;
     text-align: left;
   }
 
-  .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Sign-in"] {
+  .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Sign-in"] {
     min-width: 0;
   }
 
-  .teacher-students-page .teacher-roster-table tbody > tr:not(.teacher-heat-row) > td[data-label="Focus"] {
+  .teacher-students-page .teacher-roster-table:not(.teacher-roster-grid) tbody > tr:not(.teacher-heat-row) > td[data-label="Focus"] {
     width: 100%;
     grid-template-columns: 82px minmax(0, 1fr);
   }
 
-  .teacher-roster-table .teacher-row-actions {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-row-actions {
     align-items: stretch;
     flex-direction: row;
   }
 
-  .teacher-roster-table .teacher-row-actions > * {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-row-actions > * {
     width: auto;
     flex: 1 1 0;
   }
 
-  .teacher-roster-table .teacher-heat-row {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-heat-row {
     display: block;
     grid-column: 1 / -1;
   }
 
-  .teacher-roster-table .teacher-heat-row > td {
+  .teacher-roster-table:not(.teacher-roster-grid) .teacher-heat-row > td {
     display: block;
     width: 100%;
   }
@@ -25895,4 +25881,629 @@ body {
   color: var(--lp-color-text-subtle);
   font-size: 12px;
   line-height: 1.5;
+}
+
+/* ── STUDENTS (teacher-area redesign v2, phase 3) ──────────────────────────
+   Find a student and do everything for them without leaving. A header with a
+   wrapping action row, one filter row (search + four pills + the result
+   count), then the roster and ONE persistent student panel side by side.
+   Selecting a row only swaps the panel: no navigation, no dialog, no focus
+   move, so the page never scrolls under the teacher.
+
+   Class, school and the global Present / Assess-a-student actions live in the
+   shared context bar ABOVE this page and are never repeated here. */
+
+.teacher-product-page.teacher-students-page {
+  padding: 24px;
+  gap: 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--lp-color-background);
+  box-shadow: none;
+}
+
+.teacher-students-page .teacher-page-header,
+.lg-app-shell .teacher-students-page .teacher-page-header {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  /* lg-design-system paints .teacher-page-header white with !important; the v2
+     Students header sits directly on the page background. */
+  background: transparent !important;
+  box-shadow: none;
+  align-items: flex-start;
+}
+
+.teacher-students-page .teacher-dashboard-hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 18px;
+}
+
+.teacher-students-page .teacher-page-header > div:first-child {
+  flex: 1 1 340px;
+  text-align: left;
+}
+
+.teacher-students-page .teacher-page-header .panel-label {
+  margin: 0 0 4px;
+  color: var(--lp-color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.teacher-students-page .teacher-page-header h2 {
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.teacher-students-page .teacher-page-header p:not(.panel-label) {
+  margin-top: 6px;
+  max-width: 60ch;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+}
+
+/* The global :focus-visible ring is a 3px shadow; the design asks for a 2px
+   outline, so the page states it for everything inside it. */
+.teacher-students-page :focus-visible {
+  outline: 2px solid var(--lp-color-primary);
+  outline-offset: 2px;
+}
+
+.teacher-students-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* .lp-button forces a 40px floor with !important; the design asks for 44px on
+   the header row, so this has to answer in kind. */
+.teacher-students-header-actions .lp-button {
+  min-height: var(--teacher-ui-target-min) !important;
+}
+
+.teacher-students-read-note {
+  margin: 0;
+  color: var(--lp-color-danger);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ── Filter row ─────────────────────────────────────────────────────────── */
+.teacher-students-page .teacher-students-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.teacher-students-page .teacher-students-search {
+  flex: 0 1 250px;
+  max-width: 250px;
+  display: block;
+}
+
+.teacher-students-page .teacher-students-search > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.teacher-students-page .teacher-students-search input {
+  width: 100%;
+  min-height: var(--teacher-ui-target-min);
+  padding: 0 12px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: var(--lp-radius-md);
+  background: var(--lp-color-surface);
+  font-size: 14px;
+}
+
+.teacher-students-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 40px is allowed here: the pills are secondary in-row filters, not the page's
+   primary actions. */
+.teacher-students-filter-pill {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.teacher-students-filter-pill:hover:not(:disabled) {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-students-filter-pill > span {
+  margin-left: 6px;
+  opacity: 0.75;
+  font-weight: 700;
+}
+
+.teacher-students-filter-pill.is-active {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary);
+  color: var(--lp-color-surface);
+}
+
+.teacher-students-page .teacher-students-result-count {
+  margin: 0 0 0 auto;
+  color: var(--lp-color-text-subtle);
+  font-size: 12px;
+}
+
+.teacher-roster-more-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* ── Two-column layout ──────────────────────────────────────────────────── */
+.teacher-students-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.teacher-students-page .teacher-dashboard-roster {
+  flex: 1 1 640px;
+  min-width: min(100%, 320px);
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ── Roster card ────────────────────────────────────────────────────────── */
+.teacher-students-page .teacher-data-table-region {
+  overflow-x: auto;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+/* The roster is a real <table> laid out on a grid, so the columns line up and
+   the card scrolls sideways below 620px instead of crushing. Changing a table
+   element's display drops its implicit ARIA roles, so every row, group, header
+   and cell states its role explicitly. */
+.teacher-students-page .teacher-roster-grid,
+.teacher-students-page .teacher-roster-grid thead,
+.teacher-students-page .teacher-roster-grid tbody {
+  display: block;
+  width: 100%;
+  min-width: var(--teacher-roster-grid-min-width, 620px);
+  border-collapse: collapse;
+}
+
+.teacher-students-page .teacher-roster-grid tr {
+  display: grid;
+  grid-template-columns: var(--teacher-roster-grid-template);
+  align-items: center;
+  gap: 8px;
+  min-width: var(--teacher-roster-grid-min-width, 620px);
+}
+
+.teacher-students-page .teacher-roster-grid thead tr {
+  padding: 9px 16px 9px 13px;
+  border-bottom: 1px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-students-page .teacher-roster-grid th {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--lp-color-text-subtle);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.teacher-roster-head-student {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.teacher-students-page .teacher-roster-grid tbody tr {
+  min-height: 56px;
+  padding: 11px 16px 11px 13px;
+  border: 0;
+  border-bottom: 1px solid var(--lp-color-border);
+  border-left: 3px solid transparent;
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.teacher-students-page .teacher-roster-grid tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.teacher-students-page .teacher-roster-grid tbody tr:hover {
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-students-page .teacher-roster-grid tbody tr.is-selected {
+  border-left-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-students-page .teacher-roster-grid td {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  vertical-align: middle;
+}
+
+.teacher-students-page .teacher-roster-grid .teacher-student-cell {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.teacher-students-page .teacher-roster-grid input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.teacher-roster-name {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.teacher-roster-name > strong {
+  overflow: hidden;
+  color: var(--lp-color-text-strong);
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.teacher-roster-name > small {
+  color: var(--lp-color-text-subtle);
+  font-size: 11px;
+}
+
+.teacher-students-page .teacher-roster-accuracy {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.teacher-students-page .teacher-roster-last-active {
+  color: var(--lp-color-text-muted);
+}
+
+.teacher-status-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-background);
+  color: var(--lp-color-text-subtle);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.teacher-status-pill.is-secure {
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+}
+
+.teacher-status-pill.is-developing {
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-warning);
+}
+
+.teacher-status-pill.is-needs_support {
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+}
+
+.teacher-roster-archived-strip {
+  margin: 0;
+  padding: 11px 16px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+/* The pre-v2 roster table still carries a right-aligned 208px last column and a
+   phone card layout for every OTHER teacher table; neither belongs to the grid
+   roster, which scrolls sideways instead of restacking. */
+.teacher-students-page .teacher-roster-grid td:last-child,
+.teacher-students-page .teacher-roster-grid th:last-child {
+  width: auto;
+  text-align: left;
+}
+
+.teacher-students-page .teacher-roster-grid td[data-label="Current focus"] {
+  width: auto;
+}
+
+.teacher-students-page .teacher-roster-grid .teacher-focus-pill {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+/* ── Student panel ──────────────────────────────────────────────────────── */
+.teacher-students-page .teacher-student-panel {
+  flex: 1 1 340px;
+  max-width: 400px;
+  min-width: min(340px, 100%);
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-student-panel-empty,
+.teacher-student-panel-header,
+.teacher-students-page .teacher-student-panel-section,
+.teacher-student-panel-tiles,
+.teacher-students-page .teacher-student-panel-more,
+.teacher-student-panel-footer {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
+}
+
+.teacher-student-panel-footer {
+  border-bottom: 0;
+}
+
+.teacher-student-panel-empty > h3,
+.teacher-student-panel-header > h3 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.teacher-student-panel-header {
+  padding-top: 16px;
+}
+
+.teacher-students-page .teacher-student-panel .panel-label {
+  margin: 0 0 3px;
+  color: var(--lp-color-text-subtle);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.teacher-students-page .teacher-student-panel-section .panel-label {
+  margin-bottom: 9px;
+}
+
+.teacher-student-panel-summary,
+.teacher-student-panel-focus,
+.teacher-student-panel-empty > p {
+  margin: 5px 0 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.teacher-student-panel-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.teacher-student-panel-tile {
+  min-width: 0;
+  padding: 9px 11px;
+  border-radius: var(--lp-radius-md);
+}
+
+.teacher-student-panel-tile > span {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.teacher-student-panel-tile > strong {
+  display: block;
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.teacher-student-panel-tile.is-secure {
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+}
+
+.teacher-student-panel-tile.is-developing {
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-warning);
+}
+
+.teacher-student-panel-tile.is-needs {
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+}
+
+/* Do next: four full-width, left-aligned, 44px actions. */
+.teacher-students-page .teacher-student-panel .teacher-learner-drawer-actions {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.teacher-students-page .teacher-student-panel .teacher-learner-drawer-actions > .lp-button {
+  width: 100%;
+  min-height: var(--teacher-ui-target-min) !important;
+  justify-content: flex-start !important;
+  text-align: left;
+}
+
+.lp-button.teacher-panel-ghost {
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  color: var(--lp-color-primary) !important;
+  box-shadow: none;
+}
+
+.lp-button.teacher-panel-ghost:hover:not(:disabled) {
+  background: var(--lp-color-primary-soft) !important;
+}
+
+.teacher-student-panel-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+}
+
+.teacher-student-panel-skills ul {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teacher-student-panel-skills li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--lp-color-border);
+}
+
+.teacher-student-panel-skills li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.teacher-student-panel-skill {
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+}
+
+.teacher-student-panel-skill-accuracy {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-students-page .teacher-student-panel-more > div {
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.teacher-student-panel-tools {
+  display: grid;
+  gap: 8px;
+}
+
+.teacher-students-page .teacher-student-panel-tools .lp-button {
+  width: 100%;
+  min-height: var(--teacher-ui-target-min) !important;
+  justify-content: flex-start !important;
+}
+
+.teacher-student-panel-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.teacher-students-page .teacher-student-panel-footer .text-button {
+  min-height: var(--teacher-ui-target-min);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.teacher-students-page .teacher-student-panel-archive {
+  color: var(--lp-color-danger);
+}
+
+/* Below roughly 1040px the panel drops beneath the roster. */
+@media (max-width: 1040px) {
+  .teacher-students-page .teacher-student-panel {
+    flex-basis: 100%;
+    max-width: none;
+  }
+}
+
+/* ── Everything the design leaves out but the screen still carries ───────── */
+.teacher-students-page .teacher-students-secondary,
+.teacher-students-page .teacher-dashboard-secondary,
+.teacher-students-page .teacher-roster-admin,
+.teacher-students-page .teacher-archived-roster,
+.teacher-students-page .teacher-roster-column-picker {
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-nav);
+}
+
+.teacher-students-page .teacher-students-class-tools .teacher-dashboard-controls {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }

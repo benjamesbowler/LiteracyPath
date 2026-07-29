@@ -28,7 +28,10 @@ test("child login keeps the code-gated roster but requires teacher-set pictures"
   assert.match(dashboard, /TEACHER_COPY\.roster\.displayName/);
   assert.match(dashboard, /TEACHER_COPY\.roster\.displayNamePlaceholder/);
   assert.match(dashboard, /TEACHER_COPY\.roster\.privacy/);
-  assert.match(dashboard, /loginReady \? "Change" : "Set pictures"/);
+  // v2 Students: the roster states each student's sign-in readiness under their
+  // name, and the editor that sets those pictures opens from the student panel.
+  assert.match(dashboard, /loginReady \? "Sign-in ready" : "Pictures missing"/);
+  assert.match(dashboard, /onClick=\{\(\) => openSignInPictureEditor\(selectedStudentRow\)\}/);
 
   assert.match(
     migration,

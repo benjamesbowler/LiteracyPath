@@ -37,10 +37,14 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
     openControl: "What each assessment measures",
     dialogName: "What each assessment measures"
   }),
+  // The student panel is no longer a drawer dialog: the v2 Students screen puts
+  // it beside the roster as a labelled region, so selecting a row swaps it with
+  // no layer, no focus move and no scroll jump.
   Object.freeze({
     id: "teacher-learner-drawer",
     url: "/preview/teacher-a11y.html?surface=classes&learner=1",
-    dialogName: "Student details: Aarav"
+    dialogName: "Student details: Aarav",
+    regionRole: true
   }),
   Object.freeze({
     id: "teacher-child-options",
