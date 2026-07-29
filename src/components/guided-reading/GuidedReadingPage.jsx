@@ -10,18 +10,17 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   formatGuidedReadingType,
   getGuidedReadingProgress,
-  guidedReadingBooks,
   normalizeGuidedReadingType,
   summarizeGuidedReadingRecord,
   summarizeGuidedReadingRecords
 } from "../../data/guidedReadingBooks";
 import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../../utils/guidedReading/recommendBooksForStudent.js";
-import { applyGuidedReadingLevelOverride, readGuidedReadingLevelOverrides } from "../../utils/guidedReading/bookLevelOverrides.js";
-import {
-  isGuidedReadingAssetDeleted,
-  isGuidedReadingBookDeleted
-} from "../../data/deletedMediaManifest.js";
+// The runtime library (retired books and pages removed, teacher level
+// overrides applied) moved to its own module on 2026-07-29 so the child's Books
+// screen shelves exactly the list this reader opens. See runtimeBooks.js.
+import { getRuntimeGuidedReadingBooks } from "../../utils/guidedReading/runtimeBooks.js";
+import { isGuidedReadingAssetDeleted } from "../../data/deletedMediaManifest.js";
 import {
   getGuidedReadingBookAudioPath,
   getGuidedReadingWordProductionAudioPath,
@@ -428,26 +427,6 @@ async function fetchWholeBookSyncData(book = {}, audioPath = "") {
 
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
-function getRuntimeGuidedReadingBooks() {
-  const levelOverrides = readGuidedReadingLevelOverrides();
-  return guidedReadingBooks
-    .filter(book => !isGuidedReadingBookDeleted(book.id))
-    .map(book => applyGuidedReadingLevelOverride(book, levelOverrides))
-    .map(book => ({
-      ...book,
-      pages: (book.pages || []).filter(page =>
-        page.active !== false &&
-        (!page.qaStatus || page.qaStatus === "approved") &&
-        !isGuidedReadingAssetDeleted({
-          bookId: book.id,
-          path: page.image,
-          pageNumber: page.pageNumber
-        })
-      )
-    }))
-    .filter(book => (book.pages || []).length > 0);
-}
-
 function getGuidedReadingTypeStats(type) {
   const normalizedType = normalizeGuidedReadingType(type);
   const books = getRuntimeGuidedReadingBooks().filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
@@ -493,7 +472,12 @@ export function GuidedReadingPage({
   mode = "teacher",
   autoNarration = false,
   launchBookId = "",
-  onLaunchBookHandled = null
+  onLaunchBookHandled = null,
+  // Phase D (2026-07-29): the child's Books screen is the front door for this
+  // page in student mode, so "back to library" has somewhere to go that is not
+  // the old shelf underneath. Absent (teacher and whole-class modes), closing
+  // the reader behaves exactly as it always did.
+  onCloseReader = null
 }) {
   const [selectedBookId, setSelectedBookId] = useState(() => getRuntimeGuidedReadingBooks()[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
@@ -1066,6 +1050,8 @@ export function GuidedReadingPage({
     setReaderOpen(false);
     setShowSummary(false);
     setShowQuiz(false);
+    // Phase D: hand the child back to the Books screen they opened this from.
+    onCloseReader?.();
   }
 
   async function toggleReaderFullscreen() {
@@ -1738,6 +1724,13 @@ export function GuidedReadingPage({
         {!isStudentMode && (
           <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
         )}
+        {/* NOT THE CHILD'S FRONT DOOR ANY MORE (phase D, 2026-07-29).
+            src/components/StudentBooksPage.jsx is the shelf a child lands on;
+            this page is entered with a book already chosen, so `readerOpen` is
+            true and the block below does not render for them. It is kept as the
+            fallback for a mount with no book (a retired id, a preview harness),
+            which is why its reading-goal panel — a third numeric system the
+            redesign removed — is not reachable from the child area. */}
         {isStudentMode && (() => {
           const booksRead = countBooksRead(guidedReadingRecords);
           const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);

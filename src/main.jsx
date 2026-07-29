@@ -35,6 +35,9 @@ import './styles/kids-home.css'
 // the same idea twice — a path of stops over an illustration — and the marker
 // machinery is shared rather than written out once per screen.
 import './styles/kids-trail.css'
+// Books and Story Quests (phase D). One file for the same reason: both screens
+// are a panel about what you started over a grid of what you could start.
+import './styles/kids-library.css'
 // Cross-surface quality pass. This file is intentionally last: it contains
 // responsive and overflow corrections that must win over each feature layer.
 import './styles/ui-quality-pass.css'

@@ -16,6 +16,7 @@ import "./styles/sage-form.css";
 import "./styles/kids-glass.css";
 import "./styles/kids-home.css";
 import "./styles/kids-trail.css";
+import "./styles/kids-library.css";
 import "./styles/ui-quality-pass.css";
 import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
@@ -24,9 +25,11 @@ import { LearnAreaPage } from "./components/LearnAreaPage.jsx";
 import { PhonicsLearnPage } from "./components/PhonicsLearnPage.jsx";
 import QuestRoot from "./components/quest/QuestRoot.jsx";
 import { StudentAdventureMapPage } from "./components/StudentAdventureMapPage.jsx";
+import { StudentBooksPage } from "./components/StudentBooksPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
+import { StudentStoryQuestsPage } from "./components/StudentStoryQuestsPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
@@ -69,19 +72,32 @@ function StudentHomeSurface() {
   );
 }
 
+// The phase-D front door, with the real reader handed in exactly as the router
+// hands it in — so the preview and the app agree about what a child lands on.
 function ReadingLibrarySurface() {
   const [records, setRecords] = useState({});
+  const save = (bookId, nextRecord) => {
+    setRecords(current => ({ ...current, [bookId]: nextRecord }));
+  };
 
   return (
-    <GuidedReadingPage
-      guidedReadingRecords={records}
-      mode="student"
-      saveGuidedReadingRecord={(bookId, nextRecord) => {
-        setRecords(current => ({ ...current, [bookId]: nextRecord }));
-      }}
-      speakText={() => {}}
-      studentId={PREVIEW_SCOPE}
+    <StudentBooksPage
       studentName="Aaron"
+      progressScopeKey={PREVIEW_SCOPE}
+      studentId={PREVIEW_SCOPE}
+      guidedReadingRecords={records}
+      renderReader={({ bookId, onExit }) => (
+        <GuidedReadingPage
+          initialBookId={bookId}
+          onCloseReader={onExit}
+          guidedReadingRecords={records}
+          mode="student"
+          saveGuidedReadingRecord={save}
+          speakText={() => {}}
+          studentId={PREVIEW_SCOPE}
+          studentName="Aaron"
+        />
+      )}
     />
   );
 }
@@ -149,7 +165,19 @@ function Surface() {
         />
       );
     case "story-quests":
-      return <PreviewShell active="stories"><div className="student-surface-frame student-surface-story"><LearnAreaPage progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      return (
+        <StudentStoryQuestsPage
+          studentName="Aaron"
+          progressScopeKey={PREVIEW_SCOPE}
+          renderQuest={({ questId, onExit }) => (
+            <LearnAreaPage
+              progressScopeKey={PREVIEW_SCOPE}
+              launchQuestId={questId}
+              onExitLibrary={onExit}
+            />
+          )}
+        />
+      );
     case "reading-library":
       return <PreviewShell active="books"><ReadingLibrarySurface /></PreviewShell>;
     case "my-hollow":

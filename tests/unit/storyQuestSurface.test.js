@@ -147,6 +147,15 @@ test("Story Quests appears in both child navigation sources with a real story ic
     "books",
     "Story Quests must light the Books tab — a sub-screen may never leave the bottom bar dark"
   );
+
+  // 2026-07-29 phase D: the shelf a child lands on is StudentStoryQuestsPage.
+  // LearnAreaPage is still what plays a story, mounted with the story already
+  // chosen, so the player and its progress store keep one owner.
+  assert.match(
+    appSource,
+    /<StudentStoryQuestsPage[\s\S]*?renderQuest=\{[\s\S]*?launchQuestId=\{questId\}/,
+    "the LEARN route must open the redesigned shelf and hand the player the chosen story"
+  );
 });
 
 test("the shared rail leaves a real content viewport on phones and tablets", () => {
@@ -248,7 +257,14 @@ test("Story Quest teacher-preview copy reports exposure, not mastery or future p
   assert.doesNotMatch(playerSource, /story words found/);
   assert.doesNotMatch(learnAreaSource, /words found/);
   assert.match(playerSource, /story words seen/);
-  assert.match(learnAreaSource, /story words seen/);
+  // 2026-07-29 phase D: the SHELF no longer counts anything. It used to lead
+  // with "3 complete", "2 in progress" and "30 of 119 story words seen", and
+  // the child UI caps its numeric systems at two — stars and coins. The word
+  // exposure the reader shows while reading is unchanged; what went is the
+  // running total on the way in. The wording rule this test protects (say
+  // "seen", never "found" or "mastered") still holds wherever a count remains.
+  assert.doesNotMatch(learnAreaSource, /story words seen/);
+  assert.doesNotMatch(learnAreaSource, /complete<\/span>/);
   assert.match(playerSource, /<h1>\{quest\.title\}<\/h1>/);
   assert.match(learnAreaSource, /<h2>\{selectedLevel\.heading\}<\/h2>/);
   assert.match(learnAreaSource, /const visibleLevelQuests = selectedLevelQuests\.slice/);

@@ -113,6 +113,24 @@ export const LearnAreaPage = lazyWithRetry(() =>
   }))
 );
 
+// The two phase-D front doors (2026-07-29). Lazy for the same reason the
+// surfaces above are: each one statically imports a large content dataset —
+// 176 guided-reading books, 13 branching story quests — that the app already
+// code-splits on purpose (appRuntimeServices.loadGuidedReadingBooksModule).
+// Importing them eagerly from AppSurface would have quietly put ~290KB of book
+// and story text back into the first load for every child and every teacher.
+export const StudentBooksPage = lazyWithRetry(() =>
+  import("@/components/StudentBooksPage").then(module => ({
+    default: module.StudentBooksPage
+  }))
+);
+
+export const StudentStoryQuestsPage = lazyWithRetry(() =>
+  import("@/components/StudentStoryQuestsPage").then(module => ({
+    default: module.StudentStoryQuestsPage
+  }))
+);
+
 export const PhonicsLearnPage = lazyWithRetry(() =>
   import("@/components/PhonicsLearnPage").then(module => ({
     default: module.PhonicsLearnPage

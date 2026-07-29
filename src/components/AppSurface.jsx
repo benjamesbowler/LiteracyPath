@@ -43,6 +43,8 @@ import {
   QuestRoot,
   ResetStudentProgressDialog,
   Sidebar,
+  StudentBooksPage,
+  StudentStoryQuestsPage,
   TeacherAssessmentsPage,
   TeacherIntentPage,
   TeacherReportsHubPage,
@@ -1310,7 +1312,59 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {appView === APP_VIEWS.GUIDED_READING && nameSaved && (
+      {/* BOOKS. The redesigned shelf screen is the front door of this route for
+          a child (phase D); the reader itself opens on top of it at the book
+          they tapped and keeps every capability it has - page audio, whole-book
+          read-aloud, decoding support, the quiz, the level-up certificate. A
+          TEACHER session keeps the guided-reading tool it has always had here,
+          with its notes and running records, so this branch is a child branch
+          only. */}
+      {appView === APP_VIEWS.GUIDED_READING && nameSaved && isStudentMode && (
+        <PageBoundary resetKey={`guided-reading-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
+            <StudentBooksPage
+              studentName={studentName}
+              progressScopeKey={childProgressScopeKey}
+              teacherId={teacherId}
+              studentId={studentId}
+              guidedReadingRecords={guidedReadingRecords}
+              studentProgress={selectedStudentEvidenceReady ? {
+                currentSkillId: currentStage?.id || "",
+                currentSkillLabel: currentStage?.label || ""
+              } : null}
+              recommendationEvidenceReady={selectedStudentEvidenceReady}
+              initialBookId={guidedInitialBookId}
+              onNavigate={goToStudentTab}
+              onHome={goStudentHome}
+              onGrownUps={goStudentHome}
+              onOpenStoryQuests={() => {
+                setStudentArcadeOpen(false);
+                setAppView(APP_VIEWS.LEARN);
+              }}
+              renderReader={({ bookId, onExit }) => withStudentRail("books", (
+                <GuidedReadingPage
+                  initialBookId={bookId}
+                  onCloseReader={onExit}
+                  studentId={studentId}
+                  studentName={studentName}
+                  studentProgress={selectedStudentEvidenceReady ? {
+                    currentSkillId: currentStage?.id || "",
+                    currentSkillLabel: currentStage?.label || ""
+                  } : null}
+                  recommendationEvidenceReady={selectedStudentEvidenceReady}
+                  mode="student"
+                  autoNarration={learnerAccessibility.narration}
+                  guidedReadingRecords={guidedReadingRecords}
+                  saveGuidedReadingRecord={saveGuidedReadingRecord}
+                  speakText={speakText}
+                />
+              ))}
+            />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.GUIDED_READING && nameSaved && !isStudentMode && (
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           {withStudentRail("books", (
             <GuidedReadingPage
@@ -1322,8 +1376,8 @@ export function AppSurface({ surface }) {
                 currentSkillLabel: currentStage?.label || ""
               } : null}
               recommendationEvidenceReady={selectedStudentEvidenceReady}
-              mode={sessionMode === "student" ? "student" : "teacher"}
-              autoNarration={sessionMode === "student" && learnerAccessibility.narration}
+              mode="teacher"
+              autoNarration={false}
               guidedReadingRecords={guidedReadingRecords}
               saveGuidedReadingRecord={saveGuidedReadingRecord}
               speakText={speakText}
@@ -1346,15 +1400,38 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
+      {/* STORY QUESTS. Same shape as Books and as the two phase-C screens: the
+          redesigned shelf is the front door and tapping a story mounts the real
+          player at that story, with its branching choices, its resume and its
+          completion screen untouched. Reached from Books or the Home doorway,
+          and the BOOKS tab stays lit while the child is here - there are five
+          tabs and eight places, and selectActiveStudentTab owns that mapping. */}
       {appView === APP_VIEWS.LEARN && nameSaved && (
         <PageBoundary resetKey={`learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Story Quest..." />}>
-            {withStudentRail("stories", (
-              <div className="learn-fullscreen-frame student-surface-frame student-surface-story">
-                {renderLearnFullscreenButton()}
-                <LearnAreaPage key={childProgressScopeKey} progressScopeKey={childProgressScopeKey} />
-              </div>
-            ))}
+            <StudentStoryQuestsPage
+              studentName={studentName}
+              progressScopeKey={childProgressScopeKey}
+              onNavigate={goToStudentTab}
+              onHome={goStudentHome}
+              onGrownUps={goStudentHome}
+              onBackToBooks={() => {
+                setStudentArcadeOpen(false);
+                setGuidedInitialBookId("");
+                setAppView(APP_VIEWS.GUIDED_READING);
+              }}
+              renderQuest={({ questId, onExit }) => withStudentRail("stories", (
+                <div className="learn-fullscreen-frame student-surface-frame student-surface-story">
+                  {renderLearnFullscreenButton()}
+                  <LearnAreaPage
+                    key={`${childProgressScopeKey}:${questId}`}
+                    progressScopeKey={childProgressScopeKey}
+                    launchQuestId={questId}
+                    onExitLibrary={onExit}
+                  />
+                </div>
+              ))}
+            />
           </Suspense>
         </PageBoundary>
       )}
