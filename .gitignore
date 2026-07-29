@@ -105,3 +105,10 @@ _to_delete/
 .obsidian/workspace-mobile.json
 .obsidian/graph.json
 .obsidian/hotkeys.json
+
+# Design-handoff prototype art. link-assets.sh symlinks every referenced file to
+# its repo original under public/ (all verified byte-identical 2026-07-29), so
+# the bundle runs offline without a second copy of 27MB in git. Symlinks would
+# be worse than copies here — they break on checkout for anyone whose paths
+# differ. Run mockups/design-handoff-kids-side/link-assets.sh to rebuild.
+mockups/design-handoff-kids-side/assets/

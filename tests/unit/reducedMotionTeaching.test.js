@@ -13,7 +13,12 @@ const CHILD_STYLES = [
   "student-vibrant.css",
   "learn-games.css",
   "skills-block-quest.css",
-  "pal-worlds.css"
+  "pal-worlds.css",
+  // 2026-07-29: the kids-side redesign's design system. It disables its own
+  // named animation classes under reduced motion rather than everything inside
+  // the stage, precisely so a teaching animation rendered in the child shell is
+  // not caught by it — which is exactly what this suite checks.
+  "kids-glass.css"
 ];
 
 // The letter-writing demo is a TEACHING animation - it models how to form the

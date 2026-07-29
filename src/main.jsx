@@ -23,6 +23,10 @@ import './styles/sage-soft.generated.css'
 // and the hardcoded home tile accents) plus the three form tells the generator
 // does not cover: uppercase, rotation, halftone. Last, so it wins.
 import './styles/sage-form.css'
+// The kids-side redesign's design system (2026-07-29). Everything in it is
+// scoped under .kg-viewport / .kg-stage, so it cannot reach the sage skin or
+// the comic base; it loads LAST so the child shell wins inside its own stage.
+import './styles/kids-glass.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'

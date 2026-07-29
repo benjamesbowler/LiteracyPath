@@ -1,0 +1,929 @@
+/* KIDS GLASS — the child area's design system (phase A of the 2026-07-29 redesign).
+ *
+ * Binding spec: mockups/design-handoff-kids-side/README.md (sections "Design
+ * Tokens", "Global Chrome", "Interactions & Behaviour", "Responsive"). Every
+ * colour, radius, blur and geometry value below is copied from it, not invented.
+ *
+ * WHAT THIS FILE IS FOR. Phases B–F build the seven child screens on top of the
+ * classes here. Nothing in those phases should re-declare a glass recipe, a
+ * radius or an animation: take a class, or add one HERE so the next screen can
+ * take it too. That is the whole point of a system file.
+ *
+ * HOW IT SITS BESIDE THE OTHER STYLESHEETS. Same posture as home-sage.css:
+ * everything is scoped under .kg-stage (or .kg-viewport) so the comic base and
+ * the sage skin are untouchable from this file, and comic-theme.css — the
+ * shared base the sage palette layers onto (2026-07-22 decision) — stays.
+ *
+ * FOUR RULES THAT COST REAL DEBUGGING TIME. Read them before adding anything.
+ *
+ *   1. THE INSET HIGHLIGHT IS THE GLASS. Tier 2's `inset 0 1px 1px
+ *      rgba(255,255,255,.90)` is what makes a panel read as a lit edge rather
+ *      than a grey box. The outer shadow's large NEGATIVE spread (-24px) is
+ *      deliberate: it reads as ambient occlusion under the panel, not as a drop
+ *      shadow behind it. Do not "simplify" either away.
+ *   2. NEVER WHITE TEXT ON LIGHT GLASS OVER AN ILLUSTRATION. That is what
+ *      .kg-scrim and the tier-3 dark glass exist for. There is no text-shadow
+ *      anywhere in this file, and there must never be one: reaching for
+ *      text-shadow is the symptom of a missing scrim.
+ *   3. NEVER COMBINE A CENTRING TRANSFORM WITH AN ANIMATED ONE. `kgBob` animates
+ *      `transform`, which silently overrides `transform: translate(-50%,-100%)`
+ *      and drops the sprite in the wrong place. Split them: .kg-sprite is an
+ *      outer positioned wrapper that centres with NEGATIVE MARGINS, and .kg-bob
+ *      goes on the inner <img>. Both classes enforce this — .kg-sprite has no
+ *      transform of its own and .kg-bob refuses to be a positioning context.
+ *   4. ALWAYS SHIP -webkit-backdrop-filter ALONGSIDE backdrop-filter, and always
+ *      pair the blur with saturate(). Unsaturated blur turns the warm ambient
+ *      gradient grey; iPad Safari is the primary device and still wants the
+ *      prefix.
+ */
+
+/* Each glass tier publishes its own border and shadow as --kg-self-* so the
+   focus rule at the bottom of this file can put them back after the app-wide
+   `button:focus-visible` !important rules overwrite them. They MUST NOT
+   inherit: without this, a plain button inside a panel picks up the panel's
+   shadow the moment it is focused (observed on the header's profile button).
+   Engines without @property fall back to inheriting, which is cosmetic only. */
+@property --kg-self-shadow {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --kg-self-border {
+  syntax: "*";
+  inherits: false;
+}
+
+/* ── Tokens ───────────────────────────────────────────────────────────────────
+ * Scoped to the shell rather than :root so nothing here can leak into the
+ * teacher side. --kg-accent is themeable (the spec exposes it as a prop);
+ * --kg-accent-rgb exists so rgba() compositions can follow it.
+ */
+.kg-viewport,
+.kg-stage {
+  /* ink & surface */
+  --kg-ink: #16302A;
+  --kg-ink-deep: #20423A;
+  --kg-ink-mid: #2B4A40;
+  --kg-ink-muted: #5C6E66;
+  --kg-ink-disabled: #8FA396;
+  --kg-ink-disabled-soft: #A8B3AC;
+  --kg-ink-on-accent: #1B2E12;
+  --kg-canvas: #F7F4EC;
+  --kg-page: #E9EFE8;
+
+  /* accent & semantic */
+  --kg-accent: #F2B33D;
+  --kg-accent-rgb: 242, 179, 61;
+  --kg-accent-terracotta: #E2725B;
+  --kg-accent-sky: #8EC9E8;
+  --kg-accent-leaf: #5FA052;
+  --kg-coin-outer: #F0A93C;
+  --kg-coin-inner: #FFCE5C;
+  --kg-success: #6FB35F;
+  --kg-success-soft: rgba(111, 179, 95, 0.9);
+  --kg-progress: linear-gradient(90deg, #6FB35F, #4E9A6E);
+  --kg-terracotta: #E2725B;
+  --kg-terracotta-soft: rgba(226, 114, 91, 0.9);
+  --kg-ink-amber: #8A7038;
+  --kg-ink-terracotta: #A05B3E;
+  --kg-ink-brown: #7A5320;
+  --kg-sage: #3E776B;
+
+  /* world dots (Arcade filter) */
+  --kg-world-meadow: #6FB35F;
+  --kg-world-dino: #D98841;
+  --kg-world-moonwood: #5E4D9C;
+
+  /* doorway tints */
+  --kg-tint-map: rgba(191, 227, 216, 0.7);
+  --kg-tint-books: rgba(255, 246, 222, 0.75);
+  --kg-tint-stories: rgba(255, 239, 228, 0.75);
+  --kg-tint-arcade: rgba(232, 227, 245, 0.75);
+  --kg-tint-letters: rgba(241, 247, 240, 0.8);
+  --kg-tint-hollow: rgba(255, 239, 228, 0.75);
+
+  /* spacing scale, straight off the spec */
+  --kg-space-2: 2px;
+  --kg-space-4: 4px;
+  --kg-space-7: 7px;
+  --kg-space-9: 9px;
+  --kg-space-11: 11px;
+  --kg-space-13: 13px;
+  --kg-space-14: 14px;
+  --kg-space-16: 16px;
+  --kg-space-20: 20px;
+  --kg-space-22: 22px;
+  --kg-space-24: 24px;
+
+  /* radii */
+  --kg-radius-swatch: 8px;
+  --kg-radius-chip: 12px;
+  --kg-radius-market: 14px;
+  --kg-radius-secondary: 17px;
+  --kg-radius-card: 20px;
+  --kg-radius-door: 23px;
+  --kg-radius-panel: 27px;
+  --kg-radius-hero: 30px;
+  --kg-radius-modal: 34px;
+  --kg-radius-pill: 999px;
+
+  /* blur — always paired with saturate() */
+  --kg-blur-button: 14px;
+  --kg-blur-card: 20px;
+  --kg-blur-panel: 22px;
+  --kg-blur-chrome: 26px;
+
+  /* scrims — the answer to "I want a text-shadow" */
+  --kg-scrim-flat: linear-gradient(180deg, rgba(18, 44, 38, 0.34), rgba(18, 44, 38, 0.5));
+  --kg-scrim-hero: linear-gradient(100deg, rgba(18, 44, 38, 0.72), rgba(18, 44, 38, 0.34) 52%, transparent);
+  --kg-scrim-trail: linear-gradient(180deg, rgba(18, 44, 38, 0.1), rgba(18, 44, 38, 0.42));
+  --kg-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 40%);
+
+  /* type */
+  --kg-font-display: "Baloo 2", Nunito, system-ui, sans-serif;
+  --kg-font-body: Nunito, system-ui, sans-serif;
+
+  /* chrome geometry (the spec's exact numbers; also read by the shell) */
+  --kg-stage-width: 1194px;
+  --kg-stage-height: 834px;
+  --kg-header-height: 78px;
+  --kg-tabbar-height: 92px;
+  --kg-tab-height: 68px;
+
+  /* the hard floor for anything a child taps */
+  --kg-hit: 44px;
+
+  /* motion */
+  --kg-bob-duration: 3.4s;
+  --kg-halo-duration: 2.1s;
+  --kg-pop-duration: 340ms;
+  --kg-pop-ease: cubic-bezier(0.3, 1.4, 0.6, 1);
+}
+
+/* ── The stage ────────────────────────────────────────────────────────────────
+ * A FIXED 1194 x 834 canvas (iPad landscape). Other viewports scale the whole
+ * stage rather than reflowing — the design is fixed-canvas by decision, not by
+ * omission.
+ *
+ * Centring is an explicit translate INSIDE the same transform the scale lives
+ * in, exactly as public/present/deck.js fitStage() does. It is NOT grid
+ * place-items: Chromium start-aligns a grid item that overflows its track,
+ * which pushed the present-mode stage down-right and clipped its top-left on
+ * every window smaller than the canvas (recorded 2026-07-28). Same trap, same
+ * cure. --kg-scale is written by the shell's resize handler.
+ */
+.kg-viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--kg-page);
+  /* place-items is explicitly reset: an ancestor grid centring rule must not
+     reach in here and re-introduce the start-alignment clip. */
+  place-items: initial;
+}
+
+.kg-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--kg-stage-width);
+  height: var(--kg-stage-height);
+  transform: translate(-50%, -50%) scale(var(--kg-scale, 1));
+  transform-origin: center center;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  background: var(--kg-canvas);
+  color: var(--kg-ink);
+  font-family: var(--kg-font-body);
+  /* Nothing in the child area may be selected by a stray drag on a tablet. */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* The single decorative layer. aria-hidden in the markup; z-index 0 so every
+   screen sits above it. */
+.kg-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(680px 500px at 12% -6%, rgba(143, 205, 180, 0.55), transparent 62%),
+    radial-gradient(720px 520px at 96% 8%, rgba(255, 214, 150, 0.5), transparent 64%),
+    radial-gradient(760px 620px at 62% 108%, rgba(163, 203, 232, 0.46), transparent 62%),
+    linear-gradient(170deg, #FBF7EF, #EFF3EA);
+}
+
+/* The content area between the header and the tab bar. */
+.kg-main {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Screens that predate the fixed canvas were written to own a full, scrolling
+   viewport. Clipping them would DELETE content rather than restyle it, so the
+   shell gives them a scrolling content area instead. Phase B–F screens are
+   built to the canvas and use plain .kg-main. */
+.kg-main--scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* The screen fills the content area and grows past it. THE DIRECT-CHILD
+   SELECTOR IS LOAD-BEARING: several of those screens set `height: 100%` on
+   their own frame (the Story Quests surface does, and a unit test pins it), and
+   a percentage height only resolves against a parent with a definite one.
+   .kg-main has one; an extra wrapper div between them does not, and every such
+   frame collapses to zero. Measured: 664px as a direct child, 0px through a
+   wrapper. Do not reintroduce the wrapper. */
+.kg-main--scroll > * {
+  min-height: 100%;
+}
+
+/* Standard screen padding. Home is the one exception the spec names. */
+.kg-screen {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: var(--kg-space-14) var(--kg-space-24);
+}
+
+.kg-screen--home {
+  padding: var(--kg-space-16) var(--kg-space-24);
+}
+
+/* ── The liquid-glass recipe — three tiers ────────────────────────────────────
+ * Each tier publishes its own border and shadow as --kg-self-* so the focus
+ * rule below can restore them after the app-wide `button:focus-visible`
+ * !important rules overwrite them. One source of truth per tier.
+ */
+
+/* Tier 1 — chrome. Header and tab bar; sits directly on the ambient gradient. */
+.kg-glass-chrome {
+  --kg-self-border: rgba(255, 255, 255, 0.7);
+  --kg-self-shadow: 0 1px 24px -10px rgba(30, 60, 50, 0.28);
+  position: relative;
+  z-index: 5;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(var(--kg-blur-chrome)) saturate(1.5);
+  -webkit-backdrop-filter: blur(var(--kg-blur-chrome)) saturate(1.5);
+  box-shadow: var(--kg-self-shadow);
+}
+
+/* Tier 2 — panels and cards. The workhorse. Alpha and blur move within the
+   spec's ranges by prominence: --quiet .40 / --strong .56. */
+.kg-glass {
+  --kg-self-border: rgba(255, 255, 255, 0.82);
+  --kg-self-shadow:
+    0 14px 30px -24px rgba(30, 60, 50, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(var(--kg-blur-card)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--kg-blur-card)) saturate(1.4);
+  border: 1px solid var(--kg-self-border);
+  box-shadow: var(--kg-self-shadow);
+}
+
+.kg-glass--quiet {
+  --kg-self-border: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.kg-glass--strong {
+  --kg-self-border: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.56);
+  backdrop-filter: blur(var(--kg-blur-panel)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--kg-blur-panel)) saturate(1.4);
+}
+
+/* Tier 3 — dark glass. ONLY over illustrations, so white text has contrast.
+   Using this on the plain ambient gradient is the mistake it exists to prevent. */
+.kg-glass-dark {
+  --kg-self-border: rgba(255, 255, 255, 0.42);
+  --kg-self-shadow: 0 10px 22px -16px rgba(20, 45, 38, 0.6);
+  background: rgba(18, 44, 38, 0.5);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid var(--kg-self-border);
+  box-shadow: var(--kg-self-shadow);
+  color: #FFFFFF;
+}
+
+.kg-glass-dark--deep {
+  background: rgba(18, 44, 38, 0.62);
+}
+
+/* Accent glass — primary actions. Follows --kg-accent. */
+.kg-glass-accent {
+  --kg-self-border: rgba(255, 255, 255, 0.7);
+  --kg-self-shadow:
+    0 14px 28px -16px rgba(30, 60, 50, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    150deg,
+    rgba(var(--kg-accent-rgb), 0.94),
+    rgba(var(--kg-accent-rgb), 0.72)
+  );
+  backdrop-filter: blur(var(--kg-blur-button)) saturate(1.6);
+  -webkit-backdrop-filter: blur(var(--kg-blur-button)) saturate(1.6);
+  border: 1px solid var(--kg-self-border);
+  box-shadow: var(--kg-self-shadow);
+  color: var(--kg-ink-on-accent);
+}
+
+/* Dark accent glass — the active tab, hero panels, the Arcade featured panel. */
+.kg-glass-deep {
+  --kg-self-border: rgba(255, 255, 255, 0.4);
+  --kg-self-shadow:
+    0 14px 26px -14px rgba(20, 45, 38, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(150deg, rgba(46, 75, 62, 0.94), rgba(62, 119, 107, 0.86));
+  border: 1px solid var(--kg-self-border);
+  box-shadow: var(--kg-self-shadow);
+  color: #FFFFFF;
+}
+
+/* ── Scrims ───────────────────────────────────────────────────────────────────
+ * Put .kg-scrim on any panel whose background is artwork. It paints the dark
+ * gradient as an ::after over the image and under the content, which is what
+ * lets white text sit on a photograph without a text-shadow. Content inside
+ * must be position: relative (or use .kg-on-art) to stay above it.
+ */
+.kg-scrim {
+  position: relative;
+  overflow: hidden;
+}
+
+.kg-scrim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--kg-scrim-flat);
+}
+
+.kg-scrim--hero::after {
+  background: var(--kg-scrim-hero);
+}
+
+.kg-scrim--trail::after {
+  background: var(--kg-scrim-trail);
+}
+
+.kg-scrim--sheen::after {
+  background: var(--kg-sheen);
+}
+
+/* Everything that must sit above the scrim. White ink is legal HERE and only
+   here — because .kg-scrim guarantees the dark ground underneath it. */
+.kg-on-art {
+  position: relative;
+  z-index: 1;
+  color: #FFFFFF;
+}
+
+/* ── Typography ───────────────────────────────────────────────────────────────
+ * Baloo 2 for the child-facing voice (headings, numerals, buttons, card
+ * titles); Nunito for body, captions and eyebrows.
+ */
+.kg-hero-title {
+  margin: 0;
+  font-family: var(--kg-font-display);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.02;
+  text-wrap: pretty;
+}
+
+.kg-title {
+  margin: 0;
+  font-family: var(--kg-font-display);
+  font-size: 33px;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.kg-panel-title {
+  margin: 0;
+  font-family: var(--kg-font-display);
+  font-size: 27px;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.kg-section-title {
+  margin: 0;
+  font-family: var(--kg-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.kg-card-title {
+  margin: 0;
+  font-family: var(--kg-font-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.12;
+  text-wrap: pretty;
+}
+
+.kg-numeral {
+  font-family: var(--kg-font-display);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kg-body {
+  margin: 0;
+  font-family: var(--kg-font-body);
+  font-size: 16px;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.kg-caption {
+  font-family: var(--kg-font-body);
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--kg-ink-muted);
+}
+
+.kg-eyebrow {
+  font-family: var(--kg-font-body);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--kg-ink-terracotta);
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────────────
+ * 44 x 44 is the hard minimum for EVERY interactive element in the child area.
+ * The floor carries !important because App.css forces .lp-button geometry with
+ * !important and would otherwise shrink a child control below the floor —
+ * the same scoped-!important precedent used there.
+ */
+.kg-hit,
+.kg-button,
+.kg-speaker,
+.kg-iconbutton,
+.kg-tab,
+.kg-chip {
+  min-width: var(--kg-hit) !important;
+  min-height: var(--kg-hit) !important;
+}
+
+.kg-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kg-space-9);
+  padding: 0 var(--kg-space-22);
+  border: 1px solid var(--kg-self-border, rgba(255, 255, 255, 0.82));
+  border-radius: var(--kg-radius-card);
+  font-family: var(--kg-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  /* Geometry must not move on press — this is a touch design (spec:
+     "keep geometry static"). */
+  transition: background-color 140ms ease;
+}
+
+.kg-button--lg {
+  height: 66px;
+  border-radius: 22px;
+  font-size: 27px;
+}
+
+.kg-button--md {
+  height: 58px;
+  border-radius: 20px;
+  font-size: 22px;
+}
+
+.kg-button--sm {
+  height: 50px;
+  border-radius: var(--kg-radius-secondary);
+  font-size: 18px;
+}
+
+/* "Hear this" — the speaker button. Exactly the floor at its smallest size,
+   which is why the floor is not negotiable. */
+.kg-speaker {
+  display: inline-grid;
+  place-items: center;
+  width: var(--kg-hit);
+  height: var(--kg-hit);
+  padding: 0;
+  border: 1px solid var(--kg-self-border, rgba(255, 255, 255, 0.82));
+  border-radius: var(--kg-radius-market);
+  color: var(--kg-ink-deep);
+  cursor: pointer;
+}
+
+.kg-speaker--md {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--kg-radius-secondary);
+}
+
+.kg-speaker--lg {
+  width: 66px;
+  height: 66px;
+  border-radius: var(--kg-radius-card);
+}
+
+.kg-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kg-space-7);
+  padding: 0 var(--kg-space-13);
+  border: 1px solid var(--kg-self-border, rgba(255, 255, 255, 0.82));
+  border-radius: var(--kg-radius-market);
+  font-family: var(--kg-font-display);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.kg-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kg-space-7);
+  padding: 0 var(--kg-space-14);
+  border-radius: var(--kg-radius-pill);
+  font-family: var(--kg-font-body);
+  font-size: 13.5px;
+  font-weight: 800;
+}
+
+/* Inline SVG icons: currentColor, 1.9 stroke, round caps and joins. No icon
+   library — every icon in the child area is a path in studentRailPolicy.js. */
+.kg-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: 0 0 auto;
+}
+
+/* ── Global chrome: the 78px header ───────────────────────────────────────── */
+.kg-header {
+  height: var(--kg-header-height);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 var(--kg-space-22);
+  border-bottom: 1px solid var(--kg-self-border);
+}
+
+.kg-spacer {
+  flex: 1;
+}
+
+.kg-profile {
+  /* Not a glass tier: it must not borrow the header's shadow when focused.
+     Explicit here as well as via @property, for engines without it. */
+  --kg-self-border: transparent;
+  --kg-self-shadow: none;
+  display: flex;
+  align-items: center;
+  gap: var(--kg-space-11);
+  padding: var(--kg-space-2);
+  background: none;
+  border: 0;
+  border-radius: var(--kg-radius-market);
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kg-avatar {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 6px 16px -8px rgba(30, 60, 50, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.kg-avatar img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.kg-avatar strong {
+  font-family: var(--kg-font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--kg-ink);
+}
+
+.kg-identity {
+  display: grid;
+  gap: 0;
+}
+
+.kg-identity-name {
+  font-family: var(--kg-font-display);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.kg-identity-pal {
+  font-family: var(--kg-font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--kg-ink-muted);
+}
+
+/* THE TWO CURRENCIES, AND ONLY EVER THESE TWO.
+ *
+ * Stars are EARNED (per activity, display only). Coins are SPENDABLE (the
+ * button opens My Hollow, which is where they are spent — that is the whole
+ * earn-to-spend loop made visible).
+ *
+ * The prior build surfaced roughly eight numeric systems at the child:
+ * flame/streak, gems, XP, points and others. Do not reintroduce any of them
+ * here. A third counter in this header is a spec violation, not a feature. */
+.kg-currency {
+  --kg-self-border: rgba(255, 255, 255, 0.85);
+  --kg-self-shadow:
+    0 8px 20px -12px rgba(30, 60, 50, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 18px 0 var(--kg-space-13);
+  border-radius: var(--kg-radius-pill);
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid var(--kg-self-border);
+  box-shadow: var(--kg-self-shadow);
+  color: var(--kg-ink);
+  font-family: inherit;
+}
+
+button.kg-currency {
+  cursor: pointer;
+}
+
+.kg-currency-value {
+  font-family: var(--kg-font-display);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kg-currency-caption {
+  font-family: var(--kg-font-body);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.kg-currency--stars .kg-currency-caption {
+  color: var(--kg-ink-amber);
+}
+
+.kg-currency--coins .kg-currency-caption {
+  color: var(--kg-ink-terracotta);
+}
+
+.kg-iconbutton {
+  --kg-self-border: rgba(255, 255, 255, 0.8);
+  --kg-self-shadow: none;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.44);
+  border: 1px solid var(--kg-self-border);
+  color: var(--kg-ink-muted);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.kg-iconbutton .kg-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Global chrome: the 92px five-tab bottom bar ──────────────────────────────
+ * Five tabs across 1194px is a ~215px hit area each — far above the 44px floor,
+ * and reachable by a thumb on a two-handed tablet, which the old left rail was
+ * not. This bar REPLACES that rail; src/policy/studentRailPolicy.js holds the
+ * tab registry and the sub-screen -> tab mapping.
+ */
+.kg-tabbar {
+  height: var(--kg-tabbar-height);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  align-items: center;
+  padding: 0 var(--kg-space-20);
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  box-shadow: 0 -1px 28px -12px rgba(30, 60, 50, 0.32);
+}
+
+.kg-tab {
+  --kg-self-border: rgba(255, 255, 255, 0.8);
+  --kg-self-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  height: var(--kg-tab-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kg-space-2);
+  padding: 0;
+  border: 1px solid var(--kg-self-border);
+  border-radius: var(--kg-radius-card);
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: var(--kg-self-shadow);
+  color: var(--kg-ink-mid);
+  font-family: var(--kg-font-display);
+  cursor: pointer;
+}
+
+.kg-tab .kg-icon {
+  width: 27px;
+  height: 27px;
+}
+
+.kg-tab-label {
+  font-family: var(--kg-font-display);
+  font-size: 16.5px;
+  font-weight: 700;
+}
+
+/* Active tab: dark accent glass, white ink. Exactly one tab is lit at all
+   times — sub-screens map onto their parent tab rather than leaving the bar
+   dark (Story Quests lights Books; the Adventure Map and Letters light
+   Sounds). */
+.kg-tab.is-active {
+  --kg-self-border: rgba(255, 255, 255, 0.4);
+  --kg-self-shadow:
+    0 14px 26px -14px rgba(20, 45, 38, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(150deg, rgba(46, 75, 62, 0.94), rgba(62, 119, 107, 0.86));
+  color: #FFFFFF;
+}
+
+/* ── Hover ────────────────────────────────────────────────────────────────────
+ * This is a touch design and the prototype ships no hover treatment. Desktop
+ * gets the spec's allowance and nothing more: lift the background alpha,
+ * keep geometry static. Pointer-only, so a tablet tap does not flicker it. */
+@media (hover: hover) and (pointer: fine) {
+  .kg-tab:not(.is-active):hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .kg-glass:hover.kg-interactive {
+    background: rgba(255, 255, 255, 0.58);
+  }
+
+  .kg-iconbutton:hover {
+    background: rgba(255, 255, 255, 0.52);
+  }
+}
+
+/* ── Focus ────────────────────────────────────────────────────────────────────
+ * The prototype ships NO focus ring; a visible one is required for the a11y
+ * pass, so the system supplies it. Two app-wide rules have to be answered:
+ * App.css sets a teal 3px outline with !important, and lg-design-system.css
+ * replaces every focused button's box-shadow and border-colour with !important
+ * — which strips the glass of its border and inset highlight mid-focus. The
+ * ring is therefore re-declared with !important (scoped to the stage, the same
+ * precedent .lp-button already sets), and each tier's own border and shadow are
+ * restored from the --kg-self-* it published. */
+.kg-stage :is(button, a[href], [tabindex], input, select, summary):focus-visible {
+  outline: 3px solid var(--kg-accent) !important;
+  outline-offset: 3px !important;
+  border-color: var(--kg-self-border, rgba(255, 255, 255, 0.82)) !important;
+  box-shadow: var(--kg-self-shadow, none) !important;
+}
+
+/* On dark accent glass the amber ring is low-contrast; white reads instead. */
+.kg-stage .kg-glass-deep:focus-visible,
+.kg-stage .kg-glass-dark:focus-visible,
+.kg-stage .kg-tab.is-active:focus-visible {
+  outline-color: #FFFFFF !important;
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────────────
+ * Three animations, all namespaced. See rule 3 at the top of this file before
+ * you use kgBob on anything positioned.
+ */
+@keyframes kgBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes kgHaloPulse {
+  0% { box-shadow: 0 0 0 0 rgba(var(--kg-accent-rgb), 0.5); }
+  100% { box-shadow: 0 0 0 22px rgba(var(--kg-accent-rgb), 0); }
+}
+
+@keyframes kgPopIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* THE SPRITE PAIR. .kg-sprite is the OUTER positioned wrapper: it owns left/top
+   and centres itself with NEGATIVE MARGINS, never with a transform, because
+   .kg-bob on the inner <img> animates transform and would overwrite it. Set
+   --kg-sprite-size and the margins follow. */
+.kg-sprite {
+  position: absolute;
+  width: var(--kg-sprite-size, 80px);
+  margin-top: calc(var(--kg-sprite-size, 80px) * -1);
+  margin-left: calc(var(--kg-sprite-size, 80px) / -2);
+  pointer-events: none;
+  /* Deliberately no transform. Adding one here is the bug this pair prevents. */
+}
+
+.kg-sprite > img,
+.kg-bob {
+  display: block;
+  width: 100%;
+  animation: kgBob var(--kg-bob-duration) ease-in-out infinite;
+}
+
+/* Standalone bob (not inside a .kg-sprite): still must not be the element that
+   carries a centring transform. */
+.kg-bob {
+  position: static;
+}
+
+.kg-halo {
+  animation: kgHaloPulse var(--kg-halo-duration) ease-out infinite;
+}
+
+.kg-pop {
+  animation: kgPopIn var(--kg-pop-duration) var(--kg-pop-ease) both;
+}
+
+/* Generic opt-in hook so a later phase can add an animation and inherit the
+   reduced-motion contract below without editing this file's disable list. */
+.kg-motion {
+  animation-play-state: running;
+}
+
+/* ALL animation is off under reduced motion. Named classes rather than a
+   blanket `*` selector so a teaching animation rendered inside the shell — the
+   letter-writing demo models how to form a letter and must play regardless —
+   is never silenced by this file. Every new animation in phases B–F must be
+   applied through one of these classes, or added here. */
+@media (prefers-reduced-motion: reduce) {
+  .kg-sprite > img,
+  .kg-bob,
+  .kg-halo,
+  .kg-pop,
+  .kg-motion,
+  .kg-tab,
+  .kg-button {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────────
+ * There is no reflow. The canvas is fixed and the stage scales; a true phone
+ * layout is a separate exercise (spec, "Responsive"). The scale itself is
+ * computed in JS because it depends on the window, but the fallback below
+ * keeps the stage centred and whole if the script never runs. */
+@supports not (transform: scale(1)) {
+  .kg-stage {
+    position: static;
+    margin: 0 auto;
+  }
+}

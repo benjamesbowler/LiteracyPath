@@ -21,7 +21,7 @@ import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { StudentEntryPage } from "./StudentEntryPage.jsx";
 import { StudentHomePage } from "./StudentHomePage.jsx";
 import { StudentLoginFlow } from "./StudentLoginFlow.jsx";
-import StudentRail from "./StudentRail.jsx";
+import StudentGlassShell from "./StudentGlassShell.jsx";
 import { RouteLoadingFallback as LazyPageFallback } from "./RouteLoadingFallback.jsx";
 import {
   AdminDashboardPage,
@@ -66,7 +66,7 @@ import {
 import { getSelectedClassName } from "../appState/studentSessionHelpers.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { learnerAccessibilityDataAttributes } from "../accessibility/learnerAccessibility.js";
-import { STUDENT_RAIL_DESTINATIONS } from "../policy/studentRailPolicy.js";
+import { STUDENT_TAB_BAR } from "../policy/studentRailPolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
 
 export function AppSurface({ surface }) {
@@ -726,35 +726,50 @@ export function AppSurface({ surface }) {
     </Suspense>
   ) : null;
 
-  const railActions = {
+  // The five bottom tabs. Each id is a tab in STUDENT_TAB_BAR; the sub-screen
+  // a child is actually on is mapped onto its tab by selectActiveStudentTab
+  // inside the shell, so Story Quests lights Books and the Adventure Map
+  // lights Sounds without a second mapping living out here.
+  const studentTabActions = {
+    home: goStudentHome,
     sounds: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_QUEST); },
-    phonics: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_LEARN); },
-    map: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST); },
     books: () => { setStudentArcadeOpen(false); setGuidedInitialBookId(""); setAppView(APP_VIEWS.GUIDED_READING); },
-    stories: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.LEARN); },
-    arcade: () => { setStudentArcadeOpen(true); setAppView(APP_VIEWS.PHONICS_LEARN); },
+    games: () => { setStudentArcadeOpen(true); setAppView(APP_VIEWS.PHONICS_LEARN); },
     hollow: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.STUDENT_REWARDS); }
   };
-  const railNav = STUDENT_RAIL_DESTINATIONS.map(item => ({
-    ...item,
-    go: railActions[item.id]
-  }));
-  // Wraps a menu sub-page so it keeps the rail. Fullscreen mode still strips
-  // it — a student who asked for fullscreen asked for the content, not the menu.
+  // A tab the bar draws but nothing here can act on is dead chrome — a child
+  // taps it and the app does nothing. Route only through the declared bar, so
+  // adding a tab to the policy without an action here is a visible gap rather
+  // than a silent one.
+  const goToStudentTab = tabId => {
+    if (!STUDENT_TAB_BAR.some(tab => tab.id === tabId)) return;
+    studentTabActions[tabId]?.();
+  };
+  // Wraps a menu sub-page in the child shell (fixed 1194x834 stage, glass
+  // header, five-tab bottom bar). Fullscreen mode still strips it — a student
+  // who asked for fullscreen asked for the content, not the menu.
+  //
+  // contentScrolls: these screens predate the fixed canvas and were written to
+  // own a scrolling viewport. Clipping them to 664px of content height would
+  // DELETE their lower half rather than restyle it, so they scroll inside the
+  // content area until their own phase rebuilds them to the canvas.
   const withStudentRail = (activeId, content) => {
     if (!isStudentMode || studentArcadeOpen || learnFullscreen) return content;
     return (
-      <div className="lp-home-sage lp-rail-shell">
-        <StudentRail
-          studentName={studentName}
-          scopeKey={studentId || studentName || "default"}
-          active={activeId}
-          nav={railNav}
-          onHome={goStudentHome}
-          onCoins={() => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.STUDENT_REWARDS); }}
-        />
-        <div className="hs-main lp-rail-main">{content}</div>
-      </div>
+      <StudentGlassShell
+        studentName={studentName}
+        scopeKey={studentId || studentName || "default"}
+        active={activeId}
+        onNavigate={goToStudentTab}
+        onHome={goStudentHome}
+        // The grown-ups menu (change companion, sign out) lives on the home
+        // page. Sending a grown-up there is deliberate: a one-tap sign-out in
+        // the header of every screen is a button a five-year-old will press.
+        onGrownUps={goStudentHome}
+        contentScrolls
+      >
+        {content}
+      </StudentGlassShell>
     );
   };
 

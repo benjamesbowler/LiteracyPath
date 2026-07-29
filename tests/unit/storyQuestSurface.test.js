@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { storyQuests } from "../../src/data/storyQuests.js";
+import { selectActiveStudentTab } from "../../src/policy/studentRailPolicy.js";
 import {
   buildStoryQuestResumeHistory,
   isStoryQuestTeacherPreviewScope,
@@ -127,10 +128,25 @@ test("Story Quest reader reserves one viewport without nested story-text scrolli
 test("Story Quests appears in both child navigation sources with a real story icon", () => {
   assert.match(studentRailPolicySource, /id: "stories", label: "Story Quests", icon: "story"/);
   assert.match(studentHomeSource, /stories:\s*onOpenStoryQuests/);
-  assert.match(appSource, /stories:\s*\(\)\s*=>\s*\{[\s\S]*?setAppView\(APP_VIEWS\.LEARN\)/);
   assert.match(studentRailPolicySource, /story:\s*"[^"\n]+"/);
   assert.match(studentRailSource, /<StudentRailNav/);
   assert.match(appSource, /withStudentRail\("stories"/);
+
+  // 2026-07-29, the kids-side redesign: the left rail became a five-tab bottom
+  // bar, so Story Quests no longer has a nav entry of its own — the spec puts
+  // it behind Books ("reached from Books or the Home doorway; the Books tab
+  // stays lit"). The two things that must still be true are that it is
+  // REACHABLE and that entering it does not leave the bar with nothing lit.
+  assert.match(
+    appSource,
+    /onOpenStoryQuests=\{\(\)\s*=>\s*\{[\s\S]*?setAppView\(APP_VIEWS\.LEARN\)/,
+    "the Home doorway must still open Story Quests"
+  );
+  assert.equal(
+    selectActiveStudentTab("stories"),
+    "books",
+    "Story Quests must light the Books tab — a sub-screen may never leave the bottom bar dark"
+  );
 });
 
 test("the shared rail leaves a real content viewport on phones and tablets", () => {
