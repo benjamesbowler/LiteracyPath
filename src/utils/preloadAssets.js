@@ -47,7 +47,10 @@ export function warmStudentAssets(world) {
     // Active world art (backdrops, banner, sprite, poses)
     if (world) {
       preloadImage(world.banner);
+      // The child Home paints its hero on the clean backdrop, not the panorama.
+      preloadImage(world.backdrop);
       preloadImage(world.emblem);
+      preloadImage(world.point);
       preloadImage(`/images/pals/sprites/${world.id}-idle-4.webp`);
       ["wave", "celebrate", "think", "read"].forEach(pose =>
         preloadImage(`/images/pals/poses/${world.id}-${pose}.webp`));

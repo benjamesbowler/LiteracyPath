@@ -31,10 +31,14 @@ import {
   KIDS_CONTENT_HEIGHT,
   KIDS_HEADER_HEIGHT,
   KIDS_STAGE_HEIGHT,
+  KIDS_STAGE_MAX_WIDTH,
+  KIDS_STAGE_MIN_WIDTH,
   KIDS_STAGE_WIDTH,
   KIDS_TABBAR_HEIGHT,
-  applyKidsStageScale,
-  computeKidsStageScale
+  applyKidsStageMetrics,
+  computeKidsStageMetrics,
+  computeKidsStageScale,
+  computeKidsStageWidth
 } from "../../src/utils/kidsStage.js";
 
 const css = readFileSync("src/styles/kids-glass.css", "utf8");
@@ -121,30 +125,48 @@ test("every tab the bar draws has a navigation action in the app shell", () => {
   }
 });
 
-// ── The fixed canvas and its scale-to-fit ───────────────────────────────────
+// ── The canvas: fixed height, viewport-filling width ────────────────────────
+//
+// CHANGED 2026-07-29 (foundation pass). The canvas used to be a fixed
+// 1194 x 834 box scaled by min(w/1194, h/834), which preserves the canvas
+// ASPECT and therefore letterboxes every viewport that is not 1.43:1 — 125px of
+// bare page down each side at 1280 x 720, 187px at 1920 x 1080. The height is
+// now the fixed part and the width follows the viewport, so the stage fills the
+// screen and the dead margin is gone by construction. 1194 x 834 is still the
+// exact fixed point: scale 1, width 1194.
 
-test("the canvas is 1194 x 834 and the chrome takes 78 + 92 of it", () => {
+test("the authoring canvas is 1194 x 834 and the chrome takes 78 + 92 of it", () => {
   assert.equal(KIDS_STAGE_WIDTH, 1194);
   assert.equal(KIDS_STAGE_HEIGHT, 834);
   assert.equal(KIDS_HEADER_HEIGHT, 78);
   assert.equal(KIDS_TABBAR_HEIGHT, 92);
   assert.equal(KIDS_CONTENT_HEIGHT, 664);
+  // The height is the constant every screen budgets against; the width token is
+  // the authoring reference and the no-JS fallback, overwritten inline by the
+  // shell with what the viewport actually affords.
   assert.match(css, /--kg-stage-width:\s*1194px/);
   assert.match(css, /--kg-stage-height:\s*834px/);
   assert.match(css, /--kg-header-height:\s*78px/);
   assert.match(css, /--kg-tabbar-height:\s*92px/);
+  assert.equal(KIDS_STAGE_MIN_WIDTH, 1024);
+  assert.equal(KIDS_STAGE_MAX_WIDTH, 1560);
 });
 
-test("the stage scales to fit on the tighter axis and never to nothing", () => {
+test("the scale follows the height, and the width only when the stage would go under 1024", () => {
   assert.equal(computeKidsStageScale(1194, 834), 1);
-  // Wider than the canvas but shorter: height binds.
+  // Wider than the canvas but the same height: the scale does not move, the
+  // canvas gets wider instead.
   assert.equal(computeKidsStageScale(1440, 834), 1);
   assert.equal(computeKidsStageScale(2388, 1668), 2);
-  // 1024 x 768: width binds (1024/1194 < 768/834).
+  // 1024 x 768: width binds, because 834 design px of height would need more
+  // room than 1024 design px of width leaves.
   assert.equal(
     computeKidsStageScale(1024, 768).toFixed(4),
-    (1024 / 1194).toFixed(4)
+    (768 / 834).toFixed(4)
   );
+  // Portrait: width binds and the stage letterboxes top-and-bottom rather than
+  // breaking the six-doorway row. 1024/1024 = 1 is smaller than 1366/834.
+  assert.equal(computeKidsStageScale(1024, 1366), 1);
   // A stage at scale 0 or NaN is an invisible app; natural size is the safe
   // failure.
   for (const bad of [[0, 0], [-5, 900], [NaN, 900], [undefined, undefined], ["x", "y"]]) {
@@ -154,17 +176,53 @@ test("the stage scales to fit on the tighter axis and never to nothing", () => {
   assert.equal(computeKidsStageScale(200, 150), 0.4);
 });
 
-test("the scale is written to the DOM as --kg-scale, not held in React state", () => {
+test("the stage fills the viewport width at every size the owner reviews at", () => {
+  // THE DEFECT THIS PINS: the owner's first note on the deployed build was that
+  // "huge space at either side of every page is wasted". Width x scale must come
+  // back as the viewport width, or the letterbox is back.
+  for (const [width, height] of [
+    [1194, 834],   // iPad landscape, the guaranteed-correct case
+    [1280, 720],
+    [1440, 900],
+    [1920, 1080],
+    [2560, 1440],
+    [1024, 768]
+  ]) {
+    const { scale, stageWidth } = computeKidsStageMetrics(width, height);
+    assert.equal(
+      Math.round(stageWidth * scale),
+      width,
+      `${width} x ${height} leaves ${width - stageWidth * scale}px of dead page`
+    );
+    assert.ok(
+      stageWidth >= KIDS_STAGE_MIN_WIDTH && stageWidth <= KIDS_STAGE_MAX_WIDTH,
+      `${width} x ${height} produced a ${stageWidth} design-px canvas`
+    );
+  }
+  // The iPad target is the exact fixed point of the whole policy.
+  assert.deepEqual(computeKidsStageMetrics(1194, 834), { scale: 1, stageWidth: 1194 });
+  // Past 1.87:1 the canvas stops growing and the page colour becomes a
+  // deliberate gutter rather than the layout stretching for ever.
+  assert.equal(computeKidsStageWidth(3440, 1440), KIDS_STAGE_MAX_WIDTH);
+  // A read with no viewport falls back to the authoring width, never to zero.
+  assert.equal(computeKidsStageWidth(0, 0), KIDS_STAGE_WIDTH);
+});
+
+test("the metrics are written to the DOM as custom properties, not held in React state", () => {
   const written = {};
   const element = { style: { setProperty: (name, value) => { written[name] = value; } } };
-  const scale = applyKidsStageScale(element, { innerWidth: 1194, innerHeight: 834 });
-  assert.equal(scale, 1);
+  const metrics = applyKidsStageMetrics(element, { innerWidth: 1194, innerHeight: 834 });
+  assert.deepEqual(metrics, { scale: 1, stageWidth: 1194 });
   assert.equal(written["--kg-scale"], "1");
-  assert.equal(applyKidsStageScale(null, { innerWidth: 800, innerHeight: 600 }), 1);
+  assert.equal(written["--kg-stage-width"], "1194px");
+  assert.deepEqual(
+    applyKidsStageMetrics(null, { innerWidth: 800, innerHeight: 600 }),
+    { scale: 1, stageWidth: KIDS_STAGE_WIDTH }
+  );
 
   // The shell must not setState inside the effect (react-hooks/set-state-in-effect)
   // and must clean its listeners up.
-  assert.match(shellSource, /applyKidsStageScale\(stage, window\)/);
+  assert.match(shellSource, /applyKidsStageMetrics\(stage, window\)/);
   assert.doesNotMatch(shellSource, /useState/);
   assert.match(shellSource, /removeEventListener\("resize", fit\)/);
 });

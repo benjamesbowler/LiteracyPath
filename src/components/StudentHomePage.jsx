@@ -129,13 +129,22 @@ function readStudentHomeProgress(scopeKey) {
 // Inline SVG, currentColor, no icon library and no ink outlines — the same
 // rule kids-glass.css states for .kg-icon.
 
-const STAR_PATH =
-  "M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z";
-
-function StarGlyph({ size = 18 }) {
+// The stops chip counts TASKS, not treasure. It carried a star glyph beside
+// "Three stops to go" in the shipped build, which promised a star total that
+// does not exist — books award none — and named a number nothing on the screen
+// could confirm. A tick in a ring says "things finished" and claims nothing.
+function DoneRingGlyph({ size = 17 }) {
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false">
-      <path d={STAR_PATH} fill="var(--kg-accent)" />
+      <circle cx="12" cy="12" r="9.4" fill="none" stroke="currentColor" strokeWidth="2.2" />
+      <path
+        d="M7.8 12.3l2.9 2.9 5.5-5.9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -202,6 +211,52 @@ const DAILY_STOPS = [
 ];
 
 const STOP_STATE_LABEL = { done: "Done", next: "Up next", later: "After that" };
+
+// THE HERO AND THE STRIP MUST NOT SAY THE SAME THING TWICE.
+//
+// The recommendation policy and the daily mission's first unfinished task pick
+// from overlapping sets, so they COINCIDE often — the shipped build showed
+// "Adventure Map / Stop 1 on the map" in the hero and "Adventure Map / Up next"
+// in the strip directly beneath it: one instruction, printed twice, across the
+// screen's two strongest surfaces.
+//
+// The fix is subtraction, not rewording. When the hero already owns the next
+// stop, that stop LEAVES the strip and the strip becomes what is left of the
+// day. The heading says so, and the count still reports all three, so nothing
+// about the day is hidden — only the duplicate is.
+function planTodaysStops({ missionStatus, readable, heroMissionKind }) {
+  const done = kind => Boolean(missionStatus.done[kind]);
+  const doneCount = DAILY_STOPS.filter(stop => done(stop.kind)).length;
+  const nextStop = DAILY_STOPS.find(stop => !done(stop.kind));
+  const heroOwnsNext = Boolean(
+    heroMissionKind && nextStop && nextStop.kind === heroMissionKind
+  );
+  const shown = heroOwnsNext
+    ? DAILY_STOPS.filter(stop => stop.kind !== heroMissionKind)
+    : DAILY_STOPS;
+  const stillToDo = shown.filter(stop => !done(stop.kind)).length;
+  const heading = !heroOwnsNext
+    ? "Today’s three stops"
+    : stillToDo === 2
+      ? "Then two more today"
+      : stillToDo === 1
+        ? "Then one more today"
+        : "Already done today";
+  return {
+    nextStop,
+    heroOwnsNext,
+    heading,
+    // A read that failed is not a child who has done nothing, so the count only
+    // speaks when the read worked.
+    summary: readable ? `${doneCount} of 3 done` : "",
+    stops: shown.map(stop => ({
+      ...stop,
+      state: done(stop.kind)
+        ? "done"
+        : !heroOwnsNext && nextStop?.kind === stop.kind ? "next" : "later"
+    }))
+  };
+}
 
 // How many games the Arcade really holds. The mock says twelve; the repo's
 // arcade-tagged list is the truth, so the doorway counts it rather than
@@ -314,7 +369,6 @@ export function StudentHomePage({
     book: () => onOpenGuidedReading?.(mission.book?.bookId || ""),
     game: () => openArcade(mission.game?.gameId || "")
   };
-  const nextStop = DAILY_STOPS.find(stop => !status.done[stop.kind]);
 
   function closeCelebration() {
     if (celebration?.type === "step" && status.missionComplete && status.needsCelebration) {
@@ -470,16 +524,13 @@ export function StudentHomePage({
     return loadStudentProfile(progressScopeKey).doorLabels === "Icons only";
   }, [progressScopeKey, hydrationTick]);
 
-  const stopsLeft = DAILY_STOPS.filter(stop => !status.done[stop.kind]).length;
-  const stopsSummary = !homeProgress.ok
-    ? ""
-    : stopsLeft === 0
-      ? "All three done!"
-      : stopsLeft === 1
-        ? "One stop to go"
-        : stopsLeft === 2
-          ? "Two stops to go"
-          : "Three stops to go";
+  // The strip, minus whatever the hero already says. See planTodaysStops.
+  const plan = planTodaysStops({
+    missionStatus: status,
+    readable: homeProgress.ok,
+    heroMissionKind: primary?.missionKind || ""
+  });
+  const nextStop = plan.nextStop;
 
   function goToTab(tabId) {
     setAccountOpen(false);
@@ -614,14 +665,24 @@ export function StudentHomePage({
         data-recommendation-version={recommendation.policyVersion}
         data-recommendation-source={recommendation.source}
       >
-        {/* a. CONTINUE HERO — the one next action. */}
+        {/* a. CONTINUE HERO — the one next action.
+
+            THE BACKDROP IS THE CLEAN ONE, ON PURPOSE. This used to paint
+            world.banner (pals/{world}-panorama.webp), which ALREADY has a
+            rabbit and a hedgehog painted into it, and then stood a third
+            character — world.point, a second rabbit — on top of them. Two
+            rabbits in one illustration is a compositing accident, not a scene.
+            world.backdrop is the character-free plate from public/images/
+            backdrops/, so the placed pal is the only creature in the frame and
+            the hero reads as one picture. Pair a placed pal with a clean plate,
+            or use a populated plate alone — never both. */}
         <section
           className="kg-home-hero kg-scrim kg-scrim--hero"
           aria-labelledby="kg-home-hero-title"
         >
           <img
             className="kg-home-hero-art"
-            src={world.banner}
+            src={world.backdrop}
             alt=""
             loading="eager"
             decoding="async"
@@ -683,52 +744,56 @@ export function StudentHomePage({
           </div>
         </section>
 
-        {/* b. TODAY'S THREE STOPS — a checklist, not three more buttons. */}
+        {/* b. THE REST OF TODAY — a checklist, not three more buttons, and
+            never a second copy of the hero's instruction (see planTodaysStops). */}
         <section
           className="kg-home-stops kg-glass kg-glass--strong"
           aria-labelledby="kg-home-stops-title"
           data-child-progress=""
           data-mission-next-kind={nextStop?.kind || "complete"}
+          data-mission-hero-owns-next={plan.heroOwnsNext ? "true" : "false"}
           data-read-state={homeProgress.ok ? "ready" : "unreadable"}
         >
           <div className="kg-home-stops-head">
-            <h2 className="kg-section-title" id="kg-home-stops-title">Today&rsquo;s three stops</h2>
-            {stopsSummary && (
+            <h2 className="kg-section-title" id="kg-home-stops-title">{plan.heading}</h2>
+            {plan.summary && (
               <span className="kg-home-stops-count">
-                <StarGlyph />
-                {stopsSummary}
+                <DoneRingGlyph />
+                {plan.summary}
               </span>
             )}
           </div>
           {homeProgress.ok ? (
-            <div className="kg-home-stops-body">
+            /* --kg-stop-count belongs on the BODY, not on the <ol>: the dashed
+               connector is a sibling of the list, so a value set on the list
+               never reaches it and the track silently anchors to the 3-stop
+               fallback while only two markers are drawn. */
+            <div
+              className="kg-home-stops-body"
+              style={{ "--kg-stop-count": String(plan.stops.length) }}
+            >
               <span className="kg-home-stops-track" aria-hidden="true" />
               <ol className="kg-home-stops-row">
-                {DAILY_STOPS.map(stop => {
-                  const state = status.done[stop.kind]
-                    ? "done"
-                    : nextStop?.kind === stop.kind ? "next" : "later";
-                  return (
-                    <li
-                      key={stop.kind}
-                      className="kg-home-stop"
-                      data-mission-step={stop.kind}
-                      data-mission-state={state}
-                      aria-current={state === "next" ? "step" : undefined}
-                    >
-                      <span className="kg-home-stop-marker">
-                        <img src={stop.art} alt="" loading="eager" onError={placeholderOnError} />
-                        <span className="kg-home-stop-veil" aria-hidden="true">
-                          {state === "done" ? "✓" : ""}
-                        </span>
+                {plan.stops.map(stop => (
+                  <li
+                    key={stop.kind}
+                    className="kg-home-stop"
+                    data-mission-step={stop.kind}
+                    data-mission-state={stop.state}
+                    aria-current={stop.state === "next" ? "step" : undefined}
+                  >
+                    <span className="kg-home-stop-marker">
+                      <img src={stop.art} alt="" loading="eager" onError={placeholderOnError} />
+                      <span className="kg-home-stop-veil" aria-hidden="true">
+                        {stop.state === "done" ? "✓" : ""}
                       </span>
-                      <span className="kg-home-stop-label">
-                        <strong>{stop.label}</strong>
-                        <small>{STOP_STATE_LABEL[state]}</small>
-                      </span>
-                    </li>
-                  );
-                })}
+                    </span>
+                    <span className="kg-home-stop-label">
+                      <strong>{stop.label}</strong>
+                      <small>{STOP_STATE_LABEL[stop.state]}</small>
+                    </span>
+                  </li>
+                ))}
               </ol>
             </div>
           ) : (
@@ -759,25 +824,36 @@ export function StudentHomePage({
             data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
             style={{ "--kg-door-count": String(doors.length) }}
           >
+            {/* The tint is the CARD's now, not just a 32px chip's. Six pale
+                spec tints across six white cards is what turns a correct-but-
+                grey row into a row a five-year-old wants to touch, and it costs
+                the emphasis budget nothing: no accent amber, no scale change,
+                no motion, still data-child-emphasis="choice". */}
             {doors.map(door => (
               <button
                 key={door.id}
                 type="button"
-                className="kg-home-door kg-glass"
+                className="kg-home-door kg-glass kg-glass--tinted kg-glass--raised"
                 onClick={door.locked ? undefined : door.go}
                 aria-disabled={door.locked || undefined}
                 data-rail-destination={door.id}
                 data-home-priority="choice"
                 data-child-emphasis="choice"
                 data-learning-state={door.cardState?.label || "New"}
+                style={{ "--kg-tint": door.tint }}
               >
-                <span className="kg-home-door-art kg-scrim kg-scrim--sheen" style={{ background: door.tint }}>
+                {/* The icon chip rides ON the artwork, not in the footer. In
+                    the footer it ate a third of the card's text width, which is
+                    why "Adventure Map" and "Story Quests" wrapped to two lines
+                    and every card in the row ended up a different height with a
+                    different amount of picture in it. */}
+                <span className="kg-home-door-art kg-scrim kg-scrim--sheen">
                   <img src={door.art} alt="" loading="eager" decoding="async" onError={placeholderOnError} />
-                </span>
-                <span className="kg-home-door-foot">
-                  <span className="kg-home-door-chip" style={{ background: door.tint }}>
+                  <span className="kg-home-door-chip">
                     <DoorIcon name={door.icon} />
                   </span>
+                </span>
+                <span className="kg-home-door-foot">
                   <span className="kg-home-door-text">
                     <strong className="kg-card-title">{door.title}</strong>
                     {!iconsOnly && (

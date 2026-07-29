@@ -161,7 +161,12 @@
   --kg-font-display: "Baloo 2", Nunito, system-ui, sans-serif;
   --kg-font-body: Nunito, system-ui, sans-serif;
 
-  /* chrome geometry (the spec's exact numbers; also read by the shell) */
+  /* chrome geometry (the spec's exact numbers; also read by the shell).
+     --kg-stage-width is the AUTHORING reference and the no-JS fallback: the
+     shell overwrites it inline with the width the viewport actually affords, in
+     the same design pixels (see src/utils/kidsStage.js). --kg-stage-height never
+     moves, which is what keeps "this screen must not scroll" a checkable claim
+     instead of a hope. */
   --kg-stage-width: 1194px;
   --kg-stage-height: 834px;
   --kg-header-height: 78px;
@@ -179,16 +184,26 @@
 }
 
 /* ── The stage ────────────────────────────────────────────────────────────────
- * A FIXED 1194 x 834 canvas (iPad landscape). Other viewports scale the whole
- * stage rather than reflowing — the design is fixed-canvas by decision, not by
- * omission.
+ * A canvas 834 design px TALL and as wide as the viewport affords (1024–1560
+ * design px), drawn at scale = min(vh/834, vw/1024). On iPad landscape that is
+ * exactly the spec's 1194 x 834 at scale 1; on a desktop window it FILLS the
+ * width instead of letterboxing.
+ *
+ * The first build scaled a fixed 1194 x 834 box to fit both axes, which threw
+ * away ~125px of screen down each side at 1280 x 720 and ~187px at 1920 x 1080 —
+ * the owner's first note on the deployed build, and a defect every later screen
+ * would have inherited. Pinning the height and letting the width breathe keeps
+ * ONE authoring coordinate system (44px is still 44px) while the horizontal
+ * reflow stays ordinary CSS: `1fr` columns simply get wider. Screens therefore
+ * must not assume 1194 — assume 1024 and let the extra width be a gift.
  *
  * Centring is an explicit translate INSIDE the same transform the scale lives
  * in, exactly as public/present/deck.js fitStage() does. It is NOT grid
  * place-items: Chromium start-aligns a grid item that overflows its track,
  * which pushed the present-mode stage down-right and clipped its top-left on
  * every window smaller than the canvas (recorded 2026-07-28). Same trap, same
- * cure. --kg-scale is written by the shell's resize handler.
+ * cure. --kg-scale and --kg-stage-width are written by the shell's resize
+ * handler; the values above this rule are the fallback if the script never runs.
  */
 .kg-viewport {
   position: fixed;
@@ -243,14 +258,88 @@
   overflow: hidden;
 }
 
-/* Screens that predate the fixed canvas were written to own a full, scrolling
-   viewport. Clipping them would DELETE content rather than restyle it, so the
-   shell gives them a scrolling content area instead. Phase B–F screens are
-   built to the canvas and use plain .kg-main. */
+/* THE SCROLL HATCH — deliberate, not broken.
+ *
+ * Screens that predate the canvas were written to own a full, scrolling
+ * viewport. Clipping them would DELETE content rather than restyle it, so the
+ * shell gives them a scrolling content area until their own phase rebuilds
+ * them. Screens built to the canvas (Home, and every phase C–F screen) use
+ * plain .kg-main and MUST NOT scroll.
+ *
+ * The hatch is styled because "temporary" is not an excuse a child can see. The
+ * owner's note on the deployed build was that Story Quests "scrolls and floats
+ * in a dark-bordered box with a huge empty band at the top" — three symptoms of
+ * a legacy full-page layout dropped into a 664px window, all of which are
+ * answered here rather than in each screen that has not been rebuilt yet:
+ *
+ *   - the legacy page's full-viewport top padding and min-height are neutralised
+ *     inside the stage, which is what removes the empty band;
+ *   - the comic base's 3px ink card border becomes this system's hairline, since
+ *     the child area has no ink outlines anywhere;
+ *   - the clipped bottom edge fades instead of guillotining, so "there is more
+ *     below" reads as a fact rather than a bug.
+ */
 .kg-stage .kg-main--scroll {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  /* Scrollable slack under the content so the fade below never sits on top of
+     the last real thing on the page. */
+  padding-bottom: var(--kg-space-24);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(62, 119, 107, 0.45) transparent;
+  /* The last 24px fade out, so a cut-off card reads as "keep going" rather than
+     as a rendering fault. mask-image is decorative-only: an engine without it
+     simply gets the hard edge it has today. */
+  mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - 24px), transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - 24px), transparent 100%);
+}
+
+.kg-stage .kg-main--scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.kg-stage .kg-main--scroll::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: var(--kg-radius-pill);
+  background-clip: content-box;
+  background-color: rgba(62, 119, 107, 0.45);
+}
+
+/* A legacy screen inside the hatch was written for a PAGE, not for a 664px
+   window: student-vibrant.css gives the story surface `min-height: 100dvh` and
+   `padding-top: clamp(82px, 6vw, 108px)`, which is why an empty band as tall as
+   the hero sits above the first card and why the screen scrolls before it has
+   any content to scroll. Both numbers exist to clear one floating control —
+   .learn-fullscreen-toggle, absolutely positioned at top 14px, 42px tall — so
+   inside the stage the reservation is exactly that control and nothing more.
+   The class is doubled to reach (0,4,0): the rule it corrects is
+   `.student-mode-app .student-surface-story .story-quest-learn-page.learn-area-page`,
+   and kids-glass.css is imported after student-vibrant.css, so a tie lands
+   here. */
+.kg-stage .kg-main--scroll .learn-area-page.learn-area-page {
+  min-height: 0;
+  padding-top: 56px;
+}
+
+.kg-stage .kg-main--scroll .page-stack.page-stack {
+  min-height: 0;
+}
+
+/* No ink outlines and no hard offset shadows anywhere in this system —
+   including on the comic-base cards a not-yet-rebuilt screen still uses.
+   student-vibrant.css stamps `border: 3px solid #172033 !important` and
+   `box-shadow: 8px 8px 0 #172033` on the story surface, which is the
+   "dark-bordered box" in the owner's note; !important is the only way to answer
+   !important, and it is scoped to the hatch, the same precedent the 44px floor
+   and the focus ring already set in this file. */
+.kg-stage .kg-main--scroll :is(.card, .learn-story-quest-library, .story-quest-player) {
+  border: 1px solid rgba(255, 255, 255, 0.82) !important;
+  border-radius: var(--kg-radius-panel) !important;
+  box-shadow:
+    0 14px 30px -24px rgba(30, 60, 50, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9) !important;
 }
 
 /* The screen fills the content area and grows past it. THE DIRECT-CHILD
@@ -319,6 +408,37 @@
   background: rgba(255, 255, 255, 0.56);
   backdrop-filter: blur(var(--kg-blur-panel)) saturate(1.4);
   -webkit-backdrop-filter: blur(var(--kg-blur-panel)) saturate(1.4);
+}
+
+/* TIER 2, TINTED — the answer to "calm reads as flat".
+ *
+ * Same tier-2 glass, but the panel's own fill carries the place's colour
+ * (--kg-tint, from the doorway tints at the top of this file) instead of plain
+ * white. The tints are the SPEC's, at the spec's alpha, so this adds hue
+ * without adding saturation weight: a tinted card is still tier one in the
+ * emphasis budget — no accent amber, no scale change, no motion — it is simply
+ * not grey. The gradient runs white -> tint so the lit top edge survives.
+ *
+ * The accent amber is deliberately NOT available here. Amber belongs to the one
+ * recommended action, and a tinted card that borrowed it would be competing. */
+.kg-stage .kg-glass--tinted {
+  --kg-self-border: rgba(255, 255, 255, 0.85);
+  background:
+    linear-gradient(
+      168deg,
+      rgba(255, 255, 255, 0.72),
+      var(--kg-tint, rgba(255, 255, 255, 0.5)) 68%
+    );
+}
+
+/* Depth, not drama. A card that should sit ABOVE the page rather than on it
+   takes this: the same ambient-occlusion shape as tier 2, thrown further. Never
+   an offset drop shadow — the system has none and must not gain one. */
+.kg-stage .kg-glass--raised {
+  --kg-self-shadow:
+    0 22px 38px -26px rgba(30, 60, 50, 0.62),
+    0 4px 10px -8px rgba(30, 60, 50, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 /* Tier 3 — dark glass. ONLY over illustrations, so white text has contrast.
@@ -972,10 +1092,12 @@
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────────
- * There is no reflow. The canvas is fixed and the stage scales; a true phone
- * layout is a separate exercise (spec, "Responsive"). The scale itself is
- * computed in JS because it depends on the window, but the fallback below
- * keeps the stage centred and whole if the script never runs. */
+ * The canvas height is fixed and its WIDTH follows the viewport (1024–1560
+ * design px), so a screen reflows horizontally — `1fr` columns get wider — and
+ * never vertically. A true phone layout is still a separate exercise (spec,
+ * "Responsive"). The scale and the width are computed in JS because they depend
+ * on the window; the token defaults above and the fallback below keep the stage
+ * centred, whole and at the spec's exact 1194 x 834 if the script never runs. */
 @supports not (transform: scale(1)) {
   .kg-stage {
     position: static;

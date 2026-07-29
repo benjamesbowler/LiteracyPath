@@ -8,6 +8,10 @@ export const PAL_WORLDS = {
     accentSoft: "#EAF4E6",
     deep: "#35652E",
     banner: "/images/pals/meadow-panorama.webp",
+    // A CLEAN backdrop: no characters painted into it, so a screen may place
+    // its own pal on top without the art ending up with two of them. The
+    // panorama above is NOT clean — it already has pals walking the path.
+    backdrop: "/images/backdrops/activity-bg-meadow.webp",
     emblem: "/images/pals/meadow-emblem.webp",
     cheer: "/images/pals/meadow-cheer.webp",
     point: "/images/pals/meadow-point.webp",
@@ -29,6 +33,10 @@ export const PAL_WORLDS = {
     accentSoft: "#FBEFE2",
     deep: "#92511B",
     banner: "/images/pals/dino-panorama.webp",
+    // A CLEAN backdrop: no characters painted into it, so a screen may place
+    // its own pal on top without the art ending up with two of them. The
+    // panorama above is NOT clean — it already has pals walking the path.
+    backdrop: "/images/backdrops/activity-bg-dino.webp",
     emblem: "/images/pals/dino-emblem.webp",
     cheer: "/images/pals/dino-cheer.webp",
     point: "/images/pals/dino-point.webp",
@@ -50,6 +58,10 @@ export const PAL_WORLDS = {
     accentSoft: "#EFEBFA",
     deep: "#443678",
     banner: "/images/pals/moonwood-panorama.webp",
+    // A CLEAN backdrop: no characters painted into it, so a screen may place
+    // its own pal on top without the art ending up with two of them. The
+    // panorama above is NOT clean — it already has pals walking the path.
+    backdrop: "/images/backdrops/activity-bg-moonwood.webp",
     emblem: "/images/pals/moonwood-emblem.webp",
     cheer: "/images/pals/moonwood-cheer.webp",
     point: "/images/pals/moonwood-point.webp",

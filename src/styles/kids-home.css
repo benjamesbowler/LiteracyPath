@@ -22,6 +22,13 @@
 /* ── The screen grid ──────────────────────────────────────────────────────────
  * .kg-screen--home already carries the spec's 16px 24px padding. Rows are
  * 232px (hero) / auto (today's stops) / the rest (doorways), gap 13.
+ *
+ * ROWS ARE FIXED, COLUMNS ARE NOT. The canvas is 834 design px tall on every
+ * device (src/utils/kidsStage.js) and as wide as the viewport affords, so this
+ * screen's vertical budget is a constant it must live inside — that is the
+ * whole reason "no scrolling" is checkable here — while every horizontal track
+ * below is a fraction and simply gets wider on a desktop window. Nothing in
+ * this file may assume 1194px of width.
  */
 .kg-stage .kg-home {
   display: grid;
@@ -43,13 +50,19 @@
 
 /* Full-bleed artwork. The left-to-right scrim is .kg-scrim--hero's ::after,
    which paints after this image and under .kg-on-art — which is the only
-   reason white ink is legal on top of a bright meadow. */
+   reason white ink is legal on top of a bright meadow.
+
+   THE SOURCE IS THE CLEAN BACKDROP (world.backdrop), never the panorama: the
+   panorama has pals painted into it and the hero stands its own pal on top.
+   object-position keeps the crop on the window and the path rather than the
+   sill, which is what survives a 6:1 band. */
 .kg-stage .kg-home-hero-art {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 42%;
 }
 
 .kg-stage .kg-home-hero-body {
@@ -114,29 +127,51 @@
   justify-self: end;
 }
 
+/* The pal is a cut-out standing IN the scene, so it gets the spec's sprite
+   drop-shadow (My Hollow uses the same technique on its decorations). Soft and
+   diffuse — the system has no hard offset shadows and must not gain one — but
+   without it the pal reads as pasted on rather than standing there. */
 .kg-stage .kg-home-hero-pal > img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 14px 16px rgba(20, 45, 38, 0.42));
 }
 
-/* ── b. Today's three stops ──────────────────────────────────────────────── */
+/* ── b. The rest of today ────────────────────────────────────────────────── */
+/* The heading sits BESIDE the stops rather than above them. Stacked, the panel
+   spent ~50px of the screen's fixed height on a line of type and left a wide
+   empty band beside it once the canvas filled the viewport; side by side it
+   costs one row, and the height it gives back goes to the doorway artwork —
+   which is the other half of "too plain". */
 .kg-stage .kg-home-stops {
   border-radius: var(--kg-radius-panel);
-  padding: var(--kg-space-13) var(--kg-space-22) 15px;
+  padding: var(--kg-space-11) var(--kg-space-22);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--kg-space-22);
 }
 
 .kg-stage .kg-home-stops-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--kg-space-16);
+  display: grid;
+  justify-items: start;
+  gap: var(--kg-space-7);
 }
 
+/* "1 of 3 done" — a real count of a real thing. It used to read "Three stops to
+   go" beside a star glyph, which promised a star total nothing awards (books
+   give none) and named a number the screen could not confirm. */
 .kg-stage .kg-home-stops-count {
   display: inline-flex;
   align-items: center;
   gap: var(--kg-space-7);
+  height: 32px;
+  padding: 0 var(--kg-space-13);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--kg-radius-pill);
+  background: rgba(255, 255, 255, 0.55);
   font-family: var(--kg-font-body);
   font-size: 14.5px;
   font-weight: 800;
@@ -145,48 +180,65 @@
 
 .kg-stage .kg-home-stops-body {
   position: relative;
-  margin-top: 10px;
 }
 
+/* Two or three, depending on whether the hero already owns the next stop. */
 .kg-stage .kg-home-stops-row {
   margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--kg-stop-count, 3), minmax(0, 1fr));
 }
 
-/* The dashed connector sits BEHIND the markers and stops short of the outer
-   edges, so the three stops read as one path rather than three unrelated
-   circles. 32px is the vertical centre of a 64px marker. */
+/* The dashed connector sits BEHIND the markers so the stops read as one path
+   rather than unrelated circles. Two things changed from the shipped build:
+   it is FAINTER than every state it joins (the dashes used to be the loudest
+   thing in the strip, so the line was what the eye found and the states were
+   what it missed), and the labels moved BELOW the markers, so the line now runs
+   through clean background instead of straight through the words. The inset
+   lands on the first and last column centres, whatever the count. */
 .kg-stage .kg-home-stops-track {
   position: absolute;
-  left: 17%;
-  right: 17%;
-  top: 32px;
-  height: 4px;
+  left: calc(50% / var(--kg-stop-count, 3));
+  right: calc(50% / var(--kg-stop-count, 3));
+  top: 34px;
+  height: 3px;
   border-radius: 99px;
   background: repeating-linear-gradient(
     90deg,
-    rgba(62, 119, 107, 0.3) 0 10px,
+    rgba(62, 119, 107, 0.18) 0 10px,
     transparent 10px 22px
   );
 }
 
+/* THE THREE STATES MUST BE TELLABLE APART FROM A METRE AWAY.
+ *
+ * They were not: done, next and later all rendered as the same pale circle at
+ * the same size and only the ring alpha differed. Separation now runs on four
+ * channels at once — SIZE (54 / 64 / 82), FILL (pale / solid green / full-colour
+ * art), RING (dashed hairline / white / 3px accent + halo) and INK (muted /
+ * deep green / full) — so no single one of them has to carry it. The band is a
+ * fixed 82px tall and the markers centre inside it, which is what keeps the
+ * connector aligned while the discs change size. */
+/* Picture over words, centred in the column: a five-year-old reads the circle
+   first and the label second, and the marker ROW is a constant 70px however big
+   the disc inside it is, so the connector has one place to be. */
 .kg-stage .kg-home-stop {
+  --kg-stop-size: 56px;
   position: relative;
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-rows: 70px auto;
+  justify-items: center;
   align-items: center;
-  gap: 12px;
-  justify-self: center;
-  padding: 0 8px;
+  gap: var(--kg-space-2);
+  padding: 0 var(--kg-space-7);
 }
 
 .kg-stage .kg-home-stop-marker {
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: var(--kg-stop-size);
+  height: var(--kg-stop-size);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -202,23 +254,26 @@
 }
 
 /* The veil is what lets a finished stop keep its picture and still read as
-   finished — the art stays recognisable at 30% under green rather than being
-   replaced by a flat tick. */
+   finished — the art stays recognisable under green rather than being replaced
+   by a flat tick. */
 .kg-stage .kg-home-stop-veil {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
   font-family: var(--kg-font-display);
-  font-size: 25px;
+  font-size: calc(var(--kg-stop-size) * 0.52);
   font-weight: 700;
+  line-height: 1;
   color: #FFFFFF;
 }
 
 .kg-stage .kg-home-stop-label {
   display: grid;
-  gap: 0;
+  gap: 1px;
   min-width: 0;
+  justify-items: center;
+  text-align: center;
 }
 
 .kg-stage .kg-home-stop-label strong {
@@ -232,40 +287,76 @@
 .kg-stage .kg-home-stop-label small {
   font-family: var(--kg-font-body);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1.3;
   color: var(--kg-ink-muted);
 }
 
-/* Done — green fill, art at 30% under a green veil, white tick. */
+/* Done — a solid green disc with a white tick, ringed in white so it reads as a
+   finished token rather than a dimmed one. */
 .kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-marker {
-  background: var(--kg-success-soft);
-  border-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 20px -12px rgba(30, 60, 50, 0.5);
-}
-
-.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-marker img {
-  opacity: 0.3;
-}
-
-.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-veil {
-  background: rgba(111, 179, 95, 0.55);
-}
-
-.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-label strong {
-  color: #2E4B3E;
-}
-
-/* Up next — THE ONE the child should look at. Full-opacity art, no veil, an
-   accent ring and a soft accent halo. Exactly one stop may carry this. */
-.kg-stage .kg-home-stop[data-mission-state="next"] .kg-home-stop-marker {
-  background: rgba(255, 255, 255, 0.6);
-  border-color: rgba(var(--kg-accent-rgb), 0.9);
+  background: var(--kg-success);
+  border-color: rgba(255, 255, 255, 0.95);
   box-shadow:
-    0 0 0 4px rgba(var(--kg-accent-rgb), 0.22),
+    0 0 0 3px rgba(255, 255, 255, 0.7),
     0 10px 20px -12px rgba(30, 60, 50, 0.5);
 }
 
-/* After that — present, legible, and visibly not the thing to do now. */
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-marker img {
+  opacity: 0.18;
+}
+
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-veil {
+  background: rgba(111, 179, 95, 0.78);
+}
+
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-label strong,
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-label small {
+  color: #2E4B3E;
+}
+
+/* Up next — THE ONE the child should look at, and the biggest thing in the
+   strip. Full-colour art, a 3px accent ring and the spec's accent halo. At most
+   one stop can carry this, and when the hero already covers it the stop is not
+   in the strip at all. */
+.kg-stage .kg-home-stop[data-mission-state="next"] {
+  --kg-stop-size: 70px;
+}
+
+.kg-stage .kg-home-stop[data-mission-state="next"] .kg-home-stop-marker {
+  background: rgba(255, 255, 255, 0.6);
+  border: 3px solid var(--kg-accent);
+  box-shadow:
+    0 0 0 6px rgba(var(--kg-accent-rgb), 0.26),
+    0 12px 22px -12px rgba(30, 60, 50, 0.5);
+}
+
+.kg-stage .kg-home-stop[data-mission-state="next"] .kg-home-stop-label strong {
+  font-size: 20px;
+}
+
+/* The state word for "next" is a chip, not grey small print — it is the only
+   caption in the strip a child is meant to act on. It stays tier one: no
+   accent-glass fill, no motion, and much smaller than the hero's Play. */
+.kg-stage .kg-home-stop[data-mission-state="next"] .kg-home-stop-label small {
+  padding: 2px var(--kg-space-9);
+  border-radius: var(--kg-radius-pill);
+  background: rgba(var(--kg-accent-rgb), 0.28);
+  color: var(--kg-ink-brown);
+}
+
+/* After that — present, legible, and visibly not the thing to do now. The
+   dashed hairline says "waiting" without a lock and without an ink outline. */
+.kg-stage .kg-home-stop[data-mission-state="later"] {
+  --kg-stop-size: 46px;
+}
+
+.kg-stage .kg-home-stop[data-mission-state="later"] .kg-home-stop-marker {
+  border: 2px dashed rgba(62, 119, 107, 0.3);
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: none;
+}
+
 .kg-stage .kg-home-stop[data-mission-state="later"] .kg-home-stop-marker img {
   opacity: 0.42;
 }
@@ -275,12 +366,13 @@
 }
 
 .kg-stage .kg-home-stop[data-mission-state="later"] .kg-home-stop-label strong {
+  font-size: 17px;
   color: var(--kg-ink-muted);
 }
 
 /* A read that failed must never render as "nothing done yet". */
 .kg-stage .kg-home-stops-unread {
-  margin: 10px 0 0;
+  margin: 0;
   color: var(--kg-ink-muted);
 }
 
@@ -329,6 +421,9 @@
   cursor: pointer;
 }
 
+/* The art is the point of the card, so it gets the room. object-position sits
+   ABOVE centre because every home-sage plate puts its subject in the upper two
+   thirds; a straight centre crop cut the top off the rocket and the castle. */
 .kg-stage .kg-home-door-art {
   min-height: 0;
   display: block;
@@ -340,29 +435,44 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 38%;
 }
 
+/* The footer sits on the card's own tint (.kg-glass--tinted), and holds only
+   words now — the icon moved onto the picture, so the title always has the full
+   card width and every footer in the row is the same height. */
 .kg-stage .kg-home-door-foot {
   display: flex;
   align-items: center;
   gap: var(--kg-space-9);
-  padding: 10px 11px 11px;
+  padding: 9px 13px 11px;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+/* A tinted token on the corner of the artwork: the place's colour, its icon,
+   and the one bit of depth a flat plate needs to look like a card you can pick
+   up. Tier one — no accent, no motion. */
 .kg-stage .kg-home-door-chip {
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
+  position: absolute;
+  z-index: 1;
+  top: 9px;
+  left: 9px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--kg-radius-chip);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  background: var(--kg-tint, rgba(255, 255, 255, 0.72));
+  box-shadow:
+    0 8px 16px -10px rgba(20, 45, 38, 0.75),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
   display: grid;
   place-items: center;
   color: var(--kg-ink-deep);
 }
 
 .kg-stage .kg-home-door-chip .kg-icon {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
 }
 
 .kg-stage .kg-home-door-text {

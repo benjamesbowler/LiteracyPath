@@ -179,17 +179,23 @@ test("the child home keeps all seven destinations behind one policy-selected act
     "the doorway grid must be six equal columns and follow the doorways rendered"
   );
   // Exactly one daily stop is "next", and it is the only one with the accent
-  // ring and halo — the glance-level answer to "which one now?".
+  // ring and halo — the glance-level answer to "which one now?". The halo was
+  // widened from 4px/.22 to 6px/.26 on 2026-07-29: on screen the three states
+  // all read as the same pale circle, and the dashed connector was louder than
+  // any of them.
   assert.match(
     homeStyles,
-    /\.kg-stage \.kg-home-stop\[data-mission-state="next"\] \.kg-home-stop-marker\s*\{[\s\S]*?rgba\(var\(--kg-accent-rgb\), 0\.22\)/,
+    /\.kg-stage \.kg-home-stop\[data-mission-state="next"\] \.kg-home-stop-marker\s*\{[\s\S]*?rgba\(var\(--kg-accent-rgb\), 0\.26\)/,
     "the next daily stop must carry the accent halo that marks it as next"
   );
-  // The canvas is fixed at 1194 x 834 and the stage scales to fit, so a Home
-  // rule that reflows by width is a bug, not responsiveness.
+  // The canvas has a FIXED HEIGHT and a viewport-following width
+  // (src/utils/kidsStage.js), so Home reflows horizontally through fractional
+  // tracks and never through a breakpoint: a width media query here would be a
+  // second layout to maintain, and a hard-coded column count would put the dead
+  // side margin back.
   assert.equal(
     /@container|@media \(max-width/.test(homeStyles),
     false,
-    "the child home is a fixed canvas: it scales, it does not reflow"
+    "the child home reflows through fr tracks, not through breakpoints"
   );
 });

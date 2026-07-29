@@ -25,7 +25,7 @@ import {
   STUDENT_TAB_BAR,
   selectActiveStudentTab
 } from "../policy/studentRailPolicy.js";
-import { applyKidsStageScale } from "../utils/kidsStage.js";
+import { applyKidsStageMetrics } from "../utils/kidsStage.js";
 import { getCompanion } from "../utils/studentProfile.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
@@ -130,14 +130,16 @@ export default function StudentGlassShell({
 }) {
   const stageRef = useRef(null);
 
-  // The stage scale is written straight to the DOM node, never held in state:
-  // setting state from inside an effect on first paint is what
-  // react-hooks/set-state-in-effect forbids, and a resize should move one
-  // number, not re-render the whole child area.
+  // The stage metrics are written straight to the DOM node, never held in
+  // state: setting state from inside an effect on first paint is what
+  // react-hooks/set-state-in-effect forbids, and a resize should move two
+  // numbers, not re-render the whole child area. The canvas height is fixed and
+  // its WIDTH follows the viewport, so the stage fills the screen instead of
+  // letterboxing — see src/utils/kidsStage.js for the policy and its reasons.
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return undefined;
-    const fit = () => applyKidsStageScale(stage, window);
+    const fit = () => applyKidsStageMetrics(stage, window);
     fit();
     window.addEventListener("resize", fit);
     window.addEventListener("orientationchange", fit);

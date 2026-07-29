@@ -19,6 +19,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { STUDENT_RAIL_DESTINATIONS } from "../../src/policy/studentRailPolicy.js";
+import { PAL_WORLDS } from "../../src/utils/palWorlds.js";
 
 const source = readFileSync("src/components/StudentHomePage.jsx", "utf8");
 const css = readFileSync("src/styles/kids-home.css", "utf8");
@@ -67,7 +68,10 @@ test("every displayed value is read from real student state, never a mock figure
   assert.match(code, /mission\.game\?\.title/);
   // The daily stops: the same mission state the rest of the app writes.
   assert.match(code, /getMissionStatus\(progressScopeKey\)/);
-  assert.match(code, /status\.done\[stop\.kind\]/);
+  assert.match(code, /const done = kind => Boolean\(missionStatus\.done\[kind\]\)/);
+  // The hero backdrop is the CLEAN plate, not the panorama that already has
+  // pals painted into it — see the "one illustration" test below.
+  assert.match(code, /src=\{world\.backdrop\}/);
   // The Arcade doorway counts the real arcade list; the mock says twelve.
   assert.match(code, /GAME_LIST\.filter\(game => \(game\.surfaces \|\| \[\]\)\.includes\("arcade"\)/);
   assert.equal(
@@ -147,20 +151,106 @@ test("reduced-choice mode and the grown-ups menu both survive the re-layout", ()
   assert.match(code, /aria-label=\{logoutAriaLabel\}/);
 });
 
-test("the home layout is built to the spec's geometry on the fixed canvas", () => {
+test("the home layout keeps the spec's vertical geometry and assumes no fixed width", () => {
   assert.match(css, /grid-template-rows:\s*232px auto minmax\(0, 1fr\);/);
   assert.match(css, /gap:\s*var\(--kg-space-13\);/);
   assert.match(css, /border-radius:\s*var\(--kg-radius-hero\);/);
   assert.match(css, /grid-template-columns:\s*minmax\(0, 1fr\) 250px;/);
   assert.match(css, /padding:\s*18px 22px;/);
-  assert.match(css, /padding:\s*var\(--kg-space-13\) var\(--kg-space-22\) 15px;/);
   assert.match(
     css,
-    /repeating-linear-gradient\(\s*90deg,\s*rgba\(62, 119, 107, 0\.3\) 0 10px,\s*transparent 10px 22px\s*\)/,
-    "the dashed connector is the thing that makes three circles read as one path"
+    /repeating-linear-gradient\(\s*90deg,\s*rgba\(62, 119, 107, 0\.18\) 0 10px,\s*transparent 10px 22px\s*\)/,
+    "the dashed connector is the thing that makes the circles read as one path — and it must be quieter than the states it joins"
   );
-  assert.match(css, /left:\s*17%;\s*right:\s*17%;\s*top:\s*32px;\s*height:\s*4px;/);
-  assert.match(css, /width:\s*64px;\s*height:\s*64px;\s*border-radius:\s*50%;/);
+  // The connector anchors on the first and last column CENTRES, so it works for
+  // the two-stop strip as well as the three-stop one. --kg-stop-count is set on
+  // the body, which is the connector's parent; on the list it never reaches it.
+  assert.match(
+    css,
+    /left:\s*calc\(50% \/ var\(--kg-stop-count, 3\)\);\s*right:\s*calc\(50% \/ var\(--kg-stop-count, 3\)\);/
+  );
+  assert.match(code, /className="kg-home-stops-body"\s*\n\s*style=\{\{ "--kg-stop-count"/);
+  // The width is the viewport's now (src/utils/kidsStage.js), so every
+  // horizontal track on this screen has to be a fraction. A px column here
+  // would reintroduce the dead margin the canvas change removed.
+  assert.equal(
+    /grid-template-columns:\s*repeat\(\d/.test(css),
+    false,
+    "doorway and stop columns follow their count, never a hard-coded number"
+  );
+  assert.match(css, /grid-template-columns:\s*repeat\(var\(--kg-door-count, 6\), minmax\(0, 1fr\)\)/);
+  assert.match(css, /grid-template-columns:\s*repeat\(var\(--kg-stop-count, 3\), minmax\(0, 1fr\)\)/);
+});
+
+test("the three stop states are separated on size, fill, ring and ink — not on one of them", () => {
+  // The shipped build set only the ring alpha, so done, next and later all read
+  // as the same pale circle and a five-year-old could not tell which was theirs.
+  const sizeFor = state => css.match(
+    new RegExp(`\\.kg-home-stop\\[data-mission-state="${state}"\\] \\{\\s*--kg-stop-size:\\s*(\\d+)px`)
+  );
+  const later = sizeFor("later");
+  const next = sizeFor("next");
+  assert.ok(later && next, "the per-state marker sizes are gone");
+  assert.match(css, /\.kg-home-stop \{\s*--kg-stop-size:\s*56px/);
+  assert.ok(
+    Number(next[1]) >= Number(later[1]) + 20,
+    `next (${next[1]}px) must be far bigger than later (${later[1]}px)`
+  );
+  // done: solid green disc, white tick, white ring. next: full-colour art, a
+  // 3px accent ring and the spec's accent halo. later: dashed hairline, faded.
+  assert.match(css, /\[data-mission-state="done"\] \.kg-home-stop-marker \{[\s\S]*?background: var\(--kg-success\)/);
+  assert.match(css, /\[data-mission-state="done"\] \.kg-home-stop-veil \{\s*background: rgba\(111, 179, 95, 0\.78\)/);
+  assert.match(css, /\[data-mission-state="next"\] \.kg-home-stop-marker \{[\s\S]*?border: 3px solid var\(--kg-accent\)/);
+  assert.match(css, /0 0 0 6px rgba\(var\(--kg-accent-rgb\), 0\.26\)/);
+  assert.match(css, /\[data-mission-state="later"\] \.kg-home-stop-marker \{[\s\S]*?border: 2px dashed/);
+});
+
+test("the hero and the strip never state the same next action twice", () => {
+  // The shipped build put "Adventure Map / Stop 1 on the map" in the hero and
+  // "Adventure Map / Up next" in the strip directly under it. The strip drops
+  // the stop the hero already owns; the count still reports all three.
+  assert.match(code, /function planTodaysStops\(/);
+  assert.match(code, /const heroOwnsNext = Boolean\(/);
+  assert.match(code, /heroOwnsNext\s*\n?\s*\?\s*DAILY_STOPS\.filter\(stop => stop\.kind !== heroMissionKind\)/);
+  assert.match(code, /heroMissionKind: primary\?\.missionKind \|\| ""/);
+  assert.match(code, /data-mission-hero-owns-next=/);
+  // The heading tells the child what the shortened strip is.
+  assert.match(source, /"Then two more today"/);
+  assert.match(source, /"Then one more today"/);
+});
+
+test("the stops count names a real number and promises no stars", () => {
+  // "Three stops to go" sat beside a star glyph and named a star total nothing
+  // awards — books give none. A tick in a ring counts finished tasks and claims
+  // nothing about treasure.
+  assert.match(code, /`\$\{doneCount\} of 3 done`/);
+  assert.equal(
+    /StarGlyph/.test(code),
+    false,
+    "the stops chip must not carry a star: no star total exists for the daily stops"
+  );
+  assert.match(code, /function DoneRingGlyph\(/);
+  assert.match(code, /<DoneRingGlyph \/>/);
+});
+
+test("the hero pairs a clean backdrop with ONE placed pal, never two sets of characters", () => {
+  // pals/{world}-panorama.webp already has a rabbit and a hedgehog painted into
+  // it; the hero used to stand a third character (world.point) on top of them.
+  assert.match(code, /src=\{world\.backdrop\}/);
+  assert.equal(
+    /src=\{world\.banner\}/.test(code),
+    false,
+    "the panorama has pals painted in — a placed pal needs the clean plate"
+  );
+  assert.match(code, /src=\{world\.point\}/);
+  for (const world of Object.values(PAL_WORLDS)) {
+    assert.match(
+      world.backdrop,
+      /^\/images\/backdrops\/activity-bg-[a-z]+\.webp$/,
+      `${world.id} has no clean backdrop`
+    );
+    assert.notEqual(world.backdrop, world.banner);
+  }
 });
 
 test("the home stylesheet takes system classes and re-declares no glass recipe", () => {
