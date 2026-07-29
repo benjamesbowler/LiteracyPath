@@ -173,7 +173,9 @@ export const sourceFileByBankName = {
   v3_main_idea: "src/data/v3/banks/main_idea.v3.generated.js",
   v3_inference: "src/data/v3/banks/inference.v3.generated.js",
   v3_cause_effect: "src/data/v3/banks/cause_effect.v3.generated.js",
-  v3_context_clues: "src/data/v3/banks/context_clues.v3.generated.js"
+  v3_context_clues: "src/data/v3/banks/context_clues.v3.generated.js",
+  v3_theme_higher_comprehension: "src/data/v3/banks/theme_higher_comprehension.v3.generated.js",
+  v3_sequencing: "src/data/v3/banks/sequencing.v3.generated.js"
 };
 
 export const activeRuntimeSourceFiles = new Set(

@@ -19,7 +19,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:20:54.882Z",
+  "generatedAt": "2026-07-29T15:40:02.537Z",
   "commit": "06531805"
  },
  "long_vowels_silent_e": {
@@ -40,7 +40,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:20:54.882Z",
+  "generatedAt": "2026-07-29T15:40:02.537Z",
   "commit": "06531805"
  },
  "inference": {
@@ -61,7 +61,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:20:54.882Z",
+  "generatedAt": "2026-07-29T15:40:02.537Z",
   "commit": "06531805"
  },
  "main_idea": {
@@ -82,7 +82,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:20:54.882Z",
+  "generatedAt": "2026-07-29T15:40:02.537Z",
   "commit": "06531805"
  },
  "cause_effect": {
@@ -103,7 +103,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:20:54.881Z",
+  "generatedAt": "2026-07-29T15:40:02.537Z",
   "commit": "06531805"
  },
  "context_clues": {
@@ -124,7 +124,49 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T15:20:54.882Z",
+  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "commit": "06531805"
+ },
+ "sequencing": {
+  "skillId": "sequencing",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 24,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T15:40:02.537Z",
+  "commit": "06531805"
+ },
+ "theme_higher_comprehension": {
+  "skillId": "theme_higher_comprehension",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 24,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T15:40:02.537Z",
   "commit": "06531805"
  }
 };

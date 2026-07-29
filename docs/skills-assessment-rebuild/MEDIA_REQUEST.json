@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-07-29T15:20:54.886Z",
+ "generatedAt": "2026-07-29T15:40:02.541Z",
  "spec": "Every prompt/instruction, sentence, passage, and choice word needs recorded human audio (child-friendly UK/neutral voice, natural pace, no isolated phonemes). Every image slot needs a clean flat-style illustration matching /images/assessment house style, no embedded text, answer-neutral.",
  "skills": [
   {
@@ -44,6 +44,22 @@
   },
   {
    "skillId": "main_idea",
+   "items": 64,
+   "instructionLines": 64,
+   "wordRecordings": 0,
+   "imageSlots": 0,
+   "missingImages": 0
+  },
+  {
+   "skillId": "sequencing",
+   "items": 64,
+   "instructionLines": 64,
+   "wordRecordings": 1,
+   "imageSlots": 0,
+   "missingImages": 0
+  },
+  {
+   "skillId": "theme_higher_comprehension",
    "items": 64,
    "instructionLines": 64,
    "wordRecordings": 0,
@@ -2776,6 +2792,941 @@
    "text": "The school's old apple tree gives more fruit than anyone can eat. This year the cook dried rings of apple for snack time. Class 1 pressed juice with a squeaky hand press. The rest went in crates by the gate with a sign saying HELP YOURSELF, and by Friday every crate was empty.",
    "kind": "passage",
    "usedBy": 1
+  },
+  {
+   "text": "What did Tunde do FIRST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Before the snowy walk, Tunde got ready. He pulled on his thick socks. Then he zipped his coat right up to his chin. Last of all he pushed his hands into his mittens.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Kaya do FIRST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Kaya made a get-well card for Gran. First she folded the paper in half. After that she drew a fat bumblebee on the front. At the end she wrote her name inside with three kisses.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened FIRST in the fire drill?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The fire drill had rules. First, everyone stopped what they were doing the moment the bell rang. Second, they lined up without talking. Last, they walked out to the yard and stood with their class.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did they do FIRST?",
+   "kind": "instruction",
+   "usedBy": 3
+  },
+  {
+   "text": "Dad and Effy washed the car on Sunday. First they hosed off the loose mud. Then they rubbed the car all over with soapy sponges. At the end they dried it with an old towel until it shone.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which step came FIRST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "To plant cress, Class 1 followed the steps. First they wet the cotton wool and laid it in the tray. Then they sprinkled the tiny seeds on top. Last they put the tray on the sunny windowsill.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Jaz mended her bike puncture with Uncle Dev. First they turned the bike upside down. After that they pulled out the sad flat tube. At the end they fitted the new tube and pumped the tyre fat again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened FIRST on photo day?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Photo day had an order. First Miss Bell brushed everyone into neat rows on the benches. Then the photographer counted to three. Last, forty children said CHEESE at exactly the same time.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Nan do FIRST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Nan made hot chocolate the proper way. First she warmed the milk slowly in the pan. Then she stirred in two spoons of chocolate until it melted. Last came the little cloud of cream on top.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened SECOND?",
+   "kind": "instruction",
+   "usedBy": 6
+  },
+  {
+   "text": "Bath time for Biscuit the dog went like this. First Ade filled the tub with warm water. Second he scrubbed the mud out of Biscuit's fur. Last he rubbed him dry until he was a fluffy cloud.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The class made pancakes. First they whisked the eggs, flour and milk into a smooth batter. Second they poured a little circle into the hot pan. Last they lifted the golden pancake onto a plate.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Ivo wrote to his gran in three steps. First he wrote the letter about his new tooth. Second he sealed it in the envelope and stuck on a stamp. Last he reached high and dropped it into the red post box.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Suki do SECOND?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "At the library, Suki did three things. First she slid last week's books into the return slot. Second she hunted the shelves for a dinosaur story. Last she took her pile to the desk to be stamped.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The tent went up in three steps. First Dad spread the groundsheet flat on the grass. Second the twins clicked the long poles together and threaded them through. Last everyone pulled the tent up and pegged the corners tight.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Bo do on the SECOND day?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Bo's papier-mache mask took three days. On the first day he blew up a balloon and pasted it with newspaper strips. On the second day, once it was dry, he popped the balloon and cut out eye holes. On the last day he painted the mask gold like a lion.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Ren do SECOND?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The recycling job had an order. First Ren emptied every bin into one big pile. Second he sorted the pile — paper here, tins there, glass in the crate. Last he wheeled everything out to the kerb for the morning truck.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Granddad do SECOND?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Granddad prepared his conker like a champion. First he chose the roundest, hardest conker from the bag. Second he made a hole through it with a skewer, very carefully. Last he threaded the string through and tied a fat knot.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What came LAST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Milly's bedtime routine never changed. First came the bath with the boats. Then came teeth, top row and bottom row. Last of all came the story — always one chapter, sometimes one and a half.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Where did the hunt END?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The treasure hunt had three clues. The first clue was under the doormat. The second clue hid inside a welly by the door. The last clue led to the biscuit tin, where the chocolate coins were waiting.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened LAST?",
+   "kind": "instruction",
+   "usedBy": 3
+  },
+  {
+   "text": "Making apple crumble went in order. First Mum peeled and chopped the apples. Then Leo rubbed the butter, flour and sugar into crumbs and spread them on top. Last the dish went into the hot oven until the kitchen smelled wonderful.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened at the END of the visit?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "At the dentist, Pia's visit had three parts. First she sat in the big chair and it hummed up high. Then the dentist counted her teeth with a tiny mirror. At the very end Pia chose a sticker from the golden box.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Ana do LAST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Wrapping Dad's present was a mission. First Ana cut the paper to size. Then she folded and taped the ends as neatly as she could. Last she stuck the bow on top and hid the present under her bed until morning.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened LAST at lunch?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The school trip lunch had rules. First everyone found a dry spot on the grass. Then sandwiches came out — swapsies allowed. At the very end, every scrap of rubbish went back into the bags, and the field was left exactly as they found it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Kip do LAST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Kip built a kite from a kit. First he slotted the two sticks into a cross. Then he stretched the red sail over the frame and clipped it. Last he tied on the string and the long rattling tail.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Muddy boot patrol worked in order. First the boots were banged together outside to knock the big lumps off. Then an old brush scrubbed the tricky bits around the laces. Last the clean boots stood in a row by the radiator, steaming gently.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened right BEFORE the jars were filled?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Jam morning ran to Gran's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until the kitchen windows wept steam. Only when a drop wrinkled on a cold saucer did the jars get filled, and the labels went on last, once the glass had cooled.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened right AFTER the first crack appeared?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The egg diary told the whole story. Day one: six eggs under the warm lamp. Day nineteen: the first tiny crack. Day twenty: cheeping from inside the shells. Day twenty-one: five wet chicks, then a sixth, late and loud. Day twenty-three: six fluffy escape artists.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "When did the lollipop jar come down?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Hair-cut Saturday followed its ritual. The gown went on backwards like a superhero cape. The spray bottle made Otto shiver. The scissors talked their snip-snip talk around his ears. And only after the little mirror had shown him the back of his own head did the lollipop jar come down from the shelf.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did the class do right BEFORE lunch?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five pounds, one bag, no swaps.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "When did the plants move outside?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The salad took all spring. Seeds went into pots on the cold windowsill in March. In April, after the last frost had passed, the little plants moved out to the raised bed. May brought watering duty and one dramatic slug battle. In June, at last, scissors met lettuce, and lunch tasted of the whole spring.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "When were the boots cleaned?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Match-day afternoons had a fixed shape. Boots were cleaned the night before — always the night before, never the morning, that was the rule. The team sheet went up at noon. Warm-up laps started at one. And the moment the whistle blew at two, every stomach butterfly vanished until full time.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What was the shadow like just AFTER twelve?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The shadow experiment lasted from breakfast to tea. At nine, Asha chalked round her friend's shadow — long and thin, stretching to the fence. Just after twelve she drew it again: a squat puddle right at his feet. At three the shadow had crept out the other side, and by five it touched the hedge, longer than ever.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened right BEFORE the books went back?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Moving the bookcase needed planning. Every book came off the shelves before anything else — Dad had learned that lesson the hard way. The empty case walked across the room on little waddles. Then the carpet fluff where it had stood got its first hoover in years. Only after that did the books go back, in Robi's brand-new rainbow order.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these must have happened FIRST, before everything else?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Noor licked the last of the icing from her fingers. The kitchen still smelled of warm sponge, and two greasy tins soaked in the sink. On the table sat the finished cake, iced and cherried, next to the recipe book still open at page nine.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these happened LAST, after all the rest?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The sledge stood dripping in the hall. Three pairs of soaked gloves lay on the radiator, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided white figure wore Dad's second-best scarf.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these must have happened FIRST?",
+   "kind": "instruction",
+   "usedBy": 2
+  },
+  {
+   "text": "By the gate stood a wheelbarrow of weeds, still green. The flower bed's soil lay dark and freshly turned, and a tray of empty little pots had been stacked by the shed. In the bed itself, twelve small marigolds stood in a crisp new row, looking slightly surprised.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What must have happened BEFORE the lifeguard got the pole?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Rio hopped to the bench with one bare foot. Out in the shallow end, a lifeguard fished patiently with a long pole. On the tiles lay one wet sock, and somewhere between the changing room and the water, the story of how his flip-flop had ended up floating told itself.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these happened FIRST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The parcel for Aunt Zainab was ready at last: taped, addressed, and heavy with marmalade jars wrapped in yesterday's crossword pages. Bubble wrap scraps littered the floor, the sellotape had surrendered its final inch, and the address label — third attempt — finally spelled 'Fentiman Road' right.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these came FIRST, long before tonight?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Curtain call. Flowers rained onto the stage as the cast bowed in their painted cardboard armour. In the wings, the prompt book sat closed on its stool at last, and backstage a whole term's worth of rehearsal notes filled the bin — three drafts of the script, the audition list, the first clumsy set sketches.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these must have happened BEFORE the worms went in?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The wormery finally stood complete on the balcony: layers of sand and dark soil striped like a cake, damp leaves on top, and five worms already tunnelling their first wavy lines past the glass. A bag of leftover sand slumped by the door, and Juno's soil-crusted trowel soaked in a jam jar.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which goal happened FIRST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Half-time. The score sat at two-one, and Coach passed the orange quarters down the line of muddy knees. Nobody mentioned the first goal any more — the lucky bounce off the post — and everybody mentioned the second, Ffion's header, over and over, louder each telling.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right AFTER the box is emptied?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A letter's journey has stages. It is posted into the box on the corner. A postal worker empties the box into a big sack. At the sorting office, machines read the postcode and fling it into the right tray. A van carries the tray across the country, and a walking postie brings the letter the last few steps to the right door.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right BEFORE the beans are roasted?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting wakes up their flavour. Then grinding turns them into a thick brown paste, and only after sugar and milk join in does the paste set into the bars on the shop shelf.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right AFTER the glass is smashed into crumbs?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Recycled glass goes round in a loop. Bottles from the kerbside boxes travel to the plant. There they are sorted by colour and smashed into sparkling crumbs. A furnace melts the crumbs into glowing liquid. The liquid is blown or pressed into brand-new bottles — which, with luck, come back in the kerbside boxes to start again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In Ari's list, what happens right AFTER the tooth goes under the pillow?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A tooth's visit from the tooth fairy follows steps, Ari explained seriously. The tooth wobbles for days. It comes out — usually in an apple or a laugh. It goes under the pillow at bedtime. In the morning, a coin has taken its place. The tooth itself, Ari suspected, joins a very large collection somewhere.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What do the bees do right BEFORE capping the cell?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Honey is a relay race. Bees drink nectar from flowers and carry it home. House bees pass it mouth to mouth, thickening it as it goes. The thickened nectar is packed into wax cells. Bees fan it with their wings until enough water has gone. Only then is the cell capped with wax, honey sealed inside like a tiny jar.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right AFTER the crew reach the station?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The lifeboat launch runs on drilled order. Pagers beep in kitchens and workshops across the town. Crew drop everything and run to the station. Kit goes on in ninety seconds — boots, suit, lifejacket. The doors roll up, the boat thunders down the slipway, and only out past the harbour wall does anyone have breath to ask where they are going.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right AFTER the book comes back through the slot?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A library book's life is a circle. It is chosen and borrowed at the desk. It lives in a reader's house for a while — beside beds, in bags, once or twice in a garden. It comes back through the return slot. It is checked, sometimes mended with careful tape, and then reshelved in its exact place, ready to be chosen all over again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right BEFORE the vegetables are pulled?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "School soup follows the garden calendar. Seeds are sown in trays in early spring. Seedlings move to the vegetable patch after the frosts. All term the watering rota keeps them alive — mostly. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats a soup that took half a year to make.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Milo do FIRST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Milo set the breakfast table his way. First he laid out three bowls in a row. Then he stood the cereal boxes up like castle towers. Last he put a spoon beside each bowl, handles all pointing the same way.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Wash day for teddy had three steps. First teddy took a gentle bath in the sink. Second he was squeezed softly in a towel. Last he rode the washing line by his ears until the sun had dried him.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What did Amy do LAST?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The lost tooth chart worked in order. First Amy wiggled the tooth and marked a W on the chart. Then, when it came out, she drew a star on that day's square. Last of all she coloured the whole row gold, because the chart was finally finished.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What came FIRST in the rules?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Puddle-jumping had rules of its own. First, boots on — no exceptions, not even for socks with frogs on. Then the garden inspection, walking the path to find the deepest, brownest puddle. Only then came the jumping, biggest splash wins, judged by the dog.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened in the SECOND rehearsal?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The class assembly took shape in three rehearsals. In the first, everyone just learned where to stand. In the second, the speaking parts joined in, script pages rustling. In the third and last, costumes came out, and suddenly the hall felt like a real show.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Feeding the ducks properly went like this. First the oats were shared into four little cups, one each. Then the slow walk to the pond, cups held like treasure. At the end, the oats were scattered wide across the water, so even the shy duck at the back got breakfast.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Painting the fence took all Saturday. First Dad and Nia brushed off the old flaky bits. Then they stirred the big tin until the paint was smooth. Last they painted plank by plank, racing the afternoon rain.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Story time at the den had an order. First the cushions were piled into a nest. Second the torch was clipped to the tent pole, wobbling its circle of light. Last Uncle Remy read in his creaky pirate voice until somebody (usually Uncle Remy) fell asleep.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened right BEFORE the marble crossed?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful plank of atlases went across the gap. Thursday: the marble made its maiden crossing. Friday, by head teacher's decree, the whole marvellous thing went back on the shelves.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "When was the garden checked for hedgehogs?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Bonfire night ran on a strict timetable. The garden was checked for hedgehogs while it was still light — always first, always in daylight. Sparklers came out at six, one each, held at arm's length. The bonfire was lit at seven. And the rockets waited until full dark, because Dad said stars deserve a black sky.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The sandcastle stood finished at last, moat and all, with a seagull feather flying from the top tower. Around it lay the story of the morning: a ring of shells not quite used up, two buckets with wet sand still crusting their rims, and one very sandy pair of knees.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these happened FIRST, before the rest?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and in the kitchen, the tea urn — hero of the interval — steamed gently through its final cups.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right AFTER the fleece is washed?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Wool has a long journey to a jumper. The sheep is sheared in early summer — a quick, tickly haircut. The fleece is washed until the water runs clear. Carding combs untangle every fibre the same way. The spinning wheel twists the fibres into one long thread, and the knitting needles do the rest, loop by loop.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right BEFORE the outdoor pen?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "A rescued hedgehog moves through the wildlife centre in stages. New arrivals are weighed and checked the moment they come in. Poorly ones stay warm in the quiet room until they feed by themselves. Then comes the outdoor pen, to practise being wild again. Release night is last — back to the exact hedge where each one was found.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happened right AFTER the glove was put on the wall?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognised it from the bus window. And on Friday, glove and girl went home together at last.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What happens right AFTER the cars get their red light?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The pedestrian crossing does its dance in strict order. The button is pressed, and the little light says WAIT. Traffic gets its amber warning, then red. Only then does the green walking man appear, with his beeps. When he starts to blink, finish crossing — and then the cars get their turn again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What lesson does this story teach?",
+   "kind": "instruction",
+   "usedBy": 32
+  },
+  {
+   "text": "Jory borrowed Ann's comic and left it out in the rain. The pages wrinkled like crisps. He wanted to hide it under his bed. Instead he showed Ann, said sorry, and spent his pocket money on a new copy. Ann was sad about the comic — but glad he had told the truth.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Bel's first batch of biscuits came out black as coal. She nearly threw her apron in the bin. Instead she read the recipe again and found her mistake — the oven had been far too hot. The second batch came out golden, and the kitchen smelled like a hug.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Kit snapped the blue crayon and quickly slid it back in the tin, broken ends together. All morning it bothered him like a stone in a shoe. At last he told Miss May. She smiled, taped the crayon, and said broken things mend easier than secrets.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Ravi got off the bus one stop early to avoid sitting next to a new boy. The walk was long, his bag was heavy, and he still met the new boy at the school gate — who grinned and carried the bag the last stretch. The next day they sat together.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Lena bragged that her wobbly tooth would come out first, before Sam's. She wiggled it all day just to win. It came out at last — but it hurt, and there was no prize, only Sam saying 'well done' kindly. Lena wished she had let it happen in its own time.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Min fed the class goldfish twice, then once more, because it always looked hungry. The tank turned cloudy and the fish went slow and sad. The pet-shop lady explained: too much food is its own kind of unkindness. Min learned to feed a pinch, no more, and the water cleared.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "In the quiet library, Posy whispered a joke, then a story, then a song. The librarian did not scold. She just pointed at the reading corner, where a small boy had lost his place three times. Posy saw his cross little face — and understood without one word being said.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Dara promised to water next-door's plum tree during the holiday, then forgot for a whole hot week. The leaves curled. She watered it every evening after that, twice on the hottest days, and by the end of summer the tree stood green again — and Dara never made a promise carelessly again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Every wet morning, Iris carried her little brother's boots so he could climb the bus steps. One icy day, Iris slipped and her books flew everywhere. Before she could blink, her brother and three of his small friends were gathering pages from every puddle.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The new girl ate lunch alone, so Bo moved his tray next to hers and shared his grapes. Weeks later, when Bo broke his arm and could not cut his food, a tray slid quietly next to his — and the new girl cut his dinner into pieces without being asked.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Grandpa Tan fixed umbrellas for the whole street and never took a penny. 'Rain falls on everyone,' he said. When his roof leaked in the big storm, half the street appeared at his door with ladders, buckets, and a hot dinner in a basket.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "At the fair, Nia's last coin rolled under the lost-and-found table. The boy behind the table crawled in the dust to fetch it, and Nia used it to buy two toffee apples — one for herself, and one for a dusty, grinning boy.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Wren was the quietest singer in choir, so quiet her words were mostly shapes. Ana stood beside her every week and sang a little softer, so Wren could hear her own voice. At the concert, two voices rose together — and one of them had never sounded so brave.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Old Mr Price's tractor sank in the mud, and he sat a long time, too proud to wave for help. The Okafor children saw anyway. They fetched planks, their mother, and a rope — and afterwards Mr Price's orchard gate, locked for years, stood open with a sign: APPLES, HELP YOURSELVES.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Jude found a splinter of glass on the slide and spent his whole break carefully clearing every piece, missing the football game. Nobody noticed — he thought. On Friday, a note appeared in his tray: 'Thank you from the little ones. You didn't know we saw.'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "One skipping rope, eleven children. Quarrels every break — until Fern started counting everyone in: two turns each, jumpers become turners, turners become jumpers. The rope never rested, the queue sang the counting song, and break time stopped ending in tears.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Pip's sunflower seed sat in the soil doing nothing while Marco's shot up like a green rocket. Pip watered anyway, every day, even when it felt silly. In week five, a late little stem appeared — and by August, Pip's flower was the tallest in the whole garden.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The monkey bars defeated Ola all autumn. Each break she got one bar farther before dropping. Winter gloves, spring blisters, a hundred small tries. On the last day of term she swung across the whole row — and the playground burst into cheering she never expected.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Tam wanted to fold one hundred paper cranes like the ones in the library book. By crane twenty his folds were crooked; by fifty, his thumbs ached. He folded on the bus, at breakfast, in the bath queue. Crane one hundred sat perfectly on his windowsill before his birthday.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Nobody wanted goalkeeper, so quiet Emil took the gloves. He practised alone against the garage wall all season — thud, catch, thud, catch. In the last match, with the score level, Emil flew sideways and tipped the ball over the bar, and his name was the loudest word on the pitch.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The first snow would not stick, and Ceri checked the window a hundred times. Gran said watching would not hurry the sky, so Ceri stopped watching and got ready instead: gloves dried, sledge waxed, carrot saved. When the deep snow finally came, she was first — and readiest — on the hill.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The jigsaw's last corner piece was missing, and everyone gave up — except Ash, who liked finishing things. He searched the sofa, the stairs, the dog's basket, and finally the turn-up of Grandad's trouser leg. The picture on the table was complete because one person would not stop looking.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Grandpa's watch ran five minutes slow, and he liked it that way — but the mending of it became Suvi's winter project. Springs, screws, a magnifying glass, three failed tries, one bent tool. When the watch finally ticked true, Grandpa wore it proudly... set five minutes slow again, for old times' sake.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The school's litter-picking robot kept jamming, and Class 5 kept unjamming it — new wheels from a skateboard, a brush from the lost kit box, tape, more tape. The head teacher said buy a new one. Class 5 said their patched robot, wobbling proudly down the corridor, was already the best one in the world.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Two lessons seem possible. Which one does the story support MOST?",
+   "kind": "instruction",
+   "usedBy": 6
+  },
+  {
+   "text": "Two ladders leaned on the orchard wall: Jo's new silver one and the old wooden one Jo's mum had climbed as a girl. Jo always chose the silver ladder — until the day it slid on wet grass and the wooden one, with its worn, deep-gripped rungs, carried her safely up to the highest apples. That autumn Jo oiled the old ladder's joints herself, and the silver one waited under a sheet.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Yusuf practised the trumpet loudly and often, and told everyone about the concert. His sister Amal practised the harp quietly behind a closed door, and told no one. At the concert Yusuf played brilliantly and bowed twice. Amal played one simple tune so beautifully that the hall forgot to clap for a moment. On the way home, Yusuf asked, for the first time, if she would teach him the quiet way of practising.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which lesson fits best?",
+   "kind": "instruction",
+   "usedBy": 5
+  },
+  {
+   "text": "The night-light argument ran all week: Dad said seven-year-olds do not need one, and Milo said the dark had shapes in it. The compromise was a torch on the pillow, 'for emergencies'. Milo used it the first night, held it the second, and by Friday it lay under the bed, forgotten — because knowing he COULD switch it on had quietly shrunk every shape in the dark.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Priya found the spelling list for Friday's test lying by the photocopier — every word, a day early. She looked at it a long moment, then posted it back under the staffroom door. Her score on Friday was seven out of ten, her ordinary score. But when Mr Field told the class someone had returned the list unread, Priya sat a little taller than any ten out of ten had ever made her sit.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "When the storm knocked the nest from the hedge, Etta wanted to carry the eggs indoors at once, to save them with blankets and a lamp. Her grandmother stopped her: 'The mother is watching from the fence. Help small, not big.' They wedged the nest back, moved away, and watched the mother return. All three chicks hatched in the hedge, wild and loud, needing nobody's lamp.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The junior bake-off allowed one entry each. Zeke's jam roll collapsed an hour before judging, and he stood in the wreckage of sponge, out of time and out of hope. Nell looked at her own perfect lemon cake, then cut it in half, plated the halves separately, and told the judges the second entry was Zeke's idea as much as hers. They did not win. Neither of them ever called it a loss.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Every evening, Kofi's echo game in the stairwell — HELLO... hello... hello — annoyed the third floor. Mrs Adjei came down, and everyone waited for the telling-off. Instead she taught him the trick her own father taught her: the softer you call, the closer the echo leans in to listen. After that, the stairwell heard whisper-games, and the third floor heard nothing at all.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The class voted to spend the prize money on a party. Robin alone voted for new goal nets, and lost, nineteen to one. At the party, Robin neither sulked in the corner nor pretended the nets had been a silly idea. He handed out cake, laughed at the games — and in spring, when the nets budget came round again, nineteen hands remembered his good grace and went up with his.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which of these is the THEME — not just what happened?",
+   "kind": "instruction",
+   "usedBy": 10
+  },
+  {
+   "text": "Sana's telescope was the envy of the street, and she guarded it jealously — until the comet week, when she discovered that a wonder seen alone goes quiet quickly. She chalked VIEWINGS, FREE on the pavement. Neighbours queued past bedtime, gasping in turn, and Sana found that the comet grew more amazing every time someone new cried out at it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The wrong bus stop turned out to be the right one. Dropped a street early by a rain-blind driver, Marisol sheltered in a doorway that happened to belong to the town's tiny museum — free on Thursdays. She spent the hour among ship models and whale bones she had never known existed, and afterwards she sometimes got off early on purpose, just to see what else the town was hiding.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Every apology Tom had ever given was a mumbled 'sorry' with his eyes on his shoes. But breaking Gran's teapot — the one from her wedding — mumbled words felt too small. He wrote a letter instead: what he did, why it was careless, what he would save up to mend. Gran kept the taped-together teapot on the shelf. The letter she kept in her purse, for years.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The lighthouse keeper kept a list of every ship that passed safely in the night. Nobody asked him to; the ships never knew. When he retired after forty years, the harbourmaster read the list's last page aloud — four thousand names — and the whole quay stood silent, understanding at last what steady, unseen work had been holding their sea-road open.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "At the lantern festival, the prize always went to the biggest lantern — until the year of the great wind. One by one the giant paper palaces guttered and tore, while Amaya's stubby little lantern, built low and snug around its flame, bobbed on through the dark like a heartbeat. It crossed the finish line alone, the only light left on the river.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Priw the goldfish ate everything first — flakes meant for three fish vanished into one round mouth. He grew grand and golden while Tup and Lin thinned behind the pump. Then came the week the family forgot the flakes. Priw, who had never learned to hunt the tank's green threads, drifted hungry — and it was quick little Tup and Lin who nosed him toward the water-weed and showed him how.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Mud season ruined every shoe in the village school, and the cloakroom filled with squelching and complaints. Little Ede said nothing. Each break, she simply lined the worst boots by the radiator and turned them as they dried. Nobody knew for weeks. When the head finally caught her at it and asked why, Ede shrugged: warm boots made people kinder all afternoon, and she liked the school kinder.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The twins divided the attic with a chalk line the day they stopped sharing: her books that side, his models this side. The line worked perfectly. It kept out borrowing, and mess, and quarrels — and stories read aloud, and glue passed at the right moment, and company on rainy days. By October the attic was the tidiest, quietest, loneliest room in the house, and the chalk was the first thing they washed away together.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which new situation shows the SAME lesson?",
+   "kind": "instruction",
+   "usedBy": 11
+  },
+  {
+   "text": "Remember Pip, who watered a seed that showed nothing for five weeks and grew the garden's tallest sunflower? Keep Pip's lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember Jory, who ruined Ann's comic in the rain and chose telling the truth over hiding it. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember Etta and the fallen nest: her grandmother taught her to 'help small, not big', wedging the nest back and letting the mother bird do the rest. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember the lighthouse keeper's list — forty years of steady, unseen work that kept the sea-road open. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember Nell at the bake-off, who cut her perfect cake in half so her friend still had an entry, and never called it a loss. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember Amaya's little lantern, built low and snug around its flame, still burning when the grand paper palaces had torn. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember Priya and the spelling list she posted back under the staffroom door unread, and how seven honest marks felt taller than ten unfair ones. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember the twins' chalk line — how a wall that kept out mess and quarrels kept out company too, until washing it away was the happiest chore in the house. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Zia copied Ola's homework to save time, and got the same three answers wrong. Worse, she could not explain them at the board. That night she did the page herself, slowly. Next test her answers were her own — and she could explain every one.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "On the coldest morning, Ffion cleared frost from her neighbour's windscreen along with her mum's, just because she was out there anyway with the scraper. All winter after that, on bin day, Ffion's family bins came back up the drive before they were even awake — wheeled by a neighbour who was out there anyway.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Rosa could not swim a stroke in June. She would not go in past her waist. All summer she practised floating, then kicking, then one arm, then the other. On the last beach day, she swam out to the yellow buoy and back — not fast, not far, but every metre of it hers.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Ben teased Ollie about his taped glasses, and the laugh he expected never came — only a horrible quiet. Sorry felt impossible to say, so Ben did it the slow way: a saved seat, a defending word at football, and at last the words themselves. 'Took you long enough,' said Ollie — and shoved up to make room.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The lunch queue crush always squeezed out little Yani, last and smallest. Big Aron noticed, and simply stood behind him each day like a friendly wall. Years later — Aron on crutches after his accident, the corridor crowded — it was a much taller Yani who walked behind him, all the way, like a friendly wall.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The recorder squeaked for everyone, but for Dot it SCREECHED. Her family bought earplugs; the dog left the room. Dot practised in the shed, ten minutes a day, no more, no matter what. By the spring concert, the screech had worn away like a rough edge, and the shed concerts had quietly become rather good.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Nobody saw Wolf knock the class globe off its stand — but Wolf saw the dent, and Wolf knew. The secret felt like a marble in his shoe. When he finally told Mr Otieno, the telling took ten seconds, the gluing five minutes, and the marble was gone by lunch.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Half Moon Lane flooded, and the corner shop stood in brown water. Mrs Vo had given credit, sweets, and kind words for twenty years. By noon, without one phone call, the lane filled with neighbours in wellies, carrying and mopping — and by evening the shop's OPEN sign was the driest thing on the street.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The chess club's best player, Ines, could beat anyone — and said so, often. The club shrank to three. New teacher Ms Drew asked Ines to spend one term coaching instead of winning. It itched at first, losing on purpose to show a trick. But by summer the club filled two classrooms, and when a small coached beginner finally beat her fair and square, Ines was surprised to find she had never enjoyed chess more.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Papa's garden was chaos — beans in with roses, pumpkins wandering the path — and next door's garden was ruler-straight rows. Next door teased; Papa just picked. When blight took the whole street's tomatoes, it hopped easily down next door's tidy tomato rows but got lost in Papa's jumble, where marigolds and garlic broke its path. That autumn, next door's rows had two new residents: marigolds, and a little wandering pumpkin.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were disaster — front legs turning left, back legs right, the audience of teachers crying with laughter. So Fen and Alba practised everything together for a month: walking home, queueing, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewellery. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first of HIS trees blossomed outside the maternity window, and he understood what kind of rich his aunt had been.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember Wolf and the dented globe — how confessing took ten seconds and carrying the secret had felt like a marble in his shoe. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember Ede drying the village school's boots by the radiator — small quiet care that made a whole school kinder. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over the maths, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Remember the little lantern that finished alone because it was built for the wind, not for the judges. Keep that lesson in mind.",
+   "kind": "passage",
+   "usedBy": 1
   }
  ],
  "wordAudio": [
@@ -3833,6 +4784,10 @@
   },
   {
    "word": "ten",
+   "usedBy": 1
+  },
+  {
+   "word": "breakfast",
    "usedBy": 1
   }
  ],

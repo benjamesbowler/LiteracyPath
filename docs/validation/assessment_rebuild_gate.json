@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-07-29T15:20:54.883Z",
+ "generatedAt": "2026-07-29T15:40:02.538Z",
  "commit": "06531805",
  "results": [
   {
@@ -219,6 +219,80 @@
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     }
+    }
+   },
+   "ready": true
+  },
+  {
+   "skillId": "sequencing",
+   "counts": {
+    "total": 64,
+    "level1": 24,
+    "level2": 24,
+    "retention": 16
+   },
+   "gates": {
+    "G1_structure": true,
+    "G2_originality": true,
+    "G3_answer_integrity": true,
+    "G4_mastery_logic": true,
+    "G5_no_repeats": true,
+    "G7_human_signoff": "pending-ben"
+   },
+   "detail": {
+    "lint": [],
+    "sims": {
+     "pass": {
+      "status": "secure",
+      "sittings": 6,
+      "repeats": 0
+     },
+     "guess": {
+      "trials": 300,
+      "passes": 0
+     },
+     "scanner": {
+      "finalStatus": "in_progress",
+      "leakyItems": 9,
+      "leakShare": 0.140625
+     }
+    }
+   },
+   "ready": true
+  },
+  {
+   "skillId": "theme_higher_comprehension",
+   "counts": {
+    "total": 64,
+    "level1": 24,
+    "level2": 24,
+    "retention": 16
+   },
+   "gates": {
+    "G1_structure": true,
+    "G2_originality": true,
+    "G3_answer_integrity": true,
+    "G4_mastery_logic": true,
+    "G5_no_repeats": true,
+    "G7_human_signoff": "pending-ben"
+   },
+   "detail": {
+    "lint": [],
+    "sims": {
+     "pass": {
+      "status": "secure",
+      "sittings": 6,
+      "repeats": 0
+     },
+     "guess": {
+      "trials": 300,
+      "passes": 0
+     },
+     "scanner": {
+      "finalStatus": "in_progress",
+      "leakyItems": 12,
+      "leakShare": 0.1875
      }
     }
    },
