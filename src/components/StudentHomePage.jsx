@@ -1,3 +1,36 @@
+// THE CHILD HOME SCREEN — phase B of the 2026-07-29 kids-side redesign.
+//
+// Binding spec: mockups/design-handoff-kids-side/README.md, "### 1. Home".
+// Layout lives in src/styles/kids-home.css; every glass surface, radius, blur,
+// type step and animation comes from src/styles/kids-glass.css (phase A).
+//
+// WHAT THIS SCREEN IS FOR: answering "what do I do now?" in under a second,
+// while leaving every destination one tap away.
+//
+// ONE UNMISTAKABLE NEXT ACTION. The old home offered a daily-mission strip, a
+// "recommended" hero, two secondary cards and a collapsed "more to explore"
+// drawer, all competing for the same glance, behind a text-labelled rail a
+// pre-reader cannot use. This screen has exactly ONE primary call to action —
+// the hero's Play button, which carries data-child-primary. The three stops
+// below it are a READ-ONLY checklist (three taps that all lead somewhere would
+// re-create the competition the redesign removed), and the six doorways are
+// equal, quiet alternatives. A second loud button here is a regression.
+//
+// WHICH ACTIVITY THE HERO CONTINUES is not a new decision: it is
+// selectStudentHomeRecommendation(), the same policy (and the same unit tests)
+// that chose the old hero. The redesign changed the presentation, not the
+// rule.
+//
+// TWO CURRENCIES, AND ONLY TWO. Stars and coins, both in the shell's header.
+// This file must not surface a streak, gems, XP or points — the celebration
+// copy used to name a streak ("that's N school days in a row") and that
+// sentence is gone.
+//
+// NUMBERS ARE WIRED, NOT INVENTED. The mock's counts are placeholders. Every
+// number and name on this screen is read from real student state; where no
+// real source exists (the mock's "6 stars waiting"), the screen says something
+// true instead of showing a made-up figure.
+
 import { useEffect, useMemo, useState } from "react";
 import { ConfettiCelebration } from "./learn/games/shared/ConfettiCelebration.jsx";
 import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
@@ -19,15 +52,22 @@ import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 import { CHILD_BRAND } from "../data/childBrand.js";
+import { GAME_LIST } from "../data/learnGamesData.js";
+import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
+import { stopAtIndex } from "../data/questSequence.js";
+import { currentStopIndex } from "../utils/questProgress.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 import {
   buildStudentHomeCardState,
   buildStudentHomeContinuation,
   selectStudentHomeRecommendation
 } from "../policy/learningPolicy.js";
-import { STUDENT_RAIL_DESTINATIONS } from "../policy/studentRailPolicy.js";
-import StudentRailNav from "./StudentRailNav.jsx";
-import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
+import {
+  STUDENT_RAIL_ICON_PATHS,
+  selectStudentRailItems,
+  speakStudentRailLabel
+} from "../policy/studentRailPolicy.js";
+import StudentGlassShell from "./StudentGlassShell.jsx";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -49,32 +89,99 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-function readProgressArea(area, scopeKey) {
-  if (typeof window === "undefined") return {};
+// A READ THAT FAILED IS NOT AN EMPTY READ.
+//
+// The old helper swallowed a malformed record and returned {}, which the UI
+// then rendered as "nothing done yet" — a claim about the child, produced by a
+// storage error. `ok` travels with the value so the screen can say "we could
+// not load this" instead.
+function readJsonArea(area, scopeKey) {
+  if (typeof window === "undefined") return { ok: true, value: {} };
+  const key = localProgressStorageKey(area, scopeKey);
   try {
-    return JSON.parse(
-      window.localStorage.getItem(localProgressStorageKey(area, scopeKey)) || "{}"
-    );
+    const raw = window.localStorage.getItem(key);
+    if (!raw) return { ok: true, value: {} };
+    const parsed = JSON.parse(raw);
+    return { ok: true, value: parsed && typeof parsed === "object" ? parsed : {} };
   } catch {
-    return {};
+    return { ok: false, value: {} };
   }
 }
 
 function readStudentHomeProgress(scopeKey) {
-  return {
-    soundSeekers: readProgressArea("phonics_quest", scopeKey),
-    phonics: readProgressArea("phonics_letters", scopeKey),
-    adventureMap: readProgressArea("el_quest", scopeKey),
-    arcade: readProgressArea("learn_games", scopeKey),
-    storyQuests: readProgressArea("story_quests", scopeKey),
-    readingLibrary: readProgressArea("guided_reading", scopeKey),
-    hollow: readProgressArea("hollow", scopeKey)
+  const areas = {
+    soundSeekers: readJsonArea("phonics_quest", scopeKey),
+    phonics: readJsonArea("phonics_letters", scopeKey),
+    adventureMap: readJsonArea("el_quest", scopeKey),
+    arcade: readJsonArea("learn_games", scopeKey),
+    storyQuests: readJsonArea("story_quests", scopeKey),
+    readingLibrary: readJsonArea("guided_reading", scopeKey),
+    hollow: readJsonArea("hollow", scopeKey),
+    dailyStops: readJsonArea("daily_mission", scopeKey)
   };
+  const progress = Object.fromEntries(
+    Object.entries(areas).map(([name, result]) => [name, result.value])
+  );
+  return { ...progress, ok: Object.values(areas).every(result => result.ok) };
+}
+
+// ── Glyphs ───────────────────────────────────────────────────────────────────
+// Inline SVG, currentColor, no icon library and no ink outlines — the same
+// rule kids-glass.css states for .kg-icon.
+
+const STAR_PATH =
+  "M12 2.6l2.9 6.2 6.6.8-4.8 4.6 1.2 6.6L12 17.6 6.1 20.8l1.2-6.6L2.5 9.6l6.6-.8L12 2.6z";
+
+function StarGlyph({ size = 18 }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false">
+      <path d={STAR_PATH} fill="var(--kg-accent)" />
+    </svg>
+  );
+}
+
+function PlayGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false">
+      <path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function SpeakerGlyph({ size = 30 }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false">
+      <path d="M5 9.5v5h3.6l4.4 3.4V6.1L8.6 9.5H5Z" fill="currentColor" />
+      <path
+        d="M16.4 9a4.6 4.6 0 0 1 0 6M19.2 6.2a8.6 8.6 0 0 1 0 11.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function DoorIcon({ name }) {
+  return (
+    <svg className="kg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-kg-icon={name}>
+      <path d={STUDENT_RAIL_ICON_PATHS[name] || STUDENT_RAIL_ICON_PATHS.home} />
+    </svg>
+  );
+}
+
+function PersonIcon() {
+  return (
+    <svg className="kg-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d={STUDENT_RAIL_ICON_PATHS.person} />
+    </svg>
+  );
 }
 
 function SignOutIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M4 4h9v2H6v12h7v2H4V4Zm11.6 4.4L20.2 13l-4.6 4.6-1.4-1.4 2.2-2.2H10v-2h6.4l-2.2-2.2 1.4-1.4Z" />
     </svg>
   );
@@ -84,144 +191,51 @@ function SignOutIcon() {
 // unlocks only after the day's 3 tasks. During the open beta it stays free.
 const ARCADE_REQUIRES_DAILY_TASKS = false;
 
-const MISSION_TILES = [
-  { kind: "quest", label: "Adventure Map", art: "/images/learn-games/art/word-hopscotch.webp" },
-  { kind: "book", label: "Reading Library", art: "/images/learn-games/home/home-reading-library.webp" },
-  { kind: "game", label: "Arcade", art: "/images/learn-games/art/pop-the-word.webp" }
+// Today's three stops. The spec's own labels — a child reads the picture, and
+// the two-line label is there for the adult beside them. `kind` is the daily
+// mission kind the state is read from, so the checklist and the mission are
+// the same fact rendered twice, never two lists that can disagree.
+const DAILY_STOPS = [
+  { kind: "quest", label: "Adventure Map", art: "/images/home-sage/adventure-map.webp" },
+  { kind: "book", label: "Read a book", art: "/images/home-sage/reading-library.webp" },
+  { kind: "game", label: "Play a game", art: "/images/home-sage/arcade.webp" }
 ];
 
-// ── the "sage" home skin ─────────────────────────────────────────────────────
-// The default since 2026-07-15: a calmer shell around the same activities
-// (see src/styles/home-sage.css and mockups/kids-home-chalkie-style.html).
-// The older "comic" home screen and its account-menu "classic look" switch were
-// removed on 2026-07-22 — sage is now the only home skin. Note: comic-theme.css
-// stays imported in main.jsx as the shared style base the sage palette is
-// layered on, so it is intentionally NOT deleted.
+const STOP_STATE_LABEL = { done: "Done", next: "Up next", later: "After that" };
 
-const SAGE_ICON_PATHS = {
-  home: "M3 11.5 12 4l9 7.5M5.5 10v9h13v-9",
-  sound: "M4 19c4-1 5-4 5-7 0-3 2-6 6-6 3 0 5 2 5 5 0 5-4 9-10 9-2.5 0-4.5-.4-6-1Z",
-  phonics: "M5 19h14M7 15 12 4l5 11M8.8 11.5h6.4",
-  map: "M9 4 4 6v14l5-2 6 2 5-2V4l-5 2-6-2ZM9 4v14M15 6v14",
-  arcade: "M4 8h16v10H4zM8 11v4M6 13h4M15 12h.01M18 14h.01",
-  book: "M12 6c-2-1.6-4.5-2-8-2v14c3.5 0 6 .4 8 2 2-1.6 4.5-2 8-2V4c-3.5 0-6 .4-8 2ZM12 6v14",
-  story: "m12 4 2 4.2 4.6.6-3.4 3.2.9 4.6L12 14.4l-4.1 2.2.9-4.6L5.4 8.8 10 8.2Z",
-  hollow: "M12 3 4 9v11h16V9l-8-6ZM9.5 20v-6h5v6",
-  person: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4.5 20c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5",
-  play: "M7 5.5v13l11-6.5-11-6.5Z",
-  swap: "M7 8h10l-3-3M17 16H7l3 3"
-};
-
-function SageIcon({ name }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d={SAGE_ICON_PATHS[name] || SAGE_ICON_PATHS.home} />
-    </svg>
-  );
+// How many games the Arcade really holds. The mock says twelve; the repo's
+// arcade-tagged list is the truth, so the doorway counts it rather than
+// repeating a placeholder.
+function arcadeGameCount() {
+  return GAME_LIST.filter(game => (game.surfaces || []).includes("arcade") && !game.hidden).length;
 }
 
-// Sage card art lives in /images/home-sage/ (generated via
-// tools/image-jobs/home-sage-cards.json — calm palette, house prompt rules).
-// Until a file is generated, the card falls back to the comic-era art rather
-// than showing an empty tile, so the skin never depends on the image batch
-// having run. The comic skin's own files are never overwritten.
-function SageCard({
-  hero = false,
-  art,
-  fallbackArt,
-  title,
-  fillChip,
-  lineChips = [],
-  foot,
-  footNote,
-  locked = false,
-  lockedLabel,
-  onClick,
-  priority,
-  recommendationSource,
-  recommendationReason,
-  cardState,
-  continuation
-}) {
-  const [loadedArt, setLoadedArt] = useState("");
-  const artReady = loadedArt === art;
-
-  function artError(event) {
-    const img = event.currentTarget;
-    if (fallbackArt && img.dataset.fellBack !== "true") {
-      img.dataset.fellBack = "true";
-      img.src = fallbackArt;
-      return;
-    }
-    placeholderOnError(event);
+// THE EXACT STOP the hero is continuing, from real progress. Every branch
+// names a real source; the three activities that have no single "stop" to name
+// say something true and general rather than inventing one.
+function heroStopLine({ activityId, progress, mission }) {
+  if (activityId === "sound-seekers") {
+    const index = currentStopIndex(progress.soundSeekers);
+    const stop = stopAtIndex(index);
+    return stop ? `Stop ${index} — ${stop.name}` : "";
   }
-  return (
-    <button
-      type="button"
-      className={["hs-card", hero ? "is-hero" : "", locked ? "is-locked" : ""].filter(Boolean).join(" ")}
-      onClick={onClick}
-      aria-disabled={locked || undefined}
-      data-home-priority={priority}
-      data-recommendation-source={recommendationSource || undefined}
-      data-learning-state={cardState?.label || "New"}
-      data-progress-marker={cardState?.progressText || undefined}
-      data-child-primary={hero ? "" : undefined}
-      data-child-emphasis={hero ? "primary" : "choice"}
-      data-continuation-activity={hero ? continuation?.activityId : undefined}
-      data-continuation-goal={hero ? continuation?.goal : undefined}
-      data-continuation-remaining={hero ? continuation?.remaining ?? undefined : undefined}
-      data-mission-primary-kind={hero ? continuation?.missionKind || undefined : undefined}
-      aria-label={hero ? continuation?.label : undefined}
-    >
-      <span className="hs-thumb" aria-hidden="true" data-media-state={artReady ? "ready" : "loading"}>
-        <img
-          src={art}
-          alt=""
-          loading="eager"
-          decoding="async"
-          onError={artError}
-          onLoad={() => setLoadedArt(art)}
-        />
-      </span>
-      {hero && <span className="hs-card-kicker">Recommended next</span>}
-      <h3>{title}</h3>
-      {hero && continuation?.label && (
-        <span className="hs-card-action" data-child-emphasis-cue="">
-          <SageIcon name="play" />
-          {continuation.label}
-        </span>
-      )}
-      {recommendationReason && (
-        <ChildRecommendationExplanation
-          className="hs-card-reason"
-          reason={recommendationReason}
-          surface="student-home"
-        />
-      )}
-      <span className="hs-card-state-row">
-        <strong className={`hs-card-state is-${cardState?.tone || "new"}`}>
-          {cardState?.label || "New"}
-        </strong>
-        {cardState?.progressText && (
-          <small className="hs-card-progress">{cardState.progressText}</small>
-        )}
-      </span>
-      <span className="hs-chips">
-        {fillChip && <span className="hs-chip is-fill">{fillChip}</span>}
-        {lineChips.map(chip => <span key={chip} className="hs-chip is-line">{chip}</span>)}
-      </span>
-      {!hero && (
-        <>
-          <hr />
-          <span className="hs-foot">
-            <span className="hs-mini"><SageIcon name={locked ? "arcade" : "play"} /></span>
-            {locked && lockedLabel ? lockedLabel : foot}
-            {footNote && !locked && <em>&nbsp;· {footNote}</em>}
-          </span>
-        </>
-      )}
-    </button>
-  );
+  if (activityId === "adventure-map") {
+    const playable = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
+    const cycle = playable.find(
+      item => !(Number(progress.adventureMap?.cycles?.[item.id]?.stars) > 0)
+    ) || playable[0];
+    return cycle ? `Stop ${cycle.cycleNumber} on the map` : "";
+  }
+  if (activityId === "reading-library") {
+    return mission.book?.title ? `Your book — ${mission.book.title}` : "";
+  }
+  if (activityId === "arcade") {
+    return mission.game?.title ? `Your game — ${mission.game.title}` : "";
+  }
+  if (activityId === "phonics-learning") return "Letters and sounds";
+  if (activityId === "story-quests") return "A story you choose";
+  if (activityId === "my-hollow") return "Your own place";
+  return "";
 }
 
 export function StudentHomePage({
@@ -245,30 +259,26 @@ export function StudentHomePage({
   const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
+  const [speechStatus, setSpeechStatus] = useState("");
   // Cloud progress hydrates asynchronously AFTER this page mounts. Until it
   // lands, treasury/ledger are empty and the wallet shows the welcome-gift
   // default (100). Bumping this tick on the hydration event recomputes the
   // wallet with real earnings/spending — fixes "100 coins on load, 9 after the
   // Market, then 9 everywhere".
   const [hydrationTick, setHydrationTick] = useState(0);
-  const treasury = useMemo(() => {
-    void hydrationTick; // recompute when cloud progress hydrates (see effect below)
-    return computeTreasury(progressScopeKey);
-  }, [progressScopeKey, hydrationTick]);
-  // Rewards V2: the wallet is derived earnings minus the stored spending ledger.
-  const hollow = useMemo(() => computeHollow(loadHollowLedger(progressScopeKey), treasury.breakdown), [progressScopeKey, treasury]);
   const [freshCoins, setFreshCoins] = useState(() => {
     const t = computeTreasury(progressScopeKey);
     const h = computeHollow(loadHollowLedger(progressScopeKey), t.breakdown);
     return coinsSinceLastVisit(progressScopeKey, h.coinsEarnedTotal);
   });
   const [accountOpen, setAccountOpen] = useState(false);
+
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
   }, [progressScopeKey]);
 
-  // When cloud progress finishes hydrating, recompute the wallet so the coin
-  // count is correct from the first Home view (not just after opening Market).
+  // When cloud progress finishes hydrating, recompute the screen so the counts
+  // are correct from the first Home view (not just after opening Market).
   useEffect(() => {
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
@@ -304,8 +314,7 @@ export function StudentHomePage({
     book: () => onOpenGuidedReading?.(mission.book?.bookId || ""),
     game: () => openArcade(mission.game?.gameId || "")
   };
-  const nextMission = MISSION_TILES.find(tile => !status.done[tile.kind]);
-  const celebratedMissionTile = MISSION_TILES.find(tile => tile.kind === celebration?.kind);
+  const nextStop = DAILY_STOPS.find(stop => !status.done[stop.kind]);
 
   function closeCelebration() {
     if (celebration?.type === "step" && status.missionComplete && status.needsCelebration) {
@@ -317,9 +326,203 @@ export function StudentHomePage({
     setCelebration(null);
   }
 
-  // Presentation-only overlays for the home screen.
+  // Tap-to-hear. The old rail carried a speaker beside every destination; the
+  // redesign has two, so each one reads the whole region it heads rather than
+  // one label — a pre-reader still gets every name spoken.
+  function hear(text) {
+    const spoken = speakStudentRailLabel(text, window);
+    setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
+  }
+
+  const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
+  const railActions = {
+    sounds: onOpenSoundSeekers,
+    phonics: onOpenPhonicsLearn,
+    map: onOpenSkillsBlockQuest,
+    books: onOpenGuidedReading ? () => onOpenGuidedReading("") : null,
+    stories: onOpenStoryQuests,
+    arcade: arcadeLocked ? null : () => openArcade(),
+    hollow: onOpenRewards
+  };
+  const homeProgress = useMemo(() => {
+    void hydrationTick;
+    return readStudentHomeProgress(progressScopeKey);
+  }, [progressScopeKey, hydrationTick]);
+  const reducedChoiceMode = useMemo(() => {
+    void hydrationTick;
+    return Boolean(loadStudentProfile(progressScopeKey).reducedChoiceMode);
+  }, [progressScopeKey, hydrationTick]);
+  const activities = [
+    {
+      id: "sound-seekers",
+      available: Boolean(onOpenSoundSeekers),
+      onClick: onOpenSoundSeekers,
+      art: "/images/home-sage/sound-seekers.webp",
+      title: "The Sound Trail"
+    },
+    {
+      id: "phonics-learning",
+      available: Boolean(onOpenPhonicsLearn),
+      onClick: onOpenPhonicsLearn,
+      art: "/images/home-sage/phonics.webp",
+      title: "Letters"
+    },
+    {
+      id: "adventure-map",
+      missionKind: "quest",
+      available: Boolean(onOpenSkillsBlockQuest),
+      onClick: onOpenSkillsBlockQuest,
+      art: "/images/home-sage/adventure-map.webp",
+      title: "Adventure Map"
+    },
+    {
+      id: "arcade",
+      missionKind: "game",
+      available: Boolean(onOpenArcade || onOpenPhonicsLearn),
+      onClick: () => { if (!arcadeLocked) openArcade(); },
+      art: "/images/home-sage/arcade.webp",
+      title: "Arcade",
+      locked: arcadeLocked
+    },
+    {
+      id: "story-quests",
+      available: Boolean(onOpenStoryQuests),
+      onClick: onOpenStoryQuests,
+      art: "/images/home-sage/story-quests.webp",
+      title: "Story Quests"
+    },
+    {
+      id: "reading-library",
+      missionKind: "book",
+      available: Boolean(onOpenGuidedReading),
+      onClick: () => onOpenGuidedReading?.(""),
+      art: "/images/home-sage/reading-library.webp",
+      title: "Books"
+    },
+    {
+      id: "my-hollow",
+      available: Boolean(onOpenRewards),
+      onClick: onOpenRewards,
+      art: "/images/home-sage/my-hollow.webp",
+      title: "My Hollow"
+    }
+  ];
+  const statefulActivities = activities.map(activity => ({
+    ...activity,
+    cardState: buildStudentHomeCardState(activity.id, homeProgress)
+  }));
+  // The SAME policy that chose the old hero chooses this one. Its unit tests
+  // (studentHomeRecommendationPolicy) still pin the rule.
+  const recommendation = selectStudentHomeRecommendation({
+    activities: statefulActivities,
+    missionStatus: status
+  });
+  const primary = recommendation.primary;
+  const continuation = buildStudentHomeContinuation({
+    activity: primary,
+    missionStatus: status,
+    soundSeekersProgress: homeProgress.soundSeekers
+  });
+  const primaryMissionAction = primary?.missionKind ? missionTargets[primary.missionKind] : null;
+  const startPrimary = primaryMissionAction || primary?.onClick;
+  // A stop we could not read is NOT stop one, and "2 tasks left today" derived
+  // from an unreadable checklist is a claim about the child produced by a
+  // storage error. Both fall back to something true; Play still works, because
+  // navigating somewhere is safe whatever the read did.
+  const heroStop = !homeProgress.ok
+    ? "We could not find your last stop."
+    : primary ? heroStopLine({ activityId: primary.id, progress: homeProgress, mission }) : "";
+  const playLabel = homeProgress.ok ? continuation.label : "Play";
+  const world = worldForScope(progressScopeKey);
+
+  // The six doorways, in the spec's order. Ids are the rail destination ids so
+  // reduced-choice mode keeps working through the SAME policy helper the rail
+  // used — a teacher setting outlives a layout.
+  const doorways = [
+    { id: "map", title: "Adventure Map", note: "Win stars", icon: "map", tint: "var(--kg-tint-map)", art: "/images/home-sage/adventure-map.webp" },
+    { id: "books", title: "Books", note: "Real books", icon: "book", tint: "var(--kg-tint-books)", art: "/images/home-sage/reading-library.webp" },
+    { id: "stories", title: "Story Quests", note: "You choose", icon: "story", tint: "var(--kg-tint-stories)", art: "/images/home-sage/story-quests.webp" },
+    { id: "arcade", title: "Arcade", note: `${arcadeGameCount()} games`, icon: "arcade", tint: "var(--kg-tint-arcade)", art: "/images/home-sage/arcade.webp" },
+    { id: "phonics", title: "Letters", note: "Sounds and writing", icon: "phonics", tint: "var(--kg-tint-letters)", art: "/images/home-sage/phonics.webp" },
+    { id: "hollow", title: "My Hollow", note: "Make it yours", icon: "hollow", tint: "var(--kg-tint-hollow)", art: "/images/home-sage/my-hollow.webp" }
+  ].map(door => ({
+    ...door,
+    go: door.id === "arcade" && arcadeLocked ? () => {} : railActions[door.id],
+    locked: door.id === "arcade" && arcadeLocked,
+    cardState: statefulActivities.find(activity => (
+      activity.id === (door.id === "map"
+        ? "adventure-map"
+        : door.id === "books"
+          ? "reading-library"
+          : door.id === "phonics"
+            ? "phonics-learning"
+            : door.id === "stories"
+              ? "story-quests"
+              : door.id === "hollow" ? "my-hollow" : "arcade")
+    ))?.cardState
+  }));
+  const doors = selectStudentRailItems(doorways, { active: "home", reducedChoiceMode });
+  // "Icons only" is a real preference slot on the student profile, read here so
+  // the doorway notes can be hidden for a pre-reader. Nothing writes it yet —
+  // no teacher control ships for it — so it is off for every child today.
+  const iconsOnly = useMemo(() => {
+    void hydrationTick;
+    return loadStudentProfile(progressScopeKey).doorLabels === "Icons only";
+  }, [progressScopeKey, hydrationTick]);
+
+  const stopsLeft = DAILY_STOPS.filter(stop => !status.done[stop.kind]).length;
+  const stopsSummary = !homeProgress.ok
+    ? ""
+    : stopsLeft === 0
+      ? "All three done!"
+      : stopsLeft === 1
+        ? "One stop to go"
+        : stopsLeft === 2
+          ? "Two stops to go"
+          : "Three stops to go";
+
+  function goToTab(tabId) {
+    setAccountOpen(false);
+    const action = {
+      sounds: railActions.sounds,
+      books: railActions.books,
+      games: railActions.arcade,
+      hollow: railActions.hollow
+    }[tabId];
+    action?.();
+  }
+
   const overlays = (
     <>
+      {accountOpen && (
+        <div className="kg-home-menu kg-glass kg-glass--strong" role="menu">
+          <span className="kg-home-brand" role="img" aria-label={CHILD_BRAND.endorsedName}>
+            <img src={CHILD_BRAND.markPath} alt="" onError={hideOnError} />
+            <span aria-hidden="true">
+              <strong>Little Literacy</strong>
+              Guides
+            </span>
+          </span>
+          <button
+            className="kg-home-menu-item"
+            type="button"
+            role="menuitem"
+            onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}
+          >
+            <PersonIcon />Change companion
+          </button>
+          <button
+            className="kg-home-menu-item"
+            type="button"
+            role="menuitem"
+            onClick={onLogout}
+            aria-label={logoutAriaLabel}
+          >
+            <SignOutIcon />{logoutLabel}
+          </button>
+        </div>
+      )}
+
       {freshCoins > 0 && (
         <div className="kid-reward-toast" role="status">
           <span className="kid-reward-toast-icon" aria-hidden="true"><CoinIcon size={30} /></span>
@@ -369,34 +572,24 @@ export function StudentHomePage({
           className="student-mission-celebrate"
           role="dialog"
           aria-modal="true"
-          aria-label={celebration.type === "step"
-            ? `${celebratedMissionTile?.label || "Adventure"} step complete`
-            : "Mission complete"}
+          aria-label={celebration.type === "step" ? "One stop done" : "All three stops done"}
         >
           <ConfettiCelebration show />
           <div className="student-mission-celebrate-card">
             <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={hideOnError} />
-            <h2>
-              {celebration.type === "step"
-                ? `${celebratedMissionTile?.label || "Adventure"} complete!`
-                : "Mission complete!"}
-            </h2>
+            <h2>{celebration.type === "step" ? "Nice work!" : "All three done!"}</h2>
             {celebration.type === "step" ? (
               <p>
-                {nextMission
-                  ? `Nice work. Next up: ${nextMission.label}.`
-                  : "That was the final step in today’s adventure."}
+                {nextStop
+                  ? `Next up: ${nextStop.label}.`
+                  : "That was the last one for today."}
               </p>
             ) : (
-              <p>
-                {status.streak > 1
-                  ? `That's ${status.streak} school days in a row. See you tomorrow!`
-                  : "Your streak starts today. See you tomorrow!"}
-              </p>
+              <p>Great work today. See you tomorrow!</p>
             )}
             <button className="main-button" type="button" onClick={closeCelebration}>
               {celebration.type === "step"
-                ? status.missionComplete ? "See mission complete" : "See what’s next"
+                ? status.missionComplete ? "See them all done" : "See what’s next"
                 : "Keep exploring"}
             </button>
           </div>
@@ -405,304 +598,204 @@ export function StudentHomePage({
     </>
   );
 
-  const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
-  const railActions = {
-    sounds: onOpenSoundSeekers,
-    phonics: onOpenPhonicsLearn,
-    map: onOpenSkillsBlockQuest,
-    books: onOpenGuidedReading ? () => onOpenGuidedReading("") : null,
-    stories: onOpenStoryQuests,
-    arcade: arcadeLocked ? null : () => openArcade(),
-    hollow: onOpenRewards
-  };
-  const sageNav = STUDENT_RAIL_DESTINATIONS
-    .map(item => ({ ...item, go: railActions[item.id] }))
-    .filter(item => item.go);
-  const homeProgress = useMemo(() => {
-    void hydrationTick;
-    return readStudentHomeProgress(progressScopeKey);
-  }, [progressScopeKey, hydrationTick]);
-  const reducedChoiceMode = useMemo(() => {
-    void hydrationTick;
-    return Boolean(loadStudentProfile(progressScopeKey).reducedChoiceMode);
-  }, [progressScopeKey, hydrationTick]);
-  const activities = [
-    {
-      id: "sound-seekers",
-      available: Boolean(onOpenSoundSeekers),
-      onClick: onOpenSoundSeekers,
-      art: "/images/home-sage/sound-seekers.webp",
-      fallbackArt: "/images/quest/meadow/sky.webp",
-      title: "Sound Seekers",
-      fillChip: "Adventure",
-      lineChips: ["The Sound Trail"],
-      foot: "Walk the trail",
-      footNote: "your creature is waiting"
-    },
-    {
-      id: "phonics-learning",
-      available: Boolean(onOpenPhonicsLearn),
-      onClick: onOpenPhonicsLearn,
-      art: "/images/home-sage/phonics.webp",
-      fallbackArt: "/images/learn-games/home/home-phonics.webp",
-      title: "Phonics Learning",
-      fillChip: "Practice",
-      lineChips: ["Letters and sounds"],
-      foot: "Build some words"
-    },
-    {
-      id: "adventure-map",
-      missionKind: "quest",
-      available: Boolean(onOpenSkillsBlockQuest),
-      onClick: onOpenSkillsBlockQuest,
-      art: "/images/home-sage/adventure-map.webp",
-      fallbackArt: "/images/learn-games/home/home-skills-quest.webp",
-      title: "Adventure Map",
-      fillChip: "Adventure",
-      lineChips: ["Win stars"],
-      foot: "Follow the path"
-    },
-    {
-      id: "arcade",
-      missionKind: "game",
-      available: Boolean(onOpenArcade || onOpenPhonicsLearn),
-      onClick: () => { if (!arcadeLocked) openArcade(); },
-      art: "/images/home-sage/arcade.webp",
-      fallbackArt: "/images/learn-games/home/home-arcade.webp",
-      title: "Arcade",
-      fillChip: "Games",
-      lineChips: ["11 games"],
-      foot: "Jump into a game",
-      locked: arcadeLocked,
-      lockedLabel: "Finish your 3 tasks to unlock"
-    },
-    {
-      id: "story-quests",
-      available: Boolean(onOpenStoryQuests),
-      onClick: onOpenStoryQuests,
-      art: "/images/home-sage/story-quests.webp",
-      fallbackArt: "/images/learn-games/home/home-story-quests.webp",
-      title: "Story Quests",
-      fillChip: "Stories",
-      lineChips: ["You choose"],
-      foot: "Read and choose"
-    },
-    {
-      id: "reading-library",
-      missionKind: "book",
-      available: Boolean(onOpenGuidedReading),
-      onClick: () => onOpenGuidedReading?.(""),
-      art: "/images/home-sage/reading-library.webp",
-      fallbackArt: "/images/learn-games/home/home-reading-library.webp",
-      title: "Reading Library",
-      fillChip: "Read",
-      lineChips: ["Real books"],
-      foot: "Pick a book"
-    },
-    {
-      id: "my-hollow",
-      available: Boolean(onOpenRewards),
-      onClick: onOpenRewards,
-      art: "/images/home-sage/my-hollow.webp",
-      fallbackArt: "/images/hollow/hollow-interior.webp",
-      title: "My Hollow",
-      fillChip: "Rewards",
-      lineChips: ["Make it yours"],
-      foot: "Visit your Hollow"
-    }
-  ];
-  const statefulActivities = activities.map(activity => ({
-    ...activity,
-    cardState: buildStudentHomeCardState(activity.id, homeProgress)
-  }));
-  const recommendation = selectStudentHomeRecommendation({
-    activities: statefulActivities,
-    missionStatus: status
-  });
-  const continuation = buildStudentHomeContinuation({
-    activity: recommendation.primary,
-    missionStatus: status,
-    soundSeekersProgress: homeProgress.soundSeekers
-  });
-
-  function renderActivity(activity, priority) {
-    if (!activity) return null;
-    const primaryMissionAction = priority === "primary" && activity.missionKind
-      ? missionTargets[activity.missionKind]
-      : null;
-    return (
-      <SageCard
-        key={activity.id}
-        {...activity}
-        onClick={primaryMissionAction || activity.onClick}
-        hero={priority === "primary"}
-        priority={priority}
-        recommendationSource={priority === "primary" ? recommendation.source : undefined}
-        recommendationReason={priority === "primary" ? recommendation.childReason : undefined}
-        continuation={priority === "primary"
-          ? {
-            ...continuation,
-            activityId: recommendation.primary.id,
-            missionKind: recommendation.primary.missionKind
-          }
-          : undefined}
-      />
-    );
-  }
-
   return (
-      <main
-        className="lp-home-sage"
+    <StudentGlassShell
+      studentName={studentName}
+      scopeKey={progressScopeKey}
+      active="home"
+      onNavigate={goToTab}
+      onHome={() => setAccountOpen(false)}
+      onGrownUps={() => setAccountOpen(open => !open)}
+    >
+      <div
+        className="kg-screen kg-screen--home kg-home"
+        data-child-surface="student-home"
         data-recommendation-policy={recommendation.policyId}
         data-recommendation-version={recommendation.policyVersion}
         data-recommendation-source={recommendation.source}
-        data-child-surface="student-home"
       >
-        <aside className="hs-side">
-          <span className="hs-avatar" aria-hidden="true">
-            {companion
-              ? <img src={companion.image} alt="" onError={hideOnError} />
-              : <strong style={{ fontSize: 34, color: "var(--hs-ink)" }}>{String(studentName || "S").slice(0, 1).toUpperCase()}</strong>}
-          </span>
-          <span className="hs-name">{studentName || "Reader"}</span>
-          <button className="hs-coins" type="button" onClick={onOpenRewards} aria-label={`${hollow.coins} coins. Open your Hollow.`}>
-            <CoinIcon size={16} /> {hollow.coins}
-          </button>
-
-          <StudentRailNav
-            active="home"
-            nav={sageNav}
-            reducedChoiceMode={reducedChoiceMode}
+        {/* a. CONTINUE HERO — the one next action. */}
+        <section
+          className="kg-home-hero kg-scrim kg-scrim--hero"
+          aria-labelledby="kg-home-hero-title"
+        >
+          <img
+            className="kg-home-hero-art"
+            src={world.banner}
+            alt=""
+            loading="eager"
+            decoding="async"
+            onError={hideOnError}
           />
-
-          <span className="hs-side-spacer" />
-        </aside>
-
-        <div className="hs-main">
-          <div className="hs-topbar">
-            <span className="hs-logo" role="img" aria-label={CHILD_BRAND.endorsedName}>
-              <img src={CHILD_BRAND.markPath} alt="" onError={hideOnError} />
-              <span className="hs-logo-copy" aria-hidden="true">
-                <strong>Little Literacy</strong>
-                <span>Guides</span>
-              </span>
-            </span>
-            <div className="hs-top-actions">
-              <button
-                className="hs-btn-ghost"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded={accountOpen}
-                onClick={() => setAccountOpen(value => !value)}
+          <div className="kg-home-hero-body kg-on-art">
+            <div className="kg-home-hero-copy">
+              <span
+                className="kg-pill kg-eyebrow kg-glass-light kg-glass-light--quiet kg-home-eyebrow"
+                data-child-instruction=""
               >
-                <SageIcon name="person" />Grown-ups
-              </button>
-              {accountOpen && (
-                <div className="hs-menu" role="menu">
-                  <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}>
-                    <SageIcon name="person" />Change companion
-                  </button>
-                  <button type="button" role="menuitem" onClick={onLogout} aria-label={logoutAriaLabel}>
-                    <SignOutIcon />{logoutLabel}
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <section className="hs-sheet" aria-label="Learning areas">
-            <div className="hs-sheet-head">
-              <h1 data-child-title="">Hello, {studentName || "friend"}!</h1>
-              <p className="hs-sub" data-child-instruction="">
-                {status.missionComplete
-                  ? "All three done. Choose anything!"
-                  : "What shall we play today?"}
+                Carry on where you stopped
+              </span>
+              <h1 className="kg-hero-title kg-home-hero-title" id="kg-home-hero-title" data-child-title="">
+                {primary ? primary.title : "Choose a place to go"}
+              </h1>
+              <p className="kg-body kg-home-hero-stop">
+                {primary ? heroStop : recommendation.childReason}
               </p>
-            </div>
-
-            <section
-              className="hs-mission-main"
-              aria-labelledby="hs-mission-heading"
-              data-mission-next-kind={nextMission?.kind || "complete"}
-              data-child-progress=""
-            >
-              <div className="hs-mission-main-head">
-                <div>
-                  <span>Today</span>
-                  <h2 id="hs-mission-heading">Your daily adventure</h2>
-                </div>
-                <strong>{status.doneCount} of 3 complete</strong>
+              <div className="kg-home-hero-actions">
+                {primary && (
+                  <button
+                    type="button"
+                    className="kg-button kg-button--lg kg-glass-accent kg-home-play"
+                    onClick={startPrimary}
+                    aria-label={playLabel}
+                    data-child-primary=""
+                    data-child-emphasis="primary"
+                    data-home-priority="primary"
+                    data-recommendation-source={recommendation.source}
+                    data-learning-state={primary.cardState?.label || "New"}
+                    data-progress-marker={primary.cardState?.progressText || undefined}
+                    data-continuation-activity={primary.id}
+                    data-continuation-goal={continuation.goal}
+                    data-continuation-remaining={continuation.remaining ?? undefined}
+                    data-mission-primary-kind={primary.missionKind || undefined}
+                  >
+                    <PlayGlyph />
+                    <span data-child-emphasis-cue="">Play</span>
+                  </button>
+                )}
+                <button
+                  type="button"
+                  className="kg-speaker kg-speaker--lg kg-glass-light kg-home-hear-hero"
+                  aria-label="Hear this"
+                  onClick={() => hear(
+                    primary
+                      ? `Carry on where you stopped. ${primary.title}. ${heroStop}`
+                      : recommendation.childReason
+                  )}
+                >
+                  <SpeakerGlyph />
+                </button>
               </div>
-              <progress
-                className="hs-mission-progress"
-                max="3"
-                value={status.doneCount}
-                aria-label={`${status.doneCount} of 3 daily adventure steps complete`}
-              />
-              <ol className="hs-mission-steps">
-                {MISSION_TILES.map((tile, index) => {
-                  const isDone = Boolean(status.done[tile.kind]);
-                  const isNext = nextMission?.kind === tile.kind;
+            </div>
+            <span className="kg-sprite kg-home-hero-pal" aria-hidden="true">
+              <img className="kg-bob" src={world.point} alt="" onError={hideOnError} />
+            </span>
+          </div>
+        </section>
+
+        {/* b. TODAY'S THREE STOPS — a checklist, not three more buttons. */}
+        <section
+          className="kg-home-stops kg-glass kg-glass--strong"
+          aria-labelledby="kg-home-stops-title"
+          data-child-progress=""
+          data-mission-next-kind={nextStop?.kind || "complete"}
+          data-read-state={homeProgress.ok ? "ready" : "unreadable"}
+        >
+          <div className="kg-home-stops-head">
+            <h2 className="kg-section-title" id="kg-home-stops-title">Today&rsquo;s three stops</h2>
+            {stopsSummary && (
+              <span className="kg-home-stops-count">
+                <StarGlyph />
+                {stopsSummary}
+              </span>
+            )}
+          </div>
+          {homeProgress.ok ? (
+            <div className="kg-home-stops-body">
+              <span className="kg-home-stops-track" aria-hidden="true" />
+              <ol className="kg-home-stops-row">
+                {DAILY_STOPS.map(stop => {
+                  const state = status.done[stop.kind]
+                    ? "done"
+                    : nextStop?.kind === stop.kind ? "next" : "later";
                   return (
                     <li
-                      key={tile.kind}
-                      className={isDone ? "is-done" : isNext ? "is-next" : ""}
-                      data-mission-step={tile.kind}
-                      data-mission-state={isDone ? "done" : isNext ? "next" : "later"}
-                      aria-current={isNext ? "step" : undefined}
+                      key={stop.kind}
+                      className="kg-home-stop"
+                      data-mission-step={stop.kind}
+                      data-mission-state={state}
+                      aria-current={state === "next" ? "step" : undefined}
                     >
-                      <span className="hs-mission-step-number" aria-hidden="true">
-                        {isDone ? "✓" : index + 1}
+                      <span className="kg-home-stop-marker">
+                        <img src={stop.art} alt="" loading="eager" onError={placeholderOnError} />
+                        <span className="kg-home-stop-veil" aria-hidden="true">
+                          {state === "done" ? "✓" : ""}
+                        </span>
                       </span>
-                      <span>
-                        <strong>{tile.label}</strong>
-                        <small>{isDone ? "Done" : isNext ? "Up next" : "Later"}</small>
+                      <span className="kg-home-stop-label">
+                        <strong>{stop.label}</strong>
+                        <small>{STOP_STATE_LABEL[state]}</small>
                       </span>
                     </li>
                   );
                 })}
               </ol>
-            </section>
+            </div>
+          ) : (
+            <p className="kg-body kg-home-stops-unread" role="status">
+              We could not open today&rsquo;s three stops. Try again soon.
+            </p>
+          )}
+        </section>
 
-            {recommendation.primary ? (
-              <>
-                <div className="hs-recommendation-grid" aria-label="Recommended learning choices" data-child-choices="">
-                  <section className="hs-primary-choice" aria-label="Recommended next activity">
-                    {renderActivity(recommendation.primary, "primary")}
-                  </section>
-                  <section className="hs-secondary-choices" aria-labelledby="hs-secondary-heading">
-                    <div className="hs-choice-heading">
-                      <span>Choose another</span>
-                      <h2 id="hs-secondary-heading">Two more good choices</h2>
-                    </div>
-                    <div className="hs-secondary-grid">
-                      {recommendation.secondary.map(activity => renderActivity(activity, "secondary"))}
-                    </div>
-                  </section>
-                </div>
+        {/* c. OR GO ANYWHERE YOU LIKE — six equal, quiet doorways. */}
+        <section className="kg-home-explore" aria-labelledby="kg-home-explore-title">
+          <div className="kg-home-explore-head">
+            <h2 className="kg-section-title" id="kg-home-explore-title">Or go anywhere you like</h2>
+            <button
+              type="button"
+              className="kg-speaker kg-glass"
+              aria-label="Hear this"
+              onClick={() => hear(
+                `Or go anywhere you like. ${doors.map(door => door.title).join(". ")}.`
+              )}
+            >
+              <SpeakerGlyph size={22} />
+            </button>
+          </div>
+          <div
+            className="kg-home-doors"
+            data-child-choices=""
+            data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
+            style={{ "--kg-door-count": String(doors.length) }}
+          >
+            {doors.map(door => (
+              <button
+                key={door.id}
+                type="button"
+                className="kg-home-door kg-glass"
+                onClick={door.locked ? undefined : door.go}
+                aria-disabled={door.locked || undefined}
+                data-rail-destination={door.id}
+                data-home-priority="choice"
+                data-child-emphasis="choice"
+                data-learning-state={door.cardState?.label || "New"}
+              >
+                <span className="kg-home-door-art kg-scrim kg-scrim--sheen" style={{ background: door.tint }}>
+                  <img src={door.art} alt="" loading="eager" decoding="async" onError={placeholderOnError} />
+                </span>
+                <span className="kg-home-door-foot">
+                  <span className="kg-home-door-chip" style={{ background: door.tint }}>
+                    <DoorIcon name={door.icon} />
+                  </span>
+                  <span className="kg-home-door-text">
+                    <strong className="kg-card-title">{door.title}</strong>
+                    {!iconsOnly && (
+                      <small className="kg-home-door-note">
+                        {door.locked ? "Finish your three stops first" : door.note}
+                      </small>
+                    )}
+                  </span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
 
-                {recommendation.explore.length > 0 && (
-                  <details className="hs-more-explore">
-                    <summary>
-                      <span>
-                        <strong>More to explore</strong>
-                        <small>{recommendation.explore.length} more places</small>
-                      </span>
-                      <SageIcon name="play" />
-                    </summary>
-                    <div className="hs-explore-grid">
-                      {recommendation.explore.map(activity => renderActivity(activity, "explore"))}
-                    </div>
-                  </details>
-                )}
-              </>
-            ) : (
-              <p className="hs-no-activity" role="status">{recommendation.childReason}</p>
-            )}
-          </section>
-        </div>
+        <span className="kg-home-speech" role="status" aria-live="polite">{speechStatus}</span>
+      </div>
 
-        {overlays}
-      </main>
-    );
+      {overlays}
+    </StudentGlassShell>
+  );
 }

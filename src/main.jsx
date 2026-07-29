@@ -27,6 +27,10 @@ import './styles/sage-form.css'
 // scoped under .kg-viewport / .kg-stage, so it cannot reach the sage skin or
 // the comic base; it loads LAST so the child shell wins inside its own stage.
 import './styles/kids-glass.css'
+// The child Home screen's own layout (phase B). Screen geometry only — every
+// glass surface, radius and animation still comes from kids-glass.css. Loads
+// after it so a screen rule can refine a system class, never replace one.
+import './styles/kids-home.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'

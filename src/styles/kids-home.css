@@ -1,0 +1,489 @@
+/* KIDS HOME — the child Home screen (phase B of the 2026-07-29 redesign).
+ *
+ * Binding spec: mockups/design-handoff-kids-side/README.md, "### 1. Home".
+ * Every number below is copied from it (or from the tokens kids-glass.css
+ * publishes), not invented.
+ *
+ * THIS FILE OWNS LAYOUT ONLY. Every frosted surface, radius, blur, type step
+ * and animation comes from kids-glass.css — take a class, never re-declare a
+ * recipe. The one genuinely new surface phase B needed (light glass over
+ * artwork, for the hero's eyebrow pill and its speaker) went INTO
+ * kids-glass.css as .kg-glass-light, because the Sound Trail and the Adventure
+ * Map will want the same thing.
+ *
+ * THE ONE RULE THAT SHAPES THE WHOLE SCREEN: one unmistakable next action.
+ * The old home offered a mission strip, a recommended hero, two secondary
+ * cards and a "more to explore" drawer, all competing. Here the hero's Play
+ * button is the ONLY primary call to action; the three stops are a read-only
+ * checklist, and the six doorways are equal, quiet alternatives. Anything that
+ * adds a second loud button to this screen is a regression, not a feature.
+ */
+
+/* ── The screen grid ──────────────────────────────────────────────────────────
+ * .kg-screen--home already carries the spec's 16px 24px padding. Rows are
+ * 232px (hero) / auto (today's stops) / the rest (doorways), gap 13.
+ */
+.kg-stage .kg-home {
+  display: grid;
+  gap: var(--kg-space-13);
+  grid-template-rows: 232px auto minmax(0, 1fr);
+}
+
+/* ── a. Continue hero ─────────────────────────────────────────────────────── */
+/* The deep-green ground is a FALLBACK, not decoration: if the panorama fails to
+   load the image hides itself, and white ink over a bare scrim would sit on the
+   pale ambient gradient. This keeps the contrast guarantee even with no art. */
+.kg-stage .kg-home-hero {
+  position: relative;
+  border-radius: var(--kg-radius-hero);
+  overflow: hidden;
+  background: linear-gradient(120deg, #2E4B3E, #3E776B);
+  box-shadow: 0 22px 44px -22px rgba(20, 45, 38, 0.55);
+}
+
+/* Full-bleed artwork. The left-to-right scrim is .kg-scrim--hero's ::after,
+   which paints after this image and under .kg-on-art — which is the only
+   reason white ink is legal on top of a bright meadow. */
+.kg-stage .kg-home-hero-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kg-stage .kg-home-hero-body {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  align-items: center;
+  gap: var(--kg-space-16);
+  padding: 18px 22px;
+}
+
+.kg-stage .kg-home-hero-copy {
+  min-width: 0;
+}
+
+/* The eyebrow is .kg-eyebrow's type on .kg-glass-light's surface; only the ink
+   changes, because .kg-eyebrow's terracotta is for light glass, not artwork. */
+.kg-stage .kg-home-eyebrow {
+  padding: 5px var(--kg-space-14);
+  color: #FFFFFF;
+}
+
+.kg-stage .kg-home-hero-title {
+  margin: 10px 0 0;
+}
+
+.kg-stage .kg-home-hero-stop {
+  margin: var(--kg-space-4) 0 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.kg-stage .kg-home-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--kg-space-16);
+}
+
+/* The spec's Play button is optically centred: the triangle needs less room on
+   its left than the word needs on its right. */
+.kg-stage .kg-home-play {
+  gap: 12px;
+  padding: 0 30px 0 var(--kg-space-22);
+}
+
+.kg-stage .kg-home-hear-hero {
+  border-radius: 22px;
+}
+
+/* The companion. OUTER wrapper owns the layout, INNER <img> owns the bob —
+   kgBob animates transform and would silently overwrite any transform used
+   here (kids-glass.css, rule 3). Nothing on this wrapper may become a
+   transform. */
+.kg-stage .kg-home-hero-pal.kg-sprite {
+  position: static;
+  width: 250px;
+  height: 196px;
+  margin: 0;
+  justify-self: end;
+}
+
+.kg-stage .kg-home-hero-pal > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── b. Today's three stops ──────────────────────────────────────────────── */
+.kg-stage .kg-home-stops {
+  border-radius: var(--kg-radius-panel);
+  padding: var(--kg-space-13) var(--kg-space-22) 15px;
+}
+
+.kg-stage .kg-home-stops-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kg-space-16);
+}
+
+.kg-stage .kg-home-stops-count {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kg-space-7);
+  font-family: var(--kg-font-body);
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--kg-sage);
+}
+
+.kg-stage .kg-home-stops-body {
+  position: relative;
+  margin-top: 10px;
+}
+
+.kg-stage .kg-home-stops-row {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* The dashed connector sits BEHIND the markers and stops short of the outer
+   edges, so the three stops read as one path rather than three unrelated
+   circles. 32px is the vertical centre of a 64px marker. */
+.kg-stage .kg-home-stops-track {
+  position: absolute;
+  left: 17%;
+  right: 17%;
+  top: 32px;
+  height: 4px;
+  border-radius: 99px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(62, 119, 107, 0.3) 0 10px,
+    transparent 10px 22px
+  );
+}
+
+.kg-stage .kg-home-stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  justify-self: center;
+  padding: 0 8px;
+}
+
+.kg-stage .kg-home-stop-marker {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.kg-stage .kg-home-stop-marker img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The veil is what lets a finished stop keep its picture and still read as
+   finished — the art stays recognisable at 30% under green rather than being
+   replaced by a flat tick. */
+.kg-stage .kg-home-stop-veil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--kg-font-display);
+  font-size: 25px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.kg-stage .kg-home-stop-label {
+  display: grid;
+  gap: 0;
+  min-width: 0;
+}
+
+.kg-stage .kg-home-stop-label strong {
+  font-family: var(--kg-font-display);
+  font-size: 18.5px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--kg-ink);
+}
+
+.kg-stage .kg-home-stop-label small {
+  font-family: var(--kg-font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--kg-ink-muted);
+}
+
+/* Done — green fill, art at 30% under a green veil, white tick. */
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-marker {
+  background: var(--kg-success-soft);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 20px -12px rgba(30, 60, 50, 0.5);
+}
+
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-marker img {
+  opacity: 0.3;
+}
+
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-veil {
+  background: rgba(111, 179, 95, 0.55);
+}
+
+.kg-stage .kg-home-stop[data-mission-state="done"] .kg-home-stop-label strong {
+  color: #2E4B3E;
+}
+
+/* Up next — THE ONE the child should look at. Full-opacity art, no veil, an
+   accent ring and a soft accent halo. Exactly one stop may carry this. */
+.kg-stage .kg-home-stop[data-mission-state="next"] .kg-home-stop-marker {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(var(--kg-accent-rgb), 0.9);
+  box-shadow:
+    0 0 0 4px rgba(var(--kg-accent-rgb), 0.22),
+    0 10px 20px -12px rgba(30, 60, 50, 0.5);
+}
+
+/* After that — present, legible, and visibly not the thing to do now. */
+.kg-stage .kg-home-stop[data-mission-state="later"] .kg-home-stop-marker img {
+  opacity: 0.42;
+}
+
+.kg-stage .kg-home-stop[data-mission-state="later"] .kg-home-stop-veil {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.kg-stage .kg-home-stop[data-mission-state="later"] .kg-home-stop-label strong {
+  color: var(--kg-ink-muted);
+}
+
+/* A read that failed must never render as "nothing done yet". */
+.kg-stage .kg-home-stops-unread {
+  margin: 10px 0 0;
+  color: var(--kg-ink-muted);
+}
+
+/* ── c. Or go anywhere you like ──────────────────────────────────────────── */
+.kg-stage .kg-home-explore {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--kg-space-9);
+}
+
+.kg-stage .kg-home-explore-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Six equal columns by default. The count follows the doorways actually
+   rendered so reduced-choice mode gives fewer, BIGGER doors rather than four
+   empty tracks. */
+.kg-stage .kg-home-doors {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--kg-door-count, 6), minmax(0, 1fr));
+  gap: var(--kg-space-13);
+}
+
+/* align-items/justify-content/text-align are RESET, not styled: App.css's
+   `.app button` centres every button's content, which turned this grid's
+   art row into a zero-height centred item — the picture vanished entirely and
+   the footer sat in the middle of an empty card. Measured before the fix: art
+   row track 116.5px, art element 0px. */
+.kg-stage .kg-home-door {
+  min-height: 0;
+  padding: 0;
+  border-radius: var(--kg-radius-door);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
+  justify-items: stretch;
+  justify-content: normal;
+  font-family: inherit;
+  color: var(--kg-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.kg-stage .kg-home-door-art {
+  min-height: 0;
+  display: block;
+}
+
+.kg-stage .kg-home-door-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kg-stage .kg-home-door-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--kg-space-9);
+  padding: 10px 11px 11px;
+}
+
+.kg-stage .kg-home-door-chip {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: var(--kg-radius-chip);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  display: grid;
+  place-items: center;
+  color: var(--kg-ink-deep);
+}
+
+.kg-stage .kg-home-door-chip .kg-icon {
+  width: 19px;
+  height: 19px;
+}
+
+.kg-stage .kg-home-door-text {
+  min-width: 0;
+  display: grid;
+  gap: 0;
+}
+
+.kg-stage .kg-home-door-note {
+  font-family: var(--kg-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--kg-ink-muted);
+}
+
+/* A locked doorway still shows its picture and its name — a child must be able
+   to see the place exists and ask about it, not have it vanish. */
+.kg-stage .kg-home-door[aria-disabled="true"] {
+  cursor: default;
+}
+
+.kg-stage .kg-home-door[aria-disabled="true"] .kg-home-door-text strong {
+  color: var(--kg-ink-disabled);
+}
+
+.kg-stage .kg-home-door[aria-disabled="true"] .kg-home-door-note {
+  color: var(--kg-ink-disabled-soft);
+}
+
+/* ── Overlays that live above the screen ─────────────────────────────────── */
+
+/* The grown-ups menu. It hangs under the header's grown-ups button, which is
+   in the shell, so it is anchored to the top-right of the content area. */
+.kg-stage .kg-home-menu {
+  position: absolute;
+  top: var(--kg-space-4);
+  right: var(--kg-space-24);
+  z-index: 12;
+  width: 268px;
+  padding: var(--kg-space-11);
+  border-radius: var(--kg-radius-secondary);
+  display: grid;
+  gap: var(--kg-space-4);
+}
+
+.kg-stage .kg-home-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--kg-space-9);
+  padding: var(--kg-space-4) var(--kg-space-7) var(--kg-space-9);
+}
+
+.kg-stage .kg-home-brand img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.kg-stage .kg-home-brand span {
+  display: grid;
+  font-family: var(--kg-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--kg-ink-muted);
+}
+
+.kg-stage .kg-home-brand strong {
+  font-family: var(--kg-font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--kg-ink);
+}
+
+.kg-stage .kg-home-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--kg-space-9);
+  width: 100%;
+  min-height: var(--kg-hit);
+  padding: 0 var(--kg-space-11);
+  border: 0;
+  border-radius: var(--kg-radius-market);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--kg-ink);
+  font-family: var(--kg-font-display);
+  font-size: 17px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kg-stage .kg-home-menu-item svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.kg-stage .kg-home-menu-item .kg-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Speech feedback for the two speaker buttons. Announced, never drawn. */
+.kg-stage .kg-home-speech {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .kg-stage .kg-home-door:not([aria-disabled="true"]):hover {
+    background: rgba(255, 255, 255, 0.58);
+  }
+
+  .kg-stage .kg-home-menu-item:hover {
+    background: rgba(255, 255, 255, 0.68);
+  }
+}

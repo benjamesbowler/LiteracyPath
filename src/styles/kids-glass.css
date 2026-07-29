@@ -14,6 +14,24 @@
  * the sage skin are untouchable from this file, and comic-theme.css — the
  * shared base the sage palette layers onto (2026-07-22 decision) — stays.
  *
+ * WHY THE `.kg-stage ` PREFIX IS LOAD-BEARING, NOT DECORATION (fixed 2026-07-29,
+ * phase B). The child area renders inside AppSurface's `app student-mode-app`
+ * shell, and App.css styles EVERY button under `.app`:
+ *
+ *     .app button { display: inline-flex; border: none; border-radius: 14px;
+ *                   padding: 10px 16px; font-size: 15px; text-align: center; }
+ *
+ * That selector is (0,1,1). A bare `.kg-button` is (0,1,0), so the app's generic
+ * chrome WON every time. Measured on the Home hero before the fix: a
+ * .kg-button--lg rendered at 14px radius and 15px type instead of 22/27, and a
+ * doorway card whose `display: grid` became inline-flex — its artwork collapsed
+ * to nothing and its hairline border vanished. `.student-mode-app h1` beat
+ * .kg-hero-title the same way. Every rule in this file therefore carries the
+ * prefix, which ties the specificity and lets load order (this file is imported
+ * after App.css in main.jsx) decide — the design system wins inside its own
+ * stage and touches nothing outside it. Screen stylesheets built on this file
+ * must carry the same prefix for the same reason; kids-home.css does.
+ *
  * FOUR RULES THAT COST REAL DEBUGGING TIME. Read them before adding anything.
  *
  *   1. THE INSET HIGHLIGHT IS THE GLASS. Tier 2's `inset 0 1px 1px
@@ -204,7 +222,7 @@
 
 /* The single decorative layer. aria-hidden in the markup; z-index 0 so every
    screen sits above it. */
-.kg-ambient {
+.kg-stage .kg-ambient {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -217,7 +235,7 @@
 }
 
 /* The content area between the header and the tab bar. */
-.kg-main {
+.kg-stage .kg-main {
   position: relative;
   z-index: 2;
   flex: 1;
@@ -229,7 +247,7 @@
    viewport. Clipping them would DELETE content rather than restyle it, so the
    shell gives them a scrolling content area instead. Phase B–F screens are
    built to the canvas and use plain .kg-main. */
-.kg-main--scroll {
+.kg-stage .kg-main--scroll {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -242,19 +260,19 @@
    .kg-main has one; an extra wrapper div between them does not, and every such
    frame collapses to zero. Measured: 664px as a direct child, 0px through a
    wrapper. Do not reintroduce the wrapper. */
-.kg-main--scroll > * {
+.kg-stage .kg-main--scroll > * {
   min-height: 100%;
 }
 
 /* Standard screen padding. Home is the one exception the spec names. */
-.kg-screen {
+.kg-stage .kg-screen {
   position: relative;
   z-index: 1;
   height: 100%;
   padding: var(--kg-space-14) var(--kg-space-24);
 }
 
-.kg-screen--home {
+.kg-stage .kg-screen--home {
   padding: var(--kg-space-16) var(--kg-space-24);
 }
 
@@ -265,7 +283,7 @@
  */
 
 /* Tier 1 — chrome. Header and tab bar; sits directly on the ambient gradient. */
-.kg-glass-chrome {
+.kg-stage .kg-glass-chrome {
   --kg-self-border: rgba(255, 255, 255, 0.7);
   --kg-self-shadow: 0 1px 24px -10px rgba(30, 60, 50, 0.28);
   position: relative;
@@ -279,7 +297,7 @@
 
 /* Tier 2 — panels and cards. The workhorse. Alpha and blur move within the
    spec's ranges by prominence: --quiet .40 / --strong .56. */
-.kg-glass {
+.kg-stage .kg-glass {
   --kg-self-border: rgba(255, 255, 255, 0.82);
   --kg-self-shadow:
     0 14px 30px -24px rgba(30, 60, 50, 0.55),
@@ -291,12 +309,12 @@
   box-shadow: var(--kg-self-shadow);
 }
 
-.kg-glass--quiet {
+.kg-stage .kg-glass--quiet {
   --kg-self-border: rgba(255, 255, 255, 0.72);
   background: rgba(255, 255, 255, 0.4);
 }
 
-.kg-glass--strong {
+.kg-stage .kg-glass--strong {
   --kg-self-border: rgba(255, 255, 255, 0.85);
   background: rgba(255, 255, 255, 0.56);
   backdrop-filter: blur(var(--kg-blur-panel)) saturate(1.4);
@@ -305,7 +323,7 @@
 
 /* Tier 3 — dark glass. ONLY over illustrations, so white text has contrast.
    Using this on the plain ambient gradient is the mistake it exists to prevent. */
-.kg-glass-dark {
+.kg-stage .kg-glass-dark {
   --kg-self-border: rgba(255, 255, 255, 0.42);
   --kg-self-shadow: 0 10px 22px -16px rgba(20, 45, 38, 0.6);
   background: rgba(18, 44, 38, 0.5);
@@ -316,12 +334,12 @@
   color: #FFFFFF;
 }
 
-.kg-glass-dark--deep {
+.kg-stage .kg-glass-dark--deep {
   background: rgba(18, 44, 38, 0.62);
 }
 
 /* Accent glass — primary actions. Follows --kg-accent. */
-.kg-glass-accent {
+.kg-stage .kg-glass-accent {
   --kg-self-border: rgba(255, 255, 255, 0.7);
   --kg-self-shadow:
     0 14px 28px -16px rgba(30, 60, 50, 0.6),
@@ -338,8 +356,33 @@
   color: var(--kg-ink-on-accent);
 }
 
+/* LIGHT GLASS ON ARTWORK — the fourth surface, added in phase B for the Home
+ * hero's eyebrow pill and its "Hear this" button, and reusable by every later
+ * scene that needs a pale chip ON an illustration.
+ *
+ * It is NOT tier 2. Tier 2 is white glass on the ambient gradient and takes
+ * INK-coloured text; this is a translucent white veil over a photograph, sits
+ * inside a .kg-scrim, and takes WHITE text. Using it anywhere the scrim is
+ * missing is exactly the contrast failure rule 2 forbids. */
+.kg-stage .kg-glass-light {
+  --kg-self-border: rgba(255, 255, 255, 0.55);
+  --kg-self-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(var(--kg-blur-button)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--kg-blur-button)) saturate(1.4);
+  border: 1px solid var(--kg-self-border);
+  box-shadow: var(--kg-self-shadow);
+  color: #FFFFFF;
+}
+
+.kg-stage .kg-glass-light--quiet {
+  --kg-self-border: rgba(255, 255, 255, 0.42);
+  --kg-self-shadow: none;
+  background: rgba(255, 255, 255, 0.24);
+}
+
 /* Dark accent glass — the active tab, hero panels, the Arcade featured panel. */
-.kg-glass-deep {
+.kg-stage .kg-glass-deep {
   --kg-self-border: rgba(255, 255, 255, 0.4);
   --kg-self-shadow:
     0 14px 26px -14px rgba(20, 45, 38, 0.6),
@@ -356,12 +399,12 @@
  * lets white text sit on a photograph without a text-shadow. Content inside
  * must be position: relative (or use .kg-on-art) to stay above it.
  */
-.kg-scrim {
+.kg-stage .kg-scrim {
   position: relative;
   overflow: hidden;
 }
 
-.kg-scrim::after {
+.kg-stage .kg-scrim::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -370,21 +413,21 @@
   background: var(--kg-scrim-flat);
 }
 
-.kg-scrim--hero::after {
+.kg-stage .kg-scrim--hero::after {
   background: var(--kg-scrim-hero);
 }
 
-.kg-scrim--trail::after {
+.kg-stage .kg-scrim--trail::after {
   background: var(--kg-scrim-trail);
 }
 
-.kg-scrim--sheen::after {
+.kg-stage .kg-scrim--sheen::after {
   background: var(--kg-sheen);
 }
 
 /* Everything that must sit above the scrim. White ink is legal HERE and only
    here — because .kg-scrim guarantees the dark ground underneath it. */
-.kg-on-art {
+.kg-stage .kg-on-art {
   position: relative;
   z-index: 1;
   color: #FFFFFF;
@@ -394,7 +437,7 @@
  * Baloo 2 for the child-facing voice (headings, numerals, buttons, card
  * titles); Nunito for body, captions and eyebrows.
  */
-.kg-hero-title {
+.kg-stage .kg-hero-title {
   margin: 0;
   font-family: var(--kg-font-display);
   font-size: 44px;
@@ -403,7 +446,7 @@
   text-wrap: pretty;
 }
 
-.kg-title {
+.kg-stage .kg-title {
   margin: 0;
   font-family: var(--kg-font-display);
   font-size: 33px;
@@ -411,7 +454,7 @@
   text-wrap: pretty;
 }
 
-.kg-panel-title {
+.kg-stage .kg-panel-title {
   margin: 0;
   font-family: var(--kg-font-display);
   font-size: 27px;
@@ -419,7 +462,7 @@
   text-wrap: pretty;
 }
 
-.kg-section-title {
+.kg-stage .kg-section-title {
   margin: 0;
   font-family: var(--kg-font-display);
   font-size: 22px;
@@ -427,7 +470,7 @@
   text-wrap: pretty;
 }
 
-.kg-card-title {
+.kg-stage .kg-card-title {
   margin: 0;
   font-family: var(--kg-font-display);
   font-size: 17px;
@@ -436,14 +479,14 @@
   text-wrap: pretty;
 }
 
-.kg-numeral {
+.kg-stage .kg-numeral {
   font-family: var(--kg-font-display);
   font-size: 23px;
   font-weight: 700;
   line-height: 1;
 }
 
-.kg-body {
+.kg-stage .kg-body {
   margin: 0;
   font-family: var(--kg-font-body);
   font-size: 16px;
@@ -451,14 +494,14 @@
   text-wrap: pretty;
 }
 
-.kg-caption {
+.kg-stage .kg-caption {
   font-family: var(--kg-font-body);
   font-size: 13.5px;
   font-weight: 800;
   color: var(--kg-ink-muted);
 }
 
-.kg-eyebrow {
+.kg-stage .kg-eyebrow {
   font-family: var(--kg-font-body);
   font-size: 12px;
   font-weight: 800;
@@ -473,17 +516,17 @@
  * !important and would otherwise shrink a child control below the floor —
  * the same scoped-!important precedent used there.
  */
-.kg-hit,
-.kg-button,
-.kg-speaker,
-.kg-iconbutton,
-.kg-tab,
-.kg-chip {
+.kg-stage .kg-hit,
+.kg-stage .kg-button,
+.kg-stage .kg-speaker,
+.kg-stage .kg-iconbutton,
+.kg-stage .kg-tab,
+.kg-stage .kg-chip {
   min-width: var(--kg-hit) !important;
   min-height: var(--kg-hit) !important;
 }
 
-.kg-button {
+.kg-stage .kg-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -501,19 +544,19 @@
   transition: background-color 140ms ease;
 }
 
-.kg-button--lg {
+.kg-stage .kg-button--lg {
   height: 66px;
   border-radius: 22px;
   font-size: 27px;
 }
 
-.kg-button--md {
+.kg-stage .kg-button--md {
   height: 58px;
   border-radius: 20px;
   font-size: 22px;
 }
 
-.kg-button--sm {
+.kg-stage .kg-button--sm {
   height: 50px;
   border-radius: var(--kg-radius-secondary);
   font-size: 18px;
@@ -521,7 +564,7 @@
 
 /* "Hear this" — the speaker button. Exactly the floor at its smallest size,
    which is why the floor is not negotiable. */
-.kg-speaker {
+.kg-stage .kg-speaker {
   display: inline-grid;
   place-items: center;
   width: var(--kg-hit);
@@ -533,19 +576,19 @@
   cursor: pointer;
 }
 
-.kg-speaker--md {
+.kg-stage .kg-speaker--md {
   width: 58px;
   height: 58px;
   border-radius: var(--kg-radius-secondary);
 }
 
-.kg-speaker--lg {
+.kg-stage .kg-speaker--lg {
   width: 66px;
   height: 66px;
   border-radius: var(--kg-radius-card);
 }
 
-.kg-chip {
+.kg-stage .kg-chip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -558,7 +601,7 @@
   font-weight: 700;
 }
 
-.kg-pill {
+.kg-stage .kg-pill {
   display: inline-flex;
   align-items: center;
   gap: var(--kg-space-7);
@@ -571,7 +614,7 @@
 
 /* Inline SVG icons: currentColor, 1.9 stroke, round caps and joins. No icon
    library — every icon in the child area is a path in studentRailPolicy.js. */
-.kg-icon {
+.kg-stage .kg-icon {
   width: 24px;
   height: 24px;
   fill: none;
@@ -583,7 +626,7 @@
 }
 
 /* ── Global chrome: the 78px header ───────────────────────────────────────── */
-.kg-header {
+.kg-stage .kg-header {
   height: var(--kg-header-height);
   display: flex;
   align-items: center;
@@ -592,11 +635,11 @@
   border-bottom: 1px solid var(--kg-self-border);
 }
 
-.kg-spacer {
+.kg-stage .kg-spacer {
   flex: 1;
 }
 
-.kg-profile {
+.kg-stage .kg-profile {
   /* Not a glass tier: it must not borrow the header's shadow when focused.
      Explicit here as well as via @property, for engines without it. */
   --kg-self-border: transparent;
@@ -614,7 +657,7 @@
   cursor: pointer;
 }
 
-.kg-avatar {
+.kg-stage .kg-avatar {
   width: 54px;
   height: 54px;
   flex: 0 0 auto;
@@ -629,32 +672,32 @@
   overflow: hidden;
 }
 
-.kg-avatar img {
+.kg-stage .kg-avatar img {
   width: 48px;
   height: 48px;
   object-fit: contain;
 }
 
-.kg-avatar strong {
+.kg-stage .kg-avatar strong {
   font-family: var(--kg-font-display);
   font-size: 24px;
   font-weight: 700;
   color: var(--kg-ink);
 }
 
-.kg-identity {
+.kg-stage .kg-identity {
   display: grid;
   gap: 0;
 }
 
-.kg-identity-name {
+.kg-stage .kg-identity-name {
   font-family: var(--kg-font-display);
   font-size: 21px;
   font-weight: 700;
   line-height: 1.15;
 }
 
-.kg-identity-pal {
+.kg-stage .kg-identity-pal {
   font-family: var(--kg-font-body);
   font-size: 13px;
   font-weight: 700;
@@ -670,7 +713,7 @@
  * The prior build surfaced roughly eight numeric systems at the child:
  * flame/streak, gems, XP, points and others. Do not reintroduce any of them
  * here. A third counter in this header is a spec violation, not a feature. */
-.kg-currency {
+.kg-stage .kg-currency {
   --kg-self-border: rgba(255, 255, 255, 0.85);
   --kg-self-shadow:
     0 8px 20px -12px rgba(30, 60, 50, 0.4),
@@ -688,18 +731,18 @@
   font-family: inherit;
 }
 
-button.kg-currency {
+.kg-stage button.kg-currency {
   cursor: pointer;
 }
 
-.kg-currency-value {
+.kg-stage .kg-currency-value {
   font-family: var(--kg-font-display);
   font-size: 23px;
   font-weight: 700;
   line-height: 1;
 }
 
-.kg-currency-caption {
+.kg-stage .kg-currency-caption {
   font-family: var(--kg-font-body);
   font-size: 11.5px;
   font-weight: 800;
@@ -707,15 +750,15 @@ button.kg-currency {
   text-transform: uppercase;
 }
 
-.kg-currency--stars .kg-currency-caption {
+.kg-stage .kg-currency--stars .kg-currency-caption {
   color: var(--kg-ink-amber);
 }
 
-.kg-currency--coins .kg-currency-caption {
+.kg-stage .kg-currency--coins .kg-currency-caption {
   color: var(--kg-ink-terracotta);
 }
 
-.kg-iconbutton {
+.kg-stage .kg-iconbutton {
   --kg-self-border: rgba(255, 255, 255, 0.8);
   --kg-self-shadow: none;
   width: 48px;
@@ -731,7 +774,7 @@ button.kg-currency {
   cursor: pointer;
 }
 
-.kg-iconbutton .kg-icon {
+.kg-stage .kg-iconbutton .kg-icon {
   width: 22px;
   height: 22px;
 }
@@ -742,7 +785,7 @@ button.kg-currency {
  * not. This bar REPLACES that rail; src/policy/studentRailPolicy.js holds the
  * tab registry and the sub-screen -> tab mapping.
  */
-.kg-tabbar {
+.kg-stage .kg-tabbar {
   height: var(--kg-tabbar-height);
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -755,7 +798,7 @@ button.kg-currency {
   box-shadow: 0 -1px 28px -12px rgba(30, 60, 50, 0.32);
 }
 
-.kg-tab {
+.kg-stage .kg-tab {
   --kg-self-border: rgba(255, 255, 255, 0.8);
   --kg-self-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
   height: var(--kg-tab-height);
@@ -774,12 +817,12 @@ button.kg-currency {
   cursor: pointer;
 }
 
-.kg-tab .kg-icon {
+.kg-stage .kg-tab .kg-icon {
   width: 27px;
   height: 27px;
 }
 
-.kg-tab-label {
+.kg-stage .kg-tab-label {
   font-family: var(--kg-font-display);
   font-size: 16.5px;
   font-weight: 700;
@@ -789,7 +832,7 @@ button.kg-currency {
    times — sub-screens map onto their parent tab rather than leaving the bar
    dark (Story Quests lights Books; the Adventure Map and Letters light
    Sounds). */
-.kg-tab.is-active {
+.kg-stage .kg-tab.is-active {
   --kg-self-border: rgba(255, 255, 255, 0.4);
   --kg-self-shadow:
     0 14px 26px -14px rgba(20, 45, 38, 0.6),
@@ -802,16 +845,28 @@ button.kg-currency {
  * This is a touch design and the prototype ships no hover treatment. Desktop
  * gets the spec's allowance and nothing more: lift the background alpha,
  * keep geometry static. Pointer-only, so a tablet tap does not flicker it. */
+
+/* App.css lifts EVERY `.app button` by a pixel on hover and dims it slightly.
+   The spec is explicit that a hover treatment must keep geometry static, so
+   the lift is cancelled inside the stage. Deliberately outside the
+   pointer-only block below: a tablet can fire :hover on tap, and a card that
+   jumps under a five-year-old's finger is the exact thing the rule forbids.
+   The selector mirrors App.css's own shape so it wins by specificity, not by
+   !important. */
+.kg-stage button:hover:not(:disabled):not(.sbq-stop) {
+  transform: none;
+  filter: none;
+}
 @media (hover: hover) and (pointer: fine) {
-  .kg-tab:not(.is-active):hover {
+  .kg-stage .kg-tab:not(.is-active):hover {
     background: rgba(255, 255, 255, 0.5);
   }
 
-  .kg-glass:hover.kg-interactive {
+  .kg-stage .kg-glass:hover.kg-interactive {
     background: rgba(255, 255, 255, 0.58);
   }
 
-  .kg-iconbutton:hover {
+  .kg-stage .kg-iconbutton:hover {
     background: rgba(255, 255, 255, 0.52);
   }
 }
@@ -862,7 +917,7 @@ button.kg-currency {
    and centres itself with NEGATIVE MARGINS, never with a transform, because
    .kg-bob on the inner <img> animates transform and would overwrite it. Set
    --kg-sprite-size and the margins follow. */
-.kg-sprite {
+.kg-stage .kg-sprite {
   position: absolute;
   width: var(--kg-sprite-size, 80px);
   margin-top: calc(var(--kg-sprite-size, 80px) * -1);
@@ -871,8 +926,8 @@ button.kg-currency {
   /* Deliberately no transform. Adding one here is the bug this pair prevents. */
 }
 
-.kg-sprite > img,
-.kg-bob {
+.kg-stage .kg-sprite > img,
+.kg-stage .kg-bob {
   display: block;
   width: 100%;
   animation: kgBob var(--kg-bob-duration) ease-in-out infinite;
@@ -880,21 +935,21 @@ button.kg-currency {
 
 /* Standalone bob (not inside a .kg-sprite): still must not be the element that
    carries a centring transform. */
-.kg-bob {
+.kg-stage .kg-bob {
   position: static;
 }
 
-.kg-halo {
+.kg-stage .kg-halo {
   animation: kgHaloPulse var(--kg-halo-duration) ease-out infinite;
 }
 
-.kg-pop {
+.kg-stage .kg-pop {
   animation: kgPopIn var(--kg-pop-duration) var(--kg-pop-ease) both;
 }
 
 /* Generic opt-in hook so a later phase can add an animation and inherit the
    reduced-motion contract below without editing this file's disable list. */
-.kg-motion {
+.kg-stage .kg-motion {
   animation-play-state: running;
 }
 
@@ -904,13 +959,13 @@ button.kg-currency {
    is never silenced by this file. Every new animation in phases B–F must be
    applied through one of these classes, or added here. */
 @media (prefers-reduced-motion: reduce) {
-  .kg-sprite > img,
-  .kg-bob,
-  .kg-halo,
-  .kg-pop,
-  .kg-motion,
-  .kg-tab,
-  .kg-button {
+  .kg-stage .kg-sprite > img,
+  .kg-stage .kg-bob,
+  .kg-stage .kg-halo,
+  .kg-stage .kg-pop,
+  .kg-stage .kg-motion,
+  .kg-stage .kg-tab,
+  .kg-stage .kg-button {
     animation: none;
     transition: none;
   }

@@ -9,6 +9,11 @@ import "./styles/home-sage.css";
 import "./styles/sage-subpages.css";
 import "./styles/sage-soft.generated.css";
 import "./styles/sage-form.css";
+// The kids-side redesign layers, in the same order main.jsx loads them. The
+// home page renders inside the glass shell now, so a preview without these is
+// a preview of a different page.
+import "./styles/kids-glass.css";
+import "./styles/kids-home.css";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import {
   COMPANIONS,

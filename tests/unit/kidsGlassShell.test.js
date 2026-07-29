@@ -200,6 +200,49 @@ test("a screen that sizes itself with height:100% is a DIRECT child of the conte
   );
 });
 
+// ── The cascade the design system has to win ────────────────────────────────
+
+test("every rule in the system is scoped under .kg-stage, or App.css outranks it", () => {
+  // Phase B measured this: the child area renders inside AppSurface's
+  // `app student-mode-app` shell, and App.css styles EVERY button under `.app`
+  // (`display: inline-flex; border: none; border-radius: 14px; padding: 10px
+  // 16px; font-size: 15px`). That selector is (0,1,1) and a bare `.kg-button`
+  // is (0,1,0), so the generic chrome won: a .kg-button--lg rendered at 14px
+  // radius and 15px type, and a Home doorway's grid became inline-flex, which
+  // collapsed its artwork to zero height. The `.kg-stage ` prefix ties the
+  // specificity and load order (main.jsx imports this file after App.css)
+  // settles it. An unscoped rule added later is silently overridden, so it is
+  // pinned here rather than left to be rediscovered.
+  const unscoped = [];
+  const withoutComments = css.replace(/\/\*[\s\S]*?\*\//g, "");
+  for (const match of withoutComments.matchAll(/(^|\n)([ \t]*)([^{}@\n][^{}\n]*?)\s*\{/g)) {
+    const selector = match[3].trim();
+    // Blocks that are not selectors, and the two roots the prefix comes from.
+    if (/^(?:from|to|\d+%|@|[\w-]+:)/.test(selector)) continue;
+    if (!/^[.:[]|^[a-z]/i.test(selector)) continue;
+    if (/^\.kg-viewport(,|$)/.test(selector) || /^\.kg-stage(\b|,|$)/.test(selector)) continue;
+    if (selector.split(",").every(part => /(^|\s)\.kg-stage(\s|\.|:)/.test(part.trim()))) continue;
+    unscoped.push(selector);
+  }
+  assert.deepEqual(
+    unscoped,
+    [],
+    `these rules are not scoped under .kg-stage and lose to App.css's .app button: ${unscoped.join(" | ")}`
+  );
+});
+
+test("the hover treatment cancels App.css's 1px lift — a touch design keeps geometry static", () => {
+  // App.css: `.app button:hover:not(:disabled):not(.sbq-stop) { transform:
+  // translateY(-1px) }`. The spec's allowance is a background-alpha change and
+  // nothing else, and a card that jumps under a five-year-old's finger is the
+  // thing that rules out.
+  assert.match(
+    css,
+    /\.kg-stage button:hover:not\(:disabled\):not\(\.sbq-stop\) \{[^}]*transform: none;/,
+    "the app-wide hover lift must be cancelled inside the stage"
+  );
+});
+
 // ── The liquid-glass recipe ─────────────────────────────────────────────────
 
 function declarations(property) {
@@ -227,7 +270,7 @@ test("every backdrop-filter ships the -webkit- prefix and pairs blur with satura
 });
 
 test("tier 2 keeps the inset highlight and the ambient-occlusion spread", () => {
-  const tier2 = css.match(/^\.kg-glass \{[\s\S]*?\n\}/m);
+  const tier2 = css.match(/^\.kg-stage \.kg-glass \{[\s\S]*?\n\}/m);
   assert.ok(tier2, "the tier-2 .kg-glass rule is gone");
   assert.match(
     tier2[0],
@@ -250,12 +293,12 @@ test("the three tiers plus accent and deep glass all exist and are dark where th
     ".kg-glass-accent",
     ".kg-glass-deep"
   ]) {
-    assert.ok(css.includes(`${tier} {`), `${tier} is missing from the system`);
+    assert.ok(css.includes(`.kg-stage ${tier} {`), `${tier} is missing from the system`);
   }
   // Tier 3 and the deep glass are the only places white ink is legal, and they
   // are dark precisely so it is.
-  assert.match(css.match(/^\.kg-glass-dark \{[\s\S]*?\n\}/m)[0], /background: rgba\(18, 44, 38, 0\.5\)/);
-  assert.match(css.match(/^\.kg-glass-deep \{[\s\S]*?\n\}/m)[0], /color: #FFFFFF/);
+  assert.match(css.match(/^\.kg-stage \.kg-glass-dark \{[\s\S]*?\n\}/m)[0], /background: rgba\(18, 44, 38, 0\.5\)/);
+  assert.match(css.match(/^\.kg-stage \.kg-glass-deep \{[\s\S]*?\n\}/m)[0], /color: #FFFFFF/);
 });
 
 test("there is no text-shadow anywhere — a missing scrim is what makes you want one", () => {
@@ -269,7 +312,7 @@ test("there is no text-shadow anywhere — a missing scrim is what makes you wan
   );
   assert.ok(css.includes(".kg-scrim::after"), "the scrim must paint over the artwork");
   assert.match(
-    css.match(/^\.kg-on-art \{[\s\S]*?\n\}/m)[0],
+    css.match(/^\.kg-stage \.kg-on-art \{[\s\S]*?\n\}/m)[0],
     /color: #FFFFFF/,
     "white ink belongs to .kg-on-art, which only exists inside a scrim"
   );
@@ -278,7 +321,7 @@ test("there is no text-shadow anywhere — a missing scrim is what makes you wan
 // ── Motion ──────────────────────────────────────────────────────────────────
 
 test("the sprite wrapper centres with margins so bob's transform cannot destroy it", () => {
-  const sprite = css.match(/^\.kg-sprite \{[\s\S]*?\n\}/m);
+  const sprite = css.match(/^\.kg-stage \.kg-sprite \{[\s\S]*?\n\}/m);
   assert.ok(sprite, ".kg-sprite is gone — the animation gotcha is unguarded");
   assert.match(sprite[0], /margin-left: calc\(var\(--kg-sprite-size[^)]*\) \/ -2\)/);
   assert.equal(
@@ -286,7 +329,7 @@ test("the sprite wrapper centres with margins so bob's transform cannot destroy 
     false,
     "kgBob animates transform on the inner img and would overwrite a centring transform here — centre with negative margins"
   );
-  assert.match(css, /\.kg-sprite > img,\s*\n\.kg-bob \{[\s\S]*?animation: kgBob/);
+  assert.match(css, /\.kg-sprite > img,\s*\n\.kg-stage \.kg-bob \{[\s\S]*?animation: kgBob/);
 });
 
 test("all animation is off under reduced motion, without silencing a teaching animation", () => {
@@ -363,18 +406,18 @@ test("44 x 44 is enforced as a floor for everything a child taps", () => {
 });
 
 test("the header and the tab bar are built to the spec's exact geometry", () => {
-  const header = css.match(/^\.kg-header \{[\s\S]*?\n\}/m)[0];
+  const header = css.match(/^\.kg-stage \.kg-header \{[\s\S]*?\n\}/m)[0];
   assert.match(header, /height: var\(--kg-header-height\)/);
   assert.match(header, /padding: 0 var\(--kg-space-22\)/);
   assert.match(header, /gap: 12px/);
 
-  const tabbar = css.match(/^\.kg-tabbar \{[\s\S]*?\n\}/m)[0];
+  const tabbar = css.match(/^\.kg-stage \.kg-tabbar \{[\s\S]*?\n\}/m)[0];
   assert.match(tabbar, /height: var\(--kg-tabbar-height\)/);
   assert.match(tabbar, /grid-template-columns: repeat\(5, minmax\(0, 1fr\)\)/);
   assert.match(tabbar, /gap: 12px/);
   assert.match(tabbar, /padding: 0 var\(--kg-space-20\)/);
 
-  const tab = css.match(/^\.kg-tab \{[\s\S]*?\n\}/m)[0];
+  const tab = css.match(/^\.kg-stage \.kg-tab \{[\s\S]*?\n\}/m)[0];
   assert.match(tab, /height: var\(--kg-tab-height\)/);
   assert.match(tab, /border-radius: var\(--kg-radius-card\)/);
   assert.match(css, /--kg-tab-height:\s*68px/);

@@ -63,8 +63,13 @@ test("entry, home, and preloading cannot drift back to retired runtime names", (
     }
   }
 
+  // 2026-07-29 (kids redesign, phase B): the child home's chrome is now the
+  // glass shell's header — profile, stars, coins, grown-ups — which the spec
+  // gives no brand lockup. The endorsed identity did NOT leave the child area;
+  // it moved to the grown-ups menu, the one adult-facing surface on the screen,
+  // where it still has to be the approved endorsed name and nothing retired.
   const homeSource = readFileSync(path.join(repoRoot, "src/components/StudentHomePage.jsx"), "utf8");
-  assert.match(homeSource, /className="hs-logo" role="img" aria-label=\{CHILD_BRAND\.endorsedName\}/);
+  assert.match(homeSource, /className="kg-home-brand" role="img" aria-label=\{CHILD_BRAND\.endorsedName\}/);
 });
 
 test("the entry gateway gives students and teachers their own branded destinations", () => {
@@ -99,9 +104,15 @@ test("the entry gateway gives students and teachers their own branded destinatio
   );
 });
 
-test("the Sage home keeps all seven destinations in its policy-led hierarchy", async () => {
+// 2026-07-29 (kids redesign, phase B): the home screen was rebuilt onto the
+// fixed 1194 x 834 glass canvas, so the assertions that pinned the sage skin's
+// card hierarchy and its container-query reflow now point at the new layout —
+// same intent, new implementation. The intent is unchanged and is the reason
+// this test exists: SEVEN destinations, ONE policy-selected primary action, and
+// artwork that stays reproducible.
+test("the child home keeps all seven destinations behind one policy-selected action", async () => {
   const homeSource = readFileSync(path.join(repoRoot, "src/components/StudentHomePage.jsx"), "utf8");
-  const homeStyles = readFileSync(path.join(repoRoot, "src/styles/home-sage.css"), "utf8");
+  const homeStyles = readFileSync(path.join(repoRoot, "src/styles/kids-home.css"), "utf8");
   const appSource = readFileSync(path.join(repoRoot, "src/components/AppSurface.jsx"), "utf8");
   const imageGeneratorSource = readFileSync(path.join(repoRoot, "tools/generateImage.mjs"), "utf8");
   const imageJobs = JSON.parse(readFileSync(path.join(repoRoot, "tools/image-jobs/home-sage-cards.json"), "utf8"));
@@ -119,11 +130,22 @@ test("the Sage home keeps all seven destinations in its policy-led hierarchy", a
     /onOpenRewards=\{\(\) => \{[\s\S]*?setAppView\(APP_VIEWS\.STUDENT_REWARDS\);[\s\S]*?appView === APP_VIEWS\.STUDENT_REWARDS[\s\S]*?<HollowPage/,
     "the home callback must continue to open the real My Hollow page"
   );
+  // ONE unmistakable next action. The hero's Play button is built from
+  // selectStudentHomeRecommendation's primary and is the only thing on the
+  // screen carrying data-child-primary; the six doorways are marked as
+  // choices. Two primaries here is the exact regression the redesign removed.
   assert.match(
     homeSource,
-    /hero=\{priority === "primary"\}[\s\S]*?priority=\{priority\}[\s\S]*?recommendationSource=/,
-    "the policy-selected activity must own the single hero role"
+    /const primary = recommendation\.primary;/,
+    "the hero must be the policy-selected activity, not a second selection rule"
   );
+  assert.equal(
+    (homeSource.match(/data-child-primary=/g) || []).length,
+    1,
+    "exactly one primary call to action may exist on the child home"
+  );
+  assert.match(homeSource, /data-child-emphasis="primary"/);
+  assert.match(homeSource, /data-child-emphasis="choice"/);
   assert.equal(
     existsSync(hollowImagePath),
     true,
@@ -141,20 +163,33 @@ test("the Sage home keeps all seven destinations in its policy-led hierarchy", a
     /const height = Number\(job\.height \|\| args\.height \|\| width \|\| 0\);[\s\S]*?pipe\.resize\(width, height, \{ fit: "cover" \}\)/,
     "the shared image generator must honour the card job's explicit aspect ratio"
   );
+  // The spec's Home geometry: a 232px hero over the daily stops over the
+  // doorways, which take whatever height is left. The hero owning a fixed
+  // 232px is what keeps it the loudest thing on the screen at every state.
   assert.match(
     homeStyles,
-    /\.lp-home-sage \.hs-recommendation-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1\.15fr\) minmax\(0, 1fr\);/,
-    "the desktop hierarchy must reserve more space for the policy-selected activity"
+    /\.kg-stage \.kg-home\s*\{[\s\S]*?grid-template-rows:\s*232px auto minmax\(0, 1fr\);/,
+    "the hero must keep its fixed 232px row above the stops and the doorways"
   );
+  // Six equal doorways by default; the count follows what is actually rendered
+  // so a reduced-choice child gets fewer, bigger doors instead of empty tracks.
   assert.match(
     homeStyles,
-    /\.lp-home-sage \.hs-card\.is-hero\s*\{[\s\S]*?border:\s*2px solid var\(--hs-sage\);/,
-    "the single recommended activity must retain the strongest card treatment"
+    /\.kg-stage \.kg-home-doors\s*\{[\s\S]*?grid-template-columns:\s*repeat\(var\(--kg-door-count, 6\), minmax\(0, 1fr\)\);/,
+    "the doorway grid must be six equal columns and follow the doorways rendered"
   );
-  assert.match(homeStyles, /@container hs-sheet \(max-width: 920px\)[\s\S]*?\.hs-recommendation-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1fr\)/);
+  // Exactly one daily stop is "next", and it is the only one with the accent
+  // ring and halo — the glance-level answer to "which one now?".
   assert.match(
     homeStyles,
-    /@container hs-sheet \(max-width: 520px\)[\s\S]*?\.hs-secondary-grid,[\s\S]*?\.hs-explore-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1fr\)/,
-    "secondary and exploration choices must collapse to one readable phone column"
+    /\.kg-stage \.kg-home-stop\[data-mission-state="next"\] \.kg-home-stop-marker\s*\{[\s\S]*?rgba\(var\(--kg-accent-rgb\), 0\.22\)/,
+    "the next daily stop must carry the accent halo that marks it as next"
+  );
+  // The canvas is fixed at 1194 x 834 and the stage scales to fit, so a Home
+  // rule that reflows by width is a bug, not responsiveness.
+  assert.equal(
+    /@container|@media \(max-width/.test(homeStyles),
+    false,
+    "the child home is a fixed canvas: it scales, it does not reflow"
   );
 });
