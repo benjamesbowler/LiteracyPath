@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-07-29T14:41:15.770Z",
+ "generatedAt": "2026-07-29T15:09:28.894Z",
  "spec": "Every prompt/instruction, sentence, passage, and choice word needs recorded human audio (child-friendly UK/neutral voice, natural pace, no isolated phonemes). Every image slot needs a clean flat-style illustration matching /images/assessment house style, no embedded text, answer-neutral.",
  "skills": [
   {
@@ -11,11 +11,27 @@
    "missingImages": 0
   },
   {
+   "skillId": "inference",
+   "items": 64,
+   "instructionLines": 64,
+   "wordRecordings": 34,
+   "imageSlots": 0,
+   "missingImages": 0
+  },
+  {
    "skillId": "long_vowels_silent_e",
    "items": 68,
    "instructionLines": 68,
    "wordRecordings": 188,
    "imageSlots": 28,
+   "missingImages": 0
+  },
+  {
+   "skillId": "main_idea",
+   "items": 64,
+   "instructionLines": 64,
+   "wordRecordings": 0,
+   "imageSlots": 0,
    "missingImages": 0
   }
  ],
@@ -283,6 +299,586 @@
   {
    "text": "stick. Finish the word stick.",
    "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Sami most likely feel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Sami stood in the wings holding his recorder. He wiped his hands on his shirt three times. Through the curtain he could see all the chairs were full. He peeped at the audience, then quickly stepped back and checked his music again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Lena feel at the end?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Lena's cat had been at the vet all day. When Mum's phone finally rang, Lena froze. Mum listened, then smiled and gave a thumbs up. Lena let out a long breath and flopped onto the sofa like a rag doll.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Dara feel about finishing?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Everyone else had finished the race. Dara was still running, last by a whole lap. She kept her eyes on the finish line and pumped her arms. When she crossed it, she punched the air as if she had come first.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Ivo most likely feel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "At the new school gate, Ivo held Dad's hand a little too hard. He watched the other children stream past, laughing in twos and threes. He did not know a single name. He practised saying 'hello' very quietly to himself.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Bea feel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Bea's balloon slipped off her wrist at the fair. She watched the red dot get smaller and smaller in the sky. Her lip wobbled. Then she looked down at the string still in her hand and quickly wiped one eye with her sleeve.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Kofi most likely feel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Kofi had studied his spelling words all week. When Miss Reed handed back the tests, she gave his desk a little tap and a wink. Kofi looked at the top of his page, sat up very straight, and could not stop smiling for the whole lesson.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Noor feel in the dark?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The tour guide switched off the lights inside the cave. The dark was thicker than any night. Noor squeezed her torch but did not turn it on. 'One minute of true dark,' the guide had promised. Noor counted slowly and kept both feet very still.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Ren most likely feel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Ren watched his sister open her birthday parcel. Inside was the robot he had wanted for months. He clapped along with everyone else, but his clap was slow. He kept looking at the robot, then at his own empty hands.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Where does this take place?",
+   "kind": "instruction",
+   "usedBy": 5
+  },
+  {
+   "text": "Everything smelled of warm bread. Rows of buns sat behind curved glass. A bell above the door jingled, and a lady in a floury apron called out, 'Next, please!'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Where is Mara?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mara pulled her armbands tight. The air smelled of chlorine, and shouts echoed off the high ceiling. Somewhere a whistle blew, and the big clock on the wall had only one long red hand.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Hush hung over the long tables. Pages turned with tiny whispers. A trolley of books rolled softly past, and a lady stamped a date inside a cover. 'Two weeks,' she mouthed, almost silently.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Where is Tia?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Straw crunched under Tia's boots. Something warm and huge breathed near her shoulder, smelling of grass. A bucket clanked, and a man in muddy overalls said, 'She likes you. Want to hold the brush?'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The floor hummed under their feet. Fields slid past the window, faster and faster. A voice from the ceiling said the next stop was in ten minutes, and a trolley of snacks squeaked up the aisle.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Where are they?",
+   "kind": "instruction",
+   "usedBy": 2
+  },
+  {
+   "text": "Blue light rippled across everyone's faces. A long shadow glided by behind the glass, and a hundred silver shapes turned at once like one creature. 'No flash photos,' whispered the guide.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Where is Omar?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Trays clattered somewhere behind the counter. The smell of gravy filled the hall. Omar slid his tray along the rails, said 'yes please' to the peas, and looked for an empty seat beside his friends.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Gulls screamed overhead. Wind tugged the flags on the sandcastles. Somewhere an ice-cream van sang its tinkling song, and Dad rubbed cream on Zoe's nose, saying the sun was strong today.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What will most likely happen next?",
+   "kind": "instruction",
+   "usedBy": 8
+  },
+  {
+   "text": "Black clouds rolled over the park. The wind flipped the picnic blanket corner over the sandwiches. Far away, thunder grumbled. Mum started packing the food back into the basket, fast.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Theo filled the tub with warm water. He fetched the dog shampoo and an old towel. Then he opened the back door and called, 'Biscuit! Here, boy!' From the garden came the sound of happy, muddy paws.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The smell of toast turned sharp and smoky. A thin grey wisp curled out of the toaster. Dad sniffed twice, dropped his newspaper, and ran for the kitchen.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Aya counted her pocket money twice. She put on her coat and took the empty honey jar from the shelf. 'Back soon,' she called, 'we need more for the pancakes!'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The torch blinked, went dim, then died. Raj shook it, but the dark stayed. He remembered the drawer in the kitchen where the little round batteries lived, and he felt his way toward the stairs.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Nell's baby brother finally fell asleep in his cot. Mum tiptoed out backwards. Just then, Nell's music box began to plink loudly in her pocket. Mum spun round with wide eyes.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Frost had turned the path to glass overnight. Grandad tested it with one boot and slid an arm's length. 'Not today,' he said, looking at the gritting sand by the gate.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What most likely happened to the sandwich?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The jam sandwich was gone. Only crumbs led away across the kitchen floor, and the cat flap was still swinging gently. Outside, a magpie sat on the fence with something red and sticky on its beak.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Ma change the plans?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Ma put two umbrellas by the door instead of one. She checked the window again, then rolled up the picnic rug and slid it back on top of the cupboard. 'We'll do the indoor museum instead,' she said, 'and take the bus, not walk.'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Marco give Lily his orange?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "At lunch, Marco slid his orange across to Lily without a word. Lily's lunchbox had fallen in a puddle that morning, and everyone had seen her empty tray. Marco kept his eyes on his own sandwich, as if nothing had happened.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Pia walk instead of ride?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Pia usually raced her scooter down Hill Lane. Today she got off at the top and walked it down slowly, holding the brake lever the whole way. Halfway down, she stepped carefully around a patch where the council had painted a wet, shining square of new tar.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Gran go to the hallway?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Gran turned the television right down when the phone rang. She carried the phone to the quiet hallway and shut the kitchen door behind her. 'Yes, doctor, I can hear you clearly now,' she said.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the coach move Jonah?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Coach Adams moved Jonah from striker to goalkeeper for the final. Some parents muttered. But in training all week, Jonah had tipped every single shot over the bar, even the hard low ones. When the final whistle blew, Jonah had kept the only clean sheet of the season.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why does Auntie Fern use sealed jars?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Auntie Fern always kept her seed packets in old jam jars with the lids screwed tight. 'One flood in this shed was enough,' she would say, tapping a jar. On the top shelf, a faded brown tide mark still ran along the wooden wall.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Asha sit at the front with her ticket out?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "On the first bus ride to school by herself, Asha sat directly behind the driver, even though the back seats were empty and her friends always said the back was best. She held her ticket in her hand the whole way instead of putting it in her bag.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Mr Okafor keep moving the ladder?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mr Okafor propped his ladder against the wall, then moved it twice before climbing. Each time he pushed the feet a little farther from the wall and pressed down on a rung with his boot. Only when the ladder did not wobble at all did he pick up his paintbrush.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What must have happened before Jess came in?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "When Jess came in from the garden, a dripping umbrella already stood open in the bath. Two coats hung heavy on the radiator, and Mum was stuffing newspaper into a pair of dark, shining boots.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What must have happened overnight?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The classroom hamster wheel was still spinning slowly when the children arrived. The food bowl, full last night, held only two pellets, and the tissue-paper mountain in the corner now had a perfectly round doorway.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What went wrong while they were out?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad met them at the door wearing one oven glove and a guilty smile. The kitchen window was wide open in the cold, a tea towel was flapping over the smoke alarm, and a very dark cake sat in the bin.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What had happened at home?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Marta's recorder case felt strangely light on the walk to school. When the music teacher asked everyone to play, Marta opened the case and found only a folded note from her little brother: 'Borrowed it for my pirate band. Sorry!'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Who has most likely been moving the gnome?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The garden gnome had moved again. On Monday he faced the pond; by Friday he was under the rose bush, wearing a doll's scarf. Grandpa swore he never touched him. From the fence, the little girl next door watched with a very serious face, and one more doll's scarf in her hand.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What most likely visited in the night?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "By morning the bird feeder lay on the grass, split open and licked clean. The pole it hung from was bent in a smooth curve, like a drinking straw. In the flower bed below, deep five-toed prints led away toward the woods, each one wider than Dad's boot.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What had Mum been doing?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The whole flat smelled of paint, though the walls were the same colour as ever. Newspaper was taped inside the bath tub, and tiny silver spots freckled Mum's glasses. On the balcony, Ela's old bicycle stood drying — suddenly, gloriously silver from wheel to wheel.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What must have happened while they were out?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "When the lights came back on, the ice-cream tub on the counter was soft as soup, and the freezer drawers stood in puddles. The oven clock blinked 00:00, 00:00, 00:00, and every radio in the house had forgotten its stations.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words from the story show how Tilly REALLY feels?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Tilly said she did not mind missing the trip. She said it twice, in a bright voice. But all through art she drew the same picture: a little bus on a long road, with a girl waving from the window seat.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show that Ba wanted THAT dog?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "'Any dog would do,' said Ba, shrugging at the shelter. Then a grey terrier pressed its nose to the bars. Ba knelt down for a long time. On the way home he asked, twice, whether terriers like long walks, and he kept the shelter's leaflet in his top pocket all week.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which clue points to Femi?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Nobody saw who tidied the book corner. But Miss Diaz noticed that the shelves were sorted by colour, exactly like Femi sorts his pencil tin, and that the beanbag was patted into a neat square, just the way Femi leaves his chair cushion after lunch.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show the win DID matter to Harri?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Harri claimed the win did not matter. Yet the medal hung over his bed, polished every Sunday. The race photograph moved from the drawer, to the shelf, to a frame on the wall. And whenever visitors came, somehow the talk always found its way to that rainy sports day.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show the new boy HAD played chess?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The new boy said he had never played chess before. Then he set up every piece without looking at the box lid. He moved his knight in that funny L-shape straight away, and when Mr Salt's queen crept forward, the new boy smiled a small, knowing smile.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show Mum was actually asleep?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mum insisted she was wide awake for the film. Halfway through, her mug tipped gently in her hand, and Leo caught it. By the big ending, her head had found the cushion, and the credits rolled to the sound of long, slow breathing.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show the caretaker loves the cat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The caretaker grumbled that the school cat was 'nothing but a nuisance'. But the nuisance had a cushion in the boiler room, a bowl marked C-A-T in the caretaker's own careful letters, and on cold mornings, the first warm lap it looked for was his.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show Priti WAS scared of the thunder?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Priti told everyone the thunder did not scare her one bit. Still, at the first rumble she turned her music up very loud. At the second, she remembered an urgent reason to visit the kitchen, where Gran was. At the third, she decided the safest place to read was under her blanket with a torch.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Milo feel at the end?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The splinter was tiny but it was IN Milo's finger. He looked away while Dad held the tweezers. 'Done,' said Dad, before Milo had even squeezed his eyes shut properly. Milo stared at his finger, then laughed out loud.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How does Wren most likely feel?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Wren had saved her pocket money for six weeks. At the till, the shopkeeper counted her coins slowly and slid the paint set across the counter. Wren carried the bag with both hands all the way home, checking inside at every corner.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Where is Ana?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Rows of red seats sloped down toward the glowing screen. Ana balanced the popcorn on her knees. The lights dimmed slowly, and a hush spread as the first music swelled.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Everything here had a price sticker and a wobbling tower of tins. A voice announced that spilled grapes were being cleaned on aisle four. Mum ticked the last thing off her list and steered the rattling trolley toward the shortest queue.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Kip's tummy growled in the quiet classroom, loud as a bear. The clock said one minute until the lunch bell. He slid his workbook into his tray and looked at the door.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What will Josh most likely do?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Snow had fallen all night, thick and perfect. Two carrots, a scarf, and a bag of coal buttons waited by the back door. Josh pulled on his mittens and pushed the door open into the white garden.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "How did Ola feel about the slide by the end?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "It was Ola's turn on the tall slide at last. From the top, the ground looked very far away. She gripped the rail, sang her favourite song under her breath, and let go. At the bottom she shouted, 'AGAIN!'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "White coats hurried past on soft shoes. A machine somewhere beeped a steady, patient beep. Gran sat up in the high bed and grinned at the grapes they had brought her.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Ade hide the dinosaur?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Half an hour before the guests arrived, Ade hid his favourite dinosaur under his pillow. His baby cousins were coming, and last time, the smallest one had chewed the tail of his second-favourite dinosaur into a soggy stump.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did the owner most likely make these changes?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The cafe owner started opening one hour earlier, at six. She put out a basket of day-old rolls marked 'help yourself' and left the outside light on in the dark mornings. The bin men, the postwoman, and the night-shift nurses began to wave through the window like old friends.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What must have happened?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The trail of tiny muddy paw prints began at the cat flap. It crossed the clean kitchen floor, climbed impossibly onto the counter, and ended in the middle of the fresh white birthday cake — where one candle now leaned at a guilty angle.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What is Dad most likely hiding?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad came home from the allotment whistling, which he never did. His muddy bag, usually flat, bulged in one huge round shape. He hid it behind his back through the whole kitchen, then said, far too casually, 'So... is the village show still on Saturday?'",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show Sol truly cared about the lambs?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Sol said the baby lambs were 'fine, whatever'. But he was first up in the cold every morning to warm their bottles. He gave up Saturday football when the smallest lamb was poorly, and he kept a photo of it standing up for the first time.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which words show there probably WAS a mouse?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The head teacher announced that the school definitely, absolutely did not have a mouse. Meanwhile, the caretaker was seen carrying a tiny humane trap and a jar of peanut butter toward the store room, and the cook had moved every open sack of flour onto the highest shelf.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Why did Nina wrap the book?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Nina wrapped her library book in a plastic bag before putting it in her rucksack, even though the sky was blue. Her water bottle had leaked once before, all over her spelling homework, and the librarian's eyebrows were famous across three year groups.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What makes the plants lean?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Every plant on the windowsill leaned the same way, like dancers frozen mid-bow. The cactus alone stood up straight. Gran turned each pot half a circle, and by the next week, the leaners were bowing toward the window all over again.",
+   "kind": "passage",
    "usedBy": 1
   },
   {
@@ -584,6 +1180,351 @@
    "text": "Take the silent e away from tube. What word is left?",
    "kind": "instruction",
    "usedBy": 1
+  },
+  {
+   "text": "What is this story mostly about?",
+   "kind": "instruction",
+   "usedBy": 11
+  },
+  {
+   "text": "Rana planted three bean seeds in a paper cup. She watered them every morning before school. For days, nothing happened. Then one green stem pushed up through the soil. Rana cheered so loudly that her dog barked.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Tom could not find his library book anywhere. He looked under his bed and behind the sofa. He even checked the fridge. At last he found it inside his pillow case, right where he had read it last night.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Amara's bike squeaked all the way to the park. Squeak, squeak, squeak. Her uncle showed her how to drip oil on the chain. On the ride home, the bike rolled along quietly, and Amara grinned the whole way.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Milo's tooth had wobbled for a week. He wiggled it at breakfast and at bath time. Then, while he was laughing at dinner, it popped out into his hand. Milo put it under his pillow that night.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "A thin grey kitten kept visiting Priya's steps. Each day Priya set out a little dish of water. Each day the kitten crept closer. On Friday it finally curled up on her lap, purring like a tiny engine.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Dev dropped his mitten somewhere in the snow. He walked back along his own footprints to look. Near the gate he saw a flash of red on the fence post. Someone had found his mitten and left it where he would see it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The choir had one last practice before the show. First the singing was too quiet. Then it was too fast. Miss Obi clapped a steady beat, and slowly all the voices came together like one big voice.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Jin practised flipping pancakes with a cold, empty pan. Flip, catch. Flip, catch. On Sunday he tried it with a real pancake while his dad watched. The pancake spun in the air and landed back in the pan.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "What is this passage mostly about?",
+   "kind": "instruction",
+   "usedBy": 21
+  },
+  {
+   "text": "Bees visit many flowers on one trip. They drink a sweet juice called nectar. Back at the hive, they pass the nectar to other bees. Slowly the nectar thickens into honey. One jar of honey takes thousands of flower visits.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "A tadpole does not look like a frog. It has a tail and no legs. First the back legs grow. Then the front legs appear, and the tail gets shorter. At last the little frog can hop out of the pond.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Old paper does not have to be rubbish. Trucks take it to a special factory. There it is mashed with water into a grey soup. The soup is rolled flat and dried. It comes out as fresh, clean paper, ready to use again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "A lighthouse stands where the rocks are dangerous. At night its big lamp turns round and round. Ships far out at sea watch for the flashing light. The light tells them where the rocks are, so they can steer safely past.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "An ant is small, but it is a strong helper. Ants work in long lines. One ant finds a crumb and leaves a smell trail. The others follow the trail. Together they carry food back to the nest, piece by piece.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Shadows are not the same all day. In the morning, the sun is low and shadows are long. At midday, the sun is high and shadows shrink small. In the evening they stretch long again, pointing the other way.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "A spider web starts with one thin thread. The spider lets the wind carry it across a gap. Then she walks the thread and adds more lines, round and round. The finished web is sticky, ready to catch her dinner.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The moon seems to change shape, but it does not really. The moon circles the Earth. Sunlight lights up one side of it. Some nights we see all of the bright side, some nights only a sliver. That is why the moon looks different.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Every morning Mr Pole stands at the school crossing. He holds up his round sign, and the cars stop. He waves the children across, grinning his good-morning grin. Rain or shine, he is there before the first bell rings.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Class 2 had a tidy-up race before home time. One team stacked the chairs. Another team collected the pencils. The last team wiped the tables. In five minutes the whole room was neat, and everyone won a sticker.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Saturday is market day. Nan gives Ade the shopping list. He finds the oranges, and Nan picks the fish. The stall man always adds one free plum for Ade. They walk home with heavy bags and happy plans for dinner.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The launderette on our street hums all morning. Round windows spin with socks and shirts. Mrs Kaur folds warm towels into tall piles. People chat while they wait, and the whole shop smells like clean cotton.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "After the rain, the playground was full of puddles. Small boots splashed in the big one by the slide. Two friends raced leaf boats along the gutter stream. By lunch, the sun had drunk the puddles all up.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad flips the calendar to a new month. Everyone adds their days. Swimming badge test for Lena. Dentist for Dad. Grandma's visit gets a big red circle. The little squares fill up with the family's plans.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The postman's trolley squeaks up our road at nine. Letters slide through doors, flap, flap, flap. Number 12 gets a parcel and signs for it happily. Our dog waits by the letter box every single morning.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The bakery opens before the sun is up. Trays of rolls slide into the big oven. The smell of warm bread drifts down the street. By eight o'clock a little queue waits at the door, sniffing happily.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which title fits this passage best?",
+   "kind": "instruction",
+   "usedBy": 11
+  },
+  {
+   "text": "Nobody wanted the muddy corner of the school garden. Weeds grew tall, and crisp packets blew against the fence. Then Year 2 claimed it. They pulled the weeds, dug in compost, and planted sunflower seeds in careful rows. All summer the corner blazed yellow, and even the caretaker stopped to take photographs.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "When the old footbridge closed for repairs, everyone grumbled. The walk to school took ten minutes longer, right around the stream. But on the long way, children found blackberries, a heron, and a hollow tree that echoed. By the time the bridge reopened, some families kept taking the long way on purpose.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Asha's drum kit lived in the garage, because drums are loud. Every evening she practised the same tricky rhythm, and every evening it fell apart in the middle. Her mum suggested slowing right down. Boring, thought Asha, but she tried it. Two slow weeks later, her sticks flew through the rhythm at full speed without a single slip.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The city aquarium had a problem: the otters kept escaping their pool at night and sliding down the corridors. Cameras showed them stacking rocks by the glass wall like little stairs. The keepers did not punish the clever climbers. Instead they built a bigger pool with waterfalls, tunnels, and plenty of rocks to move around.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Grandpa folds a square of paper in silence. Corner to corner, crease by crease. Suddenly it has wings. He taught this plane to Dad thirty years ago, and today he is teaching it to me. Mine flies crooked, then straight, then right across the kitchen. Grandpa says the fold matters more than the throw.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "At first the new rain gauge seemed dull. A plastic tube, a ruler, an empty chart. But day by day the chart filled in. A dry week made a flat line. A stormy Tuesday shot the line up like a mountain. By the end of term, Class 3 could read their whole spring in one zigzag picture.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The escalator at the station broke on Monday, and a sign said SORRY. Some people sighed and took the stairs. A busker moved to the bottom step and played cheerful songs for the climbers. Strangers started counting the steps out loud together, laughing when they lost count. It was, everyone agreed, a strangely happy week.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Every seed in the seed bank sleeps in a silver packet. Wheat from one valley, beans from another, a pumpkin seed saved from a hundred years ago. If a flood or a fire ever destroys a crop, farmers can borrow its seeds and start again. The freezer hums quietly, keeping tomorrow's fields safe on its cold shelves.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "All of these are true. Which one is the MAIN idea?",
+   "kind": "instruction",
+   "usedBy": 10
+  },
+  {
+   "text": "The class made soup for the winter fair. Priya chopped carrots into little moons. Sam stirred so the bottom would not stick. Miss Lee added one secret spoonful of ginger. When the pot finally bubbled, the whole corridor smelled wonderful, and the soup sold out in twenty minutes.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Hedgehogs need help in autumn. They look for a safe pile of leaves to sleep in all winter. People can leave a wild corner in the garden and check bonfires before lighting them. A small gap in the fence lets hedgehogs walk from garden to garden to find food.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Maya kept a moon diary for a month. On clear nights she drew the moon's shape in silver pencil. On cloudy nights she wrote 'hidden' in the box. Slowly her pages showed the moon growing round, then shrinking thin. Her diary turned a whole month of sky into one small story.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The old phone box on Elm Street does not hold a phone any more. The town filled it with books instead. Anyone may take one home, as long as they leave another. The shelves change every week: cookbooks, comics, mysteries. The little red box is now the smallest library in town.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad's allotment gives us vegetables nearly all year. In spring we pull sweet little radishes. Summer brings beans that climb higher than me. In autumn we dig up potatoes like buried treasure. Even in winter there is kale, standing green in the frost.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The fire station opened its doors on Saturday. Children tried on helmets that wobbled on their heads. A firefighter showed how the long ladder unfolds to reach high windows. Everyone got to spray the practice hose at a target. By home time, half the visitors wanted the job one day.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "A wind farm stands on the hill above our town. Each turbine is taller than the church tower. When the blades spin, they turn wind into electricity for hundreds of homes. On still days the blades rest, and on wild days they whirl like giant white pinwheels.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Our street planned a surprise for Mr Chen's hundredth birthday. Neighbours strung flags from lamp post to lamp post. The cafe baked a cake with exactly one hundred candles, which took three tries to light. Children painted a banner as long as a bus. When Mr Chen stepped outside, the whole street sang at once.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Which sentence sums up the whole passage best?",
+   "kind": "instruction",
+   "usedBy": 11
+  },
+  {
+   "text": "Leo wanted to swim the whole length of the pool. At first he could only manage halfway before standing up, coughing. His coach gave him one tip each week: slower arms, bubbles out, long legs. Six Saturdays later, Leo touched the far wall for the first time and burst up grinning.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The museum's dinosaur skeleton arrived in ninety-two boxes. For a month, visitors watched scientists fit bone to bone behind a glass wall. A neck as long as a slide rose slowly toward the ceiling. When the last tail bone clicked into place, the hall finally looked the way it did in the posters.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "When the power went out, the flat went quiet and dark. Mum found candles, and we ate supper by their small light. With no screens, Gran taught us a clapping game from when she was small. The lights blinked on at bedtime, but we asked to keep one candle burning anyway.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The tide pool looked empty at first. Then Nadia crouched still and waited. A crab sidled out from under a stone. A blob on the rock turned out to be an anemone, waving tiny arms. The longer she stayed still, the more the pool came alive around her.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Robots vacuum some homes now, but they need help to do it well. Cables must be lifted off the floor, or the robot eats them. Chairs become fences that trap it in corners. One sock can end the whole clean. Tidy first, the instructions say, and the robot will do the rest.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The ferry crosses the bay eight times a day. Islanders set their clocks by its horn. It carries schoolchildren in the morning, shopping crates at noon, and tired workers at dusk. In storms it stays tied to the dock, and the whole island seems to hold its breath until it sails again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Amir's baby sister cried every time he practised trumpet. He tried playing in the garden, but the neighbours leaned out of windows. He tried the bathroom, where the echo was wonderful but the space was not. In the end, the wardrobe full of winter coats swallowed the sound perfectly, and everyone was happy.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The street mural began as one painted door. The artist added a whale above it the next week, then waves along three more houses. Neighbours started leaving paint tins by their walls as an invitation. By summer, the grey street had become a sea scene that visitors crossed town to photograph.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Bo built a tower of blocks taller than the table. His baby brother reached out one finger. Crash! Blocks rolled everywhere. Bo took a big breath. Then he handed his brother two blocks and they started a new tower together.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Nia's kite would not fly. It flopped on the grass like a tired fish. Grandad tied on a longer tail made from his old scarf. The next gust lifted the kite high over the hill, and Nia ran laughing beneath it.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "A magnet does not pull everything. It grabs paper clips, keys, and the fridge door. It ignores plastic bricks, wooden spoons, and glass marbles. Magnets only pull some metals. That is why one side of your toy sticks and the other side slides off.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Compost turns old scraps into new soil. Peelings, leaves, and eggshells go into the bin. Tiny creatures chew them up for months. Slowly the scraps turn dark and crumbly. Gardeners spread this new soil to feed their plants.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The dentist's waiting room has a fish tank and a box of old comics. Ben watches the stripy fish glide while Mum reads. A buzzer sounds, a nurse smiles round the door, and it is Ben's turn to hop into the big moving chair.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "On Sunday the whole flat smells of coconut rice. Aunty stirs the big silver pot. Cousins squeeze around the small table, elbow to elbow. There is always one more chair, one more plate, one more story before the food is gone.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The classroom hamster escaped on Friday. All weekend he was loose in the school. On Monday the children followed a trail of seed shells past the library. They found him asleep in the lost-property box, curled inside a woolly hat.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Rock pools change twice a day. When the tide is out, the pools sit still in the sun, and you can peer in. When the tide rolls back, the sea covers everything, bringing fresh water and food. The creatures in the pool live by this in-and-out clock.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The night bus is a different world. Streetlights slide across sleepy faces. A nurse heads to her shift; a baker heads home, dusted in flour. The driver knows the regulars by name and waits an extra breath at every stop, because nobody should run at midnight.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The campfire needed three tries. The first pile of sticks was too wet. The second caught, then sulked into smoke. For the third try, Sana peeled dry bark shavings, stacked the sticks like a little tent, and shielded the match with her hand. The flame climbed, crackled, and settled in for the evening.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Swifts are astonishing birds. They eat while flying and even sleep on the wing. Their nests are tucked under roofs, and when the chicks leave, they may not land again for two whole years. In late summer the sky over town fills with their screaming, swooping games.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The repair cafe opens in the hall on the first Saturday of the month. People bring broken toasters, wobbly chairs, and jackets with stuck zips. Volunteers with toolboxes sit at long tables and mend things for free, explaining as they go. Most visitors leave with their things working and a new trick learned.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The twins entered the sandcastle contest with a plan. Ria dug the moat while Rafi packed the towers. Halfway through, a wave stole their gate. They rebuilt it farther up the beach, faster this time. Their castle did not win first prize, but the judges gave it a ribbon for Best Teamwork.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Every window on Wren Street has a different bird sticker, because of one shop. The bookshop owner noticed birds bumping the big clear glass. She stuck a paper owl in the window, and the bumping stopped. She printed spare stickers, left them in a basket by the till, and week by week the whole street joined in.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad's old radio only played crackles until Amal turned the dial a hair at a time. A voice swam up out of the fuzz, then music, clear as water. Now the radio lives on the windowsill, and every breakfast starts with Amal's steady hand finding the station again.",
+   "kind": "passage",
+   "usedBy": 1
+  },
+  {
+   "text": "The school's old apple tree gives more fruit than anyone can eat. This year the cook dried rings of apple for snack time. Class 1 pressed juice with a squeaky hand press. The rest went in crates by the gate with a sign saying HELP YOURSELF, and by Friday every crate was empty.",
+   "kind": "passage",
+   "usedBy": 1
   }
  ],
  "wordAudio": [
@@ -825,6 +1766,98 @@
   },
   {
    "word": "truck",
+   "usedBy": 1
+  },
+  {
+   "word": "nervous",
+   "usedBy": 3
+  },
+  {
+   "word": "bored",
+   "usedBy": 3
+  },
+  {
+   "word": "angry",
+   "usedBy": 1
+  },
+  {
+   "word": "sleepy",
+   "usedBy": 2
+  },
+  {
+   "word": "relieved",
+   "usedBy": 1
+  },
+  {
+   "word": "worried",
+   "usedBy": 1
+  },
+  {
+   "word": "jealous",
+   "usedBy": 3
+  },
+  {
+   "word": "cross",
+   "usedBy": 1
+  },
+  {
+   "word": "proud",
+   "usedBy": 3
+  },
+  {
+   "word": "ashamed",
+   "usedBy": 1
+  },
+  {
+   "word": "confused",
+   "usedBy": 1
+  },
+  {
+   "word": "scared",
+   "usedBy": 2
+  },
+  {
+   "word": "furious",
+   "usedBy": 1
+  },
+  {
+   "word": "tired",
+   "usedBy": 1
+  },
+  {
+   "word": "sad",
+   "usedBy": 1
+  },
+  {
+   "word": "thrilled",
+   "usedBy": 1
+  },
+  {
+   "word": "hungry",
+   "usedBy": 1
+  },
+  {
+   "word": "brave",
+   "usedBy": 2
+  },
+  {
+   "word": "disappointed",
+   "usedBy": 1
+  },
+  {
+   "word": "silly",
+   "usedBy": 1
+  },
+  {
+   "word": "delighted",
+   "usedBy": 1
+  },
+  {
+   "word": "calm",
+   "usedBy": 1
+  },
+  {
+   "word": "excited",
    "usedBy": 1
   },
   {

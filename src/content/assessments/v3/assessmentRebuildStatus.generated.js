@@ -19,7 +19,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T14:41:15.767Z",
+  "generatedAt": "2026-07-29T15:09:28.890Z",
   "commit": "06531805"
  },
  "long_vowels_silent_e": {
@@ -40,7 +40,49 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G7_human_signoff": "pending-ben"
   },
-  "generatedAt": "2026-07-29T14:41:15.767Z",
+  "generatedAt": "2026-07-29T15:09:28.891Z",
+  "commit": "06531805"
+ },
+ "inference": {
+  "skillId": "inference",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 24,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T15:09:28.891Z",
+  "commit": "06531805"
+ },
+ "main_idea": {
+  "skillId": "main_idea",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 24,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-29T15:09:28.891Z",
   "commit": "06531805"
  }
 };

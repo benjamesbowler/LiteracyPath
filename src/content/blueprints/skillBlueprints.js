@@ -487,7 +487,13 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
     unitRule: C_CELL,
     sitting: 8,
     unitsByLevel: { 1: units[1], 2: units[2] },
-    phaseUnitsByLevel: { 1: phases(units[1]), 2: phases(units[2]) },
+    // Comprehension cells are all live in both phases: items split across the
+    // two phase pools by variant so every path step has a full-size pool, and
+    // cell coverage is driven by the selector's least-evidence ordering.
+    phaseUnitsByLevel: {
+      1: { 1: units[1], 2: units[1] },
+      2: { 1: units[2], 2: units[2] }
+    },
     formatsByLevel: { 1: ["COMPREHENSION"], 2: ["COMPREHENSION"] },
     variantsPerUnit: { 1: 8, 2: 8 },
     passBudgetSittings: 4

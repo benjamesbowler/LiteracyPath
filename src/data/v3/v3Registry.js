@@ -31,7 +31,9 @@ export const RUNTIME_SKILL_ID_BY_ASSESSMENT_ID = Object.freeze({
 
 const V3_BANK_IMPORTS = {
   long_vowels_silent_e: () => import("./banks/long_vowels_silent_e.v3.generated.js"),
-  digraphs: () => import("./banks/digraphs.v3.generated.js")
+  digraphs: () => import("./banks/digraphs.v3.generated.js"),
+  main_idea: () => import("./banks/main_idea.v3.generated.js"),
+  inference: () => import("./banks/inference.v3.generated.js")
 };
 
 const HARD_GATES = ["G1_structure", "G2_originality", "G3_answer_integrity", "G4_mastery_logic", "G5_no_repeats"];

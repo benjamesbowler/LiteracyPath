@@ -387,10 +387,39 @@ export async function simulate(bank, blueprint, { policy, answerFn, maxSittings 
   return { final, sittings, repeats, ledgerSize: ledger.length };
 }
 
-// Leak oracle for SIM-SCANNER (AUTHORING_STANDARDS §6)
+// Leak oracle for SIM-SCANNER (AUTHORING_STANDARDS §6).
+// Strategies are construct-matched: letter-chunk scanning is the real threat on
+// phonics/word items (short printed options, pattern chunks); for passage
+// comprehension the real test-taking shortcut is "pick the option that repeats
+// the passage's words" — so passage items are judged on strict word-overlap
+// dominance and option-length tells, not 2-letter chunk noise.
 export function scannerAnswer(item) {
   const choices = item.choices || [];
   if (!choices.length) return null;
+
+  if (item.passage) {
+    // Verbatim-dominance test: fires when one option clearly out-quotes the
+    // passage relative to the others (raw margin ≥2 words, or a strong density
+    // lead). Quote-format cells (evidence_pick) tie naturally — every option
+    // quotes — while a verbatim detail-decoy beats an abstract key, which is
+    // the designed wrong answer for surface matchers.
+    const passageWords = new Set(norm(item.passage).split(/[^a-z]+/).filter(w => w.length >= 4));
+    const scored = choices.map(c => {
+      const words = [...new Set(norm(c).split(/[^a-z]+/))].filter(w => w.length >= 4);
+      const n = words.filter(w => passageWords.has(w)).length;
+      return { c, n, density: words.length ? n / words.length : 0 };
+    });
+    const byCount = [...scored].sort((a, b) => b.n - a.n);
+    if (byCount[0].n >= (byCount[1]?.n || 0) + 2) return byCount[0].c;
+    const byDensity = [...scored].sort((a, b) => b.density - a.density);
+    if (byDensity[0].density > 0.6 && byDensity[0].density >= (byDensity[1]?.density || 0) + 0.25) {
+      return byDensity[0].c;
+    }
+    const byLength = [...choices].sort((a, b) => b.length - a.length);
+    if (byLength[0].length >= (byLength[1]?.length || 0) + 12) return byLength[0];
+    return null;
+  }
+
   const promptWords = norm(`${item.prompt} ${item.sentence || ""}`).split(/[^a-z]+/).filter(w => w.length >= 2);
 
   // 1. longest shared letter-chunk (>=2) with any prompt word

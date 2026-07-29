@@ -15,9 +15,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import {
-  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR, V3_SOURCE,
+  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR,
   expandBank, lintBank, simulate, scannerAnswer, writeGeneratedBank, loadLexicon,
-  optionSetSignature, promptAnswerSignature, norm
+  norm
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
